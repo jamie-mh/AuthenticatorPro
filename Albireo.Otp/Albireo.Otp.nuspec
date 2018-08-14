@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Albireo's HOTP and TOTP authentication library</title>
+    <authors>$author$</authors>
+    <description>$description$</description>
+    <releaseNotes>The library has been downgraded to .NET framework 4.0 to allow usage on older projects.</releaseNotes>
+    <summary>A library for HOTP and TOTP authentication.</summary>
+    <projectUrl>https://github.com/kappa7194/otp</projectUrl>
+    <iconUrl>http://i.imgur.com/Nxg6TU5.png</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/kappa7194/otp/master/LICENSE.txt</licenseUrl>
+    <copyright>Copyright © 2014 Albireo</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>otp hotp totp</tags>
+  </metadata>
+</package>
