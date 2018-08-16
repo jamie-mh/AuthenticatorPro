@@ -1,37 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+using System.Threading.Tasks;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Android.Content.Res;
+using Newtonsoft.Json;
 using ProAuth.Data;
 using SQLite;
 
 namespace ProAuth.Utilities
 {
-    class Database
+    internal class Database
     {
         public SQLiteConnection Connection { get; }
 
-        public Database()
+        public Database(Context context)
         {
             string dbPath = Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
                 "proauth.db3"
             );
 
-            Connection = new SQLiteConnection(dbPath);
+            Connection = new SQLiteConnection(dbPath, true);
             Connection.CreateTable<Generator>();
+            Connection.CreateTable<Implementation>();
 
-            Generator test = new Generator();
-            test.secret = "SP6EH4UE2PVCONIYVPNVOALCRTLSLF7R";
-            Connection.Insert(test);
+            //AssetManager assetManager = context.Assets;
+            //string json = new StreamReader(assetManager.Open("implementations.json")).ReadToEnd();
+            //List<Implementation> impl = JsonConvert.DeserializeObject<List<Implementation>>(json);
+
+            //Connection.InsertAll(impl);
+
+            //Generator gen = new Generator()
+            //{
+            //    Secret = "7AOCIJYZNAUM57HM",
+            //    ImplementationId = 2
+            //};
+            //Connection.Insert(gen);
         }
+
+        /*
+         *  Service
+         */
+
+        /*
+         *  Generator
+         */
     }
 }

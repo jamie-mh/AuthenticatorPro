@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
     <android.support.v7.widget.Toolbar
         android:minHeight="?android:attr/actionBarSize"
         android:background="?android:attr/colorPrimary"
@@ -13,10 +12,20 @@
         android:layout_height="wrap_content"
         android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
         android:id="@+id/toolbar" />
-    <TextView
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/generatorList"
+        android:scrollbars="vertical"
+        style="@style/RecyclerViewWithClipPadding"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/toolbar" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-</LinearLayout>
+        android:src="@drawable/ic_action_add"
+        app:useCompatPadding="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        app:elevation="4dp" />
+</RelativeLayout>
