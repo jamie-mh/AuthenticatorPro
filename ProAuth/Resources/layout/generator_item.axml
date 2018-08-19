@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="?android:attr/listPreferredItemPaddingStart"
-    android:paddingRight="?android:attr/listPreferredItemPaddingRight"
-    android:paddingBottom="?android:attr/listPreferredItemPaddingEnd"
-    android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
-    android:background="?android:attr/selectableItemBackground">
-    <TextView
-        android:text="GitHub"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/implementation" />
+    style="@style/Generator">
     <TextView
         android:text="000000"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/GeneratorCode"
         android:id="@+id/code" />
     <TextView
-        android:text="30"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="GitHub - johnsmith@example.com"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/GeneratorIssuerUsername"
+        android:layout_below="@id/code"
+        android:id="@+id/issuerUsername" />
+    <TextView
+        android:text="30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        style="@style/GeneratorTimer"
         android:id="@+id/timer" />
-</LinearLayout>
+</RelativeLayout>

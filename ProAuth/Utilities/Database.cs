@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Android.Content;
-using Android.Content.Res;
-using Newtonsoft.Json;
 using ProAuth.Data;
 using SQLite;
 
@@ -22,7 +18,6 @@ namespace ProAuth.Utilities
 
             Connection = new SQLiteConnection(dbPath, true);
             Connection.CreateTable<Generator>();
-            Connection.CreateTable<Implementation>();
 
             //AssetManager assetManager = context.Assets;
             //string json = new StreamReader(assetManager.Open("implementations.json")).ReadToEnd();

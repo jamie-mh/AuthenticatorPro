@@ -1,33 +1,34 @@
 ﻿using System;
-using Albireo.Otp;
 using Android.Support.V7.Widget;
-using Android.Util;
 using Android.Views;
 using ProAuth.Data;
-using ProAuth.Utilities;
-using SQLite;
 
-namespace ProAuth
+namespace ProAuth.Utilities
 {
     class GeneratorAdapter : RecyclerView.Adapter
     {
         private readonly GeneratorSource _genSource;
-        private readonly ImplementationSource _implSource;
 
-        public GeneratorAdapter(GeneratorSource genSource, ImplementationSource implSource)
+        public GeneratorAdapter(GeneratorSource genSource)
         {
             _genSource = genSource;
-            _implSource = implSource;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            Generator gen = _genSource.Get(position + 1);
-            Implementation impl = _implSource.Get(gen.ImplementationId);
+            Generator gen = _genSource.GetNth(position);
             GeneratorHolder genHolder = (GeneratorHolder) holder;
 
-            genHolder.Implementation.Text = impl.Name;
-            genHolder.Code.Text = gen.Code.ToString();
+            string issuerUsername = gen.Issuer;
+
+            if(gen.Username != "")
+            {
+                issuerUsername += $" - {gen.Username}";
+            }
+
+            genHolder.IssuerUsername.Text = issuerUsername;
+
+            genHolder.Code.Text = gen.Code;
             genHolder.Timer.Text = (gen.TimeRenew - DateTime.Now).Seconds.ToString();
         }
 

@@ -1,13 +1,15 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
-using Albireo.Otp;
 using ProAuth.Utilities;
-using ProAuth.Data;
-using System.Threading.Tasks;
 using System.Timers;
+using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
-using Android.Util;
+using Android.Views;
+using Android.Widget;
+using ProAuth.Data;
+using ZXing.Mobile;
+using Result = ZXing.Result;
 
 namespace ProAuth
 {
@@ -18,11 +20,16 @@ namespace ProAuth
         private Timer _timer;
         private RecyclerView _list;
         private GeneratorAdapter _adapter;
+        private Database _db;
+        private MobileBarcodeScanner _scanner;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            MobileBarcodeScanner.Initialize(Application);
+            _scanner = new MobileBarcodeScanner();
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -30,16 +37,12 @@ namespace ProAuth
 
             _list = FindViewById<RecyclerView>(Resource.Id.generatorList);
 
-            Database db = new Database(this);
-            GeneratorSource genSource = new GeneratorSource(db.Connection);
-            ImplementationSource implSource = new ImplementationSource(db.Connection);
+            _db = new Database(this);
+            GeneratorSource genSource = new GeneratorSource(_db.Connection);
 
-            _adapter = new GeneratorAdapter(genSource, implSource);
+            _adapter = new GeneratorAdapter(genSource);
             _list.SetAdapter(_adapter);
             _list.SetLayoutManager(new LinearLayoutManager(this));
-
-            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(_list.Context, LinearLayoutManager.Vertical);
-            _list.AddItemDecoration(dividerItemDecoration);
 
             _timer = new Timer()
             {
@@ -50,6 +53,37 @@ namespace ProAuth
 
             _timer.Elapsed += _timer_Elapsed;
             _timer.Start();
+
+            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
+            fab.Click += Fab_Click;
+        }
+
+        private async void Fab_Click(object sender, System.EventArgs e)
+        {
+            Result result = await _scanner.Scan();
+            HandleCode(result);
+        }
+
+        private void HandleCode(Result result)
+        {
+            Generator gen = Generator.FromKeyUri(result.Text);
+            _db.Connection.Insert(gen);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId) {
+                case Resource.Id.action_settings:
+                    Toast.MakeText (this, "You pressed settings action!", ToastLength.Short).Show ();
+                    break;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)

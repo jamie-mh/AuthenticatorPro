@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_settings"
+         android:title="@string/settings"
+         app:showAsAction="never"/>
+
+    <item android:id="@+id/action_import"
+         android:title="@string/import_s"
+         app:showAsAction="never"/>
+
+    <item android:id="@+id/action_export"
+         android:title="@string/export"
+         app:showAsAction="never"/>
+
+    <item android:id="@+id/action_about"
+         android:title="@string/about"
+         app:showAsAction="never"/>
+
+</menu>

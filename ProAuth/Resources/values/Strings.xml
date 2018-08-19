@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ProAuth</string>
-    <string name="action_settings">Settings</string>
+    <string name="settings">Settings</string>
+    <string name="import_s">Import</string>
+    <string name="export">Export</string>
+    <string name="about">About</string>
 </resources>

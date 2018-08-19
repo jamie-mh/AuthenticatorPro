@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
     <style name="RecyclerViewWithClipPadding">
@@ -14,6 +15,30 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:scrollbars">vertical</item>
+    </style>
+    
+    <style name="Generator">
+        <item name="android:background">@color/colorGenerator</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingRight">32dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingLeft">32dp</item>
+    </style>
+
+    <style name="GeneratorCode">
+        <item name="android:textSize">38dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    
+    <style name="GeneratorIssuerUsername">
+        <item name="android:textSize">12dp</item>
+    </style>
+    
+    <style name="GeneratorTimer">
+        <item name="android:textSize">14dp</item>
+        <item name="android:background">@drawable/rounded_textview</item>
+        <item name="android:textColor">@color/colorGenerator</item>
     </style>
 
 </resources>
