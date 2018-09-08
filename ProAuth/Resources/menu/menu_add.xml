@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item android:id="@+id/action_scan"
+	      android:title="@string/scan_a_barcode"
+	      android:icon="@drawable/ic_action_camera_alt"/>
+
+  <item android:id="@+id/action_enter_key"
+         android:title="@string/enter_a_provided_key"
+         android:icon="@drawable/ic_action_vpn_key"/>
+
+</menu>

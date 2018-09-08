@@ -54,17 +54,17 @@ namespace ProAuth.Data
 
             if(!uriMatch.Success)
             {
-                return null;
+                throw new InvalidFormatException();
             }
 
             OtpType type = (uriMatch.Groups[1].Value == "totp") ? OtpType.Totp : OtpType.Hotp;
 
-            string issuer = "";
-            string username = "";
-
             // Get the issuer and username if possible
             const string issuerNameExpr = @"^(.*?):(.*?)$";
             Match issuerName = Regex.Match(uriMatch.Groups[2].Value, issuerNameExpr);
+
+            string issuer;
+            string username;
 
             if(issuerName.Success)
             {
@@ -74,6 +74,7 @@ namespace ProAuth.Data
             else
             {
                 issuer = uriMatch.Groups[2].Value;
+                username = "";
             }
 
             string queryString = uriMatch.Groups[3].Value;
@@ -116,5 +117,10 @@ namespace ProAuth.Data
 
             return gen;
         }
+    }
+
+    internal class InvalidFormatException : Exception
+    {
+
     }
 }

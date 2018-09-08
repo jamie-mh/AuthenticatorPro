@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="generator_options">
+        <item>Rename</item>
+        <item>Delete</item>
+    </string-array>
+    <string-array name="types">
+        <item>TOTP</item>
+        <item>HTOP</item>
+    </string-array>
+    <string-array name="algorithms">
+        <item>SHA1</item>
+        <item>SHA256</item>
+        <item>SHA512</item>
+    </string-array>
+</resources>

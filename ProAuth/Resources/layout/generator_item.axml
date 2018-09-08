@@ -5,20 +5,31 @@
     android:layout_height="wrap_content"
     style="@style/Generator">
     <TextView
-        android:text="000000"
+        android:text="GitHub"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/GeneratorIssuer"
+        android:gravity="left"
+        android:id="@+id/issuer" />
+    <TextView
+        android:text="johnsmith@example.com"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/GeneratorUsername"
+        android:gravity="left"
+        android:layout_below="@id/issuer"
+        android:id="@+id/username" />
+    <TextView
+        android:text="000 000"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/GeneratorCode"
+        android:gravity="left"
+        android:layout_below="@id/username"
         android:id="@+id/code" />
-    <TextView
-        android:text="GitHub - johnsmith@example.com"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/GeneratorIssuerUsername"
-        android:layout_below="@id/code"
-        android:id="@+id/issuerUsername" />
     <TextView
         android:text="30"
         android:layout_width="wrap_content"
@@ -27,4 +38,10 @@
         android:layout_alignParentRight="true"
         style="@style/GeneratorTimer"
         android:id="@+id/timer" />
+	<ImageButton
+		android:id="@+id/options"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/timer"
+		android:src="@drawable/ic_action_more_vert"
+	    style="@style/GeneratorOptions"/>
 </RelativeLayout>
