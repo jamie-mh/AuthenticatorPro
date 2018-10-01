@@ -32,11 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <AotAssemblies>true</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -59,14 +61,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddFragment.cs" />
-    <Compile Include="Data\Generator.cs" />
-    <Compile Include="Utilities\GeneratorAdapter.cs" />
-    <Compile Include="Utilities\GeneratorHolder.cs" />
-    <Compile Include="Utilities\GeneratorSource.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\Authenticator.cs" />
+    <Compile Include="Data\AuthenticatorCategory.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Utilities\AuthAdapter.cs" />
+    <Compile Include="Utilities\AuthHolder.cs" />
+    <Compile Include="Utilities\AuthSource.cs" />
+    <Compile Include="MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Database.cs" />
+    <Compile Include="Utilities\StringExt.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -75,11 +80,10 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_main.axml">
+    <AndroidResource Include="Resources\layout\activityMain.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\colors.xml" />
-    <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
@@ -105,7 +109,7 @@
       <Version>2.0.147</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
-      <Version>1.4.118</Version>
+      <Version>1.5.231</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Compat">
       <Version>27.0.2.1</Version>
@@ -143,21 +147,21 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\generator_item.axml">
+    <AndroidResource Include="Resources\layout\authListItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\circle.xml" />
+    <AndroidResource Include="Resources\drawable\authTimerShape.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\rounded_textview.xml" />
+    <AndroidResource Include="Resources\drawable\authTimer.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\menu_main.xml" />
+    <AndroidResource Include="Resources\menu\main.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\menu_add.xml" />
+    <AndroidResource Include="Resources\menu\add.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_camera_alt.png" />
@@ -190,7 +194,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_add.axml">
+    <AndroidResource Include="Resources\layout\fragmentAdd.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -198,7 +202,7 @@
     <AndroidResource Include="Resources\values\arrays.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\generator_background.xml" />
+    <AndroidResource Include="Resources\drawable\authBackground.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />

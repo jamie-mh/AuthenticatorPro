@@ -8,54 +8,5 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorBackground</item>
     </style>
-
-    <style name="RecyclerViewWithClipPadding">
-        <item name="android:clipToPadding">false</item>
-        <item name="android:paddingBottom">80dp</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:scrollbars">vertical</item>
-    </style>
     
-    <style name="Generator">
-        <item name="android:background">@drawable/generator_background</item>
-        <item name="android:layout_marginTop">20dp</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingRight">32dp</item>
-        <item name="android:paddingBottom">10dp</item>
-        <item name="android:paddingLeft">32dp</item>
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
-    </style>
-
-    <style name="GeneratorCode">
-        <item name="android:textSize">38dp</item>
-        <item name="android:textColor">@color/colorAccent</item>
-    </style>
-    
-    <style name="GeneratorIssuer">
-        <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@color/colorIssuer</item>
-    </style>
-
-    <style name="GeneratorUsername">
-        <item name="android:textSize">12dp</item>
-        <item name="android:textColor">@color/colorUsername</item>
-    </style>
-    
-    <style name="GeneratorTimer">
-        <item name="android:textSize">14dp</item>
-        <item name="android:background">@drawable/rounded_textview</item>
-        <item name="android:textColor">@color/colorGenerator</item>
-        <item name="android:layout_marginTop">8dp</item>
-    </style>
-
-    <style name="GeneratorOptions">
-        <item name="android:textSize">14dp</item>
-        <item name="android:background">@color/colorGenerator</item>
-        <item name="android:layout_marginTop">16dp</item>
-		<item name="android:layout_width">30dp</item>
-		<item name="android:layout_height">30dp</item>
-    </style>
-
 </resources>

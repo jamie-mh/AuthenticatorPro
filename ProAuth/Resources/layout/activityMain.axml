@@ -3,7 +3,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/drawerLayout"
+	android:id="@+id/activityMain_drawerLayout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:fitsSystemWindows="true">
@@ -18,16 +18,17 @@
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-			android:id="@+id/toolbar" />
+			android:id="@+id/activityMain_toolbar" />
 		<android.support.v7.widget.RecyclerView
-			android:id="@+id/generatorList"
+			android:id="@+id/activityMain_authList"
 			android:scrollbars="vertical"
-			style="@style/RecyclerViewWithClipPadding"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:layout_below="@id/toolbar" />
+			android:clipToPadding="false"
+			android:paddingBottom="80dp"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/activityMain_toolbar" />
 		<android.support.design.widget.FloatingActionButton
-			android:id="@+id/buttonAdd"
+			android:id="@+id/activityMain_buttonAdd"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:src="@drawable/ic_action_add"
@@ -41,5 +42,5 @@
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
 		android:layout_gravity="start"
-		android:id="@+id/nav_view"/>
+		android:id="@+id/activityMain_categoriesView"/>
 </android.support.v4.widget.DrawerLayout>

@@ -3,7 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <!--<color name="colorPrimaryDark">#1B3147</color>-->
     <color name="colorAccent">#04DAC6</color>
-    <color name="colorGenerator">#ffffff</color>
+    <color name="colorAuth">#ffffff</color>
     <color name="colorBackground">#eeeeee</color>
     <color name="colorIssuer">#000000</color>
     <color name="colorUsername">#5b5b5b</color>

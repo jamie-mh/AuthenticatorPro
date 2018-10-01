@@ -21,15 +21,14 @@ using Result = ZXing.Result;
 
 namespace ProAuth
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
-    // ReSharper disable once UnusedMember.Global
+    [Activity(Label = "@string/appName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     public class MainActivity : AppCompatActivity
     {
         private Timer _timer;
         private RecyclerView _list;
         private FloatingActionButton _fab;
-        private GeneratorAdapter _adapter;
-        private GeneratorSource _genSource;
+        private AuthAdapter _adapter;
+        private AuthSource _authSource;
         private Database _db;
         private MobileBarcodeScanner _scanner;
         private DrawerLayout _drawerLayout;
@@ -37,17 +36,17 @@ namespace ProAuth
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.activityMain);
 
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
             SetSupportActionBar(toolbar);
-            SupportActionBar.SetTitle(Resource.String.app_name);
+            SupportActionBar.SetTitle(Resource.String.appName);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
 
-            _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawerLayout);
+            _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.activityMain_drawerLayout);
 
-            _fab = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
+            _fab = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
             _fab.Click += Fab_Click;
 
             MobileBarcodeScanner.Initialize(Application);
@@ -58,7 +57,7 @@ namespace ProAuth
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            MenuInflater.Inflate(Resource.Menu.main, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -69,7 +68,7 @@ namespace ProAuth
                     _drawerLayout.OpenDrawer(GravityCompat.Start);
                     break;
 
-                case Resource.Id.action_settings:
+                case Resource.Id.actionSettings:
                     Toast.MakeText (this, "You pressed settings action!", ToastLength.Short).Show ();
                     break;
             }
@@ -96,13 +95,13 @@ namespace ProAuth
 
         private void SetupGeneratorList()
         {
-            _list = FindViewById<RecyclerView>(Resource.Id.generatorList);
+            _list = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
 
             _db = new Database(this);
-            _genSource = new GeneratorSource(_db.Connection);
-            _adapter = new GeneratorAdapter(_genSource);
-            _adapter.ItemClick += this.GeneratorClick;
-            _adapter.ItemOptionsClick += this.GeneratorOptionsClick;
+            _authSource = new AuthSource(_db.Connection);
+            _adapter = new AuthAdapter(_authSource);
+            _adapter.ItemClick += this.AuthClick;
+            _adapter.ItemOptionsClick += this.AuthOptionsClick;
 
             _list.SetAdapter(_adapter);
             _list.SetLayoutManager(new LinearLayoutManager(this));
@@ -114,11 +113,11 @@ namespace ProAuth
                 Enabled = true
             };
 
-            _timer.Elapsed += this.GeneratorTick;
+            _timer.Elapsed += this.AuthTick;
             _timer.Start();
         }
 
-        private void GeneratorTick(object sender, ElapsedEventArgs e)
+        private void AuthTick(object sender, ElapsedEventArgs e)
         {
             RunOnUiThread(() =>
             {
@@ -126,27 +125,27 @@ namespace ProAuth
             });
         }
 
-        private void GeneratorClick(object sender, int e)
+        private void AuthClick(object sender, int e)
         {
             ClipboardManager clipboard = (ClipboardManager) GetSystemService(ClipboardService);
-            Generator gen = _genSource.GetNth(e);
-            ClipData clip = ClipData.NewPlainText("code", gen.Code);
+            Authenticator auth = _authSource.GetNth(e);
+            ClipData clip = ClipData.NewPlainText("code", auth.Code);
             clipboard.PrimaryClip = clip;
 
-            Snackbar.Make(_drawerLayout, Resource.String.code_copied_to_clipboard, Snackbar.LengthShort).Show();
+            Snackbar.Make(_drawerLayout, Resource.String.copiedToClipboard, Snackbar.LengthShort).Show();
         }
 
-        private void GeneratorOptionsClick(object sender, int e)
+        private void AuthOptionsClick(object sender, int e)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetItems(Resource.Array.generator_options, (alertSender, args) =>
+            builder.SetItems(Resource.Array.authContextMenu, (alertSender, args) =>
             {
                 switch(args.Which)
                 {
                     case 0:
                         break;
 
-                    case 1:
+                    case 2:
                         ConfirmDelete(e);
                         break;
                 }
@@ -156,13 +155,13 @@ namespace ProAuth
             dialog.Show();
         }
 
-        private void ConfirmDelete(int generator)
+        private void ConfirmDelete(int authNum)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetMessage(Resource.String.confirm_delete);
+            builder.SetMessage(Resource.String.confirmDelete);
             builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
             {
-                _genSource.DeleteNth(generator);
+                _authSource.DeleteNth(authNum);
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -174,7 +173,7 @@ namespace ProAuth
         private void Fab_Click(object sender, System.EventArgs e)
         {
             PopupMenu menu = new PopupMenu(this, _fab);
-            menu.Inflate(Resource.Menu.menu_add);
+            menu.Inflate(Resource.Menu.add);
             menu.MenuItemClick += this.Fab_MenuItemClick;
             menu.Show();
         }
@@ -183,11 +182,11 @@ namespace ProAuth
         {
             switch(e.Item.ItemId)
             {
-                case Resource.Id.action_scan:
+                case Resource.Id.actionScan:
                     ScanQRCode();
                     break;
 
-                case Resource.Id.action_enter_key:
+                case Resource.Id.actionEnterKey:
                     OpenAddDialog();
                     break;
             }
@@ -205,8 +204,8 @@ namespace ProAuth
 
             if(result != null)
             {
-                Generator gen = Generator.FromKeyUri(result.Text);
-                _db.Connection.Insert(gen);
+                Authenticator auth = Authenticator.FromKeyUri(result.Text);
+                _db.Connection.Insert(auth);
             }
         }
 
@@ -221,7 +220,7 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            AddFragment fragment = new AddFragment() {
+            AddFragment fragment = new AddFragment(_db) {
                 Arguments = null
             };
 

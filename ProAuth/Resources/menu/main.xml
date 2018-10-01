@@ -2,23 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_reorder"
-         android:title="@string/reorder"
-         app:showAsAction="never"/>
-
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/actionSettings"
          android:title="@string/settings"
          app:showAsAction="never"/>
 
-    <item android:id="@+id/action_import"
-         android:title="@string/import_s"
+    <item android:id="@+id/actionImport"
+         android:title="@string/importString"
          app:showAsAction="never"/>
 
-    <item android:id="@+id/action_export"
+    <item android:id="@+id/actionExport"
          android:title="@string/export"
          app:showAsAction="never"/>
 
-    <item android:id="@+id/action_about"
+    <item android:id="@+id/actionAbout"
          android:title="@string/about"
          app:showAsAction="never"/>
 

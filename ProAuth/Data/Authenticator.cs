@@ -7,8 +7,8 @@ using SQLite;
 
 namespace ProAuth.Data
 {
-    [Table("generator")]
-    class Generator
+    [Table("authenticator")]
+    class Authenticator
     {
         [Column("id"), PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -16,10 +16,10 @@ namespace ProAuth.Data
         [Column("type")]
         public OtpType Type { get; set; }
 
-        [Column("issuer")]
+        [Column("issuer"), MaxLength(32)]
         public string Issuer { get; set; }
 
-        [Column("username")]
+        [Column("username"), MaxLength(32)]
         public string Username { get; set; }
 
         [Column("secret"), MaxLength(32)]
@@ -46,7 +46,7 @@ namespace ProAuth.Data
         [Column("code")]
         public string Code { get; set; }
 
-        public static Generator FromKeyUri(string uri)
+        public static Authenticator FromKeyUri(string uri)
         {
             const string uriExpr = @"^otpauth:\/\/([a-z]+)\/(.*?)\?(.*?)$";
             string raw = Uri.UnescapeDataString(uri);
@@ -102,7 +102,7 @@ namespace ProAuth.Data
 
             int period = (args.ContainsKey("period")) ? Int32.Parse(args["period"]) : 30;
 
-            Generator gen = new Generator
+            Authenticator auth = new Authenticator
             {
                 Secret = args["secret"],
                 Issuer = issuer,
@@ -115,7 +115,7 @@ namespace ProAuth.Data
                 Code = ""
             };
 
-            return gen;
+            return auth;
         }
     }
 

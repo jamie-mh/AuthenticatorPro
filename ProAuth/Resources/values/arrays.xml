@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="generator_options">
+    <string-array name="authContextMenu">
         <item>Rename</item>
         <item>Delete</item>
+        <item>Edit Categories</item>
     </string-array>
-    <string-array name="types">
+    <string-array name="authTypes">
         <item>TOTP</item>
         <item>HTOP</item>
     </string-array>
-    <string-array name="algorithms">
+    <string-array name="authAlgorithms">
         <item>SHA1</item>
         <item>SHA256</item>
         <item>SHA512</item>

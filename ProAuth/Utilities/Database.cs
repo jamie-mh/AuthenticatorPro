@@ -17,28 +17,7 @@ namespace ProAuth.Utilities
             );
 
             Connection = new SQLiteConnection(dbPath, true);
-            Connection.CreateTable<Generator>();
-
-            //AssetManager assetManager = context.Assets;
-            //string json = new StreamReader(assetManager.Open("implementations.json")).ReadToEnd();
-            //List<Implementation> impl = JsonConvert.DeserializeObject<List<Implementation>>(json);
-
-            //Connection.InsertAll(impl);
-
-            //Generator gen = new Generator()
-            //{
-            //    Secret = "7AOCIJYZNAUM57HM",
-            //    ImplementationId = 2
-            //};
-            //Connection.Insert(gen);
+            Connection.CreateTable<Authenticator>();
         }
-
-        /*
-         *  Service
-         */
-
-        /*
-         *  Generator
-         */
     }
 }
