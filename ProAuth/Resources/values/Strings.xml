@@ -6,10 +6,12 @@
     <string name="about">About</string>
     <string name="scanBarcode">Scan a QR Code</string>
     <string name="enterKey">Enter a provided key</string>
+    <string name="renameAuth">Rename</string>
     <string name="copiedToClipboard">Code copied to clipboard</string>
     <string name="confirmDelete">Are you sure you want to delete this account?</string>
     <string name="delete">Delete</string>
     <string name="add">Add</string>
+    <string name="rename">Rename</string>
     <string name="cancel">Cancel</string>
     <string name="issuer">Issuer</string>
     <string name="username">Username</string>
@@ -22,4 +24,11 @@
     <string name="algorithmHint">Algorithm</string>
     <string name="digitsHint">Digits</string>
     <string name="periodHint">Period (Seconds)</string>
+    
+    <string name="noIssuer">An issuer is required.</string>
+    <string name="noSecret">A secret key is required.</string>
+    <string name="secretTooLong">The secret cannot be longer than 32 characters.</string>
+    <string name="digitsToSmall">The authenticator must generate more that 1 digit.</string>
+    <string name="periodToShort">The period must be longer than 1 second.</string>
 </resources>
+

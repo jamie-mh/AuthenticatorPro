@@ -3,7 +3,6 @@
     <string-array name="authContextMenu">
         <item>Rename</item>
         <item>Delete</item>
-        <item>Edit Categories</item>
     </string-array>
     <string-array name="authTypes">
         <item>TOTP</item>

@@ -1,0 +1,6 @@
+﻿<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group 
+        android:checkableBehavior="single"
+        android:id="@+id/categoriesGroup">
+    </group>
+</menu>

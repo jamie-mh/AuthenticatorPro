@@ -23,11 +23,7 @@ namespace ProAuth.Utilities
 
             authHolder.Issuer.Text = auth.Issuer;
             authHolder.Username.Text = auth.Username;
-
-            if(auth.Username == "")
-            {
-                authHolder.Username.Visibility = ViewStates.Gone;
-            }
+            authHolder.Username.Visibility = (auth.Username == "") ? ViewStates.Gone : ViewStates.Visible;
 
             string codePadded = auth.Code;
             int spacesInserted = 0;

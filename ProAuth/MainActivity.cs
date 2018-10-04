@@ -31,7 +31,6 @@ namespace ProAuth
         private AuthSource _authSource;
         private Database _db;
         private MobileBarcodeScanner _scanner;
-        private DrawerLayout _drawerLayout;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,10 +40,6 @@ namespace ProAuth
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
-            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
-
-            _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.activityMain_drawerLayout);
 
             _fab = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
             _fab.Click += Fab_Click;
@@ -53,6 +48,12 @@ namespace ProAuth
             _scanner = new MobileBarcodeScanner();
 
             SetupGeneratorList();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _db?.Connection.Close();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -64,12 +65,20 @@ namespace ProAuth
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId) {
-                case Android.Resource.Id.Home:
-                    _drawerLayout.OpenDrawer(GravityCompat.Start);
-                    break;
-
                 case Resource.Id.actionSettings:
                     Toast.MakeText (this, "You pressed settings action!", ToastLength.Short).Show ();
+                    break;
+
+                case Resource.Id.actionImport:
+                    StartActivity(typeof(ImportActivity));
+                    break;
+
+                case Resource.Id.actionExport:
+                    StartActivity(typeof(ExportActivity));
+                    break;
+
+                case Resource.Id.actionAbout:
+                    StartActivity(typeof(AboutActivity));
                     break;
             }
             return base.OnOptionsItemSelected(item);
@@ -132,7 +141,7 @@ namespace ProAuth
             ClipData clip = ClipData.NewPlainText("code", auth.Code);
             clipboard.PrimaryClip = clip;
 
-            Snackbar.Make(_drawerLayout, Resource.String.copiedToClipboard, Snackbar.LengthShort).Show();
+            Toast.MakeText(this, Resource.String.copiedToClipboard, ToastLength.Short).Show();
         }
 
         private void AuthOptionsClick(object sender, int e)
@@ -143,9 +152,10 @@ namespace ProAuth
                 switch(args.Which)
                 {
                     case 0:
+                        OpenRenameDialog(e);
                         break;
 
-                    case 2:
+                    case 1:
                         ConfirmDelete(e);
                         break;
                 }
@@ -225,6 +235,24 @@ namespace ProAuth
             };
 
             fragment.Show(transaction, "add_dialog");
+        }
+
+        private void OpenRenameDialog(int auth)
+        {
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            Fragment old = FragmentManager.FindFragmentByTag("rename_dialog");
+
+            if(old != null)
+            {
+                transaction.Remove(old);
+            }
+
+            transaction.AddToBackStack(null);
+            RenameFragment fragment = new RenameFragment(_db, _authSource, auth) {
+                Arguments = null
+            };
+
+            fragment.Show(transaction, "rename_dialog");
         }
     }
 }

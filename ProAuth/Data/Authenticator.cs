@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using OtpSharp;
+using ProAuth.Utilities;
 using SQLite;
 
 namespace ProAuth.Data
@@ -10,7 +12,7 @@ namespace ProAuth.Data
     [Table("authenticator")]
     class Authenticator
     {
-        [Column("id"), PrimaryKey, AutoIncrement]
+        [Column("id"), PrimaryKey, AutoIncrement, JsonIgnore]
         public int Id { get; set; }
 
         [Column("type")]
@@ -40,10 +42,10 @@ namespace ProAuth.Data
         [Column("ranking")]
         public int Ranking { get; set; }
 
-        [Column("start")]
+        [Column("renew"), JsonIgnore]
         public DateTime TimeRenew { get; set; }
 
-        [Column("code")]
+        [Column("code"), JsonIgnore]
         public string Code { get; set; }
 
         public static Authenticator FromKeyUri(string uri)
@@ -105,8 +107,8 @@ namespace ProAuth.Data
             Authenticator auth = new Authenticator
             {
                 Secret = args["secret"],
-                Issuer = issuer,
-                Username = username,
+                Issuer = StringExt.Truncate(issuer.Trim(), 32),
+                Username = StringExt.Truncate(username.Trim(), 32),
                 Type = type,
                 Algorithm = algorithm,
                 Digits = digits,

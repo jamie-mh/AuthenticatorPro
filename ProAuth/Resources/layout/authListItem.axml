@@ -13,7 +13,6 @@
     android:focusable="true">
     <TextView
         android:text="GitHub"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dp"
@@ -22,7 +21,6 @@
         android:id="@+id/authListItem_issuer" />
     <TextView
         android:text="johnsmith@example.com"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12dp"
@@ -32,7 +30,6 @@
         android:id="@+id/authListItem_username" />
     <TextView
         android:text="000 000"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="38dp"

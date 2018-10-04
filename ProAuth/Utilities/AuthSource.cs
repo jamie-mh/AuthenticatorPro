@@ -51,6 +51,11 @@ namespace ProAuth.Utilities
             return auth;
         }
 
+        public void ClearCache()
+        {
+            _cache.Clear();
+        }
+
         public void DeleteNth(int n)
         {
             string sql = $@"SELECT * FROM authenticator LIMIT 1 OFFSET {n}";

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using OtpSharp;
 using ProAuth.Data;
 using ProAuth.Utilities;
 
@@ -43,7 +44,7 @@ namespace ProAuth
             _issuerText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_issuer);
             _usernameText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_username);
             _secretText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_secret);
-            _typeSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_type);
+            //_typeSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_type);
             _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_algorithm);
             _digitsText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_digits);
             _periodText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_period);
@@ -69,13 +70,13 @@ namespace ProAuth
             ArrayAdapter algorithmAdapter = ArrayAdapter.CreateFromResource(
                 view.Context, Resource.Array.authAlgorithms, Android.Resource.Layout.SimpleSpinnerItem);
 
-            typeAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            //typeAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             algorithmAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
-            Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_type);
+            //Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_type);
             Spinner algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_algorithm);
 
-            typeSpinner.Adapter = typeAdapter;
+            //typeSpinner.Adapter = typeAdapter;
             algorithmSpinner.Adapter = algorithmAdapter;
 
             // Advanced options show
@@ -104,19 +105,19 @@ namespace ProAuth
         {
             if(_issuerText.Text.Trim() == "")
             {
-                Toast.MakeText(_dialog.Context, "Please enter an issuer for this authenticator.", ToastLength.Short).Show();
+                Toast.MakeText(_dialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
                 return;
             }
 
             if(_secretText.Text.Trim() == "")
             {
-                Toast.MakeText(_dialog.Context, "Please enter an authenticator secret.", ToastLength.Short).Show();
+                Toast.MakeText(_dialog.Context, Resource.String.noSecret, ToastLength.Short).Show();
                 return;
             }
 
             if(_secretText.Text.Trim().Length > 32)
             {
-                Toast.MakeText(_dialog.Context, "The secret cannot be longer than 32 characters.", ToastLength.Short).Show();
+                Toast.MakeText(_dialog.Context, Resource.String.secretTooLong, ToastLength.Short).Show();
                 return;
             }
 
@@ -124,7 +125,7 @@ namespace ProAuth
 
             if(digits < 1)
             {
-                Toast.MakeText(_dialog.Context, "An authenticator must have at least 1 digit.", ToastLength.Short).Show();
+                Toast.MakeText(_dialog.Context, Resource.String.digitsToSmall, ToastLength.Short).Show();
                 return;
             }
 
@@ -132,7 +133,7 @@ namespace ProAuth
 
             if(period < 1)
             {
-                Toast.MakeText(_dialog.Context, "The period must at least be 1 second.", ToastLength.Short).Show();
+                Toast.MakeText(_dialog.Context, Resource.String.periodToShort, ToastLength.Short).Show();
                 return;
             }
 
@@ -140,11 +141,25 @@ namespace ProAuth
             string username = StringExt.Truncate(_usernameText.Text.Trim(), 32);
             string secret = _secretText.Text.Trim();
 
+            OtpHashMode algorithm = OtpHashMode.Sha1;
+            switch(_algorithmSpinner.SelectedItemPosition)
+            {
+                //case 0:
+                //    algorithm = OtpHashMode.Sha1;
+                //    break;
+                case 1:
+                    algorithm = OtpHashMode.Sha256;
+                    break;
+                case 2:
+                    algorithm = OtpHashMode.Sha512;
+                    break;
+            }
+
             Authenticator auth = new Authenticator() {
                 Issuer = issuer,
                 Username = username,
-                Type = OtpSharp.OtpType.Totp,
-                Algorithm = OtpSharp.OtpHashMode.Sha1,
+                Type = OtpType.Totp,
+                Algorithm = algorithm,
                 Secret = secret,
                 Digits = digits,
                 Period = period
