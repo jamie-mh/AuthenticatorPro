@@ -39,9 +39,6 @@ namespace ProAuth.Data
         [Column("counter")]
         public long Counter { get; set; }
 
-        [Column("ranking")]
-        public int Ranking { get; set; }
-
         [Column("renew"), JsonIgnore]
         public DateTime TimeRenew { get; set; }
 

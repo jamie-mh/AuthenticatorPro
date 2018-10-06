@@ -12,21 +12,11 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<EditText
-				android:id="@+id/fragmentRename_issuer"
+				android:id="@+id/dialogImport_password"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:inputType="textCapSentences"
-				android:hint="@string/issuerHint"/>
-		</android.support.design.widget.TextInputLayout>
-		<android.support.design.widget.TextInputLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-			<EditText
-				android:id="@+id/fragmentRename_username"
-				style="@style/Widget.AppCompat.EditText"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:hint="@string/usernameHint"/>
+				android:inputType="textPassword"
+				android:hint="@string/passwordHint"/>
 		</android.support.design.widget.TextInputLayout>
 	</LinearLayout>
 </ScrollView>

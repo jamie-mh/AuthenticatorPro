@@ -24,11 +24,26 @@
     <string name="algorithmHint">Algorithm</string>
     <string name="digitsHint">Digits</string>
     <string name="periodHint">Period (Seconds)</string>
+    <string name="passwordHint">Backup Password</string>
+    <string name="fileNameHint">Backup File Name</string>
     
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>
+    <string name="noFileName">A valid file name is required.</string>
     <string name="secretTooLong">The secret cannot be longer than 32 characters.</string>
     <string name="digitsToSmall">The authenticator must generate more that 1 digit.</string>
     <string name="periodToShort">The period must be longer than 1 second.</string>
+    
+    <string name="selectBackup">Select Backup File</string>
+    <string name="backupToFile">Backup to File</string>
+    <string name="importMessage">Select a previously exported ProAuth backup to import its authenticators.</string>
+    <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
+    <string name="importError">The password is incorrect or the file is invalid.</string>
+
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
+
+
 </resources>
 

@@ -47,6 +47,7 @@ namespace ProAuth
             MobileBarcodeScanner.Initialize(Application);
             _scanner = new MobileBarcodeScanner();
 
+            StartActivity(typeof(LoginActivity));
             SetupGeneratorList();
         }
 
@@ -66,7 +67,7 @@ namespace ProAuth
         {
             switch (item.ItemId) {
                 case Resource.Id.actionSettings:
-                    Toast.MakeText (this, "You pressed settings action!", ToastLength.Short).Show ();
+                    StartActivity(typeof(SettingsActivity));
                     break;
 
                 case Resource.Id.actionImport:
@@ -230,7 +231,7 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            AddFragment fragment = new AddFragment(_db) {
+            AddDialog fragment = new AddDialog(_db) {
                 Arguments = null
             };
 
@@ -248,7 +249,7 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            RenameFragment fragment = new RenameFragment(_db, _authSource, auth) {
+            RenameDialog fragment = new RenameDialog(_db, _authSource, auth) {
                 Arguments = null
             };
 

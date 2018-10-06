@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <!--<color name="colorPrimaryDark">#1B3147</color>-->
-    <color name="colorAccent">#04DAC6</color>
-    <color name="colorAuth">#ffffff</color>
-    <color name="colorBackground">#eeeeee</color>
-    <color name="colorIssuer">#000000</color>
-    <color name="colorUsername">#5b5b5b</color>
+    <color name="colorPrimary">#344955</color>
+    <color name="colorPrimaryDark">#232F34</color>
+    <color name="colorAccent">#F9AA33</color>
+    <color name="colorLight">#eeeeee</color>
+    <color name="colorLighter">#ffffff</color>
+    <color name="colorDark">#212121</color>
+    <color name="colorDarker">#000000</color>
     
 
 </resources>

@@ -17,12 +17,31 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:orientation="vertical"
+		android:gravity="center_vertical"
 		android:layout_below="@id/activityImport_toolbar">
 
-		<Button
-			android:layout_width="match_parent"
+		<ImageView
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="import"
+			android:layout_gravity="center"
+			android:src="@drawable/ic_import_export" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:paddingRight="32dp"
+			android:paddingLeft="32dp"
+			android:layout_marginTop="22dp"
+	        android:text="@string/importMessage" />
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/selectBackup"
+			android:layout_marginTop="22dp"
+			android:layout_gravity="center"
 			android:id="@+id/activityImport_import"/>
 	</LinearLayout>
 </RelativeLayout>

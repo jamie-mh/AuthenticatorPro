@@ -12,7 +12,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<EditText
-				android:id="@+id/fragmentAdd_issuer"
+				android:id="@+id/dialogAdd_issuer"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:inputType="textCapSentences"
@@ -22,7 +22,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<EditText
-				android:id="@+id/fragmentAdd_username"
+				android:id="@+id/dialogAdd_username"
 				style="@style/Widget.AppCompat.EditText"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -32,19 +32,19 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<EditText
-				android:id="@+id/fragmentAdd_secret"
+				android:id="@+id/dialogAdd_secret"
 				style="@style/Widget.AppCompat.EditText"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:hint="@string/secretKey"/>
 		</android.support.design.widget.TextInputLayout>
 		<Button
-			android:id="@+id/fragmentAdd_buttonAdvanced"
+			android:id="@+id/dialogAdd_buttonAdvanced"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:text="@string/showAdvancedOptions"/>
 		<LinearLayout
-			android:id="@+id/fragmentAdd_advancedOptions"
+			android:id="@+id/dialogAdd_advancedOptions"
 			android:orientation="vertical"
 			android:visibility="gone"
 			android:layout_width="match_parent"
@@ -55,7 +55,7 @@
 				android:layout_marginTop="10sp"
 				android:text="@string/typeHint"/>
 			<Spinner
-				android:id="@+id/fragmentAdd_type"
+				android:id="@+id/dialogAdd_type"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:prompt="@string/typeHint"/>-->
@@ -65,7 +65,7 @@
 				android:layout_marginTop="10sp"
 				android:text="@string/algorithmHint"/>
 			<Spinner
-				android:id="@+id/fragmentAdd_algorithm"
+				android:id="@+id/dialogAdd_algorithm"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="10sp"
@@ -74,7 +74,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				<EditText
-					android:id="@+id/fragmentAdd_digits"
+					android:id="@+id/dialogAdd_digits"
 					style="@style/Widget.AppCompat.EditText"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content">
 				<EditText
-					android:id="@+id/fragmentAdd_period"
+					android:id="@+id/dialogAdd_period"
 					style="@style/Widget.AppCompat.EditText"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"

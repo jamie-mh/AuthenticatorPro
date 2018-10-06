@@ -55,29 +55,20 @@ namespace ProAuth
 
         private void ExportClick(object sender, EventArgs e)
         {
-            List<Authenticator> authenticators = 
-                _database.Connection.Query<Authenticator>("SELECT * FROM authenticator");
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            Fragment old = FragmentManager.FindFragmentByTag("export_dialog");
 
-            string json = JsonConvert.SerializeObject(authenticators);
+            if(old != null)
+            {
+                transaction.Remove(old);
+            }
 
-            string filename = $@"backup-{DateTime.Now:yyyy-MM-dd}.proauth";
-            string path = Path.Combine(Environment.ExternalStorageDirectory.AbsolutePath, filename);
+            transaction.AddToBackStack(null);
+            ExportDialog fragment = new ExportDialog(_database, _textPassword.Text) {
+                Arguments = null
+            };
 
-            //File.WriteAllText(path, json);
-            //Toast.MakeText(this, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
-
-            // use picker save file
-            SHA256 sha256 = SHA256.Create();
-            byte[] keyMaterial = sha256.ComputeHash(Encoding.UTF8.GetBytes("test"));
-            byte[] data = Encoding.UTF8.GetBytes(json);
-
-            var provider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
-            var key = provider.CreateSymmetricKey(keyMaterial);
-
-            byte[] cipherText = WinRTCrypto.CryptographicEngine.Encrypt(key, data, null);
-
-            File.WriteAllBytes(path, cipherText);
-            Toast.MakeText(this, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
+            fragment.Show(transaction, "export_dialog");
         }
 
         public override bool OnSupportNavigateUp()

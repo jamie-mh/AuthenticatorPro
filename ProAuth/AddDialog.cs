@@ -16,7 +16,7 @@ using ProAuth.Utilities;
 
 namespace ProAuth
 {
-    class AddFragment : DialogFragment
+    class AddDialog : DialogFragment
     {
         private AlertDialog _dialog;
         private Database _database;
@@ -29,7 +29,7 @@ namespace ProAuth
         private EditText _digitsText;
         private EditText _periodText;
 
-        public AddFragment(Database database)
+        public AddDialog(Database database)
         {
             _database = database;
         }
@@ -41,13 +41,13 @@ namespace ProAuth
 
         private void FindViews(View view)
         {
-            _issuerText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_issuer);
-            _usernameText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_username);
-            _secretText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_secret);
-            //_typeSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_type);
-            _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_algorithm);
-            _digitsText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_digits);
-            _periodText = view.FindViewById<EditText>(Resource.Id.fragmentAdd_period);
+            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogAdd_issuer);
+            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogAdd_username);
+            _secretText = view.FindViewById<EditText>(Resource.Id.dialogAdd_secret);
+            //_typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
+            _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
+            _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAdd_digits);
+            _periodText = view.FindViewById<EditText>(Resource.Id.dialogAdd_period);
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -59,7 +59,7 @@ namespace ProAuth
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 
-            View view = Activity.LayoutInflater.Inflate(Resource.Layout.fragmentAdd, null);
+            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogAdd, null);
             FindViews(view);
             alert.SetView(view);
 
@@ -73,15 +73,15 @@ namespace ProAuth
             //typeAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             algorithmAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
-            //Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_type);
-            Spinner algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.fragmentAdd_algorithm);
+            //Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
+            Spinner algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
 
             //typeSpinner.Adapter = typeAdapter;
             algorithmSpinner.Adapter = algorithmAdapter;
 
             // Advanced options show
-            LinearLayout advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.fragmentAdd_advancedOptions);
-            Button advancedButton = view.FindViewById<Button>(Resource.Id.fragmentAdd_buttonAdvanced);
+            LinearLayout advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.dialogAdd_advancedOptions);
+            Button advancedButton = view.FindViewById<Button>(Resource.Id.dialogAdd_buttonAdvanced);
             advancedButton.Click += (sender, e) =>
             {
                 advancedLayout.Visibility = ViewStates.Visible;

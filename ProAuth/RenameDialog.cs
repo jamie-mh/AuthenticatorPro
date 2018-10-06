@@ -16,7 +16,7 @@ using ProAuth.Utilities;
 
 namespace ProAuth
 {
-    class RenameFragment : DialogFragment
+    class RenameDialog : DialogFragment
     {
         private AlertDialog _dialog;
         private Database _database;
@@ -26,7 +26,7 @@ namespace ProAuth
         private EditText _issuerText;
         private EditText _usernameText;
 
-        public RenameFragment(Database database, AuthSource authSource, int authNo)
+        public RenameDialog(Database database, AuthSource authSource, int authNo)
         {
             _database = database;
             _authSource = authSource;
@@ -41,8 +41,8 @@ namespace ProAuth
 
         private void FindViews(View view)
         {
-            _issuerText = view.FindViewById<EditText>(Resource.Id.fragmentRename_issuer);
-            _usernameText = view.FindViewById<EditText>(Resource.Id.fragmentRename_username);
+            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogRename_issuer);
+            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogRename_username);
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -54,7 +54,7 @@ namespace ProAuth
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 
-            View view = Activity.LayoutInflater.Inflate(Resource.Layout.fragmentRename, null);
+            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogRename, null);
             FindViews(view);
             alert.SetView(view);
 

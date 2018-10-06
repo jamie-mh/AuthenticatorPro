@@ -38,7 +38,7 @@ namespace ProAuth
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityImport_toolbar);
             SetSupportActionBar(toolbar);
 
-            SupportActionBar.SetTitle(Resource.String.export);
+            SupportActionBar.SetTitle(Resource.String.importString);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
@@ -61,19 +61,20 @@ namespace ProAuth
                 if (fileData == null)
                     return; // user canceled file picking
 
-                //string fileName = fileData.FileName;
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                Fragment old = FragmentManager.FindFragmentByTag("import_dialog");
 
-                SHA256 sha256 = SHA256.Create();
-                byte[] keyMaterial = sha256.ComputeHash(Encoding.UTF8.GetBytes("test"));
+                if(old != null)
+                {
+                    transaction.Remove(old);
+                }
 
-                var provider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
-                var key = provider.CreateSymmetricKey(keyMaterial);
+                transaction.AddToBackStack(null);
+                ImportDialog fragment = new ImportDialog(_database, fileData.DataArray) {
+                    Arguments = null
+                };
 
-                byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, fileData.DataArray, null);
-                string contents = Encoding.UTF8.GetString(raw);
-
-                List<Authenticator> auths = JsonConvert.DeserializeObject<List<Authenticator>>(contents);
-                auths.ForEach((a) => _database.Connection.Insert(a));
+                fragment.Show(transaction, "import_dialog");
             }
             catch (Exception ex)
             {
