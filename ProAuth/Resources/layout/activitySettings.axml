@@ -13,10 +13,10 @@
 		android:layout_height="wrap_content"
 		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
 		android:id="@+id/activitySettings_toolbar" />
-	<fragment
-		android:name="proauth.SettingsFragment"
-		android:id="@+id/activitySettings_content"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@id/activityMain_toolbar" />
+	
+    <FrameLayout
+        android:id="@+id/activitySettings_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:layout_below="@id/activitySettings_toolbar" />
 </RelativeLayout>

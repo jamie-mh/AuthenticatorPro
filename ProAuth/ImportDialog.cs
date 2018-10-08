@@ -1,42 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
-using OtpSharp;
 using PCLCrypto;
 using ProAuth.Data;
 using ProAuth.Utilities;
-using Environment = Android.OS.Environment;
 
 namespace ProAuth
 {
     class ImportDialog : DialogFragment
     {
-        private AlertDialog _dialog;
-        private Database _database;
-        private byte[] _data;
+        public string Password => _passwordText.Text;
+
         private EditText _passwordText;
+        private readonly Action<object, EventArgs> _positiveButtonEvent;
+        private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public ImportDialog(Database database, byte[] data)
+        public ImportDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
-            _database = database;
-            _data = data;
-        }
-
-        public override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
+            _positiveButtonEvent = positive;
+            _negativeButtonEvent = negative;
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -52,47 +42,16 @@ namespace ProAuth
             _passwordText = view.FindViewById<EditText>(Resource.Id.dialogImport_password);
             alert.SetView(view);
 
-            _dialog = alert.Create();
-            _dialog.Show();
+            AlertDialog dialog = alert.Create();
+            dialog.Show();
 
-            // Button listeners
-            Button importButton = _dialog.GetButton((int) DialogButtonType.Positive);
-            Button cancelButton = _dialog.GetButton((int) DialogButtonType.Negative);
+            Button importButton = dialog.GetButton((int) DialogButtonType.Positive);
+            Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
 
-            importButton.Click += ImportClick;
-            cancelButton.Click += CancelClick;
+            importButton.Click += _positiveButtonEvent.Invoke;
+            cancelButton.Click += _negativeButtonEvent.Invoke;
 
-            return _dialog;
-        }
-
-        private void ImportClick(object sender, EventArgs e)
-        {
-            try
-            {
-                SHA256 sha256 = SHA256.Create();
-                byte[] keyMaterial = sha256.ComputeHash(Encoding.UTF8.GetBytes(_passwordText.Text));
-
-                var provider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
-                var key = provider.CreateSymmetricKey(keyMaterial);
-
-                byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, _data, null);
-                string contents = Encoding.UTF8.GetString(raw);
-
-                List<Authenticator> auths = JsonConvert.DeserializeObject<List<Authenticator>>(contents);
-                auths.ForEach((a) => _database.Connection.Insert(a));
-                Toast.MakeText(_dialog.Context, $@"Imported {auths.Count} authenticator(s).", ToastLength.Long).Show();
-
-                _dialog?.Dismiss();
-            }
-            catch
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.importError, ToastLength.Long).Show();
-            }
-        }
-
-        private void CancelClick(object sender, EventArgs e)
-        {
-            _dialog?.Dismiss();
+            return dialog;
         }
 
         public override int Show(FragmentTransaction transaction, string tag)

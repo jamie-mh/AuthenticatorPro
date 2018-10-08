@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
-using OtpSharp;
 using ProAuth.Data;
 using ProAuth.Utilities;
 
@@ -18,31 +11,23 @@ namespace ProAuth
 {
     class RenameDialog : DialogFragment
     {
-        private AlertDialog _dialog;
-        private Database _database;
-        private AuthSource _authSource;
-        private Authenticator _authenticator;
+        public string Issuer => _issuerText.Text;
+
+        public string Username => _usernameText.Text;
+
+        public Authenticator Authenticator { get; }
 
         private EditText _issuerText;
         private EditText _usernameText;
 
-        public RenameDialog(Database database, AuthSource authSource, int authNo)
-        {
-            _database = database;
-            _authSource = authSource;
+        private readonly Action<object, EventArgs> _positiveButtonEvent;
+        private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-            _authenticator = _authSource.GetNth(authNo);
-        }
-
-        public override void OnCreate(Bundle savedInstanceState)
+        public RenameDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth)
         {
-            base.OnCreate(savedInstanceState);
-        }
-
-        private void FindViews(View view)
-        {
-            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogRename_issuer);
-            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogRename_username);
+            _positiveButtonEvent = positive;
+            _negativeButtonEvent = negative;
+            Authenticator = auth;
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -55,47 +40,23 @@ namespace ProAuth
             alert.SetCancelable(false);
 
             View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogRename, null);
-            FindViews(view);
+            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogRename_issuer);
+            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogRename_username);
             alert.SetView(view);
 
-            _dialog = alert.Create();
-            _dialog.Show();
+            AlertDialog dialog = alert.Create();
+            dialog.Show();
 
-            _issuerText.Text = _authenticator.Issuer;
-            _usernameText.Text = _authenticator.Username;
+            _issuerText.Text = Authenticator.Issuer;
+            _usernameText.Text = Authenticator.Username;
 
-            // Button listeners
-            Button renameButton = _dialog.GetButton((int) DialogButtonType.Positive);
-            Button cancelButton = _dialog.GetButton((int) DialogButtonType.Negative);
+            Button renameButton = dialog.GetButton((int) DialogButtonType.Positive);
+            Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
 
-            renameButton.Click += RenameClick;
-            cancelButton.Click += CancelClick;
+            renameButton.Click += _positiveButtonEvent.Invoke;
+            cancelButton.Click += _negativeButtonEvent.Invoke;
 
-            return _dialog;
-        }
-
-        private void RenameClick(object sender, EventArgs e)
-        {
-            if(_issuerText.Text.Trim() == "")
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
-                return;
-            }
-
-            string issuer = StringExt.Truncate(_issuerText.Text.Trim(), 32);
-            string username = StringExt.Truncate(_usernameText.Text.Trim(), 32);
-
-            _authenticator.Issuer = issuer;
-            _authenticator.Username = username;
-
-            _database.Connection.Update(_authenticator);
-            _authSource.ClearCache();
-            _dialog?.Dismiss();
-        }
-
-        private void CancelClick(object sender, EventArgs e)
-        {
-            _dialog?.Dismiss();
+            return dialog;
         }
     }
 }

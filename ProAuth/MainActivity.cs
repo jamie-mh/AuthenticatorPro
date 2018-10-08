@@ -6,8 +6,6 @@ using ProAuth.Utilities;
 using System.Timers;
 using Android.Content;
 using Android.Support.Design.Widget;
-using Android.Support.V4.View;
-using Android.Support.V4.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -18,19 +16,26 @@ using PopupMenu = Android.Support.V7.Widget.PopupMenu;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Result = ZXing.Result;
+using System;
+using OtpSharp;
 
 namespace ProAuth
 {
     [Activity(Label = "@string/appName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    // ReSharper disable once UnusedMember.Global
     public class MainActivity : AppCompatActivity
     {
-        private Timer _timer;
-        private RecyclerView _list;
-        private FloatingActionButton _fab;
-        private AuthAdapter _adapter;
+        private Timer _authTimer;
+        private RecyclerView _authList;
+        private FloatingActionButton _floatingActionButton;
+        private AuthAdapter _authAdapter;
         private AuthSource _authSource;
-        private Database _db;
-        private MobileBarcodeScanner _scanner;
+        private Database _database;
+        private MobileBarcodeScanner _barcodeScanner;
+
+        // Alert Dialogs
+        private RenameDialog _renameDialog;
+        private AddDialog _addDialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,20 +46,32 @@ namespace ProAuth
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
 
-            _fab = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
-            _fab.Click += Fab_Click;
+            _floatingActionButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
+            _floatingActionButton.Click += FloatingActionButtonClick;
 
             MobileBarcodeScanner.Initialize(Application);
-            _scanner = new MobileBarcodeScanner();
+            _barcodeScanner = new MobileBarcodeScanner();
+
+            _database = new Database(this);
 
             StartActivity(typeof(LoginActivity));
-            SetupGeneratorList();
+            PrepareAuthenticatorList();
+
+            _authTimer = new Timer()
+            {
+                Interval = 1000,
+                AutoReset = true,
+                Enabled = true
+            };
+
+            _authTimer.Elapsed += AuthTick;
+            _authTimer.Start();
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            _db?.Connection.Close();
+            _database?.Connection.Close();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -88,50 +105,39 @@ namespace ProAuth
         protected override void OnPause()
         {
             base.OnPause();
-            _timer.Stop();
+            _authTimer.Stop();
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-            _timer.Start();
+            _authTimer.Start();
         }
 
         public override void OnBackPressed()
         {
             base.OnBackPressed();
-            _scanner.Cancel();
+            _barcodeScanner.Cancel();
         }
 
-        private void SetupGeneratorList()
+        private void PrepareAuthenticatorList()
         {
-            _list = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
+            _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
 
-            _db = new Database(this);
-            _authSource = new AuthSource(_db.Connection);
-            _adapter = new AuthAdapter(_authSource);
-            _adapter.ItemClick += this.AuthClick;
-            _adapter.ItemOptionsClick += this.AuthOptionsClick;
+            _authSource = new AuthSource(_database.Connection);
+            _authAdapter = new AuthAdapter(_authSource);
+            _authAdapter.ItemClick += AuthClick;
+            _authAdapter.ItemOptionsClick += AuthOptionsClick;
 
-            _list.SetAdapter(_adapter);
-            _list.SetLayoutManager(new LinearLayoutManager(this));
-
-            _timer = new Timer()
-            {
-                Interval = 1000,
-                AutoReset = true,
-                Enabled = true
-            };
-
-            _timer.Elapsed += this.AuthTick;
-            _timer.Start();
+            _authList.SetAdapter(_authAdapter);
+            _authList.SetLayoutManager(new LinearLayoutManager(this));
         }
 
         private void AuthTick(object sender, ElapsedEventArgs e)
         {
             RunOnUiThread(() =>
             {
-                _adapter.NotifyDataSetChanged();
+                _authAdapter.NotifyDataSetChanged();
             });
         }
 
@@ -181,11 +187,11 @@ namespace ProAuth
             dialog.Show();
         }
 
-        private void Fab_Click(object sender, System.EventArgs e)
+        private void FloatingActionButtonClick(object sender, System.EventArgs e)
         {
-            PopupMenu menu = new PopupMenu(this, _fab);
+            PopupMenu menu = new PopupMenu(this, _floatingActionButton);
             menu.Inflate(Resource.Menu.add);
-            menu.MenuItemClick += this.Fab_MenuItemClick;
+            menu.MenuItemClick += Fab_MenuItemClick;
             menu.Show();
         }
 
@@ -211,15 +217,20 @@ namespace ProAuth
                 }
             };
 
-            Result result = await _scanner.Scan(options);
+            Result result = await _barcodeScanner.Scan(options);
 
-            if(result != null)
+            if(result == null)
             {
-                Authenticator auth = Authenticator.FromKeyUri(result.Text);
-                _db.Connection.Insert(auth);
+                return;
             }
+
+            Authenticator auth = Authenticator.FromKeyUri(result.Text);
+            _database.Connection.Insert(auth);
         }
 
+        /*
+         *  Add Dialog
+         */
         private void OpenAddDialog()
         {
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
@@ -231,14 +242,80 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            AddDialog fragment = new AddDialog(_db) {
-                Arguments = null
-            };
-
-            fragment.Show(transaction, "add_dialog");
+            _addDialog = new AddDialog(AddDialogPositive, AddDialogNegative);
+            _addDialog.Show(transaction, "add_dialog");
         }
 
-        private void OpenRenameDialog(int auth)
+        private void AddDialogPositive(object sender, EventArgs e)
+        {
+            if(_addDialog.Issuer.Trim() == "")
+            {
+                Toast.MakeText(_addDialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
+                return;
+            }
+
+            if(_addDialog.Secret.Trim() == "")
+            {
+                Toast.MakeText(_addDialog.Context, Resource.String.noSecret, ToastLength.Short).Show();
+                return;
+            }
+
+            if(_addDialog.Secret.Trim().Length > 32)
+            {
+                Toast.MakeText(_addDialog.Context, Resource.String.secretTooLong, ToastLength.Short).Show();
+                return;
+            }
+
+            if(_addDialog.Digits < 1)
+            {
+                Toast.MakeText(_addDialog.Context, Resource.String.digitsToSmall, ToastLength.Short).Show();
+                return;
+            }
+
+            if(_addDialog.Period < 1)
+            {
+                Toast.MakeText(_addDialog.Context, Resource.String.periodToShort, ToastLength.Short).Show();
+                return;
+            }
+
+            string issuer = _addDialog.Issuer.Trim().Truncate(32);
+            string username = _addDialog.Username.Trim().Truncate(32);
+            string secret = _addDialog.Secret.Trim();
+
+            OtpHashMode algorithm = OtpHashMode.Sha1;
+            switch(_addDialog.Algorithm)
+            {
+                case 1:
+                    algorithm = OtpHashMode.Sha256;
+                    break;
+                case 2:
+                    algorithm = OtpHashMode.Sha512;
+                    break;
+            }
+
+            Authenticator auth = new Authenticator() {
+                Issuer = issuer,
+                Username = username,
+                Type = OtpType.Totp,
+                Algorithm = algorithm,
+                Secret = secret,
+                Digits = _addDialog.Digits,
+                Period = _addDialog.Period
+            };
+            _database.Connection.Insert(auth);
+
+            _addDialog.Dismiss();
+        }
+
+        private void AddDialogNegative(object sender, EventArgs e)
+        {
+            _addDialog.Dismiss();
+        }
+
+        /*
+         *  Rename Dialog
+         */
+        private void OpenRenameDialog(int authPosition)
         {
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             Fragment old = FragmentManager.FindFragmentByTag("rename_dialog");
@@ -249,11 +326,33 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            RenameDialog fragment = new RenameDialog(_db, _authSource, auth) {
-                Arguments = null
-            };
+            Authenticator auth = _authSource.GetNth(authPosition);
+            _renameDialog = new RenameDialog(RenameDialogPositive, RenameDialogNegative, auth);
+            _renameDialog.Show(transaction, "rename_dialog");
+        }
 
-            fragment.Show(transaction, "rename_dialog");
+        private void RenameDialogPositive(object sender, EventArgs e)
+        {
+            if(_renameDialog.Issuer.Trim() == "")
+            {
+                Toast.MakeText(_renameDialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
+                return;
+            }
+
+            string issuer = _renameDialog.Issuer.Trim().Truncate(32);
+            string username = _renameDialog.Username.Trim().Truncate(32);
+
+            _renameDialog.Authenticator.Issuer = issuer;
+            _renameDialog.Authenticator.Username = username;
+
+            _database.Connection.Update(_renameDialog.Authenticator);
+            _authSource.ClearCache();
+            _renameDialog?.Dismiss();
+        }
+
+        private void RenameDialogNegative(object sender, EventArgs e)
+        {
+            _renameDialog.Dismiss();
         }
     }
 }

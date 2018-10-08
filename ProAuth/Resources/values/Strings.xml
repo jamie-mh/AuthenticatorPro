@@ -18,6 +18,7 @@
     <string name="secretKey">Secret Key</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
     
+    <string name="ok">OK</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
     <string name="usernameHint">Username (eg: john@example.com)</string>
     <string name="typeHint">Type</string>
@@ -39,11 +40,12 @@
     <string name="importMessage">Select a previously exported ProAuth backup to import its authenticators.</string>
     <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
     <string name="importError">The password is incorrect or the file is invalid.</string>
+    <string name="filePickError">Error picking file.</string>
 
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
-
-
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be visible. Do you wish to continue?</string>
+    <string name="warning">Warning</string>
 </resources>
 

@@ -1,26 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using ProAuth.Utilities;
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
-using Android.Webkit;
 using Android.Widget;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
-using ProAuth.Data;
-using Newtonsoft.Json;
-using System.IO;
-using Environment = Android.OS.Environment;
-using PCLCrypto;
-using System.Security.Cryptography;
-using Android.Hardware.Fingerprints;
-using Android.Support.V4.Hardware.Fingerprint;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Albireo.Base32;
 using OtpSharp;
 using ProAuth.Data;

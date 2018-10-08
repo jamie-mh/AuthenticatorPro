@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+using System.Security.Cryptography;
 using ProAuth.Utilities;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
-using Android.Webkit;
 using Android.Widget;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
-using ProAuth.Data;
 using Newtonsoft.Json;
-using System.IO;
-using Environment = Android.OS.Environment;
+using PCLCrypto;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
-using System.Security.Cryptography;
-using PCLCrypto;
+using System.Text;
+using ProAuth.Data;
 
 namespace ProAuth
 {
@@ -28,6 +21,8 @@ namespace ProAuth
     public class ImportActivity: AppCompatActivity
     {
         private Database _database;
+        private FileData _file;
+        private ImportDialog _dialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,7 +39,7 @@ namespace ProAuth
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             Button importBtn = FindViewById<Button>(Resource.Id.activityImport_import);
-            importBtn.Click += ImportClick;
+            importBtn.Click += this.ImportButtonClick;
         }
 
         protected override void OnDestroy()
@@ -53,13 +48,16 @@ namespace ProAuth
             _database?.Connection.Close();
         }
 
-        private async void ImportClick(object sender, EventArgs e)
+        private async void ImportButtonClick(object sender, EventArgs e)
         {
             try
             {
-                FileData fileData = await CrossFilePicker.Current.PickFile();
-                if (fileData == null)
-                    return; // user canceled file picking
+                _file = await CrossFilePicker.Current.PickFile();
+
+                if(_file == null)
+                {
+                    return;
+                }
 
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
                 Fragment old = FragmentManager.FindFragmentByTag("import_dialog");
@@ -70,16 +68,47 @@ namespace ProAuth
                 }
 
                 transaction.AddToBackStack(null);
-                ImportDialog fragment = new ImportDialog(_database, fileData.DataArray) {
-                    Arguments = null
-                };
-
-                fragment.Show(transaction, "import_dialog");
+                _dialog = new ImportDialog(OnDialogPositive, OnDialogNegative);
+                _dialog.Show(transaction, "import_dialog");
             }
-            catch (Exception ex)
+            catch
             {
-                System.Console.WriteLine("Exception choosing file: " + ex.ToString());
+                Toast.MakeText(this, Resource.String.filePickError, ToastLength.Short).Show();
             }
+        }
+
+        private void OnDialogPositive(object sender, EventArgs e)
+        {
+            try
+            {
+                SHA256 sha256 = SHA256.Create();
+                byte[] password = Encoding.UTF8.GetBytes(_dialog.Password);
+                byte[] keyMaterial = sha256.ComputeHash(password);
+
+                ISymmetricKeyAlgorithmProvider provider = 
+                    WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
+
+                ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
+
+                byte[] data = _file.DataArray;
+                byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, data);
+                string contents = Encoding.UTF8.GetString(raw);
+
+                List<Authenticator> auths = JsonConvert.DeserializeObject<List<Authenticator>>(contents);
+                auths.ForEach((a) => _database.Connection.Insert(a));
+                Toast.MakeText(_dialog.Context, $@"Imported {auths.Count} authenticator(s).", ToastLength.Long).Show();
+
+                _dialog.Dismiss();
+            }
+            catch
+            {
+                Toast.MakeText(_dialog.Context, Resource.String.importError, ToastLength.Long).Show();
+            }
+        }
+
+        private void OnDialogNegative(object sender, EventArgs e)
+        {
+            _dialog.Dismiss();
         }
 
         public override bool OnSupportNavigateUp()
@@ -90,13 +119,13 @@ namespace ProAuth
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId) 
+            if(item.ItemId == Android.Resource.Id.Home)
             {
-                case Android.Resource.Id.Home:
-                    Finish();
-                    return true;
+                this.Finish();
+                return true;
             }
-            return base.OnOptionsItemSelected (item);
+
+            return base.OnOptionsItemSelected(item);
         }
 
         public override void OnBackPressed()

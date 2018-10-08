@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using OtpSharp;
@@ -18,36 +12,32 @@ namespace ProAuth
 {
     class AddDialog : DialogFragment
     {
-        private AlertDialog _dialog;
-        private Database _database;
+        public string Issuer => _issuerText.Text;
+        public string Username => _usernameText.Text;
+        public string Secret => _secretText.Text;
+        public int Algorithm => _algorithmSpinner.SelectedItemPosition;
+        public int Digits => int.Parse(_digitsText.Text);
+        public int Period => int.Parse(_periodText.Text);
 
         private EditText _issuerText;
         private EditText _usernameText;
         private EditText _secretText;
-        private Spinner _typeSpinner;
+        //private Spinner _typeSpinner;
         private Spinner _algorithmSpinner;
         private EditText _digitsText;
         private EditText _periodText;
 
-        public AddDialog(Database database)
-        {
-            _database = database;
-        }
+        private readonly Action<object, EventArgs> _positiveButtonEvent;
+        private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public AddDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
-            base.OnCreate(savedInstanceState);
+            _positiveButtonEvent = positive;
+            _negativeButtonEvent = negative;
         }
 
         private void FindViews(View view)
         {
-            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogAdd_issuer);
-            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogAdd_username);
-            _secretText = view.FindViewById<EditText>(Resource.Id.dialogAdd_secret);
-            //_typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
-            _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
-            _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAdd_digits);
-            _periodText = view.FindViewById<EditText>(Resource.Id.dialogAdd_period);
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -60,10 +50,15 @@ namespace ProAuth
             alert.SetCancelable(false);
 
             View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogAdd, null);
-            FindViews(view);
+            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogAdd_issuer);
+            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogAdd_username);
+            _secretText = view.FindViewById<EditText>(Resource.Id.dialogAdd_secret);
+            //_typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
+            _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
+            _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAdd_digits);
+            _periodText = view.FindViewById<EditText>(Resource.Id.dialogAdd_period);
             alert.SetView(view);
 
-            // Fill type and algorithm spinners
             ArrayAdapter typeAdapter = ArrayAdapter.CreateFromResource(
                 view.Context, Resource.Array.authTypes, Android.Resource.Layout.SimpleSpinnerItem);
 
@@ -79,7 +74,6 @@ namespace ProAuth
             //typeSpinner.Adapter = typeAdapter;
             algorithmSpinner.Adapter = algorithmAdapter;
 
-            // Advanced options show
             LinearLayout advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.dialogAdd_advancedOptions);
             Button advancedButton = view.FindViewById<Button>(Resource.Id.dialogAdd_buttonAdvanced);
             advancedButton.Click += (sender, e) =>
@@ -88,90 +82,16 @@ namespace ProAuth
                 advancedButton.Visibility = ViewStates.Gone;
             };
 
-            _dialog = alert.Create();
-            _dialog.Show();
+            AlertDialog dialog = alert.Create();
+            dialog.Show();
 
-            // Button listeners
-            Button addButton = _dialog.GetButton((int) DialogButtonType.Positive);
-            Button cancelButton = _dialog.GetButton((int) DialogButtonType.Negative);
+            Button addButton = dialog.GetButton((int) DialogButtonType.Positive);
+            Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
 
-            addButton.Click += AddClick;
-            cancelButton.Click += CancelClick;
+            addButton.Click += _positiveButtonEvent.Invoke;
+            cancelButton.Click += _negativeButtonEvent.Invoke;
 
-            return _dialog;
-        }
-
-        private void AddClick(object sender, EventArgs e)
-        {
-            if(_issuerText.Text.Trim() == "")
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
-                return;
-            }
-
-            if(_secretText.Text.Trim() == "")
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.noSecret, ToastLength.Short).Show();
-                return;
-            }
-
-            if(_secretText.Text.Trim().Length > 32)
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.secretTooLong, ToastLength.Short).Show();
-                return;
-            }
-
-            int digits = int.Parse(_digitsText.Text);
-
-            if(digits < 1)
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.digitsToSmall, ToastLength.Short).Show();
-                return;
-            }
-
-            int period = int.Parse(_periodText.Text);
-
-            if(period < 1)
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.periodToShort, ToastLength.Short).Show();
-                return;
-            }
-
-            string issuer = StringExt.Truncate(_issuerText.Text.Trim(), 32);
-            string username = StringExt.Truncate(_usernameText.Text.Trim(), 32);
-            string secret = _secretText.Text.Trim();
-
-            OtpHashMode algorithm = OtpHashMode.Sha1;
-            switch(_algorithmSpinner.SelectedItemPosition)
-            {
-                //case 0:
-                //    algorithm = OtpHashMode.Sha1;
-                //    break;
-                case 1:
-                    algorithm = OtpHashMode.Sha256;
-                    break;
-                case 2:
-                    algorithm = OtpHashMode.Sha512;
-                    break;
-            }
-
-            Authenticator auth = new Authenticator() {
-                Issuer = issuer,
-                Username = username,
-                Type = OtpType.Totp,
-                Algorithm = algorithm,
-                Secret = secret,
-                Digits = digits,
-                Period = period
-            };
-            _database.Connection.Insert(auth);
-
-            _dialog?.Dismiss();
-        }
-
-        private void CancelClick(object sender, EventArgs e)
-        {
-            _dialog?.Dismiss();
+            return dialog;
         }
     }
 }

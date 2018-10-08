@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+using System.Security.Cryptography;
 using ProAuth.Utilities;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
-using Android.Webkit;
 using Android.Widget;
-using Toolbar = Android.Support.V7.Widget.Toolbar;
-using ProAuth.Data;
 using Newtonsoft.Json;
+using PCLCrypto;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
+using AlertDialog = Android.Support.V7.App.AlertDialog;
+using ProAuth.Data;
 using System.IO;
 using Environment = Android.OS.Environment;
-using PCLCrypto;
-using System.Security.Cryptography;
+using System.Text;
 
 namespace ProAuth
 {
@@ -27,6 +23,7 @@ namespace ProAuth
     {
         private Database _database;
         private EditText _textPassword;
+        private ExportDialog _dialog;    
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,7 +41,7 @@ namespace ProAuth
 
             _textPassword = FindViewById<EditText>(Resource.Id.activityExport_password);
             Button exportBtn = FindViewById<Button>(Resource.Id.activityExport_export);
-            exportBtn.Click += ExportClick;
+            exportBtn.Click += this.ExportButtonClick;
         }
 
         protected override void OnDestroy()
@@ -53,7 +50,76 @@ namespace ProAuth
             _database?.Connection.Close();
         }
 
-        private void ExportClick(object sender, EventArgs e)
+        private void ExportButtonClick(object sender, EventArgs e)
+        {
+            string password = _textPassword.Text;
+
+            if(password == "")
+            {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.SetTitle(Resource.String.warning); 
+                builder.SetMessage(Resource.String.confirmEmptyPassword);
+                builder.SetNegativeButton(Resource.String.cancel, (s, args) => { });
+                builder.SetPositiveButton(Resource.String.ok, (s, args) => { ShowExportDialog(); });
+                builder.SetCancelable(true);
+
+                AlertDialog dialog = builder.Create();
+                dialog.Show();
+            }
+            else
+            {
+                ShowExportDialog();
+            }
+        }
+
+        private void OnDialogPositive(object sender, EventArgs e)
+        {
+            if(_dialog.FileName.Trim() == "")
+            {
+                Toast.MakeText(_dialog.Context, Resource.String.noFileName, ToastLength.Short).Show();
+                return;
+            }
+
+            List<Authenticator> authenticators = 
+                _database.Connection.Query<Authenticator>("SELECT * FROM authenticator");
+
+            string json = JsonConvert.SerializeObject(authenticators);
+            string filename = _dialog.FileName + ".proauth";
+
+            string path = Path.Combine(Environment.ExternalStorageDirectory.AbsolutePath, filename);
+            byte[] dataToWrite;
+            string password = _textPassword.Text;
+
+            if(password != "")
+            {
+                SHA256 sha256 = SHA256.Create();
+                byte[] keyMaterial = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                byte[] data = Encoding.UTF8.GetBytes(json);
+
+                ISymmetricKeyAlgorithmProvider provider = 
+                    WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
+
+                ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
+
+                dataToWrite = WinRTCrypto.CryptographicEngine.Encrypt(key, data);
+            }
+            else
+            {
+                dataToWrite = Encoding.UTF8.GetBytes(json);
+            }
+
+            File.WriteAllBytes(path, dataToWrite);
+            Toast.MakeText(_dialog.Context, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
+
+            _dialog?.Dismiss();
+        }
+
+        private void OnDialogNegative(object sender, EventArgs e)
+        {
+            _dialog.Dismiss();
+        }
+
+        private void ShowExportDialog()
         {
             FragmentTransaction transaction = FragmentManager.BeginTransaction();
             Fragment old = FragmentManager.FindFragmentByTag("export_dialog");
@@ -64,11 +130,8 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            ExportDialog fragment = new ExportDialog(_database, _textPassword.Text) {
-                Arguments = null
-            };
-
-            fragment.Show(transaction, "export_dialog");
+            _dialog = new ExportDialog(OnDialogPositive, OnDialogNegative);
+            _dialog.Show(transaction, "export_dialog");
         }
 
         public override bool OnSupportNavigateUp()
@@ -79,13 +142,13 @@ namespace ProAuth
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId) 
+            if(item.ItemId == Android.Resource.Id.Home)
             {
-                case Android.Resource.Id.Home:
-                    Finish();
-                    return true;
+                this.Finish();
+                return true;
             }
-            return base.OnOptionsItemSelected (item);
+
+            return base.OnOptionsItemSelected(item);
         }
 
         public override void OnBackPressed()

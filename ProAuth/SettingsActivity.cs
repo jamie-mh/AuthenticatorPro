@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.OS;
-using Android.Preferences;
-using Android.Runtime;
 using Android.Support.V7.App;
-using Android.Support.V7.Preferences;
 using Android.Views;
-using Android.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace ProAuth
@@ -32,7 +22,32 @@ namespace ProAuth
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            //PreferenceFragmentCompat fragment = new SettingsFragment();
+            FragmentManager.BeginTransaction()
+                           .Replace(Resource.Id.activitySettings_content, new SettingsFragment())
+                           .Commit();
+        }
+
+        public override bool OnSupportNavigateUp()
+        {
+            Finish();
+            return base.OnSupportNavigateUp();
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if(item.ItemId == Android.Resource.Id.Home)
+            {
+                this.Finish();
+                return true;
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
+        public override void OnBackPressed()
+        {
+            Finish();
+            base.OnBackPressed();
         }
     }
 }
