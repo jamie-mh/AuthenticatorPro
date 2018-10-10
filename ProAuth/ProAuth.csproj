@@ -66,6 +66,7 @@
     <Compile Include="ExportActivity.cs" />
     <Compile Include="AboutActivity.cs" />
     <Compile Include="ExportDialog.cs" />
+    <Compile Include="Preferences\PasswordPreference.cs" />
     <Compile Include="RenameDialog.cs" />
     <Compile Include="AddDialog.cs" />
     <Compile Include="Data\Authenticator.cs" />
@@ -126,6 +127,9 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.5.231</Version>
     </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.bundle_sqlcipher">
+      <Version>1.1.11</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Compat">
       <Version>27.0.2.1</Version>
     </PackageReference>
@@ -141,9 +145,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>27.0.2.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Essentials">
-      <Version>0.10.0-preview</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.0.81-beta</Version>
@@ -262,9 +263,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_more_vert_light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\categories.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\dialogRename.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
@@ -379,6 +377,30 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialogPreference_password.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\searchable.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

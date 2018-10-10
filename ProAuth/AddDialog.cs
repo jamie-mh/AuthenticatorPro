@@ -4,9 +4,6 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using OtpSharp;
-using ProAuth.Data;
-using ProAuth.Utilities;
 
 namespace ProAuth
 {

@@ -1,8 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference
-        android:key="pref_sync"
-        android:title="yeah"
-        android:summary="boi"
-        android:defaultValue="true" />
+    <PreferenceCategory
+        android:title="@string/pref_security"
+        android:key="pref_key_security">
+        <proauth.preferences.PasswordPreference
+            android:key="pref_password"
+            android:dialogLayout="@layout/dialogPreference_password"
+            android:negativeButtonText="@string/cancel"
+            android:positiveButtonText="@string/ok"
+            android:summary="@string/pref_password_summary"
+            android:title="@string/pref_password_title" />
+        <CheckBoxPreference
+            android:dependency="pref_password"
+            android:key="pref_useFingerprint"
+            android:summary="@string/pref_useFingerprint_summary"
+            android:title="@string/pref_useFingerprint_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

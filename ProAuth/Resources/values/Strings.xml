@@ -18,6 +18,7 @@
     <string name="secretKey">Secret Key</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
     
+    <string name="search">Search</string>
     <string name="ok">OK</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
     <string name="usernameHint">Username (eg: john@example.com)</string>
@@ -43,9 +44,17 @@
     <string name="filePickError">Error picking file.</string>
 
     <string name="password">Password</string>
+    <string name="passwordConfirm">Password Confirm</string>
     <string name="login">Login</string>
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be visible. Do you wish to continue?</string>
     <string name="warning">Warning</string>
+
+    <!-- Preferences -->
+    <string name="pref_security">Security</string>
+    <string name="pref_password_title">Password</string>
+    <string name="pref_password_summary">Protect your authenticators with a password.</string>
+    <string name="pref_useFingerprint_title">Use Fingerprint</string>
+    <string name="pref_useFingerprint_summary">Use a fingerprint to unlock your authenticators. (Supported devices only)</string>
 </resources>
 

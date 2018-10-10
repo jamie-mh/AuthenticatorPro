@@ -17,11 +17,14 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Result = ZXing.Result;
 using System;
+using Android.Support.V4.View;
 using OtpSharp;
+using SearchView = Android.Support.V7.Widget.SearchView;
 
 namespace ProAuth
 {
     [Activity(Label = "@string/appName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     // ReSharper disable once UnusedMember.Global
     public class MainActivity : AppCompatActivity
     {
@@ -77,6 +80,17 @@ namespace ProAuth
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.main, menu);
+
+            IMenuItem searchItem = menu.FindItem(Resource.Id.actionSearch);
+            SearchView searchView = (SearchView) searchItem.ActionView;
+
+            searchView.QueryTextChange += (sender, e) =>
+            {
+                _authSource.Search = e.NewText;
+                _authSource.ClearCache();
+                _authAdapter.NotifyDataSetChanged();
+            };
+
             return base.OnCreateOptionsMenu(menu);
         }
 

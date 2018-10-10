@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Newtonsoft.Json;
-using PCLCrypto;
-using ProAuth.Data;
-using ProAuth.Utilities;
-using Environment = Android.OS.Environment;
 
 namespace ProAuth
 {
