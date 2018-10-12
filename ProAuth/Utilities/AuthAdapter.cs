@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Support.V7.Widget;
 using Android.Views;
+using OtpSharp;
 using ProAuth.Data;
 
 namespace ProAuth.Utilities
@@ -38,8 +39,21 @@ namespace ProAuth.Utilities
                 }
             }
 
+            if(auth.Type == OtpType.Hotp)
+            {
+                authHolder.RefreshButton.Visibility = ViewStates.Visible;
+                authHolder.Timer.Visibility = ViewStates.Invisible;
+                authHolder.Counter.Visibility = ViewStates.Visible;
+
+                authHolder.Counter.Text = $@"Counter: {auth.Counter.ToString()}";
+            }
+            else if(auth.Type == OtpType.Totp)
+            {
+                authHolder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
+                authHolder.Counter.Visibility = ViewStates.Invisible;
+            }
+
             authHolder.Code.Text = codePadded;
-            authHolder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -47,7 +61,7 @@ namespace ProAuth.Utilities
             View itemView = LayoutInflater.From(parent.Context).Inflate(
                 Resource.Layout.authListItem, parent, false);
 
-            AuthHolder holder = new AuthHolder(itemView, OnItemClick, this.OnItemOptionsClick);
+            AuthHolder holder = new AuthHolder(itemView, OnItemClick, OnItemOptionsClick, OnRefreshClick);
 
             return holder;
         }
@@ -62,6 +76,13 @@ namespace ProAuth.Utilities
         private void OnItemOptionsClick(int e)
         {
             ItemOptionsClick?.Invoke(this, e);
+        }
+
+        private void OnRefreshClick(int e)
+        {
+            _authSource.IncrementCounter(e);
+            _authSource.ClearCache(e);
+            NotifyItemChanged(e);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ProAuth
         private EditText _issuerText;
         private EditText _usernameText;
         private EditText _secretText;
-        //private Spinner _typeSpinner;
+        private Spinner _typeSpinner;
         private Spinner _algorithmSpinner;
         private EditText _digitsText;
         private EditText _periodText;
@@ -50,7 +50,7 @@ namespace ProAuth
             _issuerText = view.FindViewById<EditText>(Resource.Id.dialogAdd_issuer);
             _usernameText = view.FindViewById<EditText>(Resource.Id.dialogAdd_username);
             _secretText = view.FindViewById<EditText>(Resource.Id.dialogAdd_secret);
-            //_typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
+            _typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
             _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
             _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAdd_digits);
             _periodText = view.FindViewById<EditText>(Resource.Id.dialogAdd_period);
@@ -62,13 +62,13 @@ namespace ProAuth
             ArrayAdapter algorithmAdapter = ArrayAdapter.CreateFromResource(
                 view.Context, Resource.Array.authAlgorithms, Android.Resource.Layout.SimpleSpinnerItem);
 
-            //typeAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            typeAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             algorithmAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
-            //Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
+            Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
             Spinner algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
 
-            //typeSpinner.Adapter = typeAdapter;
+            typeSpinner.Adapter = typeAdapter;
             algorithmSpinner.Adapter = algorithmAdapter;
 
             LinearLayout advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.dialogAdd_advancedOptions);

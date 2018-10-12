@@ -15,12 +15,22 @@ using ProAuth.Data;
 using System.IO;
 using Environment = Android.OS.Environment;
 using System.Text;
+using Android;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
+using Fragment = Android.App.Fragment;
+using FragmentTransaction = Android.App.FragmentTransaction;
+using Permission = Android.Content.PM.Permission;
+using Android.Content.PM;
+using Android.Runtime;
 
 namespace ProAuth
 {
     [Activity(Label = "ExportActivity")]
     public class ExportActivity: AppCompatActivity
     {
+        private const int PermissionStorageCode = 0;
+
         private Database _database;
         private EditText _textPassword;
         private ExportDialog _dialog;    
@@ -74,6 +84,11 @@ namespace ProAuth
 
         private void OnDialogPositive(object sender, EventArgs e)
         {
+            if(!GetStoragePermission())
+            {
+                return;
+            }
+
             if(_dialog.FileName.Trim() == "")
             {
                 Toast.MakeText(_dialog.Context, Resource.String.noFileName, ToastLength.Short).Show();
@@ -117,6 +132,35 @@ namespace ProAuth
         private void OnDialogNegative(object sender, EventArgs e)
         {
             _dialog.Dismiss();
+        }
+
+        private bool GetStoragePermission()
+        {
+            if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage)
+               != Permission.Granted)
+            {
+                ActivityCompat.RequestPermissions(this, 
+                    new[] { Manifest.Permission.WriteExternalStorage }, PermissionStorageCode);
+                return false;
+            }
+
+            return true;
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            if(requestCode == PermissionStorageCode)
+            {
+                if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
+                {
+                    OnDialogPositive(null, null);
+                }
+                else
+                {
+                    Toast.MakeText(this, Resource.String.externalStoragePermissionError, ToastLength.Short).Show();
+                }
+            }
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         private void ShowExportDialog()

@@ -15,11 +15,12 @@ using ZXing.Mobile;
 using PopupMenu = Android.Support.V7.Widget.PopupMenu;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
-using Result = ZXing.Result;
 using System;
 using Android.Support.V4.View;
-using OtpSharp;
 using SearchView = Android.Support.V7.Widget.SearchView;
+using Android.Runtime;
+using Android.Support.V7.Preferences;
+using OtpSharp;
 
 namespace ProAuth
 {
@@ -28,6 +29,8 @@ namespace ProAuth
     // ReSharper disable once UnusedMember.Global
     public class MainActivity : AppCompatActivity
     {
+        private const int RequestConfirmDeviceCredentials = 0;
+
         private Timer _authTimer;
         private RecyclerView _authList;
         private FloatingActionButton _floatingActionButton;
@@ -35,6 +38,7 @@ namespace ProAuth
         private AuthSource _authSource;
         private Database _database;
         private MobileBarcodeScanner _barcodeScanner;
+        private KeyguardManager _keyguardManager;
 
         // Alert Dialogs
         private RenameDialog _renameDialog;
@@ -49,6 +53,8 @@ namespace ProAuth
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
 
+            _keyguardManager = (KeyguardManager) GetSystemService(Context.KeyguardService);
+
             _floatingActionButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
             _floatingActionButton.Click += FloatingActionButtonClick;
 
@@ -57,7 +63,20 @@ namespace ProAuth
 
             _database = new Database(this);
 
-            StartActivity(typeof(LoginActivity));
+            ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            bool authRequired = sharedPrefs.GetBoolean("pref_requireAuthentication", false);
+
+            if(authRequired && _keyguardManager.IsDeviceSecure)
+            {
+                Intent loginIntent = _keyguardManager.CreateConfirmDeviceCredentialIntent(
+                    GetString(Resource.String.login), GetString(Resource.String.loginMessage));
+
+                if(loginIntent != null)
+                {
+                    StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
+                }
+            }
+
             PrepareAuthenticatorList();
 
             _authTimer = new Timer()
@@ -77,12 +96,29 @@ namespace ProAuth
             _database?.Connection.Close();
         }
 
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Android.App.Result resultCode, Intent data)
+        {
+            if(requestCode == RequestConfirmDeviceCredentials)
+            {
+                switch(resultCode)
+                {
+                    case Android.App.Result.Canceled:
+                        Finish();
+                        break;
+
+                    case Android.App.Result.Ok:
+                        break;
+                }
+            }
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.main, menu);
 
             IMenuItem searchItem = menu.FindItem(Resource.Id.actionSearch);
             SearchView searchView = (SearchView) searchItem.ActionView;
+            searchView.QueryHint = GetString(Resource.String.search);
 
             searchView.QueryTextChange += (sender, e) =>
             {
@@ -97,6 +133,10 @@ namespace ProAuth
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId) {
+                case Resource.Id.actionSort:
+                    ShowSortDialog();
+                    break;
+
                 case Resource.Id.actionSettings:
                     StartActivity(typeof(SettingsActivity));
                     break;
@@ -108,11 +148,8 @@ namespace ProAuth
                 case Resource.Id.actionExport:
                     StartActivity(typeof(ExportActivity));
                     break;
-
-                case Resource.Id.actionAbout:
-                    StartActivity(typeof(AboutActivity));
-                    break;
             }
+
             return base.OnOptionsItemSelected(item);
         }
 
@@ -193,6 +230,7 @@ namespace ProAuth
             builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
             {
                 _authSource.DeleteNth(authNum);
+                _authAdapter.NotifyItemRemoved(authNum);
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -231,15 +269,41 @@ namespace ProAuth
                 }
             };
 
-            Result result = await _barcodeScanner.Scan(options);
+            ZXing.Result result = await _barcodeScanner.Scan(options);
 
             if(result == null)
             {
                 return;
             }
 
-            Authenticator auth = Authenticator.FromKeyUri(result.Text);
-            _database.Connection.Insert(auth);
+            try
+            {
+                Authenticator auth = Authenticator.FromKeyUri(result.Text);
+                _database.Connection.Insert(auth);
+            }
+            catch
+            {
+                Toast.MakeText(this, Resource.String.qrCodeFormatError, ToastLength.Short).Show();
+            }
+        }
+
+        private void ShowSortDialog()
+        {
+            AlertDialog.Builder sortDialog = new AlertDialog.Builder(this);
+            sortDialog.SetTitle(Resource.String.sort)
+            .SetItems(Resource.Array.sortTypes, (sender, e) =>
+            {
+                switch(e.Which)
+                {
+                    case 0: _authSource.Sort = AuthSource.SortType.Alphabetical; break;
+                    case 1: _authSource.Sort = AuthSource.SortType.CreatedDate; break;
+                }
+
+                _authSource.ClearCache();
+                _authAdapter.NotifyDataSetChanged();
+            })
+            .Create()
+            .Show();
         }
 
         /*
@@ -294,7 +358,7 @@ namespace ProAuth
 
             string issuer = _addDialog.Issuer.Trim().Truncate(32);
             string username = _addDialog.Username.Trim().Truncate(32);
-            string secret = _addDialog.Secret.Trim();
+            string secret = _addDialog.Secret.Trim().ToUpper();
 
             OtpHashMode algorithm = OtpHashMode.Sha1;
             switch(_addDialog.Algorithm)
@@ -317,7 +381,6 @@ namespace ProAuth
                 Period = _addDialog.Period
             };
             _database.Connection.Insert(auth);
-
             _addDialog.Dismiss();
         }
 

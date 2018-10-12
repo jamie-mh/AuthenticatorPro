@@ -9,6 +9,12 @@
         android:title="@string/search"
         app:actionViewClass="android.support.v7.widget.SearchView"/>
 
+    <item
+        android:id="@+id/actionSort"
+        android:icon="@drawable/ic_action_sort"
+        app:showAsAction="always"
+        android:title="@string/sort" />
+
     <item android:id="@+id/actionSettings"
          android:title="@string/settings"
          app:showAsAction="never"/>
@@ -19,10 +25,6 @@
 
     <item android:id="@+id/actionExport"
          android:title="@string/export"
-         app:showAsAction="never"/>
-
-    <item android:id="@+id/actionAbout"
-         android:title="@string/about"
          app:showAsAction="never"/>
 
 </menu>

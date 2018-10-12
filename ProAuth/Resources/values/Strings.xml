@@ -19,6 +19,7 @@
     <string name="showAdvancedOptions">Show Advanced Options</string>
     
     <string name="search">Search</string>
+    <string name="sort">Sort</string>
     <string name="ok">OK</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
     <string name="usernameHint">Username (eg: john@example.com)</string>
@@ -35,6 +36,7 @@
     <string name="secretTooLong">The secret cannot be longer than 32 characters.</string>
     <string name="digitsToSmall">The authenticator must generate more that 1 digit.</string>
     <string name="periodToShort">The period must be longer than 1 second.</string>
+    <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
     
     <string name="selectBackup">Select Backup File</string>
     <string name="backupToFile">Backup to File</string>
@@ -42,6 +44,7 @@
     <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
     <string name="importError">The password is incorrect or the file is invalid.</string>
     <string name="filePickError">Error picking file.</string>
+    <string name="externalStoragePermissionError">The external storage permission is needed to write the backup file.</string>
 
     <string name="password">Password</string>
     <string name="passwordConfirm">Password Confirm</string>
@@ -52,9 +55,7 @@
 
     <!-- Preferences -->
     <string name="pref_security">Security</string>
-    <string name="pref_password_title">Password</string>
-    <string name="pref_password_summary">Protect your authenticators with a password.</string>
-    <string name="pref_useFingerprint_title">Use Fingerprint</string>
-    <string name="pref_useFingerprint_summary">Use a fingerprint to unlock your authenticators. (Supported devices only)</string>
+    <string name="pref_requireAuthentication_title">Require Authentication</string>
+    <string name="pref_requireAuthentication_summary">Require a device pin, pattern, password or fingerprint to access authenticators.</string>
 </resources>
 

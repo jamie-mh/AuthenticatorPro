@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Albireo.Base32;
 using OtpSharp;
 using ProAuth.Data;
@@ -11,6 +12,12 @@ namespace ProAuth.Utilities
     class AuthSource
     {
         public string Search { get; set; }
+        public SortType Sort { get; set; }
+
+        public enum SortType
+        {
+            Alphabetical, CreatedDate
+        };
 
         private readonly SQLiteConnection _connection;
         private List<Authenticator> _cache;
@@ -18,6 +25,8 @@ namespace ProAuth.Utilities
         public AuthSource(SQLiteConnection connection)
         {
             Search = "";
+            Sort = SortType.Alphabetical;
+
             _connection = connection;
             _cache = new List<Authenticator>();
         }
@@ -34,7 +43,7 @@ namespace ProAuth.Utilities
                 sql += "WHERE issuer LIKE ? ";
             }
 
-            sql += $@"ORDER BY issuer, username ASC LIMIT 1 OFFSET {n}";
+            sql += GetOrderStatement() + $@" LIMIT 1 OFFSET {n}";
 
             if(_cache.Count <= n || _cache[n] == null)
             {
@@ -59,10 +68,18 @@ namespace ProAuth.Utilities
             {
                 auth = _connection.Query<Authenticator>(sql).First();
                 byte[] secret = Base32.Decode(auth.Secret);
-                Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
 
-                auth.Code = totp.ComputeTotp();
-                auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+                if(auth.Type == OtpType.Totp)
+                {
+                    Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
+                    auth.Code = totp.ComputeTotp();
+                    auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+                }
+                else if(auth.Type == OtpType.Hotp)
+                {
+                    Hotp hotp = new Hotp(secret, auth.Algorithm);
+                    auth.Code = hotp.ComputeHotp(auth.Counter);
+                }
 
                 _connection.Update(auth);
                 _cache[n] = auth;
@@ -71,9 +88,29 @@ namespace ProAuth.Utilities
             return auth;
         }
 
+        private string GetOrderStatement()
+        {
+            switch(Sort)
+            {
+                case SortType.Alphabetical:
+                    return "ORDER BY issuer ASC, username ASC";
+
+                case SortType.CreatedDate:
+                    return "ORDER BY id ASC";
+
+                default:
+                    return "";
+            }
+        }
+
         public void ClearCache()
         {
             _cache.Clear();
+        }
+
+        public void ClearCache(int position)
+        {
+            _cache[position] = null;
         }
 
         public void DeleteNth(int n)
@@ -84,8 +121,20 @@ namespace ProAuth.Utilities
             _connection.Delete<Authenticator>(auth.Id);
         }
 
+        public void IncrementCounter(int n)
+        {
+            Authenticator auth = GetNth(n);
+            auth.Counter++;
+            _connection.Update(auth);
+        }
+
         public int Count()
         {
+            if(_cache.Count > 0)
+            {
+                return _cache.Count;
+            }
+
             if(Search.Trim() == "")
             {
                 return _connection.Table<Authenticator>().Count();

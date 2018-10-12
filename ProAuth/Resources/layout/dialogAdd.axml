@@ -38,8 +38,19 @@
 				android:layout_height="wrap_content"
 				android:hint="@string/secretKey"/>
 		</android.support.design.widget.TextInputLayout>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/typeHint"/>
+		<Spinner
+			android:id="@+id/dialogAdd_type"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:prompt="@string/typeHint"/>
 		<Button
 			android:id="@+id/dialogAdd_buttonAdvanced"
+			android:layout_marginTop="10dp"
 			android:layout_height="wrap_content"
 			android:layout_width="match_parent"
 			android:text="@string/showAdvancedOptions"/>
@@ -49,16 +60,6 @@
 			android:visibility="gone"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
-			<!--<TextView
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="10sp"
-				android:text="@string/typeHint"/>
-			<Spinner
-				android:id="@+id/dialogAdd_type"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:prompt="@string/typeHint"/>-->
 			<TextView
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"

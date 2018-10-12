@@ -81,10 +81,15 @@ namespace ProAuth.Data
                 .ToDictionary(x => x.Groups[1].Value, x => x.Groups[3].Value);
 
             OtpHashMode algorithm = OtpHashMode.Sha1;
+
             if(args.ContainsKey("algorithm"))
             {
                 switch(args["algorithm"].ToUpper())
                 {
+                    case "SHA1":
+                        algorithm = OtpHashMode.Sha1;
+                        break;
+
                     case "SHA256":
                         algorithm = OtpHashMode.Sha256;
                         break;
@@ -92,24 +97,25 @@ namespace ProAuth.Data
                     case "SHA512":
                         algorithm = OtpHashMode.Sha512;
                         break;
+
+                    default:
+                        throw new InvalidFormatException();
                 }
             }
 
             int digits = (args.ContainsKey("digits")) ? Int32.Parse(args["digits"]) : 6;
-
-            // todo include counter
-
             int period = (args.ContainsKey("period")) ? Int32.Parse(args["period"]) : 30;
 
             Authenticator auth = new Authenticator
             {
-                Secret = args["secret"],
-                Issuer = StringExt.Truncate(issuer.Trim(), 32),
-                Username = StringExt.Truncate(username.Trim(), 32),
+                Secret = args["secret"].ToUpper(),
+                Issuer = issuer.Trim().Truncate(32),
+                Username = username.Trim().Truncate(32),
                 Type = type,
                 Algorithm = algorithm,
                 Digits = digits,
                 Period = period,
+                Counter = 0,
                 TimeRenew = DateTime.MinValue,
                 Code = ""
             };

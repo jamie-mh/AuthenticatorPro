@@ -4,12 +4,16 @@
         <item>Rename</item>
         <item>Delete</item>
     </string-array>
+    <string-array name="sortTypes">
+        <item>Alphabetical</item>
+        <item>Date Added</item>
+    </string-array>
     <string-array name="authTypes">
-        <item>TOTP</item>
-        <item>HTOP</item>
+        <item>Time Based (TOTP)</item>
+        <item>Counter Based (HTOP)</item>
     </string-array>
     <string-array name="authAlgorithms">
-        <item>SHA1</item>
+        <item>SHA1 (default)</item>
         <item>SHA256</item>
         <item>SHA512</item>
     </string-array>
