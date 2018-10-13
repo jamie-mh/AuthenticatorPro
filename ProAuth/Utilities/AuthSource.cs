@@ -44,18 +44,13 @@ namespace ProAuth.Utilities
             }
 
             sql += GetOrderStatement() + $@" LIMIT 1 OFFSET {n}";
+            object[] args = {$@"%{Search}%"};
 
             if(_cache.Count <= n || _cache[n] == null)
             {
-                if(searching)
-                {
-                    object[] args = {$@"%{Search}%"};
-                    auth = _connection.Query<Authenticator>(sql, args).First();
-                }
-                else
-                {
-                    auth = _connection.Query<Authenticator>(sql).First();
-                }
+                auth = searching
+                    ? _connection.Query<Authenticator>(sql, args).First()
+                    : _connection.Query<Authenticator>(sql).First();
 
                 _cache.Insert(n, auth);
             }
@@ -66,19 +61,28 @@ namespace ProAuth.Utilities
 
             if(auth.TimeRenew < DateTime.Now)
             {
-                auth = _connection.Query<Authenticator>(sql).First();
+                auth = searching
+                    ? _connection.Query<Authenticator>(sql, args).First()
+                    : _connection.Query<Authenticator>(sql).First();
+
                 byte[] secret = Base32.Decode(auth.Secret);
 
-                if(auth.Type == OtpType.Totp)
+                switch(auth.Type)
                 {
-                    Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
-                    auth.Code = totp.ComputeTotp();
-                    auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
-                }
-                else if(auth.Type == OtpType.Hotp)
-                {
-                    Hotp hotp = new Hotp(secret, auth.Algorithm);
-                    auth.Code = hotp.ComputeHotp(auth.Counter);
+                    case OtpType.Totp:
+                    {
+                        Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
+                        auth.Code = totp.ComputeTotp();
+                        auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+                        break;
+                    }
+                    case OtpType.Hotp:
+                    {
+                        Hotp hotp = new Hotp(secret, auth.Algorithm);
+                        auth.Code = hotp.ComputeHotp(auth.Counter);
+                        auth.TimeRenew = DateTime.Now.AddSeconds(10);
+                        break;
+                    }
                 }
 
                 _connection.Update(auth);
@@ -130,11 +134,6 @@ namespace ProAuth.Utilities
 
         public int Count()
         {
-            if(_cache.Count > 0)
-            {
-                return _cache.Count;
-            }
-
             if(Search.Trim() == "")
             {
                 return _connection.Table<Authenticator>().Count();

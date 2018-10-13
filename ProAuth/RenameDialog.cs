@@ -14,6 +14,11 @@ namespace ProAuth
 
         public string Username => _usernameText.Text;
 
+        public string IssuerError 
+        {
+            set => _issuerText.Error = value;
+        }
+
         public Authenticator Authenticator { get; }
 
         private EditText _issuerText;

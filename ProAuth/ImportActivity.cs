@@ -13,13 +13,22 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using System.Text;
+using Android;
+using Android.Content.PM;
+using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using ProAuth.Data;
+using Fragment = Android.App.Fragment;
+using FragmentTransaction = Android.App.FragmentTransaction;
 
 namespace ProAuth
 {
     [Activity(Label = "ImportActivity")]
     public class ImportActivity: AppCompatActivity
     {
+        private const int PermissionStorageCode = 0;
+
         private Database _database;
         private FileData _file;
         private ImportDialog _dialog;
@@ -50,6 +59,11 @@ namespace ProAuth
 
         private async void ImportButtonClick(object sender, EventArgs e)
         {
+            if(!GetStoragePermission())
+            {
+                return;
+            }
+
             try
             {
                 _file = await CrossFilePicker.Current.PickFile();
@@ -75,6 +89,35 @@ namespace ProAuth
             {
                 Toast.MakeText(this, Resource.String.filePickError, ToastLength.Short).Show();
             }
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            if(requestCode == PermissionStorageCode)
+            {
+                if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
+                {
+                    ImportButtonClick(null, null);
+                }
+                else
+                {
+                    Toast.MakeText(this, Resource.String.externalStoragePermissionError, ToastLength.Short).Show();
+                }
+            }
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        private bool GetStoragePermission()
+        {
+            if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage)
+               != Permission.Granted)
+            {
+                ActivityCompat.RequestPermissions(this, 
+                    new[] { Manifest.Permission.WriteExternalStorage }, PermissionStorageCode);
+                return false;
+            }
+
+            return true;
         }
 
         private void OnDialogPositive(object sender, EventArgs e)

@@ -33,7 +33,7 @@
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>
     <string name="noFileName">A valid file name is required.</string>
-    <string name="secretTooLong">The secret cannot be longer than 32 characters.</string>
+    <string name="secretTooShort">The secret must be longer than 16 characters.</string>
     <string name="digitsToSmall">The authenticator must generate more that 1 digit.</string>
     <string name="periodToShort">The period must be longer than 1 second.</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
@@ -44,7 +44,7 @@
     <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
     <string name="importError">The password is incorrect or the file is invalid.</string>
     <string name="filePickError">Error picking file.</string>
-    <string name="externalStoragePermissionError">The external storage permission is needed to write the backup file.</string>
+    <string name="externalStoragePermissionError">The external storage permission is required to import/export backup files.</string>
 
     <string name="password">Password</string>
     <string name="passwordConfirm">Password Confirm</string>
@@ -56,6 +56,18 @@
     <!-- Preferences -->
     <string name="pref_security">Security</string>
     <string name="pref_requireAuthentication_title">Require Authentication</string>
-    <string name="pref_requireAuthentication_summary">Require a device pin, pattern, password or fingerprint to access authenticators.</string>
+    <string name="pref_requireAuthentication_summary">Require a device pin, pattern, password or fingerprint to access authenticators. This feature requires that you set up a lock screen on your device.</string>
+
+    <string name="pref_appearance">Appearance</string>
+    <string name="pref_useDarkTheme_title">Use Dark Theme</string>
+    <string name="pref_useDarkTheme_summary">Use a dark theme throughout the app.</string>
+
+    <string name="pref_more">More</string>
+    <string name="pref_about_title">About</string>
+    <string name="pref_about_summary">View about information.</string>
+    <string name="pref_rate_title">Rate</string>
+    <string name="pref_rate_summary">Rate ProAuth on the Google Play store.</string>
+    <string name="pref_featureRequest_title">Feature Request / Bug Report</string>
+    <string name="pref_featureRequest_summary">Send an email to the develop to request a feature or submit a bug report. All feedback is welcome.</string>
 </resources>
 

@@ -9,12 +9,33 @@ namespace ProAuth
 {
     class AddDialog : DialogFragment
     {
+        public int Type => _typeSpinner.SelectedItemPosition;
         public string Issuer => _issuerText.Text;
         public string Username => _usernameText.Text;
         public string Secret => _secretText.Text;
         public int Algorithm => _algorithmSpinner.SelectedItemPosition;
         public int Digits => int.Parse(_digitsText.Text);
         public int Period => int.Parse(_periodText.Text);
+
+        public string IssuerError
+        {
+            set => _issuerText.Error = value;
+        }
+
+        public string SecretError 
+        {
+            set => _secretText.Error = value;
+        }
+
+        public string DigitsError
+        {
+            set => _digitsText.Error = value;
+        }
+
+        public string PeriodError
+        {
+            set => _periodText.Error = value;
+        }
 
         private EditText _issuerText;
         private EditText _usernameText;

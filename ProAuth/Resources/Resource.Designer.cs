@@ -3875,6 +3875,30 @@ namespace ProAuth
 			// aapt resource value: 0x7f0c004d
 			public const int periodToShort = 2131492941;
 			
+			// aapt resource value: 0x7f0c0064
+			public const int pref_about_summary = 2131492964;
+			
+			// aapt resource value: 0x7f0c0063
+			public const int pref_about_title = 2131492963;
+			
+			// aapt resource value: 0x7f0c005f
+			public const int pref_appearance = 2131492959;
+			
+			// aapt resource value: 0x7f0c0068
+			public const int pref_featureRequest_summary = 2131492968;
+			
+			// aapt resource value: 0x7f0c0067
+			public const int pref_featureRequest_title = 2131492967;
+			
+			// aapt resource value: 0x7f0c0062
+			public const int pref_more = 2131492962;
+			
+			// aapt resource value: 0x7f0c0066
+			public const int pref_rate_summary = 2131492966;
+			
+			// aapt resource value: 0x7f0c0065
+			public const int pref_rate_title = 2131492965;
+			
 			// aapt resource value: 0x7f0c005e
 			public const int pref_requireAuthentication_summary = 2131492958;
 			
@@ -3883,6 +3907,12 @@ namespace ProAuth
 			
 			// aapt resource value: 0x7f0c005c
 			public const int pref_security = 2131492956;
+			
+			// aapt resource value: 0x7f0c0061
+			public const int pref_useDarkTheme_summary = 2131492961;
+			
+			// aapt resource value: 0x7f0c0060
+			public const int pref_useDarkTheme_title = 2131492960;
 			
 			// aapt resource value: 0x7f0c004e
 			public const int qrCodeFormatError = 2131492942;
@@ -3906,7 +3936,7 @@ namespace ProAuth
 			public const int secretKey = 2131492923;
 			
 			// aapt resource value: 0x7f0c004b
-			public const int secretTooLong = 2131492939;
+			public const int secretTooShort = 2131492939;
 			
 			// aapt resource value: 0x7f0c004f
 			public const int selectBackup = 2131492943;

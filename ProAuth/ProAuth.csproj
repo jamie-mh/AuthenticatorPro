@@ -38,7 +38,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -65,6 +65,7 @@
     <Compile Include="ExportActivity.cs" />
     <Compile Include="AboutActivity.cs" />
     <Compile Include="ExportDialog.cs" />
+    <Compile Include="Preferences\AboutPreference.cs" />
     <Compile Include="RenameDialog.cs" />
     <Compile Include="AddDialog.cs" />
     <Compile Include="Data\Authenticator.cs" />

@@ -326,33 +326,40 @@ namespace ProAuth
 
         private void AddDialogPositive(object sender, EventArgs e)
         {
+            bool error = false;
+
             if(_addDialog.Issuer.Trim() == "")
             {
-                Toast.MakeText(_addDialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
-                return;
+                _addDialog.IssuerError = GetString(Resource.String.noIssuer);
+                error = true;
             }
 
             if(_addDialog.Secret.Trim() == "")
             {
-                Toast.MakeText(_addDialog.Context, Resource.String.noSecret, ToastLength.Short).Show();
-                return;
+                _addDialog.SecretError = GetString(Resource.String.noSecret);
+                error = true;
             }
 
-            if(_addDialog.Secret.Trim().Length > 32)
+            if(_addDialog.Secret.Trim().Length < 16)
             {
-                Toast.MakeText(_addDialog.Context, Resource.String.secretTooLong, ToastLength.Short).Show();
-                return;
+                _addDialog.SecretError = GetString(Resource.String.secretTooShort);
+                error = true;
             }
 
             if(_addDialog.Digits < 1)
             {
-                Toast.MakeText(_addDialog.Context, Resource.String.digitsToSmall, ToastLength.Short).Show();
-                return;
+                _addDialog.DigitsError = GetString(Resource.String.digitsToSmall);
+                error = true;
             }
 
             if(_addDialog.Period < 1)
             {
-                Toast.MakeText(_addDialog.Context, Resource.String.periodToShort, ToastLength.Short).Show();
+                _addDialog.PeriodError = GetString(Resource.String.periodToShort);
+                error = true;
+            }
+
+            if(error)
+            {
                 return;
             }
 
@@ -371,11 +378,14 @@ namespace ProAuth
                     break;
             }
 
+            OtpType type = (_addDialog.Type == 0) ? OtpType.Totp : OtpType.Hotp;
+
             Authenticator auth = new Authenticator() {
                 Issuer = issuer,
                 Username = username,
-                Type = OtpType.Totp,
+                Type = type,
                 Algorithm = algorithm,
+                Counter = 0,
                 Secret = secret,
                 Digits = _addDialog.Digits,
                 Period = _addDialog.Period
@@ -412,7 +422,7 @@ namespace ProAuth
         {
             if(_renameDialog.Issuer.Trim() == "")
             {
-                Toast.MakeText(_renameDialog.Context, Resource.String.noIssuer, ToastLength.Short).Show();
+                _renameDialog.IssuerError = GetString(Resource.String.noIssuer);
                 return;
             }
 

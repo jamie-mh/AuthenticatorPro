@@ -39,18 +39,27 @@ namespace ProAuth.Utilities
                 }
             }
 
-            if(auth.Type == OtpType.Hotp)
+            switch(auth.Type)
             {
-                authHolder.RefreshButton.Visibility = ViewStates.Visible;
-                authHolder.Timer.Visibility = ViewStates.Invisible;
-                authHolder.Counter.Visibility = ViewStates.Visible;
+                case OtpType.Hotp:
 
-                authHolder.Counter.Text = $@"Counter: {auth.Counter.ToString()}";
-            }
-            else if(auth.Type == OtpType.Totp)
-            {
-                authHolder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
-                authHolder.Counter.Visibility = ViewStates.Invisible;
+                    authHolder.RefreshButton.Visibility = (auth.TimeRenew < DateTime.Now)
+                        ? ViewStates.Visible
+                        : ViewStates.Gone;
+
+                    authHolder.Timer.Visibility = ViewStates.Invisible;
+                    authHolder.Counter.Visibility = ViewStates.Visible;
+
+                    authHolder.Counter.Text = $@"Counter: {auth.Counter.ToString()}";
+                    break;
+
+                case OtpType.Totp:
+                    authHolder.RefreshButton.Visibility = ViewStates.Gone;
+                    authHolder.Timer.Visibility = ViewStates.Visible;
+                    authHolder.Counter.Visibility = ViewStates.Invisible;
+
+                    authHolder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
+                    break;
             }
 
             authHolder.Code.Text = codePadded;

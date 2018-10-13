@@ -10,4 +10,33 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/pref_appearance"
+        android:key="pref_key_appearance">
+        <CheckBoxPreference
+            android:key="pref_useDarkTheme"
+            android:summary="@string/pref_useDarkTheme_summary"
+            android:title="@string/pref_useDarkTheme_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_more"
+        android:key="pref_key_more">
+        
+        <proauth.preferences.AboutPreference
+            android:key="pref_key_about"
+            android:summary="@string/pref_about_summary"
+            android:title="@string/pref_about_title" />
+
+        <Preference
+            android:key="pref_key_rate"
+            android:summary="@string/pref_rate_summary"
+            android:title="@string/pref_rate_title" />
+
+        <Preference
+            android:key="pref_key_feature_request"
+            android:summary="@string/pref_featureRequest_summary"
+            android:title="@string/pref_featureRequest_title" />
+    </PreferenceCategory>
 </PreferenceScreen>
