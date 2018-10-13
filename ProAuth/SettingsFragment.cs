@@ -1,13 +1,13 @@
 ﻿using Android.OS;
 using Android.Preferences;
+using Android.Support.V7.Preferences;
 
 namespace ProAuth
 {
-    public class SettingsFragment : PreferenceFragment
+    public class SettingsFragment : PreferenceFragmentCompat
     {
-        public override void OnCreate(Bundle savedInstanceState)
+        public override void OnCreatePreferences(Bundle savedInstanceState, string rootKey)
         {
-            base.OnCreate(savedInstanceState);
             AddPreferencesFromResource(Resource.Xml.settings);
         }
     }

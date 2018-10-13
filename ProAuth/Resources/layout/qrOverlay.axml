@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="@android:color/transparent"
+    android:weightSum="1.0">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="0.3">
+        <TextView
+            android:text="Place a barcode in the camera viewfinder to scan it.  Barcode will scan Automatically."
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/textView1"
+            android:gravity="center"
+            android:layout_weight="0"
+            android:layout_marginRight="20dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="5dp"
+            android:background="@android:color/transparent"
+            android:textColor="#ffffffff" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_weight="0.5" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_weight="0.2"
+        android:layout_gravity="center">
+        <TextView
+            android:text="Try to avoid shadows and glare.  Hold the device back about 6 inches from the barcode."
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="12sp"
+            android:layout_weight="1"
+            android:gravity="center" />
+        <Button
+            android:text="Flash On"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonZxingFlash"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp" />
+    </LinearLayout>
+</LinearLayout>

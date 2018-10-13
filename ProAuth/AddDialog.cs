@@ -4,6 +4,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace ProAuth
 {

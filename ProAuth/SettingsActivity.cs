@@ -22,9 +22,9 @@ namespace ProAuth
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            FragmentManager.BeginTransaction()
-                           .Replace(Resource.Id.activitySettings_content, new SettingsFragment())
-                           .Commit();
+            SupportFragmentManager.BeginTransaction()
+                                  .Replace(Resource.Id.activitySettings_content, new SettingsFragment())
+                                  .Commit();
         }
 
         public override bool OnSupportNavigateUp()

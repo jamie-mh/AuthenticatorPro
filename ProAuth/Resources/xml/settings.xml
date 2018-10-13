@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.preference.PreferenceCategory
         android:title="@string/pref_security"
         android:key="pref_key_security">
-        <CheckBoxPreference
+        <android.support.v7.preference.CheckBoxPreference
             android:key="pref_requireAuthentication"
             android:summary="@string/pref_requireAuthentication_summary"
             android:title="@string/pref_requireAuthentication_title"
             android:defaultValue="false" />
-    </PreferenceCategory>
+    </android.support.v7.preference.PreferenceCategory>
 
-    <PreferenceCategory
+    <android.support.v7.preference.PreferenceCategory
         android:title="@string/pref_appearance"
         android:key="pref_key_appearance">
-        <CheckBoxPreference
+        <android.support.v7.preference.CheckBoxPreference
             android:key="pref_useDarkTheme"
             android:summary="@string/pref_useDarkTheme_summary"
             android:title="@string/pref_useDarkTheme_title"
             android:defaultValue="false" />
-    </PreferenceCategory>
+    </android.support.v7.preference.PreferenceCategory>
 
-    <PreferenceCategory
+    <android.support.v7.preference.PreferenceCategory
         android:title="@string/pref_more"
         android:key="pref_key_more">
         
@@ -29,14 +29,14 @@
             android:summary="@string/pref_about_summary"
             android:title="@string/pref_about_title" />
 
-        <Preference
+        <android.support.v7.preference.Preference
             android:key="pref_key_rate"
             android:summary="@string/pref_rate_summary"
             android:title="@string/pref_rate_title" />
 
-        <Preference
+        <android.support.v7.preference.Preference
             android:key="pref_key_feature_request"
             android:summary="@string/pref_featureRequest_summary"
             android:title="@string/pref_featureRequest_title" />
-    </PreferenceCategory>
-</PreferenceScreen>
+    </android.support.v7.preference.PreferenceCategory>
+</android.support.v7.preference.PreferenceScreen>

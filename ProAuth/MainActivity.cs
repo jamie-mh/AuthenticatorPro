@@ -16,11 +16,15 @@ using PopupMenu = Android.Support.V7.Widget.PopupMenu;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using System;
+using System.Linq;
 using Android.Support.V4.View;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
 using Android.Support.V7.Preferences;
 using OtpSharp;
+using Fragment = Android.Support.V4.App.Fragment;
+using DialogFragment = Android.Support.V4.App.DialogFragment;
+using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth
 {
@@ -59,7 +63,10 @@ namespace ProAuth
             _floatingActionButton.Click += FloatingActionButtonClick;
 
             MobileBarcodeScanner.Initialize(Application);
-            _barcodeScanner = new MobileBarcodeScanner();
+            _barcodeScanner = new MobileBarcodeScanner {
+                UseCustomOverlay = true,
+                CustomOverlay = LayoutInflater.FromContext(this).Inflate(Resource.Layout.qrOverlay, null)
+            };
 
             _database = new Database(this);
 
@@ -311,8 +318,8 @@ namespace ProAuth
          */
         private void OpenAddDialog()
         {
-            FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            Fragment old = FragmentManager.FindFragmentByTag("add_dialog");
+            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+            Fragment old = SupportFragmentManager.FindFragmentByTag("add_dialog");
 
             if(old != null)
             {
@@ -340,19 +347,29 @@ namespace ProAuth
                 error = true;
             }
 
-            if(_addDialog.Secret.Trim().Length < 16)
+            string secret = _addDialog.Secret.Trim().ToUpper();
+            const string base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+            const char base32Padding = '=';
+
+            if(secret.Length < 16)
             {
                 _addDialog.SecretError = GetString(Resource.String.secretTooShort);
                 error = true;
             }
 
-            if(_addDialog.Digits < 1)
+            if(!secret.ToCharArray().All(x => base32Alphabet.IndexOf(x) >= 0 || x == base32Padding))
+            {
+                _addDialog.SecretError = GetString(Resource.String.secretInvalidChars);
+                error = true;
+            }
+
+            if(_addDialog.Digits < 6)
             {
                 _addDialog.DigitsError = GetString(Resource.String.digitsToSmall);
                 error = true;
             }
 
-            if(_addDialog.Period < 1)
+            if(_addDialog.Period < 10)
             {
                 _addDialog.PeriodError = GetString(Resource.String.periodToShort);
                 error = true;
@@ -365,7 +382,6 @@ namespace ProAuth
 
             string issuer = _addDialog.Issuer.Trim().Truncate(32);
             string username = _addDialog.Username.Trim().Truncate(32);
-            string secret = _addDialog.Secret.Trim().ToUpper();
 
             OtpHashMode algorithm = OtpHashMode.Sha1;
             switch(_addDialog.Algorithm)
@@ -404,8 +420,8 @@ namespace ProAuth
          */
         private void OpenRenameDialog(int authPosition)
         {
-            FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            Fragment old = FragmentManager.FindFragmentByTag("rename_dialog");
+            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+            Fragment old = SupportFragmentManager.FindFragmentByTag("rename_dialog");
 
             if(old != null)
             {

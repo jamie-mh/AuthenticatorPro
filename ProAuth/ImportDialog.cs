@@ -2,8 +2,11 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using DialogFragment = Android.Support.V4.App.DialogFragment;
+using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth
 {
@@ -48,17 +51,10 @@ namespace ProAuth
 
         public override int Show(FragmentTransaction transaction, string tag)
         {
-            try
-            {
-                transaction.Add(this, tag).AddToBackStack(null);
-                transaction.CommitAllowingStateLoss();
+            transaction.Add(this, tag).AddToBackStack(null);
+            transaction.CommitAllowingStateLoss();
 
-                return 1;
-            }
-            catch(Java.Lang.IllegalStateException ex)
-            {
-                throw ex;
-            }
+            return 1;
         }
     }
 }

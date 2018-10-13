@@ -19,8 +19,9 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using ProAuth.Data;
-using Fragment = Android.App.Fragment;
-using FragmentTransaction = Android.App.FragmentTransaction;
+using Fragment = Android.Support.V4.App.Fragment;
+using DialogFragment = Android.Support.V4.App.DialogFragment;
+using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth
 {
@@ -73,8 +74,8 @@ namespace ProAuth
                     return;
                 }
 
-                FragmentTransaction transaction = FragmentManager.BeginTransaction();
-                Fragment old = FragmentManager.FindFragmentByTag("import_dialog");
+                FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+                Fragment old = SupportFragmentManager.FindFragmentByTag("import_dialog");
 
                 if(old != null)
                 {
@@ -124,18 +125,27 @@ namespace ProAuth
         {
             try
             {
-                SHA256 sha256 = SHA256.Create();
-                byte[] password = Encoding.UTF8.GetBytes(_dialog.Password);
-                byte[] keyMaterial = sha256.ComputeHash(password);
+                string contents = "";
 
-                ISymmetricKeyAlgorithmProvider provider = 
-                    WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
+                if(_dialog.Password == "")
+                {
+                    contents = Encoding.UTF8.GetString(_file.DataArray);
+                }
+                else
+                {
+                    SHA256 sha256 = SHA256.Create();
+                    byte[] password = Encoding.UTF8.GetBytes(_dialog.Password);
+                    byte[] keyMaterial = sha256.ComputeHash(password);
 
-                ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
+                    ISymmetricKeyAlgorithmProvider provider = 
+                        WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
 
-                byte[] data = _file.DataArray;
-                byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, data);
-                string contents = Encoding.UTF8.GetString(raw);
+                    ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
+
+                    byte[] data = _file.DataArray;
+                    byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, data);
+                    contents = Encoding.UTF8.GetString(raw);
+                }
 
                 List<Authenticator> auths = JsonConvert.DeserializeObject<List<Authenticator>>(contents);
                 auths.ForEach((a) => _database.Connection.Insert(a));

@@ -27,15 +27,16 @@
     <string name="algorithmHint">Algorithm</string>
     <string name="digitsHint">Digits</string>
     <string name="periodHint">Period (Seconds)</string>
-    <string name="passwordHint">Backup Password</string>
+    <string name="passwordHint">Backup Password (leave blank if none)</string>
     <string name="fileNameHint">Backup File Name</string>
     
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>
     <string name="noFileName">A valid file name is required.</string>
     <string name="secretTooShort">The secret must be longer than 16 characters.</string>
-    <string name="digitsToSmall">The authenticator must generate more that 1 digit.</string>
-    <string name="periodToShort">The period must be longer than 1 second.</string>
+    <string name="secretInvalidChars">The secret contains invalid characters.</string>
+    <string name="digitsToSmall">The authenticator must generate at least 6 digits.</string>
+    <string name="periodToShort">The period must be longer than 10 seconds.</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
     
     <string name="selectBackup">Select Backup File</string>

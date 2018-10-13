@@ -18,8 +18,9 @@ using System.Text;
 using Android;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
-using Fragment = Android.App.Fragment;
-using FragmentTransaction = Android.App.FragmentTransaction;
+using Fragment = Android.Support.V4.App.Fragment;
+using DialogFragment = Android.Support.V4.App.DialogFragment;
+using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Permission = Android.Content.PM.Permission;
 using Android.Content.PM;
 using Android.Runtime;
@@ -165,8 +166,8 @@ namespace ProAuth
 
         private void ShowExportDialog()
         {
-            FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            Fragment old = FragmentManager.FindFragmentByTag("export_dialog");
+            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+            Fragment old = SupportFragmentManager.FindFragmentByTag("export_dialog");
 
             if(old != null)
             {

@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Preference = Android.Support.V7.Preferences.Preference;
 
 namespace ProAuth.Preferences
 {
