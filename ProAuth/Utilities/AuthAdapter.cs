@@ -89,7 +89,7 @@ namespace ProAuth.Utilities
 
         private void OnRefreshClick(int e)
         {
-            _authSource.IncrementCounter(e);
+            _authSource.RefreshHotp(e);
             _authSource.ClearCache(e);
             NotifyItemChanged(e);
         }
