@@ -2643,26 +2643,26 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a00bc
 			public const int action0 = 2131361980;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int actionEnterKey = 2131362013;
-			
-			// aapt resource value: 0x7f0a00e2
-			public const int actionExport = 2131362018;
-			
-			// aapt resource value: 0x7f0a00e1
-			public const int actionImport = 2131362017;
+			// aapt resource value: 0x7f0a00d7
+			public const int actionEnterKey = 2131362007;
 			
 			// aapt resource value: 0x7f0a00dc
-			public const int actionScan = 2131362012;
+			public const int actionExport = 2131362012;
 			
-			// aapt resource value: 0x7f0a00de
-			public const int actionSearch = 2131362014;
+			// aapt resource value: 0x7f0a00db
+			public const int actionImport = 2131362011;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int actionSettings = 2131362016;
+			// aapt resource value: 0x7f0a00d6
+			public const int actionScan = 2131362006;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int actionSort = 2131362015;
+			// aapt resource value: 0x7f0a00d8
+			public const int actionSearch = 2131362008;
+			
+			// aapt resource value: 0x7f0a00da
+			public const int actionSettings = 2131362010;
+			
+			// aapt resource value: 0x7f0a00d9
+			public const int actionSort = 2131362009;
 			
 			// aapt resource value: 0x7f0a007c
 			public const int action_bar = 2131361916;
@@ -2808,9 +2808,6 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a0063
 			public const int buttonPanel = 2131361891;
 			
-			// aapt resource value: 0x7f0a00d7
-			public const int buttonZxingFlash = 2131362007;
-			
 			// aapt resource value: 0x7f0a00bd
 			public const int cancel_action = 2131361981;
 			
@@ -2841,8 +2838,8 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a00a0
 			public const int container = 2131361952;
 			
-			// aapt resource value: 0x7f0a00d9
-			public const int contentFrame = 2131362009;
+			// aapt resource value: 0x7f0a00d3
+			public const int contentFrame = 2131362003;
 			
 			// aapt resource value: 0x7f0a0066
 			public const int contentPanel = 2131361894;
@@ -3003,12 +3000,6 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a0018
 			public const int line3 = 2131361816;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int linearLayout1 = 2131362002;
-			
-			// aapt resource value: 0x7f0a00d5
-			public const int linearLayout2 = 2131362005;
-			
 			// aapt resource value: 0x7f0a00ce
 			public const int list = 2131361998;
 			
@@ -3018,14 +3009,14 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a0061
 			public const int list_item = 2131361889;
 			
-			// aapt resource value: 0x7f0a00db
-			public const int masked = 2131362011;
+			// aapt resource value: 0x7f0a00d5
+			public const int masked = 2131362005;
 			
 			// aapt resource value: 0x7f0a00bf
 			public const int media_actions = 2131361983;
 			
-			// aapt resource value: 0x7f0a00d8
-			public const int message = 2131362008;
+			// aapt resource value: 0x7f0a00d2
+			public const int message = 2131362002;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int middle = 2131361841;
@@ -3228,15 +3219,6 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a0069
 			public const int textSpacerNoTitle = 2131361897;
 			
-			// aapt resource value: 0x7f0a00d3
-			public const int textView1 = 2131362003;
-			
-			// aapt resource value: 0x7f0a00d4
-			public const int textView2 = 2131362004;
-			
-			// aapt resource value: 0x7f0a00d6
-			public const int textView3 = 2131362006;
-			
 			// aapt resource value: 0x7f0a00ab
 			public const int text_input_password_toggle = 2131361963;
 			
@@ -3294,8 +3276,8 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a00da
-			public const int visible = 2131362010;
+			// aapt resource value: 0x7f0a00d4
+			public const int visible = 2131362004;
 			
 			// aapt resource value: 0x7f0a003c
 			public const int withText = 2131361852;
@@ -3603,28 +3585,25 @@ namespace ProAuth
 			public const int preference_widget_switch_compat = 2131034192;
 			
 			// aapt resource value: 0x7f050051
-			public const int qrOverlay = 2131034193;
+			public const int select_dialog_item_material = 2131034193;
 			
 			// aapt resource value: 0x7f050052
-			public const int select_dialog_item_material = 2131034194;
+			public const int select_dialog_multichoice_material = 2131034194;
 			
 			// aapt resource value: 0x7f050053
-			public const int select_dialog_multichoice_material = 2131034195;
+			public const int select_dialog_singlechoice_material = 2131034195;
 			
 			// aapt resource value: 0x7f050054
-			public const int select_dialog_singlechoice_material = 2131034196;
+			public const int support_simple_spinner_dropdown_item = 2131034196;
 			
 			// aapt resource value: 0x7f050055
-			public const int support_simple_spinner_dropdown_item = 2131034197;
+			public const int tooltip = 2131034197;
 			
 			// aapt resource value: 0x7f050056
-			public const int tooltip = 2131034198;
+			public const int zxingscanneractivitylayout = 2131034198;
 			
 			// aapt resource value: 0x7f050057
-			public const int zxingscanneractivitylayout = 2131034199;
-			
-			// aapt resource value: 0x7f050058
-			public const int zxingscannerfragmentlayout = 2131034200;
+			public const int zxingscannerfragmentlayout = 2131034199;
 			
 			static Layout()
 			{

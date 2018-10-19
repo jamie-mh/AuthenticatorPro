@@ -59,31 +59,16 @@ namespace ProAuth.Utilities
                 auth = _cache[n];
             }
 
-            if(auth.TimeRenew < DateTime.Now)
+            if(auth.Type == OtpType.Totp && auth.TimeRenew < DateTime.Now)
             {
                 auth = searching
                     ? _connection.Query<Authenticator>(sql, args).First()
                     : _connection.Query<Authenticator>(sql).First();
 
                 byte[] secret = Base32.Decode(auth.Secret);
-
-                switch(auth.Type)
-                {
-                    case OtpType.Totp:
-                    {
-                        Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
-                        auth.Code = totp.ComputeTotp();
-                        auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
-                        break;
-                    }
-                    case OtpType.Hotp:
-                    {
-                        Hotp hotp = new Hotp(secret, auth.Algorithm);
-                        auth.Code = hotp.ComputeHotp(auth.Counter);
-                        auth.TimeRenew = DateTime.Now.AddSeconds(10);
-                        break;
-                    }
-                }
+                Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
+                auth.Code = totp.ComputeTotp();
+                auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
 
                 _connection.Update(auth);
                 _cache[n] = auth;
@@ -125,10 +110,17 @@ namespace ProAuth.Utilities
             _connection.Delete<Authenticator>(auth.Id);
         }
 
-        public void IncrementCounter(int n)
+        public void RefreshHotp(int n)
         {
             Authenticator auth = GetNth(n);
+            byte[] secret = Base32.Decode(auth.Secret);
+            Hotp hotp = new Hotp(secret, auth.Algorithm);
+
             auth.Counter++;
+            auth.Code = hotp.ComputeHotp(auth.Counter);
+            auth.TimeRenew = DateTime.Now.AddSeconds(10);
+
+            _cache[n] = auth;
             _connection.Update(auth);
         }
 

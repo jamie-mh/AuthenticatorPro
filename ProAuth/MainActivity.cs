@@ -63,10 +63,7 @@ namespace ProAuth
             _floatingActionButton.Click += FloatingActionButtonClick;
 
             MobileBarcodeScanner.Initialize(Application);
-            _barcodeScanner = new MobileBarcodeScanner {
-                UseCustomOverlay = true,
-                CustomOverlay = LayoutInflater.FromContext(this).Inflate(Resource.Layout.qrOverlay, null)
-            };
+            _barcodeScanner = new MobileBarcodeScanner();
 
             _database = new Database(this);
 
