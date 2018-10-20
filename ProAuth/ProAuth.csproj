@@ -119,11 +119,8 @@
     <PackageReference Include="PCLCrypto">
       <Version>2.0.147</Version>
     </PackageReference>
-    <PackageReference Include="sqlite-net-pcl">
+    <PackageReference Include="sqlite-net-sqlcipher">
       <Version>1.5.231</Version>
-    </PackageReference>
-    <PackageReference Include="SQLitePCLRaw.bundle_sqlcipher">
-      <Version>1.1.11</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Compat">
       <Version>27.0.2.1</Version>

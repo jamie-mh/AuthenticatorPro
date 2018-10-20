@@ -66,6 +66,7 @@ namespace ProAuth
             _barcodeScanner = new MobileBarcodeScanner();
 
             _database = new Database(this);
+            _database.Prepare();
 
             ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
             bool authRequired = sharedPrefs.GetBoolean("pref_requireAuthentication", false);

@@ -17,6 +17,10 @@ namespace ProAuth.Utilities
             );
 
             Connection = new SQLiteConnection(dbPath, true);
+        }
+
+        public void Prepare()
+        {
             Connection.CreateTable<Authenticator>();
         }
     }
