@@ -9,7 +9,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace ProAuth
 {
-    class RenameDialog : DialogFragment
+    internal class RenameDialog : DialogFragment
     {
         public string Issuer => _issuerText.Text;
 

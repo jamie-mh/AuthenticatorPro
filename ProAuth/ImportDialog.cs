@@ -10,7 +10,7 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth
 {
-    class ImportDialog : DialogFragment
+    internal class ImportDialog : DialogFragment
     {
         public string Password => _passwordText.Text;
 

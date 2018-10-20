@@ -8,7 +8,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace ProAuth
 {
-    class ExportDialog : DialogFragment
+    internal class ExportDialog : DialogFragment
     {
         public string FileName => _fileNameText.Text;
 

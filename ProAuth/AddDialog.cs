@@ -8,7 +8,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace ProAuth
 {
-    class AddDialog : DialogFragment
+    internal class AddDialog : DialogFragment
     {
         public int Type => _typeSpinner.SelectedItemPosition;
         public string Issuer => _issuerText.Text;

@@ -5,7 +5,7 @@ using Android.Widget;
 
 namespace ProAuth.Utilities
 {
-    class AuthHolder : RecyclerView.ViewHolder
+    internal class AuthHolder : RecyclerView.ViewHolder
     {
         public TextView Issuer { get; set; }
         public TextView Username { get; }

@@ -234,7 +234,7 @@ namespace ProAuth
             builder.SetMessage(Resource.String.confirmDelete);
             builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
             {
-                _authSource.DeleteNth(authNum);
+                _authSource.Delete(authNum);
                 _authAdapter.NotifyItemRemoved(authNum);
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
@@ -284,6 +284,13 @@ namespace ProAuth
             try
             {
                 Authenticator auth = Authenticator.FromKeyUri(result.Text);
+
+                if(_authSource.IsDuplicate(auth))
+                {
+                    Toast.MakeText(this, Resource.String.duplicateAuthenticator, ToastLength.Short).Show();
+                    return;
+                }
+
                 _database.Connection.Insert(auth);
             }
             catch
@@ -404,6 +411,13 @@ namespace ProAuth
                 Digits = _addDialog.Digits,
                 Period = _addDialog.Period
             };
+
+            if(_authSource.IsDuplicate(auth))
+            {
+                Toast.MakeText(this, Resource.String.duplicateAuthenticator, ToastLength.Short).Show();
+                return;
+            }
+
             _database.Connection.Insert(auth);
             _addDialog.Dismiss();
         }

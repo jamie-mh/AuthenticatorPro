@@ -10,11 +10,8 @@ using SQLite;
 namespace ProAuth.Data
 {
     [Table("authenticator")]
-    class Authenticator
+    internal class Authenticator
     {
-        [Column("id"), PrimaryKey, AutoIncrement, JsonIgnore]
-        public int Id { get; set; }
-
         [Column("type")]
         public OtpType Type { get; set; }
 
@@ -24,7 +21,7 @@ namespace ProAuth.Data
         [Column("username"), MaxLength(32)]
         public string Username { get; set; }
 
-        [Column("secret"), MaxLength(32)]
+        [Column("secret"), PrimaryKey, MaxLength(32)]
         public string Secret { get; set; }
 
         [Column("algorithm")]
@@ -39,10 +36,10 @@ namespace ProAuth.Data
         [Column("counter")]
         public long Counter { get; set; }
 
-        [Column("renew"), JsonIgnore]
+        [Ignore, JsonIgnore]
         public DateTime TimeRenew { get; set; }
 
-        [Column("code"), JsonIgnore]
+        [Ignore, JsonIgnore]
         public string Code { get; set; }
 
         public static Authenticator FromKeyUri(string uri)

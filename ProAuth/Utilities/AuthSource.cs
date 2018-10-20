@@ -9,7 +9,7 @@ using SQLite;
 
 namespace ProAuth.Utilities
 {
-    class AuthSource
+    internal class AuthSource
     {
         public string Search { get; set; }
         public SortType Sort { get; set; }
@@ -102,12 +102,12 @@ namespace ProAuth.Utilities
             _cache[position] = null;
         }
 
-        public void DeleteNth(int n)
+        public void Delete(int n)
         {
             string sql = $@"SELECT * FROM authenticator LIMIT 1 OFFSET {n}";
             Authenticator auth = _connection.Query<Authenticator>(sql).First();
             _cache = new List<Authenticator>();
-            _connection.Delete<Authenticator>(auth.Id);
+            _connection.Delete<Authenticator>(auth.Secret);
         }
 
         public void RefreshHotp(int n)
@@ -122,6 +122,22 @@ namespace ProAuth.Utilities
 
             _cache[n] = auth;
             _connection.Update(auth);
+        }
+
+        public bool IsDuplicate(Authenticator auth)
+        {
+            Authenticator existing;
+
+            try
+            {
+                existing = _connection.Get<Authenticator>(auth.Secret);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return existing.Type == auth.Type;
         }
 
         public int Count()

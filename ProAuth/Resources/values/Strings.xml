@@ -38,6 +38,8 @@
     <string name="digitsToSmall">The authenticator must generate at least 6 digits.</string>
     <string name="periodToShort">The period must be longer than 10 seconds.</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
+    <string name="duplicateAuthenticator">An authenticator with this secret key already exists.</string>
+    <string name="importedNewAuthenticators">Imported {0} new authenticators.</string>
     
     <string name="selectBackup">Select Backup File</string>
     <string name="backupToFile">Backup to File</string>
@@ -51,7 +53,7 @@
     <string name="passwordConfirm">Password Confirm</string>
     <string name="login">Login</string>
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be visible. Do you wish to continue?</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vunerable. Do you wish to continue?</string>
     <string name="warning">Warning</string>
 
     <!-- Preferences -->

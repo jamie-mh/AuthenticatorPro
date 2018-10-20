@@ -31,6 +31,8 @@ namespace ProAuth
         private const int PermissionStorageCode = 0;
 
         private Database _database;
+        private AuthSource _authSource;
+
         private FileData _file;
         private ImportDialog _dialog;
 
@@ -39,6 +41,7 @@ namespace ProAuth
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityImport);
             _database = new Database(this);
+            _authSource = new AuthSource(_database.Connection);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityImport_toolbar);
             SetSupportActionBar(toolbar);
@@ -148,8 +151,21 @@ namespace ProAuth
                 }
 
                 List<Authenticator> auths = JsonConvert.DeserializeObject<List<Authenticator>>(contents);
-                auths.ForEach((a) => _database.Connection.Insert(a));
-                Toast.MakeText(_dialog.Context, $@"Imported {auths.Count} authenticator(s).", ToastLength.Long).Show();
+                int inserted = 0;
+
+                foreach(Authenticator auth in auths)
+                {
+                    if(_authSource.IsDuplicate(auth))
+                    {
+                        continue;
+                    }
+
+                    _database.Connection.Insert(auth);
+                    inserted++;
+                }
+
+                string message = String.Format(GetString(Resource.String.importedNewAuthenticators), inserted);
+                Toast.MakeText(_dialog.Context, message, ToastLength.Long).Show();
 
                 _dialog.Dismiss();
             }

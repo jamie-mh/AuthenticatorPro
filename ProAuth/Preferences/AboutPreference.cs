@@ -15,7 +15,7 @@ using Preference = Android.Support.V7.Preferences.Preference;
 
 namespace ProAuth.Preferences
 {
-    class AboutPreference : Preference
+    internal class AboutPreference : Preference
     {
         public AboutPreference(Context context) : base(context)
         {
