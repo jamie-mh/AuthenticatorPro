@@ -101,6 +101,8 @@ namespace ProAuth
                 advancedButton.Visibility = ViewStates.Gone;
             };
 
+            _typeSpinner.ItemSelected += _typeSpinner_ItemSelected;
+
             AlertDialog dialog = alert.Create();
             dialog.Show();
 
@@ -111,6 +113,11 @@ namespace ProAuth
             cancelButton.Click += _negativeButtonEvent.Invoke;
 
             return dialog;
+        }
+
+        private void _typeSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            _periodText.Visibility = (e.Position == 0) ? ViewStates.Visible : ViewStates.Gone;
         }
     }
 }
