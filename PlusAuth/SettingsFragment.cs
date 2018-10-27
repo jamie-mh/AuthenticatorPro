@@ -2,7 +2,7 @@
 using Android.Preferences;
 using Android.Support.V7.Preferences;
 
-namespace ProAuth
+namespace PlusAuth
 {
     public class SettingsFragment : PreferenceFragmentCompat
     {

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using OtpSharp;
-using ProAuth.Utilities;
+using PlusAuth.Utilities;
 using SQLite;
 
-namespace ProAuth.Data
+namespace PlusAuth.Data
 {
     [Table("authenticator")]
     internal class Authenticator

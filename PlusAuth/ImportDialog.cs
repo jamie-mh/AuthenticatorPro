@@ -8,7 +8,7 @@ using Android.Widget;
 using DialogFragment = Android.Support.V4.App.DialogFragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
-namespace ProAuth
+namespace PlusAuth
 {
     internal class ImportDialog : DialogFragment
     {

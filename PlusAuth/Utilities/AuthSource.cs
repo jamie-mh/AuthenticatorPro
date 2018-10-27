@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using Albireo.Base32;
 using OtpSharp;
-using ProAuth.Data;
+using PlusAuth.Data;
 using SQLite;
 
-namespace ProAuth.Utilities
+namespace PlusAuth.Utilities
 {
     internal class AuthSource
     {

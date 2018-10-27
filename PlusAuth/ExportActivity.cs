@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using ProAuth.Utilities;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
@@ -11,7 +10,6 @@ using Newtonsoft.Json;
 using PCLCrypto;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
-using ProAuth.Data;
 using System.IO;
 using Environment = Android.OS.Environment;
 using System.Text;
@@ -24,8 +22,10 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Permission = Android.Content.PM.Permission;
 using Android.Content.PM;
 using Android.Runtime;
+using PlusAuth.Data;
+using PlusAuth.Utilities;
 
-namespace ProAuth
+namespace PlusAuth
 {
     [Activity(Label = "ExportActivity")]
     public class ExportActivity: AppCompatActivity
@@ -100,7 +100,7 @@ namespace ProAuth
                 _database.Connection.Query<Authenticator>("SELECT * FROM authenticator");
 
             string json = JsonConvert.SerializeObject(authenticators);
-            string filename = _dialog.FileName + ".proauth";
+            string filename = _dialog.FileName + ".plusauth";
 
             string path = Path.Combine(Environment.ExternalStorageDirectory.AbsolutePath, filename);
             byte[] dataToWrite;

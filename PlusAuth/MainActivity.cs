@@ -2,14 +2,12 @@
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
-using ProAuth.Utilities;
 using System.Timers;
 using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using ProAuth.Data;
 using ZXing;
 using ZXing.Mobile;
 using PopupMenu = Android.Support.V7.Widget.PopupMenu;
@@ -22,11 +20,13 @@ using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
 using Android.Support.V7.Preferences;
 using OtpSharp;
+using PlusAuth.Data;
+using PlusAuth.Utilities;
 using Fragment = Android.Support.V4.App.Fragment;
 using DialogFragment = Android.Support.V4.App.DialogFragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
-namespace ProAuth
+namespace PlusAuth
 {
     [Activity(Label = "@string/appName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]

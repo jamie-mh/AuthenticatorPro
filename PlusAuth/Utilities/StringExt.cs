@@ -1,4 +1,4 @@
-﻿namespace ProAuth.Utilities
+﻿namespace PlusAuth.Utilities
 {
     public static class StringExt
     {

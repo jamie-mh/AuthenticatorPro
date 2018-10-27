@@ -5,7 +5,7 @@ using Android.Views;
 using Android.Webkit;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-namespace ProAuth
+namespace PlusAuth
 {
     [Activity(Label = "AboutActivity")]
     public class AboutActivity : AppCompatActivity

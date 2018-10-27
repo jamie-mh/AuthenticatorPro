@@ -4,7 +4,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
-namespace ProAuth
+namespace PlusAuth
 {
     [Activity(Label = "SettingsActivity")]
     public class SettingsActivity : AppCompatActivity

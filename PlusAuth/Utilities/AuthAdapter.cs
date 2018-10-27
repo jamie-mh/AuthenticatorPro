@@ -2,9 +2,9 @@
 using Android.Support.V7.Widget;
 using Android.Views;
 using OtpSharp;
-using ProAuth.Data;
+using PlusAuth.Data;
 
-namespace ProAuth.Utilities
+namespace PlusAuth.Utilities
 {
     internal sealed class AuthAdapter : RecyclerView.Adapter
     {

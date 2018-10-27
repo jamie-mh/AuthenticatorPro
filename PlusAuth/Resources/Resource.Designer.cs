@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("ProAuth.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("PlusAuth.Resource", IsApplication=true)]
 
-namespace ProAuth
+namespace PlusAuth
 {
 	
 	
@@ -26,11 +26,11 @@ namespace ProAuth
 		
 		public static void UpdateIdValues()
 		{
-			global::PCLCrypto.Resource.String.ApplicationName = global::ProAuth.Resource.String.ApplicationName;
-			global::PCLCrypto.Resource.String.Hello = global::ProAuth.Resource.String.Hello;
-			global::ZXing.Mobile.Resource.Id.contentFrame = global::ProAuth.Resource.Id.contentFrame;
-			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::ProAuth.Resource.Layout.zxingscanneractivitylayout;
-			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::ProAuth.Resource.Layout.zxingscannerfragmentlayout;
+			global::PCLCrypto.Resource.String.ApplicationName = global::PlusAuth.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::PlusAuth.Resource.String.Hello;
+			global::ZXing.Mobile.Resource.Id.contentFrame = global::PlusAuth.Resource.Id.contentFrame;
+			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::PlusAuth.Resource.Layout.zxingscanneractivitylayout;
+			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::PlusAuth.Resource.Layout.zxingscannerfragmentlayout;
 		}
 		
 		public partial class Animation

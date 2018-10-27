@@ -1,5 +1,5 @@
 <resources>
-    <string name="appName">ProAuth</string>
+    <string name="appName">PlusAuth</string>
     <string name="settings">Settings</string>
     <string name="importString">Import</string>
     <string name="export">Export</string>
@@ -43,7 +43,7 @@
     
     <string name="selectBackup">Select Backup File</string>
     <string name="backupToFile">Backup to File</string>
-    <string name="importMessage">Select a previously exported ProAuth backup to import its authenticators.</string>
+    <string name="importMessage">Select a previously exported PlusAuth backup to import its authenticators.</string>
     <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
     <string name="importError">The password is incorrect or the file is invalid.</string>
     <string name="filePickError">Error picking file.</string>
@@ -69,8 +69,8 @@
     <string name="pref_about_title">About</string>
     <string name="pref_about_summary">View about information.</string>
     <string name="pref_rate_title">Rate</string>
-    <string name="pref_rate_summary">Rate ProAuth on the Google Play store.</string>
+    <string name="pref_rate_summary">Rate PlusAuth on the Google Play store.</string>
     <string name="pref_featureRequest_title">Feature Request / Bug Report</string>
-    <string name="pref_featureRequest_summary">Send an email to the develop to request a feature or submit a bug report. All feedback is welcome.</string>
+    <string name="pref_featureRequest_summary">Send an email to the developer to request a feature or submit a bug report. All feedback is welcome.</string>
 </resources>
 

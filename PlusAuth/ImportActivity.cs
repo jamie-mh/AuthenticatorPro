@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using ProAuth.Utilities;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
@@ -18,12 +17,14 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
-using ProAuth.Data;
+using PlusAuth.Data;
+using PlusAuth.Utilities;
 using Fragment = Android.Support.V4.App.Fragment;
 using DialogFragment = Android.Support.V4.App.DialogFragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using Resource = Android.Resource;
 
-namespace ProAuth
+namespace PlusAuth
 {
     [Activity(Label = "ImportActivity")]
     public class ImportActivity: AppCompatActivity

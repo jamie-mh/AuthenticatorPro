@@ -13,7 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Preference = Android.Support.V7.Preferences.Preference;
 
-namespace ProAuth.Preferences
+namespace PlusAuth.Preferences
 {
     internal class AboutPreference : Preference
     {

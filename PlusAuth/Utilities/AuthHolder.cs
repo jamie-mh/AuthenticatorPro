@@ -3,7 +3,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
-namespace ProAuth.Utilities
+namespace PlusAuth.Utilities
 {
     internal class AuthHolder : RecyclerView.ViewHolder
     {

@@ -6,7 +6,7 @@ using Android.Views;
 using Android.Widget;
 using DialogFragment = Android.Support.V4.App.DialogFragment;
 
-namespace ProAuth
+namespace PlusAuth
 {
     internal class ExportDialog : DialogFragment
     {

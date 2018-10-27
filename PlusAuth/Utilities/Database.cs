@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using Android.Content;
-using ProAuth.Data;
+using PlusAuth.Data;
 using SQLite;
 
-namespace ProAuth.Utilities
+namespace PlusAuth.Utilities
 {
     internal class Database
     {
