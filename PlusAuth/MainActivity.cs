@@ -15,7 +15,6 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using System;
 using System.Linq;
-using Android.Support.V4.View;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
 using Android.Support.V7.Preferences;
@@ -23,7 +22,6 @@ using OtpSharp;
 using PlusAuth.Data;
 using PlusAuth.Utilities;
 using Fragment = Android.Support.V4.App.Fragment;
-using DialogFragment = Android.Support.V4.App.DialogFragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace PlusAuth

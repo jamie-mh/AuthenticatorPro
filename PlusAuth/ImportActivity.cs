@@ -20,9 +20,7 @@ using Android.Support.V4.Content;
 using PlusAuth.Data;
 using PlusAuth.Utilities;
 using Fragment = Android.Support.V4.App.Fragment;
-using DialogFragment = Android.Support.V4.App.DialogFragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
-using Resource = Android.Resource;
 
 namespace PlusAuth
 {

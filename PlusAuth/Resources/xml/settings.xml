@@ -24,7 +24,7 @@
         android:title="@string/pref_more"
         android:key="pref_key_more">
         
-        <proauth.preferences.AboutPreference
+        <plusauth.preferences.AboutPreference
             android:key="pref_key_about"
             android:summary="@string/pref_about_summary"
             android:title="@string/pref_about_title" />
