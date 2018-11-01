@@ -12,6 +12,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Plugin.FilePicker;
 using Plugin.FilePicker.Abstractions;
 using System.Text;
+using System.Text.RegularExpressions;
 using Android;
 using Android.Content.PM;
 using Android.Runtime;
@@ -73,6 +74,15 @@ namespace PlusAuth
 
                 if(_file == null)
                 {
+                    return;
+                }
+
+                Match filenameMatch = Regex.Match(_file.FileName, @"^(.*?)\.(.*?)$");
+
+                if(filenameMatch.Success == false || filenameMatch.Groups.Count < 3 ||
+                   filenameMatch.Groups[2].Value != "plusauth")
+                {
+                    Toast.MakeText(this, Resource.String.invalidFileError, ToastLength.Short).Show();
                     return;
                 }
 

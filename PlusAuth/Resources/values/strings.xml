@@ -47,6 +47,7 @@
     <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
     <string name="importError">The password is incorrect or the file is invalid.</string>
     <string name="filePickError">Error picking file.</string>
+    <string name="invalidFileError">The selected file is not a PlusAuth backup file.</string>
     <string name="externalStoragePermissionError">The external storage permission is required to import/export backup files.</string>
 
     <string name="password">Password</string>

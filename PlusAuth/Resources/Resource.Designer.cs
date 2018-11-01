@@ -3779,8 +3779,8 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0c0034
 			public const int confirmDelete = 2131492916;
 			
-			// aapt resource value: 0x7f0c005d
-			public const int confirmEmptyPassword = 2131492957;
+			// aapt resource value: 0x7f0c005e
+			public const int confirmEmptyPassword = 2131492958;
 			
 			// aapt resource value: 0x7f0c0033
 			public const int copiedToClipboard = 2131492915;
@@ -3806,8 +3806,8 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0c0055
 			public const int exportMessage = 2131492949;
 			
-			// aapt resource value: 0x7f0c0058
-			public const int externalStoragePermissionError = 2131492952;
+			// aapt resource value: 0x7f0c0059
+			public const int externalStoragePermissionError = 2131492953;
 			
 			// aapt resource value: 0x7f0c0047
 			public const int fileNameHint = 2131492935;
@@ -3827,17 +3827,20 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0c0051
 			public const int importedNewAuthenticators = 2131492945;
 			
+			// aapt resource value: 0x7f0c0058
+			public const int invalidFileError = 2131492952;
+			
 			// aapt resource value: 0x7f0c0039
 			public const int issuer = 2131492921;
 			
 			// aapt resource value: 0x7f0c0040
 			public const int issuerHint = 2131492928;
 			
-			// aapt resource value: 0x7f0c005b
-			public const int login = 2131492955;
-			
 			// aapt resource value: 0x7f0c005c
-			public const int loginMessage = 2131492956;
+			public const int login = 2131492956;
+			
+			// aapt resource value: 0x7f0c005d
+			public const int loginMessage = 2131492957;
 			
 			// aapt resource value: 0x7f0c004a
 			public const int noFileName = 2131492938;
@@ -3851,11 +3854,11 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0c003f
 			public const int ok = 2131492927;
 			
-			// aapt resource value: 0x7f0c0059
-			public const int password = 2131492953;
-			
 			// aapt resource value: 0x7f0c005a
-			public const int passwordConfirm = 2131492954;
+			public const int password = 2131492954;
+			
+			// aapt resource value: 0x7f0c005b
+			public const int passwordConfirm = 2131492955;
 			
 			// aapt resource value: 0x7f0c0046
 			public const int passwordHint = 2131492934;
@@ -3881,44 +3884,44 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0c004e
 			public const int periodToShort = 2131492942;
 			
-			// aapt resource value: 0x7f0c0067
-			public const int pref_about_summary = 2131492967;
-			
-			// aapt resource value: 0x7f0c0066
-			public const int pref_about_title = 2131492966;
-			
-			// aapt resource value: 0x7f0c0062
-			public const int pref_appearance = 2131492962;
-			
-			// aapt resource value: 0x7f0c006b
-			public const int pref_featureRequest_summary = 2131492971;
-			
-			// aapt resource value: 0x7f0c006a
-			public const int pref_featureRequest_title = 2131492970;
-			
-			// aapt resource value: 0x7f0c0065
-			public const int pref_more = 2131492965;
-			
-			// aapt resource value: 0x7f0c0069
-			public const int pref_rate_summary = 2131492969;
-			
 			// aapt resource value: 0x7f0c0068
-			public const int pref_rate_title = 2131492968;
+			public const int pref_about_summary = 2131492968;
 			
-			// aapt resource value: 0x7f0c0061
-			public const int pref_requireAuthentication_summary = 2131492961;
-			
-			// aapt resource value: 0x7f0c0060
-			public const int pref_requireAuthentication_title = 2131492960;
-			
-			// aapt resource value: 0x7f0c005f
-			public const int pref_security = 2131492959;
-			
-			// aapt resource value: 0x7f0c0064
-			public const int pref_useDarkTheme_summary = 2131492964;
+			// aapt resource value: 0x7f0c0067
+			public const int pref_about_title = 2131492967;
 			
 			// aapt resource value: 0x7f0c0063
-			public const int pref_useDarkTheme_title = 2131492963;
+			public const int pref_appearance = 2131492963;
+			
+			// aapt resource value: 0x7f0c006c
+			public const int pref_featureRequest_summary = 2131492972;
+			
+			// aapt resource value: 0x7f0c006b
+			public const int pref_featureRequest_title = 2131492971;
+			
+			// aapt resource value: 0x7f0c0066
+			public const int pref_more = 2131492966;
+			
+			// aapt resource value: 0x7f0c006a
+			public const int pref_rate_summary = 2131492970;
+			
+			// aapt resource value: 0x7f0c0069
+			public const int pref_rate_title = 2131492969;
+			
+			// aapt resource value: 0x7f0c0062
+			public const int pref_requireAuthentication_summary = 2131492962;
+			
+			// aapt resource value: 0x7f0c0061
+			public const int pref_requireAuthentication_title = 2131492961;
+			
+			// aapt resource value: 0x7f0c0060
+			public const int pref_security = 2131492960;
+			
+			// aapt resource value: 0x7f0c0065
+			public const int pref_useDarkTheme_summary = 2131492965;
+			
+			// aapt resource value: 0x7f0c0064
+			public const int pref_useDarkTheme_title = 2131492964;
 			
 			// aapt resource value: 0x7f0c004f
 			public const int qrCodeFormatError = 2131492943;
@@ -3977,8 +3980,8 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0c0001
 			public const int v7_preference_on = 2131492865;
 			
-			// aapt resource value: 0x7f0c005e
-			public const int warning = 2131492958;
+			// aapt resource value: 0x7f0c005f
+			public const int warning = 2131492959;
 			
 			static String()
 			{
