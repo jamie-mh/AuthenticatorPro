@@ -15,6 +15,9 @@ namespace PlusAuth.Data
         [Column("type")]
         public OtpType Type { get; set; }
 
+        [Column("createdDate")]
+        public DateTime CreatedDate { get; set; }
+
         [Column("issuer"), MaxLength(32)]
         public string Issuer { get; set; }
 
@@ -36,11 +39,18 @@ namespace PlusAuth.Data
         [Column("counter")]
         public long Counter { get; set; }
 
-        [Ignore, JsonIgnore]
+        [JsonIgnore]
         public DateTime TimeRenew { get; set; }
 
-        [Ignore, JsonIgnore]
+        [JsonIgnore]
         public string Code { get; set; }
+
+        public Authenticator()
+        {
+            Code = "";
+            TimeRenew = DateTime.Now;
+            CreatedDate = DateTime.Now;
+        }
 
         public static Authenticator FromKeyUri(string uri)
         {
@@ -112,9 +122,7 @@ namespace PlusAuth.Data
                 Algorithm = algorithm,
                 Digits = digits,
                 Period = period,
-                Counter = 0,
-                TimeRenew = DateTime.MinValue,
-                Code = ""
+                Counter = 0
             };
 
             return auth;

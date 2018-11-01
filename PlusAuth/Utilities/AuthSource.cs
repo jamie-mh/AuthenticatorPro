@@ -84,7 +84,7 @@ namespace PlusAuth.Utilities
                     return "ORDER BY issuer ASC, username ASC";
 
                 case SortType.CreatedDate:
-                    return "ORDER BY id ASC";
+                    return "ORDER BY createdDate ASC";
 
                 default:
                     return "";
@@ -146,7 +146,7 @@ namespace PlusAuth.Utilities
                 return _connection.Table<Authenticator>().Count();
             }
 
-            string sql = "SELECT id FROM authenticator WHERE issuer LIKE ?";
+            string sql = "SELECT secret FROM authenticator WHERE issuer LIKE ?";
             object[] args = {$@"%{Search}%"};
 
             return _connection.Query<Authenticator>(sql, args).Count();

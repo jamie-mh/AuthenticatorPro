@@ -89,8 +89,13 @@ namespace PlusAuth.Utilities
 
         private void OnRefreshClick(int e)
         {
-            _authSource.RefreshHotp(e);
+            if(e < 0)
+            {
+                return;
+            }
+
             _authSource.ClearCache(e);
+            _authSource.RefreshHotp(e);
             NotifyItemChanged(e);
         }
     }
