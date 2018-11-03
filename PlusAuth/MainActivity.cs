@@ -64,6 +64,10 @@ namespace PlusAuth
             MobileBarcodeScanner.Initialize(Application);
             _barcodeScanner = new MobileBarcodeScanner();
 
+            View overlay = LayoutInflater.Inflate(Resource.Layout.qrCode, null);
+            _barcodeScanner.CustomOverlay = overlay;
+            _barcodeScanner.UseCustomOverlay = true;
+
             _database = new Database();
             _database.Prepare();
 

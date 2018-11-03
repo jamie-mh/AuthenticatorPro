@@ -18,6 +18,7 @@
     <string name="username">Username</string>
     <string name="secretKey">Secret Key</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
+    <string name="qrCodeScan">Place a QR code in the camera viewfinder to scan it. The code will scan automatically.</string> 
     
     <string name="search">Search</string>
     <string name="sort">Sort</string>
