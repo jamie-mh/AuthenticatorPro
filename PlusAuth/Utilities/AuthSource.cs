@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Albireo.Base32;
 using OtpSharp;
-using PInvoke;
 using PlusAuth.Data;
 using SQLite;
 

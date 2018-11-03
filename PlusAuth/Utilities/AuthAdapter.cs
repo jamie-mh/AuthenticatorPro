@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using Android.Content;
+using Android.Graphics.Drawables;
+using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using OtpSharp;
@@ -10,18 +11,21 @@ namespace PlusAuth.Utilities
 {
     internal sealed class AuthAdapter : RecyclerView.Adapter
     {
-        private readonly AuthSource _authSource;
+        private readonly AuthSource _source;
+        private readonly Context _context;
+
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> ItemOptionsClick;
 
-        public AuthAdapter(AuthSource authSource)
+        public AuthAdapter(Context context, AuthSource authSource)
         {
-            _authSource = authSource;
+            _source = authSource;
+            _context = context;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            Authenticator auth = _authSource.Get(position);
+            Authenticator auth = _source.Get(position);
             AuthHolder holder = (AuthHolder) viewHolder;
 
             holder.Issuer.Text = auth.Issuer;
@@ -43,6 +47,9 @@ namespace PlusAuth.Utilities
                     spacesInserted++;
                 }
             }
+
+            Drawable icon = ContextCompat.GetDrawable(_context, Icon.Get(auth.Icon));
+            holder.Icon.SetImageDrawable(icon);
 
             if(auth.Type == OtpType.Totp)
                 TotpViewBind(holder, auth);
@@ -84,7 +91,7 @@ namespace PlusAuth.Utilities
             return holder;
         }
 
-        public override int ItemCount => _authSource.Count();
+        public override int ItemCount => _source.Count();
 
         private void OnItemClick(int position)
         {
@@ -98,7 +105,7 @@ namespace PlusAuth.Utilities
 
         private void OnRefreshClick(int position)
         {
-            _authSource.IncrementHotp(position);
+            _source.IncrementHotp(position);
             NotifyItemChanged(position);
         }
     }

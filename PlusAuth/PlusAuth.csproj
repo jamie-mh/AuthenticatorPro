@@ -74,18 +74,22 @@
     <Compile Include="AboutActivity.cs" />
     <Compile Include="ExportDialog.cs" />
     <Compile Include="Preferences\AboutPreference.cs" />
+    <Compile Include="IconDialog.cs" />
     <Compile Include="RenameDialog.cs" />
     <Compile Include="AddDialog.cs" />
     <Compile Include="Data\Authenticator.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="SettingsActivity.cs" />
+    <Compile Include="Utilities\IconHolder.cs" />
+    <Compile Include="Utilities\IconAdapter.cs" />
     <Compile Include="Utilities\AuthAdapter.cs" />
     <Compile Include="Utilities\AuthHolder.cs" />
     <Compile Include="Utilities\AuthSource.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Database.cs" />
+    <Compile Include="Utilities\Icon.cs" />
     <Compile Include="Utilities\StringExt.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -404,19 +408,60 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_refresh_light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\google.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_google.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\google.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_google.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\google.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_google.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\google.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_google.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\google.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_google.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_facebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialogIcon.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\iconListItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

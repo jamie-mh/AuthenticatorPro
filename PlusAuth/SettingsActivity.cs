@@ -37,7 +37,7 @@ namespace PlusAuth
         {
             if(item.ItemId == Android.Resource.Id.Home)
             {
-                this.Finish();
+                Finish();
                 return true;
             }
 

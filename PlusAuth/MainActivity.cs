@@ -45,6 +45,7 @@ namespace PlusAuth
         // Alert Dialogs
         private RenameDialog _renameDialog;
         private AddDialog _addDialog;
+        private IconDialog _iconDialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -83,7 +84,7 @@ namespace PlusAuth
             PrepareAuthenticatorList();
 
             _authTimer = new Timer {
-                Interval = 1000,
+                Interval = 2000,
                 AutoReset = true,
                 Enabled = true
             };
@@ -125,6 +126,7 @@ namespace PlusAuth
             searchView.QueryTextChange += (sender, e) =>
             {
                 _authSource.SetSearch(e.NewText);
+                _authAdapter.NotifyDataSetChanged();
             };
 
             return base.OnCreateOptionsMenu(menu);
@@ -176,7 +178,7 @@ namespace PlusAuth
             _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
 
             _authSource = new AuthSource(_database.Connection);
-            _authAdapter = new AuthAdapter(_authSource);
+            _authAdapter = new AuthAdapter(this, _authSource);
             _authAdapter.ItemClick += AuthClick;
             _authAdapter.ItemOptionsClick += AuthOptionsClick;
 
@@ -206,7 +208,7 @@ namespace PlusAuth
             Toast.MakeText(this, Resource.String.copiedToClipboard, ToastLength.Short).Show();
         }
 
-        private void AuthOptionsClick(object sender, int e)
+        private void AuthOptionsClick(object sender, int position)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetItems(Resource.Array.authContextMenu, (alertSender, args) =>
@@ -214,14 +216,15 @@ namespace PlusAuth
                 switch(args.Which)
                 {
                     case 0:
-                        OpenRenameDialog(e);
+                        OpenRenameDialog(position);
                         break;
 
                     case 1:
+                        OpenIconDialog(position);
                         break;
 
                     case 2:
-                        ConfirmDelete(e);
+                        this.OpenDeleteDialog(position);
                         break;
                 }
             });
@@ -230,14 +233,14 @@ namespace PlusAuth
             dialog.Show();
         }
 
-        private void ConfirmDelete(int authNum)
+        private void OpenDeleteDialog(int position)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetMessage(Resource.String.confirmDelete);
             builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
             {
-                _authSource.Delete(authNum);
-                _authAdapter.NotifyItemRemoved(authNum);
+                _authSource.Delete(position);
+                _authAdapter.NotifyItemRemoved(position);
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -464,6 +467,34 @@ namespace PlusAuth
         private void RenameDialogNegative(object sender, EventArgs e)
         {
             _renameDialog.Dismiss();
+        }
+
+        /*
+         *  Icon Dialog
+         */
+        private void OpenIconDialog(int position)
+        {
+            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+            Fragment old = SupportFragmentManager.FindFragmentByTag("icon_dialog");
+
+            if(old != null)
+            {
+                transaction.Remove(old);
+            }
+
+            transaction.AddToBackStack(null);
+            _iconDialog = new IconDialog(IconDialogPositive, IconDialogNegative, position);
+            _iconDialog.Show(transaction, "icon_dialog");
+        }
+
+        private void IconDialogPositive(object sender, EventArgs e)
+        {
+            _iconDialog?.Dismiss();
+        }
+
+        private void IconDialogNegative(object sender, EventArgs e)
+        {
+            _iconDialog.Dismiss();
         }
     }
 }

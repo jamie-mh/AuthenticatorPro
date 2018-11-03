@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:fillViewport="true"
+    android:layout_marginBottom="8dp"
+	android:padding="20sp">
+
+	<android.support.design.widget.TextInputLayout
+		android:layout_marginBottom="8dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<EditText
+			android:id="@+id/dialogIcon_search"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/search"/>
+	</android.support.design.widget.TextInputLayout>
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/dialogIcon_list"
+		android:scrollbars="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
+</LinearLayout>

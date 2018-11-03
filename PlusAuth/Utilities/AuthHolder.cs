@@ -13,6 +13,7 @@ namespace PlusAuth.Utilities
         public ProgressBar ProgressBar { get; set; }
         public TextView Counter { get; set; }
         public ImageButton RefreshButton { get; set; }
+        public ImageView Icon { get; set; }
 
         public AuthHolder(View itemView, Action<int> clickListener, Action<int> optionsClickListener, Action<int> refreshClickListener) : base(itemView)
         {
@@ -22,6 +23,7 @@ namespace PlusAuth.Utilities
             ProgressBar = itemView.FindViewById<ProgressBar>(Resource.Id.authList_progress);
             Counter = itemView.FindViewById<TextView>(Resource.Id.authListItem_counter);
             RefreshButton = itemView.FindViewById<ImageButton>(Resource.Id.authListItem_refresh);
+            Icon = itemView.FindViewById<ImageView>(Resource.Id.authListItem_icon);
 
             ImageButton optionsButton = itemView.FindViewById<ImageButton>(Resource.Id.authListItem_options);
 

@@ -18,6 +18,9 @@ namespace PlusAuth.Data
         [Column("createdDate")]
         public DateTime CreatedDate { get; set; }
 
+        [Column("icon")]
+        public string Icon { get; set; }
+
         [Column("issuer"), MaxLength(32)]
         public string Issuer { get; set; }
 
