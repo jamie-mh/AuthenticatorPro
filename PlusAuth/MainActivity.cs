@@ -297,6 +297,8 @@ namespace PlusAuth
                 }
 
                 _database.Connection.Insert(auth);
+                _authSource.Update();
+                _authAdapter.NotifyDataSetChanged();
             }
             catch
             {
@@ -315,6 +317,8 @@ namespace PlusAuth
                     case 0: _authSource.SetSort(AuthSource.SortType.Alphabetical); break;
                     case 1: _authSource.SetSort(AuthSource.SortType.CreatedDate); break;
                 }
+
+                _authAdapter.NotifyDataSetChanged();
             })
             .Create()
             .Show();
@@ -403,6 +407,9 @@ namespace PlusAuth
 
             OtpType type = (_addDialog.Type == 0) ? OtpType.Totp : OtpType.Hotp;
 
+            string code = "";
+            for(int i = 0; i < _addDialog.Digits; code += "-", i++);
+
             Authenticator auth = new Authenticator {
                 Issuer = issuer,
                 Username = username,
@@ -411,7 +418,8 @@ namespace PlusAuth
                 Counter = 0,
                 Secret = secret,
                 Digits = _addDialog.Digits,
-                Period = _addDialog.Period
+                Period = _addDialog.Period,
+                Code = code
             };
 
             if(_authSource.IsDuplicate(auth))
@@ -421,6 +429,9 @@ namespace PlusAuth
             }
 
             _database.Connection.Insert(auth);
+            _authSource.Update();
+            _authAdapter.NotifyDataSetChanged();
+
             _addDialog.Dismiss();
         }
 

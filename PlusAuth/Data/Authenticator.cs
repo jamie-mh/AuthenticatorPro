@@ -116,6 +116,9 @@ namespace PlusAuth.Data
             int digits = (args.ContainsKey("digits")) ? Int32.Parse(args["digits"]) : 6;
             int period = (args.ContainsKey("period")) ? Int32.Parse(args["period"]) : 30;
 
+            string code = "";
+            for(int i = 0; i < digits; code += "-", i++);
+
             Authenticator auth = new Authenticator
             {
                 Secret = args["secret"].ToUpper(),
@@ -125,7 +128,8 @@ namespace PlusAuth.Data
                 Algorithm = algorithm,
                 Digits = digits,
                 Period = period,
-                Counter = 0
+                Counter = 0,
+                Code = code
             };
 
             return auth;

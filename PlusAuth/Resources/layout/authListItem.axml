@@ -74,19 +74,6 @@
 			android:layout_marginTop="2dp"
 			android:layout_marginLeft="44dp"
 			android:id="@+id/authListItem_code" />
-		<TextView
-			android:text="0"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:layout_alignParentRight="true"
-			android:textSize="16dp"
-			android:layout_marginTop="8dp"
-			android:layout_marginBottom="10dp"
-			android:fontFamily="@font/worksans"
-			android:visibility="gone"
-			android:fontWeight="400"
-			android:id="@+id/authListItem_counter" />
 		<LinearLayout
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -105,6 +92,18 @@
 				android:visibility="gone"
 				android:layout_width="30dp"
 				android:layout_height="30dp" />
+
+			<TextView
+				android:text="0"
+				android:layout_width="30dp"
+				android:layout_height="30dp"
+				android:layout_marginRight="14dp"
+				android:gravity="center"
+				android:textSize="22dp"
+				android:fontFamily="@font/worksans"
+				android:visibility="gone"
+				android:fontWeight="400"
+				android:id="@+id/authListItem_counter" />
 
 			<ImageButton
 				android:id="@+id/authListItem_options"
