@@ -51,9 +51,7 @@ namespace PlusAuth.Utilities
             string sql = $@"SELECT * FROM authenticator ";
             object[] args = { $@"%{_search}%" };
 
-            bool searching = _search.Trim() != "";
-
-            if(searching)
+            if(_search.Trim() != "")
             {
                 sql += "WHERE issuer LIKE ? ";
             }

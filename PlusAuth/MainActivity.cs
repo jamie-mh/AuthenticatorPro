@@ -483,12 +483,18 @@ namespace PlusAuth
             }
 
             transaction.AddToBackStack(null);
-            _iconDialog = new IconDialog(IconDialogPositive, IconDialogNegative, position);
+            _iconDialog = new IconDialog(IconDialogIconClick, IconDialogNegative, position);
             _iconDialog.Show(transaction, "icon_dialog");
         }
 
-        private void IconDialogPositive(object sender, EventArgs e)
+        private void IconDialogIconClick(object sender, EventArgs e)
         {
+            Authenticator auth = _authSource.Get(_iconDialog.Position);
+            auth.Icon = _iconDialog.IconKey;
+
+            _database.Connection.Update(auth);
+            _authAdapter.NotifyItemChanged(_iconDialog.Position);
+
             _iconDialog?.Dismiss();
         }
 

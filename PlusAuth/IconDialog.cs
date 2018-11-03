@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V7.Widget;
+using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Javax.Sql;
@@ -15,17 +17,22 @@ namespace PlusAuth
     internal class IconDialog : DialogFragment
     {
         public int Position { get; }
+        public string IconKey { get; private set; }
 
         private EditText _searchText;
         private RecyclerView _iconList;
+        private IconSource _iconSource;
+        private IconAdapter _iconAdapter;
 
-        private readonly Action<object, EventArgs> _positiveButtonEvent;
+        private readonly Action<object, EventArgs> _itemClick;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public IconDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative, int position)
+        public IconDialog(Action<object, EventArgs> itemClick, Action<object, EventArgs> negative, int position)
         {
-            _positiveButtonEvent = positive;
+            _itemClick = itemClick;
             _negativeButtonEvent = negative;
+            _iconSource = new IconSource();
+
             Position = position;
         }
 
@@ -34,7 +41,6 @@ namespace PlusAuth
             AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
             alert.SetTitle(Resource.String.changeIcon);
 
-            alert.SetPositiveButton(Resource.String.ok, (EventHandler<DialogClickEventArgs>) null);
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 
@@ -46,28 +52,34 @@ namespace PlusAuth
             AlertDialog dialog = alert.Create();
             dialog.Show();
 
-            IconAdapter adapter = new IconAdapter(Context);
-            adapter.ItemClick += ItemClick;
+            _searchText.TextChanged += SearchChanged;
 
-            _iconList.SetAdapter(adapter);
+            _iconAdapter = new IconAdapter(Context, _iconSource);
+            _iconAdapter.ItemClick += ItemClick;
+
+            _iconList.SetAdapter(_iconAdapter);
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
             _iconList.DrawingCacheEnabled = true;
             _iconList.DrawingCacheQuality = DrawingCacheQuality.High;
             _iconList.SetLayoutManager(new GridLayoutManager(Context, 8));
 
-            Button okButton = dialog.GetButton((int) DialogButtonType.Positive);
             Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
-
-            okButton.Click += _positiveButtonEvent.Invoke;
             cancelButton.Click += _negativeButtonEvent.Invoke;
 
             return dialog;
         }
 
+        private void SearchChanged(object sender, TextChangedEventArgs e)
+        {
+            _iconSource.SetSearch(e.Text.ToString());
+            _iconAdapter.NotifyDataSetChanged();
+        }
+
         private void ItemClick(object sender, int e)
         {
-
+            IconKey = Icon.List.ElementAt(e).Key;
+            _itemClick.Invoke(sender, null);
         }
     }
 }

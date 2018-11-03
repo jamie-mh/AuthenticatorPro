@@ -81,6 +81,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="SettingsActivity.cs" />
+    <Compile Include="Utilities\IconSource.cs" />
     <Compile Include="Utilities\IconHolder.cs" />
     <Compile Include="Utilities\IconAdapter.cs" />
     <Compile Include="Utilities\AuthAdapter.cs" />

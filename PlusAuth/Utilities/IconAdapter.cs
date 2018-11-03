@@ -15,15 +15,17 @@ namespace PlusAuth.Utilities
     {
         public event EventHandler<int> ItemClick;
         private readonly Context _context;
+        private readonly IconSource _iconSource;
 
-        public IconAdapter(Context context)
+        public IconAdapter(Context context, IconSource iconSource)
         {
             _context = context;
+            _iconSource = iconSource;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            KeyValuePair<string, int> icon = Icon.List.ElementAt(position);
+            KeyValuePair<string, int> icon = _iconSource.Icons.ElementAt(position);
             IconHolder holder = (IconHolder) viewHolder;
 
             Drawable drawable = ContextCompat.GetDrawable(_context, icon.Value);
@@ -40,7 +42,7 @@ namespace PlusAuth.Utilities
             return holder;
         }
 
-        public override int ItemCount => Icon.List.Count;
+        public override int ItemCount => _iconSource.Icons.Count;
 
         private void OnItemClick(int position)
         {
