@@ -40,7 +40,7 @@ namespace PlusAuth
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityImport);
-            _database = new Database(this);
+            _database = new Database();
             _authSource = new AuthSource(_database.Connection);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityImport_toolbar);

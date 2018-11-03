@@ -21,6 +21,7 @@ namespace PlusAuth
         }
 
         public Authenticator Authenticator { get; }
+        public int Position { get; }
 
         private EditText _issuerText;
         private EditText _usernameText;
@@ -28,11 +29,12 @@ namespace PlusAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public RenameDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth)
+        public RenameDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth, int position)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
             Authenticator = auth;
+            Position = position;
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)

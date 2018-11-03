@@ -38,7 +38,7 @@ namespace PlusAuth
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityExport);
-            _database = new Database(this);
+            _database = new Database();
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityExport_toolbar);
             SetSupportActionBar(toolbar);

@@ -2,6 +2,7 @@
 <resources>
     <string-array name="authContextMenu">
         <item>Rename</item>
+        <item>Change Icon</item>
         <item>Delete</item>
     </string-array>
     <string-array name="sortTypes">

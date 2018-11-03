@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Albireo.Base32;
 using OtpSharp;
+using PInvoke;
 using PlusAuth.Data;
 using SQLite;
 
@@ -10,108 +11,129 @@ namespace PlusAuth.Utilities
 {
     internal class AuthSource
     {
-        public string Search { get; set; }
-        public SortType Sort { get; set; }
-
         public enum SortType
         {
             Alphabetical, CreatedDate
         };
 
+        private string _search;
+        private SortType _sort;
+
         private readonly SQLiteConnection _connection;
-        private List<Authenticator> _cache;
+        private List<Authenticator> _authenticators;
 
         public AuthSource(SQLiteConnection connection)
         {
-            Search = "";
-            Sort = SortType.Alphabetical;
+            _search = "";
+            _sort = SortType.Alphabetical;
 
             _connection = connection;
-            _cache = new List<Authenticator>();
+
+            _authenticators = new List<Authenticator>();
+            Update();
         }
 
-        public Authenticator GetNth(int n)
+        public void SetSearch(string query)
         {
-            string sql = $@"SELECT * FROM authenticator ";
+            _search = query;
+            Update();
+        }
 
-            Authenticator auth;
-            bool searching = Search.Trim() != "";
+        public void SetSort(SortType sortType)
+        {
+            _sort = sortType;
+            Update();
+        }
+
+        public void Update()
+        {
+            _authenticators.Clear();
+
+            string sql = $@"SELECT * FROM authenticator ";
+            object[] args = { $@"%{_search}%" };
+
+            bool searching = _search.Trim() != "";
 
             if(searching)
             {
                 sql += "WHERE issuer LIKE ? ";
             }
 
-            sql += GetOrderStatement() + $@" LIMIT 1 OFFSET {n}";
-            object[] args = {$@"%{Search}%"};
-
-            if(_cache.Count <= n || _cache[n] == null)
+            switch(_sort)
             {
-                auth = searching
-                    ? _connection.Query<Authenticator>(sql, args).First()
-                    : _connection.Query<Authenticator>(sql).First();
+                case SortType.Alphabetical:
+                    sql += "ORDER BY issuer ASC, username ASC";
+                    break;
 
-                _cache.Insert(n, auth);
-            }
-            else
-            {
-                auth = _cache[n];
+                case SortType.CreatedDate:
+                    sql += "ORDER BY createdDate ASC";
+                    break;
             }
 
-            if(auth.Type == OtpType.Totp && auth.TimeRenew < DateTime.Now)
-            {
-                auth = searching
-                    ? _connection.Query<Authenticator>(sql, args).First()
-                    : _connection.Query<Authenticator>(sql).First();
+            _authenticators = _connection.Query<Authenticator>(sql, args);
+        }
 
+        public Authenticator Get(int position)
+        {
+            if(_authenticators.ElementAtOrDefault(position) == null)
+            {
+                return null;
+            }
+
+            Authenticator auth = _authenticators[position];
+
+            if(auth.Type == OtpType.Totp && auth.TimeRenew <= DateTime.Now)
+            {
                 byte[] secret = Base32.Decode(auth.Secret);
                 Totp totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
                 auth.Code = totp.ComputeTotp();
                 auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
-
-                _connection.Update(auth);
-                _cache[n] = auth;
             }
 
             return auth;
         }
 
-        private string GetOrderStatement()
+        public void Rename(int position, string issuer, string username)
         {
-            switch(Sort)
+            if(_authenticators.ElementAtOrDefault(position) == null)
             {
-                case SortType.Alphabetical:
-                    return "ORDER BY issuer ASC, username ASC";
-
-                case SortType.CreatedDate:
-                    return "ORDER BY createdDate ASC";
-
-                default:
-                    return "";
+                return;
             }
+
+            Authenticator item = _authenticators[position];
+            item.Issuer = issuer.Trim().Truncate(32);
+            item.Username = username.Trim().Truncate(32);
+
+            _connection.Update(item);
         }
 
-        public void ClearCache()
+        public void Delete(int position)
         {
-            _cache.Clear();
+            if(_authenticators.ElementAtOrDefault(position) == null)
+            {
+                return;
+            }
+
+            Authenticator item = _authenticators[position];
+
+            _connection.Delete<Authenticator>(item.Secret);
+            _authenticators.Remove(item);
         }
 
-        public void ClearCache(int position)
+        public void IncrementHotp(int position)
         {
-            _cache[position] = null;
-        }
+            if(_authenticators.ElementAtOrDefault(position) == null)
+            {
+                return;
+            }
 
-        public void Delete(int n)
-        {
-            string sql = $@"SELECT * FROM authenticator LIMIT 1 OFFSET {n}";
-            Authenticator auth = _connection.Query<Authenticator>(sql).First();
-            _cache = new List<Authenticator>();
-            _connection.Delete<Authenticator>(auth.Secret);
-        }
+            Authenticator auth = _authenticators[position];
 
-        public void RefreshHotp(int n)
-        {
-            Authenticator auth = GetNth(n);
+            if(auth.Type != OtpType.Hotp)
+            {
+                return;
+            }
+
             byte[] secret = Base32.Decode(auth.Secret);
             Hotp hotp = new Hotp(secret, auth.Algorithm);
 
@@ -119,37 +141,26 @@ namespace PlusAuth.Utilities
             auth.Code = hotp.ComputeHotp(auth.Counter);
             auth.TimeRenew = DateTime.Now.AddSeconds(10);
 
-            _cache[n] = auth;
+            _authenticators[position] = auth;
             _connection.Update(auth);
         }
 
         public bool IsDuplicate(Authenticator auth)
         {
-            Authenticator existing;
-
-            try
+            foreach(Authenticator iterator in _authenticators)
             {
-                existing = _connection.Get<Authenticator>(auth.Secret);
-            }
-            catch
-            {
-                return false;
+                if(auth.Secret == iterator.Secret)
+                {
+                    return true;
+                }
             }
 
-            return existing.Type == auth.Type;
+            return false;
         }
 
         public int Count()
         {
-            if(Search.Trim() == "")
-            {
-                return _connection.Table<Authenticator>().Count();
-            }
-
-            string sql = "SELECT secret FROM authenticator WHERE issuer LIKE ?";
-            object[] args = {$@"%{Search}%"};
-
-            return _connection.Query<Authenticator>(sql, args).Count();
+            return _authenticators.Count;
         }
     }
 }

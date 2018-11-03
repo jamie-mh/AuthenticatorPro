@@ -63,7 +63,7 @@ namespace PlusAuth
             MobileBarcodeScanner.Initialize(Application);
             _barcodeScanner = new MobileBarcodeScanner();
 
-            _database = new Database(this);
+            _database = new Database();
             _database.Prepare();
 
             ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
@@ -82,8 +82,7 @@ namespace PlusAuth
 
             PrepareAuthenticatorList();
 
-            _authTimer = new Timer()
-            {
+            _authTimer = new Timer {
                 Interval = 1000,
                 AutoReset = true,
                 Enabled = true
@@ -125,9 +124,7 @@ namespace PlusAuth
 
             searchView.QueryTextChange += (sender, e) =>
             {
-                _authSource.Search = e.NewText;
-                _authSource.ClearCache();
-                _authAdapter.NotifyDataSetChanged();
+                _authSource.SetSearch(e.NewText);
             };
 
             return base.OnCreateOptionsMenu(menu);
@@ -184,6 +181,10 @@ namespace PlusAuth
             _authAdapter.ItemOptionsClick += AuthOptionsClick;
 
             _authList.SetAdapter(_authAdapter);
+            _authList.HasFixedSize = true;
+            _authList.SetItemViewCacheSize(20);
+            _authList.DrawingCacheEnabled = true;
+            _authList.DrawingCacheQuality = DrawingCacheQuality.High;
             _authList.SetLayoutManager(new LinearLayoutManager(this));
         }
 
@@ -195,10 +196,10 @@ namespace PlusAuth
             });
         }
 
-        private void AuthClick(object sender, int e)
+        private void AuthClick(object sender, int position)
         {
             ClipboardManager clipboard = (ClipboardManager) GetSystemService(ClipboardService);
-            Authenticator auth = _authSource.GetNth(e);
+            Authenticator auth = _authSource.Get(position);
             ClipData clip = ClipData.NewPlainText("code", auth.Code);
             clipboard.PrimaryClip = clip;
 
@@ -217,6 +218,9 @@ namespace PlusAuth
                         break;
 
                     case 1:
+                        break;
+
+                    case 2:
                         ConfirmDelete(e);
                         break;
                 }
@@ -305,12 +309,9 @@ namespace PlusAuth
             {
                 switch(e.Which)
                 {
-                    case 0: _authSource.Sort = AuthSource.SortType.Alphabetical; break;
-                    case 1: _authSource.Sort = AuthSource.SortType.CreatedDate; break;
+                    case 0: _authSource.SetSort(AuthSource.SortType.Alphabetical); break;
+                    case 1: _authSource.SetSort(AuthSource.SortType.CreatedDate); break;
                 }
-
-                _authSource.ClearCache();
-                _authAdapter.NotifyDataSetChanged();
             })
             .Create()
             .Show();
@@ -399,7 +400,7 @@ namespace PlusAuth
 
             OtpType type = (_addDialog.Type == 0) ? OtpType.Totp : OtpType.Hotp;
 
-            Authenticator auth = new Authenticator() {
+            Authenticator auth = new Authenticator {
                 Issuer = issuer,
                 Username = username,
                 Type = type,
@@ -428,7 +429,7 @@ namespace PlusAuth
         /*
          *  Rename Dialog
          */
-        private void OpenRenameDialog(int authPosition)
+        private void OpenRenameDialog(int position)
         {
             FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
             Fragment old = SupportFragmentManager.FindFragmentByTag("rename_dialog");
@@ -439,8 +440,8 @@ namespace PlusAuth
             }
 
             transaction.AddToBackStack(null);
-            Authenticator auth = _authSource.GetNth(authPosition);
-            _renameDialog = new RenameDialog(RenameDialogPositive, RenameDialogNegative, auth);
+            Authenticator auth = _authSource.Get(position);
+            _renameDialog = new RenameDialog(RenameDialogPositive, RenameDialogNegative, auth, position);
             _renameDialog.Show(transaction, "rename_dialog");
         }
 
@@ -452,14 +453,11 @@ namespace PlusAuth
                 return;
             }
 
-            string issuer = _renameDialog.Issuer.Trim().Truncate(32);
-            string username = _renameDialog.Username.Trim().Truncate(32);
+            string issuer = _renameDialog.Issuer;
+            string username = _renameDialog.Username;
 
-            _renameDialog.Authenticator.Issuer = issuer;
-            _renameDialog.Authenticator.Username = username;
-
-            _database.Connection.Update(_renameDialog.Authenticator);
-            _authSource.ClearCache();
+            _authSource.Rename(_renameDialog.Position, issuer, username);
+            _authAdapter.NotifyItemChanged(_renameDialog.Position);
             _renameDialog?.Dismiss();
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Android.Content;
 using PlusAuth.Data;
 using SQLite;
 
@@ -9,14 +8,14 @@ namespace PlusAuth.Utilities
     {
         public SQLiteConnection Connection { get; }
 
-        public Database(Context context)
+        public Database()
         {
             string dbPath = Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
-                "proauth.db3"
+                "plusauth.db3"
             );
 
-            Connection = new SQLiteConnection(dbPath, true);
+            Connection = new SQLiteConnection(dbPath);
         }
 
         public void Prepare()

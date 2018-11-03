@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Android.Support.V7.Widget;
 using Android.Views;
 using OtpSharp;
@@ -17,14 +19,17 @@ namespace PlusAuth.Utilities
             _authSource = authSource;
         }
 
-        public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            Authenticator auth = _authSource.GetNth(position);
-            AuthHolder authHolder = (AuthHolder) holder;
+            Authenticator auth = _authSource.Get(position);
+            AuthHolder holder = (AuthHolder) viewHolder;
 
-            authHolder.Issuer.Text = auth.Issuer;
-            authHolder.Username.Text = auth.Username;
-            authHolder.Username.Visibility = (auth.Username == "") ? ViewStates.Gone : ViewStates.Visible;
+            holder.Issuer.Text = auth.Issuer;
+            holder.Username.Text = auth.Username;
+
+            holder.Username.Visibility = auth.Username == "" 
+                ? ViewStates.Gone 
+                : ViewStates.Visible;
 
             string codePadded = auth.Code;
             int spacesInserted = 0;
@@ -39,30 +44,32 @@ namespace PlusAuth.Utilities
                 }
             }
 
-            switch(auth.Type)
-            {
-                case OtpType.Hotp:
+            if(auth.Type == OtpType.Totp)
+                TotpViewBind(holder, auth);
 
-                    authHolder.RefreshButton.Visibility = (auth.TimeRenew < DateTime.Now)
-                        ? ViewStates.Visible
-                        : ViewStates.Gone;
+            else if(auth.Type == OtpType.Hotp) 
+                HotpViewBind(holder, auth);
 
-                    authHolder.Timer.Visibility = ViewStates.Invisible;
-                    authHolder.Counter.Visibility = ViewStates.Visible;
+            holder.Code.Text = codePadded;
+        }
 
-                    authHolder.Counter.Text = $@"Counter: {auth.Counter.ToString()}";
-                    break;
+        private static void TotpViewBind(AuthHolder holder, Authenticator auth)
+        {
+            holder.RefreshButton.Visibility = ViewStates.Gone;
+            holder.Timer.Visibility = ViewStates.Visible;
+            holder.Counter.Visibility = ViewStates.Invisible;
+            holder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
+        }
 
-                case OtpType.Totp:
-                    authHolder.RefreshButton.Visibility = ViewStates.Gone;
-                    authHolder.Timer.Visibility = ViewStates.Visible;
-                    authHolder.Counter.Visibility = ViewStates.Invisible;
+        private static void HotpViewBind(AuthHolder holder, Authenticator auth)
+        {
+            holder.RefreshButton.Visibility = (auth.TimeRenew < DateTime.Now)
+                ? ViewStates.Visible
+                : ViewStates.Gone;
 
-                    authHolder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
-                    break;
-            }
-
-            authHolder.Code.Text = codePadded;
+            holder.Timer.Visibility = ViewStates.Invisible;
+            holder.Counter.Visibility = ViewStates.Visible;
+            holder.Counter.Text = auth.Counter.ToString();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -77,26 +84,20 @@ namespace PlusAuth.Utilities
 
         public override int ItemCount => _authSource.Count();
 
-        private void OnItemClick(int e)
+        private void OnItemClick(int position)
         {
-            ItemClick?.Invoke(this, e);
+            ItemClick?.Invoke(this, position);
         }
 
-        private void OnItemOptionsClick(int e)
+        private void OnItemOptionsClick(int position)
         {
-            ItemOptionsClick?.Invoke(this, e);
+            ItemOptionsClick?.Invoke(this, position);
         }
 
-        private void OnRefreshClick(int e)
+        private void OnRefreshClick(int position)
         {
-            if(e < 0)
-            {
-                return;
-            }
-
-            _authSource.ClearCache(e);
-            _authSource.RefreshHotp(e);
-            NotifyItemChanged(e);
+            _authSource.IncrementHotp(position);
+            NotifyItemChanged(position);
         }
     }
 }

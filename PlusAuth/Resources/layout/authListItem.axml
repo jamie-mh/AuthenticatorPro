@@ -11,27 +11,49 @@
     android:paddingLeft="32dp"
     android:clickable="true"
     android:focusable="true">
-    <TextView
-        android:text="GitHub"
+	<LinearLayout
+		android:id="@+id/authListItem_iconLayout"
+		android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textColor="@color/colorDarker"
-        android:gravity="left"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
-        android:id="@+id/authListItem_issuer" />
-    <TextView
-        android:text="johnsmith@example.com"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="@color/colorDark"
-        android:gravity="left"
-        android:layout_below="@id/authListItem_issuer"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
-        android:id="@+id/authListItem_username" />
+        android:layout_height="wrap_content">
+
+		<ImageView
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_gravity="center"
+			android:layout_marginTop="2dp"
+			android:layout_marginRight="12dp"
+			android:src="@drawable/google" />
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+					
+			<TextView
+				android:text="GitHub"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="16dp"
+				android:textColor="@color/colorDarker"
+				android:gravity="left"
+				android:fontFamily="@font/worksans"
+				android:fontWeight="400"
+				android:id="@+id/authListItem_issuer" />
+			<TextView
+				android:text="johnsmith@example.com"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="12dp"
+				android:textColor="@color/colorDark"
+				android:gravity="left"
+				android:layout_below="@id/authListItem_issuer"
+				android:fontFamily="@font/worksans"
+				android:fontWeight="400"
+				android:id="@+id/authListItem_username" />
+
+		</LinearLayout>
+	</LinearLayout>
     <TextView
         android:text="000 000"
         android:layout_width="wrap_content"
@@ -39,10 +61,11 @@
         android:textSize="38dp"
         android:textColor="@color/colorPrimary"
         android:gravity="left"
-        android:layout_below="@id/authListItem_username"
+        android:layout_below="@id/authListItem_iconLayout"
 		android:fontFamily="@font/worksans"
 		android:fontWeight="400"
         android:layout_marginTop="2dp"
+        android:layout_marginLeft="44dp"
         android:id="@+id/authListItem_code" />
     <TextView
         android:text="30"
