@@ -178,7 +178,7 @@ namespace PlusAuth
 
                 _dialog.Dismiss();
             }
-            catch
+            catch(Exception ex)
             {
                 Toast.MakeText(_dialog.Context, Resource.String.importError, ToastLength.Long).Show();
             }

@@ -35,6 +35,7 @@ namespace PlusAuth
 
         private Timer _authTimer;
         private RecyclerView _authList;
+        private LinearLayout _emptyState;
         private FloatingActionButton _floatingActionButton;
         private AuthAdapter _authAdapter;
         private AuthSource _authSource;
@@ -86,6 +87,7 @@ namespace PlusAuth
             }
 
             PrepareAuthenticatorList();
+            EmptyStateUpdate();
 
             _authTimer = new Timer {
                 Interval = 2000,
@@ -169,6 +171,10 @@ namespace PlusAuth
         {
             base.OnResume();
             _authTimer.Start();
+
+            _authSource.Update();
+            _authAdapter.NotifyDataSetChanged();
+            EmptyStateUpdate();
         }
 
         public override void OnBackPressed()
@@ -180,6 +186,7 @@ namespace PlusAuth
         private void PrepareAuthenticatorList()
         {
             _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
+            _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
 
             _authSource = new AuthSource(_database.Connection);
             _authAdapter = new AuthAdapter(this, _authSource);
@@ -192,6 +199,20 @@ namespace PlusAuth
             _authList.DrawingCacheEnabled = true;
             _authList.DrawingCacheQuality = DrawingCacheQuality.High;
             _authList.SetLayoutManager(new LinearLayoutManager(this));
+        }
+
+        private void EmptyStateUpdate()
+        {
+            if(_authSource.Count() == 0)
+            {
+                _emptyState.Visibility = ViewStates.Visible;
+                _authList.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                _emptyState.Visibility = ViewStates.Gone;
+                _authList.Visibility = ViewStates.Visible;
+            }
         }
 
         private void AuthTick(object sender, ElapsedEventArgs e)
@@ -228,7 +249,7 @@ namespace PlusAuth
                         break;
 
                     case 2:
-                        this.OpenDeleteDialog(position);
+                        OpenDeleteDialog(position);
                         break;
                 }
             });
@@ -245,6 +266,7 @@ namespace PlusAuth
             {
                 _authSource.Delete(position);
                 _authAdapter.NotifyItemRemoved(position);
+                EmptyStateUpdate();
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -302,6 +324,7 @@ namespace PlusAuth
 
                 _database.Connection.Insert(auth);
                 _authSource.Update();
+                EmptyStateUpdate();
                 _authAdapter.NotifyDataSetChanged();
             }
             catch
@@ -434,6 +457,7 @@ namespace PlusAuth
 
             _database.Connection.Insert(auth);
             _authSource.Update();
+            EmptyStateUpdate();
             _authAdapter.NotifyDataSetChanged();
 
             _addDialog.Dismiss();

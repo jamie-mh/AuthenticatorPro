@@ -19,6 +19,8 @@
     <string name="secretKey">Secret Key</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
     <string name="qrCodeScan">Place a QR code in the camera viewfinder to scan it. The code will scan automatically.</string> 
+    <string name="welcomeTitle">Welcome to PlusAuth!</string>
+    <string name="welcomeMessage">You don\'t have any authenticators set up yet. Try adding one by scanning a QR code or by entering the details manually.</string>
     
     <string name="search">Search</string>
     <string name="sort">Sort</string>
@@ -47,7 +49,7 @@
     <string name="backupToFile">Backup to File</string>
     <string name="importMessage">Select a previously exported PlusAuth backup to import its authenticators.</string>
     <string name="exportMessage">Save your authenticators to a password encrypted backup file.</string>
-    <string name="importError">The password is incorrect or the file is invalid.</string>
+    <string name="importError">The password is incorrect or the file is corrupt.</string>
     <string name="filePickError">Error picking file.</string>
     <string name="invalidFileError">The selected file is not a PlusAuth backup file.</string>
     <string name="externalStoragePermissionError">The external storage permission is required to import/export backup files.</string>

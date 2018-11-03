@@ -18,9 +18,55 @@
 		android:scrollbars="vertical"
 		android:clipToPadding="false"
 		android:paddingBottom="80dp"
+		android:visibility="gone"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_below="@id/activityMain_toolbar" />
+
+	<LinearLayout
+		android:id="@+id/activityMain_emptyState"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:visibility="gone"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/activityMain_toolbar">
+
+		<ImageView
+			android:layout_width="76dp"
+			android:layout_height="76dp"
+			android:layout_gravity="center"
+			android:src="@drawable/ic_lock_open" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:paddingRight="32dp"
+			android:paddingLeft="32dp"
+			android:fontFamily="@font/worksans"
+			android:fontWeight="700"
+			android:textSize="24dp"
+			android:textColor="@color/colorDarker"
+			android:layout_marginTop="22dp"
+	        android:text="@string/welcomeTitle" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:paddingRight="32dp"
+			android:paddingLeft="32dp"
+			android:layout_marginTop="22dp"
+			android:fontFamily="@font/worksans"
+			android:fontWeight="400"
+			android:textSize="16dp"
+			android:textColor="@color/colorDark"
+	        android:text="@string/welcomeMessage" />
+	</LinearLayout>
+
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/activityMain_buttonAdd"
 		android:layout_width="wrap_content"

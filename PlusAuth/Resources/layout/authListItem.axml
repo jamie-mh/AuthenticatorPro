@@ -30,7 +30,7 @@
 				android:layout_gravity="center"
 				android:layout_marginTop="2dp"
 				android:layout_marginRight="12dp"
-				android:src="@drawable/auth_google" />
+				android:src="@drawable/auth_github" />
 
 			<LinearLayout
 				android:orientation="vertical"
