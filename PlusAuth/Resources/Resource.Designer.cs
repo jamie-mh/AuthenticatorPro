@@ -2778,8 +2778,8 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0a009a
 			public const int authListItem_code = 2131361946;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int authListItem_counter = 2131361948;
+			// aapt resource value: 0x7f0a009b
+			public const int authListItem_counter = 2131361947;
 			
 			// aapt resource value: 0x7f0a0097
 			public const int authListItem_iconLayout = 2131361943;
@@ -2787,17 +2787,17 @@ namespace PlusAuth
 			// aapt resource value: 0x7f0a0098
 			public const int authListItem_issuer = 2131361944;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int authListItem_options = 2131361950;
-			
 			// aapt resource value: 0x7f0a009d
-			public const int authListItem_refresh = 2131361949;
+			public const int authListItem_options = 2131361949;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int authListItem_timer = 2131361947;
+			// aapt resource value: 0x7f0a009c
+			public const int authListItem_refresh = 2131361948;
 			
 			// aapt resource value: 0x7f0a0099
 			public const int authListItem_username = 2131361945;
+			
+			// aapt resource value: 0x7f0a009e
+			public const int authList_progress = 2131361950;
 			
 			// aapt resource value: 0x7f0a0044
 			public const int auto = 2131361860;

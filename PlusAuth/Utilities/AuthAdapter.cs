@@ -56,9 +56,11 @@ namespace PlusAuth.Utilities
         private static void TotpViewBind(AuthHolder holder, Authenticator auth)
         {
             holder.RefreshButton.Visibility = ViewStates.Gone;
-            holder.Timer.Visibility = ViewStates.Visible;
+            holder.ProgressBar.Visibility = ViewStates.Visible;
             holder.Counter.Visibility = ViewStates.Invisible;
-            holder.Timer.Text = (auth.TimeRenew - DateTime.Now).Seconds.ToString();
+
+            int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
+            holder.ProgressBar.Progress = 100 * secondsRemaining / auth.Period;
         }
 
         private static void HotpViewBind(AuthHolder holder, Authenticator auth)
@@ -67,7 +69,7 @@ namespace PlusAuth.Utilities
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            holder.Timer.Visibility = ViewStates.Invisible;
+            holder.ProgressBar.Visibility = ViewStates.Invisible;
             holder.Counter.Visibility = ViewStates.Visible;
             holder.Counter.Text = auth.Counter.ToString();
         }

@@ -1,125 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/authBackground"
     android:layout_marginTop="20dp"
-    android:paddingTop="12dp"
-    android:paddingRight="32dp"
-    android:paddingBottom="10dp"
-    android:paddingLeft="32dp"
+    android:orientation="vertical"
     android:clickable="true"
     android:focusable="true">
-	<LinearLayout
-		android:id="@+id/authListItem_iconLayout"
-		android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-		<ImageView
-			android:layout_width="32dp"
-			android:layout_height="32dp"
-			android:layout_gravity="center"
-			android:layout_marginTop="2dp"
-			android:layout_marginRight="12dp"
-			android:src="@drawable/google" />
-
+	<RelativeLayout 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/authBackground"
+		android:paddingTop="12dp"
+		android:paddingRight="32dp"
+		android:paddingBottom="10dp"
+		android:paddingLeft="32dp">
 		<LinearLayout
-			android:orientation="vertical"
+			android:id="@+id/authListItem_iconLayout"
+			android:orientation="horizontal"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
-					
-			<TextView
-				android:text="GitHub"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textSize="16dp"
-				android:textColor="@color/colorDarker"
-				android:gravity="left"
-				android:fontFamily="@font/worksans"
-				android:fontWeight="400"
-				android:id="@+id/authListItem_issuer" />
-			<TextView
-				android:text="johnsmith@example.com"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textSize="12dp"
-				android:textColor="@color/colorDark"
-				android:gravity="left"
-				android:layout_below="@id/authListItem_issuer"
-				android:fontFamily="@font/worksans"
-				android:fontWeight="400"
-				android:id="@+id/authListItem_username" />
 
+			<ImageView
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:layout_gravity="center"
+				android:layout_marginTop="2dp"
+				android:layout_marginRight="12dp"
+				android:src="@drawable/google" />
+
+			<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+						
+				<TextView
+					android:text="GitHub"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="16dp"
+					android:textColor="@color/colorDarker"
+					android:gravity="left"
+					android:fontFamily="@font/worksans"
+					android:fontWeight="400"
+					android:id="@+id/authListItem_issuer" />
+				<TextView
+					android:text="johnsmith@example.com"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="12dp"
+					android:textColor="@color/colorDark"
+					android:gravity="left"
+					android:layout_below="@id/authListItem_issuer"
+					android:fontFamily="@font/worksans"
+					android:fontWeight="400"
+					android:id="@+id/authListItem_username" />
+
+			</LinearLayout>
 		</LinearLayout>
-	</LinearLayout>
-    <TextView
-        android:text="000 000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="38dp"
-        android:textColor="@color/colorPrimary"
-        android:gravity="left"
-        android:layout_below="@id/authListItem_iconLayout"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="44dp"
-        android:id="@+id/authListItem_code" />
-    <TextView
-        android:text="30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_alignParentRight="true"
-        android:textSize="14dp"
-        android:background="@drawable/authTimer"
-        android:textColor="@color/colorLighter"
-        android:layout_marginTop="8dp"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
-        android:id="@+id/authListItem_timer" />
-    <TextView
-        android:text="0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_alignParentRight="true"
-        android:textSize="16dp"
-        android:layout_marginTop="8dp"
-		android:fontFamily="@font/worksans"
-		android:visibility="gone"
-		android:fontWeight="400"
-        android:id="@+id/authListItem_counter" />
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
-		android:layout_below="@id/authListItem_timer"
-		android:orientation="horizontal">
-
-		<ImageButton
-			android:id="@+id/authListItem_refresh"
+		<TextView
+			android:text="000 000"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="38dp"
+			android:textColor="@color/colorPrimary"
+			android:gravity="left"
+			android:layout_below="@id/authListItem_iconLayout"
+			android:fontFamily="@font/worksans"
+			android:fontWeight="400"
+			android:layout_marginTop="2dp"
+			android:layout_marginLeft="44dp"
+			android:id="@+id/authListItem_code" />
+		<TextView
+			android:text="0"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
 			android:layout_alignParentRight="true"
-			android:layout_marginRight="14dp"
-			android:src="@drawable/ic_action_refresh_light"
-			android:scaleType="centerInside"
-			android:textSize="14dp"
-			android:background="@color/colorLighter"
+			android:textSize="16dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="10dp"
+			android:fontFamily="@font/worksans"
 			android:visibility="gone"
-			android:layout_marginTop="16dp"
-			android:layout_width="30dp"
-			android:layout_height="30dp" />
+			android:fontWeight="400"
+			android:id="@+id/authListItem_counter" />
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_marginTop="6dp"
+			android:orientation="horizontal">
 
-		<ImageButton
-			android:id="@+id/authListItem_options"
-			android:src="@drawable/ic_action_more_vert_light"
-			android:scaleType="centerInside"
-			android:textSize="14dp"
-			android:background="@color/colorLighter"
-			android:layout_marginTop="16dp"
-			android:layout_width="30dp"
-			android:layout_height="30dp" />
-	</LinearLayout>
-</RelativeLayout>
+			<ImageButton
+				android:id="@+id/authListItem_refresh"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="14dp"
+				android:src="@drawable/ic_action_refresh_light"
+				android:scaleType="centerInside"
+				android:textSize="14dp"
+				android:background="@color/colorLighter"
+				android:visibility="gone"
+				android:layout_width="30dp"
+				android:layout_height="30dp" />
+
+			<ImageButton
+				android:id="@+id/authListItem_options"
+				android:src="@drawable/ic_action_more_vert_light"
+				android:scaleType="centerInside"
+				android:textSize="14dp"
+				android:background="@color/colorLighter"
+				android:layout_width="30dp"
+				android:layout_height="30dp" />
+		</LinearLayout>
+	</RelativeLayout>
+
+	<ProgressBar
+		android:id="@+id/authList_progress"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="-8dp"
+		android:layout_marginTop="-7dp"
+		android:min="0"
+		android:max="100"
+		android:progress="100"/>
+
+</LinearLayout>

@@ -10,7 +10,7 @@ namespace PlusAuth.Utilities
         public TextView Issuer { get; set; }
         public TextView Username { get; }
         public TextView Code { get; set; }
-        public TextView Timer { get; set; }
+        public ProgressBar ProgressBar { get; set; }
         public TextView Counter { get; set; }
         public ImageButton RefreshButton { get; set; }
 
@@ -19,7 +19,7 @@ namespace PlusAuth.Utilities
             Issuer = itemView.FindViewById<TextView>(Resource.Id.authListItem_issuer);
             Username = itemView.FindViewById<TextView>(Resource.Id.authListItem_username);
             Code = itemView.FindViewById<TextView>(Resource.Id.authListItem_code);
-            Timer = itemView.FindViewById<TextView>(Resource.Id.authListItem_timer);
+            ProgressBar = itemView.FindViewById<ProgressBar>(Resource.Id.authList_progress);
             Counter = itemView.FindViewById<TextView>(Resource.Id.authListItem_counter);
             RefreshButton = itemView.FindViewById<ImageButton>(Resource.Id.authListItem_refresh);
 
