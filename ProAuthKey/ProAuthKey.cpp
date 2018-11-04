@@ -7,7 +7,7 @@ extern "C" {
 	{
         std::string key = md5("vyp7aQ0VpEVZqpUl75HK86TMJmRMgiB0sGuou8xR");
 
-        char *heap_key = static_cast<char *>(malloc(sizeof(char) * (40 + 1)));
+        char *heap_key = static_cast<char *>(malloc(sizeof(char) * (key.length() + 1)));
         strcpy(heap_key, key.c_str());
 
         return heap_key;

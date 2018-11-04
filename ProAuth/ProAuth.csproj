@@ -38,7 +38,8 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>
+    </AndroidSupportedAbis>
     <AndroidHttpClientHandlerType>
     </AndroidHttpClientHandlerType>
     <Debugger>Xamarin</Debugger>
@@ -53,13 +54,13 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi;armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
-    <AotAssemblies>true</AotAssemblies>
-    <EnableLLVM>true</EnableLLVM>
-    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
-    <EnableProguard>false</EnableProguard>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
+    <EnableProguard>true</EnableProguard>
     <BundleAssemblies>true</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
@@ -99,6 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <AndroidNativeLibrary Include="lib\arm64-v8a\libProAuthKey.so" />
+    <AndroidNativeLibrary Include="lib\armeabi-v7a\libProAuthKey.so" />
+    <AndroidNativeLibrary Include="lib\armeabi\libProAuthKey.so" />
+    <AndroidNativeLibrary Include="lib\x86\libProAuthKey.so" />
+    <AndroidNativeLibrary Include="lib\x86_64\libProAuthKey.so" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
@@ -725,14 +731,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_backup_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProAuthKey\ProAuthKey.vcxproj">
-      <Project>{da3fc37b-5aad-447c-9cb1-94548f2f62f2}</Project>
-      <Name>ProAuthKey</Name>
-      <TargetPlatformIdentifier>Android</TargetPlatformIdentifier>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
