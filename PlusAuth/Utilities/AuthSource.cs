@@ -14,12 +14,12 @@ namespace PlusAuth.Utilities
         {
             Alphabetical, CreatedDate
         };
+        public List<Authenticator> Authenticators { get; private set; }
 
         private string _search;
         private SortType _sort;
 
         private readonly SQLiteConnection _connection;
-        private List<Authenticator> _authenticators;
 
         public AuthSource(SQLiteConnection connection)
         {
@@ -28,7 +28,7 @@ namespace PlusAuth.Utilities
 
             _connection = connection;
 
-            _authenticators = new List<Authenticator>();
+            Authenticators = new List<Authenticator>();
             Update();
         }
 
@@ -46,7 +46,7 @@ namespace PlusAuth.Utilities
 
         public void Update()
         {
-            _authenticators.Clear();
+            Authenticators.Clear();
 
             string sql = $@"SELECT * FROM authenticator ";
             object[] args = { $@"%{_search}%" };
@@ -67,17 +67,17 @@ namespace PlusAuth.Utilities
                     break;
             }
 
-            _authenticators = _connection.Query<Authenticator>(sql, args);
+            Authenticators = _connection.Query<Authenticator>(sql, args);
         }
 
         public Authenticator Get(int position)
         {
-            if(_authenticators.ElementAtOrDefault(position) == null)
+            if(Authenticators.ElementAtOrDefault(position) == null)
             {
                 return null;
             }
 
-            Authenticator auth = _authenticators[position];
+            Authenticator auth = Authenticators[position];
 
             if(auth.Type == OtpType.Totp && auth.TimeRenew <= DateTime.Now)
             {
@@ -92,12 +92,12 @@ namespace PlusAuth.Utilities
 
         public void Rename(int position, string issuer, string username)
         {
-            if(_authenticators.ElementAtOrDefault(position) == null)
+            if(Authenticators.ElementAtOrDefault(position) == null)
             {
                 return;
             }
 
-            Authenticator item = _authenticators[position];
+            Authenticator item = Authenticators[position];
             item.Issuer = issuer.Trim().Truncate(32);
             item.Username = username.Trim().Truncate(32);
 
@@ -106,25 +106,25 @@ namespace PlusAuth.Utilities
 
         public void Delete(int position)
         {
-            if(_authenticators.ElementAtOrDefault(position) == null)
+            if(Authenticators.ElementAtOrDefault(position) == null)
             {
                 return;
             }
 
-            Authenticator item = _authenticators[position];
+            Authenticator item = Authenticators[position];
 
             _connection.Delete<Authenticator>(item.Secret);
-            _authenticators.Remove(item);
+            Authenticators.Remove(item);
         }
 
         public void IncrementHotp(int position)
         {
-            if(_authenticators.ElementAtOrDefault(position) == null)
+            if(Authenticators.ElementAtOrDefault(position) == null)
             {
                 return;
             }
 
-            Authenticator auth = _authenticators[position];
+            Authenticator auth = Authenticators[position];
 
             if(auth.Type != OtpType.Hotp)
             {
@@ -138,13 +138,13 @@ namespace PlusAuth.Utilities
             auth.Code = hotp.ComputeHotp(auth.Counter);
             auth.TimeRenew = DateTime.Now.AddSeconds(10);
 
-            _authenticators[position] = auth;
+            Authenticators[position] = auth;
             _connection.Update(auth);
         }
 
         public bool IsDuplicate(Authenticator auth)
         {
-            foreach(Authenticator iterator in _authenticators)
+            foreach(Authenticator iterator in Authenticators)
             {
                 if(auth.Secret == iterator.Secret)
                 {
@@ -157,7 +157,7 @@ namespace PlusAuth.Utilities
 
         public int Count()
         {
-            return _authenticators.Count;
+            return Authenticators.Count;
         }
     }
 }

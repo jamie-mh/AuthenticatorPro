@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Java.Lang;
 using OtpSharp;
 using PlusAuth.Data;
 
@@ -60,14 +62,27 @@ namespace PlusAuth.Utilities
             holder.Code.Text = codePadded;
         }
 
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Java.Lang.Object> payloads)
+        {
+            if(payloads == null || payloads.Count == 0)
+            {
+                OnBindViewHolder(viewHolder, position);
+            }
+            else
+            {
+                AuthHolder holder = (AuthHolder) viewHolder;
+                holder.ProgressBar.Progress = (int) payloads[0];
+            }
+        }
+
         private static void TotpViewBind(AuthHolder holder, Authenticator auth)
         {
             holder.RefreshButton.Visibility = ViewStates.Gone;
             holder.ProgressBar.Visibility = ViewStates.Visible;
             holder.Counter.Visibility = ViewStates.Invisible;
 
-            int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
-            holder.ProgressBar.Progress = 100 * secondsRemaining / auth.Period;
+            //int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
+            //holder.ProgressBar.Progress = 100 * secondsRemaining / auth.Period;
         }
 
         private static void HotpViewBind(AuthHolder holder, Authenticator auth)

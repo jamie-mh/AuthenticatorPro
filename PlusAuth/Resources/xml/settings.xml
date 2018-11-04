@@ -31,12 +31,12 @@
             android:summary="@string/pref_about_summary"
             android:title="@string/pref_about_title" />
 
-        <android.support.v7.preference.Preference
+        <plusauth.preferences.RatePreference
             android:key="pref_key_rate"
             android:summary="@string/pref_rate_summary"
             android:title="@string/pref_rate_title" />
 
-        <android.support.v7.preference.Preference
+        <plusauth.preferences.FeatureRequestPreference
             android:key="pref_key_feature_request"
             android:summary="@string/pref_featureRequest_summary"
             android:title="@string/pref_featureRequest_title" />

@@ -43,6 +43,8 @@ namespace PlusAuth
         private MobileBarcodeScanner _barcodeScanner;
         private KeyguardManager _keyguardManager;
 
+        private DateTime _pauseTime = DateTime.MinValue;
+
         // Alert Dialogs
         private RenameDialog _renameDialog;
         private AddDialog _addDialog;
@@ -72,25 +74,11 @@ namespace PlusAuth
             _database = new Database();
             _database.Prepare();
 
-            ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            bool authRequired = sharedPrefs.GetBoolean("pref_requireAuthentication", false);
-
-            if(authRequired && _keyguardManager.IsDeviceSecure)
-            {
-                Intent loginIntent = _keyguardManager.CreateConfirmDeviceCredentialIntent(
-                    GetString(Resource.String.login), GetString(Resource.String.loginMessage));
-
-                if(loginIntent != null)
-                {
-                    StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
-                }
-            }
-
             PrepareAuthenticatorList();
             EmptyStateUpdate();
 
             _authTimer = new Timer {
-                Interval = 2000,
+                Interval = 1000,
                 AutoReset = true,
                 Enabled = true
             };
@@ -165,12 +153,35 @@ namespace PlusAuth
         {
             base.OnPause();
             _authTimer.Stop();
+            _pauseTime = DateTime.Now;
+        }
+
+        private void Login()
+        {
+            ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            bool authRequired = sharedPrefs.GetBoolean("pref_requireAuthentication", false);
+
+            if(authRequired && _keyguardManager.IsDeviceSecure)
+            {
+                Intent loginIntent = _keyguardManager.CreateConfirmDeviceCredentialIntent(
+                    GetString(Resource.String.login), GetString(Resource.String.loginMessage));
+
+                if(loginIntent != null)
+                {
+                    StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
+                }
+            }
         }
 
         protected override void OnResume()
         {
             base.OnResume();
             _authTimer.Start();
+
+            if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
+            {
+                Login();
+            }
 
             _authSource.Update();
             _authAdapter.NotifyDataSetChanged();
@@ -199,6 +210,8 @@ namespace PlusAuth
             _authList.DrawingCacheEnabled = true;
             _authList.DrawingCacheQuality = DrawingCacheQuality.High;
             _authList.SetLayoutManager(new LinearLayoutManager(this));
+
+            AuthTick(null, null);
         }
 
         private void EmptyStateUpdate()
@@ -217,10 +230,40 @@ namespace PlusAuth
 
         private void AuthTick(object sender, ElapsedEventArgs e)
         {
-            RunOnUiThread(() =>
+            //RunOnUiThread(() =>
+            //{
+            //    _authAdapter.NotifyDataSetChanged();
+            //});
+
+            for(int i = 0; i < _authSource.Authenticators.Count; ++i)
             {
-                _authAdapter.NotifyDataSetChanged();
-            });
+                Authenticator auth = _authSource.Authenticators[i];
+
+                if(auth.Type == OtpType.Hotp)
+                {
+                    continue;
+                }
+
+                int position = i; // Closure modification
+
+                if(auth.TimeRenew > DateTime.Now)
+                {
+                    int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
+                    int progress = 100 * secondsRemaining / auth.Period;
+
+                    RunOnUiThread(() =>
+                    {
+                        _authAdapter.NotifyItemChanged(position, progress);
+                    });
+                }
+                else
+                {
+                    RunOnUiThread(() =>
+                    {
+                        _authAdapter.NotifyItemChanged(position, null);
+                    });
+                }
+            }
         }
 
         private void AuthClick(object sender, int position)

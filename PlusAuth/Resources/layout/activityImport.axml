@@ -21,10 +21,10 @@
 		android:layout_below="@id/activityImport_toolbar">
 
 		<ImageView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_width="76dp"
+			android:layout_height="76dp"
 			android:layout_gravity="center"
-			android:src="@drawable/ic_import_export" />
+			android:src="@drawable/ic_cloud_download" />
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -34,6 +34,10 @@
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
 			android:layout_marginTop="22dp"
+			android:fontFamily="@font/worksans"
+			android:fontWeight="700"
+			android:textSize="16dp"
+			android:textColor="@color/colorDarker"
 	        android:text="@string/importMessage" />
 
 		<Button
