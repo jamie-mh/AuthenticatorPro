@@ -73,7 +73,6 @@ namespace ProAuth
             _barcodeScanner.UseCustomOverlay = true;
 
             _database = new Database();
-            _database.Prepare();
 
             PrepareAuthenticatorList();
             EmptyStateUpdate();

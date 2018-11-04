@@ -1,4 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
+using Android.Database.Sqlite;
+using Android.Runtime;
 using ProAuth.Data;
 using SQLite;
 
@@ -8,18 +13,20 @@ namespace ProAuth.Utilities
     {
         public SQLiteConnection Connection { get; }
 
+        [DllImport("libProAuthKey", EntryPoint = "get_key")]
+        static extern string GetDatabaseKey();
+
         public Database()
         {
             string dbPath = Path.Combine(
-                System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
+                Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                 "proauth.db3"
             );
 
-            Connection = new SQLiteConnection(dbPath);
-        }
+            string key = GetDatabaseKey();
 
-        public void Prepare()
-        {
+            Connection = new SQLiteConnection(dbPath, true, key);
+            Connection.Query<int>($@"PRAGMA key='{key}'");
             Connection.CreateTable<Authenticator>();
         }
     }

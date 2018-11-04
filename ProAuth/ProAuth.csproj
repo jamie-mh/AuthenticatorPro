@@ -41,6 +41,7 @@
     <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
     <AndroidHttpClientHandlerType>
     </AndroidHttpClientHandlerType>
+    <Debugger>Xamarin</Debugger>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -724,6 +725,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_backup_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProAuthKey\ProAuthKey.vcxproj">
+      <Project>{da3fc37b-5aad-447c-9cb1-94548f2f62f2}</Project>
+      <Name>ProAuthKey</Name>
+      <TargetPlatformIdentifier>Android</TargetPlatformIdentifier>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
