@@ -31,7 +31,7 @@ namespace PlusAuth.Preferences
 
         protected override void OnClick()
         {
-            Context.StartActivity(typeof(AboutActivity));
+            Context.StartActivity(typeof(ActivityAbout));
         }
     }
 }

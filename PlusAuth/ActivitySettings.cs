@@ -8,7 +8,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 namespace PlusAuth
 {
     [Activity(Label = "SettingsActivity")]
-    public class SettingsActivity : AppCompatActivity
+    public class ActivitySettings : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -25,7 +25,7 @@ namespace PlusAuth
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             SupportFragmentManager.BeginTransaction()
-                                  .Replace(Resource.Id.activitySettings_content, new SettingsFragment())
+                                  .Replace(Resource.Id.activitySettings_content, new FragmentSettings())
                                   .Commit();
         }
 

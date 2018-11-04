@@ -8,7 +8,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace PlusAuth
 {
-    internal class ExportDialog : DialogFragment
+    internal class DialogExport : DialogFragment
     {
         public string FileName => _fileNameText.Text;
 
@@ -16,7 +16,7 @@ namespace PlusAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public ExportDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
+        public DialogExport(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;

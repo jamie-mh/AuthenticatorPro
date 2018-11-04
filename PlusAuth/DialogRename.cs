@@ -9,7 +9,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace PlusAuth
 {
-    internal class RenameDialog : DialogFragment
+    internal class DialogRename : DialogFragment
     {
         public string Issuer => _issuerText.Text;
 
@@ -29,7 +29,7 @@ namespace PlusAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public RenameDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth, int position)
+        public DialogRename(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth, int position)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;

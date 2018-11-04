@@ -9,7 +9,7 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace PlusAuth
 {
-    internal class ImportDialog : DialogFragment
+    internal class DialogImport : DialogFragment
     {
         public string Password => _passwordText.Text;
 
@@ -17,7 +17,7 @@ namespace PlusAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public ImportDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
+        public DialogImport(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;

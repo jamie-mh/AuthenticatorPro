@@ -9,7 +9,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace PlusAuth
 {
-    internal class AddDialog : DialogFragment
+    internal class DialogAdd : DialogFragment
     {
         public int Type => _typeSpinner.SelectedItemPosition;
         public string Issuer => _issuerText.Text;
@@ -51,7 +51,7 @@ namespace PlusAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public AddDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
+        public DialogAdd(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;

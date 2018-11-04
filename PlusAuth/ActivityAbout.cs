@@ -8,7 +8,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 namespace PlusAuth
 {
     [Activity(Label = "AboutActivity")]
-    public class AboutActivity : AppCompatActivity
+    public class ActivityAbout : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -20,6 +20,8 @@
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
         <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
 
+        <item name="dialogIcon_listBackground">@android:color/transparent</item>
+
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="android:windowBackground">@color/colorLight</item>
     </style>
@@ -38,11 +40,13 @@
         <item name="activityImport_image">@drawable/ic_cloud_download_dark</item>
         <item name="activityExport_image">@drawable/ic_backup_dark</item>
 
-        <item name="authListItem_iconBackground">@color/colorLighter</item>
+        <item name="authListItem_iconBackground">@color/colorLight</item>
         <item name="authListItem_background">@color/colorDarker</item>
         <item name="authListItem_code">@color/colorLight</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
         <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
+
+        <item name="dialogIcon_listBackground">@color/colorLight</item>
 
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="android:windowBackground">@color/colorDark</item>

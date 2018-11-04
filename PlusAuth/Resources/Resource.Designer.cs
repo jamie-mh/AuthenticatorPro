@@ -516,6 +516,9 @@ namespace PlusAuth
 			// aapt resource value: 0x7f01000e
 			public const int dialogIcon = 2130771982;
 			
+			// aapt resource value: 0x7f01019f
+			public const int dialogIcon_listBackground = 2130772383;
+			
 			// aapt resource value: 0x7f010011
 			public const int dialogLayout = 2130771985;
 			
@@ -6245,7 +6248,8 @@ namespace PlusAuth
 					2130772379,
 					2130772380,
 					2130772381,
-					2130772382};
+					2130772382,
+					2130772383};
 			
 			// aapt resource value: 4
 			public const int AppTheme_activityExport_image = 4;
@@ -6270,6 +6274,9 @@ namespace PlusAuth
 			
 			// aapt resource value: 9
 			public const int AppTheme_authListItem_refreshIcon = 9;
+			
+			// aapt resource value: 10
+			public const int AppTheme_dialogIcon_listBackground = 10;
 			
 			// aapt resource value: 0
 			public const int AppTheme_primaryTextColor = 0;

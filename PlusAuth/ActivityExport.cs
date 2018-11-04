@@ -26,13 +26,13 @@ using PlusAuth.Utilities;
 namespace PlusAuth
 {
     [Activity(Label = "ExportActivity")]
-    public class ExportActivity: AppCompatActivity
+    public class ActivityExport: AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
 
         private Database _database;
         private EditText _textPassword;
-        private ExportDialog _dialog;    
+        private DialogExport _dialog;    
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -175,7 +175,7 @@ namespace PlusAuth
             }
 
             transaction.AddToBackStack(null);
-            _dialog = new ExportDialog(OnDialogPositive, OnDialogNegative);
+            _dialog = new DialogExport(OnDialogPositive, OnDialogNegative);
             _dialog.Show(transaction, "export_dialog");
         }
 

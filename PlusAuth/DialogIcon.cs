@@ -14,7 +14,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace PlusAuth
 {
-    internal class IconDialog : DialogFragment
+    internal class DialogIcon : DialogFragment
     {
         public int Position { get; }
         public string IconKey { get; private set; }
@@ -27,7 +27,7 @@ namespace PlusAuth
         private readonly Action<object, EventArgs> _itemClick;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public IconDialog(Action<object, EventArgs> itemClick, Action<object, EventArgs> negative, int position)
+        public DialogIcon(Action<object, EventArgs> itemClick, Action<object, EventArgs> negative, int position)
         {
             _itemClick = itemClick;
             _negativeButtonEvent = negative;

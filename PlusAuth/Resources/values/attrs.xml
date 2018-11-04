@@ -13,5 +13,7 @@
         <attr name="authListItem_iconBackground" format="color" />
         <attr name="authListItem_optionsIcon" format="integer"/>
         <attr name="authListItem_refreshIcon" format="integer"/>
+
+        <attr name="dialogIcon_listBackground" format="color" />
     </declare-styleable>
 </resources>

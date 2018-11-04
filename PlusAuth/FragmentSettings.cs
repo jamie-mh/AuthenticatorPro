@@ -3,7 +3,7 @@ using Android.Support.V7.Preferences;
 
 namespace PlusAuth
 {
-    public class SettingsFragment : PreferenceFragmentCompat
+    public class FragmentSettings : PreferenceFragmentCompat
     {
         public override void OnCreatePreferences(Bundle savedInstanceState, string rootKey)
         {

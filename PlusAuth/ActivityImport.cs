@@ -28,7 +28,7 @@ using Android.Support.V7.Preferences;
 namespace PlusAuth
 {
     [Activity(Label = "ImportActivity")]
-    public class ImportActivity: AppCompatActivity
+    public class ActivityImport: AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
 
@@ -36,7 +36,7 @@ namespace PlusAuth
         private AuthSource _authSource;
 
         private FileData _file;
-        private ImportDialog _dialog;
+        private DialogImport _dialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -99,7 +99,7 @@ namespace PlusAuth
                 }
 
                 transaction.AddToBackStack(null);
-                _dialog = new ImportDialog(OnDialogPositive, OnDialogNegative);
+                _dialog = new DialogImport(OnDialogPositive, OnDialogNegative);
                 _dialog.Show(transaction, "import_dialog");
             }
             catch

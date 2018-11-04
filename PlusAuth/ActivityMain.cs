@@ -29,7 +29,7 @@ namespace PlusAuth
     [Activity(Label = "@string/appName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     // ReSharper disable once UnusedMember.Global
-    public class MainActivity : AppCompatActivity
+    public class ActivityMain : AppCompatActivity
     {
         private const int RequestConfirmDeviceCredentials = 0;
 
@@ -46,9 +46,9 @@ namespace PlusAuth
         private DateTime _pauseTime = DateTime.MinValue;
 
         // Alert Dialogs
-        private RenameDialog _renameDialog;
-        private AddDialog _addDialog;
-        private IconDialog _iconDialog;
+        private DialogRename _renameDialog;
+        private DialogAdd _addDialog;
+        private DialogIcon _iconDialog;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -135,15 +135,15 @@ namespace PlusAuth
                     break;
 
                 case Resource.Id.actionSettings:
-                    StartActivity(typeof(SettingsActivity));
+                    StartActivity(typeof(ActivitySettings));
                     break;
 
                 case Resource.Id.actionImport:
-                    StartActivity(typeof(ImportActivity));
+                    StartActivity(typeof(ActivityImport));
                     break;
 
                 case Resource.Id.actionExport:
-                    StartActivity(typeof(ExportActivity));
+                    StartActivity(typeof(ActivityExport));
                     break;
             }
 
@@ -407,7 +407,7 @@ namespace PlusAuth
             }
 
             transaction.AddToBackStack(null);
-            _addDialog = new AddDialog(AddDialogPositive, AddDialogNegative);
+            _addDialog = new DialogAdd(AddDialogPositive, AddDialogNegative);
             _addDialog.Show(transaction, "add_dialog");
         }
 
@@ -525,7 +525,7 @@ namespace PlusAuth
 
             transaction.AddToBackStack(null);
             Authenticator auth = _authSource.Get(position);
-            _renameDialog = new RenameDialog(RenameDialogPositive, RenameDialogNegative, auth, position);
+            _renameDialog = new DialogRename(RenameDialogPositive, RenameDialogNegative, auth, position);
             _renameDialog.Show(transaction, "rename_dialog");
         }
 
@@ -564,7 +564,7 @@ namespace PlusAuth
             }
 
             transaction.AddToBackStack(null);
-            _iconDialog = new IconDialog(IconDialogIconClick, IconDialogNegative, position);
+            _iconDialog = new DialogIcon(IconDialogIconClick, IconDialogNegative, position);
             _iconDialog.Show(transaction, "icon_dialog");
         }
 
