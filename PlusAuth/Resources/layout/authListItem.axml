@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
+	android:clickable="true"
     android:orientation="vertical">
 
 	<RelativeLayout 
@@ -11,7 +12,6 @@
 		android:layout_height="wrap_content"
 		android:background="@drawable/authBackground"
 		android:foreground="?android:attr/selectableItemBackground"
-		android:clickable="true"
 		android:focusable="true"
 		android:paddingTop="12dp"
 		android:paddingRight="32dp"

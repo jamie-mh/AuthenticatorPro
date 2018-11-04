@@ -60,6 +60,7 @@
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vunerable. Do you wish to continue?</string>
     <string name="warning">Warning</string>
+    <string name="sendEmail">Send an Email</string>
 
     <!-- Preferences -->
     <string name="pref_security">Security</string>

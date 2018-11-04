@@ -36,7 +36,7 @@ namespace PlusAuth.Preferences
             Intent intent = new Intent(Intent.ActionSendto, uri);
             intent.PutExtra(Intent.ExtraSubject, Context.GetString(Resource.String.pref_featureRequest_title));
 
-            Context.StartActivity(Intent.CreateChooser(intent, "Email"));
+            Context.StartActivity(Intent.CreateChooser(intent, Context.GetString(Resource.String.sendEmail)));
         }
     }
 }

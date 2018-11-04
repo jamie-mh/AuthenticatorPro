@@ -230,11 +230,6 @@ namespace PlusAuth
 
         private void AuthTick(object sender, ElapsedEventArgs e)
         {
-            //RunOnUiThread(() =>
-            //{
-            //    _authAdapter.NotifyDataSetChanged();
-            //});
-
             for(int i = 0; i < _authSource.Authenticators.Count; ++i)
             {
                 Authenticator auth = _authSource.Authenticators[i];
