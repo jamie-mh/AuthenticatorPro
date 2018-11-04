@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<android.support.v7.preference.PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.preference.PreferenceCategory
+        android:title="@string/pref_security"
+        android:key="pref_key_security">
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="pref_requireAuthentication"
+            android:summary="@string/pref_requireAuthentication_summary"
+            android:title="@string/pref_requireAuthentication_title"
+            android:defaultValue="false" />
+    </android.support.v7.preference.PreferenceCategory>
+
+    <android.support.v7.preference.PreferenceCategory
+        android:title="@string/pref_appearance"
+        android:key="pref_key_appearance">
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="pref_useDarkTheme"
+            android:summary="@string/pref_useDarkTheme_summary"
+            android:title="@string/pref_useDarkTheme_title"
+            android:defaultValue="false" />
+    </android.support.v7.preference.PreferenceCategory>
+
+    <android.support.v7.preference.PreferenceCategory
+        android:title="@string/pref_more"
+        android:key="pref_key_more">
+        
+        <proauth.preferences.AboutPreference
+            android:key="pref_key_about"
+            android:summary="@string/pref_about_summary"
+            android:title="@string/pref_about_title" />
+
+        <proauth.preferences.RatePreference
+            android:key="pref_key_rate"
+            android:summary="@string/pref_rate_summary"
+            android:title="@string/pref_rate_title" />
+
+        <proauth.preferences.FeatureRequestPreference
+            android:key="pref_key_feature_request"
+            android:summary="@string/pref_featureRequest_summary"
+            android:title="@string/pref_featureRequest_title" />
+    </android.support.v7.preference.PreferenceCategory>
+</android.support.v7.preference.PreferenceScreen>
