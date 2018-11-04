@@ -7,8 +7,6 @@ using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
-using Javax.Sql;
-using PlusAuth.Data;
 using PlusAuth.Utilities;
 using DialogFragment = Android.Support.V4.App.DialogFragment;
 
@@ -21,7 +19,7 @@ namespace PlusAuth
 
         private EditText _searchText;
         private RecyclerView _iconList;
-        private IconSource _iconSource;
+        private readonly IconSource _iconSource;
         private IconAdapter _iconAdapter;
 
         private readonly Action<object, EventArgs> _itemClick;

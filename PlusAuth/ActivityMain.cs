@@ -60,7 +60,7 @@ namespace PlusAuth
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
 
-            _keyguardManager = (KeyguardManager) GetSystemService(Context.KeyguardService);
+            _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
 
             _floatingActionButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
             _floatingActionButton.Click += FloatingActionButtonClick;
@@ -164,8 +164,7 @@ namespace PlusAuth
 
             if(authRequired && _keyguardManager.IsDeviceSecure)
             {
-                Intent loginIntent = _keyguardManager.CreateConfirmDeviceCredentialIntent(
-                    GetString(Resource.String.login), GetString(Resource.String.loginMessage));
+                Intent loginIntent = _keyguardManager.CreateConfirmDeviceCredentialIntent(GetString(Resource.String.login), GetString(Resource.String.loginMessage));
 
                 if(loginIntent != null)
                 {
@@ -317,7 +316,7 @@ namespace PlusAuth
             dialog.Show();
         }
 
-        private void FloatingActionButtonClick(object sender, System.EventArgs e)
+        private void FloatingActionButtonClick(object sender, EventArgs e)
         {
             PopupMenu menu = new PopupMenu(this, _floatingActionButton);
             menu.Inflate(Resource.Menu.add);

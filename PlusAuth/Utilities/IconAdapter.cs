@@ -6,8 +6,6 @@ using Android.Graphics.Drawables;
 using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
-using OtpSharp;
-using PlusAuth.Data;
 
 namespace PlusAuth.Utilities
 {

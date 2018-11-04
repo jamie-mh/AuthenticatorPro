@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Albireo.Base32;
-using OtpSharp;
-using PlusAuth.Data;
-using SQLite;
 
 namespace PlusAuth.Utilities
 {

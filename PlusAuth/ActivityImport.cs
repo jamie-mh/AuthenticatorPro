@@ -14,7 +14,6 @@ using Plugin.FilePicker.Abstractions;
 using System.Text;
 using System.Text.RegularExpressions;
 using Android;
-using Android.Content;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Support.V4.App;
@@ -23,7 +22,6 @@ using PlusAuth.Data;
 using PlusAuth.Utilities;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
-using Android.Support.V7.Preferences;
 
 namespace PlusAuth
 {
@@ -56,7 +54,7 @@ namespace PlusAuth
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             Button importBtn = FindViewById<Button>(Resource.Id.activityImport_import);
-            importBtn.Click += this.ImportButtonClick;
+            importBtn.Click += ImportButtonClick;
         }
 
         protected override void OnDestroy()
@@ -141,7 +139,7 @@ namespace PlusAuth
         {
             try
             {
-                string contents = "";
+                string contents;
 
                 if(_dialog.Password == "")
                 {
@@ -204,7 +202,7 @@ namespace PlusAuth
         {
             if(item.ItemId == Android.Resource.Id.Home)
             {
-                this.Finish();
+                Finish();
                 return true;
             }
 

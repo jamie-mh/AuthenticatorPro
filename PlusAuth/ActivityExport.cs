@@ -52,7 +52,7 @@ namespace PlusAuth
 
             _textPassword = FindViewById<EditText>(Resource.Id.activityExport_password);
             Button exportBtn = FindViewById<Button>(Resource.Id.activityExport_export);
-            exportBtn.Click += this.ExportButtonClick;
+            exportBtn.Click += ExportButtonClick;
         }
 
         protected override void OnDestroy()
@@ -189,7 +189,7 @@ namespace PlusAuth
         {
             if(item.ItemId == Android.Resource.Id.Home)
             {
-                this.Finish();
+                Finish();
                 return true;
             }
 
