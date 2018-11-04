@@ -12,7 +12,7 @@ namespace ProAuth.Utilities
         {
             string dbPath = Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
-                ".db3"
+                "proauth.db3"
             );
 
             Connection = new SQLiteConnection(dbPath);
