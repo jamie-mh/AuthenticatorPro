@@ -42,6 +42,7 @@ namespace ProAuth
         private Database _database;
         private MobileBarcodeScanner _barcodeScanner;
         private KeyguardManager _keyguardManager;
+        private SearchView _searchView;
 
         private DateTime _pauseTime = DateTime.MinValue;
 
@@ -114,10 +115,10 @@ namespace ProAuth
             MenuInflater.Inflate(Resource.Menu.main, menu);
 
             IMenuItem searchItem = menu.FindItem(Resource.Id.actionSearch);
-            SearchView searchView = (SearchView) searchItem.ActionView;
-            searchView.QueryHint = GetString(Resource.String.search);
+            _searchView = (SearchView) searchItem.ActionView;
+            _searchView.QueryHint = GetString(Resource.String.search);
 
-            searchView.QueryTextChange += (sender, e) =>
+            _searchView.QueryTextChange += (sender, e) =>
             {
                 _authSource.SetSearch(e.NewText);
                 _authAdapter.NotifyDataSetChanged();
@@ -189,8 +190,17 @@ namespace ProAuth
 
         public override void OnBackPressed()
         {
-            base.OnBackPressed();
             _barcodeScanner.Cancel();
+
+            if(_searchView.Iconified)
+            {
+                base.OnBackPressed();
+            }
+            else
+            {
+                _searchView.OnActionViewCollapsed();
+                _searchView.Iconified = true;
+            }
         }
 
         private void PrepareAuthenticatorList()
@@ -302,6 +312,7 @@ namespace ProAuth
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetMessage(Resource.String.confirmDelete);
+            builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
             {
                 _authSource.Delete(position);
