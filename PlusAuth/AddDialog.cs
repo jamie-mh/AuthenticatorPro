@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using DialogFragment = Android.Support.V4.App.DialogFragment;
@@ -45,6 +46,7 @@ namespace PlusAuth
         private Spinner _algorithmSpinner;
         private EditText _digitsText;
         private EditText _periodText;
+        private TextInputLayout _periodInputLayout;
 
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
@@ -53,10 +55,6 @@ namespace PlusAuth
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
-        }
-
-        private void FindViews(View view)
-        {
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -76,6 +74,7 @@ namespace PlusAuth
             _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
             _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAdd_digits);
             _periodText = view.FindViewById<EditText>(Resource.Id.dialogAdd_period);
+            _periodInputLayout = view.FindViewById<TextInputLayout>(Resource.Id.dialogAdd_periodInputLayout);
             alert.SetView(view);
 
             ArrayAdapter typeAdapter = ArrayAdapter.CreateFromResource(
@@ -117,7 +116,7 @@ namespace PlusAuth
 
         private void _typeSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            _periodText.Visibility = (e.Position == 0) ? ViewStates.Visible : ViewStates.Gone;
+            _periodInputLayout.Visibility = (e.Position == 0) ? ViewStates.Visible : ViewStates.Gone;
         }
     }
 }
