@@ -14,6 +14,7 @@ using Plugin.FilePicker.Abstractions;
 using System.Text;
 using System.Text.RegularExpressions;
 using Android;
+using Android.Content;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Support.V4.App;
@@ -22,6 +23,7 @@ using PlusAuth.Data;
 using PlusAuth.Utilities;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using Android.Support.V7.Preferences;
 
 namespace PlusAuth
 {
@@ -38,8 +40,10 @@ namespace PlusAuth
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityImport);
+
             _database = new Database();
             _authSource = new AuthSource(_database.Connection);
 
@@ -177,6 +181,7 @@ namespace PlusAuth
                 Toast.MakeText(_dialog.Context, message, ToastLength.Long).Show();
 
                 _dialog.Dismiss();
+                Finish();
             }
             catch(Exception ex)
             {

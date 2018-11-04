@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<resources>
+    <declare-styleable name="AppTheme">
+        <attr name="primaryTextColor" format="color" /> 
+        <attr name="secondaryTextColor" format="color" /> 
+
+        <attr name="activityMain_emptyImage" format="integer" />
+        <attr name="activityImport_image" format="integer" />
+        <attr name="activityExport_image" format="integer" />
+
+        <attr name="authListItem_background" format="color"/>
+        <attr name="authListItem_code" format="color"/>
+        <attr name="authListItem_iconBackground" format="color" />
+        <attr name="authListItem_optionsIcon" format="integer"/>
+        <attr name="authListItem_refreshIcon" format="integer"/>
+    </declare-styleable>
+</resources>

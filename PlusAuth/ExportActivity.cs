@@ -36,8 +36,10 @@ namespace PlusAuth
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityExport);
+
             _database = new Database();
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityExport_toolbar);

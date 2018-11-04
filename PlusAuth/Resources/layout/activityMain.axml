@@ -36,7 +36,7 @@
 			android:layout_width="76dp"
 			android:layout_height="76dp"
 			android:layout_gravity="center"
-			android:src="@drawable/ic_lock_open" />
+			android:src="?attr/activityMain_emptyImage" />
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
 			android:fontFamily="@font/worksans"
 			android:fontWeight="700"
 			android:textSize="24dp"
-			android:textColor="@color/colorDarker"
+			android:textColor="?attr/primaryTextColor"
 			android:layout_marginTop="22dp"
 	        android:text="@string/welcomeTitle" />
 
@@ -63,7 +63,7 @@
 			android:fontFamily="@font/worksans"
 			android:fontWeight="400"
 			android:textSize="16dp"
-			android:textColor="@color/colorDark"
+			android:textColor="?attr/secondaryTextColor"
 	        android:text="@string/welcomeMessage" />
 	</LinearLayout>
 

@@ -6,7 +6,8 @@
     <color name="colorLight">#eeeeee</color>
     <color name="colorLighter">#ffffff</color>
     <color name="colorDark">#212121</color>
-    <color name="colorDarker">#000000</color>
+    <color name="colorDarker">#171717</color>
+    <color name="colorDarkest">#000000</color>
     
 
 </resources>

@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Views;
+using PlusAuth.Utilities;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace PlusAuth
@@ -11,6 +12,7 @@ namespace PlusAuth
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activitySettings);

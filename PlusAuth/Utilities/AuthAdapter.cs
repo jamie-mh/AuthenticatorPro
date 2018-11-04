@@ -80,6 +80,9 @@ namespace PlusAuth.Utilities
             holder.RefreshButton.Visibility = ViewStates.Gone;
             holder.ProgressBar.Visibility = ViewStates.Visible;
             holder.Counter.Visibility = ViewStates.Invisible;
+
+            int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
+            holder.ProgressBar.Progress = 100 * secondsRemaining / auth.Period;
         }
 
         private static void HotpViewBind(AuthHolder holder, Authenticator auth)

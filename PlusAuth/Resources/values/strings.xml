@@ -69,7 +69,7 @@
 
     <string name="pref_appearance">Appearance</string>
     <string name="pref_useDarkTheme_title">Use Dark Theme</string>
-    <string name="pref_useDarkTheme_summary">Use a dark theme throughout the app.</string>
+    <string name="pref_useDarkTheme_summary">Use a dark theme throughout the app. Requires an application restart.</string>
 
     <string name="pref_more">More</string>
     <string name="pref_about_title">About</string>

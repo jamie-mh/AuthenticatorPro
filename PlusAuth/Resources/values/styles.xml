@@ -1,13 +1,51 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="LightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorLight</item>
+
+        <item name="primaryTextColor">@color/colorDarkest</item>
+        <item name="secondaryTextColor">@color/colorDark</item>
+
+        <item name="activityMain_emptyImage">@drawable/ic_lock_open_light</item>
+        <item name="activityImport_image">@drawable/ic_cloud_download_light</item>
+        <item name="activityExport_image">@drawable/ic_backup_light</item>
+
+        <item name="authListItem_background">@color/colorLighter</item>
+        <item name="authListItem_iconBackground">@android:color/transparent</item>
+        <item name="authListItem_code">@color/colorPrimary</item>
+        <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
+        <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
+
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="android:windowBackground">@color/colorLight</item>
     </style>
-    
+
+    <style name="DarkTheme" parent="Theme.AppCompat">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="primaryTextColor">@color/colorLight</item>
+        <item name="secondaryTextColor">@color/colorLighter</item>
+
+        <item name="activityMain_emptyImage">@drawable/ic_lock_open_dark</item>
+        <item name="activityImport_image">@drawable/ic_cloud_download_dark</item>
+        <item name="activityExport_image">@drawable/ic_backup_dark</item>
+
+        <item name="authListItem_iconBackground">@color/colorLighter</item>
+        <item name="authListItem_background">@color/colorDarker</item>
+        <item name="authListItem_code">@color/colorLight</item>
+        <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
+        <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
+
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="android:windowBackground">@color/colorDark</item>
+    </style>
+
 </resources>

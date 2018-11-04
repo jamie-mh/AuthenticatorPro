@@ -26,7 +26,7 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace PlusAuth
 {
-    [Activity(Label = "@string/appName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(Label = "@string/appName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     // ReSharper disable once UnusedMember.Global
     public class MainActivity : AppCompatActivity
@@ -52,6 +52,7 @@ namespace PlusAuth
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityMain);
 
@@ -230,7 +231,10 @@ namespace PlusAuth
 
         private void AuthTick(object sender, ElapsedEventArgs e)
         {
-            for(int i = 0; i < _authSource.Authenticators.Count; ++i)
+            int start = 0;
+            int stop = _authSource.Authenticators.Count;
+
+            for(int i = start; i < stop; ++i)
             {
                 Authenticator auth = _authSource.Authenticators[i];
 

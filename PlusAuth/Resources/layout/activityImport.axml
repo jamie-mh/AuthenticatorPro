@@ -24,7 +24,7 @@
 			android:layout_width="76dp"
 			android:layout_height="76dp"
 			android:layout_gravity="center"
-			android:src="@drawable/ic_cloud_download" />
+			android:src="?attr/activityImport_image" />
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
 			android:fontFamily="@font/worksans"
 			android:fontWeight="700"
 			android:textSize="16dp"
-			android:textColor="@color/colorDarker"
+			android:textColor="?attr/primaryTextColor"
 	        android:text="@string/importMessage" />
 
 		<Button

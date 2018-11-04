@@ -30,6 +30,7 @@
 				android:layout_gravity="center"
 				android:layout_marginTop="2dp"
 				android:layout_marginRight="12dp"
+				android:background="?attr/authListItem_iconBackground"
 				android:src="@drawable/auth_github" />
 
 			<LinearLayout
@@ -42,7 +43,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="16dp"
-					android:textColor="@color/colorDarker"
+					android:textColor="?attr/primaryTextColor"
 					android:gravity="left"
 					android:fontFamily="@font/worksans"
 					android:fontWeight="400"
@@ -52,7 +53,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:textSize="12dp"
-					android:textColor="@color/colorDark"
+					android:textColor="?attr/secondaryTextColor"
 					android:gravity="left"
 					android:layout_below="@id/authListItem_issuer"
 					android:fontFamily="@font/worksans"
@@ -66,7 +67,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="38dp"
-			android:textColor="@color/colorPrimary"
+			android:textColor="?attr/authListItem_code"
 			android:gravity="left"
 			android:layout_below="@id/authListItem_iconLayout"
 			android:fontFamily="@font/worksans"
@@ -85,10 +86,10 @@
 				android:id="@+id/authListItem_refresh"
 				android:layout_alignParentRight="true"
 				android:layout_marginRight="14dp"
-				android:src="@drawable/ic_action_refresh_light"
+				android:src="?attr/authListItem_refreshIcon"
 				android:scaleType="centerInside"
 				android:textSize="14dp"
-				android:background="@color/colorLighter"
+				android:background="@android:color/transparent"
 				android:visibility="gone"
 				android:layout_width="30dp"
 				android:layout_height="30dp" />
@@ -107,10 +108,10 @@
 
 			<ImageButton
 				android:id="@+id/authListItem_options"
-				android:src="@drawable/ic_action_more_vert_light"
+				android:src="?attr/authListItem_optionsIcon"
 				android:scaleType="centerInside"
 				android:textSize="14dp"
-				android:background="@color/colorLighter"
+				android:background="@android:color/transparent"
 				android:layout_width="30dp"
 				android:layout_height="30dp" />
 		</LinearLayout>
