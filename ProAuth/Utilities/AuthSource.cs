@@ -10,22 +10,14 @@ namespace ProAuth.Utilities
 {
     internal class AuthSource
     {
-        public enum SortType
-        {
-            Alphabetical, CreatedDate
-        };
         public List<Authenticator> Authenticators { get; private set; }
 
         private string _search;
-        private SortType _sort;
-
         private readonly SQLiteConnection _connection;
 
         public AuthSource(SQLiteConnection connection)
         {
             _search = "";
-            _sort = SortType.Alphabetical;
-
             _connection = connection;
 
             Authenticators = new List<Authenticator>();
@@ -35,12 +27,6 @@ namespace ProAuth.Utilities
         public void SetSearch(string query)
         {
             _search = query;
-            Update();
-        }
-
-        public void SetSort(SortType sortType)
-        {
-            _sort = sortType;
             Update();
         }
 
@@ -56,17 +42,7 @@ namespace ProAuth.Utilities
                 sql += "WHERE issuer LIKE ? ";
             }
 
-            switch(_sort)
-            {
-                case SortType.Alphabetical:
-                    sql += "ORDER BY issuer ASC, username ASC";
-                    break;
-
-                case SortType.CreatedDate:
-                    sql += "ORDER BY createdDate ASC";
-                    break;
-            }
-
+            sql += "ORDER BY ranking ASC, issuer ASC, username ASC";
             Authenticators = _connection.Query<Authenticator>(sql, args);
         }
 
@@ -116,6 +92,33 @@ namespace ProAuth.Utilities
 
             _connection.Delete<Authenticator>(item.Secret);
             Authenticators.Remove(item);
+        }
+
+        public void Move(int oldPosition, int newPosition)
+        {
+            Authenticator old = Authenticators[newPosition];
+            Authenticators[newPosition] = Authenticators[oldPosition];
+            Authenticators[oldPosition] = old;
+
+            if(oldPosition > newPosition)
+            {
+                for(int i = newPosition; i < Authenticators.Count; ++i)
+                {
+                    Authenticators[i].Ranking++;
+                    _connection.Update(Authenticators[i]);
+                }
+            }
+            else
+            {
+                for(int i = oldPosition; i <= newPosition; ++i)
+                {
+                    Authenticators[i].Ranking--;
+                    _connection.Update(Authenticators[i]);
+                }
+            }
+
+            Authenticators[newPosition].Ranking = newPosition;
+            _connection.Update(Authenticators[newPosition]);
         }
 
         public void IncrementHotp(int position)

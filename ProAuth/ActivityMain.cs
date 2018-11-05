@@ -18,6 +18,7 @@ using System.Linq;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
 using Android.Support.V7.Preferences;
+using Android.Support.V7.Widget.Helper;
 using OtpSharp;
 using ProAuth.Data;
 using ProAuth.Utilities;
@@ -31,25 +32,36 @@ namespace ProAuth
     // ReSharper disable once UnusedMember.Global
     public class ActivityMain : AppCompatActivity
     {
+        // Results
         private const int RequestConfirmDeviceCredentials = 0;
 
+        // State
         private Timer _authTimer;
+        private DateTime _pauseTime;
+
+        // Views
         private RecyclerView _authList;
-        private LinearLayout _emptyState;
-        private FloatingActionButton _floatingActionButton;
         private AuthAdapter _authAdapter;
         private AuthSource _authSource;
+
+        private LinearLayout _emptyState;
+        private FloatingActionButton _addButton;
+        private SearchView _searchView;
+
+        // Data
         private Database _database;
         private MobileBarcodeScanner _barcodeScanner;
         private KeyguardManager _keyguardManager;
-        private SearchView _searchView;
-
-        private DateTime _pauseTime = DateTime.MinValue;
 
         // Alert Dialogs
         private DialogRename _renameDialog;
         private DialogAdd _addDialog;
         private DialogIcon _iconDialog;
+
+        public ActivityMain()
+        {
+            _pauseTime = DateTime.MinValue;
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -61,10 +73,8 @@ namespace ProAuth
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
 
-            _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
-
-            _floatingActionButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
-            _floatingActionButton.Click += FloatingActionButtonClick;
+            _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
+            _addButton.Click += AddButtonClick;
 
             MobileBarcodeScanner.Initialize(Application);
             _barcodeScanner = new MobileBarcodeScanner();
@@ -75,16 +85,60 @@ namespace ProAuth
 
             _database = new Database();
 
-            PrepareAuthenticatorList();
-            EmptyStateUpdate();
+            CreateAuthenticatorList();
+            UpdateEmptyState();
+            CreateTimer();
 
+            _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
+        }
+
+        private void CreateAuthenticatorList()
+        {
+            _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
+            _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
+
+            _authSource = new AuthSource(_database.Connection);
+            _authAdapter = new AuthAdapter(this, _authSource);
+            _authAdapter.ItemClick += ItemClick;
+            _authAdapter.ItemOptionsClick += ItemOptionsClick;
+
+            _authList.SetAdapter(_authAdapter);
+            _authList.HasFixedSize = true;
+            _authList.SetItemViewCacheSize(20);
+            _authList.DrawingCacheEnabled = true;
+            _authList.DrawingCacheQuality = DrawingCacheQuality.High;
+            _authList.SetLayoutManager(new LinearLayoutManager(this));
+
+            AuthTouchHelperCallback callback = new AuthTouchHelperCallback(_authAdapter);
+            ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+            touchHelper.AttachToRecyclerView(_authList);
+
+            Tick(null, null);
+        }
+
+        private void UpdateEmptyState()
+        {
+            if(_authSource.Count() == 0)
+            {
+                _emptyState.Visibility = ViewStates.Visible;
+                _authList.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                _emptyState.Visibility = ViewStates.Gone;
+                _authList.Visibility = ViewStates.Visible;
+            }
+        }
+
+        private void CreateTimer()
+        {
             _authTimer = new Timer {
                 Interval = 1000,
                 AutoReset = true,
                 Enabled = true
             };
 
-            _authTimer.Elapsed += AuthTick;
+            _authTimer.Elapsed += Tick;
             _authTimer.Start();
         }
 
@@ -130,10 +184,6 @@ namespace ProAuth
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId) {
-                case Resource.Id.actionSort:
-                    ShowSortDialog();
-                    break;
-
                 case Resource.Id.actionSettings:
                     StartActivity(typeof(ActivitySettings));
                     break;
@@ -185,7 +235,7 @@ namespace ProAuth
 
             _authSource.Update();
             _authAdapter.NotifyDataSetChanged();
-            EmptyStateUpdate();
+            UpdateEmptyState();
         }
 
         public override void OnBackPressed()
@@ -203,41 +253,7 @@ namespace ProAuth
             }
         }
 
-        private void PrepareAuthenticatorList()
-        {
-            _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
-            _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
-
-            _authSource = new AuthSource(_database.Connection);
-            _authAdapter = new AuthAdapter(this, _authSource);
-            _authAdapter.ItemClick += AuthClick;
-            _authAdapter.ItemOptionsClick += AuthOptionsClick;
-
-            _authList.SetAdapter(_authAdapter);
-            _authList.HasFixedSize = true;
-            _authList.SetItemViewCacheSize(20);
-            _authList.DrawingCacheEnabled = true;
-            _authList.DrawingCacheQuality = DrawingCacheQuality.High;
-            _authList.SetLayoutManager(new LinearLayoutManager(this));
-
-            AuthTick(null, null);
-        }
-
-        private void EmptyStateUpdate()
-        {
-            if(_authSource.Count() == 0)
-            {
-                _emptyState.Visibility = ViewStates.Visible;
-                _authList.Visibility = ViewStates.Gone;
-            }
-            else
-            {
-                _emptyState.Visibility = ViewStates.Gone;
-                _authList.Visibility = ViewStates.Visible;
-            }
-        }
-
-        private void AuthTick(object sender, ElapsedEventArgs e)
+        private void Tick(object sender, ElapsedEventArgs e)
         {
             int start = 0;
             int stop = _authSource.Authenticators.Count;
@@ -273,7 +289,7 @@ namespace ProAuth
             }
         }
 
-        private void AuthClick(object sender, int position)
+        private void ItemClick(object sender, int position)
         {
             ClipboardManager clipboard = (ClipboardManager) GetSystemService(ClipboardService);
             Authenticator auth = _authSource.Get(position);
@@ -283,7 +299,7 @@ namespace ProAuth
             Toast.MakeText(this, Resource.String.copiedToClipboard, ToastLength.Short).Show();
         }
 
-        private void AuthOptionsClick(object sender, int position)
+        private void ItemOptionsClick(object sender, int position)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetItems(Resource.Array.authContextMenu, (alertSender, args) =>
@@ -317,7 +333,7 @@ namespace ProAuth
             {
                 _authSource.Delete(position);
                 _authAdapter.NotifyItemRemoved(position);
-                EmptyStateUpdate();
+                UpdateEmptyState();
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -326,15 +342,15 @@ namespace ProAuth
             dialog.Show();
         }
 
-        private void FloatingActionButtonClick(object sender, EventArgs e)
+        private void AddButtonClick(object sender, EventArgs e)
         {
-            PopupMenu menu = new PopupMenu(this, _floatingActionButton);
+            PopupMenu menu = new PopupMenu(this, _addButton);
             menu.Inflate(Resource.Menu.add);
-            menu.MenuItemClick += Fab_MenuItemClick;
+            menu.MenuItemClick += AddMenuItemClick;
             menu.Show();
         }
 
-        private void Fab_MenuItemClick(object sender, PopupMenu.MenuItemClickEventArgs e)
+        private void AddMenuItemClick(object sender, PopupMenu.MenuItemClickEventArgs e)
         {
             switch(e.Item.ItemId)
             {
@@ -375,31 +391,13 @@ namespace ProAuth
 
                 _database.Connection.Insert(auth);
                 _authSource.Update();
-                EmptyStateUpdate();
+                UpdateEmptyState();
                 _authAdapter.NotifyDataSetChanged();
             }
             catch
             {
                 Toast.MakeText(this, Resource.String.qrCodeFormatError, ToastLength.Short).Show();
             }
-        }
-
-        private void ShowSortDialog()
-        {
-            AlertDialog.Builder sortDialog = new AlertDialog.Builder(this);
-            sortDialog.SetTitle(Resource.String.sort)
-            .SetItems(Resource.Array.sortTypes, (sender, e) =>
-            {
-                switch(e.Which)
-                {
-                    case 0: _authSource.SetSort(AuthSource.SortType.Alphabetical); break;
-                    case 1: _authSource.SetSort(AuthSource.SortType.CreatedDate); break;
-                }
-
-                _authAdapter.NotifyDataSetChanged();
-            })
-            .Create()
-            .Show();
         }
 
         /*
@@ -509,7 +507,7 @@ namespace ProAuth
 
             _database.Connection.Insert(auth);
             _authSource.Update();
-            EmptyStateUpdate();
+            UpdateEmptyState();
             _authAdapter.NotifyDataSetChanged();
 
             _addDialog.Dismiss();

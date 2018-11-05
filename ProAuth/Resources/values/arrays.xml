@@ -5,10 +5,6 @@
         <item>Change Icon</item>
         <item>Delete</item>
     </string-array>
-    <string-array name="sortTypes">
-        <item>Alphabetical</item>
-        <item>Date Added</item>
-    </string-array>
     <string-array name="authTypes">
         <item>Time Based (TOTP)</item>
         <item>Counter Based (HTOP)</item>

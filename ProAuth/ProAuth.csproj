@@ -90,6 +90,8 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="FragmentSettings.cs" />
     <Compile Include="ActivitySettings.cs" />
+    <Compile Include="Utilities\IAuthAdapterMovement.cs" />
+    <Compile Include="Utilities\AuthTouchHelperCallback.cs" />
     <Compile Include="Utilities\IconSource.cs" />
     <Compile Include="Utilities\IconHolder.cs" />
     <Compile Include="Utilities\IconAdapter.cs" />
@@ -371,21 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\searchable.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_sort.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_sort.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_sort.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_sort.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_sort.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_refresh_light.png" />

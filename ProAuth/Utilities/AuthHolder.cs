@@ -15,7 +15,11 @@ namespace ProAuth.Utilities
         public ImageButton RefreshButton { get; set; }
         public ImageView Icon { get; set; }
 
-        public AuthHolder(View itemView, Action<int> clickListener, Action<int> optionsClickListener, Action<int> refreshClickListener) : base(itemView)
+        public AuthHolder(
+            View itemView, 
+            Action<int> clickListener, 
+            Action<int> optionsClickListener, 
+            Action<int> refreshClickListener) : base(itemView)
         {
             Issuer = itemView.FindViewById<TextView>(Resource.Id.authListItem_issuer);
             Username = itemView.FindViewById<TextView>(Resource.Id.authListItem_username);

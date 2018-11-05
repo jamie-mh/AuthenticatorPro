@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Android.Service.Notification;
+using Android.Widget;
 using Newtonsoft.Json;
 using OtpSharp;
 using ProAuth.Utilities;
@@ -42,6 +44,9 @@ namespace ProAuth.Data
         [Column("counter")]
         public long Counter { get; set; }
 
+        [Column("ranking")]
+        public int Ranking { get; set; }
+
         [JsonIgnore]
         public DateTime TimeRenew { get; set; }
 
@@ -53,6 +58,7 @@ namespace ProAuth.Data
             Code = "";
             TimeRenew = DateTime.Now;
             CreatedDate = DateTime.Now;
+            Ranking = int.MaxValue;
         }
 
         public static Authenticator FromKeyUri(string uri)

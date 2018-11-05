@@ -4,13 +4,14 @@ using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
+using Android.Support.V7.Widget.Helper;
 using Android.Views;
 using OtpSharp;
 using ProAuth.Data;
 
 namespace ProAuth.Utilities
 {
-    internal sealed class AuthAdapter : RecyclerView.Adapter
+    internal sealed class AuthAdapter : RecyclerView.Adapter, IAuthAdapterMovement
     {
         private readonly AuthSource _source;
         private readonly Context _context;
@@ -121,6 +122,12 @@ namespace ProAuth.Utilities
         {
             _source.IncrementHotp(position);
             NotifyItemChanged(position);
+        }
+
+        public void OnViewMoved(int oldPosition, int newPosition)
+        {
+            _source.Move(oldPosition, newPosition);
+            NotifyItemMoved(oldPosition, newPosition);
         }
     }
 }
