@@ -492,6 +492,7 @@ namespace ProAuth
                 Issuer = issuer,
                 Username = username,
                 Type = type,
+                Icon = Icons.FindKeyByName(issuer),
                 Algorithm = algorithm,
                 Counter = 0,
                 Secret = secret,

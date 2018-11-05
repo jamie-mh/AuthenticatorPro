@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ProAuth.Utilities
 {
-    internal static class Icon
+    internal static class Icons
     {
         public static Dictionary<string, int> List = new Dictionary<string, int>
         {
@@ -31,6 +32,12 @@ namespace ProAuth.Utilities
             }
 
             return List[key];
+        }
+
+        public static string FindKeyByName(string name)
+        {
+            string key  = name.ToLower().Split(' ')[0];
+            return List.Keys.Contains(key) ? key : "default";
         }
     }
 }

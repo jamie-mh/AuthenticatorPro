@@ -124,6 +124,7 @@ namespace ProAuth.Data
                 Secret = args["secret"].ToUpper(),
                 Issuer = issuer.Trim().Truncate(32),
                 Username = username.Trim().Truncate(32),
+                Icon = Icons.FindKeyByName(issuer),
                 Type = type,
                 Algorithm = algorithm,
                 Digits = digits,

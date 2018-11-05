@@ -99,7 +99,7 @@
     <Compile Include="ActivityMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Database.cs" />
-    <Compile Include="Utilities\Icon.cs" />
+    <Compile Include="Utilities\Icons.cs" />
     <Compile Include="Utilities\StringExt.cs" />
     <Compile Include="Utilities\ThemeHelper.cs" />
   </ItemGroup>

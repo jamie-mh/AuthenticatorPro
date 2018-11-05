@@ -49,7 +49,7 @@ namespace ProAuth.Utilities
                 }
             }
 
-            Drawable icon = ContextCompat.GetDrawable(_context, Icon.Get(auth.Icon));
+            Drawable icon = ContextCompat.GetDrawable(_context, Icons.Get(auth.Icon));
             holder.Icon.SetImageDrawable(icon);
 
             if(auth.Type == OtpType.Totp)

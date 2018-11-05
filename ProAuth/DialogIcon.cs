@@ -76,7 +76,7 @@ namespace ProAuth
 
         private void ItemClick(object sender, int e)
         {
-            IconKey = _iconSource.Icons.ElementAt(e).Key;
+            IconKey = _iconSource.List.ElementAt(e).Key;
             _itemClick.Invoke(sender, null);
         }
     }

@@ -23,7 +23,7 @@ namespace ProAuth.Utilities
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            KeyValuePair<string, int> icon = _iconSource.Icons.ElementAt(position);
+            KeyValuePair<string, int> icon = _iconSource.List.ElementAt(position);
             IconHolder holder = (IconHolder) viewHolder;
 
             Drawable drawable = ContextCompat.GetDrawable(_context, icon.Value);
@@ -40,7 +40,7 @@ namespace ProAuth.Utilities
             return holder;
         }
 
-        public override int ItemCount => _iconSource.Icons.Count;
+        public override int ItemCount => _iconSource.List.Count;
 
         private void OnItemClick(int position)
         {
