@@ -9,6 +9,7 @@
         <attr name="activityExport_image" format="integer" />
 
         <attr name="authListItem_background" format="color"/>
+        <attr name="authListItem_stripe" format="color"/>
         <attr name="authListItem_code" format="color"/>
         <attr name="authListItem_iconBackground" format="color" />
         <attr name="authListItem_optionsIcon" format="integer"/>
