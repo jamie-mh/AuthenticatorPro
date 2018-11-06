@@ -117,7 +117,7 @@ namespace ProAuth.Utilities
                 }
             }
 
-            Authenticators[newPosition].Ranking = newPosition + 1;
+            Authenticators[newPosition].Ranking = newPosition;
             _connection.Update(Authenticators[newPosition]);
         }
 
