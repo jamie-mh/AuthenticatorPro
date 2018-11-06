@@ -43,7 +43,8 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>
+    </AndroidSupportedAbis>
     <AndroidHttpClientHandlerType>
     </AndroidHttpClientHandlerType>
     <Debugger>Xamarin</Debugger>
@@ -80,7 +81,6 @@
     <Compile Include="ActivityImport.cs" />
     <Compile Include="ActivityExport.cs" />
     <Compile Include="ActivityAbout.cs" />
-    <Compile Include="DialogExport.cs" />
     <Compile Include="Preferences\FeatureRequestPreference.cs" />
     <Compile Include="Preferences\RatePreference.cs" />
     <Compile Include="Preferences\AboutPreference.cs" />
@@ -335,12 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_more_vert_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogExport.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\dialogImport.axml">

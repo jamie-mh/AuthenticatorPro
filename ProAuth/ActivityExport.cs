@@ -11,14 +11,11 @@ using PCLCrypto;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 using System.IO;
-using Environment = Android.OS.Environment;
 using System.Text;
 using Android;
 using Android.Content;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
-using Fragment = Android.Support.V4.App.Fragment;
-using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Permission = Android.Content.PM.Permission;
 using Android.Runtime;
 using ProAuth.Data;
@@ -64,6 +61,14 @@ namespace ProAuth
 
         private void ExportButtonClick(object sender, EventArgs e)
         {
+            int count =_database.Connection.Table<Authenticator>().Count();
+
+            if(count == 0)
+            {
+                Toast.MakeText(this, Resource.String.noAuthenticators, ToastLength.Short).Show();
+                return;
+            }
+
             if(!GetStoragePermission())
             {
                 return;

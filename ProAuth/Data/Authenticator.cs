@@ -58,7 +58,7 @@ namespace ProAuth.Data
             Code = "";
             TimeRenew = DateTime.Now;
             CreatedDate = DateTime.Now;
-            Ranking = int.MaxValue;
+            Ranking = 100000;
         }
 
         public static Authenticator FromKeyUri(string uri)

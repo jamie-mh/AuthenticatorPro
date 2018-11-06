@@ -19,6 +19,7 @@ using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
 using Android.Support.V7.Preferences;
 using Android.Support.V7.Widget.Helper;
+using Android.Util;
 using OtpSharp;
 using ProAuth.Data;
 using ProAuth.Utilities;
@@ -107,7 +108,10 @@ namespace ProAuth
             _authList.SetItemViewCacheSize(20);
             _authList.DrawingCacheEnabled = true;
             _authList.DrawingCacheQuality = DrawingCacheQuality.High;
-            _authList.SetLayoutManager(new LinearLayoutManager(this));
+
+            int columns = IsTablet() ? 2 : 1;
+            GridLayoutManager layout = new GridLayoutManager(this, columns);
+            _authList.SetLayoutManager(layout);
 
             AuthTouchHelperCallback callback = new AuthTouchHelperCallback(_authAdapter);
             ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
@@ -326,6 +330,19 @@ namespace ProAuth
 
             AlertDialog dialog = builder.Create();
             dialog.Show();
+        }
+
+        public bool IsTablet()
+        {
+            Display display = WindowManager.DefaultDisplay;
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            display.GetMetrics(displayMetrics);
+
+            var wInches = displayMetrics.WidthPixels / (double)displayMetrics.DensityDpi;
+            var hInches = displayMetrics.HeightPixels / (double)displayMetrics.DensityDpi;
+
+            double screenDiagonal = Math.Sqrt(Math.Pow(wInches, 2) + Math.Pow(hInches, 2));
+            return (screenDiagonal >= 7.0);
         }
 
         private void OpenDeleteDialog(int position)

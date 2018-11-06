@@ -36,6 +36,7 @@
     <string name="fileNameHint">Backup File Name</string>
     <string name="save">Save</string>
     <string name="saveFile">Save File</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to export.</string>
     
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>

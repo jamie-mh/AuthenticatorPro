@@ -27,10 +27,8 @@ namespace ProAuth.Utilities
 
         public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
         {
-            int dragFlags = ItemTouchHelper.Up | ItemTouchHelper.Down;
-            int swipeFlags = ItemTouchHelper.Left | ItemTouchHelper.Right;
-
-            return MakeMovementFlags(dragFlags, swipeFlags);
+            int dragFlags = ItemTouchHelper.Up | ItemTouchHelper.Down | ItemTouchHelper.Left | ItemTouchHelper.Right;
+            return MakeMovementFlags(dragFlags, 0);
         }
 
         public override bool OnMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target)
