@@ -98,7 +98,7 @@ namespace ProAuth
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
 
             _authSource = new AuthSource(_database.Connection);
-            _authAdapter = new AuthAdapter(this, _authSource);
+            _authAdapter = new AuthAdapter(_authSource);
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
 

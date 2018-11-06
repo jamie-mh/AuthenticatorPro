@@ -14,7 +14,7 @@
 		android:layout_height="32dp"
 		android:layout_gravity="center_vertical"
 		android:layout_marginRight="18dp"
-		android:src="@drawable/ic_folder" />
+		android:src="@drawable/ic_folder_light" />
 
 	<TextView
 		android:text="Android"

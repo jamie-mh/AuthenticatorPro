@@ -18,8 +18,6 @@ namespace ProAuth
     [Activity(Label = "FileSaveActivity")]
     public class ActivityFileSave: AppCompatActivity
     {
-        private const int PermissionStorageCode = 0;
-
         private EditText _filenameText;
         private Button _saveButton;
 
@@ -35,12 +33,14 @@ namespace ProAuth
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityFileSave_toolbar);
             SetSupportActionBar(toolbar);
 
-            SupportActionBar.SetTitle(Resource.String.export);
+            SupportActionBar.SetTitle(Resource.String.saveFile);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             _filenameText = FindViewById<EditText>(Resource.Id.activityFileSave_filename);
+            _filenameText.Text = Intent.GetStringExtra("filename");
+
             _saveButton = FindViewById<Button>(Resource.Id.activityFileSave_save);
             _saveButton.Click += SaveClick;
 
@@ -67,33 +67,6 @@ namespace ProAuth
 
             SetResult(Result.Ok, Intent);
             Finish();
-        }
-
-        private bool GetStoragePermission()
-        {
-            if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage)
-               != Permission.Granted)
-            {
-                ActivityCompat.RequestPermissions(this, 
-                    new[] { Manifest.Permission.WriteExternalStorage }, PermissionStorageCode);
-                return false;
-            }
-
-            return true;
-        }
-
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
-        {
-            if(requestCode == PermissionStorageCode)
-            {
-                if(grantResults.Length <= 0 || grantResults[0] != Permission.Granted)
-                {
-                    Toast.MakeText(this, Resource.String.externalStoragePermissionError, ToastLength.Short).Show();
-                    Finish();
-                }
-            }
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         public override bool OnSupportNavigateUp()

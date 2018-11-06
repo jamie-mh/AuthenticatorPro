@@ -76,11 +76,11 @@ namespace ProAuth.Utilities
             }
         }
 
-        public void Navigate(int position)
+        public bool Navigate(int position)
         {
             if(position >= Listing.Count)
             {
-                return;
+                return false;
             }
 
             Item item = Listing[position];
@@ -90,13 +90,15 @@ namespace ProAuth.Utilities
                 case Type.Up:
                     CurrentPath = CurrentPath.Substring(0, CurrentPath.LastIndexOf('/'));
                     Update();
-                    break;
+                    return true;
 
                 case Type.Directory:
                     CurrentPath += $@"/{item.Name}";
                     Update();
-                    break;
+                    return true;
             }
+
+            return false;
         }
 
         public int Count()

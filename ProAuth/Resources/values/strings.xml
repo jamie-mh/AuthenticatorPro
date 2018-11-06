@@ -35,6 +35,7 @@
     <string name="passwordHint">Backup Password (leave blank if none)</string>
     <string name="fileNameHint">Backup File Name</string>
     <string name="save">Save</string>
+    <string name="saveFile">Save File</string>
     
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>

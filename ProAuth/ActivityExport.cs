@@ -34,7 +34,6 @@ namespace ProAuth
 
         private Database _database;
         private EditText _textPassword;
-        private DialogExport _dialog;    
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,7 +64,14 @@ namespace ProAuth
 
         private void ExportButtonClick(object sender, EventArgs e)
         {
+            if(!GetStoragePermission())
+            {
+                return;
+            }
+
             string password = _textPassword.Text;
+            Intent intent = new Intent(this, typeof(ActivityFileSave));
+            intent.PutExtra("filename", $@"backup-{DateTime.Now:yyyy-MM-dd}");
 
             if(password == "")
             {
@@ -75,7 +81,7 @@ namespace ProAuth
                 builder.SetNegativeButton(Resource.String.cancel, (s, args) => { });
                 builder.SetPositiveButton(Resource.String.ok, (s, args) =>
                 {
-                    StartActivityForResult(typeof(ActivityFileSave), FileSavePathCode);
+                    StartActivityForResult(intent, FileSavePathCode);
                 });
                 builder.SetCancelable(true);
 
@@ -84,62 +90,8 @@ namespace ProAuth
             }
             else
             {
-                //ShowExportDialog();
-                StartActivityForResult(typeof(ActivityFileSave), FileSavePathCode);
+                StartActivityForResult(intent, FileSavePathCode);
             }
-        }
-
-        private void OnDialogPositive(object sender, EventArgs e)
-        {
-            if(!GetStoragePermission())
-            {
-                return;
-            }
-
-            if(_dialog.FileName.Trim() == "")
-            {
-                Toast.MakeText(_dialog.Context, Resource.String.noFileName, ToastLength.Short).Show();
-                return;
-            }
-
-            List<Authenticator> authenticators = 
-                _database.Connection.Query<Authenticator>("SELECT * FROM authenticator");
-
-            string json = JsonConvert.SerializeObject(authenticators);
-            string filename = _dialog.FileName + ".proauth";
-
-            string path = Path.Combine(Environment.ExternalStorageDirectory.AbsolutePath, filename);
-            byte[] dataToWrite;
-            string password = _textPassword.Text;
-
-            if(password != "")
-            {
-                SHA256 sha256 = SHA256.Create();
-                byte[] keyMaterial = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                byte[] data = Encoding.UTF8.GetBytes(json);
-
-                ISymmetricKeyAlgorithmProvider provider = 
-                    WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
-
-                ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
-
-                dataToWrite = WinRTCrypto.CryptographicEngine.Encrypt(key, data);
-            }
-            else
-            {
-                dataToWrite = Encoding.UTF8.GetBytes(json);
-            }
-
-            File.WriteAllBytes(path, dataToWrite);
-            Toast.MakeText(_dialog.Context, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
-
-            _dialog?.Dismiss();
-            Finish();
-        }
-
-        private void OnDialogNegative(object sender, EventArgs e)
-        {
-            _dialog.Dismiss();
         }
 
         private bool GetStoragePermission()
@@ -161,7 +113,7 @@ namespace ProAuth
             {
                 if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
                 {
-                    OnDialogPositive(null, null);
+                    ExportButtonClick(null, null);
                 }
                 else
                 {
@@ -209,23 +161,7 @@ namespace ProAuth
             Toast.MakeText(this, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
 
             Finish();
-
             base.OnActivityResult(requestCode, resultCode, intent);
-        }
-
-        private void ShowExportDialog()
-        {
-            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
-            Fragment old = SupportFragmentManager.FindFragmentByTag("export_dialog");
-
-            if(old != null)
-            {
-                transaction.Remove(old);
-            }
-
-            transaction.AddToBackStack(null);
-            _dialog = new DialogExport(OnDialogPositive, OnDialogNegative);
-            _dialog.Show(transaction, "export_dialog");
         }
 
         public override bool OnSupportNavigateUp()

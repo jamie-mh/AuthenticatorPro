@@ -6,11 +6,13 @@ namespace ProAuth.Utilities
 {
     internal static class ThemeHelper
     {
+        public static bool IsDark;
+
         public static void Update(Activity activity)
         {
             ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(activity);
-            bool useDarkTheme = sharedPrefs.GetBoolean("pref_useDarkTheme", false);
-            activity.SetTheme(useDarkTheme ? Resource.Style.DarkTheme : Resource.Style.LightTheme);
+            IsDark = sharedPrefs.GetBoolean("pref_useDarkTheme", false);
+            activity.SetTheme(IsDark ? Resource.Style.DarkTheme : Resource.Style.LightTheme);
         }
     }
 }

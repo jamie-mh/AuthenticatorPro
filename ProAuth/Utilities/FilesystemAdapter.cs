@@ -28,15 +28,18 @@ namespace ProAuth.Utilities
             switch(item.Type)
             {
                 case FilesystemSource.Type.Up:
-                    holder.Icon.SetImageResource(Resource.Drawable.ic_arrow_upward);
+                    holder.Icon.SetImageResource(
+                        ThemeHelper.IsDark ? Resource.Drawable.ic_arrow_upward_dark : Resource.Drawable.ic_arrow_upward_light);
                     break;
 
                 case FilesystemSource.Type.Directory:
-                    holder.Icon.SetImageResource(Resource.Drawable.ic_folder);
+                    holder.Icon.SetImageResource(
+                        ThemeHelper.IsDark ? Resource.Drawable.ic_folder_dark : Resource.Drawable.ic_folder_light);
                     break;
 
                 case FilesystemSource.Type.File:
-                    holder.Icon.SetImageResource(Resource.Drawable.ic_insert_drive_file);
+                    holder.Icon.SetImageResource(
+                        ThemeHelper.IsDark ? Resource.Drawable.ic_insert_drive_file_dark : Resource.Drawable.ic_insert_drive_file_light);
                     break;
 
                 case FilesystemSource.Type.Backup:
@@ -61,8 +64,10 @@ namespace ProAuth.Utilities
 
         private void OnItemClick(int position)
         {
-            _source.Navigate(position);
-            NotifyDataSetChanged();
+            if(_source.Navigate(position))
+            {
+                NotifyDataSetChanged();
+            };
         }
     }
 }

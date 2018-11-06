@@ -14,15 +14,13 @@ namespace ProAuth.Utilities
     internal sealed class AuthAdapter : RecyclerView.Adapter, IAuthAdapterMovement
     {
         private readonly AuthSource _source;
-        private readonly Context _context;
 
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> ItemOptionsClick;
 
-        public AuthAdapter(Context context, AuthSource authSource)
+        public AuthAdapter(AuthSource authSource)
         {
             _source = authSource;
-            _context = context;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
@@ -50,8 +48,7 @@ namespace ProAuth.Utilities
                 }
             }
 
-            Drawable icon = ContextCompat.GetDrawable(_context, Icons.Get(auth.Icon));
-            holder.Icon.SetImageDrawable(icon);
+            holder.Icon.SetImageResource(Icons.Get(auth.Icon));
 
             if(auth.Type == OtpType.Totp)
                 TotpViewBind(holder, auth);

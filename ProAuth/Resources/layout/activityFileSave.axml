@@ -22,7 +22,6 @@
 		<android.support.v7.widget.RecyclerView
 			android:id="@+id/activityFileSave_list"
 			android:scrollbars="vertical"
-			android:background="?attr/dialogIcon_listBackground"
 			android:clipToPadding="false"
 			android:paddingBottom="80dp"
 			android:layout_width="match_parent"
@@ -31,6 +30,8 @@
 	    <RelativeLayout 
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
+			android:paddingLeft="8dp"
+			android:paddingRight="8dp"
 			android:background="?android:attr/windowBackground"
 			android:layout_alignParentBottom="true">
 
