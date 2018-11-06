@@ -44,7 +44,7 @@ namespace ProAuth.Data
         [Column("counter")]
         public long Counter { get; set; }
 
-        [Column("ranking")]
+        [Column("ranking"), JsonIgnore]
         public int Ranking { get; set; }
 
         [JsonIgnore]

@@ -110,7 +110,7 @@ namespace ProAuth.Utilities
             }
             else
             {
-                for(int i = oldPosition; i <= newPosition; ++i)
+                for(int i = oldPosition; i < newPosition; ++i)
                 {
                     Authenticators[i].Ranking--;
                     _connection.Update(Authenticators[i]);
