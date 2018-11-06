@@ -14,6 +14,7 @@ using System.IO;
 using Environment = Android.OS.Environment;
 using System.Text;
 using Android;
+using Android.Content;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -29,6 +30,7 @@ namespace ProAuth
     public class ActivityExport: AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
+        private const int FileSavePathCode = 1;
 
         private Database _database;
         private EditText _textPassword;
@@ -71,7 +73,10 @@ namespace ProAuth
                 builder.SetTitle(Resource.String.warning); 
                 builder.SetMessage(Resource.String.confirmEmptyPassword);
                 builder.SetNegativeButton(Resource.String.cancel, (s, args) => { });
-                builder.SetPositiveButton(Resource.String.ok, (s, args) => { ShowExportDialog(); });
+                builder.SetPositiveButton(Resource.String.ok, (s, args) =>
+                {
+                    StartActivityForResult(typeof(ActivityFileSave), FileSavePathCode);
+                });
                 builder.SetCancelable(true);
 
                 AlertDialog dialog = builder.Create();
@@ -79,7 +84,8 @@ namespace ProAuth
             }
             else
             {
-                ShowExportDialog();
+                //ShowExportDialog();
+                StartActivityForResult(typeof(ActivityFileSave), FileSavePathCode);
             }
         }
 
@@ -128,6 +134,7 @@ namespace ProAuth
             Toast.MakeText(_dialog.Context, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
 
             _dialog?.Dismiss();
+            Finish();
         }
 
         private void OnDialogNegative(object sender, EventArgs e)
@@ -161,7 +168,49 @@ namespace ProAuth
                     Toast.MakeText(this, Resource.String.externalStoragePermissionError, ToastLength.Short).Show();
                 }
             }
+
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        {
+            if(requestCode != FileSavePathCode || resultCode != Result.Ok)
+                return;
+
+            List<Authenticator> authenticators = 
+                _database.Connection.Query<Authenticator>("SELECT * FROM authenticator");
+
+            string json = JsonConvert.SerializeObject(authenticators);
+            string filename = intent.GetStringExtra("filename") + ".proauth";
+
+            string path = Path.Combine(intent.GetStringExtra("path"), filename);
+            byte[] dataToWrite;
+            string password = _textPassword.Text;
+
+            if(password != "")
+            {
+                SHA256 sha256 = SHA256.Create();
+                byte[] keyMaterial = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                byte[] data = Encoding.UTF8.GetBytes(json);
+
+                ISymmetricKeyAlgorithmProvider provider = 
+                    WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
+
+                ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
+
+                dataToWrite = WinRTCrypto.CryptographicEngine.Encrypt(key, data);
+            }
+            else
+            {
+                dataToWrite = Encoding.UTF8.GetBytes(json);
+            }
+
+            File.WriteAllBytes(path, dataToWrite);
+            Toast.MakeText(this, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
+
+            Finish();
+
+            base.OnActivityResult(requestCode, resultCode, intent);
         }
 
         private void ShowExportDialog()

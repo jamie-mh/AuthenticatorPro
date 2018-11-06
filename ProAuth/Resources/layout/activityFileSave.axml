@@ -1,0 +1,55 @@
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<android.support.v7.widget.Toolbar
+		android:minHeight="?android:attr/actionBarSize"
+		android:background="?android:attr/colorPrimary"
+		android:minWidth="25px"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+		android:id="@+id/activityFileSave_toolbar"/>
+
+	<RelativeLayout
+		android:layout_below="@id/activityFileSave_toolbar"	
+		android:layout_width="match_parent" 
+		android:layout_height="match_parent">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/activityFileSave_list"
+			android:scrollbars="vertical"
+			android:background="?attr/dialogIcon_listBackground"
+			android:clipToPadding="false"
+			android:paddingBottom="80dp"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+
+	    <RelativeLayout 
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:background="?android:attr/windowBackground"
+			android:layout_alignParentBottom="true">
+
+			<Button 
+				android:text="@string/save" 
+				android:id="@+id/activityFileSave_save"
+				android:layout_alignParentRight="true" 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+			</Button>
+
+			<EditText 
+				android:id="@+id/activityFileSave_filename"
+				android:text="backup"
+				android:layout_width="fill_parent"
+				android:layout_toLeftOf="@id/activityFileSave_save"
+				android:layout_height="wrap_content">
+			</EditText>
+		</RelativeLayout>
+
+	</RelativeLayout>
+</RelativeLayout>
