@@ -67,8 +67,17 @@ namespace ProAuth.Utilities
             }
             else
             {
+                Authenticator auth = _source.Authenticators[position];
                 AuthHolder holder = (AuthHolder) viewHolder;
-                holder.ProgressBar.Progress = (int) payloads[0];
+
+                if(auth.Type == OtpType.Totp)
+                {
+                    holder.ProgressBar.Progress = (int) payloads[0];
+                }
+                else if(auth.Type == OtpType.Hotp)
+                {
+                    holder.RefreshButton.Visibility = ViewStates.Visible;
+                }
             }
         }
 

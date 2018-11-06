@@ -261,30 +261,34 @@ namespace ProAuth
             for(int i = start; i < stop; ++i)
             {
                 Authenticator auth = _authSource.Authenticators[i];
-
-                if(auth.Type == OtpType.Hotp)
-                {
-                    continue;
-                }
-
                 int position = i; // Closure modification
 
-                if(auth.TimeRenew > DateTime.Now)
+                if(auth.Type == OtpType.Totp)
                 {
-                    int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
-                    int progress = 100 * secondsRemaining / auth.Period;
+                    if(auth.TimeRenew > DateTime.Now)
+                    {
+                        int secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
+                        int progress = 100 * secondsRemaining / auth.Period;
 
-                    RunOnUiThread(() =>
+                        RunOnUiThread(() =>
+                        {
+                            _authAdapter.NotifyItemChanged(position, progress);
+                        });
+                    }
+                    else
                     {
-                        _authAdapter.NotifyItemChanged(position, progress);
-                    });
+                        RunOnUiThread(() =>
+                        {
+                            _authAdapter.NotifyItemChanged(position);
+                        });
+                    }
                 }
-                else
+                else if(auth.Type == OtpType.Hotp && auth.TimeRenew < DateTime.Now)
                 {
                     RunOnUiThread(() =>
                     {
-                        _authAdapter.NotifyItemChanged(position, null);
-                    });
+                        _authAdapter.NotifyItemChanged(position, true);
+                    }); 
                 }
             }
         }
