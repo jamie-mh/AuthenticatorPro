@@ -58,8 +58,6 @@ namespace ProAuth
             _iconList.SetAdapter(_iconAdapter);
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
-            _iconList.DrawingCacheEnabled = true;
-            _iconList.DrawingCacheQuality = DrawingCacheQuality.High;
             _iconList.SetLayoutManager(new GridLayoutManager(Context, 8));
 
             Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);

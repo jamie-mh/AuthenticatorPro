@@ -9,7 +9,7 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth
 {
-    internal class DialogImport : DialogFragment
+    internal class DialogRestore : DialogFragment
     {
         public string Password => _passwordText.Text;
 
@@ -17,7 +17,7 @@ namespace ProAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public DialogImport(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
+        public DialogRestore(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
@@ -26,23 +26,23 @@ namespace ProAuth
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
-            alert.SetTitle(Resource.String.importString);
+            alert.SetTitle(Resource.String.restore);
 
-            alert.SetPositiveButton(Resource.String.importString, (EventHandler<DialogClickEventArgs>) null);
+            alert.SetPositiveButton(Resource.String.restore, (EventHandler<DialogClickEventArgs>) null);
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 
-            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogImport, null);
-            _passwordText = view.FindViewById<EditText>(Resource.Id.dialogImport_password);
+            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogRestore, null);
+            _passwordText = view.FindViewById<EditText>(Resource.Id.dialogRestore_password);
             alert.SetView(view);
 
             AlertDialog dialog = alert.Create();
             dialog.Show();
 
-            Button importButton = dialog.GetButton((int) DialogButtonType.Positive);
+            Button restoreButton = dialog.GetButton((int) DialogButtonType.Positive);
             Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
 
-            importButton.Click += _positiveButtonEvent.Invoke;
+            restoreButton.Click += _positiveButtonEvent.Invoke;
             cancelButton.Click += _negativeButtonEvent.Invoke;
 
             return dialog;

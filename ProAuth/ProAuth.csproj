@@ -77,9 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityFileSave.cs" />
-    <Compile Include="DialogImport.cs" />
-    <Compile Include="ActivityImport.cs" />
-    <Compile Include="ActivityExport.cs" />
+    <Compile Include="DialogRestore.cs" />
+    <Compile Include="ActivityRestore.cs" />
+    <Compile Include="ActivityBackup.cs" />
     <Compile Include="ActivityAbout.cs" />
     <Compile Include="Preferences\FeatureRequestPreference.cs" />
     <Compile Include="Preferences\RatePreference.cs" />
@@ -310,13 +310,13 @@
     <AndroidAsset Include="Assets\about.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityExport.axml">
+    <AndroidResource Include="Resources\layout\activityBackup.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityImport.axml">
+    <AndroidResource Include="Resources\layout\activityRestore.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -337,7 +337,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_more_vert_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogImport.axml">
+    <AndroidResource Include="Resources\layout\dialogRestore.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>

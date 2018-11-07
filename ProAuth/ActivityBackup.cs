@@ -24,8 +24,8 @@ using SQLite;
 
 namespace ProAuth
 {
-    [Activity(Label = "ExportActivity")]
-    public class ActivityExport: AppCompatActivity
+    [Activity(Label = "BackupActivity")]
+    public class ActivityBackup: AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
         private const int FileSavePathCode = 1;
@@ -37,18 +37,18 @@ namespace ProAuth
         {
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityExport);
+            SetContentView(Resource.Layout.activityBackup);
 
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityExport_toolbar);
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityBackup_toolbar);
             SetSupportActionBar(toolbar);
 
-            SupportActionBar.SetTitle(Resource.String.export);
+            SupportActionBar.SetTitle(Resource.String.backup);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            _textPassword = FindViewById<EditText>(Resource.Id.activityExport_password);
-            Button exportBtn = FindViewById<Button>(Resource.Id.activityExport_export);
+            _textPassword = FindViewById<EditText>(Resource.Id.activityBackup_password);
+            Button exportBtn = FindViewById<Button>(Resource.Id.activityBackup_export);
             exportBtn.Click += ExportButtonClick;
 
             _connection = await Database.Connect();

@@ -1,8 +1,8 @@
 <resources>
     <string name="appName">ProAuth</string>
     <string name="settings">Settings</string>
-    <string name="importString">Import</string>
-    <string name="export">Export</string>
+    <string name="restore">Restore</string>
+    <string name="backup">Backup</string>
     <string name="about">About</string>
     <string name="scanBarcode">Scan a QR Code</string>
     <string name="enterKey">Enter a provided key</string>
@@ -36,7 +36,7 @@
     <string name="fileNameHint">Backup File Name</string>
     <string name="save">Save</string>
     <string name="saveFile">Save File</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to export.</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to backup.</string>
     
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>
@@ -47,16 +47,16 @@
     <string name="periodToShort">The period must be longer than 10 seconds.</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists.</string>
-    <string name="importedNewAuthenticators">Imported {0} new authenticators.</string>
+    <string name="restoredNewAuthenticators">Restored {0} new authenticators.</string>
     
     <string name="selectBackup">Select Backup File</string>
     <string name="backupToFile">Backup to File</string>
-    <string name="importMessage">Select a previously exported ProAuth backup to import its authenticators.\n\nYou can choose a backup directly from cloud storage or you can load a backup directly from this device.</string>
-    <string name="exportMessage">Save your authenticators to a password encrypted backup file.\n\nA file will be created on your device storage, upload it to cloud storage in case you lose your device.</string>
-    <string name="importError">The password is incorrect or the file is corrupt.</string>
+    <string name="restoreMessage">Select a ProAuth backup to restore its authenticators.\n\nYou can choose a backup directly from cloud storage or you can load a backup directly from this device.</string>
+    <string name="backupMessage">Save your authenticators to a password encrypted backup file.\n\nA file will be created on your device storage, upload it to cloud storage in case you lose your device.</string>
+    <string name="restoreError">The password is incorrect or the file is corrupt.</string>
     <string name="filePickError">Error picking file.</string>
     <string name="invalidFileError">The selected file is not a ProAuth backup file.</string>
-    <string name="externalStoragePermissionError">The external storage permission is required to import/export backup files.</string>
+    <string name="externalStoragePermissionError">The external storage permission is required to backup / restore authenticators.</string>
 
     <string name="password">Password</string>
     <string name="passwordConfirm">Password Confirm</string>

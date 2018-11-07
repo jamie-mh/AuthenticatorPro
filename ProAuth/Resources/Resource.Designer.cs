@@ -240,17 +240,17 @@ namespace ProAuth
 			// aapt resource value: 0x7f010100
 			public const int actionViewClass = 2130772224;
 			
+			// aapt resource value: 0x7f010199
+			public const int activityBackup_image = 2130772377;
+			
 			// aapt resource value: 0x7f0100b0
 			public const int activityChooserViewStyle = 2130772144;
 			
-			// aapt resource value: 0x7f010199
-			public const int activityExport_image = 2130772377;
-			
-			// aapt resource value: 0x7f010198
-			public const int activityImport_image = 2130772376;
-			
 			// aapt resource value: 0x7f010197
 			public const int activityMain_emptyImage = 2130772375;
+			
+			// aapt resource value: 0x7f010198
+			public const int activityRestore_image = 2130772376;
 			
 			// aapt resource value: 0x7f010040
 			public const int adjustable = 2130772032;
@@ -2769,14 +2769,14 @@ namespace ProAuth
 			// aapt resource value: 0x7f0a00c8
 			public const int action0 = 2131361992;
 			
+			// aapt resource value: 0x7f0a00e9
+			public const int actionBackup = 2131362025;
+			
 			// aapt resource value: 0x7f0a00e5
 			public const int actionEnterKey = 2131362021;
 			
-			// aapt resource value: 0x7f0a00e9
-			public const int actionExport = 2131362025;
-			
 			// aapt resource value: 0x7f0a00e8
-			public const int actionImport = 2131362024;
+			public const int actionRestore = 2131362024;
 			
 			// aapt resource value: 0x7f0a00e4
 			public const int actionScan = 2131362020;
@@ -2848,13 +2848,13 @@ namespace ProAuth
 			public const int activityAbout_webView = 2131361932;
 			
 			// aapt resource value: 0x7f0a008f
-			public const int activityExport_export = 2131361935;
+			public const int activityBackup_export = 2131361935;
 			
 			// aapt resource value: 0x7f0a008e
-			public const int activityExport_password = 2131361934;
+			public const int activityBackup_password = 2131361934;
 			
 			// aapt resource value: 0x7f0a008d
-			public const int activityExport_toolbar = 2131361933;
+			public const int activityBackup_toolbar = 2131361933;
 			
 			// aapt resource value: 0x7f0a0093
 			public const int activityFileSave_filename = 2131361939;
@@ -2869,22 +2869,22 @@ namespace ProAuth
 			public const int activityFileSave_toolbar = 2131361936;
 			
 			// aapt resource value: 0x7f0a0095
-			public const int activityImport_import = 2131361941;
-			
-			// aapt resource value: 0x7f0a0094
-			public const int activityImport_toolbar = 2131361940;
+			public const int activityMain_authList = 2131361941;
 			
 			// aapt resource value: 0x7f0a0097
-			public const int activityMain_authList = 2131361943;
-			
-			// aapt resource value: 0x7f0a0099
-			public const int activityMain_buttonAdd = 2131361945;
-			
-			// aapt resource value: 0x7f0a0098
-			public const int activityMain_emptyState = 2131361944;
+			public const int activityMain_buttonAdd = 2131361943;
 			
 			// aapt resource value: 0x7f0a0096
-			public const int activityMain_toolbar = 2131361942;
+			public const int activityMain_emptyState = 2131361942;
+			
+			// aapt resource value: 0x7f0a0094
+			public const int activityMain_toolbar = 2131361940;
+			
+			// aapt resource value: 0x7f0a0099
+			public const int activityRestore_import = 2131361945;
+			
+			// aapt resource value: 0x7f0a0098
+			public const int activityRestore_toolbar = 2131361944;
 			
 			// aapt resource value: 0x7f0a009b
 			public const int activitySettings_content = 2131361947;
@@ -3055,13 +3055,13 @@ namespace ProAuth
 			public const int dialogIcon_search = 2131361981;
 			
 			// aapt resource value: 0x7f0a00bf
-			public const int dialogImport_password = 2131361983;
+			public const int dialogRename_issuer = 2131361983;
 			
 			// aapt resource value: 0x7f0a00c0
-			public const int dialogRename_issuer = 2131361984;
+			public const int dialogRename_username = 2131361984;
 			
 			// aapt resource value: 0x7f0a00c1
-			public const int dialogRename_username = 2131361985;
+			public const int dialogRestore_password = 2131361985;
 			
 			// aapt resource value: 0x7f0a0020
 			public const int disableHome = 2131361824;
@@ -3588,16 +3588,16 @@ namespace ProAuth
 			public const int activityAbout = 2131034138;
 			
 			// aapt resource value: 0x7f05001b
-			public const int activityExport = 2131034139;
+			public const int activityBackup = 2131034139;
 			
 			// aapt resource value: 0x7f05001c
 			public const int activityFileSave = 2131034140;
 			
 			// aapt resource value: 0x7f05001d
-			public const int activityImport = 2131034141;
+			public const int activityMain = 2131034141;
 			
 			// aapt resource value: 0x7f05001e
-			public const int activityMain = 2131034142;
+			public const int activityRestore = 2131034142;
 			
 			// aapt resource value: 0x7f05001f
 			public const int activitySettings = 2131034143;
@@ -3654,10 +3654,10 @@ namespace ProAuth
 			public const int dialogIcon = 2131034160;
 			
 			// aapt resource value: 0x7f050031
-			public const int dialogImport = 2131034161;
+			public const int dialogRename = 2131034161;
 			
 			// aapt resource value: 0x7f050032
-			public const int dialogRename = 2131034162;
+			public const int dialogRestore = 2131034162;
 			
 			// aapt resource value: 0x7f050033
 			public const int fileListItem = 2131034163;
@@ -3944,6 +3944,12 @@ namespace ProAuth
 			// aapt resource value: 0x7f0c0020
 			public const int appbar_scrolling_view_behavior = 2131492896;
 			
+			// aapt resource value: 0x7f0c002e
+			public const int backup = 2131492910;
+			
+			// aapt resource value: 0x7f0c005d
+			public const int backupMessage = 2131492957;
+			
 			// aapt resource value: 0x7f0c005b
 			public const int backupToFile = 2131492955;
 			
@@ -3983,12 +3989,6 @@ namespace ProAuth
 			// aapt resource value: 0x7f0c0031
 			public const int enterKey = 2131492913;
 			
-			// aapt resource value: 0x7f0c002e
-			public const int export = 2131492910;
-			
-			// aapt resource value: 0x7f0c005d
-			public const int exportMessage = 2131492957;
-			
 			// aapt resource value: 0x7f0c0061
 			public const int externalStoragePermissionError = 2131492961;
 			
@@ -3997,18 +3997,6 @@ namespace ProAuth
 			
 			// aapt resource value: 0x7f0c005f
 			public const int filePickError = 2131492959;
-			
-			// aapt resource value: 0x7f0c005e
-			public const int importError = 2131492958;
-			
-			// aapt resource value: 0x7f0c005c
-			public const int importMessage = 2131492956;
-			
-			// aapt resource value: 0x7f0c002d
-			public const int importString = 2131492909;
-			
-			// aapt resource value: 0x7f0c0059
-			public const int importedNewAuthenticators = 2131492953;
 			
 			// aapt resource value: 0x7f0c0060
 			public const int invalidFileError = 2131492960;
@@ -4120,6 +4108,18 @@ namespace ProAuth
 			
 			// aapt resource value: 0x7f0c0032
 			public const int renameAuth = 2131492914;
+			
+			// aapt resource value: 0x7f0c002d
+			public const int restore = 2131492909;
+			
+			// aapt resource value: 0x7f0c005e
+			public const int restoreError = 2131492958;
+			
+			// aapt resource value: 0x7f0c005c
+			public const int restoreMessage = 2131492956;
+			
+			// aapt resource value: 0x7f0c0059
+			public const int restoredNewAuthenticators = 2131492953;
 			
 			// aapt resource value: 0x7f0c004d
 			public const int save = 2131492941;
@@ -6317,13 +6317,13 @@ namespace ProAuth
 					2130772385};
 			
 			// aapt resource value: 4
-			public const int AppTheme_activityExport_image = 4;
-			
-			// aapt resource value: 3
-			public const int AppTheme_activityImport_image = 3;
+			public const int AppTheme_activityBackup_image = 4;
 			
 			// aapt resource value: 2
 			public const int AppTheme_activityMain_emptyImage = 2;
+			
+			// aapt resource value: 3
+			public const int AppTheme_activityRestore_image = 3;
 			
 			// aapt resource value: 6
 			public const int AppTheme_authListItem_background = 6;

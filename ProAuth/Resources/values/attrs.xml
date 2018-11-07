@@ -5,8 +5,8 @@
         <attr name="secondaryTextColor" format="color" /> 
 
         <attr name="activityMain_emptyImage" format="integer" />
-        <attr name="activityImport_image" format="integer" />
-        <attr name="activityExport_image" format="integer" />
+        <attr name="activityRestore_image" format="integer" />
+        <attr name="activityBackup_image" format="integer" />
 
         <attr name="authList_background" format="color"/>
         <attr name="authListItem_background" format="color"/>

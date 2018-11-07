@@ -26,8 +26,8 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth
 {
-    [Activity(Label = "ImportActivity")]
-    public class ActivityImport: AppCompatActivity
+    [Activity(Label = "RestoreActivity")]
+    public class ActivityRestore: AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
 
@@ -35,23 +35,23 @@ namespace ProAuth
         private AuthSource _authSource;
 
         private FileData _file;
-        private DialogImport _dialog;
+        private DialogRestore _dialog;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityImport);
+            SetContentView(Resource.Layout.activityRestore);
 
-            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityImport_toolbar);
+            Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityRestore_toolbar);
             SetSupportActionBar(toolbar);
 
-            SupportActionBar.SetTitle(Resource.String.importString);
+            SupportActionBar.SetTitle(Resource.String.restore);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            Button importBtn = FindViewById<Button>(Resource.Id.activityImport_import);
+            Button importBtn = FindViewById<Button>(Resource.Id.activityRestore_import);
             importBtn.Click += ImportButtonClick;
 
             _connection = await Database.Connect();
@@ -98,7 +98,7 @@ namespace ProAuth
                 }
 
                 transaction.AddToBackStack(null);
-                _dialog = new DialogImport(OnDialogPositive, OnDialogNegative);
+                _dialog = new DialogRestore(OnDialogPositive, OnDialogNegative);
                 _dialog.Show(transaction, "import_dialog");
             }
             catch
@@ -176,7 +176,7 @@ namespace ProAuth
                     inserted++;
                 }
 
-                string message = String.Format(GetString(Resource.String.importedNewAuthenticators), inserted);
+                string message = String.Format(GetString(Resource.String.restoredNewAuthenticators), inserted);
                 Toast.MakeText(_dialog.Context, message, ToastLength.Long).Show();
 
                 _dialog.Dismiss();
@@ -184,7 +184,7 @@ namespace ProAuth
             }
             catch(Exception ex)
             {
-                Toast.MakeText(_dialog.Context, Resource.String.importError, ToastLength.Long).Show();
+                Toast.MakeText(_dialog.Context, Resource.String.restoreError, ToastLength.Long).Show();
             }
         }
 

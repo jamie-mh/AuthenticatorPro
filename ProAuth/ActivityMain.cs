@@ -99,12 +99,11 @@ namespace ProAuth
             CreateTimer();
 
             _connection = await Database.Connect();
-
-            await LoadAuthenticators();
+            LoadAuthenticators();
             await CheckEmptyState();
         }
 
-        private async Task LoadAuthenticators()
+        private void LoadAuthenticators()
         {
             _authSource = new AuthSource(_connection);
             _authAdapter = new AuthAdapter(_authSource);
@@ -115,8 +114,6 @@ namespace ProAuth
             _authList.SetAdapter(_authAdapter);
             _authList.HasFixedSize = true;
             _authList.SetItemViewCacheSize(20);
-            _authList.DrawingCacheEnabled = true;
-            _authList.DrawingCacheQuality = DrawingCacheQuality.High;
 
             LayoutAnimationController animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
@@ -209,12 +206,12 @@ namespace ProAuth
                     StartActivity(typeof(ActivitySettings));
                     break;
 
-                case Resource.Id.actionImport:
-                    StartActivity(typeof(ActivityImport));
+                case Resource.Id.actionRestore:
+                    StartActivity(typeof(ActivityRestore));
                     break;
 
-                case Resource.Id.actionExport:
-                    StartActivity(typeof(ActivityExport));
+                case Resource.Id.actionBackup:
+                    StartActivity(typeof(ActivityBackup));
                     break;
             }
 

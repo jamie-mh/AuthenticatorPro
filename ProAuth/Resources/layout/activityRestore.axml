@@ -11,20 +11,20 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-		android:id="@+id/activityImport_toolbar"/>
+		android:id="@+id/activityRestore_toolbar"/>
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:orientation="vertical"
 		android:gravity="center_vertical"
-		android:layout_below="@id/activityImport_toolbar">
+		android:layout_below="@id/activityRestore_toolbar">
 
 		<ImageView
 			android:layout_width="76dp"
 			android:layout_height="76dp"
 			android:layout_gravity="center"
-			android:src="?attr/activityImport_image" />
+			android:src="?attr/activityRestore_image" />
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
 			android:fontWeight="700"
 			android:textSize="16dp"
 			android:textColor="?attr/primaryTextColor"
-	        android:text="@string/importMessage" />
+	        android:text="@string/restoreMessage" />
 
 		<Button
 			android:layout_width="wrap_content"
@@ -46,6 +46,6 @@
 			android:text="@string/selectBackup"
 			android:layout_marginTop="22dp"
 			android:layout_gravity="center"
-			android:id="@+id/activityImport_import"/>
+			android:id="@+id/activityRestore_import"/>
 	</LinearLayout>
 </RelativeLayout>

@@ -12,7 +12,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<EditText
-				android:id="@+id/dialogImport_password"
+				android:id="@+id/dialogRestore_password"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:inputType="textPassword"

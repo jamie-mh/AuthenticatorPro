@@ -13,12 +13,12 @@
          android:title="@string/settings"
          app:showAsAction="never"/>
 
-    <item android:id="@+id/actionImport"
-         android:title="@string/importString"
+    <item android:id="@+id/actionRestore"
+         android:title="@string/restore"
          app:showAsAction="never"/>
 
-    <item android:id="@+id/actionExport"
-         android:title="@string/export"
+    <item android:id="@+id/actionBackup"
+         android:title="@string/backup"
          app:showAsAction="never"/>
 
 </menu>

@@ -11,8 +11,8 @@
         <item name="secondaryTextColor">@color/colorDark</item>
 
         <item name="activityMain_emptyImage">@drawable/ic_lock_open_light</item>
-        <item name="activityImport_image">@drawable/ic_cloud_download_light</item>
-        <item name="activityExport_image">@drawable/ic_backup_light</item>
+        <item name="activityRestore_image">@drawable/ic_cloud_download_light</item>
+        <item name="activityBackup_image">@drawable/ic_backup_light</item>
 
         <item name="authList_background">@color/colorLight</item>
         <item name="authListItem_background">@color/colorLighter</item>
@@ -39,8 +39,8 @@
         <item name="secondaryTextColor">@color/colorLighter</item>
 
         <item name="activityMain_emptyImage">@drawable/ic_lock_open_dark</item>
-        <item name="activityImport_image">@drawable/ic_cloud_download_dark</item>
-        <item name="activityExport_image">@drawable/ic_backup_dark</item>
+        <item name="activityRestore_image">@drawable/ic_cloud_download_dark</item>
+        <item name="activityBackup_image">@drawable/ic_backup_dark</item>
 
         <item name="authList_background">@color/colorDark</item>
         <item name="authListItem_iconBackground">@color/colorLight</item>
