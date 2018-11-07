@@ -13,12 +13,14 @@
 		android:layout_height="wrap_content"
 		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
 		android:id="@+id/activityMain_toolbar" />
+
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/activityMain_authList"
 		android:scrollbars="vertical"
 		android:clipToPadding="false"
 		android:paddingBottom="80dp"
 		android:visibility="gone"
+		android:background="?attr/authList_background"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_below="@id/activityMain_toolbar" />

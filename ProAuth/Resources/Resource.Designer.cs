@@ -285,23 +285,26 @@ namespace ProAuth
 			// aapt resource value: 0x7f0100f6
 			public const int arrowShaftLength = 2130772214;
 			
-			// aapt resource value: 0x7f01019a
-			public const int authListItem_background = 2130772378;
-			
-			// aapt resource value: 0x7f01019c
-			public const int authListItem_code = 2130772380;
+			// aapt resource value: 0x7f01019b
+			public const int authListItem_background = 2130772379;
 			
 			// aapt resource value: 0x7f01019d
-			public const int authListItem_iconBackground = 2130772381;
+			public const int authListItem_code = 2130772381;
 			
 			// aapt resource value: 0x7f01019e
-			public const int authListItem_optionsIcon = 2130772382;
+			public const int authListItem_iconBackground = 2130772382;
 			
 			// aapt resource value: 0x7f01019f
-			public const int authListItem_refreshIcon = 2130772383;
+			public const int authListItem_optionsIcon = 2130772383;
 			
-			// aapt resource value: 0x7f01019b
-			public const int authListItem_stripe = 2130772379;
+			// aapt resource value: 0x7f0101a0
+			public const int authListItem_refreshIcon = 2130772384;
+			
+			// aapt resource value: 0x7f01019c
+			public const int authListItem_stripe = 2130772380;
+			
+			// aapt resource value: 0x7f01019a
+			public const int authList_background = 2130772378;
 			
 			// aapt resource value: 0x7f0100dc
 			public const int autoCompleteTextViewStyle = 2130772188;
@@ -516,8 +519,8 @@ namespace ProAuth
 			// aapt resource value: 0x7f01000e
 			public const int dialogIcon = 2130771982;
 			
-			// aapt resource value: 0x7f0101a0
-			public const int dialogIcon_listBackground = 2130772384;
+			// aapt resource value: 0x7f0101a1
+			public const int dialogIcon_listBackground = 2130772385;
 			
 			// aapt resource value: 0x7f010011
 			public const int dialogLayout = 2130771985;
@@ -6304,7 +6307,8 @@ namespace ProAuth
 					2130772381,
 					2130772382,
 					2130772383,
-					2130772384};
+					2130772384,
+					2130772385};
 			
 			// aapt resource value: 4
 			public const int AppTheme_activityExport_image = 4;
@@ -6315,26 +6319,29 @@ namespace ProAuth
 			// aapt resource value: 2
 			public const int AppTheme_activityMain_emptyImage = 2;
 			
-			// aapt resource value: 5
-			public const int AppTheme_authListItem_background = 5;
-			
-			// aapt resource value: 7
-			public const int AppTheme_authListItem_code = 7;
+			// aapt resource value: 6
+			public const int AppTheme_authListItem_background = 6;
 			
 			// aapt resource value: 8
-			public const int AppTheme_authListItem_iconBackground = 8;
+			public const int AppTheme_authListItem_code = 8;
 			
 			// aapt resource value: 9
-			public const int AppTheme_authListItem_optionsIcon = 9;
+			public const int AppTheme_authListItem_iconBackground = 9;
 			
 			// aapt resource value: 10
-			public const int AppTheme_authListItem_refreshIcon = 10;
-			
-			// aapt resource value: 6
-			public const int AppTheme_authListItem_stripe = 6;
+			public const int AppTheme_authListItem_optionsIcon = 10;
 			
 			// aapt resource value: 11
-			public const int AppTheme_dialogIcon_listBackground = 11;
+			public const int AppTheme_authListItem_refreshIcon = 11;
+			
+			// aapt resource value: 7
+			public const int AppTheme_authListItem_stripe = 7;
+			
+			// aapt resource value: 5
+			public const int AppTheme_authList_background = 5;
+			
+			// aapt resource value: 12
+			public const int AppTheme_dialogIcon_listBackground = 12;
 			
 			// aapt resource value: 0
 			public const int AppTheme_primaryTextColor = 0;
