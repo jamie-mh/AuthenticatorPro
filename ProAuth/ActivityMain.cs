@@ -140,6 +140,11 @@ namespace ProAuth
             {
                 _emptyState.Visibility = ViewStates.Visible;
                 _authList.Visibility = ViewStates.Gone;
+
+                AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f) {
+                    Duration = 500
+                };
+                _emptyState.Animation = animation;
             }
             else
             {
