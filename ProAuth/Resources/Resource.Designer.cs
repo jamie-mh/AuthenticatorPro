@@ -79,10 +79,16 @@ namespace ProAuth
 			public const int design_snackbar_out = 2131099661;
 			
 			// aapt resource value: 0x7f06000e
-			public const int tooltip_enter = 2131099662;
+			public const int item_animation_fall_down = 2131099662;
 			
 			// aapt resource value: 0x7f06000f
-			public const int tooltip_exit = 2131099663;
+			public const int layout_animation_fall_down = 2131099663;
+			
+			// aapt resource value: 0x7f060010
+			public const int tooltip_enter = 2131099664;
+			
+			// aapt resource value: 0x7f060011
+			public const int tooltip_exit = 2131099665;
 			
 			static Animation()
 			{

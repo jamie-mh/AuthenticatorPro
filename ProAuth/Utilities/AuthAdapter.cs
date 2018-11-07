@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Android.Content;
-using Android.Graphics.Drawables;
-using Android.Support.V4.Content;
 using Android.Support.V7.Widget;
-using Android.Support.V7.Widget.Helper;
 using Android.Views;
+using Android.Views.Animations;
 using OtpSharp;
 using ProAuth.Data;
 
@@ -124,9 +121,9 @@ namespace ProAuth.Utilities
             ItemOptionsClick?.Invoke(this, position);
         }
 
-        private void OnRefreshClick(int position)
+        private async void OnRefreshClick(int position)
         {
-            _source.IncrementHotp(position);
+            await _source.IncrementHotp(position);
             NotifyItemChanged(position);
         }
 

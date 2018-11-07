@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Albireo.Base32;
 using OtpSharp;
 using ProAuth.Data;
@@ -11,11 +12,12 @@ namespace ProAuth.Utilities
     internal class AuthSource
     {
         public List<Authenticator> Authenticators { get; private set; }
+        public bool IsSearching => _search.Trim() != "";
 
         private string _search;
-        private readonly SQLiteConnection _connection;
+        private readonly SQLiteAsyncConnection _connection;
 
-        public AuthSource(SQLiteConnection connection)
+        public AuthSource(SQLiteAsyncConnection connection)
         {
             _search = "";
             _connection = connection;
@@ -30,20 +32,20 @@ namespace ProAuth.Utilities
             Update();
         }
 
-        public void Update()
+        public async Task Update()
         {
             Authenticators.Clear();
 
             string sql = $@"SELECT * FROM authenticator ";
             object[] args = { $@"%{_search}%" };
 
-            if(_search.Trim() != "")
+            if(IsSearching)
             {
                 sql += "WHERE issuer LIKE ? ";
             }
 
             sql += "ORDER BY ranking ASC, issuer ASC, username ASC";
-            Authenticators = _connection.Query<Authenticator>(sql, args);
+            Authenticators = _connection.QueryAsync<Authenticator>(sql, args).Result;
         }
 
         public Authenticator Get(int position)
@@ -66,7 +68,7 @@ namespace ProAuth.Utilities
             return auth;
         }
 
-        public void Rename(int position, string issuer, string username)
+        public async Task Rename(int position, string issuer, string username)
         {
             if(Authenticators.ElementAtOrDefault(position) == null)
             {
@@ -78,10 +80,10 @@ namespace ProAuth.Utilities
             item.Username = username.Trim().Truncate(32);
             item.Icon = Icons.FindKeyByName(item.Issuer);
 
-            _connection.Update(item);
+            _connection.UpdateAsync(item);
         }
 
-        public void Delete(int position)
+        public async Task Delete(int position)
         {
             if(Authenticators.ElementAtOrDefault(position) == null)
             {
@@ -90,11 +92,11 @@ namespace ProAuth.Utilities
 
             Authenticator item = Authenticators[position];
 
-            _connection.Delete<Authenticator>(item.Secret);
+            _connection.DeleteAsync<Authenticator>(item.Secret);
             Authenticators.Remove(item);
         }
 
-        public void Move(int oldPosition, int newPosition)
+        public async void Move(int oldPosition, int newPosition)
         {
             Authenticator old = Authenticators[newPosition];
             Authenticators[newPosition] = Authenticators[oldPosition];
@@ -105,7 +107,7 @@ namespace ProAuth.Utilities
                 for(int i = newPosition; i < Authenticators.Count; ++i)
                 {
                     Authenticators[i].Ranking++;
-                    _connection.Update(Authenticators[i]);
+                    _connection.UpdateAsync(Authenticators[i]);
                 }
             }
             else
@@ -113,15 +115,15 @@ namespace ProAuth.Utilities
                 for(int i = oldPosition; i < newPosition; ++i)
                 {
                     Authenticators[i].Ranking--;
-                    _connection.Update(Authenticators[i]);
+                    _connection.UpdateAsync(Authenticators[i]);
                 }
             }
 
             Authenticators[newPosition].Ranking = newPosition;
-            _connection.Update(Authenticators[newPosition]);
+            _connection.UpdateAsync(Authenticators[newPosition]);
         }
 
-        public void IncrementHotp(int position)
+        public async Task IncrementHotp(int position)
         {
             if(Authenticators.ElementAtOrDefault(position) == null)
             {
@@ -143,7 +145,7 @@ namespace ProAuth.Utilities
             auth.TimeRenew = DateTime.Now.AddSeconds(10);
 
             Authenticators[position] = auth;
-            _connection.Update(auth);
+            _connection.UpdateAsync(auth);
         }
 
         public bool IsDuplicate(Authenticator auth)

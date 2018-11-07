@@ -20,6 +20,7 @@ using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using ProAuth.Data;
 using ProAuth.Utilities;
+using SQLite;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
@@ -30,20 +31,17 @@ namespace ProAuth
     {
         private const int PermissionStorageCode = 0;
 
-        private Database _database;
+        private SQLiteAsyncConnection _connection;
         private AuthSource _authSource;
 
         private FileData _file;
         private DialogImport _dialog;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityImport);
-
-            _database = new Database();
-            _authSource = new AuthSource(_database.Connection);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityImport_toolbar);
             SetSupportActionBar(toolbar);
@@ -55,12 +53,15 @@ namespace ProAuth
 
             Button importBtn = FindViewById<Button>(Resource.Id.activityImport_import);
             importBtn.Click += ImportButtonClick;
+
+            _connection = await Database.Connect();
+            _authSource = new AuthSource(_connection);
         }
 
         protected override void OnDestroy()
         {
+            _connection.CloseAsync();
             base.OnDestroy();
-            _database?.Connection.Close();
         }
 
         private async void ImportButtonClick(object sender, EventArgs e)
@@ -135,7 +136,7 @@ namespace ProAuth
             return true;
         }
 
-        private void OnDialogPositive(object sender, EventArgs e)
+        private async void OnDialogPositive(object sender, EventArgs e)
         {
             try
             {
@@ -171,7 +172,7 @@ namespace ProAuth
                         continue;
                     }
 
-                    _database.Connection.Insert(auth);
+                    await _connection.InsertAsync(auth);
                     inserted++;
                 }
 

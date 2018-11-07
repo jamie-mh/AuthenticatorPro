@@ -1,33 +1,31 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.InteropServices;
-using System.Text;
-using Android.Database.Sqlite;
-using Android.Runtime;
+using System.Threading.Tasks;
 using ProAuth.Data;
 using SQLite;
+using Environment = System.Environment;
 
 namespace ProAuth.Utilities
 {
-    internal class Database
+    internal static class Database
     {
-        public SQLiteConnection Connection { get; }
-
         [DllImport("libProAuthKey", EntryPoint = "get_key")]
         static extern string GetDatabaseKey();
 
-        public Database()
+        public static async Task<SQLiteAsyncConnection> Connect()
         {
+            string key = GetDatabaseKey();
+
             string dbPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                 "proauth.db3"
             );
 
-            string key = GetDatabaseKey();
+            SQLiteAsyncConnection connection = new SQLiteAsyncConnection(dbPath, true, key);
+            await connection.QueryAsync<int>($@"PRAGMA key='{key}'");
+            await connection.CreateTableAsync<Authenticator>();
 
-            Connection = new SQLiteConnection(dbPath, true, key);
-            Connection.Query<int>($@"PRAGMA key='{key}'");
-            Connection.CreateTable<Authenticator>();
+            return connection;
         }
     }
 }

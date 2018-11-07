@@ -20,6 +20,7 @@ using Permission = Android.Content.PM.Permission;
 using Android.Runtime;
 using ProAuth.Data;
 using ProAuth.Utilities;
+using SQLite;
 
 namespace ProAuth
 {
@@ -29,16 +30,14 @@ namespace ProAuth
         private const int PermissionStorageCode = 0;
         private const int FileSavePathCode = 1;
 
-        private Database _database;
         private EditText _textPassword;
+        private SQLiteAsyncConnection _connection;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityExport);
-
-            _database = new Database();
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityExport_toolbar);
             SetSupportActionBar(toolbar);
@@ -51,17 +50,19 @@ namespace ProAuth
             _textPassword = FindViewById<EditText>(Resource.Id.activityExport_password);
             Button exportBtn = FindViewById<Button>(Resource.Id.activityExport_export);
             exportBtn.Click += ExportButtonClick;
+
+            _connection = await Database.Connect();
         }
 
         protected override void OnDestroy()
         {
+            _connection.CloseAsync();
             base.OnDestroy();
-            _database?.Connection.Close();
         }
 
-        private void ExportButtonClick(object sender, EventArgs e)
+        private async void ExportButtonClick(object sender, EventArgs e)
         {
-            int count =_database.Connection.Table<Authenticator>().Count();
+            int count = await _connection.Table<Authenticator>().CountAsync();
 
             if(count == 0)
             {
@@ -129,13 +130,13 @@ namespace ProAuth
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
             if(requestCode != FileSavePathCode || resultCode != Result.Ok)
                 return;
 
-            List<Authenticator> authenticators = 
-                _database.Connection.Query<Authenticator>("SELECT * FROM authenticator");
+            List<Authenticator> authenticators = await
+                _connection.QueryAsync<Authenticator>("SELECT * FROM authenticator");
 
             string json = JsonConvert.SerializeObject(authenticators);
             string filename = intent.GetStringExtra("filename") + ".proauth";

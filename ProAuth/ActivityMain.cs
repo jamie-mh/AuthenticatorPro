@@ -15,14 +15,17 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
 using Android.Support.V7.Preferences;
 using Android.Support.V7.Widget.Helper;
 using Android.Util;
+using Android.Views.Animations;
 using OtpSharp;
 using ProAuth.Data;
 using ProAuth.Utilities;
+using SQLite;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
@@ -50,7 +53,7 @@ namespace ProAuth
         private SearchView _searchView;
 
         // Data
-        private Database _database;
+        private SQLiteAsyncConnection _connection;
         private MobileBarcodeScanner _barcodeScanner;
         private KeyguardManager _keyguardManager;
 
@@ -64,19 +67,22 @@ namespace ProAuth
             _pauseTime = DateTime.MinValue;
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityMain);
 
+            // Actionbar
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
 
+            // Buttons
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
             _addButton.Click += AddButtonClick;
 
+            // Barcode scanner
             MobileBarcodeScanner.Initialize(Application);
             _barcodeScanner = new MobileBarcodeScanner();
 
@@ -84,22 +90,25 @@ namespace ProAuth
             _barcodeScanner.CustomOverlay = overlay;
             _barcodeScanner.UseCustomOverlay = true;
 
-            _database = new Database();
-
-            CreateAuthenticatorList();
-            UpdateEmptyState();
-            CreateTimer();
-
+            // Misc
             _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
-        }
 
-        private void CreateAuthenticatorList()
-        {
+            // Recyclerview
             _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
+            CreateTimer();
 
-            _authSource = new AuthSource(_database.Connection);
+            _connection = await Database.Connect();
+
+            await LoadAuthenticators();
+            await CheckEmptyState();
+        }
+
+        private async Task LoadAuthenticators()
+        {
+            _authSource = new AuthSource(_connection);
             _authAdapter = new AuthAdapter(_authSource);
+
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
 
@@ -108,6 +117,9 @@ namespace ProAuth
             _authList.SetItemViewCacheSize(20);
             _authList.DrawingCacheEnabled = true;
             _authList.DrawingCacheQuality = DrawingCacheQuality.High;
+
+            LayoutAnimationController animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
+            _authList.LayoutAnimation = animation;
 
             int columns = IsTablet() ? 2 : 1;
             GridLayoutManager layout = new GridLayoutManager(this, columns);
@@ -120,8 +132,13 @@ namespace ProAuth
             Tick(null, null);
         }
 
-        private void UpdateEmptyState()
+        private async Task CheckEmptyState()
         {
+            if(_authSource == null)
+            {
+                return;
+            }
+
             if(_authSource.Count() == 0)
             {
                 _emptyState.Visibility = ViewStates.Visible;
@@ -148,8 +165,8 @@ namespace ProAuth
 
         protected override void OnDestroy()
         {
+            _connection.CloseAsync();
             base.OnDestroy();
-            _database?.Connection.Close();
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Android.App.Result resultCode, Intent data)
@@ -227,19 +244,23 @@ namespace ProAuth
             }
         }
 
-        protected override void OnResume()
+        protected override async void OnResume()
         {
             base.OnResume();
-            _authTimer.Start();
+            _authTimer?.Start();
 
             if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
             {
                 Login();
             }
 
-            _authSource.Update();
-            _authAdapter.NotifyDataSetChanged();
-            UpdateEmptyState();
+            if(_authSource != null)
+            {
+                await _authSource.Update();
+            }
+
+            _authAdapter?.NotifyDataSetChanged();
+            CheckEmptyState();
         }
 
         public override void OnBackPressed()
@@ -354,7 +375,7 @@ namespace ProAuth
             {
                 _authSource.Delete(position);
                 _authAdapter.NotifyItemRemoved(position);
-                UpdateEmptyState();
+                CheckEmptyState();
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -410,9 +431,10 @@ namespace ProAuth
                     return;
                 }
 
-                _database.Connection.Insert(auth);
-                _authSource.Update();
-                UpdateEmptyState();
+                await _connection.InsertAsync(auth);
+                await _authSource.Update();
+
+                CheckEmptyState();
                 _authAdapter.NotifyDataSetChanged();
             }
             catch
@@ -439,7 +461,7 @@ namespace ProAuth
             _addDialog.Show(transaction, "add_dialog");
         }
 
-        private void AddDialogPositive(object sender, EventArgs e)
+        private async void AddDialogPositive(object sender, EventArgs e)
         {
             bool error = false;
 
@@ -526,9 +548,10 @@ namespace ProAuth
                 return;
             }
 
-            _database.Connection.Insert(auth);
-            _authSource.Update();
-            UpdateEmptyState();
+            await _connection.InsertAsync(auth);
+            await _authSource.Update();
+
+            CheckEmptyState();
             _authAdapter.NotifyDataSetChanged();
 
             _addDialog.Dismiss();
@@ -597,12 +620,12 @@ namespace ProAuth
             _iconDialog.Show(transaction, "icon_dialog");
         }
 
-        private void IconDialogIconClick(object sender, EventArgs e)
+        private async void IconDialogIconClick(object sender, EventArgs e)
         {
             Authenticator auth = _authSource.Get(_iconDialog.Position);
             auth.Icon = _iconDialog.IconKey;
 
-            _database.Connection.Update(auth);
+            await _connection.UpdateAsync(auth);
             _authAdapter.NotifyItemChanged(_iconDialog.Position);
 
             _iconDialog?.Dismiss();
