@@ -7,7 +7,7 @@ namespace ProAuth.Data
     [Table("category")]
     internal class Category
     {
-        [Column("id")]
+        [Column("id"), PrimaryKey]
         public string Id { get; set; }
 
         [Column("name")]
@@ -20,7 +20,7 @@ namespace ProAuth.Data
 
         public Category(string name)
         {
-            Id = name.GetSlug();
+            Id = Hash.SHA1(name).Truncate(8);
             Name = name;
         }
     }

@@ -9,7 +9,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace ProAuth
 {
-    internal class DialogRename : DialogFragment
+    internal class DialogRenameAuthenticator : DialogFragment
     {
         public string Issuer => _issuerText.Text;
 
@@ -29,7 +29,7 @@ namespace ProAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public DialogRename(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth, int position)
+        public DialogRenameAuthenticator(Action<object, EventArgs> positive, Action<object, EventArgs> negative, Authenticator auth, int position)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
@@ -46,9 +46,9 @@ namespace ProAuth
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 
-            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogRename, null);
-            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogRename_issuer);
-            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogRename_username);
+            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogRenameAuthenticator, null);
+            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogRenameAuthenticator_issuer);
+            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogRenameAuthenticator_username);
             alert.SetView(view);
 
             AlertDialog dialog = alert.Create();

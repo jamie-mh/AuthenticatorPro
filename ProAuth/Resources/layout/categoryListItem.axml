@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+	android:padding="16dp"
+	android:layout_height="58dp"
+	android:clickable="true"
+	android:focusable="true">
+
+	<TextView
+		android:text="Category"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="18dp"
+		android:textColor="?attr/primaryTextColor"
+		android:layout_gravity="center_vertical"
+		android:fontFamily="@font/worksans"
+		android:fontWeight="400"
+		android:singleLine="true"
+		android:ellipsize="start"
+		android:scrollHorizontally="true"
+		android:id="@+id/categoryListItem_name" />
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_alignParentRight="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+
+		<ImageButton
+			android:id="@+id/categoryListItem_rename"
+			android:src="?attr/categoryListItem_renameIcon"
+			android:scaleType="centerInside"
+			android:background="@android:color/transparent"
+			android:layout_marginRight="16dp"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_gravity="center_vertical" />
+
+		<ImageButton
+			android:id="@+id/categoryListItem_delete"
+			android:src="?attr/categoryListItem_deleteIcon"
+			android:scaleType="centerInside"
+			android:background="@android:color/transparent"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_gravity="center_vertical" />
+	</LinearLayout>
+</RelativeLayout>

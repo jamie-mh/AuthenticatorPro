@@ -9,7 +9,7 @@ using DialogFragment = Android.Support.V4.App.DialogFragment;
 
 namespace ProAuth
 {
-    internal class DialogAdd : DialogFragment
+    internal class DialogAddAuthenticator : DialogFragment
     {
         public int Type => _typeSpinner.SelectedItemPosition;
         public string Issuer => _issuerText.Text;
@@ -51,7 +51,7 @@ namespace ProAuth
         private readonly Action<object, EventArgs> _positiveButtonEvent;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
 
-        public DialogAdd(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
+        public DialogAddAuthenticator(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
@@ -66,15 +66,15 @@ namespace ProAuth
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 
-            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogAdd, null);
-            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogAdd_issuer);
-            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogAdd_username);
-            _secretText = view.FindViewById<EditText>(Resource.Id.dialogAdd_secret);
-            _typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
-            _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
-            _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAdd_digits);
-            _periodText = view.FindViewById<EditText>(Resource.Id.dialogAdd_period);
-            _periodInputLayout = view.FindViewById<TextInputLayout>(Resource.Id.dialogAdd_periodInputLayout);
+            View view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogAddAuthenticator, null);
+            _issuerText = view.FindViewById<EditText>(Resource.Id.dialogAddAuthenticator_issuer);
+            _usernameText = view.FindViewById<EditText>(Resource.Id.dialogAddAuthenticator_username);
+            _secretText = view.FindViewById<EditText>(Resource.Id.dialogAddAuthenticator_secret);
+            _typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAddAuthenticator_type);
+            _algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAddAuthenticator_algorithm);
+            _digitsText = view.FindViewById<EditText>(Resource.Id.dialogAddAuthenticator_digits);
+            _periodText = view.FindViewById<EditText>(Resource.Id.dialogAddAuthenticator_period);
+            _periodInputLayout = view.FindViewById<TextInputLayout>(Resource.Id.dialogAddAuthenticator_periodInputLayout);
             alert.SetView(view);
 
             ArrayAdapter typeAdapter = ArrayAdapter.CreateFromResource(
@@ -86,14 +86,14 @@ namespace ProAuth
             typeAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             algorithmAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
 
-            Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_type);
-            Spinner algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAdd_algorithm);
+            Spinner typeSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAddAuthenticator_type);
+            Spinner algorithmSpinner = view.FindViewById<Spinner>(Resource.Id.dialogAddAuthenticator_algorithm);
 
             typeSpinner.Adapter = typeAdapter;
             algorithmSpinner.Adapter = algorithmAdapter;
 
-            LinearLayout advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.dialogAdd_advancedOptions);
-            Button advancedButton = view.FindViewById<Button>(Resource.Id.dialogAdd_buttonAdvanced);
+            LinearLayout advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.dialogAddAuthenticator_advancedOptions);
+            Button advancedButton = view.FindViewById<Button>(Resource.Id.dialogAddAuthenticator_buttonAdvanced);
             advancedButton.Click += (sender, e) =>
             {
                 advancedLayout.Visibility = ViewStates.Visible;

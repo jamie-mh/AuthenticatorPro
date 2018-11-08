@@ -79,6 +79,7 @@
     <Compile Include="ActivityFileSave.cs" />
     <Compile Include="Data\AuthenticatorCategory.cs" />
     <Compile Include="Data\Category.cs" />
+    <Compile Include="DialogEditCategory.cs" />
     <Compile Include="DialogRestore.cs" />
     <Compile Include="ActivityRestore.cs" />
     <Compile Include="ActivityBackup.cs" />
@@ -87,15 +88,19 @@
     <Compile Include="Preferences\RatePreference.cs" />
     <Compile Include="Preferences\AboutPreference.cs" />
     <Compile Include="DialogIcon.cs" />
-    <Compile Include="DialogRename.cs" />
-    <Compile Include="DialogAdd.cs" />
+    <Compile Include="DialogRenameAuthenticator.cs" />
+    <Compile Include="DialogAddAuthenticator.cs" />
     <Compile Include="Data\Authenticator.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="FragmentSettings.cs" />
     <Compile Include="ActivitySettings.cs" />
+    <Compile Include="Utilities\CategoryAdapter.cs" />
+    <Compile Include="Utilities\CategoryHolder.cs" />
     <Compile Include="Utilities\FilesystemHolder.cs" />
+    <Compile Include="Utilities\CategorySource.cs" />
     <Compile Include="Utilities\FilesystemSource.cs" />
     <Compile Include="Utilities\FilesystemAdapter.cs" />
+    <Compile Include="Utilities\Hash.cs" />
     <Compile Include="Utilities\IAuthAdapterMovement.cs" />
     <Compile Include="Utilities\AuthTouchHelperCallback.cs" />
     <Compile Include="Utilities\IconSource.cs" />
@@ -236,7 +241,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogAdd.axml">
+    <AndroidResource Include="Resources\layout\dialogAddAuthenticator.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -280,7 +285,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_more_vert_light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogRename.axml">
+    <AndroidResource Include="Resources\layout\dialogRenameAuthenticator.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -1050,6 +1055,48 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\color\drawer_item.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\categoryListItem.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_delete_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_delete_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_delete_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_delete_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_delete_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_delete_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_delete_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_delete_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_delete_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_delete_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialogEditCategory.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -62,8 +62,8 @@ namespace ProAuth
         private KeyguardManager _keyguardManager;
 
         // Alert Dialogs
-        private DialogRename _renameDialog;
-        private DialogAdd _addDialog;
+        private DialogRenameAuthenticator _renameDialog;
+        private DialogAddAuthenticator _addDialog;
         private DialogIcon _iconDialog;
 
         public ActivityMain()
@@ -139,7 +139,8 @@ namespace ProAuth
             _authList.HasFixedSize = true;
             _authList.SetItemViewCacheSize(20);
 
-            LayoutAnimationController animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
+            LayoutAnimationController animation = 
+                AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
             int columns = IsTablet() ? 2 : 1;
@@ -413,7 +414,7 @@ namespace ProAuth
         private void OpenDeleteDialog(int position)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.SetMessage(Resource.String.confirmDelete);
+            builder.SetMessage(Resource.String.confirmAuthenticatorDelete);
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
             {
@@ -501,7 +502,7 @@ namespace ProAuth
             }
 
             transaction.AddToBackStack(null);
-            _addDialog = new DialogAdd(AddDialogPositive, AddDialogNegative);
+            _addDialog = new DialogAddAuthenticator(AddDialogPositive, AddDialogNegative);
             _addDialog.Show(transaction, "add_dialog");
         }
 
@@ -621,7 +622,7 @@ namespace ProAuth
 
             transaction.AddToBackStack(null);
             Authenticator auth = _authSource.Get(position);
-            _renameDialog = new DialogRename(RenameDialogPositive, RenameDialogNegative, auth, position);
+            _renameDialog = new DialogRenameAuthenticator(RenameDialogPositive, RenameDialogNegative, auth, position);
             _renameDialog.Show(transaction, "rename_dialog");
         }
 

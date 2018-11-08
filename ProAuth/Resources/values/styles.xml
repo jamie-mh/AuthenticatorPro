@@ -22,6 +22,9 @@
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
         <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
 
+        <item name="categoryListItem_renameIcon">@drawable/ic_action_edit_light</item>
+        <item name="categoryListItem_deleteIcon">@drawable/ic_action_delete_light</item>
+
         <item name="drawer_settingsIcon">@drawable/ic_action_settings_light</item>
         <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_light</item>
         <item name="drawer_restoreIcon">@drawable/ic_action_restore_light</item>
@@ -54,6 +57,9 @@
         <item name="authListItem_code">@color/colorLight</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
         <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_dark</item>
+
+        <item name="categoryListItem_renameIcon">@drawable/ic_action_edit_dark</item>
+        <item name="categoryListItem_deleteIcon">@drawable/ic_action_delete_dark</item>
 
         <item name="drawer_settingsIcon">@drawable/ic_action_settings_dark</item>
         <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_dark</item>
