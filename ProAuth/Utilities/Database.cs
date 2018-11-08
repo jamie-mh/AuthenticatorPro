@@ -26,6 +26,7 @@ namespace ProAuth.Utilities
 
             await connection.CreateTableAsync<Authenticator>();
             await connection.CreateTableAsync<Category>();
+            await connection.CreateTableAsync<AuthenticatorCategory>();
 
             return connection;
         }

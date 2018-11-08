@@ -116,12 +116,14 @@ namespace ProAuth
             ISubMenu menu =
                 _navigationView.Menu.AddSubMenu(Menu.None, Menu.None, Menu.None,
                     Resource.String.categories);
-            menu.Add(Menu.None, Menu.None, Menu.None, Resource.String.categoryAll);
+            IMenuItem allItem = menu.Add(0, Menu.None, Menu.None, Resource.String.categoryAll);
+            menu.SetGroupCheckable(0, true, true);
+            allItem.SetChecked(true);
 
             List<Category> categories = await _connection.QueryAsync<Category>("select * from category");
             foreach(Category category in categories)
             {
-                menu.Add(Menu.None, Menu.None, Menu.None, category.Name);
+                menu.Add(0, Menu.None, Menu.None, category.Name);
             }
         }
 
@@ -234,6 +236,10 @@ namespace ProAuth
                     StartActivity(typeof(ActivitySettings));
                     break;
 
+                case Resource.Id.drawerEditCategories:
+                    StartActivity(typeof(ActivityEditCategories));
+                    break;
+
                 case Resource.Id.drawerRestore:
                     StartActivity(typeof(ActivityRestore));
                     break;
@@ -243,7 +249,6 @@ namespace ProAuth
                     break;
 
                 default:
-                    // Add categories here
                     break;
             }
 

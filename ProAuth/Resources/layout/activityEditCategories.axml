@@ -1,0 +1,26 @@
+<RelativeLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<android.support.v7.widget.Toolbar
+		android:minHeight="?android:attr/actionBarSize"
+		android:background="?android:attr/colorPrimary"
+		android:minWidth="25px"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+		android:id="@+id/activityEditCategories_toolbar"/>
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/activityEditCategories_list"
+		android:layout_below="@id/activityEditCategories_toolbar"	
+		android:scrollbars="vertical"
+		android:clipToPadding="false"
+		android:paddingBottom="80dp"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
+
+</RelativeLayout>

@@ -75,7 +75,9 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityEditCategories.cs" />
     <Compile Include="ActivityFileSave.cs" />
+    <Compile Include="Data\AuthenticatorCategory.cs" />
     <Compile Include="Data\Category.cs" />
     <Compile Include="DialogRestore.cs" />
     <Compile Include="ActivityRestore.cs" />
@@ -1039,6 +1041,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_edit_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activityEditCategories.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\color\drawer_item.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

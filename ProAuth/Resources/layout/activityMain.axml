@@ -91,6 +91,7 @@
 		android:layout_height="match_parent"
 		android:layout_gravity="start"
 		android:id="@+id/activityMain_navView"
+		app:itemTextColor="@color/drawer_item"
 		app:menu="@menu/drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

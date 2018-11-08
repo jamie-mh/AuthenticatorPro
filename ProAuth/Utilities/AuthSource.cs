@@ -13,13 +13,16 @@ namespace ProAuth.Utilities
     {
         public List<Authenticator> Authenticators { get; private set; }
         public bool IsSearching => _search.Trim() != "";
+        public bool CategorySelected => _categoryId != null;
 
         private string _search;
+        private string _categoryId;
         private readonly SQLiteAsyncConnection _connection;
 
         public AuthSource(SQLiteAsyncConnection connection)
         {
             _search = "";
+            _categoryId = null;
             _connection = connection;
 
             Authenticators = new List<Authenticator>();
@@ -32,19 +35,41 @@ namespace ProAuth.Utilities
             Update();
         }
 
+        public void SetCategory(string categoryId)
+        {
+            _categoryId = categoryId;
+            Update();
+        }
+
         public async Task Update()
         {
             Authenticators.Clear();
 
-            string sql = $@"SELECT * FROM authenticator ";
+            string sql = $@"SELECT * FROM authenticator a ";
             object[] args = { $@"%{_search}%" };
+
+            if(CategorySelected)
+            {
+                sql += "INNER JOIN authenticatorcategory ac ON a.secret = ac.authenticatorSecret ";
+            }
 
             if(IsSearching)
             {
-                sql += "WHERE issuer LIKE ? ";
+                sql += "WHERE a.issuer LIKE ? ";
             }
 
-            sql += "ORDER BY ranking ASC, issuer ASC, username ASC";
+            if(CategorySelected)
+            {
+                if(IsSearching)
+                {
+                    sql += "AND ";
+                }
+
+                sql += " ac.categoryId = ? ";
+                args.Append(_categoryId);
+            }
+
+            sql += "ORDER BY a.ranking ASC, a.issuer ASC, a.username ASC";
             Authenticators = _connection.QueryAsync<Authenticator>(sql, args).Result;
         }
 

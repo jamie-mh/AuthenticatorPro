@@ -25,28 +25,27 @@ namespace ProAuth.Utilities
             FilesystemSource.Item item = _source.Listing[position];
             FilesystemHolder holder = (FilesystemHolder) viewHolder;
 
+            int iconResource = new int();
             switch(item.Type)
             {
                 case FilesystemSource.Type.Up:
-                    holder.Icon.SetImageResource(
-                        ThemeHelper.IsDark ? Resource.Drawable.ic_arrow_upward_dark : Resource.Drawable.ic_arrow_upward_light);
+                    iconResource = Icons.GetIcon("up");
                     break;
 
                 case FilesystemSource.Type.Directory:
-                    holder.Icon.SetImageResource(
-                        ThemeHelper.IsDark ? Resource.Drawable.ic_folder_dark : Resource.Drawable.ic_folder_light);
+                    iconResource = Icons.GetIcon("folder");
                     break;
 
                 case FilesystemSource.Type.File:
-                    holder.Icon.SetImageResource(
-                        ThemeHelper.IsDark ? Resource.Drawable.ic_insert_drive_file_dark : Resource.Drawable.ic_insert_drive_file_light);
+                    iconResource = Icons.GetIcon("file");
                     break;
 
                 case FilesystemSource.Type.Backup:
-                    holder.Icon.SetImageResource(Resource.Mipmap.ic_launcher);
+                    iconResource = Icons.GetIcon("proauth");
                     break;
             }
 
+            holder.Icon.SetImageResource(iconResource);
             holder.Name.Text = item.Name;
         }
 

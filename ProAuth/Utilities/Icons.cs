@@ -7,14 +7,18 @@ namespace ProAuth.Utilities
     {
         public static readonly Dictionary<string, int> LightIcons = new Dictionary<string, int>
         {
-            { "add", Resource.Drawable.ic_action_add_light },
-            { "reorder", Resource.Drawable.ic_action_reorder_light }
+            { "up", Resource.Drawable.ic_arrow_upward_light },
+            { "folder", Resource.Drawable.ic_folder_light },
+            { "file", Resource.Drawable.ic_insert_drive_file_light },
+            { "proauth", Resource.Mipmap.ic_launcher }
         };
 
         public static readonly Dictionary<string, int> DarkIcons = new Dictionary<string, int>
         {
-            { "add", Resource.Drawable.ic_action_add_dark },
-            { "reorder", Resource.Drawable.ic_action_reorder_dark}
+            { "up", Resource.Drawable.ic_arrow_upward_dark },
+            { "folder", Resource.Drawable.ic_folder_dark },
+            { "file", Resource.Drawable.ic_insert_drive_file_dark },
+            { "proauth", Resource.Mipmap.ic_launcher }
         };
 
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int>
