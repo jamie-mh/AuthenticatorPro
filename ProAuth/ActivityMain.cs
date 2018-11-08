@@ -18,6 +18,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
+using Android.Support.V4.View;
+using Android.Support.V4.Widget;
 using Android.Support.V7.Preferences;
 using Android.Support.V7.Widget.Helper;
 using Android.Util;
@@ -45,14 +47,16 @@ namespace ProAuth
 
         // Views
         private RecyclerView _authList;
-        private AuthAdapter _authAdapter;
-        private AuthSource _authSource;
-
         private LinearLayout _emptyState;
         private FloatingActionButton _addButton;
         private SearchView _searchView;
+        private DrawerLayout _drawerLayout;
+        private NavigationView _navigationView;
 
         // Data
+        private AuthAdapter _authAdapter;
+        private AuthSource _authSource;
+
         private SQLiteAsyncConnection _connection;
         private MobileBarcodeScanner _barcodeScanner;
         private KeyguardManager _keyguardManager;
@@ -77,6 +81,13 @@ namespace ProAuth
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
+            // Navigation Drawer
+            _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.activityMain_drawerLayout);
+            _navigationView = FindViewById<NavigationView>(Resource.Id.activityMain_navView);
+            _navigationView.NavigationItemSelected += DrawerItemSelected;
 
             // Buttons
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
@@ -101,6 +112,17 @@ namespace ProAuth
             _connection = await Database.Connect();
             LoadAuthenticators();
             await CheckEmptyState();
+
+            ISubMenu menu =
+                _navigationView.Menu.AddSubMenu(Menu.None, Menu.None, Menu.None,
+                    Resource.String.categories);
+            menu.Add(Menu.None, Menu.None, Menu.None, Resource.String.categoryAll);
+
+            List<Category> categories = await _connection.QueryAsync<Category>("select * from category");
+            foreach(Category category in categories)
+            {
+                menu.Add(Menu.None, Menu.None, Menu.None, category.Name);
+            }
         }
 
         private void LoadAuthenticators()
@@ -204,20 +226,35 @@ namespace ProAuth
             return base.OnCreateOptionsMenu(menu);
         }
 
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void DrawerItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
-            switch (item.ItemId) {
-                case Resource.Id.actionSettings:
+            switch(e.MenuItem.ItemId)
+            {
+                case Resource.Id.drawerSettings:
                     StartActivity(typeof(ActivitySettings));
                     break;
 
-                case Resource.Id.actionRestore:
+                case Resource.Id.drawerRestore:
                     StartActivity(typeof(ActivityRestore));
                     break;
 
-                case Resource.Id.actionBackup:
+                case Resource.Id.drawerBackup:
                     StartActivity(typeof(ActivityBackup));
                     break;
+
+                default:
+                    // Add categories here
+                    break;
+            }
+
+            _drawerLayout.CloseDrawers();
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if(item.ItemId == Android.Resource.Id.Home)
+            {
+                _drawerLayout.OpenDrawer(GravityCompat.Start);
             }
 
             return base.OnOptionsItemSelected(item);
@@ -535,7 +572,7 @@ namespace ProAuth
                 Issuer = issuer,
                 Username = username,
                 Type = type,
-                Icon = Icons.FindKeyByName(issuer),
+                Icon = Icons.FindServiceKeyByName(issuer),
                 Algorithm = algorithm,
                 Counter = 0,
                 Secret = secret,

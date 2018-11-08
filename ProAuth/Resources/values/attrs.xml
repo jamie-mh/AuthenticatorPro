@@ -16,6 +16,11 @@
         <attr name="authListItem_optionsIcon" format="integer"/>
         <attr name="authListItem_refreshIcon" format="integer"/>
 
+        <attr name="drawer_settingsIcon" format="integer"/>
+        <attr name="drawer_editCategoriesIcon" format="integer"/>
+        <attr name="drawer_restoreIcon" format="integer"/>
+        <attr name="drawer_backupIcon" format="integer"/>
+
         <attr name="dialogIcon_listBackground" format="color" />
     </declare-styleable>
 </resources>

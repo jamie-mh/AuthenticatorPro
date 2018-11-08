@@ -45,7 +45,7 @@ namespace ProAuth.Utilities
                 }
             }
 
-            holder.Icon.SetImageResource(Icons.Get(auth.Icon));
+            holder.Icon.SetImageResource(Icons.GetService(auth.Icon));
 
             if(auth.Type == OtpType.Totp)
                 TotpViewBind(holder, auth);

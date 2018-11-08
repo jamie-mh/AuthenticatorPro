@@ -8,17 +8,4 @@
         app:showAsAction="collapseActionView|always"
         android:title="@string/search"
         app:actionViewClass="android.support.v7.widget.SearchView"/>
-
-    <item android:id="@+id/actionSettings"
-         android:title="@string/settings"
-         app:showAsAction="never"/>
-
-    <item android:id="@+id/actionRestore"
-         android:title="@string/restore"
-         app:showAsAction="never"/>
-
-    <item android:id="@+id/actionBackup"
-         android:title="@string/backup"
-         app:showAsAction="never"/>
-
 </menu>

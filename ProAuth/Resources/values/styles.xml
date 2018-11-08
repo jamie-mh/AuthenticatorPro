@@ -11,7 +11,7 @@
         <item name="secondaryTextColor">@color/colorDark</item>
 
         <item name="activityMain_emptyImage">@drawable/ic_lock_open_light</item>
-        <item name="activityRestore_image">@drawable/ic_cloud_download_light</item>
+        <item name="activityRestore_image">@drawable/ic_restore_light</item>
         <item name="activityBackup_image">@drawable/ic_backup_light</item>
 
         <item name="authList_background">@color/colorLight</item>
@@ -21,6 +21,11 @@
         <item name="authListItem_code">@color/colorPrimary</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
         <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
+
+        <item name="drawer_settingsIcon">@drawable/ic_action_settings_light</item>
+        <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_light</item>
+        <item name="drawer_restoreIcon">@drawable/ic_action_restore_light</item>
+        <item name="drawer_backupIcon">@drawable/ic_action_backup_light</item>
 
         <item name="dialogIcon_listBackground">@android:color/transparent</item>
 
@@ -39,7 +44,7 @@
         <item name="secondaryTextColor">@color/colorLighter</item>
 
         <item name="activityMain_emptyImage">@drawable/ic_lock_open_dark</item>
-        <item name="activityRestore_image">@drawable/ic_cloud_download_dark</item>
+        <item name="activityRestore_image">@drawable/ic_restore_dark</item>
         <item name="activityBackup_image">@drawable/ic_backup_dark</item>
 
         <item name="authList_background">@color/colorDark</item>
@@ -48,7 +53,12 @@
         <item name="authListItem_background">@color/colorDarker</item>
         <item name="authListItem_code">@color/colorLight</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
-        <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
+        <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_dark</item>
+
+        <item name="drawer_settingsIcon">@drawable/ic_action_settings_dark</item>
+        <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_dark</item>
+        <item name="drawer_restoreIcon">@drawable/ic_action_restore_dark</item>
+        <item name="drawer_backupIcon">@drawable/ic_action_backup_dark</item>
 
         <item name="dialogIcon_listBackground">@color/colorLight</item>
 

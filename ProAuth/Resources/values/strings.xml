@@ -48,7 +48,12 @@
     <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists.</string>
     <string name="restoredNewAuthenticators">Restored {0} new authenticators.</string>
-    
+
+    <string name="categories">Categories</string>
+    <string name="more">More</string>
+    <string name="categoryAll">All Authenticators</string>
+    <string name="editCategories">Edit Categories</string>
+
     <string name="selectBackup">Select Backup File</string>
     <string name="backupToFile">Backup to File</string>
     <string name="restoreMessage">Select a ProAuth backup to restore its authenticators.\n\nYou can choose a backup directly from cloud storage or you can load a backup directly from this device.</string>
@@ -77,7 +82,7 @@
 
     <string name="pref_more">More</string>
     <string name="pref_about_title">About</string>
-    <string name="pref_about_summary">View about information.</string>
+    <string name="pref_about_summary">View about and license information.</string>
     <string name="pref_rate_title">Rate</string>
     <string name="pref_rate_summary">Rate ProAuth on the Google Play store.</string>
     <string name="pref_featureRequest_title">Feature Request / Bug Report</string>

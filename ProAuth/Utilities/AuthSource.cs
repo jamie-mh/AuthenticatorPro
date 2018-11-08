@@ -78,7 +78,7 @@ namespace ProAuth.Utilities
             Authenticator item = Authenticators[position];
             item.Issuer = issuer.Trim().Truncate(32);
             item.Username = username.Trim().Truncate(32);
-            item.Icon = Icons.FindKeyByName(item.Issuer);
+            item.Icon = Icons.FindServiceKeyByName(item.Issuer);
 
             _connection.UpdateAsync(item);
         }

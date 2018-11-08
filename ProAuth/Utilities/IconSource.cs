@@ -11,7 +11,7 @@ namespace ProAuth.Utilities
         public IconSource()
         {
             _search = "";
-            List = new Dictionary<string, int>(Icons.List.Count);
+            List = new Dictionary<string, int>(Icons.Service.Count);
 
             Update();
         }
@@ -28,14 +28,14 @@ namespace ProAuth.Utilities
             {
                 string query = _search.ToLower();
 
-                List<string> keys = Icons.List.Keys.Where(k => k.Contains(query)).ToList();
+                List<string> keys = Icons.Service.Keys.Where(k => k.Contains(query)).ToList();
                 List = new Dictionary<string, int>(keys.Count);
-                keys.ForEach(key => List.Add(key, Icons.Get(key)));
+                keys.ForEach(key => List.Add(key, Icons.GetService(key)));
 
                 return;
             }
 
-            List = Icons.List;
+            List = Icons.Service;
         }
     }
 }

@@ -1,80 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
+<android.support.v4.widget.DrawerLayout
+	android:id="@+id/activityMain_drawerLayout"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools">
-	<android.support.v7.widget.Toolbar
-		android:minHeight="?android:attr/actionBarSize"
-		android:background="?android:attr/colorPrimary"
-		android:minWidth="25px"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-		android:id="@+id/activityMain_toolbar"/>
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-	<android.support.v7.widget.RecyclerView
-		android:id="@+id/activityMain_authList"
-		android:scrollbars="vertical"
-		android:clipToPadding="false"
-		android:paddingBottom="80dp"
-		android:background="?attr/authList_background"
+	<RelativeLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@id/activityMain_toolbar" />
+		android:layout_height="match_parent">
 
-	<LinearLayout
-		android:id="@+id/activityMain_emptyState"
-		android:orientation="vertical"
-		android:gravity="center"
-		android:visibility="gone"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@id/activityMain_toolbar">
+		<android.support.v7.widget.Toolbar
+			android:minHeight="?android:attr/actionBarSize"
+			android:background="?android:attr/colorPrimary"
+			android:minWidth="25px"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+			android:id="@+id/activityMain_toolbar"/>
 
-		<ImageView
-			android:layout_width="76dp"
-			android:layout_height="76dp"
-			android:layout_gravity="center"
-			android:src="?attr/activityMain_emptyImage" />
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/activityMain_authList"
+			android:scrollbars="vertical"
+			android:clipToPadding="false"
+			android:paddingBottom="80dp"
+			android:background="?attr/authList_background"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/activityMain_toolbar" />
 
-		<TextView
+		<LinearLayout
+			android:id="@+id/activityMain_emptyState"
+			android:orientation="vertical"
+			android:gravity="center"
+			android:visibility="gone"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/activityMain_toolbar">
+
+			<ImageView
+				android:layout_width="76dp"
+				android:layout_height="76dp"
+				android:layout_gravity="center"
+				android:src="?attr/activityMain_emptyImage" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:gravity="center"
+				android:paddingRight="32dp"
+				android:paddingLeft="32dp"
+				android:fontFamily="@font/worksans"
+				android:fontWeight="700"
+				android:textSize="24dp"
+				android:textColor="?attr/primaryTextColor"
+				android:layout_marginTop="22dp"
+				android:text="@string/welcomeTitle" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:gravity="center"
+				android:paddingRight="32dp"
+				android:paddingLeft="32dp"
+				android:layout_marginTop="22dp"
+				android:fontFamily="@font/worksans"
+				android:fontWeight="400"
+				android:textSize="16dp"
+				android:textColor="?attr/secondaryTextColor"
+				android:text="@string/welcomeMessage" />
+		</LinearLayout>
+
+		<android.support.design.widget.FloatingActionButton
+			android:id="@+id/activityMain_buttonAdd"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_gravity="center"
-			android:gravity="center"
-			android:paddingRight="32dp"
-			android:paddingLeft="32dp"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="700"
-			android:textSize="24dp"
-			android:textColor="?attr/primaryTextColor"
-			android:layout_marginTop="22dp"
-	        android:text="@string/welcomeTitle" />
+			android:src="@drawable/ic_action_add_light"
+			app:useCompatPadding="true"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentRight="true"
+			app:elevation="4dp" />
+	</RelativeLayout>
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_gravity="center"
-			android:gravity="center"
-			android:paddingRight="32dp"
-			android:paddingLeft="32dp"
-			android:layout_marginTop="22dp"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="400"
-			android:textSize="16dp"
-			android:textColor="?attr/secondaryTextColor"
-	        android:text="@string/welcomeMessage" />
-	</LinearLayout>
-
-	<android.support.design.widget.FloatingActionButton
-		android:id="@+id/activityMain_buttonAdd"
+	<android.support.design.widget.NavigationView
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@drawable/ic_action_add"
-		app:useCompatPadding="true"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentRight="true"
-		app:elevation="4dp" />
-</RelativeLayout>
+		android:layout_height="match_parent"
+		android:layout_gravity="start"
+		android:id="@+id/activityMain_navView"
+		app:menu="@menu/drawer"/>
+
+</android.support.v4.widget.DrawerLayout>

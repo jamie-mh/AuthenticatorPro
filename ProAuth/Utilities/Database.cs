@@ -23,7 +23,9 @@ namespace ProAuth.Utilities
 
             SQLiteAsyncConnection connection = new SQLiteAsyncConnection(dbPath, true, key);
             await connection.QueryAsync<int>($@"PRAGMA key='{key}'");
+
             await connection.CreateTableAsync<Authenticator>();
+            await connection.CreateTableAsync<Category>();
 
             return connection;
         }
