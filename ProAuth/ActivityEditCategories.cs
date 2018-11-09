@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
@@ -6,6 +7,8 @@ using Android.Views;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
+using Android.Views.Animations;
+using Android.Widget;
 using ProAuth.Data;
 using ProAuth.Utilities;
 using SQLite;
@@ -19,6 +22,9 @@ namespace ProAuth
     public class ActivityEditCategories: AppCompatActivity
     {
         private SQLiteAsyncConnection _connection;
+
+        private RecyclerView _categoryList;
+        private LinearLayout _emptyState;
 
         private CategorySource _categorySource;
         private CategoryAdapter _categoryAdapter;
@@ -35,6 +41,7 @@ namespace ProAuth
             SetContentView(Resource.Layout.activityEditCategories);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityEditCategories_toolbar);
+            ProgressBar progressBar = FindViewById<ProgressBar>(Resource.Id.activityEditCategories_progressBar);
             SetSupportActionBar(toolbar);
 
             SupportActionBar.SetTitle(Resource.String.editCategories);
@@ -51,20 +58,49 @@ namespace ProAuth
             _categoryAdapter.RenameClick += OnRenameClick;
             _categoryAdapter.DeleteClick += OnDeleteClick; 
 
-            RecyclerView list = FindViewById<RecyclerView>(Resource.Id.activityEditCategories_list);
-            list.SetAdapter(_categoryAdapter);
-            list.HasFixedSize = true;
-            list.SetItemViewCacheSize(20);
-            list.DrawingCacheEnabled = true;
-            list.DrawingCacheQuality = DrawingCacheQuality.High;
+            _categoryList = FindViewById<RecyclerView>(Resource.Id.activityEditCategories_list);
+            _emptyState = FindViewById<LinearLayout>(Resource.Id.activityEditCategories_emptyState);
+
+            _categoryList.SetAdapter(_categoryAdapter);
+            _categoryList.HasFixedSize = true;
+            _categoryList.SetItemViewCacheSize(20);
+            _categoryList.DrawingCacheEnabled = true;
+            _categoryList.DrawingCacheQuality = DrawingCacheQuality.High;
 
             LinearLayoutManager layout = new LinearLayoutManager(this);
             DividerItemDecoration decoration = new DividerItemDecoration(this, layout.Orientation);
-            list.AddItemDecoration(decoration);
-            list.SetLayoutManager(layout);
+            _categoryList.AddItemDecoration(decoration);
+            _categoryList.SetLayoutManager(layout);
 
             await _categorySource.UpdateTask;
+            CheckEmptyState();
             _categoryAdapter.NotifyDataSetChanged();
+
+            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f)
+            {
+                Duration = 200
+            };
+            animation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Gone; };
+            progressBar.StartAnimation(animation);
+        }
+
+        private async Task CheckEmptyState()
+        {
+            if(_categorySource.Count() == 0)
+            {
+                _emptyState.Visibility = ViewStates.Visible;
+                _categoryList.Visibility = ViewStates.Gone;
+
+                AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f) {
+                    Duration = 500
+                };
+                _emptyState.Animation = animation;
+            }
+            else
+            {
+                _emptyState.Visibility = ViewStates.Gone;
+                _categoryList.Visibility = ViewStates.Visible;
+            }
         }
 
         private void OnAddClick(object sender, EventArgs e)
@@ -107,6 +143,7 @@ namespace ProAuth
             await _connection.InsertAsync(category);
             await _categorySource.Update();
             _categoryAdapter.NotifyDataSetChanged();
+            CheckEmptyState();
         }
 
         private void OnRenameClick(object item, int position)
@@ -165,6 +202,7 @@ namespace ProAuth
             {
                 await _categorySource.Delete(position);
                 _categoryAdapter.NotifyItemRemoved(position);
+                CheckEmptyState();
             });
 
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });

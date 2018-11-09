@@ -51,12 +51,14 @@
 
     <string name="categories">Categories</string>
     <string name="more">More</string>
-    <string name="categoryAll">All Authenticators</string>
+    <string name="categoryAll">All</string>
     <string name="editCategories">Edit Categories</string>
     <string name="categoryNameHint">Category Name</string>
     <string name="noCategoryName">A category name is required.</string>
     <string name="duplicateCategory">A category with this name already exists.</string>
     <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
+    <string name="noCategoriesTitle">No Categories</string>
+    <string name="noCategoriesMessage">You don\'t have any categories set up yet.</string>
 
     <string name="selectBackup">Select Backup File</string>
     <string name="backupToFile">Backup to File</string>

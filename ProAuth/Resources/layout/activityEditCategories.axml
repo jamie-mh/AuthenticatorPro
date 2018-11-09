@@ -5,23 +5,83 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools">
 
-	<android.support.v7.widget.Toolbar
-		android:minHeight="?android:attr/actionBarSize"
-		android:background="?android:attr/colorPrimary"
-		android:minWidth="25px"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-		android:id="@+id/activityEditCategories_toolbar"/>
+	<android.support.design.widget.AppBarLayout
+		android:id="@+id/activityEditCategories_appBarLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<android.support.v7.widget.Toolbar
+			android:minHeight="?android:attr/actionBarSize"
+			android:background="?android:attr/colorPrimary"
+			android:minWidth="25px"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+			android:id="@+id/activityEditCategories_toolbar"/>
+
+		<ProgressBar
+			android:id="@+id/activityEditCategories_progressBar"
+			android:layout_marginTop="-7dp"
+			android:layout_marginBottom="-9dp"
+			android:indeterminate="true"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+
+	</android.support.design.widget.AppBarLayout>
 
 	<android.support.v7.widget.RecyclerView
 		android:id="@+id/activityEditCategories_list"
-		android:layout_below="@id/activityEditCategories_toolbar"	
+		android:layout_below="@id/activityEditCategories_appBarLayout"	
 		android:scrollbars="vertical"
 		android:clipToPadding="false"
 		android:paddingBottom="80dp"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
+
+	<LinearLayout
+		android:id="@+id/activityEditCategories_emptyState"
+		android:orientation="vertical"
+		android:gravity="center"
+		android:visibility="gone"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/activityEditCategories_appBarLayout">
+
+		<ImageView
+			android:layout_width="76dp"
+			android:layout_height="76dp"
+			android:layout_gravity="center"
+			android:src="?attr/activityEditCategories_emptyImage" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:paddingRight="32dp"
+			android:paddingLeft="32dp"
+			android:fontFamily="@font/worksans"
+			android:fontWeight="700"
+			android:textSize="24dp"
+			android:textColor="?attr/primaryTextColor"
+			android:layout_marginTop="22dp"
+			android:text="@string/noCategoriesTitle" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:paddingRight="32dp"
+			android:paddingLeft="32dp"
+			android:layout_marginTop="22dp"
+			android:fontFamily="@font/worksans"
+			android:fontWeight="400"
+			android:textSize="16dp"
+			android:textColor="?attr/secondaryTextColor"
+			android:text="@string/noCategoriesMessage" />
+	</LinearLayout>
 
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/activityEditCategories_buttonAdd"

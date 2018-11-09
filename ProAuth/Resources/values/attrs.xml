@@ -5,6 +5,7 @@
         <attr name="secondaryTextColor" format="color" /> 
 
         <attr name="activityMain_emptyImage" format="integer" />
+        <attr name="activityEditCategories_emptyImage" format="integer" />
         <attr name="activityRestore_image" format="integer" />
         <attr name="activityBackup_image" format="integer" />
 

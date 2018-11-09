@@ -12,14 +12,30 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
 
-		<android.support.v7.widget.Toolbar
-			android:minHeight="?android:attr/actionBarSize"
-			android:background="?android:attr/colorPrimary"
-			android:minWidth="25px"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-			android:id="@+id/activityMain_toolbar"/>
+		<android.support.design.widget.AppBarLayout
+			android:id="@+id/activityMain_appBarLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<android.support.v7.widget.Toolbar
+				android:minHeight="?android:attr/actionBarSize"
+				android:background="?android:attr/colorPrimary"
+				android:minWidth="25px"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+				android:id="@+id/activityMain_toolbar"/>
+
+			<ProgressBar
+				android:id="@+id/activityMain_progressBar"
+				android:layout_marginTop="-7dp"
+				android:layout_marginBottom="-9dp"
+				android:indeterminate="true"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+
+		</android.support.design.widget.AppBarLayout>
 
 		<android.support.v7.widget.RecyclerView
 			android:id="@+id/activityMain_authList"
@@ -29,7 +45,7 @@
 			android:background="?attr/authList_background"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_below="@id/activityMain_toolbar" />
+			android:layout_below="@id/activityMain_appBarLayout" />
 
 		<LinearLayout
 			android:id="@+id/activityMain_emptyState"
@@ -38,7 +54,7 @@
 			android:visibility="gone"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_below="@id/activityMain_toolbar">
+			android:layout_below="@id/activityMain_appBarLayout">
 
 			<ImageView
 				android:layout_width="76dp"

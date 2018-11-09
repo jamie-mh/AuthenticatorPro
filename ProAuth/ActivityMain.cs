@@ -15,6 +15,7 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
@@ -54,6 +55,7 @@ namespace ProAuth
         private SearchView _searchView;
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
+        private ProgressBar _progressBar;
         private ISubMenu _categoriesMenu;
 
         // Data
@@ -85,6 +87,8 @@ namespace ProAuth
 
             // Actionbar
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
+            _progressBar = FindViewById<ProgressBar>(Resource.Id.activityMain_progressBar);
+
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
@@ -147,6 +151,7 @@ namespace ProAuth
 
         private async void UpdateAuthenticators()
         {
+            _progressBar.Visibility = ViewStates.Visible;
             await _databaseConnectTask;
 
             if(_authSource.UpdateTask.IsCompleted)
@@ -160,6 +165,13 @@ namespace ProAuth
 
             _authAdapter.NotifyDataSetChanged();
             CheckEmptyState();
+
+            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f)
+            {
+                Duration = 200
+            };
+            animation.AnimationEnd += (sender, e) => { _progressBar.Visibility = ViewStates.Gone; };
+            _progressBar.StartAnimation(animation);
         }
 
         private void InitCategories()

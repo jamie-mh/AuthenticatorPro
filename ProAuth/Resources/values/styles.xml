@@ -11,6 +11,7 @@
         <item name="secondaryTextColor">@color/colorDark</item>
 
         <item name="activityMain_emptyImage">@drawable/ic_lock_open_light</item>
+        <item name="activityEditCategories_emptyImage">@drawable/ic_category_light</item>
         <item name="activityRestore_image">@drawable/ic_restore_light</item>
         <item name="activityBackup_image">@drawable/ic_backup_light</item>
 
@@ -46,6 +47,7 @@
         <item name="secondaryTextColor">@color/colorLighter</item>
 
         <item name="activityMain_emptyImage">@drawable/ic_lock_open_dark</item>
+        <item name="activityEditCategories_emptyImage">@drawable/ic_category_dark</item>
         <item name="activityRestore_image">@drawable/ic_restore_dark</item>
         <item name="activityBackup_image">@drawable/ic_backup_dark</item>
 
