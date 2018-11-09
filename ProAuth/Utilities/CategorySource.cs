@@ -14,7 +14,7 @@ namespace ProAuth.Utilities
     internal class CategorySource
     {
         public List<Category> Categories { get; private set; }
-        public Task LoadTask { get; }
+        public Task UpdateTask { get; }
 
         private readonly SQLiteAsyncConnection _connection;
 
@@ -23,7 +23,7 @@ namespace ProAuth.Utilities
             Categories = new List<Category>();
             _connection = connection;
 
-            LoadTask = Update();
+            UpdateTask = Update();
         }
 
         public async Task Update()

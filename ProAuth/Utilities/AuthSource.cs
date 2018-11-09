@@ -12,6 +12,7 @@ namespace ProAuth.Utilities
     internal class AuthSource
     {
         public List<Authenticator> Authenticators { get; private set; }
+        public Task UpdateTask { get; private set; }
         public bool IsSearching => _search.Trim() != "";
         public bool CategorySelected => _categoryId != null;
 
@@ -26,19 +27,19 @@ namespace ProAuth.Utilities
             _connection = connection;
 
             Authenticators = new List<Authenticator>();
-            Update();
+            UpdateTask = Update();
         }
 
         public void SetSearch(string query)
         {
             _search = query;
-            Update();
+            UpdateTask = Update();
         }
 
         public void SetCategory(string categoryId)
         {
             _categoryId = categoryId;
-            Update();
+            UpdateTask = Update();
         }
 
         public async Task Update()
@@ -69,8 +70,8 @@ namespace ProAuth.Utilities
                 args.Append(_categoryId);
             }
 
-            sql += "ORDER BY a.ranking ASC, a.issuer ASC, a.username ASC";
-            Authenticators = _connection.QueryAsync<Authenticator>(sql, args).Result;
+            sql += "ORDER BY a.ranking ASC";
+            Authenticators = await _connection.QueryAsync<Authenticator>(sql, args);
         }
 
         public Authenticator Get(int position)

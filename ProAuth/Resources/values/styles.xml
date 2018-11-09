@@ -16,7 +16,6 @@
 
         <item name="authList_background">@color/colorLight</item>
         <item name="authListItem_background">@color/colorLighter</item>
-        <item name="authListItem_stripe">@color/colorPrimary</item>
         <item name="authListItem_iconBackground">@android:color/transparent</item>
         <item name="authListItem_code">@color/colorPrimary</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
@@ -52,7 +51,6 @@
 
         <item name="authList_background">@color/colorDark</item>
         <item name="authListItem_iconBackground">@color/colorLight</item>
-        <item name="authListItem_stripe">@color/colorPrimaryDark</item>
         <item name="authListItem_background">@color/colorDarker</item>
         <item name="authListItem_code">@color/colorLight</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>

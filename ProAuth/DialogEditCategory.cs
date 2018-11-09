@@ -39,7 +39,7 @@ namespace ProAuth
             AlertDialog.Builder alert = new AlertDialog.Builder(Activity);
             alert.SetTitle(_titleRes);
 
-            alert.SetPositiveButton(Resource.String.add, (EventHandler<DialogClickEventArgs>) null);
+            alert.SetPositiveButton(_titleRes, (EventHandler<DialogClickEventArgs>) null);
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
             alert.SetCancelable(false);
 

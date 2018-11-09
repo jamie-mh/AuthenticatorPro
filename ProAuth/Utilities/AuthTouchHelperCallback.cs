@@ -6,17 +6,25 @@ namespace ProAuth.Utilities
     internal class AuthTouchHelperCallback : ItemTouchHelper.Callback
     {
         private readonly IAuthAdapterMovement _movement;
+        private readonly bool _isGrid;
         public override bool IsLongPressDragEnabled => true;
         public override bool IsItemViewSwipeEnabled => false;
 
-        public AuthTouchHelperCallback(IAuthAdapterMovement movement)
+        public AuthTouchHelperCallback(IAuthAdapterMovement movement, bool isGrid = false)
         {
             _movement = movement;
+            _isGrid = isGrid;
         }
 
         public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
         {
-            int dragFlags = ItemTouchHelper.Up | ItemTouchHelper.Down | ItemTouchHelper.Left | ItemTouchHelper.Right;
+            int dragFlags = ItemTouchHelper.Up | ItemTouchHelper.Down;
+
+            if(_isGrid)
+            {
+                dragFlags |= ItemTouchHelper.Left | ItemTouchHelper.Right;
+            }
+
             return MakeMovementFlags(dragFlags, 0);
         }
 

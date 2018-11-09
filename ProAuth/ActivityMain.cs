@@ -38,12 +38,14 @@ namespace ProAuth
     // ReSharper disable once UnusedMember.Global
     public class ActivityMain : AppCompatActivity
     {
-        // Results
         private const int RequestConfirmDeviceCredentials = 0;
 
         // State
         private Timer _authTimer;
         private DateTime _pauseTime;
+
+        // Tasks
+        private Task<SQLiteAsyncConnection> _databaseConnectTask;
 
         // Views
         private RecyclerView _authList;
@@ -52,10 +54,12 @@ namespace ProAuth
         private SearchView _searchView;
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
+        private ISubMenu _categoriesMenu;
 
         // Data
         private AuthAdapter _authAdapter;
         private AuthSource _authSource;
+        private CategorySource _categorySource;
 
         private SQLiteAsyncConnection _connection;
         private MobileBarcodeScanner _barcodeScanner;
@@ -76,6 +80,8 @@ namespace ProAuth
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityMain);
+
+            _databaseConnectTask = Database.Connect();
 
             // Actionbar
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
@@ -109,25 +115,12 @@ namespace ProAuth
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
             CreateTimer();
 
-            _connection = await Database.Connect();
-            LoadAuthenticators();
-            await CheckEmptyState();
-
-            ISubMenu menu =
-                _navigationView.Menu.AddSubMenu(Menu.None, Menu.None, Menu.None,
-                    Resource.String.categories);
-            IMenuItem allItem = menu.Add(0, Menu.None, Menu.None, Resource.String.categoryAll);
-            menu.SetGroupCheckable(0, true, true);
-            allItem.SetChecked(true);
-
-            List<Category> categories = await _connection.QueryAsync<Category>("select * from category");
-            foreach(Category category in categories)
-            {
-                menu.Add(0, Menu.None, Menu.None, category.Name);
-            }
+            _connection = await _databaseConnectTask;
+            InitCategories();
+            InitAuthenticators();
         }
 
-        private void LoadAuthenticators()
+        private void InitAuthenticators()
         {
             _authSource = new AuthSource(_connection);
             _authAdapter = new AuthAdapter(_authSource);
@@ -143,15 +136,63 @@ namespace ProAuth
                 AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
-            int columns = IsTablet() ? 2 : 1;
-            GridLayoutManager layout = new GridLayoutManager(this, columns);
+            bool useGrid = IsTablet();
+            GridLayoutManager layout = new GridLayoutManager(this, useGrid ? 2 : 1);
             _authList.SetLayoutManager(layout);
 
-            AuthTouchHelperCallback callback = new AuthTouchHelperCallback(_authAdapter);
+            AuthTouchHelperCallback callback = new AuthTouchHelperCallback(_authAdapter, useGrid);
             ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
+        }
 
-            Tick(null, null);
+        private async void UpdateAuthenticators()
+        {
+            await _databaseConnectTask;
+
+            if(_authSource.UpdateTask.IsCompleted)
+            {
+                await _authSource.Update();
+            }
+            else
+            {
+                await _authSource.UpdateTask;
+            }
+
+            _authAdapter.NotifyDataSetChanged();
+            CheckEmptyState();
+        }
+
+        private void InitCategories()
+        {
+            _categoriesMenu =
+                _navigationView.Menu.AddSubMenu(Menu.None, Menu.None, Menu.None, Resource.String.categories);
+            _categoriesMenu.SetGroupCheckable(0, true, true);
+
+            _categorySource = new CategorySource(_connection);
+        }
+
+        private async void UpdateCategories()
+        {
+            await _databaseConnectTask;
+
+            if(_categorySource.UpdateTask.IsCompleted)
+            {
+                await _categorySource.Update();
+            }
+            else
+            {
+                await _categorySource.UpdateTask;
+            }
+
+            _categoriesMenu.Clear();
+            
+            IMenuItem allItem = _categoriesMenu.Add(Menu.None, Menu.None, Menu.None, Resource.String.categoryAll);
+            allItem.SetChecked(true);
+
+            for(int i = 0; i < _categorySource.Count(); ++i)
+            {
+                _categoriesMenu.Add(0, i, i, _categorySource.Categories[i].Name);
+            }
         }
 
         private async Task CheckEmptyState()
@@ -299,13 +340,8 @@ namespace ProAuth
                 Login();
             }
 
-            if(_authSource != null)
-            {
-                await _authSource.Update();
-            }
-
-            _authAdapter?.NotifyDataSetChanged();
-            CheckEmptyState();
+            UpdateAuthenticators();
+            UpdateCategories();
         }
 
         public override void OnBackPressed()
@@ -325,6 +361,11 @@ namespace ProAuth
 
         private void Tick(object sender, ElapsedEventArgs e)
         {
+            if(_authSource == null)
+            {
+                return;
+            }
+
             int start = 0;
             int stop = _authSource.Authenticators.Count;
 

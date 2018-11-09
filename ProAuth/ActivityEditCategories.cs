@@ -63,7 +63,7 @@ namespace ProAuth
             list.AddItemDecoration(decoration);
             list.SetLayoutManager(layout);
 
-            await _categorySource.LoadTask;
+            await _categorySource.UpdateTask;
             _categoryAdapter.NotifyDataSetChanged();
         }
 
