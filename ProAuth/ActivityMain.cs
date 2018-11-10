@@ -322,7 +322,7 @@ namespace ProAuth
             if(position == -1)
             {
                 _authSource.SetCategory(null);
-                SupportActionBar.Title = GetString(Resource.String.appName);
+                SupportActionBar.Title = GetString(Resource.String.categoryAll);
             }
             else
             {
@@ -786,8 +786,13 @@ namespace ProAuth
 
         private void CategoriesDialogOnClose(object sender, EventArgs e)
         {
-            _authSource.SetCategory(_authSource.CategoryId);
-            UpdateAuthenticators(false);
+            if(_authSource.CategoryId != null)
+            {
+                _authSource.SetCategory(_authSource.CategoryId);
+                _authAdapter.NotifyDataSetChanged();
+                CheckEmptyState();
+            }
+
             _categoriesDialog.Dismiss();
         }
 

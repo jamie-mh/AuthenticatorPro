@@ -43,6 +43,15 @@ namespace ProAuth.Utilities
             List<Authenticator> results = 
                 _all.Where(i => i.Issuer.ToLower().Contains(_search)).ToList();
 
+            if(CategoryId != null)
+            {
+                List<AuthenticatorCategory> authsInCategory = 
+                    _categoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
+
+                results =
+                    results.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1).ToList();
+            }
+
             Authenticators = results.Cast<IAuthenticatorInfo>().ToList();
         }
 
