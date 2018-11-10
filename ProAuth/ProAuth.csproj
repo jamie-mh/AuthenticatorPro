@@ -79,7 +79,9 @@
     <Compile Include="ActivityFileSave.cs" />
     <Compile Include="Data\AuthenticatorCategory.cs" />
     <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\IAuthenticatorInfo.cs" />
     <Compile Include="DialogEditCategory.cs" />
+    <Compile Include="DialogChooseCategories.cs" />
     <Compile Include="DialogRestore.cs" />
     <Compile Include="ActivityRestore.cs" />
     <Compile Include="ActivityBackup.cs" />
@@ -94,6 +96,8 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="FragmentSettings.cs" />
     <Compile Include="ActivitySettings.cs" />
+    <Compile Include="Utilities\ChooseCategoriesHolder.cs" />
+    <Compile Include="Utilities\ChooseCategoriesAdapter.cs" />
     <Compile Include="Utilities\CategoryAdapter.cs" />
     <Compile Include="Utilities\CategoryHolder.cs" />
     <Compile Include="Utilities\FilesystemHolder.cs" />
@@ -1124,6 +1128,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_category_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialogChooseCategories.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\chooseCategoriesListItem.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

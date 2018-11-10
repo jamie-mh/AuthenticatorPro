@@ -74,7 +74,7 @@
 				android:textSize="24dp"
 				android:textColor="?attr/primaryTextColor"
 				android:layout_marginTop="22dp"
-				android:text="@string/welcomeTitle" />
+				android:text="@string/noAuthenticatorsTitle" />
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
 				android:fontWeight="400"
 				android:textSize="16dp"
 				android:textColor="?attr/secondaryTextColor"
-				android:text="@string/welcomeMessage" />
+				android:text="@string/noAuthenticatorsMessage" />
 		</LinearLayout>
 
 		<android.support.design.widget.FloatingActionButton

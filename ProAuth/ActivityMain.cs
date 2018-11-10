@@ -71,6 +71,7 @@ namespace ProAuth
         private DialogRenameAuthenticator _renameDialog;
         private DialogAddAuthenticator _addDialog;
         private DialogIcon _iconDialog;
+        private DialogChooseCategories _categoriesDialog;
 
         public ActivityMain()
         {
@@ -149,21 +150,26 @@ namespace ProAuth
             touchHelper.AttachToRecyclerView(_authList);
         }
 
-        private async void UpdateAuthenticators()
+        private async void UpdateAuthenticators(bool updateSource = true)
         {
             _progressBar.Visibility = ViewStates.Visible;
-            await _databaseConnectTask;
 
-            if(_authSource.UpdateTask.IsCompleted)
+            if(updateSource)
             {
-                await _authSource.Update();
-            }
-            else
-            {
-                await _authSource.UpdateTask;
+                await _databaseConnectTask;
+
+                if(_authSource.UpdateTask.IsCompleted)
+                {
+                    await _authSource.Update();
+                }
+                else
+                {
+                    await _authSource.UpdateTask;
+                }
             }
 
             _authAdapter.NotifyDataSetChanged();
+            _authList.ScheduleLayoutAnimation();
             CheckEmptyState();
 
             AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f)
@@ -198,7 +204,7 @@ namespace ProAuth
 
             _categoriesMenu.Clear();
             
-            IMenuItem allItem = _categoriesMenu.Add(Menu.None, Menu.None, Menu.None, Resource.String.categoryAll);
+            IMenuItem allItem = _categoriesMenu.Add(Menu.None, -1, Menu.None, Resource.String.categoryAll);
             allItem.SetChecked(true);
 
             for(int i = 0; i < _categorySource.Count(); ++i)
@@ -303,10 +309,30 @@ namespace ProAuth
                     break;
 
                 default:
+                    int position = e.MenuItem.ItemId;
+                    SwitchCategory(position);
                     break;
             }
 
             _drawerLayout.CloseDrawers();
+        }
+
+        private void SwitchCategory(int position)
+        {
+            if(position == -1)
+            {
+                _authSource.SetCategory(null);
+                SupportActionBar.Title = GetString(Resource.String.appName);
+            }
+            else
+            {
+                Category category = _categorySource.Categories[position];
+                _authSource.SetCategory(category.Id);
+                SupportActionBar.Title = category.Name;
+            }
+
+            _categoriesMenu.FindItem(position).SetChecked(true);
+            UpdateAuthenticators(false);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -383,7 +409,7 @@ namespace ProAuth
 
             for(int i = start; i < stop; ++i)
             {
-                Authenticator auth = _authSource.Authenticators[i];
+                IAuthenticatorInfo auth = _authSource.Authenticators[i];
                 int position = i; // Closure modification
 
                 if(auth.Type == OtpType.Totp)
@@ -442,6 +468,10 @@ namespace ProAuth
                         break;
 
                     case 2:
+                        OpenCategoriesDialog(position);
+                        break;
+
+                    case 3:
                         OpenDeleteDialog(position);
                         break;
                 }
@@ -732,6 +762,48 @@ namespace ProAuth
         private void IconDialogNegative(object sender, EventArgs e)
         {
             _iconDialog.Dismiss();
+        }
+
+        /*
+         *  Categories Dialog
+         */
+        private void OpenCategoriesDialog(int position)
+        {
+            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+            Fragment old = SupportFragmentManager.FindFragmentByTag("categories_dialog");
+
+            if(old != null)
+            {
+                transaction.Remove(old);
+            }
+
+            transaction.AddToBackStack(null);
+
+            _categoriesDialog = 
+                new DialogChooseCategories(_categorySource, CategoriesDialogOnClose, CategoriesDialogOnClick, position, _authSource.GetCategories(position));
+            _categoriesDialog.Show(transaction, "categories_dialog");
+        }
+
+        private void CategoriesDialogOnClose(object sender, EventArgs e)
+        {
+            _authSource.SetCategory(_authSource.CategoryId);
+            UpdateAuthenticators(false);
+            _categoriesDialog.Dismiss();
+        }
+
+        private void CategoriesDialogOnClick(bool isChecked, int categoryPosition)
+        {
+            string categoryId = _categorySource.Categories[categoryPosition].Id;
+            int authPosition = _categoriesDialog.AuthPosition;
+
+            if(isChecked)
+            {
+                _authSource.AddToCategory(authPosition, categoryId);
+            }
+            else
+            {
+                _authSource.RemoveFromCategory(authPosition, categoryId);
+            }
         }
     }
 }

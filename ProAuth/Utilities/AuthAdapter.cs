@@ -64,7 +64,7 @@ namespace ProAuth.Utilities
             }
             else
             {
-                Authenticator auth = _source.Authenticators[position];
+                IAuthenticatorInfo auth = _source.Authenticators[position];
                 AuthHolder holder = (AuthHolder) viewHolder;
 
                 if(auth.Type == OtpType.Totp)

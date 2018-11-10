@@ -20,8 +20,8 @@
     <string name="secretKey">Secret Key</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
     <string name="qrCodeScan">Place a QR code in the camera viewfinder to scan it. The code will scan automatically.</string> 
-    <string name="welcomeTitle">Welcome to ProAuth!</string>
-    <string name="welcomeMessage">You don\'t have any authenticators set up yet. Try adding one by scanning a QR code or by entering the details manually.</string>
+    <string name="noAuthenticatorsTitle">Nothing here!</string>
+    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
     
     <string name="search">Search</string>
     <string name="sort">Sort</string>
@@ -50,6 +50,7 @@
     <string name="restoredNewAuthenticators">Restored {0} new authenticators.</string>
 
     <string name="categories">Categories</string>
+    <string name="chooseCategories">Choose Categories</string>
     <string name="more">More</string>
     <string name="categoryAll">All</string>
     <string name="editCategories">Edit Categories</string>

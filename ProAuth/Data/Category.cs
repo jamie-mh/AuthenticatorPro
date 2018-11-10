@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using ProAuth.Utilities;
 using SQLite;
 

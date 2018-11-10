@@ -15,5 +15,16 @@ namespace ProAuth.Data
 
         [Column("ranking")]
         public int Ranking { get; set; }
+
+        public AuthenticatorCategory()
+        {
+
+        }
+
+        public AuthenticatorCategory(string categoryId, string authenticatorSecret)
+        {
+            CategoryId = categoryId;
+            AuthenticatorSecret = authenticatorSecret;
+        }
     }
 }

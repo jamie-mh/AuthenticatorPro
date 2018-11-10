@@ -12,13 +12,10 @@ using SQLite;
 namespace ProAuth.Data
 {
     [Table("authenticator")]
-    internal class Authenticator
+    internal class Authenticator : IAuthenticatorInfo
     {
         [Column("type")]
         public OtpType Type { get; set; }
-
-        [Column("createdDate")]
-        public DateTime CreatedDate { get; set; }
 
         [Column("icon")]
         public string Icon { get; set; }
@@ -57,7 +54,6 @@ namespace ProAuth.Data
         {
             Code = "";
             TimeRenew = DateTime.Now;
-            CreatedDate = DateTime.Now;
             Ranking = 100000;
         }
 

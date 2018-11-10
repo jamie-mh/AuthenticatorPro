@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+	android:padding="8dp"
+	android:layout_height="wrap_content"
+	android:clickable="true"
+	android:focusable="true">
+
+	<TextView
+		android:text="Category"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="18dp"
+		android:textColor="?attr/primaryTextColor"
+		android:layout_gravity="center_vertical"
+		android:fontFamily="@font/worksans"
+		android:fontWeight="400"
+		android:singleLine="true"
+		android:ellipsize="start"
+		android:scrollHorizontally="true"
+		android:id="@+id/chooseCategoriesListItem_name" />
+
+	<CheckBox 
+		android:id="@+id/chooseCategoriesListItem_checkbox"
+		android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
