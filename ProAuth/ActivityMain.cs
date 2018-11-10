@@ -15,7 +15,6 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using Android.Runtime;
@@ -44,9 +43,6 @@ namespace ProAuth
         // State
         private Timer _authTimer;
         private DateTime _pauseTime;
-
-        // Tasks
-        private Task<SQLiteAsyncConnection> _databaseConnectTask;
 
         // Views
         private RecyclerView _authList;
@@ -78,13 +74,11 @@ namespace ProAuth
             _pauseTime = DateTime.MinValue;
         }
 
-        protected override async void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityMain);
-
-            _databaseConnectTask = Database.Connect();
 
             // Actionbar
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityMain_toolbar);
@@ -118,11 +112,40 @@ namespace ProAuth
             // Recyclerview
             _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
-            CreateTimer();
+        }
 
-            _connection = await _databaseConnectTask;
+        protected override void OnResume()
+        {
+            base.OnResume();
+            _authTimer?.Start();
+
+            if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
+            {
+                Login();
+            }
+
+            // Just launched
+            if(_connection == null)
+            {
+                Init();
+            }
+            else
+            {
+                UpdateAuthenticators();
+                UpdateCategories();
+            }
+        }
+
+        private async void Init()
+        {
+            _connection = await Database.Connect();
             InitCategories();
             InitAuthenticators();
+
+            UpdateCategories(false);
+            UpdateAuthenticators(false);
+
+            CreateTimer();
         }
 
         private void InitAuthenticators()
@@ -132,6 +155,7 @@ namespace ProAuth
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
+            _authAdapter.HasStableIds = true;
 
             _authList.SetAdapter(_authAdapter);
             _authList.HasFixedSize = true;
@@ -142,7 +166,7 @@ namespace ProAuth
             _authList.LayoutAnimation = animation;
 
             bool useGrid = IsTablet();
-            GridLayoutManager layout = new GridLayoutManager(this, useGrid ? 2 : 1);
+            CustomGridLayoutManager layout = new CustomGridLayoutManager(this, useGrid ? 2 : 1);
             _authList.SetLayoutManager(layout);
 
             AuthTouchHelperCallback callback = new AuthTouchHelperCallback(_authAdapter, useGrid);
@@ -153,26 +177,19 @@ namespace ProAuth
         private async void UpdateAuthenticators(bool updateSource = true)
         {
             _progressBar.Visibility = ViewStates.Visible;
+            await _authSource.UpdateTask;
 
             if(updateSource)
             {
-                await _databaseConnectTask;
-
-                if(_authSource.UpdateTask.IsCompleted)
-                {
-                    await _authSource.Update();
-                }
-                else
-                {
-                    await _authSource.UpdateTask;
-                }
+                await _authSource.Update();
             }
 
             _authAdapter.NotifyDataSetChanged();
-            _authList.ScheduleLayoutAnimation();
             CheckEmptyState();
+            _authList.ScheduleLayoutAnimation();
 
-            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f) {
+            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f)
+            {
                 Duration = 200
             };
             animation.AnimationEnd += (sender, e) => { _progressBar.Visibility = ViewStates.Invisible; };
@@ -188,17 +205,13 @@ namespace ProAuth
             _categorySource = new CategorySource(_connection);
         }
 
-        private async void UpdateCategories()
+        private async void UpdateCategories(bool updateSource = true)
         {
-            await _databaseConnectTask;
+            await _categorySource.UpdateTask;
 
-            if(_categorySource.UpdateTask.IsCompleted)
+            if(updateSource)
             {
                 await _categorySource.Update();
-            }
-            else
-            {
-                await _categorySource.UpdateTask;
             }
 
             _categoriesMenu.Clear();
@@ -212,13 +225,8 @@ namespace ProAuth
             }
         }
 
-        private async Task CheckEmptyState()
+        private void CheckEmptyState()
         {
-            if(_authSource == null)
-            {
-                return;
-            }
-
             if(_authSource.Count() == 0)
             {
                 _emptyState.Visibility = ViewStates.Visible;
@@ -365,20 +373,6 @@ namespace ProAuth
                     StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
                 }
             }
-        }
-
-        protected override async void OnResume()
-        {
-            base.OnResume();
-            _authTimer?.Start();
-
-            if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
-            {
-                Login();
-            }
-
-            UpdateAuthenticators();
-            UpdateCategories();
         }
 
         public override void OnBackPressed()

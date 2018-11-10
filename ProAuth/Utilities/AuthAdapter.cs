@@ -132,5 +132,10 @@ namespace ProAuth.Utilities
             _source.Move(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
         }
+
+        public override long GetItemId(int position)
+        {
+            return _source.Authenticators[position].GetHashCode();
+        }
     }
 }

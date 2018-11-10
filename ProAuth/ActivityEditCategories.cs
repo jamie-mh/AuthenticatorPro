@@ -72,16 +72,21 @@ namespace ProAuth
             _categoryList.AddItemDecoration(decoration);
             _categoryList.SetLayoutManager(layout);
 
+            LayoutAnimationController layoutAnimation =
+                AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
+            _categoryList.LayoutAnimation = layoutAnimation;
+
             await _categorySource.UpdateTask;
             CheckEmptyState();
             _categoryAdapter.NotifyDataSetChanged();
+            _categoryList.ScheduleLayoutAnimation();
 
-            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f)
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f)
             {
                 Duration = 200
             };
-            animation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Invisible; };
-            progressBar.StartAnimation(animation);
+            alphaAnimation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Invisible; };
+            progressBar.StartAnimation(alphaAnimation);
         }
 
         private async Task CheckEmptyState()

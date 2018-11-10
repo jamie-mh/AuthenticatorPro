@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Albireo.Base32;
+using Android.Util;
 using OtpSharp;
 using ProAuth.Data;
 using SQLite;
@@ -78,6 +79,7 @@ namespace ProAuth.Utilities
 
         public async Task Update()
         {
+            Log.Info("proauth", "update source");
             _all.Clear();
             _categoryBindings.Clear();
 

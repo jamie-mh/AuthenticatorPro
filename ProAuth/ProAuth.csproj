@@ -100,6 +100,7 @@
     <Compile Include="Utilities\ChooseCategoriesAdapter.cs" />
     <Compile Include="Utilities\CategoryAdapter.cs" />
     <Compile Include="Utilities\CategoryHolder.cs" />
+    <Compile Include="Utilities\CustomGridLayoutManager.cs" />
     <Compile Include="Utilities\FilesystemHolder.cs" />
     <Compile Include="Utilities\CategorySource.cs" />
     <Compile Include="Utilities\FilesystemSource.cs" />
