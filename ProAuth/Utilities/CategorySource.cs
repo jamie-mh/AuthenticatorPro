@@ -52,8 +52,7 @@ namespace ProAuth.Utilities
             Categories.RemoveAt(position);
 
             object[] args = {category.Id};
-            _connection.QueryAsync<AuthenticatorCategory>("DELETE * FROM authenticatorcategory WHERE categoryId = ?",
-                args);
+            _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", args);
         }
 
         public void Rename(int position, string name)

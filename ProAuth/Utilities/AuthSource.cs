@@ -87,7 +87,14 @@ namespace ProAuth.Utilities
             sql = $@"SELECT * FROM authenticatorcategory";
             _categoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
 
-            Authenticators = _all.Cast<IAuthenticatorInfo>().ToList();
+            if(CategoryId == null)
+            {
+                Authenticators = _all.Cast<IAuthenticatorInfo>().ToList();
+            }
+            else
+            {
+                SetCategory(CategoryId);
+            }
         }
 
         private Authenticator GetAuthenticator(IAuthenticatorInfo info)

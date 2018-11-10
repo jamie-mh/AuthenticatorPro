@@ -80,7 +80,7 @@ namespace ProAuth
             {
                 Duration = 200
             };
-            animation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Gone; };
+            animation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Invisible; };
             progressBar.StartAnimation(animation);
         }
 

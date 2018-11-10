@@ -172,11 +172,10 @@ namespace ProAuth
             _authList.ScheduleLayoutAnimation();
             CheckEmptyState();
 
-            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f)
-            {
+            AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f) {
                 Duration = 200
             };
-            animation.AnimationEnd += (sender, e) => { _progressBar.Visibility = ViewStates.Gone; };
+            animation.AnimationEnd += (sender, e) => { _progressBar.Visibility = ViewStates.Invisible; };
             _progressBar.StartAnimation(animation);
         }
 
