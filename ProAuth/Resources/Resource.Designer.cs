@@ -82,13 +82,19 @@ namespace ProAuth
 			public const int item_animation_fall_down = 2131099662;
 			
 			// aapt resource value: 0x7f06000f
-			public const int layout_animation_fall_down = 2131099663;
+			public const int item_animation_from_right = 2131099663;
 			
 			// aapt resource value: 0x7f060010
-			public const int tooltip_enter = 2131099664;
+			public const int layout_animation_fall_down = 2131099664;
 			
 			// aapt resource value: 0x7f060011
-			public const int tooltip_exit = 2131099665;
+			public const int layout_animation_slide_right = 2131099665;
+			
+			// aapt resource value: 0x7f060012
+			public const int tooltip_enter = 2131099666;
+			
+			// aapt resource value: 0x7f060013
+			public const int tooltip_exit = 2131099667;
 			
 			static Animation()
 			{

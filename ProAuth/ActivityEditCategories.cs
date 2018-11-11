@@ -73,7 +73,7 @@ namespace ProAuth
             _categoryList.SetLayoutManager(layout);
 
             LayoutAnimationController layoutAnimation =
-                AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
+                AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_slide_right);
             _categoryList.LayoutAnimation = layoutAnimation;
 
             await _categorySource.UpdateTask;

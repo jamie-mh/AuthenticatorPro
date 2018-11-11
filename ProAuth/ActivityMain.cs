@@ -50,6 +50,7 @@ namespace ProAuth
         private FloatingActionButton _addButton;
         private SearchView _searchView;
         private DrawerLayout _drawerLayout;
+        private CustomActionBarDrawerToggle _actionBarDrawerToggle;
         private NavigationView _navigationView;
         private ProgressBar _progressBar;
         private ISubMenu _categoriesMenu;
@@ -86,13 +87,17 @@ namespace ProAuth
 
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
+            //SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
+            SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             // Navigation Drawer
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.activityMain_drawerLayout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.activityMain_navView);
             _navigationView.NavigationItemSelected += DrawerItemSelected;
+
+            _actionBarDrawerToggle = new CustomActionBarDrawerToggle(this, _drawerLayout, toolbar, Resource.String.appName, Resource.String.appName);
+            _drawerLayout.AddDrawerListener(_actionBarDrawerToggle);
 
             // Buttons
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityMain_buttonAdd);
@@ -112,6 +117,12 @@ namespace ProAuth
             // Recyclerview
             _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
+        }
+
+        protected override void OnPostCreate(Bundle savedInstanceState)
+        {
+            base.OnPostCreate(savedInstanceState);
+            _actionBarDrawerToggle.SyncState();
         }
 
         protected override void OnResume()
@@ -300,24 +311,39 @@ namespace ProAuth
             switch(e.MenuItem.ItemId)
             {
                 case Resource.Id.drawerSettings:
-                    StartActivity(typeof(ActivitySettings));
+                    _actionBarDrawerToggle.IdleAction = () =>
+                    {
+                        StartActivity(typeof(ActivitySettings));
+                    };
                     break;
 
                 case Resource.Id.drawerEditCategories:
-                    StartActivity(typeof(ActivityEditCategories));
+                    _actionBarDrawerToggle.IdleAction = () =>
+                    {
+                        StartActivity(typeof(ActivityEditCategories));
+                    };
                     break;
 
                 case Resource.Id.drawerRestore:
-                    StartActivity(typeof(ActivityRestore));
+                    _actionBarDrawerToggle.IdleAction = () =>
+                    {
+                        StartActivity(typeof(ActivityRestore));
+                    };
                     break;
 
                 case Resource.Id.drawerBackup:
-                    StartActivity(typeof(ActivityBackup));
+                    _actionBarDrawerToggle.IdleAction = () =>
+                    {
+                        StartActivity(typeof(ActivityBackup));
+                    };
                     break;
 
                 default:
-                    int position = e.MenuItem.ItemId;
-                    SwitchCategory(position);
+                    _actionBarDrawerToggle.IdleAction = () =>
+                    {
+                        int position = e.MenuItem.ItemId;
+                        SwitchCategory(position);
+                    };
                     break;
             }
 
@@ -344,9 +370,14 @@ namespace ProAuth
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if(item.ItemId == Android.Resource.Id.Home)
+            //if(item.ItemId == Android.Resource.Id.Home)
+            //{
+            //    _drawerLayout.OpenDrawer(GravityCompat.Start);
+            //}
+
+            if(_actionBarDrawerToggle.OnOptionsItemSelected(item))
             {
-                _drawerLayout.OpenDrawer(GravityCompat.Start);
+                return true;
             }
 
             return base.OnOptionsItemSelected(item);
@@ -355,7 +386,7 @@ namespace ProAuth
         protected override void OnPause()
         {
             base.OnPause();
-            _authTimer.Stop();
+            _authTimer?.Stop();
             _pauseTime = DateTime.Now;
         }
 

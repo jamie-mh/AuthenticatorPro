@@ -21,6 +21,7 @@ namespace ProAuth.Data
 
         public Category(string name)
         {
+            name = name.Trim();
             Id = Hash.SHA1(name).Truncate(8);
             Name = name;
         }
