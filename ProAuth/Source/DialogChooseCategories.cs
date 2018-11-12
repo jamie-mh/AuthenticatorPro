@@ -65,6 +65,14 @@ namespace ProAuth
             Button okButton = dialog.GetButton((int) DialogButtonType.Positive);
             okButton.Click += _onClose.Invoke;
 
+            TextView emptyText = view.FindViewById<TextView>(Resource.Id.dialogChooseCategories_empty);
+
+            if(_categorySource.Count() == 0)
+            {
+                emptyText.Visibility = ViewStates.Visible;
+                _categoryList.Visibility = ViewStates.Gone;
+            }
+
             foreach(string category in _checkedCategories)
             {
                 int index = _categorySource.Categories.FindIndex(c => c.Id == category);
