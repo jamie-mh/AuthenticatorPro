@@ -7,6 +7,7 @@ using Android.Views;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.Design.Widget;
 using Android.Support.V7.Widget;
+using Android.Support.V7.Widget.Helper;
 using Android.Views.Animations;
 using Android.Widget;
 using ProAuth.Data;
@@ -66,6 +67,10 @@ namespace ProAuth
             _categoryList.SetItemViewCacheSize(20);
             _categoryList.DrawingCacheEnabled = true;
             _categoryList.DrawingCacheQuality = DrawingCacheQuality.High;
+
+            CustomTouchHelperCallback callback = new CustomTouchHelperCallback(_categoryAdapter);
+            ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+            touchHelper.AttachToRecyclerView(_categoryList);
 
             LinearLayoutManager layout = new LinearLayoutManager(this);
             DividerItemDecoration decoration = new DividerItemDecoration(this, layout.Orientation);

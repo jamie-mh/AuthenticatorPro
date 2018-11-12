@@ -3,14 +3,14 @@ using Android.Support.V7.Widget.Helper;
 
 namespace ProAuth.Utilities
 {
-    internal class AuthTouchHelperCallback : ItemTouchHelper.Callback
+    internal class CustomTouchHelperCallback : ItemTouchHelper.Callback
     {
         private readonly IAuthAdapterMovement _movement;
         private readonly bool _isGrid;
         public override bool IsLongPressDragEnabled => true;
         public override bool IsItemViewSwipeEnabled => false;
 
-        public AuthTouchHelperCallback(IAuthAdapterMovement movement, bool isGrid = false)
+        public CustomTouchHelperCallback(IAuthAdapterMovement movement, bool isGrid = false)
         {
             _movement = movement;
             _isGrid = isGrid;

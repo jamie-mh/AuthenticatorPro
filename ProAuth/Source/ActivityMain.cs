@@ -180,7 +180,7 @@ namespace ProAuth
             CustomGridLayoutManager layout = new CustomGridLayoutManager(this, useGrid ? 2 : 1);
             _authList.SetLayoutManager(layout);
 
-            AuthTouchHelperCallback callback = new AuthTouchHelperCallback(_authAdapter, useGrid);
+            CustomTouchHelperCallback callback = new CustomTouchHelperCallback(_authAdapter, useGrid);
             ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
         }

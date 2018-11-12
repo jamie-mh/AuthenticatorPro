@@ -106,8 +106,8 @@
     <Compile Include="Source\Utilities\FilesystemSource.cs" />
     <Compile Include="Source\Utilities\FilesystemAdapter.cs" />
     <Compile Include="Source\Utilities\Hash.cs" />
-    <Compile Include="Source\Utilities\IAuthAdapterMovement.cs" />
-    <Compile Include="Source\Utilities\AuthTouchHelperCallback.cs" />
+    <Compile Include="Source\Utilities\IAdapterMovement.cs" />
+    <Compile Include="Source\Utilities\CustomTouchHelperCallback.cs" />
     <Compile Include="Source\Utilities\IconSource.cs" />
     <Compile Include="Source\Utilities\IconHolder.cs" />
     <Compile Include="Source\Utilities\IconAdapter.cs" />

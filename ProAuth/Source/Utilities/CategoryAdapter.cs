@@ -8,7 +8,7 @@ using ProAuth.Data;
 
 namespace ProAuth.Utilities
 {
-    internal sealed class CategoryAdapter : RecyclerView.Adapter
+    internal sealed class CategoryAdapter : RecyclerView.Adapter, IAuthAdapterMovement
     {
         private readonly CategorySource _source;
 
@@ -34,6 +34,12 @@ namespace ProAuth.Utilities
             CategoryHolder holder = new CategoryHolder(itemView, OnRenameClick, OnDeleteClick);
 
             return holder;
+        }
+
+        public void OnViewMoved(int oldPosition, int newPosition)
+        {
+            _source.Move(oldPosition, newPosition);
+            NotifyItemMoved(oldPosition, newPosition);
         }
 
         public override int ItemCount => _source.Count();

@@ -29,7 +29,8 @@ namespace ProAuth.Utilities
         public async Task Update()
         {
             Categories.Clear();
-            Categories = await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY name ASC");
+            Categories = 
+                await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
         public bool IsDuplicate(Category category)
@@ -69,6 +70,36 @@ namespace ProAuth.Utilities
             object[] args = {replacement.Id, old.Id};
             _connection.QueryAsync<AuthenticatorCategory>(
                 "UPDATE authenticatorcategory SET categoryId = ? WHERE categoryId = ?", args);
+        }
+
+        public async void Move(int oldPosition, int newPosition)
+        {
+            Category old = Categories[newPosition];
+            Categories[newPosition] = Categories[oldPosition];
+            Categories[oldPosition] = old;
+
+            if(oldPosition > newPosition)
+            {
+                for(int i = newPosition; i < Categories.Count; ++i)
+                {
+                    Category cat = Categories[i];
+                    cat.Ranking++;
+                    _connection.UpdateAsync(cat);
+                }
+            }
+            else
+            {
+                for(int i = oldPosition; i < newPosition; ++i)
+                {
+                    Category cat = Categories[i]; 
+                    cat.Ranking--;
+                    _connection.UpdateAsync(cat);
+                }
+            }
+
+            Category temp = Categories[newPosition]; 
+            temp.Ranking = newPosition;
+            _connection.UpdateAsync(temp);
         }
 
         public int Count()
