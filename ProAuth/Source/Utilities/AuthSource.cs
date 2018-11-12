@@ -158,6 +158,10 @@ namespace ProAuth.Utilities
             _connection.DeleteAsync<Authenticator>(auth.Secret);
             Authenticators.Remove(info);
             _all.Remove(auth);
+
+            string sql = "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ?";
+            object[] args = {auth.Secret};
+            _connection.ExecuteAsync(sql, args);
         }
 
         public async void Move(int oldPosition, int newPosition)
