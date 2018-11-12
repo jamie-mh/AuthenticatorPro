@@ -4320,7 +4320,7 @@ namespace ProAuth
 			public const int restoreMessage = 2131492967;
 			
 			// aapt resource value: 0x7f0c0059
-			public const int restoredNewAuthenticators = 2131492953;
+			public const int restoredFromBackup = 2131492953;
 			
 			// aapt resource value: 0x7f0c004d
 			public const int save = 2131492941;

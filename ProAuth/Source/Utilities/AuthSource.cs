@@ -19,7 +19,7 @@ namespace ProAuth.Utilities
         private readonly SQLiteAsyncConnection _connection;
 
         private List<Authenticator> _all;
-        private List<AuthenticatorCategory> _categoryBindings;
+        public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
         private string _search;
 
@@ -31,7 +31,7 @@ namespace ProAuth.Utilities
 
             Authenticators = new List<IAuthenticatorInfo>();
             _all = new List<Authenticator>();
-            _categoryBindings = new List<AuthenticatorCategory>();
+            CategoryBindings = new List<AuthenticatorCategory>();
 
             UpdateTask = Update();
         }
@@ -47,7 +47,7 @@ namespace ProAuth.Utilities
             if(CategoryId != null)
             {
                 List<AuthenticatorCategory> authsInCategory = 
-                    _categoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
+                    CategoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
 
                 results =
                     results.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1).ToList();
@@ -70,7 +70,7 @@ namespace ProAuth.Utilities
             else
             {
                 List<AuthenticatorCategory> authsInCategory = 
-                    _categoryBindings.Where(b => b.CategoryId == categoryId).ToList();
+                    CategoryBindings.Where(b => b.CategoryId == categoryId).ToList();
 
                 results =
                     _all.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
@@ -84,13 +84,13 @@ namespace ProAuth.Utilities
         public async Task Update()
         {
             _all.Clear();
-            _categoryBindings.Clear();
+            CategoryBindings.Clear();
 
             string sql = $@"SELECT * FROM authenticator ORDER BY ranking ASC";
             _all = await _connection.QueryAsync<Authenticator>(sql);
 
             sql = $@"SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
-            _categoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
+            CategoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
 
             if(CategoryId == null)
             {
@@ -273,7 +273,7 @@ namespace ProAuth.Utilities
             string secret = Authenticators[position].Secret;
 
             List<AuthenticatorCategory> authCategories = 
-                _categoryBindings.Where(b => b.AuthenticatorSecret == secret).ToList();
+                CategoryBindings.Where(b => b.AuthenticatorSecret == secret).ToList();
 
             foreach(AuthenticatorCategory binding in authCategories)
             {
@@ -285,7 +285,7 @@ namespace ProAuth.Utilities
 
         public AuthenticatorCategory GetAuthenticatorCategory(IAuthenticatorInfo info)
         {
-            return _categoryBindings.First(b => b.AuthenticatorSecret == info.Secret && b.CategoryId == CategoryId);
+            return CategoryBindings.First(b => b.AuthenticatorSecret == info.Secret && b.CategoryId == CategoryId);
         }
 
         public void AddToCategory(int position, string categoryId)
@@ -296,7 +296,7 @@ namespace ProAuth.Utilities
             object[] args = {categoryId, secret};
             _connection.ExecuteAsync(sql, args);
 
-            _categoryBindings.Add(new AuthenticatorCategory(categoryId, secret));
+            CategoryBindings.Add(new AuthenticatorCategory(categoryId, secret));
         }
 
         public void RemoveFromCategory(int position, string categoryId)
@@ -307,8 +307,8 @@ namespace ProAuth.Utilities
             _connection.ExecuteAsync(sql, args);
 
             AuthenticatorCategory binding =
-                _categoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == secret);
-            _categoryBindings.Remove(binding);
+                CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == secret);
+            CategoryBindings.Remove(binding);
         }
     }
 }

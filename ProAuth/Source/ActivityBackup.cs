@@ -135,10 +135,18 @@ namespace ProAuth
             if(requestCode != FileSavePathCode || resultCode != Result.Ok)
                 return;
 
-            List<Authenticator> authenticators = await
-                _connection.QueryAsync<Authenticator>("SELECT * FROM authenticator");
+            Backup backup = new Backup() {
+                Authenticators = await
+                    _connection.QueryAsync<Authenticator>("SELECT * FROM authenticator"),
 
-            string json = JsonConvert.SerializeObject(authenticators);
+                Categories = await
+                    _connection.QueryAsync<Category>("SELECT * FROM category"),
+
+                AuthenticatorCategories = await
+                    _connection.QueryAsync<AuthenticatorCategory>("SELECT * FROM authenticatorcategory")
+            };
+
+            string json = JsonConvert.SerializeObject(backup);
             string filename = intent.GetStringExtra("filename") + ".proauth";
 
             string path = Path.Combine(intent.GetStringExtra("path"), filename);

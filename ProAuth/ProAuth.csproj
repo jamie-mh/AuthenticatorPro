@@ -79,6 +79,7 @@
     <Compile Include="Source\ActivityEditCategories.cs" />
     <Compile Include="Source\ActivityFileSave.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
+    <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\IAuthenticatorInfo.cs" />
     <Compile Include="Source\DialogEditCategory.cs" />

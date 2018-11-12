@@ -33,6 +33,7 @@ namespace ProAuth
 
         private SQLiteAsyncConnection _connection;
         private AuthSource _authSource;
+        private CategorySource _categorySource;
 
         private FileData _file;
         private DialogRestore _dialog;
@@ -56,6 +57,7 @@ namespace ProAuth
 
             _connection = await Database.Connect();
             _authSource = new AuthSource(_connection);
+            _categorySource = new CategorySource(_connection);
         }
 
         protected override void OnDestroy()
@@ -162,10 +164,11 @@ namespace ProAuth
                     contents = Encoding.UTF8.GetString(raw);
                 }
 
-                List<Authenticator> auths = JsonConvert.DeserializeObject<List<Authenticator>>(contents);
-                int inserted = 0;
+                Backup backup = JsonConvert.DeserializeObject<Backup>(contents);
+                int authsInserted = 0;
+                int categoriesInserted = 0;
 
-                foreach(Authenticator auth in auths)
+                foreach(Authenticator auth in backup.Authenticators)
                 {
                     if(_authSource.IsDuplicate(auth))
                     {
@@ -173,10 +176,31 @@ namespace ProAuth
                     }
 
                     await _connection.InsertAsync(auth);
-                    inserted++;
+                    authsInserted++;
                 }
 
-                string message = String.Format(GetString(Resource.String.restoredNewAuthenticators), inserted);
+                foreach(Category category in backup.Categories)
+                {
+                    if(_categorySource.IsDuplicate(category))
+                    {
+                        continue;
+                    }
+
+                    await _connection.InsertAsync(category);
+                    categoriesInserted++;
+                }
+
+                foreach(AuthenticatorCategory binding in backup.AuthenticatorCategories)
+                {
+                    if(_authSource.CategoryBindings.Contains(binding))
+                    {
+                        continue;
+                    }
+
+                    await _connection.InsertAsync(binding);
+                }
+
+                string message = String.Format(GetString(Resource.String.restoredFromBackup), authsInserted, categoriesInserted);
                 Toast.MakeText(_dialog.Context, message, ToastLength.Long).Show();
 
                 _dialog.Dismiss();
