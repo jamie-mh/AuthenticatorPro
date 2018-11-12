@@ -46,5 +46,10 @@ namespace ProAuth.Utilities
         {
             ItemClick?.Invoke(this, position);
         }
+
+        public override long GetItemId(int position)
+        {
+            return Icons.Service.ElementAt(position).GetHashCode();
+        }
     }
 }

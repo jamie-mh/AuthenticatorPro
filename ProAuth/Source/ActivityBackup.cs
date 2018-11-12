@@ -45,7 +45,7 @@ namespace ProAuth
             SupportActionBar.SetTitle(Resource.String.backup);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
             _textPassword = FindViewById<EditText>(Resource.Id.activityBackup_password);
             Button exportBtn = FindViewById<Button>(Resource.Id.activityBackup_export);

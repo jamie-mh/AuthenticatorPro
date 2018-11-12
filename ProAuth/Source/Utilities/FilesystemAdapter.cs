@@ -68,5 +68,10 @@ namespace ProAuth.Utilities
                 NotifyDataSetChanged();
             };
         }
+
+        public override long GetItemId(int position)
+        {
+            return _source.Listing[position].GetHashCode();
+        }
     }
 }

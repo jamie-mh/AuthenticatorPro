@@ -299,19 +299,19 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_arrow_back_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_arrow_back_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_arrow_back_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_arrow_back_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_arrow_back.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_arrow_back_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\about.html" />
@@ -362,19 +362,19 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_search_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_search_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_search_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_search.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_search_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\searchable.xml" />
@@ -1148,6 +1148,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\layout_animation_slide_right.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_search_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_search_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_search_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_search_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_arrow_back_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_arrow_back_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_arrow_back_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_arrow_back_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_arrow_back_light.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -49,7 +49,7 @@ namespace ProAuth
             SupportActionBar.SetTitle(Resource.String.restore);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
             Button importBtn = FindViewById<Button>(Resource.Id.activityRestore_import);
             importBtn.Click += ImportButtonClick;

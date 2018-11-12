@@ -48,7 +48,7 @@ namespace ProAuth
             SupportActionBar.SetTitle(Resource.String.editCategories);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityEditCategories_buttonAdd);
             _addButton.Click += OnAddClick;

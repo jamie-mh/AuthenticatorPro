@@ -80,8 +80,8 @@
 
     <!-- Preferences -->
     <string name="pref_security">Security</string>
-    <string name="pref_requireAuthentication_title">Require Authentication</string>
-    <string name="pref_requireAuthentication_summary">Require a device pin, pattern, password or fingerprint to access authenticators. This feature requires that you set up a lock screen on your device.</string>
+    <string name="pref_appLock_title">App Lock</string>
+    <string name="pref_appLock_summary">Require a device pin, pattern, password or fingerprint to access authenticators. This feature requires that you set up a lock screen on your device.</string>
 
     <string name="pref_appearance">Appearance</string>
     <string name="pref_useDarkTheme_title">Use Dark Theme</string>

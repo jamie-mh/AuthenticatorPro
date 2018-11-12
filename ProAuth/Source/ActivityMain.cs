@@ -393,7 +393,7 @@ namespace ProAuth
         private void Login()
         {
             ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            bool authRequired = sharedPrefs.GetBoolean("pref_requireAuthentication", false);
+            bool authRequired = sharedPrefs.GetBoolean("pref_appLock", false);
 
             if(authRequired && _keyguardManager.IsDeviceSecure)
             {

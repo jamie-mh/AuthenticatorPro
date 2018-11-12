@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Webkit;
+using ProAuth.Utilities;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace ProAuth
@@ -21,7 +22,7 @@ namespace ProAuth
             SupportActionBar.SetTitle(Resource.String.about);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
             WebView webView = FindViewById<WebView>(Resource.Id.activityAbout_webView);
             webView.LoadUrl(@"file:///android_asset/about.html");

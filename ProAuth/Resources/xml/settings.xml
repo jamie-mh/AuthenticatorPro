@@ -6,9 +6,9 @@
         android:title="@string/pref_security"
         android:key="pref_key_security">
         <android.support.v7.preference.CheckBoxPreference
-            android:key="pref_requireAuthentication"
-            android:summary="@string/pref_requireAuthentication_summary"
-            android:title="@string/pref_requireAuthentication_title"
+            android:key="pref_appLock"
+            android:summary="@string/pref_appLock_summary"
+            android:title="@string/pref_appLock_title"
             android:defaultValue="false" />
     </android.support.v7.preference.PreferenceCategory>
 

@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="LightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="LightTheme" parent="Theme.AppCompat.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -15,10 +15,12 @@
         <item name="activityRestore_image">@drawable/ic_restore_light</item>
         <item name="activityBackup_image">@drawable/ic_backup_light</item>
 
+        <item name="toolbar_searchIcon">@drawable/ic_action_search_light</item>
+
         <item name="authList_background">@color/colorLight</item>
         <item name="authListItem_background">@color/colorLighter</item>
         <item name="authListItem_iconBackground">@android:color/transparent</item>
-        <item name="authListItem_code">@color/colorPrimary</item>
+        <item name="authListItem_code">@color/colorAccentDark</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
         <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
 
@@ -39,8 +41,8 @@
     <style name="DarkTheme" parent="Theme.AppCompat">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorDark</item>
+        <item name="colorPrimaryDark">@color/colorDarker</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="primaryTextColor">@color/colorLight</item>
@@ -51,8 +53,10 @@
         <item name="activityRestore_image">@drawable/ic_restore_dark</item>
         <item name="activityBackup_image">@drawable/ic_backup_dark</item>
 
+        <item name="toolbar_searchIcon">@drawable/ic_action_search_dark</item>
+
         <item name="authList_background">@color/colorDark</item>
-        <item name="authListItem_iconBackground">@color/colorLight</item>
+        <item name="authListItem_iconBackground">@color/colorLighter</item>
         <item name="authListItem_background">@color/colorDarker</item>
         <item name="authListItem_code">@color/colorLight</item>
         <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
@@ -66,10 +70,10 @@
         <item name="drawer_restoreIcon">@drawable/ic_action_restore_dark</item>
         <item name="drawer_backupIcon">@drawable/ic_action_backup_dark</item>
 
-        <item name="dialogIcon_listBackground">@color/colorLight</item>
+        <item name="dialogIcon_listBackground">@color/colorLighter</item>
 
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-        <item name="android:windowBackground">@color/colorDark</item>
+        <item name="android:windowBackground">@color/colorDarker</item>
     </style>
 
 </resources>

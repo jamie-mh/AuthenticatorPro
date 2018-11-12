@@ -36,7 +36,7 @@ namespace ProAuth
             SupportActionBar.SetTitle(Resource.String.saveFile);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
             _filenameText = FindViewById<EditText>(Resource.Id.activityFileSave_filename);
             _filenameText.Text = Intent.GetStringExtra("filename");
@@ -45,7 +45,9 @@ namespace ProAuth
             _saveButton.Click += SaveClick;
 
             _filesystemSource = new FilesystemSource(Environment.ExternalStorageDirectory.AbsolutePath);
-            _filesystemAdapter = new FilesystemAdapter(_filesystemSource);
+            _filesystemAdapter = new FilesystemAdapter(_filesystemSource) {
+                HasStableIds = true
+            };
 
             RecyclerView list = FindViewById<RecyclerView>(Resource.Id.activityFileSave_list);
             list.SetAdapter(_filesystemAdapter);
@@ -54,7 +56,9 @@ namespace ProAuth
             list.DrawingCacheEnabled = true;
             list.DrawingCacheQuality = DrawingCacheQuality.High;
 
-            LinearLayoutManager layout = new LinearLayoutManager(this);
+            CustomGridLayoutManager layout = new CustomGridLayoutManager(this, 1);
+            list.SetLayoutManager(layout);
+
             DividerItemDecoration decoration = new DividerItemDecoration(this, layout.Orientation);
             list.AddItemDecoration(decoration);
             list.SetLayoutManager(layout);
