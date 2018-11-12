@@ -38,8 +38,6 @@ namespace ProAuth
     // ReSharper disable once UnusedMember.Global
     public class ActivityMain : AppCompatActivity
     {
-        private const int RequestConfirmDeviceCredentials = 0;
-
         // State
         private Timer _authTimer;
         private DateTime _pauseTime;
@@ -128,11 +126,10 @@ namespace ProAuth
         protected override void OnResume()
         {
             base.OnResume();
-            _authTimer?.Start();
 
-            if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
+            if((DateTime.Now - _pauseTime).TotalMinutes >= 1 && PerformLogin())
             {
-                Login();
+                return;
             }
 
             // Just launched
@@ -145,6 +142,8 @@ namespace ProAuth
                 UpdateAuthenticators();
                 UpdateCategories();
             }
+
+            _authTimer?.Start();
         }
 
         private async void Init()
@@ -269,24 +268,8 @@ namespace ProAuth
 
         protected override void OnDestroy()
         {
-            _connection.CloseAsync();
+            _connection?.CloseAsync();
             base.OnDestroy();
-        }
-
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Android.App.Result resultCode, Intent data)
-        {
-            if(requestCode == RequestConfirmDeviceCredentials)
-            {
-                switch(resultCode)
-                {
-                    case Android.App.Result.Canceled:
-                        Finish();
-                        break;
-
-                    case Android.App.Result.Ok:
-                        break;
-                }
-            }
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -390,20 +373,18 @@ namespace ProAuth
             _pauseTime = DateTime.Now;
         }
 
-        private void Login()
+        private bool PerformLogin()
         {
             ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
             bool authRequired = sharedPrefs.GetBoolean("pref_appLock", false);
 
             if(authRequired && _keyguardManager.IsDeviceSecure)
             {
-                Intent loginIntent = _keyguardManager.CreateConfirmDeviceCredentialIntent(GetString(Resource.String.login), GetString(Resource.String.loginMessage));
-
-                if(loginIntent != null)
-                {
-                    StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
-                }
+                StartActivity(typeof(ActivityLogin));
+                return true;
             }
+
+            return false;
         }
 
         public override void OnBackPressed()

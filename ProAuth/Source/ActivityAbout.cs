@@ -14,6 +14,7 @@ namespace ProAuth
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            ThemeHelper.Update(this);
             SetContentView(Resource.Layout.activityAbout);
 
             Toolbar toolbar = FindViewById<Toolbar>(Resource.Id.activityAbout_toolbar);
