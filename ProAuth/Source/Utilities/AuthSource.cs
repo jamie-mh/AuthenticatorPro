@@ -63,7 +63,9 @@ namespace ProAuth.Utilities
 
             if(CategoryId == null)
             {
-                results = _all;
+                results = 
+                    _all.OrderBy(a => a.Ranking)
+                    .ToList();
             }
             else
             {
@@ -71,7 +73,9 @@ namespace ProAuth.Utilities
                     _categoryBindings.Where(b => b.CategoryId == categoryId).ToList();
 
                 results =
-                    _all.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1).ToList();
+                    _all.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
+                        .OrderBy(a => authsInCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking)
+                        .ToList();
             }
 
             Authenticators = results.Cast<IAuthenticatorInfo>().ToList();
@@ -82,10 +86,10 @@ namespace ProAuth.Utilities
             _all.Clear();
             _categoryBindings.Clear();
 
-            string sql = $@"SELECT * FROM authenticator ORDER BY ranking DESC";
+            string sql = $@"SELECT * FROM authenticator ORDER BY ranking ASC";
             _all = await _connection.QueryAsync<Authenticator>(sql);
 
-            sql = $@"SELECT * FROM authenticatorcategory";
+            sql = $@"SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
             _categoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
 
             if(CategoryId == null)
@@ -166,25 +170,53 @@ namespace ProAuth.Utilities
             {
                 for(int i = newPosition; i < Authenticators.Count; ++i)
                 {
-                    Authenticator auth = GetAuthenticator(Authenticators[i]);
-                    auth.Ranking++;
-                    _connection.UpdateAsync(auth);
+                    if(CategoryId == null)
+                    {
+                        Authenticator auth = GetAuthenticator(Authenticators[i]);
+                        auth.Ranking++;
+                        _connection.UpdateAsync(auth);
+                    }
+                    else
+                    {
+                        AuthenticatorCategory binding = 
+                            GetAuthenticatorCategory(Authenticators[i]);
+                        binding.Ranking++;
+                        _connection.UpdateAsync(binding);
+                    }
                 }
             }
             else
             {
                 for(int i = oldPosition; i < newPosition; ++i)
                 {
-                    Authenticator auth = GetAuthenticator(Authenticators[i]);
-                    auth.Ranking--;
-                    _connection.UpdateAsync(auth);
+                    if(CategoryId == null)
+                    {
+                        Authenticator auth = GetAuthenticator(Authenticators[i]);
+                        auth.Ranking--;
+                        _connection.UpdateAsync(auth);
+                    }
+                    else
+                    {
+                        AuthenticatorCategory binding = 
+                            GetAuthenticatorCategory(Authenticators[i]);
+                        binding.Ranking--;
+                        _connection.UpdateAsync(binding);
+                    }
                 }
             }
 
-            Authenticator temp = GetAuthenticator(Authenticators[newPosition]); 
-            temp.Ranking = newPosition;
-
-            _connection.UpdateAsync(temp);
+            if(CategoryId == null)
+            {
+                Authenticator temp = GetAuthenticator(Authenticators[newPosition]); 
+                temp.Ranking = newPosition;
+                _connection.UpdateAsync(temp);
+            }
+            else
+            {
+                AuthenticatorCategory temp = GetAuthenticatorCategory(Authenticators[newPosition]);
+                temp.Ranking = newPosition;
+                _connection.UpdateAsync(temp);
+            }
         }
 
         public async Task IncrementHotp(int position)
@@ -245,6 +277,11 @@ namespace ProAuth.Utilities
             }
 
             return ids;
+        }
+
+        public AuthenticatorCategory GetAuthenticatorCategory(IAuthenticatorInfo info)
+        {
+            return _categoryBindings.First(b => b.AuthenticatorSecret == info.Secret && b.CategoryId == CategoryId);
         }
 
         public void AddToCategory(int position, string categoryId)

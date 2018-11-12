@@ -303,6 +303,11 @@ namespace ProAuth
                 _authAdapter.NotifyDataSetChanged();
             };
 
+            _searchView.Close += (sender, e) =>
+            {
+                _authSource.SetCategory(_authSource.CategoryId);
+            };
+
             return base.OnCreateOptionsMenu(menu);
         }
 
