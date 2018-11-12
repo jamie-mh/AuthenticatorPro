@@ -41,7 +41,7 @@ namespace ProAuth.Data
         [Column("counter")]
         public long Counter { get; set; }
 
-        [Column("ranking"), JsonIgnore]
+        [Column("ranking")]
         public int Ranking { get; set; }
 
         [JsonIgnore]
@@ -54,7 +54,7 @@ namespace ProAuth.Data
         {
             Code = "";
             TimeRenew = DateTime.Now;
-            Ranking = 100000;
+            Ranking = 0;
         }
 
         public static Authenticator FromKeyUri(string uri)

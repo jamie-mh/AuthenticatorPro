@@ -1,5 +1,4 @@
-﻿using System;
-using ProAuth.Utilities;
+﻿using Newtonsoft.Json;
 using SQLite;
 
 namespace ProAuth.Data
@@ -18,13 +17,14 @@ namespace ProAuth.Data
 
         public AuthenticatorCategory()
         {
-
+            Ranking = 0;
         }
 
         public AuthenticatorCategory(string categoryId, string authenticatorSecret)
         {
             CategoryId = categoryId;
             AuthenticatorSecret = authenticatorSecret;
+            Ranking = 0;
         }
     }
 }

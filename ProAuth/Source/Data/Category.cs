@@ -14,9 +14,12 @@ namespace ProAuth.Data
         [Column("name")]
         public string Name { get; set; }
 
+        [Column("ranking")]
+        public int Ranking { get; set; }
+
         public Category()
         {
-
+            Ranking = 0;
         }
 
         public Category(string name)
@@ -24,6 +27,7 @@ namespace ProAuth.Data
             name = name.Trim();
             Id = Hash.SHA1(name).Truncate(8);
             Name = name;
+            Ranking = 0;
         }
     }
 }

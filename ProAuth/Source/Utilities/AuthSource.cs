@@ -79,11 +79,10 @@ namespace ProAuth.Utilities
 
         public async Task Update()
         {
-            Log.Info("proauth", "update source");
             _all.Clear();
             _categoryBindings.Clear();
 
-            string sql = $@"SELECT * FROM authenticator ORDER BY ranking ASC";
+            string sql = $@"SELECT * FROM authenticator ORDER BY ranking DESC";
             _all = await _connection.QueryAsync<Authenticator>(sql);
 
             sql = $@"SELECT * FROM authenticatorcategory";

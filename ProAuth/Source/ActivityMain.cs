@@ -370,11 +370,6 @@ namespace ProAuth
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            //if(item.ItemId == Android.Resource.Id.Home)
-            //{
-            //    _drawerLayout.OpenDrawer(GravityCompat.Start);
-            //}
-
             if(_actionBarDrawerToggle.OnOptionsItemSelected(item))
             {
                 return true;
