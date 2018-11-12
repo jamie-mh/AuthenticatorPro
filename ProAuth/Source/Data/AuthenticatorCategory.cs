@@ -17,14 +17,14 @@ namespace ProAuth.Data
 
         public AuthenticatorCategory()
         {
-            Ranking = 0;
+            Ranking = 1;
         }
 
         public AuthenticatorCategory(string categoryId, string authenticatorSecret)
         {
             CategoryId = categoryId;
             AuthenticatorSecret = authenticatorSecret;
-            Ranking = 0;
+            Ranking = 1;
         }
     }
 }

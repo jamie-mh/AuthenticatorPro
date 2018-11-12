@@ -19,7 +19,7 @@ namespace ProAuth.Data
 
         public Category()
         {
-            Ranking = 0;
+            Ranking = 1;
         }
 
         public Category(string name)
@@ -27,7 +27,7 @@ namespace ProAuth.Data
             name = name.Trim();
             Id = Hash.SHA1(name).Truncate(8);
             Name = name;
-            Ranking = 0;
+            Ranking = 1;
         }
     }
 }
