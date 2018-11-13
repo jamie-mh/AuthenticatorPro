@@ -72,7 +72,14 @@ namespace ProAuth.Utilities
             { "twitch", Resource.Drawable.auth_twitch },
             { "uplay", Resource.Drawable.auth_uplay },
             { "xbox", Resource.Drawable.auth_xbox },
-            { "youtube", Resource.Drawable.auth_youtube }
+            { "youtube", Resource.Drawable.auth_youtube },
+            { "binance", Resource.Drawable.auth_binance },
+            { "bitcoin", Resource.Drawable.auth_bitcoin },
+            { "bitfinex", Resource.Drawable.auth_bitfinex },
+            { "blockchain", Resource.Drawable.auth_blockchain },
+            { "coinbase", Resource.Drawable.auth_coinbase },
+            { "cexio", Resource.Drawable.auth_cexio },
+            { "kraken", Resource.Drawable.auth_kraken }
         };
 
         public static int GetIcon(string key)

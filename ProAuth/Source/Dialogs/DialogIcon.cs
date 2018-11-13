@@ -61,7 +61,7 @@ namespace ProAuth.Dialogs
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
 
-            CustomGridLayoutManager layout = new CustomGridLayoutManager(Context, 8);
+            CustomGridLayoutManager layout = new CustomGridLayoutManager(Context, 6);
             _iconList.SetLayoutManager(layout);
 
             Button cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
