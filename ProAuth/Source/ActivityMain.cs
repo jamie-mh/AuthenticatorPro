@@ -378,7 +378,11 @@ namespace ProAuth
             ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
             bool authRequired = sharedPrefs.GetBoolean("pref_appLock", false);
 
-            if(authRequired && _keyguardManager.IsDeviceSecure)
+            bool isDeviceSecure = Build.VERSION.SdkInt <= Build.VERSION_CODES.Lollipop
+                ? _keyguardManager.IsKeyguardSecure 
+                : _keyguardManager.IsDeviceSecure;
+
+            if(authRequired && isDeviceSecure)
             {
                 StartActivity(typeof(ActivityLogin));
                 return true;
