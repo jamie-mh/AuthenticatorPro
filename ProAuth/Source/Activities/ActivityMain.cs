@@ -41,6 +41,7 @@ namespace ProAuth.Activities
         // State
         private Timer _authTimer;
         private DateTime _pauseTime;
+        private ISharedPreferences _sharedPrefs;
 
         // Views
         private RecyclerView _authList;
@@ -75,7 +76,6 @@ namespace ProAuth.Activities
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            ThemeHelper.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityMain);
 
@@ -85,7 +85,6 @@ namespace ProAuth.Activities
 
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.appName);
-            //SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_menu);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
@@ -126,6 +125,15 @@ namespace ProAuth.Activities
         protected override void OnResume()
         {
             base.OnResume();
+
+            _sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            bool firstLaunch = _sharedPrefs.GetBoolean("firstLaunch", true);
+
+            if(firstLaunch)
+            {
+                StartActivity(typeof(ActivityIntro));
+                return;
+            }
 
             if((DateTime.Now - _pauseTime).TotalMinutes >= 1 && PerformLogin())
             {
@@ -375,8 +383,7 @@ namespace ProAuth.Activities
 
         private bool PerformLogin()
         {
-            ISharedPreferences sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            bool authRequired = sharedPrefs.GetBoolean("pref_appLock", false);
+            bool authRequired = _sharedPrefs.GetBoolean("pref_appLock", false);
 
             bool isDeviceSecure = Build.VERSION.SdkInt <= Build.VERSION_CODES.Lollipop
                 ? _keyguardManager.IsKeyguardSecure 

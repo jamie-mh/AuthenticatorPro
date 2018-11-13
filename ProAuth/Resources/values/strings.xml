@@ -78,6 +78,10 @@
     <string name="warning">Warning</string>
     <string name="sendEmail">Send an Email</string>
 
+    <string name="continueString">Continue</string>
+    <string name="welcomeTitle">Welcome to ProAuth!</string>
+    <string name="welcomeDescription">Thanks for purchasing ProAuth. To get started, scan a QR code or enter the details manually.\n\nHold and drag the authenticators to reorder them and put them into categories.\n\nSave a backup in case you lose access to your device.</string>
+
     <!-- Preferences -->
     <string name="pref_security">Security</string>
     <string name="pref_appLock_title">App Lock</string>
