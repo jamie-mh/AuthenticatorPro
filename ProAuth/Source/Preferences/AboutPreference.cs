@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Runtime;
 using Android.Util;
+using ProAuth.Activities;
 using Preference = Android.Support.V7.Preferences.Preference;
 
 namespace ProAuth.Preferences

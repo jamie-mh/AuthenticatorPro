@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using SQLite;
+﻿using SQLite;
 
 namespace ProAuth.Data
 {

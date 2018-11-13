@@ -1,5 +1,4 @@
-﻿using Android.Support.V7.Widget;
-using Android.Support.V7.Widget.Helper;
+﻿using Android.Support.V7.Widget.Helper;
 
 namespace ProAuth.Utilities
 {
@@ -16,7 +15,7 @@ namespace ProAuth.Utilities
             _isGrid = isGrid;
         }
 
-        public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
+        public override int GetMovementFlags(Android.Support.V7.Widget.RecyclerView recyclerView, Android.Support.V7.Widget.RecyclerView.ViewHolder viewHolder)
         {
             int dragFlags = ItemTouchHelper.Up | ItemTouchHelper.Down;
 
@@ -28,13 +27,13 @@ namespace ProAuth.Utilities
             return MakeMovementFlags(dragFlags, 0);
         }
 
-        public override bool OnMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target)
+        public override bool OnMove(Android.Support.V7.Widget.RecyclerView recyclerView, Android.Support.V7.Widget.RecyclerView.ViewHolder viewHolder, Android.Support.V7.Widget.RecyclerView.ViewHolder target)
         {
             _movement.OnViewMoved(viewHolder.AdapterPosition, target.AdapterPosition);
             return true;
         }
 
-        public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction)
+        public override void OnSwiped(Android.Support.V7.Widget.RecyclerView.ViewHolder viewHolder, int direction)
         {
 
         }

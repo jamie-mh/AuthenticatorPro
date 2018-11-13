@@ -1,6 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
-using ProAuth.Utilities;
+﻿using ProAuth.Utilities;
 using SQLite;
 
 namespace ProAuth.Data
