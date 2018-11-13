@@ -20,7 +20,7 @@ namespace ProAuth.Utilities.AuthenticatorList
 
         public override void OnBindViewHolder(Android.Support.V7.Widget.RecyclerView.ViewHolder viewHolder, int position)
         {
-            Data.Authenticator auth = _source.Get(position);
+            Authenticator auth = _source.Get(position);
             AuthHolder holder = (AuthHolder) viewHolder;
 
             holder.Issuer.Text = auth.Issuer;
@@ -76,7 +76,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             }
         }
 
-        private static void TotpViewBind(AuthHolder holder, Data.Authenticator auth)
+        private static void TotpViewBind(AuthHolder holder, Authenticator auth)
         {
             holder.RefreshButton.Visibility = ViewStates.Gone;
             holder.ProgressBar.Visibility = ViewStates.Visible;
@@ -86,7 +86,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             holder.ProgressBar.Progress = 100 * secondsRemaining / auth.Period;
         }
 
-        private static void HotpViewBind(AuthHolder holder, Data.Authenticator auth)
+        private static void HotpViewBind(AuthHolder holder, Authenticator auth)
         {
             holder.RefreshButton.Visibility = (auth.TimeRenew < DateTime.Now)
                 ? ViewStates.Visible

@@ -149,6 +149,13 @@ namespace ProAuth.Activities
             {
                 UpdateAuthenticators();
                 UpdateCategories();
+
+                // Currently visible category has been deleted
+                if(_authSource.CategoryId != null &&
+                   _categorySource.Categories.FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
+                {
+                    SwitchCategory(-1);
+                }
             }
 
             _authTimer?.Start();
@@ -199,7 +206,7 @@ namespace ProAuth.Activities
 
             if(updateSource)
             {
-                await _authSource.Update();
+                await _authSource.UpdateSource();
             }
 
             _authAdapter.NotifyDataSetChanged();
@@ -296,7 +303,7 @@ namespace ProAuth.Activities
 
             _searchView.Close += (sender, e) =>
             {
-                _authSource.SetCategory(_authSource.CategoryId);
+                _authSource.UpdateView();
             };
 
             return base.OnCreateOptionsMenu(menu);
@@ -576,7 +583,7 @@ namespace ProAuth.Activities
                 }
 
                 await _connection.InsertAsync(auth);
-                await _authSource.Update();
+                await _authSource.UpdateSource();
 
                 CheckEmptyState();
                 _authAdapter.NotifyDataSetChanged();
@@ -693,7 +700,7 @@ namespace ProAuth.Activities
             }
 
             await _connection.InsertAsync(auth);
-            await _authSource.Update();
+            await _authSource.UpdateSource();
 
             CheckEmptyState();
             _authAdapter.NotifyDataSetChanged();
@@ -804,7 +811,7 @@ namespace ProAuth.Activities
         {
             if(_authSource.CategoryId != null)
             {
-                _authSource.SetCategory(_authSource.CategoryId);
+                _authSource.UpdateView();
                 _authAdapter.NotifyDataSetChanged();
                 CheckEmptyState();
             }

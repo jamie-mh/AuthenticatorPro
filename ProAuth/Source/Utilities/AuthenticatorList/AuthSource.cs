@@ -17,7 +17,7 @@ namespace ProAuth.Utilities.AuthenticatorList
 
         private readonly SQLiteAsyncConnection _connection;
 
-        private List<Data.Authenticator> _all;
+        private List<Authenticator> _all;
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
         private string _search;
@@ -29,10 +29,10 @@ namespace ProAuth.Utilities.AuthenticatorList
             _connection = connection;
 
             Authenticators = new List<IAuthenticatorInfo>();
-            _all = new List<Data.Authenticator>();
+            _all = new List<Authenticator>();
             CategoryBindings = new List<AuthenticatorCategory>();
 
-            UpdateTask = Update();
+            UpdateTask = UpdateSource();
         }
 
         public void SetSearch(string query)
@@ -40,7 +40,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             _search = query;
             _search = _search.ToLower();
 
-            List<Data.Authenticator> results = 
+            List<Authenticator> results = 
                 _all.Where(i => i.Issuer.ToLower().Contains(_search)).ToList();
 
             if(CategoryId != null)
@@ -58,7 +58,12 @@ namespace ProAuth.Utilities.AuthenticatorList
         public void SetCategory(string categoryId)
         {
             CategoryId = categoryId;
-            List<Data.Authenticator> results;
+            UpdateView();
+        }
+
+        public void UpdateView()
+        {
+            List<Authenticator> results;
 
             if(CategoryId == null)
             {
@@ -69,7 +74,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             else
             {
                 List<AuthenticatorCategory> authsInCategory = 
-                    CategoryBindings.Where(b => b.CategoryId == categoryId).ToList();
+                    CategoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
 
                 results =
                     _all.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
@@ -80,13 +85,13 @@ namespace ProAuth.Utilities.AuthenticatorList
             Authenticators = results.Cast<IAuthenticatorInfo>().ToList();
         }
 
-        public async Task Update()
+        public async Task UpdateSource()
         {
             _all.Clear();
             CategoryBindings.Clear();
 
             string sql = $@"SELECT * FROM authenticator ORDER BY ranking ASC";
-            _all = await _connection.QueryAsync<Data.Authenticator>(sql);
+            _all = await _connection.QueryAsync<Authenticator>(sql);
 
             sql = $@"SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
             CategoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
@@ -97,16 +102,16 @@ namespace ProAuth.Utilities.AuthenticatorList
             }
             else
             {
-                SetCategory(CategoryId);
+                UpdateView();
             }
         }
 
-        private Data.Authenticator GetAuthenticator(IAuthenticatorInfo info)
+        private Authenticator GetAuthenticator(IAuthenticatorInfo info)
         {
             return _all.Find(i => i.Secret == info.Secret);
         }
 
-        public Data.Authenticator Get(int position)
+        public Authenticator Get(int position)
         {
             if(Authenticators.ElementAtOrDefault(position) == null)
             {
@@ -114,7 +119,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             }
 
             IAuthenticatorInfo info = Authenticators[position];
-            Data.Authenticator auth = GetAuthenticator(info);
+            Authenticator auth = GetAuthenticator(info);
 
             if(auth.Type == OtpType.Totp && auth.TimeRenew <= DateTime.Now)
             {
@@ -135,7 +140,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             }
 
             IAuthenticatorInfo info = Authenticators[position];
-            Data.Authenticator auth = GetAuthenticator(info);
+            Authenticator auth = GetAuthenticator(info);
 
             auth.Issuer = issuer.Trim().Truncate(32);
             auth.Username = username.Trim().Truncate(32);
@@ -152,9 +157,9 @@ namespace ProAuth.Utilities.AuthenticatorList
             }
 
             IAuthenticatorInfo info = Authenticators[position];
-            Data.Authenticator auth = GetAuthenticator(info);
+            Authenticator auth = GetAuthenticator(info);
 
-            _connection.DeleteAsync<Data.Authenticator>(auth.Secret);
+            _connection.DeleteAsync<Authenticator>(auth.Secret);
             Authenticators.Remove(info);
             _all.Remove(auth);
 
@@ -175,7 +180,7 @@ namespace ProAuth.Utilities.AuthenticatorList
                 {
                     if(CategoryId == null)
                     {
-                        Data.Authenticator auth = GetAuthenticator(Authenticators[i]);
+                        Authenticator auth = GetAuthenticator(Authenticators[i]);
                         auth.Ranking++;
                         _connection.UpdateAsync(auth);
                     }
@@ -194,7 +199,7 @@ namespace ProAuth.Utilities.AuthenticatorList
                 {
                     if(CategoryId == null)
                     {
-                        Data.Authenticator auth = GetAuthenticator(Authenticators[i]);
+                        Authenticator auth = GetAuthenticator(Authenticators[i]);
                         auth.Ranking--;
                         _connection.UpdateAsync(auth);
                     }
@@ -210,7 +215,7 @@ namespace ProAuth.Utilities.AuthenticatorList
 
             if(CategoryId == null)
             {
-                Data.Authenticator temp = GetAuthenticator(Authenticators[newPosition]); 
+                Authenticator temp = GetAuthenticator(Authenticators[newPosition]); 
                 temp.Ranking = newPosition;
                 _connection.UpdateAsync(temp);
             }
@@ -230,7 +235,7 @@ namespace ProAuth.Utilities.AuthenticatorList
             }
 
             IAuthenticatorInfo info = Authenticators[position];
-            Data.Authenticator auth = GetAuthenticator(info);
+            Authenticator auth = GetAuthenticator(info);
 
             if(auth.Type != OtpType.Hotp)
             {
@@ -248,9 +253,9 @@ namespace ProAuth.Utilities.AuthenticatorList
             _connection.UpdateAsync(auth);
         }
 
-        public bool IsDuplicate(Data.Authenticator auth)
+        public bool IsDuplicate(Authenticator auth)
         {
-            foreach(Data.Authenticator iterator in _all)
+            foreach(Authenticator iterator in _all)
             {
                 if(auth.Secret == iterator.Secret)
                 {

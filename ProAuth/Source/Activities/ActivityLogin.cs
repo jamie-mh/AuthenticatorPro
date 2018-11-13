@@ -21,7 +21,7 @@ namespace ProAuth.Activities
             StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Android.App.Result resultCode, Intent data)
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             if(requestCode == RequestConfirmDeviceCredentials)
             {

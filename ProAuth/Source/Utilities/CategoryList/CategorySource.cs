@@ -7,14 +7,14 @@ namespace ProAuth.Utilities.CategoryList
 {
     internal class CategorySource
     {
-        public List<Data.Category> Categories { get; private set; }
+        public List<Category> Categories { get; private set; }
         public Task UpdateTask { get; }
 
         private readonly SQLiteAsyncConnection _connection;
 
         public CategorySource(SQLiteAsyncConnection connection)
         {
-            Categories = new List<Data.Category>();
+            Categories = new List<Category>();
             _connection = connection;
 
             UpdateTask = Update();
@@ -24,12 +24,12 @@ namespace ProAuth.Utilities.CategoryList
         {
             Categories.Clear();
             Categories = 
-                await _connection.QueryAsync<Data.Category>("SELECT * FROM category ORDER BY ranking ASC");
+                await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
-        public bool IsDuplicate(Data.Category category)
+        public bool IsDuplicate(Category category)
         {
-            foreach(Data.Category iterator in Categories)
+            foreach(Category iterator in Categories)
             {
                 if(category.Id == iterator.Id)
                 {
@@ -42,7 +42,7 @@ namespace ProAuth.Utilities.CategoryList
 
         public async Task Delete(int position)
         {
-            Data.Category category = Categories[position];
+            Category category = Categories[position];
             await _connection.DeleteAsync(category);
             Categories.RemoveAt(position);
 
@@ -52,8 +52,8 @@ namespace ProAuth.Utilities.CategoryList
 
         public void Rename(int position, string name)
         {
-            Data.Category old = Categories[position];
-            Data.Category replacement = new Data.Category(name);
+            Category old = Categories[position];
+            Category replacement = new Category(name);
 
             Categories.RemoveAt(position);
             Categories.Add(replacement);
@@ -68,7 +68,7 @@ namespace ProAuth.Utilities.CategoryList
 
         public async void Move(int oldPosition, int newPosition)
         {
-            Data.Category old = Categories[newPosition];
+            Category old = Categories[newPosition];
             Categories[newPosition] = Categories[oldPosition];
             Categories[oldPosition] = old;
 
@@ -76,7 +76,7 @@ namespace ProAuth.Utilities.CategoryList
             {
                 for(int i = newPosition; i < Categories.Count; ++i)
                 {
-                    Data.Category cat = Categories[i];
+                    Category cat = Categories[i];
                     cat.Ranking++;
                     _connection.UpdateAsync(cat);
                 }
@@ -85,13 +85,13 @@ namespace ProAuth.Utilities.CategoryList
             {
                 for(int i = oldPosition; i < newPosition; ++i)
                 {
-                    Data.Category cat = Categories[i]; 
+                    Category cat = Categories[i]; 
                     cat.Ranking--;
                     _connection.UpdateAsync(cat);
                 }
             }
 
-            Data.Category temp = Categories[newPosition]; 
+            Category temp = Categories[newPosition]; 
             temp.Ranking = newPosition;
             _connection.UpdateAsync(temp);
         }
