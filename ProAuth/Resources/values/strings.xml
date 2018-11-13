@@ -24,7 +24,6 @@
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
     
     <string name="search">Search</string>
-    <string name="sort">Sort</string>
     <string name="ok">OK</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
     <string name="usernameHint">Username (eg: john@example.com)</string>

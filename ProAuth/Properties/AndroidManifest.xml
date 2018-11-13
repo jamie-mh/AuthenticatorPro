@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.4" package="me.jmh.proauth" android:installLocation="auto" android:versionCode="5">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.5" package="me.jmh.proauth" android:installLocation="auto" android:versionCode="6">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
