@@ -65,8 +65,6 @@ namespace ProAuth
             _categoryList.SetAdapter(_categoryAdapter);
             _categoryList.HasFixedSize = true;
             _categoryList.SetItemViewCacheSize(20);
-            _categoryList.DrawingCacheEnabled = true;
-            _categoryList.DrawingCacheQuality = DrawingCacheQuality.High;
 
             CustomTouchHelperCallback callback = new CustomTouchHelperCallback(_categoryAdapter);
             ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
