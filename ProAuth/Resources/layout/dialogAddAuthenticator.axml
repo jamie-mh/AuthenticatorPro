@@ -16,6 +16,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:inputType="textCapSentences"
+				android:singleLine="true"
 				android:hint="@string/issuerHint"/>
 		</android.support.design.widget.TextInputLayout>
 		<android.support.design.widget.TextInputLayout
@@ -26,6 +27,7 @@
 				style="@style/Widget.AppCompat.EditText"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:singleLine="true"
 				android:hint="@string/usernameHint"/>
 		</android.support.design.widget.TextInputLayout>
 		<android.support.design.widget.TextInputLayout
@@ -36,6 +38,7 @@
 				style="@style/Widget.AppCompat.EditText"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:singleLine="true"
 				android:hint="@string/secretKey"/>
 		</android.support.design.widget.TextInputLayout>
 		<TextView

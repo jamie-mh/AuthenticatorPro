@@ -144,7 +144,6 @@ namespace ProAuth.Utilities.AuthenticatorList
 
             auth.Issuer = issuer.Trim().Truncate(32);
             auth.Username = username.Trim().Truncate(32);
-            auth.Icon = Icons.FindServiceKeyByName(auth.Issuer);
 
             _connection.UpdateAsync(auth);
         }

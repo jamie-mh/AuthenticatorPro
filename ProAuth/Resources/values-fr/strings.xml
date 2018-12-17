@@ -79,7 +79,7 @@
 
     <string name="continueString">Continue</string>
     <string name="welcomeTitle">Bienvenue sur ProAuth!</string>
-    <string name="welcomeDescription">Merci d\'avoir acheté ProAuth. Pour commencer, scannez un code QR ou saisissez les détails manuellement. \n\nMaintenez et glissez les authentificateurs pour les réorganiser, vous pouvez également les classer par catégories. \n\nEnregistrez une sauvegarde au cas où vous perdriez l\'accès à votre appareil.</string>
+    <string name="welcomeDescription">Merci d\'avoir téléchargé ProAuth. Pour commencer, scannez un code QR ou saisissez les détails manuellement. \n\nMaintenez et glissez les authentificateurs pour les réorganiser, vous pouvez également les classer par catégories. \n\nEnregistrez une sauvegarde au cas où vous perdriez l\'accès à votre appareil.</string>
 
     
     <string name="pref_security">Sécurité</string>

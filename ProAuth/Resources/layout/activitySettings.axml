@@ -11,6 +11,7 @@
 		android:minWidth="25px"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:elevation="4dp"
 		android:id="@+id/activitySettings_toolbar" />
 	
     <FrameLayout

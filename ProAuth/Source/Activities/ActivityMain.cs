@@ -41,6 +41,7 @@ namespace ProAuth.Activities
         // State
         private Timer _authTimer;
         private DateTime _pauseTime;
+        private bool _inSubActivity;
         private ISharedPreferences _sharedPrefs;
 
         // Views
@@ -72,11 +73,13 @@ namespace ProAuth.Activities
         public ActivityMain()
         {
             _pauseTime = DateTime.MinValue;
+            _inSubActivity = false;
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            ThemeHelper.Update(this);
             SetContentView(Resource.Layout.activityMain);
 
             // Actionbar
@@ -131,7 +134,7 @@ namespace ProAuth.Activities
 
             if(firstLaunch)
             {
-                StartActivity(typeof(ActivityIntro));
+                StartSubActivity(typeof(ActivityIntro));
                 return;
             }
 
@@ -159,6 +162,7 @@ namespace ProAuth.Activities
             }
 
             _authTimer?.Start();
+            _inSubActivity = false;
         }
 
         private async void Init()
@@ -205,9 +209,7 @@ namespace ProAuth.Activities
             await _authSource.UpdateTask;
 
             if(updateSource)
-            {
                 await _authSource.UpdateSource();
-            }
 
             _authAdapter.NotifyDataSetChanged();
             CheckEmptyState();
@@ -287,6 +289,12 @@ namespace ProAuth.Activities
             base.OnDestroy();
         }
 
+        private void StartSubActivity(Type activityType)
+        {
+            _inSubActivity = true;
+            StartActivity(activityType);
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.main, menu);
@@ -316,28 +324,28 @@ namespace ProAuth.Activities
                 case Resource.Id.drawerSettings:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartActivity(typeof(ActivitySettings));
+                        StartSubActivity(typeof(ActivitySettings));
                     };
                     break;
 
                 case Resource.Id.drawerEditCategories:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartActivity(typeof(ActivityEditCategories));
+                        StartSubActivity(typeof(ActivityEditCategories));
                     };
                     break;
 
                 case Resource.Id.drawerRestore:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartActivity(typeof(ActivityRestore));
+                        StartSubActivity(typeof(ActivityRestore));
                     };
                     break;
 
                 case Resource.Id.drawerBackup:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartActivity(typeof(ActivityBackup));
+                        StartSubActivity(typeof(ActivityBackup));
                     };
                     break;
 
@@ -386,6 +394,7 @@ namespace ProAuth.Activities
             base.OnPause();
             _authTimer?.Stop();
             _pauseTime = DateTime.Now;
+            _authList.Visibility = ViewStates.Gone;
         }
 
         private bool PerformLogin()
@@ -398,7 +407,7 @@ namespace ProAuth.Activities
 
             if(authRequired && isDeviceSecure)
             {
-                StartActivity(typeof(ActivityLogin));
+                StartSubActivity(typeof(ActivityLogin));
                 return true;
             }
 

@@ -91,7 +91,7 @@
 				android:textSize="14dp"
 				android:background="@android:color/transparent"
 				android:visibility="gone"
-				android:layout_width="30dp"
+				android:layout_width="48dp"
 				android:layout_height="30dp" />
 
 			<TextView
@@ -112,7 +112,7 @@
 				android:scaleType="centerInside"
 				android:textSize="14dp"
 				android:background="@android:color/transparent"
-				android:layout_width="30dp"
+				android:layout_width="48dp"
 				android:layout_height="30dp" />
 		</LinearLayout>
 	</RelativeLayout>
