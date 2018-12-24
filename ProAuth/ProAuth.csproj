@@ -79,7 +79,7 @@
     <Compile Include="Source\Activities\ActivityIntro.cs" />
     <Compile Include="Source\Activities\ActivityLogin.cs" />
     <Compile Include="Source\Activities\ActivityEditCategories.cs" />
-    <Compile Include="Source\Activities\ActivityFileSave.cs" />
+    <Compile Include="Source\Activities\ActivityFile.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
@@ -185,6 +185,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>27.0.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Dropbox.Api">
+      <Version>4.5.3.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Plugin.FilePicker">
       <Version>2.0.81-beta</Version>
@@ -742,7 +745,7 @@
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityFileSave.axml">
+    <AndroidResource Include="Resources\layout\activityFile.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>

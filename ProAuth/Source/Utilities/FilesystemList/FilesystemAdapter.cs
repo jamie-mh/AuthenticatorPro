@@ -1,10 +1,13 @@
-﻿using Android.Views;
+﻿using System;
+using System.Text.RegularExpressions;
+using Android.Views;
 
 namespace ProAuth.Utilities.FilesystemList
 {
     internal sealed class FilesystemAdapter : Android.Support.V7.Widget.RecyclerView.Adapter
     {
         private readonly FilesystemSource _source;
+        public event EventHandler<int> BackupClick;
 
         public FilesystemAdapter(FilesystemSource source)
         {
@@ -54,6 +57,13 @@ namespace ProAuth.Utilities.FilesystemList
 
         private void OnItemClick(int position)
         {
+            FilesystemSource.Item file = _source.Listing[position];
+
+            if(BackupClick != null && file.Type == FilesystemSource.Type.Backup)
+            {
+                BackupClick.Invoke(this, position);
+            }
+
             if(_source.Navigate(position))
             {
                 NotifyDataSetChanged();

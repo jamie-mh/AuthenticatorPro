@@ -33,7 +33,7 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace ProAuth.Activities
 {
-    [Activity(Label = "@string/appName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(Label = "@string/displayName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     // ReSharper disable once UnusedMember.Global
     public class ActivityMain : AppCompatActivity
@@ -41,7 +41,6 @@ namespace ProAuth.Activities
         // State
         private Timer _authTimer;
         private DateTime _pauseTime;
-        private bool _inSubActivity;
         private ISharedPreferences _sharedPrefs;
 
         // Views
@@ -73,7 +72,6 @@ namespace ProAuth.Activities
         public ActivityMain()
         {
             _pauseTime = DateTime.MinValue;
-            _inSubActivity = false;
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -87,7 +85,7 @@ namespace ProAuth.Activities
             _progressBar = FindViewById<ProgressBar>(Resource.Id.activityMain_progressBar);
 
             SetSupportActionBar(toolbar);
-            SupportActionBar.SetTitle(Resource.String.appName);
+            SupportActionBar.SetTitle(Resource.String.categoryAll);
             SupportActionBar.SetHomeButtonEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
@@ -134,7 +132,7 @@ namespace ProAuth.Activities
 
             if(firstLaunch)
             {
-                StartSubActivity(typeof(ActivityIntro));
+                StartActivity(typeof(ActivityIntro));
                 return;
             }
 
@@ -162,7 +160,6 @@ namespace ProAuth.Activities
             }
 
             _authTimer?.Start();
-            _inSubActivity = false;
         }
 
         private async void Init()
@@ -289,12 +286,6 @@ namespace ProAuth.Activities
             base.OnDestroy();
         }
 
-        private void StartSubActivity(Type activityType)
-        {
-            _inSubActivity = true;
-            StartActivity(activityType);
-        }
-
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.main, menu);
@@ -324,28 +315,28 @@ namespace ProAuth.Activities
                 case Resource.Id.drawerSettings:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartSubActivity(typeof(ActivitySettings));
+                        StartActivity(typeof(ActivitySettings));
                     };
                     break;
 
                 case Resource.Id.drawerEditCategories:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartSubActivity(typeof(ActivityEditCategories));
+                        StartActivity(typeof(ActivityEditCategories));
                     };
                     break;
 
                 case Resource.Id.drawerRestore:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartSubActivity(typeof(ActivityRestore));
+                        StartActivity(typeof(ActivityRestore));
                     };
                     break;
 
                 case Resource.Id.drawerBackup:
                     _actionBarDrawerToggle.IdleAction = () =>
                     {
-                        StartSubActivity(typeof(ActivityBackup));
+                        StartActivity(typeof(ActivityBackup));
                     };
                     break;
 
@@ -407,7 +398,7 @@ namespace ProAuth.Activities
 
             if(authRequired && isDeviceSecure)
             {
-                StartSubActivity(typeof(ActivityLogin));
+                StartActivity(typeof(ActivityLogin));
                 return true;
             }
 

@@ -75,7 +75,7 @@ namespace ProAuth.Activities
             }
 
             string password = _textPassword.Text;
-            Intent intent = new Intent(this, typeof(ActivityFileSave));
+            Intent intent = new Intent(this, typeof(ActivityFile));
             intent.PutExtra("filename", $@"backup-{DateTime.Now:yyyy-MM-dd}");
 
             if(password == "")

@@ -1,5 +1,6 @@
 <resources>
     <string name="appName">ProAuth</string>
+    <string name="displayName">Authenticator</string>
     <string name="settings">Réglages</string>
     <string name="restore">Restaurer</string>
     <string name="backup">Sauvegarde</string>
@@ -31,10 +32,11 @@
     <string name="algorithmHint">Algorithme</string>
     <string name="digitsHint">Nombre de chiffres</string>
     <string name="periodHint">Période (secondes)</string>
-    <string name="passwordHint">Mot de passe de la sauvegarde (laissez vide si aucun)</string>
+    <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
     <string name="save">Enregistrer</string>
     <string name="saveFile">Enregistrer le fichier</string>
+    <string name="openFile">Ouvrir un fichier</string>
     <string name="noAuthenticators">Vous n\'avez pas d\'authentificateurs à sauvegarder.</string>
     
     <string name="noIssuer">Un émetteur est requis.</string>
@@ -51,7 +53,7 @@
     <string name="categories">Catégories</string>
     <string name="chooseCategories">Catégories</string>
     <string name="more">Plus</string>
-    <string name="categoryAll">Tout</string>
+    <string name="categoryAll">Authentificateurs</string>
     <string name="editCategories">Modifier les catégories</string>
     <string name="categoryNameHint">Nom de la catégorie</string>
     <string name="noCategoryName">Un nom est requis.</string>

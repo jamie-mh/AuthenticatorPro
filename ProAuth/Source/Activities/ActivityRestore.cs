@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
@@ -32,12 +34,13 @@ namespace ProAuth.Activities
     public class ActivityRestore: AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
+        private const int FilePathCode = 1;
 
         private SQLiteAsyncConnection _connection;
         private AuthSource _authSource;
         private CategorySource _categorySource;
 
-        private FileData _file;
+        private byte[] _fileData;
         private DialogRestore _dialog;
 
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -77,38 +80,48 @@ namespace ProAuth.Activities
 
             try
             {
-                _file = await CrossFilePicker.Current.PickFile();
-
-                if(_file == null)
-                {
-                    return;
-                }
-
-                Match filenameMatch = Regex.Match(_file.FileName, @"^(.*?)\.(.*?)$");
-
-                if(filenameMatch.Success == false || filenameMatch.Groups.Count < 3 ||
-                   filenameMatch.Groups[2].Value != "proauth")
-                {
-                    Toast.MakeText(this, Resource.String.invalidFileError, ToastLength.Short).Show();
-                    return;
-                }
-
-                FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
-                Fragment old = SupportFragmentManager.FindFragmentByTag("import_dialog");
-
-                if(old != null)
-                {
-                    transaction.Remove(old);
-                }
-
-                transaction.AddToBackStack(null);
-                _dialog = new DialogRestore(OnDialogPositive, OnDialogNegative);
-                _dialog.Show(transaction, "import_dialog");
+                Intent intent = new Intent(this, typeof(ActivityFile));
+                intent.PutExtra("mode", (int) ActivityFile.Mode.Open);
+                StartActivityForResult(intent, FilePathCode);
             }
             catch
             {
                 Toast.MakeText(this, Resource.String.filePickError, ToastLength.Short).Show();
             }
+        }
+
+        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        {
+            if(requestCode != FilePathCode || resultCode != Result.Ok)
+                return;
+
+            string file = $@"{intent.GetStringExtra("path")}/{intent.GetStringExtra("filename")}";
+            _fileData = File.ReadAllBytes(file);
+
+            if(_fileData.Length == 0)
+            {
+                Toast.MakeText(this, Resource.String.invalidFileError, ToastLength.Short).Show();
+                return;
+            }
+
+            // Open curly brace (file is not encrypted)
+            if(_fileData[0] == 0x7b)
+            {
+                RestoreBackup();
+                return;
+            }
+
+            FragmentTransaction transaction = SupportFragmentManager.BeginTransaction();
+            Fragment old = SupportFragmentManager.FindFragmentByTag("import_dialog");
+
+            if(old != null)
+            {
+                transaction.Remove(old);
+            }
+
+            transaction.AddToBackStack(null);
+            _dialog = new DialogRestore(OnDialogPositive, OnDialogNegative);
+            _dialog.Show(transaction, "import_dialog");
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
@@ -140,30 +153,30 @@ namespace ProAuth.Activities
             return true;
         }
 
-        private async void OnDialogPositive(object sender, EventArgs e)
+        private async void RestoreBackup(string password = "")
         {
             try
             {
                 string contents;
 
-                if(_dialog.Password == "")
+                if(string.IsNullOrEmpty(password))
                 {
-                    contents = Encoding.UTF8.GetString(_file.DataArray);
+                    contents = Encoding.UTF8.GetString(_fileData);
                 }
                 else
                 {
                     SHA256 sha256 = SHA256.Create();
-                    byte[] password = Encoding.UTF8.GetBytes(_dialog.Password);
-                    byte[] keyMaterial = sha256.ComputeHash(password);
+                    byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                    byte[] keyMaterial = sha256.ComputeHash(passwordBytes);
 
                     ISymmetricKeyAlgorithmProvider provider = 
                         WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(PCLCrypto.SymmetricAlgorithm.AesCbcPkcs7);
 
                     ICryptographicKey key = provider.CreateSymmetricKey(keyMaterial);
 
-                    byte[] data = _file.DataArray;
-                    byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, data);
+                    byte[] raw = WinRTCrypto.CryptographicEngine.Decrypt(key, _fileData);
                     contents = Encoding.UTF8.GetString(raw);
+                    _dialog.Dismiss();
                 }
 
                 Backup backup = JsonConvert.DeserializeObject<Backup>(contents);
@@ -203,15 +216,19 @@ namespace ProAuth.Activities
                 }
 
                 string message = String.Format(GetString(Resource.String.restoredFromBackup), authsInserted, categoriesInserted);
-                Toast.MakeText(_dialog.Context, message, ToastLength.Long).Show();
+                Toast.MakeText(this, message, ToastLength.Long).Show();
 
-                _dialog.Dismiss();
                 Finish();
             }
-            catch(Exception ex)
+            catch
             {
                 Toast.MakeText(_dialog.Context, Resource.String.restoreError, ToastLength.Long).Show();
             }
+        }
+
+        private void OnDialogPositive(object sender, EventArgs e)
+        {
+            RestoreBackup(_dialog.Password);
         }
 
         private void OnDialogNegative(object sender, EventArgs e)

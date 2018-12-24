@@ -12,22 +12,23 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:elevation="4dp"
-		android:id="@+id/activityFileSave_toolbar"/>
+		android:id="@+id/activityFile_toolbar"/>
 
 	<RelativeLayout
-		android:layout_below="@id/activityFileSave_toolbar"	
+		android:layout_below="@id/activityFile_toolbar"	
 		android:layout_width="match_parent" 
 		android:layout_height="match_parent">
 
 		<android.support.v7.widget.RecyclerView
-			android:id="@+id/activityFileSave_list"
+			android:id="@+id/activityFile_list"
 			android:scrollbars="vertical"
 			android:clipToPadding="false"
 			android:paddingBottom="80dp"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"/>
 
-	    <RelativeLayout 
+	    <RelativeLayout
+			android:id="@+id/activityFile_saveLayout"
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
 			android:paddingLeft="8dp"
@@ -37,18 +38,18 @@
 
 			<Button 
 				android:text="@string/save" 
-				android:id="@+id/activityFileSave_save"
+				android:id="@+id/activityFile_save"
 				android:layout_alignParentRight="true" 
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content">
 			</Button>
 
 			<EditText 
-				android:id="@+id/activityFileSave_filename"
+				android:id="@+id/activityFile_filename"
 				android:text="backup"
 				android:singleLine="true"
 				android:layout_width="fill_parent"
-				android:layout_toLeftOf="@id/activityFileSave_save"
+				android:layout_toLeftOf="@id/activityFile_save"
 				android:layout_height="wrap_content">
 			</EditText>
 		</RelativeLayout>
