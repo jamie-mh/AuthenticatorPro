@@ -173,56 +173,21 @@ namespace ProAuth.Utilities.AuthenticatorList
             Authenticators[newPosition] = Authenticators[oldPosition];
             Authenticators[oldPosition] = old;
 
-            if(oldPosition > newPosition)
+            for(int i = 0; i < Authenticators.Count; ++i)
             {
-                for(int i = newPosition; i < Authenticators.Count; ++i)
+                if(CategoryId == null)
                 {
-                    if(CategoryId == null)
-                    {
-                        Authenticator auth = GetAuthenticator(Authenticators[i]);
-                        auth.Ranking++;
-                        _connection.UpdateAsync(auth);
-                    }
-                    else
-                    {
-                        AuthenticatorCategory binding = 
-                            GetAuthenticatorCategory(Authenticators[i]);
-                        binding.Ranking++;
-                        _connection.UpdateAsync(binding);
-                    }
+                    Authenticator auth = GetAuthenticator(Authenticators[i]);
+                    auth.Ranking = i;
+                    _connection.UpdateAsync(auth);
                 }
-            }
-            else
-            {
-                for(int i = oldPosition; i < newPosition; ++i)
+                else
                 {
-                    if(CategoryId == null)
-                    {
-                        Authenticator auth = GetAuthenticator(Authenticators[i]);
-                        auth.Ranking--;
-                        _connection.UpdateAsync(auth);
-                    }
-                    else
-                    {
-                        AuthenticatorCategory binding = 
-                            GetAuthenticatorCategory(Authenticators[i]);
-                        binding.Ranking--;
-                        _connection.UpdateAsync(binding);
-                    }
+                    AuthenticatorCategory binding = 
+                        GetAuthenticatorCategory(Authenticators[i]);
+                    binding.Ranking = i;
+                    _connection.UpdateAsync(binding);
                 }
-            }
-
-            if(CategoryId == null)
-            {
-                Authenticator temp = GetAuthenticator(Authenticators[newPosition]); 
-                temp.Ranking = newPosition;
-                _connection.UpdateAsync(temp);
-            }
-            else
-            {
-                AuthenticatorCategory temp = GetAuthenticatorCategory(Authenticators[newPosition]);
-                temp.Ranking = newPosition;
-                _connection.UpdateAsync(temp);
             }
         }
 

@@ -79,7 +79,9 @@ namespace ProAuth.Utilities
             { "blockchain", Resource.Drawable.auth_blockchain },
             { "coinbase", Resource.Drawable.auth_coinbase },
             { "cexio", Resource.Drawable.auth_cexio },
-            { "kraken", Resource.Drawable.auth_kraken }
+            { "kraken", Resource.Drawable.auth_kraken },
+            { "ubisoft", Resource.Drawable.auth_ubisoft },
+            { "electronicarts", Resource.Drawable.auth_electronicarts }
         };
 
         public static int GetIcon(string key)
