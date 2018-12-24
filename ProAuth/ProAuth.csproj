@@ -132,6 +132,7 @@
     <AndroidNativeLibrary Include="lib\armeabi-v7a\libProAuthKey.so" />
     <AndroidNativeLibrary Include="lib\x86\libProAuthKey.so" />
     <AndroidNativeLibrary Include="lib\x86_64\libProAuthKey.so" />
+    <AndroidNativeLibrary Include="lib\armeabi\libProAuthKey.so" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
