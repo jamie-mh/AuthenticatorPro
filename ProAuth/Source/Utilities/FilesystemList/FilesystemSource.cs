@@ -59,7 +59,7 @@ namespace ProAuth.Utilities.FilesystemList
             foreach(string file in Directory.GetFiles(CurrentPath))
             {
                 string name = Path.GetFileName(file);
-                bool isBackup = name.Substring(name.LastIndexOf('.') + 1) == "proauth";
+                bool isBackup = name.Contains('.') && name.Substring(name.LastIndexOf('.') + 1) == "proauth";
 
                 Listing.Add(new Item 
                 {

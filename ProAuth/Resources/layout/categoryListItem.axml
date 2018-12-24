@@ -35,8 +35,8 @@
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
 			android:layout_marginRight="16dp"
-			android:layout_width="32dp"
-			android:layout_height="32dp"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
 			android:layout_gravity="center_vertical" />
 
 		<ImageButton
@@ -44,8 +44,8 @@
 			android:src="?attr/categoryListItem_deleteIcon"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
-			android:layout_width="32dp"
-			android:layout_height="32dp"
+			android:layout_width="28dp"
+			android:layout_height="28dp"
 			android:layout_gravity="center_vertical" />
 	</LinearLayout>
 </RelativeLayout>

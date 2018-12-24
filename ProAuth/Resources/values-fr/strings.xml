@@ -1,5 +1,5 @@
 <resources>
-    <string name="appName">ProAuth</string>
+    <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
     <string name="settings">Réglages</string>
     <string name="restore">Restaurer</string>
@@ -64,11 +64,11 @@
 
     <string name="selectBackup">Sélectionner un fichier de sauvegarde</string>
     <string name="backupToFile">Sauvegarder</string>
-    <string name="restoreMessage">Sélectionnez une sauvegarde ProAuth pour restaurer ses authentificateurs. \n\nVous pouvez choisir une sauvegarde directement à partir du stockage cloud ou vous pouvez charger une sauvegarde directement à partir de cet appareil.</string>
+    <string name="restoreMessage">Sélectionnez une sauvegarde Authenticator Pro pour restaurer ses authentificateurs. \n\nVous pouvez choisir une sauvegarde directement à partir du stockage cloud ou vous pouvez charger une sauvegarde directement à partir de cet appareil.</string>
     <string name="backupMessage">Enregistrez vos authentificateurs dans un fichier de sauvegarde crypté avec un mot de passe. \n\nUn fichier sera créé sur le stockage de votre appareil. Téléchargez-le sur un stockage cloud au cas où vous perdriez votre appareil.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu.</string>
     <string name="filePickError">Erreur lors de la sélection du fichier.</string>
-    <string name="invalidFileError">Le fichier sélectionné n\'est pas un fichier de sauvegarde ProAuth.</string>
+    <string name="invalidFileError">Le fichier sélectionné n\'est pas un fichier de sauvegarde Authenticator Pro.</string>
     <string name="externalStoragePermissionError">L\'autorisation de stockage externe est requise pour sauvegarder / restaurer les authentificateurs.</string>
 
     <string name="password">Mot de passe</string>
@@ -80,8 +80,8 @@
     <string name="sendEmail">Envoyer un mail</string>
 
     <string name="continueString">Continue</string>
-    <string name="welcomeTitle">Bienvenue sur ProAuth!</string>
-    <string name="welcomeDescription">Merci d\'avoir téléchargé ProAuth. Pour commencer, scannez un code QR ou saisissez les détails manuellement. \n\nMaintenez et glissez les authentificateurs pour les réorganiser, vous pouvez également les classer par catégories. \n\nEnregistrez une sauvegarde au cas où vous perdriez l\'accès à votre appareil.</string>
+    <string name="welcomeTitle">Bienvenue sur Authenticator Pro!</string>
+    <string name="welcomeDescription">Merci d\'avoir téléchargé Authenticator Pro. Pour commencer, scannez un code QR ou saisissez les détails manuellement. \n\nMaintenez et glissez les authentificateurs pour les réorganiser, vous pouvez également les classer par catégories. \n\nEnregistrez une sauvegarde au cas où vous perdriez l\'accès à votre appareil.</string>
 
     
     <string name="pref_security">Sécurité</string>
@@ -96,7 +96,7 @@
     <string name="pref_about_title">À Propos</string>
     <string name="pref_about_summary">Afficher des informations sur les licences.</string>
     <string name="pref_rate_title">Évaluer</string>
-    <string name="pref_rate_summary">Évaluez ProAuth sur le Google Play Store.</string>
+    <string name="pref_rate_summary">Évaluez Authenticator Pro sur le Google Play Store.</string>
     <string name="pref_featureRequest_title">Demande de fonctionnalité / Rapport de bogue</string>
     <string name="pref_featureRequest_summary">Envoyez un mail au développeur pour demander une fonctionnalité ou soumettre un rapport de bogue. Tous les commentaires sont les bienvenus.</string>
 </resources>
