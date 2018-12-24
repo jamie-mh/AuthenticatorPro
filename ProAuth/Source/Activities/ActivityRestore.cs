@@ -16,8 +16,6 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using PCLCrypto;
-using Plugin.FilePicker;
-using Plugin.FilePicker.Abstractions;
 using ProAuth.Data;
 using ProAuth.Dialogs;
 using ProAuth.Utilities;
