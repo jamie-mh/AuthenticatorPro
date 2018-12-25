@@ -94,7 +94,7 @@
 
     <string name="pref_more">More</string>
     <string name="pref_about_title">About</string>
-    <string name="pref_about_summary">View about and license information.</string>
+    <string name="pref_about_summary">View about and licence information.</string>
     <string name="pref_rate_title">Rate</string>
     <string name="pref_rate_summary">Rate Authenticator Pro on the Google Play store.</string>
     <string name="pref_featureRequest_title">Feature Request / Bug Report</string>
