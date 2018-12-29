@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+    android:title="@string/more"
+    android:orderInCategory="9999">
+    <menu>
+      <item android:id="@+id/drawerSettings"
+            android:icon="?attr/drawer_settingsIcon"
+            android:title="@string/settings" />
+
+      <item android:id="@+id/drawerEditCategories"
+            android:icon="?attr/drawer_editCategoriesIcon"
+            android:title="@string/editCategories" />
+
+      <item android:id="@+id/drawerRestore"
+            android:icon="?attr/drawer_restoreIcon"
+            android:title="@string/restore" />
+
+      <item android:id="@+id/drawerBackup"
+            android:icon="?attr/drawer_backupIcon"
+            android:title="@string/backup" />
+    </menu>
+  </item>
+
+</menu>

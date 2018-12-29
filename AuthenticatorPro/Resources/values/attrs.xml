@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <declare-styleable name="AppTheme">
+    <attr name="primaryTextColor" format="color" />
+    <attr name="secondaryTextColor" format="color" />
+
+    <attr name="activityMain_emptyImage" format="integer" />
+    <attr name="activityEditCategories_emptyImage" format="integer" />
+    <attr name="activityRestore_image" format="integer" />
+    <attr name="activityBackup_image" format="integer" />
+
+    <attr name="toolbar_searchIcon" format="integer" />
+
+    <attr name="authList_background" format="color" />
+    <attr name="authListItem_background" format="color" />
+    <attr name="authListItem_code" format="color" />
+    <attr name="authListItem_optionsIcon" format="integer" />
+    <attr name="authListItem_refreshIcon" format="integer" />
+
+    <attr name="categoryListItem_renameIcon" format="integer" />
+    <attr name="categoryListItem_deleteIcon" format="integer" />
+
+    <attr name="drawer_settingsIcon" format="integer" />
+    <attr name="drawer_editCategoriesIcon" format="integer" />
+    <attr name="drawer_restoreIcon" format="integer" />
+    <attr name="drawer_backupIcon" format="integer" />
+
+    <attr name="dialogIcon_listBackground" format="color" />
+  </declare-styleable>
+</resources>
