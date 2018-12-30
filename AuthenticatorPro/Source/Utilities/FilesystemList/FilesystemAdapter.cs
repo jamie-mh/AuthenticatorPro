@@ -14,7 +14,7 @@ namespace AuthenticatorPro.Utilities.FilesystemList
         }
 
         public override int ItemCount => _source.Count();
-        public event EventHandler<int> BackupClick;
+        public event EventHandler<int> FileClick;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
@@ -59,10 +59,10 @@ namespace AuthenticatorPro.Utilities.FilesystemList
         {
             var file = _source.Listing[position];
 
-            if(BackupClick != null && file.Type == FilesystemSource.Type.Backup) BackupClick.Invoke(this, position);
+            if(FileClick != null && (file.Type == FilesystemSource.Type.Backup || file.Type == FilesystemSource.Type.File))
+                FileClick.Invoke(this, position);
 
             if(_source.Navigate(position)) NotifyDataSetChanged();
-            ;
         }
 
         public override long GetItemId(int position)

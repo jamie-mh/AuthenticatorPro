@@ -60,7 +60,7 @@ namespace AuthenticatorPro.Activities
                 case Mode.Open:
                     list.SetPadding(0, 0, 0, 0);
                     FindViewById<RelativeLayout>(Resource.Id.activityFile_saveLayout).Visibility = ViewStates.Gone;
-                    _filesystemAdapter.BackupClick += BackupClick;
+                    _filesystemAdapter.FileClick += FileClick;
                     SupportActionBar.SetTitle(Resource.String.openFile);
                     break;
 
@@ -91,7 +91,7 @@ namespace AuthenticatorPro.Activities
             Finish();
         }
 
-        private void BackupClick(object sender, int position)
+        private void FileClick(object sender, int position)
         {
             Intent.PutExtra("path", _filesystemSource.CurrentPath);
             Intent.PutExtra("filename", _filesystemSource.Listing[position].Name);
