@@ -4,6 +4,7 @@
   <declare-styleable name="AppTheme">
     <attr name="primaryTextColor" format="color" />
     <attr name="secondaryTextColor" format="color" />
+    <attr name="listBorderColor" format="color" />
 
     <attr name="activityMain_emptyImage" format="integer" />
     <attr name="activityEditCategories_emptyImage" format="integer" />
@@ -27,5 +28,8 @@
     <attr name="drawer_backupIcon" format="integer" />
 
     <attr name="dialogIcon_listBackground" format="color" />
+
+    <attr name="activityBackupRestore_deviceStorageIcon" format="integer" />
+    <attr name="activityBackupRestore_cloudStorageIcon" format="integer" />
   </declare-styleable>
 </resources>

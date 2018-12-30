@@ -9,6 +9,7 @@
 
     <item name="primaryTextColor">@color/colorDarkest</item>
     <item name="secondaryTextColor">@color/colorDark</item>
+    <item name="listBorderColor">@color/colorLight</item>
 
     <item name="activityMain_emptyImage">@drawable/ic_lock_open_light</item>
     <item name="activityEditCategories_emptyImage">@drawable/ic_category_light</item>
@@ -35,6 +36,9 @@
 
     <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     <item name="android:windowBackground">@color/colorLighter</item>
+
+    <item name="activityBackupRestore_deviceStorageIcon">@drawable/ic_action_sd_storage_light</item>
+    <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_light</item>
   </style>
 
   <style name="DarkTheme" parent="Theme.AppCompat">
@@ -46,6 +50,7 @@
 
     <item name="primaryTextColor">@color/colorLight</item>
     <item name="secondaryTextColor">@color/colorLighter</item>
+    <item name="listBorderColor">@color/colorDark</item>
 
     <item name="activityMain_emptyImage">@drawable/ic_lock_open_dark</item>
     <item name="activityEditCategories_emptyImage">@drawable/ic_category_dark</item>
@@ -72,6 +77,9 @@
 
     <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     <item name="android:windowBackground">@color/colorDarker</item>
+
+    <item name="activityBackupRestore_deviceStorageIcon">@drawable/ic_action_sd_storage_dark</item>
+    <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_dark</item>
   </style>
 
 </resources>

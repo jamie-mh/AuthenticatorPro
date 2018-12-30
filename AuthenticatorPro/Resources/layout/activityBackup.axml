@@ -30,7 +30,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
-			android:gravity="center"
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
 			android:layout_marginTop="22dp"
@@ -55,21 +54,64 @@
 				android:hint="@string/passwordHint"/>
 		</android.support.design.widget.TextInputLayout>
 
-		<Button
-			android:layout_width="wrap_content"
+		<LinearLayout
+			android:id="@+id/activityBackup_saveStorage"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@string/backupToFile"
+			android:paddingRight="16dp"
+			android:paddingLeft="16dp"
+			android:paddingTop="16dp"
+			android:paddingBottom="16dp"
 			android:layout_marginTop="22dp"
-			android:layout_gravity="center"
-			android:id="@+id/activityBackup_saveStorage"/>
+			android:clickable="true"
+			android:background="@drawable/listitemborderfirst"
+			android:foreground="?android:attr/selectableItemBackground"
+			android:focusable="true"
+			android:orientation="horizontal">
 
-		<Button
-			android:layout_width="wrap_content"
+			<ImageView
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:layout_gravity="center"
+				android:layout_marginRight="12dp"
+				android:src="?attr/activityBackupRestore_deviceStorageIcon" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textColor="?attr/primaryTextColor"
+				android:text="@string/saveBackupDevice" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/activityBackup_saveCloud"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Save to cloud"
-			android:layout_marginTop="12dp"
-			android:layout_gravity="center"
-			android:id="@+id/activityBackup_saveCloud"/>
+			android:paddingRight="16dp"
+			android:paddingLeft="16dp"
+			android:paddingTop="16dp"
+			android:paddingBottom="16dp"
+			android:clickable="true"
+			android:background="@drawable/listitemborder"
+			android:foreground="?android:attr/selectableItemBackground"
+			android:focusable="true"
+			android:orientation="horizontal">
+
+			<ImageView
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:layout_gravity="center"
+				android:layout_marginRight="12dp"
+				android:src="?attr/activityBackupRestore_cloudStorageIcon" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textColor="?attr/primaryTextColor"
+				android:text="@string/saveBackupCloud" />
+		</LinearLayout>
 
 	</LinearLayout>
 </RelativeLayout>

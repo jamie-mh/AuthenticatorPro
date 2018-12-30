@@ -30,30 +30,73 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="center"
-			android:gravity="center"
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
 			android:layout_marginTop="22dp"
+			android:layout_marginBottom="32dp"
 			android:fontFamily="@font/worksans"
 			android:fontWeight="700"
 			android:textSize="16dp"
 			android:textColor="?attr/primaryTextColor"
 	        android:text="@string/restoreMessage" />
 
-		<Button
-			android:layout_width="wrap_content"
+		<LinearLayout
+			android:id="@+id/activityRestore_loadStorage"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@string/selectBackup"
-			android:layout_marginTop="22dp"
-			android:layout_gravity="center"
-			android:id="@+id/activityRestore_loadStorage"/>
+			android:paddingRight="16dp"
+			android:paddingLeft="16dp"
+			android:paddingTop="16dp"
+			android:paddingBottom="16dp"
+			android:clickable="true"
+			android:background="@drawable/listitemborderfirst"
+			android:foreground="?android:attr/selectableItemBackground"
+			android:focusable="true"
+			android:orientation="horizontal">
 
-		<Button
-			android:layout_width="wrap_content"
+			<ImageView
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:layout_gravity="center"
+				android:layout_marginRight="12dp"
+				android:src="?attr/activityBackupRestore_deviceStorageIcon" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textColor="?attr/primaryTextColor"
+				android:text="@string/restoreBackupDevice" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/activityRestore_loadCloud"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Select from cloud storage"
-			android:layout_marginTop="8dp"
-			android:layout_gravity="center"
-			android:id="@+id/activityRestore_loadCloud"/>
+			android:paddingRight="16dp"
+			android:paddingLeft="16dp"
+			android:paddingTop="16dp"
+			android:paddingBottom="16dp"
+			android:clickable="true"
+			android:background="@drawable/listitemborder"
+			android:foreground="?android:attr/selectableItemBackground"
+			android:focusable="true"
+			android:orientation="horizontal">
+
+			<ImageView
+				android:layout_width="22dp"
+				android:layout_height="22dp"
+				android:layout_gravity="center"
+				android:layout_marginRight="12dp"
+				android:src="?attr/activityBackupRestore_cloudStorageIcon" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:textColor="?attr/primaryTextColor"
+				android:text="@string/restoreBackupCloud" />
+		</LinearLayout>
+
 	</LinearLayout>
 </RelativeLayout>

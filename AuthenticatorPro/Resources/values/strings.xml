@@ -62,15 +62,17 @@
   <string name="noCategoriesTitle">No Categories</string>
   <string name="noCategoriesMessage">You don\'t have any categories set up yet.</string>
 
-  <string name="selectBackup">Select Backup File</string>
-  <string name="backupToFile">Backup to File</string>
-  <string name="restoreMessage">Select a Authenticator Pro backup to restore its authenticators.\n\nYou can choose a backup file stored on this device.</string>
-  <string name="backupMessage">Save your authenticators to a password encrypted backup file.\n\nA file will be created on your device storage, upload it to cloud storage in case you lose your device.</string>
+  <string name="restoreMessage">Select a Authenticator Pro backup to restore its authenticators.\n\nYou can choose a backup file stored on this device or you can load a backup directly from cloud storage.</string>
+  <string name="backupMessage">Save your authenticators to a password encrypted backup file.\n\nYou can save it to your device storage or you can upload it to cloud storage in case you lose your device.</string>
   <string name="restoreError">The password is incorrect or the file is corrupt.</string>
   <string name="filePickError">Error picking file.</string>
   <string name="invalidFileError">The selected file is not a Authenticator Pro backup file.</string>
   <string name="externalStoragePermissionError">The external storage permission is required to backup / restore authenticators.</string>
   <string name="saveSuccess">Saved successfully</string>
+  <string name="restoreBackupDevice">Load backup file from device storage</string>
+  <string name="restoreBackupCloud">Restore backup file from cloud storage</string>
+  <string name="saveBackupDevice">Save backup file to device storage</string>
+  <string name="saveBackupCloud">Create backup on cloud storage</string>
 
   <string name="password">Password</string>
   <string name="passwordConfirm">Password Confirm</string>

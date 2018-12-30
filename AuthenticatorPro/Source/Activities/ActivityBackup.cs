@@ -53,10 +53,10 @@ namespace AuthenticatorPro.Activities
 
             _textPassword = FindViewById<EditText>(Resource.Id.activityBackup_password);
 
-            var saveStorageBtn = FindViewById<Button>(Resource.Id.activityBackup_saveStorage);
+            var saveStorageBtn = FindViewById<LinearLayout>(Resource.Id.activityBackup_saveStorage);
             saveStorageBtn.Click += SaveStorageClick;
 
-            var saveCloudBtn = FindViewById<Button>(Resource.Id.activityBackup_saveCloud);
+            var saveCloudBtn = FindViewById<LinearLayout>(Resource.Id.activityBackup_saveCloud);
             saveCloudBtn.Click += SaveCloudClick;
 
             _connection = await Database.Connect();

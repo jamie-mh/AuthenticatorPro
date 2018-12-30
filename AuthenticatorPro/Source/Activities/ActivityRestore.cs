@@ -55,10 +55,10 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
-            var loadStorageBtn = FindViewById<Button>(Resource.Id.activityRestore_loadStorage);
+            var loadStorageBtn = FindViewById<LinearLayout>(Resource.Id.activityRestore_loadStorage);
             loadStorageBtn.Click += LoadStorageClick;
 
-            var loadCloudBtn = FindViewById<Button>(Resource.Id.activityRestore_loadCloud);
+            var loadCloudBtn = FindViewById<LinearLayout>(Resource.Id.activityRestore_loadCloud);
             loadCloudBtn.Click += LoadCloudClick;
 
             _connection = await Database.Connect();
