@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Preferences
 
         protected override void OnClick()
         {
-            var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=me.jmh.proauth"));
+            var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=me.jmh.authenticatorpro"));
             Context.StartActivity(intent);
         }
     }

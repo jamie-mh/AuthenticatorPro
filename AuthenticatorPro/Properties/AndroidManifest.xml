@@ -10,4 +10,10 @@
                android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false"
                android:theme="@style/LightTheme">
   </application>
+  <supports-screens 
+    android:smallScreens="true" 
+    android:largeScreens="true"
+    android:xlargeScreens="true"  
+    android:normalScreens="true" 
+    android:anyDensity="true"/>
 </manifest>

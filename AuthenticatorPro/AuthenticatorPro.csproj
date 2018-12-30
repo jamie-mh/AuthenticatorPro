@@ -43,7 +43,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
     <AndroidHttpClientHandlerType>
     </AndroidHttpClientHandlerType>
     <Debugger>Xamarin</Debugger>
@@ -134,7 +134,9 @@
     <AndroidNativeLibrary Include="lib\x86_64\libProAuthKey.so" />
     <AndroidNativeLibrary Include="lib\armeabi\libProAuthKey.so" />
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\font\worksans_regular.ttf" />
     <AndroidResource Include="Resources\font\worksans_bold.ttf" />
