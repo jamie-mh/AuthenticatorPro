@@ -15,10 +15,12 @@ using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Utilities;
+using Java.IO;
 using Newtonsoft.Json;
 using PCLCrypto;
 using SQLite;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
+using File = System.IO.File;
 using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
@@ -28,7 +30,9 @@ namespace AuthenticatorPro.Activities
     public class ActivityBackup : AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
-        private const int FileSavePathCode = 1;
+        private const int DeviceStorageCode = 1;
+        private const int StorageAccessFrameworkCode = 2;
+
         private SQLiteAsyncConnection _connection;
 
         private EditText _textPassword;
@@ -48,8 +52,12 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
             _textPassword = FindViewById<EditText>(Resource.Id.activityBackup_password);
-            var exportBtn = FindViewById<Button>(Resource.Id.activityBackup_export);
-            exportBtn.Click += ExportButtonClick;
+
+            var saveStorageBtn = FindViewById<Button>(Resource.Id.activityBackup_saveStorage);
+            saveStorageBtn.Click += SaveStorageClick;
+
+            var saveCloudBtn = FindViewById<Button>(Resource.Id.activityBackup_saveCloud);
+            saveCloudBtn.Click += SaveCloudClick;
 
             _connection = await Database.Connect();
         }
@@ -60,7 +68,7 @@ namespace AuthenticatorPro.Activities
             base.OnDestroy();
         }
 
-        private async void ExportButtonClick(object sender, EventArgs e)
+        private async void SaveStorageClick(object sender, EventArgs e)
         {
             var count = await _connection.Table<Authenticator>().CountAsync();
 
@@ -72,27 +80,48 @@ namespace AuthenticatorPro.Activities
 
             if(!GetStoragePermission()) return;
 
-            var password = _textPassword.Text;
             var intent = new Intent(this, typeof(ActivityFile));
             intent.PutExtra("filename", $@"backup-{DateTime.Now:yyyy-MM-dd}");
 
-            if(password == "")
+            if(_textPassword.Text == "")
             {
-                var builder = new AlertDialog.Builder(this);
-                builder.SetTitle(Resource.String.warning);
-                builder.SetMessage(Resource.String.confirmEmptyPassword);
-                builder.SetNegativeButton(Resource.String.cancel, (s, args) => { });
-                builder.SetPositiveButton(Resource.String.ok,
-                    (s, args) => { StartActivityForResult(intent, FileSavePathCode); });
-                builder.SetCancelable(true);
-
-                var dialog = builder.Create();
-                dialog.Show();
+                ShowPasswordDialog(intent, DeviceStorageCode);
             }
             else
             {
-                StartActivityForResult(intent, FileSavePathCode);
+                StartActivityForResult(intent, DeviceStorageCode);
             }
+        }
+
+        private async void SaveCloudClick(object sender, EventArgs e)
+        {
+            var intent = new Intent(Intent.ActionCreateDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("application/octet-stream");
+            intent.PutExtra(Intent.ExtraTitle, $@"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
+
+            if(_textPassword.Text == "")
+            {
+                ShowPasswordDialog(intent, StorageAccessFrameworkCode);
+            }
+            else
+            {
+                StartActivityForResult(intent, StorageAccessFrameworkCode);
+            }
+        }
+
+        private void ShowPasswordDialog(Intent intent, int code)
+        {
+            var builder = new AlertDialog.Builder(this);
+            builder.SetTitle(Resource.String.warning);
+            builder.SetMessage(Resource.String.confirmEmptyPassword);
+            builder.SetNegativeButton(Resource.String.cancel, (s, args) => { });
+            builder.SetPositiveButton(Resource.String.ok,
+                (s, args) => { StartActivityForResult(intent, code); });
+            builder.SetCancelable(true);
+
+            var dialog = builder.Create();
+            dialog.Show();
         }
 
         private bool GetStoragePermission()
@@ -114,7 +143,7 @@ namespace AuthenticatorPro.Activities
             if(requestCode == PermissionStorageCode)
             {
                 if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
-                    ExportButtonClick(null, null);
+                    SaveStorageClick(null, null);
                 else
                     Toast.MakeText(this, Resource.String.externalStoragePermissionError, ToastLength.Short).Show();
             }
@@ -125,7 +154,7 @@ namespace AuthenticatorPro.Activities
         protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode,
             Intent intent)
         {
-            if(requestCode != FileSavePathCode || resultCode != Result.Ok)
+            if(resultCode != Result.Ok || (requestCode != DeviceStorageCode && requestCode != StorageAccessFrameworkCode))
                 return;
 
             var backup = new Backup {
@@ -140,9 +169,6 @@ namespace AuthenticatorPro.Activities
             };
 
             var json = JsonConvert.SerializeObject(backup);
-            var filename = intent.GetStringExtra("filename") + ".authpro";
-
-            var path = Path.Combine(intent.GetStringExtra("path"), filename);
             byte[] dataToWrite;
             var password = _textPassword.Text;
 
@@ -164,9 +190,31 @@ namespace AuthenticatorPro.Activities
                 dataToWrite = Encoding.UTF8.GetBytes(json);
             }
 
-            File.WriteAllBytes(path, dataToWrite);
-            Toast.MakeText(this, $@"Saved to storage as ""{filename}"".", ToastLength.Long).Show();
+            switch(requestCode)
+            {
+                case DeviceStorageCode:
+                    var filename = intent.GetStringExtra("filename") + ".authpro";
+                    var path = Path.Combine(intent.GetStringExtra("path"), filename);
 
+                    File.WriteAllBytes(path, dataToWrite);
+                    break;
+
+                case StorageAccessFrameworkCode:
+                    var output = ContentResolver.OpenOutputStream(intent.Data);
+
+                    // Use Java streams, because a bug in Xamarin creates 0 byte files
+                    //var writer = new BufferedWriter(new OutputStreamWriter(output));
+                    var dataStream = new DataOutputStream(output);
+
+                    foreach(var b in dataToWrite)
+                        dataStream.Write(b);
+    
+                    dataStream.Flush();
+                    dataStream.Close();
+                    break;
+            }
+
+            Toast.MakeText(this, GetString(Resource.String.saveSuccess), ToastLength.Long).Show();
             Finish();
             base.OnActivityResult(requestCode, resultCode, intent);
         }

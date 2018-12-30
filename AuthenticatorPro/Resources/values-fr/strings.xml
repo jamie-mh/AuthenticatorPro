@@ -70,6 +70,7 @@
   <string name="filePickError">Erreur lors de la sélection du fichier.</string>
   <string name="invalidFileError">Le fichier sélectionné n\'est pas un fichier de sauvegarde Authenticator Pro.</string>
   <string name="externalStoragePermissionError">L\'autorisation de stockage externe est requise pour sauvegarder / restaurer les authentificateurs.</string>
+  <string name="saveSuccess">Enregistré avec succès</string>
 
   <string name="password">Mot de passe</string>
   <string name="passwordConfirm">Confirmer le mot de passe</string>

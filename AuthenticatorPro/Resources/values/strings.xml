@@ -70,6 +70,7 @@
   <string name="filePickError">Error picking file.</string>
   <string name="invalidFileError">The selected file is not a Authenticator Pro backup file.</string>
   <string name="externalStoragePermissionError">The external storage permission is required to backup / restore authenticators.</string>
+  <string name="saveSuccess">Saved successfully</string>
 
   <string name="password">Password</string>
   <string name="passwordConfirm">Password Confirm</string>

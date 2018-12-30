@@ -205,6 +205,16 @@ namespace AuthenticatorPro.Utilities.AuthenticatorList
             return false;
         }
 
+        public bool IsDuplicateCategoryBinding(AuthenticatorCategory binding)
+        {
+            foreach(var iterator in CategoryBindings)
+                if(binding.AuthenticatorSecret == iterator.AuthenticatorSecret &&
+                   binding.CategoryId == iterator.CategoryId)
+                    return true;
+
+            return false;
+        }
+
         public int Count()
         {
             return Authenticators.Count;

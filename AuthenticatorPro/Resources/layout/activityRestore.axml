@@ -46,6 +46,14 @@
 			android:text="@string/selectBackup"
 			android:layout_marginTop="22dp"
 			android:layout_gravity="center"
-			android:id="@+id/activityRestore_import"/>
+			android:id="@+id/activityRestore_loadStorage"/>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Select from cloud storage"
+			android:layout_marginTop="8dp"
+			android:layout_gravity="center"
+			android:id="@+id/activityRestore_loadCloud"/>
 	</LinearLayout>
 </RelativeLayout>

@@ -61,7 +61,15 @@
 			android:text="@string/backupToFile"
 			android:layout_marginTop="22dp"
 			android:layout_gravity="center"
-			android:id="@+id/activityBackup_export"/>
+			android:id="@+id/activityBackup_saveStorage"/>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Save to cloud"
+			android:layout_marginTop="12dp"
+			android:layout_gravity="center"
+			android:id="@+id/activityBackup_saveCloud"/>
 
 	</LinearLayout>
 </RelativeLayout>

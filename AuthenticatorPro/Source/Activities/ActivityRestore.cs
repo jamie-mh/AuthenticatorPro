@@ -30,7 +30,9 @@ namespace AuthenticatorPro.Activities
     public class ActivityRestore : AppCompatActivity
     {
         private const int PermissionStorageCode = 0;
-        private const int FilePathCode = 1;
+        private const int DeviceStorageCode = 1;
+        private const int StorageAccessFrameworkCode = 2;
+
         private AuthSource _authSource;
         private CategorySource _categorySource;
 
@@ -53,8 +55,11 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
 
-            var importBtn = FindViewById<Button>(Resource.Id.activityRestore_import);
-            importBtn.Click += ImportButtonClick;
+            var loadStorageBtn = FindViewById<Button>(Resource.Id.activityRestore_loadStorage);
+            loadStorageBtn.Click += LoadStorageClick;
+
+            var loadCloudBtn = FindViewById<Button>(Resource.Id.activityRestore_loadCloud);
+            loadCloudBtn.Click += LoadCloudClick;
 
             _connection = await Database.Connect();
             _authSource = new AuthSource(_connection);
@@ -67,7 +72,7 @@ namespace AuthenticatorPro.Activities
             base.OnDestroy();
         }
 
-        private async void ImportButtonClick(object sender, EventArgs e)
+        private async void LoadStorageClick(object sender, EventArgs e)
         {
             if(!GetStoragePermission()) return;
 
@@ -75,7 +80,7 @@ namespace AuthenticatorPro.Activities
             {
                 var intent = new Intent(this, typeof(ActivityFile));
                 intent.PutExtra("mode", (int) ActivityFile.Mode.Open);
-                StartActivityForResult(intent, FilePathCode);
+                StartActivityForResult(intent, DeviceStorageCode);
             }
             catch
             {
@@ -83,14 +88,38 @@ namespace AuthenticatorPro.Activities
             }
         }
 
+        private void LoadCloudClick(object sender, EventArgs e)
+        {
+            var intent = new Intent(Intent.ActionOpenDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("application/octet-stream");
+
+            StartActivityForResult(intent, StorageAccessFrameworkCode);
+        }
+
         protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode,
             Intent intent)
         {
-            if(requestCode != FilePathCode || resultCode != Result.Ok)
+            if(resultCode != Result.Ok)
                 return;
 
-            var file = $@"{intent.GetStringExtra("path")}/{intent.GetStringExtra("filename")}";
-            _fileData = File.ReadAllBytes(file);
+            switch(requestCode)
+            {
+                case DeviceStorageCode:
+                    var file = $@"{intent.GetStringExtra("path")}/{intent.GetStringExtra("filename")}";
+                    _fileData = File.ReadAllBytes(file);
+                    break;
+
+                case StorageAccessFrameworkCode:
+                    var stream = ContentResolver.OpenInputStream(intent.Data);
+                    var memoryStream = new MemoryStream();
+
+                    stream.CopyTo(memoryStream);
+                    _fileData = memoryStream.ToArray();
+                    break;
+
+                default: return;
+            }
 
             if(_fileData.Length == 0)
             {
@@ -121,7 +150,7 @@ namespace AuthenticatorPro.Activities
             if(requestCode == PermissionStorageCode)
             {
                 if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
-                    ImportButtonClick(null, null);
+                    LoadStorageClick(null, null);
                 else
                     Toast.MakeText(this, Resource.String.externalStoragePermissionError, ToastLength.Short).Show();
             }
@@ -190,7 +219,7 @@ namespace AuthenticatorPro.Activities
 
                 foreach(var binding in backup.AuthenticatorCategories)
                 {
-                    if(_authSource.CategoryBindings.Contains(binding)) continue;
+                    if(_authSource.IsDuplicateCategoryBinding(binding)) continue;
 
                     await _connection.InsertAsync(binding);
                 }

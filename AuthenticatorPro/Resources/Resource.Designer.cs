@@ -3744,17 +3744,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b003e
 			public const int SYM = 2131427390;
 			
-			// aapt resource value: 0x7f0b00ed
-			public const int action0 = 2131427565;
+			// aapt resource value: 0x7f0b00ef
+			public const int action0 = 2131427567;
 			
-			// aapt resource value: 0x7f0b0108
-			public const int actionEnterKey = 2131427592;
+			// aapt resource value: 0x7f0b010a
+			public const int actionEnterKey = 2131427594;
 			
-			// aapt resource value: 0x7f0b0107
-			public const int actionScan = 2131427591;
+			// aapt resource value: 0x7f0b0109
+			public const int actionScan = 2131427593;
 			
-			// aapt resource value: 0x7f0b010d
-			public const int actionSearch = 2131427597;
+			// aapt resource value: 0x7f0b010f
+			public const int actionSearch = 2131427599;
 			
 			// aapt resource value: 0x7f0b008d
 			public const int action_bar = 2131427469;
@@ -3777,17 +3777,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0069
 			public const int action_bar_title = 2131427433;
 			
-			// aapt resource value: 0x7f0b00ea
-			public const int action_container = 2131427562;
+			// aapt resource value: 0x7f0b00ec
+			public const int action_container = 2131427564;
 			
 			// aapt resource value: 0x7f0b008e
 			public const int action_context_bar = 2131427470;
 			
-			// aapt resource value: 0x7f0b00f1
-			public const int action_divider = 2131427569;
+			// aapt resource value: 0x7f0b00f3
+			public const int action_divider = 2131427571;
 			
-			// aapt resource value: 0x7f0b00eb
-			public const int action_image = 2131427563;
+			// aapt resource value: 0x7f0b00ed
+			public const int action_image = 2131427565;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -3804,11 +3804,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b006b
 			public const int action_mode_close_button = 2131427435;
 			
-			// aapt resource value: 0x7f0b00ec
-			public const int action_text = 2131427564;
+			// aapt resource value: 0x7f0b00ee
+			public const int action_text = 2131427566;
 			
-			// aapt resource value: 0x7f0b00fa
-			public const int actions = 2131427578;
+			// aapt resource value: 0x7f0b00fc
+			public const int actions = 2131427580;
 			
 			// aapt resource value: 0x7f0b009d
 			public const int activityAbout_toolbar = 2131427485;
@@ -3816,86 +3816,92 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b009e
 			public const int activityAbout_webView = 2131427486;
 			
-			// aapt resource value: 0x7f0b00a1
-			public const int activityBackup_export = 2131427489;
-			
 			// aapt resource value: 0x7f0b00a0
 			public const int activityBackup_password = 2131427488;
+			
+			// aapt resource value: 0x7f0b00a2
+			public const int activityBackup_saveCloud = 2131427490;
+			
+			// aapt resource value: 0x7f0b00a1
+			public const int activityBackup_saveStorage = 2131427489;
 			
 			// aapt resource value: 0x7f0b009f
 			public const int activityBackup_toolbar = 2131427487;
 			
-			// aapt resource value: 0x7f0b00a2
-			public const int activityEditCategories_appBarLayout = 2131427490;
-			
-			// aapt resource value: 0x7f0b00a7
-			public const int activityEditCategories_buttonAdd = 2131427495;
-			
-			// aapt resource value: 0x7f0b00a6
-			public const int activityEditCategories_emptyState = 2131427494;
-			
-			// aapt resource value: 0x7f0b00a5
-			public const int activityEditCategories_list = 2131427493;
-			
-			// aapt resource value: 0x7f0b00a4
-			public const int activityEditCategories_progressBar = 2131427492;
-			
 			// aapt resource value: 0x7f0b00a3
-			public const int activityEditCategories_toolbar = 2131427491;
-			
-			// aapt resource value: 0x7f0b00ac
-			public const int activityFile_filename = 2131427500;
-			
-			// aapt resource value: 0x7f0b00a9
-			public const int activityFile_list = 2131427497;
-			
-			// aapt resource value: 0x7f0b00ab
-			public const int activityFile_save = 2131427499;
-			
-			// aapt resource value: 0x7f0b00aa
-			public const int activityFile_saveLayout = 2131427498;
+			public const int activityEditCategories_appBarLayout = 2131427491;
 			
 			// aapt resource value: 0x7f0b00a8
-			public const int activityFile_toolbar = 2131427496;
+			public const int activityEditCategories_buttonAdd = 2131427496;
+			
+			// aapt resource value: 0x7f0b00a7
+			public const int activityEditCategories_emptyState = 2131427495;
+			
+			// aapt resource value: 0x7f0b00a6
+			public const int activityEditCategories_list = 2131427494;
+			
+			// aapt resource value: 0x7f0b00a5
+			public const int activityEditCategories_progressBar = 2131427493;
+			
+			// aapt resource value: 0x7f0b00a4
+			public const int activityEditCategories_toolbar = 2131427492;
 			
 			// aapt resource value: 0x7f0b00ad
-			public const int activityIntro_continue = 2131427501;
+			public const int activityFile_filename = 2131427501;
 			
-			// aapt resource value: 0x7f0b00af
-			public const int activityMain_appBarLayout = 2131427503;
+			// aapt resource value: 0x7f0b00aa
+			public const int activityFile_list = 2131427498;
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int activityMain_authList = 2131427506;
+			// aapt resource value: 0x7f0b00ac
+			public const int activityFile_save = 2131427500;
 			
-			// aapt resource value: 0x7f0b00b4
-			public const int activityMain_buttonAdd = 2131427508;
+			// aapt resource value: 0x7f0b00ab
+			public const int activityFile_saveLayout = 2131427499;
+			
+			// aapt resource value: 0x7f0b00a9
+			public const int activityFile_toolbar = 2131427497;
 			
 			// aapt resource value: 0x7f0b00ae
-			public const int activityMain_drawerLayout = 2131427502;
-			
-			// aapt resource value: 0x7f0b00b3
-			public const int activityMain_emptyState = 2131427507;
-			
-			// aapt resource value: 0x7f0b00b5
-			public const int activityMain_navView = 2131427509;
-			
-			// aapt resource value: 0x7f0b00b1
-			public const int activityMain_progressBar = 2131427505;
+			public const int activityIntro_continue = 2131427502;
 			
 			// aapt resource value: 0x7f0b00b0
-			public const int activityMain_toolbar = 2131427504;
+			public const int activityMain_appBarLayout = 2131427504;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int activityRestore_import = 2131427511;
+			// aapt resource value: 0x7f0b00b3
+			public const int activityMain_authList = 2131427507;
+			
+			// aapt resource value: 0x7f0b00b5
+			public const int activityMain_buttonAdd = 2131427509;
+			
+			// aapt resource value: 0x7f0b00af
+			public const int activityMain_drawerLayout = 2131427503;
+			
+			// aapt resource value: 0x7f0b00b4
+			public const int activityMain_emptyState = 2131427508;
 			
 			// aapt resource value: 0x7f0b00b6
-			public const int activityRestore_toolbar = 2131427510;
+			public const int activityMain_navView = 2131427510;
+			
+			// aapt resource value: 0x7f0b00b2
+			public const int activityMain_progressBar = 2131427506;
+			
+			// aapt resource value: 0x7f0b00b1
+			public const int activityMain_toolbar = 2131427505;
 			
 			// aapt resource value: 0x7f0b00b9
-			public const int activitySettings_content = 2131427513;
+			public const int activityRestore_loadCloud = 2131427513;
 			
 			// aapt resource value: 0x7f0b00b8
-			public const int activitySettings_toolbar = 2131427512;
+			public const int activityRestore_loadStorage = 2131427512;
+			
+			// aapt resource value: 0x7f0b00b7
+			public const int activityRestore_toolbar = 2131427511;
+			
+			// aapt resource value: 0x7f0b00bb
+			public const int activitySettings_content = 2131427515;
+			
+			// aapt resource value: 0x7f0b00ba
+			public const int activitySettings_toolbar = 2131427514;
 			
 			// aapt resource value: 0x7f0b006c
 			public const int activity_chooser_view_content = 2131427436;
@@ -3915,32 +3921,32 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0065
 			public const int async = 2131427429;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int authListItem_code = 2131427518;
-			
 			// aapt resource value: 0x7f0b00c0
-			public const int authListItem_counter = 2131427520;
-			
-			// aapt resource value: 0x7f0b00bb
-			public const int authListItem_icon = 2131427515;
-			
-			// aapt resource value: 0x7f0b00ba
-			public const int authListItem_iconLayout = 2131427514;
-			
-			// aapt resource value: 0x7f0b00bc
-			public const int authListItem_issuer = 2131427516;
-			
-			// aapt resource value: 0x7f0b00c1
-			public const int authListItem_options = 2131427521;
-			
-			// aapt resource value: 0x7f0b00bf
-			public const int authListItem_refresh = 2131427519;
-			
-			// aapt resource value: 0x7f0b00bd
-			public const int authListItem_username = 2131427517;
+			public const int authListItem_code = 2131427520;
 			
 			// aapt resource value: 0x7f0b00c2
-			public const int authList_progress = 2131427522;
+			public const int authListItem_counter = 2131427522;
+			
+			// aapt resource value: 0x7f0b00bd
+			public const int authListItem_icon = 2131427517;
+			
+			// aapt resource value: 0x7f0b00bc
+			public const int authListItem_iconLayout = 2131427516;
+			
+			// aapt resource value: 0x7f0b00be
+			public const int authListItem_issuer = 2131427518;
+			
+			// aapt resource value: 0x7f0b00c3
+			public const int authListItem_options = 2131427523;
+			
+			// aapt resource value: 0x7f0b00c1
+			public const int authListItem_refresh = 2131427521;
+			
+			// aapt resource value: 0x7f0b00bf
+			public const int authListItem_username = 2131427519;
+			
+			// aapt resource value: 0x7f0b00c4
+			public const int authList_progress = 2131427524;
 			
 			// aapt resource value: 0x7f0b004d
 			public const int auto = 2131427405;
@@ -3957,17 +3963,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0072
 			public const int buttonPanel = 2131427442;
 			
-			// aapt resource value: 0x7f0b00ee
-			public const int cancel_action = 2131427566;
+			// aapt resource value: 0x7f0b00f0
+			public const int cancel_action = 2131427568;
+			
+			// aapt resource value: 0x7f0b00c7
+			public const int categoryListItem_delete = 2131427527;
 			
 			// aapt resource value: 0x7f0b00c5
-			public const int categoryListItem_delete = 2131427525;
+			public const int categoryListItem_name = 2131427525;
 			
-			// aapt resource value: 0x7f0b00c3
-			public const int categoryListItem_name = 2131427523;
-			
-			// aapt resource value: 0x7f0b00c4
-			public const int categoryListItem_rename = 2131427524;
+			// aapt resource value: 0x7f0b00c6
+			public const int categoryListItem_rename = 2131427526;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int center = 2131427404;
@@ -3981,14 +3987,14 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0086
 			public const int checkbox = 2131427462;
 			
-			// aapt resource value: 0x7f0b00c7
-			public const int chooseCategoriesListItem_checkbox = 2131427527;
+			// aapt resource value: 0x7f0b00c9
+			public const int chooseCategoriesListItem_checkbox = 2131427529;
 			
-			// aapt resource value: 0x7f0b00c6
-			public const int chooseCategoriesListItem_name = 2131427526;
+			// aapt resource value: 0x7f0b00c8
+			public const int chooseCategoriesListItem_name = 2131427528;
 			
-			// aapt resource value: 0x7f0b00f6
-			public const int chronometer = 2131427574;
+			// aapt resource value: 0x7f0b00f8
+			public const int chronometer = 2131427576;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int clip_horizontal = 2131427425;
@@ -3999,20 +4005,20 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0040
 			public const int collapseActionView = 2131427392;
 			
-			// aapt resource value: 0x7f0b00ca
-			public const int container = 2131427530;
+			// aapt resource value: 0x7f0b00cc
+			public const int container = 2131427532;
 			
 			// aapt resource value: 0x7f0b0082
 			public const int content = 2131427458;
 			
-			// aapt resource value: 0x7f0b0104
-			public const int contentFrame = 2131427588;
+			// aapt resource value: 0x7f0b0106
+			public const int contentFrame = 2131427590;
 			
 			// aapt resource value: 0x7f0b0075
 			public const int contentPanel = 2131427445;
 			
-			// aapt resource value: 0x7f0b00cb
-			public const int coordinator = 2131427531;
+			// aapt resource value: 0x7f0b00cd
+			public const int coordinator = 2131427533;
 			
 			// aapt resource value: 0x7f0b007c
 			public const int custom = 2131427452;
@@ -4026,89 +4032,89 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b006f
 			public const int default_activity_button = 2131427439;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int design_bottom_sheet = 2131427533;
-			
-			// aapt resource value: 0x7f0b00d2
-			public const int design_menu_item_action_area = 2131427538;
-			
-			// aapt resource value: 0x7f0b00d1
-			public const int design_menu_item_action_area_stub = 2131427537;
-			
-			// aapt resource value: 0x7f0b00d0
-			public const int design_menu_item_text = 2131427536;
-			
 			// aapt resource value: 0x7f0b00cf
-			public const int design_navigation_view = 2131427535;
-			
-			// aapt resource value: 0x7f0b00d9
-			public const int dialogAddAuthenticator_advancedOptions = 2131427545;
-			
-			// aapt resource value: 0x7f0b00da
-			public const int dialogAddAuthenticator_algorithm = 2131427546;
-			
-			// aapt resource value: 0x7f0b00d8
-			public const int dialogAddAuthenticator_buttonAdvanced = 2131427544;
-			
-			// aapt resource value: 0x7f0b00db
-			public const int dialogAddAuthenticator_digits = 2131427547;
+			public const int design_bottom_sheet = 2131427535;
 			
 			// aapt resource value: 0x7f0b00d4
-			public const int dialogAddAuthenticator_issuer = 2131427540;
+			public const int design_menu_item_action_area = 2131427540;
 			
-			// aapt resource value: 0x7f0b00dd
-			public const int dialogAddAuthenticator_period = 2131427549;
+			// aapt resource value: 0x7f0b00d3
+			public const int design_menu_item_action_area_stub = 2131427539;
+			
+			// aapt resource value: 0x7f0b00d2
+			public const int design_menu_item_text = 2131427538;
+			
+			// aapt resource value: 0x7f0b00d1
+			public const int design_navigation_view = 2131427537;
+			
+			// aapt resource value: 0x7f0b00db
+			public const int dialogAddAuthenticator_advancedOptions = 2131427547;
 			
 			// aapt resource value: 0x7f0b00dc
-			public const int dialogAddAuthenticator_periodInputLayout = 2131427548;
+			public const int dialogAddAuthenticator_algorithm = 2131427548;
+			
+			// aapt resource value: 0x7f0b00da
+			public const int dialogAddAuthenticator_buttonAdvanced = 2131427546;
+			
+			// aapt resource value: 0x7f0b00dd
+			public const int dialogAddAuthenticator_digits = 2131427549;
 			
 			// aapt resource value: 0x7f0b00d6
-			public const int dialogAddAuthenticator_secret = 2131427542;
-			
-			// aapt resource value: 0x7f0b00d7
-			public const int dialogAddAuthenticator_type = 2131427543;
-			
-			// aapt resource value: 0x7f0b00d5
-			public const int dialogAddAuthenticator_username = 2131427541;
-			
-			// aapt resource value: 0x7f0b00de
-			public const int dialogChooseCategories_empty = 2131427550;
+			public const int dialogAddAuthenticator_issuer = 2131427542;
 			
 			// aapt resource value: 0x7f0b00df
-			public const int dialogChooseCategories_list = 2131427551;
+			public const int dialogAddAuthenticator_period = 2131427551;
+			
+			// aapt resource value: 0x7f0b00de
+			public const int dialogAddAuthenticator_periodInputLayout = 2131427550;
+			
+			// aapt resource value: 0x7f0b00d8
+			public const int dialogAddAuthenticator_secret = 2131427544;
+			
+			// aapt resource value: 0x7f0b00d9
+			public const int dialogAddAuthenticator_type = 2131427545;
+			
+			// aapt resource value: 0x7f0b00d7
+			public const int dialogAddAuthenticator_username = 2131427543;
 			
 			// aapt resource value: 0x7f0b00e0
-			public const int dialogEditCategory_name = 2131427552;
-			
-			// aapt resource value: 0x7f0b00e2
-			public const int dialogIcon_list = 2131427554;
+			public const int dialogChooseCategories_empty = 2131427552;
 			
 			// aapt resource value: 0x7f0b00e1
-			public const int dialogIcon_search = 2131427553;
+			public const int dialogChooseCategories_list = 2131427553;
 			
-			// aapt resource value: 0x7f0b00e3
-			public const int dialogRenameAuthenticator_issuer = 2131427555;
+			// aapt resource value: 0x7f0b00e2
+			public const int dialogEditCategory_name = 2131427554;
 			
 			// aapt resource value: 0x7f0b00e4
-			public const int dialogRenameAuthenticator_username = 2131427556;
+			public const int dialogIcon_list = 2131427556;
+			
+			// aapt resource value: 0x7f0b00e3
+			public const int dialogIcon_search = 2131427555;
 			
 			// aapt resource value: 0x7f0b00e5
-			public const int dialogRestore_password = 2131427557;
+			public const int dialogRenameAuthenticator_issuer = 2131427557;
+			
+			// aapt resource value: 0x7f0b00e6
+			public const int dialogRenameAuthenticator_username = 2131427558;
+			
+			// aapt resource value: 0x7f0b00e7
+			public const int dialogRestore_password = 2131427559;
 			
 			// aapt resource value: 0x7f0b0027
 			public const int disableHome = 2131427367;
 			
-			// aapt resource value: 0x7f0b010c
-			public const int drawerBackup = 2131427596;
+			// aapt resource value: 0x7f0b010e
+			public const int drawerBackup = 2131427598;
 			
-			// aapt resource value: 0x7f0b010a
-			public const int drawerEditCategories = 2131427594;
+			// aapt resource value: 0x7f0b010c
+			public const int drawerEditCategories = 2131427596;
+			
+			// aapt resource value: 0x7f0b010d
+			public const int drawerRestore = 2131427597;
 			
 			// aapt resource value: 0x7f0b010b
-			public const int drawerRestore = 2131427595;
-			
-			// aapt resource value: 0x7f0b0109
-			public const int drawerSettings = 2131427593;
+			public const int drawerSettings = 2131427595;
 			
 			// aapt resource value: 0x7f0b008f
 			public const int edit_query = 2131427471;
@@ -4116,8 +4122,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0037
 			public const int end = 2131427383;
 			
-			// aapt resource value: 0x7f0b00fc
-			public const int end_padder = 2131427580;
+			// aapt resource value: 0x7f0b00fe
+			public const int end_padder = 2131427582;
 			
 			// aapt resource value: 0x7f0b0046
 			public const int enterAlways = 2131427398;
@@ -4134,11 +4140,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0085
 			public const int expanded_menu = 2131427461;
 			
-			// aapt resource value: 0x7f0b00e7
-			public const int fileListItem_icon = 2131427559;
+			// aapt resource value: 0x7f0b00e9
+			public const int fileListItem_icon = 2131427561;
 			
-			// aapt resource value: 0x7f0b00e8
-			public const int fileListItem_name = 2131427560;
+			// aapt resource value: 0x7f0b00ea
+			public const int fileListItem_name = 2131427562;
 			
 			// aapt resource value: 0x7f0b005e
 			public const int fill = 2131427422;
@@ -4173,14 +4179,14 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0071
 			public const int icon = 2131427441;
 			
-			// aapt resource value: 0x7f0b00e9
-			public const int iconListItem_icon = 2131427561;
+			// aapt resource value: 0x7f0b00eb
+			public const int iconListItem_icon = 2131427563;
 			
-			// aapt resource value: 0x7f0b00e6
-			public const int icon_frame = 2131427558;
+			// aapt resource value: 0x7f0b00e8
+			public const int icon_frame = 2131427560;
 			
-			// aapt resource value: 0x7f0b00fb
-			public const int icon_group = 2131427579;
+			// aapt resource value: 0x7f0b00fd
+			public const int icon_group = 2131427581;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int ifRoom = 2131427393;
@@ -4188,8 +4194,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b006e
 			public const int image = 2131427438;
 			
-			// aapt resource value: 0x7f0b00f7
-			public const int info = 2131427575;
+			// aapt resource value: 0x7f0b00f9
+			public const int info = 2131427577;
 			
 			// aapt resource value: 0x7f0b0068
 			public const int italic = 2131427432;
@@ -4200,8 +4206,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b004e
 			public const int labeled = 2131427406;
 			
-			// aapt resource value: 0x7f0b00c9
-			public const int largeLabel = 2131427529;
+			// aapt resource value: 0x7f0b00cb
+			public const int largeLabel = 2131427531;
 			
 			// aapt resource value: 0x7f0b0054
 			public const int left = 2131427412;
@@ -4212,8 +4218,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b001d
 			public const int line3 = 2131427357;
 			
-			// aapt resource value: 0x7f0b0102
-			public const int linearLayout1 = 2131427586;
+			// aapt resource value: 0x7f0b0104
+			public const int linearLayout1 = 2131427588;
 			
 			// aapt resource value: 0x7f0b0024
 			public const int listMode = 2131427364;
@@ -4221,11 +4227,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0070
 			public const int list_item = 2131427440;
 			
-			// aapt resource value: 0x7f0b0106
-			public const int masked = 2131427590;
+			// aapt resource value: 0x7f0b0108
+			public const int masked = 2131427592;
 			
-			// aapt resource value: 0x7f0b00f0
-			public const int media_actions = 2131427568;
+			// aapt resource value: 0x7f0b00f2
+			public const int media_actions = 2131427570;
 			
 			// aapt resource value: 0x7f0b009c
 			public const int message = 2131427484;
@@ -4245,8 +4251,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b002f
 			public const int multiply = 2131427375;
 			
-			// aapt resource value: 0x7f0b00ce
-			public const int navigation_header_container = 2131427534;
+			// aapt resource value: 0x7f0b00d0
+			public const int navigation_header_container = 2131427536;
 			
 			// aapt resource value: 0x7f0b0042
 			public const int never = 2131427394;
@@ -4257,14 +4263,14 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0025
 			public const int normal = 2131427365;
 			
-			// aapt resource value: 0x7f0b00f9
-			public const int notification_background = 2131427577;
+			// aapt resource value: 0x7f0b00fb
+			public const int notification_background = 2131427579;
 			
-			// aapt resource value: 0x7f0b00f3
-			public const int notification_main_column = 2131427571;
+			// aapt resource value: 0x7f0b00f5
+			public const int notification_main_column = 2131427573;
 			
-			// aapt resource value: 0x7f0b00f2
-			public const int notification_main_column_container = 2131427570;
+			// aapt resource value: 0x7f0b00f4
+			public const int notification_main_column_container = 2131427572;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int outline = 2131427424;
@@ -4290,17 +4296,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0087
 			public const int radio = 2131427463;
 			
-			// aapt resource value: 0x7f0b00fe
-			public const int recycler_view = 2131427582;
+			// aapt resource value: 0x7f0b0100
+			public const int recycler_view = 2131427584;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int right = 2131427413;
 			
-			// aapt resource value: 0x7f0b00f8
-			public const int right_icon = 2131427576;
+			// aapt resource value: 0x7f0b00fa
+			public const int right_icon = 2131427578;
 			
-			// aapt resource value: 0x7f0b00f4
-			public const int right_side = 2131427572;
+			// aapt resource value: 0x7f0b00f6
+			public const int right_side = 2131427574;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int save_image_matrix = 2131427340;
@@ -4359,11 +4365,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b009a
 			public const int search_voice_btn = 2131427482;
 			
-			// aapt resource value: 0x7f0b00ff
-			public const int seekbar = 2131427583;
+			// aapt resource value: 0x7f0b0101
+			public const int seekbar = 2131427585;
 			
-			// aapt resource value: 0x7f0b0100
-			public const int seekbar_value = 2131427584;
+			// aapt resource value: 0x7f0b0102
+			public const int seekbar_value = 2131427586;
 			
 			// aapt resource value: 0x7f0b009b
 			public const int select_dialog_listview = 2131427483;
@@ -4383,8 +4389,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b002c
 			public const int showTitle = 2131427372;
 			
-			// aapt resource value: 0x7f0b00c8
-			public const int smallLabel = 2131427528;
+			// aapt resource value: 0x7f0b00ca
+			public const int smallLabel = 2131427530;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int snackbar_action = 2131427350;
@@ -4401,8 +4407,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0073
 			public const int spacer = 2131427443;
 			
-			// aapt resource value: 0x7f0b00fd
-			public const int spinner = 2131427581;
+			// aapt resource value: 0x7f0b00ff
+			public const int spinner = 2131427583;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
@@ -4419,8 +4425,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0056
 			public const int start = 2131427414;
 			
-			// aapt resource value: 0x7f0b00ef
-			public const int status_bar_latest_event_content = 2131427567;
+			// aapt resource value: 0x7f0b00f1
+			public const int status_bar_latest_event_content = 2131427569;
 			
 			// aapt resource value: 0x7f0b005b
 			public const int stretch = 2131427419;
@@ -4431,8 +4437,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0098
 			public const int submit_area = 2131427480;
 			
-			// aapt resource value: 0x7f0b0101
-			public const int switchWidget = 2131427585;
+			// aapt resource value: 0x7f0b0103
+			public const int switchWidget = 2131427587;
 			
 			// aapt resource value: 0x7f0b0026
 			public const int tabMode = 2131427366;
@@ -4461,11 +4467,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b005a
 			public const int textStart = 2131427418;
 			
-			// aapt resource value: 0x7f0b0103
-			public const int textView1 = 2131427587;
+			// aapt resource value: 0x7f0b0105
+			public const int textView1 = 2131427589;
 			
-			// aapt resource value: 0x7f0b00d3
-			public const int text_input_password_toggle = 2131427539;
+			// aapt resource value: 0x7f0b00d5
+			public const int text_input_password_toggle = 2131427541;
 			
 			// aapt resource value: 0x7f0b0018
 			public const int textinput_counter = 2131427352;
@@ -4476,8 +4482,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b001a
 			public const int textinput_helper_text = 2131427354;
 			
-			// aapt resource value: 0x7f0b00f5
-			public const int time = 2131427573;
+			// aapt resource value: 0x7f0b00f7
+			public const int time = 2131427575;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int title = 2131427363;
@@ -4494,8 +4500,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b007d
 			public const int topPanel = 2131427453;
 			
-			// aapt resource value: 0x7f0b00cc
-			public const int touch_outside = 2131427532;
+			// aapt resource value: 0x7f0b00ce
+			public const int touch_outside = 2131427534;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int transition_current_scene = 2131427343;
@@ -4527,8 +4533,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b001b
 			public const int view_offset_helper = 2131427355;
 			
-			// aapt resource value: 0x7f0b0105
-			public const int visible = 2131427589;
+			// aapt resource value: 0x7f0b0107
+			public const int visible = 2131427591;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int withText = 2131427395;
@@ -5178,11 +5184,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0074
 			public const int confirmCategoryDelete = 2131492980;
 			
-			// aapt resource value: 0x7f0c0083
-			public const int confirmEmptyPassword = 2131492995;
+			// aapt resource value: 0x7f0c0084
+			public const int confirmEmptyPassword = 2131492996;
 			
-			// aapt resource value: 0x7f0c0085
-			public const int continueString = 2131492997;
+			// aapt resource value: 0x7f0c0086
+			public const int continueString = 2131492998;
 			
 			// aapt resource value: 0x7f0c0045
 			public const int copiedToClipboard = 2131492933;
@@ -5241,11 +5247,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0056
 			public const int issuerHint = 2131492950;
 			
-			// aapt resource value: 0x7f0c0081
-			public const int login = 2131492993;
-			
 			// aapt resource value: 0x7f0c0082
-			public const int loginMessage = 2131492994;
+			public const int login = 2131492994;
+			
+			// aapt resource value: 0x7f0c0083
+			public const int loginMessage = 2131492995;
 			
 			// aapt resource value: 0x7f0c006e
 			public const int more = 2131492974;
@@ -5286,11 +5292,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0060
 			public const int openFile = 2131492960;
 			
-			// aapt resource value: 0x7f0c007f
-			public const int password = 2131492991;
-			
 			// aapt resource value: 0x7f0c0080
-			public const int passwordConfirm = 2131492992;
+			public const int password = 2131492992;
+			
+			// aapt resource value: 0x7f0c0081
+			public const int passwordConfirm = 2131492993;
 			
 			// aapt resource value: 0x7f0c005c
 			public const int passwordHint = 2131492956;
@@ -5316,44 +5322,44 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0068
 			public const int periodToShort = 2131492968;
 			
+			// aapt resource value: 0x7f0c0091
+			public const int pref_about_summary = 2131493009;
+			
 			// aapt resource value: 0x7f0c0090
-			public const int pref_about_summary = 2131493008;
-			
-			// aapt resource value: 0x7f0c008f
-			public const int pref_about_title = 2131493007;
-			
-			// aapt resource value: 0x7f0c008a
-			public const int pref_appLock_summary = 2131493002;
-			
-			// aapt resource value: 0x7f0c0089
-			public const int pref_appLock_title = 2131493001;
+			public const int pref_about_title = 2131493008;
 			
 			// aapt resource value: 0x7f0c008b
-			public const int pref_appearance = 2131493003;
+			public const int pref_appLock_summary = 2131493003;
 			
-			// aapt resource value: 0x7f0c0094
-			public const int pref_featureRequest_summary = 2131493012;
-			
-			// aapt resource value: 0x7f0c0093
-			public const int pref_featureRequest_title = 2131493011;
-			
-			// aapt resource value: 0x7f0c008e
-			public const int pref_more = 2131493006;
-			
-			// aapt resource value: 0x7f0c0092
-			public const int pref_rate_summary = 2131493010;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int pref_rate_title = 2131493009;
-			
-			// aapt resource value: 0x7f0c0088
-			public const int pref_security = 2131493000;
-			
-			// aapt resource value: 0x7f0c008d
-			public const int pref_useDarkTheme_summary = 2131493005;
+			// aapt resource value: 0x7f0c008a
+			public const int pref_appLock_title = 2131493002;
 			
 			// aapt resource value: 0x7f0c008c
-			public const int pref_useDarkTheme_title = 2131493004;
+			public const int pref_appearance = 2131493004;
+			
+			// aapt resource value: 0x7f0c0095
+			public const int pref_featureRequest_summary = 2131493013;
+			
+			// aapt resource value: 0x7f0c0094
+			public const int pref_featureRequest_title = 2131493012;
+			
+			// aapt resource value: 0x7f0c008f
+			public const int pref_more = 2131493007;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int pref_rate_summary = 2131493011;
+			
+			// aapt resource value: 0x7f0c0092
+			public const int pref_rate_title = 2131493010;
+			
+			// aapt resource value: 0x7f0c0089
+			public const int pref_security = 2131493001;
+			
+			// aapt resource value: 0x7f0c008e
+			public const int pref_useDarkTheme_summary = 2131493006;
+			
+			// aapt resource value: 0x7f0c008d
+			public const int pref_useDarkTheme_title = 2131493005;
 			
 			// aapt resource value: 0x7f0c0069
 			public const int qrCodeFormatError = 2131492969;
@@ -5385,6 +5391,9 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c005f
 			public const int saveFile = 2131492959;
 			
+			// aapt resource value: 0x7f0c007f
+			public const int saveSuccess = 2131492991;
+			
 			// aapt resource value: 0x7f0c0042
 			public const int scanBarcode = 2131492930;
 			
@@ -5406,8 +5415,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0077
 			public const int selectBackup = 2131492983;
 			
-			// aapt resource value: 0x7f0c0084
-			public const int sendEmail = 2131492996;
+			// aapt resource value: 0x7f0c0085
+			public const int sendEmail = 2131492997;
 			
 			// aapt resource value: 0x7f0c003e
 			public const int settings = 2131492926;
@@ -5439,11 +5448,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0046
 			public const int warning = 2131492934;
 			
-			// aapt resource value: 0x7f0c0087
-			public const int welcomeDescription = 2131492999;
+			// aapt resource value: 0x7f0c0088
+			public const int welcomeDescription = 2131493000;
 			
-			// aapt resource value: 0x7f0c0086
-			public const int welcomeTitle = 2131492998;
+			// aapt resource value: 0x7f0c0087
+			public const int welcomeTitle = 2131492999;
 			
 			static String()
 			{
