@@ -4,25 +4,29 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using AuthenticatorPro.Data;
 using SQLite;
+using Xamarin.Essentials;
 
 namespace AuthenticatorPro.Utilities
 {
     internal static class Database
     {
-        [DllImport("libProAuthKey", EntryPoint = "get_key")]
-        private static extern string GetDatabaseKey();
-
         public static async Task<SQLiteAsyncConnection> Connect()
         {
-            var key = GetDatabaseKey();
+            var databaseKey = await SecureStorage.GetAsync("database_key");
+
+            if(databaseKey == null)
+            {
+                databaseKey = Hash.SHA1(Guid.NewGuid().ToString());
+                await SecureStorage.SetAsync("database_key", databaseKey);
+            }
 
             var dbPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.Personal),
                 "proauth.db3"
             );
 
-            var connection = new SQLiteAsyncConnection(dbPath, true, key);
-            await connection.QueryAsync<int>($@"PRAGMA key='{key}'");
+            var connection = new SQLiteAsyncConnection(dbPath, true, databaseKey);
+            await connection.QueryAsync<int>($@"PRAGMA key='{databaseKey}'");
 
             await connection.CreateTableAsync<Authenticator>();
             await connection.CreateTableAsync<Category>();

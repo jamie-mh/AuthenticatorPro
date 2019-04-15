@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/52173245/how-to-call-c-library-code-from-xamarin-forms-project-dllnotfoundexception

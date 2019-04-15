@@ -28,6 +28,188 @@ namespace AuthenticatorPro
 		{
 			global::PCLCrypto.Resource.String.ApplicationName = global::AuthenticatorPro.Resource.String.ApplicationName;
 			global::PCLCrypto.Resource.String.Hello = global::AuthenticatorPro.Resource.String.Hello;
+			global::Xamarin.Essentials.Resource.Attribute.alpha = global::AuthenticatorPro.Resource.Attribute.alpha;
+			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::AuthenticatorPro.Resource.Attribute.coordinatorLayoutStyle;
+			global::Xamarin.Essentials.Resource.Attribute.font = global::AuthenticatorPro.Resource.Attribute.font;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::AuthenticatorPro.Resource.Attribute.fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::AuthenticatorPro.Resource.Attribute.fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::AuthenticatorPro.Resource.Attribute.fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::AuthenticatorPro.Resource.Attribute.fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::AuthenticatorPro.Resource.Attribute.fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::AuthenticatorPro.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::AuthenticatorPro.Resource.Attribute.fontStyle;
+			global::Xamarin.Essentials.Resource.Attribute.fontVariationSettings = global::AuthenticatorPro.Resource.Attribute.fontVariationSettings;
+			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::AuthenticatorPro.Resource.Attribute.fontWeight;
+			global::Xamarin.Essentials.Resource.Attribute.keylines = global::AuthenticatorPro.Resource.Attribute.keylines;
+			global::Xamarin.Essentials.Resource.Attribute.layout_anchor = global::AuthenticatorPro.Resource.Attribute.layout_anchor;
+			global::Xamarin.Essentials.Resource.Attribute.layout_anchorGravity = global::AuthenticatorPro.Resource.Attribute.layout_anchorGravity;
+			global::Xamarin.Essentials.Resource.Attribute.layout_behavior = global::AuthenticatorPro.Resource.Attribute.layout_behavior;
+			global::Xamarin.Essentials.Resource.Attribute.layout_dodgeInsetEdges = global::AuthenticatorPro.Resource.Attribute.layout_dodgeInsetEdges;
+			global::Xamarin.Essentials.Resource.Attribute.layout_insetEdge = global::AuthenticatorPro.Resource.Attribute.layout_insetEdge;
+			global::Xamarin.Essentials.Resource.Attribute.layout_keyline = global::AuthenticatorPro.Resource.Attribute.layout_keyline;
+			global::Xamarin.Essentials.Resource.Attribute.statusBarBackground = global::AuthenticatorPro.Resource.Attribute.statusBarBackground;
+			global::Xamarin.Essentials.Resource.Attribute.ttcIndex = global::AuthenticatorPro.Resource.Attribute.ttcIndex;
+			global::Xamarin.Essentials.Resource.Color.browser_actions_bg_grey = global::AuthenticatorPro.Resource.Color.browser_actions_bg_grey;
+			global::Xamarin.Essentials.Resource.Color.browser_actions_divider_color = global::AuthenticatorPro.Resource.Color.browser_actions_divider_color;
+			global::Xamarin.Essentials.Resource.Color.browser_actions_text_color = global::AuthenticatorPro.Resource.Color.browser_actions_text_color;
+			global::Xamarin.Essentials.Resource.Color.browser_actions_title_color = global::AuthenticatorPro.Resource.Color.browser_actions_title_color;
+			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::AuthenticatorPro.Resource.Color.notification_action_color_filter;
+			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::AuthenticatorPro.Resource.Color.notification_icon_bg_color;
+			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::AuthenticatorPro.Resource.Color.ripple_material_light;
+			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::AuthenticatorPro.Resource.Color.secondary_text_default_material_light;
+			global::Xamarin.Essentials.Resource.Dimension.browser_actions_context_menu_max_width = global::AuthenticatorPro.Resource.Dimension.browser_actions_context_menu_max_width;
+			global::Xamarin.Essentials.Resource.Dimension.browser_actions_context_menu_min_padding = global::AuthenticatorPro.Resource.Dimension.browser_actions_context_menu_min_padding;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::AuthenticatorPro.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::AuthenticatorPro.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::AuthenticatorPro.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::AuthenticatorPro.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::AuthenticatorPro.Resource.Dimension.compat_control_corner_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_notification_large_icon_max_height = global::AuthenticatorPro.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::Xamarin.Essentials.Resource.Dimension.compat_notification_large_icon_max_width = global::AuthenticatorPro.Resource.Dimension.compat_notification_large_icon_max_width;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::AuthenticatorPro.Resource.Dimension.notification_action_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::AuthenticatorPro.Resource.Dimension.notification_action_text_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::AuthenticatorPro.Resource.Dimension.notification_big_circle_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::AuthenticatorPro.Resource.Dimension.notification_content_margin_start;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::AuthenticatorPro.Resource.Dimension.notification_large_icon_height;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::AuthenticatorPro.Resource.Dimension.notification_large_icon_width;
+			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::AuthenticatorPro.Resource.Dimension.notification_main_column_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::AuthenticatorPro.Resource.Dimension.notification_media_narrow_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::AuthenticatorPro.Resource.Dimension.notification_right_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::AuthenticatorPro.Resource.Dimension.notification_right_side_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::AuthenticatorPro.Resource.Dimension.notification_small_icon_background_padding;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::AuthenticatorPro.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::AuthenticatorPro.Resource.Dimension.notification_subtext_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::AuthenticatorPro.Resource.Dimension.notification_top_pad;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::AuthenticatorPro.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::AuthenticatorPro.Resource.Drawable.notification_action_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::AuthenticatorPro.Resource.Drawable.notification_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::AuthenticatorPro.Resource.Drawable.notification_bg_low;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::AuthenticatorPro.Resource.Drawable.notification_bg_low_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::AuthenticatorPro.Resource.Drawable.notification_bg_low_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::AuthenticatorPro.Resource.Drawable.notification_bg_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::AuthenticatorPro.Resource.Drawable.notification_bg_normal_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::AuthenticatorPro.Resource.Drawable.notification_icon_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::AuthenticatorPro.Resource.Drawable.notification_template_icon_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::AuthenticatorPro.Resource.Drawable.notification_template_icon_low_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::AuthenticatorPro.Resource.Drawable.notification_tile_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::AuthenticatorPro.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Essentials.Resource.Id.action_container = global::AuthenticatorPro.Resource.Id.action_container;
+			global::Xamarin.Essentials.Resource.Id.action_divider = global::AuthenticatorPro.Resource.Id.action_divider;
+			global::Xamarin.Essentials.Resource.Id.action_image = global::AuthenticatorPro.Resource.Id.action_image;
+			global::Xamarin.Essentials.Resource.Id.action_text = global::AuthenticatorPro.Resource.Id.action_text;
+			global::Xamarin.Essentials.Resource.Id.actions = global::AuthenticatorPro.Resource.Id.actions;
+			global::Xamarin.Essentials.Resource.Id.all = global::AuthenticatorPro.Resource.Id.all;
+			global::Xamarin.Essentials.Resource.Id.async = global::AuthenticatorPro.Resource.Id.async;
+			global::Xamarin.Essentials.Resource.Id.blocking = global::AuthenticatorPro.Resource.Id.blocking;
+			global::Xamarin.Essentials.Resource.Id.bottom = global::AuthenticatorPro.Resource.Id.bottom;
+			global::Xamarin.Essentials.Resource.Id.browser_actions_header_text = global::AuthenticatorPro.Resource.Id.browser_actions_header_text;
+			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_icon = global::AuthenticatorPro.Resource.Id.browser_actions_menu_item_icon;
+			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_text = global::AuthenticatorPro.Resource.Id.browser_actions_menu_item_text;
+			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_items = global::AuthenticatorPro.Resource.Id.browser_actions_menu_items;
+			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_view = global::AuthenticatorPro.Resource.Id.browser_actions_menu_view;
+			global::Xamarin.Essentials.Resource.Id.center = global::AuthenticatorPro.Resource.Id.center;
+			global::Xamarin.Essentials.Resource.Id.center_horizontal = global::AuthenticatorPro.Resource.Id.center_horizontal;
+			global::Xamarin.Essentials.Resource.Id.center_vertical = global::AuthenticatorPro.Resource.Id.center_vertical;
+			global::Xamarin.Essentials.Resource.Id.chronometer = global::AuthenticatorPro.Resource.Id.chronometer;
+			global::Xamarin.Essentials.Resource.Id.clip_horizontal = global::AuthenticatorPro.Resource.Id.clip_horizontal;
+			global::Xamarin.Essentials.Resource.Id.clip_vertical = global::AuthenticatorPro.Resource.Id.clip_vertical;
+			global::Xamarin.Essentials.Resource.Id.end = global::AuthenticatorPro.Resource.Id.end;
+			global::Xamarin.Essentials.Resource.Id.fill = global::AuthenticatorPro.Resource.Id.fill;
+			global::Xamarin.Essentials.Resource.Id.fill_horizontal = global::AuthenticatorPro.Resource.Id.fill_horizontal;
+			global::Xamarin.Essentials.Resource.Id.fill_vertical = global::AuthenticatorPro.Resource.Id.fill_vertical;
+			global::Xamarin.Essentials.Resource.Id.forever = global::AuthenticatorPro.Resource.Id.forever;
+			global::Xamarin.Essentials.Resource.Id.icon = global::AuthenticatorPro.Resource.Id.icon;
+			global::Xamarin.Essentials.Resource.Id.icon_group = global::AuthenticatorPro.Resource.Id.icon_group;
+			global::Xamarin.Essentials.Resource.Id.info = global::AuthenticatorPro.Resource.Id.info;
+			global::Xamarin.Essentials.Resource.Id.italic = global::AuthenticatorPro.Resource.Id.italic;
+			global::Xamarin.Essentials.Resource.Id.left = global::AuthenticatorPro.Resource.Id.left;
+			global::Xamarin.Essentials.Resource.Id.line1 = global::AuthenticatorPro.Resource.Id.line1;
+			global::Xamarin.Essentials.Resource.Id.line3 = global::AuthenticatorPro.Resource.Id.line3;
+			global::Xamarin.Essentials.Resource.Id.none = global::AuthenticatorPro.Resource.Id.none;
+			global::Xamarin.Essentials.Resource.Id.normal = global::AuthenticatorPro.Resource.Id.normal;
+			global::Xamarin.Essentials.Resource.Id.notification_background = global::AuthenticatorPro.Resource.Id.notification_background;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::AuthenticatorPro.Resource.Id.notification_main_column;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::AuthenticatorPro.Resource.Id.notification_main_column_container;
+			global::Xamarin.Essentials.Resource.Id.right = global::AuthenticatorPro.Resource.Id.right;
+			global::Xamarin.Essentials.Resource.Id.right_icon = global::AuthenticatorPro.Resource.Id.right_icon;
+			global::Xamarin.Essentials.Resource.Id.right_side = global::AuthenticatorPro.Resource.Id.right_side;
+			global::Xamarin.Essentials.Resource.Id.start = global::AuthenticatorPro.Resource.Id.start;
+			global::Xamarin.Essentials.Resource.Id.tag_transition_group = global::AuthenticatorPro.Resource.Id.tag_transition_group;
+			global::Xamarin.Essentials.Resource.Id.tag_unhandled_key_event_manager = global::AuthenticatorPro.Resource.Id.tag_unhandled_key_event_manager;
+			global::Xamarin.Essentials.Resource.Id.tag_unhandled_key_listeners = global::AuthenticatorPro.Resource.Id.tag_unhandled_key_listeners;
+			global::Xamarin.Essentials.Resource.Id.text = global::AuthenticatorPro.Resource.Id.text;
+			global::Xamarin.Essentials.Resource.Id.text2 = global::AuthenticatorPro.Resource.Id.text2;
+			global::Xamarin.Essentials.Resource.Id.time = global::AuthenticatorPro.Resource.Id.time;
+			global::Xamarin.Essentials.Resource.Id.title = global::AuthenticatorPro.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Id.top = global::AuthenticatorPro.Resource.Id.top;
+			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::AuthenticatorPro.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::AuthenticatorPro.Resource.Layout.browser_actions_context_menu_page;
+			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::AuthenticatorPro.Resource.Layout.browser_actions_context_menu_row;
+			global::Xamarin.Essentials.Resource.Layout.notification_action = global::AuthenticatorPro.Resource.Layout.notification_action;
+			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::AuthenticatorPro.Resource.Layout.notification_action_tombstone;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::AuthenticatorPro.Resource.Layout.notification_template_custom_big;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::AuthenticatorPro.Resource.Layout.notification_template_icon_group;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::AuthenticatorPro.Resource.Layout.notification_template_part_chronometer;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::AuthenticatorPro.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::AuthenticatorPro.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::AuthenticatorPro.Resource.Style.TextAppearance_Compat_Notification;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::AuthenticatorPro.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::AuthenticatorPro.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::AuthenticatorPro.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::AuthenticatorPro.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::AuthenticatorPro.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::AuthenticatorPro.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Xamarin.Essentials.Resource.Style.Widget_Support_CoordinatorLayout = global::AuthenticatorPro.Resource.Style.Widget_Support_CoordinatorLayout;
+			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::AuthenticatorPro.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
+			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem = global::AuthenticatorPro.Resource.Styleable.ColorStateListItem;
+			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_alpha = global::AuthenticatorPro.Resource.Styleable.ColorStateListItem_alpha;
+			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_alpha = global::AuthenticatorPro.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_color = global::AuthenticatorPro.Resource.Styleable.ColorStateListItem_android_color;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_keylines = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_keylines;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_statusBarBackground;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::AuthenticatorPro.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::AuthenticatorPro.Resource.Styleable.FontFamily;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::AuthenticatorPro.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::AuthenticatorPro.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::AuthenticatorPro.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::AuthenticatorPro.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::AuthenticatorPro.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::AuthenticatorPro.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_android_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontWeight = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_android_ttcIndex;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_fontVariationSettings;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_ttcIndex = global::AuthenticatorPro.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor = global::AuthenticatorPro.Resource.Styleable.GradientColor;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerColor = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_centerColor;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerX = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_centerX;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerY = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_centerY;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_endColor = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_endColor;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_endX = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_endX;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_endY = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_endY;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_gradientRadius = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startColor = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_startColor;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startX = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_startX;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startY = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_startY;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_tileMode = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_tileMode;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_type = global::AuthenticatorPro.Resource.Styleable.GradientColor_android_type;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem = global::AuthenticatorPro.Resource.Styleable.GradientColorItem;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_color = global::AuthenticatorPro.Resource.Styleable.GradientColorItem_android_color;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_offset = global::AuthenticatorPro.Resource.Styleable.GradientColorItem_android_offset;
 			global::ZXing.Mobile.Resource.Id.contentFrame = global::AuthenticatorPro.Resource.Id.contentFrame;
 			global::ZXing.Mobile.Resource.Layout.zxingscanneractivitylayout = global::AuthenticatorPro.Resource.Layout.zxingscanneractivitylayout;
 			global::ZXing.Mobile.Resource.Layout.zxingscannerfragmentlayout = global::AuthenticatorPro.Resource.Layout.zxingscannerfragmentlayout;
@@ -1895,44 +2077,44 @@ namespace AuthenticatorPro
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0f0061
-			public const int abc_background_cache_hint_selector_material_dark = 2131689569;
-			
-			// aapt resource value: 0x7f0f0062
-			public const int abc_background_cache_hint_selector_material_light = 2131689570;
-			
-			// aapt resource value: 0x7f0f0063
-			public const int abc_btn_colored_borderless_text_material = 2131689571;
-			
-			// aapt resource value: 0x7f0f0064
-			public const int abc_btn_colored_text_material = 2131689572;
-			
 			// aapt resource value: 0x7f0f0065
-			public const int abc_color_highlight_material = 2131689573;
+			public const int abc_background_cache_hint_selector_material_dark = 2131689573;
 			
 			// aapt resource value: 0x7f0f0066
-			public const int abc_hint_foreground_material_dark = 2131689574;
+			public const int abc_background_cache_hint_selector_material_light = 2131689574;
 			
 			// aapt resource value: 0x7f0f0067
-			public const int abc_hint_foreground_material_light = 2131689575;
+			public const int abc_btn_colored_borderless_text_material = 2131689575;
+			
+			// aapt resource value: 0x7f0f0068
+			public const int abc_btn_colored_text_material = 2131689576;
+			
+			// aapt resource value: 0x7f0f0069
+			public const int abc_color_highlight_material = 2131689577;
+			
+			// aapt resource value: 0x7f0f006a
+			public const int abc_hint_foreground_material_dark = 2131689578;
+			
+			// aapt resource value: 0x7f0f006b
+			public const int abc_hint_foreground_material_light = 2131689579;
 			
 			// aapt resource value: 0x7f0f0005
 			public const int abc_input_method_navigation_guard = 2131689477;
 			
-			// aapt resource value: 0x7f0f0068
-			public const int abc_primary_text_disable_only_material_dark = 2131689576;
-			
-			// aapt resource value: 0x7f0f0069
-			public const int abc_primary_text_disable_only_material_light = 2131689577;
-			
-			// aapt resource value: 0x7f0f006a
-			public const int abc_primary_text_material_dark = 2131689578;
-			
-			// aapt resource value: 0x7f0f006b
-			public const int abc_primary_text_material_light = 2131689579;
-			
 			// aapt resource value: 0x7f0f006c
-			public const int abc_search_url_text = 2131689580;
+			public const int abc_primary_text_disable_only_material_dark = 2131689580;
+			
+			// aapt resource value: 0x7f0f006d
+			public const int abc_primary_text_disable_only_material_light = 2131689581;
+			
+			// aapt resource value: 0x7f0f006e
+			public const int abc_primary_text_material_dark = 2131689582;
+			
+			// aapt resource value: 0x7f0f006f
+			public const int abc_primary_text_material_light = 2131689583;
+			
+			// aapt resource value: 0x7f0f0070
+			public const int abc_search_url_text = 2131689584;
 			
 			// aapt resource value: 0x7f0f0006
 			public const int abc_search_url_text_normal = 2131689478;
@@ -1943,29 +2125,29 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f0008
 			public const int abc_search_url_text_selected = 2131689480;
 			
-			// aapt resource value: 0x7f0f006d
-			public const int abc_secondary_text_material_dark = 2131689581;
-			
-			// aapt resource value: 0x7f0f006e
-			public const int abc_secondary_text_material_light = 2131689582;
-			
-			// aapt resource value: 0x7f0f006f
-			public const int abc_tint_btn_checkable = 2131689583;
-			
-			// aapt resource value: 0x7f0f0070
-			public const int abc_tint_default = 2131689584;
-			
 			// aapt resource value: 0x7f0f0071
-			public const int abc_tint_edittext = 2131689585;
+			public const int abc_secondary_text_material_dark = 2131689585;
 			
 			// aapt resource value: 0x7f0f0072
-			public const int abc_tint_seek_thumb = 2131689586;
+			public const int abc_secondary_text_material_light = 2131689586;
 			
 			// aapt resource value: 0x7f0f0073
-			public const int abc_tint_spinner = 2131689587;
+			public const int abc_tint_btn_checkable = 2131689587;
 			
 			// aapt resource value: 0x7f0f0074
-			public const int abc_tint_switch_track = 2131689588;
+			public const int abc_tint_default = 2131689588;
+			
+			// aapt resource value: 0x7f0f0075
+			public const int abc_tint_edittext = 2131689589;
+			
+			// aapt resource value: 0x7f0f0076
+			public const int abc_tint_seek_thumb = 2131689590;
+			
+			// aapt resource value: 0x7f0f0077
+			public const int abc_tint_spinner = 2131689591;
+			
+			// aapt resource value: 0x7f0f0078
+			public const int abc_tint_switch_track = 2131689592;
 			
 			// aapt resource value: 0x7f0f0009
 			public const int accent_material_dark = 2131689481;
@@ -2003,6 +2185,18 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f0014
 			public const int bright_foreground_material_light = 2131689492;
 			
+			// aapt resource value: 0x7f0f0055
+			public const int browser_actions_bg_grey = 2131689557;
+			
+			// aapt resource value: 0x7f0f0056
+			public const int browser_actions_divider_color = 2131689558;
+			
+			// aapt resource value: 0x7f0f0057
+			public const int browser_actions_text_color = 2131689559;
+			
+			// aapt resource value: 0x7f0f0058
+			public const int browser_actions_title_color = 2131689560;
+			
 			// aapt resource value: 0x7f0f0015
 			public const int button_material_dark = 2131689493;
 			
@@ -2021,32 +2215,32 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f0004
 			public const int cardview_shadow_start_color = 2131689476;
 			
-			// aapt resource value: 0x7f0f0059
-			public const int colorAccent = 2131689561;
-			
-			// aapt resource value: 0x7f0f005a
-			public const int colorAccentDark = 2131689562;
-			
 			// aapt resource value: 0x7f0f005d
-			public const int colorDark = 2131689565;
+			public const int colorAccent = 2131689565;
 			
 			// aapt resource value: 0x7f0f005e
-			public const int colorDarker = 2131689566;
+			public const int colorAccentDark = 2131689566;
+			
+			// aapt resource value: 0x7f0f0061
+			public const int colorDark = 2131689569;
+			
+			// aapt resource value: 0x7f0f0062
+			public const int colorDarker = 2131689570;
+			
+			// aapt resource value: 0x7f0f0063
+			public const int colorDarkest = 2131689571;
 			
 			// aapt resource value: 0x7f0f005f
-			public const int colorDarkest = 2131689567;
+			public const int colorLight = 2131689567;
+			
+			// aapt resource value: 0x7f0f0060
+			public const int colorLighter = 2131689568;
 			
 			// aapt resource value: 0x7f0f005b
-			public const int colorLight = 2131689563;
+			public const int colorPrimary = 2131689563;
 			
 			// aapt resource value: 0x7f0f005c
-			public const int colorLighter = 2131689564;
-			
-			// aapt resource value: 0x7f0f0057
-			public const int colorPrimary = 2131689559;
-			
-			// aapt resource value: 0x7f0f0058
-			public const int colorPrimaryDark = 2131689560;
+			public const int colorPrimaryDark = 2131689564;
 			
 			// aapt resource value: 0x7f0f0042
 			public const int design_bottom_navigation_shadow_color = 2131689538;
@@ -2057,8 +2251,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f0044
 			public const int design_default_color_primary_dark = 2131689540;
 			
-			// aapt resource value: 0x7f0f0075
-			public const int design_error = 2131689589;
+			// aapt resource value: 0x7f0f0079
+			public const int design_error = 2131689593;
 			
 			// aapt resource value: 0x7f0f0045
 			public const int design_fab_shadow_end_color = 2131689541;
@@ -2084,8 +2278,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f004c
 			public const int design_snackbar_background_color = 2131689548;
 			
-			// aapt resource value: 0x7f0f0076
-			public const int design_tint_password_toggle = 2131689590;
+			// aapt resource value: 0x7f0f007a
+			public const int design_tint_password_toggle = 2131689594;
 			
 			// aapt resource value: 0x7f0f0017
 			public const int dim_foreground_disabled_material_dark = 2131689495;
@@ -2099,8 +2293,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f001a
 			public const int dim_foreground_material_light = 2131689498;
 			
-			// aapt resource value: 0x7f0f0077
-			public const int drawer_item = 2131689591;
+			// aapt resource value: 0x7f0f007b
+			public const int drawer_item = 2131689595;
 			
 			// aapt resource value: 0x7f0f001b
 			public const int error_color_material_dark = 2131689499;
@@ -2120,8 +2314,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f0020
 			public const int highlighted_text_material_light = 2131689504;
 			
-			// aapt resource value: 0x7f0f0060
-			public const int ic_launcher_background = 2131689568;
+			// aapt resource value: 0x7f0f0064
+			public const int ic_launcher_background = 2131689572;
 			
 			// aapt resource value: 0x7f0f0021
 			public const int material_blue_grey_800 = 2131689505;
@@ -2159,71 +2353,71 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f002c
 			public const int material_grey_900 = 2131689516;
 			
-			// aapt resource value: 0x7f0f0078
-			public const int mtrl_bottom_nav_colored_item_tint = 2131689592;
+			// aapt resource value: 0x7f0f007c
+			public const int mtrl_bottom_nav_colored_item_tint = 2131689596;
 			
-			// aapt resource value: 0x7f0f0079
-			public const int mtrl_bottom_nav_item_tint = 2131689593;
+			// aapt resource value: 0x7f0f007d
+			public const int mtrl_bottom_nav_item_tint = 2131689597;
 			
 			// aapt resource value: 0x7f0f004d
 			public const int mtrl_btn_bg_color_disabled = 2131689549;
 			
-			// aapt resource value: 0x7f0f007a
-			public const int mtrl_btn_bg_color_selector = 2131689594;
+			// aapt resource value: 0x7f0f007e
+			public const int mtrl_btn_bg_color_selector = 2131689598;
 			
-			// aapt resource value: 0x7f0f007b
-			public const int mtrl_btn_ripple_color = 2131689595;
+			// aapt resource value: 0x7f0f007f
+			public const int mtrl_btn_ripple_color = 2131689599;
 			
-			// aapt resource value: 0x7f0f007c
-			public const int mtrl_btn_stroke_color_selector = 2131689596;
+			// aapt resource value: 0x7f0f0080
+			public const int mtrl_btn_stroke_color_selector = 2131689600;
 			
-			// aapt resource value: 0x7f0f007d
-			public const int mtrl_btn_text_btn_ripple_color = 2131689597;
+			// aapt resource value: 0x7f0f0081
+			public const int mtrl_btn_text_btn_ripple_color = 2131689601;
 			
 			// aapt resource value: 0x7f0f004e
 			public const int mtrl_btn_text_color_disabled = 2131689550;
 			
-			// aapt resource value: 0x7f0f007e
-			public const int mtrl_btn_text_color_selector = 2131689598;
+			// aapt resource value: 0x7f0f0082
+			public const int mtrl_btn_text_color_selector = 2131689602;
 			
 			// aapt resource value: 0x7f0f004f
 			public const int mtrl_btn_transparent_bg_color = 2131689551;
 			
-			// aapt resource value: 0x7f0f007f
-			public const int mtrl_chip_background_color = 2131689599;
-			
-			// aapt resource value: 0x7f0f0080
-			public const int mtrl_chip_close_icon_tint = 2131689600;
-			
-			// aapt resource value: 0x7f0f0081
-			public const int mtrl_chip_ripple_color = 2131689601;
-			
-			// aapt resource value: 0x7f0f0082
-			public const int mtrl_chip_text_color = 2131689602;
-			
 			// aapt resource value: 0x7f0f0083
-			public const int mtrl_fab_ripple_color = 2131689603;
+			public const int mtrl_chip_background_color = 2131689603;
+			
+			// aapt resource value: 0x7f0f0084
+			public const int mtrl_chip_close_icon_tint = 2131689604;
+			
+			// aapt resource value: 0x7f0f0085
+			public const int mtrl_chip_ripple_color = 2131689605;
+			
+			// aapt resource value: 0x7f0f0086
+			public const int mtrl_chip_text_color = 2131689606;
+			
+			// aapt resource value: 0x7f0f0087
+			public const int mtrl_fab_ripple_color = 2131689607;
 			
 			// aapt resource value: 0x7f0f0050
 			public const int mtrl_scrim_color = 2131689552;
 			
-			// aapt resource value: 0x7f0f0084
-			public const int mtrl_tabs_colored_ripple_color = 2131689604;
-			
-			// aapt resource value: 0x7f0f0085
-			public const int mtrl_tabs_icon_color_selector = 2131689605;
-			
-			// aapt resource value: 0x7f0f0086
-			public const int mtrl_tabs_icon_color_selector_colored = 2131689606;
-			
-			// aapt resource value: 0x7f0f0087
-			public const int mtrl_tabs_legacy_text_color_selector = 2131689607;
-			
 			// aapt resource value: 0x7f0f0088
-			public const int mtrl_tabs_ripple_color = 2131689608;
+			public const int mtrl_tabs_colored_ripple_color = 2131689608;
 			
 			// aapt resource value: 0x7f0f0089
-			public const int mtrl_text_btn_text_color_selector = 2131689609;
+			public const int mtrl_tabs_icon_color_selector = 2131689609;
+			
+			// aapt resource value: 0x7f0f008a
+			public const int mtrl_tabs_icon_color_selector_colored = 2131689610;
+			
+			// aapt resource value: 0x7f0f008b
+			public const int mtrl_tabs_legacy_text_color_selector = 2131689611;
+			
+			// aapt resource value: 0x7f0f008c
+			public const int mtrl_tabs_ripple_color = 2131689612;
+			
+			// aapt resource value: 0x7f0f008d
+			public const int mtrl_text_btn_text_color_selector = 2131689613;
 			
 			// aapt resource value: 0x7f0f0051
 			public const int mtrl_textinput_default_box_stroke_color = 2131689553;
@@ -2237,11 +2431,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f0054
 			public const int mtrl_textinput_hovered_box_stroke_color = 2131689556;
 			
-			// aapt resource value: 0x7f0f0055
-			public const int notification_action_color_filter = 2131689557;
+			// aapt resource value: 0x7f0f0059
+			public const int notification_action_color_filter = 2131689561;
 			
-			// aapt resource value: 0x7f0f0056
-			public const int notification_icon_bg_color = 2131689558;
+			// aapt resource value: 0x7f0f005a
+			public const int notification_icon_bg_color = 2131689562;
 			
 			// aapt resource value: 0x7f0f0041
 			public const int notification_material_background_media_default_color = 2131689537;
@@ -2297,11 +2491,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0f003c
 			public const int switch_thumb_disabled_material_light = 2131689532;
 			
-			// aapt resource value: 0x7f0f008a
-			public const int switch_thumb_material_dark = 2131689610;
+			// aapt resource value: 0x7f0f008e
+			public const int switch_thumb_material_dark = 2131689614;
 			
-			// aapt resource value: 0x7f0f008b
-			public const int switch_thumb_material_light = 2131689611;
+			// aapt resource value: 0x7f0f008f
+			public const int switch_thumb_material_light = 2131689615;
 			
 			// aapt resource value: 0x7f0f003d
 			public const int switch_thumb_normal_material_dark = 2131689533;
@@ -2553,6 +2747,12 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0a0012
 			public const int abc_text_size_title_material_toolbar = 2131361810;
 			
+			// aapt resource value: 0x7f0a00cb
+			public const int browser_actions_context_menu_max_width = 2131361995;
+			
+			// aapt resource value: 0x7f0a00cc
+			public const int browser_actions_context_menu_min_padding = 2131361996;
+			
 			// aapt resource value: 0x7f0a000c
 			public const int cardview_compat_inset_shadow = 2131361804;
 			
@@ -2562,26 +2762,26 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0a000e
 			public const int cardview_default_radius = 2131361806;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int compat_button_inset_horizontal_material = 2131361999;
-			
-			// aapt resource value: 0x7f0a00d0
-			public const int compat_button_inset_vertical_material = 2131362000;
-			
 			// aapt resource value: 0x7f0a00d1
-			public const int compat_button_padding_horizontal_material = 2131362001;
+			public const int compat_button_inset_horizontal_material = 2131362001;
 			
 			// aapt resource value: 0x7f0a00d2
-			public const int compat_button_padding_vertical_material = 2131362002;
+			public const int compat_button_inset_vertical_material = 2131362002;
 			
 			// aapt resource value: 0x7f0a00d3
-			public const int compat_control_corner_material = 2131362003;
+			public const int compat_button_padding_horizontal_material = 2131362003;
 			
 			// aapt resource value: 0x7f0a00d4
-			public const int compat_notification_large_icon_max_height = 2131362004;
+			public const int compat_button_padding_vertical_material = 2131362004;
 			
 			// aapt resource value: 0x7f0a00d5
-			public const int compat_notification_large_icon_max_width = 2131362005;
+			public const int compat_control_corner_material = 2131362005;
+			
+			// aapt resource value: 0x7f0a00d6
+			public const int compat_notification_large_icon_max_height = 2131362006;
+			
+			// aapt resource value: 0x7f0a00d7
+			public const int compat_notification_large_icon_max_width = 2131362007;
 			
 			// aapt resource value: 0x7f0a0077
 			public const int design_appbar_elevation = 2131361911;
@@ -2904,50 +3104,50 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0a00ca
 			public const int mtrl_toolbar_default_height = 2131361994;
 			
-			// aapt resource value: 0x7f0a00d6
-			public const int notification_action_icon_size = 2131362006;
-			
-			// aapt resource value: 0x7f0a00d7
-			public const int notification_action_text_size = 2131362007;
-			
 			// aapt resource value: 0x7f0a00d8
-			public const int notification_big_circle_margin = 2131362008;
-			
-			// aapt resource value: 0x7f0a00cc
-			public const int notification_content_margin_start = 2131361996;
+			public const int notification_action_icon_size = 2131362008;
 			
 			// aapt resource value: 0x7f0a00d9
-			public const int notification_large_icon_height = 2131362009;
+			public const int notification_action_text_size = 2131362009;
 			
 			// aapt resource value: 0x7f0a00da
-			public const int notification_large_icon_width = 2131362010;
-			
-			// aapt resource value: 0x7f0a00cd
-			public const int notification_main_column_padding_top = 2131361997;
+			public const int notification_big_circle_margin = 2131362010;
 			
 			// aapt resource value: 0x7f0a00ce
-			public const int notification_media_narrow_margin = 2131361998;
+			public const int notification_content_margin_start = 2131361998;
 			
 			// aapt resource value: 0x7f0a00db
-			public const int notification_right_icon_size = 2131362011;
-			
-			// aapt resource value: 0x7f0a00cb
-			public const int notification_right_side_padding_top = 2131361995;
+			public const int notification_large_icon_height = 2131362011;
 			
 			// aapt resource value: 0x7f0a00dc
-			public const int notification_small_icon_background_padding = 2131362012;
+			public const int notification_large_icon_width = 2131362012;
+			
+			// aapt resource value: 0x7f0a00cf
+			public const int notification_main_column_padding_top = 2131361999;
+			
+			// aapt resource value: 0x7f0a00d0
+			public const int notification_media_narrow_margin = 2131362000;
 			
 			// aapt resource value: 0x7f0a00dd
-			public const int notification_small_icon_size_as_large = 2131362013;
+			public const int notification_right_icon_size = 2131362013;
+			
+			// aapt resource value: 0x7f0a00cd
+			public const int notification_right_side_padding_top = 2131361997;
 			
 			// aapt resource value: 0x7f0a00de
-			public const int notification_subtext_size = 2131362014;
+			public const int notification_small_icon_background_padding = 2131362014;
 			
 			// aapt resource value: 0x7f0a00df
-			public const int notification_top_pad = 2131362015;
+			public const int notification_small_icon_size_as_large = 2131362015;
 			
 			// aapt resource value: 0x7f0a00e0
-			public const int notification_top_pad_large_text = 2131362016;
+			public const int notification_subtext_size = 2131362016;
+			
+			// aapt resource value: 0x7f0a00e1
+			public const int notification_top_pad = 2131362017;
+			
+			// aapt resource value: 0x7f0a00e2
+			public const int notification_top_pad_large_text = 2131362018;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int preference_category_padding_start = 2131361798;
@@ -3771,17 +3971,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b003e
 			public const int SYM = 2131427390;
 			
-			// aapt resource value: 0x7f0b00ef
-			public const int action0 = 2131427567;
-			
-			// aapt resource value: 0x7f0b010a
-			public const int actionEnterKey = 2131427594;
-			
-			// aapt resource value: 0x7f0b0109
-			public const int actionScan = 2131427593;
+			// aapt resource value: 0x7f0b00f4
+			public const int action0 = 2131427572;
 			
 			// aapt resource value: 0x7f0b010f
-			public const int actionSearch = 2131427599;
+			public const int actionEnterKey = 2131427599;
+			
+			// aapt resource value: 0x7f0b010e
+			public const int actionScan = 2131427598;
+			
+			// aapt resource value: 0x7f0b0114
+			public const int actionSearch = 2131427604;
 			
 			// aapt resource value: 0x7f0b008d
 			public const int action_bar = 2131427469;
@@ -3804,17 +4004,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0069
 			public const int action_bar_title = 2131427433;
 			
-			// aapt resource value: 0x7f0b00ec
-			public const int action_container = 2131427564;
+			// aapt resource value: 0x7f0b00f1
+			public const int action_container = 2131427569;
 			
 			// aapt resource value: 0x7f0b008e
 			public const int action_context_bar = 2131427470;
 			
-			// aapt resource value: 0x7f0b00f3
-			public const int action_divider = 2131427571;
+			// aapt resource value: 0x7f0b00f8
+			public const int action_divider = 2131427576;
 			
-			// aapt resource value: 0x7f0b00ed
-			public const int action_image = 2131427565;
+			// aapt resource value: 0x7f0b00f2
+			public const int action_image = 2131427570;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -3831,11 +4031,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b006b
 			public const int action_mode_close_button = 2131427435;
 			
-			// aapt resource value: 0x7f0b00ee
-			public const int action_text = 2131427566;
+			// aapt resource value: 0x7f0b00f3
+			public const int action_text = 2131427571;
 			
-			// aapt resource value: 0x7f0b00fc
-			public const int actions = 2131427580;
+			// aapt resource value: 0x7f0b0101
+			public const int actions = 2131427585;
 			
 			// aapt resource value: 0x7f0b009d
 			public const int activityAbout_toolbar = 2131427485;
@@ -3987,20 +4187,35 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0044
 			public const int bottom = 2131427396;
 			
+			// aapt resource value: 0x7f0b00c6
+			public const int browser_actions_header_text = 2131427526;
+			
+			// aapt resource value: 0x7f0b00c8
+			public const int browser_actions_menu_item_icon = 2131427528;
+			
+			// aapt resource value: 0x7f0b00c9
+			public const int browser_actions_menu_item_text = 2131427529;
+			
+			// aapt resource value: 0x7f0b00c7
+			public const int browser_actions_menu_items = 2131427527;
+			
+			// aapt resource value: 0x7f0b00c5
+			public const int browser_actions_menu_view = 2131427525;
+			
 			// aapt resource value: 0x7f0b0072
 			public const int buttonPanel = 2131427442;
 			
-			// aapt resource value: 0x7f0b00f0
-			public const int cancel_action = 2131427568;
+			// aapt resource value: 0x7f0b00f5
+			public const int cancel_action = 2131427573;
 			
-			// aapt resource value: 0x7f0b00c7
-			public const int categoryListItem_delete = 2131427527;
+			// aapt resource value: 0x7f0b00cc
+			public const int categoryListItem_delete = 2131427532;
 			
-			// aapt resource value: 0x7f0b00c5
-			public const int categoryListItem_name = 2131427525;
+			// aapt resource value: 0x7f0b00ca
+			public const int categoryListItem_name = 2131427530;
 			
-			// aapt resource value: 0x7f0b00c6
-			public const int categoryListItem_rename = 2131427526;
+			// aapt resource value: 0x7f0b00cb
+			public const int categoryListItem_rename = 2131427531;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int center = 2131427404;
@@ -4014,14 +4229,14 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0086
 			public const int checkbox = 2131427462;
 			
-			// aapt resource value: 0x7f0b00c9
-			public const int chooseCategoriesListItem_checkbox = 2131427529;
+			// aapt resource value: 0x7f0b00ce
+			public const int chooseCategoriesListItem_checkbox = 2131427534;
 			
-			// aapt resource value: 0x7f0b00c8
-			public const int chooseCategoriesListItem_name = 2131427528;
+			// aapt resource value: 0x7f0b00cd
+			public const int chooseCategoriesListItem_name = 2131427533;
 			
-			// aapt resource value: 0x7f0b00f8
-			public const int chronometer = 2131427576;
+			// aapt resource value: 0x7f0b00fd
+			public const int chronometer = 2131427581;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int clip_horizontal = 2131427425;
@@ -4032,20 +4247,20 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0040
 			public const int collapseActionView = 2131427392;
 			
-			// aapt resource value: 0x7f0b00cc
-			public const int container = 2131427532;
+			// aapt resource value: 0x7f0b00d1
+			public const int container = 2131427537;
 			
 			// aapt resource value: 0x7f0b0082
 			public const int content = 2131427458;
 			
-			// aapt resource value: 0x7f0b0106
-			public const int contentFrame = 2131427590;
+			// aapt resource value: 0x7f0b010b
+			public const int contentFrame = 2131427595;
 			
 			// aapt resource value: 0x7f0b0075
 			public const int contentPanel = 2131427445;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int coordinator = 2131427533;
+			// aapt resource value: 0x7f0b00d2
+			public const int coordinator = 2131427538;
 			
 			// aapt resource value: 0x7f0b007c
 			public const int custom = 2131427452;
@@ -4059,89 +4274,89 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b006f
 			public const int default_activity_button = 2131427439;
 			
-			// aapt resource value: 0x7f0b00cf
-			public const int design_bottom_sheet = 2131427535;
-			
 			// aapt resource value: 0x7f0b00d4
-			public const int design_menu_item_action_area = 2131427540;
-			
-			// aapt resource value: 0x7f0b00d3
-			public const int design_menu_item_action_area_stub = 2131427539;
-			
-			// aapt resource value: 0x7f0b00d2
-			public const int design_menu_item_text = 2131427538;
-			
-			// aapt resource value: 0x7f0b00d1
-			public const int design_navigation_view = 2131427537;
-			
-			// aapt resource value: 0x7f0b00db
-			public const int dialogAddAuthenticator_advancedOptions = 2131427547;
-			
-			// aapt resource value: 0x7f0b00dc
-			public const int dialogAddAuthenticator_algorithm = 2131427548;
-			
-			// aapt resource value: 0x7f0b00da
-			public const int dialogAddAuthenticator_buttonAdvanced = 2131427546;
-			
-			// aapt resource value: 0x7f0b00dd
-			public const int dialogAddAuthenticator_digits = 2131427549;
-			
-			// aapt resource value: 0x7f0b00d6
-			public const int dialogAddAuthenticator_issuer = 2131427542;
-			
-			// aapt resource value: 0x7f0b00df
-			public const int dialogAddAuthenticator_period = 2131427551;
-			
-			// aapt resource value: 0x7f0b00de
-			public const int dialogAddAuthenticator_periodInputLayout = 2131427550;
-			
-			// aapt resource value: 0x7f0b00d8
-			public const int dialogAddAuthenticator_secret = 2131427544;
+			public const int design_bottom_sheet = 2131427540;
 			
 			// aapt resource value: 0x7f0b00d9
-			public const int dialogAddAuthenticator_type = 2131427545;
+			public const int design_menu_item_action_area = 2131427545;
+			
+			// aapt resource value: 0x7f0b00d8
+			public const int design_menu_item_action_area_stub = 2131427544;
 			
 			// aapt resource value: 0x7f0b00d7
-			public const int dialogAddAuthenticator_username = 2131427543;
+			public const int design_menu_item_text = 2131427543;
+			
+			// aapt resource value: 0x7f0b00d6
+			public const int design_navigation_view = 2131427542;
 			
 			// aapt resource value: 0x7f0b00e0
-			public const int dialogChooseCategories_empty = 2131427552;
+			public const int dialogAddAuthenticator_advancedOptions = 2131427552;
 			
 			// aapt resource value: 0x7f0b00e1
-			public const int dialogChooseCategories_list = 2131427553;
+			public const int dialogAddAuthenticator_algorithm = 2131427553;
+			
+			// aapt resource value: 0x7f0b00df
+			public const int dialogAddAuthenticator_buttonAdvanced = 2131427551;
 			
 			// aapt resource value: 0x7f0b00e2
-			public const int dialogEditCategory_name = 2131427554;
+			public const int dialogAddAuthenticator_digits = 2131427554;
+			
+			// aapt resource value: 0x7f0b00db
+			public const int dialogAddAuthenticator_issuer = 2131427547;
 			
 			// aapt resource value: 0x7f0b00e4
-			public const int dialogIcon_list = 2131427556;
+			public const int dialogAddAuthenticator_period = 2131427556;
 			
 			// aapt resource value: 0x7f0b00e3
-			public const int dialogIcon_search = 2131427555;
+			public const int dialogAddAuthenticator_periodInputLayout = 2131427555;
+			
+			// aapt resource value: 0x7f0b00dd
+			public const int dialogAddAuthenticator_secret = 2131427549;
+			
+			// aapt resource value: 0x7f0b00de
+			public const int dialogAddAuthenticator_type = 2131427550;
+			
+			// aapt resource value: 0x7f0b00dc
+			public const int dialogAddAuthenticator_username = 2131427548;
 			
 			// aapt resource value: 0x7f0b00e5
-			public const int dialogRenameAuthenticator_issuer = 2131427557;
+			public const int dialogChooseCategories_empty = 2131427557;
 			
 			// aapt resource value: 0x7f0b00e6
-			public const int dialogRenameAuthenticator_username = 2131427558;
+			public const int dialogChooseCategories_list = 2131427558;
 			
 			// aapt resource value: 0x7f0b00e7
-			public const int dialogRestore_password = 2131427559;
+			public const int dialogEditCategory_name = 2131427559;
+			
+			// aapt resource value: 0x7f0b00e9
+			public const int dialogIcon_list = 2131427561;
+			
+			// aapt resource value: 0x7f0b00e8
+			public const int dialogIcon_search = 2131427560;
+			
+			// aapt resource value: 0x7f0b00ea
+			public const int dialogRenameAuthenticator_issuer = 2131427562;
+			
+			// aapt resource value: 0x7f0b00eb
+			public const int dialogRenameAuthenticator_username = 2131427563;
+			
+			// aapt resource value: 0x7f0b00ec
+			public const int dialogRestore_password = 2131427564;
 			
 			// aapt resource value: 0x7f0b0027
 			public const int disableHome = 2131427367;
 			
-			// aapt resource value: 0x7f0b010e
-			public const int drawerBackup = 2131427598;
+			// aapt resource value: 0x7f0b0113
+			public const int drawerBackup = 2131427603;
 			
-			// aapt resource value: 0x7f0b010c
-			public const int drawerEditCategories = 2131427596;
+			// aapt resource value: 0x7f0b0111
+			public const int drawerEditCategories = 2131427601;
 			
-			// aapt resource value: 0x7f0b010d
-			public const int drawerRestore = 2131427597;
+			// aapt resource value: 0x7f0b0112
+			public const int drawerRestore = 2131427602;
 			
-			// aapt resource value: 0x7f0b010b
-			public const int drawerSettings = 2131427595;
+			// aapt resource value: 0x7f0b0110
+			public const int drawerSettings = 2131427600;
 			
 			// aapt resource value: 0x7f0b008f
 			public const int edit_query = 2131427471;
@@ -4149,8 +4364,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0037
 			public const int end = 2131427383;
 			
-			// aapt resource value: 0x7f0b00fe
-			public const int end_padder = 2131427582;
+			// aapt resource value: 0x7f0b0103
+			public const int end_padder = 2131427587;
 			
 			// aapt resource value: 0x7f0b0046
 			public const int enterAlways = 2131427398;
@@ -4167,11 +4382,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0085
 			public const int expanded_menu = 2131427461;
 			
-			// aapt resource value: 0x7f0b00e9
-			public const int fileListItem_icon = 2131427561;
+			// aapt resource value: 0x7f0b00ee
+			public const int fileListItem_icon = 2131427566;
 			
-			// aapt resource value: 0x7f0b00ea
-			public const int fileListItem_name = 2131427562;
+			// aapt resource value: 0x7f0b00ef
+			public const int fileListItem_name = 2131427567;
 			
 			// aapt resource value: 0x7f0b005e
 			public const int fill = 2131427422;
@@ -4206,14 +4421,14 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0071
 			public const int icon = 2131427441;
 			
-			// aapt resource value: 0x7f0b00eb
-			public const int iconListItem_icon = 2131427563;
+			// aapt resource value: 0x7f0b00f0
+			public const int iconListItem_icon = 2131427568;
 			
-			// aapt resource value: 0x7f0b00e8
-			public const int icon_frame = 2131427560;
+			// aapt resource value: 0x7f0b00ed
+			public const int icon_frame = 2131427565;
 			
-			// aapt resource value: 0x7f0b00fd
-			public const int icon_group = 2131427581;
+			// aapt resource value: 0x7f0b0102
+			public const int icon_group = 2131427586;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int ifRoom = 2131427393;
@@ -4221,8 +4436,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b006e
 			public const int image = 2131427438;
 			
-			// aapt resource value: 0x7f0b00f9
-			public const int info = 2131427577;
+			// aapt resource value: 0x7f0b00fe
+			public const int info = 2131427582;
 			
 			// aapt resource value: 0x7f0b0068
 			public const int italic = 2131427432;
@@ -4233,8 +4448,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b004e
 			public const int labeled = 2131427406;
 			
-			// aapt resource value: 0x7f0b00cb
-			public const int largeLabel = 2131427531;
+			// aapt resource value: 0x7f0b00d0
+			public const int largeLabel = 2131427536;
 			
 			// aapt resource value: 0x7f0b0054
 			public const int left = 2131427412;
@@ -4245,8 +4460,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b001d
 			public const int line3 = 2131427357;
 			
-			// aapt resource value: 0x7f0b0104
-			public const int linearLayout1 = 2131427588;
+			// aapt resource value: 0x7f0b0109
+			public const int linearLayout1 = 2131427593;
 			
 			// aapt resource value: 0x7f0b0024
 			public const int listMode = 2131427364;
@@ -4254,11 +4469,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0070
 			public const int list_item = 2131427440;
 			
-			// aapt resource value: 0x7f0b0108
-			public const int masked = 2131427592;
+			// aapt resource value: 0x7f0b010d
+			public const int masked = 2131427597;
 			
-			// aapt resource value: 0x7f0b00f2
-			public const int media_actions = 2131427570;
+			// aapt resource value: 0x7f0b00f7
+			public const int media_actions = 2131427575;
 			
 			// aapt resource value: 0x7f0b009c
 			public const int message = 2131427484;
@@ -4278,8 +4493,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b002f
 			public const int multiply = 2131427375;
 			
-			// aapt resource value: 0x7f0b00d0
-			public const int navigation_header_container = 2131427536;
+			// aapt resource value: 0x7f0b00d5
+			public const int navigation_header_container = 2131427541;
 			
 			// aapt resource value: 0x7f0b0042
 			public const int never = 2131427394;
@@ -4290,14 +4505,14 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0025
 			public const int normal = 2131427365;
 			
-			// aapt resource value: 0x7f0b00fb
-			public const int notification_background = 2131427579;
+			// aapt resource value: 0x7f0b0100
+			public const int notification_background = 2131427584;
 			
-			// aapt resource value: 0x7f0b00f5
-			public const int notification_main_column = 2131427573;
+			// aapt resource value: 0x7f0b00fa
+			public const int notification_main_column = 2131427578;
 			
-			// aapt resource value: 0x7f0b00f4
-			public const int notification_main_column_container = 2131427572;
+			// aapt resource value: 0x7f0b00f9
+			public const int notification_main_column_container = 2131427577;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int outline = 2131427424;
@@ -4323,17 +4538,17 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0087
 			public const int radio = 2131427463;
 			
-			// aapt resource value: 0x7f0b0100
-			public const int recycler_view = 2131427584;
+			// aapt resource value: 0x7f0b0105
+			public const int recycler_view = 2131427589;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int right = 2131427413;
 			
-			// aapt resource value: 0x7f0b00fa
-			public const int right_icon = 2131427578;
+			// aapt resource value: 0x7f0b00ff
+			public const int right_icon = 2131427583;
 			
-			// aapt resource value: 0x7f0b00f6
-			public const int right_side = 2131427574;
+			// aapt resource value: 0x7f0b00fb
+			public const int right_side = 2131427579;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int save_image_matrix = 2131427340;
@@ -4392,11 +4607,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b009a
 			public const int search_voice_btn = 2131427482;
 			
-			// aapt resource value: 0x7f0b0101
-			public const int seekbar = 2131427585;
+			// aapt resource value: 0x7f0b0106
+			public const int seekbar = 2131427590;
 			
-			// aapt resource value: 0x7f0b0102
-			public const int seekbar_value = 2131427586;
+			// aapt resource value: 0x7f0b0107
+			public const int seekbar_value = 2131427591;
 			
 			// aapt resource value: 0x7f0b009b
 			public const int select_dialog_listview = 2131427483;
@@ -4416,8 +4631,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b002c
 			public const int showTitle = 2131427372;
 			
-			// aapt resource value: 0x7f0b00ca
-			public const int smallLabel = 2131427530;
+			// aapt resource value: 0x7f0b00cf
+			public const int smallLabel = 2131427535;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int snackbar_action = 2131427350;
@@ -4434,8 +4649,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0073
 			public const int spacer = 2131427443;
 			
-			// aapt resource value: 0x7f0b00ff
-			public const int spinner = 2131427583;
+			// aapt resource value: 0x7f0b0104
+			public const int spinner = 2131427588;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int split_action_bar = 2131427336;
@@ -4452,8 +4667,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0056
 			public const int start = 2131427414;
 			
-			// aapt resource value: 0x7f0b00f1
-			public const int status_bar_latest_event_content = 2131427569;
+			// aapt resource value: 0x7f0b00f6
+			public const int status_bar_latest_event_content = 2131427574;
 			
 			// aapt resource value: 0x7f0b005b
 			public const int stretch = 2131427419;
@@ -4464,8 +4679,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b0098
 			public const int submit_area = 2131427480;
 			
-			// aapt resource value: 0x7f0b0103
-			public const int switchWidget = 2131427587;
+			// aapt resource value: 0x7f0b0108
+			public const int switchWidget = 2131427592;
 			
 			// aapt resource value: 0x7f0b0026
 			public const int tabMode = 2131427366;
@@ -4494,11 +4709,11 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b005a
 			public const int textStart = 2131427418;
 			
-			// aapt resource value: 0x7f0b0105
-			public const int textView1 = 2131427589;
+			// aapt resource value: 0x7f0b010a
+			public const int textView1 = 2131427594;
 			
-			// aapt resource value: 0x7f0b00d5
-			public const int text_input_password_toggle = 2131427541;
+			// aapt resource value: 0x7f0b00da
+			public const int text_input_password_toggle = 2131427546;
 			
 			// aapt resource value: 0x7f0b0018
 			public const int textinput_counter = 2131427352;
@@ -4509,8 +4724,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b001a
 			public const int textinput_helper_text = 2131427354;
 			
-			// aapt resource value: 0x7f0b00f7
-			public const int time = 2131427575;
+			// aapt resource value: 0x7f0b00fc
+			public const int time = 2131427580;
 			
 			// aapt resource value: 0x7f0b0023
 			public const int title = 2131427363;
@@ -4527,8 +4742,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b007d
 			public const int topPanel = 2131427453;
 			
-			// aapt resource value: 0x7f0b00ce
-			public const int touch_outside = 2131427534;
+			// aapt resource value: 0x7f0b00d3
+			public const int touch_outside = 2131427539;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int transition_current_scene = 2131427343;
@@ -4560,8 +4775,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0b001b
 			public const int view_offset_helper = 2131427355;
 			
-			// aapt resource value: 0x7f0b0107
-			public const int visible = 2131427591;
+			// aapt resource value: 0x7f0b010c
+			public const int visible = 2131427596;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int withText = 2131427395;
@@ -4780,199 +4995,205 @@ namespace AuthenticatorPro
 			public const int authListItem = 2131034149;
 			
 			// aapt resource value: 0x7f050026
-			public const int categoryListItem = 2131034150;
+			public const int browser_actions_context_menu_page = 2131034150;
 			
 			// aapt resource value: 0x7f050027
-			public const int chooseCategoriesListItem = 2131034151;
+			public const int browser_actions_context_menu_row = 2131034151;
 			
 			// aapt resource value: 0x7f050028
-			public const int design_bottom_navigation_item = 2131034152;
+			public const int categoryListItem = 2131034152;
 			
 			// aapt resource value: 0x7f050029
-			public const int design_bottom_sheet_dialog = 2131034153;
+			public const int chooseCategoriesListItem = 2131034153;
 			
 			// aapt resource value: 0x7f05002a
-			public const int design_layout_snackbar = 2131034154;
+			public const int design_bottom_navigation_item = 2131034154;
 			
 			// aapt resource value: 0x7f05002b
-			public const int design_layout_snackbar_include = 2131034155;
+			public const int design_bottom_sheet_dialog = 2131034155;
 			
 			// aapt resource value: 0x7f05002c
-			public const int design_layout_tab_icon = 2131034156;
+			public const int design_layout_snackbar = 2131034156;
 			
 			// aapt resource value: 0x7f05002d
-			public const int design_layout_tab_text = 2131034157;
+			public const int design_layout_snackbar_include = 2131034157;
 			
 			// aapt resource value: 0x7f05002e
-			public const int design_menu_item_action_area = 2131034158;
+			public const int design_layout_tab_icon = 2131034158;
 			
 			// aapt resource value: 0x7f05002f
-			public const int design_navigation_item = 2131034159;
+			public const int design_layout_tab_text = 2131034159;
 			
 			// aapt resource value: 0x7f050030
-			public const int design_navigation_item_header = 2131034160;
+			public const int design_menu_item_action_area = 2131034160;
 			
 			// aapt resource value: 0x7f050031
-			public const int design_navigation_item_separator = 2131034161;
+			public const int design_navigation_item = 2131034161;
 			
 			// aapt resource value: 0x7f050032
-			public const int design_navigation_item_subheader = 2131034162;
+			public const int design_navigation_item_header = 2131034162;
 			
 			// aapt resource value: 0x7f050033
-			public const int design_navigation_menu = 2131034163;
+			public const int design_navigation_item_separator = 2131034163;
 			
 			// aapt resource value: 0x7f050034
-			public const int design_navigation_menu_item = 2131034164;
+			public const int design_navigation_item_subheader = 2131034164;
 			
 			// aapt resource value: 0x7f050035
-			public const int design_text_input_password_icon = 2131034165;
+			public const int design_navigation_menu = 2131034165;
 			
 			// aapt resource value: 0x7f050036
-			public const int dialogAddAuthenticator = 2131034166;
+			public const int design_navigation_menu_item = 2131034166;
 			
 			// aapt resource value: 0x7f050037
-			public const int dialogChooseCategories = 2131034167;
+			public const int design_text_input_password_icon = 2131034167;
 			
 			// aapt resource value: 0x7f050038
-			public const int dialogEditCategory = 2131034168;
+			public const int dialogAddAuthenticator = 2131034168;
 			
 			// aapt resource value: 0x7f050039
-			public const int dialogIcon = 2131034169;
+			public const int dialogChooseCategories = 2131034169;
 			
 			// aapt resource value: 0x7f05003a
-			public const int dialogRenameAuthenticator = 2131034170;
+			public const int dialogEditCategory = 2131034170;
 			
 			// aapt resource value: 0x7f05003b
-			public const int dialogRestore = 2131034171;
+			public const int dialogIcon = 2131034171;
 			
 			// aapt resource value: 0x7f05003c
-			public const int expand_button = 2131034172;
+			public const int dialogRenameAuthenticator = 2131034172;
 			
 			// aapt resource value: 0x7f05003d
-			public const int fileListItem = 2131034173;
+			public const int dialogRestore = 2131034173;
 			
 			// aapt resource value: 0x7f05003e
-			public const int iconListItem = 2131034174;
+			public const int expand_button = 2131034174;
 			
 			// aapt resource value: 0x7f05003f
-			public const int mtrl_layout_snackbar = 2131034175;
+			public const int fileListItem = 2131034175;
 			
 			// aapt resource value: 0x7f050040
-			public const int mtrl_layout_snackbar_include = 2131034176;
+			public const int iconListItem = 2131034176;
 			
 			// aapt resource value: 0x7f050041
-			public const int notification_action = 2131034177;
+			public const int mtrl_layout_snackbar = 2131034177;
 			
 			// aapt resource value: 0x7f050042
-			public const int notification_action_tombstone = 2131034178;
+			public const int mtrl_layout_snackbar_include = 2131034178;
 			
 			// aapt resource value: 0x7f050043
-			public const int notification_media_action = 2131034179;
+			public const int notification_action = 2131034179;
 			
 			// aapt resource value: 0x7f050044
-			public const int notification_media_cancel_action = 2131034180;
+			public const int notification_action_tombstone = 2131034180;
 			
 			// aapt resource value: 0x7f050045
-			public const int notification_template_big_media = 2131034181;
+			public const int notification_media_action = 2131034181;
 			
 			// aapt resource value: 0x7f050046
-			public const int notification_template_big_media_custom = 2131034182;
+			public const int notification_media_cancel_action = 2131034182;
 			
 			// aapt resource value: 0x7f050047
-			public const int notification_template_big_media_narrow = 2131034183;
+			public const int notification_template_big_media = 2131034183;
 			
 			// aapt resource value: 0x7f050048
-			public const int notification_template_big_media_narrow_custom = 2131034184;
+			public const int notification_template_big_media_custom = 2131034184;
 			
 			// aapt resource value: 0x7f050049
-			public const int notification_template_custom_big = 2131034185;
+			public const int notification_template_big_media_narrow = 2131034185;
 			
 			// aapt resource value: 0x7f05004a
-			public const int notification_template_icon_group = 2131034186;
+			public const int notification_template_big_media_narrow_custom = 2131034186;
 			
 			// aapt resource value: 0x7f05004b
-			public const int notification_template_lines_media = 2131034187;
+			public const int notification_template_custom_big = 2131034187;
 			
 			// aapt resource value: 0x7f05004c
-			public const int notification_template_media = 2131034188;
+			public const int notification_template_icon_group = 2131034188;
 			
 			// aapt resource value: 0x7f05004d
-			public const int notification_template_media_custom = 2131034189;
+			public const int notification_template_lines_media = 2131034189;
 			
 			// aapt resource value: 0x7f05004e
-			public const int notification_template_part_chronometer = 2131034190;
+			public const int notification_template_media = 2131034190;
 			
 			// aapt resource value: 0x7f05004f
-			public const int notification_template_part_time = 2131034191;
+			public const int notification_template_media_custom = 2131034191;
 			
 			// aapt resource value: 0x7f050050
-			public const int preference = 2131034192;
+			public const int notification_template_part_chronometer = 2131034192;
 			
 			// aapt resource value: 0x7f050051
-			public const int preference_category = 2131034193;
+			public const int notification_template_part_time = 2131034193;
 			
 			// aapt resource value: 0x7f050052
-			public const int preference_category_material = 2131034194;
+			public const int preference = 2131034194;
 			
 			// aapt resource value: 0x7f050053
-			public const int preference_dialog_edittext = 2131034195;
+			public const int preference_category = 2131034195;
 			
 			// aapt resource value: 0x7f050054
-			public const int preference_dropdown = 2131034196;
+			public const int preference_category_material = 2131034196;
 			
 			// aapt resource value: 0x7f050055
-			public const int preference_dropdown_material = 2131034197;
+			public const int preference_dialog_edittext = 2131034197;
 			
 			// aapt resource value: 0x7f050056
-			public const int preference_information = 2131034198;
+			public const int preference_dropdown = 2131034198;
 			
 			// aapt resource value: 0x7f050057
-			public const int preference_information_material = 2131034199;
+			public const int preference_dropdown_material = 2131034199;
 			
 			// aapt resource value: 0x7f050058
-			public const int preference_list_fragment = 2131034200;
+			public const int preference_information = 2131034200;
 			
 			// aapt resource value: 0x7f050059
-			public const int preference_material = 2131034201;
+			public const int preference_information_material = 2131034201;
 			
 			// aapt resource value: 0x7f05005a
-			public const int preference_recyclerview = 2131034202;
+			public const int preference_list_fragment = 2131034202;
 			
 			// aapt resource value: 0x7f05005b
-			public const int preference_widget_checkbox = 2131034203;
+			public const int preference_material = 2131034203;
 			
 			// aapt resource value: 0x7f05005c
-			public const int preference_widget_seekbar = 2131034204;
+			public const int preference_recyclerview = 2131034204;
 			
 			// aapt resource value: 0x7f05005d
-			public const int preference_widget_seekbar_material = 2131034205;
+			public const int preference_widget_checkbox = 2131034205;
 			
 			// aapt resource value: 0x7f05005e
-			public const int preference_widget_switch = 2131034206;
+			public const int preference_widget_seekbar = 2131034206;
 			
 			// aapt resource value: 0x7f05005f
-			public const int preference_widget_switch_compat = 2131034207;
+			public const int preference_widget_seekbar_material = 2131034207;
 			
 			// aapt resource value: 0x7f050060
-			public const int qrCode = 2131034208;
+			public const int preference_widget_switch = 2131034208;
 			
 			// aapt resource value: 0x7f050061
-			public const int select_dialog_item_material = 2131034209;
+			public const int preference_widget_switch_compat = 2131034209;
 			
 			// aapt resource value: 0x7f050062
-			public const int select_dialog_multichoice_material = 2131034210;
+			public const int qrCode = 2131034210;
 			
 			// aapt resource value: 0x7f050063
-			public const int select_dialog_singlechoice_material = 2131034211;
+			public const int select_dialog_item_material = 2131034211;
 			
 			// aapt resource value: 0x7f050064
-			public const int support_simple_spinner_dropdown_item = 2131034212;
+			public const int select_dialog_multichoice_material = 2131034212;
 			
 			// aapt resource value: 0x7f050065
-			public const int zxingscanneractivitylayout = 2131034213;
+			public const int select_dialog_singlechoice_material = 2131034213;
 			
 			// aapt resource value: 0x7f050066
-			public const int zxingscannerfragmentlayout = 2131034214;
+			public const int support_simple_spinner_dropdown_item = 2131034214;
+			
+			// aapt resource value: 0x7f050067
+			public const int zxingscanneractivitylayout = 2131034215;
+			
+			// aapt resource value: 0x7f050068
+			public const int zxingscannerfragmentlayout = 2131034216;
 			
 			static Layout()
 			{
@@ -7117,6 +7338,9 @@ namespace AuthenticatorPro
 			
 			// aapt resource value: 0x7f090001
 			public const int settings = 2131296257;
+			
+			// aapt resource value: 0x7f090002
+			public const int xamarin_essentials_fileprovider_file_paths = 2131296258;
 			
 			static Xml()
 			{

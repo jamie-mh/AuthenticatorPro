@@ -128,15 +128,14 @@ namespace AuthenticatorPro.Activities
         protected override void OnResume()
         {
             base.OnResume();
-
             _sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            //bool firstLaunch = _sharedPrefs.GetBoolean("firstLaunch", true);
+            bool firstLaunch = _sharedPrefs.GetBoolean("firstLaunch", true);
 
-            //if(firstLaunch)
-            //{
-            //    StartActivity(typeof(ActivityIntro));
-            //    return;
-            //}
+            if(firstLaunch)
+            {
+                StartActivity(typeof(ActivityIntro));
+                return;
+            }
 
             if((DateTime.Now - _pauseTime).TotalMinutes >= 1 && PerformLogin()) return;
 
