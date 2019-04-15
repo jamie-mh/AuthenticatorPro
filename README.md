@@ -8,6 +8,8 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 
 View some supported providers here: [Two Factor Auth List](https://twofactorauth.org/) (marked with "software token")
 
+The app is written in C# with Xamarin Android.
+
 ## Download
 
 [<img alt="Get it on Google Play" height="100"  src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
