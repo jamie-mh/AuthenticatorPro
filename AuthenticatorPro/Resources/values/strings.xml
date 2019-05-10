@@ -86,6 +86,9 @@
   <string name="welcomeTitle">Welcome to Authenticator Pro!</string>
   <string name="welcomeDescription">Thanks for downloading Authenticator Pro. To get started, scan a QR code or enter the details manually.\n\nHold and drag the authenticators to reorder them and put them into categories.\n\nSave a backup in case you lose access to your device.</string>
 
+  <string name="databaseError">There was an error unlocking the encrypted database. You must clear the application data before continuing.</string>
+  <string name="quit">Quit</string>
+
   <!-- Preferences -->
   <string name="pref_security">Security</string>
   <string name="pref_appLock_title">App Lock</string>

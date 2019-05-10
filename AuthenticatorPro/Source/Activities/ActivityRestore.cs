@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content;
@@ -72,7 +73,7 @@ namespace AuthenticatorPro.Activities
             base.OnDestroy();
         }
 
-        private async void LoadStorageClick(object sender, EventArgs e)
+        private void LoadStorageClick(object sender, EventArgs e)
         {
             if(!GetStoragePermission()) return;
 
@@ -97,8 +98,7 @@ namespace AuthenticatorPro.Activities
             StartActivityForResult(intent, StorageAccessFrameworkCode);
         }
 
-        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode,
-            Intent intent)
+        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
             if(resultCode != Result.Ok)
                 return;
@@ -130,7 +130,7 @@ namespace AuthenticatorPro.Activities
             // Open curly brace (file is not encrypted)
             if(_fileData[0] == 0x7b)
             {
-                RestoreBackup();
+                await RestoreBackup();
                 return;
             }
 
@@ -144,8 +144,7 @@ namespace AuthenticatorPro.Activities
             _dialog.Show(transaction, "import_dialog");
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions,
-            [GeneratedEnum] Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             if(requestCode == PermissionStorageCode)
             {
@@ -171,7 +170,7 @@ namespace AuthenticatorPro.Activities
             return true;
         }
 
-        private async void RestoreBackup(string password = "")
+        private async Task RestoreBackup(string password = "")
         {
             try
             {
@@ -236,9 +235,9 @@ namespace AuthenticatorPro.Activities
             }
         }
 
-        private void OnDialogPositive(object sender, EventArgs e)
+        private async void OnDialogPositive(object sender, EventArgs e)
         {
-            RestoreBackup(_dialog.Password);
+            await RestoreBackup(_dialog.Password);
         }
 
         private void OnDialogNegative(object sender, EventArgs e)

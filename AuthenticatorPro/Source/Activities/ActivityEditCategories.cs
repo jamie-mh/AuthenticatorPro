@@ -90,7 +90,7 @@ namespace AuthenticatorPro.Activities
             progressBar.StartAnimation(alphaAnimation);
         }
 
-        private async Task CheckEmptyState()
+        private void CheckEmptyState()
         {
             if(_categorySource.Count() == 0)
             {
@@ -187,7 +187,7 @@ namespace AuthenticatorPro.Activities
             }
 
             _renameDialog.Dismiss();
-            _categorySource.Rename(_renamePosition, _renameDialog.Name);
+            await _categorySource.Rename(_renamePosition, _renameDialog.Name);
             _categoryAdapter.NotifyItemChanged(_renamePosition);
         }
 

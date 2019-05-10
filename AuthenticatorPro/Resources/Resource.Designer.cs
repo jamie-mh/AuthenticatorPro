@@ -5438,6 +5438,9 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0045
 			public const int copiedToClipboard = 2131492933;
 			
+			// aapt resource value: 0x7f0c008b
+			public const int databaseError = 2131493003;
+			
 			// aapt resource value: 0x7f0c0048
 			public const int delete = 2131492936;
 			
@@ -5567,50 +5570,53 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7f0c0068
 			public const int periodToShort = 2131492968;
 			
-			// aapt resource value: 0x7f0c0093
-			public const int pref_about_summary = 2131493011;
-			
-			// aapt resource value: 0x7f0c0092
-			public const int pref_about_title = 2131493010;
-			
-			// aapt resource value: 0x7f0c008d
-			public const int pref_appLock_summary = 2131493005;
-			
-			// aapt resource value: 0x7f0c008c
-			public const int pref_appLock_title = 2131493004;
-			
-			// aapt resource value: 0x7f0c008e
-			public const int pref_appearance = 2131493006;
-			
-			// aapt resource value: 0x7f0c0097
-			public const int pref_featureRequest_summary = 2131493015;
-			
-			// aapt resource value: 0x7f0c0096
-			public const int pref_featureRequest_title = 2131493014;
-			
-			// aapt resource value: 0x7f0c0091
-			public const int pref_more = 2131493009;
-			
 			// aapt resource value: 0x7f0c0095
-			public const int pref_rate_summary = 2131493013;
+			public const int pref_about_summary = 2131493013;
 			
 			// aapt resource value: 0x7f0c0094
-			public const int pref_rate_title = 2131493012;
-			
-			// aapt resource value: 0x7f0c008b
-			public const int pref_security = 2131493003;
-			
-			// aapt resource value: 0x7f0c0090
-			public const int pref_useDarkTheme_summary = 2131493008;
+			public const int pref_about_title = 2131493012;
 			
 			// aapt resource value: 0x7f0c008f
-			public const int pref_useDarkTheme_title = 2131493007;
+			public const int pref_appLock_summary = 2131493007;
+			
+			// aapt resource value: 0x7f0c008e
+			public const int pref_appLock_title = 2131493006;
+			
+			// aapt resource value: 0x7f0c0090
+			public const int pref_appearance = 2131493008;
+			
+			// aapt resource value: 0x7f0c0099
+			public const int pref_featureRequest_summary = 2131493017;
+			
+			// aapt resource value: 0x7f0c0098
+			public const int pref_featureRequest_title = 2131493016;
+			
+			// aapt resource value: 0x7f0c0093
+			public const int pref_more = 2131493011;
+			
+			// aapt resource value: 0x7f0c0097
+			public const int pref_rate_summary = 2131493015;
+			
+			// aapt resource value: 0x7f0c0096
+			public const int pref_rate_title = 2131493014;
+			
+			// aapt resource value: 0x7f0c008d
+			public const int pref_security = 2131493005;
+			
+			// aapt resource value: 0x7f0c0092
+			public const int pref_useDarkTheme_summary = 2131493010;
+			
+			// aapt resource value: 0x7f0c0091
+			public const int pref_useDarkTheme_title = 2131493009;
 			
 			// aapt resource value: 0x7f0c0069
 			public const int qrCodeFormatError = 2131492969;
 			
 			// aapt resource value: 0x7f0c0051
 			public const int qrCodeScan = 2131492945;
+			
+			// aapt resource value: 0x7f0c008c
+			public const int quit = 2131493004;
 			
 			// aapt resource value: 0x7f0c004a
 			public const int rename = 2131492938;

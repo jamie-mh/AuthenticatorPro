@@ -93,7 +93,7 @@ namespace AuthenticatorPro.Activities
             }
         }
 
-        private async void SaveCloudClick(object sender, EventArgs e)
+        private void SaveCloudClick(object sender, EventArgs e)
         {
             var intent = new Intent(Intent.ActionCreateDocument);
             intent.AddCategory(Intent.CategoryOpenable);

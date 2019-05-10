@@ -52,8 +52,6 @@ namespace AuthenticatorPro.Activities
             list.SetAdapter(_filesystemAdapter);
             list.HasFixedSize = true;
             list.SetItemViewCacheSize(20);
-            list.DrawingCacheEnabled = true;
-            list.DrawingCacheQuality = DrawingCacheQuality.High;
 
             switch(_mode)
             {

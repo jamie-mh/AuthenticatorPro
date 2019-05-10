@@ -4,6 +4,7 @@ using System.Linq;
 using System.Timers;
 using Android.App;
 using Android.Content;
+using Android.Database.Sqlite;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
@@ -27,6 +28,7 @@ using ZXing.Mobile;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 using PopupMenu = Android.Support.V7.Widget.PopupMenu;
 using SearchView = Android.Support.V7.Widget.SearchView;
+using SQLiteException = SQLite.SQLiteException;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activities
@@ -160,14 +162,32 @@ namespace AuthenticatorPro.Activities
 
         private async void Init()
         {
-            _connection = await Database.Connect();
-            InitCategories();
-            InitAuthenticators();
+            try
+            {
+                _connection = await Database.Connect();
 
-            UpdateCategories(false);
-            UpdateAuthenticators(false);
+                InitCategories();
+                InitAuthenticators();
 
-            CreateTimer();
+                UpdateCategories(false);
+                UpdateAuthenticators(false);
+
+                CreateTimer();
+            }
+            catch(SQLiteException)
+            {
+                var builder = new AlertDialog.Builder(this);
+                builder.SetMessage(Resource.String.databaseError);
+                builder.SetTitle(Resource.String.warning);
+                builder.SetPositiveButton(Resource.String.quit, (sender, args) =>
+                {
+                    Finish();
+                });
+                builder.SetCancelable(true);
+
+                var dialog = builder.Create();
+                dialog.Show();
+            }
         }
 
         private void InitAuthenticators()
@@ -482,9 +502,9 @@ namespace AuthenticatorPro.Activities
             var builder = new AlertDialog.Builder(this);
             builder.SetMessage(Resource.String.confirmAuthenticatorDelete);
             builder.SetTitle(Resource.String.warning);
-            builder.SetPositiveButton(Resource.String.delete, (sender, args) =>
+            builder.SetPositiveButton(Resource.String.delete, async (sender, args) =>
             {
-                _authSource.Delete(position);
+                await _authSource.Delete(position);
                 _authAdapter.NotifyItemRemoved(position);
                 CheckEmptyState();
             });
@@ -680,7 +700,7 @@ namespace AuthenticatorPro.Activities
             _renameDialog.Show(transaction, "rename_dialog");
         }
 
-        private void RenameDialogPositive(object sender, EventArgs e)
+        private async void RenameDialogPositive(object sender, EventArgs e)
         {
             if(_renameDialog.Issuer.Trim() == "")
             {
@@ -691,7 +711,7 @@ namespace AuthenticatorPro.Activities
             var issuer = _renameDialog.Issuer;
             var username = _renameDialog.Username;
 
-            _authSource.Rename(_renameDialog.Position, issuer, username);
+            await _authSource.Rename(_renameDialog.Position, issuer, username);
             _authAdapter.NotifyItemChanged(_renameDialog.Position);
             _renameDialog?.Dismiss();
         }

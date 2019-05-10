@@ -43,10 +43,10 @@ namespace AuthenticatorPro.Utilities.CategoryList
             Categories.RemoveAt(position);
 
             object[] args = {category.Id};
-            _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", args);
+            await _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", args);
         }
 
-        public void Rename(int position, string name)
+        public async Task Rename(int position, string name)
         {
             var old = Categories[position];
             var replacement = new Category(name);
@@ -54,11 +54,11 @@ namespace AuthenticatorPro.Utilities.CategoryList
             Categories.RemoveAt(position);
             Categories.Add(replacement);
 
-            _connection.DeleteAsync(old);
-            _connection.InsertAsync(replacement);
+            await _connection.DeleteAsync(old);
+            await _connection.InsertAsync(replacement);
 
             object[] args = {replacement.Id, old.Id};
-            _connection.QueryAsync<AuthenticatorCategory>(
+            await _connection.QueryAsync<AuthenticatorCategory>(
                 "UPDATE authenticatorcategory SET categoryId = ? WHERE categoryId = ?", args);
         }
 
@@ -73,19 +73,19 @@ namespace AuthenticatorPro.Utilities.CategoryList
                 {
                     var cat = Categories[i];
                     cat.Ranking++;
-                    _connection.UpdateAsync(cat);
+                    await _connection.UpdateAsync(cat);
                 }
             else
                 for(var i = oldPosition; i < newPosition; ++i)
                 {
                     var cat = Categories[i];
                     cat.Ranking--;
-                    _connection.UpdateAsync(cat);
+                    await _connection.UpdateAsync(cat);
                 }
 
             var temp = Categories[newPosition];
             temp.Ranking = newPosition;
-            _connection.UpdateAsync(temp);
+            await _connection.UpdateAsync(temp);
         }
 
         public int Count()

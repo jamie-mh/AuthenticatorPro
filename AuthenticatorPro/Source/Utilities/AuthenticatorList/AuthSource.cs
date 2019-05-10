@@ -135,7 +135,7 @@ namespace AuthenticatorPro.Utilities.AuthenticatorList
             auth.Issuer = issuer.Trim().Truncate(32);
             auth.Username = username.Trim().Truncate(32);
 
-            _connection.UpdateAsync(auth);
+            await _connection.UpdateAsync(auth);
         }
 
         public async Task Delete(int position)
@@ -145,13 +145,13 @@ namespace AuthenticatorPro.Utilities.AuthenticatorList
             var info = Authenticators[position];
             var auth = GetAuthenticator(info);
 
-            _connection.DeleteAsync<Authenticator>(auth.Secret);
+            await _connection.DeleteAsync<Authenticator>(auth.Secret);
             Authenticators.Remove(info);
             _all.Remove(auth);
 
             var sql = "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ?";
             object[] args = {auth.Secret};
-            _connection.ExecuteAsync(sql, args);
+            await _connection.ExecuteAsync(sql, args);
         }
 
         public async void Move(int oldPosition, int newPosition)
@@ -165,14 +165,14 @@ namespace AuthenticatorPro.Utilities.AuthenticatorList
                 {
                     var auth = GetAuthenticator(Authenticators[i]);
                     auth.Ranking = i;
-                    _connection.UpdateAsync(auth);
+                    await _connection.UpdateAsync(auth);
                 }
                 else
                 {
                     var binding =
                         GetAuthenticatorCategory(Authenticators[i]);
                     binding.Ranking = i;
-                    _connection.UpdateAsync(binding);
+                    await _connection.UpdateAsync(binding);
                 }
         }
 
@@ -193,7 +193,7 @@ namespace AuthenticatorPro.Utilities.AuthenticatorList
             auth.TimeRenew = DateTime.Now.AddSeconds(10);
 
             Authenticators[position] = auth;
-            _connection.UpdateAsync(auth);
+            await _connection.UpdateAsync(auth);
         }
 
         public bool IsDuplicate(Authenticator auth)
