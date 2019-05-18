@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro", "AuthenticatorPro\AuthenticatorPro.csproj", "{A8EF8411-D689-46B2-9595-5F1C27494DBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Android", "AuthenticatorPro\AuthenticatorPro.Android.csproj", "{A8EF8411-D689-46B2-9595-5F1C27494DBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
