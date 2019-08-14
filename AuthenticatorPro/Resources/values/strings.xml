@@ -10,7 +10,7 @@
   <string name="renameAuth">Rename</string>
   <string name="copiedToClipboard">Code copied to clipboard</string>
   <string name="warning">Warning</string>
-  <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authentication may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
+  <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
   <string name="delete">Delete</string>
   <string name="add">Add</string>
   <string name="rename">Rename</string>

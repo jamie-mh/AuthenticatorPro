@@ -197,6 +197,13 @@ namespace AuthenticatorPro.Activities
                 }
 
                 var backup = JsonConvert.DeserializeObject<Backup>(contents);
+
+                if(backup.Authenticators == null)
+                {
+                    Toast.MakeText(this, Resource.String.invalidFileError, ToastLength.Short).Show();
+                    return;
+                }
+
                 var authsInserted = 0;
                 var categoriesInserted = 0;
 
