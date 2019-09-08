@@ -3,8 +3,9 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:background="?android:attr/selectableItemBackground"
     android:layout_width="match_parent"
-	android:padding="8dp"
-	android:layout_height="wrap_content"
+	android:paddingLeft="8dp"
+	android:paddingRight="8dp"
+	android:layout_height="56dp"
 	android:clickable="true"
 	android:focusable="true">
 
@@ -14,16 +15,15 @@
 		android:layout_height="wrap_content"
 		android:textSize="18dp"
 		android:textColor="?attr/primaryTextColor"
-		android:layout_gravity="center_vertical"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
+        android:layout_centerVertical="true"
 		android:singleLine="true"
 		android:ellipsize="start"
 		android:scrollHorizontally="true"
 		android:id="@+id/chooseCategoriesListItem_name" />
 
-	<CheckBox 
+	<androidx.appcompat.widget.AppCompatCheckBox 
 		android:id="@+id/chooseCategoriesListItem_checkbox"
+        android:layout_centerVertical="true"
 		android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

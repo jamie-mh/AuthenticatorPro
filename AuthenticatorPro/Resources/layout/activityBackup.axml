@@ -4,7 +4,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools">
-	<android.support.v7.widget.Toolbar
+	<androidx.appcompat.widget.Toolbar
 		android:minHeight="?android:attr/actionBarSize"
 		android:background="?android:attr/colorPrimary"
 		android:minWidth="25px"
@@ -32,27 +32,11 @@
 			android:layout_gravity="center"
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
-			android:layout_marginTop="22dp"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="700"
+			android:layout_marginTop="32dp"
 			android:textSize="16dp"
+            android:lineSpacingExtra="10dp"
 			android:textColor="?attr/primaryTextColor"
 	        android:text="@string/backupMessage" />
-
-		<android.support.design.widget.TextInputLayout
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:paddingRight="32dp"
-			android:paddingLeft="32dp"
-			android:gravity="center"
-			android:layout_marginTop="22dp">
-			<EditText
-				android:id="@+id/activityBackup_password"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:inputType="textPassword"
-				android:hint="@string/passwordHint"/>
-		</android.support.design.widget.TextInputLayout>
 
 		<LinearLayout
 			android:id="@+id/activityBackup_saveStorage"
@@ -62,7 +46,7 @@
 			android:paddingLeft="16dp"
 			android:paddingTop="16dp"
 			android:paddingBottom="16dp"
-			android:layout_marginTop="22dp"
+			android:layout_marginTop="32dp"
 			android:clickable="true"
 			android:background="@drawable/listitemborderfirst"
 			android:foreground="?android:attr/selectableItemBackground"

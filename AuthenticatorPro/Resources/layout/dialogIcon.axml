@@ -8,19 +8,20 @@
     android:layout_marginBottom="8dp"
 	android:padding="20sp">
 
-	<android.support.design.widget.TextInputLayout
-		android:layout_marginBottom="8dp"
+	<com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
-		<EditText
+        <com.google.android.material.textfield.TextInputEditText
 			android:id="@+id/dialogIcon_search"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:hint="@string/search"/>
-	</android.support.design.widget.TextInputLayout>
+	</com.google.android.material.textfield.TextInputLayout>
 
-	<android.support.v7.widget.RecyclerView
+	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/dialogIcon_list"
+		android:layout_marginTop="16dp"
 		android:scrollbars="vertical"
 		android:background="?attr/dialogIcon_listBackground"
 		android:layout_width="match_parent"

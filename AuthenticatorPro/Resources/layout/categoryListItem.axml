@@ -4,8 +4,9 @@
 	android:background="?android:attr/windowBackground"
 	android:foreground="?android:attr/selectableItemBackground"
     android:layout_width="match_parent"
-	android:padding="16dp"
-	android:layout_height="58dp"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:layout_height="56dp"
 	android:clickable="true"
 	android:focusable="true">
 
@@ -15,9 +16,7 @@
 		android:layout_height="wrap_content"
 		android:textSize="18dp"
 		android:textColor="?attr/primaryTextColor"
-		android:layout_gravity="center_vertical"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
+        android:layout_centerVertical="true"
 		android:singleLine="true"
 		android:ellipsize="start"
 		android:scrollHorizontally="true"
@@ -25,6 +24,7 @@
 
 	<LinearLayout
 		android:orientation="horizontal"
+        android:layout_centerVertical="true"
 		android:layout_alignParentRight="true"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content">
@@ -35,8 +35,8 @@
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
 			android:layout_marginRight="16dp"
-			android:layout_width="28dp"
-			android:layout_height="28dp"
+			android:layout_width="24dp"
+			android:layout_height="24dp"
 			android:layout_gravity="center_vertical" />
 
 		<ImageButton
@@ -44,8 +44,8 @@
 			android:src="?attr/categoryListItem_deleteIcon"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
-			android:layout_width="28dp"
-			android:layout_height="28dp"
+			android:layout_width="24dp"
+			android:layout_height="24dp"
 			android:layout_gravity="center_vertical" />
 	</LinearLayout>
 </RelativeLayout>

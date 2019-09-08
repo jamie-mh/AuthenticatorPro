@@ -5,15 +5,16 @@
 	android:padding="20dp"
     android:fillViewport="true">
 
-	<android.support.design.widget.TextInputLayout
+	<com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/dialogEditCategory_nameLayout"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
-		<EditText
+        <com.google.android.material.textfield.TextInputEditText
 			android:id="@+id/dialogEditCategory_name"
-			style="@style/Widget.AppCompat.EditText"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textCapSentences"
 			android:hint="@string/categoryNameHint"/>
-	</android.support.design.widget.TextInputLayout>
+	</com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

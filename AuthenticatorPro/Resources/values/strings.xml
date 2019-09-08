@@ -5,7 +5,7 @@
   <string name="restore">Restore</string>
   <string name="backup">Backup</string>
   <string name="about">About</string>
-  <string name="scanBarcode">Scan a QR Code</string>
+  <string name="scanQrCode">Scan a QR Code</string>
   <string name="enterKey">Enter a provided key</string>
   <string name="renameAuth">Rename</string>
   <string name="copiedToClipboard">Code copied to clipboard</string>
@@ -20,12 +20,13 @@
   <string name="username">Username</string>
   <string name="secretKey">Secret Key</string>
   <string name="showAdvancedOptions">Show Advanced Options</string>
-  <string name="qrCodeScan">Place a QR code in the camera viewfinder to scan it. The code will scan automatically.</string>
   <string name="noAuthenticatorsTitle">Nothing here!</string>
   <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
 
   <string name="search">Search</string>
   <string name="ok">OK</string>
+  <string name="yes">Yes</string>
+  <string name="no">No</string>
   <string name="issuerHint">Issuer (eg: Google)</string>
   <string name="usernameHint">Username (eg: john@example.com)</string>
   <string name="typeHint">Type</string>
@@ -41,7 +42,7 @@
 
   <string name="noIssuer">An issuer is required.</string>
   <string name="noSecret">A secret key is required.</string>
-  <string name="noFileName">A valid file name is required.</string>
+  <string name="noFileName">A file name is required.</string>
   <string name="secretTooShort">The secret must be longer than 16 characters.</string>
   <string name="secretInvalidChars">The secret contains invalid characters.</string>
   <string name="digitsToSmall">The authenticator must generate at least 6 digits.</string>
@@ -62,8 +63,9 @@
   <string name="noCategoriesTitle">No Categories</string>
   <string name="noCategoriesMessage">You don\'t have any categories set up yet.</string>
 
-  <string name="restoreMessage">Select a Authenticator Pro backup to restore its authenticators.\n\nYou can choose a backup file stored on this device or you can load a backup directly from cloud storage.</string>
-  <string name="backupMessage">Save your authenticators to a password encrypted backup file.\n\nYou can save it to your device storage or you can upload it to cloud storage in case you lose your device.</string>
+  <string name="restoreMessage">Select a Authenticator Pro backup to restore its authenticators.\nYou can choose a backup file stored on this device or you can load a backup directly from cloud storage.</string>
+  <string name="backupMessage">Save your authenticators to a password encrypted backup file.\nYou can save it to your device storage or you can upload it to cloud storage in case you lose your device.</string>
+  <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
   <string name="restoreError">The password is incorrect or the file is corrupt.</string>
   <string name="filePickError">Error picking file.</string>
   <string name="invalidFileError">The selected file is not a Authenticator Pro backup file.</string>
@@ -79,14 +81,10 @@
   <string name="login">Login</string>
   <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
   <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vunerable. Do you wish to continue?</string>
-  <string name="warning">Warning</string>
-  <string name="sendEmail">Send an Email</string>
-
-  <string name="continueString">Continue</string>
-  <string name="welcomeTitle">Welcome to Authenticator Pro!</string>
-  <string name="welcomeDescription">Thanks for downloading Authenticator Pro. To get started, scan a QR code or enter the details manually.\n\nHold and drag the authenticators to reorder them and put them into categories.\n\nSave a backup in case you lose access to your device.</string>
 
   <string name="databaseError">There was an error unlocking the encrypted database. You must clear the application data before continuing.</string>
+  <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code.</string>
+  <string name="googlePlayNotInstalledError">Google Play is not installed on your device.</string>
   <string name="quit">Quit</string>
 
   <!-- Preferences -->
@@ -103,6 +101,6 @@
   <string name="pref_about_summary">View about and licence information.</string>
   <string name="pref_rate_title">Rate</string>
   <string name="pref_rate_summary">Rate Authenticator Pro on the Google Play store.</string>
-  <string name="pref_featureRequest_title">Feature Request / Bug Report</string>
-  <string name="pref_featureRequest_summary">Send an email to the developer to request a feature or submit a bug report. All feedback is welcome.</string>
+  <string name="pref_viewGitHub_title">View on GitHub</string>
+  <string name="pref_viewGitHub_summary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
 </resources>

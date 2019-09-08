@@ -37,7 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
@@ -48,6 +48,9 @@
     </AndroidHttpClientHandlerType>
     <Debugger>Xamarin</Debugger>
     <BundleAssemblies>false</BundleAssemblies>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <MandroidI18n />
+    <AndroidUseAapt2>true</AndroidUseAapt2>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
@@ -62,12 +65,14 @@
     <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
+    <AotAssemblies>true</AotAssemblies>
+    <EnableLLVM>true</EnableLLVM>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
-    <EnableProguard>false</EnableProguard>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+    <AndroidDexTool>d8</AndroidDexTool>
+    <MandroidI18n />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -76,55 +81,59 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Activities\ActivityIntro.cs" />
-    <Compile Include="Source\Activities\ActivityLogin.cs" />
-    <Compile Include="Source\Activities\ActivityEditCategories.cs" />
-    <Compile Include="Source\Activities\ActivityFile.cs" />
+    <Compile Include="Source\Activities\IntroActivity.cs" />
+    <Compile Include="Source\Activities\LoginActivity.cs" />
+    <Compile Include="Source\Activities\EditCategoriesActivity.cs" />
+    <Compile Include="Source\Activities\FileActivity.cs" />
+    <Compile Include="Source\Activities\InternalStorageActivity.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\IAuthenticatorInfo.cs" />
-    <Compile Include="Source\Dialogs\DialogEditCategory.cs" />
-    <Compile Include="Source\Dialogs\DialogChooseCategories.cs" />
-    <Compile Include="Source\Dialogs\DialogRestore.cs" />
-    <Compile Include="Source\Activities\ActivityRestore.cs" />
-    <Compile Include="Source\Activities\ActivityBackup.cs" />
-    <Compile Include="Source\Activities\ActivityAbout.cs" />
-    <Compile Include="Source\Preferences\FeatureRequestPreference.cs" />
+    <Compile Include="Source\Dialogs\EditCategoryDialog.cs" />
+    <Compile Include="Source\Dialogs\ChooseCategoriesDialog.cs" />
+    <Compile Include="Source\Dialogs\BackupPasswordDialog.cs" />
+    <Compile Include="Source\Activities\RestoreActivity.cs" />
+    <Compile Include="Source\Activities\BackupActivity.cs" />
+    <Compile Include="Source\Activities\AboutActivity.cs" />
+    <Compile Include="Source\Fragments\AddBottomSheetDialogFragment.cs" />
+    <Compile Include="Source\Fragments\IntroPageFragment.cs" />
+    <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
+    <Compile Include="Source\Preferences\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preferences\RatePreference.cs" />
     <Compile Include="Source\Preferences\AboutPreference.cs" />
-    <Compile Include="Source\Dialogs\DialogIcon.cs" />
-    <Compile Include="Source\Dialogs\DialogRenameAuthenticator.cs" />
-    <Compile Include="Source\Dialogs\DialogAddAuthenticator.cs" />
+    <Compile Include="Source\Dialogs\IconDialog.cs" />
+    <Compile Include="Source\Dialogs\RenameAuthenticatorDialog.cs" />
+    <Compile Include="Source\Dialogs\AddAuthenticatorDialog.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
-    <Compile Include="Source\Fragments\FragmentSettings.cs" />
-    <Compile Include="Source\Activities\ActivitySettings.cs" />
-    <Compile Include="Source\Utilities\CategoryList\ChooseCategoriesHolder.cs" />
-    <Compile Include="Source\Utilities\CategoryList\ChooseCategoriesAdapter.cs" />
-    <Compile Include="Source\Utilities\CategoryList\CategoryAdapter.cs" />
-    <Compile Include="Source\Utilities\CategoryList\CategoryHolder.cs" />
-    <Compile Include="Source\Utilities\CustomGridLayoutManager.cs" />
-    <Compile Include="Source\Utilities\FilesystemList\FilesystemHolder.cs" />
-    <Compile Include="Source\Utilities\CategoryList\CategorySource.cs" />
-    <Compile Include="Source\Utilities\FilesystemList\FilesystemSource.cs" />
-    <Compile Include="Source\Utilities\FilesystemList\FilesystemAdapter.cs" />
-    <Compile Include="Source\Utilities\Hash.cs" />
-    <Compile Include="Source\Utilities\IAdapterMovement.cs" />
-    <Compile Include="Source\Utilities\CustomTouchHelperCallback.cs" />
-    <Compile Include="Source\Utilities\IconList\IconSource.cs" />
-    <Compile Include="Source\Utilities\IconList\IconHolder.cs" />
-    <Compile Include="Source\Utilities\IconList\IconAdapter.cs" />
-    <Compile Include="Source\Utilities\AuthenticatorList\AuthAdapter.cs" />
-    <Compile Include="Source\Utilities\AuthenticatorList\AuthHolder.cs" />
-    <Compile Include="Source\Utilities\AuthenticatorList\AuthSource.cs" />
-    <Compile Include="Source\Activities\ActivityMain.cs" />
+    <Compile Include="Source\Fragments\SettingsFragment.cs" />
+    <Compile Include="Source\Activities\SettingsActivity.cs" />
+    <Compile Include="Source\CategoryList\ChooseCategoriesHolder.cs" />
+    <Compile Include="Source\CategoryList\ChooseCategoriesAdapter.cs" />
+    <Compile Include="Source\CategoryList\CategoryAdapter.cs" />
+    <Compile Include="Source\CategoryList\CategoryHolder.cs" />
+    <Compile Include="Source\CustomGridLayoutManager.cs" />
+    <Compile Include="Source\FilesystemList\FilesystemHolder.cs" />
+    <Compile Include="Source\CategoryList\CategorySource.cs" />
+    <Compile Include="Source\FilesystemList\FilesystemSource.cs" />
+    <Compile Include="Source\FilesystemList\FilesystemAdapter.cs" />
+    <Compile Include="Source\Hash.cs" />
+    <Compile Include="Source\IAdapterMovement.cs" />
+    <Compile Include="Source\CustomTouchHelperCallback.cs" />
+    <Compile Include="Source\IconList\IconSource.cs" />
+    <Compile Include="Source\IconList\IconHolder.cs" />
+    <Compile Include="Source\IconList\IconAdapter.cs" />
+    <Compile Include="Source\AuthenticatorList\AuthAdapter.cs" />
+    <Compile Include="Source\AuthenticatorList\AuthHolder.cs" />
+    <Compile Include="Source\AuthenticatorList\AuthSource.cs" />
+    <Compile Include="Source\Activities\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Utilities\Database.cs" />
-    <Compile Include="Source\Utilities\Icons.cs" />
-    <Compile Include="Source\Utilities\CustomActionBarDrawerToggle.cs" />
-    <Compile Include="Source\Utilities\StringExt.cs" />
-    <Compile Include="Source\Utilities\ThemeHelper.cs" />
+    <Compile Include="Source\Database.cs" />
+    <Compile Include="Source\Icons.cs" />
+    <Compile Include="Source\CustomActionBarDrawerToggle.cs" />
+    <Compile Include="Source\StringExt.cs" />
+    <Compile Include="Source\Theme.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -133,8 +142,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\font\worksans_regular.ttf" />
-    <AndroidResource Include="Resources\font\worksans_bold.ttf" />
+    <AndroidResource Include="Resources\font\rubik_bold.ttf" />
+    <AndroidResource Include="Resources\font\rubik_regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activityMain.axml">
@@ -168,26 +177,38 @@
     <PackageReference Include="sqlite-net-sqlcipher">
       <Version>1.5.231</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Design">
-      <Version>28.0.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v4">
       <Version>28.0.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
-      <Version>28.0.0.1</Version>
+    <PackageReference Include="Xamarin.AndroidX.AppCompat">
+      <Version>1.0.2-preview02</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.v7.Preference">
-      <Version>28.0.0.1</Version>
+    <PackageReference Include="Xamarin.AndroidX.Browser">
+      <Version>1.0.0-preview02</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
-      <Version>28.0.0.1</Version>
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
+      <Version>1.0.0-preview02</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Media">
+      <Version>1.0.1-preview02</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Migration">
+      <Version>1.0.0-preview03</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Preference">
+      <Version>1.0.0-preview02</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>1.2.0</Version>
+      <Version>1.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.Android.Material">
+      <Version>1.0.0-preview02</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
+      <Version>28.0.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -212,9 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\main.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\menu\add.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_camera_alt.png" />
@@ -344,13 +362,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_more_vert_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogRestore.axml">
+    <AndroidResource Include="Resources\layout\dialogBackupPassword.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\font\worksans.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\settings.xml" />
@@ -629,12 +644,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ovh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\qrCode.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_lock_open_light.png" />
@@ -1144,10 +1153,10 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\anim\item_animation_from_right.xml" />
+    <AndroidResource Include="Resources\anim\item_animation_fade_in.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\anim\layout_animation_slide_right.xml" />
+    <AndroidResource Include="Resources\anim\layout_animation_fade_in.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_search_light.png" />
@@ -2021,6 +2030,183 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_cloud_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\addBottomSheetDialog.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\font\rubik.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_appveyor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_backblaze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_firefox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_jottacloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_npm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_skype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_appveyor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_backblaze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_firefox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_jottacloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_npm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_skype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_appveyor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_backblaze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_firefox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_jottacloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_npm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_skype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_appveyor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_backblaze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_firefox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jottacloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_npm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_skype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_appveyor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_backblaze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_firefox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_jottacloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_npm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_paypal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_skype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\introPageFragment.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\intro.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_arrow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_arrow_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_arrow_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_arrow_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_arrow_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_arrow_forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\introNavColours.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_done_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_done_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_done_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_done_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_done_outline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

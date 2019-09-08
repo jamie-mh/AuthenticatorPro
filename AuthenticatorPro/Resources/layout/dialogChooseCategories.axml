@@ -13,13 +13,11 @@
 		android:visibility="gone"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="700"
 		android:textSize="18dp"
 		android:textColor="?attr/primaryTextColor"
 		android:text="@string/noCategoriesMessage" />
 
-	<android.support.v7.widget.RecyclerView
+	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/dialogChooseCategories_list"
 		android:scrollbars="vertical"
 		android:layout_width="match_parent"

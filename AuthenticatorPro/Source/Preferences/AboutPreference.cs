@@ -1,8 +1,8 @@
 ﻿using System;
 using Android.Content;
 using Android.Runtime;
-using Android.Support.V7.Preferences;
 using Android.Util;
+using AndroidX.Preference;
 using AuthenticatorPro.Activities;
 
 namespace AuthenticatorPro.Preferences
@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Preferences
 
         protected override void OnClick()
         {
-            Context.StartActivity(typeof(ActivityAbout));
+            Context.StartActivity(typeof(AboutActivity));
         }
     }
 }

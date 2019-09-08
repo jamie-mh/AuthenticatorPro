@@ -8,25 +8,27 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:padding="20sp">
-		<android.support.design.widget.TextInputLayout
+		<com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
-			<EditText
+			<com.google.android.material.textfield.TextInputEditText
 				android:id="@+id/dialogRenameAuthenticator_issuer"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:inputType="textCapSentences"
 				android:hint="@string/issuerHint"/>
-		</android.support.design.widget.TextInputLayout>
-		<android.support.design.widget.TextInputLayout
+		</com.google.android.material.textfield.TextInputLayout>
+		<com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
-			<EditText
+			<com.google.android.material.textfield.TextInputEditText
 				android:id="@+id/dialogRenameAuthenticator_username"
-				style="@style/Widget.AppCompat.EditText"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:hint="@string/usernameHint"/>
-		</android.support.design.widget.TextInputLayout>
+		</com.google.android.material.textfield.TextInputLayout>
 	</LinearLayout>
 </ScrollView>

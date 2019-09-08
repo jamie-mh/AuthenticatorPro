@@ -5,12 +5,12 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools">
 
-	<android.support.design.widget.AppBarLayout
+	<com.google.android.material.appbar.AppBarLayout
 		android:id="@+id/activityEditCategories_appBarLayout"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
-		<android.support.v7.widget.Toolbar
+		<androidx.appcompat.widget.Toolbar
 			android:minHeight="?android:attr/actionBarSize"
 			android:background="?android:attr/colorPrimary"
 			android:minWidth="25px"
@@ -27,9 +27,9 @@
 			android:layout_height="wrap_content"
 			style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
 
-	</android.support.design.widget.AppBarLayout>
+	</com.google.android.material.appbar.AppBarLayout>
 
-	<android.support.v7.widget.RecyclerView
+	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/activityEditCategories_list"
 		android:layout_below="@id/activityEditCategories_appBarLayout"	
 		android:scrollbars="vertical"
@@ -60,8 +60,6 @@
 			android:gravity="center"
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="700"
 			android:textSize="24dp"
 			android:textColor="?attr/primaryTextColor"
 			android:layout_marginTop="22dp"
@@ -75,14 +73,12 @@
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
 			android:layout_marginTop="22dp"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="400"
 			android:textSize="16dp"
 			android:textColor="?attr/secondaryTextColor"
 			android:text="@string/noCategoriesMessage" />
 	</LinearLayout>
 
-	<android.support.design.widget.FloatingActionButton
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
 		android:id="@+id/activityEditCategories_buttonAdd"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

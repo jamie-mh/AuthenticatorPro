@@ -30,6 +30,7 @@
 				android:layout_gravity="center"
 				android:layout_marginTop="2dp"
 				android:layout_marginRight="12dp"
+                android:scaleType="centerInside"
 				android:src="@drawable/auth_github" />
 
 			<LinearLayout
@@ -44,8 +45,6 @@
 					android:textSize="16dp"
 					android:textColor="?attr/primaryTextColor"
 					android:gravity="left"
-					android:fontFamily="@font/worksans"
-					android:fontWeight="400"
 					android:id="@+id/authListItem_issuer" />
 				<TextView
 					android:text="johnsmith@example.com"
@@ -55,8 +54,6 @@
 					android:textColor="?attr/secondaryTextColor"
 					android:gravity="left"
 					android:layout_below="@id/authListItem_issuer"
-					android:fontFamily="@font/worksans"
-					android:fontWeight="400"
 					android:id="@+id/authListItem_username" />
 
 			</LinearLayout>
@@ -69,8 +66,6 @@
 			android:textColor="?attr/authListItem_code"
 			android:gravity="left"
 			android:layout_below="@id/authListItem_iconLayout"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="400"
 			android:layout_marginTop="2dp"
 			android:layout_marginLeft="44dp"
 			android:id="@+id/authListItem_code" />
@@ -100,9 +95,7 @@
 				android:layout_marginRight="14dp"
 				android:gravity="center"
 				android:textSize="22dp"
-				android:fontFamily="@font/worksans"
 				android:visibility="gone"
-				android:fontWeight="400"
 				android:id="@+id/authListItem_counter" />
 
 			<ImageButton

@@ -4,7 +4,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools">
-	<android.support.v7.widget.Toolbar
+	<androidx.appcompat.widget.Toolbar
 		android:minHeight="?android:attr/actionBarSize"
 		android:background="?android:attr/colorPrimary"
 		android:minWidth="25px"
@@ -32,10 +32,9 @@
 			android:layout_gravity="center"
 			android:paddingRight="32dp"
 			android:paddingLeft="32dp"
-			android:layout_marginTop="22dp"
+			android:layout_marginTop="32dp"
 			android:layout_marginBottom="32dp"
-			android:fontFamily="@font/worksans"
-			android:fontWeight="700"
+            android:lineSpacingExtra="10dp"
 			android:textSize="16dp"
 			android:textColor="?attr/primaryTextColor"
 	        android:text="@string/restoreMessage" />

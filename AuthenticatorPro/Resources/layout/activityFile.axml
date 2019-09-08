@@ -5,7 +5,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools">
 
-	<android.support.v7.widget.Toolbar
+	<androidx.appcompat.widget.Toolbar
 		android:minHeight="?android:attr/actionBarSize"
 		android:background="?android:attr/colorPrimary"
 		android:minWidth="25px"
@@ -19,7 +19,7 @@
 		android:layout_width="match_parent" 
 		android:layout_height="match_parent">
 
-		<android.support.v7.widget.RecyclerView
+		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/activityFile_list"
 			android:scrollbars="vertical"
 			android:clipToPadding="false"
@@ -31,27 +31,39 @@
 			android:id="@+id/activityFile_saveLayout"
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:paddingLeft="8dp"
-			android:paddingRight="8dp"
+			android:padding="10dp"
+            android:elevation="30dp"
 			android:background="?android:attr/windowBackground"
 			android:layout_alignParentBottom="true">
 
-			<Button 
+			<com.google.android.material.button.MaterialButton 
 				android:text="@string/save" 
 				android:id="@+id/activityFile_save"
-				android:layout_alignParentRight="true" 
+				android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-			</Button>
+				android:layout_height="wrap_content"/>
 
-			<EditText 
-				android:id="@+id/activityFile_filename"
-				android:text="backup"
-				android:singleLine="true"
-				android:layout_width="fill_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="false"
+                app:hintEnabled="true"
+                android:layout_centerVertical="true"
+                android:hint="@string/fileNameHint"
+                android:id="@+id/activityFile_filenameLayout"
 				android:layout_toLeftOf="@id/activityFile_save"
-				android:layout_height="wrap_content">
-			</EditText>
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/activityFile_filename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="backup"
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
 		</RelativeLayout>
 
 	</RelativeLayout>

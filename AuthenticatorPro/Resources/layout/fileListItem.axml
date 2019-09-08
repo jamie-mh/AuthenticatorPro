@@ -23,8 +23,6 @@
 		android:textSize="18dp"
 		android:textColor="?attr/primaryTextColor"
 		android:layout_gravity="center_vertical"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
 		android:singleLine="true"
 		android:ellipsize="start"
 		android:scrollHorizontally="true"

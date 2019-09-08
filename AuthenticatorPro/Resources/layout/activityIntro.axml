@@ -1,52 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:orientation="vertical"
-	android:gravity="center"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-	<ImageView
-		android:layout_width="96dp"
-		android:layout_height="96dp"
-		android:layout_gravity="center"
-		android:src="@mipmap/ic_launcher" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/activityIntro_pager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		android:gravity="center"
-		android:paddingRight="32dp"
-		android:paddingLeft="32dp"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="700"
-		android:textSize="24dp"
-		android:textColor="?attr/primaryTextColor"
-		android:layout_marginTop="22dp"
-		android:text="@string/welcomeTitle" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activityIntro_nav"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLighter"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@drawable/intronavcolours"
+        app:elevation="30dp"
+        app:menu="@menu/intro" />
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center"
-		android:gravity="center"
-		android:paddingRight="32dp"
-		android:paddingLeft="32dp"
-		android:layout_marginTop="22dp"
-		android:fontFamily="@font/worksans"
-		android:fontWeight="400"
-		android:textSize="16dp"
-		android:textColor="?attr/secondaryTextColor"
-		android:text="@string/welcomeDescription" />
-
-	<Button
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/continueString"
-		android:layout_marginTop="48dp"
-		android:layout_gravity="center"
-		android:id="@+id/activityIntro_continue"/>
-</LinearLayout>
+</FrameLayout>

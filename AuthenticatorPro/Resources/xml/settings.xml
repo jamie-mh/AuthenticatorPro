@@ -42,10 +42,10 @@
       app:iconSpaceReserved="false"
       android:title="@string/pref_rate_title" />
 
-    <authenticatorpro.preferences.FeatureRequestPreference
-      android:key="pref_key_feature_request"
-      android:summary="@string/pref_featureRequest_summary"
+    <authenticatorpro.preferences.ViewGitHubPreference
+      android:key="pref_key_view_github"
+      android:summary="@string/pref_viewGitHub_summary"
       app:iconSpaceReserved="false"
-      android:title="@string/pref_featureRequest_title" />
+      android:title="@string/pref_viewGitHub_title" />
   </android.support.v7.preference.PreferenceCategory>
 </android.support.v7.preference.PreferenceScreen>

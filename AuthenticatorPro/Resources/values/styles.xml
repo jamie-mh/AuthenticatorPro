@@ -1,11 +1,14 @@
 <resources>
 
-  <style name="LightTheme" parent="Theme.AppCompat.Light">
+  <style name="LightTheme" parent="Theme.MaterialComponents.Light">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
+
+    <item name="fontFamily">@font/rubik</item>
+    <item name="android:fontFamily">@font/rubik</item>
 
     <item name="primaryTextColor">@color/colorDarkest</item>
     <item name="secondaryTextColor">@color/colorDark</item>
@@ -41,12 +44,15 @@
     <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_light</item>
   </style>
 
-  <style name="DarkTheme" parent="Theme.AppCompat">
+  <style name="DarkTheme" parent="Theme.MaterialComponents">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
     <item name="colorPrimary">@color/colorDark</item>
     <item name="colorPrimaryDark">@color/colorDarker</item>
     <item name="colorAccent">@color/colorAccent</item>
+
+    <item name="fontFamily">@font/rubik</item>
+    <item name="android:fontFamily">@font/rubik</item>
 
     <item name="primaryTextColor">@color/colorLight</item>
     <item name="secondaryTextColor">@color/colorLighter</item>
