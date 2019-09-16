@@ -382,7 +382,7 @@ namespace AuthenticatorPro.Activities
         {
             var authRequired = _sharedPrefs.GetBoolean("pref_appLock", false);
 
-            var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.Lollipop
+            var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.LollipopMr1
                 ? _keyguardManager.IsKeyguardSecure
                 : _keyguardManager.IsDeviceSecure;
 
