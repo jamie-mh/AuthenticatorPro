@@ -1,0 +1,1 @@
+Add option to decrypt database for use with 3rd party backup tools.
