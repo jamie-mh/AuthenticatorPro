@@ -22,10 +22,10 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidKeyStore>false</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Nextcloud\Important Stuff\keystore</AndroidSigningKeyStore>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Nextcloud\Important Stuff\keystore\jmh.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>558jhm@reg</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>key0</AndroidSigningKeyAlias>
+    <AndroidSigningKeyAlias>jmh</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>558jhm@reg</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -69,10 +69,12 @@
     <EnableLLVM>true</EnableLLVM>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <BundleAssemblies>false</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <AndroidDexTool>d8</AndroidDexTool>
     <MandroidI18n />
+    <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -99,6 +101,7 @@
     <Compile Include="Source\Fragments\AddBottomSheetDialogFragment.cs" />
     <Compile Include="Source\Fragments\IntroPageFragment.cs" />
     <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
+    <Compile Include="Source\Preferences\EncryptedDatabasePreference.cs" />
     <Compile Include="Source\Preferences\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preferences\RatePreference.cs" />
     <Compile Include="Source\Preferences\AboutPreference.cs" />

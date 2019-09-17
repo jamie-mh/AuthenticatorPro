@@ -162,7 +162,7 @@ namespace AuthenticatorPro.Activities
         {
             try
             {
-                _connection = await Database.Connect();
+                _connection = await Database.Connect(this);
 
                 InitCategories();
                 InitAuthenticators();

@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Activities
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityEditCategories_buttonAdd);
             _addButton.Click += OnAddClick;
 
-            _connection = await Database.Connect();
+            _connection = await Database.Connect(this);
             _categorySource = new CategorySource(_connection);
             _categoryAdapter = new CategoryAdapter(_categorySource);
             _categoryAdapter.RenameClick += OnRenameClick;

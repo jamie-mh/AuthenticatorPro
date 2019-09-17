@@ -59,7 +59,7 @@ namespace AuthenticatorPro.Activities
             var loadCloudBtn = FindViewById<LinearLayout>(Resource.Id.activityRestore_loadCloud);
             loadCloudBtn.Click += LoadCloudClick;
 
-            _connection = await Database.Connect();
+            _connection = await Database.Connect(this);
             _authSource = new AuthSource(_connection);
             _categorySource = new CategorySource(_connection);
         }

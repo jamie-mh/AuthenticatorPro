@@ -54,7 +54,7 @@ namespace AuthenticatorPro.Activities
             var saveCloudBtn = FindViewById<LinearLayout>(Resource.Id.activityBackup_saveCloud);
             saveCloudBtn.Click += SaveCloudClick;
 
-            _connection = await Database.Connect();
+            _connection = await Database.Connect(this);
         }
 
         protected override void OnDestroy()
