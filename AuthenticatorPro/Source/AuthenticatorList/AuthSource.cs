@@ -90,7 +90,7 @@ namespace AuthenticatorPro.AuthenticatorList
             _all.Clear();
             CategoryBindings.Clear();
 
-            var sql = @"SELECT * FROM authenticator ORDER BY ranking ASC";
+            var sql = @"SELECT * FROM authenticator ORDER BY ranking, issuer, username ASC";
             _all = await _connection.QueryAsync<Authenticator>(sql);
 
             sql = @"SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
