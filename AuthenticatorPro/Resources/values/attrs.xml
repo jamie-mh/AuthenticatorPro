@@ -31,5 +31,8 @@
 
     <attr name="activityBackupRestore_deviceStorageIcon" format="integer" />
     <attr name="activityBackupRestore_cloudStorageIcon" format="integer" />
+
+    <attr name="addBottomSheetDialog_scanQrIcon" format="integer" />
+    <attr name="addBottomSheetDialog_enterKeyIcon" format="integer" />
   </declare-styleable>
 </resources>

@@ -42,6 +42,9 @@
 
     <item name="activityBackupRestore_deviceStorageIcon">@drawable/ic_action_sd_storage_light</item>
     <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_light</item>
+      
+    <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_light</item>
+    <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_light</item>
   </style>
 
   <style name="DarkTheme" parent="Theme.MaterialComponents">
@@ -86,6 +89,9 @@
 
     <item name="activityBackupRestore_deviceStorageIcon">@drawable/ic_action_sd_storage_dark</item>
     <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_dark</item>
+      
+    <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_dark</item>
+    <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_dark</item>
   </style>
 
 </resources>
