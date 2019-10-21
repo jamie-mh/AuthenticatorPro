@@ -34,7 +34,8 @@ namespace AuthenticatorPro
                     await SecureStorage.SetAsync("database_key", databaseKey);
                 }
 
-                connection = new SQLiteAsyncConnection(dbPath, true, databaseKey);
+                var connStr = new SQLiteConnectionString(dbPath, true, databaseKey);
+                connection = new SQLiteAsyncConnection(connStr);
             }
             else
                 connection = new SQLiteAsyncConnection(dbPath, true);
