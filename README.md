@@ -1,5 +1,10 @@
 # Authenticator Pro
 
+![GitHub](https://img.shields.io/github/license/jamie-mh/AuthenticatorPro?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/jamie-mh/AuthenticatorPro?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/jamie-mh/AuthenticatorPro?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/jamie-mh/AuthenticatorPro?style=for-the-badge)
+
 ![Authenticator Pro](./doc/ic_launcher-web.png)
 
 Authenticator Pro is a free open-source two factor authentication app for Android.
