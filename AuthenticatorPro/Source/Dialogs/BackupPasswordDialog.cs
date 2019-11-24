@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Dialogs
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             var alert = new AlertDialog.Builder(Activity);
-            alert.SetTitle(Resource.String.restore);
+            alert.SetTitle(Resource.String.password);
 
             alert.SetPositiveButton(Resource.String.ok, (EventHandler<DialogClickEventArgs>) null);
             alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);

@@ -2244,9 +2244,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_vpn_key_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogIcon.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_discord_dark.png" />
   </ItemGroup>
   <ItemGroup>

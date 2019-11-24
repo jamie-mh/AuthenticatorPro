@@ -6,6 +6,7 @@
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorBackgroundFloating">@color/colorLighter</item>
 
     <item name="fontFamily">@font/rubik</item>
     <item name="android:fontFamily">@font/rubik</item>
@@ -51,6 +52,7 @@
     <item name="colorPrimary">@color/colorDark</item>
     <item name="colorPrimaryDark">@color/colorDarker</item>
     <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorBackgroundFloating">@color/colorDarker</item>
 
     <item name="fontFamily">@font/rubik</item>
     <item name="android:fontFamily">@font/rubik</item>

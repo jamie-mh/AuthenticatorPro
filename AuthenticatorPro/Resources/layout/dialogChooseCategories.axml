@@ -6,14 +6,16 @@
 	android:layout_height="fill_parent"
 	android:fillViewport="true"
     android:layout_marginBottom="8dp"
-	android:padding="20sp">
+    android:paddingTop="20dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
 
 	<TextView
 		android:id="@+id/dialogChooseCategories_empty"
 		android:visibility="gone"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:textSize="18dp"
+		android:textSize="16dp"
 		android:textColor="?attr/primaryTextColor"
 		android:text="@string/noCategoriesMessage" />
 
