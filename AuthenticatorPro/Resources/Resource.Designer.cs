@@ -5885,8 +5885,8 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7F100062
 			public const int periodToShort = 2131755106;
 			
-			// aapt resource value: 0x7F100073
-			public const int preference_copied = 2131755123;
+			// aapt resource value: 0x7F100072
+			public const int preference_copied = 2131755122;
 			
 			// aapt resource value: 0x7F100063
 			public const int pref_about_summary = 2131755107;
@@ -5894,143 +5894,140 @@ namespace AuthenticatorPro
 			// aapt resource value: 0x7F100064
 			public const int pref_about_title = 2131755108;
 			
-			// aapt resource value: 0x7F100065
-			public const int pref_advanced = 2131755109;
+			// aapt resource value: 0x7F100067
+			public const int pref_appearance = 2131755111;
 			
-			// aapt resource value: 0x7F100068
-			public const int pref_appearance = 2131755112;
+			// aapt resource value: 0x7F100065
+			public const int pref_appLock_summary = 2131755109;
 			
 			// aapt resource value: 0x7F100066
-			public const int pref_appLock_summary = 2131755110;
+			public const int pref_appLock_title = 2131755110;
 			
-			// aapt resource value: 0x7F100067
-			public const int pref_appLock_title = 2131755111;
+			// aapt resource value: 0x7F100068
+			public const int pref_more = 2131755112;
 			
 			// aapt resource value: 0x7F100069
-			public const int pref_more = 2131755113;
+			public const int pref_rate_summary = 2131755113;
 			
 			// aapt resource value: 0x7F10006A
-			public const int pref_rate_summary = 2131755114;
+			public const int pref_rate_title = 2131755114;
 			
 			// aapt resource value: 0x7F10006B
-			public const int pref_rate_title = 2131755115;
+			public const int pref_security = 2131755115;
 			
 			// aapt resource value: 0x7F10006C
-			public const int pref_security = 2131755116;
+			public const int pref_useDarkTheme_summary = 2131755116;
 			
 			// aapt resource value: 0x7F10006D
-			public const int pref_useDarkTheme_summary = 2131755117;
+			public const int pref_useDarkTheme_title = 2131755117;
 			
 			// aapt resource value: 0x7F10006E
-			public const int pref_useDarkTheme_title = 2131755118;
+			public const int pref_useEncryptedDatabase_summary = 2131755118;
 			
 			// aapt resource value: 0x7F10006F
-			public const int pref_useEncryptedDatabase_summary = 2131755119;
+			public const int pref_useEncryptedDatabase_title = 2131755119;
 			
 			// aapt resource value: 0x7F100070
-			public const int pref_useEncryptedDatabase_title = 2131755120;
+			public const int pref_viewGitHub_summary = 2131755120;
 			
 			// aapt resource value: 0x7F100071
-			public const int pref_viewGitHub_summary = 2131755121;
+			public const int pref_viewGitHub_title = 2131755121;
 			
-			// aapt resource value: 0x7F100072
-			public const int pref_viewGitHub_title = 2131755122;
+			// aapt resource value: 0x7F100073
+			public const int qrCodeFormatError = 2131755123;
 			
 			// aapt resource value: 0x7F100074
-			public const int qrCodeFormatError = 2131755124;
+			public const int quit = 2131755124;
 			
 			// aapt resource value: 0x7F100075
-			public const int quit = 2131755125;
+			public const int rename = 2131755125;
 			
 			// aapt resource value: 0x7F100076
-			public const int rename = 2131755126;
+			public const int renameAuth = 2131755126;
 			
 			// aapt resource value: 0x7F100077
-			public const int renameAuth = 2131755127;
+			public const int restore = 2131755127;
 			
 			// aapt resource value: 0x7F100078
-			public const int restore = 2131755128;
+			public const int restoreBackupCloud = 2131755128;
 			
 			// aapt resource value: 0x7F100079
-			public const int restoreBackupCloud = 2131755129;
-			
-			// aapt resource value: 0x7F10007A
-			public const int restoreBackupDevice = 2131755130;
-			
-			// aapt resource value: 0x7F10007D
-			public const int restoredFromBackup = 2131755133;
-			
-			// aapt resource value: 0x7F10007B
-			public const int restoreError = 2131755131;
+			public const int restoreBackupDevice = 2131755129;
 			
 			// aapt resource value: 0x7F10007C
-			public const int restoreMessage = 2131755132;
+			public const int restoredFromBackup = 2131755132;
+			
+			// aapt resource value: 0x7F10007A
+			public const int restoreError = 2131755130;
+			
+			// aapt resource value: 0x7F10007B
+			public const int restoreMessage = 2131755131;
+			
+			// aapt resource value: 0x7F10007D
+			public const int save = 2131755133;
 			
 			// aapt resource value: 0x7F10007E
-			public const int save = 2131755134;
+			public const int saveBackupCloud = 2131755134;
 			
 			// aapt resource value: 0x7F10007F
-			public const int saveBackupCloud = 2131755135;
+			public const int saveBackupDevice = 2131755135;
 			
 			// aapt resource value: 0x7F100080
-			public const int saveBackupDevice = 2131755136;
+			public const int saveFile = 2131755136;
 			
 			// aapt resource value: 0x7F100081
-			public const int saveFile = 2131755137;
+			public const int saveSuccess = 2131755137;
 			
 			// aapt resource value: 0x7F100082
-			public const int saveSuccess = 2131755138;
+			public const int scanQrCode = 2131755138;
 			
 			// aapt resource value: 0x7F100083
-			public const int scanQrCode = 2131755139;
+			public const int search = 2131755139;
 			
 			// aapt resource value: 0x7F100084
-			public const int search = 2131755140;
+			public const int search_menu_title = 2131755140;
 			
 			// aapt resource value: 0x7F100085
-			public const int search_menu_title = 2131755141;
+			public const int secretInvalidChars = 2131755141;
 			
 			// aapt resource value: 0x7F100086
-			public const int secretInvalidChars = 2131755142;
+			public const int secretKey = 2131755142;
 			
 			// aapt resource value: 0x7F100087
-			public const int secretKey = 2131755143;
+			public const int secretTooShort = 2131755143;
 			
 			// aapt resource value: 0x7F100088
-			public const int secretTooShort = 2131755144;
+			public const int settings = 2131755144;
 			
 			// aapt resource value: 0x7F100089
-			public const int settings = 2131755145;
+			public const int showAdvancedOptions = 2131755145;
 			
 			// aapt resource value: 0x7F10008A
-			public const int showAdvancedOptions = 2131755146;
+			public const int status_bar_notification_info_overflow = 2131755146;
 			
 			// aapt resource value: 0x7F10008B
-			public const int status_bar_notification_info_overflow = 2131755147;
+			public const int summary_collapsed_preference_list = 2131755147;
 			
 			// aapt resource value: 0x7F10008C
-			public const int summary_collapsed_preference_list = 2131755148;
+			public const int typeHint = 2131755148;
 			
 			// aapt resource value: 0x7F10008D
-			public const int typeHint = 2131755149;
+			public const int username = 2131755149;
 			
 			// aapt resource value: 0x7F10008E
-			public const int username = 2131755150;
+			public const int usernameHint = 2131755150;
 			
 			// aapt resource value: 0x7F10008F
-			public const int usernameHint = 2131755151;
+			public const int v7_preference_off = 2131755151;
 			
 			// aapt resource value: 0x7F100090
-			public const int v7_preference_off = 2131755152;
+			public const int v7_preference_on = 2131755152;
 			
 			// aapt resource value: 0x7F100091
-			public const int v7_preference_on = 2131755153;
+			public const int warning = 2131755153;
 			
 			// aapt resource value: 0x7F100092
-			public const int warning = 2131755154;
-			
-			// aapt resource value: 0x7F100093
-			public const int yes = 2131755155;
+			public const int yes = 2131755154;
 			
 			static String()
 			{

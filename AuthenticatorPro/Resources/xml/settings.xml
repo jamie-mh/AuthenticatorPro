@@ -13,6 +13,12 @@
       android:title="@string/pref_appLock_title"
       app:iconSpaceReserved="false"
       android:defaultValue="false" />
+    <authenticatorpro.preferences.EncryptedDatabasePreference
+      android:key="pref_useEncryptedDatabase"
+      android:summary="@string/pref_useEncryptedDatabase_summary"
+      app:iconSpaceReserved="false"
+      android:defaultValue="true"
+      android:title="@string/pref_useEncryptedDatabase_title" />
   </android.support.v7.preference.PreferenceCategory>
 
   <android.support.v7.preference.PreferenceCategory
@@ -26,19 +32,6 @@
       android:defaultValue="false" />
   </android.support.v7.preference.PreferenceCategory>
     
-  <android.support.v7.preference.PreferenceCategory
-    android:title="@string/pref_advanced"
-    android:key="pref_key_advanced">
-
-    <authenticatorpro.preferences.EncryptedDatabasePreference
-      android:key="pref_useEncryptedDatabase"
-      android:summary="@string/pref_useEncryptedDatabase_summary"
-      app:iconSpaceReserved="false"
-      android:defaultValue="true"
-      android:title="@string/pref_useEncryptedDatabase_title" />
-      
-  </android.support.v7.preference.PreferenceCategory>
-
   <android.support.v7.preference.PreferenceCategory
     android:title="@string/pref_more"
     android:key="pref_key_more">

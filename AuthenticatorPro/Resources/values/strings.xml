@@ -91,14 +91,13 @@
   <string name="pref_security">Security</string>
   <string name="pref_appLock_title">App Lock</string>
   <string name="pref_appLock_summary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
+    
+  <string name="pref_useEncryptedDatabase_title">Encrypted Database</string>
+  <string name="pref_useEncryptedDatabase_summary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
   <string name="pref_appearance">Appearance</string>
   <string name="pref_useDarkTheme_title">Use Dark Theme</string>
   <string name="pref_useDarkTheme_summary">Use a dark theme throughout the app. Requires an application restart.</string>
-    
-  <string name="pref_advanced">Advanced</string>
-  <string name="pref_useEncryptedDatabase_title">Encrypted Database</string>
-  <string name="pref_useEncryptedDatabase_summary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
   <string name="pref_more">More</string>
   <string name="pref_about_title">About</string>
