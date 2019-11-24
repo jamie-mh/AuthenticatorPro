@@ -44,7 +44,7 @@
     <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_light</item>
     <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_light</item>
   </style>
-
+    
   <style name="DarkTheme" parent="Theme.MaterialComponents">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
@@ -89,5 +89,9 @@
     <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_dark</item>
     <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_dark</item>
   </style>
-
+    
+  <style name="AuthListItemProgressBar" parent="@style/Base.Widget.AppCompat.ProgressBar.Horizontal">
+    <item name="android:progressBackgroundTint">?attr/authListItem_background</item>
+  </style>
+    
 </resources>

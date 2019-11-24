@@ -3,7 +3,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
 	android:clickable="true"
     android:orientation="vertical">
 
@@ -13,8 +13,8 @@
 		android:background="?attr/authListItem_background"
 		android:foreground="?android:attr/selectableItemBackground"
 		android:focusable="true"
-		android:paddingTop="12dp"
-		android:paddingRight="32dp"
+		android:paddingTop="16dp"
+		android:paddingRight="18dp"
 		android:paddingBottom="10dp"
 		android:paddingLeft="32dp">
 		<LinearLayout
@@ -111,7 +111,7 @@
 
 	<ProgressBar
 		android:id="@+id/authList_progress"
-		style="?android:attr/progressBarStyleHorizontal"
+		style="@style/AuthListItemProgressBar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="-8dp"
