@@ -35,8 +35,6 @@
     <item name="drawer_restoreIcon">@drawable/ic_action_restore_light</item>
     <item name="drawer_backupIcon">@drawable/ic_action_backup_light</item>
 
-    <item name="dialogIcon_listBackground">@android:color/transparent</item>
-
     <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     <item name="android:windowBackground">@color/colorLighter</item>
 
@@ -81,8 +79,6 @@
     <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_dark</item>
     <item name="drawer_restoreIcon">@drawable/ic_action_restore_dark</item>
     <item name="drawer_backupIcon">@drawable/ic_action_backup_dark</item>
-
-    <item name="dialogIcon_listBackground">@color/colorDark</item>
 
     <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     <item name="android:windowBackground">@color/colorDarker</item>

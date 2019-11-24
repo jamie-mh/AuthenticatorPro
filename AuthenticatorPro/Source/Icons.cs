@@ -101,7 +101,9 @@ namespace AuthenticatorPro
             {"logmein", Resource.Drawable.auth_logmein_dark},
             {"rockstargames", Resource.Drawable.auth_rockstargames_dark},
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
-            {"xbox", Resource.Drawable.auth_xbox_dark}
+            {"xbox", Resource.Drawable.auth_xbox_dark},
+            {"discord", Resource.Drawable.auth_discord_dark},
+            {"heroku", Resource.Drawable.auth_heroku_dark}
         };
 
         public static int GetIcon(string key)

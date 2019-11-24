@@ -27,8 +27,6 @@
     <attr name="drawer_restoreIcon" format="integer" />
     <attr name="drawer_backupIcon" format="integer" />
 
-    <attr name="dialogIcon_listBackground" format="color" />
-
     <attr name="activityBackupRestore_deviceStorageIcon" format="integer" />
     <attr name="activityBackupRestore_cloudStorageIcon" format="integer" />
 
