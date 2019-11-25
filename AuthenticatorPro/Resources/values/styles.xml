@@ -92,8 +92,4 @@
     <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_dark</item>
   </style>
     
-  <style name="AuthListItemProgressBar" parent="@style/Base.Widget.AppCompat.ProgressBar.Horizontal">
-    <item name="android:progressBackgroundTint">?attr/authListItem_background</item>
-  </style>
-    
 </resources>

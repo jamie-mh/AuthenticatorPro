@@ -111,13 +111,14 @@
 
 	<ProgressBar
 		android:id="@+id/authList_progress"
-		style="@style/AuthListItemProgressBar"
+        android:progressBackgroundTint="?attr/authListItem_background"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginBottom="-8dp"
 		android:layout_marginTop="-7dp"
 		android:min="0"
 		android:max="100"
-		android:progress="100"/>
+		android:progress="100"
+		style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
 
 </LinearLayout>

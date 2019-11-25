@@ -65,18 +65,23 @@ namespace AuthenticatorPro.AuthenticatorList
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
         {
             if(payloads == null || payloads.Count == 0)
-            {
                 OnBindViewHolder(viewHolder, position);
-            }
             else
             {
                 var auth = _source.Authenticators[position];
                 var holder = (AuthHolder) viewHolder;
 
                 if(auth.Type == OtpType.Totp)
-                    holder.ProgressBar.Progress = (int) payloads[0];
-                else if(auth.Type == OtpType.Hotp) holder.RefreshButton.Visibility = ViewStates.Visible;
+                    holder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
+                else if(auth.Type == OtpType.Hotp)
+                    holder.RefreshButton.Visibility = ViewStates.Visible;
             }
+        }
+
+        private static int GetTotpRemainingProgress(IAuthenticatorInfo auth)
+        {
+            var secondsRemaining = (auth.TimeRenew - DateTime.Now).TotalSeconds;
+            return (int) Math.Ceiling(100d * secondsRemaining / auth.Period);
         }
 
         private static void TotpViewBind(AuthHolder holder, Authenticator auth)
@@ -84,9 +89,7 @@ namespace AuthenticatorPro.AuthenticatorList
             holder.RefreshButton.Visibility = ViewStates.Gone;
             holder.ProgressBar.Visibility = ViewStates.Visible;
             holder.Counter.Visibility = ViewStates.Invisible;
-
-            var secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
-            holder.ProgressBar.Progress = 100 * secondsRemaining / auth.Period;
+            holder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
         }
 
         private static void HotpViewBind(AuthHolder holder, Authenticator auth)

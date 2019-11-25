@@ -423,24 +423,12 @@ namespace AuthenticatorPro.Activities
                 var auth = _authSource.Authenticators[i];
                 var position = i; // Closure modification
 
-                if(auth.Type == OtpType.Totp)
-                {
-                    if(auth.TimeRenew > DateTime.Now)
-                    {
-                        var secondsRemaining = (auth.TimeRenew - DateTime.Now).Seconds;
-                        var progress = 100 * secondsRemaining / auth.Period;
-
-                        RunOnUiThread(() => { _authAdapter.NotifyItemChanged(position, progress); });
-                    }
-                    else
-                    {
-                        RunOnUiThread(() => { _authAdapter.NotifyItemChanged(position); });
-                    }
-                }
-                else if(auth.Type == OtpType.Hotp && auth.TimeRenew < DateTime.Now)
-                {
+                if(auth.Type == OtpType.Totp && auth.TimeRenew > DateTime.Now ||
+                   auth.Type == OtpType.Hotp && auth.TimeRenew < DateTime.Now)
                     RunOnUiThread(() => { _authAdapter.NotifyItemChanged(position, true); });
-                }
+
+                else if(auth.Type == OtpType.Totp)
+                    RunOnUiThread(() => { _authAdapter.NotifyItemChanged(position); });
             }
         }
 
