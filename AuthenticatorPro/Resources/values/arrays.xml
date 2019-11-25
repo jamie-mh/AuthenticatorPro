@@ -20,17 +20,20 @@
         <item>TOTP Authentication</item>
         <item>Backup / Restore</item>
         <item>Categories</item>
+        <item>Dark Theme</item>
     </string-array>
     <string-array name="introText">
-        <item>Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best authentication app.</item>
+        <item>Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</item>
         <item>Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</item>
         <item>Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</item>
         <item>Organise your authenticators into categories and even change the order with a simple hold and drag.</item>
+        <item>If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</item>
     </string-array>
     <integer-array name="introImage">
         <item>@mipmap/ic_launcher</item>
         <item>@drawable/ic_lock_open_light</item>
         <item>@drawable/ic_backup_light</item>
         <item>@drawable/ic_category_light</item>
+        <item>@drawable/ic_wb_incandescent</item>
     </integer-array>
 </resources>

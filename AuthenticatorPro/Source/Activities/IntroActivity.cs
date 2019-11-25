@@ -15,7 +15,7 @@ namespace AuthenticatorPro.Activities
     [Activity(Label = "IntroActivity", Theme = "@style/LightTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class IntroActivity : FragmentActivity
     {
-        public const int PageCount = 4;
+        public const int PageCount = 5;
 
         private ViewPager _pager;
         private PagerAdapter _adapter;
