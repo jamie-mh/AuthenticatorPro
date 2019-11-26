@@ -28,7 +28,6 @@
 				android:layout_width="32dp"
 				android:layout_height="32dp"
 				android:layout_gravity="center"
-				android:layout_marginTop="2dp"
 				android:layout_marginRight="12dp"
                 android:scaleType="centerInside"
 				android:src="@drawable/auth_github" />

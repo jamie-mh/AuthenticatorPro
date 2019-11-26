@@ -91,7 +91,12 @@ namespace AuthenticatorPro
             {"skype", Resource.Drawable.auth_skype},
             {"jetbrains", Resource.Drawable.auth_jetbrains},
             {"protonvpn", Resource.Drawable.auth_protonvpn},
-            {"privateinternetaccess", Resource.Drawable.auth_privateinternetaccess}
+            {"privateinternetaccess", Resource.Drawable.auth_privateinternetaccess},
+            {"instagram", Resource.Drawable.auth_instagram},
+            {"linkedin", Resource.Drawable.auth_linkedin},
+            {"nextcloud", Resource.Drawable.auth_nextcloud},
+            {"nintendo", Resource.Drawable.auth_nintendo},
+            {"teamviewer", Resource.Drawable.auth_teamviewer}
         };
 
         public static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
@@ -108,7 +113,8 @@ namespace AuthenticatorPro
             {"discord", Resource.Drawable.auth_discord_dark},
             {"heroku", Resource.Drawable.auth_heroku_dark},
             {"jetbrains", Resource.Drawable.auth_jetbrains_dark},
-            {"protonvpn", Resource.Drawable.auth_protonvpn_dark}
+            {"protonvpn", Resource.Drawable.auth_protonvpn_dark},
+            {"instagram", Resource.Drawable.auth_instagram_dark}
         };
 
         public static int GetIcon(string key)
