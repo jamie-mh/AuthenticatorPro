@@ -183,31 +183,31 @@
       <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat">
-      <Version>1.1.0-preview03</Version>
+      <Version>1.1.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Browser">
-      <Version>1.1.0-preview03</Version>
+      <Version>1.1.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
-      <Version>1.0.0-preview03</Version>
+      <Version>1.0.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-      <Version>2.1.0-preview03</Version>
+      <Version>2.1.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Media">
-      <Version>1.1.0-preview03</Version>
+      <Version>1.1.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Migration">
-      <Version>1.0.0-preview05</Version>
+      <Version>1.0.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Preference">
-      <Version>1.1.0-preview03</Version>
+      <Version>1.1.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.3.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.Material">
-      <Version>1.1.0-preview03</Version>
+      <Version>1.1.0-preview06</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>2.4.1</Version>
