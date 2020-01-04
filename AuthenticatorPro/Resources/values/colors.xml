@@ -10,7 +10,7 @@
   <color name="colorLight">#eeeeee</color>
   <color name="colorLighter">#ffffff</color>
 
-  <color name="colorDark">#212121</color>
-  <color name="colorDarker">#1c1c1c</color>
-  <color name="colorDarkest">#171717</color>
+  <color name="colorDark">#0a0a0a</color>
+  <color name="colorDarker">#050505</color>
+  <color name="colorDarkest">#000000</color>
 </resources>

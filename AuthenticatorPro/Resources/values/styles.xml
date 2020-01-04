@@ -44,15 +44,17 @@
       
     <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_light</item>
     <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_light</item>
+
+    <item name="android:navigationBarColor">@color/colorLight</item>
   </style>
     
   <style name="DarkTheme" parent="Theme.MaterialComponents">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
-    <item name="colorPrimary">@color/colorDark</item>
-    <item name="colorPrimaryDark">@color/colorDarker</item>
+    <item name="colorPrimary">@color/colorDarkest</item>
+    <item name="colorPrimaryDark">@color/colorDarkest</item>
     <item name="colorAccent">@color/colorAccent</item>
-    <item name="colorBackgroundFloating">@color/colorDarker</item>
+    <item name="colorBackgroundFloating">@color/colorDark</item>
 
     <item name="fontFamily">@font/rubik</item>
     <item name="android:fontFamily">@font/rubik</item>
@@ -68,8 +70,8 @@
 
     <item name="toolbar_searchIcon">@drawable/ic_action_search_dark</item>
 
-    <item name="authList_background">@color/colorDark</item>
-    <item name="authListItem_background">@color/colorDarker</item>
+    <item name="authList_background">@color/colorDarkest</item>
+    <item name="authListItem_background">@color/colorDark</item>
     <item name="authListItem_code">@color/colorLight</item>
     <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
     <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_dark</item>
@@ -90,6 +92,8 @@
       
     <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_dark</item>
     <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_dark</item>
+      
+    <item name="android:navigationBarColor">@color/colorDarkest</item>
   </style>
     
 </resources>
