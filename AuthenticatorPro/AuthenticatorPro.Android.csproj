@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Activities\IntroActivity.cs" />
+    <Compile Include="Source\Activities\LightDarkActivity.cs" />
     <Compile Include="Source\Activities\LoginActivity.cs" />
     <Compile Include="Source\Activities\EditCategoriesActivity.cs" />
     <Compile Include="Source\Activities\FileActivity.cs" />
@@ -135,7 +136,6 @@
     <Compile Include="Source\Icons.cs" />
     <Compile Include="Source\CustomActionBarDrawerToggle.cs" />
     <Compile Include="Source\StringExt.cs" />
-    <Compile Include="Source\Theme.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

@@ -65,6 +65,8 @@ namespace AuthenticatorPro.Activities
         private DateTime _pauseTime;
         private ProgressBar _progressBar;
 
+        private bool _isChildActivityOpen;
+
         // Alert Dialogs
         private RenameAuthenticatorDialog _renameDialog;
         private SearchView _searchView;
@@ -112,6 +114,8 @@ namespace AuthenticatorPro.Activities
             // Recyclerview
             _authList = FindViewById<RecyclerView>(Resource.Id.activityMain_authList);
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyState);
+
+            _isChildActivityOpen = false;
         }
 
         protected override void OnPostCreate(Bundle savedInstanceState)
@@ -128,7 +132,7 @@ namespace AuthenticatorPro.Activities
 
             if(firstLaunch)
             {
-                StartActivity(typeof(IntroActivity));
+                StartChildActivity(typeof(IntroActivity));
                 return;
             }
 
@@ -139,7 +143,7 @@ namespace AuthenticatorPro.Activities
             {
                 Init();
             }
-            else
+            else if(_isChildActivityOpen)
             {
                 UpdateAuthenticators();
                 UpdateCategories();
@@ -149,8 +153,17 @@ namespace AuthenticatorPro.Activities
                    _categorySource.Categories.FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
                     SwitchCategory(-1);
             }
+            else
+                _authList.Visibility = ViewStates.Visible;
 
+            _isChildActivityOpen = false;
             _authTimer?.Start();
+        }
+
+        private void StartChildActivity(Type type)
+        {
+            _isChildActivityOpen = true;
+            StartActivity(type);
         }
 
         private async void Init()
@@ -313,19 +326,19 @@ namespace AuthenticatorPro.Activities
             switch(e.MenuItem.ItemId)
             {
                 case Resource.Id.drawerSettings:
-                    _actionBarDrawerToggle.IdleAction = () => { StartActivity(typeof(SettingsActivity)); };
+                    _actionBarDrawerToggle.IdleAction = () => { StartChildActivity(typeof(SettingsActivity)); };
                     break;
 
                 case Resource.Id.drawerEditCategories:
-                    _actionBarDrawerToggle.IdleAction = () => { StartActivity(typeof(EditCategoriesActivity)); };
+                    _actionBarDrawerToggle.IdleAction = () => { StartChildActivity(typeof(EditCategoriesActivity)); };
                     break;
 
                 case Resource.Id.drawerRestore:
-                    _actionBarDrawerToggle.IdleAction = () => { StartActivity(typeof(RestoreActivity)); };
+                    _actionBarDrawerToggle.IdleAction = () => { StartChildActivity(typeof(RestoreActivity)); };
                     break;
 
                 case Resource.Id.drawerBackup:
-                    _actionBarDrawerToggle.IdleAction = () => { StartActivity(typeof(BackupActivity)); };
+                    _actionBarDrawerToggle.IdleAction = () => { StartChildActivity(typeof(BackupActivity)); };
                     break;
 
                 default:
@@ -383,7 +396,7 @@ namespace AuthenticatorPro.Activities
 
             if(authRequired && isDeviceSecure)
             {
-                StartActivity(typeof(LoginActivity));
+                StartChildActivity(typeof(LoginActivity));
                 return true;
             }
 
