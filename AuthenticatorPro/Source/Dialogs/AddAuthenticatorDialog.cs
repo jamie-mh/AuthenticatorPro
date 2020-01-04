@@ -115,6 +115,7 @@ namespace AuthenticatorPro.Dialogs
 
             var dialog = alert.Create();
             dialog.Show();
+            dialog.Window.SetSoftInputMode(SoftInput.StateAlwaysVisible);
 
             var addButton = dialog.GetButton((int) DialogButtonType.Positive);
             var cancelButton = dialog.GetButton((int) DialogButtonType.Negative);

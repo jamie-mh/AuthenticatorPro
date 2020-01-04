@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Data;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
@@ -53,6 +54,7 @@ namespace AuthenticatorPro.Dialogs
 
             var dialog = alert.Create();
             dialog.Show();
+            dialog.Window.SetSoftInputMode(SoftInput.StateAlwaysVisible);
 
             _issuerText.Text = Authenticator.Issuer;
             _usernameText.Text = Authenticator.Username;

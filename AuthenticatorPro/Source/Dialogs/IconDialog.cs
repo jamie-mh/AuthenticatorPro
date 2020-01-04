@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Text;
+using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.IconList;
@@ -50,6 +51,7 @@ namespace AuthenticatorPro.Dialogs
 
             var dialog = alert.Create();
             dialog.Show();
+            dialog.Window.SetSoftInputMode(SoftInput.StateAlwaysVisible);
 
             _searchText.TextChanged += SearchChanged;
 

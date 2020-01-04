@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Views;
 using Google.Android.Material.TextField;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using DialogFragment = AndroidX.Fragment.App.DialogFragment;
@@ -51,6 +52,7 @@ namespace AuthenticatorPro.Dialogs
 
             var dialog = alert.Create();
             dialog.Show();
+            dialog.Window.SetSoftInputMode(SoftInput.StateAlwaysVisible);
 
             if(_name != null) _nameText.Text = _name;
 

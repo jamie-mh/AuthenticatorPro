@@ -62,6 +62,7 @@ namespace AuthenticatorPro.Dialogs
 
             var dialog = alert.Create();
             dialog.Show();
+            dialog.Window.SetSoftInputMode(SoftInput.StateAlwaysVisible);
 
             var positiveButton = dialog.GetButton((int) DialogButtonType.Positive);
             var negativeButton = dialog.GetButton((int) DialogButtonType.Negative);
