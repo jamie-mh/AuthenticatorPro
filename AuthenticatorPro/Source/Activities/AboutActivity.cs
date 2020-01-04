@@ -1,19 +1,17 @@
 ﻿using Android.App;
 using Android.OS;
-using Android.Support.V7.App;
-using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Webkit;
+using AndroidX.AppCompat.Widget;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "AboutActivity")]
-    public class AboutActivity : AppCompatActivity
+    [Activity]
+    internal class AboutActivity : LightDarkActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            AuthenticatorPro.Theme.Update(this);
             SetContentView(Resource.Layout.activityAbout);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.activityAbout_toolbar);
@@ -22,7 +20,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.about);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
 
             var webView = FindViewById<WebView>(Resource.Id.activityAbout_webView);
             webView.LoadUrl(@"file:///android_asset/about.html");

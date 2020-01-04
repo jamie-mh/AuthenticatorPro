@@ -12,7 +12,6 @@ using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
-using AndroidX.AppCompat.App;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using AndroidX.DrawerLayout.Widget;
@@ -38,7 +37,7 @@ namespace AuthenticatorPro.Activities
 {
     [Activity(Label = "@string/displayName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
-    public class MainActivity : AppCompatActivity
+    internal class MainActivity : LightDarkActivity
     {
         private const int PermissionCameraCode = 0;
 
@@ -79,7 +78,6 @@ namespace AuthenticatorPro.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            AuthenticatorPro.Theme.Update(this);
             SetContentView(Resource.Layout.activityMain);
 
             // Actionbar
@@ -188,7 +186,7 @@ namespace AuthenticatorPro.Activities
         private void InitAuthenticators()
         {
             _authSource = new AuthSource(_connection);
-            _authAdapter = new AuthAdapter(_authSource);
+            _authAdapter = new AuthAdapter(_authSource, IsDark);
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
@@ -412,10 +410,9 @@ namespace AuthenticatorPro.Activities
             if(_authSource == null)
                 return;
 
-            var start = 0;
             var stop = _authSource.Authenticators.Count;
 
-            for(var i = start; i < stop; ++i)
+            for(var i = 0; i < stop; ++i)
             {
                 var auth = _authSource.Authenticators[i];
                 var position = i; // Closure modification
@@ -431,6 +428,9 @@ namespace AuthenticatorPro.Activities
 
         private void ItemClick(object sender, int position)
         {
+            if(position < 0)
+                return;
+
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
             var auth = _authSource.Get(position);
             var clip = ClipData.NewPlainText("code", auth.Code);
@@ -441,6 +441,9 @@ namespace AuthenticatorPro.Activities
 
         private void ItemOptionsClick(object sender, int position)
         {
+            if(position < 0)
+                return;
+
             var builder = new AlertDialog.Builder(this);
             builder.SetItems(Resource.Array.authContextMenu, (alertSender, args) =>
             {
@@ -724,7 +727,7 @@ namespace AuthenticatorPro.Activities
             if(old != null) transaction.Remove(old);
 
             transaction.AddToBackStack(null);
-            _iconDialog = new IconDialog(IconDialogIconClick, IconDialogNegative, position);
+            _iconDialog = new IconDialog(IconDialogIconClick, IconDialogNegative, position, IsDark);
             _iconDialog.Show(transaction, "icon_dialog");
         }
 

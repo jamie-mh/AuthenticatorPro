@@ -2,12 +2,11 @@
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V7.App;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "LoginActivity")]
-    public class LoginActivity : AppCompatActivity
+    [Activity]
+    internal class LoginActivity : LightDarkActivity
     {
         private const int RequestConfirmDeviceCredentials = 0;
 

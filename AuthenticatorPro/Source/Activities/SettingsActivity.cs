@@ -7,12 +7,11 @@ using AuthenticatorPro.Fragments;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "SettingsActivity")]
-    public class SettingsActivity : AppCompatActivity
+    [Activity]
+    internal class SettingsActivity : LightDarkActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            AuthenticatorPro.Theme.Update(this);
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activitySettings);
@@ -22,7 +21,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.settings);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
 
             SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.activitySettings_content, new SettingsFragment())

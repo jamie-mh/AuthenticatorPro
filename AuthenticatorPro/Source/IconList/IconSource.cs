@@ -5,11 +5,13 @@ namespace AuthenticatorPro.IconList
 {
     internal class IconSource
     {
+        private readonly bool _isDark;
         private string _search;
 
-        public IconSource()
+        public IconSource(bool isDark)
         {
             _search = "";
+            _isDark = isDark;
             List = new Dictionary<string, int>(Icons.Service.Count);
 
             Update();
@@ -29,7 +31,7 @@ namespace AuthenticatorPro.IconList
             {
                 List = new Dictionary<string, int>(Icons.Service.Count);
                 foreach(var item in Icons.Service)
-                    List.Add(item.Key, Icons.GetService(item.Key));
+                    List.Add(item.Key, Icons.GetService(item.Key, _isDark));
 
                 return;
             }
@@ -38,7 +40,7 @@ namespace AuthenticatorPro.IconList
 
             var keys = Icons.Service.Keys.Where(k => k.Contains(query)).ToList();
             List = new Dictionary<string, int>(keys.Count);
-            keys.ForEach(key => List.Add(key, Icons.GetService(key)));
+            keys.ForEach(key => List.Add(key, Icons.GetService(key, _isDark)));
         }
     }
 }

@@ -11,8 +11,8 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "FileSaveActivity")]
-    public class FileActivity : AppCompatActivity
+    [Activity]
+    internal class FileActivity : LightDarkActivity
     {
         public enum Mode
         {
@@ -29,7 +29,6 @@ namespace AuthenticatorPro.Activities
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            AuthenticatorPro.Theme.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityFile);
 
@@ -40,10 +39,10 @@ namespace AuthenticatorPro.Activities
 
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
 
             _filesystemSource = new FilesystemSource(Environment.ExternalStorageDirectory.AbsolutePath);
-            _filesystemAdapter = new FilesystemAdapter(_filesystemSource) {
+            _filesystemAdapter = new FilesystemAdapter(_filesystemSource, IsDark) {
                 HasStableIds = true
             };
 

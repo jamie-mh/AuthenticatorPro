@@ -24,11 +24,11 @@ namespace AuthenticatorPro.Dialogs
 
         private EditText _searchText;
 
-        public IconDialog(Action<object, EventArgs> itemClick, Action<object, EventArgs> negative, int position)
+        public IconDialog(Action<object, EventArgs> itemClick, Action<object, EventArgs> negative, int position, bool isDark)
         {
             _itemClick = itemClick;
             _negativeButtonEvent = negative;
-            _iconSource = new IconSource();
+            _iconSource = new IconSource(isDark);
 
             Position = position;
         }

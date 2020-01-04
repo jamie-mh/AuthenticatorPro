@@ -21,8 +21,8 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "RestoreActivity")]
-    public class RestoreActivity : InternalStorageActivity
+    [Activity]
+    internal class RestoreActivity : InternalStorageActivity
     {
         private const int DeviceStorageCode = 1;
         private const int StorageAccessFrameworkCode = 2;
@@ -37,7 +37,6 @@ namespace AuthenticatorPro.Activities
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
-            AuthenticatorPro.Theme.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityRestore);
 
@@ -47,7 +46,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.restore);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
 
             var loadStorageBtn = FindViewById<LinearLayout>(Resource.Id.activityRestore_loadStorage);
             loadStorageBtn.Click += LoadStorageClick;

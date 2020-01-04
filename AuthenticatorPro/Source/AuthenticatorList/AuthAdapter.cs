@@ -10,10 +10,12 @@ namespace AuthenticatorPro.AuthenticatorList
 {
     internal sealed class AuthAdapter : RecyclerView.Adapter, IAuthAdapterMovement
     {
+        private readonly bool _isDark;
         private readonly AuthSource _source;
 
-        public AuthAdapter(AuthSource authSource)
+        public AuthAdapter(AuthSource authSource, bool isDark)
         {
+            _isDark = isDark;
             _source = authSource;
         }
 
@@ -51,7 +53,7 @@ namespace AuthenticatorPro.AuthenticatorList
                     spacesInserted++;
                 }
 
-            holder.Icon.SetImageResource(Icons.GetService(auth.Icon));
+            holder.Icon.SetImageResource(Icons.GetService(auth.Icon, _isDark));
 
             if(auth.Type == OtpType.Totp)
                 TotpViewBind(holder, auth);

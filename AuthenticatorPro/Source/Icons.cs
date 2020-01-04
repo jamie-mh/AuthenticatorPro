@@ -117,14 +117,14 @@ namespace AuthenticatorPro
             {"instagram", Resource.Drawable.auth_instagram_dark}
         };
 
-        public static int GetIcon(string key)
+        public static int GetIcon(string key, bool isDark)
         {
-            return Theme.IsDark ? DarkIcons[key] : LightIcons[key];
+            return isDark ? DarkIcons[key] : LightIcons[key];
         }
 
-        public static int GetService(string key)
+        public static int GetService(string key, bool isDark)
         {
-            if(Theme.IsDark)
+            if(isDark)
             {
                 if(key == null)
                     return ServiceDark["default"];

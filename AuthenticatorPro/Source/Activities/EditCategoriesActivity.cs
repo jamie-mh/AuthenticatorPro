@@ -16,8 +16,8 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "EditCategoriesActivity")]
-    public class EditCategoriesActivity : AppCompatActivity
+    [Activity]
+    internal class EditCategoriesActivity : LightDarkActivity
     {
         private FloatingActionButton _addButton;
         private EditCategoryDialog _addDialog;
@@ -33,7 +33,6 @@ namespace AuthenticatorPro.Activities
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
-            AuthenticatorPro.Theme.Update(this);
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityEditCategories);
 
@@ -44,7 +43,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.editCategories);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back"));
+            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityEditCategories_buttonAdd);
             _addButton.Click += OnAddClick;

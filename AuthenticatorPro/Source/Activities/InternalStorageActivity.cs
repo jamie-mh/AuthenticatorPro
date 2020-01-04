@@ -2,13 +2,12 @@
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Widget;
-using AndroidX.AppCompat.App;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
 
 namespace AuthenticatorPro.Activities
 {
-    public abstract class InternalStorageActivity : AppCompatActivity
+    internal abstract class InternalStorageActivity : LightDarkActivity
     {
         private const int PermissionStorageCode = 0;
 

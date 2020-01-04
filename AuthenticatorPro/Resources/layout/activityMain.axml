@@ -39,7 +39,6 @@
 
 		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/activityMain_authList"
-			android:scrollbars="vertical"
 			android:clipToPadding="false"
 			android:paddingBottom="80dp"
 			android:background="?attr/authList_background"
