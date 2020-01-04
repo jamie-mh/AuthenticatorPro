@@ -4,13 +4,13 @@ using Android.OS;
 using AndroidX.Fragment.App;
 using AndroidX.Preference;
 using AndroidX.ViewPager.Widget;
-using AuthenticatorPro.Source.Intro;
+using AuthenticatorPro.Intro;
 using Google.Android.Material.BottomNavigation;
 
 namespace AuthenticatorPro.Activities
 {
     [Activity(Theme = "@style/LightTheme", ScreenOrientation = ScreenOrientation.Portrait)]
-    public class IntroActivity : FragmentActivity
+    internal class IntroActivity : FragmentActivity
     {
         public const int PageCount = 5;
 

@@ -3,7 +3,7 @@ using AndroidX.Preference;
 
 namespace AuthenticatorPro.Fragments
 {
-    public class SettingsFragment : PreferenceFragmentCompat
+    internal class SettingsFragment : PreferenceFragmentCompat
     {
         public override void OnCreatePreferences(Bundle savedInstanceState, string rootKey)
         {

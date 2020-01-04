@@ -1,10 +1,10 @@
 ﻿using AndroidX.Fragment.App;
 using AuthenticatorPro.Activities;
-using AuthenticatorPro.Source.Fragments;
+using AuthenticatorPro.Fragments;
 using Fragment = AndroidX.Fragment.App.Fragment;
 using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
-namespace AuthenticatorPro.Source.Intro
+namespace AuthenticatorPro.Intro
 {
     internal class IntroPagerAdapter : FragmentStatePagerAdapter
     {

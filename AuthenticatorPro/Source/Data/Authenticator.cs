@@ -101,7 +101,7 @@ namespace AuthenticatorPro.Data
             var period = args.ContainsKey("period") ? Int32.Parse(args["period"]) : 30;
 
             var code = "";
-            for(var i = 0; i < digits; code += "-", i++) ;
+            for(var i = 0; i < digits; code += "-", i++);
 
             var auth = new Authenticator {
                 Secret = args["secret"].ToUpper(),

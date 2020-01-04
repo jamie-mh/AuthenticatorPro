@@ -1,13 +1,13 @@
 ﻿using AndroidX.RecyclerView.Widget;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.AuthenticatorList
 {
-    internal class CustomTouchHelperCallback : ItemTouchHelper.Callback
+    internal class AuthListTouchHelperCallback : ItemTouchHelper.Callback
     {
         private readonly bool _isGrid;
         private readonly IAuthAdapterMovement _movement;
 
-        public CustomTouchHelperCallback(IAuthAdapterMovement movement, bool isGrid = false)
+        public AuthListTouchHelperCallback(IAuthAdapterMovement movement, bool isGrid = false)
         {
             _movement = movement;
             _isGrid = isGrid;

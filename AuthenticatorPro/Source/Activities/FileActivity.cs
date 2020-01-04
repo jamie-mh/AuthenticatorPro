@@ -3,8 +3,8 @@ using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AndroidX.AppCompat.App;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.FilesystemList;
 using Environment = Android.OS.Environment;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Activities
                     break;
             }
 
-            var layout = new CustomGridLayoutManager(this, 1);
+            var layout = new AuthListGridLayoutManager(this, 1);
             list.SetLayoutManager(layout);
 
             var decoration = new DividerItemDecoration(this, layout.Orientation);

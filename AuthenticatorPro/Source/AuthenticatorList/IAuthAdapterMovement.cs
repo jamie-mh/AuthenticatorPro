@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro
+﻿namespace AuthenticatorPro.AuthenticatorList
 {
     internal interface IAuthAdapterMovement
     {

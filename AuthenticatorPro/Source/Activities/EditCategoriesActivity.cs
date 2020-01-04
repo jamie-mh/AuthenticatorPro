@@ -4,8 +4,8 @@ using Android.OS;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
-using AndroidX.AppCompat.App;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialogs;
 using AuthenticatorPro.CategoryList;
@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Activities
             _categoryList.HasFixedSize = true;
             _categoryList.SetItemViewCacheSize(20);
 
-            var callback = new CustomTouchHelperCallback(_categoryAdapter);
+            var callback = new AuthListTouchHelperCallback(_categoryAdapter);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_categoryList);
 

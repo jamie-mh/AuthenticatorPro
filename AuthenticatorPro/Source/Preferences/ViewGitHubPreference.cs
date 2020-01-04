@@ -11,25 +11,30 @@ namespace AuthenticatorPro.Preferences
     {
         public ViewGitHubPreference(Context context) : base(context)
         {
+
         }
 
         public ViewGitHubPreference(Context context, IAttributeSet attrs) : base(context, attrs)
         {
+
         }
 
         public ViewGitHubPreference(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs,
             defStyleAttr)
         {
+
         }
 
         public ViewGitHubPreference(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(
             context, attrs, defStyleAttr, defStyleRes)
         {
+
         }
 
         protected ViewGitHubPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference,
             transfer)
         {
+
         }
 
         protected override void OnClick()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -128,7 +129,7 @@ namespace AuthenticatorPro.Activities
             // Open curly brace (file is not encrypted)
             if(_fileData[0] == 0x7b)
             {
-                await RestoreBackup();
+                await Restore();
                 return;
             }
 
@@ -142,7 +143,7 @@ namespace AuthenticatorPro.Activities
             _dialog.Show(transaction, "password_dialog");
         }
 
-        private async Task RestoreBackup(string password = "")
+        private async Task Restore(string password = "")
         {
             try
             {
@@ -179,26 +180,20 @@ namespace AuthenticatorPro.Activities
                 var authsInserted = 0;
                 var categoriesInserted = 0;
 
-                foreach(var auth in backup.Authenticators)
+                foreach(var auth in backup.Authenticators.Where(auth => !_authSource.IsDuplicate(auth)))
                 {
-                    if(_authSource.IsDuplicate(auth)) continue;
-
                     await _connection.InsertAsync(auth);
                     authsInserted++;
                 }
 
-                foreach(var category in backup.Categories)
+                foreach(var category in backup.Categories.Where(category => !_categorySource.IsDuplicate(category)))
                 {
-                    if(_categorySource.IsDuplicate(category)) continue;
-
                     await _connection.InsertAsync(category);
                     categoriesInserted++;
                 }
 
-                foreach(var binding in backup.AuthenticatorCategories)
+                foreach(var binding in backup.AuthenticatorCategories.Where(binding => !_authSource.IsDuplicateCategoryBinding(binding)))
                 {
-                    if(_authSource.IsDuplicateCategoryBinding(binding)) continue;
-
                     await _connection.InsertAsync(binding);
                 }
 
@@ -216,7 +211,7 @@ namespace AuthenticatorPro.Activities
 
         private async void OnDialogPositive()
         {
-            await RestoreBackup(_dialog.Password);
+            await Restore(_dialog.Password);
         }
 
         private void OnDialogNegative()

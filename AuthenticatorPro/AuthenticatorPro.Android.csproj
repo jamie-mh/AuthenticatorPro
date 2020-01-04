@@ -37,7 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
@@ -116,14 +116,14 @@
     <Compile Include="Source\CategoryList\ChooseCategoriesAdapter.cs" />
     <Compile Include="Source\CategoryList\CategoryAdapter.cs" />
     <Compile Include="Source\CategoryList\CategoryHolder.cs" />
-    <Compile Include="Source\CustomGridLayoutManager.cs" />
+    <Compile Include="Source\AuthenticatorList\AuthListGridLayoutManager.cs" />
     <Compile Include="Source\FilesystemList\FilesystemHolder.cs" />
     <Compile Include="Source\CategoryList\CategorySource.cs" />
     <Compile Include="Source\FilesystemList\FilesystemSource.cs" />
     <Compile Include="Source\FilesystemList\FilesystemAdapter.cs" />
     <Compile Include="Source\Hash.cs" />
-    <Compile Include="Source\IAdapterMovement.cs" />
-    <Compile Include="Source\CustomTouchHelperCallback.cs" />
+    <Compile Include="Source\AuthenticatorList\IAuthAdapterMovement.cs" />
+    <Compile Include="Source\AuthenticatorList\AuthListItemTouchHelperCallback.cs" />
     <Compile Include="Source\IconList\IconSource.cs" />
     <Compile Include="Source\IconList\IconHolder.cs" />
     <Compile Include="Source\IconList\IconAdapter.cs" />
@@ -134,7 +134,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Database.cs" />
     <Compile Include="Source\Icons.cs" />
-    <Compile Include="Source\CustomActionBarDrawerToggle.cs" />
+    <Compile Include="Source\IdleActionBarDrawerToggle.cs" />
     <Compile Include="Source\StringExt.cs" />
   </ItemGroup>
   <ItemGroup>

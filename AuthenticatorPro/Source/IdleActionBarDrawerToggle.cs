@@ -7,23 +7,13 @@ using AndroidX.DrawerLayout.Widget;
 
 namespace AuthenticatorPro
 {
-    internal class CustomActionBarDrawerToggle : ActionBarDrawerToggle
+    internal class IdleActionBarDrawerToggle : ActionBarDrawerToggle
     {
-        protected CustomActionBarDrawerToggle(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference,
-            transfer)
-        {
-        }
-
-        public CustomActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, Toolbar toolbar,
+        public IdleActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, Toolbar toolbar,
             int openDrawerContentDescRes, int closeDrawerContentDescRes) : base(activity, drawerLayout, toolbar,
             openDrawerContentDescRes, closeDrawerContentDescRes)
         {
-        }
 
-        public CustomActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, int openDrawerContentDescRes,
-            int closeDrawerContentDescRes) : base(activity, drawerLayout, openDrawerContentDescRes,
-            closeDrawerContentDescRes)
-        {
         }
 
         public Action IdleAction { get; set; }

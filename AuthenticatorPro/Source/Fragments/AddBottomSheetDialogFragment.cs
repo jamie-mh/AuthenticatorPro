@@ -4,9 +4,9 @@ using Android.Views;
 using Android.Widget;
 using Google.Android.Material.BottomSheet;
 
-namespace AuthenticatorPro.Source.Fragments
+namespace AuthenticatorPro.Fragments
 {
-    public class AddBottomSheetDialogFragment : BottomSheetDialogFragment
+    internal class AddBottomSheetDialogFragment : BottomSheetDialogFragment
     {
         public Action ClickQrCode { get; set; }
         public Action ClickEnterKey { get; set; }
@@ -18,12 +18,12 @@ namespace AuthenticatorPro.Source.Fragments
             var scanQrItem = view.FindViewById<LinearLayout>(Resource.Id.addBottomSheetDialog_scanQr);
             var enterKeyItem = view.FindViewById<LinearLayout>(Resource.Id.addBottomSheetDialog_enterKey);
 
-            scanQrItem.Click += (object sender, EventArgs e) => {
+            scanQrItem.Click += (sender, e) => {
                 ClickQrCode?.Invoke();
                 Dismiss();
             };
 
-            enterKeyItem.Click += (object sender, EventArgs e) => {
+            enterKeyItem.Click += (sender, e) => {
                 ClickEnterKey?.Invoke();
                 Dismiss();
             };

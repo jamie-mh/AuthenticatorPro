@@ -3,15 +3,13 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Fragment.App;
 
-namespace AuthenticatorPro.Source.Fragments
+namespace AuthenticatorPro.Fragments
 {
     internal class IntroPageFragment : Fragment
     {
         private readonly int _position;
 
-        public IntroPageFragment() { }
-
-        public IntroPageFragment(int position) : base()
+        public IntroPageFragment(int position)
         {
             _position = position;            
         }

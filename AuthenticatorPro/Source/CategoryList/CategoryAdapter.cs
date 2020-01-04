@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.AuthenticatorList;
 
 namespace AuthenticatorPro.CategoryList
 {

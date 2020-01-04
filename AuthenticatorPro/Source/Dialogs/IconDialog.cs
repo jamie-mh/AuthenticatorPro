@@ -7,6 +7,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.IconList;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using DialogFragment = AndroidX.Fragment.App.DialogFragment;
@@ -63,7 +64,7 @@ namespace AuthenticatorPro.Dialogs
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
 
-            var layout = new CustomGridLayoutManager(Context, 6);
+            var layout = new AuthListGridLayoutManager(Context, 6);
             _iconList.SetLayoutManager(layout);
 
             var cancelButton = dialog.GetButton((int) DialogButtonType.Negative);

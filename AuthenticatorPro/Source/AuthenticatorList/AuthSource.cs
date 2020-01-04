@@ -251,7 +251,7 @@ namespace AuthenticatorPro.AuthenticatorList
 
         public void RemoveFromCategory(int position, string categoryId)
         {
-            var sql = "DELETE FROM authenticatorcategory WHERE categoryId = ? AND authenticatorSecret = ?";
+            const string sql = "DELETE FROM authenticatorcategory WHERE categoryId = ? AND authenticatorSecret = ?";
             var secret = Authenticators[position].Secret;
             object[] args = {categoryId, secret};
             _connection.ExecuteAsync(sql, args);

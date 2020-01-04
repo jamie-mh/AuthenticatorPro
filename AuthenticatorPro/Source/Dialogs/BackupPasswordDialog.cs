@@ -67,12 +67,12 @@ namespace AuthenticatorPro.Dialogs
             var positiveButton = dialog.GetButton((int) DialogButtonType.Positive);
             var negativeButton = dialog.GetButton((int) DialogButtonType.Negative);
 
-            positiveButton.Click += (object sender, EventArgs args) =>
+            positiveButton.Click += (sender, args) =>
             {
                 _positiveButtonEvent?.Invoke();
             };
 
-            negativeButton.Click += (object sender, EventArgs args) =>
+            negativeButton.Click += (sender, args) =>
             {
                 _negativeButtonEvent?.Invoke();
                 Dismiss();

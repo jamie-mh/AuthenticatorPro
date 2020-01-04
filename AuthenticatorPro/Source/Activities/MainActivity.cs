@@ -19,7 +19,6 @@ using AndroidX.Preference;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialogs;
-using AuthenticatorPro.Source.Fragments;
 using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.CategoryList;
 using Google.Android.Material.FloatingActionButton;
@@ -32,6 +31,7 @@ using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using SQLiteException = SQLite.SQLiteException;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
+using AuthenticatorPro.Fragments;
 
 namespace AuthenticatorPro.Activities
 {
@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Activities
     {
         private const int PermissionCameraCode = 0;
 
-        private CustomActionBarDrawerToggle _actionBarDrawerToggle;
+        private IdleActionBarDrawerToggle _actionBarDrawerToggle;
         private FloatingActionButton _addButton;
         private AddAuthenticatorDialog _addDialog;
 
@@ -96,7 +96,7 @@ namespace AuthenticatorPro.Activities
             _navigationView = FindViewById<NavigationView>(Resource.Id.activityMain_navView);
             _navigationView.NavigationItemSelected += DrawerItemSelected;
 
-            _actionBarDrawerToggle = new CustomActionBarDrawerToggle(this, _drawerLayout, toolbar,
+            _actionBarDrawerToggle = new IdleActionBarDrawerToggle(this, _drawerLayout, toolbar,
                 Resource.String.appName, Resource.String.appName);
             _drawerLayout.AddDrawerListener(_actionBarDrawerToggle);
 
@@ -128,7 +128,7 @@ namespace AuthenticatorPro.Activities
         {
             base.OnResume();
             _sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            bool firstLaunch = _sharedPrefs.GetBoolean("firstLaunch", true);
+            var firstLaunch = _sharedPrefs.GetBoolean("firstLaunch", true);
 
             if(firstLaunch)
             {
@@ -214,10 +214,10 @@ namespace AuthenticatorPro.Activities
             _authList.LayoutAnimation = animation;
 
             var useGrid = IsTablet();
-            var layout = new CustomGridLayoutManager(this, useGrid ? 2 : 1);
+            var layout = new AuthListGridLayoutManager(this, useGrid ? 2 : 1);
             _authList.SetLayoutManager(layout);
 
-            var callback = new CustomTouchHelperCallback(_authAdapter, useGrid);
+            var callback = new AuthListTouchHelperCallback(_authAdapter, useGrid);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
         }
@@ -517,9 +517,9 @@ namespace AuthenticatorPro.Activities
 
         private void AddButtonClick(object sender, EventArgs e)
         {
-            var fragment = new AddBottomSheetDialogFragment();
-            fragment.ClickQrCode = OpenQRCodeScanner;
-            fragment.ClickEnterKey = OpenAddDialog;
+            var fragment = new AddBottomSheetDialogFragment {
+                ClickQrCode = OpenQRCodeScanner, ClickEnterKey = OpenAddDialog
+            };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -657,7 +657,7 @@ namespace AuthenticatorPro.Activities
             var type = _addDialog.Type == 0 ? OtpType.Totp : OtpType.Hotp;
 
             var code = "";
-            for(var i = 0; i < _addDialog.Digits; code += "-", i++) ;
+            for(var i = 0; i < _addDialog.Digits; code += "-", i++);
 
             var auth = new Authenticator {
                 Issuer = issuer,
