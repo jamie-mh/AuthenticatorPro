@@ -20,7 +20,9 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:inputType="textCapSentences"
-				android:hint="@string/issuerHint"/>
+				android:hint="@string/issuerHint">
+				<requestFocus />
+			</com.google.android.material.textfield.TextInputEditText>
 		</com.google.android.material.textfield.TextInputLayout>
 		<com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
