@@ -4,8 +4,6 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AndroidX.AppCompat.App;
-using AndroidX.Fragment.App;
 using Google.Android.Material.TextField;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using DialogFragment = AndroidX.Fragment.App.DialogFragment;

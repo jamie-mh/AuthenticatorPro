@@ -5,8 +5,6 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AndroidX.AppCompat.App;
-using AndroidX.Fragment.App;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.CategoryList;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;

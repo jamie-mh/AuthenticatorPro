@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AuthenticatorPro;
 using Newtonsoft.Json;
 using OtpSharp;
 using SQLite;

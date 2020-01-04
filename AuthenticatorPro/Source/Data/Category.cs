@@ -1,5 +1,4 @@
-﻿using AuthenticatorPro;
-using SQLite;
+﻿using SQLite;
 
 namespace AuthenticatorPro.Data
 {

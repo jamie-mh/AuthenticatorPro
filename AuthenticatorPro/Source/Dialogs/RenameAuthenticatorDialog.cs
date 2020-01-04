@@ -3,8 +3,6 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using AndroidX.AppCompat.App;
-using AndroidX.Fragment.App;
 using AuthenticatorPro.Data;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using DialogFragment = AndroidX.Fragment.App.DialogFragment;

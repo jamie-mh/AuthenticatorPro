@@ -1,14 +1,11 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Widget;
-using AndroidX.AppCompat.App;
 using AndroidX.Fragment.App;
 using AndroidX.Preference;
 using AndroidX.ViewPager.Widget;
 using AuthenticatorPro.Source.Intro;
 using Google.Android.Material.BottomNavigation;
-using Google.Android.Material.Button;
 
 namespace AuthenticatorPro.Activities
 {

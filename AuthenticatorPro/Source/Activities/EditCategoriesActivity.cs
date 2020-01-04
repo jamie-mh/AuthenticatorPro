@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialogs;
-using AuthenticatorPro;
 using AuthenticatorPro.CategoryList;
 using Google.Android.Material.FloatingActionButton;
 using SQLite;
