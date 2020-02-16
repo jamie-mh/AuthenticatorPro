@@ -42,9 +42,8 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
 
             _filesystemSource = new FilesystemSource(Environment.ExternalStorageDirectory.AbsolutePath);
-            _filesystemAdapter = new FilesystemAdapter(_filesystemSource, IsDark) {
-                HasStableIds = true
-            };
+            _filesystemAdapter = new FilesystemAdapter(_filesystemSource, IsDark);
+            _filesystemAdapter.SetHasStableIds(true);
 
             var list = FindViewById<RecyclerView>(Resource.Id.activityFile_list);
             list.SetAdapter(_filesystemAdapter);

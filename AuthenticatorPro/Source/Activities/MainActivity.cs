@@ -203,7 +203,7 @@ namespace AuthenticatorPro.Activities
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
-            _authAdapter.HasStableIds = true;
+            _authAdapter.SetHasStableIds(true);
 
             _authList.SetAdapter(_authAdapter);
             _authList.HasFixedSize = true;
