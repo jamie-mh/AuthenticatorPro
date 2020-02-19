@@ -1,0 +1,129 @@
+﻿<resources>
+  <string name="appName">Authenticator Pro</string>
+  <string name="displayName">Authenticator</string>
+  <string name="settings">Einstellungen</string>
+  <string name="restore">Wiederherstellen</string>
+  <string name="backup">Sichern</string>
+  <string name="about">About</string>
+  <string name="scanQrCode">QR Code scannen</string>
+  <string name="enterKey">Schlüssel eingeben</string>
+  <string name="renameAuth">Umbenennen</string>
+  <string name="copiedToClipboard">Code in zwischenablage kopiert</string>
+  <string name="warning">Warnung</string>
+  <string name="confirmAuthenticatorDelete">Nach dem löschen dieses Authentifikators wird es nicht mehr möglich sein, Codes für dieses Konto abzurufen.\nDadurch wird die Zwei-Faktor-Authentifizierung in diesem Konto jedoch nicht deaktiviert.\n\nDas löschen dieses Authentifikators hält dich möglicherweise davon ab, dich in deinem Konto anzumelden.\nStelle sicher das du die Zwei-Faktor-Authentifizierung deaktivert hast oder über gültige Backup-Codes verfügst.\n\nMöchtest du fortfahren?</string>
+  <string name="delete">Löschen</string>
+  <string name="add">Hinzufügen</string>
+  <string name="rename">Umbenennen</string>
+  <string name="changeIcon">Icon ändern</string>
+  <string name="cancel">Abbrechen</string>
+  <string name="issuer">Herausgeber</string>
+  <string name="username">Nutzername</string>
+  <string name="secretKey">Geheimer Schlüssel</string>
+  <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
+  <string name="noAuthenticatorsTitle">Keine Authentifikatoren!</string>
+  <string name="noAuthenticatorsMessage">Du hast hier keine Authentifikatoren.</string>
+
+  <string name="search">Suche</string>
+  <string name="ok">OK</string>
+  <string name="yes">Ja</string>
+  <string name="no">Na</string>
+  <string name="issuerHint">Herausgeber (z.\u00A0B.: Google)</string>
+  <string name="usernameHint">Nutzername (z.\u00A0B.: max@muster.com)</string>
+  <string name="typeHint">Typ</string>
+  <string name="algorithmHint">Algorithmus</string>
+  <string name="digitsHint">Stellen</string>
+  <string name="periodHint">Gültigkeit (Sekunden)</string>
+  <string name="passwordHint">Sicherungspasswort</string>
+  <string name="fileNameHint">Sicherungsdateiname</string>
+  <string name="save">Speichern</string>
+  <string name="saveFile">Datei speichern</string>
+  <string name="openFile">Datei öffnen</string>
+  <string name="noAuthenticators">Du hast keine Authentifikatoren, die du sichern kannst.</string>
+
+  <string name="noIssuer">Der Herausgeber muss angegeben werden.</string>
+  <string name="noSecret">Der Schlüssel muss angegeben werden.</string>
+  <string name="noFileName">Ein Dateiname muss angegeben werden.</string>
+  <string name="secretTooShort">Der Schlüssel muss länger als 16 Zeichen sein.</string>
+  <string name="secretInvalidChars">Der Schlüssel enthält ungültige Zeichen.</string>
+  <string name="digitsToSmall">Es müssen mindestens 6 Stellen generiert werden.</string>
+  <string name="periodToShort">Die Gültigkeitsdauer muss länger als 10 Sekunden sein.</string>
+  <string name="qrCodeFormatError">Der QR-Code ist falsch formatiert.</string>
+  <string name="duplicateAuthenticator">Es gibt bereits einen Authentifikator mit diesem Schlüssel.</string>
+  <string name="restoredFromBackup">Es wurden {0} Authentifikatoren und {1} Kategorien wiederhergestellt.</string>
+
+  <string name="categories">Kategorien</string>
+  <string name="chooseCategories">Kategorien auswählen</string>
+  <string name="more">Mehr</string>
+  <string name="categoryAll">Alle</string>
+  <string name="editCategories">Kategorien bearbeiten</string>
+  <string name="categoryNameHint">Name</string>
+  <string name="noCategoryName">Ein Name muss angegeben werden.</string>
+  <string name="duplicateCategory">Es gibt bereits eine Kategorie mit diesem Name.</string>
+  <string name="confirmCategoryDelete">Bist du sicher das du diese Kategorie löschen möchtest?</string>
+  <string name="noCategoriesTitle">Keine Kategorien</string>
+  <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
+
+  <string name="restoreMessage">Wähle eine Authenticator Pro Sicherung um sie wiederherzustellen.\nDu kannst eine Sicherungsdatei auf diesem Gerät oder aus einem Cloudspeicher laden.</string>
+  <string name="backupMessage">Erstelle eine passwortgeschützte Sicherung deiner Authentifikatoren.\nDu kannst die Sicherungsdatei in deinem Gerätesspeicher ablegen oder direkt in einen Cloudspeicher, falls du dein Gerät verlierst.</string>
+  <string name="backupPasswordMessage">Gebe ein Passwort ein um deine Sicherungsdatei zu schützen. Falls du dies nicht wünschst, lasse das Feld leer.</string>
+  <string name="restoreError">Das Passwort ist ungültig oder die Datei ist bschädigt.</string>
+  <string name="filePickError">Dateifehler</string>
+  <string name="invalidFileError">Die ausgewählte Datei ist keine Authenticator Pro-Sicherungsdatei.</string>
+  <string name="externalStoragePermissionError">Die Berechtigung \"Externer Speicher\" wird benötigt um ein Backup erstellen oder laden zu können.</string>
+  <string name="saveSuccess">Erfolgreich gespeichert.</string>
+  <string name="restoreBackupDevice">Sicherung von Gerätespeicher laden</string>
+  <string name="restoreBackupCloud">Sicherung aus Cloudspeicher laden</string>
+  <string name="saveBackupDevice">Sicherung im Gerätespeicher ablegen</string>
+  <string name="saveBackupCloud">Sicherung im Cloudspeicher ablegen</string>
+
+  <string name="password">Passwort</string>
+  <string name="passwordConfirm">Passwort bestätigen</string>
+  <string name="login">Entsperren</string>
+  <string name="loginMessage">Benutze deine Anmeldeinformationen um auf deine Authentifikatoren zuzugreifen</string>
+  <string name="confirmEmptyPassword">Du hast kein Passwort vergeben, deine Sicherung wird nicht verschlüsselt und können missbraucht werden. Möchtest du fortfahren?</string>
+
+  <string name="databaseError">Es gab ein Problem beim entschlüsseln der Datenbank. Lösche die Anwendungsdaten um fortzufahren.</string>
+  <string name="cameraPermissionError">Die Kamera-Berechtigung muss erteilt werden, um QR-Codes lesen zu können.</string>
+  <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
+  <string name="quit">Beenden</string>
+
+  <!-- Preferences -->
+  <string name="pref_security">Sicherheit</string>
+  <string name="pref_appLock_title">App sperren</string>
+  <string name="pref_appLock_summary">Authentifizierung verlangen, um auf Authentifikatoren zuzugreifen. Du musst dafür ein Sperrbildschirm in deinem Gerät einrichten.</string>
+
+  <string name="pref_useEncryptedDatabase_title">Verschlüsselte Datenbank</string>
+  <string name="pref_useEncryptedDatabase_summary">Empfohlen. Deaktivere dies, wenn du Sicherungsdienste von Drittanbietern benutzt, z. B. Titanium Backup, Helium, Super Backup, adb backup etc.</string>
+
+  <string name="pref_appearance">Erscheinung</string>
+  <string name="pref_useDarkTheme_title">Dunkles Thema benutzen</string>
+  <string name="pref_useDarkTheme_summary">Nutze ein dunkles Thema in der App</string>
+
+  <string name="pref_more">Mehr</string>
+  <string name="pref_about_title">Über</string>
+  <string name="pref_about_summary">Informationen und Lizenzen anzeigen</string>
+  <string name="pref_rate_title">Bewerten</string>
+  <string name="pref_rate_summary">Bewerte Authenticator Pro im Google Play Store.</string>
+  <string name="pref_viewGitHub_title">Auf GitHub anzeigen</string>
+  <string name="pref_viewGitHub_summary">Öffme das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden sowie Icons und neue Funktionen vorschlagen.</string>
+
+  <!-- Arrays -->
+  <string name="authTypeTime">Zeitbasiert (TOTP)</string>
+  <string name="authTypeCounter">Zählerbasiert (HTOP)</string>
+  <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
+  <string name="authAlgorithmSHA256">SHA256</string>
+  <string name="authAlgorithmSHA512">SHA512</string>
+
+  <!-- Arrays / Intro -->
+  <string name="introTitleWelcome">Willkommen bei Authenticator Pro</string>
+  <string name="introTitleCompatibility">TOTP Authentifizierung</string>
+  <string name="introTitleBackup">Sichern / Wiederherstellen</string>
+  <string name="introTitleCategories">Kategorien</string>
+  <string name="introTitleThemes">Dunkles Thema</string>
+
+  <string name="introTextWelcome">Danke für das Herunterladen von Authenticator Pro.\nSichere deine Onlinekonten mit der besten quelloffenen Authenticator-App.</string>
+  <string name="introTextCompatibility">Authenticator Pro ist mit den meisten Anbietern und Konten kompatibel. Es kann zu 100% mit Google-Authenticator-kompatiblen Anbietern verwendet werden.</string>
+  <string name="introTextBackup">Sichere deine Authentifikatoren mit starker Verschlüsselung. Falls du dein Gerät verlierst, kannst du so wieder Zugriff auf deine Konten erlangen. Sichere auf deinen Gerätespeicher oder direkt in die Cloud.</string>
+  <string name="introTextCategories">Organisiere deine Authentifikatoren in Kategorien und ordne durch einfaches hin- und herschieben.</string>
+  <string name="introTextThemes">Wenn du möchtest kannst du ein dunkles Thema einschalten. Alle Icons werden sich daran anpassen.</string>
+</resources>
