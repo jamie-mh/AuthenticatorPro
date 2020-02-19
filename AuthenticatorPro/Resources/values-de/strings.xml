@@ -8,7 +8,7 @@
   <string name="scanQrCode">QR Code scannen</string>
   <string name="enterKey">Schlüssel eingeben</string>
   <string name="renameAuth">Umbenennen</string>
-  <string name="copiedToClipboard">Code in zwischenablage kopiert</string>
+  <string name="copiedToClipboard">Code in Zwischenablage kopiert</string>
   <string name="warning">Warnung</string>
   <string name="confirmAuthenticatorDelete">Nach dem löschen dieses Authentifikators wird es nicht mehr möglich sein, Codes für dieses Konto abzurufen.\nDadurch wird die Zwei-Faktor-Authentifizierung in diesem Konto jedoch nicht deaktiviert.\n\nDas löschen dieses Authentifikators hält dich möglicherweise davon ab, dich in deinem Konto anzumelden.\nStelle sicher das du die Zwei-Faktor-Authentifizierung deaktivert hast oder über gültige Backup-Codes verfügst.\n\nMöchtest du fortfahren?</string>
   <string name="delete">Löschen</string>
@@ -26,7 +26,7 @@
   <string name="search">Suche</string>
   <string name="ok">OK</string>
   <string name="yes">Ja</string>
-  <string name="no">Na</string>
+  <string name="no">Nein</string>
   <string name="issuerHint">Herausgeber (z.\u00A0B.: Google)</string>
   <string name="usernameHint">Nutzername (z.\u00A0B.: max@muster.com)</string>
   <string name="typeHint">Typ</string>
