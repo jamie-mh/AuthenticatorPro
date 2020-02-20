@@ -54,7 +54,7 @@
     <string name="chooseCategories">Choisir les catégories</string>
     <string name="more">Plus</string>
     <string name="categoryAll">Tout</string>
-    <string name="editcatégories">Modifier les catégories</string>
+    <string name="editCategories">Modifier les catégories</string>
     <string name="categoryNameHint">Nom de la catégorie</string>
     <string name="noCategoryName">Le nom de la catégorie est requis.</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà.</string>
