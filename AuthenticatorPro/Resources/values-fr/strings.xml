@@ -50,8 +50,8 @@
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà.</string>
     <string name="restoredFromBackup">{0} authenticateurs and {1} catégories ont étés restaurés.</string>
 
-    <string name="catégories">Catégories</string>
-    <string name="choosecatégories">Choisir les catégories</string>
+    <string name="categories">Catégories</string>
+    <string name="chooseCategories">Choisir les catégories</string>
     <string name="more">Plus</string>
     <string name="categoryAll">Tout</string>
     <string name="editcatégories">Modifier les catégories</string>
@@ -59,8 +59,8 @@
     <string name="noCategoryName">Le nom de la catégorie est requis.</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà.</string>
     <string name="confirmCategoryDelete">Êtes-vous sûr de vouloir supprimer cette catégorie ?</string>
-    <string name="nocatégoriesTitle">Aucune catégorie</string>
-    <string name="nocatégoriesMessage">Vous n\'avez aucune catégorie pour l\'instant.</string>
+    <string name="noCategoriesTitle">Aucune catégorie</string>
+    <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant.</string>
 
     <string name="restoreMessage">Choissisez une sauvegarde Authenticator Pro pour restaurer vos authenticateurs.\nVous pouvez choisir un fichier sur votre appareil ou sur un stockage cloud.</string>
     <string name="backupMessage">Sauvegardez vos authenticateurs dans un fichier protégé par mot de passe.\nVous pouvez le sauvegarder sur votre appareil ou sur un stockage cloud dans le cas où vous le perdez votre appareil.</string>
