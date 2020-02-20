@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="authContextMenu">
-        <item>Rename</item>
-        <item>Change Icon</item>
-        <item>Choose Categories</item>
-        <item>Delete</item>
-    </string-array>
-    <string-array name="authTypes">
-        <item>Time Based (TOTP)</item>
-        <item>Counter Based (HTOP)</item>
-    </string-array>
-    <string-array name="authAlgorithms">
-        <item>SHA1 (default)</item>
-        <item>SHA256</item>
-        <item>SHA512</item>
-    </string-array>
-    <string-array name="introTitle">
-        <item>Welcome to Authenticator Pro</item>
-        <item>TOTP Authentication</item>
-        <item>Backup / Restore</item>
-        <item>Categories</item>
-        <item>Dark Theme</item>
-    </string-array>
-    <string-array name="introText">
-        <item>Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</item>
-        <item>Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</item>
-        <item>Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</item>
-        <item>Organise your authenticators into categories and even change the order with a simple hold and drag.</item>
-        <item>If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</item>
-    </string-array>
-    <integer-array name="introImage">
-        <item>@mipmap/ic_launcher</item>
-        <item>@drawable/ic_lock_open_light</item>
-        <item>@drawable/ic_backup_light</item>
-        <item>@drawable/ic_category_light</item>
-        <item>@drawable/ic_wb_incandescent</item>
-    </integer-array>
+  <string-array name="authContextMenu">
+    <item>@string/rename</item>
+    <item>@string/changeIcon</item>
+    <item>@string/chooseCategories</item>
+    <item>@string/delete</item>
+  </string-array>
+  <string-array name="authTypes">
+    <item>@string/authTypeTime</item>
+    <item>@string/authTypeCounter</item>
+  </string-array>
+  <string-array name="authAlgorithms">
+    <item>@string/authAlgorithmSHA1</item>
+    <item>@string/authAlgorithmSHA256</item>
+    <item>@string/authAlgorithmSHA512</item>
+  </string-array>
+  <string-array name="introTitle">
+    <item>@string/introTitleWelcome</item>
+    <item>@string/introTitleCompatibility</item>
+    <item>@string/introTitleBackup</item>
+    <item>@string/introTitleCategories</item>
+    <item>@string/introTitleThemes</item>
+  </string-array>
+  <string-array name="introText">
+    <item>@string/introTextWelcome</item>
+    <item>@string/introTextCompatibility</item>
+    <item>@string/introTextBackup</item>
+    <item>@string/introTextCategories</item>
+    <item>@string/introTextThemes</item>
+  </string-array>
+  <integer-array name="introImage">
+    <item>@mipmap/ic_launcher</item>
+    <item>@drawable/ic_lock_open_light</item>
+    <item>@drawable/ic_backup_light</item>
+    <item>@drawable/ic_category_light</item>
+    <item>@drawable/ic_wb_incandescent</item>
+  </integer-array>
 </resources>

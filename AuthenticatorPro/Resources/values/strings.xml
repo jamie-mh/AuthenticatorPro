@@ -91,7 +91,7 @@
   <string name="pref_security">Security</string>
   <string name="pref_appLock_title">App Lock</string>
   <string name="pref_appLock_summary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
-    
+
   <string name="pref_useEncryptedDatabase_title">Encrypted Database</string>
   <string name="pref_useEncryptedDatabase_summary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
@@ -106,4 +106,24 @@
   <string name="pref_rate_summary">Rate Authenticator Pro on the Google Play store.</string>
   <string name="pref_viewGitHub_title">View on GitHub</string>
   <string name="pref_viewGitHub_summary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
+
+  <!-- Arrays -->
+  <string name="authTypeTime">Time Based (TOTP)</string>
+  <string name="authTypeCounter">Counter Based (HTOP)</string>
+  <string name="authAlgorithmSHA1">SHA1 (default)</string>
+  <string name="authAlgorithmSHA256">SHA256</string>
+  <string name="authAlgorithmSHA512">SHA512</string>
+
+  <!-- Arrays / Intro -->
+  <string name="introTitleWelcome">Welcome to Authenticator Pro</string>
+  <string name="introTitleCompatibility">TOTP Authentication</string>
+  <string name="introTitleBackup">Backup / Restore</string>
+  <string name="introTitleCategories">Categories</string>
+  <string name="introTitleThemes">Dark Theme</string>
+
+  <string name="introTextWelcome">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+  <string name="introTextCompatibility">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
+  <string name="introTextBackup">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+  <string name="introTextCategories">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+  <string name="introTextThemes">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>
