@@ -1,0 +1,128 @@
+﻿<resources>
+    <string name="appName">Authenticator Pro</string>
+    <string name="displayName">Authenticator</string>
+    <string name="settings">Paramètres</string>
+    <string name="restore">Restaurer</string>
+    <string name="backup">Sauvegarder</string>
+    <string name="about">À Propos</string>
+    <string name="scanQrCode">Lire un QR Code</string>
+    <string name="enterKey">Utiliser une clé</string>
+    <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
+    <string name="warning">Attention</string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée sur votre compte.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nVoulez-vous vraiment continuer?</string>
+    <string name="delete">Supprimer</string>
+    <string name="add">Ajouter</string>
+    <string name="rename">Renommer</string>
+    <string name="changeIcon">Changer l\'icône</string>
+    <string name="cancel">Annuler</string>
+    <string name="issuer">Émetteur</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="secretKey">Clé secrète</string>
+    <string name="showAdvancedOptions">Afficher les options avancées</string>
+    <string name="noAuthenticatorsTitle">C\'est vide !</string>
+    <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
+
+    <string name="search">Rechercher</string>
+    <string name="ok">OK</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="issuerHint">Émetteur (ex: Google)</string>
+    <string name="usernameHint">Nom d\'utilisateur (ex: jean@example.com)</string>
+    <string name="typeHint">Type</string>
+    <string name="algorithmHint">Algorithme</string>
+    <string name="digitsHint">Nombre de chiffres</string>
+    <string name="periodHint">Période (secondes)</string>
+    <string name="passwordHint">Mot de passe de la sauvegarde</string>
+    <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
+    <string name="save">Sauvegarder</string>
+    <string name="saveFile">Sauvegarder le fichier</string>
+    <string name="openFile">Ouvrir un fichier</string>
+    <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
+
+    <string name="noIssuer">Un émetteur est requis.</string>
+    <string name="noSecret">Une clé secrète est requise.</string>
+    <string name="noFileName">Un nom de fichier est requis.</string>
+    <string name="secretTooShort">La clé secrète doit comporter au moins 16 caractères.</string>
+    <string name="secretInvalidChars">La clé secrète comporte des caractères invalides.</string>
+    <string name="digitsToSmall">L\'authentificateur doit générer au moins 6 chiffres.</string>
+    <string name="periodToShort">La période doit être plus longue que 10 secondes.</string>
+    <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format.</string>
+    <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà.</string>
+    <string name="restoredFromBackup">{0} authenticateurs and {1} catégories ont étés restaurés.</string>
+
+    <string name="catégories">Catégories</string>
+    <string name="choosecatégories">Choisir les catégories</string>
+    <string name="more">Plus</string>
+    <string name="categoryAll">Tout</string>
+    <string name="editcatégories">Modifier les catégories</string>
+    <string name="categoryNameHint">Nom de la catégorie</string>
+    <string name="noCategoryName">Le nom de la catégorie est requis.</string>
+    <string name="duplicateCategory">Une catégorie avec ce nom existe déjà.</string>
+    <string name="confirmCategoryDelete">Êtes-vous sûr de vouloir supprimer cette catégorie ?</string>
+    <string name="nocatégoriesTitle">Aucune catégorie</string>
+    <string name="nocatégoriesMessage">Vous n\'avez aucune catégorie pour l\'instant.</string>
+
+    <string name="restoreMessage">Choissisez une sauvegarde Authenticator Pro pour restaurer vos authenticateurs.\nVous pouvez choisir un fichier sur votre appareil ou sur un stockage cloud.</string>
+    <string name="backupMessage">Sauvegardez vos authenticateurs dans un fichier protégé par mot de passe.\nVous pouvez le sauvegarder sur votre appareil ou sur un stockage cloud dans le cas où vous le perdez votre appareil.</string>
+    <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
+    <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu.</string>
+    <string name="filePickError">Erreur lors de la sélection d\'un fichier.</string>
+    <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro.</string>
+    <string name="externalStoragePermissionError">L\'autorisation d\'accéder au système de fichiers est requis pour sauvegarder et restaurer des authenticateurs.</string>
+    <string name="saveSuccess">Sauvegarde effectuée avec succès</string>
+    <string name="restoreBackupDevice">Restaurer une sauvegarde à partir de l\'appareil</string>
+    <string name="restoreBackupCloud">Restaurer une sauvegarde à partir d\'un stockage cloud</string>
+    <string name="saveBackupDevice">Sauvegarder sur le stockage de l\'appareil</string>
+    <string name="saveBackupCloud">Sauvegarder sur un stockage cloud</string>
+
+    <string name="password">Mot de passe</string>
+    <string name="passwordConfirm">Confirmer le mot de passe</string>
+    <string name="login">Connexion</string>
+    <string name="loginMessage">Veuillez entrer votre mot de passe ou scanner une empreinte digitale pour accéder à vos authentificateurs.</string>
+    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et sera pas sécurisé. Voulez-vous continuer ?</string>
+
+    <string name="databaseError">Il y a eu une erreur lors du déchiffrement de la base de données. Veuillez effacer les données de l\'application avant de continuer.</string>
+    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code.</string>
+    <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil.</string>
+    <string name="quit">Quitter</string>
+
+    <!-- Preferences -->
+    <string name="pref_security">Securité</string>
+    <string name="pref_appLock_title">Verrouillage de l\'application</string>
+    <string name="pref_appLock_summary">Exiger le déverrouillage par code pin ou empreinte digitale avant d\'accéder aux authentificateurs. Cette fonctionnalité exige d\'avoir configuré un écran de verrouillage sur l\'appareil.</string>
+
+    <string name="pref_useEncryptedDatabase_title">Base de données chiffrée</string>
+    <string name="pref_useEncryptedDatabase_summary">Fortement conseillé. Décochez cette option si vous avez besoin d\'utiliser des applications de sauvegarde tierces comme Titanium Backup, Helium, Super Backup, adb backup etc...</string>
+
+    <string name="pref_appearance">Apparence</string>
+    <string name="pref_useDarkTheme_title">Thème Sombre</string>
+    <string name="pref_useDarkTheme_summary">Utiliser un thème sombre à travers l\'application.</string>
+
+    <string name="pref_more">Plus</string>
+    <string name="pref_about_title">À Propos</string>
+    <string name="pref_about_summary">Lire des informations sur l\'application est les licences open-source.</string>
+    <string name="pref_rate_title">Noter</string>
+    <string name="pref_rate_summary">Noter Authenticator Pro sur Google Play.</string>
+    <string name="pref_viewGitHub_title">Ouvrir le dépôt GitHub</string>
+    <string name="pref_viewGitHub_summary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler des problèmes avec l\'application et faire une demande pour plus d\'icônes ou fonctionnalités.</string>
+
+    <!-- Arrays -->
+    <string name="authTypeTime">Temporel (TOTP)</string>
+    <string name="authTypeCounter">À compteur (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (par défaut)</string>
+    <string name="authAlgorithmSHA256">SHA256</string>
+    <string name="authAlgorithmSHA512">SHA512</string>
+
+    <!-- Arrays / Intro -->
+    <string name="introTitleWelcome">Bienvenue à Authenticator Pro</string>
+    <string name="introTitleCompatibility">Authentification TOTP</string>
+    <string name="introTitleBackup">Sauvegarde / Restauration</string>
+    <string name="introTitleCategories">Catégories</string>
+    <string name="introTitleThemes">Thème Sombre</string>
+
+    <string name="introTextWelcome">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
+    <string name="introTextCompatibility">Authenticator Pro est compatible avec la plupart des comptes. C\'est 100% compatible avec les services fonctionnant avec Google Authenticator.</string>
+    <string name="introTextBackup">Sauvegardez vos authentificateurs avec un chiffrement fort. Dans le cas où vous perdez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
+    <string name="introTextCategories">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>
+    <string name="introTextThemes">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
+</resources>

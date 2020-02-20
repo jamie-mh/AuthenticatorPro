@@ -22,11 +22,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Nextcloud\Important Stuff\keystore\jmh.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>558jhm@reg</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>jmh</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>558jhm@reg</AndroidSigningKeyPass>
+    <AndroidKeyStore>false</AndroidKeyStore>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -74,6 +70,7 @@
     <AndroidDexTool>d8</AndroidDexTool>
     <MandroidI18n />
     <AndroidUseAapt2>false</AndroidUseAapt2>
+    <AndroidKeyStore>false</AndroidKeyStore>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -2545,6 +2542,10 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-de\strings.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\values-fr\strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,6 @@
   <string name="about">About</string>
   <string name="scanQrCode">QR Code scannen</string>
   <string name="enterKey">Schlüssel eingeben</string>
-  <string name="renameAuth">Umbenennen</string>
   <string name="copiedToClipboard">Code in Zwischenablage kopiert</string>
   <string name="warning">Warnung</string>
   <string name="confirmAuthenticatorDelete">Nach dem löschen dieses Authentifikators wird es nicht mehr möglich sein, Codes für dieses Konto abzurufen.\nDadurch wird die Zwei-Faktor-Authentifizierung in diesem Konto jedoch nicht deaktiviert.\n\nDas löschen dieses Authentifikators hält dich möglicherweise davon ab, dich in deinem Konto anzumelden.\nStelle sicher das du die Zwei-Faktor-Authentifizierung deaktivert hast oder über gültige Backup-Codes verfügst.\n\nMöchtest du fortfahren?</string>
@@ -28,7 +27,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
   <string name="issuerHint">Herausgeber (z.\u00A0B.: Google)</string>
-  <string name="usernameHint">Nutzername (z.\u00A0B.: max@muster.com)</string>
+  <string name="usernameHint">Nutzername (z.\u00A0B.: max@example.com)</string>
   <string name="typeHint">Typ</string>
   <string name="algorithmHint">Algorithmus</string>
   <string name="digitsHint">Stellen</string>
@@ -109,7 +108,7 @@
 
   <!-- Arrays -->
   <string name="authTypeTime">Zeitbasiert (TOTP)</string>
-  <string name="authTypeCounter">Zählerbasiert (HTOP)</string>
+  <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
   <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
   <string name="authAlgorithmSHA256">SHA256</string>
   <string name="authAlgorithmSHA512">SHA512</string>

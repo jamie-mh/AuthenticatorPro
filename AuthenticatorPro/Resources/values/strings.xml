@@ -7,7 +7,6 @@
   <string name="about">About</string>
   <string name="scanQrCode">Scan a QR Code</string>
   <string name="enterKey">Enter a provided key</string>
-  <string name="renameAuth">Rename</string>
   <string name="copiedToClipboard">Code copied to clipboard</string>
   <string name="warning">Warning</string>
   <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
@@ -109,7 +108,7 @@
 
   <!-- Arrays -->
   <string name="authTypeTime">Time Based (TOTP)</string>
-  <string name="authTypeCounter">Counter Based (HTOP)</string>
+  <string name="authTypeCounter">Counter Based (HOTP)</string>
   <string name="authAlgorithmSHA1">SHA1 (default)</string>
   <string name="authAlgorithmSHA256">SHA256</string>
   <string name="authAlgorithmSHA512">SHA512</string>
