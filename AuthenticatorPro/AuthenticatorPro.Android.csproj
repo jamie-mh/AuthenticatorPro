@@ -1251,6 +1251,9 @@
     <AndroidResource Include="Resources\drawable-xhdpi\auth_humblebundle.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_lastpass.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_mailchimp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1351,6 +1354,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_humblebundle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_lastpass.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_mailchimp.png" />
@@ -1455,6 +1461,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_humblebundle.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_lastpass.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_mailchimp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1557,6 +1566,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\auth_humblebundle.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_lastpass.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_mailchimp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1657,6 +1669,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_humblebundle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_lastpass.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_mailchimp.png" />
