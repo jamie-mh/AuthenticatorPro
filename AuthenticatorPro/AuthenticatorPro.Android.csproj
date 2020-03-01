@@ -1272,6 +1272,9 @@
     <AndroidResource Include="Resources\drawable-xhdpi\auth_outlook.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_pluralsight.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_protonmail.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1369,6 +1372,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_outlook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_pluralsight.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_protonmail.png" />
@@ -1470,6 +1476,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_outlook.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_pluralsight.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_protonmail.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1569,6 +1578,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\auth_outlook.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_pluralsight.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_protonmail.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1666,6 +1678,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_outlook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_pluralsight.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_protonmail.png" />
