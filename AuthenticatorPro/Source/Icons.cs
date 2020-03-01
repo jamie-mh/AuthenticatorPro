@@ -65,6 +65,7 @@ namespace AuthenticatorPro
             {"onedrive", Resource.Drawable.auth_onedrive},
             {"origin", Resource.Drawable.auth_origin},
             {"outlook", Resource.Drawable.auth_outlook},
+            {"pluralsight", Resource.Drawable.auth_pluralsight},
             {"protonmail", Resource.Drawable.auth_protonmail},
             {"reddit", Resource.Drawable.auth_reddit},
             {"rockstargames", Resource.Drawable.auth_rockstargames},
