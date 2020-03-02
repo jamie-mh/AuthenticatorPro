@@ -58,6 +58,7 @@ namespace AuthenticatorPro
             {"hangouts", Resource.Drawable.auth_hangouts},
             {"heroku", Resource.Drawable.auth_heroku},
             {"humblebundle", Resource.Drawable.auth_humblebundle},
+            {"lastpass", Resource.Drawable.auth_lastpass},
             {"mailchimp", Resource.Drawable.auth_mailchimp},
             {"mega", Resource.Drawable.auth_mega},
             {"namecheap", Resource.Drawable.auth_namecheap},
