@@ -50,7 +50,8 @@ namespace AuthenticatorPro.Data
             var raw = Uri.UnescapeDataString(uri);
             var uriMatch = Regex.Match(raw, uriExpr);
 
-            if(!uriMatch.Success) throw new InvalidFormatException();
+            if(!uriMatch.Success)
+                throw new InvalidFormatException();
 
             var type = uriMatch.Groups[1].Value == "totp" ? OtpType.Totp : OtpType.Hotp;
 
@@ -103,8 +104,13 @@ namespace AuthenticatorPro.Data
             var code = "";
             for(var i = 0; i < digits; code += "-", i++);
 
+            var secret = args["secret"].ToUpper();
+
+            if(!IsValidSecret(secret))
+                throw new InvalidFormatException();
+
             var auth = new Authenticator {
-                Secret = args["secret"].ToUpper(),
+                Secret = secret,
                 Issuer = issuer.Trim().Truncate(32),
                 Username = username.Trim().Truncate(32),
                 Icon = Icons.FindServiceKeyByName(issuer),
@@ -117,6 +123,12 @@ namespace AuthenticatorPro.Data
             };
 
             return auth;
+        }
+
+        public static bool IsValidSecret(string secret)
+        {
+            const string base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+            return secret.ToCharArray().All(x => base32Alphabet.IndexOf(x) >= 0 || x == '=');
         }
     }
 

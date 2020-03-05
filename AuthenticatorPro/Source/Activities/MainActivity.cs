@@ -611,8 +611,6 @@ namespace AuthenticatorPro.Activities
             }
 
             var secret = _addDialog.Secret.Trim().ToUpper();
-            const string base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-            const char base32Padding = '=';
 
             if(secret.Length < 16)
             {
@@ -620,7 +618,7 @@ namespace AuthenticatorPro.Activities
                 error = true;
             }
 
-            if(!secret.ToCharArray().All(x => base32Alphabet.IndexOf(x) >= 0 || x == base32Padding))
+            if(!Authenticator.IsValidSecret(secret))
             {
                 _addDialog.SecretError = GetString(Resource.String.secretInvalidChars);
                 error = true;
