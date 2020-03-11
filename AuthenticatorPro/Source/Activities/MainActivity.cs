@@ -146,6 +146,10 @@ namespace AuthenticatorPro.Activities
             }
             else if(_isChildActivityOpen)
             {
+                var isCompact = _sharedPrefs.GetBoolean("pref_compactMode", false);
+                if(isCompact != _authAdapter.IsCompact)
+                    Recreate();
+
                 UpdateAuthenticators();
                 UpdateCategories();
 
@@ -200,7 +204,9 @@ namespace AuthenticatorPro.Activities
         private void InitAuthenticators()
         {
             _authSource = new AuthSource(_connection);
-            _authAdapter = new AuthAdapter(_authSource, IsDark);
+
+            var isCompact = _sharedPrefs.GetBoolean("pref_compactMode", false);
+            _authAdapter = new AuthAdapter(_authSource, IsDark, isCompact);
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;

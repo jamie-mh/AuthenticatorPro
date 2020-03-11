@@ -97,6 +97,8 @@
   <string name="pref_appearance">Erscheinung</string>
   <string name="pref_useDarkTheme_title">Dunkles Thema benutzen</string>
   <string name="pref_useDarkTheme_summary">Nutze ein dunkles Thema in der App</string>
+  <string name="pref_compactMode_title">Kompaktes Erscheinungsbild</string>
+  <string name="pref_compactMode_summary">Machen Sie die Authentifikatoren kleiner, um mehr auf den Bildschirm zu passen.</string>
 
   <string name="pref_more">Mehr</string>
   <string name="pref_about_title">Über</string>

@@ -30,6 +30,12 @@
       android:title="@string/pref_useDarkTheme_title"
       app:iconSpaceReserved="false"
       android:defaultValue="false" />
+    <android.support.v7.preference.CheckBoxPreference
+      android:key="pref_compactMode"
+      android:summary="@string/pref_compactMode_summary"
+      android:title="@string/pref_compactMode_title"
+      app:iconSpaceReserved="false"
+      android:defaultValue="false" />
   </android.support.v7.preference.PreferenceCategory>
     
   <android.support.v7.preference.PreferenceCategory

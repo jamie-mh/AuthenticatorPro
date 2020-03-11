@@ -97,6 +97,8 @@
     <string name="pref_appearance">Apparence</string>
     <string name="pref_useDarkTheme_title">Thème Sombre</string>
     <string name="pref_useDarkTheme_summary">Utiliser un thème sombre à travers l\'application.</string>
+    <string name="pref_compactMode_title">Affichage Compact</string>
+    <string name="pref_compactMode_summary">Réduire la taille des authenticateurs afin d\'afficher plus sur l\'écran.</string>
 
     <string name="pref_more">Plus</string>
     <string name="pref_about_title">À Propos</string>
