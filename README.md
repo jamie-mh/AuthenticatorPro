@@ -59,3 +59,86 @@ The app is written in C# with Xamarin Android.
 * Storage Permission is required to save and load backup files from device storage.
 
 * Camera permission is required to add accounts through QR codes.
+
+## Contributing Icons
+
+If you wish to contribute more icons to the application, the procedure is as follows:
+
+* Fork the repo.
+
+* Find a high-quality icon for the service you want to add. Try searching online for '{service_name} brand' - generally, many companies offer high-res versions of their logos and icons for press and media. Avoid icons made by 3rd parties with different styles from the original. Prefer flat icons instead of complex ones.
+
+* Use the [Android Asset Studio](https://romannurik.github.io/AndroidAssetStudio/index.html) to generate the appropriate asset sizes for the icon. Use the "Generic Icon Generator" with Trim enabled, 0% padding, 32dp Asset Size, 0dp Asset Padding and Color transparent.
+
+* Name the icon "auth_xxxxx", with xxxxx being the name of the service in lowercase with spaces and special characters removed. Eg: Authenticator Pro -> authenticatorpro.
+
+* Copy the icons into the Resources directory of the project.
+
+* Update Source/Icons.cs by adding the icon into the Service dictionary in alphabetical order. If the icon is barely visible on a dark background. Create an alternative icon as before with the name auth_xxxxx_dark and place it into the ServiceDark dictionary.
+
+* Test the changes if possible.
+
+* Create a pull request.
+
+## Backup File Format
+
+If you are migrating your authenticators from another app, you can create your own Authenticator Pro backup file to quickly import all your data. An unencrypted backup file is written in JSON and has the following format:
+
+```
+{
+   "Authenticators": [
+      {
+         "Type": 2,
+         "Icon": "google",
+         "Issuer": "Google",
+         "Username": "google@gmail.com",
+         "Secret": "SECRETKEY123ABCD",
+         "Algorithm": 0,
+         "Digits": 6,
+         "Period": 30,
+         "Counter": 0,
+         "Ranking": 0
+      }
+   ],
+   "Categories": [
+      {
+         "Id": "a8323a2a",
+         "Name": "Web",
+         "Ranking": 0
+      }
+   ],
+   "AuthenticatorCategories": [
+      {
+         "CategoryId": "a8323a2a",
+         "AuthenticatorSecret": "SECRETKEY123ABCD",
+         "Ranking": 0
+      }
+   ]
+}
+```
+
+#### Authenticator
+
+* The authenticator secret key must be an **uppercase base-32 string with no spaces**. The secret may also contain '=' as a padding character. The minimum length is 16 characters.
+
+* Type: 1 = HOTP, 2 = TOTP
+
+* Algorithm: 0 = SHA-1, 1 = SHA-256, 2 = SHA-512
+
+* Authenticators are ordered by their ranking, unless they're placed into categories where they will be ordered by the AuthenticatorCategory ranking instead.
+
+* Digits must be >= 6
+
+* Period must be >= 10
+
+#### Category
+
+* The category Id is the first 8 characters of the SHA-1 hash of the name.
+
+#### AuthenticatorCategory
+
+* An AuthenticatorCategory simply binds Authenticators into Categories using both their primary keys (AuthenticatorSecret and CategoryId).
+
+### Encrypted Backups
+
+If your backup file is encrypted. The JSON data is encrypted with the AES_CBC_PKCS7 algorithm. The passphrase is the SHA-256 hash of your backup password.

@@ -147,10 +147,11 @@ namespace AuthenticatorPro.Data
 
         public void Validate()
         {
-            if(Issuer == null ||
+            if(String.IsNullOrEmpty(Issuer) ||
                !IsValidSecret(Secret) || 
                Digits < 6 ||
-               Period < 10)
+               Period < 10 ||
+               Type == OtpType.Unknown)
                 throw new InvalidAuthenticatorException();
         }
     }
