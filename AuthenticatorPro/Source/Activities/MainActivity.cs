@@ -66,7 +66,6 @@ namespace AuthenticatorPro.Activities
         private ProgressBar _progressBar;
 
         private bool _isChildActivityOpen;
-        private readonly bool _isDark;
 
         // Alert Dialogs
         private RenameAuthenticatorDialog _renameDialog;
