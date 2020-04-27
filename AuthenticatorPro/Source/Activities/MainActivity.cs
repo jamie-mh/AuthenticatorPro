@@ -35,7 +35,7 @@ using AuthenticatorPro.Fragments;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "@string/displayName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(Label = "@string/displayName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     internal class MainActivity : LightDarkActivity
     {
@@ -66,6 +66,7 @@ namespace AuthenticatorPro.Activities
         private ProgressBar _progressBar;
 
         private bool _isChildActivityOpen;
+        private readonly bool _isDark;
 
         // Alert Dialogs
         private RenameAuthenticatorDialog _renameDialog;

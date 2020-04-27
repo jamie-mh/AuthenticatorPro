@@ -6,12 +6,10 @@ namespace AuthenticatorPro.FilesystemList
 {
     internal sealed class FilesystemAdapter : RecyclerView.Adapter
     {
-        private readonly bool _isDark;
         private readonly FilesystemSource _source;
 
-        public FilesystemAdapter(FilesystemSource source, bool isDark)
+        public FilesystemAdapter(FilesystemSource source)
         {
-            _isDark = isDark;
             _source = source;
         }
 
@@ -27,19 +25,19 @@ namespace AuthenticatorPro.FilesystemList
             switch(item.Type)
             {
                 case FilesystemSource.Type.Up:
-                    iconResource = Icons.GetIcon("up", _isDark);
+                    iconResource = Resource.Drawable.ic_arrow_upward;
                     break;
 
                 case FilesystemSource.Type.Directory:
-                    iconResource = Icons.GetIcon("folder", _isDark);
+                    iconResource = Resource.Drawable.ic_folder;
                     break;
 
                 case FilesystemSource.Type.File:
-                    iconResource = Icons.GetIcon("file", _isDark);
+                    iconResource = Resource.Drawable.ic_insert_drive_file;
                     break;
 
                 case FilesystemSource.Type.Backup:
-                    iconResource = Icons.GetIcon("authenticatorpro", _isDark);
+                    iconResource = Resource.Mipmap.ic_launcher;
                     break;
             }
 

@@ -9,7 +9,7 @@ using Google.Android.Material.BottomNavigation;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Theme = "@style/LightTheme", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     internal class IntroActivity : FragmentActivity
     {
         public const int PageCount = 5;

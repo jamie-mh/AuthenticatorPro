@@ -1,0 +1,28 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorPrimary">@color/colorDarkest</item>
+        <item name="colorPrimaryDark">@color/colorDarkest</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackgroundFloating">@color/colorDark</item>
+
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
+
+        <item name="primaryTextColor">@color/colorLighter</item>
+        <item name="secondaryTextColor">@color/colorLight</item>
+        <item name="listBorderColor">@color/colorDark</item>
+
+        <item name="authList_background">@color/colorDarkest</item>
+        <item name="authListItem_background">@color/colorDark</item>
+        <item name="authListItem_code">@color/colorLightest</item>
+
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="android:windowBackground">@color/colorDarkest</item>
+
+        <item name="android:navigationBarColor">@color/colorDarkest</item>
+    </style>
+</resources>

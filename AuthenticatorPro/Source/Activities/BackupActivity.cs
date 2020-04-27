@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.backup);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             var saveStorageBtn = FindViewById<LinearLayout>(Resource.Id.activityBackup_saveStorage);
             saveStorageBtn.Click += SaveStorageClick;

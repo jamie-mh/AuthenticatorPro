@@ -1,99 +1,26 @@
 <resources>
 
-  <style name="LightTheme" parent="Theme.MaterialComponents.Light">
-    <item name="windowActionBar">false</item>
-    <item name="windowNoTitle">true</item>
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/colorAccent</item>
-    <item name="colorBackgroundFloating">@color/colorLighter</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
-    <item name="fontFamily">@font/rubik</item>
-    <item name="android:fontFamily">@font/rubik</item>
+        <item name="colorPrimary">@color/colorLighter</item>
+        <item name="colorPrimaryDark">@color/colorLight</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackgroundFloating">@color/colorLightest</item>
 
-    <item name="primaryTextColor">@color/colorDarkest</item>
-    <item name="secondaryTextColor">@color/colorDark</item>
-    <item name="listBorderColor">@color/colorLight</item>
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
 
-    <item name="activityMain_emptyImage">@drawable/ic_lock_open_light</item>
-    <item name="activityEditCategories_emptyImage">@drawable/ic_category_light</item>
-    <item name="activityRestore_image">@drawable/ic_restore_light</item>
-    <item name="activityBackup_image">@drawable/ic_backup_light</item>
+        <item name="primaryTextColor">@color/colorDarkest</item>
+        <item name="secondaryTextColor">@color/colorDark</item>
+        <item name="listBorderColor">@color/colorLighter</item>
 
-    <item name="toolbar_searchIcon">@drawable/ic_action_search_light</item>
+        <item name="authList_background">@color/colorLighter</item>
+        <item name="authListItem_background">@color/colorLightest</item>
+        <item name="authListItem_code">@color/colorAccentDark</item>
 
-    <item name="authList_background">@color/colorLight</item>
-    <item name="authListItem_background">@color/colorLighter</item>
-    <item name="authListItem_code">@color/colorAccentDark</item>
-    <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_light</item>
-    <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_light</item>
-
-    <item name="categoryListItem_renameIcon">@drawable/ic_action_edit_light</item>
-    <item name="categoryListItem_deleteIcon">@drawable/ic_action_delete_light</item>
-
-    <item name="drawer_settingsIcon">@drawable/ic_action_settings_light</item>
-    <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_light</item>
-    <item name="drawer_restoreIcon">@drawable/ic_action_restore_light</item>
-    <item name="drawer_backupIcon">@drawable/ic_action_backup_light</item>
-
-    <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    <item name="android:windowBackground">@color/colorLighter</item>
-
-    <item name="activityBackupRestore_deviceStorageIcon">@drawable/ic_action_sd_storage_light</item>
-    <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_light</item>
-      
-    <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_light</item>
-    <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_light</item>
-
-    <item name="android:navigationBarColor">@color/colorLight</item>
-  </style>
-    
-  <style name="DarkTheme" parent="Theme.MaterialComponents">
-    <item name="windowActionBar">false</item>
-    <item name="windowNoTitle">true</item>
-    <item name="colorPrimary">@color/colorDarkest</item>
-    <item name="colorPrimaryDark">@color/colorDarkest</item>
-    <item name="colorAccent">@color/colorAccent</item>
-    <item name="colorBackgroundFloating">@color/colorDark</item>
-
-    <item name="fontFamily">@font/rubik</item>
-    <item name="android:fontFamily">@font/rubik</item>
-
-    <item name="primaryTextColor">@color/colorLight</item>
-    <item name="secondaryTextColor">@color/colorLighter</item>
-    <item name="listBorderColor">@color/colorDark</item>
-
-    <item name="activityMain_emptyImage">@drawable/ic_lock_open_dark</item>
-    <item name="activityEditCategories_emptyImage">@drawable/ic_category_dark</item>
-    <item name="activityRestore_image">@drawable/ic_restore_dark</item>
-    <item name="activityBackup_image">@drawable/ic_backup_dark</item>
-
-    <item name="toolbar_searchIcon">@drawable/ic_action_search_dark</item>
-
-    <item name="authList_background">@color/colorDarkest</item>
-    <item name="authListItem_background">@color/colorDark</item>
-    <item name="authListItem_code">@color/colorLight</item>
-    <item name="authListItem_optionsIcon">@drawable/ic_action_more_vert_dark</item>
-    <item name="authListItem_refreshIcon">@drawable/ic_action_refresh_dark</item>
-
-    <item name="categoryListItem_renameIcon">@drawable/ic_action_edit_dark</item>
-    <item name="categoryListItem_deleteIcon">@drawable/ic_action_delete_dark</item>
-
-    <item name="drawer_settingsIcon">@drawable/ic_action_settings_dark</item>
-    <item name="drawer_editCategoriesIcon">@drawable/ic_action_edit_dark</item>
-    <item name="drawer_restoreIcon">@drawable/ic_action_restore_dark</item>
-    <item name="drawer_backupIcon">@drawable/ic_action_backup_dark</item>
-
-    <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    <item name="android:windowBackground">@color/colorDarker</item>
-
-    <item name="activityBackupRestore_deviceStorageIcon">@drawable/ic_action_sd_storage_dark</item>
-    <item name="activityBackupRestore_cloudStorageIcon">@drawable/ic_action_cloud_dark</item>
-      
-    <item name="addBottomSheetDialog_scanQrIcon">@drawable/ic_action_camera_alt_dark</item>
-    <item name="addBottomSheetDialog_enterKeyIcon">@drawable/ic_action_vpn_key_dark</item>
-      
-    <item name="android:navigationBarColor">@color/colorDarkest</item>
-  </style>
-    
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="android:windowBackground">@color/colorLightest</item>
+    </style>
 </resources>

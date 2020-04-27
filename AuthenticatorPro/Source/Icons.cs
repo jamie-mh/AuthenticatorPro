@@ -5,24 +5,6 @@ namespace AuthenticatorPro
 {
     internal static class Icons
     {
-        public static readonly Dictionary<string, int> LightIcons = new Dictionary<string, int> 
-        {
-            {"up", Resource.Drawable.ic_arrow_upward_light},
-            {"folder", Resource.Drawable.ic_folder_light},
-            {"file", Resource.Drawable.ic_insert_drive_file_light},
-            {"authenticatorpro", Resource.Mipmap.ic_launcher},
-            {"arrow_back", Resource.Drawable.ic_action_arrow_back_light}
-        };
-
-        public static readonly Dictionary<string, int> DarkIcons = new Dictionary<string, int> 
-        {
-            {"up", Resource.Drawable.ic_arrow_upward_dark},
-            {"folder", Resource.Drawable.ic_folder_dark},
-            {"file", Resource.Drawable.ic_insert_drive_file_dark},
-            {"authenticatorpro", Resource.Mipmap.ic_launcher},
-            {"arrow_back", Resource.Drawable.ic_action_arrow_back_dark}
-        };
-
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
             {"default", Resource.Drawable.auth_default},
@@ -124,11 +106,6 @@ namespace AuthenticatorPro
             {"ifttt", Resource.Drawable.auth_ifttt_dark},
             {"uber", Resource.Drawable.auth_uber_dark}
         };
-
-        public static int GetIcon(string key, bool isDark)
-        {
-            return isDark ? DarkIcons[key] : LightIcons[key];
-        }
 
         public static int GetService(string key, bool isDark)
         {

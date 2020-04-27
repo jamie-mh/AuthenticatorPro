@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.preference.PreferenceScreen
+<androidx.preference.PreferenceScreen
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <android.support.v7.preference.PreferenceCategory
+  <androidx.preference.PreferenceCategory
     android:title="@string/pref_security"
     android:key="pref_key_security">
-    <android.support.v7.preference.CheckBoxPreference
+    <androidx.preference.CheckBoxPreference
       android:key="pref_appLock"
       android:summary="@string/pref_appLock_summary"
       android:title="@string/pref_appLock_title"
@@ -19,26 +19,28 @@
       app:iconSpaceReserved="false"
       android:defaultValue="true"
       android:title="@string/pref_useEncryptedDatabase_title" />
-  </android.support.v7.preference.PreferenceCategory>
+  </androidx.preference.PreferenceCategory>
 
-  <android.support.v7.preference.PreferenceCategory
+  <androidx.preference.PreferenceCategory
     android:title="@string/pref_appearance"
     android:key="pref_key_appearance">
-    <android.support.v7.preference.CheckBoxPreference
-      android:key="pref_useDarkTheme"
-      android:summary="@string/pref_useDarkTheme_summary"
-      android:title="@string/pref_useDarkTheme_title"
+    <androidx.preference.ListPreference
+      android:key="pref_theme"
+      android:summary="@string/pref_theme_summary"
+      android:title="@string/pref_theme_title"
       app:iconSpaceReserved="false"
-      android:defaultValue="false" />
-    <android.support.v7.preference.CheckBoxPreference
+      android:entries="@array/themeNames"
+      android:entryValues="@array/themeValues"
+      android:defaultValue="0" />
+    <androidx.preference.CheckBoxPreference
       android:key="pref_compactMode"
       android:summary="@string/pref_compactMode_summary"
       android:title="@string/pref_compactMode_title"
       app:iconSpaceReserved="false"
       android:defaultValue="false" />
-  </android.support.v7.preference.PreferenceCategory>
+  </androidx.preference.PreferenceCategory>
     
-  <android.support.v7.preference.PreferenceCategory
+  <androidx.preference.PreferenceCategory
     android:title="@string/pref_more"
     android:key="pref_key_more">
 
@@ -59,5 +61,5 @@
       android:summary="@string/pref_viewGitHub_summary"
       app:iconSpaceReserved="false"
       android:title="@string/pref_viewGitHub_title" />
-  </android.support.v7.preference.PreferenceCategory>
-</android.support.v7.preference.PreferenceScreen>
+  </androidx.preference.PreferenceCategory>
+</androidx.preference.PreferenceScreen>

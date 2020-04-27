@@ -95,8 +95,8 @@
   <string name="pref_useEncryptedDatabase_summary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
   <string name="pref_appearance">Appearance</string>
-  <string name="pref_useDarkTheme_title">Use Dark Theme</string>
-  <string name="pref_useDarkTheme_summary">Use a dark theme throughout the app.</string>
+  <string name="pref_theme_title">Theme</string>
+  <string name="pref_theme_summary">Choose an application theme.</string>
   <string name="pref_compactMode_title">Compact View</string>
   <string name="pref_compactMode_summary">Make authenticators smaller in order to fit more on screen at once.</string>
 
@@ -114,6 +114,10 @@
   <string name="authAlgorithmSHA1">SHA1 (default)</string>
   <string name="authAlgorithmSHA256">SHA256</string>
   <string name="authAlgorithmSHA512">SHA512</string>
+
+  <string name="systemDefault">System Default</string>
+  <string name="lightTheme">Light Theme</string>
+  <string name="darkTheme">Dark Theme</string>
 
   <!-- Arrays / Intro -->
   <string name="introTitleWelcome">Welcome to Authenticator Pro</string>

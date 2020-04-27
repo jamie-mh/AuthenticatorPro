@@ -7,19 +7,19 @@
     android:orderInCategory="9999">
     <menu>
       <item android:id="@+id/drawerSettings"
-            android:icon="?attr/drawer_settingsIcon"
+            android:icon="@drawable/ic_action_settings"
             android:title="@string/settings" />
 
       <item android:id="@+id/drawerEditCategories"
-            android:icon="?attr/drawer_editCategoriesIcon"
+            android:icon="@drawable/ic_action_edit"
             android:title="@string/editCategories" />
 
       <item android:id="@+id/drawerRestore"
-            android:icon="?attr/drawer_restoreIcon"
+            android:icon="@drawable/ic_action_restore"
             android:title="@string/restore" />
 
       <item android:id="@+id/drawerBackup"
-            android:icon="?attr/drawer_backupIcon"
+            android:icon="@drawable/ic_action_backup"
             android:title="@string/backup" />
     </menu>
   </item>

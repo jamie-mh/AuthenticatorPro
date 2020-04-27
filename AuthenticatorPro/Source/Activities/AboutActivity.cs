@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.about);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             var webView = FindViewById<WebView>(Resource.Id.activityAbout_webView);
             webView.LoadUrl(@"file:///android_asset/about.html");

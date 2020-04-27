@@ -33,6 +33,8 @@ namespace AuthenticatorPro.Dialogs
 
         public AddAuthenticatorDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative)
         {
+            RetainInstance = true;
+
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
         }

@@ -79,7 +79,7 @@
 				android:id="@+id/authListItem_refresh"
 				android:layout_alignParentRight="true"
 				android:layout_marginRight="12dp"
-				android:src="?attr/authListItem_refreshIcon"
+				android:src="@drawable/ic_action_refresh"
 				android:scaleType="centerInside"
 				android:textSize="14dp"
 				android:background="@android:color/transparent"
@@ -99,7 +99,7 @@
 
 			<ImageButton
 				android:id="@+id/authListItem_options"
-				android:src="?attr/authListItem_optionsIcon"
+				android:src="@drawable/ic_action_more_vert"
 				android:scaleType="centerInside"
 				android:textSize="12dp"
 				android:background="@android:color/transparent"

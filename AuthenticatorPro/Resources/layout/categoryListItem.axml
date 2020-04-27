@@ -31,7 +31,7 @@
 
 		<ImageButton
 			android:id="@+id/categoryListItem_rename"
-			android:src="?attr/categoryListItem_renameIcon"
+			android:src="@drawable/ic_action_edit"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
 			android:layout_marginRight="16dp"
@@ -41,7 +41,7 @@
 
 		<ImageButton
 			android:id="@+id/categoryListItem_delete"
-			android:src="?attr/categoryListItem_deleteIcon"
+			android:src="@drawable/ic_action_delete"
 			android:scaleType="centerInside"
 			android:background="@android:color/transparent"
 			android:layout_width="24dp"

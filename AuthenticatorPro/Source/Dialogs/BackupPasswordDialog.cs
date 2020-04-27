@@ -28,6 +28,8 @@ namespace AuthenticatorPro.Dialogs
 
         public BackupPasswordDialog(Mode mode, Action positive, Action negative)
         {
+            RetainInstance = true;
+
             _mode = mode;
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;

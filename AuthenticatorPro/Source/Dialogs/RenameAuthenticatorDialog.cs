@@ -21,6 +21,8 @@ namespace AuthenticatorPro.Dialogs
         public RenameAuthenticatorDialog(Action<object, EventArgs> positive, Action<object, EventArgs> negative,
             Authenticator auth, int position)
         {
+            RetainInstance = true;
+
             _positiveButtonEvent = positive;
             _negativeButtonEvent = negative;
             Authenticator = auth;

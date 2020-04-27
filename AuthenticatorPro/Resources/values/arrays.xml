@@ -31,9 +31,19 @@
   </string-array>
   <integer-array name="introImage">
     <item>@mipmap/ic_launcher</item>
-    <item>@drawable/ic_lock_open_light</item>
-    <item>@drawable/ic_backup_light</item>
-    <item>@drawable/ic_category_light</item>
+    <item>@drawable/ic_lock_open</item>
+    <item>@drawable/ic_backup</item>
+    <item>@drawable/ic_category</item>
     <item>@drawable/ic_wb_incandescent</item>
   </integer-array>
+  <string-array name="themeNames">
+    <item>@string/systemDefault</item> 
+    <item>@string/lightTheme</item> 
+    <item>@string/darkTheme</item> 
+  </string-array>
+  <string-array name="themeValues">
+      <item>0</item>
+      <item>1</item>
+      <item>2</item>
+  </string-array>
 </resources>
