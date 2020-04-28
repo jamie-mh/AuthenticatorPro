@@ -162,6 +162,7 @@ namespace AuthenticatorPro.Activities
                 _authList.Visibility = ViewStates.Visible;
 
             _isChildActivityOpen = false;
+            Tick(null, null);
             _authTimer?.Start();
         }
 
