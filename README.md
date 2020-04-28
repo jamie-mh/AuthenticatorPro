@@ -131,6 +131,8 @@ If you are migrating your authenticators from another app, you can create your o
 
 * Period must be >= 10
 
+* The issuer must not be null or blank.
+
 #### Category
 
 * The category Id is the first 8 characters of the SHA-1 hash of the name.
@@ -141,4 +143,23 @@ If you are migrating your authenticators from another app, you can create your o
 
 ### Encrypted Backups
 
-If your backup file is encrypted. The JSON data is encrypted with the AES_CBC_PKCS7 algorithm. The passphrase is the SHA-256 hash of your backup password.
+If your backup file is encrypted. The JSON data is encrypted with the AES_CBC_PKCS7 algorithm. You can decrypt a backup file using OpenSSL like this:
+
+First generate a key pair using your backup passphrase:
+
+```openssl enc -nosalt -aes-256-cbc -k [PASSPHRASE] -P```
+
+This command will generate a pair like this:
+
+```
+key=0682EC6F5B7CB1E5F5BCCBBF83C551F9FDDE85BD012BB0583C27E2A0A53BB245
+iv =15C782384C896CBCFC78333B5ADAC16F
+```
+
+Use the following command to decrypt your backup file using the key pair generated previously:
+
+```
+openssl enc -nosalt -d -aes-256-cbc -in backup.authpro -K [KEY] -iv [IV] -out backup_decrypted.json
+```
+
+This will output the JSON content of your backup file (`backup.authpro`) to `backup_decrypted.json`.
