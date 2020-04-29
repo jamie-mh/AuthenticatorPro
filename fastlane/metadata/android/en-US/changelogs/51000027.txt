@@ -1,0 +1,5 @@
+- Added support for system-wide dark mode.
+- Added 6 new icons: Wordpress, 3CX, Snapchat, Wargaming, Scaleway and Uptime Robot.
+- Made authenticator secret key input more flexible.
+- Fixed crash when importing functionally invalid backups.
+- Minor design tweaks.

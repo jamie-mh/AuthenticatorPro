@@ -1,0 +1,2 @@
+New compact list mode, can be switched in the settings.
+Mitigation for screenshot exploit on codes.

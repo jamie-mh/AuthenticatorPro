@@ -1,0 +1,4 @@
+UI changes
+3 new icons
+Existing icons improved when using dark theme
+Support libraries updated
