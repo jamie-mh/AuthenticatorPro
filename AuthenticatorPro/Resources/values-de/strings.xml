@@ -27,7 +27,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
   <string name="issuerHint">Herausgeber (z.\u00A0B.: Google)</string>
-  <string name="usernameHint">Nutzername (z.\u00A0B.: max@example.com)</string>
+  <string name="usernameHint">Nutzername (z.\u00A0B.: max@muster.com)</string>
   <string name="typeHint">Typ</string>
   <string name="algorithmHint">Algorithmus</string>
   <string name="digitsHint">Stellen</string>
