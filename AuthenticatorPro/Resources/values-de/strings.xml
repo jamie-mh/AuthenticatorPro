@@ -1,10 +1,10 @@
-﻿<resources>
+<resources>
   <string name="appName">Authenticator Pro</string>
   <string name="displayName">Authenticator</string>
   <string name="settings">Einstellungen</string>
   <string name="restore">Wiederherstellen</string>
   <string name="backup">Sichern</string>
-  <string name="about">About</string>
+  <string name="about">Über</string>
   <string name="scanQrCode">QR Code scannen</string>
   <string name="enterKey">Schlüssel eingeben</string>
   <string name="copiedToClipboard">Code in Zwischenablage kopiert</string>
@@ -27,7 +27,7 @@
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
   <string name="issuerHint">Herausgeber (z.\u00A0B.: Google)</string>
-  <string name="usernameHint">Nutzername (z.\u00A0B.: max@example.com)</string>
+  <string name="usernameHint">Nutzername (z.\u00A0B.: max@example.com)</string> <!-- Keep domain example.com as described in RFC6761 -->
   <string name="typeHint">Typ</string>
   <string name="algorithmHint">Algorithmus</string>
   <string name="digitsHint">Stellen</string>
@@ -96,9 +96,9 @@
 
   <string name="pref_appearance">Erscheinung</string>
   <string name="pref_theme_title">Thema</string>
-  <string name="pref_theme_summary">Nutze ein dunkles oder licht Thema in der App</string>
+  <string name="pref_theme_summary">Verwende ein dunkles oder helles Thema in der App</string>
   <string name="pref_compactMode_title">Kompaktes Erscheinungsbild</string>
-  <string name="pref_compactMode_summary">Machen Sie die Authentifikatoren kleiner, um mehr auf den Bildschirm zu passen.</string>
+  <string name="pref_compactMode_summary">Authentifikatoren kleiner machen um mehr auf ein mal anzuzeigen</string>
 
   <string name="pref_more">Mehr</string>
   <string name="pref_about_title">Über</string>
@@ -115,8 +115,8 @@
   <string name="authAlgorithmSHA256">SHA256</string>
   <string name="authAlgorithmSHA512">SHA512</string>
 
-  <string name="systemDefault">System</string>
-  <string name="lightTheme">Licht Thema</string>
+  <string name="systemDefault">Wie System</string>
+  <string name="lightTheme">Helles Thema</string>
   <string name="darkTheme">Dunkles Thema</string>
 
   <!-- Arrays / Intro -->
