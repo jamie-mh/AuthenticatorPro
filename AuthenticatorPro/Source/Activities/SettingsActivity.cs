@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.settings);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.activitySettings_content, new SettingsFragment())

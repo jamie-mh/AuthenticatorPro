@@ -24,7 +24,7 @@
 			android:layout_width="76dp"
 			android:layout_height="76dp"
 			android:layout_gravity="center"
-			android:src="?attr/activityBackup_image" />
+			android:src="@drawable/ic_backup" />
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
 				android:layout_height="22dp"
 				android:layout_gravity="center"
 				android:layout_marginRight="12dp"
-				android:src="?attr/activityBackupRestore_deviceStorageIcon" />
+				android:src="@drawable/ic_action_sd_storage" />
 
 			<TextView
 				android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
 				android:layout_height="22dp"
 				android:layout_gravity="center"
 				android:layout_marginRight="12dp"
-				android:src="?attr/activityBackupRestore_cloudStorageIcon" />
+				android:src="@drawable/ic_action_cloud" />
 
 			<TextView
 				android:layout_width="wrap_content"

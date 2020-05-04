@@ -39,10 +39,10 @@ namespace AuthenticatorPro.Activities
 
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             _filesystemSource = new FilesystemSource(Environment.ExternalStorageDirectory.AbsolutePath);
-            _filesystemAdapter = new FilesystemAdapter(_filesystemSource, IsDark);
+            _filesystemAdapter = new FilesystemAdapter(_filesystemSource);
             _filesystemAdapter.SetHasStableIds(true);
 
             var list = FindViewById<RecyclerView>(Resource.Id.activityFile_list);

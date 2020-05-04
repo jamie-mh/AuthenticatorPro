@@ -11,6 +11,7 @@ namespace AuthenticatorPro.Fragments
 
         public IntroPageFragment(int position)
         {
+            RetainInstance = true;
             _position = position;            
         }
 

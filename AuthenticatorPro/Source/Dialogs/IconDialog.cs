@@ -27,6 +27,8 @@ namespace AuthenticatorPro.Dialogs
 
         public IconDialog(Action<object, EventArgs> itemClick, Action<object, EventArgs> negative, int position, bool isDark)
         {
+            RetainInstance = true;
+
             _itemClick = itemClick;
             _negativeButtonEvent = negative;
             _iconSource = new IconSource(isDark);
@@ -52,7 +54,6 @@ namespace AuthenticatorPro.Dialogs
 
             var dialog = alert.Create();
             dialog.Show();
-            dialog.Window.SetSoftInputMode(SoftInput.StateAlwaysVisible);
 
             _searchText.TextChanged += SearchChanged;
 

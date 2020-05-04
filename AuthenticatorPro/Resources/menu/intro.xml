@@ -4,10 +4,10 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/intro_prev"
-       android:icon="@drawable/ic_action_arrow_back"/>
+       android:icon="@drawable/ic_action_caret_left"/>
 
     <item android:id="@+id/intro_next"
-       android:icon="@drawable/ic_action_arrow_forward"/>
+       android:icon="@drawable/ic_action_caret_right"/>
     
     <item android:id="@+id/intro_done"
        android:icon="@drawable/ic_action_done_outline"/>

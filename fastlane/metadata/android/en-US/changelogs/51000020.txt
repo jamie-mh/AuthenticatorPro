@@ -1,0 +1,3 @@
+Dialogs are now darker when using dark theme.
+UI element spacing improved.
+Timer on authenticators now starts at very end of screen.

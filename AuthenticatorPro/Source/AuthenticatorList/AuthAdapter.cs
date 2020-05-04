@@ -10,12 +10,15 @@ namespace AuthenticatorPro.AuthenticatorList
 {
     internal sealed class AuthAdapter : RecyclerView.Adapter, IAuthAdapterMovement
     {
+        public readonly bool IsCompact;
+
         private readonly bool _isDark;
         private readonly AuthSource _source;
 
-        public AuthAdapter(AuthSource authSource, bool isDark)
+        public AuthAdapter(AuthSource authSource, bool isDark, bool isCompact)
         {
             _isDark = isDark;
+            IsCompact = isCompact;
             _source = authSource;
         }
 
@@ -107,8 +110,8 @@ namespace AuthenticatorPro.AuthenticatorList
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(
-                Resource.Layout.authListItem, parent, false);
+            var layout = IsCompact ? Resource.Layout.authListItemCompact : Resource.Layout.authListItem;
+            var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthHolder(itemView, OnItemClick, OnItemOptionsClick, OnRefreshClick);
 

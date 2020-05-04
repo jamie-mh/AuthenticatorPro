@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.restore);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             var loadStorageBtn = FindViewById<LinearLayout>(Resource.Id.activityRestore_loadStorage);
             loadStorageBtn.Click += LoadStorageClick;
@@ -182,6 +182,7 @@ namespace AuthenticatorPro.Activities
 
                 foreach(var auth in backup.Authenticators.Where(auth => !_authSource.IsDuplicate(auth)))
                 {
+                    auth.Validate();
                     await _connection.InsertAsync(auth);
                     authsInserted++;
                 }
@@ -202,6 +203,10 @@ namespace AuthenticatorPro.Activities
                 Toast.MakeText(this, message, ToastLength.Long).Show();
 
                 Finish();
+            }
+            catch(InvalidAuthenticatorException)
+            {
+                Toast.MakeText(this, Resource.String.invalidFileError, ToastLength.Short).Show();
             }
             catch
             {

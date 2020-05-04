@@ -43,7 +43,7 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetTitle(Resource.String.editCategories);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Icons.GetIcon("arrow_back", IsDark));
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.activityEditCategories_buttonAdd);
             _addButton.Click += OnAddClick;
@@ -82,7 +82,7 @@ namespace AuthenticatorPro.Activities
             var alphaAnimation = new AlphaAnimation(1.0f, 0.0f) {
                 Duration = 200
             };
-            alphaAnimation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Invisible; };
+            alphaAnimation.AnimationEnd += (sender, e) => { progressBar.Visibility = ViewStates.Gone; };
             progressBar.StartAnimation(alphaAnimation);
         }
 

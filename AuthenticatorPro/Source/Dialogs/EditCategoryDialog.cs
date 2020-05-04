@@ -23,6 +23,8 @@ namespace AuthenticatorPro.Dialogs
         public EditCategoryDialog(int titleRes, Action<object, EventArgs> positive, Action<object, EventArgs> negative,
             string name = null)
         {
+            RetainInstance = true;
+
             _titleRes = titleRes;
             _name = name;
             _positiveButtonEvent = positive;

@@ -1,4 +1,5 @@
-﻿using Android.OS;
+﻿using Android.Content.Res;
+using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
 
@@ -6,31 +7,52 @@ namespace AuthenticatorPro.Activities
 {
     internal abstract class LightDarkActivity : AppCompatActivity
     {
+        private string _currThemePref;
         protected bool IsDark { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            IsDark = GetDarkPreference();
-            SetTheme(IsDark ? Resource.Style.DarkTheme : Resource.Style.LightTheme);
+            SetNightMode(GetThemePreference());
         }
 
-        private bool GetDarkPreference()
+        private string GetThemePreference()
         {
             var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            return sharedPrefs.GetBoolean("pref_useDarkTheme", false);
+            return sharedPrefs.GetString("pref_theme", "0");
+        }
+
+        private void SetNightMode(string themePref)
+        {
+            _currThemePref = themePref;
+
+            switch(themePref)
+            {
+                case "0":
+                    IsDark = (Resources.Configuration.UiMode & UiMode.NightMask) == UiMode.NightYes;
+                    break;
+
+                case "1":
+                    IsDark = false;
+                    AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
+                    break;
+
+                case "2":
+                    IsDark = true;
+                    AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightYes;
+                    break;
+            }
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-            var isDarkPref = GetDarkPreference();
+            var themePref = GetThemePreference();
 
-            if(IsDark != isDarkPref)
+            if(_currThemePref != themePref)
                 Recreate();
 
-            IsDark = isDarkPref;
+            SetNightMode(themePref);
         }
     }
 }

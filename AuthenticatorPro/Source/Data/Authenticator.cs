@@ -17,32 +17,46 @@ namespace AuthenticatorPro.Data
             Ranking = 1;
         }
 
-        [JsonIgnore] public string Code { get; set; }
+        [JsonIgnore]
+        public string Code { get; set; }
 
-        [Column("type")] public OtpType Type { get; set; }
+        [Column("type")]
+        public OtpType Type { get; set; }
 
-        [Column("icon")] public string Icon { get; set; }
+        [Column("icon")]
+        public string Icon { get; set; }
 
-        [Column("issuer")] [MaxLength(32)] public string Issuer { get; set; }
+        [Column("issuer")]
+        [MaxLength(32)]
+        public string Issuer { get; set; }
 
-        [Column("username")] [MaxLength(32)] public string Username { get; set; }
+        [Column("username")]
+        [MaxLength(32)]
+        public string Username{ get; set; }
 
         [Column("secret")]
         [PrimaryKey]
         [MaxLength(32)]
         public string Secret { get; set; }
 
-        [Column("algorithm")] public OtpHashMode Algorithm { get; set; }
+        [Column("algorithm")]
+        public OtpHashMode Algorithm { get; set; }
 
-        [Column("digits")] public int Digits { get; set; }
+        [Column("digits")]
+        public int Digits { get; set; }
 
-        [Column("period")] public int Period { get; set; }
+        [Column("period")]
+        public int Period { get; set; }
 
-        [Column("counter")] public long Counter { get; set; }
+        [Column("counter")]
+        public long Counter { get; set; }
 
-        [Column("ranking")] public int Ranking { get; set; }
+        [Column("ranking")]
+        public int Ranking { get; set; }
 
-        [JsonIgnore] public DateTime TimeRenew { get; set; }
+        [JsonIgnore]
+        public DateTime TimeRenew { get; set; }
+
 
         public static Authenticator FromKeyUri(string uri)
         {
@@ -50,7 +64,8 @@ namespace AuthenticatorPro.Data
             var raw = Uri.UnescapeDataString(uri);
             var uriMatch = Regex.Match(raw, uriExpr);
 
-            if(!uriMatch.Success) throw new InvalidFormatException();
+            if(!uriMatch.Success)
+                throw new ArgumentException("URI is not valid");
 
             var type = uriMatch.Groups[1].Value == "totp" ? OtpType.Totp : OtpType.Hotp;
 
@@ -94,7 +109,7 @@ namespace AuthenticatorPro.Data
                         break;
 
                     default:
-                        throw new InvalidFormatException();
+                        throw new InvalidAuthenticatorException();
                 }
 
             var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : 6;
@@ -103,8 +118,9 @@ namespace AuthenticatorPro.Data
             var code = "";
             for(var i = 0; i < digits; code += "-", i++);
 
+            var secret = args["secret"].ToUpper();
             var auth = new Authenticator {
-                Secret = args["secret"].ToUpper(),
+                Secret = secret,
                 Issuer = issuer.Trim().Truncate(32),
                 Username = username.Trim().Truncate(32),
                 Icon = Icons.FindServiceKeyByName(issuer),
@@ -116,11 +132,32 @@ namespace AuthenticatorPro.Data
                 Code = code
             };
 
+            auth.Validate();
             return auth;
+        }
+
+        public static bool IsValidSecret(string secret)
+        {
+            if(secret.Length < 16)
+                return false;
+
+            const string allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=";
+            return secret.ToCharArray().All(x => allowedChars.IndexOf(x) >= 0);
+        }
+
+        public void Validate()
+        {
+            if(String.IsNullOrEmpty(Issuer) ||
+               !IsValidSecret(Secret) || 
+               Digits < 6 ||
+               Period < 10 ||
+               Type == OtpType.Unknown)
+                throw new InvalidAuthenticatorException();
         }
     }
 
-    internal class InvalidFormatException : Exception
+    internal class InvalidAuthenticatorException : Exception
     {
+
     }
 }

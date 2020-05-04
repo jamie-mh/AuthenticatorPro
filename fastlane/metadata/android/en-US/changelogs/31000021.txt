@@ -1,0 +1,2 @@
+Added 5 new icons
+Updated support libraries

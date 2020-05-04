@@ -1,0 +1,2 @@
+Improved dark theme on AMOLED screens.
+Added 4 new icons.

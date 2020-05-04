@@ -51,7 +51,7 @@
 			android:layout_width="76dp"
 			android:layout_height="76dp"
 			android:layout_gravity="center"
-			android:src="?attr/activityEditCategories_emptyImage" />
+			android:src="@drawable/ic_category" />
 
 		<TextView
 			android:layout_width="wrap_content"
@@ -82,10 +82,12 @@
 		android:id="@+id/activityEditCategories_buttonAdd"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:src="@drawable/ic_action_add_light"
+		android:src="@drawable/ic_action_add"
 		app:useCompatPadding="true"
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true"
+        app:tint="@color/colorDark"
+        app:backgroundTint="@color/colorAccent"
 		app:elevation="4dp" />
 
 </RelativeLayout>

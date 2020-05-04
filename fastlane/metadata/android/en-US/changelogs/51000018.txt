@@ -1,0 +1,3 @@
+Make "add menu" dark when dark theme is enabled.
+Updated dependencies.
+Authenticators are sorted by username then issuer by default.

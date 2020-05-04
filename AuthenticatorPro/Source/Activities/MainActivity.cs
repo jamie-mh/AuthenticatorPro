@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
@@ -35,7 +35,7 @@ using AuthenticatorPro.Fragments;
 
 namespace AuthenticatorPro.Activities
 {
-    [Activity(Label = "@string/displayName", Theme = "@style/LightTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(Label = "@string/displayName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     internal class MainActivity : LightDarkActivity
     {
@@ -80,6 +80,7 @@ namespace AuthenticatorPro.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
 
             // Actionbar
@@ -145,6 +146,10 @@ namespace AuthenticatorPro.Activities
             }
             else if(_isChildActivityOpen)
             {
+                var isCompact = _sharedPrefs.GetBoolean("pref_compactMode", false);
+                if(isCompact != _authAdapter.IsCompact)
+                    Recreate();
+
                 UpdateAuthenticators();
                 UpdateCategories();
 
@@ -157,6 +162,7 @@ namespace AuthenticatorPro.Activities
                 _authList.Visibility = ViewStates.Visible;
 
             _isChildActivityOpen = false;
+            Tick(null, null);
             _authTimer?.Start();
         }
 
@@ -199,7 +205,9 @@ namespace AuthenticatorPro.Activities
         private void InitAuthenticators()
         {
             _authSource = new AuthSource(_connection);
-            _authAdapter = new AuthAdapter(_authSource, IsDark);
+
+            var isCompact = _sharedPrefs.GetBoolean("pref_compactMode", false);
+            _authAdapter = new AuthAdapter(_authSource, IsDark, isCompact);
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
@@ -565,7 +573,7 @@ namespace AuthenticatorPro.Activities
                 CheckEmptyState();
                 _authAdapter.NotifyDataSetChanged();
             }
-            catch(InvalidFormatException)
+            catch
             {
                 Toast.MakeText(this, Resource.String.qrCodeFormatError, ToastLength.Short).Show();
             }
@@ -610,9 +618,7 @@ namespace AuthenticatorPro.Activities
                 error = true;
             }
 
-            var secret = _addDialog.Secret.Trim().ToUpper();
-            const string base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
-            const char base32Padding = '=';
+            var secret = _addDialog.Secret.Replace(" ", "").Trim().ToUpper();
 
             if(secret.Length < 16)
             {
@@ -620,7 +626,7 @@ namespace AuthenticatorPro.Activities
                 error = true;
             }
 
-            if(!secret.ToCharArray().All(x => base32Alphabet.IndexOf(x) >= 0 || x == base32Padding))
+            if(!Authenticator.IsValidSecret(secret))
             {
                 _addDialog.SecretError = GetString(Resource.String.secretInvalidChars);
                 error = true;
@@ -643,16 +649,11 @@ namespace AuthenticatorPro.Activities
             var issuer = _addDialog.Issuer.Trim().Truncate(32);
             var username = _addDialog.Username.Trim().Truncate(32);
 
-            var algorithm = OtpHashMode.Sha1;
-            switch(_addDialog.Algorithm)
-            {
-                case 1:
-                    algorithm = OtpHashMode.Sha256;
-                    break;
-                case 2:
-                    algorithm = OtpHashMode.Sha512;
-                    break;
-            }
+            var algorithm = _addDialog.Algorithm switch {
+                1 => OtpHashMode.Sha256,
+                2 => OtpHashMode.Sha512,
+                _ => OtpHashMode.Sha1
+            };
 
             var type = _addDialog.Type == 0 ? OtpType.Totp : OtpType.Hotp;
 
@@ -674,7 +675,7 @@ namespace AuthenticatorPro.Activities
 
             if(_authSource.IsDuplicate(auth))
             {
-                Toast.MakeText(this, Resource.String.duplicateAuthenticator, ToastLength.Short).Show();
+                _addDialog.SecretError = GetString(Resource.String.duplicateAuthenticator);
                 return;
             }
 

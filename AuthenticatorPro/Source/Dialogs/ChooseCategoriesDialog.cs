@@ -26,6 +26,8 @@ namespace AuthenticatorPro.Dialogs
         public ChooseCategoriesDialog(CategorySource categorySource, EventHandler onClose, Action<bool, int> itemClick,
             int authPosition, List<string> checkedCategories)
         {
+            RetainInstance = true;
+
             _categorySource = categorySource;
             _itemClick = itemClick;
             _onClose = onClose;

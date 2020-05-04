@@ -7,7 +7,6 @@
   <string name="about">About</string>
   <string name="scanQrCode">Scan a QR Code</string>
   <string name="enterKey">Enter a provided key</string>
-  <string name="renameAuth">Rename</string>
   <string name="copiedToClipboard">Code copied to clipboard</string>
   <string name="warning">Warning</string>
   <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
@@ -96,8 +95,10 @@
   <string name="pref_useEncryptedDatabase_summary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
   <string name="pref_appearance">Appearance</string>
-  <string name="pref_useDarkTheme_title">Use Dark Theme</string>
-  <string name="pref_useDarkTheme_summary">Use a dark theme throughout the app.</string>
+  <string name="pref_theme_title">Theme</string>
+  <string name="pref_theme_summary">Choose an application theme.</string>
+  <string name="pref_compactMode_title">Compact View</string>
+  <string name="pref_compactMode_summary">Make authenticators smaller in order to fit more on screen at once.</string>
 
   <string name="pref_more">More</string>
   <string name="pref_about_title">About</string>
@@ -109,14 +110,18 @@
 
   <!-- Arrays -->
   <string name="authTypeTime">Time Based (TOTP)</string>
-  <string name="authTypeCounter">Counter Based (HTOP)</string>
+  <string name="authTypeCounter">Counter Based (HOTP)</string>
   <string name="authAlgorithmSHA1">SHA1 (default)</string>
   <string name="authAlgorithmSHA256">SHA256</string>
   <string name="authAlgorithmSHA512">SHA512</string>
 
+  <string name="systemDefault">System Default</string>
+  <string name="lightTheme">Light Theme</string>
+  <string name="darkTheme">Dark Theme</string>
+
   <!-- Arrays / Intro -->
   <string name="introTitleWelcome">Welcome to Authenticator Pro</string>
-  <string name="introTitleCompatibility">TOTP Authentication</string>
+  <string name="introTitleCompatibility">TOTP / HOTP Authentication</string>
   <string name="introTitleBackup">Backup / Restore</string>
   <string name="introTitleCategories">Categories</string>
   <string name="introTitleThemes">Dark Theme</string>

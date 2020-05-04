@@ -22,7 +22,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="32dp"
-            android:src="?attr/addBottomSheetDialog_scanQrIcon" />
+            android:src="@drawable/ic_action_camera_alt" />
  
         <TextView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="32dp"
-            android:src="?attr/addBottomSheetDialog_enterKeyIcon" />
+            android:src="@drawable/ic_action_vpn_key" />
  
         <TextView
             android:layout_width="wrap_content"
