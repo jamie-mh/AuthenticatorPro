@@ -10,7 +10,7 @@
 		android:minWidth="25px"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:elevation="4dp"
+		android:elevation="0dp"
 		android:id="@+id/activityBackup_toolbar"/>
 
 	<LinearLayout
