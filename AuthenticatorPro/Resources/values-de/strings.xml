@@ -115,7 +115,7 @@
   <string name="authAlgorithmSHA256">SHA256</string>
   <string name="authAlgorithmSHA512">SHA512</string>
 
-  <string name="systemDefault">Wie Systemweit</string>
+  <string name="systemDefault">Wie System</string>
   <string name="lightTheme">Helles Thema</string>
   <string name="darkTheme">Dunkles Thema</string>
 
