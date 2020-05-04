@@ -1,12 +1,14 @@
 ﻿using System;
+using Android.App;
 using Android.Content;
 using Android.Runtime;
 using Android.Util;
 using AndroidX.Preference;
+using AuthenticatorPro.Activities;
 
 namespace AuthenticatorPro.Preferences
 {
-    internal class EncryptedDatabasePreference : CheckBoxPreference
+    internal class EncryptedDatabasePreference : SwitchPreferenceCompat
     {
         public EncryptedDatabasePreference(Context context) : base(context)
         {
@@ -35,9 +37,10 @@ namespace AuthenticatorPro.Preferences
 
         }
 
-        protected override async void OnClick()
+        protected override void OnClick()
         {
-            await Database.UpdateEncryption(Context, !Checked);
+            var activity = (SettingsActivity) Context;
+            activity.SetDatabaseEncryption(!Checked);
             base.OnClick();
         }
     }
