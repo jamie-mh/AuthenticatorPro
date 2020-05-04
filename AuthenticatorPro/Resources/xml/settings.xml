@@ -7,7 +7,7 @@
   <androidx.preference.PreferenceCategory
     android:title="@string/pref_security"
     android:key="pref_key_security">
-    <androidx.preference.CheckBoxPreference
+    <androidx.preference.SwitchPreferenceCompat
       android:key="pref_appLock"
       android:summary="@string/pref_appLock_summary"
       android:title="@string/pref_appLock_title"
@@ -32,7 +32,7 @@
       android:entries="@array/themeNames"
       android:entryValues="@array/themeValues"
       android:defaultValue="0" />
-    <androidx.preference.CheckBoxPreference
+    <androidx.preference.SwitchPreferenceCompat
       android:key="pref_compactMode"
       android:summary="@string/pref_compactMode_summary"
       android:title="@string/pref_compactMode_title"

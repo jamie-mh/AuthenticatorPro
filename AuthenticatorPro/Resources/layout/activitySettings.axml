@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools">
-	<androidx.appcompat.widget.Toolbar
-		android:minHeight="?android:attr/actionBarSize"
-		android:background="?android:attr/colorPrimary"
-		android:minWidth="25px"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:elevation="4dp"
-		android:id="@+id/activitySettings_toolbar" />
-	
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/activitySettings_appBarLayout"
+        app:elevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:minHeight="?android:attr/actionBarSize"
+            android:background="?android:attr/colorPrimary"
+            android:minWidth="25px"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activitySettings_toolbar" />
+
+        <ProgressBar
+            android:id="@+id/activitySettings_progressBar"
+            android:layout_marginTop="-7dp"
+            android:layout_marginBottom="-7dp"
+            android:indeterminate="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <FrameLayout
         android:id="@+id/activitySettings_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-		android:layout_below="@id/activitySettings_toolbar" />
+        android:layout_below="@id/activitySettings_appBarLayout" />
 </RelativeLayout>
