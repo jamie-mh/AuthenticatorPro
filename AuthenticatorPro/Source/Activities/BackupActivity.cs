@@ -190,7 +190,7 @@ namespace AuthenticatorPro.Activities
                     var filename = intent.GetStringExtra("filename") + ".authpro";
                     var path = Path.Combine(intent.GetStringExtra("path"), filename);
 
-                    File.WriteAllBytes(path, dataToWrite);
+                    await File.WriteAllBytesAsync(path, dataToWrite);
                     break;
 
                 case StorageAccessFrameworkCode:

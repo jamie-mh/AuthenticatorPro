@@ -106,14 +106,14 @@ namespace AuthenticatorPro.Activities
             {
                 case DeviceStorageCode:
                     var file = $@"{intent.GetStringExtra("path")}/{intent.GetStringExtra("filename")}";
-                    _fileData = File.ReadAllBytes(file);
+                    _fileData = await File.ReadAllBytesAsync(file);
                     break;
 
                 case StorageAccessFrameworkCode:
                     var stream = ContentResolver.OpenInputStream(intent.Data);
                     var memoryStream = new MemoryStream();
 
-                    stream.CopyTo(memoryStream);
+                    await stream.CopyToAsync(memoryStream);
                     _fileData = memoryStream.ToArray();
                     break;
 
