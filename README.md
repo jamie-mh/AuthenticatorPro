@@ -130,9 +130,9 @@ If you are migrating your authenticators from another app, you can create your o
 
 * Authenticators are ordered by their ranking, unless they're placed into categories where they will be ordered by the AuthenticatorCategory ranking instead.
 
-* Digits must be >= 6
+* Digits must be between 6 and 10
 
-* Period must be >= 10
+* Period must be >= 0
 
 * The issuer must not be null or blank.
 

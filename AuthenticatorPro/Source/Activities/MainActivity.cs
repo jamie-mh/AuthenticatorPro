@@ -629,13 +629,13 @@ namespace AuthenticatorPro.Activities
                 error = true;
             }
 
-            if(_addDialog.Digits < 6)
+            if(_addDialog.Digits < 6 || _addDialog.Digits > 10)
             {
-                _addDialog.DigitsError = GetString(Resource.String.digitsToSmall);
+                _addDialog.DigitsError = GetString(Resource.String.digitsInvalid);
                 error = true;
             }
 
-            if(_addDialog.Period < 10)
+            if(_addDialog.Period <= 0)
             {
                 _addDialog.PeriodError = GetString(Resource.String.periodToShort);
                 error = true;

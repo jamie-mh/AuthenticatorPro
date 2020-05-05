@@ -43,8 +43,8 @@
   <string name="noSecret">A secret key is required.</string>
   <string name="noFileName">A file name is required.</string>
   <string name="secretInvalid">The secret is invalid.</string>
-  <string name="digitsToSmall">The authenticator must generate at least 6 digits.</string>
-  <string name="periodToShort">The period must be longer than 10 seconds.</string>
+  <string name="digitsInvalid">The authenticator must generate between 6 and 10 digits.</string>
+  <string name="periodToShort">The period must be longer than 0 seconds.</string>
   <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
   <string name="duplicateAuthenticator">An authenticator with this secret key already exists.</string>
   <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories.</string>

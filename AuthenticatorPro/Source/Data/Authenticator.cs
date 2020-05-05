@@ -166,7 +166,8 @@ namespace AuthenticatorPro.Data
             if(String.IsNullOrEmpty(Issuer) ||
                !IsValidSecret(Secret) || 
                Digits < 6 ||
-               Period < 10)
+               Digits > 10 ||
+               Period <= 0)
                 throw new InvalidAuthenticatorException();
         }
     }

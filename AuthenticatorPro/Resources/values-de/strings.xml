@@ -43,8 +43,8 @@
   <string name="noSecret">Der Schlüssel muss angegeben werden.</string>
   <string name="noFileName">Ein Dateiname muss angegeben werden.</string>
   <string name="secretInvalid">Der Schlüssel ist ungültige.</string>
-  <string name="digitsToSmall">Es müssen mindestens 6 Stellen generiert werden.</string>
-  <string name="periodToShort">Die Gültigkeitsdauer muss länger als 10 Sekunden sein.</string>
+  <string name="digitsInvalid">Es müssen zwischen 6 und 10 Stellen generiert werden.</string>
+  <string name="periodToShort">Die Gültigkeitsdauer muss länger als 0 Sekunden sein.</string>
   <string name="qrCodeFormatError">Der QR-Code ist falsch formatiert.</string>
   <string name="duplicateAuthenticator">Es gibt bereits einen Authentifikator mit diesem Schlüssel.</string>
   <string name="restoredFromBackup">Es wurden {0} Authentifikatoren und {1} Kategorien wiederhergestellt.</string>

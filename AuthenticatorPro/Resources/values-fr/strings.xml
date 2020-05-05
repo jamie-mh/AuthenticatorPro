@@ -43,8 +43,8 @@
     <string name="noSecret">Une clé secrète est requise.</string>
     <string name="noFileName">Un nom de fichier est requis.</string>
     <string name="secretInvalid">La clé secrète n\'est pas valide.</string>
-    <string name="digitsToSmall">L\'authentificateur doit générer au moins 6 chiffres.</string>
-    <string name="periodToShort">La période doit être plus longue que 10 secondes.</string>
+    <string name="digitsInvalid">L\'authentificateur doit générer entre 6 et 10 chiffres.</string>
+    <string name="periodToShort">La période doit être plus longue que 0 secondes.</string>
     <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format.</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà.</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés.</string>
