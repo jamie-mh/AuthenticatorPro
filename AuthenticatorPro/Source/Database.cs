@@ -54,13 +54,13 @@ namespace AuthenticatorPro
             if(useKey)
             {
                 var databaseKey = await SecureStorage.GetAsync("database_key");
-                await conn.ExecuteAsync(@"ATTACH DATABASE ? AS temporary KEY ?", tempPath, databaseKey);
+                await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, databaseKey);
             }
             else
-                await conn.ExecuteAsync($@"ATTACH DATABASE ? AS temporary KEY ''", tempPath);
+                await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ''", tempPath);
 
-            await conn.ExecuteScalarAsync<string>(@"SELECT sqlcipher_export('temporary')");
-            await conn.ExecuteAsync(@"DETACH DATABASE temporary");
+            await conn.ExecuteScalarAsync<string>("SELECT sqlcipher_export('temporary')");
+            await conn.ExecuteAsync("DETACH DATABASE temporary");
 
             await conn.CloseAsync();
 
