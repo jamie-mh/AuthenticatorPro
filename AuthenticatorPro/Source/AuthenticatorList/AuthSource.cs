@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Albireo.Base32;
 using AuthenticatorPro.Data;
-using OtpSharp;
+using OtpNet;
 using SQLite;
 
 namespace AuthenticatorPro.AuthenticatorList
@@ -114,9 +113,9 @@ namespace AuthenticatorPro.AuthenticatorList
             var info = Authenticators[position];
             var auth = GetAuthenticator(info);
 
-            if(auth.Type == OtpType.Totp && auth.TimeRenew <= DateTime.Now)
+            if(auth.Type == AuthenticatorType.Totp && auth.TimeRenew <= DateTime.Now)
             {
-                var secret = Base32.Decode(auth.Secret);
+                var secret = Base32Encoding.ToBytes(auth.Secret);
                 var totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
                 auth.Code = totp.ComputeTotp();
                 auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
@@ -183,13 +182,13 @@ namespace AuthenticatorPro.AuthenticatorList
             var info = Authenticators[position];
             var auth = GetAuthenticator(info);
 
-            if(auth.Type != OtpType.Hotp) return;
+            if(auth.Type != AuthenticatorType.Hotp) return;
 
-            var secret = Base32.Decode(auth.Secret);
+            var secret = Base32Encoding.ToBytes(auth.Secret);
             var hotp = new Hotp(secret, auth.Algorithm);
 
             auth.Counter++;
-            auth.Code = hotp.ComputeHotp(auth.Counter);
+            auth.Code = hotp.ComputeHOTP(auth.Counter);
             auth.TimeRenew = DateTime.Now.AddSeconds(10);
 
             Authenticators[position] = auth;

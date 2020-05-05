@@ -24,7 +24,6 @@ using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.CategoryList;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Navigation;
-using OtpSharp;
 using SQLite;
 using ZXing;
 using ZXing.Mobile;
@@ -33,6 +32,7 @@ using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using SQLiteException = SQLite.SQLiteException;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using AuthenticatorPro.Fragments;
+using OtpNet;
 
 namespace AuthenticatorPro.Activities
 {
@@ -442,11 +442,11 @@ namespace AuthenticatorPro.Activities
                 var auth = _authSource.Authenticators[i];
                 var position = i; // Closure modification
 
-                if(auth.Type == OtpType.Totp && auth.TimeRenew > DateTime.Now ||
-                   auth.Type == OtpType.Hotp && auth.TimeRenew < DateTime.Now)
+                if(auth.Type == AuthenticatorType.Totp && auth.TimeRenew > DateTime.Now ||
+                   auth.Type == AuthenticatorType.Hotp && auth.TimeRenew < DateTime.Now)
                     RunOnUiThread(() => { _authAdapter.NotifyItemChanged(position, true); });
 
-                else if(auth.Type == OtpType.Totp)
+                else if(auth.Type == AuthenticatorType.Totp)
                     RunOnUiThread(() => { _authAdapter.NotifyItemChanged(position); });
             }
         }
@@ -659,7 +659,7 @@ namespace AuthenticatorPro.Activities
                 _ => OtpHashMode.Sha1
             };
 
-            var type = _addDialog.Type == 0 ? OtpType.Totp : OtpType.Hotp;
+            var type = _addDialog.Type == 0 ? AuthenticatorType.Totp : AuthenticatorType.Hotp;
 
             var code = "";
             for(var i = 0; i < _addDialog.Digits; code += "-", i++);

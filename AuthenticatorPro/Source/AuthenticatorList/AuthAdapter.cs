@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
-using OtpSharp;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.AuthenticatorList
@@ -58,10 +57,10 @@ namespace AuthenticatorPro.AuthenticatorList
 
             holder.Icon.SetImageResource(Icons.GetService(auth.Icon, _isDark));
 
-            if(auth.Type == OtpType.Totp)
+            if(auth.Type == AuthenticatorType.Totp)
                 TotpViewBind(holder, auth);
 
-            else if(auth.Type == OtpType.Hotp)
+            else if(auth.Type == AuthenticatorType.Hotp)
                 HotpViewBind(holder, auth);
 
             holder.Code.Text = codePadded;
@@ -76,9 +75,9 @@ namespace AuthenticatorPro.AuthenticatorList
                 var auth = _source.Authenticators[position];
                 var holder = (AuthHolder) viewHolder;
 
-                if(auth.Type == OtpType.Totp)
+                if(auth.Type == AuthenticatorType.Totp)
                     holder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
-                else if(auth.Type == OtpType.Hotp)
+                else if(auth.Type == AuthenticatorType.Hotp)
                     holder.RefreshButton.Visibility = ViewStates.Visible;
             }
         }

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
-using OtpSharp;
+using OtpNet;
 using SQLite;
 
 namespace AuthenticatorPro.Data
@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Data
         public string Code { get; set; }
 
         [Column("type")]
-        public OtpType Type { get; set; }
+        public AuthenticatorType Type { get; set; }
 
         [Column("icon")]
         public string Icon { get; set; }
@@ -67,7 +67,7 @@ namespace AuthenticatorPro.Data
             if(!uriMatch.Success)
                 throw new ArgumentException("URI is not valid");
 
-            var type = uriMatch.Groups[1].Value == "totp" ? OtpType.Totp : OtpType.Hotp;
+            var type = uriMatch.Groups[1].Value == "totp" ? AuthenticatorType.Totp : AuthenticatorType.Hotp;
 
             // Get the issuer and username if possible
             const string issuerNameExpr = @"^(.*?):(.*?)$";
@@ -118,7 +118,8 @@ namespace AuthenticatorPro.Data
             var code = "";
             for(var i = 0; i < digits; code += "-", i++);
 
-            var secret = args["secret"].ToUpper();
+            var secret = CleanSecret(args["secret"]);
+
             var auth = new Authenticator {
                 Secret = secret,
                 Issuer = issuer.Trim().Truncate(32),
@@ -136,13 +137,25 @@ namespace AuthenticatorPro.Data
             return auth;
         }
 
+        public static string CleanSecret(string input)
+        {
+            input = input.ToUpper();
+            input = input.Replace(" ", "");
+            input = input.Replace("-", "");
+
+            return input;
+        }
+
         public static bool IsValidSecret(string secret)
         {
-            if(secret.Length < 16)
+            try
+            {
+                return Base32Encoding.ToBytes(secret).Length > 0;
+            }
+            catch(ArgumentException)
+            {
                 return false;
-
-            const string allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=";
-            return secret.ToCharArray().All(x => allowedChars.IndexOf(x) >= 0);
+            }
         }
 
         public void Validate()
@@ -150,8 +163,7 @@ namespace AuthenticatorPro.Data
             if(String.IsNullOrEmpty(Issuer) ||
                !IsValidSecret(Secret) || 
                Digits < 6 ||
-               Period < 10 ||
-               Type == OtpType.Unknown)
+               Period < 10)
                 throw new InvalidAuthenticatorException();
         }
     }

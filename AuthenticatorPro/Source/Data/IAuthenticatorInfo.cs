@@ -1,11 +1,11 @@
 ﻿using System;
-using OtpSharp;
+using OtpNet;
 
 namespace AuthenticatorPro.Data
 {
     internal interface IAuthenticatorInfo
     {
-        OtpType Type { get; set; }
+        AuthenticatorType Type { get; set; }
         string Icon { get; set; }
         string Issuer { get; set; }
         string Username { get; set; }
