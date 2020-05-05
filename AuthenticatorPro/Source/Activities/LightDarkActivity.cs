@@ -30,6 +30,7 @@ namespace AuthenticatorPro.Activities
             {
                 case "0":
                     IsDark = (Resources.Configuration.UiMode & UiMode.NightMask) == UiMode.NightYes;
+                    AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightFollowSystem;
                     break;
 
                 case "1":
