@@ -9,6 +9,7 @@ namespace AuthenticatorPro.AuthenticatorList
 {
     internal sealed class AuthAdapter : RecyclerView.Adapter, IAuthAdapterMovement
     {
+        private const int MaxCodeGroupSize = 4;
         public readonly bool IsCompact;
 
         private readonly bool _isDark;
@@ -48,8 +49,10 @@ namespace AuthenticatorPro.AuthenticatorList
             var spacesInserted = 0;
             var length = codePadded.Length;
 
+            var groupSize = Math.Min(MaxCodeGroupSize, length / 2);
+
             for(var i = 0; i < length; ++i)
-                if(i % 3 == 0 && i > 0)
+                if(i % groupSize == 0 && i > 0)
                 {
                     codePadded = codePadded.Insert(i + spacesInserted, " ");
                     spacesInserted++;
