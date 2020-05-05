@@ -17,8 +17,11 @@ The app is written in C# with Xamarin Android.
 
 ## Download
 
-[<img alt="Get it on Google Play" height="100"  src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
+[<img alt="Get it on Google Play" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
 
+[<img alt="Get it on F-Droid" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/fdroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
+
+Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-Droid repo (https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
 
 ## Features
 
