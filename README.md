@@ -122,7 +122,7 @@ If you are migrating your authenticators from another app, you can create your o
 
 #### Authenticator
 
-* The authenticator secret key must be an **uppercase base-32 string with no spaces**. The secret may also contain '=' as a padding character. The minimum length is 16 characters.
+* The authenticator secret key must be an **uppercase base-32 string with no spaces**. The secret may also contain '=' as a padding character.
 
 * Type: 1 = HOTP, 2 = TOTP
 

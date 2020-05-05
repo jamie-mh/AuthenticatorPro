@@ -616,23 +616,16 @@ namespace AuthenticatorPro.Activities
                 error = true;
             }
 
-            if(_addDialog.Secret.Trim() == "")
+            var secret = Authenticator.CleanSecret(_addDialog.Secret);
+
+            if(secret == "")
             {
                 _addDialog.SecretError = GetString(Resource.String.noSecret);
                 error = true;
             }
-
-            var secret = _addDialog.Secret.Replace(" ", "").Trim().ToUpper();
-
-            if(secret.Length < 16)
+            else if(!Authenticator.IsValidSecret(secret))
             {
-                _addDialog.SecretError = GetString(Resource.String.secretTooShort);
-                error = true;
-            }
-
-            if(!Authenticator.IsValidSecret(secret))
-            {
-                _addDialog.SecretError = GetString(Resource.String.secretInvalidChars);
+                _addDialog.SecretError = GetString(Resource.String.secretInvalid);
                 error = true;
             }
 
