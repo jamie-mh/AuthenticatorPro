@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Timers;
 using Android;
 using Android.App;
@@ -125,7 +126,7 @@ namespace AuthenticatorPro.Activities
             _actionBarDrawerToggle.SyncState();
         }
 
-        protected override void OnResume()
+        protected override async void OnResume()
         {
             base.OnResume();
             _sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
@@ -142,21 +143,24 @@ namespace AuthenticatorPro.Activities
             // Just launched
             if(_connection == null)
             {
-                Init();
+                await Init();
             }
             else if(_isChildActivityOpen)
             {
                 var isCompact = _sharedPrefs.GetBoolean("pref_compactMode", false);
                 if(isCompact != _authAdapter.IsCompact)
+                {
                     Recreate();
+                    return;
+                }
 
-                UpdateAuthenticators();
-                UpdateCategories();
+                await UpdateAuthenticators();
+                await UpdateCategories();
 
                 // Currently visible category has been deleted
                 if(_authSource.CategoryId != null &&
                    _categorySource.Categories.FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
-                    SwitchCategory(-1);
+                    await SwitchCategory(-1);
             }
             else
                 _authList.Visibility = ViewStates.Visible;
@@ -172,7 +176,7 @@ namespace AuthenticatorPro.Activities
             StartActivity(type);
         }
 
-        private async void Init()
+        private async Task Init()
         {
             try
             {
@@ -181,8 +185,8 @@ namespace AuthenticatorPro.Activities
                 InitCategories();
                 InitAuthenticators();
 
-                UpdateCategories(false);
-                UpdateAuthenticators(false);
+                await UpdateCategories(false);
+                await UpdateAuthenticators(false);
 
                 CreateTimer();
             }
@@ -230,7 +234,7 @@ namespace AuthenticatorPro.Activities
             touchHelper.AttachToRecyclerView(_authList);
         }
 
-        private async void UpdateAuthenticators(bool updateSource = true)
+        private async Task UpdateAuthenticators(bool updateSource = true)
         {
             _progressBar.Visibility = ViewStates.Visible;
             await _authSource.UpdateTask;
@@ -258,7 +262,7 @@ namespace AuthenticatorPro.Activities
             _categorySource = new CategorySource(_connection);
         }
 
-        private async void UpdateCategories(bool updateSource = true)
+        private async Task UpdateCategories(bool updateSource = true)
         {
             await _categorySource.UpdateTask;
 
@@ -350,10 +354,10 @@ namespace AuthenticatorPro.Activities
                     break;
 
                 default:
-                    _actionBarDrawerToggle.IdleAction = () =>
+                    _actionBarDrawerToggle.IdleAction = async () =>
                     {
                         var position = e.MenuItem.ItemId;
-                        SwitchCategory(position);
+                        await SwitchCategory(position);
                     };
                     break;
             }
@@ -361,7 +365,7 @@ namespace AuthenticatorPro.Activities
             _drawerLayout.CloseDrawers();
         }
 
-        private void SwitchCategory(int position)
+        private async Task SwitchCategory(int position)
         {
             if(position == -1)
             {
@@ -375,7 +379,7 @@ namespace AuthenticatorPro.Activities
                 SupportActionBar.Title = category.Name;
             }
 
-            UpdateAuthenticators(false);
+            await UpdateAuthenticators(false);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
