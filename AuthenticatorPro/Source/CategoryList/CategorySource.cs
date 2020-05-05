@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Data;
 using SQLite;
@@ -29,11 +30,7 @@ namespace AuthenticatorPro.CategoryList
 
         public bool IsDuplicate(Category category)
         {
-            foreach(var iterator in Categories)
-                if(category.Id == iterator.Id)
-                    return true;
-
-            return false;
+            return Categories.Any(iterator => category.Id == iterator.Id);
         }
 
         public async Task Delete(int position)

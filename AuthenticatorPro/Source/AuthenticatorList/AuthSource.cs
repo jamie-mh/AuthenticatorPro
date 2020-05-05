@@ -198,21 +198,14 @@ namespace AuthenticatorPro.AuthenticatorList
 
         public bool IsDuplicate(Authenticator auth)
         {
-            foreach(var iterator in _all)
-                if(auth.Secret == iterator.Secret)
-                    return true;
-
-            return false;
+            return _all.Any(iterator => auth.Secret == iterator.Secret);
         }
 
         public bool IsDuplicateCategoryBinding(AuthenticatorCategory binding)
         {
-            foreach(var iterator in CategoryBindings)
-                if(binding.AuthenticatorSecret == iterator.AuthenticatorSecret &&
-                   binding.CategoryId == iterator.CategoryId)
-                    return true;
-
-            return false;
+            return CategoryBindings.Any(
+                iterator => binding.AuthenticatorSecret == iterator.AuthenticatorSecret &&
+                         binding.CategoryId == iterator.CategoryId);
         }
 
         public int Count()
