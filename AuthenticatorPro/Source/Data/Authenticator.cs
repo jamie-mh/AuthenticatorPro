@@ -148,6 +148,9 @@ namespace AuthenticatorPro.Data
 
         public static bool IsValidSecret(string secret)
         {
+            if(String.IsNullOrEmpty(secret))
+                return false;
+
             try
             {
                 return Base32Encoding.ToBytes(secret).Length > 0;
