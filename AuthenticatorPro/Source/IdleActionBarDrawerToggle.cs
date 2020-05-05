@@ -1,6 +1,5 @@
 ﻿using System;
 using Android.App;
-using Android.Runtime;
 using AndroidX.AppCompat.App;
 using AndroidX.AppCompat.Widget;
 using AndroidX.DrawerLayout.Widget;

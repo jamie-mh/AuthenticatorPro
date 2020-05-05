@@ -496,7 +496,7 @@ namespace AuthenticatorPro.Activities
             dialog.Show();
         }
 
-        public bool IsTablet()
+        private bool IsTablet()
         {
             var display = WindowManager.DefaultDisplay;
             var displayMetrics = new DisplayMetrics();
