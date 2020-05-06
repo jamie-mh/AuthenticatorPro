@@ -575,7 +575,7 @@ namespace AuthenticatorPro.Activities
                 await _authSource.UpdateSource();
 
                 CheckEmptyState();
-                _authAdapter.NotifyDataSetChanged();
+                _authAdapter.NotifyItemInserted(_authSource.GetPosition(auth.Secret));
             }
             catch
             {
@@ -680,7 +680,7 @@ namespace AuthenticatorPro.Activities
             await _authSource.UpdateSource();
 
             CheckEmptyState();
-            _authAdapter.NotifyDataSetChanged();
+            _authAdapter.NotifyItemInserted(_authSource.GetPosition(auth.Secret));
 
             _addDialog.Dismiss();
         }

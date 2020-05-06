@@ -124,6 +124,11 @@ namespace AuthenticatorPro.AuthenticatorList
             return auth;
         }
 
+        public int GetPosition(string secret)
+        {
+            return _all.FindIndex(a => a.Secret == secret);
+        }
+
         public async Task Rename(int position, string issuer, string username)
         {
             if(Authenticators.ElementAtOrDefault(position) == null) return;
