@@ -662,6 +662,9 @@
     <AndroidResource Include="Resources\drawable-mdpi\auth_ovh.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_parsec.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_paypal.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1346,6 +1349,9 @@
     <AndroidResource Include="Resources\drawable-xhdpi\auth_ovh.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_parsec.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_paypal.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1707,6 +1713,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_ovh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_parsec.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_paypal.png" />
@@ -2072,6 +2081,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ovh.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_parsec.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_paypal.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2433,6 +2445,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_ovh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_parsec.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_paypal.png" />
