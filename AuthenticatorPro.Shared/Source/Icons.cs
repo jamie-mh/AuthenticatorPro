@@ -69,6 +69,7 @@ namespace AuthenticatorPro.Shared
             {"origin", Resource.Drawable.auth_origin},
             {"outlook", Resource.Drawable.auth_outlook},
             {"ovh", Resource.Drawable.auth_ovh},
+            {"parsec", Resource.Drawable.auth_parsec},
             {"paypal", Resource.Drawable.auth_paypal},
             {"pluralsight", Resource.Drawable.auth_pluralsight},
             {"privateinternetaccess", Resource.Drawable.auth_privateinternetaccess},
