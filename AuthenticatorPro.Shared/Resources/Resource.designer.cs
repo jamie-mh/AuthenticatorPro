@@ -300,100 +300,103 @@ namespace AuthenticatorPro.Shared
 			public static int auth_ovh = 2130837576;
 			
 			// aapt resource value: 0x7F020049
-			public static int auth_paypal = 2130837577;
+			public static int auth_parsec = 2130837577;
 			
 			// aapt resource value: 0x7F02004A
-			public static int auth_pluralsight = 2130837578;
+			public static int auth_paypal = 2130837578;
 			
 			// aapt resource value: 0x7F02004B
-			public static int auth_privateinternetaccess = 2130837579;
+			public static int auth_pluralsight = 2130837579;
 			
 			// aapt resource value: 0x7F02004C
-			public static int auth_protonmail = 2130837580;
+			public static int auth_privateinternetaccess = 2130837580;
 			
 			// aapt resource value: 0x7F02004D
-			public static int auth_protonvpn = 2130837581;
+			public static int auth_protonmail = 2130837581;
 			
 			// aapt resource value: 0x7F02004E
-			public static int auth_protonvpn_dark = 2130837582;
+			public static int auth_protonvpn = 2130837582;
 			
 			// aapt resource value: 0x7F02004F
-			public static int auth_reddit = 2130837583;
+			public static int auth_protonvpn_dark = 2130837583;
 			
 			// aapt resource value: 0x7F020050
-			public static int auth_rockstargames = 2130837584;
+			public static int auth_reddit = 2130837584;
 			
 			// aapt resource value: 0x7F020051
-			public static int auth_rockstargames_dark = 2130837585;
+			public static int auth_rockstargames = 2130837585;
 			
 			// aapt resource value: 0x7F020052
-			public static int auth_samsung = 2130837586;
+			public static int auth_rockstargames_dark = 2130837586;
 			
 			// aapt resource value: 0x7F020053
-			public static int auth_scaleway = 2130837587;
+			public static int auth_samsung = 2130837587;
 			
 			// aapt resource value: 0x7F020054
-			public static int auth_skype = 2130837588;
+			public static int auth_scaleway = 2130837588;
 			
 			// aapt resource value: 0x7F020055
-			public static int auth_slack = 2130837589;
+			public static int auth_skype = 2130837589;
 			
 			// aapt resource value: 0x7F020056
-			public static int auth_snapchat = 2130837590;
+			public static int auth_slack = 2130837590;
 			
 			// aapt resource value: 0x7F020057
-			public static int auth_teamviewer = 2130837591;
+			public static int auth_snapchat = 2130837591;
 			
 			// aapt resource value: 0x7F020058
-			public static int auth_trello = 2130837592;
+			public static int auth_teamviewer = 2130837592;
 			
 			// aapt resource value: 0x7F020059
-			public static int auth_tutanota = 2130837593;
+			public static int auth_trello = 2130837593;
 			
 			// aapt resource value: 0x7F02005A
-			public static int auth_twitch = 2130837594;
+			public static int auth_tutanota = 2130837594;
 			
 			// aapt resource value: 0x7F02005B
-			public static int auth_twitter = 2130837595;
+			public static int auth_twitch = 2130837595;
 			
 			// aapt resource value: 0x7F02005C
-			public static int auth_uber = 2130837596;
+			public static int auth_twitter = 2130837596;
 			
 			// aapt resource value: 0x7F02005D
-			public static int auth_uber_dark = 2130837597;
+			public static int auth_uber = 2130837597;
 			
 			// aapt resource value: 0x7F02005E
-			public static int auth_ubisoft = 2130837598;
+			public static int auth_uber_dark = 2130837598;
 			
 			// aapt resource value: 0x7F02005F
-			public static int auth_ubisoft_dark = 2130837599;
+			public static int auth_ubisoft = 2130837599;
 			
 			// aapt resource value: 0x7F020060
-			public static int auth_uplay = 2130837600;
+			public static int auth_ubisoft_dark = 2130837600;
 			
 			// aapt resource value: 0x7F020061
-			public static int auth_uptimerobot = 2130837601;
+			public static int auth_uplay = 2130837601;
 			
 			// aapt resource value: 0x7F020062
-			public static int auth_wargaming = 2130837602;
+			public static int auth_uptimerobot = 2130837602;
 			
 			// aapt resource value: 0x7F020063
-			public static int auth_wordpress = 2130837603;
+			public static int auth_wargaming = 2130837603;
 			
 			// aapt resource value: 0x7F020064
-			public static int auth_wordpress_dark = 2130837604;
+			public static int auth_wordpress = 2130837604;
 			
 			// aapt resource value: 0x7F020065
-			public static int auth_xbox = 2130837605;
+			public static int auth_wordpress_dark = 2130837605;
 			
 			// aapt resource value: 0x7F020066
-			public static int auth_xbox_dark = 2130837606;
+			public static int auth_xbox = 2130837606;
 			
 			// aapt resource value: 0x7F020067
-			public static int auth_youtube = 2130837607;
+			public static int auth_xbox_dark = 2130837607;
 			
 			// aapt resource value: 0x7F020068
-			public static int ic_launcher_background = 2130837608;
+			public static int auth_youtube = 2130837608;
+			
+			// aapt resource value: 0x7F020069
+			public static int ic_launcher_background = 2130837609;
 			
 			static Drawable()
 			{

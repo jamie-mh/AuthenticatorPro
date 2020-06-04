@@ -132,7 +132,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj">
+    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj">
       <Project>{31a1d6fa-66b2-47d6-8f67-2b0eaa9010e9}</Project>
       <Name>AuthenticatorPro.Shared</Name>
     </ProjectReference>
