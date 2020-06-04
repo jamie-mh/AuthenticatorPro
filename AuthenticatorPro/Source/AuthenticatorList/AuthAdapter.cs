@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Shared;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.AuthenticatorList

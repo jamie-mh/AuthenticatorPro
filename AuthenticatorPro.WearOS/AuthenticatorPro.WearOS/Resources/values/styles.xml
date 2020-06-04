@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat">
+
+        <item name="colorPrimary">@color/colorDarkest</item>
+        <item name="colorPrimaryDark">@color/colorDarkest</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackgroundFloating">@color/colorDark</item>
+
+        <item name="primaryTextColor">@color/colorLighter</item>
+        <item name="secondaryTextColor">@color/colorLight</item>
+
+        <item name="android:windowBackground">@color/colorDarkest</item>
+    </style>
+</resources>

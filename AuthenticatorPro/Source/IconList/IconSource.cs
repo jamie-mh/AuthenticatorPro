@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AuthenticatorPro.Shared;
 
 namespace AuthenticatorPro.IconList
 {

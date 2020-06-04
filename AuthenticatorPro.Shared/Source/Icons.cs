@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.Shared
 {
-    internal static class Icons
+    public static class Icons
     {
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {

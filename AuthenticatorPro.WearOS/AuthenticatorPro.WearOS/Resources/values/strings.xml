@@ -1,0 +1,8 @@
+<resources>
+    <string name="appName">Authenticator Pro</string>
+    <string name="displayName">Authenticator</string>
+
+    <string name="disconnected">Disconnected</string>
+    <string name="disconnectedMessage">Cannot connect to phone.</string>
+    <string name="retry">Retry</string>
+</resources>

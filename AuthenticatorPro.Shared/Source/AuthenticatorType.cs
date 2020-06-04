@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro.Data
+﻿namespace AuthenticatorPro.Shared
 {
     public enum AuthenticatorType
     {

@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Wearable;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -32,6 +34,8 @@ using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using SQLiteException = SQLite.SQLiteException;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using AuthenticatorPro.Fragments;
+using AuthenticatorPro.Shared;
+using Newtonsoft.Json;
 using OtpNet;
 
 namespace AuthenticatorPro.Activities
@@ -129,6 +133,7 @@ namespace AuthenticatorPro.Activities
         protected override async void OnResume()
         {
             base.OnResume();
+
             _sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
             var firstLaunch = _sharedPrefs.GetBoolean("firstLaunch", true);
 
@@ -393,6 +398,7 @@ namespace AuthenticatorPro.Activities
         protected override void OnPause()
         {
             base.OnPause();
+
             _authTimer?.Stop();
             _pauseTime = DateTime.Now;
             _authList.Visibility = ViewStates.Gone;

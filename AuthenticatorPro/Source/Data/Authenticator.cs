@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using AuthenticatorPro.Shared;
 using Newtonsoft.Json;
 using OtpNet;
 using SQLite;
@@ -8,7 +9,7 @@ using SQLite;
 namespace AuthenticatorPro.Data
 {
     [Table("authenticator")]
-    internal class Authenticator : IAuthenticatorInfo
+    public class Authenticator : IAuthenticatorInfo
     {
         public Authenticator()
         {

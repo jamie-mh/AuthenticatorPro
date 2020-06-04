@@ -1,4 +1,5 @@
 ﻿using System;
+using AuthenticatorPro.Shared;
 using OtpNet;
 
 namespace AuthenticatorPro.Data

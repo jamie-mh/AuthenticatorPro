@@ -4,6 +4,7 @@ using Android.Content;
 using Android.Views;
 using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Shared;
 
 namespace AuthenticatorPro.IconList
 {

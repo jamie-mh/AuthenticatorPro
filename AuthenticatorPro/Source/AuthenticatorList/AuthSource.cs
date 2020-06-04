@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Shared;
 using OtpNet;
 using SQLite;
 
@@ -16,6 +17,13 @@ namespace AuthenticatorPro.AuthenticatorList
 
         private string _search;
 
+        public List<IAuthenticatorInfo> Authenticators { get; private set; }
+
+        public Task UpdateTask { get; }
+        public string CategoryId { get; private set; }
+        public List<AuthenticatorCategory> CategoryBindings { get; private set; }
+
+
         public AuthSource(SQLiteAsyncConnection connection)
         {
             _search = "";
@@ -28,11 +36,6 @@ namespace AuthenticatorPro.AuthenticatorList
 
             UpdateTask = UpdateSource();
         }
-
-        public List<IAuthenticatorInfo> Authenticators { get; private set; }
-        public Task UpdateTask { get; }
-        public string CategoryId { get; private set; }
-        public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
         public void SetSearch(string query)
         {
