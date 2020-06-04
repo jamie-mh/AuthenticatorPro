@@ -45,7 +45,6 @@ namespace AuthenticatorPro.WearOS.Activities
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.activityMain_authList);
             _authList.EdgeItemsCenteringEnabled = true;
-            _authList.CircularScrollingGestureEnabled = true;
 
             var layoutCallback = new AuthScrollingLayoutCallback(Resources.Configuration.IsScreenRound);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
@@ -117,7 +116,10 @@ namespace AuthenticatorPro.WearOS.Activities
             await Refresh();
 
             if(_justLaunched && _serverNode != null)
-                Toast.MakeText(this, "Connected to " + _serverNode.DisplayName, ToastLength.Short).Show();
+            {
+                var message = Resources.GetString(Resource.String.connectedTo);
+                Toast.MakeText(this, string.Format(message, _serverNode.DisplayName), ToastLength.Short).Show();
+            }
 
             _justLaunched = false;
         }
