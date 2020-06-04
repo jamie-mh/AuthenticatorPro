@@ -35,6 +35,7 @@
                 android:layout_marginBottom="4dp"
                 android:textSize="12dp"
                 android:gravity="center_horizontal"
+                android:textColor="?attr/secondaryTextColor"
                 android:id="@+id/activityCode_username" />
 
             <ProgressBar
@@ -51,6 +52,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="32dp"
                 android:gravity="left"
+                android:textColor="?attr/primaryTextColor"
                 android:id="@+id/activityCode_code" />
 
         </LinearLayout>
