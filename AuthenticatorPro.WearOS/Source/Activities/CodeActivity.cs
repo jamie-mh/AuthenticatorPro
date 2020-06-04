@@ -108,6 +108,13 @@ namespace AuthenticatorPro.WearOS.Activities
             if(messageEvent.Path != WearGetCodeCapability)
                 return;
 
+            // Invalid position, return to list
+            if(messageEvent.GetData().Length == 0)
+            {
+                Finish();
+                return;
+            }
+
             var json = Encoding.UTF8.GetString(messageEvent.GetData());
             var update = JsonConvert.DeserializeObject<WearAuthenticatorCodeResponse>(json);
 

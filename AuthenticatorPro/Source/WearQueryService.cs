@@ -55,10 +55,15 @@ namespace AuthenticatorPro
         private async Task GetCode(int position, string nodeId)
         {
             var auth = _source.Get(position);
-            var response = new WearAuthenticatorCodeResponse(auth.Code, auth.TimeRenew);
+            var data = new byte[] {};
 
-            var json = JsonConvert.SerializeObject(response);
-            var data = Encoding.UTF8.GetBytes(json);
+            if(auth != null)
+            {
+                var response = new WearAuthenticatorCodeResponse(auth.Code, auth.TimeRenew);
+
+                var json = JsonConvert.SerializeObject(response);
+                data = Encoding.UTF8.GetBytes(json);
+            }
 
             await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId,
                 WearGetCodeCapability, data);
