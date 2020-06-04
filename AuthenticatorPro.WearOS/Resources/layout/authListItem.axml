@@ -22,19 +22,21 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="GitHub"
+            android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14dp"
             android:gravity="left"
+            android:textColor="?attr/primaryTextColor"
             android:id="@+id/authListItem_issuer" />
 
         <TextView
-            android:text="johnsmith@example.com"
+            android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
             android:gravity="left"
+            android:textColor="?attr/secondaryTextColor"
             android:layout_below="@id/authListItem_issuer"
             android:id="@+id/authListItem_username" />
 
