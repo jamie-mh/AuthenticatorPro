@@ -1,11 +1,10 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.AuthenticatorList;
 
 namespace AuthenticatorPro.CategoryList
 {
-    internal sealed class CategoryAdapter : RecyclerView.Adapter, IAuthAdapterMovement
+    internal sealed class CategoryAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private readonly CategorySource _source;
 
@@ -16,10 +15,15 @@ namespace AuthenticatorPro.CategoryList
 
         public override int ItemCount => _source.Count();
 
-        public void OnViewMoved(int oldPosition, int newPosition)
+        public void MoveItem(int oldPosition, int newPosition)
         {
             _source.Move(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
+        }
+
+        public void NotifyMovementFinished()
+        {
+
         }
 
         public event EventHandler<int> RenameClick;

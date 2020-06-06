@@ -222,7 +222,7 @@ namespace AuthenticatorPro.Activities
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
-            _authAdapter.ItemMoved += async (sender, i) =>
+            _authAdapter.MovementFinished += async (sender, i) =>
             {
                 await NotifyWearChanged();
             };
@@ -241,7 +241,7 @@ namespace AuthenticatorPro.Activities
             var layout = new AuthListGridLayoutManager(this, useGrid ? 2 : 1);
             _authList.SetLayoutManager(layout);
 
-            var callback = new AuthListTouchHelperCallback(_authAdapter, useGrid);
+            var callback = new ReorderableListTouchHelperCallback(_authAdapter, useGrid);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
         }
@@ -531,8 +531,8 @@ namespace AuthenticatorPro.Activities
             {
                 await _authSource.Delete(position);
                 _authAdapter.NotifyItemRemoved(position);
-                CheckEmptyState();
                 await NotifyWearChanged();
+                CheckEmptyState();
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -697,9 +697,9 @@ namespace AuthenticatorPro.Activities
 
             CheckEmptyState();
             _authAdapter.NotifyItemInserted(_authSource.GetPosition(auth.Secret));
+            await NotifyWearChanged();
 
             _addDialog.Dismiss();
-            await NotifyWearChanged();
         }
 
         private void AddDialogNegative(object sender, EventArgs e)
@@ -737,8 +737,8 @@ namespace AuthenticatorPro.Activities
 
             await _authSource.Rename(_renameDialog.Position, issuer, username);
             _authAdapter.NotifyItemChanged(_renameDialog.Position);
-            _renameDialog?.Dismiss();
             await NotifyWearChanged();
+            _renameDialog?.Dismiss();
         }
 
         private void RenameDialogNegative(object sender, EventArgs e)
@@ -769,9 +769,9 @@ namespace AuthenticatorPro.Activities
 
             await _connection.UpdateAsync(auth);
             _authAdapter.NotifyItemChanged(_iconDialog.Position);
+            await NotifyWearChanged();
 
             _iconDialog?.Dismiss();
-            await NotifyWearChanged();
         }
 
         private void IconDialogNegative(object sender, EventArgs e)

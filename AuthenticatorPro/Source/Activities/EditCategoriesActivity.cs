@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Activities
             _categoryList.HasFixedSize = true;
             _categoryList.SetItemViewCacheSize(20);
 
-            var callback = new AuthListTouchHelperCallback(_categoryAdapter);
+            var callback = new ReorderableListTouchHelperCallback(_categoryAdapter);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_categoryList);
 

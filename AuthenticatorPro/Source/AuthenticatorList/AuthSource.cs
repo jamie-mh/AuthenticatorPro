@@ -161,7 +161,7 @@ namespace AuthenticatorPro.AuthenticatorList
             await _connection.ExecuteAsync(sql, args);
         }
 
-        public async void Move(int oldPosition, int newPosition)
+        public async Task Move(int oldPosition, int newPosition)
         {
             var old = Authenticators[newPosition];
             Authenticators[newPosition] = Authenticators[oldPosition];

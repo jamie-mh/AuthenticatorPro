@@ -120,8 +120,7 @@
     <Compile Include="Source\FilesystemList\FilesystemSource.cs" />
     <Compile Include="Source\FilesystemList\FilesystemAdapter.cs" />
     <Compile Include="Source\Hash.cs" />
-    <Compile Include="Source\AuthenticatorList\IAuthAdapterMovement.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthListItemTouchHelperCallback.cs" />
+    <Compile Include="Source\ReorderableListTouchHelperCallback.cs" />
     <Compile Include="Source\IconList\IconSource.cs" />
     <Compile Include="Source\IconList\IconHolder.cs" />
     <Compile Include="Source\IconList\IconAdapter.cs" />
@@ -132,6 +131,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Database.cs" />
     <Compile Include="Source\IdleActionBarDrawerToggle.cs" />
+    <Compile Include="Source\IReorderableListAdapter.cs" />
     <Compile Include="Source\StringExt.cs" />
     <Compile Include="Source\WearQueryService.cs" />
   </ItemGroup>

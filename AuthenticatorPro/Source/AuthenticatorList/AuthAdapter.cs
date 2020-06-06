@@ -8,7 +8,7 @@ using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.AuthenticatorList
 {
-    internal sealed class AuthAdapter : RecyclerView.Adapter, IAuthAdapterMovement
+    internal sealed class AuthAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private const int MaxCodeGroupSize = 4;
         public readonly bool IsCompact;
@@ -25,16 +25,20 @@ namespace AuthenticatorPro.AuthenticatorList
 
         public override int ItemCount => _source.Count();
 
-        public void OnViewMoved(int oldPosition, int newPosition)
+        public async void MoveItem(int oldPosition, int newPosition)
         {
-            _source.Move(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
-            ItemMoved?.Invoke(this, oldPosition);
+            await _source.Move(oldPosition, newPosition);
+        }
+
+        public void NotifyMovementFinished()
+        {
+            MovementFinished?.Invoke(this, null);
         }
 
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> ItemOptionsClick;
-        public event EventHandler<int> ItemMoved;
+        public event EventHandler MovementFinished;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

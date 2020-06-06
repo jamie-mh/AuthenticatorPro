@@ -1,15 +1,15 @@
 ﻿using AndroidX.RecyclerView.Widget;
 
-namespace AuthenticatorPro.AuthenticatorList
+namespace AuthenticatorPro
 {
-    internal class AuthListTouchHelperCallback : ItemTouchHelper.Callback
+    internal class ReorderableListTouchHelperCallback : ItemTouchHelper.Callback
     {
         private readonly bool _isGrid;
-        private readonly IAuthAdapterMovement _movement;
+        private readonly IReorderableListAdapter _adapter;
 
-        public AuthListTouchHelperCallback(IAuthAdapterMovement movement, bool isGrid = false)
+        public ReorderableListTouchHelperCallback(IReorderableListAdapter adapter, bool isGrid = false)
         {
-            _movement = movement;
+            _adapter = adapter;
             _isGrid = isGrid;
         }
 
@@ -28,8 +28,19 @@ namespace AuthenticatorPro.AuthenticatorList
         public override bool OnMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
             RecyclerView.ViewHolder target)
         {
-            _movement.OnViewMoved(viewHolder.AdapterPosition, target.AdapterPosition);
+            _adapter.MoveItem(viewHolder.AdapterPosition, target.AdapterPosition);
             return true;
+        }
+
+        public override bool CanDropOver(RecyclerView recyclerView, RecyclerView.ViewHolder current, RecyclerView.ViewHolder target)
+        {
+            return current.ItemViewType == target.ItemViewType;
+        }
+
+        public override void ClearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
+        {
+            base.ClearView(recyclerView, viewHolder);
+            _adapter.NotifyMovementFinished();
         }
 
         public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction)
