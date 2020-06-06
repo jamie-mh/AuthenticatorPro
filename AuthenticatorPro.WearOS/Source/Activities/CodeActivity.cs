@@ -6,6 +6,7 @@ using Android.App;
 using Android.Gms.Wearable;
 using Android.OS;
 using Android.Support.Wearable.Activity;
+using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Shared;
 using Newtonsoft.Json;
@@ -13,7 +14,7 @@ using Newtonsoft.Json;
 namespace AuthenticatorPro.WearOS.Activities
 {
     [Activity]
-    class CodeActivity : WearableActivity, MessageClient.IOnMessageReceivedListener, CapabilityClient.IOnCapabilityChangedListener
+    class CodeActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
     {
         private const int MaxCodeGroupSize = 4;
         private const string WearGetCodeCapability = "get_code";
@@ -23,6 +24,7 @@ namespace AuthenticatorPro.WearOS.Activities
         private int _position;
         private string _nodeId;
 
+        private AuthenticatorType _type;
         private int _period;
 
         private ProgressBar _progressBar;
@@ -48,14 +50,20 @@ namespace AuthenticatorPro.WearOS.Activities
             _position = Intent.Extras.GetInt("position");
 
             _period = Intent.Extras.GetInt("period");
+            _type = (AuthenticatorType) Intent.Extras.GetInt("type");
 
             _timer = new Timer {
                 Interval = 1000,
-                AutoReset = true,
-                Enabled = true
+                AutoReset = true
             };
 
-            _timer.Elapsed += Tick;
+            if(_type == AuthenticatorType.Totp)
+            {
+                _timer.Enabled = true;
+                _timer.Elapsed += Tick;
+            }
+            else if(_type == AuthenticatorType.Hotp)
+                _progressBar.Visibility = ViewStates.Invisible;
 
             await InitWearCapabilities();
         }
@@ -68,7 +76,8 @@ namespace AuthenticatorPro.WearOS.Activities
             await WearableClass.GetMessageClient(this)
                 .SendMessageAsync(_nodeId, WearGetCodeCapability, data);
 
-            _timer.Start();
+            if(_type == AuthenticatorType.Totp)
+                _timer.Start();
         }
 
         private void UpdateProgressBar()
@@ -134,29 +143,18 @@ namespace AuthenticatorPro.WearOS.Activities
                 }
 
             _codeTextView.Text = codePadded;
+
             UpdateProgressBar();
         }
 
         private async Task InitWearCapabilities()
         {
             await WearableClass.GetMessageClient(this).AddListenerAsync(this);
-            await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearGetCodeCapability);
         }
 
         private async Task PauseWearCapabilities()
         {
             await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
-            await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this);
-        }
-
-        void ICapabilityApiCapabilityListener.OnCapabilityChanged(ICapabilityInfo capabilityInfo)
-        {
-            throw new NotImplementedException();
-        }
-
-        void CapabilityClient.IOnCapabilityChangedListener.OnCapabilityChanged(ICapabilityInfo capabilityInfo)
-        {
-            throw new NotImplementedException();
         }
     }
 }

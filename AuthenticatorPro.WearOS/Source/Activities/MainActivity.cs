@@ -97,6 +97,7 @@ namespace AuthenticatorPro.WearOS.Activities
             bundle.PutInt("position", position);
             bundle.PutString("nodeId", _serverNode.Id);
 
+            bundle.PutInt("type", (int) item.Type);
             bundle.PutString("username", item.Username);
             bundle.PutString("issuer", item.Issuer);
             bundle.PutString("icon", item.Icon);

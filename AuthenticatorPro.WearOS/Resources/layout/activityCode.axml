@@ -51,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textSize="32dp"
-                android:gravity="left"
                 android:textColor="?attr/primaryTextColor"
                 android:id="@+id/activityCode_code" />
 
