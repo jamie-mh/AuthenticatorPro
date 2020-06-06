@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
-using Android.Content;
 using Android.Gms.Wearable;
-using Android.Util;
 using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.Shared;
 using Newtonsoft.Json;
@@ -22,8 +19,8 @@ namespace AuthenticatorPro
     )]
     internal class WearQueryService : WearableListenerService
     {
-        private const string WearListAuthenticatorsCapability = "list_authenticators";
-        private const string WearGetCodeCapability = "get_code";
+        private const string ListAuthenticatorsCapability = "list_authenticators";
+        private const string GetCodeCapability = "get_code";
 
         private SQLiteAsyncConnection _connection;
         private AuthSource _source;
@@ -49,7 +46,7 @@ namespace AuthenticatorPro
             var data = Encoding.UTF8.GetBytes(json);
 
             await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId,
-                WearListAuthenticatorsCapability, data);
+                ListAuthenticatorsCapability, data);
         }
 
         private async Task GetCode(int position, string nodeId)
@@ -66,7 +63,7 @@ namespace AuthenticatorPro
             }
 
             await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId,
-                WearGetCodeCapability, data);
+                GetCodeCapability, data);
         }
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
@@ -78,11 +75,11 @@ namespace AuthenticatorPro
 
             switch(messageEvent.Path)
             {
-                case WearListAuthenticatorsCapability:
+                case ListAuthenticatorsCapability:
                     await ListAuthenticators(messageEvent.SourceNodeId);
                     break;
 
-                case WearGetCodeCapability:
+                case GetCodeCapability:
                 {
                     var position = Int32.Parse(Encoding.UTF8.GetString(messageEvent.GetData()));
                     await GetCode(position, messageEvent.SourceNodeId);
