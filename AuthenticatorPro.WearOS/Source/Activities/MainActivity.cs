@@ -22,7 +22,7 @@ namespace AuthenticatorPro.WearOS.Activities
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher", Theme = "@style/AppTheme")]
     public class MainActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
     {
-        private const string AuthenticatorProCapability = "authenticatorpro";
+        private const string QueryCapability = "query";
         private const string ListAuthenticatorsCapability = "list_authenticators";
 
         private bool _justLaunched = true;
@@ -62,7 +62,7 @@ namespace AuthenticatorPro.WearOS.Activities
         private async Task FindServerNode()
         {
             var capabilityInfo = await WearableClass.GetCapabilityClient(this)
-                .GetCapabilityAsync(AuthenticatorProCapability, CapabilityClient.FilterReachable);
+                .GetCapabilityAsync(QueryCapability, CapabilityClient.FilterReachable);
 
             _serverNode = 
                 capabilityInfo.Nodes.FirstOrDefault(n => n.IsNearby);
