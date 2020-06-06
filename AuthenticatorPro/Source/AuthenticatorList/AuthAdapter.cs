@@ -29,10 +29,12 @@ namespace AuthenticatorPro.AuthenticatorList
         {
             _source.Move(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
+            ItemMoved?.Invoke(this, oldPosition);
         }
 
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> ItemOptionsClick;
+        public event EventHandler<int> ItemMoved;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

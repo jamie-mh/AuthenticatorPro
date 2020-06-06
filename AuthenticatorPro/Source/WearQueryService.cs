@@ -19,7 +19,7 @@ namespace AuthenticatorPro
     )]
     internal class WearQueryService : WearableListenerService
     {
-        private const string ListAuthenticatorsCapability = "list_authenticators";
+        private const string ListCapability = "list";
         private const string GetCodeCapability = "get_code";
 
         private SQLiteAsyncConnection _connection;
@@ -46,7 +46,7 @@ namespace AuthenticatorPro
             var data = Encoding.UTF8.GetBytes(json);
 
             await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId,
-                ListAuthenticatorsCapability, data);
+                ListCapability, data);
         }
 
         private async Task GetCode(int position, string nodeId)
@@ -75,7 +75,7 @@ namespace AuthenticatorPro
 
             switch(messageEvent.Path)
             {
-                case ListAuthenticatorsCapability:
+                case ListCapability:
                     await ListAuthenticators(messageEvent.SourceNodeId);
                     break;
 

@@ -44,6 +44,8 @@ namespace AuthenticatorPro.Activities
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     internal class MainActivity : LightDarkActivity
     {
+        private const string WearRefreshCapability = "refresh";
+
         private const int PermissionCameraCode = 0;
 
         private IdleActionBarDrawerToggle _actionBarDrawerToggle;
@@ -220,6 +222,11 @@ namespace AuthenticatorPro.Activities
 
             _authAdapter.ItemClick += ItemClick;
             _authAdapter.ItemOptionsClick += ItemOptionsClick;
+            _authAdapter.ItemMoved += async (sender, i) =>
+            {
+                await NotifyWearChanged();
+            };
+
             _authAdapter.SetHasStableIds(true);
 
             _authList.SetAdapter(_authAdapter);
@@ -525,6 +532,7 @@ namespace AuthenticatorPro.Activities
                 await _authSource.Delete(position);
                 _authAdapter.NotifyItemRemoved(position);
                 CheckEmptyState();
+                await NotifyWearChanged();
             });
             builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
             builder.SetCancelable(true);
@@ -582,6 +590,7 @@ namespace AuthenticatorPro.Activities
 
                 CheckEmptyState();
                 _authAdapter.NotifyItemInserted(_authSource.GetPosition(auth.Secret));
+                await NotifyWearChanged();
             }
             catch
             {
@@ -600,6 +609,7 @@ namespace AuthenticatorPro.Activities
         /*
          *  Add Dialog
          */
+
         private void OpenAddDialog()
         {
             var transaction = SupportFragmentManager.BeginTransaction();
@@ -689,6 +699,7 @@ namespace AuthenticatorPro.Activities
             _authAdapter.NotifyItemInserted(_authSource.GetPosition(auth.Secret));
 
             _addDialog.Dismiss();
+            await NotifyWearChanged();
         }
 
         private void AddDialogNegative(object sender, EventArgs e)
@@ -699,6 +710,7 @@ namespace AuthenticatorPro.Activities
         /*
          *  Rename Dialog
          */
+
         private void OpenRenameDialog(int position)
         {
             var transaction = SupportFragmentManager.BeginTransaction();
@@ -726,6 +738,7 @@ namespace AuthenticatorPro.Activities
             await _authSource.Rename(_renameDialog.Position, issuer, username);
             _authAdapter.NotifyItemChanged(_renameDialog.Position);
             _renameDialog?.Dismiss();
+            await NotifyWearChanged();
         }
 
         private void RenameDialogNegative(object sender, EventArgs e)
@@ -736,6 +749,7 @@ namespace AuthenticatorPro.Activities
         /*
          *  Icon Dialog
          */
+
         private void OpenIconDialog(int position)
         {
             var transaction = SupportFragmentManager.BeginTransaction();
@@ -757,6 +771,7 @@ namespace AuthenticatorPro.Activities
             _authAdapter.NotifyItemChanged(_iconDialog.Position);
 
             _iconDialog?.Dismiss();
+            await NotifyWearChanged();
         }
 
         private void IconDialogNegative(object sender, EventArgs e)
@@ -767,6 +782,7 @@ namespace AuthenticatorPro.Activities
         /*
          *  Categories Dialog
          */
+
         private void OpenCategoriesDialog(int position)
         {
             var transaction = SupportFragmentManager.BeginTransaction();
@@ -803,6 +819,21 @@ namespace AuthenticatorPro.Activities
                 _authSource.AddToCategory(authPosition, categoryId);
             else
                 _authSource.RemoveFromCategory(authPosition, categoryId);
+        }
+
+        /*
+         *  Wear OS
+         */
+
+        private async Task NotifyWearChanged()
+        {
+            var nodes = (await WearableClass.GetCapabilityClient(this)
+                .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable)).Nodes;
+
+            var client = WearableClass.GetMessageClient(this);
+
+            foreach(var node in nodes)
+                await client.SendMessageAsync(node.Id, WearRefreshCapability, new byte[] { });
         }
     }
 }

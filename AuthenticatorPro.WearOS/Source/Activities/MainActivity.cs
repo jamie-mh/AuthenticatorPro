@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
 using Android.Support.Wear.Widget;
@@ -23,9 +22,9 @@ namespace AuthenticatorPro.WearOS.Activities
     public class MainActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
     {
         private const string QueryCapability = "query";
-        private const string ListAuthenticatorsCapability = "list_authenticators";
+        private const string ListCapability = "list";
+        private const string RefreshCapability = "refresh";
 
-        private bool _justLaunched = true;
         private INode _serverNode;
 
         private LinearLayout _emptyLayout;
@@ -88,7 +87,7 @@ namespace AuthenticatorPro.WearOS.Activities
             _authList.Visibility = ViewStates.Invisible;
 
             await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(_serverNode.Id, ListAuthenticatorsCapability, new byte[] { });
+                .SendMessageAsync(_serverNode.Id, ListCapability, new byte[] { });
         }
         
         private void ItemClick(object sender, int position)
@@ -122,8 +121,6 @@ namespace AuthenticatorPro.WearOS.Activities
 
             await FindServerNode();
             await Refresh();
-
-            _justLaunched = false;
         }
 
         protected override async void OnPause()
@@ -133,21 +130,30 @@ namespace AuthenticatorPro.WearOS.Activities
             await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
         }
 
-        public void OnMessageReceived(IMessageEvent messageEvent)
+        public async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            if(messageEvent.Path != ListAuthenticatorsCapability)
-                return;
+            switch(messageEvent.Path)
+            {
+                case ListCapability:
+                {
+                    var json = Encoding.UTF8.GetString(messageEvent.GetData());
+                    _authAdapter.Items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
 
-            var json = Encoding.UTF8.GetString(messageEvent.GetData());
-            _authAdapter.Items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
+                    if(_authAdapter.Items.Count == 0)
+                        FadeInView(_emptyLayout);
+                    else
+                        FadeOutView(_emptyLayout);
 
-            if(_authAdapter.Items.Count == 0)
-                FadeInView(_emptyLayout);
-            else
-                FadeOutView(_emptyLayout);
+                    _authAdapter.NotifyDataSetChanged();
+                    FadeInView(_authList);
 
-            _authAdapter.NotifyDataSetChanged();
-            FadeInView(_authList);
+                    break;
+                }
+
+                case RefreshCapability:
+                    await Refresh();
+                    break;
+            }
         }
 
         private static void FadeInView(View view)
