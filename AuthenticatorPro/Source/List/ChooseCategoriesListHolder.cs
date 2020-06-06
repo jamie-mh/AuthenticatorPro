@@ -3,11 +3,11 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 
-namespace AuthenticatorPro.CategoryList
+namespace AuthenticatorPro.List
 {
-    internal class ChooseCategoriesHolder : RecyclerView.ViewHolder
+    internal class ChooseCategoriesListHolder : RecyclerView.ViewHolder
     {
-        public ChooseCategoriesHolder(View itemView, Action<bool, int> onClick) : base(itemView)
+        public ChooseCategoriesListHolder(View itemView, Action<bool, int> onClick) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.chooseCategoriesListItem_name);
             CheckBox = itemView.FindViewById<CheckBox>(Resource.Id.chooseCategoriesListItem_checkbox);

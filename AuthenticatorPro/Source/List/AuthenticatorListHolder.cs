@@ -3,11 +3,11 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 
-namespace AuthenticatorPro.AuthenticatorList
+namespace AuthenticatorPro.List
 {
-    internal class AuthHolder : RecyclerView.ViewHolder
+    internal class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
-        public AuthHolder(
+        public AuthenticatorListHolder(
             View itemView,
             Action<int> clickListener,
             Action<int> optionsClickListener,

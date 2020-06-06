@@ -4,8 +4,8 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.AuthenticatorList;
-using AuthenticatorPro.FilesystemList;
+using AuthenticatorPro.Data;
+using AuthenticatorPro.List;
 using Environment = Android.OS.Environment;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
@@ -21,9 +21,9 @@ namespace AuthenticatorPro.Activities
         }
 
         private EditText _filenameText;
-        private FilesystemAdapter _filesystemAdapter;
+        private FileListAdapter _fileListAdapter;
 
-        private FilesystemSource _filesystemSource;
+        private FileSource _fileSource;
         private Mode _mode;
         private Button _saveButton;
 
@@ -41,12 +41,12 @@ namespace AuthenticatorPro.Activities
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            _filesystemSource = new FilesystemSource(Environment.ExternalStorageDirectory.AbsolutePath);
-            _filesystemAdapter = new FilesystemAdapter(_filesystemSource);
-            _filesystemAdapter.SetHasStableIds(true);
+            _fileSource = new FileSource(Environment.ExternalStorageDirectory.AbsolutePath);
+            _fileListAdapter = new FileListAdapter(_fileSource);
+            _fileListAdapter.SetHasStableIds(true);
 
             var list = FindViewById<RecyclerView>(Resource.Id.activityFile_list);
-            list.SetAdapter(_filesystemAdapter);
+            list.SetAdapter(_fileListAdapter);
             list.HasFixedSize = true;
             list.SetItemViewCacheSize(20);
 
@@ -55,7 +55,7 @@ namespace AuthenticatorPro.Activities
                 case Mode.Open:
                     list.SetPadding(0, 0, 0, 0);
                     FindViewById<RelativeLayout>(Resource.Id.activityFile_saveLayout).Visibility = ViewStates.Gone;
-                    _filesystemAdapter.FileClick += FileClick;
+                    _fileListAdapter.FileClick += FileClick;
                     SupportActionBar.SetTitle(Resource.String.openFile);
                     break;
 
@@ -69,7 +69,7 @@ namespace AuthenticatorPro.Activities
                     break;
             }
 
-            var layout = new AuthListGridLayoutManager(this, 1);
+            var layout = new AnimatedGridLayoutManager(this, 1);
             list.SetLayoutManager(layout);
 
             var decoration = new DividerItemDecoration(this, layout.Orientation);
@@ -85,7 +85,7 @@ namespace AuthenticatorPro.Activities
                 return;
             }
 
-            Intent.PutExtra("path", _filesystemSource.CurrentPath);
+            Intent.PutExtra("path", _fileSource.CurrentPath);
             Intent.PutExtra("filename", _filenameText.Text);
 
             SetResult(Result.Ok, Intent);
@@ -94,8 +94,8 @@ namespace AuthenticatorPro.Activities
 
         private void FileClick(object sender, int position)
         {
-            Intent.PutExtra("path", _filesystemSource.CurrentPath);
-            Intent.PutExtra("filename", _filesystemSource.Listing[position].Name);
+            Intent.PutExtra("path", _fileSource.CurrentPath);
+            Intent.PutExtra("filename", _fileSource.Listing[position].Name);
 
             SetResult(Result.Ok, Intent);
             Finish();
@@ -125,10 +125,10 @@ namespace AuthenticatorPro.Activities
 
         private void NavigateUp()
         {
-            if(_filesystemSource.CanNavigateUp)
+            if(_fileSource.CanNavigateUp)
             {
-                _filesystemSource.Navigate(0);
-                _filesystemAdapter.NotifyDataSetChanged();
+                _fileSource.Navigate(0);
+                _fileListAdapter.NotifyDataSetChanged();
                 return;
             }
 

@@ -4,12 +4,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Gms.Wearable;
-using AuthenticatorPro.AuthenticatorList;
+using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared;
 using Newtonsoft.Json;
 using SQLite;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.Service
 {
     [Service]
     [IntentFilter(
@@ -23,12 +23,12 @@ namespace AuthenticatorPro
         private const string GetCodeCapability = "get_code";
 
         private SQLiteAsyncConnection _connection;
-        private AuthSource _source;
+        private AuthenticatorSource _source;
 
         private async Task Init()
         {
             _connection = await Database.Connect(ApplicationContext);
-            _source = new AuthSource(_connection);
+            _source = new AuthenticatorSource(_connection);
         }
 
         public override async void OnDestroy()

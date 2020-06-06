@@ -1,15 +1,16 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Data;
 
-namespace AuthenticatorPro.CategoryList
+namespace AuthenticatorPro.List
 {
-    internal sealed class ChooseCategoriesAdapter : RecyclerView.Adapter
+    internal sealed class ChooseCategoriesListAdapter : RecyclerView.Adapter
     {
         private readonly CategorySource _categorySource;
         public Action<bool, int> ItemClick;
 
-        public ChooseCategoriesAdapter(CategorySource categorySource)
+        public ChooseCategoriesListAdapter(CategorySource categorySource)
         {
             _categorySource = categorySource;
             CheckedStatus = new bool[_categorySource.Count()];
@@ -21,7 +22,7 @@ namespace AuthenticatorPro.CategoryList
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var holder = (ChooseCategoriesHolder) viewHolder;
+            var holder = (ChooseCategoriesListHolder) viewHolder;
             var category = _categorySource.Categories[position];
 
             holder.Name.Text = category.Name;
@@ -33,7 +34,7 @@ namespace AuthenticatorPro.CategoryList
             var itemView = LayoutInflater.From(parent.Context).Inflate(
                 Resource.Layout.chooseCategoriesListItem, parent, false);
 
-            var holder = new ChooseCategoriesHolder(itemView, ItemClick);
+            var holder = new ChooseCategoriesListHolder(itemView, ItemClick);
 
             return holder;
         }

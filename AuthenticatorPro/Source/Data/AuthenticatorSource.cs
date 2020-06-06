@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared;
+using AuthenticatorPro.Util;
 using OtpNet;
 using SQLite;
 
-namespace AuthenticatorPro.AuthenticatorList
+namespace AuthenticatorPro.Data
 {
-    internal class AuthSource
+    internal class AuthenticatorSource
     {
         private readonly SQLiteAsyncConnection _connection;
 
@@ -24,7 +24,7 @@ namespace AuthenticatorPro.AuthenticatorList
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
 
-        public AuthSource(SQLiteAsyncConnection connection)
+        public AuthenticatorSource(SQLiteAsyncConnection connection)
         {
             _search = "";
             CategoryId = null;

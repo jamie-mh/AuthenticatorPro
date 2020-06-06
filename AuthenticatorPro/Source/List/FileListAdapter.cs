@@ -1,14 +1,15 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Data;
 
-namespace AuthenticatorPro.FilesystemList
+namespace AuthenticatorPro.List
 {
-    internal sealed class FilesystemAdapter : RecyclerView.Adapter
+    internal sealed class FileListAdapter : RecyclerView.Adapter
     {
-        private readonly FilesystemSource _source;
+        private readonly FileSource _source;
 
-        public FilesystemAdapter(FilesystemSource source)
+        public FileListAdapter(FileSource source)
         {
             _source = source;
         }
@@ -19,24 +20,24 @@ namespace AuthenticatorPro.FilesystemList
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var item = _source.Listing[position];
-            var holder = (FilesystemHolder) viewHolder;
+            var holder = (FileListHolder) viewHolder;
 
             var iconResource = new int();
             switch(item.Type)
             {
-                case FilesystemSource.Type.Up:
+                case FileSource.Type.Up:
                     iconResource = Resource.Drawable.ic_arrow_upward;
                     break;
 
-                case FilesystemSource.Type.Directory:
+                case FileSource.Type.Directory:
                     iconResource = Resource.Drawable.ic_folder;
                     break;
 
-                case FilesystemSource.Type.File:
+                case FileSource.Type.File:
                     iconResource = Resource.Drawable.ic_insert_drive_file;
                     break;
 
-                case FilesystemSource.Type.Backup:
+                case FileSource.Type.Backup:
                     iconResource = Resource.Mipmap.ic_launcher;
                     break;
             }
@@ -50,7 +51,7 @@ namespace AuthenticatorPro.FilesystemList
             var itemView = LayoutInflater.From(parent.Context).Inflate(
                 Resource.Layout.fileListItem, parent, false);
 
-            var holder = new FilesystemHolder(itemView, OnItemClick);
+            var holder = new FileListHolder(itemView, OnItemClick);
 
             return holder;
         }
@@ -59,7 +60,7 @@ namespace AuthenticatorPro.FilesystemList
         {
             var file = _source.Listing[position];
 
-            if(FileClick != null && (file.Type == FilesystemSource.Type.Backup || file.Type == FilesystemSource.Type.File))
+            if(FileClick != null && (file.Type == FileSource.Type.Backup || file.Type == FileSource.Type.File))
                 FileClick.Invoke(this, position);
 
             if(_source.Navigate(position)) NotifyDataSetChanged();

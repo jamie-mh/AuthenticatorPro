@@ -110,30 +110,30 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Source\Fragments\SettingsFragment.cs" />
     <Compile Include="Source\Activities\SettingsActivity.cs" />
-    <Compile Include="Source\CategoryList\ChooseCategoriesHolder.cs" />
-    <Compile Include="Source\CategoryList\ChooseCategoriesAdapter.cs" />
-    <Compile Include="Source\CategoryList\CategoryAdapter.cs" />
-    <Compile Include="Source\CategoryList\CategoryHolder.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthListGridLayoutManager.cs" />
-    <Compile Include="Source\FilesystemList\FilesystemHolder.cs" />
-    <Compile Include="Source\CategoryList\CategorySource.cs" />
-    <Compile Include="Source\FilesystemList\FilesystemSource.cs" />
-    <Compile Include="Source\FilesystemList\FilesystemAdapter.cs" />
-    <Compile Include="Source\Hash.cs" />
-    <Compile Include="Source\ReorderableListTouchHelperCallback.cs" />
-    <Compile Include="Source\IconList\IconSource.cs" />
-    <Compile Include="Source\IconList\IconHolder.cs" />
-    <Compile Include="Source\IconList\IconAdapter.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthAdapter.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthHolder.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthSource.cs" />
+    <Compile Include="Source\List\ChooseCategoriesListHolder.cs" />
+    <Compile Include="Source\List\ChooseCategoriesListAdapter.cs" />
+    <Compile Include="Source\List\CategoryListAdapter.cs" />
+    <Compile Include="Source\List\CategoryListHolder.cs" />
+    <Compile Include="Source\List\AnimatedGridLayoutManager.cs" />
+    <Compile Include="Source\List\FileListHolder.cs" />
+    <Compile Include="Source\Data\CategorySource.cs" />
+    <Compile Include="Source\Data\FileSource.cs" />
+    <Compile Include="Source\List\FileListAdapter.cs" />
+    <Compile Include="Source\Util\Hash.cs" />
+    <Compile Include="Source\List\ReorderableListTouchHelperCallback.cs" />
+    <Compile Include="Source\Data\IconSource.cs" />
+    <Compile Include="Source\List\IconListHolder.cs" />
+    <Compile Include="Source\List\IconListAdapter.cs" />
+    <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
+    <Compile Include="Source\List\AuthenticatorListHolder.cs" />
+    <Compile Include="Source\Data\AuthenticatorSource.cs" />
     <Compile Include="Source\Activities\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Database.cs" />
     <Compile Include="Source\IdleActionBarDrawerToggle.cs" />
-    <Compile Include="Source\IReorderableListAdapter.cs" />
-    <Compile Include="Source\StringExt.cs" />
-    <Compile Include="Source\WearQueryService.cs" />
+    <Compile Include="Source\List\IReorderableListAdapter.cs" />
+    <Compile Include="Source\Util\StringExt.cs" />
+    <Compile Include="Source\Service\WearQueryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -1144,6 +1144,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\values\wear.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		Other similar extension points exist, see Microsoft.Common.targets.

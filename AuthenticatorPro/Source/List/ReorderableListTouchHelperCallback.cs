@@ -1,6 +1,6 @@
 ﻿using AndroidX.RecyclerView.Widget;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.List
 {
     internal class ReorderableListTouchHelperCallback : ItemTouchHelper.Callback
     {

@@ -4,16 +4,17 @@ using Android.Content;
 using Android.Views;
 using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared;
 
-namespace AuthenticatorPro.IconList
+namespace AuthenticatorPro.List
 {
-    internal sealed class IconAdapter : RecyclerView.Adapter
+    internal sealed class IconListAdapter : RecyclerView.Adapter
     {
         private readonly Context _context;
         private readonly IconSource _iconSource;
 
-        public IconAdapter(Context context, IconSource iconSource)
+        public IconListAdapter(Context context, IconSource iconSource)
         {
             _context = context;
             _iconSource = iconSource;
@@ -25,7 +26,7 @@ namespace AuthenticatorPro.IconList
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var icon = _iconSource.List.ElementAt(position);
-            var holder = (IconHolder) viewHolder;
+            var holder = (IconListHolder) viewHolder;
 
             var drawable = ContextCompat.GetDrawable(_context, icon.Value);
             holder.Icon.SetImageDrawable(drawable);
@@ -36,7 +37,7 @@ namespace AuthenticatorPro.IconList
             var itemView = LayoutInflater.From(parent.Context).Inflate(
                 Resource.Layout.iconListItem, parent, false);
 
-            var holder = new IconHolder(itemView, OnItemClick);
+            var holder = new IconListHolder(itemView, OnItemClick);
 
             return holder;
         }

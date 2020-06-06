@@ -1,14 +1,15 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Data;
 
-namespace AuthenticatorPro.CategoryList
+namespace AuthenticatorPro.List
 {
-    internal sealed class CategoryAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    internal sealed class CategoryListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private readonly CategorySource _source;
 
-        public CategoryAdapter(CategorySource source)
+        public CategoryListAdapter(CategorySource source)
         {
             _source = source;
         }
@@ -31,7 +32,7 @@ namespace AuthenticatorPro.CategoryList
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var holder = (CategoryHolder) viewHolder;
+            var holder = (CategoryListHolder) viewHolder;
             holder.Name.Text = _source.Categories[position].Name;
         }
 
@@ -40,7 +41,7 @@ namespace AuthenticatorPro.CategoryList
             var itemView = LayoutInflater.From(parent.Context).Inflate(
                 Resource.Layout.categoryListItem, parent, false);
 
-            var holder = new CategoryHolder(itemView, OnRenameClick, OnDeleteClick);
+            var holder = new CategoryListHolder(itemView, OnRenameClick, OnDeleteClick);
 
             return holder;
         }

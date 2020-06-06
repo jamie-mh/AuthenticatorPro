@@ -1,6 +1,6 @@
-﻿namespace AuthenticatorPro
+﻿namespace AuthenticatorPro.List
 {
-    interface IReorderableListAdapter
+    internal interface IReorderableListAdapter
     {
         public void MoveItem(int oldPosition, int newPosition);
         public void NotifyMovementFinished();

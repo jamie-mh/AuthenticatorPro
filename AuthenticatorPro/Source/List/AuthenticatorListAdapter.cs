@@ -6,21 +6,21 @@ using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared;
 using Object = Java.Lang.Object;
 
-namespace AuthenticatorPro.AuthenticatorList
+namespace AuthenticatorPro.List
 {
-    internal sealed class AuthAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    internal sealed class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private const int MaxCodeGroupSize = 4;
         public readonly bool IsCompact;
 
         private readonly bool _isDark;
-        private readonly AuthSource _source;
+        private readonly AuthenticatorSource _source;
 
-        public AuthAdapter(AuthSource authSource, bool isDark, bool isCompact)
+        public AuthenticatorListAdapter(AuthenticatorSource authenticatorSource, bool isDark, bool isCompact)
         {
             _isDark = isDark;
             IsCompact = isCompact;
-            _source = authSource;
+            _source = authenticatorSource;
         }
 
         public override int ItemCount => _source.Count();
@@ -43,7 +43,7 @@ namespace AuthenticatorPro.AuthenticatorList
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var auth = _source.Get(position);
-            var holder = (AuthHolder) viewHolder;
+            var holder = (AuthenticatorListHolder) viewHolder;
 
             holder.Issuer.Text = auth.Issuer;
             holder.Username.Text = auth.Username;
@@ -83,7 +83,7 @@ namespace AuthenticatorPro.AuthenticatorList
             else
             {
                 var auth = _source.Authenticators[position];
-                var holder = (AuthHolder) viewHolder;
+                var holder = (AuthenticatorListHolder) viewHolder;
 
                 if(auth.Type == AuthenticatorType.Totp)
                     holder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
@@ -98,23 +98,23 @@ namespace AuthenticatorPro.AuthenticatorList
             return (int) Math.Ceiling(100d * secondsRemaining / auth.Period);
         }
 
-        private static void TotpViewBind(AuthHolder holder, Authenticator auth)
+        private static void TotpViewBind(AuthenticatorListHolder listHolder, Authenticator auth)
         {
-            holder.RefreshButton.Visibility = ViewStates.Gone;
-            holder.ProgressBar.Visibility = ViewStates.Visible;
-            holder.Counter.Visibility = ViewStates.Invisible;
-            holder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
+            listHolder.RefreshButton.Visibility = ViewStates.Gone;
+            listHolder.ProgressBar.Visibility = ViewStates.Visible;
+            listHolder.Counter.Visibility = ViewStates.Invisible;
+            listHolder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
         }
 
-        private static void HotpViewBind(AuthHolder holder, Authenticator auth)
+        private static void HotpViewBind(AuthenticatorListHolder listHolder, Authenticator auth)
         {
-            holder.RefreshButton.Visibility = auth.TimeRenew < DateTime.Now
+            listHolder.RefreshButton.Visibility = auth.TimeRenew < DateTime.Now
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            holder.ProgressBar.Visibility = ViewStates.Invisible;
-            holder.Counter.Visibility = ViewStates.Visible;
-            holder.Counter.Text = auth.Counter.ToString();
+            listHolder.ProgressBar.Visibility = ViewStates.Invisible;
+            listHolder.Counter.Visibility = ViewStates.Visible;
+            listHolder.Counter.Text = auth.Counter.ToString();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -122,7 +122,7 @@ namespace AuthenticatorPro.AuthenticatorList
             var layout = IsCompact ? Resource.Layout.authListItemCompact : Resource.Layout.authListItem;
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
-            var holder = new AuthHolder(itemView, OnItemClick, OnItemOptionsClick, OnRefreshClick);
+            var holder = new AuthenticatorListHolder(itemView, OnItemClick, OnItemOptionsClick, OnRefreshClick);
 
             return holder;
         }

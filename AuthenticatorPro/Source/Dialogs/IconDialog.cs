@@ -6,8 +6,8 @@ using Android.OS;
 using Android.Text;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.AuthenticatorList;
-using AuthenticatorPro.IconList;
+using AuthenticatorPro.Data;
+using AuthenticatorPro.List;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using DialogFragment = AndroidX.Fragment.App.DialogFragment;
 
@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Dialogs
 
         private readonly Action<object, EventArgs> _itemClick;
         private readonly Action<object, EventArgs> _negativeButtonEvent;
-        private IconAdapter _iconAdapter;
+        private IconListAdapter _iconListAdapter;
         private RecyclerView _iconList;
 
         private EditText _searchText;
@@ -56,15 +56,15 @@ namespace AuthenticatorPro.Dialogs
 
             _searchText.TextChanged += SearchChanged;
 
-            _iconAdapter = new IconAdapter(Context, _iconSource);
-            _iconAdapter.ItemClick += ItemClick;
-            _iconAdapter.SetHasStableIds(true);
+            _iconListAdapter = new IconListAdapter(Context, _iconSource);
+            _iconListAdapter.ItemClick += ItemClick;
+            _iconListAdapter.SetHasStableIds(true);
 
-            _iconList.SetAdapter(_iconAdapter);
+            _iconList.SetAdapter(_iconListAdapter);
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
 
-            var layout = new AuthListGridLayoutManager(Context, 6);
+            var layout = new AnimatedGridLayoutManager(Context, 6);
             _iconList.SetLayoutManager(layout);
 
             var cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
@@ -76,7 +76,7 @@ namespace AuthenticatorPro.Dialogs
         private void SearchChanged(object sender, TextChangedEventArgs e)
         {
             _iconSource.SetSearch(e.Text.ToString());
-            _iconAdapter.NotifyDataSetChanged();
+            _iconListAdapter.NotifyDataSetChanged();
         }
 
         private void ItemClick(object sender, int e)

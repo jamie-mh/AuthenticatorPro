@@ -12,8 +12,6 @@ using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialogs;
-using AuthenticatorPro.AuthenticatorList;
-using AuthenticatorPro.CategoryList;
 using Newtonsoft.Json;
 using PCLCrypto;
 using SQLite;
@@ -28,7 +26,7 @@ namespace AuthenticatorPro.Activities
         private const int DeviceStorageCode = 1;
         private const int StorageAccessFrameworkCode = 2;
 
-        private AuthSource _authSource;
+        private AuthenticatorSource _authenticatorSource;
         private CategorySource _categorySource;
 
         private SQLiteAsyncConnection _connection;
@@ -56,7 +54,7 @@ namespace AuthenticatorPro.Activities
             loadCloudBtn.Click += LoadCloudClick;
 
             _connection = await Database.Connect(this);
-            _authSource = new AuthSource(_connection);
+            _authenticatorSource = new AuthenticatorSource(_connection);
             _categorySource = new CategorySource(_connection);
         }
 
@@ -180,7 +178,7 @@ namespace AuthenticatorPro.Activities
                 var authsInserted = 0;
                 var categoriesInserted = 0;
 
-                foreach(var auth in backup.Authenticators.Where(auth => !_authSource.IsDuplicate(auth)))
+                foreach(var auth in backup.Authenticators.Where(auth => !_authenticatorSource.IsDuplicate(auth)))
                 {
                     auth.Validate();
                     await _connection.InsertAsync(auth);
@@ -193,7 +191,7 @@ namespace AuthenticatorPro.Activities
                     categoriesInserted++;
                 }
 
-                foreach(var binding in backup.AuthenticatorCategories.Where(binding => !_authSource.IsDuplicateCategoryBinding(binding)))
+                foreach(var binding in backup.AuthenticatorCategories.Where(binding => !_authenticatorSource.IsDuplicateCategoryBinding(binding)))
                 {
                     await _connection.InsertAsync(binding);
                 }

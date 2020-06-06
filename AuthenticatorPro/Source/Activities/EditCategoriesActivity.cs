@@ -5,10 +5,10 @@ using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.AuthenticatorList;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialogs;
-using AuthenticatorPro.CategoryList;
+using AuthenticatorPro.List;
+using AuthenticatorPro.Util;
 using Google.Android.Material.FloatingActionButton;
 using SQLite;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Activities
     {
         private FloatingActionButton _addButton;
         private EditCategoryDialog _addDialog;
-        private CategoryAdapter _categoryAdapter;
+        private CategoryListAdapter _categoryListAdapter;
 
         private RecyclerView _categoryList;
 
@@ -50,18 +50,18 @@ namespace AuthenticatorPro.Activities
 
             _connection = await Database.Connect(this);
             _categorySource = new CategorySource(_connection);
-            _categoryAdapter = new CategoryAdapter(_categorySource);
-            _categoryAdapter.RenameClick += OnRenameClick;
-            _categoryAdapter.DeleteClick += OnDeleteClick;
+            _categoryListAdapter = new CategoryListAdapter(_categorySource);
+            _categoryListAdapter.RenameClick += OnRenameClick;
+            _categoryListAdapter.DeleteClick += OnDeleteClick;
 
             _categoryList = FindViewById<RecyclerView>(Resource.Id.activityEditCategories_list);
             _emptyState = FindViewById<LinearLayout>(Resource.Id.activityEditCategories_emptyState);
 
-            _categoryList.SetAdapter(_categoryAdapter);
+            _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.HasFixedSize = true;
             _categoryList.SetItemViewCacheSize(20);
 
-            var callback = new ReorderableListTouchHelperCallback(_categoryAdapter);
+            var callback = new ReorderableListTouchHelperCallback(_categoryListAdapter);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_categoryList);
 
@@ -76,7 +76,7 @@ namespace AuthenticatorPro.Activities
 
             await _categorySource.UpdateTask;
             CheckEmptyState();
-            _categoryAdapter.NotifyDataSetChanged();
+            _categoryListAdapter.NotifyDataSetChanged();
             _categoryList.ScheduleLayoutAnimation();
 
             var alphaAnimation = new AlphaAnimation(1.0f, 0.0f) {
@@ -141,7 +141,7 @@ namespace AuthenticatorPro.Activities
             _addDialog.Dismiss();
             await _connection.InsertAsync(category);
             await _categorySource.Update();
-            _categoryAdapter.NotifyDataSetChanged();
+            _categoryListAdapter.NotifyDataSetChanged();
             CheckEmptyState();
         }
 
@@ -184,7 +184,7 @@ namespace AuthenticatorPro.Activities
 
             _renameDialog.Dismiss();
             await _categorySource.Rename(_renamePosition, _renameDialog.Name);
-            _categoryAdapter.NotifyItemChanged(_renamePosition);
+            _categoryListAdapter.NotifyItemChanged(_renamePosition);
         }
 
         private void OnDeleteClick(object item, int position)
@@ -197,7 +197,7 @@ namespace AuthenticatorPro.Activities
             builder.SetPositiveButton(Resource.String.delete, async (sender, args) =>
             {
                 await _categorySource.Delete(position);
-                _categoryAdapter.NotifyItemRemoved(position);
+                _categoryListAdapter.NotifyItemRemoved(position);
                 CheckEmptyState();
             });
 

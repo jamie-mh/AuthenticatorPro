@@ -2,7 +2,7 @@
 using System.Linq;
 using AuthenticatorPro.Shared;
 
-namespace AuthenticatorPro.IconList
+namespace AuthenticatorPro.Data
 {
     internal class IconSource
     {

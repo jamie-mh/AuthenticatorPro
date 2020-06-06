@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace AuthenticatorPro.FilesystemList
+namespace AuthenticatorPro.Data
 {
-    internal class FilesystemSource
+    internal class FileSource
     {
         private readonly string _root;
         public bool CanNavigateUp;
 
-        public FilesystemSource(string root)
+        public FileSource(string root)
         {
             _root = root;
             CurrentPath = root;

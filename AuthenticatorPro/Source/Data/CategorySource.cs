@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Data;
 using SQLite;
 
-namespace AuthenticatorPro.CategoryList
+namespace AuthenticatorPro.Data
 {
     internal class CategorySource
     {

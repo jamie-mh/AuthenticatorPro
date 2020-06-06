@@ -6,7 +6,8 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.CategoryList;
+using AuthenticatorPro.Data;
+using AuthenticatorPro.List;
 using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using DialogFragment = AndroidX.Fragment.App.DialogFragment;
 
@@ -19,7 +20,7 @@ namespace AuthenticatorPro.Dialogs
         private readonly List<string> _checkedCategories;
         private readonly Action<bool, int> _itemClick;
         private readonly EventHandler _onClose;
-        private ChooseCategoriesAdapter _categoryAdapter;
+        private ChooseCategoriesListAdapter _categoryListAdapter;
 
         private RecyclerView _categoryList;
 
@@ -56,10 +57,10 @@ namespace AuthenticatorPro.Dialogs
             _categoryList.AddItemDecoration(decoration);
             _categoryList.SetLayoutManager(layout);
 
-            _categoryAdapter = new ChooseCategoriesAdapter(_categorySource);
-            _categoryAdapter.ItemClick += _itemClick;
+            _categoryListAdapter = new ChooseCategoriesListAdapter(_categorySource);
+            _categoryListAdapter.ItemClick += _itemClick;
 
-            _categoryList.SetAdapter(_categoryAdapter);
+            _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.HasFixedSize = true;
             _categoryList.SetItemViewCacheSize(20);
 
@@ -77,7 +78,7 @@ namespace AuthenticatorPro.Dialogs
             foreach(var category in _checkedCategories)
             {
                 var index = _categorySource.Categories.FindIndex(c => c.Id == category);
-                _categoryAdapter.CheckedStatus[index] = true;
+                _categoryListAdapter.CheckedStatus[index] = true;
             }
 
             return dialog;
