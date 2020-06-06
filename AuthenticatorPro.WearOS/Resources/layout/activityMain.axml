@@ -6,7 +6,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:id="@+id/activityMain_disconnectedLayout"
-        android:visibility="gone"
+        android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -33,6 +33,33 @@
             android:text="@string/retry"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/activityMain_emptyLayout"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/noAuthenticators"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/noAuthenticatorsMessage"
+            android:textColor="?attr/secondaryTextColor"
+            android:textSize="12dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>

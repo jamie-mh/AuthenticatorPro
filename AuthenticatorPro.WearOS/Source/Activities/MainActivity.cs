@@ -28,6 +28,7 @@ namespace AuthenticatorPro.WearOS.Activities
         private bool _justLaunched = true;
         private INode _serverNode;
 
+        private LinearLayout _emptyLayout;
         private LinearLayout _disconnectedLayout;
         private Button _retryButton;
 
@@ -40,6 +41,7 @@ namespace AuthenticatorPro.WearOS.Activities
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activityMain);
 
+            _emptyLayout = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyLayout);
             _disconnectedLayout = FindViewById<LinearLayout>(Resource.Id.activityMain_disconnectedLayout);
             _retryButton = FindViewById<Button>(Resource.Id.activityMain_retryButton);
             _retryButton.Click += OnRetryClick; 
@@ -68,6 +70,7 @@ namespace AuthenticatorPro.WearOS.Activities
 
         private async void OnRetryClick(object sender, EventArgs e)
         {
+            FadeOutView(_disconnectedLayout);
             await FindServerNode();
             await Refresh();
         }
@@ -76,11 +79,12 @@ namespace AuthenticatorPro.WearOS.Activities
         {
             if(_serverNode == null)
             {
-                _disconnectedLayout.Visibility = ViewStates.Visible;
+                FadeInView(_disconnectedLayout);
                 return;
             }
 
-            _disconnectedLayout.Visibility = ViewStates.Gone;
+            FadeOutView(_disconnectedLayout);
+            FadeOutView(_emptyLayout);
             _authList.Visibility = ViewStates.Invisible;
 
             await WearableClass.GetMessageClient(this)
@@ -119,31 +123,13 @@ namespace AuthenticatorPro.WearOS.Activities
             await FindServerNode();
             await Refresh();
 
-            if(_justLaunched && _serverNode != null)
-            {
-                var message = Resources.GetString(Resource.String.connectedTo);
-                Toast.MakeText(this, string.Format(message, _serverNode.DisplayName), ToastLength.Short).Show();
-            }
-
             _justLaunched = false;
         }
 
         protected override async void OnPause()
         {
             base.OnPause();
-
-            var fadeOut = new AlphaAnimation(1.0f, 0.0f)
-            {
-                Duration = 200
-            };
-            
-            fadeOut.AnimationEnd += (sender, e) =>
-            {
-                _authList.Visibility = ViewStates.Invisible;
-            };
-
-            _authList.StartAnimation(fadeOut);
-
+            FadeOutView(_authList);
             await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
         }
 
@@ -155,19 +141,49 @@ namespace AuthenticatorPro.WearOS.Activities
             var json = Encoding.UTF8.GetString(messageEvent.GetData());
             _authAdapter.Items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
 
-            _authAdapter.NotifyDataSetChanged();
+            if(_authAdapter.Items.Count == 0)
+                FadeInView(_emptyLayout);
+            else
+                FadeOutView(_emptyLayout);
 
-            var fadeIn = new AlphaAnimation(0.0f, 1.0f)
+            _authAdapter.NotifyDataSetChanged();
+            FadeInView(_authList);
+        }
+
+        private static void FadeInView(View view)
+        {
+            if(view.Visibility != ViewStates.Invisible)
+                return;
+
+            var anim = new AlphaAnimation(0f, 1f)
             {
                 Duration = 200
             };
-               
-            fadeIn.AnimationEnd += (sender, e) =>
+
+            anim.AnimationEnd += (sender, e) =>
             {
-                _authList.Visibility = ViewStates.Visible;
+                view.Visibility = ViewStates.Visible;
             };
 
-            _authList.StartAnimation(fadeIn);
+            view.StartAnimation(anim);
+        }
+
+        private static void FadeOutView(View view)
+        {
+            if(view.Visibility != ViewStates.Visible)
+                return;
+
+            var anim = new AlphaAnimation(1f, 0f)
+            {
+                Duration = 200
+            };
+
+            anim.AnimationEnd += (sender, e) =>
+            {
+                view.Visibility = ViewStates.Invisible;
+            };
+
+            view.StartAnimation(anim);
         }
     }
 }

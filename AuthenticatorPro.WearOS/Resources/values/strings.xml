@@ -2,9 +2,10 @@
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
 
+    <string name="noAuthenticators">No Authenticators</string>
+    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the primary app.</string>
+
     <string name="disconnected">Disconnected</string>
     <string name="disconnectedMessage">Cannot connect. Make sure your device is paired to an Android device with Authenticator Pro installed.</string>
     <string name="retry">Retry</string>
-
-    <string name="connectedTo">Connected to {0}.</string>
 </resources>
