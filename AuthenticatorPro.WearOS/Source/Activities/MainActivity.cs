@@ -22,7 +22,8 @@ namespace AuthenticatorPro.WearOS.Activities
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher", Theme = "@style/AppTheme")]
     public class MainActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
     {
-        private const string WearListAuthenticatorsCapability = "list_authenticators";
+        private const string AuthenticatorProCapability = "authenticatorpro";
+        private const string ListAuthenticatorsCapability = "list_authenticators";
 
         private bool _justLaunched = true;
         private INode _serverNode;
@@ -58,9 +59,11 @@ namespace AuthenticatorPro.WearOS.Activities
 
         private async Task FindServerNode()
         {
+            var capabilityInfo = await WearableClass.GetCapabilityClient(this)
+                .GetCapabilityAsync(AuthenticatorProCapability, CapabilityClient.FilterReachable);
+
             _serverNode = 
-                (await WearableClass.GetNodeClient(this).GetConnectedNodesAsync())
-                .FirstOrDefault(n => n.IsNearby);
+                capabilityInfo.Nodes.FirstOrDefault(n => n.IsNearby);
         }
 
         private async void OnRetryClick(object sender, EventArgs e)
@@ -81,7 +84,7 @@ namespace AuthenticatorPro.WearOS.Activities
             _authList.Visibility = ViewStates.Invisible;
 
             await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(_serverNode.Id, WearListAuthenticatorsCapability, new byte[] { });
+                .SendMessageAsync(_serverNode.Id, ListAuthenticatorsCapability, new byte[] { });
         }
         
         private void ItemClick(object sender, int position)
@@ -146,7 +149,7 @@ namespace AuthenticatorPro.WearOS.Activities
 
         public void OnMessageReceived(IMessageEvent messageEvent)
         {
-            if(messageEvent.Path != WearListAuthenticatorsCapability)
+            if(messageEvent.Path != ListAuthenticatorsCapability)
                 return;
 
             var json = Encoding.UTF8.GetString(messageEvent.GetData());

@@ -3,7 +3,7 @@
     <string name="displayName">Authenticator</string>
 
     <string name="disconnected">Disconnected</string>
-    <string name="disconnectedMessage">Cannot connect to phone.</string>
+    <string name="disconnectedMessage">Cannot connect. Make sure your device is paired to an Android device with Authenticator Pro installed.</string>
     <string name="retry">Retry</string>
 
     <string name="connectedTo">Connected to {0}.</string>
