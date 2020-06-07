@@ -9,6 +9,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Common;
 using Android.Gms.Wearable;
+using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -41,11 +42,12 @@ namespace AuthenticatorPro.Activity
 {
     [Activity(Label = "@string/displayName", Theme = "@style/AppTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
-    internal class MainActivity : LightDarkActivity
+    internal class MainActivity : LightDarkActivity, CapabilityClient.IOnCapabilityChangedListener
     {
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
+        private bool _areGoogleAPIsAvailable;
         private bool _isWearOSCapable;
 
         private NavigationView _navigationView;
@@ -115,6 +117,7 @@ namespace AuthenticatorPro.Activity
             MobileBarcodeScanner.Initialize(Application);
             _barcodeScanner = new MobileBarcodeScanner();
 
+            DetectGoogleAPIsAvailability();
             await DetectWearOSCapability();
         }
 
@@ -164,6 +167,9 @@ namespace AuthenticatorPro.Activity
             _isChildActivityOpen = false;
             _authTimer.Start();
             Tick();
+
+            if(_areGoogleAPIsAvailable)
+                await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
         }
 
         private void StartChildActivity(Type type)
@@ -371,12 +377,15 @@ namespace AuthenticatorPro.Activity
             return _actionBarDrawerToggle.OnOptionsItemSelected(item) || base.OnOptionsItemSelected(item);
         }
 
-        protected override void OnPause()
+        protected override async void OnPause()
         {
             base.OnPause();
 
             _authTimer?.Stop();
             _pauseTime = DateTime.Now;
+
+            if(_areGoogleAPIsAvailable)
+                await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
         }
 
         private bool PerformLogin()
@@ -773,9 +782,20 @@ namespace AuthenticatorPro.Activity
          *  Wear OS
          */
 
+        public async void OnCapabilityChanged(ICapabilityInfo capabilityInfo)
+        {
+            await DetectWearOSCapability();
+        }
+
+        private void DetectGoogleAPIsAvailability()
+        {
+            _areGoogleAPIsAvailable = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this) == 
+                                      ConnectionResult.Success;
+        }
+
         private async Task DetectWearOSCapability()
         {
-            if(GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this) != ConnectionResult.Success)
+            if(!_areGoogleAPIsAvailable)
             {
                 _isWearOSCapable = false;
                 return;
