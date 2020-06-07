@@ -24,7 +24,6 @@ using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialog;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
-using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Util;
 using AuthenticatorPro.Util;
@@ -47,7 +46,7 @@ namespace AuthenticatorPro.Activity
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
-        private bool _hasGooglePlayServices;
+        private bool _isWearOSCapable;
 
         private NavigationView _navigationView;
         private DrawerLayout _drawerLayout;
@@ -82,7 +81,7 @@ namespace AuthenticatorPro.Activity
             _pauseTime = DateTime.MinValue;
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
@@ -116,8 +115,7 @@ namespace AuthenticatorPro.Activity
             MobileBarcodeScanner.Initialize(Application);
             _barcodeScanner = new MobileBarcodeScanner();
 
-            _hasGooglePlayServices = 
-                GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this) == ConnectionResult.Success;
+            await DetectWearOSCapability();
         }
 
         protected override void OnPostCreate(Bundle savedInstanceState)
@@ -775,9 +773,23 @@ namespace AuthenticatorPro.Activity
          *  Wear OS
          */
 
+        private async Task DetectWearOSCapability()
+        {
+            if(GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this) != ConnectionResult.Success)
+            {
+                _isWearOSCapable = false;
+                return;
+            }
+
+            var capabiltyInfo = await WearableClass.GetCapabilityClient(this)
+                .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable);
+
+            _isWearOSCapable = capabiltyInfo.Nodes.Count > 0;
+        }
+
         private async Task NotifyWearAppOfChange()
         {
-            if(!_hasGooglePlayServices)
+            if(!_isWearOSCapable)
                 return;
 
             var nodes = (await WearableClass.GetCapabilityClient(this)
