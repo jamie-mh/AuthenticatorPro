@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using AuthenticatorPro.Shared;
+using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Util;
 using Newtonsoft.Json;
 using OtpNet;
@@ -10,18 +11,8 @@ using SQLite;
 namespace AuthenticatorPro.Data
 {
     [Table("authenticator")]
-    public class Authenticator : IAuthenticatorInfo
+    public class Authenticator
     {
-        public Authenticator()
-        {
-            Code = "";
-            TimeRenew = DateTime.Now;
-            Ranking = 1;
-        }
-
-        [JsonIgnore]
-        public string Code { get; set; }
-
         [Column("type")]
         public AuthenticatorType Type { get; set; }
 
@@ -38,7 +29,6 @@ namespace AuthenticatorPro.Data
 
         [Column("secret")]
         [PrimaryKey]
-        [MaxLength(32)]
         public string Secret { get; set; }
 
         [Column("algorithm")]
@@ -56,9 +46,48 @@ namespace AuthenticatorPro.Data
         [Column("ranking")]
         public int Ranking { get; set; }
 
+        [Ignore]
         [JsonIgnore]
-        public DateTime TimeRenew { get; set; }
+        public DateTime TimeRenew { get; private set; }
 
+        private long _lastCounter;
+        private string _code;
+
+
+        public Authenticator()
+        {
+            TimeRenew = DateTime.MinValue;
+            _code = null;
+        }
+
+        public string GetCode()
+        {
+            if(Type == AuthenticatorType.Totp && TimeRenew <= DateTime.Now)
+            {
+                var secret = Base32Encoding.ToBytes(Secret);
+                var totp = new Totp(secret, Period, Algorithm, Digits);
+
+                _code = totp.ComputeTotp();
+                TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+            }
+            else if(Type == AuthenticatorType.Hotp && _lastCounter != Counter)
+            {
+                var secret = Base32Encoding.ToBytes(Secret);
+                var hotp = new Hotp(secret, Algorithm);
+
+                _code = hotp.ComputeHOTP(Counter);
+                TimeRenew = DateTime.Now.AddSeconds(10);
+
+                _lastCounter = Counter;
+            }
+
+            return _code;
+        }
+
+        public void IncrementCounter()
+        {
+            Counter++;
+        }
 
         public static Authenticator FromKeyUri(string uri)
         {
@@ -117,22 +146,18 @@ namespace AuthenticatorPro.Data
             var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : 6;
             var period = args.ContainsKey("period") ? Int32.Parse(args["period"]) : 30;
 
-            var code = "";
-            for(var i = 0; i < digits; code += "-", i++);
-
             var secret = CleanSecret(args["secret"]);
 
             var auth = new Authenticator {
                 Secret = secret,
                 Issuer = issuer.Trim().Truncate(32),
                 Username = username.Trim().Truncate(32),
-                Icon = Icons.FindServiceKeyByName(issuer),
+                Icon = Shared.Data.Icon.FindServiceKeyByName(issuer),
                 Type = type,
                 Algorithm = algorithm,
                 Digits = digits,
                 Period = period,
-                Counter = 0,
-                Code = code
+                Counter = 0
             };
 
             auth.Validate();

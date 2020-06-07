@@ -9,16 +9,14 @@ namespace AuthenticatorPro.Data
     {
         private readonly SQLiteAsyncConnection _connection;
 
+        public List<Category> Categories { get; private set; }
+
+
         public CategorySource(SQLiteAsyncConnection connection)
         {
             Categories = new List<Category>();
             _connection = connection;
-
-            UpdateTask = Update();
         }
-
-        public List<Category> Categories { get; private set; }
-        public Task UpdateTask { get; }
 
         public async Task Update()
         {
@@ -82,11 +80,6 @@ namespace AuthenticatorPro.Data
             var temp = Categories[newPosition];
             temp.Ranking = newPosition;
             await _connection.UpdateAsync(temp);
-        }
-
-        public int Count()
-        {
-            return Categories.Count;
         }
     }
 }

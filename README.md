@@ -75,9 +75,9 @@ If you wish to contribute more icons to the application, the procedure is as fol
 
 * Name the icon "auth_xxxxx", with xxxxx being the name of the service in lowercase with spaces and special characters removed. Eg: Authenticator Pro -> authenticatorpro.
 
-* Copy the icons into the Resources directory of the project.
+* Copy the icons into the Resources directory of the AuthenticatorPro.Shared project.
 
-* Update Source/Icons.cs by adding the icon into the Service dictionary in alphabetical order. If the icon is barely visible on a dark background. Create an alternative icon as before with the name auth_xxxxx_dark and place it into the ServiceDark dictionary.
+* Update AuthenticatorPro.Shared/Source/Data/Icon.cs by adding the icon into the Service dictionary in alphabetical order. If the icon is barely visible on a dark background. Create an alternative icon as before with the name auth_xxxxx_dark and place it into the ServiceDark dictionary.
 
 * Test the changes if possible.
 

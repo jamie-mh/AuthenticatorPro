@@ -7,14 +7,18 @@ namespace AuthenticatorPro.List
 {
     internal sealed class CategoryListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
+        public event EventHandler<int> RenameClick;
+        public event EventHandler<int> DeleteClick;
+
         private readonly CategorySource _source;
+
+        public override int ItemCount => _source.Categories.Count;
+
 
         public CategoryListAdapter(CategorySource source)
         {
             _source = source;
         }
-
-        public override int ItemCount => _source.Count();
 
         public void MoveItem(int oldPosition, int newPosition)
         {
@@ -26,9 +30,6 @@ namespace AuthenticatorPro.List
         {
 
         }
-
-        public event EventHandler<int> RenameClick;
-        public event EventHandler<int> DeleteClick;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

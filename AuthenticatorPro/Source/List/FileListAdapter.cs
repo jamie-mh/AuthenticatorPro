@@ -7,15 +7,15 @@ namespace AuthenticatorPro.List
 {
     internal sealed class FileListAdapter : RecyclerView.Adapter
     {
+        public event EventHandler<int> FileClick;
         private readonly FileSource _source;
+        public override int ItemCount => _source.Count();
+
 
         public FileListAdapter(FileSource source)
         {
             _source = source;
         }
-
-        public override int ItemCount => _source.Count();
-        public event EventHandler<int> FileClick;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Util;
-using OtpNet;
 using SQLite;
+
 
 namespace AuthenticatorPro.Data
 {
@@ -13,48 +11,29 @@ namespace AuthenticatorPro.Data
     {
         private readonly SQLiteAsyncConnection _connection;
 
+        public List<Authenticator> Authenticators { get; private set; }
         private List<Authenticator> _all;
 
         private string _search;
-
-        public List<IAuthenticatorInfo> Authenticators { get; private set; }
-
-        public Task UpdateTask { get; }
         public string CategoryId { get; private set; }
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
 
         public AuthenticatorSource(SQLiteAsyncConnection connection)
         {
-            _search = "";
+            _search = null;
             CategoryId = null;
             _connection = connection;
 
-            Authenticators = new List<IAuthenticatorInfo>();
+            Authenticators = new List<Authenticator>();
             _all = new List<Authenticator>();
             CategoryBindings = new List<AuthenticatorCategory>();
-
-            UpdateTask = UpdateSource();
         }
 
         public void SetSearch(string query)
         {
             _search = query;
-            _search = _search.ToLower();
-
-            var results =
-                _all.Where(i => i.Issuer.ToLower().Contains(_search)).ToList();
-
-            if(CategoryId != null)
-            {
-                var authsInCategory =
-                    CategoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
-
-                results =
-                    results.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1).ToList();
-            }
-
-            Authenticators = results.Cast<IAuthenticatorInfo>().ToList();
+            UpdateView();
         }
 
         public void SetCategory(string categoryId)
@@ -65,100 +44,83 @@ namespace AuthenticatorPro.Data
 
         public void UpdateView()
         {
-            List<Authenticator> results;
+            List<Authenticator> view = _all;
 
             if(CategoryId == null)
             {
-                results =
-                    _all.OrderBy(a => a.Ranking)
-                        .ToList();
+                view = view.OrderBy(a => a.Ranking)
+                    .ToList();
             }
             else
             {
                 var authsInCategory =
                     CategoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
 
-                results =
-                    _all.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
+                view =
+                    view.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
                         .OrderBy(a => authsInCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking)
                         .ToList();
             }
 
-            Authenticators = results.Cast<IAuthenticatorInfo>().ToList();
+            if(!String.IsNullOrEmpty(_search))
+            {
+                view = view.Where(i => i.Issuer.ToLower().Contains(_search.ToLower()))
+                           .ToList();
+            }
+
+            Authenticators = view;
         }
 
-        public async Task UpdateSource()
+        public async Task Update()
         {
             _all.Clear();
             CategoryBindings.Clear();
 
-            var sql = @"SELECT * FROM authenticator ORDER BY ranking, issuer, username ASC";
+            var sql = "SELECT * FROM authenticator ORDER BY ranking, issuer, username ASC";
             _all = await _connection.QueryAsync<Authenticator>(sql);
 
-            sql = @"SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
+            sql = "SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
             CategoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
 
-            if(CategoryId == null)
-                Authenticators = _all.Cast<IAuthenticatorInfo>().ToList();
-            else
-                UpdateView();
-        }
-
-        private Authenticator GetAuthenticator(IAuthenticatorInfo info)
-        {
-            return _all.Find(i => i.Secret == info.Secret);
+            UpdateView();
         }
 
         public Authenticator Get(int position)
         {
-            if(Authenticators.ElementAtOrDefault(position) == null) return null;
-
-            var info = Authenticators[position];
-            var auth = GetAuthenticator(info);
-
-            if(auth.Type == AuthenticatorType.Totp && auth.TimeRenew <= DateTime.Now)
-            {
-                var secret = Base32Encoding.ToBytes(auth.Secret);
-                var totp = new Totp(secret, auth.Period, auth.Algorithm, auth.Digits);
-                auth.Code = totp.ComputeTotp();
-                auth.TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
-            }
-
-            return auth;
+            return Authenticators.ElementAtOrDefault(position);
         }
 
         public int GetPosition(string secret)
         {
-            return _all.FindIndex(a => a.Secret == secret);
+            return Authenticators.FindIndex(a => a.Secret == secret);
         }
 
         public async Task Rename(int position, string issuer, string username)
         {
-            if(Authenticators.ElementAtOrDefault(position) == null) return;
+            var auth = Authenticators.ElementAtOrDefault(position);
 
-            var info = Authenticators[position];
-            var auth = GetAuthenticator(info);
+            if(auth == null)
+                return;
 
-            auth.Issuer = issuer.Trim().Truncate(32);
-            auth.Username = username.Trim().Truncate(32);
+            auth.Issuer = issuer;
+            auth.Username = username;
 
             await _connection.UpdateAsync(auth);
         }
 
         public async Task Delete(int position)
         {
-            if(Authenticators.ElementAtOrDefault(position) == null) return;
+            var auth = Authenticators.ElementAtOrDefault(position);
 
-            var info = Authenticators[position];
-            var auth = GetAuthenticator(info);
+            if(auth == null)
+                return;
 
             await _connection.DeleteAsync<Authenticator>(auth.Secret);
-            Authenticators.Remove(info);
+            Authenticators.Remove(auth);
             _all.Remove(auth);
 
-            var sql = "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ?";
-            object[] args = {auth.Secret};
-            await _connection.ExecuteAsync(sql, args);
+            const string sql = "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ?";
+            await _connection.ExecuteAsync(sql, auth.Secret);
         }
 
         public async Task Move(int oldPosition, int newPosition)
@@ -168,38 +130,33 @@ namespace AuthenticatorPro.Data
             Authenticators[oldPosition] = old;
 
             for(var i = 0; i < Authenticators.Count; ++i)
+            {
                 if(CategoryId == null)
                 {
-                    var auth = GetAuthenticator(Authenticators[i]);
+                    var auth = Authenticators[i];
                     auth.Ranking = i;
                     await _connection.UpdateAsync(auth);
                 }
                 else
                 {
-                    var binding =
-                        GetAuthenticatorCategory(Authenticators[i]);
+                    var binding = GetAuthenticatorCategoryBinding(Authenticators[i]);
                     binding.Ranking = i;
-                    await _connection.UpdateAsync(binding);
+
+                    await _connection.ExecuteAsync(
+                        "UPDATE authenticatorcategory SET ranking = ? WHERE categoryId = ? AND authenticatorSecret = ?",
+                        i, binding.CategoryId, binding.AuthenticatorSecret);
                 }
+            }
         }
 
-        public async Task IncrementHotp(int position)
+        public async Task IncrementCounter(int position)
         {
-            if(Authenticators.ElementAtOrDefault(position) == null) return;
+            var auth = Authenticators.ElementAtOrDefault(position);
 
-            var info = Authenticators[position];
-            var auth = GetAuthenticator(info);
+            if(auth == null)
+                return;
 
-            if(auth.Type != AuthenticatorType.Hotp) return;
-
-            var secret = Base32Encoding.ToBytes(auth.Secret);
-            var hotp = new Hotp(secret, auth.Algorithm);
-
-            auth.Counter++;
-            auth.Code = hotp.ComputeHOTP(auth.Counter);
-            auth.TimeRenew = DateTime.Now.AddSeconds(10);
-
-            Authenticators[position] = auth;
+            auth.IncrementCounter();
             await _connection.UpdateAsync(auth);
         }
 
@@ -215,37 +172,26 @@ namespace AuthenticatorPro.Data
                          binding.CategoryId == iterator.CategoryId);
         }
 
-        public int Count()
-        {
-            return Authenticators.Count;
-        }
-
         public List<string> GetCategories(int position)
         {
-            var ids = new List<string>();
             var secret = Authenticators[position].Secret;
 
             var authCategories =
                 CategoryBindings.Where(b => b.AuthenticatorSecret == secret).ToList();
 
-            foreach(var binding in authCategories) ids.Add(binding.CategoryId);
-
-            return ids;
+            return authCategories.Select(binding => binding.CategoryId).ToList();
         }
 
-        public AuthenticatorCategory GetAuthenticatorCategory(IAuthenticatorInfo info)
+        public AuthenticatorCategory GetAuthenticatorCategoryBinding(Authenticator auth)
         {
-            return CategoryBindings.First(b => b.AuthenticatorSecret == info.Secret && b.CategoryId == CategoryId);
+            return CategoryBindings.First(b => b.AuthenticatorSecret == auth.Secret && b.CategoryId == CategoryId);
         }
 
         public void AddToCategory(int position, string categoryId)
         {
-            var sql = "INSERT INTO authenticatorcategory (categoryId, authenticatorSecret)" +
-                      "VALUES (?, ?)";
+            const string sql = "INSERT INTO authenticatorcategory (categoryId, authenticatorSecret) VALUES (?, ?)";
             var secret = Authenticators[position].Secret;
-            object[] args = {categoryId, secret};
-            _connection.ExecuteAsync(sql, args);
-
+            _connection.ExecuteAsync(sql, categoryId, secret);
             CategoryBindings.Add(new AuthenticatorCategory(categoryId, secret));
         }
 
@@ -253,11 +199,9 @@ namespace AuthenticatorPro.Data
         {
             const string sql = "DELETE FROM authenticatorcategory WHERE categoryId = ? AND authenticatorSecret = ?";
             var secret = Authenticators[position].Secret;
-            object[] args = {categoryId, secret};
-            _connection.ExecuteAsync(sql, args);
+            _connection.ExecuteAsync(sql, categoryId, secret);
 
-            var binding =
-                CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == secret);
+            var binding = CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == secret);
             CategoryBindings.Remove(binding);
         }
     }

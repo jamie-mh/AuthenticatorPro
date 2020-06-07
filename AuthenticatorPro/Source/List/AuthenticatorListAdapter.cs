@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Shared;
-using Object = Java.Lang.Object;
+using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.List
 {
     internal sealed class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
+        public event EventHandler<int> ItemClick;
+        public event EventHandler<int> ItemOptionsClick;
+        public event EventHandler MovementFinished;
+
         private const int MaxCodeGroupSize = 4;
         public readonly bool IsCompact;
 
         private readonly bool _isDark;
         private readonly AuthenticatorSource _source;
 
-        public AuthenticatorListAdapter(AuthenticatorSource authenticatorSource, bool isDark, bool isCompact)
+
+        public AuthenticatorListAdapter(AuthenticatorSource source, bool isDark, bool isCompact)
         {
             _isDark = isDark;
             IsCompact = isCompact;
-            _source = authenticatorSource;
+            _source = source;
         }
 
-        public override int ItemCount => _source.Count();
+        public override int ItemCount => _source.Authenticators.Count;
 
         public async void MoveItem(int oldPosition, int newPosition)
         {
@@ -35,10 +39,6 @@ namespace AuthenticatorPro.List
         {
             MovementFinished?.Invoke(this, null);
         }
-
-        public event EventHandler<int> ItemClick;
-        public event EventHandler<int> ItemOptionsClick;
-        public event EventHandler MovementFinished;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
@@ -52,31 +52,40 @@ namespace AuthenticatorPro.List
                 ? ViewStates.Gone
                 : ViewStates.Visible;
 
-            var codePadded = auth.Code;
+            var code = auth.GetCode();
+
+            if(code == null)
+                code = "".PadRight(auth.Digits, '-');
+
             var spacesInserted = 0;
-            var length = codePadded.Length;
+            var groupSize = Math.Min(MaxCodeGroupSize, auth.Digits / 2);
 
-            var groupSize = Math.Min(MaxCodeGroupSize, length / 2);
-
-            for(var i = 0; i < length; ++i)
+            for(var i = 0; i < auth.Digits; ++i)
+            {
                 if(i % groupSize == 0 && i > 0)
                 {
-                    codePadded = codePadded.Insert(i + spacesInserted, " ");
+                    code = code.Insert(i + spacesInserted, " ");
                     spacesInserted++;
                 }
+            }
 
-            holder.Icon.SetImageResource(Icons.GetService(auth.Icon, _isDark));
+            holder.Icon.SetImageResource(Icon.GetService(auth.Icon, _isDark));
 
-            if(auth.Type == AuthenticatorType.Totp)
-                TotpViewBind(holder, auth);
+            switch(auth.Type)
+            {
+                case AuthenticatorType.Totp:
+                    TotpViewBind(holder, auth);
+                    break;
 
-            else if(auth.Type == AuthenticatorType.Hotp)
-                HotpViewBind(holder, auth);
+                case AuthenticatorType.Hotp:
+                    HotpViewBind(holder, auth);
+                    break;
+            }
 
-            holder.Code.Text = codePadded;
+            holder.Code.Text = code;
         }
 
-        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Java.Lang.Object> payloads)
         {
             if(payloads == null || payloads.Count == 0)
                 OnBindViewHolder(viewHolder, position);
@@ -85,36 +94,42 @@ namespace AuthenticatorPro.List
                 var auth = _source.Authenticators[position];
                 var holder = (AuthenticatorListHolder) viewHolder;
 
-                if(auth.Type == AuthenticatorType.Totp)
-                    holder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
-                else if(auth.Type == AuthenticatorType.Hotp)
-                    holder.RefreshButton.Visibility = ViewStates.Visible;
+                switch(auth.Type)
+                {
+                    case AuthenticatorType.Totp:
+                        holder.ProgressBar.Progress = GetRemainingProgress(auth);
+                        break;
+
+                    case AuthenticatorType.Hotp:
+                        holder.RefreshButton.Visibility = ViewStates.Visible;
+                        break;
+                }
             }
         }
 
-        private static int GetTotpRemainingProgress(IAuthenticatorInfo auth)
+        private static int GetRemainingProgress(Authenticator auth)
         {
             var secondsRemaining = (auth.TimeRenew - DateTime.Now).TotalSeconds;
             return (int) Math.Ceiling(100d * secondsRemaining / auth.Period);
         }
 
-        private static void TotpViewBind(AuthenticatorListHolder listHolder, Authenticator auth)
+        private static void TotpViewBind(AuthenticatorListHolder holder, Authenticator auth)
         {
-            listHolder.RefreshButton.Visibility = ViewStates.Gone;
-            listHolder.ProgressBar.Visibility = ViewStates.Visible;
-            listHolder.Counter.Visibility = ViewStates.Invisible;
-            listHolder.ProgressBar.Progress = GetTotpRemainingProgress(auth);
+            holder.RefreshButton.Visibility = ViewStates.Gone;
+            holder.ProgressBar.Visibility = ViewStates.Visible;
+            holder.Counter.Visibility = ViewStates.Invisible;
+            holder.ProgressBar.Progress = GetRemainingProgress(auth);
         }
 
-        private static void HotpViewBind(AuthenticatorListHolder listHolder, Authenticator auth)
+        private static void HotpViewBind(AuthenticatorListHolder holder, Authenticator auth)
         {
-            listHolder.RefreshButton.Visibility = auth.TimeRenew < DateTime.Now
+            holder.RefreshButton.Visibility = auth.TimeRenew < DateTime.Now
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            listHolder.ProgressBar.Visibility = ViewStates.Invisible;
-            listHolder.Counter.Visibility = ViewStates.Visible;
-            listHolder.Counter.Text = auth.Counter.ToString();
+            holder.ProgressBar.Visibility = ViewStates.Invisible;
+            holder.Counter.Visibility = ViewStates.Visible;
+            holder.Counter.Text = auth.Counter.ToString();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -122,24 +137,17 @@ namespace AuthenticatorPro.List
             var layout = IsCompact ? Resource.Layout.authListItemCompact : Resource.Layout.authListItem;
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
-            var holder = new AuthenticatorListHolder(itemView, OnItemClick, OnItemOptionsClick, OnRefreshClick);
+            var holder = new AuthenticatorListHolder(itemView);
+            holder.Click += ItemClick;
+            holder.OptionsClick += ItemOptionsClick;
+            holder.RefreshClick += OnRefreshClick;
 
             return holder;
         }
 
-        private void OnItemClick(int position)
+        private async void OnRefreshClick(object sender, int position)
         {
-            ItemClick?.Invoke(this, position);
-        }
-
-        private void OnItemOptionsClick(int position)
-        {
-            ItemOptionsClick?.Invoke(this, position);
-        }
-
-        private async void OnRefreshClick(int position)
-        {
-            await _source.IncrementHotp(position);
+            await _source.IncrementCounter(position);
             NotifyItemChanged(position);
         }
 

@@ -5,6 +5,18 @@ namespace AuthenticatorPro.Data
     [Table("authenticatorcategory")]
     internal class AuthenticatorCategory
     {
+        [Column("categoryId")]
+        [Indexed]
+        public string CategoryId { get; set; }
+
+        [Column("authenticatorSecret")]
+        [Indexed]
+        public string AuthenticatorSecret { get; set; }
+
+        [Column("ranking")]
+        public int Ranking { get; set; }
+
+
         public AuthenticatorCategory()
         {
             Ranking = 1;
@@ -16,13 +28,5 @@ namespace AuthenticatorPro.Data
             AuthenticatorSecret = authenticatorSecret;
             Ranking = 1;
         }
-
-        [Column("categoryId")] [Indexed] public string CategoryId { get; set; }
-
-        [Column("authenticatorSecret")]
-        [Indexed]
-        public string AuthenticatorSecret { get; set; }
-
-        [Column("ranking")] public int Ranking { get; set; }
     }
 }

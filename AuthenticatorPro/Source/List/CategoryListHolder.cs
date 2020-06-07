@@ -10,15 +10,13 @@ namespace AuthenticatorPro.List
         public CategoryListHolder(View itemView, Action<int> renameClick, Action<int> deleteClick) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.categoryListItem_name);
-            RenameButton = itemView.FindViewById<ImageButton>(Resource.Id.categoryListItem_rename);
-            DeleteButton = itemView.FindViewById<ImageButton>(Resource.Id.categoryListItem_delete);
+            var renameButton = itemView.FindViewById<ImageButton>(Resource.Id.categoryListItem_rename);
+            var deleteButton = itemView.FindViewById<ImageButton>(Resource.Id.categoryListItem_delete);
 
-            RenameButton.Click += (sender, e) => renameClick(AdapterPosition);
-            DeleteButton.Click += (sender, e) => deleteClick(AdapterPosition);
+            renameButton.Click += (sender, e) => renameClick(AdapterPosition);
+            deleteButton.Click += (sender, e) => deleteClick(AdapterPosition);
         }
 
         public TextView Name { get; }
-        public ImageButton RenameButton { get; }
-        public ImageButton DeleteButton { get; }
     }
 }

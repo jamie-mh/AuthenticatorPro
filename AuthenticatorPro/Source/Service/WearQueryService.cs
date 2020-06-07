@@ -6,6 +6,7 @@ using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared;
+using AuthenticatorPro.Shared.Query;
 using Newtonsoft.Json;
 using SQLite;
 
@@ -40,7 +41,7 @@ namespace AuthenticatorPro.Service
         private async Task ListAuthenticators(string nodeId)
         {
             var response = _source.Authenticators.Select(item => 
-                new WearAuthenticatorResponse(item.Type, item.Icon, item.Issuer, item.Username, item.Period)).ToList();
+                new WearAuthenticatorResponse(item.Type, item.Icon, item.Issuer, item.Username, item.Period, item.Digits)).ToList();
 
             var json = JsonConvert.SerializeObject(response);
             var data = Encoding.UTF8.GetBytes(json);
@@ -56,7 +57,8 @@ namespace AuthenticatorPro.Service
 
             if(auth != null)
             {
-                var response = new WearAuthenticatorCodeResponse(auth.Code, auth.TimeRenew);
+                var code = auth.GetCode();
+                var response = new WearAuthenticatorCodeResponse(code, auth.TimeRenew);
 
                 var json = JsonConvert.SerializeObject(response);
                 data = Encoding.UTF8.GetBytes(json);
@@ -71,7 +73,7 @@ namespace AuthenticatorPro.Service
             if(_connection == null || _source == null)
                 await Init();
 
-            await _source.UpdateSource();
+            await _source.Update();
 
             switch(messageEvent.Path)
             {

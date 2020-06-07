@@ -7,6 +7,10 @@ namespace AuthenticatorPro.List
 {
     internal class FileListHolder : RecyclerView.ViewHolder
     {
+        public ImageView Icon { get; set; }
+        public TextView Name { get; set; }
+
+
         public FileListHolder(View itemView, Action<int> clickListener) : base(itemView)
         {
             Icon = itemView.FindViewById<ImageView>(Resource.Id.fileListItem_icon);
@@ -14,8 +18,5 @@ namespace AuthenticatorPro.List
 
             itemView.Click += (sender, e) => clickListener(AdapterPosition);
         }
-
-        public ImageView Icon { get; set; }
-        public TextView Name { get; set; }
     }
 }

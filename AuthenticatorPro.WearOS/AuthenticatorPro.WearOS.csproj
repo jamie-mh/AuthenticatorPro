@@ -60,11 +60,11 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\AuthenticatorList\AuthAdapter.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthHolder.cs" />
-    <Compile Include="Source\AuthenticatorList\AuthScrollingLayoutCallback.cs" />
-    <Compile Include="Source\Activities\CodeActivity.cs" />
-    <Compile Include="Source\Activities\MainActivity.cs" />
+    <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
+    <Compile Include="Source\List\AuthenticatorListHolder.cs" />
+    <Compile Include="Source\List\ScrollingListLayoutCallback.cs" />
+    <Compile Include="Source\Activity\CodeActivity.cs" />
+    <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,14 +7,15 @@ namespace AuthenticatorPro.List
         private readonly bool _isGrid;
         private readonly IReorderableListAdapter _adapter;
 
+        public override bool IsLongPressDragEnabled => true;
+        public override bool IsItemViewSwipeEnabled => false;
+
+
         public ReorderableListTouchHelperCallback(IReorderableListAdapter adapter, bool isGrid = false)
         {
             _adapter = adapter;
             _isGrid = isGrid;
         }
-
-        public override bool IsLongPressDragEnabled => true;
-        public override bool IsItemViewSwipeEnabled => false;
 
         public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
         {

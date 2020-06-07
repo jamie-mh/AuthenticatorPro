@@ -50,7 +50,7 @@
 			android:id="@+id/activityMain_emptyState"
 			android:orientation="vertical"
 			android:gravity="center"
-			android:visibility="gone"
+			android:visibility="invisible"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:layout_below="@id/activityMain_appBarLayout">

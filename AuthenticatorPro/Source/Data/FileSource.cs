@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Android.Text;
 
 namespace AuthenticatorPro.Data
 {
@@ -21,7 +22,7 @@ namespace AuthenticatorPro.Data
         public string CurrentPath { get; private set; }
         public List<Item> Listing { get; }
 
-        public void Update()
+        private void Update()
         {
             Listing.Clear();
 
@@ -43,7 +44,8 @@ namespace AuthenticatorPro.Data
             {
                 var name = Path.GetFileName(dir);
 
-                if(name[0] == '.') continue;
+                if(name[0] == '.')
+                    continue;
 
                 Listing.Add(new Item {
                     Type = Type.Directory,
@@ -65,7 +67,8 @@ namespace AuthenticatorPro.Data
 
         public bool Navigate(int position)
         {
-            if(position >= Listing.Count) return false;
+            if(position >= Listing.Count)
+                return false;
 
             var item = Listing[position];
 
@@ -80,9 +83,10 @@ namespace AuthenticatorPro.Data
                     CurrentPath += $@"/{item.Name}";
                     Update();
                     return true;
-            }
 
-            return false;
+                default:
+                    return false;
+            }
         }
 
         public int Count()

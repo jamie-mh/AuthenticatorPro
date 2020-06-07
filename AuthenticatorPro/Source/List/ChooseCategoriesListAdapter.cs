@@ -8,17 +8,17 @@ namespace AuthenticatorPro.List
     internal sealed class ChooseCategoriesListAdapter : RecyclerView.Adapter
     {
         private readonly CategorySource _categorySource;
-        public Action<bool, int> ItemClick;
+        public event EventHandler<int> ItemClick;
+
+        public bool[] CheckedStatus { get; }
+        public override int ItemCount => _categorySource.Categories.Count;
+
 
         public ChooseCategoriesListAdapter(CategorySource categorySource)
         {
             _categorySource = categorySource;
-            CheckedStatus = new bool[_categorySource.Count()];
+            CheckedStatus = new bool[_categorySource.Categories.Count];
         }
-
-        public bool[] CheckedStatus { get; }
-
-        public override int ItemCount => _categorySource.Count();
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
@@ -31,10 +31,15 @@ namespace AuthenticatorPro.List
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(
+            var view = LayoutInflater.From(parent.Context).Inflate(
                 Resource.Layout.chooseCategoriesListItem, parent, false);
 
-            var holder = new ChooseCategoriesListHolder(itemView, ItemClick);
+            var holder = new ChooseCategoriesListHolder(view);
+            holder.ItemClick += (sender, position) =>
+            {
+                CheckedStatus[position] = !CheckedStatus[position];
+                ItemClick?.Invoke(sender, position);
+            };
 
             return holder;
         }

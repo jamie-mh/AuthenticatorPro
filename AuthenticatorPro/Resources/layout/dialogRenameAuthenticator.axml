@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
     android:fillViewport="true">
-	<LinearLayout
+
+    <LinearLayout
 		android:orientation="vertical"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
         android:paddingTop="20dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
-		<com.google.android.material.textfield.TextInputLayout
+
+        <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/dialogRenameAuthenticator_issuerLayout"
+            app:errorEnabled="true"
+            app:hintEnabled="true"
+            android:hint="@string/issuerHint"
             android:layout_marginBottom="16dp"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
@@ -19,20 +27,24 @@
 				android:id="@+id/dialogRenameAuthenticator_issuer"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:inputType="textCapSentences"
-				android:hint="@string/issuerHint">
+				android:inputType="textCapSentences">
 				<requestFocus />
 			</com.google.android.material.textfield.TextInputEditText>
 		</com.google.android.material.textfield.TextInputLayout>
+
 		<com.google.android.material.textfield.TextInputLayout
+            app:errorEnabled="true"
+            app:hintEnabled="true"
+            android:hint="@string/usernameHint"
+            android:id="@+id/dialogRenameAuthenticator_usernameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 			<com.google.android.material.textfield.TextInputEditText
 				android:id="@+id/dialogRenameAuthenticator_username"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:hint="@string/usernameHint"/>
+				android:layout_height="wrap_content"/>
 		</com.google.android.material.textfield.TextInputLayout>
+
 	</LinearLayout>
 </ScrollView>

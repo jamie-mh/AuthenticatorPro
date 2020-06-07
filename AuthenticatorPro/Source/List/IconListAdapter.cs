@@ -6,11 +6,15 @@ using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared;
+using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.List
 {
     internal sealed class IconListAdapter : RecyclerView.Adapter
     {
+        public event EventHandler<int> ItemClick;
+        public override int ItemCount => _iconSource.List.Count;
+
         private readonly Context _context;
         private readonly IconSource _iconSource;
 
@@ -19,9 +23,6 @@ namespace AuthenticatorPro.List
             _context = context;
             _iconSource = iconSource;
         }
-
-        public override int ItemCount => _iconSource.List.Count;
-        public event EventHandler<int> ItemClick;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
@@ -49,7 +50,7 @@ namespace AuthenticatorPro.List
 
         public override long GetItemId(int position)
         {
-            return Icons.Service.ElementAt(position).GetHashCode();
+            return Icon.Service.ElementAt(position).GetHashCode();
         }
     }
 }

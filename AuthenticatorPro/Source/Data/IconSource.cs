@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Shared;
+using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.Data
 {
@@ -13,7 +14,7 @@ namespace AuthenticatorPro.Data
         {
             _search = "";
             _isDark = isDark;
-            List = new Dictionary<string, int>(Icons.Service.Count);
+            List = new Dictionary<string, int>(Icon.Service.Count);
 
             Update();
         }
@@ -26,22 +27,22 @@ namespace AuthenticatorPro.Data
             Update();
         }
 
-        public void Update()
+        private void Update()
         {
             if(_search.Trim() == "")
             {
-                List = new Dictionary<string, int>(Icons.Service.Count);
-                foreach(var item in Icons.Service)
-                    List.Add(item.Key, Icons.GetService(item.Key, _isDark));
+                List = new Dictionary<string, int>(Icon.Service.Count);
+                foreach(var item in Icon.Service)
+                    List.Add(item.Key, Icon.GetService(item.Key, _isDark));
 
                 return;
             }
 
             var query = _search.ToLower();
 
-            var keys = Icons.Service.Keys.Where(k => k.Contains(query)).ToList();
+            var keys = Icon.Service.Keys.Where(k => k.Contains(query)).ToList();
             List = new Dictionary<string, int>(keys.Count);
-            keys.ForEach(key => List.Add(key, Icons.GetService(key, _isDark)));
+            keys.ForEach(key => List.Add(key, Icon.GetService(key, _isDark)));
         }
     }
 }

@@ -80,36 +80,35 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\Activities\IntroActivity.cs" />
-    <Compile Include="Source\Activities\LightDarkActivity.cs" />
-    <Compile Include="Source\Activities\LoginActivity.cs" />
-    <Compile Include="Source\Activities\EditCategoriesActivity.cs" />
-    <Compile Include="Source\Activities\FileActivity.cs" />
-    <Compile Include="Source\Activities\InternalStorageActivity.cs" />
+    <Compile Include="Source\Activity\IntroActivity.cs" />
+    <Compile Include="Source\Activity\LightDarkActivity.cs" />
+    <Compile Include="Source\Activity\LoginActivity.cs" />
+    <Compile Include="Source\Activity\EditCategoriesActivity.cs" />
+    <Compile Include="Source\Activity\FileActivity.cs" />
+    <Compile Include="Source\Activity\InternalStorageActivity.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
-    <Compile Include="Source\Data\IAuthenticatorInfo.cs" />
-    <Compile Include="Source\Dialogs\EditCategoryDialog.cs" />
-    <Compile Include="Source\Dialogs\ChooseCategoriesDialog.cs" />
-    <Compile Include="Source\Dialogs\BackupPasswordDialog.cs" />
-    <Compile Include="Source\Activities\RestoreActivity.cs" />
-    <Compile Include="Source\Activities\BackupActivity.cs" />
-    <Compile Include="Source\Activities\AboutActivity.cs" />
-    <Compile Include="Source\Fragments\AddBottomSheetDialogFragment.cs" />
-    <Compile Include="Source\Fragments\IntroPageFragment.cs" />
+    <Compile Include="Source\Dialog\EditCategoryDialog.cs" />
+    <Compile Include="Source\Dialog\ChooseCategoriesDialog.cs" />
+    <Compile Include="Source\Dialog\BackupPasswordDialog.cs" />
+    <Compile Include="Source\Activity\RestoreActivity.cs" />
+    <Compile Include="Source\Activity\BackupActivity.cs" />
+    <Compile Include="Source\Activity\AboutActivity.cs" />
+    <Compile Include="Source\Fragment\AddBottomSheetDialogFragment.cs" />
+    <Compile Include="Source\Fragment\IntroPageFragment.cs" />
     <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
-    <Compile Include="Source\Preferences\EncryptedDatabasePreference.cs" />
-    <Compile Include="Source\Preferences\ViewGitHubPreference.cs" />
-    <Compile Include="Source\Preferences\RatePreference.cs" />
-    <Compile Include="Source\Preferences\AboutPreference.cs" />
-    <Compile Include="Source\Dialogs\IconDialog.cs" />
-    <Compile Include="Source\Dialogs\RenameAuthenticatorDialog.cs" />
-    <Compile Include="Source\Dialogs\AddAuthenticatorDialog.cs" />
+    <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
+    <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
+    <Compile Include="Source\Preference\RatePreference.cs" />
+    <Compile Include="Source\Preference\AboutPreference.cs" />
+    <Compile Include="Source\Dialog\IconDialog.cs" />
+    <Compile Include="Source\Dialog\RenameAuthenticatorDialog.cs" />
+    <Compile Include="Source\Dialog\AddAuthenticatorDialog.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
-    <Compile Include="Source\Fragments\SettingsFragment.cs" />
-    <Compile Include="Source\Activities\SettingsActivity.cs" />
+    <Compile Include="Source\Fragment\SettingsFragment.cs" />
+    <Compile Include="Source\Activity\SettingsActivity.cs" />
     <Compile Include="Source\List\ChooseCategoriesListHolder.cs" />
     <Compile Include="Source\List\ChooseCategoriesListAdapter.cs" />
     <Compile Include="Source\List\CategoryListAdapter.cs" />
@@ -127,7 +126,7 @@
     <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
     <Compile Include="Source\List\AuthenticatorListHolder.cs" />
     <Compile Include="Source\Data\AuthenticatorSource.cs" />
-    <Compile Include="Source\Activities\MainActivity.cs" />
+    <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Database.cs" />
     <Compile Include="Source\IdleActionBarDrawerToggle.cs" />
@@ -1137,7 +1136,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\font\rubik.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>

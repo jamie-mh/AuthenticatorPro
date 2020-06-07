@@ -13,16 +13,21 @@ namespace AuthenticatorPro.Data
 
         public Category(string name)
         {
-            name = name.Trim();
+            name = name.Trim().Truncate(32);
             Id = Hash.SHA1(name).Truncate(8);
             Name = name;
             Ranking = 1;
         }
 
-        [Column("id")] [PrimaryKey] public string Id { get; set; }
+        [Column("id")]
+        [PrimaryKey]
+        public string Id { get; set; }
 
-        [Column("name")] public string Name { get; set; }
+        [Column("name")]
+        [MaxLength(32)]
+        public string Name { get; set; }
 
-        [Column("ranking")] public int Ranking { get; set; }
+        [Column("ranking")]
+        public int Ranking { get; set; }
     }
 }
