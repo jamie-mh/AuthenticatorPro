@@ -13,7 +13,7 @@
       android:title="@string/pref_appLock_title"
       app:iconSpaceReserved="false"
       android:defaultValue="false" />
-    <authenticatorpro.preferences.EncryptedDatabasePreference
+    <authenticatorpro.preference.EncryptedDatabasePreference
       android:key="pref_useEncryptedDatabase"
       android:summary="@string/pref_useEncryptedDatabase_summary"
       app:iconSpaceReserved="false"
@@ -44,19 +44,19 @@
     android:title="@string/pref_more"
     android:key="pref_key_more">
 
-    <authenticatorpro.preferences.AboutPreference
+    <authenticatorpro.preference.AboutPreference
       android:key="pref_key_about"
       android:summary="@string/pref_about_summary"
       app:iconSpaceReserved="false"
       android:title="@string/pref_about_title" />
 
-    <authenticatorpro.preferences.RatePreference
+    <authenticatorpro.preference.RatePreference
       android:key="pref_key_rate"
       android:summary="@string/pref_rate_summary"
       app:iconSpaceReserved="false"
       android:title="@string/pref_rate_title" />
 
-    <authenticatorpro.preferences.ViewGitHubPreference
+    <authenticatorpro.preference.ViewGitHubPreference
       android:key="pref_key_view_github"
       android:summary="@string/pref_viewGitHub_summary"
       app:iconSpaceReserved="false"
