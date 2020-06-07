@@ -84,11 +84,6 @@ namespace AuthenticatorPro.Data
             return _code;
         }
 
-        public void IncrementCounter()
-        {
-            Counter++;
-        }
-
         public static Authenticator FromKeyUri(string uri)
         {
             const string uriExpr = @"^otpauth:\/\/([a-z]+)\/(.*?)\?(.*?)$";

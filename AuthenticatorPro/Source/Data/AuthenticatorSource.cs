@@ -156,7 +156,7 @@ namespace AuthenticatorPro.Data
             if(auth == null)
                 return;
 
-            auth.IncrementCounter();
+            auth.Counter++;
             await _connection.UpdateAsync(auth);
         }
 
