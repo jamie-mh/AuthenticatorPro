@@ -9,7 +9,6 @@ using Android.Gms.Wearable;
 using Android.OS;
 using Android.Support.Wear.Widget;
 using Android.Support.Wearable.Activity;
-using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Shared.Query;
 using AuthenticatorPro.Shared.Util;
@@ -70,6 +69,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private async void OnRetryClick(object sender, EventArgs e)
         {
             AnimUtil.FadeOutView(_disconnectedLayout, 200);
+
             await FindServerNode();
             await Refresh();
         }
@@ -78,13 +78,13 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             if(_serverNode == null)
             {
-                AnimUtil.FadeInView(_disconnectedLayout, 200);
+                AnimUtil.FadeInView(_disconnectedLayout, 200, true);
                 return;
             }
 
             AnimUtil.FadeOutView(_disconnectedLayout, 200);
             AnimUtil.FadeOutView(_emptyLayout, 200);
-            _authList.Visibility = ViewStates.Invisible;
+            AnimUtil.FadeOutView(_authList, 200);
 
             await WearableClass.GetMessageClient(this)
                 .SendMessageAsync(_serverNode.Id, ListCapability, new byte[] { });
@@ -146,7 +146,7 @@ namespace AuthenticatorPro.WearOS.Activity
                         AnimUtil.FadeOutView(_emptyLayout, 200);
 
                     _authenticatorListAdapter.NotifyDataSetChanged();
-                    AnimUtil.FadeInView(_authList, 200);
+                    AnimUtil.FadeInView(_authList, 200, true);
 
                     break;
                 }
