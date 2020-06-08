@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using Android.App;
+using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
 using Android.Support.Wearable.Activity;
@@ -18,7 +19,9 @@ namespace AuthenticatorPro.WearOS.Activity
     internal class CodeActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
     {
         private const int MaxCodeGroupSize = 4;
+
         private const string WearGetCodeCapability = "get_code";
+        private const string RefreshCapability = "refresh";
 
         private Timer _timer;
 
@@ -60,15 +63,19 @@ namespace AuthenticatorPro.WearOS.Activity
                 AutoReset = true
             };
 
-            if(_type == AuthenticatorType.Totp)
+            switch(_type)
             {
-                _timer.Enabled = true;
-                _timer.Elapsed += Tick;
-            }
-            else if(_type == AuthenticatorType.Hotp)
-                _progressBar.Visibility = ViewStates.Invisible;
+                case AuthenticatorType.Totp:
+                    _timer.Enabled = true;
+                    _timer.Elapsed += Tick;
+                    break;
 
-            await InitWearCapabilities();
+                case AuthenticatorType.Hotp:
+                    _progressBar.Visibility = ViewStates.Invisible;
+                    break;
+            }
+
+            await WearableClass.GetMessageClient(this).AddListenerAsync(this);
         }
 
         private async Task Refresh()
@@ -76,8 +83,16 @@ namespace AuthenticatorPro.WearOS.Activity
             // Send the position as a string instead of an int, because dealing with endianess sucks.
             var data = Encoding.UTF8.GetBytes(_position.ToString());
 
-            await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(_nodeId, WearGetCodeCapability, data);
+            try
+            {
+                await WearableClass.GetMessageClient(this)
+                    .SendMessageAsync(_nodeId, WearGetCodeCapability, data);
+            }
+            // If the connection has dropped, just go back
+            catch(ApiException)
+            {
+                Finish();
+            }
 
             if(_type == AuthenticatorType.Totp)
                 _timer.Start();
@@ -112,55 +127,53 @@ namespace AuthenticatorPro.WearOS.Activity
         protected override async void OnStop()
         {
             base.OnStop();
-            await PauseWearCapabilities();
+            await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
         }
 
         public void OnMessageReceived(IMessageEvent messageEvent)
         {
-            if(messageEvent.Path != WearGetCodeCapability)
-                return;
-
-            // Invalid position, return to list
-            if(messageEvent.GetData().Length == 0)
+            switch(messageEvent.Path)
             {
-                Finish();
-                return;
-            }
-
-            var json = Encoding.UTF8.GetString(messageEvent.GetData());
-            var update = JsonConvert.DeserializeObject<WearAuthenticatorCodeResponse>(json);
-
-            _timeRenew = update.TimeRenew;
-
-            var code = update.Code;
-
-            if(code == null)
-                code = "".PadRight(_digits, '-');
-
-            var spacesInserted = 0;
-            var groupSize = Math.Min(MaxCodeGroupSize, _digits / 2);
-
-            for(var i = 0; i < _digits; ++i)
-            {
-                if(i % groupSize == 0 && i > 0)
+                case WearGetCodeCapability:
                 {
-                    code = code.Insert(i + spacesInserted, " ");
-                    spacesInserted++;
+                    // Invalid position, return to list
+                    if(messageEvent.GetData().Length == 0)
+                    {
+                        Finish();
+                        return;
+                    }
+
+                    var json = Encoding.UTF8.GetString(messageEvent.GetData());
+                    var update = JsonConvert.DeserializeObject<WearAuthenticatorCodeResponse>(json);
+
+                    _timeRenew = update.TimeRenew;
+
+                    var code = update.Code;
+
+                    if(code == null)
+                        code = "".PadRight(_digits, '-');
+
+                    var spacesInserted = 0;
+                    var groupSize = Math.Min(MaxCodeGroupSize, _digits / 2);
+
+                    for(var i = 0; i < _digits; ++i)
+                    {
+                        if(i % groupSize == 0 && i > 0)
+                        {
+                            code = code.Insert(i + spacesInserted, " ");
+                            spacesInserted++;
+                        }
+                    }
+
+                    _codeTextView.Text = code;
+                    UpdateProgressBar();
+                    break;
                 }
+
+                case RefreshCapability:
+                    Finish(); // We don't know what changed, just go back
+                    break;
             }
-
-            _codeTextView.Text = code;
-            UpdateProgressBar();
-        }
-
-        private async Task InitWearCapabilities()
-        {
-            await WearableClass.GetMessageClient(this).AddListenerAsync(this);
-        }
-
-        private async Task PauseWearCapabilities()
-        {
-            await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
         }
     }
 }
