@@ -2,6 +2,7 @@
 
 namespace AuthenticatorPro.Shared.Query
 {
+    [Android.Runtime.Preserve(AllMembers = true)]
     public class WearAuthenticatorResponse
     {
         public readonly AuthenticatorType Type;
