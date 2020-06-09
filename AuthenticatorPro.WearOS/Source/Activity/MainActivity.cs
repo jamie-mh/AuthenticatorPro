@@ -7,18 +7,20 @@ using Android.App;
 using Android.Content;
 using Android.Gms.Wearable;
 using Android.OS;
-using Android.Support.Wear.Widget;
-using Android.Support.Wearable.Activity;
 using Android.Widget;
+using AndroidX.AppCompat.App;
+using AndroidX.Wear.Widget;
 using AuthenticatorPro.Shared.Query;
 using AuthenticatorPro.Shared.Util;
 using AuthenticatorPro.WearOS.List;
+using Google.Android.Material.Button;
 using Newtonsoft.Json;
+
 
 namespace AuthenticatorPro.WearOS.Activity
 {
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher", Theme = "@style/AppTheme")]
-    internal class MainActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
+    internal class MainActivity : AppCompatActivity, MessageClient.IOnMessageReceivedListener
     {
         private const string QueryCapability = "query";
         private const string ListCapability = "list";
@@ -28,7 +30,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private LinearLayout _emptyLayout;
         private LinearLayout _disconnectedLayout;
-        private Button _retryButton;
+        private MaterialButton _retryButton;
 
         private WearableRecyclerView _authList;
         private AuthenticatorListAdapter _authenticatorListAdapter;
@@ -41,7 +43,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _emptyLayout = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyLayout);
             _disconnectedLayout = FindViewById<LinearLayout>(Resource.Id.activityMain_disconnectedLayout);
-            _retryButton = FindViewById<Button>(Resource.Id.activityMain_retryButton);
+            _retryButton = FindViewById<MaterialButton>(Resource.Id.activityMain_retryButton);
             _retryButton.Click += OnRetryClick; 
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.activityMain_authList);
@@ -53,8 +55,6 @@ namespace AuthenticatorPro.WearOS.Activity
             _authenticatorListAdapter = new AuthenticatorListAdapter();
             _authenticatorListAdapter.ItemClick += ItemClick;
             _authList.SetAdapter(_authenticatorListAdapter);            
-
-            SetAmbientEnabled();
         }
 
         private async Task FindServerNode()

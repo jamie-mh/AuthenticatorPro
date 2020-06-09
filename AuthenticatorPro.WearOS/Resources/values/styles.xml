@@ -1,6 +1,8 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.MaterialComponents">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
 
         <item name="colorPrimary">@color/colorDarkest</item>
         <item name="colorPrimaryDark">@color/colorDarkest</item>

@@ -1,7 +1,7 @@
 ﻿using System;
-using Android.Support.V7.Widget;
-using Android.Support.Wear.Widget;
 using Android.Views;
+using AndroidX.RecyclerView.Widget;
+using AndroidX.Wear.Widget;
 
 namespace AuthenticatorPro.WearOS.List
 {

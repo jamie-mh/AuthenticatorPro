@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Android.Support.V7.Widget;
 using Android.Views;
-using AuthenticatorPro.Shared;
+using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Query;
 

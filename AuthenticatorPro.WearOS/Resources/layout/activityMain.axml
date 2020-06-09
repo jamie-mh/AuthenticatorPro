@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:id="@+id/activityMain_disconnectedLayout"
         android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_action_cloud_off"
+            android:contentDescription="@string/disconnected"
+            android:layout_marginBottom="8dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"/>
+
         <TextView
             android:text="@string/disconnected"
             android:textColor="?attr/primaryTextColor"
             android:textSize="16dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -24,32 +36,44 @@
             android:textColor="?attr/secondaryTextColor"
             android:textSize="12dp"
             android:textAlignment="center"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/activityMain_retryButton"
-            android:text="@string/retry"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/colorDark"
             android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:text="@string/retry"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:id="@+id/activityMain_emptyLayout"
         android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_action_lock_open"
+            android:contentDescription="@string/noAuthenticators"
+            android:layout_marginBottom="8dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"/>
+
         <TextView
             android:text="@string/noAuthenticators"
             android:textColor="?attr/primaryTextColor"
             android:textSize="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="4dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

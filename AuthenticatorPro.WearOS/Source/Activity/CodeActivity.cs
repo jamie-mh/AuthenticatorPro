@@ -6,9 +6,9 @@ using Android.App;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
-using Android.Support.Wearable.Activity;
 using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.App;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Query;
 using Newtonsoft.Json;
@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 namespace AuthenticatorPro.WearOS.Activity
 {
     [Activity]
-    internal class CodeActivity : WearableActivity, MessageClient.IOnMessageReceivedListener
+    internal class CodeActivity : AppCompatActivity, MessageClient.IOnMessageReceivedListener
     {
         private const int MaxCodeGroupSize = 4;
 
