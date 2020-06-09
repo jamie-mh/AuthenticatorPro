@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Activity
 
             _fileSource = new FileSource(Environment.ExternalStorageDirectory.AbsolutePath);
             _fileListAdapter = new FileListAdapter(_fileSource);
-            _fileListAdapter.SetHasStableIds(true);
+            _fileListAdapter.HasStableIds = true;
 
             var list = FindViewById<RecyclerView>(Resource.Id.activityFile_list);
             list.SetAdapter(_fileListAdapter);

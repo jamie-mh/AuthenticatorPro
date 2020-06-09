@@ -53,7 +53,7 @@ namespace AuthenticatorPro.Dialog
 
             _iconListAdapter = new IconListAdapter(Context, _iconSource);
             _iconListAdapter.ItemClick += OnItemClick;
-            _iconListAdapter.SetHasStableIds(true);
+            _iconListAdapter.HasStableIds = true;
 
             _iconList.SetAdapter(_iconListAdapter);
             _iconList.HasFixedSize = true;

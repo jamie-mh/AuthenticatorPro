@@ -231,7 +231,7 @@ namespace AuthenticatorPro.Activity
                 await NotifyWearAppOfChange();
             };
 
-            _authenticatorListAdapter.SetHasStableIds(true);
+            _authenticatorListAdapter.HasStableIds = true;
 
             _authList.SetAdapter(_authenticatorListAdapter);
             _authList.HasFixedSize = true;
