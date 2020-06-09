@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Data;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;

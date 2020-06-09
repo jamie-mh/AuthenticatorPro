@@ -5,7 +5,6 @@ using Android.Views;
 using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.List

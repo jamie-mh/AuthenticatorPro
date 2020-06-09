@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Query;
 using Newtonsoft.Json;
 using SQLite;
