@@ -28,6 +28,7 @@ namespace AuthenticatorPro.Shared.Data
             {"default", Resource.Drawable.auth_default},
             {"digitalocean", Resource.Drawable.auth_digitalocean},
             {"discord", Resource.Drawable.auth_discord},
+            {"docker", Resource.Drawable.auth_docker},
             {"dropbox", Resource.Drawable.auth_dropbox},
             {"electronicarts", Resource.Drawable.auth_electronicarts},
             {"epicgames", Resource.Drawable.auth_epicgames},
