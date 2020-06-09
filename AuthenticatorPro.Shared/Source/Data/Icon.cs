@@ -7,6 +7,8 @@ namespace AuthenticatorPro.Shared.Data
     {
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
+            {"default", Resource.Drawable.auth_default},
+
             {"1and1", Resource.Drawable.auth_1and1},
             {"3cx", Resource.Drawable.auth_3cx},
             {"adobe", Resource.Drawable.auth_adobe},
@@ -25,7 +27,6 @@ namespace AuthenticatorPro.Shared.Data
             {"blockchain", Resource.Drawable.auth_blockchain},
             {"cexio", Resource.Drawable.auth_cexio},
             {"coinbase", Resource.Drawable.auth_coinbase},
-            {"default", Resource.Drawable.auth_default},
             {"digitalocean", Resource.Drawable.auth_digitalocean},
             {"discord", Resource.Drawable.auth_discord},
             {"docker", Resource.Drawable.auth_docker},
@@ -100,19 +101,16 @@ namespace AuthenticatorPro.Shared.Data
 
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
         {
+            {"default", Resource.Drawable.auth_default_dark},
+
+            {"3cx", Resource.Drawable.auth_3cx_dark},
             {"adobe", Resource.Drawable.auth_adobe_dark},
             {"amazon", Resource.Drawable.auth_amazon_dark},
-            {"default", Resource.Drawable.auth_default_dark},
-            {"discord", Resource.Drawable.auth_discord_dark},
             {"electronicarts", Resource.Drawable.auth_electronicarts_dark},
             {"github", Resource.Drawable.auth_github_dark},
-            {"heroku", Resource.Drawable.auth_heroku_dark},
             {"ifttt", Resource.Drawable.auth_ifttt_dark},
-            {"instagram", Resource.Drawable.auth_instagram_dark},
             {"jetbrains", Resource.Drawable.auth_jetbrains_dark},
             {"logmein", Resource.Drawable.auth_logmein_dark},
-            {"protonvpn", Resource.Drawable.auth_protonvpn_dark},
-            {"rockstargames", Resource.Drawable.auth_rockstargames_dark},
             {"uber", Resource.Drawable.auth_uber_dark},
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
