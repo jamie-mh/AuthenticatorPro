@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Common;
+using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.Media;
 using Android.OS;
@@ -118,7 +119,6 @@ namespace AuthenticatorPro.Activity
             _barcodeScanner = new MobileBarcodeScanner();
 
             DetectGoogleAPIsAvailability();
-            await DetectWearOSCapability();
         }
 
         protected override void OnPostCreate(Bundle savedInstanceState)
@@ -167,6 +167,8 @@ namespace AuthenticatorPro.Activity
             _isChildActivityOpen = false;
             _authTimer.Start();
             Tick();
+
+            await DetectWearOSCapability();
 
             if(_areGoogleAPIsAvailable)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
@@ -810,10 +812,17 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            var capabiltyInfo = await WearableClass.GetCapabilityClient(this)
-                .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable);
+            try
+            {
+                var capabiltyInfo = await WearableClass.GetCapabilityClient(this)
+                    .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable);
 
-            _isWearOSCapable = capabiltyInfo.Nodes.Count > 0;
+                _isWearOSCapable = capabiltyInfo.Nodes.Count > 0;
+            }
+            catch(ApiException)
+            {
+                _isWearOSCapable = false;
+            }
         }
 
         private async Task NotifyWearAppOfChange()
