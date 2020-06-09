@@ -10,7 +10,6 @@ using Android.Content.PM;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
-using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Util;
@@ -49,7 +48,8 @@ namespace AuthenticatorPro.Activity
         private const int PermissionCameraCode = 0;
 
         private bool _areGoogleAPIsAvailable;
-        private bool _isWearOSCapable;
+        private bool _hasWearAPIs;
+        private bool _hasWearCompanion;
 
         private NavigationView _navigationView;
         private DrawerLayout _drawerLayout;
@@ -84,7 +84,7 @@ namespace AuthenticatorPro.Activity
             _pauseTime = DateTime.MinValue;
         }
 
-        protected override async void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
@@ -170,7 +170,7 @@ namespace AuthenticatorPro.Activity
 
             await DetectWearOSCapability();
 
-            if(_areGoogleAPIsAvailable)
+            if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
         }
 
@@ -386,7 +386,7 @@ namespace AuthenticatorPro.Activity
             _authTimer?.Stop();
             _pauseTime = DateTime.Now;
 
-            if(_areGoogleAPIsAvailable)
+            if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
         }
 
@@ -808,7 +808,8 @@ namespace AuthenticatorPro.Activity
         {
             if(!_areGoogleAPIsAvailable)
             {
-                _isWearOSCapable = false;
+                _hasWearAPIs = false;
+                _hasWearCompanion = false;
                 return;
             }
 
@@ -817,17 +818,19 @@ namespace AuthenticatorPro.Activity
                 var capabiltyInfo = await WearableClass.GetCapabilityClient(this)
                     .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable);
 
-                _isWearOSCapable = capabiltyInfo.Nodes.Count > 0;
+                _hasWearAPIs = true;
+                _hasWearCompanion = capabiltyInfo.Nodes.Count > 0;
             }
             catch(ApiException)
             {
-                _isWearOSCapable = false;
+                _hasWearAPIs = false;
+                _hasWearCompanion = false;
             }
         }
 
         private async Task NotifyWearAppOfChange()
         {
-            if(!_isWearOSCapable)
+            if(!_hasWearCompanion)
                 return;
 
             var nodes = (await WearableClass.GetCapabilityClient(this)
