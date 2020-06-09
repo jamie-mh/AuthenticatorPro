@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Service
 
         private async Task GetCode(int position, string nodeId)
         {
-            var auth = _source.Get(position);
+            var auth = _source.Authenticators.ElementAtOrDefault(position);
             var data = new byte[] {};
 
             if(auth != null)

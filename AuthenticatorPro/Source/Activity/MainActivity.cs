@@ -445,11 +445,12 @@ namespace AuthenticatorPro.Activity
 
         private void OnItemClick(object sender, int position)
         {
-            if(position < 0 || position >= _authenticatorSource.Authenticators.Count)
+            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(position);
+
+            if(auth == null)
                 return;
 
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
-            var auth = _authenticatorSource.Get(position);
             var clip = ClipData.NewPlainText("code", auth.GetCode());
             clipboard.PrimaryClip = clip;
 
@@ -677,6 +678,11 @@ namespace AuthenticatorPro.Activity
 
         private void OpenRenameDialog(int position)
         {
+            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(position);
+
+            if(auth == null)
+                return;
+
             var transaction = SupportFragmentManager.BeginTransaction();
             var old = SupportFragmentManager.FindFragmentByTag("rename_dialog");
 
@@ -684,7 +690,6 @@ namespace AuthenticatorPro.Activity
                 transaction.Remove(old);
 
             transaction.AddToBackStack(null);
-            var auth = _authenticatorSource.Get(position);
             _renameDialog = new RenameAuthenticatorDialog(auth.Issuer, auth.Username, position);
             _renameDialog.Rename += OnRenameDialogSubmit;
             _renameDialog.Show(transaction, "rename_dialog");
@@ -724,7 +729,11 @@ namespace AuthenticatorPro.Activity
 
         private async void OnIconDialogIconSelected(object sender, IconDialog.IconSelectedEventArgs e)
         {
-            var auth = _authenticatorSource.Get(e.ItemPosition);
+            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(e.ItemPosition);
+
+            if(auth == null)
+                return;
+
             auth.Icon = e.Icon;
 
             await _connection.UpdateAsync(auth);

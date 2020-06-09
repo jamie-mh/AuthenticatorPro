@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
@@ -42,7 +43,11 @@ namespace AuthenticatorPro.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var auth = _source.Get(position);
+            var auth = _source.Authenticators.ElementAtOrDefault(position);
+
+            if(auth == null)
+                return;
+
             var holder = (AuthenticatorListHolder) viewHolder;
 
             holder.Issuer.Text = auth.Issuer;

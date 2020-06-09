@@ -85,11 +85,6 @@ namespace AuthenticatorPro.Data
             UpdateView();
         }
 
-        public Authenticator Get(int position)
-        {
-            return Authenticators.ElementAtOrDefault(position);
-        }
-
         public int GetPosition(string secret)
         {
             return Authenticators.FindIndex(a => a.Secret == secret);
