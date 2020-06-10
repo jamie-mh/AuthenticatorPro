@@ -1,0 +1,4 @@
+- New icons for Bitwarden, Docker, Tutanota, Parsec and Samsung.
+- Wear OS companion app now available.
+- Improvements to existing icons in dark mode.
+- Bug fixes.

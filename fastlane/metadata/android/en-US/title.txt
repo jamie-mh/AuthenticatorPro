@@ -1,1 +1,1 @@
-Authenticator Pro - Free and Open-Source 2FA TOTP
+Authenticator Pro - Open-Source 2FA

@@ -1,1 +1,1 @@
-Keep your online accounts secure and protected with the best authentication app.
+Authenticator Pro is a free and open-source 2FA OTP authenticator with backups.
