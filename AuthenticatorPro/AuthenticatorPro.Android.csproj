@@ -136,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
-    <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\font\rubik_bold.ttf">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
