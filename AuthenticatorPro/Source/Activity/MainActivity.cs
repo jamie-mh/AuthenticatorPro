@@ -12,7 +12,6 @@ using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
-using Android.Provider;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
@@ -34,6 +33,7 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.IO;
+using Java.Sql;
 using SQLite;
 using ZXing;
 using ZXing.Mobile;
@@ -44,6 +44,7 @@ using Timer = System.Timers.Timer;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using Uri = Android.Net.Uri;
 
+
 namespace AuthenticatorPro.Activity
 {
     [Activity(Label = "@string/displayName", Theme = "@style/MainActivityTheme", MainLauncher = true, Icon = "@mipmap/ic_launcher", WindowSoftInputMode = SoftInput.AdjustPan)]
@@ -53,8 +54,9 @@ namespace AuthenticatorPro.Activity
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
-        private const int RestoreStorageAccessFrameworkCode = 1;
-        private const int BackupStorageAccessFrameworkCode = 2;
+        private const int ResultRestoreSAF = 1;
+        private const int ResultBackupSAF = 2;
+        private const int ResultSettingsRecreate = 3;
 
         private bool _areGoogleAPIsAvailable;
         private bool _hasWearAPIs;
@@ -145,12 +147,7 @@ namespace AuthenticatorPro.Activity
             }
             else if(_isChildActivityOpen)
             {
-                // TODO: reconnect to db when encryption changed
-                if(RequiresRecreate())
-                {
-                    Recreate();
-                    return;
-                }
+                _isChildActivityOpen = false;
 
                 await RefreshAuthenticators();
                 await _categorySource.Update();
@@ -163,10 +160,6 @@ namespace AuthenticatorPro.Activity
 
             CheckEmptyState();
 
-            _isChildActivityOpen = false;
-            _timer.Start();
-            Tick();
-
             // Launch task that needs to wait for the activity to resume
             // Useful because an activity result is called before resume
             if(_onceResumedTask != null)
@@ -174,6 +167,9 @@ namespace AuthenticatorPro.Activity
                 _onceResumedTask.Start();
                 _onceResumedTask = null;
             }
+
+            _timer.Start();
+            Tick();
 
             await DetectWearOSCapability();
 
@@ -185,17 +181,6 @@ namespace AuthenticatorPro.Activity
         {
             _isChildActivityOpen = true;
             StartActivity(type);
-        }
-
-        private bool RequiresRecreate()
-        {
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-
-            var isCompact = prefs.GetBoolean("pref_compactMode", false);
-            if(isCompact != _authenticatorListAdapter.IsCompact)
-                return true;
-
-            return false;
         }
 
         private async Task Init()
@@ -368,12 +353,16 @@ namespace AuthenticatorPro.Activity
                 intent.SetType("application/octet-stream");
                 intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
 
-                StartActivityForResult(intent, BackupStorageAccessFrameworkCode);
+                StartActivityForResult(intent, ResultBackupSAF);
                 _isChildActivityOpen = true;
             };
 
             fragment.ManageCategoriesClick += (sender, e) => { StartChildActivity(typeof(ManageCategoriesActivity)); };
-            fragment.SettingsClick += (sender, e) => { StartChildActivity(typeof(SettingsActivity)); };
+            fragment.SettingsClick += (sender, e) =>
+            {
+                _isChildActivityOpen = true;
+                StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
+            };
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -543,7 +532,7 @@ namespace AuthenticatorPro.Activity
                 var intent = new Intent(Intent.ActionOpenDocument);
                 intent.AddCategory(Intent.CategoryOpenable);
                 intent.SetType("application/octet-stream");
-                StartActivityForResult(intent, RestoreStorageAccessFrameworkCode);
+                StartActivityForResult(intent, ResultRestoreSAF);
                 _isChildActivityOpen = true;
             };
 
@@ -615,13 +604,17 @@ namespace AuthenticatorPro.Activity
                 return;
 
             _onceResumedTask = requestCode switch {
-                RestoreStorageAccessFrameworkCode => new Task(async () =>
+                ResultRestoreSAF => new Task(async () =>
                 {
                     await BeginRestore(intent.Data);
                 }),
-                BackupStorageAccessFrameworkCode => new Task(async () =>
+                ResultBackupSAF => new Task(async () =>
                 {
                     await BeginBackup(intent.Data);
+                }),
+                ResultSettingsRecreate => new Task(() =>
+                {
+                    RunOnUiThread(Recreate);
                 }),
                 _ => _onceResumedTask
             };

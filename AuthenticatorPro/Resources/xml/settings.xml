@@ -1,65 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <androidx.preference.PreferenceScreen
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <androidx.preference.PreferenceCategory
-    android:title="@string/pref_security"
-    android:key="pref_key_security">
-    <androidx.preference.SwitchPreferenceCompat
-      android:key="pref_appLock"
-      android:summary="@string/pref_appLock_summary"
-      android:title="@string/pref_appLock_title"
-      app:iconSpaceReserved="false"
-      android:defaultValue="false" />
-    <authenticatorpro.preference.EncryptedDatabasePreference
-      android:key="pref_useEncryptedDatabase"
-      android:summary="@string/pref_useEncryptedDatabase_summary"
-      app:iconSpaceReserved="false"
-      android:defaultValue="true"
-      android:title="@string/pref_useEncryptedDatabase_title" />
-  </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_security"
+        android:key="pref_key_security">
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pref_appLock"
+            android:summary="@string/pref_appLock_summary"
+            android:title="@string/pref_appLock_title"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false" />
+        <authenticatorpro.preference.EncryptedDatabasePreference
+            android:key="pref_useEncryptedDatabase"
+            android:summary="@string/pref_useEncryptedDatabase_summary"
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:title="@string/pref_useEncryptedDatabase_title" />
+    </androidx.preference.PreferenceCategory>
 
-  <androidx.preference.PreferenceCategory
-    android:title="@string/pref_appearance"
-    android:key="pref_key_appearance">
-    <androidx.preference.ListPreference
-      android:key="pref_theme"
-      android:summary="@string/pref_theme_summary"
-      android:title="@string/pref_theme_title"
-      app:iconSpaceReserved="false"
-      android:entries="@array/themeNames"
-      android:entryValues="@array/themeValues"
-      android:defaultValue="0" />
-    <androidx.preference.SwitchPreferenceCompat
-      android:key="pref_compactMode"
-      android:summary="@string/pref_compactMode_summary"
-      android:title="@string/pref_compactMode_title"
-      app:iconSpaceReserved="false"
-      android:defaultValue="false" />
-  </androidx.preference.PreferenceCategory>
-    
-  <androidx.preference.PreferenceCategory
-    android:title="@string/pref_more"
-    android:key="pref_key_more">
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_appearance"
+        android:key="pref_key_appearance">
+        <androidx.preference.ListPreference
+            android:key="pref_theme"
+            android:summary="@string/pref_theme_summary"
+            android:title="@string/pref_theme_title"
+            app:iconSpaceReserved="false"
+            android:entries="@array/themeNames"
+            android:entryValues="@array/themeValues"
+            android:defaultValue="0" />
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pref_compactMode"
+            android:summary="@string/pref_compactMode_summary"
+            android:title="@string/pref_compactMode_title"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false" />
+    </androidx.preference.PreferenceCategory>
 
-    <authenticatorpro.preference.AboutPreference
-      android:key="pref_key_about"
-      android:summary="@string/pref_about_summary"
-      app:iconSpaceReserved="false"
-      android:title="@string/pref_about_title" />
+    <androidx.preference.PreferenceCategory
+        android:title="@string/pref_more"
+        android:key="pref_key_more">
 
-    <authenticatorpro.preference.RatePreference
-      android:key="pref_key_rate"
-      android:summary="@string/pref_rate_summary"
-      app:iconSpaceReserved="false"
-      android:title="@string/pref_rate_title" />
+        <authenticatorpro.preference.AboutPreference
+            android:key="pref_key_about"
+            android:summary="@string/pref_about_summary"
+            app:iconSpaceReserved="false"
+            android:title="@string/pref_about_title" />
 
-    <authenticatorpro.preference.ViewGitHubPreference
-      android:key="pref_key_view_github"
-      android:summary="@string/pref_viewGitHub_summary"
-      app:iconSpaceReserved="false"
-      android:title="@string/pref_viewGitHub_title" />
-  </androidx.preference.PreferenceCategory>
+        <authenticatorpro.preference.RatePreference
+            android:key="pref_key_rate"
+            android:summary="@string/pref_rate_summary"
+            app:iconSpaceReserved="false"
+            android:title="@string/pref_rate_title" />
+
+        <authenticatorpro.preference.ViewGitHubPreference
+            android:key="pref_key_view_github"
+            android:summary="@string/pref_viewGitHub_summary"
+            app:iconSpaceReserved="false"
+            android:title="@string/pref_viewGitHub_title" />
+    </androidx.preference.PreferenceCategory>
 </androidx.preference.PreferenceScreen>

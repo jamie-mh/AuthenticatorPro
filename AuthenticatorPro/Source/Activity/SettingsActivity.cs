@@ -1,20 +1,28 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Preference;
 using AuthenticatorPro.Fragment;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class SettingsActivity : DayNightActivity
+    internal class SettingsActivity : DayNightActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
         private ProgressBar _progressBar;
+        private bool _shouldRecreateMain;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            // If a setting that requires changes to the main activity has changed
+            // return a result telling it to recreate.
+            _shouldRecreateMain = false;
 
             SetContentView(Resource.Layout.activitySettings);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -27,9 +35,26 @@ namespace AuthenticatorPro.Activity
 
             _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
+            PreferenceManager.GetDefaultSharedPreferences(this)
+                .RegisterOnSharedPreferenceChangeListener(this);
+
             SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.layoutFragment, new SettingsFragment())
                 .Commit();
+        }
+
+        public override void Finish()
+        {
+            if(_shouldRecreateMain)
+                SetResult(Result.Ok, null);
+
+            base.Finish();
+        }
+
+        public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
+        {
+            if(key == "pref_useEncryptedDatabase" || key == "pref_theme" || key == "pref_compactMode")
+                _shouldRecreateMain = true;
         }
 
         public async void SetDatabaseEncryption(bool isEncrypted)
