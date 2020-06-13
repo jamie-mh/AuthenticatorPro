@@ -1220,7 +1220,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\chipChoice.xml">
+    <AndroidResource Include="Resources\layout\chipChoice.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
