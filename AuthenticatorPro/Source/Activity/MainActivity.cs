@@ -680,6 +680,9 @@ namespace AuthenticatorPro.Activity
 
                     var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
                     ShowSnackbar(message, Snackbar.LengthLong);
+
+                    if(_hasWearCompanion)
+                        await NotifyWearAppOfChange();
                 }
 
                 catch(InvalidAuthenticatorException)
