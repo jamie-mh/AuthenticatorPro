@@ -143,6 +143,16 @@ namespace AuthenticatorPro.Activity
             // Just launched
             if(_connection == null)
             {
+                try
+                {
+                    _connection = await Database.Connect(this);
+                }
+                catch(SQLiteException)
+                {
+                    ShowDatabaseErrorDialog();
+                    return;
+                }
+
                 await Init();
             }
             else if(_isChildActivityOpen)
@@ -185,25 +195,16 @@ namespace AuthenticatorPro.Activity
 
         private async Task Init()
         {
-            try
-            {
-                _connection = await Database.Connect(this);
+            _authenticatorSource = new AuthenticatorSource(_connection);
+            _authenticatorSource.Update();
 
-                _authenticatorSource = new AuthenticatorSource(_connection);
-                _authenticatorSource.Update();
+            _categorySource = new CategorySource(_connection);
+            await _categorySource.Update();
 
-                _categorySource = new CategorySource(_connection);
-                await _categorySource.Update();
+            InitAuthenticatorList();
+            await RefreshAuthenticators();
 
-                InitAuthenticatorList();
-                await RefreshAuthenticators();
-
-                CreateTimer();
-            }
-            catch(SQLiteException)
-            {
-                ShowDatabaseErrorDialog();
-            }
+            CreateTimer();
         }
 
         private void ShowDatabaseErrorDialog()
