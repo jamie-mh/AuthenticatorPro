@@ -85,6 +85,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if(_serverNode == null)
             {
                 AnimUtil.FadeInView(_disconnectedLayout, 200, true);
+                _loadingLayout.Visibility = ViewStates.Invisible;
                 return;
             }
 
