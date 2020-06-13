@@ -7,24 +7,14 @@ namespace AuthenticatorPro.Activity
 {
     internal abstract class DayNightActivity : AppCompatActivity
     {
-        private string _currThemePref;
         protected bool IsDark { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetNightMode(GetThemePreference());
-        }
 
-        private string GetThemePreference()
-        {
             var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            return sharedPrefs.GetString("pref_theme", "0");
-        }
-
-        private void SetNightMode(string themePref)
-        {
-            _currThemePref = themePref;
+            var themePref = sharedPrefs.GetString("pref_theme", "0");
 
             switch(themePref)
             {
@@ -43,17 +33,6 @@ namespace AuthenticatorPro.Activity
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightYes;
                     break;
             }
-        }
-
-        protected override void OnResume()
-        {
-            base.OnResume();
-            var themePref = GetThemePreference();
-
-            if(_currThemePref != themePref)
-                Recreate();
-
-            SetNightMode(themePref);
         }
     }
 }
