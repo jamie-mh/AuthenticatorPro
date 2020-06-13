@@ -124,6 +124,7 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             base.OnResume();
 
+            _loadingLayout.Visibility = ViewStates.Visible;
             await WearableClass.GetMessageClient(this).AddListenerAsync(this);
             await FindServerNode();
             await Refresh();
@@ -152,7 +153,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
                     _authenticatorListAdapter.NotifyDataSetChanged();
 
-                    AnimUtil.FadeInView(_authList, 200, true);
                     var anim = new AlphaAnimation(0f, 1f) { Duration = 200 };
 
                     anim.AnimationEnd += (sender, e) =>
