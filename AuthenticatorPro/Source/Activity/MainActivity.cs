@@ -33,7 +33,6 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.IO;
-using Java.Sql;
 using SQLite;
 using ZXing;
 using ZXing.Mobile;
@@ -267,7 +266,7 @@ namespace AuthenticatorPro.Activity
             _authList.ScheduleLayoutAnimation();
 
             if(!viewOnly)
-                _progressBar.Visibility = ViewStates.Gone;
+                _progressBar.Visibility = ViewStates.Invisible;
         }
 
         private void CheckEmptyState()

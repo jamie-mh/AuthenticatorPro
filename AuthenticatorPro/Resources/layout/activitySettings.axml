@@ -10,6 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         app:elevation="0dp"
+        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,7 +29,7 @@
             android:indeterminate="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="invisible"
             style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
 
     </com.google.android.material.appbar.AppBarLayout>

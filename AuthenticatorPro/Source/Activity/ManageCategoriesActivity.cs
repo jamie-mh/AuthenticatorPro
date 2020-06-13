@@ -100,7 +100,7 @@ namespace AuthenticatorPro.Activity
 
             _categoryListAdapter.NotifyDataSetChanged();
             _categoryList.ScheduleLayoutAnimation();
-            _progressBar.Visibility = ViewStates.Gone;
+            _progressBar.Visibility = ViewStates.Invisible;
         }
 
         private void CheckEmptyState()

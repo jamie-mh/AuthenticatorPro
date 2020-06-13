@@ -47,12 +47,12 @@ namespace AuthenticatorPro
             return connection;
         }
 
-        public static async Task UpdateEncryption(Context context, bool useKey)
+        public static async Task SetEncryptionEnabled(Context context, bool encrypt)
         {
             var conn = await Connect(context);
             var tempPath = conn.DatabasePath.Replace("proauth", "temp");
 
-            if(useKey)
+            if(encrypt)
             {
                 var databaseKey = await SecureStorage.GetAsync("database_key");
                 await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, databaseKey);
