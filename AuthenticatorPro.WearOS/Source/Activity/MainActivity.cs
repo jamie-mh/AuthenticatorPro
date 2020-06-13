@@ -7,6 +7,8 @@ using Android.App;
 using Android.Content;
 using Android.Gms.Wearable;
 using Android.OS;
+using Android.Views;
+using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Wear.Widget;
@@ -28,8 +30,10 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private INode _serverNode;
 
+        private LinearLayout _loadingLayout;
         private LinearLayout _emptyLayout;
         private LinearLayout _disconnectedLayout;
+
         private MaterialButton _retryButton;
 
         private WearableRecyclerView _authList;
@@ -41,12 +45,14 @@ namespace AuthenticatorPro.WearOS.Activity
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activityMain);
 
-            _emptyLayout = FindViewById<LinearLayout>(Resource.Id.activityMain_emptyLayout);
-            _disconnectedLayout = FindViewById<LinearLayout>(Resource.Id.activityMain_disconnectedLayout);
-            _retryButton = FindViewById<MaterialButton>(Resource.Id.activityMain_retryButton);
+            _loadingLayout = FindViewById<LinearLayout>(Resource.Id.layoutLoading);
+            _emptyLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmpty);
+            _disconnectedLayout = FindViewById<LinearLayout>(Resource.Id.layoutDisconnected);
+
+            _retryButton = FindViewById<MaterialButton>(Resource.Id.buttonRetry);
             _retryButton.Click += OnRetryClick; 
 
-            _authList = FindViewById<WearableRecyclerView>(Resource.Id.activityMain_authList);
+            _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
             _authList.EdgeItemsCenteringEnabled = true;
 
             var layoutCallback = new ScrollingListLayoutCallback(Resources.Configuration.IsScreenRound);
@@ -119,7 +125,6 @@ namespace AuthenticatorPro.WearOS.Activity
             base.OnResume();
 
             await WearableClass.GetMessageClient(this).AddListenerAsync(this);
-
             await FindServerNode();
             await Refresh();
         }
@@ -146,7 +151,18 @@ namespace AuthenticatorPro.WearOS.Activity
                         AnimUtil.FadeOutView(_emptyLayout, 200);
 
                     _authenticatorListAdapter.NotifyDataSetChanged();
+
                     AnimUtil.FadeInView(_authList, 200, true);
+                    var anim = new AlphaAnimation(0f, 1f) { Duration = 200 };
+
+                    anim.AnimationEnd += (sender, e) =>
+                    {
+                        _authList.Visibility = ViewStates.Visible;
+                        _authList.RequestFocus();
+                    };
+
+                    _authList.StartAnimation(anim);
+                    _loadingLayout.Visibility = ViewStates.Invisible;
 
                     break;
                 }

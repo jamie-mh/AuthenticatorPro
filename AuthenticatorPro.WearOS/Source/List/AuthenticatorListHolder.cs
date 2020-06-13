@@ -15,9 +15,9 @@ namespace AuthenticatorPro.WearOS.List
         {
             itemView.Click += (sender, e) => clickListener(AdapterPosition);
 
-            Issuer = itemView.FindViewById<TextView>(Resource.Id.authListItem_issuer);
-            Username = itemView.FindViewById<TextView>(Resource.Id.authListItem_username);
-            Icon = itemView.FindViewById<ImageView>(Resource.Id.authListItem_icon);
+            Issuer = itemView.FindViewById<TextView>(Resource.Id.textIssuer);
+            Username = itemView.FindViewById<TextView>(Resource.Id.textUsername);
+            Icon = itemView.FindViewById<ImageView>(Resource.Id.imageIcon);
         }
     }
 }

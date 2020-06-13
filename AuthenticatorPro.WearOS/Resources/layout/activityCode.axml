@@ -21,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/activityCode_icon"
+                android:id="@+id/imageIcon"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center_horizontal"
@@ -36,10 +36,11 @@
                 android:textSize="12dp"
                 android:gravity="center_horizontal"
                 android:textColor="?attr/secondaryTextColor"
-                android:id="@+id/activityCode_username" />
+                android:singleLine="true"
+                android:id="@+id/textUsername" />
 
             <ProgressBar
-                android:id="@+id/activityCode_progress"
+                android:id="@+id/progressBar"
                 style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
                 android:progress="0"
                 android:layout_width="match_parent"
@@ -52,7 +53,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="32dp"
                 android:textColor="?attr/primaryTextColor"
-                android:id="@+id/activityCode_code" />
+                android:id="@+id/textCode" />
 
         </LinearLayout>
 

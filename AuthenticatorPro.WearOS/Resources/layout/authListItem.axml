@@ -9,7 +9,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/authListItem_icon"
+        android:id="@+id/imageIcon"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center"
@@ -28,7 +28,8 @@
             android:textSize="14dp"
             android:gravity="left"
             android:textColor="?attr/primaryTextColor"
-            android:id="@+id/authListItem_issuer" />
+            android:singleLine="true"
+            android:id="@+id/textIssuer" />
 
         <TextView
             android:text=""
@@ -37,8 +38,8 @@
             android:textSize="12dp"
             android:gravity="left"
             android:textColor="?attr/secondaryTextColor"
-            android:layout_below="@id/authListItem_issuer"
-            android:id="@+id/authListItem_username" />
+            android:singleLine="true"
+            android:id="@+id/textUsername" />
 
     </LinearLayout>
 </LinearLayout>

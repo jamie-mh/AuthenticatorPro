@@ -42,13 +42,13 @@ namespace AuthenticatorPro.WearOS.Activity
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activityCode);
 
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.activityCode_progress);
-            _codeTextView = FindViewById<TextView>(Resource.Id.activityCode_code);
+            _progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar);
+            _codeTextView = FindViewById<TextView>(Resource.Id.textCode);
 
-            var usernameText = FindViewById<TextView>(Resource.Id.activityCode_username);
+            var usernameText = FindViewById<TextView>(Resource.Id.textUsername);
             usernameText.Text = Intent.Extras.GetString("username");
 
-            var iconView = FindViewById<ImageView>(Resource.Id.activityCode_icon);
+            var iconView = FindViewById<ImageView>(Resource.Id.imageIcon);
             iconView.SetImageResource(Icon.GetService(Intent.Extras.GetString("icon"), true));
 
             _nodeId = Intent.Extras.GetString("nodeId");

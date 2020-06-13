@@ -5,10 +5,27 @@
                 android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/layoutLoading"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:indeterminate="true"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="vertical"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:id="@+id/activityMain_disconnectedLayout"
+        android:id="@+id/layoutDisconnected"
         android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
@@ -41,7 +58,7 @@
             android:layout_height="wrap_content"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/activityMain_retryButton"
+            android:id="@+id/buttonRetry"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:strokeColor="@color/colorDark"
             android:layout_gravity="center_horizontal"
@@ -55,7 +72,7 @@
         android:orientation="vertical"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:id="@+id/activityMain_emptyLayout"
+        android:id="@+id/layoutEmpty"
         android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
@@ -89,8 +106,11 @@
     </LinearLayout>
 
     <android.support.wear.widget.WearableRecyclerView
-        android:id="@+id/activityMain_authList"
+        android:id="@+id/list"
         android:visibility="invisible"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
