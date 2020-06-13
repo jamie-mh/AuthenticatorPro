@@ -539,12 +539,12 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        public override async void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             if(requestCode == PermissionCameraCode)
             {
                 if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
-                    ScanQRCode();
+                    await ScanQRCode();
                 else
                     ShowSnackbar(Resource.String.cameraPermissionError, Snackbar.LengthShort);
             }
@@ -552,7 +552,7 @@ namespace AuthenticatorPro.Activity
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        private async void ScanQRCode()
+        private async Task ScanQRCode()
         {
             var options = new MobileBarcodeScanningOptions {
                 PossibleFormats = new List<BarcodeFormat> {
