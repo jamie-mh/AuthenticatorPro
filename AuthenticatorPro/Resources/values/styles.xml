@@ -37,7 +37,6 @@
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">
-        <!-- api 23 ?? -->
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>

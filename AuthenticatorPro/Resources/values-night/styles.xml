@@ -31,12 +31,12 @@
 
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="android:windowBackground">@color/colorDarkest</item>
+        <item name="colorBackgroundFloating">@color/colorDark</item>
 
         <item name="android:navigationBarColor">@color/colorDarkest</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">
-        <!-- api 23 ?? -->
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>
