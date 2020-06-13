@@ -1,21 +1,22 @@
 <RelativeLayout
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools">
-	<androidx.appcompat.widget.Toolbar
-		android:minHeight="?android:attr/actionBarSize"
-		android:background="?android:attr/colorPrimary"
-		android:minWidth="25px"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:elevation="0dp"
-		android:id="@+id/activityAbout_toolbar"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-	<android.webkit.WebView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_below="@id/activityAbout_toolbar"
-		android:id="@+id/activityAbout_webView" />
+    <com.google.android.material.appbar.MaterialToolbar
+        style="Widget.MaterialComponents.Toolbar"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="?attr/colorBase"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar" />
+
+    <android.webkit.WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:id="@+id/webView" />
+
 </RelativeLayout>

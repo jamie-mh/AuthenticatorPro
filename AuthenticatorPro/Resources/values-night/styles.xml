@@ -4,10 +4,17 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="colorPrimary">@color/colorDarkest</item>
-        <item name="colorPrimaryDark">@color/colorDarkest</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorBackgroundFloating">@color/colorDark</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorDarkest</item>"
+        <item name="colorPrimaryVariant">@color/colorAccentDark</item>
+
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryVariant">@color/colorAccentDark</item>
+
+        <item name="colorSurface">@color/colorDarker</item>
+        <item name="colorOnSurface">@color/colorLightest</item>
+
+        <item name="colorError">#ff4240</item>
 
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
@@ -15,6 +22,8 @@
         <item name="primaryTextColor">@color/colorLighter</item>
         <item name="secondaryTextColor">@color/colorLight</item>
         <item name="listBorderColor">@color/colorDark</item>
+
+        <item name="colorBase">@color/colorDarkest</item>
 
         <item name="authList_background">@color/colorDarkest</item>
         <item name="authListItem_background">@color/colorDark</item>
@@ -24,5 +33,10 @@
         <item name="android:windowBackground">@color/colorDarkest</item>
 
         <item name="android:navigationBarColor">@color/colorDarkest</item>
+    </style>
+
+    <style name="MainActivityTheme" parent="AppTheme">
+        <!-- api 23 ?? -->
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 </resources>

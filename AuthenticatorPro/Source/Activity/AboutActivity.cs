@@ -7,14 +7,14 @@ using AndroidX.AppCompat.Widget;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class AboutActivity : LightDarkActivity
+    internal class AboutActivity : DayNightActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityAbout);
 
-            var toolbar = FindViewById<Toolbar>(Resource.Id.activityAbout_toolbar);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
             SupportActionBar.SetTitle(Resource.String.about);
@@ -22,8 +22,8 @@ namespace AuthenticatorPro.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            var webView = FindViewById<WebView>(Resource.Id.activityAbout_webView);
-            webView.LoadUrl(@"file:///android_asset/about.html");
+            var webView = FindViewById<WebView>(Resource.Id.webView);
+            webView.LoadUrl("file:///android_asset/about.html");
         }
 
         public override bool OnSupportNavigateUp()

@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-  <declare-styleable name="AppTheme">
-    <attr name="colorPrimary" format="color" />
-    <attr name="colorPrimaryDark" format="color" />
+    <declare-styleable name="AppTheme">
+        <attr name="colorBase" format="color" />
 
-    <attr name="primaryTextColor" format="color" />
-    <attr name="secondaryTextColor" format="color" />
-    <attr name="listBorderColor" format="color" />
+        <attr name="colorPrimary" format="color" />
+        <attr name="colorPrimaryDark" format="color" />
 
-    <attr name="authList_background" format="color" />
-    <attr name="authListItem_background" format="color" />
-    <attr name="authListItem_code" format="color" />
-  </declare-styleable>
+        <attr name="primaryTextColor" format="color" />
+        <attr name="secondaryTextColor" format="color" />
+        <attr name="listBorderColor" format="color" />
+
+        <attr name="authList_background" format="color" />
+        <attr name="authListItem_background" format="color" />
+        <attr name="authListItem_code" format="color" />
+    </declare-styleable>
 </resources>

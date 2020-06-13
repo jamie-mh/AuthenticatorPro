@@ -6,7 +6,7 @@ using Android.Runtime;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class LoginActivity : LightDarkActivity
+    internal class LoginActivity : DayNightActivity
     {
         private const int RequestConfirmDeviceCredentials = 0;
 

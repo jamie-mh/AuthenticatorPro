@@ -34,9 +34,7 @@ namespace AuthenticatorPro.List
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(
-                Resource.Layout.iconListItem, parent, false);
-
+            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemIcon, parent, false);
             var holder = new IconListHolder(itemView, OnItemClick);
 
             return holder;

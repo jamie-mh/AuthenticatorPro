@@ -1,111 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout 
-	android:id="@+id/activityMain_drawerLayout"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
 
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/coordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="false"
+    android:background="?attr/colorBase"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-		<com.google.android.material.appbar.AppBarLayout
-			android:id="@+id/activityMain_appBarLayout"
-            app:elevation="0dp"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        app:elevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-			<androidx.appcompat.widget.Toolbar
-				android:minHeight="?android:attr/actionBarSize"
-				android:background="?android:attr/colorPrimary"
-				android:minWidth="25px"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:id="@+id/activityMain_toolbar"/>
+        <com.google.android.material.appbar.MaterialToolbar
+            style="Widget.MaterialComponents.Toolbar"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll"
+            android:background="?attr/colorBase"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar" />
 
-			<ProgressBar
-				android:id="@+id/activityMain_progressBar"
-				android:layout_marginTop="-7dp"
-				android:layout_marginBottom="-7dp"
-				android:indeterminate="true"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+        <ProgressBar
+            android:id="@+id/appBarProgressBar"
+            android:layout_marginTop="-7dp"
+            android:layout_marginBottom="-7dp"
+            android:indeterminate="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorBase"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
 
-		</com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-		<androidx.recyclerview.widget.RecyclerView
-			android:id="@+id/activityMain_authList"
-			android:clipToPadding="false"
-			android:paddingBottom="80dp"
-			android:background="?attr/authList_background"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_below="@id/activityMain_appBarLayout" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
+        android:background="?attr/colorBase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-		<LinearLayout
-			android:id="@+id/activityMain_emptyState"
-			android:orientation="vertical"
-			android:gravity="center"
-			android:visibility="invisible"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:layout_below="@id/activityMain_appBarLayout">
+    <LinearLayout
+        android:id="@+id/layoutEmptyState"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-			<ImageView
-				android:layout_width="76dp"
-				android:layout_height="76dp"
-				android:layout_gravity="center"
-				android:src="@drawable/ic_lock_open" />
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_lock_open" />
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:gravity="center"
-				android:paddingRight="32dp"
-				android:paddingLeft="32dp"
-				android:fontWeight="700"
-				android:textSize="24dp"
-				android:textColor="?attr/primaryTextColor"
-				android:layout_marginTop="22dp"
-				android:text="@string/noAuthenticatorsTitle" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingRight="32dp"
+            android:paddingLeft="32dp"
+            android:fontWeight="700"
+            android:textSize="24dp"
+            android:textColor="?attr/primaryTextColor"
+            android:layout_marginTop="22dp"
+            android:text="@string/noAuthenticatorsTitle" />
 
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:gravity="center"
-				android:paddingRight="32dp"
-				android:paddingLeft="32dp"
-				android:layout_marginTop="22dp"
-				android:textSize="16dp"
-				android:textColor="?attr/secondaryTextColor"
-				android:text="@string/noAuthenticatorsMessage" />
-		</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingRight="32dp"
+            android:paddingLeft="32dp"
+            android:layout_marginTop="22dp"
+            android:textSize="16dp"
+            android:textColor="?attr/secondaryTextColor"
+            android:text="@string/noAuthenticatorsMessage" />
+    </LinearLayout>
 
-		<com.google.android.material.floatingactionbutton.FloatingActionButton
-			android:id="@+id/activityMain_buttonAdd"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/ic_action_add"
-			app:useCompatPadding="true"
-			android:layout_alignParentBottom="true"
-			android:layout_alignParentRight="true"
-			app:tint="@color/colorDark"
-            app:backgroundTint="@color/colorAccent"
-			app:elevation="4dp" />
-	</RelativeLayout>
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="center"
+        app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp"
+        app:hideOnScroll="true"
+        app:backgroundTint="?attr/authListItem_background"
+        app:menu="@menu/bottom"
+        app:navigationIcon="@drawable/ic_action_menu" />
 
-	<com.google.android.material.navigation.NavigationView
-		android:layout_width="wrap_content"
-		android:layout_height="match_parent"
-		android:layout_gravity="start"
-		android:id="@+id/activityMain_navView"
-		app:itemTextColor="@color/drawer_item"
-		app:menu="@menu/drawer"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_add"
+        app:tint="@color/colorDark"
+        app:layout_anchor="@id/bottomAppBar"
+        app:backgroundTint="@color/colorAccent" />
 
-</androidx.drawerlayout.widget.DrawerLayout >
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

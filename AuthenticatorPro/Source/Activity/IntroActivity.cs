@@ -25,8 +25,8 @@ namespace AuthenticatorPro.Activity
 
             _pageCount = Resources.GetStringArray(Resource.Array.introTitle).Length;
 
-            _pager = FindViewById<ViewPager>(Resource.Id.activityIntro_pager);
-            _nav = FindViewById<BottomNavigationView>(Resource.Id.activityIntro_nav);
+            _pager = FindViewById<ViewPager>(Resource.Id.viewPager);
+            _nav = FindViewById<BottomNavigationView>(Resource.Id.navigationView);
 
             _nav.NavigationItemSelected += OnNavigationItemSelected;
             _pager.PageSelected += OnPageSelected;

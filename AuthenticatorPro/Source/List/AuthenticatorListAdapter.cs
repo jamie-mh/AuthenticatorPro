@@ -11,7 +11,7 @@ namespace AuthenticatorPro.List
     internal sealed class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         public event EventHandler<int> ItemClick;
-        public event EventHandler<int> ItemOptionsClick;
+        public event EventHandler<int> MenuClick;
         public event EventHandler MovementFinished;
 
         private const int MaxCodeGroupSize = 4;
@@ -122,7 +122,6 @@ namespace AuthenticatorPro.List
         {
             holder.RefreshButton.Visibility = ViewStates.Gone;
             holder.ProgressBar.Visibility = ViewStates.Visible;
-            holder.Counter.Visibility = ViewStates.Invisible;
             holder.ProgressBar.Progress = GetRemainingProgress(auth);
         }
 
@@ -133,18 +132,16 @@ namespace AuthenticatorPro.List
                 : ViewStates.Gone;
 
             holder.ProgressBar.Visibility = ViewStates.Invisible;
-            holder.Counter.Visibility = ViewStates.Visible;
-            holder.Counter.Text = auth.Counter.ToString();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var layout = IsCompact ? Resource.Layout.authListItemCompact : Resource.Layout.authListItem;
+            var layout = IsCompact ? Resource.Layout.listItemAuthCompact: Resource.Layout.listItemAuth;
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthenticatorListHolder(itemView);
             holder.Click += ItemClick;
-            holder.OptionsClick += ItemOptionsClick;
+            holder.MenuClick += MenuClick;
             holder.RefreshClick += OnRefreshClick;
 
             return holder;

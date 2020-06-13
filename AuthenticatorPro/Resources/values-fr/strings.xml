@@ -7,6 +7,7 @@
     <string name="about">À Propos</string>
     <string name="scanQrCode">Lire un QR Code</string>
     <string name="enterKey">Utiliser une clé</string>
+    <string name="restoreBackup">Restorer une sauvegarde</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="warning">Attention</string>
     <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée sur votre compte.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nVoulez-vous vraiment continuer?</string>
@@ -50,10 +51,10 @@
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés.</string>
 
     <string name="categories">Catégories</string>
-    <string name="chooseCategories">Choisir les catégories</string>
+    <string name="assignCategories">Affecter des catégories</string>
     <string name="more">Plus</string>
     <string name="categoryAll">Tout</string>
-    <string name="editCategories">Modifier les catégories</string>
+    <string name="manageCategories">Gèrer les catégories</string>
     <string name="categoryNameHint">Nom de la catégorie</string>
     <string name="noCategoryName">Le nom de la catégorie est requis.</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà.</string>
@@ -61,18 +62,11 @@
     <string name="noCategoriesTitle">Aucune catégorie</string>
     <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant.</string>
 
-    <string name="restoreMessage">Choissisez une sauvegarde Authenticator Pro pour restaurer vos authenticateurs.\nVous pouvez choisir un fichier sur votre appareil ou sur un stockage cloud.</string>
-    <string name="backupMessage">Sauvegardez vos authenticateurs dans un fichier protégé par mot de passe.\nVous pouvez le sauvegarder sur votre appareil ou sur un stockage cloud dans le cas où vous le perdez votre appareil.</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier.</string>
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro.</string>
-    <string name="externalStoragePermissionError">L\'autorisation d\'accéder au système de fichiers est requis pour sauvegarder et restaurer des authenticateurs.</string>
     <string name="saveSuccess">Sauvegarde effectuée avec succès</string>
-    <string name="restoreBackupDevice">Restaurer une sauvegarde à partir de l\'appareil</string>
-    <string name="restoreBackupCloud">Restaurer une sauvegarde à partir d\'un stockage cloud</string>
-    <string name="saveBackupDevice">Sauvegarder sur le stockage de l\'appareil</string>
-    <string name="saveBackupCloud">Sauvegarder sur un stockage cloud</string>
 
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>

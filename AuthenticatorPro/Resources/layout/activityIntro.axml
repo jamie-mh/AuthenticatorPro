@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,16 +7,15 @@
     android:layout_height="match_parent">
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/activityIntro_pager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/activityIntro_nav"
+        android:id="@+id/navigationView"
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/intronavcolours"
         app:elevation="30dp"

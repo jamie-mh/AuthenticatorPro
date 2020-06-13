@@ -7,16 +7,19 @@ namespace AuthenticatorPro.List
 {
     internal class CategoryListHolder : RecyclerView.ViewHolder
     {
-        public CategoryListHolder(View itemView, Action<int> renameClick, Action<int> deleteClick) : base(itemView)
-        {
-            Name = itemView.FindViewById<TextView>(Resource.Id.categoryListItem_name);
-            var renameButton = itemView.FindViewById<ImageButton>(Resource.Id.categoryListItem_rename);
-            var deleteButton = itemView.FindViewById<ImageButton>(Resource.Id.categoryListItem_delete);
-
-            renameButton.Click += (sender, e) => renameClick(AdapterPosition);
-            deleteButton.Click += (sender, e) => deleteClick(AdapterPosition);
-        }
-
+        public event EventHandler<int> MenuClick;
         public TextView Name { get; }
+
+
+        public CategoryListHolder(View itemView) : base(itemView)
+        {
+            Name = itemView.FindViewById<TextView>(Resource.Id.textName);
+
+            var menuButton = itemView.FindViewById<ImageButton>(Resource.Id.buttonMenu);
+            menuButton.Click += (sender, args) =>
+            {
+                MenuClick?.Invoke(this, AdapterPosition);
+            };
+        }
     }
 }

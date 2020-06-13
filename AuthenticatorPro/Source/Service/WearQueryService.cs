@@ -34,7 +34,9 @@ namespace AuthenticatorPro.Service
         public override async void OnDestroy()
         {
             base.OnDestroy();
-            await _connection.CloseAsync();
+
+            if(_connection != null)
+                await _connection.CloseAsync();
         }
 
         private async Task ListAuthenticators(string nodeId)

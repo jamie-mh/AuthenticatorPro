@@ -3,7 +3,7 @@
   <string-array name="authContextMenu">
     <item>@string/rename</item>
     <item>@string/changeIcon</item>
-    <item>@string/chooseCategories</item>
+    <item>@string/assignCategories</item>
     <item>@string/delete</item>
   </string-array>
   <string-array name="authTypes">

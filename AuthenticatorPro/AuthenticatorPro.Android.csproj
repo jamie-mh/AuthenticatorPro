@@ -81,43 +81,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Activity\IntroActivity.cs" />
-    <Compile Include="Source\Activity\LightDarkActivity.cs" />
+    <Compile Include="Source\Activity\DayNightActivity.cs" />
     <Compile Include="Source\Activity\LoginActivity.cs" />
-    <Compile Include="Source\Activity\EditCategoriesActivity.cs" />
-    <Compile Include="Source\Activity\FileActivity.cs" />
-    <Compile Include="Source\Activity\InternalStorageActivity.cs" />
+    <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
-    <Compile Include="Source\Dialog\EditCategoryDialog.cs" />
-    <Compile Include="Source\Dialog\ChooseCategoriesDialog.cs" />
-    <Compile Include="Source\Dialog\BackupPasswordDialog.cs" />
-    <Compile Include="Source\Activity\RestoreActivity.cs" />
-    <Compile Include="Source\Activity\BackupActivity.cs" />
+    <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
+    <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\MainMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\AssignCategoriesBottomSheet.cs" />
+    <Compile Include="Source\Fragment\BackupPasswordBottomSheet.cs" />
     <Compile Include="Source\Activity\AboutActivity.cs" />
-    <Compile Include="Source\Fragment\AddBottomSheetDialogFragment.cs" />
+    <Compile Include="Source\Fragment\EditMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\RenameAuthenticatorBottomSheet.cs" />
+    <Compile Include="Source\Fragment\AddMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\IntroPageFragment.cs" />
     <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
     <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preference\RatePreference.cs" />
     <Compile Include="Source\Preference\AboutPreference.cs" />
-    <Compile Include="Source\Dialog\IconDialog.cs" />
-    <Compile Include="Source\Dialog\RenameAuthenticatorDialog.cs" />
-    <Compile Include="Source\Dialog\AddAuthenticatorDialog.cs" />
+    <Compile Include="Source\Dialog\ChangeIconDialog.cs" />
+    <Compile Include="Source\Fragment\AddAuthenticatorBottomSheet.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Source\Fragment\SettingsFragment.cs" />
     <Compile Include="Source\Activity\SettingsActivity.cs" />
-    <Compile Include="Source\List\ChooseCategoriesListHolder.cs" />
-    <Compile Include="Source\List\ChooseCategoriesListAdapter.cs" />
     <Compile Include="Source\List\CategoryListAdapter.cs" />
     <Compile Include="Source\List\CategoryListHolder.cs" />
     <Compile Include="Source\List\AnimatedGridLayoutManager.cs" />
-    <Compile Include="Source\List\FileListHolder.cs" />
     <Compile Include="Source\Data\CategorySource.cs" />
-    <Compile Include="Source\Data\FileSource.cs" />
-    <Compile Include="Source\List\FileListAdapter.cs" />
     <Compile Include="Source\Util\Hash.cs" />
     <Compile Include="Source\List\ReorderableListTouchHelperCallback.cs" />
     <Compile Include="Source\Data\IconSource.cs" />
@@ -199,7 +193,7 @@
       <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.Material">
-      <Version>1.0.0.1</Version>
+      <Version>1.1.0.1-rc3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
       <Version>71.1601.1</Version>
@@ -212,7 +206,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\authListItem.axml">
+    <AndroidResource Include="Resources\layout\listItemAuth.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -220,18 +214,12 @@
     <AndroidResource Include="Resources\menu\main.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogAddAuthenticator.axml">
+    <AndroidResource Include="Resources\layout\sheetAddAuthenticator.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\arrays.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogRenameAuthenticator.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activityAbout.axml">
@@ -242,19 +230,7 @@
     <AndroidAsset Include="Assets\about.html" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityBackup.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityRestore.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogBackupPassword.axml">
+    <AndroidResource Include="Resources\layout\sheetBackupPassword.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -272,13 +248,13 @@
     <AndroidResource Include="Resources\xml\searchable.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogIcon.axml">
+    <AndroidResource Include="Resources\layout\dialogChangeIcon.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\iconListItem.axml">
+    <AndroidResource Include="Resources\layout\listItemIcon.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -289,13 +265,7 @@
     <AndroidResource Include="Resources\drawable-v24\ic_launcher_foreground.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityFile.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\fileListItem.axml" />
+    <AndroidResource Include="Resources\layout\listItemFile.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\item_animation_fall_down.xml" />
@@ -304,10 +274,7 @@
     <AndroidResource Include="Resources\anim\layout_animation_fall_down.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\drawer.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityEditCategories.axml">
+    <AndroidResource Include="Resources\layout\activityManageCategories.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -316,25 +283,19 @@
     <AndroidResource Include="Resources\color\drawer_item.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\categoryListItem.axml">
+    <AndroidResource Include="Resources\layout\listItemCategory.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogEditCategory.axml">
+    <AndroidResource Include="Resources\layout\sheetEditCategory.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogChooseCategories.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\chooseCategoriesListItem.axml">
+    <AndroidResource Include="Resources\layout\sheetAssignCategories.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -367,12 +328,12 @@
     <AndroidResource Include="Resources\drawable\listItemBorder.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\addBottomSheetDialog.axml">
+    <AndroidResource Include="Resources\layout\sheetAddMenu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\introPageFragment.xml">
+    <AndroidResource Include="Resources\layout\fragmentIntroPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -391,7 +352,7 @@
     <AndroidResource Include="Resources\values-de\strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\authListItemCompact.axml">
+    <AndroidResource Include="Resources\layout\listItemAuthCompact.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -1145,7 +1106,157 @@
     </AndroidResource>
     <AndroidResource Include="Resources\values\wear.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\listItemDropdown.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\sheetRenameAuthenticator.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\sheetEditMenu.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\sheetEditCategoryMenu.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\sheetMainMenu.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\bottom.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\chipChoice.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\changeIcon.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 		Other similar extension points exist, see Microsoft.Common.targets.

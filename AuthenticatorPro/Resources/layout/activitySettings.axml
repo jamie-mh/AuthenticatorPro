@@ -8,33 +8,35 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/activitySettings_appBarLayout"
+        android:id="@+id/appBarLayout"
         app:elevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
+            style="Widget.MaterialComponents.Toolbar"
             android:minHeight="?android:attr/actionBarSize"
-            android:background="?android:attr/colorPrimary"
-            android:minWidth="25px"
+            android:background="?attr/colorBase"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/activitySettings_toolbar" />
+            android:id="@+id/toolbar" />
 
         <ProgressBar
-            android:id="@+id/activitySettings_progressBar"
+            android:id="@+id/appBarProgressBar"
             android:layout_marginTop="-7dp"
             android:layout_marginBottom="-7dp"
             android:indeterminate="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:visibility="gone"
             style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/activitySettings_content"
+        android:id="@+id/layoutFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/activitySettings_appBarLayout" />
+        android:layout_below="@id/appBarLayout" />
+
 </RelativeLayout>

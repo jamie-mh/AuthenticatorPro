@@ -8,7 +8,7 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class SettingsActivity : LightDarkActivity
+    internal class SettingsActivity : DayNightActivity
     {
         private ProgressBar _progressBar;
 
@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Activity
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activitySettings);
-            var toolbar = FindViewById<Toolbar>(Resource.Id.activitySettings_toolbar);
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
             SupportActionBar.SetTitle(Resource.String.settings);
@@ -25,10 +25,10 @@ namespace AuthenticatorPro.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.activitySettings_progressBar);
+            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
             SupportFragmentManager.BeginTransaction()
-                .Replace(Resource.Id.activitySettings_content, new SettingsFragment())
+                .Replace(Resource.Id.layoutFragment, new SettingsFragment())
                 .Commit();
         }
 
@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Activity
             await Database.UpdateEncryption(this, isEncrypted);
 
             Window.ClearFlags(WindowManagerFlags.NotTouchable);
-            _progressBar.Visibility = ViewStates.Invisible;
+            _progressBar.Visibility = ViewStates.Gone;
         }
 
         public override bool OnSupportNavigateUp()

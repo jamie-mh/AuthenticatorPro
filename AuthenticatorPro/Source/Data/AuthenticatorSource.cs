@@ -15,6 +15,8 @@ namespace AuthenticatorPro.Data
         private List<Authenticator> _all;
 
         private string _search;
+        public string Search => _search;
+
         public string CategoryId { get; private set; }
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 

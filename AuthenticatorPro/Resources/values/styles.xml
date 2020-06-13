@@ -4,10 +4,17 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="colorPrimary">@color/colorLighter</item>
-        <item name="colorPrimaryDark">@color/colorLight</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorBackgroundFloating">@color/colorLightest</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorLighter</item>"
+        <item name="colorPrimaryVariant">@color/colorAccentDark</item>
+
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryVariant">@color/colorAccentDark</item>
+
+        <item name="colorSurface">@color/colorLightest</item>
+        <item name="colorOnSurface">#292929</item>
+
+        <item name="colorError">#ff4240</item>
 
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
@@ -16,11 +23,23 @@
         <item name="secondaryTextColor">@color/colorDark</item>
         <item name="listBorderColor">@color/colorLighter</item>
 
+        <item name="colorBase">@color/colorLighter</item>
+
         <item name="authList_background">@color/colorLighter</item>
         <item name="authListItem_background">@color/colorLightest</item>
         <item name="authListItem_code">@color/colorAccentDark</item>
 
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
         <item name="android:windowBackground">@color/colorLightest</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/colorLighter</item>
     </style>
+
+    <style name="MainActivityTheme" parent="AppTheme">
+        <!-- api 23 ?? -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
 </resources>
