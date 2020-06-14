@@ -90,6 +90,7 @@
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\ExpandedBottomSheetDialogFragment.cs" />
     <Compile Include="Source\Fragment\MainMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\AssignCategoriesBottomSheet.cs" />
     <Compile Include="Source\Fragment\BackupPasswordBottomSheet.cs" />

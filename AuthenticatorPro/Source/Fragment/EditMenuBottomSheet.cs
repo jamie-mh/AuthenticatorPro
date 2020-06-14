@@ -20,6 +20,7 @@ namespace AuthenticatorPro.Fragment
 
         public EditMenuBottomSheet(AuthenticatorType type, long counter)
         {
+            RetainInstance = true;
             _type = type;
             _counter = counter;
         }

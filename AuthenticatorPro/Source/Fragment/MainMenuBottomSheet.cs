@@ -21,6 +21,7 @@ namespace AuthenticatorPro.Fragment
 
         public MainMenuBottomSheet(CategorySource source, string currCategoryId)
         {
+            RetainInstance = true;
             _source = source;
             _currCategoryId = currCategoryId;
         }

@@ -1,13 +1,11 @@
 ﻿using System;
 using Android.Content;
-using Android.InputMethodServices;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared.Data;
-using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
@@ -16,7 +14,7 @@ using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class AddAuthenticatorBottomSheet : BottomSheetDialogFragment
+    internal class AddAuthenticatorBottomSheet : ExpandedBottomSheetDialogFragment
     {
         public event EventHandler<Authenticator> Add;
 

@@ -2,19 +2,13 @@
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
-using Android.Widget;
-using AuthenticatorPro.Data;
-using AuthenticatorPro.Shared.Data;
-using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
-using Java.Lang;
-using OtpNet;
 using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class RenameAuthenticatorBottomSheet : BottomSheetDialogFragment
+    internal class RenameAuthenticatorBottomSheet : ExpandedBottomSheetDialogFragment
     {
         public event EventHandler<RenameEventArgs> Rename;
 

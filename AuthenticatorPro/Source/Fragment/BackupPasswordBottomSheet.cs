@@ -4,14 +4,13 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class BackupPasswordBottomSheet : BottomSheetDialogFragment
+    internal class BackupPasswordBottomSheet : ExpandedBottomSheetDialogFragment
     {
         public enum Mode
         {

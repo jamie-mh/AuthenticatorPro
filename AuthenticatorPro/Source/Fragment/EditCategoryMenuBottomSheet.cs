@@ -16,6 +16,7 @@ namespace AuthenticatorPro.Fragment
 
         public EditCategoryMenuBottomSheet(int itemPosition)
         {
+            RetainInstance = true;
             _itemPosition = itemPosition;
         }
 

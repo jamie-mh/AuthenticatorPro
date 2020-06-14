@@ -3,14 +3,13 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class EditCategoryBottomSheet : BottomSheetDialogFragment
+    internal class EditCategoryBottomSheet : ExpandedBottomSheetDialogFragment
     {
         public enum Mode
         {
