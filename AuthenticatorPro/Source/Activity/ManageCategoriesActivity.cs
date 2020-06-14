@@ -28,7 +28,6 @@ namespace AuthenticatorPro.Activity
         private ManageCategoriesListAdapter _categoryListAdapter;
         private ProgressBar _progressBar;
         private RecyclerView _categoryList;
-        private EditCategoryBottomSheet _renameDialog;
 
         private CategorySource _categorySource;
         private SQLiteAsyncConnection _connection;

@@ -79,10 +79,8 @@ namespace AuthenticatorPro.Activity
         private DateTime _pauseTime;
         private bool _isChildActivityOpen;
 
-        private ISubMenu _categoriesMenu;
         private KeyguardManager _keyguardManager;
         private MobileBarcodeScanner _barcodeScanner;
-        private IdleActionBarDrawerToggle _actionBarDrawerToggle;
 
 
         public MainActivity()
@@ -195,7 +193,7 @@ namespace AuthenticatorPro.Activity
         private async Task Init()
         {
             _authenticatorSource = new AuthenticatorSource(_connection);
-            _authenticatorSource.Update();
+            await _authenticatorSource.Update();
 
             _categorySource = new CategorySource(_connection);
             await _categorySource.Update();
@@ -590,12 +588,12 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private void OpenQRCodeScanner(object sender, EventArgs e)
+        private async void OpenQRCodeScanner(object sender, EventArgs e)
         {
             if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
                 ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.Camera }, PermissionCameraCode);
             else
-                ScanQRCode();
+                await ScanQRCode();
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
@@ -608,9 +606,9 @@ namespace AuthenticatorPro.Activity
                 {
                     await BeginRestore(intent.Data);
                 }),
-                ResultBackupSAF => new Task(async () =>
+                ResultBackupSAF => new Task(() =>
                 {
-                    await BeginBackup(intent.Data);
+                    BeginBackup(intent.Data);
                 }),
                 ResultSettingsRecreate => new Task(() =>
                 {
@@ -667,7 +665,7 @@ namespace AuthenticatorPro.Activity
                     sheet?.Dismiss();
                     ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     if(sheet != null)
                         sheet.Error = GetString(Resource.String.restoreError);
@@ -749,7 +747,7 @@ namespace AuthenticatorPro.Activity
          *  Backup
          */
 
-        private async Task BeginBackup(Uri uri)
+        private void BeginBackup(Uri uri)
         {
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Backup);
             fragment.PasswordEntered += async (sender, password) =>
@@ -767,7 +765,7 @@ namespace AuthenticatorPro.Activity
                 ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
             };
 
-            fragment.Cancel += async (sender, _) =>
+            fragment.Cancel += (sender, _) =>
             {
                 // TODO: Delete empty file only if we just created it
                 // DocumentsContract.DeleteDocument(ContentResolver, uri);
