@@ -597,7 +597,7 @@ namespace AuthenticatorPro.Activity
                 ScanQRCode();
         }
 
-        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
             if(resultCode != Result.Ok)
                 return;
@@ -673,8 +673,7 @@ namespace AuthenticatorPro.Activity
                     var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
                     ShowSnackbar(message, Snackbar.LengthLong);
 
-                    if(_hasWearCompanion)
-                        await NotifyWearAppOfChange();
+                    await NotifyWearAppOfChange();
                 }
 
                 catch(InvalidAuthenticatorException)
