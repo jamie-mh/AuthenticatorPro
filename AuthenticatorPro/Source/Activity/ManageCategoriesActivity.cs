@@ -8,15 +8,12 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Dialog;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
-using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Util;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using SQLite;
-using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 

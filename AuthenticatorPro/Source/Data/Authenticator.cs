@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Util;
 using Newtonsoft.Json;
