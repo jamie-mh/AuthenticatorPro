@@ -682,6 +682,7 @@ namespace AuthenticatorPro.Activity
                 RunOnUiThread(async () =>
                 {
                     await RefreshAuthenticators();
+                    CheckEmptyState();
                 });
 
                 await _categorySource.Update();
