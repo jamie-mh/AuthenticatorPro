@@ -785,8 +785,10 @@ namespace AuthenticatorPro.Activity
             );
 
             var dataToWrite = backup.ToBytes(password);
-
-            var output = ContentResolver.OpenOutputStream(uri);
+    
+            // This is the only way of reliably writing files using SAF on Xamarin.
+            // A file output stream will usually create 0 byte files on virtual storage such as Google Drive
+            var output = ContentResolver.OpenOutputStream(uri, "rwt");
             var dataStream = new DataOutputStream(output);
 
             try
