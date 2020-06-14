@@ -100,6 +100,8 @@
     <Compile Include="Source\Fragment\AddMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\IntroPageFragment.cs" />
     <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
+    <Compile Include="Source\List\CategoriesListHolder.cs" />
+    <Compile Include="Source\List\CategoriesListAdapter.cs" />
     <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preference\RatePreference.cs" />
@@ -109,8 +111,8 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Source\Fragment\SettingsFragment.cs" />
     <Compile Include="Source\Activity\SettingsActivity.cs" />
-    <Compile Include="Source\List\CategoryListAdapter.cs" />
-    <Compile Include="Source\List\CategoryListHolder.cs" />
+    <Compile Include="Source\List\ManageCategoriesListAdapter.cs" />
+    <Compile Include="Source\List\ManageCategoriesListHolder.cs" />
     <Compile Include="Source\List\AnimatedGridLayoutManager.cs" />
     <Compile Include="Source\Data\CategorySource.cs" />
     <Compile Include="Source\Util\Hash.cs" />
@@ -284,7 +286,7 @@
     <AndroidResource Include="Resources\color\drawer_item.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\listItemCategory.axml">
+    <AndroidResource Include="Resources\layout\listItemManageCategory.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -1254,6 +1256,17 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\listItemCategory.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\listItemCategoryBackground.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

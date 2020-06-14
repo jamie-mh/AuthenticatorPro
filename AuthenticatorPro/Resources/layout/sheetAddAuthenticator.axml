@@ -2,9 +2,9 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:background="?attr/colorBackgroundFloating"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:fillViewport="true">
+            android:layout_height="fill_parent">
 
     <LinearLayout
         android:orientation="vertical"

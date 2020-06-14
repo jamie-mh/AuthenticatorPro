@@ -2,7 +2,9 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.List;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Chip;
 
@@ -10,10 +12,13 @@ namespace AuthenticatorPro.Fragment
 {
     internal class MainMenuBottomSheet : BottomSheetDialogFragment
     {
-        public event EventHandler<int> CategoryClick;
+        public event EventHandler<string> CategoryClick;
         public event EventHandler BackupClick;
         public event EventHandler ManageCategoriesClick;
         public event EventHandler SettingsClick;
+
+        private CategoriesListAdapter _categoryListAdapter;
+        private RecyclerView _categoryList;
 
         private readonly string _currCategoryId;
         private readonly CategorySource _source;
@@ -30,36 +35,20 @@ namespace AuthenticatorPro.Fragment
         {
             var view = inflater.Inflate(Resource.Layout.sheetMainMenu, container, false);
 
-            var chipGroup = view.FindViewById<ChipGroup>(Resource.Id.chipGroup);
-            var allChip = view.FindViewById<Chip>(Resource.Id.chipCategoryAll);
+            _categoryListAdapter = new CategoriesListAdapter(Activity, _source) {HasStableIds = true};
 
-            if(_currCategoryId == null)
-                allChip.Checked = true;
+            _categoryList = view.FindViewById<RecyclerView>(Resource.Id.listCategories);
+            _categoryList.SetAdapter(_categoryListAdapter);
+            _categoryList.HasFixedSize = true;
+            _categoryList.SetLayoutManager(new LinearLayoutManager(Activity));
 
-            allChip.Click += (sender, args) =>
+            _categoryListAdapter.SetSelectedPosition(_source.GetPosition(_currCategoryId));
+            _categoryListAdapter.NotifyDataSetChanged();
+
+            _categoryListAdapter.CategorySelected += (sender, id) =>
             {
-                CategoryClick?.Invoke(this, -1);
+                CategoryClick?.Invoke(this, id);
             };
-
-            for(var i = 0; i < _source.Categories.Count; ++i)
-            {
-                var category = _source.Categories[i];
-                var chip = (Chip) inflater.Inflate(Resource.Layout.chipChoice, chipGroup, false);
-                chip.Text = category.Name;
-                chip.Checkable = true;
-                chip.Clickable = true;
-
-                if(category.Id == _currCategoryId)
-                    chip.Checked = true;
-
-                var position = i;
-                chip.Click += (sender, e) =>
-                {
-                    CategoryClick?.Invoke(this, position);
-                };
-
-                chipGroup.AddView(chip);
-            }
 
             var backupButton = view.FindViewById<LinearLayout>(Resource.Id.buttonBackup);
             var manageCategoriesButton = view.FindViewById<LinearLayout>(Resource.Id.buttonManageCategories);

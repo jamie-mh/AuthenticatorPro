@@ -5,13 +5,13 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.List
 {
-    internal class CategoryListHolder : RecyclerView.ViewHolder
+    internal class ManageCategoriesListHolder : RecyclerView.ViewHolder
     {
         public event EventHandler<int> MenuClick;
         public TextView Name { get; }
 
 
-        public CategoryListHolder(View itemView) : base(itemView)
+        public ManageCategoriesListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);
 

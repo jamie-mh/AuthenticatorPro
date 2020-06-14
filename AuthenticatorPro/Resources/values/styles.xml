@@ -48,5 +48,7 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:statusBarColor">@color/colorLighter</item>
+
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

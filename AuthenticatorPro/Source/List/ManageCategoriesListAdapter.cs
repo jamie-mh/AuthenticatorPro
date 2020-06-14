@@ -5,7 +5,7 @@ using AuthenticatorPro.Data;
 
 namespace AuthenticatorPro.List
 {
-    internal sealed class CategoryListAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    internal sealed class ManageCategoriesListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         public event EventHandler<int> MenuClick;
         private readonly CategorySource _source;
@@ -13,7 +13,7 @@ namespace AuthenticatorPro.List
         public override int ItemCount => _source.Categories.Count;
 
 
-        public CategoryListAdapter(CategorySource source)
+        public ManageCategoriesListAdapter(CategorySource source)
         {
             _source = source;
         }
@@ -31,15 +31,15 @@ namespace AuthenticatorPro.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var holder = (CategoryListHolder) viewHolder;
+            var holder = (ManageCategoriesListHolder) viewHolder;
             holder.Name.Text = _source.Categories[position].Name;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemCategory, parent, false);
+            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemManageCategory, parent, false);
 
-            var holder = new CategoryListHolder(itemView);
+            var holder = new ManageCategoriesListHolder(itemView);
             holder.MenuClick += MenuClick;
 
             return holder;

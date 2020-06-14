@@ -81,5 +81,13 @@ namespace AuthenticatorPro.Data
             temp.Ranking = newPosition;
             await _connection.UpdateAsync(temp);
         }
+
+        public int GetPosition(string id)
+        {
+            if(id == null)
+                return -1;
+
+            return Categories.FindIndex(c => c.Id == id);
+        }
     }
 }

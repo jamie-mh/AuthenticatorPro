@@ -28,7 +28,7 @@ namespace AuthenticatorPro.Activity
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
         private EditCategoryBottomSheet _addDialog;
-        private CategoryListAdapter _categoryListAdapter;
+        private ManageCategoriesListAdapter _categoryListAdapter;
         private ProgressBar _progressBar;
         private RecyclerView _categoryList;
         private EditCategoryBottomSheet _renameDialog;
@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Activity
 
             _connection = await Database.Connect(this);
             _categorySource = new CategorySource(_connection);
-            _categoryListAdapter = new CategoryListAdapter(_categorySource);
+            _categoryListAdapter = new ManageCategoriesListAdapter(_categorySource);
             _categoryListAdapter.MenuClick += OnMenuClick;
 
             _categoryList = FindViewById<RecyclerView>(Resource.Id.list);
@@ -65,7 +65,6 @@ namespace AuthenticatorPro.Activity
 
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.HasFixedSize = true;
-            _categoryList.SetItemViewCacheSize(20);
 
             var callback = new ReorderableListTouchHelperCallback(_categoryListAdapter);
             var touchHelper = new ItemTouchHelper(callback);

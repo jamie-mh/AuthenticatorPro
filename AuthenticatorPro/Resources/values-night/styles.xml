@@ -45,6 +45,7 @@
         <item name="colorError">#ff4240</item>
 
         <item name="android:windowIsFloating">false</item>
+        <item name="colorBackgroundFloating">@color/colorDark</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:navigationBarColor">@color/colorDarkest</item>
     </style>

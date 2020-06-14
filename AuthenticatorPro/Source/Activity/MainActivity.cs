@@ -164,7 +164,7 @@ namespace AuthenticatorPro.Activity
                 // Currently visible category has been deleted
                 if(_authenticatorSource.CategoryId != null &&
                    _categorySource.Categories.FirstOrDefault(c => c.Id == _authenticatorSource.CategoryId) == null)
-                    await SwitchCategory(-1);
+                    await SwitchCategory(null);
             }
 
             CheckEmptyState();
@@ -239,7 +239,6 @@ namespace AuthenticatorPro.Activity
 
             _authList.SetAdapter(_authenticatorListAdapter);
             _authList.HasFixedSize = true;
-            _authList.SetItemViewCacheSize(20);
 
             var animation =
                 AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
@@ -334,9 +333,9 @@ namespace AuthenticatorPro.Activity
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
         {
             var fragment = new MainMenuBottomSheet(_categorySource, _authenticatorSource.CategoryId);
-            fragment.CategoryClick += async (s, pos) =>
+            fragment.CategoryClick += async (s, id) =>
             {
-                await SwitchCategory(pos);
+                await SwitchCategory(id);
                 fragment.Dismiss();
             };
 
@@ -366,17 +365,17 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async Task SwitchCategory(int position)
+        private async Task SwitchCategory(string id)
         {
-            if(position < 0)
+            if(id == null)
             {
                 _authenticatorSource.SetCategory(null);
                 SupportActionBar.Title = GetString(Resource.String.categoryAll);
             }
             else
             {
-                var category = _categorySource.Categories[position];
-                _authenticatorSource.SetCategory(category.Id);
+                var category = _categorySource.Categories.First(c => c.Id == id);
+                _authenticatorSource.SetCategory(id);
                 SupportActionBar.Title = category.Name;
             }
 
@@ -430,7 +429,7 @@ namespace AuthenticatorPro.Activity
 
             if(_authenticatorSource.CategoryId != null)
             {
-                await SwitchCategory(-1);
+                await SwitchCategory(null);
                 return;
             }
 
