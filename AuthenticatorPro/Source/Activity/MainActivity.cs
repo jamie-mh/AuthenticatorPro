@@ -576,6 +576,7 @@ namespace AuthenticatorPro.Activity
 
                 await _connection.InsertAsync(auth);
                 await _authenticatorSource.Update();
+                await SwitchCategory(null);
 
                 CheckEmptyState();
                 var position = _authenticatorSource.GetPosition(auth.Secret);
@@ -655,27 +656,12 @@ namespace AuthenticatorPro.Activity
 
             async Task TryRestore(string password, BackupPasswordBottomSheet sheet)
             {
+                int authCount = 0, categoryCount = 0;
+
                 try
                 {
-                    var (authCount, categoryCount) = await DoRestore(fileData, password);
-                    sheet?.Dismiss();
-
-                    // This is required because we're probably not running on the main thread
-                    // as the method was called from a task
-                    RunOnUiThread(async () =>
-                    {
-                        await RefreshAuthenticators();
-                        CheckEmptyState();
-                    });
-
-                    await _categorySource.Update();
-
-                    var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
-                    ShowSnackbar(message, Snackbar.LengthLong);
-
-                    await NotifyWearAppOfChange();
+                    (authCount, categoryCount) = await DoRestore(fileData, password);
                 }
-
                 catch(InvalidAuthenticatorException)
                 {
                     sheet?.Dismiss();
@@ -688,6 +674,22 @@ namespace AuthenticatorPro.Activity
                     else
                         ShowSnackbar(Resource.String.restoreError, Snackbar.LengthShort);
                 }
+
+                sheet?.Dismiss();
+
+                // This is required because we're probably not running on the main thread
+                // as the method was called from a task
+                RunOnUiThread(async () =>
+                {
+                    await RefreshAuthenticators();
+                });
+
+                await _categorySource.Update();
+
+                var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
+                ShowSnackbar(message, Snackbar.LengthLong);
+
+                await NotifyWearAppOfChange();
             }
 
             // Open and closed curly brace (file is not encrypted)
@@ -825,7 +827,8 @@ namespace AuthenticatorPro.Activity
             await _connection.InsertAsync(auth);
             await _authenticatorSource.Update();
 
-            CheckEmptyState();
+            await SwitchCategory(null);
+
             var position = _authenticatorSource.GetPosition(auth.Secret);
             _authenticatorListAdapter.NotifyItemInserted(position);
             _authList.SmoothScrollToPosition(position);
