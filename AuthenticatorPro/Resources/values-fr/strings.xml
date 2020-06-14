@@ -72,7 +72,7 @@
     <string name="passwordConfirm">Confirmer le mot de passe</string>
     <string name="login">Connexion</string>
     <string name="loginMessage">Veuillez entrer votre mot de passe ou scanner une empreinte digitale pour accéder à vos authentificateurs.</string>
-    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et sera pas sécurisé. Voulez-vous continuer ?</string>
+    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé. Voulez-vous continuer ?</string>
 
     <string name="databaseError">Il y a eu une erreur lors du déchiffrement de la base de données. Veuillez effacer les données de l\'application avant de continuer.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code.</string>
