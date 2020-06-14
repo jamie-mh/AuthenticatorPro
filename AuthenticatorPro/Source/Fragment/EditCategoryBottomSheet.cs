@@ -19,6 +19,7 @@ namespace AuthenticatorPro.Fragment
         public event EventHandler<EditCategoryEventArgs> Submit;
 
         private readonly Mode _mode;
+        private readonly int? _itemPosition;
         private readonly string _initialValue;
 
         private TextInputEditText _textName;
@@ -29,10 +30,11 @@ namespace AuthenticatorPro.Fragment
         }
 
 
-        public EditCategoryBottomSheet(Mode mode, string initialValue = null)
+        public EditCategoryBottomSheet(Mode mode, int? itemPosition, string initialValue = null)
         {
             RetainInstance = true;
             _mode = mode;
+            _itemPosition = itemPosition;
             _initialValue = initialValue;
         }
 
@@ -69,7 +71,7 @@ namespace AuthenticatorPro.Fragment
                     return;
                 }
 
-                var args = new EditCategoryEventArgs(_initialValue, name);
+                var args = new EditCategoryEventArgs(_itemPosition, _initialValue, name);
                 Submit?.Invoke(this, args);
             };
 
@@ -90,11 +92,13 @@ namespace AuthenticatorPro.Fragment
 
         public class EditCategoryEventArgs : EventArgs
         {
+            public readonly int? ItemPosition;
             public readonly string InitialName;
             public readonly string Name;
 
-            public EditCategoryEventArgs(string initialName, string name)
+            public EditCategoryEventArgs(int? itemPosition, string initialName, string name)
             {
+                ItemPosition = itemPosition;
                 InitialName = initialName;
                 Name = name;
             }

@@ -45,8 +45,7 @@ namespace AuthenticatorPro.Data
             var old = Categories[position];
             var replacement = new Category(name);
 
-            Categories.RemoveAt(position);
-            Categories.Add(replacement);
+            Categories[position] = replacement;
 
             await _connection.DeleteAsync(old);
             await _connection.InsertAsync(replacement);

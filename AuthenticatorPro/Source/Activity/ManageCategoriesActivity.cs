@@ -32,7 +32,6 @@ namespace AuthenticatorPro.Activity
 
         private CategorySource _categorySource;
         private SQLiteAsyncConnection _connection;
-        private int _renamePosition;
 
 
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -122,7 +121,7 @@ namespace AuthenticatorPro.Activity
                 transaction.Remove(old);
 
             transaction.AddToBackStack(null);
-            _addDialog = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.New);
+            _addDialog = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.New, null);
             _addDialog.Submit += OnAddDialogSubmit;
             _addDialog.Show(transaction, "add_dialog");
         }
@@ -159,7 +158,7 @@ namespace AuthenticatorPro.Activity
             if(category == null)
                 return;
 
-            var fragment = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.Edit, category.Name);
+            var fragment = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.Edit, position, category.Name);
             fragment.Submit += OnRenameDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -183,8 +182,8 @@ namespace AuthenticatorPro.Activity
             }
 
             dialog.Dismiss();
-            await _categorySource.Rename(_renamePosition, e.Name);
-            _categoryListAdapter.NotifyItemChanged(_renamePosition);
+            await _categorySource.Rename(e.ItemPosition.Value, e.Name);
+            _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value);
         }
 
         private void OnDeleteClick(object item, int position)
