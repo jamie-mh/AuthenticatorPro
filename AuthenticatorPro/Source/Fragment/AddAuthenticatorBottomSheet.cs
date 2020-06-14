@@ -152,7 +152,7 @@ namespace AuthenticatorPro.Fragment
             }
             else if(!Authenticator.IsValidSecret(secret))
             {
-                _ = GetString(Resource.String.secretInvalid);
+                _secretLayout.Error = GetString(Resource.String.secretInvalid);
                 isValid = false;
             }
 
