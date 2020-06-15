@@ -654,7 +654,7 @@ namespace AuthenticatorPro.Activity
 
             async Task TryRestore(string password, BackupPasswordBottomSheet sheet)
             {
-                int authCount = 0, categoryCount = 0;
+                int authCount, categoryCount;
 
                 try
                 {
@@ -664,6 +664,7 @@ namespace AuthenticatorPro.Activity
                 {
                     sheet?.Dismiss();
                     ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
+                    return;
                 }
                 catch(Exception)
                 {
@@ -671,16 +672,20 @@ namespace AuthenticatorPro.Activity
                         sheet.Error = GetString(Resource.String.restoreError);
                     else
                         ShowSnackbar(Resource.String.restoreError, Snackbar.LengthShort);
+
+                    return;
                 }
 
                 sheet?.Dismiss();
+
+                await _authenticatorSource.Update();
 
                 // This is required because we're probably not running on the main thread
                 // as the method was called from a task
                 RunOnUiThread(async () =>
                 {
-                    await RefreshAuthenticators();
                     CheckEmptyState();
+                    await RefreshAuthenticators(true);
                 });
 
                 await _categorySource.Update();
