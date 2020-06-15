@@ -1,0 +1,3 @@
+- Updated UI.
+- Fixed bugs.
+- Implemented Wear OS progress indicator and rotary scrolling.
