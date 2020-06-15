@@ -8,9 +8,12 @@ namespace AuthenticatorPro.Shared.Util
         public static void FadeInView(View view, int duration, bool overrideAnim = false)
         {
             if(overrideAnim)
+            {
+                view.Animation?.Cancel();
                 view.ClearAnimation();
+            }
 
-            if(!overrideAnim && view.Visibility != ViewStates.Invisible)
+            if(view.Visibility != ViewStates.Invisible)
                 return;
 
             var anim = new AlphaAnimation(0f, 1f)
@@ -29,9 +32,12 @@ namespace AuthenticatorPro.Shared.Util
         public static void FadeOutView(View view, int duration, bool overrideAnim = false)
         {
             if(overrideAnim)
+            {
+                view.Animation?.Cancel();
                 view.ClearAnimation();
+            }
 
-            if(!overrideAnim && view.Visibility != ViewStates.Visible)
+            if(view.Visibility != ViewStates.Visible)
                 return;
 
             var anim = new AlphaAnimation(1f, 0f)
