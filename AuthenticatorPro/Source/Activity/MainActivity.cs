@@ -270,12 +270,12 @@ namespace AuthenticatorPro.Activity
         {
             if(!_authenticatorSource.Authenticators.Any())
             {
-                _authList.Visibility = ViewStates.Gone;
+                _authList.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_emptyStateLayout, 500, true);
             }
             else
             {
-                _emptyStateLayout.Visibility = ViewStates.Gone;
+                _emptyStateLayout.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_authList, 100, true);
             }
         }
@@ -562,30 +562,32 @@ namespace AuthenticatorPro.Activity
             if(result == null)
                 return;
 
+            Authenticator auth;
+
             try
             {
-                var auth = Authenticator.FromKeyUri(result.Text);
-
-                if(_authenticatorSource.IsDuplicate(auth))
-                {
-                    ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
-                    return;
-                }
-
-                await _connection.InsertAsync(auth);
-                await _authenticatorSource.Update();
-                await SwitchCategory(null);
-
-                CheckEmptyState();
-                var position = _authenticatorSource.GetPosition(auth.Secret);
-                _authenticatorListAdapter.NotifyItemInserted(position);
-                _authList.SmoothScrollToPosition(position);
-                await NotifyWearAppOfChange();
+                auth = Authenticator.FromKeyUri(result.Text);
             }
             catch
             {
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
+                return;
             }
+
+            if(_authenticatorSource.IsDuplicate(auth))
+            {
+                ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
+                return;
+            }
+
+            await _connection.InsertAsync(auth);
+            await _authenticatorSource.Update();
+            await SwitchCategory(null);
+
+            var position = _authenticatorSource.GetPosition(auth.Secret);
+            _authenticatorListAdapter.NotifyItemInserted(position);
+            _authList.SmoothScrollToPosition(position);
+            await NotifyWearAppOfChange();
         }
 
         private async void OpenQRCodeScanner(object sender, EventArgs e)
