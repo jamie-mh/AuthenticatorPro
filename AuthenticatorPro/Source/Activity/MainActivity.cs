@@ -390,8 +390,6 @@ namespace AuthenticatorPro.Activity
             _timer?.Stop();
             _pauseTime = DateTime.Now;
 
-            AnimUtil.FadeOutView(_authList, 500);
-
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
         }
