@@ -11,8 +11,6 @@ namespace AuthenticatorPro.Activity
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
-
             var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
             var themePref = sharedPrefs.GetString("pref_theme", "0");
 
@@ -33,6 +31,8 @@ namespace AuthenticatorPro.Activity
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightYes;
                     break;
             }
+
+            base.OnCreate(savedInstanceState);
         }
     }
 }
