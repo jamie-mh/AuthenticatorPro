@@ -90,7 +90,7 @@
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
-    <Compile Include="Source\Fragment\ExpandedBottomSheetDialogFragment.cs" />
+    <Compile Include="Source\Fragment\BottomSheet.cs" />
     <Compile Include="Source\Fragment\MainMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\AssignCategoriesBottomSheet.cs" />
     <Compile Include="Source\Fragment\BackupPasswordBottomSheet.cs" />
@@ -102,6 +102,8 @@
     <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
     <Compile Include="Source\List\CategoriesListHolder.cs" />
     <Compile Include="Source\List\CategoriesListAdapter.cs" />
+    <Compile Include="Source\List\FixedGridLayoutManager.cs" />
+    <Compile Include="Source\List\GridSpacingItemDecoration.cs" />
     <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preference\RatePreference.cs" />
@@ -113,7 +115,7 @@
     <Compile Include="Source\Activity\SettingsActivity.cs" />
     <Compile Include="Source\List\ManageCategoriesListAdapter.cs" />
     <Compile Include="Source\List\ManageCategoriesListHolder.cs" />
-    <Compile Include="Source\List\AnimatedGridLayoutManager.cs" />
+    <Compile Include="Source\List\AutoGridLayoutManager.cs" />
     <Compile Include="Source\Data\CategorySource.cs" />
     <Compile Include="Source\Util\Hash.cs" />
     <Compile Include="Source\List\ReorderableListTouchHelperCallback.cs" />

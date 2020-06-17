@@ -156,6 +156,7 @@ namespace AuthenticatorPro.Activity
             {
                 _isChildActivityOpen = false;
 
+                _authList.Visibility = ViewStates.Invisible;
                 await RefreshAuthenticators();
                 await _categorySource.Update();
 
@@ -236,6 +237,11 @@ namespace AuthenticatorPro.Activity
             _authenticatorListAdapter.HasStableIds = true;
 
             _authList.SetAdapter(_authenticatorListAdapter);
+
+            var layout = new AutoGridLayoutManager(this, 340);
+            _authList.SetLayoutManager(layout);
+
+            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 8));
             _authList.HasFixedSize = true;
 
             var animation =
@@ -243,8 +249,6 @@ namespace AuthenticatorPro.Activity
             _authList.LayoutAnimation = animation;
 
             var useGrid = IsTablet();
-            var layout = new AnimatedGridLayoutManager(this, useGrid ? 2 : 1);
-            _authList.SetLayoutManager(layout);
 
             var callback = new ReorderableListTouchHelperCallback(_authenticatorListAdapter, useGrid);
             var touchHelper = new ItemTouchHelper(callback);

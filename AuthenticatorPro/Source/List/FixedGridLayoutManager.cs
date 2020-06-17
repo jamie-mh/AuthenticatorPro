@@ -3,9 +3,9 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.List
 {
-    internal class AnimatedGridLayoutManager : GridLayoutManager
+    internal class FixedGridLayoutManager : GridLayoutManager
     {
-        public AnimatedGridLayoutManager(Context context, int spanCount) : base(context, spanCount)
+        public FixedGridLayoutManager(Context context, int spanCount) : base(context, spanCount)
         {
 
         }

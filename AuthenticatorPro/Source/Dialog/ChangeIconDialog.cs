@@ -59,7 +59,7 @@ namespace AuthenticatorPro.Dialog
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
 
-            var layout = new AnimatedGridLayoutManager(Context, 6);
+            var layout = new FixedGridLayoutManager(Context, 6);
             _iconList.SetLayoutManager(layout);
 
             var cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
