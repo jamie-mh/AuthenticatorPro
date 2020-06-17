@@ -15,6 +15,7 @@ namespace AuthenticatorPro.List
         public AutoGridLayoutManager(Context context, int minColumnWidth) : base(context, 1)
         {
             _minColumnWidth = (int) ViewUtils.DpToPx(context, minColumnWidth);
+            CalculateSpanCount();
         }
 
         private void CalculateSpanCount()

@@ -324,9 +324,6 @@
     <AndroidResource Include="Resources\values-sw360dp-v13\values-preference.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\listItemBorderFirst.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\listItemBorder.xml" />
   </ItemGroup>
   <ItemGroup>

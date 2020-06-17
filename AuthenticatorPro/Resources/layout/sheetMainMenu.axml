@@ -14,9 +14,18 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="@string/categories"
+            android:text="@string/mainMenu"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="@string/categories"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:layout_marginBottom="18dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:layout_width="wrap_content"
@@ -25,14 +34,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listCategories"
             android:overScrollMode="never"
+            android:background="@drawable/listitemborder"
             android:layout_marginBottom="20dp"
+            android:paddingBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:text="@string/more"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:layout_marginBottom="10dp"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:layout_marginBottom="12dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:layout_width="wrap_content"

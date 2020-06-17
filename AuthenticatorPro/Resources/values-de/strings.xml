@@ -24,6 +24,7 @@
     <string name="noAuthenticatorsMessage">Du hast hier keine Authentifikatoren.</string>
 
     <string name="search">Suche</string>
+    <string name="mainMenu">Hauptmenü</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
