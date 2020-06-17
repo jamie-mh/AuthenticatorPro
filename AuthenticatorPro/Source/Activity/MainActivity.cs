@@ -367,6 +367,9 @@ namespace AuthenticatorPro.Activity
 
         private async Task SwitchCategory(string id)
         {
+            if(id == _authenticatorSource.CategoryId)
+                return;
+
             if(id == null)
             {
                 _authenticatorSource.SetCategory(null);
