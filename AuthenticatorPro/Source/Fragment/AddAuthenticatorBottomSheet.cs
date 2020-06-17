@@ -14,7 +14,7 @@ using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class AddAuthenticatorBottomSheet : ExpandedBottomSheetDialogFragment
+    internal class AddAuthenticatorBottomSheet : BottomSheet
     {
         public event EventHandler<Authenticator> Add;
 

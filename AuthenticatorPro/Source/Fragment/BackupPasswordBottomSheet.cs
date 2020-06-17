@@ -10,7 +10,7 @@ using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class BackupPasswordBottomSheet : ExpandedBottomSheetDialogFragment
+    internal class BackupPasswordBottomSheet : BottomSheet
     {
         public enum Mode
         {

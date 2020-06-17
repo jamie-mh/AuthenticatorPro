@@ -6,7 +6,7 @@ using Google.Android.Material.BottomSheet;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class EditCategoryMenuBottomSheet: BottomSheetDialogFragment
+    internal class EditCategoryMenuBottomSheet: BottomSheet
     {
         public event EventHandler<int> ClickRename;
         public event EventHandler<int> ClickDelete;

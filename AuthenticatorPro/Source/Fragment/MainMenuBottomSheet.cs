@@ -9,7 +9,7 @@ using Google.Android.Material.BottomSheet;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class MainMenuBottomSheet : BottomSheetDialogFragment
+    internal class MainMenuBottomSheet : BottomSheet
     {
         public event EventHandler<string> CategoryClick;
         public event EventHandler BackupClick;

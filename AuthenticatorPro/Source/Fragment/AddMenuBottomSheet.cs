@@ -6,7 +6,7 @@ using Google.Android.Material.BottomSheet;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class AddMenuBottomSheet : BottomSheetDialogFragment
+    internal class AddMenuBottomSheet : BottomSheet
     {
         public event EventHandler ClickQrCode;
         public event EventHandler ClickEnterKey;

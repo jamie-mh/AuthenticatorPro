@@ -8,7 +8,7 @@ using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class RenameAuthenticatorBottomSheet : ExpandedBottomSheetDialogFragment
+    internal class RenameAuthenticatorBottomSheet : BottomSheet
     {
         public event EventHandler<RenameEventArgs> Rename;
 

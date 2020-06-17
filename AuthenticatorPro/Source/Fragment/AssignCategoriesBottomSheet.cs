@@ -10,7 +10,7 @@ using Google.Android.Material.Chip;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class AssignCategoriesBottomSheet : BottomSheetDialogFragment
+    internal class AssignCategoriesBottomSheet : BottomSheet
     {
         public event EventHandler<CategoryClickedEventArgs> CategoryClick;
         public event EventHandler ManageCategoriesClick;

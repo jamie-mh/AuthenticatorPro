@@ -40,7 +40,7 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="ExpandedBottomSheetDialogStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
+    <style name="BottomSheetStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorError">#ff4240</item>
 
