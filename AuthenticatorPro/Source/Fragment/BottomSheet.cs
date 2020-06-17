@@ -2,11 +2,10 @@
 using Android.Widget;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
-using Orientation = Android.Content.Res.Orientation;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class BottomSheet : BottomSheetDialogFragment
+    internal abstract class BottomSheet : BottomSheetDialogFragment
     {
         private const int MaxWidth = 650;
 

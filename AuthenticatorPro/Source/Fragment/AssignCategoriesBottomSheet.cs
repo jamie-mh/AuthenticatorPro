@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Data;
-using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Button;
 using Google.Android.Material.Chip;
 

@@ -2,7 +2,6 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Google.Android.Material.BottomSheet;
 
 namespace AuthenticatorPro.Fragment
 {

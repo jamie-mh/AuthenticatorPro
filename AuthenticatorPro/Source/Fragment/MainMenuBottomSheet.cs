@@ -5,7 +5,6 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.List;
-using Google.Android.Material.BottomSheet;
 
 namespace AuthenticatorPro.Fragment
 {
