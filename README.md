@@ -55,7 +55,6 @@ Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-
 ![Screenshot 5](./doc/screenshot5.png)
 ![Screenshot 6](./doc/screenshot6.png)
 ![Screenshot 7](./doc/screenshot7.png)
-![Screenshot 7](./doc/screenshot8.png)
 
 ## Permissions
 
