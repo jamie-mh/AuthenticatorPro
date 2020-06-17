@@ -573,6 +573,7 @@ namespace AuthenticatorPro.Activity
             await _connection.InsertAsync(auth);
             await _authenticatorSource.Update();
             await SwitchCategory(null);
+            CheckEmptyState();
 
             var position = _authenticatorSource.GetPosition(auth.Secret);
             _authenticatorListAdapter.NotifyItemInserted(position);
