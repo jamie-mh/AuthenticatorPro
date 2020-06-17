@@ -1,0 +1,5 @@
+- Improvements to design on tablets.
+- Changes to main menu design.
+- Fix issue where list might disappear.
+- Fix crash on certain tablets.
+- Wear OS: Keep "retry" button on screen.
