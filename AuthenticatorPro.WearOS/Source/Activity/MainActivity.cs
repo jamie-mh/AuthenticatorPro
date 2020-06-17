@@ -74,8 +74,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private async void OnRetryClick(object sender, EventArgs e)
         {
-            AnimUtil.FadeOutView(_disconnectedLayout, 200);
-
             await FindServerNode();
             await Refresh();
         }
