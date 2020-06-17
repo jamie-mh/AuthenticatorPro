@@ -8,6 +8,8 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="fill_parent" />
 

@@ -1,5 +1,4 @@
 ﻿using Android.App;
-using Android.Content.PM;
 using Android.OS;
 using AndroidX.Fragment.App;
 using AndroidX.Preference;
@@ -9,7 +8,7 @@ using Google.Android.Material.BottomNavigation;
 
 namespace AuthenticatorPro.Activity
 {
-    [Activity(Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity]
     internal class IntroActivity : FragmentActivity
     {
         private int _pageCount;
