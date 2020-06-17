@@ -433,7 +433,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            base.OnBackPressed();
+            Finish();
         }
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
