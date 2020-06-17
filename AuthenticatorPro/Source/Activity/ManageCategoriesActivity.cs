@@ -61,14 +61,15 @@ namespace AuthenticatorPro.Activity
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.HasFixedSize = true;
 
-            var callback = new ReorderableListTouchHelperCallback(_categoryListAdapter);
+            var layout = new FixedGridLayoutManager(this, 1);
+            _categoryList.SetLayoutManager(layout);
+
+            var callback = new ReorderableListTouchHelperCallback(_categoryListAdapter, layout);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_categoryList);
 
-            var layout = new LinearLayoutManager(this);
             var decoration = new DividerItemDecoration(this, layout.Orientation);
             _categoryList.AddItemDecoration(decoration);
-            _categoryList.SetLayoutManager(layout);
 
             var layoutAnimation =
                 AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);

@@ -248,9 +248,7 @@ namespace AuthenticatorPro.Activity
                 AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
-            var useGrid = IsTablet();
-
-            var callback = new ReorderableListTouchHelperCallback(_authenticatorListAdapter, useGrid);
+            var callback = new ReorderableListTouchHelperCallback(_authenticatorListAdapter, layout);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
         }
@@ -487,19 +485,6 @@ namespace AuthenticatorPro.Activity
             fragment.ClickAssignCategories += (s, e) => { OpenCategoriesDialog(position); };
             fragment.ClickDelete += (s, e) => { OpenDeleteDialog(position); };
             fragment.Show(SupportFragmentManager, fragment.Tag);
-        }
-
-        private bool IsTablet()
-        {
-            var display = WindowManager.DefaultDisplay;
-            var displayMetrics = new DisplayMetrics();
-            display.GetMetrics(displayMetrics);
-
-            var wInches = displayMetrics.WidthPixels / (double) displayMetrics.DensityDpi;
-            var hInches = displayMetrics.HeightPixels / (double) displayMetrics.DensityDpi;
-
-            var screenDiagonal = Math.Sqrt(Math.Pow(wInches, 2) + Math.Pow(hInches, 2));
-            return screenDiagonal >= 7.0;
         }
 
         private void OpenDeleteDialog(int position)
