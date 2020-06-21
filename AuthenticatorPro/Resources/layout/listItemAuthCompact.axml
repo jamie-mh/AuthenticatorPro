@@ -8,7 +8,8 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/authListItem_background"
@@ -20,77 +21,71 @@
         android:paddingLeft="18dp">
 
         <LinearLayout
-            android:id="@+id/layoutIcon"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imageIcon"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="12dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/auth_github" />
-
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/layoutIcon"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:text="GitHub"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14dp"
-                    android:textColor="?attr/primaryTextColor"
-                    android:gravity="left"
-                    android:id="@+id/textIssuer" />
+                <ImageView
+                    android:id="@+id/imageIcon"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="12dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/auth_github" />
 
-                <TextView
-                    android:text="johnsmith@example.com"
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12dp"
-                    android:textColor="?attr/secondaryTextColor"
-                    android:gravity="left"
-                    android:layout_below="@id/textIssuer"
-                    android:id="@+id/textUsername" />
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:text="GitHub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="?attr/primaryTextColor"
+                        android:singleLine="true"
+                        android:id="@+id/textIssuer" />
+
+                    <TextView
+                        android:text="johnsmith@example.com"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:layout_below="@id/textIssuer"
+                        android:singleLine="true"
+                        android:id="@+id/textUsername" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <TextView
-            android:text="000 000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22dp"
-            android:textColor="?attr/authListItem_code"
-            android:gravity="left"
-            android:layout_below="@id/layoutIcon"
-            android:layout_marginTop="2dp"
-            android:layout_marginLeft="38dp"
-            android:id="@+id/textCode" />
+            <TextView
+                android:text="000 000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dp"
+                android:textColor="?attr/authListItem_code"
+                android:gravity="left"
+                android:layout_below="@id/layoutIcon"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="38dp"
+                android:id="@+id/textCode" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="6dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/buttonRefresh"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="12dp"
-                android:src="@drawable/ic_action_refresh"
-                android:scaleType="centerInside"
-                android:textSize="14dp"
-                android:background="@android:color/transparent"
-                android:visibility="gone"
-                android:layout_width="40dp"
-                android:layout_height="26dp" />
+            android:layout_weight="0"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/buttonMenu"
@@ -100,8 +95,20 @@
                 android:background="@android:color/transparent"
                 android:layout_width="40dp"
                 android:layout_height="26dp" />
+
+            <ImageButton
+                android:id="@+id/buttonRefresh"
+                android:src="@drawable/ic_action_refresh"
+                android:layout_marginTop="2dp"
+                android:scaleType="centerInside"
+                android:textSize="12dp"
+                android:background="@android:color/transparent"
+                android:visibility="gone"
+                android:layout_width="40dp"
+                android:layout_height="26dp" />
+
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
