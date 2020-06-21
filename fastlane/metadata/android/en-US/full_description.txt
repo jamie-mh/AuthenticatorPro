@@ -1,32 +1,37 @@
-Authenticator Pro is a free and open-source 2-factor authentication (2FA) code generator for your online accounts.
+Authenticator Pro generates Two Factor Authentication (2FA) codes for your online accounts. Both TOTP and HOTP are supported. The generated codes are one time tokens that provide an extra layer of security to your online accounts. After scanning a simple QR code, your account is protected.
 
-• <b>Compatibility</b> : Authenticator Pro is compatible with Google Authenticator. It supports many accounts such as Amazon, Instagram, Microsoft, Dropbox, Google, Facebook, Fortnite and more.
+<b>Compatibility</b>
+Authenticator Pro is compatible with most providers and accounts. View some supported providers here: https://twofactorauth.org/ (marked with "software token").
 
-• <b>Backup / Restore</b> : Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.
+<b>Backup / Restore</b>
+Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
 
-• <b>Dark Mode</b> : Authenticator Pro has a beautiful material design inspired look in either light or dark modes.
+<b>Dark Mode</b>
+Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-• <b>Icons</b> : Find your authenticators easily with recognisable brand logos and icons next to each code.
+<b>Icons</b>
+Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-• <b>Categories</b> : Organise your authenticators into categories.
+<b>Categories</b>
+Organise your authenticators into categories.
 
-• <b>Few Permissions</b> : Authenticator Pro only uses basic permissions and does not require Internet access to function.
+<b>Offline with few permissions</b>
+Authenticator Pro only requires a single permission and does not require Internet access to function.
 
-• <b>Secure</b> : All authenticators are stored securely on your device with an encrypted database.
+<b>Customisation</b>
+Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
 
-• <b>Customisation</b> : Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+<b>Open-Source</b>
+The application source code can be viewed by everyone on GitHub.
 
 Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
 
-View some supported providers here: https://twofactorauth.org/ (marked with "software token")
 
 Free and Open-Source
 https://github.com/jamie-mh/AuthenticatorPro
 
 <b>Permissions:</b>
-
-Storage Permission is required to save and load backup files from device storage.
 
 Camera permission is required to add accounts through QR codes.

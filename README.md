@@ -25,26 +25,21 @@ Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-
 
 ## Features
 
-* **Compatibility** : Compatible with most providers and accounts.
+* **Compatibility** : Authenticator Pro is compatible with most providers and accounts. View some supported providers here: https://twofactorauth.org/ (marked with "software token").
 
-* **Backup / Restore** : Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.
+* **Backup / Restore** : Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
 
-* **Very Secure** : All authenticators are stored securely on your device with an encrypted database. Even with root access your authentications cannot be stolen.
-
-* **Fingerprint / Passcode / Pattern Authentication** : Lock access to your authenticators. On supported devices with a fingerprint reader, require the use a fingerprint to access your 2 factor codes.
+* **Dark Mode** : Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
 * **Icons** : Find your authenticators easily with recognisable brand logos and icons next to each code.
 
 * **Categories** : Organise your authenticators into categories.
 
-* **Reordering** : Arrange your authenticators in any order you like so you can find them easily.
+* **Offline with few permissions** : Authenticator Pro only requires a single permission and does not require Internet access to function.
 
-* **Beautiful Design** : Authenticator Pro has a beautiful material design inspired look. Also you can change the look of the app to either a light or dark theme.
+* **Customisation** : Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
 
-* **Limited Permissions** : Authenticator Pro only uses basic permissions and does not require Internet access to function.
-
-* **Adaptive Icon** : Authenticator Pro has an adaptive icon and will blend in on any device.
-
+* **Wear OS** : Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 ## Screenshots
 
@@ -57,8 +52,6 @@ Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-
 ![Screenshot 7](./doc/screenshot7.png)
 
 ## Permissions
-
-* Storage Permission is required to save and load backup files from device storage.
 
 * Camera permission is required to add accounts through QR codes.
 
