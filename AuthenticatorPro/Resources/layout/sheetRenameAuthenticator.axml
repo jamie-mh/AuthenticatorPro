@@ -49,7 +49,7 @@
         app:errorEnabled="true"
         app:hintEnabled="true"
         app:counterEnabled="true"
-        app:counterMaxLength="32"
+        app:counterMaxLength="40"
         android:hint="@string/usernameHint"
         android:id="@+id/editUsernameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -59,7 +59,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUsername"
-            android:maxLength="32"
+            android:maxLength="40"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"

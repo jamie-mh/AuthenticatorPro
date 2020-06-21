@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Data
         public string Issuer { get; set; }
 
         [Column("username")]
-        [MaxLength(32)]
+        [MaxLength(40)]
         public string Username{ get; set; }
 
         [Column("secret")]
@@ -145,7 +145,7 @@ namespace AuthenticatorPro.Data
             var auth = new Authenticator {
                 Secret = secret,
                 Issuer = issuer.Trim().Truncate(32),
-                Username = username.Trim().Truncate(32),
+                Username = username.Trim().Truncate(40),
                 Icon = Shared.Data.Icon.FindServiceKeyByName(issuer),
                 Type = type,
                 Algorithm = algorithm,
