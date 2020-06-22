@@ -24,7 +24,12 @@ namespace AuthenticatorPro.List
             NotifyItemMoved(oldPosition, newPosition);
         }
 
-        public void NotifyMovementFinished()
+        public void OnMovementFinished()
+        {
+
+        }
+
+        public void OnMovementStarted()
         {
 
         }

@@ -3,6 +3,7 @@
     internal interface IReorderableListAdapter
     {
         public void MoveItem(int oldPosition, int newPosition);
-        public void NotifyMovementFinished();
+        public void OnMovementStarted();
+        public void OnMovementFinished();
     }
 }

@@ -69,6 +69,7 @@ namespace AuthenticatorPro.Activity
         private ProgressBar _progressBar;
         private SearchView _searchView;
         private FloatingActionButton _addButton;
+        private BottomAppBar _bottomAppBar;
 
         private AuthenticatorListAdapter _authenticatorListAdapter;
         private AuthenticatorSource _authenticatorSource;
@@ -98,9 +99,9 @@ namespace AuthenticatorPro.Activity
             SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.categoryAll);
 
-            var bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
-            bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
-            bottomAppBar.MenuItemClick += (sender, args) =>
+            _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
+            _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
+            _bottomAppBar.MenuItemClick += (sender, args) =>
             {
                 toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
                 _authList.SmoothScrollToPosition(0);
@@ -229,8 +230,13 @@ namespace AuthenticatorPro.Activity
 
             _authenticatorListAdapter.ItemClick += OnAuthenticatorClick;
             _authenticatorListAdapter.MenuClick += OnAuthenticatorOptionsClick;
+            _authenticatorListAdapter.MovementStarted += (sender, i) =>
+            {
+                _bottomAppBar.PerformHide();
+            };
             _authenticatorListAdapter.MovementFinished += async (sender, i) =>
             {
+                _bottomAppBar.PerformShow();
                 await NotifyWearAppOfChange();
             };
 

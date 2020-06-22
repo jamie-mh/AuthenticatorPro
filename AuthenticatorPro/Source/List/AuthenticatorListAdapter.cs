@@ -10,13 +10,15 @@ namespace AuthenticatorPro.List
 {
     internal sealed class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
+        private const int MaxCodeGroupSize = 4;
+
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> MenuClick;
+
+        public event EventHandler MovementStarted;
         public event EventHandler MovementFinished;
 
-        private const int MaxCodeGroupSize = 4;
-        public readonly bool IsCompact;
-
+        private readonly bool _isCompact;
         private readonly bool _isDark;
         private readonly AuthenticatorSource _source;
 
@@ -24,7 +26,7 @@ namespace AuthenticatorPro.List
         public AuthenticatorListAdapter(AuthenticatorSource source, bool isDark, bool isCompact)
         {
             _isDark = isDark;
-            IsCompact = isCompact;
+            _isCompact = isCompact;
             _source = source;
         }
 
@@ -36,9 +38,14 @@ namespace AuthenticatorPro.List
             await _source.Move(oldPosition, newPosition);
         }
 
-        public void NotifyMovementFinished()
+        public void OnMovementFinished()
         {
             MovementFinished?.Invoke(this, null);
+        }
+
+        public void OnMovementStarted()
+        {
+            MovementStarted?.Invoke(this, null);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
@@ -136,7 +143,7 @@ namespace AuthenticatorPro.List
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var layout = IsCompact ? Resource.Layout.listItemAuthCompact: Resource.Layout.listItemAuth;
+            var layout = _isCompact ? Resource.Layout.listItemAuthCompact: Resource.Layout.listItemAuth;
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthenticatorListHolder(itemView);
