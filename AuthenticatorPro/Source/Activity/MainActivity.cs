@@ -444,20 +444,8 @@ namespace AuthenticatorPro.Activity
 
             for(var i = 0; i < _authenticatorSource.Authenticators.Count; ++i)
             {
-                var auth = _authenticatorSource.Authenticators[i];
                 var position = i;
-
-                switch(auth.Type)
-                {
-                    case AuthenticatorType.Totp when auth.TimeRenew > DateTime.Now:
-                    case AuthenticatorType.Hotp when auth.TimeRenew < DateTime.Now:
-                        RunOnUiThread(() => { _authenticatorListAdapter.NotifyItemChanged(position, true); });
-                        break;
-
-                    case AuthenticatorType.Totp:
-                        RunOnUiThread(() => { _authenticatorListAdapter.NotifyItemChanged(position); });
-                        break;
-                }
+                RunOnUiThread(() => { _authenticatorListAdapter.NotifyItemChanged(position, true); });
             }
         }
 
