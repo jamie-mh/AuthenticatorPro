@@ -103,7 +103,7 @@
         app:fabCradleMargin="0dp"
         app:fabCradleRoundedCornerRadius="0dp"
         app:hideOnScroll="true"
-        app:backgroundTint="?attr/authListItem_background"
+        app:backgroundTint="?attr/colorBase"
         app:menu="@menu/bottom"
         app:navigationIcon="@drawable/ic_action_menu" />
 
