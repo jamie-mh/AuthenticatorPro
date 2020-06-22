@@ -13,7 +13,6 @@ using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
 using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
@@ -203,7 +202,14 @@ namespace AuthenticatorPro.Activity
             InitAuthenticatorList();
             await RefreshAuthenticators();
 
-            CreateTimer();
+            _timer = new Timer {
+                Interval = 1000,
+                AutoReset = true,
+                Enabled = true
+            };
+
+            _timer.Elapsed += Tick;
+            _timer.Start();
         }
 
         private void ShowDatabaseErrorDialog()
@@ -286,18 +292,6 @@ namespace AuthenticatorPro.Activity
                 _emptyStateLayout.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_authList, 100, true);
             }
-        }
-
-        private void CreateTimer()
-        {
-            _timer = new Timer {
-                Interval = 1000,
-                AutoReset = true,
-                Enabled = true
-            };
-
-            _timer.Elapsed += Tick;
-            _timer.Start();
         }
 
         protected override async void OnDestroy()
