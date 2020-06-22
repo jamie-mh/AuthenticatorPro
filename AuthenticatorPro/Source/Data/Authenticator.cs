@@ -92,7 +92,11 @@ namespace AuthenticatorPro.Data
             if(!uriMatch.Success)
                 throw new ArgumentException("URI is not valid");
 
-            var type = uriMatch.Groups[1].Value == "totp" ? AuthenticatorType.Totp : AuthenticatorType.Hotp;
+            var type = uriMatch.Groups[1].Value switch {
+                "totp" => AuthenticatorType.Totp,
+                "hotp" => AuthenticatorType.Hotp,
+                _ => throw new InvalidAuthenticatorException()
+            };
 
             // Get the issuer and username if possible
             const string issuerNameExpr = @"^(.*?):(.*?)$";
