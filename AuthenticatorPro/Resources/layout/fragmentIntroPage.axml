@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:gravity="center"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center"
-        android:id="@+id/image"
-        android:src="@mipmap/ic_launcher" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        app:layout_constraintWidth_max="550dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:paddingRight="32dp"
-        android:paddingLeft="32dp"
-        android:fontWeight="700"
-        android:textSize="24dp"
-        android:textColor="?attr/primaryTextColor"
-        android:layout_marginTop="22dp"
-        android:id="@+id/textTitle"
-        android:text="title" />
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:id="@+id/image"
+            android:src="@mipmap/ic_launcher" />
 
-    <TextView
-        android:id="@+id/textMessage"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:paddingRight="32dp"
-        android:paddingLeft="32dp"
-        android:layout_marginTop="22dp"
-        android:textSize="16dp"
-        android:lineSpacingExtra="10dp"
-        android:text="text"
-        android:textColor="?attr/secondaryTextColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:layout_marginTop="22dp"
+            android:id="@+id/textTitle"
+            android:text="title" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textMessage"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="22dp"
+            android:lineSpacingExtra="10dp"
+            android:text="text"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
