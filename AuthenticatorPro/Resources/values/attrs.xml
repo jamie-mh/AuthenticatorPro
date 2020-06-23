@@ -14,5 +14,7 @@
         <attr name="authList_background" format="color" />
         <attr name="authListItem_background" format="color" />
         <attr name="authListItem_code" format="color" />
+        
+        <attr name="bottomAppBarBackground" format="color" />
     </declare-styleable>
 </resources>

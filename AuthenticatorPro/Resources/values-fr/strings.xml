@@ -5,7 +5,7 @@
     <string name="restore">Restaurer</string>
     <string name="backup">Sauvegarder</string>
     <string name="about">À Propos</string>
-    <string name="scanQrCode">Lire un QR Code</string>
+    <string name="scanQrCode">Scanner un QR Code</string>
     <string name="enterKey">Utiliser une clé</string>
     <string name="restoreBackup">Restorer une sauvegarde</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
@@ -80,27 +80,50 @@
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil.</string>
     <string name="quit">Quitter</string>
 
+    <!-- Getting Started Guide -->
+    <string name="gettingStarted">Guide de démarrage</string>
+    <string name="viewGuide">Lire le guide</string>
+    <string name="noAuthenticatorsHelp">Si vous ouvrez l\'application pour la première fois, vous pouvez consulter le guide de démarrage rapide en tapant ci-dessous.</string>
+
+    <string name="guideScanQRCodeTitle">Scanner un QR Code</string>
+    <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez également renseigner les informations vous-même.</string>
+
+    <string name="guideUseCodeTitle">Utiliser le code</string>
+    <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Authenticator Pro. Ceci n\'est valide que pendant une courte période. Tappez l\'authentificateur dans la liste pour copier le code au presse-papiers.</string>
+
+    <string name="guideCustomiseTitle">Personnaliser et modifier</string>
+    <string name="guideCustomiseSummary">Renommez vos authentificateurs et changez l\'icône. Tappez sur le bouton menu pour accèder aux paramètres.</string>
+
+    <string name="guideArrangeTitle">Organiser et trier</string>
+    <string name="guideArrangeSummary">Vous pouvez affecter des catégories à vos authentificateurs pour les retrouver plus facilement. De plus, appuyez et faites glisser votre doigt sur des élements de la liste pour les placer dans l\'ordre que vous souhaitez.</string>
+
+    <string name="guideBackupTitle">Créer une sauvegarde</string>
+    <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une sauvegarde et placez le dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut même être protégée par un mot de passe.</string>
+
+    <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
+    <string name="guideWearOSSummary">Si vous avez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
+    
     <!-- Preferences -->
-    <string name="pref_security">Securité</string>
-    <string name="pref_appLock_title">Verrouillage de l\'application</string>
-    <string name="pref_appLock_summary">Exiger le déverrouillage par code pin ou empreinte digitale avant d\'accéder aux authentificateurs. Cette fonctionnalité exige d\'avoir configuré un écran de verrouillage sur l\'appareil.</string>
+    <string name="prefSecurity">Securité</string>
+    <string name="prefAppLockTitle">Verrouillage de l\'application</string>
+    <string name="prefAppLockSummary">Exiger le déverrouillage par code pin ou empreinte digitale avant d\'accéder aux authentificateurs. Cette fonctionnalité exige d\'avoir configuré un écran de verrouillage sur l\'appareil.</string>
 
-    <string name="pref_useEncryptedDatabase_title">Base de données chiffrée</string>
-    <string name="pref_useEncryptedDatabase_summary">Fortement conseillé. Décochez cette option si vous avez besoin d\'utiliser des applications de sauvegarde tierces comme Titanium Backup, Helium, Super Backup, adb backup etc...</string>
+    <string name="prefUseEncryptedDatabaseTitle">Base de données chiffrée</string>
+    <string name="prefUseEncryptedDatabaseSummary">Fortement conseillé. Décochez cette option si vous avez besoin d\'utiliser des applications de sauvegarde tierces comme Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
-    <string name="pref_appearance">Apparence</string>
-    <string name="pref_theme_title">Thème</string>
-    <string name="pref_theme_summary">Changer le thème de l\'application.</string>
-    <string name="pref_compactMode_title">Affichage Compact</string>
-    <string name="pref_compactMode_summary">Réduire la taille des authenticateurs afin d\'afficher plus sur l\'écran.</string>
+    <string name="prefAppearance">Apparence</string>
+    <string name="prefThemeTitle">Thème</string>
+    <string name="prefThemeSummary">Changer le thème de l\'application.</string>
+    <string name="prefCompactModeTitle">Affichage Compact</string>
+    <string name="prefCompactModeSummary">Réduire la taille des authenticateurs afin d\'afficher plus sur l\'écran.</string>
 
-    <string name="pref_more">Plus</string>
-    <string name="pref_about_title">À Propos</string>
-    <string name="pref_about_summary">Lire des informations sur l\'application est les licences open-source.</string>
-    <string name="pref_rate_title">Noter</string>
-    <string name="pref_rate_summary">Noter Authenticator Pro sur Google Play.</string>
-    <string name="pref_viewGitHub_title">Ouvrir le dépôt GitHub</string>
-    <string name="pref_viewGitHub_summary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler des problèmes avec l\'application et faire une demande pour plus d\'icônes ou fonctionnalités.</string>
+    <string name="prefMore">Plus</string>
+    <string name="prefAboutTitle">À Propos</string>
+    <string name="prefAboutSummary">Lire des informations sur l\'application est les licences open-source.</string>
+    <string name="prefRateTitle">Noter</string>
+    <string name="prefRateSummary">Noter Authenticator Pro sur Google Play.</string>
+    <string name="prefViewGitHubTitle">Ouvrir le dépôt GitHub</string>
+    <string name="prefViewGitHubSummary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler des problèmes avec l\'application et faire une demande pour plus d\'icônes ou fonctionnalités.</string>
 
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
@@ -114,15 +137,15 @@
     <string name="darkTheme">Thème sombre</string>
 
     <!-- Arrays / Intro -->
-    <string name="introTitleWelcome">Bienvenue à Authenticator Pro</string>
-    <string name="introTitleCompatibility">Authentification TOTP / HOTP</string>
-    <string name="introTitleBackup">Sauvegarde / Restauration</string>
-    <string name="introTitleCategories">Catégories</string>
-    <string name="introTitleThemes">Thème Sombre</string>
+    <string name="introWelcomeTitle">Bienvenue à Authenticator Pro</string>
+    <string name="introCompatibilityTitle">Authentification TOTP / HOTP</string>
+    <string name="introBackupTitle">Sauvegarde / Restauration</string>
+    <string name="introCategoriesTitle">Catégories</string>
+    <string name="introThemesTitle">Thème Sombre</string>
 
-    <string name="introTextWelcome">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
-    <string name="introTextCompatibility">Authenticator Pro est compatible avec la plupart des comptes. C\'est 100% compatible avec les services fonctionnant avec Google Authenticator.</string>
-    <string name="introTextBackup">Sauvegardez vos authentificateurs avec un chiffrement fort. Dans le cas où vous perdez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
-    <string name="introTextCategories">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>
-    <string name="introTextThemes">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
+    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro est compatible avec la plupart des comptes. C\'est 100% compatible avec les services fonctionnant avec Google Authenticator.</string>
+    <string name="introBackupSummary">Sauvegardez vos authentificateurs avec un chiffrement fort. Dans le cas où vous perdez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
+    <string name="introCategoriesSummary">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>
+    <string name="introThemesSummary">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
 </resources>

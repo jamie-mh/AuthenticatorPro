@@ -81,27 +81,54 @@
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
     <string name="quit">Beenden</string>
 
+    <!-- Getting Started Guide -->
+    <string name="gettingStarted">Erste Schritte</string>
+    <string name="viewGuide">Leitfaden anzeigen</string>
+    <string name="noAuthenticatorsHelp">Wenn Authenticator Pro neu für Sie ist, klicken Sie bitte unten auf die
+        Einführungsanleitung.
+    </string>
+
+    <string name="guideScanQRCodeTitle">QR Code scannen</string>
+    <string name="guideScanQRCodeSummary">Um einen Authentifikator hinzuzufügen, scannen Sie den von der Anwendung oder dem Dienst bereitgestellten QR-Code. Er wird der Liste hinzugefügt und erzeugt automatisch neue Codes. Sie können die Angaben auch manuell eingeben.</string>
+
+    <string name="guideUseCodeTitle">Verwenden Sie den Code beim Einloggen</string>
+    <string name="guideUseCodeSummary">Verwenden Sie beim Einloggen den von Authenticator Pro bereitgestellten eindeutigen Code. Er ist nur für eine kurze Dauer gültig. Tippen Sie in der Liste auf den Authenticator, um den Code in die Zwischenablage zu kopieren.</string>
+
+    <string name="guideCustomiseTitle">Anpassen und Bearbeiten</string>
+    <string name="guideCustomiseSummary">Benennen Sie Ihre Authentifizierer um und passen Sie sie so an, dass sie leicht zu finden sind. Tippen Sie einfach auf das Menü-Symbol auf einem Eintrag und folgen Sie den Schritten.</string>
+
+    <string name="guideArrangeTitle">Ordnen und Sortieren</string>
+    <string name="guideArrangeSummary">Sie können Ihre Authentifizierer in Kategorien organisieren, um sie leicht zu
+        finden. Darüber hinaus können Sie sie durch Halten und Ziehen in beliebiger Reihenfolge neu anordnen.
+    </string>
+
+    <string name="guideBackupTitle">Erstellen einer Sicherung</string>
+    <string name="guideBackupSummary">Lassen Sie sich nicht aus Ihren Konten aussperren, wenn Sie das Gerät wechseln. Erstellen Sie eine Sicherungsdatei und bewahren Sie sie an einem sicheren Ort auf. Ein Backup kann jederzeit wiederhergestellt und mit einem Passwort geschützt werden.</string>
+
+    <string name="guideWearOSTitle">Laden Sie die Wear OS-Begleitapplikation herunter</string>
+    <string name="guideWearOSSummary">Wenn Sie eine Wear OS-Uhr besitzen, können Sie die Begleitapplikation herunterladen. Sie können Codes direkt auf Ihrer Uhr ansehen.</string>
+    
     <!-- Preferences -->
-    <string name="pref_security">Sicherheit</string>
-    <string name="pref_appLock_title">App sperren</string>
-    <string name="pref_appLock_summary">Authentifizierung verlangen, um auf Authentifikatoren zuzugreifen. Du musst dafür ein Sperrbildschirm in deinem Gerät einrichten.</string>
+    <string name="prefSecurity">Sicherheit</string>
+    <string name="prefAppLockTitle">App sperren</string>
+    <string name="prefAppLockSummary">Authentifizierung verlangen, um auf Authentifikatoren zuzugreifen. Du musst dafür ein Sperrbildschirm in deinem Gerät einrichten.</string>
 
-    <string name="pref_useEncryptedDatabase_title">Verschlüsselte Datenbank</string>
-    <string name="pref_useEncryptedDatabase_summary">Empfohlen. Deaktivere dies, wenn du Sicherungsdienste von Drittanbietern benutzt, z. B. Titanium Backup, Helium, Super Backup, adb backup etc.</string>
+    <string name="prefUseEncryptedDatabaseTitle">Verschlüsselte Datenbank</string>
+    <string name="prefUseEncryptedDatabaseSummary">Empfohlen. Deaktivere dies, wenn du Sicherungsdienste von Drittanbietern benutzt, z. B. Titanium Backup, Helium, Super Backup, adb backup etc.</string>
 
-    <string name="pref_appearance">Erscheinung</string>
-    <string name="pref_theme_title">Thema</string>
-    <string name="pref_theme_summary">Verwende ein dunkles oder helles Thema in der App</string>
-    <string name="pref_compactMode_title">Kompaktes Erscheinungsbild</string>
-    <string name="pref_compactMode_summary">Authentifikatoren kleiner machen um mehr auf ein mal anzuzeigen</string>
+    <string name="prefAppearance">Erscheinung</string>
+    <string name="prefThemeTitle">Thema</string>
+    <string name="prefThemeSummary">Verwende ein dunkles oder helles Thema in der App</string>
+    <string name="prefCompactModeTitle">Kompaktes Erscheinungsbild</string>
+    <string name="prefCompactModeSummary">Authentifikatoren kleiner machen um mehr auf ein mal anzuzeigen</string>
 
-    <string name="pref_more">Mehr</string>
-    <string name="pref_about_title">Über</string>
-    <string name="pref_about_summary">Informationen und Lizenzen anzeigen</string>
-    <string name="pref_rate_title">Bewerten</string>
-    <string name="pref_rate_summary">Bewerte Authenticator Pro im Google Play Store.</string>
-    <string name="pref_viewGitHub_title">Auf GitHub anzeigen</string>
-    <string name="pref_viewGitHub_summary">Öffme das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden sowie Icons und neue Funktionen vorschlagen.</string>
+    <string name="prefMore">Mehr</string>
+    <string name="prefAboutTitle">Über</string>
+    <string name="prefAboutSummary">Informationen und Lizenzen anzeigen</string>
+    <string name="prefRateTitle">Bewerten</string>
+    <string name="prefRateSummary">Bewerte Authenticator Pro im Google Play Store.</string>
+    <string name="prefViewGitHubTitle">Auf GitHub anzeigen</string>
+    <string name="prefViewGitHubSummary">Öffme das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden sowie Icons und neue Funktionen vorschlagen.</string>
 
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
@@ -115,15 +142,15 @@
     <string name="darkTheme">Dunkles Thema</string>
 
     <!-- Arrays / Intro -->
-    <string name="introTitleWelcome">Willkommen bei Authenticator Pro</string>
-    <string name="introTitleCompatibility">TOTP / HOTP Authentifizierung</string>
-    <string name="introTitleBackup">Sichern / Wiederherstellen</string>
-    <string name="introTitleCategories">Kategorien</string>
-    <string name="introTitleThemes">Dunkles Thema</string>
+    <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
+    <string name="introCompatibilityTitle">TOTP / HOTP Authentifizierung</string>
+    <string name="introBackupTitle">Sichern / Wiederherstellen</string>
+    <string name="introCategoriesTitle">Kategorien</string>
+    <string name="introThemesTitle">Dunkles Thema</string>
 
-    <string name="introTextWelcome">Danke für das Herunterladen von Authenticator Pro.\nSichere deine Onlinekonten mit der besten quelloffenen Authenticator-App.</string>
-    <string name="introTextCompatibility">Authenticator Pro ist mit den meisten Anbietern und Konten kompatibel. Es kann zu 100% mit Google-Authenticator-kompatiblen Anbietern verwendet werden.</string>
-    <string name="introTextBackup">Sichere deine Authentifikatoren mit starker Verschlüsselung. Falls du dein Gerät verlierst, kannst du so wieder Zugriff auf deine Konten erlangen. Sichere auf deinen Gerätespeicher oder direkt in die Cloud.</string>
-    <string name="introTextCategories">Organisiere deine Authentifikatoren in Kategorien und ordne durch einfaches hin- und herschieben.</string>
-    <string name="introTextThemes">Wenn du möchtest kannst du ein dunkles Thema einschalten. Alle Icons werden sich daran anpassen.</string>
+    <string name="introWelcomeSummary">Danke für das Herunterladen von Authenticator Pro.\nSichere deine Onlinekonten mit der besten quelloffenen Authenticator-App.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro ist mit den meisten Anbietern und Konten kompatibel. Es kann zu 100% mit Google-Authenticator-kompatiblen Anbietern verwendet werden.</string>
+    <string name="introBackupSummary">Sichere deine Authentifikatoren mit starker Verschlüsselung. Falls du dein Gerät verlierst, kannst du so wieder Zugriff auf deine Konten erlangen. Sichere auf deinen Gerätespeicher oder direkt in die Cloud.</string>
+    <string name="introCategoriesSummary">Organisiere deine Authentifikatoren in Kategorien und ordne durch einfaches hin- und herschieben.</string>
+    <string name="introThemesSummary">Wenn du möchtest kannst du ein dunkles Thema einschalten. Alle Icons werden sich daran anpassen.</string>
 </resources>

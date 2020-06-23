@@ -36,7 +36,7 @@
             android:text="title" />
 
         <TextView
-            android:id="@+id/textMessage"
+            android:id="@+id/textSummary"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginTop="22dp"

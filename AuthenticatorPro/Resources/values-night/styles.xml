@@ -34,6 +34,7 @@
         <item name="colorBackgroundFloating">@color/colorDark</item>
 
         <item name="android:navigationBarColor">@color/colorDarkest</item>
+        <item name="bottomAppBarBackground">@color/colorDarkest</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">

@@ -34,6 +34,8 @@
 
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@color/colorLighter</item>
+        
+        <item name="bottomAppBarBackground">@color/colorLightest</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">

@@ -57,6 +57,8 @@
         android:id="@+id/layoutEmptyState"
         android:orientation="vertical"
         android:gravity="center"
+        android:paddingRight="32dp"
+        android:paddingLeft="32dp"
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -71,26 +73,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingRight="32dp"
-            android:paddingLeft="32dp"
-            android:fontWeight="700"
-            android:textSize="24dp"
-            android:textColor="?attr/primaryTextColor"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             android:layout_marginTop="22dp"
             android:text="@string/noAuthenticatorsTitle" />
 
         <TextView
+            android:id="@+id/textEmptyMessage"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:lineSpacingExtra="10dp"
+            android:gravity="center_horizontal"
+            android:textAppearance="?attr/textAppearanceBody2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingRight="32dp"
-            android:paddingLeft="32dp"
-            android:layout_marginTop="22dp"
-            android:textSize="16dp"
-            android:textColor="?attr/secondaryTextColor"
             android:text="@string/noAuthenticatorsMessage" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonViewGuide"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_marginTop="12dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/viewGuide" />
+
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -103,7 +108,7 @@
         app:fabCradleMargin="0dp"
         app:fabCradleRoundedCornerRadius="0dp"
         app:hideOnScroll="true"
-        app:backgroundTint="?attr/colorBase"
+        app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:navigationIcon="@drawable/ic_action_menu" />
 

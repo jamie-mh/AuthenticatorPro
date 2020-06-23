@@ -25,9 +25,9 @@ using AuthenticatorPro.Data;
 using AuthenticatorPro.Dialog;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
-using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Util;
 using Google.Android.Material.BottomAppBar;
+using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
@@ -63,12 +63,15 @@ namespace AuthenticatorPro.Activity
         private Task _onceResumedTask;
 
         private CoordinatorLayout _coordinatorLayout;
-        private LinearLayout _emptyStateLayout;
         private RecyclerView _authList;
         private ProgressBar _progressBar;
         private SearchView _searchView;
         private FloatingActionButton _addButton;
         private BottomAppBar _bottomAppBar;
+
+        private LinearLayout _emptyStateLayout;
+        private TextView _emptyMessageText;
+        private MaterialButton _viewGuideButton;
 
         private AuthenticatorListAdapter _authenticatorListAdapter;
         private AuthenticatorSource _authenticatorSource;
@@ -114,6 +117,12 @@ namespace AuthenticatorPro.Activity
 
             _authList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
+            _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
+            _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
+            _viewGuideButton.Click += (sender, args) =>
+            {
+                StartChildActivity(typeof(GuideActivity));
+            };
 
             _isChildActivityOpen = false;
             _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
@@ -286,6 +295,17 @@ namespace AuthenticatorPro.Activity
             {
                 _authList.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_emptyStateLayout, 500, true);
+
+                if(_authenticatorSource.CategoryId == null)
+                {
+                    _emptyMessageText.SetText(Resource.String.noAuthenticatorsHelp);
+                    _viewGuideButton.Visibility = ViewStates.Visible;
+                }
+                else
+                {
+                    _emptyMessageText.SetText(Resource.String.noAuthenticatorsMessage);
+                    _viewGuideButton.Visibility = ViewStates.Gone;
+                }
             }
             else
             {

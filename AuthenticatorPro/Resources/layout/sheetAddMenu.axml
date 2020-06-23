@@ -25,7 +25,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="32dp"
-            android:src="@drawable/ic_action_camera_alt" />
+            android:src="@drawable/ic_action_qr_code" />
 
         <TextView
             android:layout_width="wrap_content"

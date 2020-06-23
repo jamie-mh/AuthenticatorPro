@@ -80,27 +80,50 @@
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device.</string>
     <string name="quit">Quit</string>
 
+    <!-- Getting Started Guide -->
+    <string name="gettingStarted">Getting Started</string>
+    <string name="viewGuide">View Guide</string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
+    
+    <string name="guideScanQRCodeTitle">Scan a QR Code</string>
+    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
+    
+    <string name="guideUseCodeTitle">Use the code when logging in</string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+
+    <string name="guideCustomiseTitle">Customise and edit</string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
+    
+    <string name="guideArrangeTitle">Arrange and sort</string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    
+    <string name="guideBackupTitle">Create a backup</string>
+    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
+    
+    <string name="guideWearOSTitle">Download the Wear OS companion</string>
+    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
+    
     <!-- Preferences -->
-    <string name="pref_security">Security</string>
-    <string name="pref_appLock_title">App Lock</string>
-    <string name="pref_appLock_summary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
+    <string name="prefSecurity">Security</string>
+    <string name="prefAppLockTitle">App Lock</string>
+    <string name="prefAppLockSummary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
 
-    <string name="pref_useEncryptedDatabase_title">Encrypted Database</string>
-    <string name="pref_useEncryptedDatabase_summary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
+    <string name="prefUseEncryptedDatabaseTitle">Encrypted Database</string>
+    <string name="prefUseEncryptedDatabaseSummary">Highly recommended. Uncheck this option if you need to use third-party backup tools such as Titanium Backup, Helium, Super Backup, adb backup etc...</string>
 
-    <string name="pref_appearance">Appearance</string>
-    <string name="pref_theme_title">Theme</string>
-    <string name="pref_theme_summary">Choose an application theme.</string>
-    <string name="pref_compactMode_title">Compact View</string>
-    <string name="pref_compactMode_summary">Make authenticators smaller in order to fit more on screen at once.</string>
+    <string name="prefAppearance">Appearance</string>
+    <string name="prefThemeTitle">Theme</string>
+    <string name="prefThemeSummary">Choose an application theme.</string>
+    <string name="prefCompactModeTitle">Compact View</string>
+    <string name="prefCompactModeSummary">Make authenticators smaller in order to fit more on screen at once.</string>
 
-    <string name="pref_more">More</string>
-    <string name="pref_about_title">About</string>
-    <string name="pref_about_summary">View about and licence information.</string>
-    <string name="pref_rate_title">Rate</string>
-    <string name="pref_rate_summary">Rate Authenticator Pro on the Google Play store.</string>
-    <string name="pref_viewGitHub_title">View on GitHub</string>
-    <string name="pref_viewGitHub_summary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
+    <string name="prefMore">More</string>
+    <string name="prefAboutTitle">About</string>
+    <string name="prefAboutSummary">View about and licence information.</string>
+    <string name="prefRateTitle">Rate</string>
+    <string name="prefRateSummary">Rate Authenticator Pro on the Google Play store.</string>
+    <string name="prefViewGitHubTitle">View on GitHub</string>
+    <string name="prefViewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
 
     <!-- Arrays -->
     <string name="authTypeTime">Time Based (TOTP)</string>
@@ -114,15 +137,15 @@
     <string name="darkTheme">Dark Theme</string>
 
     <!-- Arrays / Intro -->
-    <string name="introTitleWelcome">Welcome to Authenticator Pro</string>
-    <string name="introTitleCompatibility">TOTP / HOTP Authentication</string>
-    <string name="introTitleBackup">Backup / Restore</string>
-    <string name="introTitleCategories">Categories</string>
-    <string name="introTitleThemes">Dark Theme</string>
+    <string name="introWelcomeTitle">Welcome to Authenticator Pro</string>
+    <string name="introCompatibilityTitle">TOTP / HOTP Authentication</string>
+    <string name="introBackupTitle">Backup / Restore</string>
+    <string name="introCategoriesTitle">Categories</string>
+    <string name="introThemesTitle">Dark Theme</string>
 
-    <string name="introTextWelcome">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
-    <string name="introTextCompatibility">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
-    <string name="introTextBackup">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introTextCategories">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
-    <string name="introTextThemes">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
+    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>

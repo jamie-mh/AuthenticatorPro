@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string-array name="authContextMenu">
-    <item>@string/rename</item>
-    <item>@string/changeIcon</item>
-    <item>@string/assignCategories</item>
-    <item>@string/delete</item>
-  </string-array>
-  <string-array name="authTypes">
-    <item>@string/authTypeTime</item>
-    <item>@string/authTypeCounter</item>
-  </string-array>
-  <string-array name="authAlgorithms">
-    <item>@string/authAlgorithmSHA1</item>
-    <item>@string/authAlgorithmSHA256</item>
-    <item>@string/authAlgorithmSHA512</item>
-  </string-array>
-  <string-array name="introTitle">
-    <item>@string/introTitleWelcome</item>
-    <item>@string/introTitleCompatibility</item>
-    <item>@string/introTitleBackup</item>
-    <item>@string/introTitleCategories</item>
-    <item>@string/introTitleThemes</item>
-  </string-array>
-  <string-array name="introText">
-    <item>@string/introTextWelcome</item>
-    <item>@string/introTextCompatibility</item>
-    <item>@string/introTextBackup</item>
-    <item>@string/introTextCategories</item>
-    <item>@string/introTextThemes</item>
-  </string-array>
-  <integer-array name="introImage">
-    <item>@mipmap/ic_launcher</item>
-    <item>@drawable/ic_lock_open</item>
-    <item>@drawable/ic_backup</item>
-    <item>@drawable/ic_category</item>
-    <item>@drawable/ic_wb_incandescent</item>
-  </integer-array>
-  <string-array name="themeNames">
-    <item>@string/systemDefault</item> 
-    <item>@string/lightTheme</item> 
-    <item>@string/darkTheme</item> 
-  </string-array>
-  <string-array name="themeValues">
-      <item>0</item>
-      <item>1</item>
-      <item>2</item>
-  </string-array>
+    <string-array name="authContextMenu">
+        <item>@string/rename</item>
+        <item>@string/changeIcon</item>
+        <item>@string/assignCategories</item>
+        <item>@string/delete</item>
+    </string-array>
+    <string-array name="authTypes">
+        <item>@string/authTypeTime</item>
+        <item>@string/authTypeCounter</item>
+    </string-array>
+    <string-array name="authAlgorithms">
+        <item>@string/authAlgorithmSHA1</item>
+        <item>@string/authAlgorithmSHA256</item>
+        <item>@string/authAlgorithmSHA512</item>
+    </string-array>
+    <string-array name="introTitle">
+        <item>@string/introWelcomeTitle</item>
+        <item>@string/introCompatibilityTitle</item>
+        <item>@string/introBackupTitle</item>
+        <item>@string/introCategoriesTitle</item>
+        <item>@string/introThemesTitle</item>
+    </string-array>
+    <string-array name="introSummary">
+        <item>@string/introWelcomeSummary</item>
+        <item>@string/introCompatibilitySummary</item>
+        <item>@string/introBackupSummary</item>
+        <item>@string/introCategoriesSummary</item>
+        <item>@string/introThemesSummary</item>
+    </string-array>
+    <integer-array name="introImage">
+        <item>@mipmap/ic_launcher</item>
+        <item>@drawable/ic_lock_open</item>
+        <item>@drawable/ic_backup</item>
+        <item>@drawable/ic_category</item>
+        <item>@drawable/ic_wb_incandescent</item>
+    </integer-array>
+    <string-array name="themeNames">
+        <item>@string/systemDefault</item>
+        <item>@string/lightTheme</item>
+        <item>@string/darkTheme</item>
+    </string-array>
+    <string-array name="themeValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

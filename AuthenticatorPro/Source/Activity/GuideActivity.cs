@@ -1,31 +1,28 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Views;
-using Android.Webkit;
 using Google.Android.Material.AppBar;
+using Google.Android.Material.Card;
 
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class AboutActivity : DayNightActivity
+    internal class GuideActivity : DayNightActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityAbout);
-
+            SetContentView(Resource.Layout.activityGuide);
+            
             var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            SupportActionBar.SetTitle(Resource.String.about);
+            SupportActionBar.SetTitle(Resource.String.gettingStarted);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
-
-            var webView = FindViewById<WebView>(Resource.Id.webView);
-            webView.LoadUrl("file:///android_asset/about.html");
         }
-
+        
         public override bool OnSupportNavigateUp()
         {
             Finish();
