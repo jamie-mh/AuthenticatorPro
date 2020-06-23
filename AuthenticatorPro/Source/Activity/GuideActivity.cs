@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Activity
             var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
-            SupportActionBar.SetTitle(Resource.String.gettingStarted);
+            SupportActionBar.SetTitle(Resource.String.gettingStartedGuide);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);

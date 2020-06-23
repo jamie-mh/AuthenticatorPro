@@ -82,8 +82,7 @@
     <string name="quit">Beenden</string>
 
     <!-- Getting Started Guide -->
-    <string name="gettingStarted">Erste Schritte</string>
-    <string name="viewGuide">Leitfaden anzeigen</string>
+    <string name="gettingStartedGuide">Erste Schritte</string>
     <string name="noAuthenticatorsHelp">Wenn Authenticator Pro neu für Sie ist, klicken Sie bitte unten auf die Einführungsanleitung.</string>
 
     <string name="guideScanQRCodeTitle">QR Code scannen</string>

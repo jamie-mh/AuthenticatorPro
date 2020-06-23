@@ -81,8 +81,7 @@
     <string name="quit">Quitter</string>
 
     <!-- Getting Started Guide -->
-    <string name="gettingStarted">Guide de démarrage</string>
-    <string name="viewGuide">Lire le guide</string>
+    <string name="gettingStartedGuide">Guide de démarrage</string>
     <string name="noAuthenticatorsHelp">Si vous ouvrez l\'application pour la première fois, vous pouvez consulter le guide de démarrage rapide en tapant ci-dessous.</string>
 
     <string name="guideScanQRCodeTitle">Scanner un QR Code</string>

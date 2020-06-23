@@ -81,8 +81,7 @@
     <string name="quit">Quit</string>
 
     <!-- Getting Started Guide -->
-    <string name="gettingStarted">Getting Started</string>
-    <string name="viewGuide">View Guide</string>
+    <string name="gettingStartedGuide">Getting Started Guide</string>
     <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
     
     <string name="guideScanQRCodeTitle">Scan a QR Code</string>
