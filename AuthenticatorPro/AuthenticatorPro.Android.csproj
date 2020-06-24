@@ -129,7 +129,6 @@
     <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Database.cs" />
-    <Compile Include="Source\IdleActionBarDrawerToggle.cs" />
     <Compile Include="Source\List\IReorderableListAdapter.cs" />
     <Compile Include="Source\Util\StringExt.cs" />
     <Compile Include="Source\Service\WearQueryService.cs" />
