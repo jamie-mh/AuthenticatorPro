@@ -1,0 +1,3 @@
+- 9 new icons: Keeper, Synology, Adafruit, AdGuard, Etsy, Newegg, Privacy.com, RealVNC, Uphold.
+- Increased username text limit to 40.
+- Minor fixes.
