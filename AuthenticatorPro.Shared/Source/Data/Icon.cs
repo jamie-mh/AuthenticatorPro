@@ -50,6 +50,7 @@ namespace AuthenticatorPro.Shared.Data
             {"googlecloudplatform", Resource.Drawable.auth_googlecloudplatform},
             {"googledrive", Resource.Drawable.auth_googledrive},
             {"googleplay", Resource.Drawable.auth_googleplay},
+            {"grammarly", Resource.Drawable.auth_grammarly},
             {"guildwars2", Resource.Drawable.auth_guildwars2},
             {"hangouts", Resource.Drawable.auth_hangouts},
             {"heroku", Resource.Drawable.auth_heroku},
@@ -105,6 +106,7 @@ namespace AuthenticatorPro.Shared.Data
             {"uplay", Resource.Drawable.auth_uplay},
             {"uptimerobot", Resource.Drawable.auth_uptimerobot},
             {"wargaming", Resource.Drawable.auth_wargaming},
+            {"wetransfer", Resource.Drawable.auth_wetransfer},
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"xbox", Resource.Drawable.auth_xbox},
             {"youtube", Resource.Drawable.auth_youtube}
@@ -126,6 +128,7 @@ namespace AuthenticatorPro.Shared.Data
             {"synology", Resource.Drawable.auth_synology_dark},
             {"uber", Resource.Drawable.auth_uber_dark},
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
+            {"wetransfer", Resource.Drawable.auth_wetransfer_dark},
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
             {"xbox", Resource.Drawable.auth_xbox_dark}
         };
