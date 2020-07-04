@@ -27,6 +27,7 @@ namespace AuthenticatorPro.Shared.Data
             {"bitwarden", Resource.Drawable.auth_bitwarden},
             {"blizzard", Resource.Drawable.auth_blizzard},
             {"blockchain", Resource.Drawable.auth_blockchain},
+            {"cachet", Resource.Drawable.auth_cachet},
             {"cexio", Resource.Drawable.auth_cexio},
             {"cloudflare", Resource.Drawable.auth_cloudflare},
             {"coinbase", Resource.Drawable.auth_coinbase},
