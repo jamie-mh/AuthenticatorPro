@@ -88,6 +88,7 @@ namespace AuthenticatorPro.Shared.Data
             {"privateinternetaccess", Resource.Drawable.auth_privateinternetaccess},
             {"protonmail", Resource.Drawable.auth_protonmail},
             {"protonvpn", Resource.Drawable.auth_protonvpn},
+            {"proxmox", Resource.Drawable.auth_proxmox},
             {"realvnc", Resource.Drawable.auth_realvnc},
             {"reddit", Resource.Drawable.auth_reddit},
             {"rockstargames", Resource.Drawable.auth_rockstargames},
