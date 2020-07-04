@@ -8,7 +8,6 @@ namespace AuthenticatorPro.Shared.Data
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
             {"default", Resource.Drawable.auth_default},
-
             {"1and1", Resource.Drawable.auth_1and1},
             {"3cx", Resource.Drawable.auth_3cx},
             {"adafruit", Resource.Drawable.auth_adafruit},
@@ -99,6 +98,7 @@ namespace AuthenticatorPro.Shared.Data
             {"snapchat", Resource.Drawable.auth_snapchat},
             {"synology", Resource.Drawable.auth_synology},
             {"teamviewer", Resource.Drawable.auth_teamviewer},
+            {"time4vps", Resource.Drawable.auth_time4vps},
             {"trello", Resource.Drawable.auth_trello},
             {"tutanota", Resource.Drawable.auth_tutanota},
             {"twitch", Resource.Drawable.auth_twitch},
