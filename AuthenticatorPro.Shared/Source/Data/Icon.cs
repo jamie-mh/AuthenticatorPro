@@ -55,6 +55,7 @@ namespace AuthenticatorPro.Shared.Data
             {"guildwars2", Resource.Drawable.auth_guildwars2},
             {"hangouts", Resource.Drawable.auth_hangouts},
             {"heroku", Resource.Drawable.auth_heroku},
+            {"hetzner", Resource.Drawable.auth_hetzner},
             {"humblebundle", Resource.Drawable.auth_humblebundle},
             {"ifttt", Resource.Drawable.auth_ifttt},
             {"instagram", Resource.Drawable.auth_instagram},
