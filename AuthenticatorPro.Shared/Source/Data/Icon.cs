@@ -59,6 +59,7 @@ namespace AuthenticatorPro.Shared.Data
             {"humblebundle", Resource.Drawable.auth_humblebundle},
             {"ifttt", Resource.Drawable.auth_ifttt},
             {"instagram", Resource.Drawable.auth_instagram},
+            {"inwx", Resource.Drawable.auth_inwx},
             {"jetbrains", Resource.Drawable.auth_jetbrains},
             {"jottacloud", Resource.Drawable.auth_jottacloud},
             {"keeper", Resource.Drawable.auth_keeper},
