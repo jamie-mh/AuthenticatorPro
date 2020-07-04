@@ -103,6 +103,7 @@ namespace AuthenticatorPro.Shared.Data
             {"twitter", Resource.Drawable.auth_twitter},
             {"uber", Resource.Drawable.auth_uber},
             {"ubisoft", Resource.Drawable.auth_ubisoft},
+            {"unlockbase", Resource.Drawable.auth_unlockbase},
             {"uphold", Resource.Drawable.auth_uphold},
             {"uplay", Resource.Drawable.auth_uplay},
             {"uptimerobot", Resource.Drawable.auth_uptimerobot},
