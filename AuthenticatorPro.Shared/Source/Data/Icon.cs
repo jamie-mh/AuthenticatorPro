@@ -206,6 +206,7 @@ namespace AuthenticatorPro.Shared.Data
             {"patreon", Resource.Drawable.auth_patreon_dark},
             {"runcloud", Resource.Drawable.auth_runcloud_dark},
             {"synology", Resource.Drawable.auth_netcup_dark},
+            {"torguard", Resource.Drawable.auth_torguard_dark},
             {"uber", Resource.Drawable.auth_uber_dark},
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
             {"wetransfer", Resource.Drawable.auth_wetransfer_dark},
