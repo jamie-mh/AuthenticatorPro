@@ -140,7 +140,8 @@ namespace AuthenticatorPro.Shared.Data
             {"wetransfer", Resource.Drawable.auth_wetransfer},
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"xbox", Resource.Drawable.auth_xbox},
-            {"youtube", Resource.Drawable.auth_youtube}
+            {"youtube", Resource.Drawable.auth_youtube},
+            {"zapier", Resource.Drawable.auth_zapier}
         };
 
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
