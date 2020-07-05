@@ -170,6 +170,7 @@ namespace AuthenticatorPro.Shared.Data
             {"amazon", Resource.Drawable.auth_amazon_dark},
             {"borgbase", Resource.Drawable.auth_borgbase_dark},
             {"electronicarts", Resource.Drawable.auth_electronicarts_dark},
+            {"eveonline", Resource.Drawable.auth_eveonline_dark},
             {"github", Resource.Drawable.auth_github_dark},
             {"ifttt", Resource.Drawable.auth_ifttt_dark},
             {"jetbrains", Resource.Drawable.auth_jetbrains_dark},
