@@ -152,7 +152,8 @@ namespace AuthenticatorPro.Shared.Data
             {"xbox", Resource.Drawable.auth_xbox},
             {"yandexmail", Resource.Drawable.auth_yandexmail},
             {"youtube", Resource.Drawable.auth_youtube},
-            {"zapier", Resource.Drawable.auth_zapier}
+            {"zapier", Resource.Drawable.auth_zapier},
+            {"zohomail", Resource.Drawable.auth_zohomail}
         };
 
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
