@@ -112,6 +112,7 @@ namespace AuthenticatorPro.Shared.Data
             {"skype", Resource.Drawable.auth_skype},
             {"slack", Resource.Drawable.auth_slack},
             {"snapchat", Resource.Drawable.auth_snapchat},
+            {"statuspage", Resource.Drawable.auth_statuspage},
             {"stripe", Resource.Drawable.auth_stripe},
             {"solarwinds", Resource.Drawable.auth_solarwinds},
             {"synology", Resource.Drawable.auth_synology},
