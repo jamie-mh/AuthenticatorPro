@@ -146,6 +146,7 @@ namespace AuthenticatorPro.Shared.Data
             {"visualstudioonline", Resource.Drawable.auth_visualstudioonline},
             {"vultr", Resource.Drawable.auth_vultr},
             {"wargaming", Resource.Drawable.auth_wargaming},
+            {"webde", Resource.Drawable.auth_webde},
             {"wetransfer", Resource.Drawable.auth_wetransfer},
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"xbox", Resource.Drawable.auth_xbox},
