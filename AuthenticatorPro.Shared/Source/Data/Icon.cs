@@ -36,6 +36,7 @@ namespace AuthenticatorPro.Shared.Data
             {"cexio", Resource.Drawable.auth_cexio},
             {"cloudflare", Resource.Drawable.auth_cloudflare},
             {"coinbase", Resource.Drawable.auth_coinbase},
+            {"confluence", Resource.Drawable.auth_confluence},
             {"dashlane", Resource.Drawable.auth_dashlane},
             {"digitalocean", Resource.Drawable.auth_digitalocean},
             {"discord", Resource.Drawable.auth_discord},
