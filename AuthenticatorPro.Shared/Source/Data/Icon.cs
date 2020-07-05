@@ -150,6 +150,7 @@ namespace AuthenticatorPro.Shared.Data
             {"wetransfer", Resource.Drawable.auth_wetransfer},
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"xbox", Resource.Drawable.auth_xbox},
+            {"yandexmail", Resource.Drawable.auth_yandexmail},
             {"youtube", Resource.Drawable.auth_youtube},
             {"zapier", Resource.Drawable.auth_zapier}
         };
