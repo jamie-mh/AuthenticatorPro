@@ -38,6 +38,7 @@ namespace AuthenticatorPro.Shared.Data
             {"bluehost", Resource.Drawable.auth_bluehost},
             {"borgbase", Resource.Drawable.auth_borgbase},
             {"cachet", Resource.Drawable.auth_cachet},
+            {"chargebee", Resource.Drawable.auth_chargebee},
             {"cexio", Resource.Drawable.auth_cexio},
             {"cloudflare", Resource.Drawable.auth_cloudflare},
             {"cloudways", Resource.Drawable.auth_cloudways},
