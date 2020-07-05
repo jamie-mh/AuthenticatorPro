@@ -146,6 +146,7 @@ namespace AuthenticatorPro.Shared.Data
             {"salesforce", Resource.Drawable.auth_salesforce},
             {"samsung", Resource.Drawable.auth_samsung},
             {"scaleway", Resource.Drawable.auth_scaleway},
+            {"shopify", Resource.Drawable.auth_shopify},
             {"skype", Resource.Drawable.auth_skype},
             {"slack", Resource.Drawable.auth_slack},
             {"snapchat", Resource.Drawable.auth_snapchat},
