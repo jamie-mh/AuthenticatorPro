@@ -55,6 +55,7 @@ namespace AuthenticatorPro.Shared.Data
             {"github", Resource.Drawable.auth_github},
             {"gitlab", Resource.Drawable.auth_gitlab},
             {"gmail", Resource.Drawable.auth_gmail},
+            {"gmxnet", Resource.Drawable.auth_gmxnet},
             {"godaddy", Resource.Drawable.auth_godaddy},
             {"google", Resource.Drawable.auth_google},
             {"googlecloudplatform", Resource.Drawable.auth_googlecloudplatform},
