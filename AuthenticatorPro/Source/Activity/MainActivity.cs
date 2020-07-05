@@ -440,11 +440,8 @@ namespace AuthenticatorPro.Activity
 
         public override async void OnBackPressed()
         {
-            _barcodeScanner.Cancel();
-
             if(!_searchView.Iconified)
             {
-                _searchView.OnActionViewCollapsed();
                 _searchView.Iconified = true;
                 return;
             }
