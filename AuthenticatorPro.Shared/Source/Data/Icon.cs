@@ -204,7 +204,8 @@ namespace AuthenticatorPro.Shared.Data
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
             {"wetransfer", Resource.Drawable.auth_wetransfer_dark},
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
-            {"xbox", Resource.Drawable.auth_xbox_dark}
+            {"xbox", Resource.Drawable.auth_xbox_dark},
+            {"zendesk", Resource.Drawable.auth_zendesk_dark}
         };
 
         public static int GetService(string key, bool isDark)
