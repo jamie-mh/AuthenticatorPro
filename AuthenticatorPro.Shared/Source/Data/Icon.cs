@@ -107,6 +107,7 @@ namespace AuthenticatorPro.Shared.Data
             {"parsec", Resource.Drawable.auth_parsec},
             {"paypal", Resource.Drawable.auth_paypal},
             {"pluralsight", Resource.Drawable.auth_pluralsight},
+            {"posteo", Resource.Drawable.auth_posteo},
             {"privacy", Resource.Drawable.auth_privacy},
             {"privateinternetaccess", Resource.Drawable.auth_privateinternetaccess},
             {"protonmail", Resource.Drawable.auth_protonmail},
