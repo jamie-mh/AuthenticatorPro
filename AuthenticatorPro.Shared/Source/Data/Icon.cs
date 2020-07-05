@@ -87,6 +87,7 @@ namespace AuthenticatorPro.Shared.Data
             {"mega", Resource.Drawable.auth_mega},
             {"microsoft", Resource.Drawable.auth_microsoft},
             {"namecheap", Resource.Drawable.auth_namecheap},
+            {"namecom", Resource.Drawable.auth_namecom},
             {"newegg", Resource.Drawable.auth_newegg},
             {"nextcloud", Resource.Drawable.auth_nextcloud},
             {"nintendo", Resource.Drawable.auth_nintendo},
