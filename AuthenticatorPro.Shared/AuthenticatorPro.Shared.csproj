@@ -3581,514 +3581,514 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_unlockbase.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_web.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_web.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_web.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_web.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_web.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_web.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_web.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_web.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_web.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_web.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_web_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_web_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_web_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_web_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_web_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_web_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_web_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_web_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_web_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_web_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_banking.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_banking.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_banking_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_banking_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_cloud.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_cloud.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_cloud_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_cloud_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_desktop.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_desktop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_desktop_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_desktop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_dev.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_dev.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_dev_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_dev_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_domain.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_domain.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_domain_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_domain_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_email.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_email_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_email_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_laptop.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_laptop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_laptop_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_laptop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_messaging.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_messaging.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_messaging_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_messaging_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_mobile.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_mobile.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_mobile_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_mobile_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_money.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_money.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_money_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_money_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_money2.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_money2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_money2_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_money2_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_payment.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_payment.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_payment_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_security.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_security.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_security_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_security_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_shopping.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_shopping.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_shopping_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_shopping_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_storage.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_storage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_storage_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_storage_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_banking.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_banking.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_banking_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_banking_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_cloud.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_cloud.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_cloud_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_cloud_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_desktop.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_desktop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_desktop_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_desktop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_dev.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_dev.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_dev_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_dev_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_domain.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_domain.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_domain_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_domain_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_email.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_email_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_email_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_laptop.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_laptop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_laptop_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_laptop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_messaging.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_messaging.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_messaging_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_messaging_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_mobile.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_mobile.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_mobile_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_mobile_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_money.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_money.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_money_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_money_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_money2.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_money2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_money2_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_money2_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_payment.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_payment.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_payment_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_security.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_security.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_security_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_security_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_shopping.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_shopping.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_shopping_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_shopping_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_storage.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_storage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_storage_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_storage_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_banking.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_banking.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_banking_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_banking_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_cloud.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_cloud.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_cloud_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_cloud_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_desktop.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_desktop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_desktop_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_desktop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_dev.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_dev.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_dev_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_dev_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_domain.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_domain.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_domain_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_domain_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_email.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_email_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_email_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_laptop.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_laptop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_laptop_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_laptop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_messaging.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_messaging.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_messaging_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_messaging_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_mobile.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_mobile.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_mobile_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_mobile_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_money.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_money.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_money_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_money_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_money2.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_money2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_money2_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_money2_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_payment.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_payment.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_payment_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_security.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_security.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_security_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_security_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_shopping.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_shopping.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_shopping_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_shopping_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_storage.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_storage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_storage_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_storage_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_banking.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_banking.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_banking_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_banking_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_cloud.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_cloud.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_cloud_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_cloud_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_desktop.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_desktop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_desktop_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_desktop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_dev.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_dev.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_dev_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_dev_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_domain.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_domain.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_domain_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_domain_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_email.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_email_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_email_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_laptop.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_laptop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_laptop_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_laptop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_messaging.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_messaging.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_messaging_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_messaging_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_mobile.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_mobile.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_mobile_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_mobile_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_money.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_money.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_money_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_money_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_money2.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_money2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_money2_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_money2_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_payment.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_payment.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_payment_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_security.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_security.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_security_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_security_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_shopping.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_shopping.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_shopping_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_shopping_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_storage.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_storage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_storage_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_storage_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_banking.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_banking.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_banking_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_banking_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_cloud.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_cloud.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_cloud_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_cloud_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_desktop.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_desktop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_desktop_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_desktop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_dev.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_dev.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_dev_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_dev_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_domain.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_domain.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_domain_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_domain_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_email.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_email.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_email_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_email_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_laptop.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_laptop.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_laptop_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_laptop_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_messaging.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_messaging.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_messaging_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_messaging_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_mobile.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_mobile.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_mobile_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_mobile_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_money.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_money.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_money_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_money_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_money2.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_money2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_money2_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_money2_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_payment.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_payment.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_payment_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_payment_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_security.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_security.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_security_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_security_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_shopping.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_shopping.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_shopping_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_shopping_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_storage.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_storage.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_storage_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_storage_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_gaming.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_gaming.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_generic_gaming_dark.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\auth_gaming_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_gaming.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_gaming.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_generic_gaming_dark.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\auth_gaming_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_gaming.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_gaming.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_generic_gaming_dark.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_gaming_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_gaming.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_gaming.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_generic_gaming_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_gaming_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_gaming.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_gaming.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_generic_gaming_dark.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_gaming_dark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
