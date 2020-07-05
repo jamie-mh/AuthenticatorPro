@@ -83,6 +83,7 @@ namespace AuthenticatorPro.Shared.Data
             {"linkedin", Resource.Drawable.auth_linkedin},
             {"linode", Resource.Drawable.auth_linode},
             {"logmein", Resource.Drawable.auth_logmein},
+            {"mailboxorg", Resource.Drawable.auth_mailboxorg},
             {"mailchimp", Resource.Drawable.auth_mailchimp},
             {"mailde", Resource.Drawable.auth_mailde},
             {"mailgun", Resource.Drawable.auth_mailgun},
