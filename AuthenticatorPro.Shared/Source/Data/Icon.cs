@@ -53,6 +53,7 @@ namespace AuthenticatorPro.Shared.Data
             {"dreamhost", Resource.Drawable.auth_dreamhost},
             {"drupal", Resource.Drawable.auth_drupal},
             {"electronicarts", Resource.Drawable.auth_electronicarts},
+            {"envato", Resource.Drawable.auth_envato},
             {"epicgames", Resource.Drawable.auth_epicgames},
             {"etsy", Resource.Drawable.auth_etsy},
             {"eveonline", Resource.Drawable.auth_eveonline},
