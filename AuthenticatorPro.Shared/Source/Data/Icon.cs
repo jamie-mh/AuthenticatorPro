@@ -109,6 +109,7 @@ namespace AuthenticatorPro.Shared.Data
             {"nextcloud", Resource.Drawable.auth_nextcloud},
             {"nexusmods", Resource.Drawable.auth_nexusmods},
             {"nintendo", Resource.Drawable.auth_nintendo},
+            {"nitrado", Resource.Drawable.auth_nitrado},
             {"npm", Resource.Drawable.auth_npm},
             {"office365", Resource.Drawable.auth_office365},
             {"onedrive", Resource.Drawable.auth_onedrive},
