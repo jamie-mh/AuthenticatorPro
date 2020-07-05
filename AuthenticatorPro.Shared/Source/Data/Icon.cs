@@ -96,6 +96,7 @@ namespace AuthenticatorPro.Shared.Data
             {"protonmail", Resource.Drawable.auth_protonmail},
             {"protonvpn", Resource.Drawable.auth_protonvpn},
             {"proxmox", Resource.Drawable.auth_proxmox},
+            {"rackspace", Resource.Drawable.auth_rackspace},
             {"realvnc", Resource.Drawable.auth_realvnc},
             {"reddit", Resource.Drawable.auth_reddit},
             {"roboform", Resource.Drawable.auth_roboform},
