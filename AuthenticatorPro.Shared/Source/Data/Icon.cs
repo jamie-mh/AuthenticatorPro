@@ -47,6 +47,7 @@ namespace AuthenticatorPro.Shared.Data
             {"electronicarts", Resource.Drawable.auth_electronicarts},
             {"epicgames", Resource.Drawable.auth_epicgames},
             {"etsy", Resource.Drawable.auth_etsy},
+            {"eveonline", Resource.Drawable.auth_eveonline},
             {"evernote", Resource.Drawable.auth_evernote},
             {"facebook", Resource.Drawable.auth_facebook},
             {"figma", Resource.Drawable.auth_figma},
