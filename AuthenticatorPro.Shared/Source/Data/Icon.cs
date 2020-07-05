@@ -43,6 +43,7 @@ namespace AuthenticatorPro.Shared.Data
             {"codeship", Resource.Drawable.auth_codeship},
             {"coinbase", Resource.Drawable.auth_coinbase},
             {"confluence", Resource.Drawable.auth_confluence},
+            {"contabo", Resource.Drawable.auth_contabo},
             {"dashlane", Resource.Drawable.auth_dashlane},
             {"digitalocean", Resource.Drawable.auth_digitalocean},
             {"discord", Resource.Drawable.auth_discord},
