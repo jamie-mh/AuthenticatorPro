@@ -116,6 +116,7 @@ namespace AuthenticatorPro.Shared.Data
             {"npm", Resource.Drawable.auth_npm},
             {"office365", Resource.Drawable.auth_office365},
             {"onedrive", Resource.Drawable.auth_onedrive},
+            {"onshape", Resource.Drawable.auth_onshape},
             {"opsgenie", Resource.Drawable.auth_opsgenie},
             {"origin", Resource.Drawable.auth_origin},
             {"outlook", Resource.Drawable.auth_outlook},
