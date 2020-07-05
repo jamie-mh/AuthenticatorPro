@@ -39,6 +39,7 @@ namespace AuthenticatorPro.Shared.Data
             {"cachet", Resource.Drawable.auth_cachet},
             {"cexio", Resource.Drawable.auth_cexio},
             {"cloudflare", Resource.Drawable.auth_cloudflare},
+            {"cloudways", Resource.Drawable.auth_cloudways},
             {"codeship", Resource.Drawable.auth_codeship},
             {"coinbase", Resource.Drawable.auth_coinbase},
             {"confluence", Resource.Drawable.auth_confluence},
