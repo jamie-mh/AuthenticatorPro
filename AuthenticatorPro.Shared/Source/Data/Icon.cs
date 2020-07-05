@@ -122,6 +122,7 @@ namespace AuthenticatorPro.Shared.Data
             {"origin", Resource.Drawable.auth_origin},
             {"outlook", Resource.Drawable.auth_outlook},
             {"ovh", Resource.Drawable.auth_ovh},
+            {"patreon", Resource.Drawable.auth_patreon},
             {"parsec", Resource.Drawable.auth_parsec},
             {"paypal", Resource.Drawable.auth_paypal},
             {"pluralsight", Resource.Drawable.auth_pluralsight},
