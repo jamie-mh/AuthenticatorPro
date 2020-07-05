@@ -19,6 +19,7 @@ namespace AuthenticatorPro.Shared.Data
             {"algolia", Resource.Drawable.auth_algolia},
             {"allinkl", Resource.Drawable.auth_allinkl},
             {"amazon", Resource.Drawable.auth_amazon},
+            {"anydesk", Resource.Drawable.auth_anydesk},
             {"atlassian", Resource.Drawable.auth_atlassian},
             {"anycoindirect", Resource.Drawable.auth_anycoindirect},
             {"appveyor", Resource.Drawable.auth_appveyor},
