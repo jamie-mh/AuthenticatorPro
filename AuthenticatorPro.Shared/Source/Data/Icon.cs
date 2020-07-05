@@ -121,6 +121,7 @@ namespace AuthenticatorPro.Shared.Data
             {"uphold", Resource.Drawable.auth_uphold},
             {"uplay", Resource.Drawable.auth_uplay},
             {"uptimerobot", Resource.Drawable.auth_uptimerobot},
+            {"vultr", Resource.Drawable.auth_vultr},
             {"wargaming", Resource.Drawable.auth_wargaming},
             {"wetransfer", Resource.Drawable.auth_wetransfer},
             {"wordpress", Resource.Drawable.auth_wordpress},
