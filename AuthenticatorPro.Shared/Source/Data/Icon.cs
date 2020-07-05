@@ -95,6 +95,7 @@ namespace AuthenticatorPro.Shared.Data
             {"proxmox", Resource.Drawable.auth_proxmox},
             {"realvnc", Resource.Drawable.auth_realvnc},
             {"reddit", Resource.Drawable.auth_reddit},
+            {"roboform", Resource.Drawable.auth_roboform},
             {"rockstargames", Resource.Drawable.auth_rockstargames},
             {"samsung", Resource.Drawable.auth_samsung},
             {"scaleway", Resource.Drawable.auth_scaleway},
