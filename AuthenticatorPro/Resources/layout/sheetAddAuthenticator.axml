@@ -1,136 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:background="?attr/colorBackgroundFloating"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorBackgroundFloating"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <com.google.android.material.appbar.MaterialToolbar
+        style="Widget.MaterialComponents.Toolbar"
+        android:background="?attr/colorBase"
+        android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar" />
 
-        <TextView
-            android:text="@string/add"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            app:errorEnabled="true"
-            app:hintEnabled="true"
-            app:counterEnabled="true"
-            app:counterMaxLength="32"
-            android:id="@+id/editIssuerLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/issuerHint">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editIssuer"
-                android:maxLength="32"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapSentences"
-                android:singleLine="true">
-                <requestFocus />
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            app:errorEnabled="true"
-            app:hintEnabled="true"
-            app:counterEnabled="true"
-            app:counterMaxLength="40"
-            android:hint="@string/usernameHint"
-            android:id="@+id/editUsernameLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editUsername"
-                android:maxLength="40"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            app:errorEnabled="true"
-            app:hintEnabled="true"
-            android:hint="@string/secretKey"
-            android:id="@+id/editSecretLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:endIconMode="custom"
-            app:endIconDrawable="@drawable/ic_action_vpn_key"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editSecret"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionDone"
-                android:inputType="textVisiblePassword"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            app:hintEnabled="true"
-            android:hint="@string/typeHint"
-            android:id="@+id/editTypeLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <AutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:editable="false"
-                android:inputType="none" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonShowAdvanced"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="@string/showAdvancedOptions" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layoutAdvanced"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="32"
+                android:id="@+id/editIssuerLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/issuerHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editIssuer"
+                    android:maxLength="32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:singleLine="true">
+                    <requestFocus/>
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="40"
+                android:hint="@string/usernameHint"
+                android:id="@+id/editUsernameLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editUsername"
+                    android:maxLength="40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                android:hint="@string/secretKey"
+                android:id="@+id/editSecretLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_action_vpn_key"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editSecret"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="textVisiblePassword"
+                    android:singleLine="true"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 app:hintEnabled="true"
-                android:hint="@string/algorithmHint"
-                android:id="@+id/editAlgorithmLayout"
+                android:hint="@string/typeHint"
+                android:id="@+id/editTypeLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -138,81 +112,115 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
-                    android:inputType="none" />
+                    android:inputType="none"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonShowAdvanced"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/showAdvancedOptions"/>
+
+            <LinearLayout
+                android:id="@+id/layoutAdvanced"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="true"
+                    android:hint="@string/algorithmHint"
+                    android:id="@+id/editAlgorithmLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:inputType="none"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:errorEnabled="true"
+                        app:hintEnabled="true"
+                        android:id="@+id/editDigitsLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:paddingRight="10dp"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editDigits"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/digitsHint"
+                            android:inputType="number"
+                            android:text="6"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:errorEnabled="true"
+                        app:hintEnabled="true"
+                        android:hint="@string/periodHint"
+                        android:id="@+id/editPeriodLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:paddingLeft="10dp"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editPeriod"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="30"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    app:errorEnabled="true"
-                    app:hintEnabled="true"
-                    android:id="@+id/editDigitsLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:paddingRight="10dp"
-                    android:layout_weight=".5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonCancel"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/cancel"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editDigits"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/digitsHint"
-                        android:inputType="number"
-                        android:text="6" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    app:errorEnabled="true"
-                    app:hintEnabled="true"
-                    android:hint="@string/periodHint"
-                    android:id="@+id/editPeriodLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:paddingLeft="10dp"
-                    android:layout_weight=".5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editPeriod"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:text="30" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonAdd"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/add"/>
 
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonCancel"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_marginRight="10dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/cancel" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonAdd"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/add" />
 
         </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

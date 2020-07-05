@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AuthenticatorPro.Shared.Data
@@ -7,7 +7,7 @@ namespace AuthenticatorPro.Shared.Data
     {
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
-            {"default", Resource.Drawable.auth_default},
+            // Brand icons
             {"1and1", Resource.Drawable.auth_1and1},
             {"1password", Resource.Drawable.auth_1password},
             {"23andme", Resource.Drawable.auth_23andme},
@@ -169,7 +169,11 @@ namespace AuthenticatorPro.Shared.Data
             {"uphold", Resource.Drawable.auth_uphold},
             {"uplay", Resource.Drawable.auth_uplay},
             {"uptimerobot", Resource.Drawable.auth_uptimerobot},
-            {"visualstudioonline", Resource.Drawable.auth_visualstudioonline},
+            {"visualstudioonline", Resource.Drawable.auth_visualstudioonline},// Generic icons
+            {"banking", Resource.Drawable.auth_banking},
+            {"cloud", Resource.Drawable.auth_cloud},
+            {"desktop", Resource.Drawable.auth_desktop},
+            {"dev", Resource.Drawable.auth_dev},
             {"vultr", Resource.Drawable.auth_vultr},
             {"wargaming", Resource.Drawable.auth_wargaming},
             {"webde", Resource.Drawable.auth_webde},
@@ -184,13 +188,37 @@ namespace AuthenticatorPro.Shared.Data
             {"youtube", Resource.Drawable.auth_youtube},
             {"zapier", Resource.Drawable.auth_zapier},
             {"zendesk", Resource.Drawable.auth_zendesk},
-            {"zohomail", Resource.Drawable.auth_zohomail}
+            {"zohomail", Resource.Drawable.auth_zohomail},
+            
+            // Generic icons
+            {"banking", Resource.Drawable.auth_banking},
+            {"cloud", Resource.Drawable.auth_cloud},
+            {"desktop", Resource.Drawable.auth_desktop},
+            {"dev", Resource.Drawable.auth_dev},
+            {"domain", Resource.Drawable.auth_domain},
+            {"email", Resource.Drawable.auth_email},
+            {"gaming", Resource.Drawable.auth_gaming},
+            {"laptop", Resource.Drawable.auth_laptop},
+            {"messaging", Resource.Drawable.auth_messaging},
+            {"mobile", Resource.Drawable.auth_mobile},
+            {"money", Resource.Drawable.auth_money},
+            {"money2", Resource.Drawable.auth_money2},// Generic icons
+            {"banking", Resource.Drawable.auth_banking},
+            {"cloud", Resource.Drawable.auth_cloud},
+            {"desktop", Resource.Drawable.auth_desktop},
+            {"dev", Resource.Drawable.auth_dev},
+            {"payment", Resource.Drawable.auth_payment},
+            {"security", Resource.Drawable.auth_security},
+            {"shopping", Resource.Drawable.auth_shopping},
+            {"storage", Resource.Drawable.auth_storage},
+            {"web", Resource.Drawable.auth_web},
+            
+            {"default", Resource.Drawable.auth_default}
         };
 
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
         {
-            {"default", Resource.Drawable.auth_default_dark},
-
+            // Brand icons
             {"3cx", Resource.Drawable.auth_3cx_dark},
             {"adafruit", Resource.Drawable.auth_adafruit_dark},
             {"adobe", Resource.Drawable.auth_adobe_dark},
@@ -214,7 +242,28 @@ namespace AuthenticatorPro.Shared.Data
             {"wetransfer", Resource.Drawable.auth_wetransfer_dark},
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
             {"xbox", Resource.Drawable.auth_xbox_dark},
-            {"zendesk", Resource.Drawable.auth_zendesk_dark}
+            {"zendesk", Resource.Drawable.auth_zendesk_dark},
+            
+            // Generic icons
+            {"banking", Resource.Drawable.auth_banking_dark},
+            {"cloud", Resource.Drawable.auth_cloud_dark},
+            {"desktop", Resource.Drawable.auth_desktop_dark},
+            {"dev", Resource.Drawable.auth_dev_dark},
+            {"domain", Resource.Drawable.auth_domain_dark},
+            {"email", Resource.Drawable.auth_email_dark},
+            {"gaming", Resource.Drawable.auth_gaming_dark},
+            {"laptop", Resource.Drawable.auth_laptop_dark},
+            {"messaging", Resource.Drawable.auth_messaging_dark},
+            {"mobile", Resource.Drawable.auth_mobile_dark},
+            {"money", Resource.Drawable.auth_money_dark},
+            {"money2", Resource.Drawable.auth_money2_dark},
+            {"payment", Resource.Drawable.auth_payment_dark},
+            {"security", Resource.Drawable.auth_security_dark},
+            {"shopping", Resource.Drawable.auth_shopping_dark},
+            {"storage", Resource.Drawable.auth_storage_dark},
+            {"web", Resource.Drawable.auth_web_dark},
+            
+            {"default", Resource.Drawable.auth_default_dark}
         };
 
         public static int GetService(string key, bool isDark)

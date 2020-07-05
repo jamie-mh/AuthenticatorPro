@@ -34,8 +34,9 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetAssignCategories, null);
+            SetupToolbar(view, Resource.String.assignCategories);
             _chipGroup = view.FindViewById<ChipGroup>(Resource.Id.chipGroup);
-
+            
             var emptyText = view.FindViewById<TextView>(Resource.Id.textEmpty);
 
             if(_categorySource.Categories.Count == 0)

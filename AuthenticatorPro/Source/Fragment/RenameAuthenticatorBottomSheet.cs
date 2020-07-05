@@ -33,7 +33,8 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetRenameAuthenticator, null);
-
+            SetupToolbar(view, Resource.String.rename);
+            
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);
             _issuerText = view.FindViewById<TextInputEditText>(Resource.Id.editIssuer);
             _usernameText = view.FindViewById<TextInputEditText>(Resource.Id.editUsername);

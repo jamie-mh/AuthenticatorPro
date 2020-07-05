@@ -2,7 +2,6 @@
 using Android.OS;
 using Android.Views;
 using Google.Android.Material.AppBar;
-using Google.Android.Material.Card;
 
 namespace AuthenticatorPro.Activity
 {

@@ -25,11 +25,12 @@ namespace AuthenticatorPro.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var icon = _iconSource.List.ElementAt(position);
+            var (key, value) = _iconSource.List.ElementAt(position);
             var holder = (IconListHolder) viewHolder;
 
-            var drawable = ContextCompat.GetDrawable(_context, icon.Value);
+            var drawable = ContextCompat.GetDrawable(_context, value);
             holder.Icon.SetImageDrawable(drawable);
+            holder.Name.Text = key;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

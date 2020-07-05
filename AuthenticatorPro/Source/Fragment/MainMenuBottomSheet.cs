@@ -32,7 +32,8 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetMainMenu, container, false);
-
+            SetupToolbar(view, Resource.String.mainMenu);
+            
             _categoryListAdapter = new CategoriesListAdapter(Activity, _source) {HasStableIds = true};
 
             _categoryList = view.FindViewById<RecyclerView>(Resource.Id.listCategories);

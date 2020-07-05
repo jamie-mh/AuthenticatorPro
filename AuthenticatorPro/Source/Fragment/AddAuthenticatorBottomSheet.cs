@@ -50,7 +50,8 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetAddAuthenticator, null);
-
+            SetupToolbar(view, Resource.String.add);
+            
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);
             _usernameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editUsernameLayout);
             _secretLayout = view.FindViewById<TextInputLayout>(Resource.Id.editSecretLayout);
