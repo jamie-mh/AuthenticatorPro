@@ -89,6 +89,7 @@
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
+    <Compile Include="Source\Fragment\ChangeIconDialog.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\BottomSheet.cs" />
@@ -109,7 +110,6 @@
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preference\RatePreference.cs" />
     <Compile Include="Source\Preference\AboutPreference.cs" />
-    <Compile Include="Source\Dialog\ChangeIconDialog.cs" />
     <Compile Include="Source\Fragment\AddAuthenticatorBottomSheet.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Source\Fragment\SettingsFragment.cs" />
@@ -153,6 +153,7 @@
     <AndroidResource Include="Resources\layout\activityMain.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\menu\sheet.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
@@ -261,7 +262,7 @@
     <AndroidResource Include="Resources\xml\searchable.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\dialogChangeIcon.axml">
+    <AndroidResource Include="Resources\layout\sheetChangeIcon.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>

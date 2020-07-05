@@ -22,7 +22,6 @@ using AndroidX.Core.Content;
 using AndroidX.Preference;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Dialog;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
 using AuthenticatorPro.Shared.Util;

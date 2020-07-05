@@ -2,7 +2,6 @@
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
-using Android.Widget;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 
@@ -49,11 +48,10 @@ namespace AuthenticatorPro.Fragment
             }
 
             var view = inflater.Inflate(Resource.Layout.sheetEditCategory, null);
+            SetupToolbar(view, titleRes);
+            
             _textName = view.FindViewById<TextInputEditText>(Resource.Id.editName);
             _textNameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editNameLayout);
-
-            var title = view.FindViewById<TextView>(Resource.Id.textTitle);
-            title.SetText(titleRes);
 
             var submitButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSubmit);
             submitButton.SetText(titleRes);

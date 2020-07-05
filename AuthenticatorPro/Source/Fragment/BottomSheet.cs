@@ -1,5 +1,7 @@
 ﻿using Android.OS;
+using Android.Views;
 using Android.Widget;
+using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
 
@@ -33,6 +35,18 @@ namespace AuthenticatorPro.Fragment
 
             if(Activity.Resources.Configuration.ScreenWidthDp > MaxWidth)
                 Dialog.Window.SetLayout((int) ViewUtils.DpToPx(Activity, MaxWidth), -1);
+        }
+
+        protected void SetupToolbar(View view, int titleRes)
+        {
+            var toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
+            toolbar.SetTitle(titleRes);
+            toolbar.InflateMenu(Resource.Menu.sheet);
+            toolbar.MenuItemClick += (sender, args) =>
+            {
+                if(args.Item.ItemId == Resource.Id.actionClose)
+                    Dismiss();
+            };
         }
     }
 }

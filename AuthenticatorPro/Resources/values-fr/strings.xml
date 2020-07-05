@@ -78,6 +78,7 @@
     <string name="databaseError">Il y a eu une erreur lors du déchiffrement de la base de données. Veuillez effacer les données de l\'application avant de continuer.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code.</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil.</string>
+    <string name="close">Fermer</string>
     <string name="quit">Quitter</string>
 
     <!-- Getting Started Guide -->

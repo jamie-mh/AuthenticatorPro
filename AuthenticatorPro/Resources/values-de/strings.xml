@@ -79,6 +79,7 @@
     <string name="databaseError">Es gab ein Problem beim entschlüsseln der Datenbank. Lösche die Anwendungsdaten um fortzufahren.</string>
     <string name="cameraPermissionError">Die Kamera-Berechtigung muss erteilt werden, um QR-Codes lesen zu können.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
+    <string name="close">Schließen</string>
     <string name="quit">Beenden</string>
 
     <!-- Getting Started Guide -->
