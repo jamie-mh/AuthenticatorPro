@@ -66,6 +66,7 @@ namespace AuthenticatorPro.Shared.Data
             {"heroku", Resource.Drawable.auth_heroku},
             {"hetzner", Resource.Drawable.auth_hetzner},
             {"humblebundle", Resource.Drawable.auth_humblebundle},
+            {"hushmail", Resource.Drawable.auth_hushmail},
             {"ifttt", Resource.Drawable.auth_ifttt},
             {"instagram", Resource.Drawable.auth_instagram},
             {"inwx", Resource.Drawable.auth_inwx},
