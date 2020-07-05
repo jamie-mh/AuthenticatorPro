@@ -89,6 +89,7 @@ namespace AuthenticatorPro.Shared.Data
             {"mapbox", Resource.Drawable.auth_mapbox},
             {"mega", Resource.Drawable.auth_mega},
             {"microsoft", Resource.Drawable.auth_microsoft},
+            {"migadu", Resource.Drawable.auth_migadu},
             {"namecheap", Resource.Drawable.auth_namecheap},
             {"namecom", Resource.Drawable.auth_namecom},
             {"namesilo", Resource.Drawable.auth_namesilo},
