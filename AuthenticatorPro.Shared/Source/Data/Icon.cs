@@ -156,6 +156,7 @@ namespace AuthenticatorPro.Shared.Data
             {"synology", Resource.Drawable.auth_synology},
             {"teamviewer", Resource.Drawable.auth_teamviewer},
             {"time4vps", Resource.Drawable.auth_time4vps},
+            {"torguard", Resource.Drawable.auth_torguard},
             {"trello", Resource.Drawable.auth_trello},
             {"tutanota", Resource.Drawable.auth_tutanota},
             {"twitch", Resource.Drawable.auth_twitch},
