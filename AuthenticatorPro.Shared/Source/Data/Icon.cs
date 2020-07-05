@@ -138,6 +138,7 @@ namespace AuthenticatorPro.Shared.Data
             {"3cx", Resource.Drawable.auth_3cx_dark},
             {"adafruit", Resource.Drawable.auth_adafruit_dark},
             {"adobe", Resource.Drawable.auth_adobe_dark},
+            {"anycoindirect", Resource.Drawable.auth_anycoindirect},
             {"amazon", Resource.Drawable.auth_amazon_dark},
             {"borgbase", Resource.Drawable.auth_borgbase_dark},
             {"electronicarts", Resource.Drawable.auth_electronicarts_dark},
