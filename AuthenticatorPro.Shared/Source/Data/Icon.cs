@@ -7,7 +7,7 @@ namespace AuthenticatorPro.Shared.Data
     {
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
-            {"default", Resource.Drawable.auth_default},
+            // Brand icons
             {"1and1", Resource.Drawable.auth_1and1},
             {"3cx", Resource.Drawable.auth_3cx},
             {"adafruit", Resource.Drawable.auth_adafruit},
@@ -118,13 +118,33 @@ namespace AuthenticatorPro.Shared.Data
             {"wetransfer", Resource.Drawable.auth_wetransfer},
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"xbox", Resource.Drawable.auth_xbox},
-            {"youtube", Resource.Drawable.auth_youtube}
+            {"youtube", Resource.Drawable.auth_youtube},
+           
+            // Generic icons
+            {"generic_banking", Resource.Drawable.auth_generic_banking},
+            {"generic_cloud", Resource.Drawable.auth_generic_cloud},
+            {"generic_desktop", Resource.Drawable.auth_generic_desktop},
+            {"generic_dev", Resource.Drawable.auth_generic_dev},
+            {"generic_domain", Resource.Drawable.auth_generic_domain},
+            {"generic_email", Resource.Drawable.auth_generic_email},
+            {"generic_gaming", Resource.Drawable.auth_generic_gaming},
+            {"generic_laptop", Resource.Drawable.auth_generic_laptop},
+            {"generic_messaging", Resource.Drawable.auth_generic_messaging},
+            {"generic_mobile", Resource.Drawable.auth_generic_mobile},
+            {"generic_money", Resource.Drawable.auth_generic_money},
+            {"generic_money2", Resource.Drawable.auth_generic_money2},
+            {"generic_payment", Resource.Drawable.auth_generic_payment},
+            {"generic_security", Resource.Drawable.auth_generic_security},
+            {"generic_shopping", Resource.Drawable.auth_generic_shopping},
+            {"generic_storage", Resource.Drawable.auth_generic_storage},
+            {"generic_web", Resource.Drawable.auth_generic_web},
+            
+            {"default", Resource.Drawable.auth_default}
         };
 
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
         {
-            {"default", Resource.Drawable.auth_default_dark},
-
+            // Brand icons
             {"3cx", Resource.Drawable.auth_3cx_dark},
             {"adafruit", Resource.Drawable.auth_adafruit_dark},
             {"adobe", Resource.Drawable.auth_adobe_dark},
@@ -140,7 +160,28 @@ namespace AuthenticatorPro.Shared.Data
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
             {"wetransfer", Resource.Drawable.auth_wetransfer_dark},
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
-            {"xbox", Resource.Drawable.auth_xbox_dark}
+            {"xbox", Resource.Drawable.auth_xbox_dark},
+            
+            // Generic icons
+            {"generic_banking", Resource.Drawable.auth_generic_banking_dark},
+            {"generic_cloud", Resource.Drawable.auth_generic_cloud_dark},
+            {"generic_desktop", Resource.Drawable.auth_generic_desktop_dark},
+            {"generic_dev", Resource.Drawable.auth_generic_dev_dark},
+            {"generic_domain", Resource.Drawable.auth_generic_domain_dark},
+            {"generic_email", Resource.Drawable.auth_generic_email_dark},
+            {"generic_gaming", Resource.Drawable.auth_generic_gaming_dark},
+            {"generic_laptop", Resource.Drawable.auth_generic_laptop_dark},
+            {"generic_messaging", Resource.Drawable.auth_generic_messaging_dark},
+            {"generic_mobile", Resource.Drawable.auth_generic_mobile_dark},
+            {"generic_money", Resource.Drawable.auth_generic_money_dark},
+            {"generic_money2", Resource.Drawable.auth_generic_money2_dark},
+            {"generic_payment", Resource.Drawable.auth_generic_payment_dark},
+            {"generic_security", Resource.Drawable.auth_generic_security_dark},
+            {"generic_shopping", Resource.Drawable.auth_generic_shopping_dark},
+            {"generic_storage", Resource.Drawable.auth_generic_storage_dark},
+            {"generic_web", Resource.Drawable.auth_generic_web_dark},
+            
+            {"default", Resource.Drawable.auth_default_dark}
         };
 
         public static int GetService(string key, bool isDark)
