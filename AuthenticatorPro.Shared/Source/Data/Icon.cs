@@ -72,6 +72,7 @@ namespace AuthenticatorPro.Shared.Data
             {"lastpass", Resource.Drawable.auth_lastpass},
             {"leaseweb", Resource.Drawable.auth_leaseweb},
             {"linkedin", Resource.Drawable.auth_linkedin},
+            {"linode", Resource.Drawable.auth_linode},
             {"logmein", Resource.Drawable.auth_logmein},
             {"mailchimp", Resource.Drawable.auth_mailchimp},
             {"mailgun", Resource.Drawable.auth_mailgun},
