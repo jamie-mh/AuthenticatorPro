@@ -12,6 +12,7 @@ namespace AuthenticatorPro.Shared.Data
             {"1password", Resource.Drawable.auth_1password},
             {"23andme", Resource.Drawable.auth_23andme},
             {"3cx", Resource.Drawable.auth_3cx},
+            {"a2hosting", Resource.Drawable.auth_a2hosting},
             {"adafruit", Resource.Drawable.auth_adafruit},
             {"adguard", Resource.Drawable.auth_adguard},
             {"adobe", Resource.Drawable.auth_adobe},
