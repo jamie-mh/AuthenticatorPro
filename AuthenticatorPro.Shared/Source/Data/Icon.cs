@@ -23,6 +23,7 @@ namespace AuthenticatorPro.Shared.Data
             {"anycoindirect", Resource.Drawable.auth_anycoindirect},
             {"appveyor", Resource.Drawable.auth_appveyor},
             {"arubacloud", Resource.Drawable.auth_arubacloud},
+            {"autodesk", Resource.Drawable.auth_autodesk},
             {"aws", Resource.Drawable.auth_aws},
             {"azure", Resource.Drawable.auth_azure},
             {"backblaze", Resource.Drawable.auth_backblaze},
