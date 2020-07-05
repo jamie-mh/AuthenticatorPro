@@ -176,6 +176,7 @@ namespace AuthenticatorPro.Shared.Data
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"wpengine", Resource.Drawable.auth_wpengine},
             {"xbox", Resource.Drawable.auth_xbox},
+            {"xing", Resource.Drawable.auth_xing},
             {"yandexmail", Resource.Drawable.auth_yandexmail},
             {"youtube", Resource.Drawable.auth_youtube},
             {"zapier", Resource.Drawable.auth_zapier},
