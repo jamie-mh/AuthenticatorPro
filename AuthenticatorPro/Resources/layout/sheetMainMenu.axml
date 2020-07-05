@@ -1,139 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView 
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="?attr/colorBackgroundFloating"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:paddingTop="20dp"
+    <com.google.android.material.appbar.MaterialToolbar
+        style="Widget.MaterialComponents.Toolbar"
+        android:background="?attr/colorBase"
+        android:minHeight="?android:attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:id="@+id/toolbar"/>
 
-        <TextView
-            android:text="@string/mainMenu"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:layout_marginBottom="12dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:text="@string/categories"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:layout_marginBottom="18dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listCategories"
-            android:overScrollMode="never"
-            android:background="@drawable/listitemborder"
-            android:layout_marginBottom="20dp"
-            android:paddingBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:text="@string/more"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:layout_marginBottom="12dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
         <LinearLayout
+            android:orientation="vertical"
+            android:paddingTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:orientation="horizontal"
-            android:id="@+id/buttonBackup"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="32dp"
-                android:src="@drawable/ic_action_backup" />
+            android:layout_height="wrap_content">
 
             <TextView
+                android:text="@string/categories"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:layout_marginBottom="18dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/backup"
-                android:textColor="?attr/primaryTextColor"
-                android:textSize="16sp" />
-        </LinearLayout>
+                android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:orientation="horizontal"
-            android:id="@+id/buttonManageCategories"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="32dp"
-                android:src="@drawable/ic_action_category" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listCategories"
+                android:overScrollMode="never"
+                android:background="@drawable/listitemborder"
+                android:layout_marginBottom="20dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
+                android:text="@string/more"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:layout_marginBottom="12dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/manageCategories"
-                android:textColor="?attr/primaryTextColor"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:id="@+id/buttonBackup"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/ic_action_backup" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/backup"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:id="@+id/buttonManageCategories"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/ic_action_category" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/manageCategories"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:id="@+id/buttonSettings"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/ic_action_settings" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/settings"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:orientation="horizontal"
-            android:id="@+id/buttonSettings"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="32dp"
-                android:src="@drawable/ic_action_settings" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/settings"
-                android:textColor="?attr/primaryTextColor"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

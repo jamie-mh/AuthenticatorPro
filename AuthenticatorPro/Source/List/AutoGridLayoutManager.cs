@@ -20,7 +20,8 @@ namespace AuthenticatorPro.List
 
         private void CalculateSpanCount()
         {
-            var columns = Math.Max(1, (int) Math.Floor(Width / _minColumnWidth));
+            var realWidth = Width + PaddingLeft + PaddingRight;
+            var columns = Math.Max(1, (int) Math.Floor(realWidth / _minColumnWidth));
             SpanCount = columns;
         }
      

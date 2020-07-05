@@ -64,6 +64,9 @@
     <string name="noCategoriesTitle">Keine Kategorien</string>
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
 
+    <string name="backupNow">Jetzt sichern</string>
+    <string name="backupReminder">Es wurden seit Ihrer letzten Sicherung Änderungen vorgenommen.</string>
+
     <string name="backupPasswordMessage">Gebe ein Passwort ein um deine Sicherungsdatei zu schützen. Falls du dies nicht wünschst, lasse das Feld leer.</string>
     <string name="restoreError">Das Passwort ist ungültig oder die Datei ist bschädigt.</string>
     <string name="filePickError">Dateifehler</string>
@@ -79,6 +82,7 @@
     <string name="databaseError">Es gab ein Problem beim entschlüsseln der Datenbank. Lösche die Anwendungsdaten um fortzufahren.</string>
     <string name="cameraPermissionError">Die Kamera-Berechtigung muss erteilt werden, um QR-Codes lesen zu können.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
+    <string name="close">Schließen</string>
     <string name="quit">Beenden</string>
 
     <!-- Getting Started Guide -->
@@ -104,6 +108,10 @@
     <string name="guideWearOSSummary">Wenn Sie eine Wear OS-Uhr besitzen, können Sie die Begleitapplikation herunterladen. Sie können Codes direkt auf Ihrer Uhr ansehen.</string>
     
     <!-- Preferences -->
+    <string name="prefGeneral">Allgemein</string>
+    <string name="prefShowBackupRemindersTitle">Erinnern Sie an die Sicherung</string>
+    <string name="prefShowBackupRemindersSummary">Erinnert Sie daran, Ihre Authentifikatoren zu sichern, wenn wichtige Änderungen vorgenommen werden.</string>
+    
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefAppLockTitle">App sperren</string>
     <string name="prefAppLockSummary">Authentifizierung verlangen, um auf Authentifikatoren zuzugreifen. Du musst dafür ein Sperrbildschirm in deinem Gerät einrichten.</string>

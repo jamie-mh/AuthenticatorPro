@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Linq;
-using Android.Content;
 using Android.OS;
 using Android.Text;
+using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.List;
-using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
-using DialogFragment = AndroidX.Fragment.App.DialogFragment;
 
 
-namespace AuthenticatorPro.Dialog
+namespace AuthenticatorPro.Fragment
 {
-    internal class ChangeIconDialog : DialogFragment
+    internal class ChangeIconBottomSheet : BottomSheet
     {
         public event EventHandler<IconSelectedEventArgs> IconSelected;
 
@@ -25,7 +23,7 @@ namespace AuthenticatorPro.Dialog
         private EditText _searchText;
 
 
-        public ChangeIconDialog(int itemPosition, bool isDark)
+        public ChangeIconBottomSheet(int itemPosition, bool isDark)
         {
             RetainInstance = true;
 
@@ -33,21 +31,13 @@ namespace AuthenticatorPro.Dialog
             _iconSource = new IconSource(isDark);
         }
 
-        public override Android.App.Dialog OnCreateDialog(Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var alert = new AlertDialog.Builder(Activity);
-            alert.SetTitle(Resource.String.changeIcon);
-
-            alert.SetNegativeButton(Resource.String.cancel, (EventHandler<DialogClickEventArgs>) null);
-            alert.SetCancelable(false);
-
-            var view = Activity.LayoutInflater.Inflate(Resource.Layout.dialogChangeIcon, null);
+            var view = inflater.Inflate(Resource.Layout.sheetChangeIcon, null);
+            SetupToolbar(view, Resource.String.changeIcon);
+            
             _searchText = view.FindViewById<EditText>(Resource.Id.editSearch);
             _iconList = view.FindViewById<RecyclerView>(Resource.Id.list);
-            alert.SetView(view);
-
-            var dialog = alert.Create();
-            dialog.Show();
 
             _searchText.TextChanged += OnSearchChanged;
 
@@ -59,17 +49,10 @@ namespace AuthenticatorPro.Dialog
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
 
-            var layout = new FixedGridLayoutManager(Context, 6);
+            var layout = new AutoGridLayoutManager(Context, 140);
             _iconList.SetLayoutManager(layout);
 
-            var cancelButton = dialog.GetButton((int) DialogButtonType.Negative);
-
-            cancelButton.Click += (sender, e) =>
-            {
-                dialog.Dismiss();
-            };
-
-            return dialog;
+            return view;
         }
 
         private void OnSearchChanged(object sender, TextChangedEventArgs e)

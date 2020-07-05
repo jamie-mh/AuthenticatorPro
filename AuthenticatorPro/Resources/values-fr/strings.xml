@@ -63,6 +63,9 @@
     <string name="noCategoriesTitle">Aucune catégorie</string>
     <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant.</string>
 
+    <string name="backupNow">Sauvegarder</string>
+    <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde.</string>
+
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier.</string>
@@ -78,6 +81,7 @@
     <string name="databaseError">Il y a eu une erreur lors du déchiffrement de la base de données. Veuillez effacer les données de l\'application avant de continuer.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code.</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil.</string>
+    <string name="close">Fermer</string>
     <string name="quit">Quitter</string>
 
     <!-- Getting Started Guide -->
@@ -103,6 +107,10 @@
     <string name="guideWearOSSummary">Si vous avez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
     
     <!-- Preferences -->
+    <string name="prefGeneral">Paramètres généraux</string>
+    <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
+    <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées.</string>
+
     <string name="prefSecurity">Securité</string>
     <string name="prefAppLockTitle">Verrouillage de l\'application</string>
     <string name="prefAppLockSummary">Exiger le déverrouillage par code pin ou empreinte digitale avant d\'accéder aux authentificateurs. Cette fonctionnalité exige d\'avoir configuré un écran de verrouillage sur l\'appareil.</string>

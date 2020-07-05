@@ -40,9 +40,9 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetBackupPassword, null);
+            SetupToolbar(view, Resource.String.password);
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             _passwordTextLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
-
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOK);
             okButton.Click += OnOkButtonClick;
