@@ -168,6 +168,7 @@ namespace AuthenticatorPro.Shared.Data
             {"wargaming", Resource.Drawable.auth_wargaming},
             {"webde", Resource.Drawable.auth_webde},
             {"wetransfer", Resource.Drawable.auth_wetransfer},
+            {"wikipedia", Resource.Drawable.auth_wikipedia},
             {"wordpress", Resource.Drawable.auth_wordpress},
             {"wpengine", Resource.Drawable.auth_wpengine},
             {"xbox", Resource.Drawable.auth_xbox},
