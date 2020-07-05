@@ -49,6 +49,7 @@ namespace AuthenticatorPro.Shared.Data
             {"contabo", Resource.Drawable.auth_contabo},
             {"dashlane", Resource.Drawable.auth_dashlane},
             {"digitalocean", Resource.Drawable.auth_digitalocean},
+            {"directadmin", Resource.Drawable.auth_directadmin},
             {"discord", Resource.Drawable.auth_discord},
             {"docker", Resource.Drawable.auth_docker},
             {"dropbox", Resource.Drawable.auth_dropbox},
