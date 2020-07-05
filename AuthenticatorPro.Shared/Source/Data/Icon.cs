@@ -49,6 +49,7 @@ namespace AuthenticatorPro.Shared.Data
             {"discord", Resource.Drawable.auth_discord},
             {"docker", Resource.Drawable.auth_docker},
             {"dropbox", Resource.Drawable.auth_dropbox},
+            {"dreamhost", Resource.Drawable.auth_dreamhost},
             {"drupal", Resource.Drawable.auth_drupal},
             {"electronicarts", Resource.Drawable.auth_electronicarts},
             {"epicgames", Resource.Drawable.auth_epicgames},
