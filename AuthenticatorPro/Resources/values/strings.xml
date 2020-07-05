@@ -63,6 +63,9 @@
     <string name="noCategoriesTitle">No Categories</string>
     <string name="noCategoriesMessage">You don\'t have any categories set up yet.</string>
 
+    <string name="backupNow">Backup Now</string>
+    <string name="backupReminder">There have been changes made since your last backup.</string>
+    
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="restoreError">The password is incorrect or the file is corrupt.</string>
     <string name="filePickError">Error picking file.</string>
@@ -104,6 +107,10 @@
     <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
     
     <!-- Preferences -->
+    <string name="prefGeneral">General</string>
+    <string name="prefShowBackupRemindersTitle">Show Backup Reminders</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
+    
     <string name="prefSecurity">Security</string>
     <string name="prefAppLockTitle">App Lock</string>
     <string name="prefAppLockSummary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>

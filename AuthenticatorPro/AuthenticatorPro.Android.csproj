@@ -85,6 +85,7 @@
     <Compile Include="Source\Activity\DayNightActivity.cs" />
     <Compile Include="Source\Activity\LoginActivity.cs" />
     <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
+    <Compile Include="Source\Callback\SnackbarCallback.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />

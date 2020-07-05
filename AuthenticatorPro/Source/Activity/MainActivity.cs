@@ -21,6 +21,7 @@ using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
@@ -187,6 +188,12 @@ namespace AuthenticatorPro.Activity
 
             _timer.Start();
             Tick();
+
+            var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
+                .GetBoolean("pref_showBackupReminders", true);
+           
+            if(showBackupReminders)
+                RemindBackup();
 
             await DetectWearOSCapability();
 
@@ -367,13 +374,7 @@ namespace AuthenticatorPro.Activity
                     return;
                 }
 
-                var intent = new Intent(Intent.ActionCreateDocument);
-                intent.AddCategory(Intent.CategoryOpenable);
-                intent.SetType("application/octet-stream");
-                intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
-
-                StartActivityForResult(intent, ResultBackupSAF);
-                _isChildActivityOpen = true;
+                StartBackupSaveActivity();
             };
 
             fragment.ManageCategoriesClick += (sender, e) => { StartChildActivity(typeof(ManageCategoriesActivity)); };
@@ -383,6 +384,17 @@ namespace AuthenticatorPro.Activity
                 StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+
+        private void StartBackupSaveActivity()
+        {
+            var intent = new Intent(Intent.ActionCreateDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("application/octet-stream");
+            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
+
+            StartActivityForResult(intent, ResultBackupSAF);
+            _isChildActivityOpen = true;
         }
 
         private async Task SwitchCategory(string id)
@@ -584,6 +596,11 @@ namespace AuthenticatorPro.Activity
             _authenticatorListAdapter.NotifyItemInserted(position);
             _authList.SmoothScrollToPosition(position);
             await NotifyWearAppOfChange();
+
+            PreferenceManager.GetDefaultSharedPreferences(this)
+                .Edit()
+                .PutBoolean("needsBackup", true)
+                .Commit();
         }
 
         private async void OpenQRCodeScanner(object sender, EventArgs e)
@@ -764,6 +781,11 @@ namespace AuthenticatorPro.Activity
                     ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 }
 
+                PreferenceManager.GetDefaultSharedPreferences(this)
+                    .Edit()
+                    .PutBoolean("needsBackup", false)
+                    .Commit();
+                
                 ((BackupPasswordBottomSheet) sender).Dismiss();
                 ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
             };
@@ -837,6 +859,11 @@ namespace AuthenticatorPro.Activity
             _authList.SmoothScrollToPosition(position);
             await NotifyWearAppOfChange();
 
+            PreferenceManager.GetDefaultSharedPreferences(this)
+                .Edit()
+                .PutBoolean("needsBackup", true)
+                .Commit();
+            
             dialog.Dismiss();
         }
 
@@ -1000,6 +1027,32 @@ namespace AuthenticatorPro.Activity
         {
             var snackbar = Snackbar.Make(_coordinatorLayout, message, length);
             snackbar.SetAnchorView(_addButton);
+            snackbar.Show();
+        }
+
+        private void RemindBackup()
+        {
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            var needsBackup = prefs.GetBoolean("needsBackup", false);
+
+            if(!needsBackup)
+                return;
+            
+            var snackbar = Snackbar.Make(_coordinatorLayout, Resource.String.backupReminder, Snackbar.LengthLong);
+            snackbar.SetAnchorView(_addButton);
+            snackbar.SetAction(Resource.String.backupNow, view =>
+            {
+                StartBackupSaveActivity(); 
+            });
+            
+            var callback = new SnackbarCallback();
+            callback.Dismiss += (sender, e) =>
+            {
+                if(e == Snackbar.Callback.DismissEventSwipe)
+                    prefs.Edit().PutBoolean("needsBackup", false).Commit();
+            };
+
+            snackbar.AddCallback(callback);
             snackbar.Show();
         }
     }

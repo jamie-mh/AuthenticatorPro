@@ -5,6 +5,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.preference.PreferenceCategory
+        android:title="@string/prefGeneral"
+        android:key="pref_key_general">
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pref_showBackupReminders"
+            android:summary="@string/prefShowBackupRemindersSummary"
+            android:title="@string/prefShowBackupRemindersTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="true" />
+    </androidx.preference.PreferenceCategory>
+    
+    <androidx.preference.PreferenceCategory
         android:title="@string/prefSecurity"
         android:key="pref_key_security">
         <androidx.preference.SwitchPreferenceCompat
