@@ -70,6 +70,7 @@ namespace AuthenticatorPro.Shared.Data
             {"kickstarter", Resource.Drawable.auth_kickstarter},
             {"kraken", Resource.Drawable.auth_kraken},
             {"lastpass", Resource.Drawable.auth_lastpass},
+            {"leaseweb", Resource.Drawable.auth_leaseweb},
             {"linkedin", Resource.Drawable.auth_linkedin},
             {"logmein", Resource.Drawable.auth_logmein},
             {"mailchimp", Resource.Drawable.auth_mailchimp},
