@@ -68,6 +68,7 @@ namespace AuthenticatorPro.Shared.Data
             {"instagram", Resource.Drawable.auth_instagram},
             {"inwx", Resource.Drawable.auth_inwx},
             {"jetbrains", Resource.Drawable.auth_jetbrains},
+            {"jira", Resource.Drawable.auth_jira},
             {"jiraservicedesk", Resource.Drawable.auth_jiraservicedesk},
             {"jottacloud", Resource.Drawable.auth_jottacloud},
             {"keeper", Resource.Drawable.auth_keeper},
