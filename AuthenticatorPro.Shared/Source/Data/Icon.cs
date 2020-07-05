@@ -133,6 +133,7 @@ namespace AuthenticatorPro.Shared.Data
             {"reddit", Resource.Drawable.auth_reddit},
             {"roboform", Resource.Drawable.auth_roboform},
             {"rockstargames", Resource.Drawable.auth_rockstargames},
+            {"runcloud", Resource.Drawable.auth_runcloud},
             {"salesforce", Resource.Drawable.auth_salesforce},
             {"samsung", Resource.Drawable.auth_samsung},
             {"scaleway", Resource.Drawable.auth_scaleway},
