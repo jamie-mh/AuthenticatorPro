@@ -106,6 +106,7 @@ namespace AuthenticatorPro.Shared.Data
             {"protonvpn", Resource.Drawable.auth_protonvpn},
             {"proxmox", Resource.Drawable.auth_proxmox},
             {"pushover", Resource.Drawable.auth_pushover},
+            {"pypi", Resource.Drawable.auth_pypi},
             {"rackspace", Resource.Drawable.auth_rackspace},
             {"realvnc", Resource.Drawable.auth_realvnc},
             {"reddit", Resource.Drawable.auth_reddit},
