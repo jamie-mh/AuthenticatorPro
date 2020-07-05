@@ -96,6 +96,7 @@ namespace AuthenticatorPro.Shared.Data
             {"namesilo", Resource.Drawable.auth_namesilo},
             {"newegg", Resource.Drawable.auth_newegg},
             {"nextcloud", Resource.Drawable.auth_nextcloud},
+            {"nexusmods", Resource.Drawable.auth_nexusmods},
             {"nintendo", Resource.Drawable.auth_nintendo},
             {"npm", Resource.Drawable.auth_npm},
             {"office365", Resource.Drawable.auth_office365},
