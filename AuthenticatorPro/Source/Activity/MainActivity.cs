@@ -869,12 +869,12 @@ namespace AuthenticatorPro.Activity
 
         private void OpenIconDialog(int position)
         {
-            var fragment = new ChangeIconDialog(position, IsDark);
+            var fragment = new ChangeIconBottomSheet(position, IsDark);
             fragment.IconSelected += OnIconDialogIconSelected;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnIconDialogIconSelected(object sender, ChangeIconDialog.IconSelectedEventArgs e)
+        private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs e)
         {
             var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(e.ItemPosition);
 
@@ -887,7 +887,7 @@ namespace AuthenticatorPro.Activity
             _authenticatorListAdapter.NotifyItemChanged(e.ItemPosition);
             await NotifyWearAppOfChange();
 
-            ((ChangeIconDialog) sender).Dismiss();
+            ((ChangeIconBottomSheet) sender).Dismiss();
         }
 
         /*

@@ -11,7 +11,7 @@ using AuthenticatorPro.List;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class ChangeIconDialog : BottomSheet
+    internal class ChangeIconBottomSheet : BottomSheet
     {
         public event EventHandler<IconSelectedEventArgs> IconSelected;
 
@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Fragment
         private EditText _searchText;
 
 
-        public ChangeIconDialog(int itemPosition, bool isDark)
+        public ChangeIconBottomSheet(int itemPosition, bool isDark)
         {
             RetainInstance = true;
 

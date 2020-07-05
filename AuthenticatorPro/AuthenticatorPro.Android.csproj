@@ -89,7 +89,7 @@
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
-    <Compile Include="Source\Fragment\ChangeIconDialog.cs" />
+    <Compile Include="Source\Fragment\ChangeIconBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\BottomSheet.cs" />
