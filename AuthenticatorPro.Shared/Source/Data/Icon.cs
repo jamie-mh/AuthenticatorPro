@@ -175,6 +175,7 @@ namespace AuthenticatorPro.Shared.Data
             {"yandexmail", Resource.Drawable.auth_yandexmail},
             {"youtube", Resource.Drawable.auth_youtube},
             {"zapier", Resource.Drawable.auth_zapier},
+            {"zendesk", Resource.Drawable.auth_zendesk},
             {"zohomail", Resource.Drawable.auth_zohomail}
         };
 
