@@ -588,8 +588,11 @@ namespace AuthenticatorPro.Activity
             }
 
             await _connection.InsertAsync(auth);
+
+            if(_authenticatorSource.CategoryId != null)
+                await _authenticatorSource.AddToCategory(auth.Secret, _authenticatorSource.CategoryId);
+            
             await _authenticatorSource.Update();
-            await SwitchCategory(null);
             CheckEmptyState();
 
             var position = _authenticatorSource.GetPosition(auth.Secret);
@@ -849,9 +852,11 @@ namespace AuthenticatorPro.Activity
             }
 
             await _connection.InsertAsync(auth);
-            await _authenticatorSource.Update();
 
-            await SwitchCategory(null);
+            if(_authenticatorSource.CategoryId != null)
+                await _authenticatorSource.AddToCategory(auth.Secret, _authenticatorSource.CategoryId);
+
+            await _authenticatorSource.Update();
             CheckEmptyState();
 
             var position = _authenticatorSource.GetPosition(auth.Secret);
@@ -949,14 +954,15 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private void OnCategoriesDialogCategoryClick(object sender, AssignCategoriesBottomSheet.CategoryClickedEventArgs e)
+        private async void OnCategoriesDialogCategoryClick(object sender, AssignCategoriesBottomSheet.CategoryClickedEventArgs e)
         {
             var categoryId = _categorySource.Categories[e.CategoryPosition].Id;
+            var authSecret = _authenticatorSource.Authenticators[e.ItemPosition].Secret;
 
             if(e.IsChecked)
-                _authenticatorSource.AddToCategory(e.ItemPosition, categoryId);
+                await _authenticatorSource.AddToCategory(authSecret, categoryId);
             else
-                _authenticatorSource.RemoveFromCategory(e.ItemPosition, categoryId);
+                await _authenticatorSource.RemoveFromCategory(authSecret, categoryId);
         }
 
         /*

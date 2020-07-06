@@ -184,21 +184,19 @@ namespace AuthenticatorPro.Data
             return CategoryBindings.First(b => b.AuthenticatorSecret == auth.Secret && b.CategoryId == CategoryId);
         }
 
-        public void AddToCategory(int position, string categoryId)
+        public async Task AddToCategory(string authSecret, string categoryId)
         {
             const string sql = "INSERT INTO authenticatorcategory (categoryId, authenticatorSecret) VALUES (?, ?)";
-            var secret = Authenticators[position].Secret;
-            _connection.ExecuteAsync(sql, categoryId, secret);
-            CategoryBindings.Add(new AuthenticatorCategory(categoryId, secret));
+            await _connection.ExecuteAsync(sql, categoryId, authSecret);
+            CategoryBindings.Add(new AuthenticatorCategory(categoryId, authSecret));
         }
 
-        public void RemoveFromCategory(int position, string categoryId)
+        public async Task RemoveFromCategory(string authSecret, string categoryId)
         {
             const string sql = "DELETE FROM authenticatorcategory WHERE categoryId = ? AND authenticatorSecret = ?";
-            var secret = Authenticators[position].Secret;
-            _connection.ExecuteAsync(sql, categoryId, secret);
+            await _connection.ExecuteAsync(sql, categoryId, authSecret);
 
-            var binding = CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == secret);
+            var binding = CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == authSecret);
             CategoryBindings.Remove(binding);
         }
     }
