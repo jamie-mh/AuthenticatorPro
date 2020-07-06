@@ -30,6 +30,7 @@ namespace AuthenticatorPro.List
 
             var drawable = ContextCompat.GetDrawable(_context, value);
             holder.Icon.SetImageDrawable(drawable);
+            holder.ItemView.TooltipText = key;
             holder.Name.Text = key;
         }
 
