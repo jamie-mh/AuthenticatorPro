@@ -20,22 +20,25 @@ namespace AuthenticatorPro.List
 
         private readonly bool _isCompact;
         private readonly bool _isDark;
-        private readonly AuthenticatorSource _source;
+        
+        private readonly AuthenticatorSource _authenticatorSource;
+        private readonly CustomIconSource _customIconSource;
 
 
-        public AuthenticatorListAdapter(AuthenticatorSource source, bool isDark, bool isCompact)
+        public AuthenticatorListAdapter(AuthenticatorSource authenticatorSource, CustomIconSource customIconSource, bool isDark, bool isCompact)
         {
             _isDark = isDark;
             _isCompact = isCompact;
-            _source = source;
+            _authenticatorSource = authenticatorSource;
+            _customIconSource = customIconSource;
         }
 
-        public override int ItemCount => _source.Authenticators.Count;
+        public override int ItemCount => _authenticatorSource.Authenticators.Count;
 
         public async void MoveItem(int oldPosition, int newPosition)
         {
             NotifyItemMoved(oldPosition, newPosition);
-            await _source.Move(oldPosition, newPosition);
+            await _authenticatorSource.Move(oldPosition, newPosition);
         }
 
         public void OnMovementFinished()
@@ -50,7 +53,7 @@ namespace AuthenticatorPro.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var auth = _source.Authenticators.ElementAtOrDefault(position);
+            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(position);
 
             if(auth == null)
                 return;
@@ -65,8 +68,20 @@ namespace AuthenticatorPro.List
                 : ViewStates.Visible;
 
             holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
-            holder.Icon.SetImageResource(Icon.GetService(auth.Icon, _isDark));
 
+            if(auth.Icon.StartsWith(CustomIcon.Prefix))
+            {
+                var id = auth.Icon.Substring(1);
+                var customIcon = _customIconSource.Get(id);
+                
+                if(customIcon != null)
+                    holder.Icon.SetImageBitmap(customIcon.GetBitmap()); 
+                else
+                    holder.Icon.SetImageResource(Icon.GetService("default", _isDark));
+            }
+            else
+                holder.Icon.SetImageResource(Icon.GetService(auth.Icon, _isDark));
+                
             switch(auth.Type)
             {
                 case AuthenticatorType.Totp:
@@ -93,7 +108,7 @@ namespace AuthenticatorPro.List
                 return;
             }
 
-            var auth = _source.Authenticators[position];
+            var auth = _authenticatorSource.Authenticators[position];
             var holder = (AuthenticatorListHolder) viewHolder;
 
             switch(auth.Type)
@@ -153,13 +168,13 @@ namespace AuthenticatorPro.List
 
         private async void OnRefreshClick(object sender, int position)
         {
-            await _source.IncrementCounter(position);
+            await _authenticatorSource.IncrementCounter(position);
             NotifyItemChanged(position);
         }
 
         public override long GetItemId(int position)
         {
-            return _source.Authenticators[position].GetHashCode();
+            return _authenticatorSource.Authenticators[position].GetHashCode();
         }
     }
 }

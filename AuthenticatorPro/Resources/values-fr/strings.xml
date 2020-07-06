@@ -15,6 +15,7 @@
     <string name="add">Ajouter</string>
     <string name="rename">Renommer</string>
     <string name="changeIcon">Changer l\'icône</string>
+    <string name="useCustomIcon">Choisir une icône perso</string>
     <string name="cancel">Annuler</string>
     <string name="issuer">Émetteur</string>
     <string name="username">Nom d\'utilisateur</string>

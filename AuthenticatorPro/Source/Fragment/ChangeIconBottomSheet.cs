@@ -7,13 +7,15 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.List;
+using Google.Android.Material.Button;
 
 
 namespace AuthenticatorPro.Fragment
 {
     internal class ChangeIconBottomSheet : BottomSheet
     {
-        public event EventHandler<IconSelectedEventArgs> IconSelected;
+        public event EventHandler<IconSelectedEventArgs> IconSelect;
+        public event EventHandler UseCustomIconClick;
 
         private readonly IconSource _iconSource;
         private readonly int _itemPosition;
@@ -41,6 +43,13 @@ namespace AuthenticatorPro.Fragment
 
             _searchText.TextChanged += OnSearchChanged;
 
+            var customIconButton = view.FindViewById<MaterialButton>(Resource.Id.buttonUseCustomIcon);
+            customIconButton.Click += (s, e) =>
+            {
+                UseCustomIconClick?.Invoke(s, e);
+                Dismiss();
+            };
+
             _iconListAdapter = new IconListAdapter(Context, _iconSource);
             _iconListAdapter.ItemClick += OnItemClick;
             _iconListAdapter.HasStableIds = true;
@@ -64,7 +73,7 @@ namespace AuthenticatorPro.Fragment
         private void OnItemClick(object sender, int iconPosition)
         {
             var eventArgs = new IconSelectedEventArgs(_itemPosition, _iconSource.List.ElementAt(iconPosition).Key);
-            IconSelected?.Invoke(this, eventArgs);
+            IconSelect?.Invoke(this, eventArgs);
         }
 
         public class IconSelectedEventArgs : EventArgs

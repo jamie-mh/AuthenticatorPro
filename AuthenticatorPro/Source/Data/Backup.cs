@@ -16,13 +16,15 @@ namespace AuthenticatorPro.Data
         public List<Authenticator> Authenticators { get; }
         public List<Category> Categories { get; }
         public List<AuthenticatorCategory> AuthenticatorCategories { get; }
+        public List<CustomIcon> CustomIcons { get; }
 
 
-        public Backup(List<Authenticator> authenticators, List<Category> categories, List<AuthenticatorCategory> authenticatorCategories)
+        public Backup(List<Authenticator> authenticators, List<Category> categories, List<AuthenticatorCategory> authenticatorCategories, List<CustomIcon> customIcons)
         {
             Authenticators = authenticators;
             Categories = categories;
             AuthenticatorCategories = authenticatorCategories;
+            CustomIcons = customIcons;
         }
 
         public byte[] ToBytes(string password)

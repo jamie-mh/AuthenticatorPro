@@ -15,6 +15,7 @@
     <string name="add">Add</string>
     <string name="rename">Rename</string>
     <string name="changeIcon">Change Icon</string>
+    <string name="useCustomIcon">Use Custom Icon</string>
     <string name="cancel">Cancel</string>
     <string name="issuer">Issuer</string>
     <string name="username">Username</string>

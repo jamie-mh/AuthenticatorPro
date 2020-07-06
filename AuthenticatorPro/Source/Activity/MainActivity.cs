@@ -55,13 +55,12 @@ namespace AuthenticatorPro.Activity
 
         private const int ResultRestoreSAF = 1;
         private const int ResultBackupSAF = 2;
-        private const int ResultSettingsRecreate = 3;
+        private const int ResultCustomIconSAF = 3;
+        private const int ResultSettingsRecreate = 4;
 
         private bool _areGoogleAPIsAvailable;
         private bool _hasWearAPIs;
         private bool _hasWearCompanion;
-
-        private Task _onceResumedTask;
 
         private CoordinatorLayout _coordinatorLayout;
         private RecyclerView _authList;
@@ -77,11 +76,15 @@ namespace AuthenticatorPro.Activity
         private AuthenticatorListAdapter _authenticatorListAdapter;
         private AuthenticatorSource _authenticatorSource;
         private CategorySource _categorySource;
+        private CustomIconSource _customIconSource;
 
         private SQLiteAsyncConnection _connection;
         private Timer _timer;
         private DateTime _pauseTime;
+        
+        private Task _onceResumedTask;
         private bool _isChildActivityOpen;
+        private int _customIconApplyPosition;
 
         private KeyguardManager _keyguardManager;
         private MobileBarcodeScanner _barcodeScanner;
@@ -169,6 +172,7 @@ namespace AuthenticatorPro.Activity
                 _authList.Visibility = ViewStates.Invisible;
                 await RefreshAuthenticators();
                 await _categorySource.Update();
+                await _customIconSource.Update();
 
                 // Currently visible category has been deleted
                 if(_authenticatorSource.CategoryId != null &&
@@ -214,6 +218,9 @@ namespace AuthenticatorPro.Activity
 
             _categorySource = new CategorySource(_connection);
             await _categorySource.Update();
+            
+            _customIconSource = new CustomIconSource(_connection);
+            await _customIconSource.Update();
 
             InitAuthenticatorList();
             await RefreshAuthenticators();
@@ -248,7 +255,7 @@ namespace AuthenticatorPro.Activity
             var isCompact = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_compactMode", false);
 
-            _authenticatorListAdapter = new AuthenticatorListAdapter(_authenticatorSource, IsDark, isCompact);
+            _authenticatorListAdapter = new AuthenticatorListAdapter(_authenticatorSource, _customIconSource, IsDark, isCompact);
 
             _authenticatorListAdapter.ItemClick += OnAuthenticatorClick;
             _authenticatorListAdapter.MenuClick += OnAuthenticatorOptionsClick;
@@ -514,8 +521,12 @@ namespace AuthenticatorPro.Activity
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.delete, async (sender, args) =>
             {
+                var auth = _authenticatorSource.Authenticators[position];
+                await TryCleanupCustomIcon(auth.Icon);
+                
                 await _authenticatorSource.Delete(position);
                 _authenticatorListAdapter.NotifyItemRemoved(position);
+                
                 await NotifyWearAppOfChange();
                 CheckEmptyState();
             });
@@ -627,6 +638,10 @@ namespace AuthenticatorPro.Activity
                 ResultBackupSAF => new Task(() =>
                 {
                     BeginBackup(intent.Data);
+                }),
+                ResultCustomIconSAF => new Task(async () =>
+                {
+                    await SetCustomIcon(intent.Data);
                 }),
                 ResultSettingsRecreate => new Task(() =>
                 {
@@ -744,7 +759,7 @@ namespace AuthenticatorPro.Activity
 
             var authsInserted = 0;
             var categoriesInserted = 0;
-
+            
             foreach(var auth in backup.Authenticators.Where(auth => !_authenticatorSource.IsDuplicate(auth)))
             {
                 auth.Validate();
@@ -759,8 +774,13 @@ namespace AuthenticatorPro.Activity
             }
 
             foreach(var binding in backup.AuthenticatorCategories.Where(binding => !_authenticatorSource.IsDuplicateCategoryBinding(binding)))
-            {
                 await _connection.InsertAsync(binding);
+
+            // Older backups might not have custom icons
+            if(backup.CustomIcons != null)
+            {
+                foreach(var icon in backup.CustomIcons.Where(i => !_customIconSource.IsDuplicate(i.Id)))
+                    await _connection.InsertAsync(icon);
             }
 
             return new Tuple<int, int>(authsInserted, categoriesInserted);
@@ -808,7 +828,8 @@ namespace AuthenticatorPro.Activity
             var backup = new Backup(
                 _authenticatorSource.Authenticators,
                 _categorySource.Categories,
-                _authenticatorSource.CategoryBindings
+                _authenticatorSource.CategoryBindings,
+                _customIconSource.Icons
             );
 
             var dataToWrite = backup.ToBytes(password);
@@ -902,8 +923,22 @@ namespace AuthenticatorPro.Activity
         private void OpenIconDialog(int position)
         {
             var fragment = new ChangeIconBottomSheet(position, IsDark);
-            fragment.IconSelected += OnIconDialogIconSelected;
+            fragment.IconSelect += OnIconDialogIconSelected;
+            fragment.UseCustomIconClick += (sender, args) =>
+            {
+                _customIconApplyPosition = position;
+                StartCustomIconPicker();
+            };
             fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+
+        private void StartCustomIconPicker()
+        {
+            var intent = new Intent(Intent.ActionOpenDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("image/*");
+            StartActivityForResult(intent, ResultCustomIconSAF);
+            _isChildActivityOpen = true;
         }
 
         private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs e)
@@ -913,6 +948,7 @@ namespace AuthenticatorPro.Activity
             if(auth == null)
                 return;
 
+            await TryCleanupCustomIcon(auth.Icon);
             auth.Icon = e.Icon;
 
             await _connection.UpdateAsync(auth);
@@ -921,7 +957,68 @@ namespace AuthenticatorPro.Activity
 
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
+        
+        /*
+         *  Custom Icons
+         */
 
+        private async Task SetCustomIcon(Uri uri)
+        {
+            MemoryStream memoryStream = null;
+            Stream stream = null;
+            CustomIcon icon;
+
+            try
+            {
+                stream = ContentResolver.OpenInputStream(uri);
+                memoryStream = new MemoryStream();
+                await stream.CopyToAsync(memoryStream);
+                
+                var fileData = memoryStream.ToArray();
+                icon = await CustomIcon.FromBytes(fileData);
+            }
+            catch(Exception)
+            {
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                return;
+            }
+            finally
+            {
+                memoryStream?.Close();
+                stream?.Close();
+            }
+            
+            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(_customIconApplyPosition);
+
+            if(auth == null)
+                return;
+            
+            if(!_customIconSource.IsDuplicate(icon.Id))
+                await _connection.InsertAsync(icon);
+            
+            await TryCleanupCustomIcon(auth.Icon);
+            
+            auth.Icon = CustomIcon.Prefix + icon.Id;
+            await _connection.UpdateAsync(auth);
+
+            await _customIconSource.Update();
+            RunOnUiThread(() =>
+            {
+                _authenticatorListAdapter.NotifyItemChanged(_customIconApplyPosition); 
+            });
+        }
+
+        private async Task TryCleanupCustomIcon(string icon)
+        {
+            if(icon.StartsWith(CustomIcon.Prefix))
+            {
+                var id = icon.Substring(1);
+
+                if(_authenticatorSource.CountCustomIconUses(id) == 1)
+                    await _customIconSource.Delete(id);
+            }
+        }
+        
         /*
          *  Categories Dialog
          */

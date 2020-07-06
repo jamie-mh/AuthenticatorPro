@@ -43,6 +43,7 @@ namespace AuthenticatorPro
             await connection.CreateTableAsync<Authenticator>();
             await connection.CreateTableAsync<Category>();
             await connection.CreateTableAsync<AuthenticatorCategory>();
+            await connection.CreateTableAsync<CustomIcon>();
 
             return connection;
         }

@@ -14,23 +14,38 @@
         android:layout_width="match_parent"
         android:layout_marginBottom="16dp"
         android:id="@+id/toolbar"/>
-    
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+   
+    <LinearLayout 
+        android:orientation="vertical"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
-        android:layout_marginBottom="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:hint="@string/search">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonUseCustomIcon"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_marginBottom="6dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/useCustomIcon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:hint="@string/search">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        
+    </LinearLayout>
+    
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_marginTop="16dp"

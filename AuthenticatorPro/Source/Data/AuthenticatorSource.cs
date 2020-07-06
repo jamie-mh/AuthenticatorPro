@@ -199,5 +199,10 @@ namespace AuthenticatorPro.Data
             var binding = CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == authSecret);
             CategoryBindings.Remove(binding);
         }
+
+        public int CountCustomIconUses(string id)
+        {
+            return _all.Count(a => a.Icon == CustomIcon.Prefix + id);
+        }
     }
 }
