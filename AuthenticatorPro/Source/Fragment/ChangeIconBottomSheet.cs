@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetChangeIcon, null);
-            SetupToolbar(view, Resource.String.changeIcon);
+            SetupToolbar(view, Resource.String.changeIcon, true);
             
             _searchText = view.FindViewById<EditText>(Resource.Id.editSearch);
             _iconList = view.FindViewById<RecyclerView>(Resource.Id.list);

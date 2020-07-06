@@ -37,10 +37,14 @@ namespace AuthenticatorPro.Fragment
                 Dialog.Window.SetLayout((int) ViewUtils.DpToPx(Activity, MaxWidth), -1);
         }
 
-        protected void SetupToolbar(View view, int titleRes)
+        protected void SetupToolbar(View view, int titleRes, bool showCloseButton = false)
         {
             var toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             toolbar.SetTitle(titleRes);
+
+            if(!showCloseButton)
+                return;
+            
             toolbar.InflateMenu(Resource.Menu.sheet);
             toolbar.MenuItemClick += (sender, args) =>
             {
