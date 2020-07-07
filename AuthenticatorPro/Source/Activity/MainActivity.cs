@@ -990,7 +990,7 @@ namespace AuthenticatorPro.Activity
             
             var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(_customIconApplyPosition);
 
-            if(auth == null)
+            if(auth == null || auth.Icon == CustomIcon.Prefix + icon.Id)
                 return;
             
             if(!_customIconSource.IsDuplicate(icon.Id))
