@@ -77,7 +77,7 @@ namespace AuthenticatorPro.List
                 if(customIcon != null)
                     holder.Icon.SetImageBitmap(customIcon.GetBitmap()); 
                 else
-                    holder.Icon.SetImageResource(Icon.GetService("default", _isDark));
+                    holder.Icon.SetImageResource(Icon.GetService(Icon.Default, _isDark));
             }
             else
                 holder.Icon.SetImageResource(Icon.GetService(auth.Icon, _isDark));

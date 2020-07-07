@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Data\ByteArrayConverter.cs" />
+    <Compile Include="Source\Query\WearCustomIconResponse.cs" />
     <Compile Include="Source\Util\AnimUtil.cs" />
     <Compile Include="Source\Data\AuthenticatorType.cs" />
     <Compile Include="Source\Query\WearAuthenticatorResponse.cs" />

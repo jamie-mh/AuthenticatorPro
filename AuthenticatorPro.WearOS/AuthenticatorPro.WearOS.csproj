@@ -69,6 +69,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Cache\CustomIconCache.cs" />
     <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
     <Compile Include="Source\List\AuthenticatorListHolder.cs" />
     <Compile Include="Source\List\ScrollingListLayoutCallback.cs" />

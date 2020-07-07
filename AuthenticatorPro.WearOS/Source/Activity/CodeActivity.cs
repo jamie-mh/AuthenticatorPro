@@ -5,6 +5,7 @@ using System.Timers;
 using Android.App;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -49,7 +50,19 @@ namespace AuthenticatorPro.WearOS.Activity
             usernameText.Text = Intent.Extras.GetString("username");
 
             var iconView = FindViewById<ImageView>(Resource.Id.imageIcon);
-            iconView.SetImageResource(Icon.GetService(Intent.Extras.GetString("icon"), true));
+            var hasCustomIcon = Intent.Extras.GetBoolean("hasCustomIcon");
+
+            if(hasCustomIcon)
+            {
+                var bitmap = (Bitmap) Intent.Extras.GetParcelable("icon");
+                
+                if(bitmap != null)
+                    iconView.SetImageBitmap(bitmap);
+                else
+                    iconView.SetImageResource(Icon.GetService(Icon.Default, true));
+            }
+            else
+                iconView.SetImageResource(Icon.GetService(Intent.Extras.GetString("icon"), true));
 
             _nodeId = Intent.Extras.GetString("nodeId");
             _position = Intent.Extras.GetInt("position");

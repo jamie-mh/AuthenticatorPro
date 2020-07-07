@@ -1,10 +1,10 @@
 ﻿#nullable enable
 using System;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Shared.Data
 {
+    [Android.Runtime.Preserve(AllMembers = true)]
     public class ByteArrayConverter : JsonConverter
     {
         public override async void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)

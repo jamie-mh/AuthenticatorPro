@@ -5,6 +5,8 @@ namespace AuthenticatorPro.Shared.Data
 {
     public static class Icon
     {
+        public static string Default = "default";
+        
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
             // Brand icons
@@ -205,7 +207,7 @@ namespace AuthenticatorPro.Shared.Data
             {"storage", Resource.Drawable.auth_storage},
             {"web", Resource.Drawable.auth_web},
             
-            {"default", Resource.Drawable.auth_default}
+            {Default, Resource.Drawable.auth_default}
         };
 
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
@@ -255,7 +257,7 @@ namespace AuthenticatorPro.Shared.Data
             {"storage", Resource.Drawable.auth_storage_dark},
             {"web", Resource.Drawable.auth_web_dark},
             
-            {"default", Resource.Drawable.auth_default_dark}
+            {Default, Resource.Drawable.auth_default_dark}
         };
 
         public static int GetService(string key, bool isDark)

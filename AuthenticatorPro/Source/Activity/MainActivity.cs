@@ -1006,6 +1006,8 @@ namespace AuthenticatorPro.Activity
             {
                 _authenticatorListAdapter.NotifyItemChanged(_customIconApplyPosition); 
             });
+
+            await NotifyWearAppOfChange();
         }
 
         private async Task TryCleanupCustomIcon(string icon)
