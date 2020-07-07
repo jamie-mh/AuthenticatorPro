@@ -68,10 +68,6 @@ namespace AuthenticatorPro.Data
                 await bitmap.CopyPixelsToBufferAsync(buffer);
                 await bitmap.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
             }
-            catch(Exception e)
-            {
-                Log.Debug("asd", e.Message);
-            }
             finally
             {
                 stream.Close();
