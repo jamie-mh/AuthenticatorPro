@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
+using Android.Util;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Util;
 using Java.Nio;
@@ -29,41 +30,62 @@ namespace AuthenticatorPro.Data
         {
             return _bitmap ??= BitmapFactory.DecodeByteArray(Data, 0, Data.Length);
         }
-        
-        public static async Task<CustomIcon> FromBytes(byte[] image)
+
+        private static Bitmap ToSquare(Bitmap bitmap)
         {
-            Bitmap bitmap = null;
-            MemoryStream stream = null;
+            if(bitmap.Height == bitmap.Width)
+                return bitmap;
+            
+            var largestSide = Math.Max(bitmap.Width, bitmap.Height);
+
+            var squareBitmap = Bitmap.CreateBitmap(largestSide, largestSide, Bitmap.Config.Argb8888);
+            var canvas = new Canvas(squareBitmap);
+            canvas.DrawColor(Color.Transparent);
+
+            if(bitmap.Height > bitmap.Width)
+                canvas.DrawBitmap(bitmap, (largestSide - bitmap.Width) / 2f, 0, null);
+            else
+                canvas.DrawBitmap(bitmap, 0, (largestSide - bitmap.Height) / 2f, null);
+
+            return squareBitmap;
+        }
+        
+        public static async Task<CustomIcon> FromBytes(byte[] rawData)
+        {
+            var bitmap = await BitmapFactory.DecodeByteArrayAsync(rawData, 0, rawData.Length);
+                
+            if(bitmap == null)
+                throw new Exception("Image could not be loaded.");
+
+            bitmap = ToSquare(bitmap);
+            var size = Math.Min(MaxSize, bitmap.Width); // width or height, doesn't matter as it's square
+            var stream = new MemoryStream();
 
             try
             {
-                bitmap = await BitmapFactory.DecodeByteArrayAsync(image, 0, image.Length);
-                
-                if(bitmap == null)
-                    throw new Exception("Image could not be loaded.");
-
-                var size = Math.Min(MaxSize, bitmap.Width);
-                bitmap = Bitmap.CreateScaledBitmap(bitmap, size, size, false);
+                bitmap = Bitmap.CreateScaledBitmap(bitmap, size, size, true);
                 var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
                 await bitmap.CopyPixelsToBufferAsync(buffer);
-
-                stream = new MemoryStream();
                 await bitmap.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
+            }
+            catch(Exception e)
+            {
+                Log.Debug("asd", e.Message);
             }
             finally
             {
-                stream?.Close();
+                stream.Close();
                 bitmap?.Recycle();
             }
             
-            var imageData = stream.ToArray();
-            var hash = Hash.SHA1(Convert.ToBase64String(imageData));
+            var data = stream.ToArray();
+            var hash = Hash.SHA1(Convert.ToBase64String(data));
             var id = hash.Truncate(8);
             
             return new CustomIcon
             {
                 Id = id,
-                Data = imageData
+                Data = data 
             };
         }
     }
