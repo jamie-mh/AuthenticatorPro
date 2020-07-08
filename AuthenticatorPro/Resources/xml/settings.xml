@@ -42,7 +42,7 @@
             app:iconSpaceReserved="false"
             android:entries="@array/themeNames"
             android:entryValues="@array/themeValues"
-            android:defaultValue="0" />
+            android:defaultValue="system" />
         <androidx.preference.ListPreference
             android:key="pref_viewMode"
             android:summary="@string/prefViewModeSummary"
