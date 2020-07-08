@@ -161,9 +161,9 @@ namespace AuthenticatorPro.List
         {
             var layout = _viewMode switch
             {
-                ViewMode.Default => Resource.Layout.listItemAuth,
                 ViewMode.Compact => Resource.Layout.listItemAuthCompact,
                 ViewMode.Tile => Resource.Layout.listItemAuthTile,
+                _ => Resource.Layout.listItemAuth
             };
             
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);

@@ -469,9 +469,6 @@
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_more_vert.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
@@ -530,9 +527,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_more_vert.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_refresh.png" />
@@ -595,9 +589,6 @@
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_more_vert.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
@@ -655,9 +646,6 @@
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_more_vert.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
@@ -713,9 +701,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_edit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_more_vert.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_refresh.png" />
