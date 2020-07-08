@@ -722,6 +722,7 @@ namespace AuthenticatorPro.Activity
 
                 sheet?.Dismiss();
 
+                await _customIconSource.Update();
                 await _authenticatorSource.Update();
 
                 // This is required because we're probably not running on the main thread
