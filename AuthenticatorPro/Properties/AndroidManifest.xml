@@ -2,6 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.8.3" package="me.jmh.authenticatorpro" android:installLocation="auto" android:versionCode="1000037">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
 	<uses-permission android:name="android.permission.CAMERA" />
-	<application android:allowBackup="false" android:label="@string/appName" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme"></application>
+	<application android:allowBackup="false" android:label="@string/appName" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme"></application>
 	<supports-screens android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:normalScreens="true" android:anyDensity="true" />
 </manifest>
