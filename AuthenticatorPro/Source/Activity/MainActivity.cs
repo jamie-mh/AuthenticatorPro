@@ -83,11 +83,10 @@ namespace AuthenticatorPro.Activity
         private DateTime _pauseTime;
         
         private Task _onceResumedTask;
-        private bool _isChildActivityOpen;
+        private bool _refreshOnActivityResume;
         private int _customIconApplyPosition;
 
         private KeyguardManager _keyguardManager;
-        private MobileBarcodeScanner _barcodeScanner;
 
 
         public MainActivity()
@@ -98,6 +97,8 @@ namespace AuthenticatorPro.Activity
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            MobileBarcodeScanner.Initialize(Application);
+            
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
 
@@ -125,14 +126,11 @@ namespace AuthenticatorPro.Activity
             _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
             _viewGuideButton.Click += (sender, args) =>
             {
-                StartChildActivity(typeof(GuideActivity));
+                StartActivity(typeof(GuideActivity));
             };
 
-            _isChildActivityOpen = false;
+            _refreshOnActivityResume = false;
             _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
-
-            MobileBarcodeScanner.Initialize(Application);
-            _barcodeScanner = new MobileBarcodeScanner();
 
             DetectGoogleAPIsAvailability();
 
@@ -140,7 +138,7 @@ namespace AuthenticatorPro.Activity
             var firstLaunch = prefs.GetBoolean("firstLaunch", true);
 
             if(firstLaunch)
-                StartChildActivity(typeof(IntroActivity));
+                StartActivity(typeof(IntroActivity));
         }
 
         protected override async void OnResume()
@@ -165,9 +163,9 @@ namespace AuthenticatorPro.Activity
 
                 await Init();
             }
-            else if(_isChildActivityOpen)
+            else if(_refreshOnActivityResume)
             {
-                _isChildActivityOpen = false;
+                _refreshOnActivityResume = false;
 
                 _authList.Visibility = ViewStates.Invisible;
                 await RefreshAuthenticators();
@@ -203,12 +201,6 @@ namespace AuthenticatorPro.Activity
 
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
-        }
-
-        private void StartChildActivity(Type type)
-        {
-            _isChildActivityOpen = true;
-            StartActivity(type);
         }
 
         private async Task Init()
@@ -252,10 +244,17 @@ namespace AuthenticatorPro.Activity
 
         private void InitAuthenticatorList()
         {
-            var isCompact = PreferenceManager.GetDefaultSharedPreferences(this)
-                .GetBoolean("pref_compactMode", false);
+            var viewModePref = PreferenceManager.GetDefaultSharedPreferences(this)
+                .GetString("pref_viewMode", "default");
 
-            _authenticatorListAdapter = new AuthenticatorListAdapter(_authenticatorSource, _customIconSource, IsDark, isCompact);
+            var viewMode = viewModePref switch
+            {
+                "compact" => AuthenticatorListAdapter.ViewMode.Compact,
+                "tile" => AuthenticatorListAdapter.ViewMode.Tile,
+                _ => AuthenticatorListAdapter.ViewMode.Default
+            };
+            
+            _authenticatorListAdapter = new AuthenticatorListAdapter(_authenticatorSource, _customIconSource, viewMode, IsDark);
 
             _authenticatorListAdapter.ItemClick += OnAuthenticatorClick;
             _authenticatorListAdapter.MenuClick += OnAuthenticatorOptionsClick;
@@ -273,7 +272,14 @@ namespace AuthenticatorPro.Activity
 
             _authList.SetAdapter(_authenticatorListAdapter);
 
-            var layout = new AutoGridLayoutManager(this, 340);
+            var minColumnWidth = viewMode switch
+            {
+                AuthenticatorListAdapter.ViewMode.Compact => 300,
+                AuthenticatorListAdapter.ViewMode.Tile => 170,
+                _ => 340
+            };
+
+            var layout = new AutoGridLayoutManager(this, minColumnWidth);
             _authList.SetLayoutManager(layout);
 
             _authList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 8));
@@ -384,10 +390,14 @@ namespace AuthenticatorPro.Activity
                 StartBackupSaveActivity();
             };
 
-            fragment.ManageCategoriesClick += (sender, e) => { StartChildActivity(typeof(ManageCategoriesActivity)); };
+            fragment.ManageCategoriesClick += (sender, e) =>
+            {
+                _refreshOnActivityResume = true;
+                StartActivity(typeof(ManageCategoriesActivity));
+            };
             fragment.SettingsClick += (sender, e) =>
             {
-                _isChildActivityOpen = true;
+                _refreshOnActivityResume = true;
                 StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -401,7 +411,6 @@ namespace AuthenticatorPro.Activity
             intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
 
             StartActivityForResult(intent, ResultBackupSAF);
-            _isChildActivityOpen = true;
         }
 
         private async Task SwitchCategory(string id)
@@ -449,7 +458,7 @@ namespace AuthenticatorPro.Activity
 
             if(authRequired && isDeviceSecure)
             {
-                StartChildActivity(typeof(LoginActivity));
+                StartActivity(typeof(LoginActivity));
                 return true;
             }
 
@@ -548,7 +557,6 @@ namespace AuthenticatorPro.Activity
                 intent.AddCategory(Intent.CategoryOpenable);
                 intent.SetType("application/octet-stream");
                 StartActivityForResult(intent, ResultRestoreSAF);
-                _isChildActivityOpen = true;
             };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -572,10 +580,13 @@ namespace AuthenticatorPro.Activity
             var options = new MobileBarcodeScanningOptions {
                 PossibleFormats = new List<BarcodeFormat> {
                     BarcodeFormat.QR_CODE
-                }
+                },
+                TryHarder = true,
+                AutoRotate = true
             };
 
-            var result = await _barcodeScanner.Scan(options);
+            var scanner = new MobileBarcodeScanner();
+            var result = await scanner.Scan(options);
 
             if(result == null)
                 return;
@@ -938,7 +949,6 @@ namespace AuthenticatorPro.Activity
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType("image/*");
             StartActivityForResult(intent, ResultCustomIconSAF);
-            _isChildActivityOpen = true;
         }
 
         private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs e)
@@ -1036,7 +1046,8 @@ namespace AuthenticatorPro.Activity
             fragment.CategoryClick += OnCategoriesDialogCategoryClick;
             fragment.ManageCategoriesClick += (sender, e) =>
             {
-                StartChildActivity(typeof(ManageCategoriesActivity));
+                _refreshOnActivityResume = true;
+                StartActivity(typeof(ManageCategoriesActivity));
                 fragment.Dismiss();
             };
             fragment.Close += OnCategoriesDialogClose;

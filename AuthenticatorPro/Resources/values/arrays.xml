@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="authContextMenu">
-        <item>@string/rename</item>
-        <item>@string/changeIcon</item>
-        <item>@string/assignCategories</item>
-        <item>@string/delete</item>
-    </string-array>
     <string-array name="authTypes">
         <item>@string/authTypeTime</item>
         <item>@string/authTypeCounter</item>
@@ -15,6 +9,7 @@
         <item>@string/authAlgorithmSHA256</item>
         <item>@string/authAlgorithmSHA512</item>
     </string-array>
+    
     <string-array name="introTitle">
         <item>@string/introWelcomeTitle</item>
         <item>@string/introCompatibilityTitle</item>
@@ -36,14 +31,26 @@
         <item>@drawable/ic_category</item>
         <item>@drawable/ic_wb_incandescent</item>
     </integer-array>
+    
     <string-array name="themeNames">
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
         <item>@string/darkTheme</item>
     </string-array>
     <string-array name="themeValues">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+    
+    <string-array name="viewModeNames">
+        <item>@string/defaultViewMode</item>
+        <item>@string/compactViewMode</item>
+        <item>@string/tileViewMode</item>
+    </string-array>
+    <string-array name="viewModeValues">
+        <item>default</item>
+        <item>compact</item>
+        <item>tile</item>
     </string-array>
 </resources>

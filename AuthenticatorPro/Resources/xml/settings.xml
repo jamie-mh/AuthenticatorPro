@@ -43,12 +43,14 @@
             android:entries="@array/themeNames"
             android:entryValues="@array/themeValues"
             android:defaultValue="0" />
-        <androidx.preference.SwitchPreferenceCompat
-            android:key="pref_compactMode"
-            android:summary="@string/prefCompactModeSummary"
-            android:title="@string/prefCompactModeTitle"
+        <androidx.preference.ListPreference
+            android:key="pref_viewMode"
+            android:summary="@string/prefViewModeSummary"
+            android:title="@string/prefViewModeTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="false" />
+            android:entries="@array/viewModeNames"
+            android:entryValues="@array/viewModeValues"
+            android:defaultValue="default" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

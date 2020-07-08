@@ -123,8 +123,8 @@
     <string name="prefAppearance">Erscheinung</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Verwende ein dunkles oder helles Thema in der App</string>
-    <string name="prefCompactModeTitle">Kompaktes Erscheinungsbild</string>
-    <string name="prefCompactModeSummary">Authentifikatoren kleiner machen um mehr auf ein mal anzuzeigen</string>
+    <string name="prefViewModeTitle">Ansichtsmodus</string>
+    <string name="prefViewModeSummary">Ändern Sie das Aussehen der Liste</string>
 
     <string name="prefMore">Mehr</string>
     <string name="prefAboutTitle">Über</string>
@@ -145,6 +145,10 @@
     <string name="lightTheme">Helles Thema</string>
     <string name="darkTheme">Dunkles Thema</string>
 
+    <string name="defaultViewMode">Standard</string>
+    <string name="compactViewMode">Kompakt</string>
+    <string name="tileViewMode">Kachel</string>
+    
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP Authentifizierung</string>

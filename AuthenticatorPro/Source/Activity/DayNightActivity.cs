@@ -12,21 +12,21 @@ namespace AuthenticatorPro.Activity
         protected override void OnCreate(Bundle savedInstanceState)
         {
             var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var themePref = sharedPrefs.GetString("pref_theme", "0");
+            var themePref = sharedPrefs.GetString("pref_theme", "system");
 
             switch(themePref)
             {
-                case "0":
+                default:
                     IsDark = (Resources.Configuration.UiMode & UiMode.NightMask) == UiMode.NightYes;
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightFollowSystem;
                     break;
 
-                case "1":
+                case "light":
                     IsDark = false;
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
                     break;
 
-                case "2":
+                case "dark":
                     IsDark = true;
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightYes;
                     break;

@@ -18,19 +18,23 @@ namespace AuthenticatorPro.List
         public event EventHandler MovementStarted;
         public event EventHandler MovementFinished;
 
-        private readonly bool _isCompact;
+        private readonly ViewMode _viewMode;
         private readonly bool _isDark;
         
         private readonly AuthenticatorSource _authenticatorSource;
         private readonly CustomIconSource _customIconSource;
 
-
-        public AuthenticatorListAdapter(AuthenticatorSource authenticatorSource, CustomIconSource customIconSource, bool isDark, bool isCompact)
+        public enum ViewMode
         {
-            _isDark = isDark;
-            _isCompact = isCompact;
+            Default = 0, Compact = 1, Tile = 2
+        }
+
+        public AuthenticatorListAdapter(AuthenticatorSource authenticatorSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
+        {
             _authenticatorSource = authenticatorSource;
             _customIconSource = customIconSource;
+            _viewMode = viewMode;
+            _isDark = isDark;
         }
 
         public override int ItemCount => _authenticatorSource.Authenticators.Count;
@@ -155,7 +159,13 @@ namespace AuthenticatorPro.List
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var layout = _isCompact ? Resource.Layout.listItemAuthCompact: Resource.Layout.listItemAuth;
+            var layout = _viewMode switch
+            {
+                ViewMode.Default => Resource.Layout.listItemAuth,
+                ViewMode.Compact => Resource.Layout.listItemAuthCompact,
+                ViewMode.Tile => Resource.Layout.listItemAuthTile,
+            };
+            
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthenticatorListHolder(itemView);

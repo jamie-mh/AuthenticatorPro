@@ -122,8 +122,8 @@
     <string name="prefAppearance">Appearance</string>
     <string name="prefThemeTitle">Theme</string>
     <string name="prefThemeSummary">Choose an application theme.</string>
-    <string name="prefCompactModeTitle">Compact View</string>
-    <string name="prefCompactModeSummary">Make authenticators smaller in order to fit more on screen at once.</string>
+    <string name="prefViewModeTitle">View Mode</string>
+    <string name="prefViewModeSummary">Choose a view mode for the authenticator list.</string>
 
     <string name="prefMore">More</string>
     <string name="prefAboutTitle">About</string>
@@ -143,6 +143,10 @@
     <string name="systemDefault">System Default</string>
     <string name="lightTheme">Light Theme</string>
     <string name="darkTheme">Dark Theme</string>
+    
+    <string name="defaultViewMode">Default</string>
+    <string name="compactViewMode">Compact</string>
+    <string name="tileViewMode">Tile</string>
 
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Welcome to Authenticator Pro</string>
