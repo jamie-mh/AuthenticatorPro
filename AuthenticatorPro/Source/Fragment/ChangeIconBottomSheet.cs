@@ -57,6 +57,7 @@ namespace AuthenticatorPro.Fragment
             _iconList.SetAdapter(_iconListAdapter);
             _iconList.HasFixedSize = true;
             _iconList.SetItemViewCacheSize(20);
+            _iconList.SetItemAnimator(null);
 
             var layout = new AutoGridLayoutManager(Context, 140);
             _iconList.SetLayoutManager(layout);
