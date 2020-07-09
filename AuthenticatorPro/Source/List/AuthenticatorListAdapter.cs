@@ -21,7 +21,7 @@ namespace AuthenticatorPro.List
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
         
-        private readonly AuthenticatorSource _authenticatorSource;
+        private readonly AuthenticatorSource _authSource;
         private readonly CustomIconSource _customIconSource;
 
         public enum ViewMode
@@ -29,20 +29,20 @@ namespace AuthenticatorPro.List
             Default = 0, Compact = 1, Tile = 2
         }
 
-        public AuthenticatorListAdapter(AuthenticatorSource authenticatorSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
+        public AuthenticatorListAdapter(AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
         {
-            _authenticatorSource = authenticatorSource;
+            _authSource = authSource;
             _customIconSource = customIconSource;
             _viewMode = viewMode;
             _isDark = isDark;
         }
 
-        public override int ItemCount => _authenticatorSource.Authenticators.Count;
+        public override int ItemCount => _authSource.View.Count;
 
         public async void MoveItem(int oldPosition, int newPosition)
         {
             NotifyItemMoved(oldPosition, newPosition);
-            await _authenticatorSource.Move(oldPosition, newPosition);
+            await _authSource.Move(oldPosition, newPosition);
         }
 
         public void OnMovementFinished()
@@ -57,7 +57,7 @@ namespace AuthenticatorPro.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(position);
+            var auth = _authSource.Get(position);
 
             if(auth == null)
                 return;
@@ -112,7 +112,7 @@ namespace AuthenticatorPro.List
                 return;
             }
 
-            var auth = _authenticatorSource.Authenticators[position];
+            var auth = _authSource.View[position];
             var holder = (AuthenticatorListHolder) viewHolder;
 
             switch(auth.Type)
@@ -178,13 +178,13 @@ namespace AuthenticatorPro.List
 
         private async void OnRefreshClick(object sender, int position)
         {
-            await _authenticatorSource.IncrementCounter(position);
+            await _authSource.IncrementCounter(position);
             NotifyItemChanged(position);
         }
 
         public override long GetItemId(int position)
         {
-            return _authenticatorSource.Authenticators[position].GetHashCode();
+            return _authSource.View[position].GetHashCode();
         }
     }
 }

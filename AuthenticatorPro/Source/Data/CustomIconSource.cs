@@ -9,29 +9,30 @@ namespace AuthenticatorPro.Data
     {
         private readonly SQLiteAsyncConnection _connection;
         
-        public List<CustomIcon> Icons { get; private set; }
+        public List<CustomIcon> View { get; private set; }
 
 
         public CustomIconSource(SQLiteAsyncConnection connection)
         {
             _connection = connection;
-            Icons = new List<CustomIcon>();
+            View = new List<CustomIcon>();
         }
 
         public async Task Update()
         {
-            Icons.Clear();
-            Icons = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
+            View.Clear();
+            View = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
         }
 
         public CustomIcon Get(string id)
         {
-            return Icons.FirstOrDefault(i => i.Id == id);
+            return View.FirstOrDefault(i => i.Id == id);
         }
 
         public async Task Delete(string id)
         {
             await _connection.ExecuteAsync("DELETE FROM customicon WHERE id = ?", id);
+            View.Remove(View.First(i => i.Id == id));
         }
 
         public bool IsDuplicate(string id)

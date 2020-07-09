@@ -100,7 +100,7 @@ namespace AuthenticatorPro.Activity
 
         private void CheckEmptyState()
         {
-            if(_categorySource.Categories.Count == 0)
+            if(_categorySource.View.Count == 0)
             {
                 _categoryList.Visibility = ViewStates.Gone;
                 AnimUtil.FadeInView(_emptyStateLayout, 500);
@@ -153,7 +153,7 @@ namespace AuthenticatorPro.Activity
 
         private void OnRenameClick(object item, int position)
         {
-            var category = _categorySource.Categories.ElementAtOrDefault(position);
+            var category = _categorySource.Get(position);
 
             if(category == null)
                 return;

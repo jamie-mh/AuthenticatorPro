@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Service
         private readonly Lazy<Task> _initTask;
         
         private SQLiteAsyncConnection _connection;
-        private AuthenticatorSource _authenticatorSource;
+        private AuthenticatorSource _authSource;
         private CustomIconSource _customIconSource;
         
 
@@ -39,7 +39,7 @@ namespace AuthenticatorPro.Service
             _initTask = new Lazy<Task>(async () =>
             {
                 _connection = await Database.Connect(ApplicationContext);
-                _authenticatorSource = new AuthenticatorSource(_connection);
+                _authSource = new AuthenticatorSource(_connection);
                 _customIconSource = new CustomIconSource(_connection);
             });
         }
@@ -54,9 +54,9 @@ namespace AuthenticatorPro.Service
 
         private async Task ListAuthenticators(string nodeId)
         {
-            await _authenticatorSource.Update();
+            await _authSource.Update();
             
-            var response = _authenticatorSource.Authenticators.Select(item => 
+            var response = _authSource.View.Select(item => 
                 new WearAuthenticatorResponse(item.Type, item.Icon, item.Issuer, item.Username, item.Period, item.Digits)).ToList();
 
             var json = JsonConvert.SerializeObject(response);
@@ -68,9 +68,9 @@ namespace AuthenticatorPro.Service
 
         private async Task GetCode(int position, string nodeId)
         {
-            await _authenticatorSource.Update();
+            await _authSource.Update();
             
-            var auth = _authenticatorSource.Authenticators.ElementAtOrDefault(position);
+            var auth = _authSource.Get(position);
             var data = new byte[] {};
 
             if(auth != null)
@@ -91,7 +91,7 @@ namespace AuthenticatorPro.Service
             await _customIconSource.Update();
             
             var ids = new List<string>();
-            _customIconSource.Icons.ForEach(i => ids.Add(i.Id));
+            _customIconSource.View.ForEach(i => ids.Add(i.Id));
 
             var json = JsonConvert.SerializeObject(ids);
             var data = Encoding.UTF8.GetBytes(json);

@@ -15,7 +15,7 @@ namespace AuthenticatorPro.List
         private readonly Context _context;
         private readonly CategorySource _source;
 
-        public override int ItemCount => _source.Categories.Count + 1;
+        public override int ItemCount => _source.View.Count + 1;
 
 
         public CategoriesListAdapter(Context context, CategorySource source)
@@ -41,7 +41,7 @@ namespace AuthenticatorPro.List
 
             holder.Name.Text = position == 0
                 ? _context.Resources.GetString(Resource.String.categoryAll)
-                : _source.Categories[position - 1].Name;
+                : _source.View[position - 1].Name;
 
             holder.ItemView.Selected = position == _selectedPosition;
         }
@@ -59,7 +59,7 @@ namespace AuthenticatorPro.List
 
                 var categoryId = position == 0
                     ? null
-                    : _source.Categories[position - 1].Id;
+                    : _source.View[position - 1].Id;
 
                 CategorySelected?.Invoke(this, categoryId);
             };

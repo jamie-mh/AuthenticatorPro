@@ -12,7 +12,7 @@ namespace AuthenticatorPro.List
     internal sealed class IconListAdapter : RecyclerView.Adapter
     {
         public event EventHandler<int> ItemClick;
-        public override int ItemCount => _iconSource.List.Count;
+        public override int ItemCount => _iconSource.View.Count;
 
         private readonly Context _context;
         private readonly IconSource _iconSource;
@@ -25,7 +25,7 @@ namespace AuthenticatorPro.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var (key, value) = _iconSource.List.ElementAt(position);
+            var (key, value) = _iconSource.Get(position);
             var holder = (IconListHolder) viewHolder;
 
             var drawable = ContextCompat.GetDrawable(_context, value);
@@ -49,7 +49,7 @@ namespace AuthenticatorPro.List
 
         public override long GetItemId(int position)
         {
-            return Icon.Service.ElementAt(position).GetHashCode();
+            return _iconSource.Get(position).GetHashCode();
         }
     }
 }

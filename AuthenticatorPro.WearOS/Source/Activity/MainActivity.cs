@@ -45,7 +45,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private WearableRecyclerView _authList;
         
         private CustomIconCache _customIconCache;
-        private AuthenticatorListAdapter _authenticatorListAdapter;
+        private AuthenticatorListAdapter _authListAdapter;
 
 
         protected override void OnCreate(Bundle bundle)
@@ -71,10 +71,10 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _customIconCache = new CustomIconCache(this);
             
-            _authenticatorListAdapter = new AuthenticatorListAdapter(_customIconCache);
-            _authenticatorListAdapter.ItemClick += ItemClick;
-            _authenticatorListAdapter.HasStableIds = true;
-            _authList.SetAdapter(_authenticatorListAdapter);
+            _authListAdapter = new AuthenticatorListAdapter(_customIconCache);
+            _authListAdapter.ItemClick += ItemClick;
+            _authListAdapter.HasStableIds = true;
+            _authList.SetAdapter(_authListAdapter);
         }
 
         private async Task FindServerNode()
@@ -119,7 +119,7 @@ namespace AuthenticatorPro.WearOS.Activity
         
         private async void ItemClick(object sender, int position)
         {
-            var item = _authenticatorListAdapter.Items.ElementAtOrDefault(position);
+            var item = _authListAdapter.Items.ElementAtOrDefault(position);
 
             if(item == null)
                 return;
@@ -179,7 +179,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void OnReady()
         {
-            if(_authenticatorListAdapter.Items.Count == 0)
+            if(_authListAdapter.Items.Count == 0)
                 AnimUtil.FadeInView(_emptyLayout, 200);
             else
                 AnimUtil.FadeOutView(_emptyLayout, 200);
@@ -199,8 +199,8 @@ namespace AuthenticatorPro.WearOS.Activity
         private void OnAuthenticatorListReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
-            _authenticatorListAdapter.Items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
-            _authenticatorListAdapter.NotifyDataSetChanged();
+            _authListAdapter.Items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
+            _authListAdapter.NotifyDataSetChanged();
         }
 
         private async Task OnCustomIconListReceived(byte[] data)

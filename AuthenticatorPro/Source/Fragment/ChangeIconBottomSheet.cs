@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Fragment
 
         private void OnItemClick(object sender, int iconPosition)
         {
-            var eventArgs = new IconSelectedEventArgs(_itemPosition, _iconSource.List.ElementAt(iconPosition).Key);
+            var eventArgs = new IconSelectedEventArgs(_itemPosition, _iconSource.Get(iconPosition).Key);
             IconSelect?.Invoke(this, eventArgs);
         }
 

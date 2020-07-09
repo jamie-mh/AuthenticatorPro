@@ -13,12 +13,12 @@ namespace AuthenticatorPro.Data
         {
             _search = "";
             _isDark = isDark;
-            List = new Dictionary<string, int>(Icon.Service.Count);
+            View = new Dictionary<string, int>(Icon.Service.Count);
 
             Update();
         }
 
-        public Dictionary<string, int> List { get; private set; }
+        public Dictionary<string, int> View { get; private set; }
 
         public void SetSearch(string query)
         {
@@ -26,13 +26,18 @@ namespace AuthenticatorPro.Data
             Update();
         }
 
+        public KeyValuePair<string, int> Get(int position)
+        {
+            return View.ElementAtOrDefault(position);
+        }
+
         private void Update()
         {
             if(_search.Trim() == "")
             {
-                List = new Dictionary<string, int>(Icon.Service.Count);
+                View = new Dictionary<string, int>(Icon.Service.Count);
                 foreach(var item in Icon.Service)
-                    List.Add(item.Key, Icon.GetService(item.Key, _isDark));
+                    View.Add(item.Key, Icon.GetService(item.Key, _isDark));
 
                 return;
             }
@@ -40,8 +45,8 @@ namespace AuthenticatorPro.Data
             var query = _search.ToLower();
 
             var keys = Icon.Service.Keys.Where(k => k.Contains(query)).ToList();
-            List = new Dictionary<string, int>(keys.Count);
-            keys.ForEach(key => List.Add(key, Icon.GetService(key, _isDark)));
+            View = new Dictionary<string, int>(keys.Count);
+            keys.ForEach(key => View.Add(key, Icon.GetService(key, _isDark)));
         }
     }
 }

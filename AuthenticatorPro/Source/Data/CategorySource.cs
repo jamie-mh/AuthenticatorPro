@@ -9,32 +9,32 @@ namespace AuthenticatorPro.Data
     {
         private readonly SQLiteAsyncConnection _connection;
 
-        public List<Category> Categories { get; private set; }
+        public List<Category> View { get; private set; }
 
 
         public CategorySource(SQLiteAsyncConnection connection)
         {
-            Categories = new List<Category>();
+            View = new List<Category>();
             _connection = connection;
         }
 
         public async Task Update()
         {
-            Categories.Clear();
-            Categories =
+            View.Clear();
+            View =
                 await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
         public bool IsDuplicate(Category category)
         {
-            return Categories.Any(iterator => category.Id == iterator.Id);
+            return View.Any(iterator => category.Id == iterator.Id);
         }
 
         public async Task Delete(int position)
         {
-            var category = Categories[position];
+            var category = View[position];
             await _connection.DeleteAsync(category);
-            Categories.RemoveAt(position);
+            View.RemoveAt(position);
 
             object[] args = {category.Id};
             await _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", args);
@@ -42,10 +42,10 @@ namespace AuthenticatorPro.Data
 
         public async Task Rename(int position, string name)
         {
-            var old = Categories[position];
+            var old = View[position];
             var replacement = new Category(name);
 
-            Categories[position] = replacement;
+            View[position] = replacement;
 
             await _connection.DeleteAsync(old);
             await _connection.InsertAsync(replacement);
@@ -57,28 +57,33 @@ namespace AuthenticatorPro.Data
 
         public async void Move(int oldPosition, int newPosition)
         {
-            var old = Categories[newPosition];
-            Categories[newPosition] = Categories[oldPosition];
-            Categories[oldPosition] = old;
+            var old = View[newPosition];
+            View[newPosition] = View[oldPosition];
+            View[oldPosition] = old;
 
             if(oldPosition > newPosition)
-                for(var i = newPosition; i < Categories.Count; ++i)
+                for(var i = newPosition; i < View.Count; ++i)
                 {
-                    var cat = Categories[i];
+                    var cat = View[i];
                     cat.Ranking++;
                     await _connection.UpdateAsync(cat);
                 }
             else
                 for(var i = oldPosition; i < newPosition; ++i)
                 {
-                    var cat = Categories[i];
+                    var cat = View[i];
                     cat.Ranking--;
                     await _connection.UpdateAsync(cat);
                 }
 
-            var temp = Categories[newPosition];
+            var temp = View[newPosition];
             temp.Ranking = newPosition;
             await _connection.UpdateAsync(temp);
+        }
+
+        public Category Get(int position)
+        {
+            return View.ElementAtOrDefault(position);
         }
 
         public int GetPosition(string id)
@@ -86,7 +91,7 @@ namespace AuthenticatorPro.Data
             if(id == null)
                 return -1;
 
-            return Categories.FindIndex(c => c.Id == id);
+            return View.FindIndex(c => c.Id == id);
         }
     }
 }

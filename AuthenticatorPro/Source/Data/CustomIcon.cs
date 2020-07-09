@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
-using Android.Util;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Util;
 using Java.Nio;

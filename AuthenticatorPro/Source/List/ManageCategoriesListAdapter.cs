@@ -10,7 +10,7 @@ namespace AuthenticatorPro.List
         public event EventHandler<int> MenuClick;
         private readonly CategorySource _source;
 
-        public override int ItemCount => _source.Categories.Count;
+        public override int ItemCount => _source.View.Count;
 
 
         public ManageCategoriesListAdapter(CategorySource source)
@@ -37,7 +37,7 @@ namespace AuthenticatorPro.List
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var holder = (ManageCategoriesListHolder) viewHolder;
-            holder.Name.Text = _source.Categories[position].Name;
+            holder.Name.Text = _source.View[position].Name;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

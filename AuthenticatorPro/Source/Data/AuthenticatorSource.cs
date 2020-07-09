@@ -11,7 +11,7 @@ namespace AuthenticatorPro.Data
     {
         private readonly SQLiteAsyncConnection _connection;
 
-        public List<Authenticator> Authenticators { get; private set; }
+        public List<Authenticator> View { get; private set; }
         private List<Authenticator> _all;
 
         private string _search;
@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Data
             CategoryId = null;
             _connection = connection;
 
-            Authenticators = new List<Authenticator>();
+            View = new List<Authenticator>();
             _all = new List<Authenticator>();
             CategoryBindings = new List<AuthenticatorCategory>();
         }
@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Data
 
         public void UpdateView()
         {
-            List<Authenticator> view = _all;
+            var view = _all;
 
             if(CategoryId == null)
             {
@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Data
                            .ToList();
             }
 
-            Authenticators = view;
+            View = view;
         }
 
         public async Task Update()
@@ -87,14 +87,19 @@ namespace AuthenticatorPro.Data
             UpdateView();
         }
 
+        public Authenticator Get(int position)
+        {
+            return View.ElementAtOrDefault(position);
+        }
+
         public int GetPosition(string secret)
         {
-            return Authenticators.FindIndex(a => a.Secret == secret);
+            return View.FindIndex(a => a.Secret == secret);
         }
 
         public async Task Rename(int position, string issuer, string username)
         {
-            var auth = Authenticators.ElementAtOrDefault(position);
+            var auth = Get(position);
 
             if(auth == null)
                 return;
@@ -107,13 +112,13 @@ namespace AuthenticatorPro.Data
 
         public async Task Delete(int position)
         {
-            var auth = Authenticators.ElementAtOrDefault(position);
+            var auth = Get(position);
 
             if(auth == null)
                 return;
 
             await _connection.DeleteAsync<Authenticator>(auth.Secret);
-            Authenticators.Remove(auth);
+            View.Remove(auth);
             _all.Remove(auth);
 
             const string sql = "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ?";
@@ -122,21 +127,21 @@ namespace AuthenticatorPro.Data
 
         public async Task Move(int oldPosition, int newPosition)
         {
-            var old = Authenticators[newPosition];
-            Authenticators[newPosition] = Authenticators[oldPosition];
-            Authenticators[oldPosition] = old;
+            var old = View[newPosition];
+            View[newPosition] = View[oldPosition];
+            View[oldPosition] = old;
 
-            for(var i = 0; i < Authenticators.Count; ++i)
+            for(var i = 0; i < View.Count; ++i)
             {
                 if(CategoryId == null)
                 {
-                    var auth = Authenticators[i];
+                    var auth = View[i];
                     auth.Ranking = i;
                     await _connection.UpdateAsync(auth);
                 }
                 else
                 {
-                    var binding = GetAuthenticatorCategoryBinding(Authenticators[i]);
+                    var binding = GetAuthenticatorCategoryBinding(View[i]);
                     binding.Ranking = i;
 
                     await _connection.ExecuteAsync(
@@ -148,7 +153,7 @@ namespace AuthenticatorPro.Data
 
         public async Task IncrementCounter(int position)
         {
-            var auth = Authenticators.ElementAtOrDefault(position);
+            var auth = Get(position);
 
             if(auth == null)
                 return;
@@ -171,7 +176,7 @@ namespace AuthenticatorPro.Data
 
         public List<string> GetCategories(int position)
         {
-            var secret = Authenticators[position].Secret;
+            var secret = View[position].Secret;
 
             var authCategories =
                 CategoryBindings.Where(b => b.AuthenticatorSecret == secret).ToList();
@@ -200,7 +205,7 @@ namespace AuthenticatorPro.Data
             CategoryBindings.Remove(binding);
         }
 
-        public int CountCustomIconUses(string id)
+        public int CountUsesOfCustomIcon(string id)
         {
             return _all.Count(a => a.Icon == CustomIcon.Prefix + id);
         }
