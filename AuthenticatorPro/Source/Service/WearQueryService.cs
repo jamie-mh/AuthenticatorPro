@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Gms.Wearable;
@@ -26,15 +27,21 @@ namespace AuthenticatorPro.Service
         private const string ListCustomIconsCapability = "list_custom_icons";
         private const string GetCustomIconCapability = "get_custom_icon";
 
+        private readonly Lazy<Task> _initTask;
+        
         private SQLiteAsyncConnection _connection;
         private AuthenticatorSource _authenticatorSource;
         private CustomIconSource _customIconSource;
+        
 
-        private async Task Init()
+        public WearQueryService()
         {
-            _connection = await Database.Connect(ApplicationContext);
-            _authenticatorSource = new AuthenticatorSource(_connection);
-            _customIconSource = new CustomIconSource(_connection);
+            _initTask = new Lazy<Task>(async () =>
+            {
+                _connection = await Database.Connect(ApplicationContext);
+                _authenticatorSource = new AuthenticatorSource(_connection);
+                _customIconSource = new CustomIconSource(_connection);
+            });
         }
 
         public override async void OnDestroy()
@@ -113,8 +120,7 @@ namespace AuthenticatorPro.Service
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            if(_connection == null || _authenticatorSource == null || _customIconSource == null)
-                await Init();
+            await _initTask.Value;
 
             switch(messageEvent.Path)
             {
