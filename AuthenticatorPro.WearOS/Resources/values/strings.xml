@@ -8,4 +8,6 @@
     <string name="disconnected">Disconnected</string>
     <string name="disconnectedMessage">Make sure your watch is paired with an Android device with Authenticator Pro installed.</string>
     <string name="retry">Retry</string>
+    
+    <string name="connectionError">Connection Error</string>
 </resources>

@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/imageIcon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
                 android:scaleType="centerInside" />
@@ -47,12 +47,12 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:text="- - -  - - -"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="32dp"
+                android:textAlignment="center"
                 android:textColor="?attr/primaryTextColor"
+                android:textSize="28dp"
+                android:maxLines="1"
                 android:id="@+id/textCode" />
 
         </LinearLayout>

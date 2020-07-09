@@ -88,6 +88,10 @@ namespace AuthenticatorPro.WearOS.Activity
                     break;
             }
 
+            var placeholderCode = FormatCode(null, _digits);
+            placeholderCode = placeholderCode.Replace("-", "- ").TrimEnd();
+            _codeTextView.Text = placeholderCode;
+            
             await WearableClass.GetMessageClient(this).AddListenerAsync(this);
         }
 
@@ -143,6 +147,25 @@ namespace AuthenticatorPro.WearOS.Activity
             await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
         }
 
+        private static string FormatCode(string code, int digits)
+        {
+            code ??= "".PadRight(digits, '-');
+
+            var spacesInserted = 0;
+            var groupSize = Math.Min(MaxCodeGroupSize, digits / 2);
+
+            for(var i = 0; i < digits; ++i)
+            {
+                if(i % groupSize == 0 && i > 0)
+                {
+                    code = code.Insert(i + spacesInserted, " ");
+                    spacesInserted++;
+                }
+            }
+
+            return code;
+        }
+
         public void OnMessageReceived(IMessageEvent messageEvent)
         {
             switch(messageEvent.Path)
@@ -160,25 +183,7 @@ namespace AuthenticatorPro.WearOS.Activity
                     var update = JsonConvert.DeserializeObject<WearAuthenticatorCodeResponse>(json);
 
                     _timeRenew = update.TimeRenew;
-
-                    var code = update.Code;
-
-                    if(code == null)
-                        code = "".PadRight(_digits, '-');
-
-                    var spacesInserted = 0;
-                    var groupSize = Math.Min(MaxCodeGroupSize, _digits / 2);
-
-                    for(var i = 0; i < _digits; ++i)
-                    {
-                        if(i % groupSize == 0 && i > 0)
-                        {
-                            code = code.Insert(i + spacesInserted, " ");
-                            spacesInserted++;
-                        }
-                    }
-
-                    _codeTextView.Text = code;
+                    _codeTextView.Text = FormatCode(update.Code, _digits);
                     UpdateProgressBar();
                     break;
                 }

@@ -21,6 +21,11 @@ namespace AuthenticatorPro.WearOS.List
             Items = new List<WearAuthenticatorResponse>();
         }
 
+        public override long GetItemId(int position)
+        {
+            return Items[position].GetHashCode();
+        }
+
         public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var auth = Items.ElementAtOrDefault(position);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -61,6 +62,9 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
             _authList.EdgeItemsCenteringEnabled = true;
+            _authList.HasFixedSize = true;
+            _authList.SetItemViewCacheSize(12);
+            _authList.SetItemAnimator(null);
 
             var layoutCallback = new ScrollingListLayoutCallback(Resources.Configuration.IsScreenRound);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
@@ -69,6 +73,7 @@ namespace AuthenticatorPro.WearOS.Activity
             
             _authenticatorListAdapter = new AuthenticatorListAdapter(_customIconCache);
             _authenticatorListAdapter.ItemClick += ItemClick;
+            _authenticatorListAdapter.HasStableIds = true;
             _authList.SetAdapter(_authenticatorListAdapter);
         }
 
@@ -89,8 +94,8 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private async Task Refresh()
         {
-            _responsesReceived = 0;
-            _responsesRequired = 0;
+            Interlocked.Exchange(ref _responsesReceived, 0);
+            Interlocked.Exchange(ref _responsesRequired, 0);
             
             if(_serverNode == null)
             {
@@ -103,13 +108,13 @@ namespace AuthenticatorPro.WearOS.Activity
             AnimUtil.FadeOutView(_emptyLayout, 200);
             AnimUtil.FadeOutView(_authList, 200);
 
-            var client = WearableClass.GetMessageClient(this);
-
-            _responsesRequired++;
-            await client.SendMessageAsync(_serverNode.Id, ListCapability, new byte[] { });
+            Interlocked.Exchange(ref _responsesRequired, 2);
             
-            _responsesRequired++;
-            await client.SendMessageAsync(_serverNode.Id, ListCustomIconsCapability, new byte[] { });
+            await WearableClass.GetMessageClient(this)
+                .SendMessageAsync(_serverNode.Id, ListCapability, new byte[] { });
+
+            await WearableClass.GetMessageClient(this)
+                .SendMessageAsync(_serverNode.Id, ListCustomIconsCapability, new byte[] { });
         }
         
         private async void ItemClick(object sender, int position)
@@ -150,7 +155,6 @@ namespace AuthenticatorPro.WearOS.Activity
         protected override async void OnResume()
         {
             base.OnResume();
-
             _loadingLayout.Visibility = ViewStates.Visible;
 
             try
@@ -161,8 +165,8 @@ namespace AuthenticatorPro.WearOS.Activity
             }
             catch(ApiException)
             {
-                // TODO: do something
-                Toast.MakeText(this, "error", ToastLength.Long).Show();
+                Toast.MakeText(this, Resource.String.connectionError, ToastLength.Long).Show();
+                _disconnectedLayout.Visibility = ViewStates.Visible;
             }
         }
 
@@ -173,10 +177,30 @@ namespace AuthenticatorPro.WearOS.Activity
             await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
         }
 
+        private void OnReady()
+        {
+            if(_authenticatorListAdapter.Items.Count == 0)
+                AnimUtil.FadeInView(_emptyLayout, 200);
+            else
+                AnimUtil.FadeOutView(_emptyLayout, 200);
+
+            var anim = new AlphaAnimation(0f, 1f) { Duration = 200 };
+
+            anim.AnimationEnd += (sender, e) =>
+            {
+                _authList.Visibility = ViewStates.Visible;
+                _authList.RequestFocus();
+            };
+
+            _authList.StartAnimation(anim);
+            _loadingLayout.Visibility = ViewStates.Invisible;
+        }
+
         private void OnAuthenticatorListReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
             _authenticatorListAdapter.Items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
+            _authenticatorListAdapter.NotifyDataSetChanged();
         }
 
         private async Task OnCustomIconListReceived(byte[] data)
@@ -190,9 +214,9 @@ namespace AuthenticatorPro.WearOS.Activity
             var iconsToRemove = iconsInCache.Where(i => !iconIds.Contains(i)).ToList();
 
             var client = WearableClass.GetMessageClient(this);
-            
-            _responsesRequired += iconsToRequest.Count;
 
+            Interlocked.Add(ref _responsesRequired, iconsToRequest.Count);
+            
             foreach(var icon in iconsToRequest)
                 await client.SendMessageAsync(_serverNode.Id, GetCustomIconCapability, Encoding.UTF8.GetBytes(icon));
 
@@ -206,27 +230,6 @@ namespace AuthenticatorPro.WearOS.Activity
             var icon = JsonConvert.DeserializeObject<WearCustomIconResponse>(json);
             
             await _customIconCache.Add(icon.Id, icon.Data);
-        }
-
-        private void OnReady()
-        {
-            if(_authenticatorListAdapter.Items.Count == 0)
-                AnimUtil.FadeInView(_emptyLayout, 200);
-            else
-                AnimUtil.FadeOutView(_emptyLayout, 200);
-
-            _authenticatorListAdapter.NotifyDataSetChanged();
-
-            var anim = new AlphaAnimation(0f, 1f) { Duration = 200 };
-
-            anim.AnimationEnd += (sender, e) =>
-            {
-                _authList.Visibility = ViewStates.Visible;
-                _authList.RequestFocus();
-            };
-
-            _authList.StartAnimation(anim);
-            _loadingLayout.Visibility = ViewStates.Invisible;
         }
 
         public async void OnMessageReceived(IMessageEvent messageEvent)
@@ -250,7 +253,9 @@ namespace AuthenticatorPro.WearOS.Activity
                     break;
             }
 
-            if(++_responsesReceived == _responsesRequired)
+            Interlocked.Add(ref _responsesReceived, 1);
+
+            if(_responsesReceived == _responsesRequired)
                 OnReady();
         }
     }
