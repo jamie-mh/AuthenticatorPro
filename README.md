@@ -81,34 +81,40 @@ If you are migrating your authenticators from another app, you can create your o
 
 ```
 {
-   "Authenticators": [
-      {
-         "Type": 2,
-         "Icon": "google",
-         "Issuer": "Google",
-         "Username": "google@gmail.com",
-         "Secret": "SECRETKEY123ABCD",
-         "Algorithm": 0,
-         "Digits": 6,
-         "Period": 30,
-         "Counter": 0,
-         "Ranking": 0
-      }
-   ],
-   "Categories": [
-      {
-         "Id": "a8323a2a",
-         "Name": "Web",
-         "Ranking": 0
-      }
-   ],
-   "AuthenticatorCategories": [
-      {
-         "CategoryId": "a8323a2a",
-         "AuthenticatorSecret": "SECRETKEY123ABCD",
-         "Ranking": 0
-      }
-   ]
+    "Authenticators": [
+        {
+            "Type": 2,
+            "Icon": "google",
+            "Issuer": "Google",
+            "Username": "google@gmail.com",
+            "Secret": "SECRETKEY123ABCD",
+            "Algorithm": 0,
+            "Digits": 6,
+            "Period": 30,
+            "Counter": 0,
+            "Ranking": 0
+        }
+    ],
+    "Categories": [
+        {
+            "Id": "a8323a2a",
+            "Name": "Web",
+            "Ranking": 0
+        }
+    ],
+    "AuthenticatorCategories": [
+        {
+            "CategoryId": "a8323a2a",
+            "AuthenticatorSecret": "SECRETKEY123ABCD",
+            "Ranking": 0
+        }
+    ],
+    "CustomIcons": [
+        {
+            "Id": ".....",
+            "Data": "....."
+        }
+    ]
 }
 ```
 
@@ -135,6 +141,12 @@ If you are migrating your authenticators from another app, you can create your o
 #### AuthenticatorCategory
 
 * An AuthenticatorCategory simply binds Authenticators into Categories using both their primary keys (AuthenticatorSecret and CategoryId).
+
+#### CustomIcon
+
+* If the icon field of an authenticator starts with '@' then it is an id of a custom icon.
+
+* Custom icons have an id (8 characters of SHA1 hash) and some data (bitmap encoded in base64).
 
 ### Encrypted Backups
 
