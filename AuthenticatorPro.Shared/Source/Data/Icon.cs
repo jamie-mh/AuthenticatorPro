@@ -167,6 +167,7 @@ namespace AuthenticatorPro.Shared.Data
             {"uber", Resource.Drawable.auth_uber},
             {"ubisoft", Resource.Drawable.auth_ubisoft},
             {"uniteddomains", Resource.Drawable.auth_uniteddomains},
+            {"unity", Resource.Drawable.auth_unity },
             {"unlockbase", Resource.Drawable.auth_unlockbase},
             {"uphold", Resource.Drawable.auth_uphold},
             {"uplay", Resource.Drawable.auth_uplay},
@@ -187,7 +188,7 @@ namespace AuthenticatorPro.Shared.Data
             {"zapier", Resource.Drawable.auth_zapier},
             {"zendesk", Resource.Drawable.auth_zendesk},
             {"zohomail", Resource.Drawable.auth_zohomail},
-            
+                       
             // Generic icons
             {"banking", Resource.Drawable.auth_banking},
             {"cloud", Resource.Drawable.auth_cloud},
@@ -229,15 +230,18 @@ namespace AuthenticatorPro.Shared.Data
             {"logmein", Resource.Drawable.auth_logmein_dark},
             {"netcup", Resource.Drawable.auth_logmein_dark},
             {"runcloud", Resource.Drawable.auth_runcloud_dark},
+            {"samsung", Resource.Drawable.auth_samsung_dark },
             {"synology", Resource.Drawable.auth_netcup_dark},
             {"torguard", Resource.Drawable.auth_torguard_dark},
             {"uber", Resource.Drawable.auth_uber_dark},
+            {"unity", Resource.Drawable.auth_unity_dark },
             {"ubisoft", Resource.Drawable.auth_ubisoft_dark},
             {"wetransfer", Resource.Drawable.auth_wetransfer_dark},
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
             {"xbox", Resource.Drawable.auth_xbox_dark},
             {"zendesk", Resource.Drawable.auth_zendesk_dark},
-            
+
+
             // Generic icons
             {"banking", Resource.Drawable.auth_banking_dark},
             {"cloud", Resource.Drawable.auth_cloud_dark},
