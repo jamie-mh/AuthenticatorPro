@@ -229,6 +229,7 @@ namespace AuthenticatorPro.Shared.Data
             {"jetbrains", Resource.Drawable.auth_jetbrains_dark},
             {"logmein", Resource.Drawable.auth_logmein_dark},
             {"netcup", Resource.Drawable.auth_logmein_dark},
+            {"patreon", Resource.Drawable.auth_patreon_dark},
             {"runcloud", Resource.Drawable.auth_runcloud_dark},
             {"samsung", Resource.Drawable.auth_samsung_dark },
             {"synology", Resource.Drawable.auth_netcup_dark},
