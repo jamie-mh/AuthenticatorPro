@@ -1,3 +1,5 @@
+<!-- Important: Please edit/modify/create localization files only if you KNOW the language, do not use online translators -->
+<!-- If you don't speak a language good enough, you may add a comment what strings need translation. People prefer english over bad gramar. -->
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
@@ -30,6 +32,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
+    <!-- Keep domain example.com as described in RFC6761 -->
     <string name="usernameHint">Username (eg: john@example.com)</string>
     <string name="typeHint">Type</string>
     <string name="algorithmHint">Algorithm</string>
