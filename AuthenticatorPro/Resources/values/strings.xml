@@ -1,4 +1,3 @@
-<!-- Important: Please edit/modify/create localization files only if you KNOW the language, do not use online translators -->
 <!-- If you don't speak a language good enough, you may add a comment what strings need translation. People prefer english over bad gramar. -->
 <resources>
     <string name="appName">Authenticator Pro</string>
