@@ -222,6 +222,7 @@ namespace AuthenticatorPro.Shared.Data
             {"amazon", Resource.Drawable.auth_amazon_dark},
             {"borgbase", Resource.Drawable.auth_borgbase_dark},
             {"cloudways", Resource.Drawable.auth_cloudways_dark},
+            {"dashlane", Resource.Drawable.auth_dashlane_dark},
             {"electronicarts", Resource.Drawable.auth_electronicarts_dark},
             {"eveonline", Resource.Drawable.auth_eveonline_dark},
             {"github", Resource.Drawable.auth_github_dark},
@@ -242,7 +243,6 @@ namespace AuthenticatorPro.Shared.Data
             {"wordpress", Resource.Drawable.auth_wordpress_dark},
             {"xbox", Resource.Drawable.auth_xbox_dark},
             {"zendesk", Resource.Drawable.auth_zendesk_dark},
-
 
             // Generic icons
             {"banking", Resource.Drawable.auth_banking_dark},
