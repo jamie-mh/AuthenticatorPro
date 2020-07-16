@@ -511,9 +511,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_jetbrains.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_jetbrains_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_jira.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1232,9 +1229,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jetbrains.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jetbrains_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jira.png" />
@@ -1957,9 +1951,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\auth_jetbrains.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_jetbrains_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_jira.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2680,9 +2671,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\auth_jetbrains.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_jetbrains_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_jira.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3401,9 +3389,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_jetbrains.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_jetbrains_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_jira.png" />
