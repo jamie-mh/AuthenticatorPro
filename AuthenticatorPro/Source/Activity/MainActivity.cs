@@ -63,9 +63,9 @@ namespace AuthenticatorPro.Activity
         private bool _hasWearCompanion;
 
         private CoordinatorLayout _coordinatorLayout;
-        private RecyclerView _authList;
+        private MaterialToolbar _toolbar;
         private ProgressBar _progressBar;
-        private SearchView _searchView;
+        private RecyclerView _authList;
         private FloatingActionButton _addButton;
         private BottomAppBar _bottomAppBar;
 
@@ -102,15 +102,15 @@ namespace AuthenticatorPro.Activity
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
 
-            var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
+            _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(_toolbar);
             SupportActionBar.SetTitle(Resource.String.categoryAll);
 
             _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
             _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
             _bottomAppBar.MenuItemClick += (sender, args) =>
             {
-                toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
+                _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
                 _authList.SmoothScrollToPosition(0);
             };
 
@@ -347,10 +347,10 @@ namespace AuthenticatorPro.Activity
             MenuInflater.Inflate(Resource.Menu.main, menu);
 
             var searchItem = menu.FindItem(Resource.Id.actionSearch);
-            _searchView = (SearchView) searchItem.ActionView;
-            _searchView.QueryHint = GetString(Resource.String.search);
+            var searchView = (SearchView) searchItem.ActionView;
+            searchView.QueryHint = GetString(Resource.String.search);
 
-            _searchView.QueryTextChange += (sender, e) =>
+            searchView.QueryTextChange += (sender, e) =>
             {
                 var oldSearch = _authSource.Search;
 
@@ -361,7 +361,7 @@ namespace AuthenticatorPro.Activity
                     searchItem.CollapseActionView();
             };
 
-            _searchView.Close += (sender, e) =>
+            searchView.Close += (sender, e) =>
             {
                 searchItem.CollapseActionView();
                 _authSource.SetSearch(null);
@@ -467,9 +467,11 @@ namespace AuthenticatorPro.Activity
 
         public override async void OnBackPressed()
         {
-            if(!_searchView.Iconified)
+            var searchItem = _toolbar.Menu.FindItem(Resource.Id.actionSearch);
+            
+            if(searchItem.IsActionViewExpanded)
             {
-                _searchView.Iconified = true;
+                searchItem.CollapseActionView();
                 return;
             }
 
@@ -479,7 +481,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            Finish();
+            base.OnBackPressed();
         }
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
