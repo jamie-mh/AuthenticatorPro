@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Linq;
 using Android.Content;
 using Android.Views;
+using AndroidX.AppCompat.Widget;
 using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.List
 {
@@ -30,7 +29,7 @@ namespace AuthenticatorPro.List
 
             var drawable = ContextCompat.GetDrawable(_context, value);
             holder.Icon.SetImageDrawable(drawable);
-            holder.ItemView.TooltipText = key;
+            TooltipCompat.SetTooltipText(holder.ItemView, key);
             holder.Name.Text = key;
         }
 
