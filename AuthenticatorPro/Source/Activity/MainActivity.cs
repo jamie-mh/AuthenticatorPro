@@ -610,7 +610,15 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            await _connection.InsertAsync(auth);
+            try
+            {
+                await _connection.InsertAsync(auth);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
 
             if(_authSource.CategoryId != null)
                 await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);

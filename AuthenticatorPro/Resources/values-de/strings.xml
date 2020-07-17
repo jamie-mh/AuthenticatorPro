@@ -84,6 +84,8 @@
     <string name="databaseError">Es gab einen Fehler beim öffnen der Datenbank. LÖsche die Anwendungsdaten bevor du weitermachst.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
+    <string name="genericError">Es ist ein Fehler aufgetreten.</string>
+
     <string name="close">Schließen</string>
     <string name="quit">Beenden</string>
 
