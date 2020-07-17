@@ -1149,7 +1149,7 @@ namespace AuthenticatorPro.Activity
         private void RemindBackup()
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var needsBackup = prefs.GetBoolean("needsBackup", false);
+            var needsBackup = prefs.GetBoolean("needsBackup", false) && _authSource.View.Any();
 
             if(!needsBackup)
                 return;
