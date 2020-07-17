@@ -86,8 +86,6 @@ namespace AuthenticatorPro.Activity
         private bool _refreshOnActivityResume;
         private int _customIconApplyPosition;
 
-        private KeyguardManager _keyguardManager;
-
 
         public MainActivity()
         {
@@ -130,7 +128,6 @@ namespace AuthenticatorPro.Activity
             };
 
             _refreshOnActivityResume = false;
-            _keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
 
             DetectGoogleAPIsAvailability();
 
@@ -451,10 +448,12 @@ namespace AuthenticatorPro.Activity
         {
             var authRequired = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_appLock", false);
+            
+            var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
 
             var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.LollipopMr1
-                ? _keyguardManager.IsKeyguardSecure
-                : _keyguardManager.IsDeviceSecure;
+                ? keyguardManager.IsKeyguardSecure
+                : keyguardManager.IsDeviceSecure;
 
             if(authRequired && isDeviceSecure)
             {
