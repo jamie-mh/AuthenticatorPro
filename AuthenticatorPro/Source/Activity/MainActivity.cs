@@ -1096,7 +1096,7 @@ namespace AuthenticatorPro.Activity
 
         private void DetectGoogleAPIsAvailability()
         {
-            _areGoogleAPIsAvailable = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this) == 
+            _areGoogleAPIsAvailable = GoogleApiAvailabilityLight.Instance.IsGooglePlayServicesAvailable(this) == 
                                       ConnectionResult.Success;
         }
 
