@@ -14,13 +14,13 @@ namespace AuthenticatorPro.WearOS.Cache
         private const string IconFileExtension = "bmp";
         
         private readonly Context _context;
-        private readonly Dictionary<string, Bitmap> _bitmaps;
+        private readonly Dictionary<string, Task<Bitmap>> _bitmaps;
 
         
         public CustomIconCache(Context context)
         {
             _context = context;
-            _bitmaps = new Dictionary<string, Bitmap>();
+            _bitmaps = new Dictionary<string, Task<Bitmap>>();
         }
 
         public async Task Add(string id, byte[] data)
@@ -47,15 +47,12 @@ namespace AuthenticatorPro.WearOS.Cache
         public async Task<Bitmap> GetBitmap(string id)
         {
             if(_bitmaps.ContainsKey(id))
-                return _bitmaps[id];
+                return await _bitmaps[id];
 
-            var bitmap = await BitmapFactory.DecodeFileAsync(GetIconPath(id));
+            var bitmapTask = BitmapFactory.DecodeFileAsync(GetIconPath(id));
+            _bitmaps.Add(id, bitmapTask);
 
-            if(bitmap == null)
-                return null;
-
-            _bitmaps.Add(id, bitmap);
-            return bitmap;
+            return await bitmapTask;
         }
 
         private string GetIconPath(string id)
