@@ -74,9 +74,10 @@ namespace AuthenticatorPro.Data
                 var secret = Base32Encoding.ToBytes(Secret);
                 var hotp = new Hotp(secret, Algorithm);
 
-                _code = hotp.ComputeHOTP(Counter);
-                TimeRenew = DateTime.Now.AddSeconds(10);
+                if(_code != null)
+                    TimeRenew = DateTime.Now.AddSeconds(10);
 
+                _code = hotp.ComputeHOTP(Counter);
                 _lastCounter = Counter;
             }
 
