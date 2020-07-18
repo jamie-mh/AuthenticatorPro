@@ -229,7 +229,6 @@ namespace AuthenticatorPro.Shared.Data
             {"electronicarts", Resource.Drawable.auth_electronicarts_dark},
             {"eveonline", Resource.Drawable.auth_eveonline_dark},
             {"github", Resource.Drawable.auth_github_dark},
-            {"hover", Resource.Drawable.auth_hover_dark},
             {"hushmail", Resource.Drawable.auth_hushmail_dark},
             {"ifttt", Resource.Drawable.auth_ifttt_dark},
             {"logmein", Resource.Drawable.auth_logmein_dark},
