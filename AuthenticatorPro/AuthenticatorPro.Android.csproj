@@ -92,6 +92,7 @@
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
     <Compile Include="Source\Data\CustomIconSource.cs" />
+    <Compile Include="Source\Data\OtpAuthMigration.cs" />
     <Compile Include="Source\Fragment\ChangeIconBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
@@ -176,6 +177,9 @@
     </PackageReference>
     <PackageReference Include="PCLCrypto">
       <Version>2.0.147</Version>
+    </PackageReference>
+    <PackageReference Include="protobuf-net">
+      <Version>3.0.29</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-sqlcipher">
       <Version>1.6.292</Version>

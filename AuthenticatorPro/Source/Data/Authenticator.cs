@@ -10,7 +10,7 @@ using SQLite;
 namespace AuthenticatorPro.Data
 {
     [Table("authenticator")]
-    public class Authenticator
+    internal class Authenticator
     {
         [Column("type")]
         public AuthenticatorType Type { get; set; }
@@ -84,7 +84,67 @@ namespace AuthenticatorPro.Data
             return _code;
         }
 
-        public static Authenticator FromKeyUri(string uri)
+        public static Authenticator FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator input)
+        {
+            string issuer;
+            string username;
+
+            // Google Auth may not have an issuer, just use the username instead
+            if(String.IsNullOrEmpty(input.Issuer))
+            {
+                issuer = input.Username.Trim().Truncate(32);
+                username = null;
+            }
+            else
+            {
+                issuer = input.Issuer.Trim().Truncate(32);
+                // For some odd reason the username field always follows a '[issuer]: [username]' format
+                username = input.Username.Replace($"{input.Issuer}: ", "").Trim().Truncate(40);
+            }
+
+            var type = input.Type switch
+            {
+                OtpAuthMigration.Type.Totp => AuthenticatorType.Totp,
+                OtpAuthMigration.Type.Hotp => AuthenticatorType.Hotp,
+                _ => throw new InvalidAuthenticatorException()
+            };
+
+            var algorithm = input.Algorithm switch
+            {
+                OtpAuthMigration.Algorithm.Sha1 => OtpHashMode.Sha1,
+                _ => throw new InvalidAuthenticatorException()
+            };
+
+            string secret;
+
+            try
+            {
+                secret = Base32Encoding.ToString(input.Secret);
+                secret = CleanSecret(secret);
+            }
+            catch
+            {
+                throw new InvalidAuthenticatorException();
+            }
+
+            var auth = new Authenticator()
+            {
+                Issuer = issuer,
+                Username = username,
+                Algorithm = algorithm,
+                Type = type,
+                Secret = secret,
+                Counter = input.Counter,
+                Digits = 6,
+                Period = 30,
+                Icon = Shared.Data.Icon.FindServiceKeyByName(issuer)
+            };
+            
+            auth.Validate();
+            return auth;
+        }
+
+        public static Authenticator FromOtpAuthUri(string uri)
         {
             const string uriExpr = @"^otpauth:\/\/([a-z]+)\/(.*?)\?(.*?)$";
             var raw = Uri.UnescapeDataString(uri);

@@ -53,6 +53,7 @@
     <string name="qrCodeFormatError">Der QR-Code ist falsch formatiert.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits..</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
+    <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
 
     <string name="categories">Kategorien</string>
     <string name="assignCategories">Kategorien zuweisen </string>

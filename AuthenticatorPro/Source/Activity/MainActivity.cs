@@ -578,8 +578,10 @@ namespace AuthenticatorPro.Activity
 
         private async Task ScanQRCode()
         {
-            var options = new MobileBarcodeScanningOptions {
-                PossibleFormats = new List<BarcodeFormat> {
+            var options = new MobileBarcodeScanningOptions
+            {
+                PossibleFormats = new List<BarcodeFormat>
+                {
                     BarcodeFormat.QR_CODE
                 },
                 TryHarder = true
@@ -591,11 +593,32 @@ namespace AuthenticatorPro.Activity
             if(result == null)
                 return;
 
+            if(result.Text.StartsWith("otpauth-migration"))
+                await OnOtpAuthMigrationScan(result.Text);
+            else if(result.Text.StartsWith("otpauth"))
+                await OnOtpAuthScan(result.Text);
+            else
+            {
+                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
+                return;
+            }
+
+            CheckEmptyState();
+            await NotifyWearAppOfChange();
+
+            PreferenceManager.GetDefaultSharedPreferences(this)
+                .Edit()
+                .PutBoolean("needsBackup", true)
+                .Commit();
+        }
+
+        private async Task OnOtpAuthScan(string uri)
+        {
             Authenticator auth;
 
             try
             {
-                auth = Authenticator.FromKeyUri(result.Text);
+                auth = Authenticator.FromOtpAuthUri(uri);
             }
             catch
             {
@@ -613,7 +636,7 @@ namespace AuthenticatorPro.Activity
             {
                 await _connection.InsertAsync(auth);
             }
-            catch
+            catch(SQLiteException)
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
@@ -621,19 +644,65 @@ namespace AuthenticatorPro.Activity
 
             if(_authSource.CategoryId != null)
                 await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
-            
-            await _authSource.Update();
-            CheckEmptyState();
 
+            await _authSource.Update();
+            
             var position = _authSource.GetPosition(auth.Secret);
             _authListAdapter.NotifyItemInserted(position);
             _authList.SmoothScrollToPosition(position);
-            await NotifyWearAppOfChange();
+        }
 
-            PreferenceManager.GetDefaultSharedPreferences(this)
-                .Edit()
-                .PutBoolean("needsBackup", true)
-                .Commit();
+        private async Task OnOtpAuthMigrationScan(string uri)
+        {
+            OtpAuthMigration migration;
+            
+            try
+            {
+                migration = OtpAuthMigration.FromOtpAuthMigrationUri(uri);
+            }
+            catch(Exception)
+            {
+                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
+                return;
+            }
+
+            var inserted = 0;
+
+            try
+            {
+                foreach(var item in migration.Authenticators)
+                {
+                    Authenticator auth;
+
+                    try
+                    {
+                        auth = Authenticator.FromOtpAuthMigrationAuthenticator(item);
+                    }
+                    catch(InvalidAuthenticatorException)
+                    {
+                        continue;
+                    }
+
+                    if(_authSource.IsDuplicate(auth))
+                        continue;
+
+                    await _connection.InsertAsync(auth);
+                    inserted++;
+                }
+            }
+            catch(SQLiteException)
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+
+            await _authSource.Update();
+            await SwitchCategory(null);
+            
+            _authListAdapter.NotifyDataSetChanged();
+            
+            var message = String.Format(GetString(Resource.String.restoredFromMigration), inserted);
+            ShowSnackbar(message, Snackbar.LengthLong);
         }
 
         private async void OpenQRCodeScanner(object sender, EventArgs e)

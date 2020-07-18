@@ -52,6 +52,7 @@
     <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists.</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories.</string>
+    <string name="restoredFromMigration">Restored {0} new authenticators.</string>
 
     <string name="categories">Categories</string>
     <string name="assignCategories">Assign Categories</string>
