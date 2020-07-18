@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
+                android:gravity="center_horizontal"
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="28dp"
                 android:maxLines="1"

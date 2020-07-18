@@ -52,7 +52,7 @@
             android:text="@string/disconnectedMessage"
             android:textColor="?attr/secondaryTextColor"
             android:textSize="12dp"
-            android:textAlignment="center"
+            android:gravity="center_horizontal"
             android:layout_marginBottom="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -99,7 +99,7 @@
             android:text="@string/noAuthenticatorsMessage"
             android:textColor="?attr/secondaryTextColor"
             android:textSize="12dp"
-            android:textAlignment="center"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
