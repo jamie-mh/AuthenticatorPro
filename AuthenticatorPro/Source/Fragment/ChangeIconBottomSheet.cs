@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Android.OS;
 using Android.Text;
 using Android.Views;
