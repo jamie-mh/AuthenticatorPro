@@ -1,0 +1,6 @@
+- New feature: Scan Google Authenticator transfer codes.
+- Icons: Improvements to icon design consistency.
+- Icons: New icons for Sentry, Hover and CharlieHR.
+- Translations: Improvements to German language support.
+- General: Bug fixes + performance improvements.
+- Wear OS: Fix potential crash.
