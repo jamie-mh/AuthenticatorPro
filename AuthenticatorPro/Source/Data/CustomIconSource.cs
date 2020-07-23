@@ -5,39 +5,54 @@ using SQLite;
 
 namespace AuthenticatorPro.Data
 {
-    internal class CustomIconSource
+    internal class CustomIconSource : ISource<CustomIcon>
     {
         private readonly SQLiteAsyncConnection _connection;
-        
-        public List<CustomIcon> View { get; private set; }
+
+        private List<CustomIcon> _all;
 
 
         public CustomIconSource(SQLiteAsyncConnection connection)
         {
             _connection = connection;
-            View = new List<CustomIcon>();
+            _all = new List<CustomIcon>();
         }
 
         public async Task Update()
         {
-            View.Clear();
-            View = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
+            _all.Clear();
+            _all = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
         }
 
         public CustomIcon Get(string id)
         {
-            return View.FirstOrDefault(i => i.Id == id);
+            return _all.FirstOrDefault(i => i.Id == id);
         }
 
         public async Task Delete(string id)
         {
             await _connection.ExecuteAsync("DELETE FROM customicon WHERE id = ?", id);
-            View.Remove(View.First(i => i.Id == id));
+            _all.Remove(_all.First(i => i.Id == id));
         }
 
         public bool IsDuplicate(string id)
         {
             return Get(id) != null;
+        }
+
+        public List<CustomIcon> GetView()
+        {
+            return _all;
+        }
+
+        public List<CustomIcon> GetAll()
+        {
+            return _all;
+        }
+
+        public CustomIcon Get(int position)
+        {
+            return _all.ElementAtOrDefault(position);
         }
     }
 }

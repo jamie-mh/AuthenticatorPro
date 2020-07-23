@@ -37,7 +37,7 @@ namespace AuthenticatorPro.List
             _isDark = isDark;
         }
 
-        public override int ItemCount => _authSource.View.Count;
+        public override int ItemCount => _authSource.GetView().Count;
 
         public async void MoveItem(int oldPosition, int newPosition)
         {
@@ -112,7 +112,7 @@ namespace AuthenticatorPro.List
                 return;
             }
 
-            var auth = _authSource.View[position];
+            var auth = _authSource.Get(position);
             var holder = (AuthenticatorListHolder) viewHolder;
 
             switch(auth.Type)
@@ -184,7 +184,7 @@ namespace AuthenticatorPro.List
 
         public override long GetItemId(int position)
         {
-            return _authSource.View[position].GetHashCode();
+            return _authSource.Get(position).GetHashCode();
         }
     }
 }

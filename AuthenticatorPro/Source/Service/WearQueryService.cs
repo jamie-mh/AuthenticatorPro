@@ -54,7 +54,7 @@ namespace AuthenticatorPro.Service
         {
             await _authSource.Update();
             
-            var response = _authSource.View.Select(item => 
+            var response = _authSource.GetView().Select(item => 
                 new WearAuthenticatorResponse(item.Type, item.Icon, item.Issuer, item.Username, item.Period, item.Digits)).ToList();
 
             var json = JsonConvert.SerializeObject(response);
@@ -89,7 +89,7 @@ namespace AuthenticatorPro.Service
             await _customIconSource.Update();
             
             var ids = new List<string>();
-            _customIconSource.View.ForEach(i => ids.Add(i.Id));
+            _customIconSource.GetView().ForEach(i => ids.Add(i.Id));
 
             var json = JsonConvert.SerializeObject(ids);
             var data = Encoding.UTF8.GetBytes(json);

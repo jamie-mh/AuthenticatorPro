@@ -7,34 +7,32 @@ using SQLite;
 
 namespace AuthenticatorPro.Data
 {
-    internal class AuthenticatorSource
+    internal class AuthenticatorSource : ISource<Authenticator>
     {
-        private readonly SQLiteAsyncConnection _connection;
-
-        public List<Authenticator> View { get; private set; }
-        private List<Authenticator> _all;
-
-        private string _search;
-        public string Search => _search;
-
+        public string Search { get; private set; }
         public string CategoryId { get; private set; }
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
+
+        
+        private readonly SQLiteAsyncConnection _connection;
+        private List<Authenticator> _view;
+        private List<Authenticator> _all;
 
 
         public AuthenticatorSource(SQLiteAsyncConnection connection)
         {
-            _search = null;
+            Search = null;
             CategoryId = null;
             _connection = connection;
 
-            View = new List<Authenticator>();
+            _view = new List<Authenticator>();
             _all = new List<Authenticator>();
             CategoryBindings = new List<AuthenticatorCategory>();
         }
 
         public void SetSearch(string query)
         {
-            _search = query;
+            Search = query;
             UpdateView();
         }
 
@@ -64,13 +62,13 @@ namespace AuthenticatorPro.Data
                         .ToList();
             }
 
-            if(!String.IsNullOrEmpty(_search))
+            if(!String.IsNullOrEmpty(Search))
             {
-                view = view.Where(i => i.Issuer.ToLower().Contains(_search.ToLower()))
+                view = view.Where(i => i.Issuer.ToLower().Contains(Search.ToLower()))
                            .ToList();
             }
 
-            View = view;
+            _view = view;
         }
 
         public async Task Update()
@@ -89,12 +87,12 @@ namespace AuthenticatorPro.Data
 
         public Authenticator Get(int position)
         {
-            return View.ElementAtOrDefault(position);
+            return _view.ElementAtOrDefault(position);
         }
 
         public int GetPosition(string secret)
         {
-            return View.FindIndex(a => a.Secret == secret);
+            return _view.FindIndex(a => a.Secret == secret);
         }
 
         public async Task Rename(int position, string issuer, string username)
@@ -118,7 +116,7 @@ namespace AuthenticatorPro.Data
                 return;
 
             await _connection.DeleteAsync<Authenticator>(auth.Secret);
-            View.Remove(auth);
+            _view.Remove(auth);
             _all.Remove(auth);
 
             const string sql = "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ?";
@@ -127,21 +125,21 @@ namespace AuthenticatorPro.Data
 
         public async Task Move(int oldPosition, int newPosition)
         {
-            var old = View[newPosition];
-            View[newPosition] = View[oldPosition];
-            View[oldPosition] = old;
+            var old = _view[newPosition];
+            _view[newPosition] = _view[oldPosition];
+            _view[oldPosition] = old;
 
-            for(var i = 0; i < View.Count; ++i)
+            for(var i = 0; i < _view.Count; ++i)
             {
                 if(CategoryId == null)
                 {
-                    var auth = View[i];
+                    var auth = _view[i];
                     auth.Ranking = i;
                     await _connection.UpdateAsync(auth);
                 }
                 else
                 {
-                    var binding = GetAuthenticatorCategoryBinding(View[i]);
+                    var binding = GetAuthenticatorCategoryBinding(_view[i]);
                     binding.Ranking = i;
 
                     await _connection.ExecuteAsync(
@@ -176,7 +174,7 @@ namespace AuthenticatorPro.Data
 
         public List<string> GetCategories(int position)
         {
-            var secret = View[position].Secret;
+            var secret = _view[position].Secret;
 
             var authCategories =
                 CategoryBindings.Where(b => b.AuthenticatorSecret == secret).ToList();
@@ -208,6 +206,16 @@ namespace AuthenticatorPro.Data
         public int CountUsesOfCustomIcon(string id)
         {
             return _all.Count(a => a.Icon == CustomIcon.Prefix + id);
+        }
+
+        public List<Authenticator> GetView()
+        {
+            return _view;
+        }
+
+        public List<Authenticator> GetAll()
+        {
+            return _all;
         }
     }
 }

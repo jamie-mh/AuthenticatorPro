@@ -99,7 +99,7 @@ namespace AuthenticatorPro.Activity
 
         private void CheckEmptyState()
         {
-            if(_categorySource.View.Count == 0)
+            if(_categorySource.GetView().Count == 0)
             {
                 _categoryList.Visibility = ViewStates.Gone;
                 AnimUtil.FadeInView(_emptyStateLayout, 500);

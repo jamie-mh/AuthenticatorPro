@@ -5,36 +5,34 @@ using SQLite;
 
 namespace AuthenticatorPro.Data
 {
-    internal class CategorySource
+    internal class CategorySource : ISource<Category>
     {
         private readonly SQLiteAsyncConnection _connection;
-
-        public List<Category> View { get; private set; }
+        private List<Category> _all;
 
 
         public CategorySource(SQLiteAsyncConnection connection)
         {
-            View = new List<Category>();
+            _all = new List<Category>();
             _connection = connection;
         }
 
         public async Task Update()
         {
-            View.Clear();
-            View =
-                await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
+            _all.Clear();
+            _all = await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
         public bool IsDuplicate(Category category)
         {
-            return View.Any(iterator => category.Id == iterator.Id);
+            return _all.Any(iterator => category.Id == iterator.Id);
         }
 
         public async Task Delete(int position)
         {
-            var category = View[position];
+            var category = _all[position];
             await _connection.DeleteAsync(category);
-            View.RemoveAt(position);
+            _all.RemoveAt(position);
 
             object[] args = {category.Id};
             await _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", args);
@@ -42,10 +40,10 @@ namespace AuthenticatorPro.Data
 
         public async Task Rename(int position, string name)
         {
-            var old = View[position];
+            var old = _all[position];
             var replacement = new Category(name);
 
-            View[position] = replacement;
+            _all[position] = replacement;
 
             await _connection.DeleteAsync(old);
             await _connection.InsertAsync(replacement);
@@ -57,33 +55,33 @@ namespace AuthenticatorPro.Data
 
         public async void Move(int oldPosition, int newPosition)
         {
-            var old = View[newPosition];
-            View[newPosition] = View[oldPosition];
-            View[oldPosition] = old;
+            var old = _all[newPosition];
+            _all[newPosition] = _all[oldPosition];
+            _all[oldPosition] = old;
 
             if(oldPosition > newPosition)
-                for(var i = newPosition; i < View.Count; ++i)
+                for(var i = newPosition; i < _all.Count; ++i)
                 {
-                    var cat = View[i];
+                    var cat = _all[i];
                     cat.Ranking++;
                     await _connection.UpdateAsync(cat);
                 }
             else
                 for(var i = oldPosition; i < newPosition; ++i)
                 {
-                    var cat = View[i];
+                    var cat = _all[i];
                     cat.Ranking--;
                     await _connection.UpdateAsync(cat);
                 }
 
-            var temp = View[newPosition];
+            var temp = _all[newPosition];
             temp.Ranking = newPosition;
             await _connection.UpdateAsync(temp);
         }
 
         public Category Get(int position)
         {
-            return View.ElementAtOrDefault(position);
+            return _all.ElementAtOrDefault(position);
         }
 
         public int GetPosition(string id)
@@ -91,7 +89,17 @@ namespace AuthenticatorPro.Data
             if(id == null)
                 return -1;
 
-            return View.FindIndex(c => c.Id == id);
+            return _all.FindIndex(c => c.Id == id);
+        }
+        
+        public List<Category> GetView()
+        {
+            return _all;
+        }
+
+        public List<Category> GetAll()
+        {
+            return _all;
         }
     }
 }

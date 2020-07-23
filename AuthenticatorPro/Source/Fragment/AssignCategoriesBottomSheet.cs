@@ -39,15 +39,15 @@ namespace AuthenticatorPro.Fragment
             
             var emptyText = view.FindViewById<TextView>(Resource.Id.textEmpty);
 
-            if(_categorySource.View.Count == 0)
+            if(_categorySource.GetView().Count == 0)
             {
                 emptyText.Visibility = ViewStates.Visible;
                 _chipGroup.Visibility = ViewStates.Gone;
             }
 
-            for(var i = 0; i < _categorySource.View.Count; ++i)
+            for(var i = 0; i < _categorySource.GetView().Count; ++i)
             {
-                var category = _categorySource.View[i];
+                var category = _categorySource.Get(i);
                 var chip = (Chip) inflater.Inflate(Resource.Layout.chipChoice, _chipGroup, false);
                 chip.Text = category.Name;
                 chip.Checkable = true;

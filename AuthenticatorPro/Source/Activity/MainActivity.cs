@@ -171,7 +171,7 @@ namespace AuthenticatorPro.Activity
 
                 // Currently visible category has been deleted
                 if(_authSource.CategoryId != null &&
-                   _categorySource.View.FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
+                   _categorySource.GetView().FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
                     await SwitchCategory(null);
             }
 
@@ -308,7 +308,7 @@ namespace AuthenticatorPro.Activity
 
         private void CheckEmptyState()
         {
-            if(!_authSource.View.Any())
+            if(!_authSource.GetView().Any())
             {
                 _authList.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_emptyStateLayout, 500, true);
@@ -378,7 +378,7 @@ namespace AuthenticatorPro.Activity
 
             fragment.BackupClick += (sender, e) =>
             {
-                if(!_authSource.View.Any())
+                if(!_authSource.GetAll().Any())
                 {
                     ShowSnackbar(Resource.String.noAuthenticators, Snackbar.LengthShort);
                     return;
@@ -422,7 +422,7 @@ namespace AuthenticatorPro.Activity
             }
             else
             {
-                var category = _categorySource.View.First(c => c.Id == id);
+                var category = _categorySource.GetView().First(c => c.Id == id);
                 _authSource.SetCategory(id);
                 SupportActionBar.Title = category.Name;
             }
@@ -488,7 +488,7 @@ namespace AuthenticatorPro.Activity
             if(_authSource == null)
                 return;
 
-            for(var i = 0; i < _authSource.View.Count; ++i)
+            for(var i = 0; i < _authSource.GetView().Count; ++i)
             {
                 var position = i;
                 RunOnUiThread(() => { _authListAdapter.NotifyItemChanged(position, true); });
@@ -531,7 +531,7 @@ namespace AuthenticatorPro.Activity
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.delete, async (sender, args) =>
             {
-                var auth = _authSource.View[position];
+                var auth = _authSource.Get(position);
                 await TryCleanupCustomIcon(auth.Icon);
                 
                 await _authSource.Delete(position);
@@ -915,10 +915,10 @@ namespace AuthenticatorPro.Activity
         private async Task DoBackup(Uri uri, string password)
         {
             var backup = new Backup(
-                _authSource.View,
-                _categorySource.View,
+                _authSource.GetAll(),
+                _categorySource.GetAll(),
                 _authSource.CategoryBindings,
-                _customIconSource.View
+                _customIconSource.GetAll()
             );
 
             var dataToWrite = backup.ToBytes(password);
@@ -1144,8 +1144,8 @@ namespace AuthenticatorPro.Activity
 
         private async void OnCategoriesDialogCategoryClick(object sender, AssignCategoriesBottomSheet.CategoryClickedEventArgs e)
         {
-            var categoryId = _categorySource.View[e.CategoryPosition].Id;
-            var authSecret = _authSource.View[e.ItemPosition].Secret;
+            var categoryId = _categorySource.Get(e.CategoryPosition).Id;
+            var authSecret = _authSource.Get(e.ItemPosition).Secret;
 
             if(e.IsChecked)
                 await _authSource.AddToCategory(authSecret, categoryId);
@@ -1227,7 +1227,7 @@ namespace AuthenticatorPro.Activity
         private void RemindBackup()
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var needsBackup = prefs.GetBoolean("needsBackup", false) && _authSource.View.Any();
+            var needsBackup = prefs.GetBoolean("needsBackup", false) && _authSource.GetAll().Any();
 
             if(!needsBackup)
                 return;
