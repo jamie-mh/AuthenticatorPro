@@ -66,6 +66,9 @@ namespace AuthenticatorPro.Fragment
             _digitsText = view.FindViewById<TextInputEditText>(Resource.Id.editDigits);
             _periodText = view.FindViewById<TextInputEditText>(Resource.Id.editPeriod);
 
+            _issuerLayout.CounterMaxLength = Authenticator.IssuerMaxLength;
+            _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
+
             var typeAdapter = ArrayAdapter.CreateFromResource(
                 view.Context, Resource.Array.authTypes, Resource.Layout.listItemDropdown);
             var typeEditText = (AutoCompleteTextView) _typeLayout.EditText;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AuthenticatorPro.Shared.Data;
@@ -12,6 +12,12 @@ namespace AuthenticatorPro.Data
     [Table("authenticator")]
     internal class Authenticator
     {
+        public const int IssuerMaxLength = 32;
+        public const int UsernameMaxLength = 40;
+        public const int DefaultDigits = 6;
+        public const int DefaultPeriod = 30;
+
+
         [Column("type")]
         public AuthenticatorType Type { get; set; }
 
@@ -19,11 +25,11 @@ namespace AuthenticatorPro.Data
         public string Icon { get; set; }
 
         [Column("issuer")]
-        [MaxLength(32)]
+        [MaxLength(IssuerMaxLength)]
         public string Issuer { get; set; }
 
         [Column("username")]
-        [MaxLength(40)]
+        [MaxLength(UsernameMaxLength)]
         public string Username{ get; set; }
 
         [Column("secret")]
@@ -150,8 +156,8 @@ namespace AuthenticatorPro.Data
                 Type = type,
                 Secret = secret,
                 Counter = input.Counter,
-                Digits = 6,
-                Period = 30,
+                Digits = DefaultDigits,
+                Period = DefaultPeriod,
                 Icon = Shared.Data.Icon.FindServiceKeyByName(issuer)
             };
             
@@ -161,9 +167,7 @@ namespace AuthenticatorPro.Data
 
         public static Authenticator FromOtpAuthUri(string uri)
         {
-            const string uriExpr = @"^otpauth:\/\/([a-z]+)\/(.*?)\?(.*?)$";
-            var raw = Uri.UnescapeDataString(uri);
-            var uriMatch = Regex.Match(raw, uriExpr);
+            var uriMatch = Regex.Match(Uri.EscapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/(.*)\?(.*)$");
 
             if(!uriMatch.Success)
                 throw new ArgumentException("URI is not valid");
@@ -175,7 +179,7 @@ namespace AuthenticatorPro.Data
             };
 
             // Get the issuer and username if possible
-            const string issuerNameExpr = @"^(.*?):(.*?)$";
+            const string issuerNameExpr = @"^(.*):(.*)$";
             var issuerName = Regex.Match(uriMatch.Groups[2].Value, issuerNameExpr);
 
             string issuer;
@@ -217,15 +221,15 @@ namespace AuthenticatorPro.Data
                         throw new InvalidAuthenticatorException();
                 }
 
-            var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : 6;
-            var period = args.ContainsKey("period") ? Int32.Parse(args["period"]) : 30;
+            var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : DefaultDigits;
+            var period = args.ContainsKey("period") ? Int32.Parse(args["period"]) : DefaultPeriod;
 
             var secret = CleanSecret(args["secret"]);
 
             var auth = new Authenticator {
                 Secret = secret,
-                Issuer = issuer.Trim().Truncate(32),
-                Username = username.Trim().Truncate(40),
+                Issuer = issuer.Trim().Truncate(IssuerMaxLength),
+                Username = username.Trim().Truncate(UsernameMaxLength),
                 Icon = Shared.Data.Icon.FindServiceKeyByName(issuer),
                 Type = type,
                 Algorithm = algorithm,

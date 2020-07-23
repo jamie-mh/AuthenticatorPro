@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
+using AuthenticatorPro.Data;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
@@ -17,6 +18,7 @@ namespace AuthenticatorPro.Fragment
         private readonly string _username;
 
         private TextInputLayout _issuerLayout;
+        private TextInputLayout _usernameLayout;
 
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
@@ -37,10 +39,14 @@ namespace AuthenticatorPro.Fragment
             
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);
             _issuerText = view.FindViewById<TextInputEditText>(Resource.Id.editIssuer);
+            _usernameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editUsernameLayout);
             _usernameText = view.FindViewById<TextInputEditText>(Resource.Id.editUsername);
 
             _issuerText.Text = _issuer;
             _usernameText.Text = _username;
+
+            _issuerLayout.CounterMaxLength = Authenticator.IssuerMaxLength;
+            _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
             cancelButton.Click += (s, e) =>
