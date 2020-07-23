@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AuthenticatorPro.Shared.Data;
@@ -49,6 +49,7 @@ namespace AuthenticatorPro.Data
         [JsonIgnore]
         public DateTime TimeRenew { get; private set; }
 
+        private Otp _otp;
         private long _lastCounter;
         private string _code;
 
@@ -57,28 +58,42 @@ namespace AuthenticatorPro.Data
         {
             TimeRenew = DateTime.MinValue;
             _code = null;
+            _otp = null;
         }
 
         public string GetCode()
         {
-            if(Type == AuthenticatorType.Totp && TimeRenew <= DateTime.Now)
+            if(_otp == null)
             {
                 var secret = Base32Encoding.ToBytes(Secret);
-                var totp = new Totp(secret, Period, Algorithm, Digits);
 
-                _code = totp.ComputeTotp();
-                TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+                _otp = Type switch
+                {
+                    AuthenticatorType.Hotp => new Hotp(secret, Algorithm, Digits),
+                    AuthenticatorType.Totp => new Totp(secret, Period, Algorithm, Digits)
+                };
             }
-            else if(Type == AuthenticatorType.Hotp && _lastCounter != Counter)
+            
+            switch(Type)
             {
-                var secret = Base32Encoding.ToBytes(Secret);
-                var hotp = new Hotp(secret, Algorithm);
+                case AuthenticatorType.Totp when TimeRenew <= DateTime.Now:
+                {
+                    var totp = (Totp) _otp;
+                    _code = totp.ComputeTotp();
+                    TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+                    break;
+                }
+                case AuthenticatorType.Hotp when _lastCounter != Counter:
+                {
+                    var hotp = (Hotp) _otp;
 
-                if(_code != null)
-                    TimeRenew = DateTime.Now.AddSeconds(10);
+                    if(_code != null)
+                        TimeRenew = DateTime.Now.AddSeconds(10);
 
-                _code = hotp.ComputeHOTP(Counter);
-                _lastCounter = Counter;
+                    _code = hotp.ComputeHOTP(Counter);
+                    _lastCounter = Counter;
+                    break;
+                }
             }
 
             return _code;
