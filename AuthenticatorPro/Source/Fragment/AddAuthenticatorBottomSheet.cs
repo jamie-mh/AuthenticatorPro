@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.Content;
 using Android.OS;
 using Android.Views;
@@ -134,8 +134,17 @@ namespace AuthenticatorPro.Fragment
             };
         }
 
+        private void ClearErrors()
+        {
+            _issuerLayout.Error = null;
+            _secretLayout.Error = null;
+            _digitsLayout.Error = null;
+            _periodLayout.Error = null;
+        }
+
         private void OnAddButtonClicked(object sender, EventArgs e)
         {
+            ClearErrors(); 
             var isValid = true;
 
             var issuer = _issuerText.Text.Trim();
