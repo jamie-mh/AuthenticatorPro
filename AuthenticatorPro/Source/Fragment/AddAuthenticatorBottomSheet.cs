@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Android.Content;
 using Android.OS;
 using Android.Views;
@@ -169,7 +169,7 @@ namespace AuthenticatorPro.Fragment
                 isValid = false;
             }
 
-            if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < 6 || digits > 10)
+            if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < Authenticator.MinDigits || digits > Authenticator.MaxDigits)
             {
                 _digitsLayout.Error = GetString(Resource.String.digitsInvalid);
                 isValid = false;

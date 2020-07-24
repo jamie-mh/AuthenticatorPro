@@ -19,14 +19,14 @@ namespace AuthenticatorPro.Data
 
         public AuthenticatorCategory()
         {
-            Ranking = 1;
+            Ranking = 0;
         }
 
         public AuthenticatorCategory(string categoryId, string authenticatorSecret)
         {
             CategoryId = categoryId;
             AuthenticatorSecret = authenticatorSecret;
-            Ranking = 1;
+            Ranking = 0;
         }
     }
 }

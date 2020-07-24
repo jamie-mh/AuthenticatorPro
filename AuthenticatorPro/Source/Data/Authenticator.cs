@@ -14,8 +14,12 @@ namespace AuthenticatorPro.Data
     {
         public const int IssuerMaxLength = 32;
         public const int UsernameMaxLength = 40;
+        
         public const int DefaultDigits = 6;
         public const int DefaultPeriod = 30;
+
+        public const int MinDigits = 6;
+        public const int MaxDigits = 10;
 
 
         [Column("type")]
@@ -270,8 +274,8 @@ namespace AuthenticatorPro.Data
         {
             if(String.IsNullOrEmpty(Issuer) ||
                !IsValidSecret(Secret) || 
-               Digits < 6 ||
-               Digits > 10 ||
+               Digits < MinDigits ||
+               Digits > MaxDigits ||
                Period <= 0)
                 throw new InvalidAuthenticatorException();
         }

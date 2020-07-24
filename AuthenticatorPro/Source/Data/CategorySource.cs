@@ -30,19 +30,25 @@ namespace AuthenticatorPro.Data
 
         public async Task Delete(int position)
         {
-            var category = _all[position];
+            var category = Get(position);
+
+            if(category == null)
+                return;
+            
             await _connection.DeleteAsync(category);
             _all.RemoveAt(position);
 
-            object[] args = {category.Id};
-            await _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", args);
+            await _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", category.Id);
         }
 
         public async Task Rename(int position, string name)
         {
-            var old = _all[position];
-            var replacement = new Category(name);
+            var old = Get(position);
 
+            if(old == null)
+                return;
+            
+            var replacement = new Category(name);
             _all[position] = replacement;
 
             await _connection.DeleteAsync(old);
@@ -55,28 +61,21 @@ namespace AuthenticatorPro.Data
 
         public async void Move(int oldPosition, int newPosition)
         {
-            var old = _all[newPosition];
-            _all[newPosition] = _all[oldPosition];
-            _all[oldPosition] = old;
+            var atNewPos = Get(newPosition);
+            var atOldPos = Get(oldPosition);
 
-            if(oldPosition > newPosition)
-                for(var i = newPosition; i < _all.Count; ++i)
-                {
-                    var cat = _all[i];
-                    cat.Ranking++;
-                    await _connection.UpdateAsync(cat);
-                }
-            else
-                for(var i = oldPosition; i < newPosition; ++i)
-                {
-                    var cat = _all[i];
-                    cat.Ranking--;
-                    await _connection.UpdateAsync(cat);
-                }
+            if(atNewPos == null || atOldPos == null)
+                return;
+            
+            _all[newPosition] = atOldPos;
+            _all[oldPosition] = atNewPos;
 
-            var temp = _all[newPosition];
-            temp.Ranking = newPosition;
-            await _connection.UpdateAsync(temp);
+            for(var i = 0; i < _all.Count; ++i)
+            {
+                var category = Get(i);
+                category.Ranking = i;
+                await _connection.UpdateAsync(category);
+            }
         }
 
         public Category Get(int position)

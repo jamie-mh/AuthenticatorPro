@@ -6,12 +6,12 @@ namespace AuthenticatorPro.Data
     [Table("category")]
     internal class Category
     {
-        public const int IdLength = 8;
+        private const int IdLength = 8;
         public const int NameMaxLength = 32;
         
         public Category()
         {
-            Ranking = 1;
+            Ranking = 0;
         }
 
         public Category(string name)
@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Data
             name = name.Trim().Truncate(NameMaxLength);
             Id = Hash.SHA1(name).Truncate(IdLength);
             Name = name;
-            Ranking = 1;
+            Ranking = 0;
         }
 
         [Column("id")]

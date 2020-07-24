@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Android.Views;
-using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared.Data;
+using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.List
 {
@@ -104,7 +104,7 @@ namespace AuthenticatorPro.List
             }
         }
 
-        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Java.Lang.Object> payloads)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
         {
             if(payloads == null || payloads.Count == 0)
             {

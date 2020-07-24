@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Data;
 using SQLite;
 
 
@@ -47,19 +48,16 @@ namespace AuthenticatorPro.Data
             var view = _all;
 
             if(CategoryId == null)
-            {
-                view = view.OrderBy(a => a.Ranking)
-                    .ToList();
-            }
+                view = view.OrderBy(a => a.Ranking).ToList();
             else
             {
                 var authsInCategory =
                     CategoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
 
-                view =
-                    view.Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
-                        .OrderBy(a => authsInCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking)
-                        .ToList();
+                view = view
+                    .Where(a => authsInCategory.Count(b => b.AuthenticatorSecret == a.Secret) == 1)
+                    .OrderBy(a => authsInCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking)
+                    .ToList();
             }
 
             if(!String.IsNullOrEmpty(Search))
@@ -75,11 +73,11 @@ namespace AuthenticatorPro.Data
         {
             _all.Clear();
             CategoryBindings.Clear();
-
-            var sql = "SELECT * FROM authenticator ORDER BY ranking, issuer, username ASC";
+            
+            var sql = "SELECT * FROM authenticator ORDER BY ranking, issuer, username";
             _all = await _connection.QueryAsync<Authenticator>(sql);
 
-            sql = "SELECT * FROM authenticatorcategory ORDER BY ranking ASC";
+            sql = "SELECT * FROM authenticatorcategory ORDER BY ranking";
             CategoryBindings = await _connection.QueryAsync<AuthenticatorCategory>(sql);
 
             UpdateView();
@@ -125,9 +123,14 @@ namespace AuthenticatorPro.Data
 
         public async Task Move(int oldPosition, int newPosition)
         {
-            var old = _view[newPosition];
-            _view[newPosition] = _view[oldPosition];
-            _view[oldPosition] = old;
+            var atNewPos = Get(newPosition);
+            var atOldPos = Get(oldPosition);
+
+            if(atNewPos == null || atOldPos == null)
+                return;
+            
+            _view[newPosition] = atOldPos;
+            _view[oldPosition] = atNewPos;
 
             for(var i = 0; i < _view.Count; ++i)
             {
@@ -141,7 +144,7 @@ namespace AuthenticatorPro.Data
                 {
                     var binding = GetAuthenticatorCategoryBinding(_view[i]);
                     binding.Ranking = i;
-
+                    
                     await _connection.ExecuteAsync(
                         "UPDATE authenticatorcategory SET ranking = ? WHERE categoryId = ? AND authenticatorSecret = ?",
                         i, binding.CategoryId, binding.AuthenticatorSecret);
@@ -153,7 +156,7 @@ namespace AuthenticatorPro.Data
         {
             var auth = Get(position);
 
-            if(auth == null)
+            if(auth == null || auth.Type != AuthenticatorType.Hotp)
                 return;
 
             auth.Counter++;
@@ -168,38 +171,43 @@ namespace AuthenticatorPro.Data
         public bool IsDuplicateCategoryBinding(AuthenticatorCategory binding)
         {
             return CategoryBindings.Any(
-                iterator => binding.AuthenticatorSecret == iterator.AuthenticatorSecret &&
-                         binding.CategoryId == iterator.CategoryId);
+                ac => binding.AuthenticatorSecret == ac.AuthenticatorSecret &&
+                         binding.CategoryId == ac.CategoryId);
         }
 
         public List<string> GetCategories(int position)
         {
-            var secret = _view[position].Secret;
+            var auth = Get(position);
 
+            if(auth == null)
+                return null;
+            
             var authCategories =
-                CategoryBindings.Where(b => b.AuthenticatorSecret == secret).ToList();
+                CategoryBindings.Where(b => b.AuthenticatorSecret == auth.Secret).ToList();
 
             return authCategories.Select(binding => binding.CategoryId).ToList();
         }
 
         public AuthenticatorCategory GetAuthenticatorCategoryBinding(Authenticator auth)
         {
-            return CategoryBindings.First(b => b.AuthenticatorSecret == auth.Secret && b.CategoryId == CategoryId);
+            return CategoryBindings.FirstOrDefault(b => b.AuthenticatorSecret == auth.Secret && b.CategoryId == CategoryId);
         }
 
-        public async Task AddToCategory(string authSecret, string categoryId)
+        public async Task AddToCategory(string categoryId, string authSecret)
         {
-            const string sql = "INSERT INTO authenticatorcategory (categoryId, authenticatorSecret) VALUES (?, ?)";
-            await _connection.ExecuteAsync(sql, categoryId, authSecret);
-            CategoryBindings.Add(new AuthenticatorCategory(categoryId, authSecret));
+            var binding = new AuthenticatorCategory(categoryId, authSecret);
+            await _connection.InsertAsync(binding);
+            CategoryBindings.Add(binding);
         }
 
-        public async Task RemoveFromCategory(string authSecret, string categoryId)
+        public async Task RemoveFromCategory(string categoryId, string authSecret)
         {
-            const string sql = "DELETE FROM authenticatorcategory WHERE categoryId = ? AND authenticatorSecret = ?";
-            await _connection.ExecuteAsync(sql, categoryId, authSecret);
-
             var binding = CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == authSecret);
+
+            if(binding == null)
+                return;
+            
+            _connection.DeleteAsync(binding);
             CategoryBindings.Remove(binding);
         }
 
