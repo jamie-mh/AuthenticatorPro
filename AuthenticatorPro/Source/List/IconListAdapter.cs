@@ -11,7 +11,7 @@ namespace AuthenticatorPro.List
     internal sealed class IconListAdapter : RecyclerView.Adapter
     {
         public event EventHandler<int> ItemClick;
-        public override int ItemCount => _iconSource.View.Count;
+        public override int ItemCount => _iconSource.GetView().Count;
 
         private readonly Context _context;
         private readonly IconSource _iconSource;
