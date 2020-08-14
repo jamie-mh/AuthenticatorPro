@@ -207,7 +207,7 @@ namespace AuthenticatorPro.Data
             if(binding == null)
                 return;
             
-            _connection.DeleteAsync(binding);
+            await _connection.DeleteAsync(binding);
             CategoryBindings.Remove(binding);
         }
 
