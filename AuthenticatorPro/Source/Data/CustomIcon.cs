@@ -25,9 +25,9 @@ namespace AuthenticatorPro.Data
 
         private Bitmap _bitmap;
         
-        public Bitmap GetBitmap()
+        public async Task<Bitmap> GetBitmap()
         {
-            return _bitmap ??= BitmapFactory.DecodeByteArray(Data, 0, Data.Length);
+            return _bitmap ??= await BitmapFactory.DecodeByteArrayAsync(Data, 0, Data.Length);
         }
 
         private static Bitmap ToSquare(Bitmap bitmap)

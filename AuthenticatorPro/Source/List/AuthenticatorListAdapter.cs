@@ -55,7 +55,7 @@ namespace AuthenticatorPro.List
             MovementStarted?.Invoke(this, null);
         }
 
-        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var auth = _authSource.Get(position);
 
@@ -79,7 +79,7 @@ namespace AuthenticatorPro.List
                 var customIcon = _customIconSource.Get(id);
                 
                 if(customIcon != null)
-                    holder.Icon.SetImageBitmap(customIcon.GetBitmap()); 
+                    holder.Icon.SetImageBitmap(await customIcon.GetBitmap()); 
                 else
                     holder.Icon.SetImageResource(Icon.GetService(Icon.Default, _isDark));
             }
