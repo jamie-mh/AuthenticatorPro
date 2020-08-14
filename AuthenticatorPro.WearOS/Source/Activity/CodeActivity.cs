@@ -130,8 +130,8 @@ namespace AuthenticatorPro.WearOS.Activity
         protected override async void OnStop()
         {
             base.OnStop();
-            await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
             _timer.Stop();
+            await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
             Finish();
         }
 
