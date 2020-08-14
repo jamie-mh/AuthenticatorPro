@@ -93,6 +93,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _codeTextView.Text = placeholderCode;
             
             await WearableClass.GetMessageClient(this).AddListenerAsync(this);
+            await Refresh();
         }
 
         private async Task Refresh()
@@ -110,9 +111,6 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 Finish();
             }
-
-            if(_type == AuthenticatorType.Totp)
-                _timer.Start();
         }
 
         private void UpdateProgressBar()
@@ -129,22 +127,12 @@ namespace AuthenticatorPro.WearOS.Activity
                 await Refresh();
         }
 
-        protected override void OnResume()
-        {
-            base.OnResume();
-            Tick();
-        }
-
-        protected override void OnPause()
-        {
-            base.OnPause();
-            _timer.Stop();
-        }
-
         protected override async void OnStop()
         {
             base.OnStop();
             await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
+            _timer.Stop();
+            Finish();
         }
 
         private static string FormatCode(string code, int digits)
