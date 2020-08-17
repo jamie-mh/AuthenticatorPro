@@ -171,7 +171,7 @@ namespace AuthenticatorPro.Data
 
         public static Authenticator FromOtpAuthUri(string uri)
         {
-            var uriMatch = Regex.Match(Uri.EscapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/(.*)\?(.*)$");
+            var uriMatch = Regex.Match(Uri.UnescapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/(.*)\?(.*)$");
 
             if(!uriMatch.Success)
                 throw new ArgumentException("URI is not valid");
