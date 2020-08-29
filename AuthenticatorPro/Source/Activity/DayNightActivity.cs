@@ -1,4 +1,5 @@
 ﻿using Android.Content.Res;
+using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
 
@@ -8,14 +9,25 @@ namespace AuthenticatorPro.Activity
     {
         protected bool IsDark { get; private set; }
 
-        protected override void OnResume()
-        {
-            base.OnResume();
-            
-            var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var themePref = sharedPrefs.GetString("pref_theme", "system");
+        private bool _checkedOnCreate;
+        private string _lastTheme;
 
-            switch(themePref)
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            _checkedOnCreate = true;
+            UpdateTheme();
+            base.OnCreate(savedInstanceState);
+        }
+
+        private void UpdateTheme()
+        {
+            var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            var theme = sharedPrefs.GetString("pref_theme", "system");
+            
+            if(theme == _lastTheme)
+                return; 
+            
+            switch(theme)
             {
                 default:
                     IsDark = (Resources.Configuration.UiMode & UiMode.NightMask) == UiMode.NightYes;
@@ -32,6 +44,21 @@ namespace AuthenticatorPro.Activity
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightYes;
                     break;
             }
+
+            _lastTheme = theme;
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            
+            if(_checkedOnCreate)
+            {
+                _checkedOnCreate = false;
+                return;
+            }
+            
+            UpdateTheme();
         }
     }
 }
