@@ -12,6 +12,10 @@
 <p>
     <b>Authenticator Pro - jmh</b>
 </p>
+<p>
+    Version <span id="version"></span>
+</p>
+
 <p>Open-Source 2 Factor Authenticator for Android</p>
 <p><a href="https://github.com/jamie-mh/AuthenticatorPro">https://github.com/jamie-mh/AuthenticatorPro</a></p>
 
@@ -57,6 +61,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <h2>Trademark Notice</h2>
 <p>All product names, trademarks and registered trademarks are property of their respective owners. All company, product and service names used in this application are for identification purposes only. Use of these names, trademarks and brands does not imply endorsement.</p>
+
+<script>
+    var $version = document.getElementById('version');
+    $version.innerHTML = location.hash.substring(1);
+</script>
 
 </body>
 </html>

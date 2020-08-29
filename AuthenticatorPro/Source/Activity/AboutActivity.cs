@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
@@ -22,8 +23,21 @@ namespace AuthenticatorPro.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
+            string version;
+
+            try
+            {
+                var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
+                version = packageInfo.VersionName;
+            }
+            catch(Exception)
+            {
+                version = "unknown";
+            }
+
             var webView = FindViewById<WebView>(Resource.Id.webView);
-            webView.LoadUrl("file:///android_asset/about.html");
+            webView.Settings.JavaScriptEnabled = true;
+            webView.LoadUrl($"file:///android_asset/about.html#{version}");
         }
 
         public override bool OnSupportNavigateUp()
