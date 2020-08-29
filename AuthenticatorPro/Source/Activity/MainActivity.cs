@@ -87,11 +87,6 @@ namespace AuthenticatorPro.Activity
         private int _customIconApplyPosition;
 
 
-        public MainActivity()
-        {
-            _pauseTime = DateTime.MinValue;
-        }
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -99,6 +94,17 @@ namespace AuthenticatorPro.Activity
             
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
+
+            if(savedInstanceState != null)
+            {
+                _isAuthenticated = savedInstanceState.GetBoolean("isAuthenticated");
+                _pauseTime = new DateTime(savedInstanceState.GetLong("pauseTime"));
+            }
+            else
+            {
+                _isAuthenticated = false;
+                _pauseTime = DateTime.MinValue;
+            }
 
             _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(_toolbar);
@@ -208,6 +214,13 @@ namespace AuthenticatorPro.Activity
 
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
+            outState.PutBoolean("isAuthenticated", _isAuthenticated);
+            outState.PutLong("pauseTime", _pauseTime.Ticks);
         }
 
         protected override async void OnDestroy()
