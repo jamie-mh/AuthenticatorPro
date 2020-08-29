@@ -62,7 +62,9 @@ namespace AuthenticatorPro.Data
 
             if(!String.IsNullOrEmpty(Search))
             {
-                view = view.Where(i => i.Issuer.ToLower().Contains(Search.ToLower()))
+                var searchLower = Search.ToLower();
+                
+                view = view.Where(i => i.Issuer.ToLower().Contains(searchLower) || i.Username.Contains(searchLower))
                            .ToList();
             }
 
