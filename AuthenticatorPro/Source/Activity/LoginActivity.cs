@@ -1,41 +1,47 @@
-﻿using Android.App;
-using Android.Content;
+﻿using System;
+using Android.App;
 using Android.OS;
-using Android.Runtime;
+using Android.Widget;
+using AndroidX.Core.Content;
+using AuthenticatorPro.Callback;
+using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 
 namespace AuthenticatorPro.Activity
 {
     [Activity]
     internal class LoginActivity : DayNightActivity
     {
-        private const int RequestConfirmDeviceCredentials = 0;
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityLogin);
 
-            var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
-            var loginIntent = keyguardManager.CreateConfirmDeviceCredentialIntent(GetString(Resource.String.login),
-                GetString(Resource.String.loginMessage));
-            StartActivityForResult(loginIntent, RequestConfirmDeviceCredentials);
+            var executor = ContextCompat.GetMainExecutor(this);
+            var callback = new AuthenticationCallback();
+            callback.Success += OnSuccess;
+            callback.Error += OnError;
+            
+            var prompt = new BiometricPrompt(this, executor, callback);
+            
+            var promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .SetTitle(GetString(Resource.String.login))
+                .SetSubtitle(GetString(Resource.String.loginMessage))
+                .SetDeviceCredentialAllowed(true)
+                .Build();
+            
+            prompt.Authenticate(promptInfo);
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
+        private void OnError(object sender, AuthenticationCallback.ErrorEventArgs e)
         {
-            if(requestCode != RequestConfirmDeviceCredentials)
-                return;
+            Toast.MakeText(this, e.Message, ToastLength.Long).Show();
+            FinishAffinity();
+        }
 
-            switch(resultCode)
-            {
-                case Result.Canceled:
-                    FinishAffinity();
-                    break;
-
-                case Result.Ok:
-                    Finish();
-                    break;
-            }
+        private void OnSuccess(object sender, BiometricPrompt.AuthenticationResult e)
+        {
+            SetResult(Result.Ok);
+            Finish();
         }
 
         public override bool OnSupportNavigateUp()

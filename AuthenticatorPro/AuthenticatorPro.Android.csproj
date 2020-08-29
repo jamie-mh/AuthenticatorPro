@@ -60,7 +60,7 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>Full</AndroidLinkMode>
-    <AndroidLinkSkip>protobuf-net;protobuf-net.Core</AndroidLinkSkip>
+    <AndroidLinkSkip>protobuf-net;protobuf-net.Core;Xamarin.AndroidX.Biometric</AndroidLinkSkip>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AotAssemblies>true</AotAssemblies>
@@ -88,6 +88,7 @@
     <Compile Include="Source\Activity\DayNightActivity.cs" />
     <Compile Include="Source\Activity\LoginActivity.cs" />
     <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
+    <Compile Include="Source\Callback\AuthenticationCallback.cs" />
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
@@ -196,6 +197,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat.Resources">
       <Version>1.1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Biometric">
+      <Version>1.0.1.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Browser">
       <Version>1.2.0.2</Version>

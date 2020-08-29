@@ -38,6 +38,7 @@ using ZXing;
 using ZXing.Mobile;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
+using Timer = System.Timers.Timer;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using Uri = Android.Net.Uri;
 
@@ -50,6 +51,7 @@ namespace AuthenticatorPro.Activity
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
+        private const int ResultLogin = 0;
         private const int ResultRestoreSAF = 1;
         private const int ResultBackupSAF = 2;
         private const int ResultCustomIconSAF = 3;
@@ -78,7 +80,8 @@ namespace AuthenticatorPro.Activity
         private SQLiteAsyncConnection _connection;
         private Timer _timer;
         private DateTime _pauseTime;
-        
+
+        private bool _isAuthenticated;
         private Task _onceResumedTask;
         private bool _refreshOnActivityResume;
         private int _customIconApplyPosition;
@@ -139,8 +142,18 @@ namespace AuthenticatorPro.Activity
         {
             base.OnResume();
 
-            if((DateTime.Now - _pauseTime).TotalMinutes >= 1 && PerformLogin())
-                return;
+            if(RequiresAuthentication())
+            {
+                if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
+                    _isAuthenticated = false;
+            
+                if(!_isAuthenticated)
+                {
+                    _refreshOnActivityResume = true;
+                    StartActivityForResult(typeof(LoginActivity), ResultLogin);
+                    return;
+                }
+            }
 
             // Just launched
             if(_connection == null)
@@ -471,9 +484,9 @@ namespace AuthenticatorPro.Activity
             CheckEmptyState();
         }
 
-        private bool PerformLogin()
+        private bool RequiresAuthentication()
         {
-            var authRequired = PreferenceManager.GetDefaultSharedPreferences(this)
+            var hasAppLock = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_appLock", false);
             
             var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
@@ -482,15 +495,8 @@ namespace AuthenticatorPro.Activity
                 ? keyguardManager.IsKeyguardSecure
                 : keyguardManager.IsDeviceSecure;
 
-            if(authRequired && isDeviceSecure)
-            {
-                StartActivity(typeof(LoginActivity));
-                return true;
-            }
-
-            return false;
+            return hasAppLock && isDeviceSecure;
         }
-
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
         {
@@ -714,6 +720,12 @@ namespace AuthenticatorPro.Activity
         {
             if(resultCode != Result.Ok)
                 return;
+
+            if(requestCode == ResultLogin)
+            {
+                _isAuthenticated = true;
+                return;
+            }
 
             _onceResumedTask = requestCode switch {
                 ResultRestoreSAF => new Task(async () =>
