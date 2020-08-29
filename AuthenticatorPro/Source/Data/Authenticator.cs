@@ -77,33 +77,27 @@ namespace AuthenticatorPro.Data
             {
                 var secret = Base32Encoding.ToBytes(Secret);
 
-                _otp = Type switch
-                {
-                    AuthenticatorType.Hotp => new Hotp(secret, Algorithm, Digits),
-                    AuthenticatorType.Totp => new Totp(secret, Period, Algorithm, Digits)
-                };
+                if(Type == AuthenticatorType.Hotp)
+                    _otp = new Hotp(secret, Algorithm, Digits);
+                else if(Type == AuthenticatorType.Totp)
+                    _otp = new Totp(secret, Period, Algorithm, Digits);
             }
-            
-            switch(Type)
+
+            if(Type == AuthenticatorType.Totp && TimeRenew <= DateTime.Now)
             {
-                case AuthenticatorType.Totp when TimeRenew <= DateTime.Now:
-                {
-                    var totp = (Totp) _otp;
-                    _code = totp.ComputeTotp();
-                    TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
-                    break;
-                }
-                case AuthenticatorType.Hotp when _lastCounter != Counter:
-                {
-                    var hotp = (Hotp) _otp;
+                var totp = (Totp) _otp;
+                _code = totp.ComputeTotp();
+                TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
+            }
+            else if(Type == AuthenticatorType.Hotp && _lastCounter != Counter)
+            {
+                var hotp = (Hotp) _otp;
 
-                    if(_code != null)
-                        TimeRenew = DateTime.Now.AddSeconds(10);
+                if(_code != null)
+                    TimeRenew = DateTime.Now.AddSeconds(10);
 
-                    _code = hotp.ComputeHOTP(Counter);
-                    _lastCounter = Counter;
-                    break;
-                }
+                _code = hotp.ComputeHOTP(Counter);
+                _lastCounter = Counter;
             }
 
             return _code;
