@@ -443,9 +443,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_logmein.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\auth_logmein_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_mailboxorg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1161,9 +1158,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_logmein.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_logmein_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_mailboxorg.png" />
@@ -1883,9 +1877,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\auth_logmein.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\auth_logmein_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_mailboxorg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2603,9 +2594,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\auth_logmein.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\auth_logmein_dark.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_mailboxorg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3321,9 +3309,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_logmein.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\auth_logmein_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_mailboxorg.png" />
