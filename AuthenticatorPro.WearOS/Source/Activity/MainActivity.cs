@@ -79,8 +79,8 @@ namespace AuthenticatorPro.WearOS.Activity
             var layoutCallback = new ScrollingListLayoutCallback(Resources.Configuration.IsScreenRound);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
-            _authCache = new ListCache<WearAuthenticator>("authenticators", new WearAuthenticatorComparer(), this);
-            _categoryCache = new ListCache<WearCategory>("categories", new WearCategoryComparer(), this);
+            _authCache = new ListCache<WearAuthenticator>("authenticators", this);
+            _categoryCache = new ListCache<WearCategory>("categories", this);
             _customIconCache = new CustomIconCache(this);
             
             await _authCache.Init();
@@ -216,7 +216,12 @@ namespace AuthenticatorPro.WearOS.Activity
         protected override async void OnDestroy()
         {
             base.OnDestroy();
-            await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
+
+            try
+            {
+                await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
+            }
+            catch(ApiException) { }
         }
 
         private async Task OnAuthenticatorListReceived(byte[] data)
@@ -224,7 +229,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var json = Encoding.UTF8.GetString(data);
             var items = JsonConvert.DeserializeObject<List<WearAuthenticator>>(json);
 
-            if(_authCache.Dirty(items))
+            if(_authCache.Dirty(items, new WearAuthenticatorComparer()))
             {
                 await _authCache.Replace(items);
                 _authSource.UpdateView();
@@ -237,7 +242,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var json = Encoding.UTF8.GetString(data);
             var items = JsonConvert.DeserializeObject<List<WearCategory>>(json);
 
-            if(_categoryCache.Dirty(items))
+            if(_categoryCache.Dirty(items, new WearCategoryComparer()))
             {
                 await _categoryCache.Replace(items);
                 RunOnUiThread(_categoryListAdapter.NotifyDataSetChanged);
@@ -247,21 +252,21 @@ namespace AuthenticatorPro.WearOS.Activity
         private async Task OnCustomIconListReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
-            var iconIds = JsonConvert.DeserializeObject<List<string>>(json);
+            var ids = JsonConvert.DeserializeObject<List<string>>(json);
 
-            var iconsInCache = _customIconCache.GetIcons();
+            var inCache = _customIconCache.GetIcons();
 
-            var iconsToRequest = iconIds.Where(i => !iconsInCache.Contains(i)).ToList();
-            var iconsToRemove = iconsInCache.Where(i => !iconIds.Contains(i)).ToList();
+            var toRequest = ids.Where(i => !inCache.Contains(i)).ToList();
+            var toRemove = inCache.Where(i => !ids.Contains(i)).ToList();
 
             var client = WearableClass.GetMessageClient(this);
 
-            Interlocked.Add(ref _responsesRequired, iconsToRequest.Count);
+            Interlocked.Add(ref _responsesRequired, toRequest.Count);
             
-            foreach(var icon in iconsToRequest)
+            foreach(var icon in toRequest)
                 await client.SendMessageAsync(_serverNode.Id, GetCustomIconCapability, Encoding.UTF8.GetBytes(icon));
 
-            foreach(var icon in iconsToRemove)
+            foreach(var icon in toRemove)
                 _customIconCache.Remove(icon);
         }
 

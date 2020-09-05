@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Query;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Data;
 

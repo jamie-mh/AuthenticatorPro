@@ -11,7 +11,6 @@ namespace AuthenticatorPro.WearOS.Cache
     internal class ListCache<T>
     {
         private readonly string _name;
-        private readonly IEqualityComparer<T> _comparer;
         private readonly Context _context;
 
         private List<T> _items;
@@ -19,10 +18,9 @@ namespace AuthenticatorPro.WearOS.Cache
 
         private Task _flushTask;
 
-        public ListCache(string name, IEqualityComparer<T> comparer, Context context)
+        public ListCache(string name, Context context)
         {
             _name = name;
-            _comparer = comparer;
             _context = context;
             _items = new List<T>();
         }
@@ -49,9 +47,11 @@ namespace AuthenticatorPro.WearOS.Cache
             await Flush();
         }
 
-        public bool Dirty(List<T> items)
+        public bool Dirty(List<T> items, IEqualityComparer<T> comparer = null)
         {
-            return !_items.SequenceEqual(items, _comparer);
+            return comparer != null
+                ? !_items.SequenceEqual(items, comparer)
+                : !_items.SequenceEqual(items);
         }
 
         private async Task Flush()

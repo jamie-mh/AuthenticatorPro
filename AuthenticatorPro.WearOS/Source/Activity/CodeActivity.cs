@@ -82,7 +82,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         protected override void OnPause()
         {
-            base.OnStop();
+            base.OnPause();
             _timer.Stop();
             Finish();
         }

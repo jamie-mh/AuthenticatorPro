@@ -1,6 +1,5 @@
 ﻿using Android.Content;
 using Android.Graphics.Drawables;
-using AndroidX.Core.Content;
 using AndroidX.Wear.Widget.Drawer;
 using AuthenticatorPro.Shared.Query;
 using AuthenticatorPro.WearOS.Cache;
