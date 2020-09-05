@@ -9,6 +9,7 @@ using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
 using Android.Views;
+using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Wear.Widget;
@@ -122,7 +123,9 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void UpdateViewState()
         {
-            _loadingLayout.Visibility = ViewStates.Gone;
+            if(_loadingLayout.Visibility == ViewStates.Visible)
+                AnimUtil.FadeOutView(_loadingLayout, 200);
+            
             _emptyLayout.Visibility = ViewStates.Gone;
 
             _offlineLayout.Visibility = _serverNode == null
@@ -133,10 +136,20 @@ namespace AuthenticatorPro.WearOS.Activity
                 _emptyLayout.Visibility = ViewStates.Visible;
             else
             {
-                if(_authList.Visibility != ViewStates.Visible)
-                    AnimUtil.FadeInView(_authList, 200);
-                
-                _authList.RequestFocus();
+                if(_authList.Visibility == ViewStates.Invisible)
+                {
+                    var anim = new AlphaAnimation(0f, 1f) {Duration = 200};
+
+                    anim.AnimationEnd += (sender, e) =>
+                    {
+                        _authList.Visibility = ViewStates.Visible;
+                        _authList.RequestFocus();
+                    };
+
+                    _authList.StartAnimation(anim);
+                }
+                else
+                    _authList.RequestFocus();
             }
         }
 
@@ -214,6 +227,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if(_authCache.Dirty(items))
             {
                 await _authCache.Replace(items);
+                _authSource.UpdateView();
                 RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             }
         }

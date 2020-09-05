@@ -26,7 +26,7 @@ namespace AuthenticatorPro.WearOS.Data
             UpdateView();
         }
 
-        private void UpdateView()
+        public void UpdateView()
         {
             _view = _cache.GetItems();
 

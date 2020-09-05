@@ -49,7 +49,6 @@
                     android:textColor="?attr/secondaryTextColor"
                     android:textSize="12dp"
                     android:gravity="center_horizontal"
-                    android:layout_marginBottom="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -73,7 +72,7 @@
                 android:id="@+id/layoutOffline"
                 android:gravity="center_horizontal"
                 android:visibility="gone"
-                android:background="#E6000000"
+                android:background="#BF000000"
                 android:paddingTop="6dp"
                 android:paddingBottom="6dp"
                 android:orientation="vertical"
@@ -93,6 +92,7 @@
 
     <androidx.wear.widget.drawer.WearableNavigationDrawerView
             android:id="@+id/drawerCategories"
+            android:background="@color/colorDark"
             app:navigationStyle="multiPage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
