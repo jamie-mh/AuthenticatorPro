@@ -1,0 +1,9 @@
+Breaking changes to Wear OS companion app, please update on both devices to retain functionality.
+
+Wear OS: Offline support.
+Wear OS: Ability to filter by category.
+General: Search now includes username.
+General: Fixed double pin/fingerprint bug.
+General: New icons for Altaro, Funio, Square, Wasabi and Zyxel.
+General: Improvements to existing icons.
+General: Slight performance improvements.
