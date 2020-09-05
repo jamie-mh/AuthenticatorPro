@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -90,8 +90,9 @@ namespace AuthenticatorPro.WearOS.Activity
             _authListAdapter.ItemClick += OnItemClick;
             _authListAdapter.HasStableIds = true;
             _authList.SetAdapter(_authListAdapter);
-            
-            UpdateViewState();
+           
+            if(_authCache.GetItems().Count > 0 || _serverNode == null)
+                UpdateViewState();
             
             await _categoryCache.Init();
 
