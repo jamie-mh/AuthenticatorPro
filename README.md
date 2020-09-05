@@ -54,6 +54,14 @@ Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-
 ![Screenshot 6](./doc/screenshot6.png)
 ![Screenshot 7](./doc/screenshot7.png)
 
+### Wear OS Companion
+
+![Screenshot 1](./doc/wearos_screenshot1.png)
+![Screenshot 2](./doc/wearos_screenshot2.png)
+![Screenshot 3](./doc/wearos_screenshot3.png)
+![Screenshot 4](./doc/wearos_screenshot4.png)
+![Screenshot 5](./doc/wearos_screenshot5.png)
+
 ## Permissions
 
 * Camera permission is required to add accounts through QR codes.
