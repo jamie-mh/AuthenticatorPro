@@ -310,14 +310,12 @@ namespace AuthenticatorPro.Activity
             if(searchItem.IsActionViewExpanded)
             {
                 searchItem.CollapseActionView();
-                base.OnBackPressed();
                 return;
             }
 
             if(_authSource.CategoryId != null)
             {
                 await SwitchCategory(null);
-                base.OnBackPressed();
                 return;
             }
             
