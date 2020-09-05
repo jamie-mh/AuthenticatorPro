@@ -220,8 +220,11 @@ namespace AuthenticatorPro.Data
 
             if(binding == null)
                 return;
+
+            await _connection.ExecuteAsync(
+                "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ? AND categoryId = ?", 
+                authSecret, categoryId);
             
-            await _connection.DeleteAsync(binding);
             CategoryBindings.Remove(binding);
         }
 
