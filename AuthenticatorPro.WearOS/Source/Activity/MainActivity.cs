@@ -78,8 +78,8 @@ namespace AuthenticatorPro.WearOS.Activity
             var layoutCallback = new ScrollingListLayoutCallback(Resources.Configuration.IsScreenRound);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
-            _authCache = new ListCache<WearAuthenticator>("authenticators", new WearAuthenticatorResponseComparer(), this);
-            _categoryCache = new ListCache<WearCategory>("categories", new WearCategoryResponseComparer(), this);
+            _authCache = new ListCache<WearAuthenticator>("authenticators", new WearAuthenticatorComparer(), this);
+            _categoryCache = new ListCache<WearCategory>("categories", new WearCategoryComparer(), this);
             _customIconCache = new CustomIconCache(this);
             
             await _authCache.Init();

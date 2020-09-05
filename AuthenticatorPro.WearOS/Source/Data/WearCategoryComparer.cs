@@ -4,7 +4,7 @@ using AuthenticatorPro.Shared.Query;
 
 namespace AuthenticatorPro.WearOS.Data
 {
-    internal class WearCategoryResponseComparer : IEqualityComparer<WearCategory>
+    internal class WearCategoryComparer : IEqualityComparer<WearCategory>
     {
         public bool Equals(WearCategory x, WearCategory y)
         {
