@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace AuthenticatorPro.Data
+namespace AuthenticatorPro.Shared.Data
 {
-    internal interface ISource<T>
+    public interface ISource<T>
     {
         public List<T> GetView();
         public List<T> GetAll();

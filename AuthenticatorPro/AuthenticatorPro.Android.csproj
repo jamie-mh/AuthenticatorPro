@@ -92,11 +92,11 @@
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
+    <Compile Include="Source\Data\AuthenticatorType.cs" />
     <Compile Include="Source\Data\Backup.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
     <Compile Include="Source\Data\CustomIconSource.cs" />
-    <Compile Include="Source\Data\ISource.cs" />
     <Compile Include="Source\Data\OtpAuthMigration.cs" />
     <Compile Include="Source\Fragment\ChangeIconBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />

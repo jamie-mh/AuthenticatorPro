@@ -12,6 +12,9 @@ namespace AuthenticatorPro.Data
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
+        
+        public AuthenticatorType? Type { get; private set; }
+        
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
         
@@ -43,9 +46,18 @@ namespace AuthenticatorPro.Data
             UpdateView();
         }
 
+        public void SetType(AuthenticatorType? type)
+        {
+            Type = type;
+            UpdateView();
+        }
+
         public void UpdateView()
         {
             var view = _all;
+
+            if(Type != null)
+                view = view.Where(i => i.Type == Type.Value).ToList();
 
             if(CategoryId == null)
                 view = view.OrderBy(a => a.Ranking).ToList();

@@ -20,8 +20,8 @@ namespace AuthenticatorPro.Service
     )]
     internal class WearQueryService : WearableListenerService
     {
-        private const string ListCapability = "list";
-        private const string GetCodeCapability = "get_code";
+        private const string ListAuthenticatorsCapability = "list_authenticators";
+        private const string ListCategoriesCapability = "list_categories";
         private const string ListCustomIconsCapability = "list_custom_icons";
         private const string GetCustomIconCapability = "get_custom_icon";
 
@@ -29,6 +29,7 @@ namespace AuthenticatorPro.Service
         
         private SQLiteAsyncConnection _connection;
         private AuthenticatorSource _authSource;
+        private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
         
 
@@ -37,8 +38,10 @@ namespace AuthenticatorPro.Service
             _initTask = new Lazy<Task>(async () =>
             {
                 _connection = await Database.Connect(ApplicationContext);
-                _authSource = new AuthenticatorSource(_connection);
                 _customIconSource = new CustomIconSource(_connection);
+                _categorySource = new CategorySource(_connection);
+                _authSource = new AuthenticatorSource(_connection);
+                _authSource.SetType(AuthenticatorType.Totp);
             });
         }
 
@@ -53,35 +56,39 @@ namespace AuthenticatorPro.Service
         private async Task ListAuthenticators(string nodeId)
         {
             await _authSource.Update();
-            
-            var response = _authSource.GetView().Select(item => 
-                new WearAuthenticatorResponse(item.Type, item.Icon, item.Issuer, item.Username, item.Period, item.Digits)).ToList();
+            var items = new List<WearAuthenticatorResponse>();
 
-            var json = JsonConvert.SerializeObject(response);
+            foreach(var auth in _authSource.GetView())
+            {
+                var categoryIds = _authSource.CategoryBindings
+                    .Where(c => c.AuthenticatorSecret == auth.Secret)
+                    .Select(c => c.CategoryId).ToList();
+                
+                var item = new WearAuthenticatorResponse(
+                    auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, categoryIds); 
+                
+                items.Add(item);
+            }
+            
+            var json = JsonConvert.SerializeObject(items);
             var data = Encoding.UTF8.GetBytes(json);
 
             await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, ListCapability, data);
+                .SendMessageAsync(nodeId, ListAuthenticatorsCapability, data);
         }
 
-        private async Task GetCode(int position, string nodeId)
+        private async Task ListCategories(string nodeId)
         {
-            await _authSource.Update();
+            await _categorySource.Update();
             
-            var auth = _authSource.Get(position);
-            var data = new byte[] {};
-
-            if(auth != null)
-            {
-                var code = auth.GetCode();
-                var response = new WearAuthenticatorCodeResponse(code, auth.TimeRenew);
-
-                var json = JsonConvert.SerializeObject(response);
-                data = Encoding.UTF8.GetBytes(json);
-            }
+            var categories = 
+                _categorySource.GetView().Select(c => new WearCategoryResponse(c.Id, c.Name)).ToList();
+            
+            var json = JsonConvert.SerializeObject(categories);
+            var data = Encoding.UTF8.GetBytes(json);
 
             await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, GetCodeCapability, data);
+                .SendMessageAsync(nodeId, ListCategoriesCapability, data);
         }
 
         private async Task ListCustomIcons(string nodeId)
@@ -122,16 +129,13 @@ namespace AuthenticatorPro.Service
 
             switch(messageEvent.Path)
             {
-                case ListCapability:
+                case ListAuthenticatorsCapability:
                     await ListAuthenticators(messageEvent.SourceNodeId);
                     break;
-
-                case GetCodeCapability:
-                {
-                    var position = Int32.Parse(Encoding.UTF8.GetString(messageEvent.GetData()));
-                    await GetCode(position, messageEvent.SourceNodeId);
+                
+                case ListCategoriesCapability:
+                    await ListCategories(messageEvent.SourceNodeId);
                     break;
-                }
                 
                 case ListCustomIconsCapability:
                     await ListCustomIcons(messageEvent.SourceNodeId);

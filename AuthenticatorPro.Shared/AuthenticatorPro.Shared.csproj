@@ -45,6 +45,10 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Otp.NET, Version=1.2.2.0, Culture=neutral, PublicKeyToken=38a48df817e173a6">
+      <HintPath>..\packages\Otp.NET.1.2.2\lib\netstandard2.0\Otp.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,11 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Source\Data\ByteArrayConverter.cs" />
+    <Compile Include="Source\Data\ISource.cs" />
+    <Compile Include="Source\Query\WearCategoryResponse.cs" />
     <Compile Include="Source\Query\WearCustomIconResponse.cs" />
     <Compile Include="Source\Util\AnimUtil.cs" />
-    <Compile Include="Source\Data\AuthenticatorType.cs" />
     <Compile Include="Source\Query\WearAuthenticatorResponse.cs" />
-    <Compile Include="Source\Query\WearAuthenticatorCodeResponse.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Data\Icon.cs" />

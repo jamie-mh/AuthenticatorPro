@@ -6,29 +6,30 @@ using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Query;
 using AuthenticatorPro.WearOS.Cache;
+using AuthenticatorPro.WearOS.Data;
 
 namespace AuthenticatorPro.WearOS.List
 {
     internal class AuthenticatorListAdapter : RecyclerView.Adapter
     {
+        private readonly AuthenticatorSource _authSource;
         private readonly CustomIconCache _customIconCache;
-        public List<WearAuthenticatorResponse> Items { get; set; }
         public event EventHandler<int> ItemClick;
 
-        public AuthenticatorListAdapter(CustomIconCache customIconCache)
+        public AuthenticatorListAdapter(AuthenticatorSource authSource, CustomIconCache customIconCache)
         {
+            _authSource = authSource;
             _customIconCache = customIconCache;
-            Items = new List<WearAuthenticatorResponse>();
         }
 
         public override long GetItemId(int position)
         {
-            return Items[position].GetHashCode();
+            return _authSource.Get(position).GetHashCode();
         }
 
         public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var auth = Items.ElementAtOrDefault(position);
+            var auth = _authSource.Get(position);
 
             if(auth == null)
                 return;
@@ -64,6 +65,6 @@ namespace AuthenticatorPro.WearOS.List
             ItemClick?.Invoke(this, position);
         }
 
-        public override int ItemCount => Items.Count;
+        public override int ItemCount => _authSource.GetView().Count;
     }
 }

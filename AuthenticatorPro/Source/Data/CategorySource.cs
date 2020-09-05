@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Data;
 using SQLite;
 
 namespace AuthenticatorPro.Data

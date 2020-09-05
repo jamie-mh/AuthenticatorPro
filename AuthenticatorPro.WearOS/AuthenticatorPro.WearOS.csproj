@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -72,9 +72,14 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Cache\ListCache.cs" />
     <Compile Include="Source\Cache\CustomIconCache.cs" />
+    <Compile Include="Source\Data\AuthenticatorSource.cs" />
+    <Compile Include="Source\Data\WearAuthenticatorResponseComparer.cs" />
+    <Compile Include="Source\Data\WearCategoryResponseComparer.cs" />
     <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
     <Compile Include="Source\List\AuthenticatorListHolder.cs" />
+    <Compile Include="Source\List\CategoryListAdapter.cs" />
     <Compile Include="Source\List\ScrollingListLayoutCallback.cs" />
     <Compile Include="Source\Activity\CodeActivity.cs" />
     <Compile Include="Source\Activity\MainActivity.cs" />
@@ -105,6 +110,9 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Otp.NET">
+      <Version>1.2.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat">
       <Version>1.1.0.2</Version>
@@ -180,21 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_cloud_off.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_lock_open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_lock_open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_lock_open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_lock_open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_lock_open.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png">
