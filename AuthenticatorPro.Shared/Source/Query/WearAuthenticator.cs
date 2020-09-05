@@ -4,7 +4,7 @@ using OtpNet;
 namespace AuthenticatorPro.Shared.Query
 {
     [Android.Runtime.Preserve(AllMembers = true)]
-    public class WearAuthenticatorResponse
+    public class WearAuthenticator
     {
         public readonly string Secret;
         public readonly string Icon;
@@ -16,7 +16,7 @@ namespace AuthenticatorPro.Shared.Query
         public readonly List<string> CategoryIds;
 
 
-        public WearAuthenticatorResponse(string secret, string icon, string issuer, string username, int period, int digits, OtpHashMode algorithm, List<string> categoryIds)
+        public WearAuthenticator(string secret, string icon, string issuer, string username, int period, int digits, OtpHashMode algorithm, List<string> categoryIds)
         {
             Secret = secret;
             Icon = icon;

@@ -6,15 +6,15 @@ using AuthenticatorPro.WearOS.Cache;
 
 namespace AuthenticatorPro.WearOS.Data
 {
-    internal class AuthenticatorSource : ISource<WearAuthenticatorResponse>
+    internal class AuthenticatorSource : ISource<WearAuthenticator>
     {
-        private readonly ListCache<WearAuthenticatorResponse> _cache;
+        private readonly ListCache<WearAuthenticator> _cache;
         public string CategoryId { get; private set; }
         
-        private List<WearAuthenticatorResponse> _view;
+        private List<WearAuthenticator> _view;
 
         
-        public AuthenticatorSource(ListCache<WearAuthenticatorResponse> cache)
+        public AuthenticatorSource(ListCache<WearAuthenticator> cache)
         {
             _cache = cache;
             _view = cache.GetItems();
@@ -34,17 +34,17 @@ namespace AuthenticatorPro.WearOS.Data
                 _view = _view.Where(a => a.CategoryIds.Contains(CategoryId)).ToList();
         }
         
-        public List<WearAuthenticatorResponse> GetView()
+        public List<WearAuthenticator> GetView()
         {
             return _view;
         }
 
-        public List<WearAuthenticatorResponse> GetAll()
+        public List<WearAuthenticator> GetAll()
         {
             return _cache.GetItems();
         }
 
-        public WearAuthenticatorResponse Get(int position)
+        public WearAuthenticator Get(int position)
         {
             return _view.ElementAtOrDefault(position);
         }

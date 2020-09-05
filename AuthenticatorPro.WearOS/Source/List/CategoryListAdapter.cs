@@ -10,9 +10,9 @@ namespace AuthenticatorPro.WearOS.List
     internal class CategoryListAdapter : WearableNavigationDrawerView.WearableNavigationDrawerAdapter
     {
         private readonly Context _context;
-        private readonly ListCache<WearCategoryResponse> _cache;
+        private readonly ListCache<WearCategory> _cache;
 
-        public CategoryListAdapter(Context context, ListCache<WearCategoryResponse> cache)
+        public CategoryListAdapter(Context context, ListCache<WearCategory> cache)
         {
             _context = context;
             _cache = cache;

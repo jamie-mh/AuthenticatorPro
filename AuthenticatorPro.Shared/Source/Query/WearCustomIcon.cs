@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace AuthenticatorPro.Shared.Query
 {
     [Android.Runtime.Preserve(AllMembers = true)]
-    public class WearCustomIconResponse
+    public class WearCustomIcon
     {
         public readonly string Id;
         
@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Shared.Query
         public readonly byte[] Data;
         
 
-        public WearCustomIconResponse(string id, byte[] data)
+        public WearCustomIcon(string id, byte[] data)
         {
             Id = id;
             Data = data;

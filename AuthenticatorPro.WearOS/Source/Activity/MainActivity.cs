@@ -45,8 +45,8 @@ namespace AuthenticatorPro.WearOS.Activity
         private WearableRecyclerView _authList;
 
         private AuthenticatorSource _authSource;
-        private ListCache<WearAuthenticatorResponse> _authCache;
-        private ListCache<WearCategoryResponse> _categoryCache;
+        private ListCache<WearAuthenticator> _authCache;
+        private ListCache<WearCategory> _categoryCache;
         private CustomIconCache _customIconCache;
         
         private AuthenticatorListAdapter _authListAdapter;
@@ -78,8 +78,8 @@ namespace AuthenticatorPro.WearOS.Activity
             var layoutCallback = new ScrollingListLayoutCallback(Resources.Configuration.IsScreenRound);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
-            _authCache = new ListCache<WearAuthenticatorResponse>("authenticators", new WearAuthenticatorResponseComparer(), this);
-            _categoryCache = new ListCache<WearCategoryResponse>("categories", new WearCategoryResponseComparer(), this);
+            _authCache = new ListCache<WearAuthenticator>("authenticators", new WearAuthenticatorResponseComparer(), this);
+            _categoryCache = new ListCache<WearCategory>("categories", new WearCategoryResponseComparer(), this);
             _customIconCache = new CustomIconCache(this);
             
             await _authCache.Init();
@@ -209,7 +209,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private async Task OnAuthenticatorListReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
-            var items = JsonConvert.DeserializeObject<List<WearAuthenticatorResponse>>(json);
+            var items = JsonConvert.DeserializeObject<List<WearAuthenticator>>(json);
 
             if(_authCache.Dirty(items))
             {
@@ -221,7 +221,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private async Task OnCategoriesListReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
-            var items = JsonConvert.DeserializeObject<List<WearCategoryResponse>>(json);
+            var items = JsonConvert.DeserializeObject<List<WearCategory>>(json);
 
             if(_categoryCache.Dirty(items))
             {
@@ -254,7 +254,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private async Task OnCustomIconReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
-            var icon = JsonConvert.DeserializeObject<WearCustomIconResponse>(json);
+            var icon = JsonConvert.DeserializeObject<WearCustomIcon>(json);
             
             await _customIconCache.Add(icon.Id, icon.Data);
         }

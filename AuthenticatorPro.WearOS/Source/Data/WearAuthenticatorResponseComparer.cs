@@ -5,9 +5,9 @@ using AuthenticatorPro.Shared.Query;
 
 namespace AuthenticatorPro.WearOS.Data
 {
-    internal class WearAuthenticatorResponseComparer : IEqualityComparer<WearAuthenticatorResponse>
+    internal class WearAuthenticatorResponseComparer : IEqualityComparer<WearAuthenticator>
     {
-        public bool Equals(WearAuthenticatorResponse x, WearAuthenticatorResponse y)
+        public bool Equals(WearAuthenticator x, WearAuthenticator y)
         {
             if(ReferenceEquals(x, y)) return true;
             if(ReferenceEquals(x, null)) return false;
@@ -23,7 +23,7 @@ namespace AuthenticatorPro.WearOS.Data
             return isEqual;
         }
 
-        public int GetHashCode(WearAuthenticatorResponse obj)
+        public int GetHashCode(WearAuthenticator obj)
         {
             return HashCode.Combine(obj.Secret, obj.Icon, obj.Issuer, obj.Username, obj.Period, obj.Digits, (int) obj.Algorithm, obj.CategoryIds);
         }

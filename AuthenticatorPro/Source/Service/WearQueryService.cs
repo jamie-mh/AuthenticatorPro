@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Service
         private async Task ListAuthenticators(string nodeId)
         {
             await _authSource.Update();
-            var items = new List<WearAuthenticatorResponse>();
+            var items = new List<WearAuthenticator>();
 
             foreach(var auth in _authSource.GetView())
             {
@@ -64,7 +64,7 @@ namespace AuthenticatorPro.Service
                     .Where(c => c.AuthenticatorSecret == auth.Secret)
                     .Select(c => c.CategoryId).ToList();
                 
-                var item = new WearAuthenticatorResponse(
+                var item = new WearAuthenticator(
                     auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, categoryIds); 
                 
                 items.Add(item);
@@ -82,7 +82,7 @@ namespace AuthenticatorPro.Service
             await _categorySource.Update();
             
             var categories = 
-                _categorySource.GetView().Select(c => new WearCategoryResponse(c.Id, c.Name)).ToList();
+                _categorySource.GetView().Select(c => new WearCategory(c.Id, c.Name)).ToList();
             
             var json = JsonConvert.SerializeObject(categories);
             var data = Encoding.UTF8.GetBytes(json);
@@ -114,7 +114,7 @@ namespace AuthenticatorPro.Service
 
             if(icon != null)
             {
-                var response = new WearCustomIconResponse(icon.Id, icon.Data);
+                var response = new WearCustomIcon(icon.Id, icon.Data);
                 var json = JsonConvert.SerializeObject(response);
                 data = Encoding.UTF8.GetBytes(json);
             }
