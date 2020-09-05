@@ -1,9 +1,11 @@
 ﻿using Android.Content;
 using Android.Graphics.Drawables;
+using AndroidX.Core.Content;
 using AndroidX.Wear.Widget.Drawer;
 using AuthenticatorPro.Shared.Query;
 using AuthenticatorPro.WearOS.Cache;
 using Java.Lang;
+using ContextCompat = Android.Support.V4.Content.ContextCompat;
 
 namespace AuthenticatorPro.WearOS.List
 {
@@ -20,7 +22,7 @@ namespace AuthenticatorPro.WearOS.List
         
         public override Drawable GetItemDrawable(int pos)
         {
-            return _context.GetDrawable(Resource.Drawable.ic_action_menu);
+            return ContextCompat.GetDrawable(_context, Resource.Drawable.ic_menu);
         }
 
         public override ICharSequence GetItemTextFormatted(int pos)
@@ -31,7 +33,7 @@ namespace AuthenticatorPro.WearOS.List
             var item = _cache.Get(pos - 1);
 
             return item == null
-                ? new String("") 
+                ? new String() 
                 : new String(item.Name);
         }
 
