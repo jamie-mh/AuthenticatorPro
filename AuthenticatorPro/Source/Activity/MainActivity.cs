@@ -309,7 +309,7 @@ namespace AuthenticatorPro.Activity
         {
             var searchItem = _toolbar.Menu.FindItem(Resource.Id.actionSearch);
             
-            if(searchItem.IsActionViewExpanded)
+            if(searchItem != null && searchItem.IsActionViewExpanded)
             {
                 searchItem.CollapseActionView();
                 return;
