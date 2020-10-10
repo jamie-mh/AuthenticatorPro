@@ -1,5 +1,9 @@
 # Contribution Guide 
 
+## Translations
+
+Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin project](https://crwd.in/authenticator-pro) to contribute.
+
 ## Icons
 
 If you wish to contribute more icons to the application, the procedure is as follows:
@@ -20,10 +24,6 @@ If you wish to contribute more icons to the application, the procedure is as fol
 
 * Create a pull request.
 
-## Translations
-
-If you don't speak a language good enough, you may add a comment to show which strings need translation. English is preferred over bad grammar.
-
 ## Code / Features
 
-Before submitting any code, please open an issue beforehand to discuss if the feature is relevant.
+Before submitting any code, please open an issue to discuss if the feature is relevant.
