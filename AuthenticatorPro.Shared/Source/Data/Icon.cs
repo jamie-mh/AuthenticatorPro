@@ -18,6 +18,7 @@ namespace AuthenticatorPro.Shared.Data
             {"adafruit", Resource.Drawable.auth_adafruit},
             {"adguard", Resource.Drawable.auth_adguard},
             {"adobe", Resource.Drawable.auth_adobe},
+            {"aitrable", Resource.Drawable.auth_airtable},
             {"algolia", Resource.Drawable.auth_algolia},
             {"allinkl", Resource.Drawable.auth_allinkl},
             {"altaro", Resource.Drawable.auth_altaro},
