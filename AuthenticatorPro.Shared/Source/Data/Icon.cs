@@ -35,6 +35,7 @@ namespace AuthenticatorPro.Shared.Data
             {"binance", Resource.Drawable.auth_binance},
             {"bitbucket", Resource.Drawable.auth_bitbucket},
             {"bitcoin", Resource.Drawable.auth_bitcoin},
+            {"bitdefener", Resource.Drawable.auth_bitdefender},
             {"bitfinex", Resource.Drawable.auth_bitfinex},
             {"bitpay", Resource.Drawable.auth_bitpay},
             {"bitwarden", Resource.Drawable.auth_bitwarden},
