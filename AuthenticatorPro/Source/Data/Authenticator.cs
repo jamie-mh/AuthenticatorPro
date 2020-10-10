@@ -176,26 +176,34 @@ namespace AuthenticatorPro.Data
             };
 
             // Get the issuer and username if possible
-            const string issuerNameExpr = @"^(.*):(.*)$";
-            var issuerName = Regex.Match(uriMatch.Groups[2].Value, issuerNameExpr);
+            var issuerUsername = uriMatch.Groups[2].Value;
+            var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*):(.*)$");
+            
+            var queryString = uriMatch.Groups[3].Value;
+            var args = Regex.Matches(queryString, "([^?=&]+)(=([^&]*))?")
+                .ToDictionary(x => x.Groups[1].Value, x => x.Groups[3].Value);
 
             string issuer;
             string username;
 
-            if(issuerName.Success)
+            if(issuerUsernameMatch.Success)
             {
-                issuer = issuerName.Groups[1].Value;
-                username = issuerName.Groups[2].Value;
+                issuer = issuerUsernameMatch.Groups[1].Value;
+                username = issuerUsernameMatch.Groups[2].Value;
             }
             else
             {
-                issuer = uriMatch.Groups[2].Value;
-                username = "";
+                if(args.ContainsKey("issuer"))
+                {
+                    issuer = args["issuer"];
+                    username = issuerUsername;
+                }
+                else
+                {
+                    issuer = uriMatch.Groups[2].Value;
+                    username = "";
+                }
             }
-
-            var queryString = uriMatch.Groups[3].Value;
-            var args = Regex.Matches(queryString, "([^?=&]+)(=([^&]*))?")
-                .ToDictionary(x => x.Groups[1].Value, x => x.Groups[3].Value);
 
             var algorithm = OtpHashMode.Sha1;
 
