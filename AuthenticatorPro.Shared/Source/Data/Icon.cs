@@ -96,6 +96,7 @@ namespace AuthenticatorPro.Shared.Data
             {"ifttt", Resource.Drawable.auth_ifttt},
             {"immobilienscout24", Resource.Drawable.auth_immobilienscout24},
             {"instagram", Resource.Drawable.auth_instagram},
+            {"integromat", Resource.Drawable.auth_integromat},
             {"inwx", Resource.Drawable.auth_inwx},
             {"jetbrains", Resource.Drawable.auth_jetbrains},
             {"jetbrains2", Resource.Drawable.auth_jetbrains2 },
