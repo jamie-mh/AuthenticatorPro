@@ -28,6 +28,7 @@ namespace AuthenticatorPro.Shared.Data
             {"arubacloud", Resource.Drawable.auth_arubacloud},
             {"atlassian", Resource.Drawable.auth_atlassian},
             {"autodesk", Resource.Drawable.auth_autodesk},
+            {"awardwallet", Resource.Drawable.auth_awardwallet},
             {"aws", Resource.Drawable.auth_aws},
             {"azure", Resource.Drawable.auth_azure},
             {"backblaze", Resource.Drawable.auth_backblaze},
