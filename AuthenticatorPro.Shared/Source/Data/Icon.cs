@@ -232,6 +232,7 @@ namespace AuthenticatorPro.Shared.Data
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
         {
             // Brand icons
+            {"500px", Resource.Drawable.auth_500px_dark},
             {"3cx", Resource.Drawable.auth_3cx_dark},
             {"adafruit", Resource.Drawable.auth_adafruit_dark},
             {"adobe", Resource.Drawable.auth_adobe_dark},
