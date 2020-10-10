@@ -70,6 +70,7 @@ namespace AuthenticatorPro.Shared.Data
             {"eveonline", Resource.Drawable.auth_eveonline},
             {"evernote", Resource.Drawable.auth_evernote},
             {"facebook", Resource.Drawable.auth_facebook},
+            {"fanatical", Resource.Drawable.auth_fanatical},
             {"figma", Resource.Drawable.auth_figma},
             {"firefox", Resource.Drawable.auth_firefox},
             {"funio", Resource.Drawable.auth_funio},
