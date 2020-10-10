@@ -159,8 +159,26 @@ namespace AuthenticatorPro.WearOS.Activity
             var capabilityInfo = await WearableClass.GetCapabilityClient(this)
                 .GetCapabilityAsync(ProtocolVersion, CapabilityClient.FilterReachable);
 
-            _serverNode = 
-                capabilityInfo.Nodes.FirstOrDefault(n => n.IsNearby);
+            var capableNode = capabilityInfo.Nodes.FirstOrDefault(n => n.IsNearby);
+
+            if(capableNode == null)
+            {
+                _serverNode = null;
+                return;
+            }
+
+            // Immediately after disconnecting from the phone, the device may still show up in the list of reachable nodes.
+            // But since it's disconnected, any attempt to send a message will fail.
+            // So, make sure that the phone *really* is connected before continuing.
+            try
+            {
+                await WearableClass.GetMessageClient(this).SendMessageAsync(capableNode.Id, ProtocolVersion, new byte[] { });
+                _serverNode = capableNode;
+            }
+            catch(ApiException)
+            {
+                _serverNode = null;
+            }
         }
 
         private async Task Refresh()
