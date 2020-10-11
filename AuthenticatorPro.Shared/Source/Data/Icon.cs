@@ -10,6 +10,7 @@ namespace AuthenticatorPro.Shared.Data
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
             // Brand icons
+            {"500px", Resource.Drawable.auth_500px},
             {"1and1", Resource.Drawable.auth_1and1},
             {"1password", Resource.Drawable.auth_1password},
             {"23andme", Resource.Drawable.auth_23andme},
@@ -18,6 +19,7 @@ namespace AuthenticatorPro.Shared.Data
             {"adafruit", Resource.Drawable.auth_adafruit},
             {"adguard", Resource.Drawable.auth_adguard},
             {"adobe", Resource.Drawable.auth_adobe},
+            {"aitrable", Resource.Drawable.auth_airtable},
             {"algolia", Resource.Drawable.auth_algolia},
             {"allinkl", Resource.Drawable.auth_allinkl},
             {"altaro", Resource.Drawable.auth_altaro},
@@ -28,12 +30,14 @@ namespace AuthenticatorPro.Shared.Data
             {"arubacloud", Resource.Drawable.auth_arubacloud},
             {"atlassian", Resource.Drawable.auth_atlassian},
             {"autodesk", Resource.Drawable.auth_autodesk},
+            {"awardwallet", Resource.Drawable.auth_awardwallet},
             {"aws", Resource.Drawable.auth_aws},
             {"azure", Resource.Drawable.auth_azure},
             {"backblaze", Resource.Drawable.auth_backblaze},
             {"binance", Resource.Drawable.auth_binance},
             {"bitbucket", Resource.Drawable.auth_bitbucket},
             {"bitcoin", Resource.Drawable.auth_bitcoin},
+            {"bitdefener", Resource.Drawable.auth_bitdefender},
             {"bitfinex", Resource.Drawable.auth_bitfinex},
             {"bitpay", Resource.Drawable.auth_bitpay},
             {"bitwarden", Resource.Drawable.auth_bitwarden},
@@ -67,6 +71,7 @@ namespace AuthenticatorPro.Shared.Data
             {"eveonline", Resource.Drawable.auth_eveonline},
             {"evernote", Resource.Drawable.auth_evernote},
             {"facebook", Resource.Drawable.auth_facebook},
+            {"fanatical", Resource.Drawable.auth_fanatical},
             {"figma", Resource.Drawable.auth_figma},
             {"firefox", Resource.Drawable.auth_firefox},
             {"funio", Resource.Drawable.auth_funio},
@@ -92,6 +97,7 @@ namespace AuthenticatorPro.Shared.Data
             {"ifttt", Resource.Drawable.auth_ifttt},
             {"immobilienscout24", Resource.Drawable.auth_immobilienscout24},
             {"instagram", Resource.Drawable.auth_instagram},
+            {"integromat", Resource.Drawable.auth_integromat},
             {"inwx", Resource.Drawable.auth_inwx},
             {"jetbrains", Resource.Drawable.auth_jetbrains},
             {"jetbrains2", Resource.Drawable.auth_jetbrains2 },
@@ -125,6 +131,7 @@ namespace AuthenticatorPro.Shared.Data
             {"nexusmods", Resource.Drawable.auth_nexusmods},
             {"nintendo", Resource.Drawable.auth_nintendo},
             {"nitrado", Resource.Drawable.auth_nitrado},
+            {"nominet", Resource.Drawable.auth_nominet},
             {"npm", Resource.Drawable.auth_npm},
             {"office365", Resource.Drawable.auth_office365},
             {"onedrive", Resource.Drawable.auth_onedrive},
@@ -225,6 +232,7 @@ namespace AuthenticatorPro.Shared.Data
         private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
         {
             // Brand icons
+            {"500px", Resource.Drawable.auth_500px_dark},
             {"3cx", Resource.Drawable.auth_3cx_dark},
             {"adafruit", Resource.Drawable.auth_adafruit_dark},
             {"adobe", Resource.Drawable.auth_adobe_dark},
