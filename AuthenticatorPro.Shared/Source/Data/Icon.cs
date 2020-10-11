@@ -246,7 +246,6 @@ namespace AuthenticatorPro.Shared.Data
             {"github", Resource.Drawable.auth_github_dark},
             {"hushmail", Resource.Drawable.auth_hushmail_dark},
             {"ifttt", Resource.Drawable.auth_ifttt_dark},
-            {"integromat", Resource.Drawable.auth_integromat_dark},
             {"jetbrains2", Resource.Drawable.auth_jetbrains2_dark},
             {"netcup", Resource.Drawable.auth_netcup_dark},
             {"patreon", Resource.Drawable.auth_patreon_dark},
