@@ -1,0 +1,4 @@
+General: Fix category switch when device orientation changes.
+General: New icons for Nominet, AwardWallet, Bitdefender, Airtable, Migadu, 500px, Integromat and Fanatical.
+General: Updates to German localisation + new Chinese localisation.
+Wear OS: Fix potential crash when disconnected from phone.
