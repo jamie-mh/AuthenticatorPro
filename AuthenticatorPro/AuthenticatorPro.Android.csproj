@@ -167,6 +167,7 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\menu\sheet.xml" />
+    <AndroidResource Include="Resources\values-zh-rCN\strings.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
