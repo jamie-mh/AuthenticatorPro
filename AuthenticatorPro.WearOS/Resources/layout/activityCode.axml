@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.wear.widget.BoxInsetLayout
+<androidx.wear.widget.BoxInsetLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
@@ -59,4 +59,4 @@
 
     </RelativeLayout>
 
-</android.support.wear.widget.BoxInsetLayout>
+</androidx.wear.widget.BoxInsetLayout>
