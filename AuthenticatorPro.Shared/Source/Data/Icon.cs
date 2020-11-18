@@ -291,24 +291,24 @@ namespace AuthenticatorPro.Shared.Data
             if(isDark)
             {
                 if(key == null)
-                    return ServiceDark["default"];
+                    return ServiceDark[Default];
 
                 if(ServiceDark.ContainsKey(key))
                     return ServiceDark[key];
 
-                return Service.ContainsKey(key) ? Service[key] : ServiceDark["default"];
+                return Service.ContainsKey(key) ? Service[key] : ServiceDark[Default];
             }
 
             if(key == null)
-                return Service["default"];
+                return Service[Default];
 
-            return Service.ContainsKey(key) ? Service[key] : Service["default"];
+            return Service.ContainsKey(key) ? Service[key] : Service[Default];
         }
 
         public static string FindServiceKeyByName(string name)
         {
             var key = name.ToLower().Split(' ')[0];
-            return Service.Keys.Contains(key) ? key : "default";
+            return Service.Keys.Contains(key) ? key : Default;
         }
     }
 }
