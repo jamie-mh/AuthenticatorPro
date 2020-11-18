@@ -80,7 +80,7 @@
     <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
     <Compile Include="Source\List\AuthenticatorListHolder.cs" />
     <Compile Include="Source\List\CategoryListAdapter.cs" />
-    <Compile Include="Source\List\ScrollingListLayoutCallback.cs" />
+    <Compile Include="Source\List\AuthenticatorListLayoutCallback.cs" />
     <Compile Include="Source\Activity\CodeActivity.cs" />
     <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

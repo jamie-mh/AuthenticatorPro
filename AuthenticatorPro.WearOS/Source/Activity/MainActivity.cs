@@ -76,7 +76,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _authList.SetItemViewCacheSize(12);
             _authList.SetItemAnimator(null);
 
-            var layoutCallback = new ScrollingListLayoutCallback(Resources.Configuration.IsScreenRound);
+            var layoutCallback = new AuthenticatorListLayoutCallback(this);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
             _authCache = new ListCache<WearAuthenticator>("authenticators", this);
