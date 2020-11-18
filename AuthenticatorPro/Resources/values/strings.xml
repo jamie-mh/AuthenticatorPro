@@ -6,6 +6,8 @@
     <string name="backup">Backup</string>
     <string name="about">About</string>
     <string name="scanQrCode">Scan a QR Code</string>
+    <string name="scanQrCodeFromCamera">Scan from camera</string>
+    <string name="scanQrCodeFromGallery">Scan from gallery</string>
     <string name="enterKey">Enter a provided key</string>
     <string name="restoreBackup">Restore a backup</string>
     <string name="copiedToClipboard">Code copied to clipboard</string>
@@ -49,7 +51,7 @@
     <string name="secretInvalid">The secret is invalid.</string>
     <string name="digitsInvalid">The authenticator must generate between 6 and 10 digits.</string>
     <string name="periodToShort">The period must be longer than 0 seconds.</string>
-    <string name="qrCodeFormatError">The QR code is not in the correct format.</string>
+    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read.</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists.</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories.</string>
     <string name="restoredFromMigration">Restored {0} new authenticators.</string>

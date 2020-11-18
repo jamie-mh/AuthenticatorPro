@@ -48,7 +48,7 @@
     <string name="secretInvalid">La clé secrète n\'est pas valide.</string>
     <string name="digitsInvalid">L\'authentificateur doit générer entre 6 et 10 chiffres.</string>
     <string name="periodToShort">La période doit être plus longue que 0 secondes.</string>
-    <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format.</string>
+    <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible.</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà.</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés.</string>
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés.</string>
@@ -163,4 +163,6 @@
     <string name="introBackupSummary">Sauvegardez vos authentificateurs avec un chiffrement fort. Dans le cas où vous perdez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
     <string name="introCategoriesSummary">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>
     <string name="introThemesSummary">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
+    <string name="scanQrCodeFromCamera">Scanner à partir de la caméra</string>
+    <string name="scanQrCodeFromGallery">Scanner à partir d\'une image</string>
 </resources>

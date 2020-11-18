@@ -11,6 +11,7 @@ using Android.Content.PM;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -33,8 +34,10 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.IO;
+using Java.Nio;
 using SQLite;
 using ZXing;
+using ZXing.Common;
 using ZXing.Mobile;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
@@ -56,8 +59,9 @@ namespace AuthenticatorPro.Activity
         private const int ResultLogin = 0;
         private const int ResultRestoreSAF = 1;
         private const int ResultBackupSAF = 2;
-        private const int ResultCustomIconSAF = 3;
-        private const int ResultSettingsRecreate = 4;
+        private const int ResultQRCodeSAF = 3;
+        private const int ResultCustomIconSAF = 4;
+        private const int ResultSettingsRecreate = 5;
 
         private bool _areGoogleAPIsAvailable;
         private bool _hasWearAPIs;
@@ -329,7 +333,7 @@ namespace AuthenticatorPro.Activity
             if(requestCode == PermissionCameraCode)
             {
                 if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
-                    await ScanQRCode();
+                    await ScanQRCodeFromCamera();
                 else
                     ShowSnackbar(Resource.String.cameraPermissionError, Snackbar.LengthShort);
             }
@@ -580,7 +584,21 @@ namespace AuthenticatorPro.Activity
         private void OnAddButtonClick(object sender, EventArgs e)
         {
             var fragment = new AddMenuBottomSheet();
-            fragment.ClickQrCode += OpenQRCodeScanner;
+            fragment.ClickQrCode += (s, e) =>
+            {
+                var subFragment = new ScanQRCodeBottomSheet();
+                subFragment.ClickFromCamera += OpenQRCodeScanner;
+                subFragment.ClickFromGallery += (s, e) =>
+                {
+                    var intent = new Intent(Intent.ActionOpenDocument);
+                    intent.AddCategory(Intent.CategoryOpenable);
+                    intent.SetType("image/*");
+                    StartActivityForResult(intent, ResultQRCodeSAF);
+                };
+                
+                subFragment.Show(SupportFragmentManager, subFragment.Tag);
+            };
+            
             fragment.ClickEnterKey += OpenAddDialog;
             fragment.ClickRestore += (s, e) =>
             {
@@ -593,8 +611,47 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        {
+            if(resultCode != Result.Ok)
+                return;
 
-        private async Task ScanQRCode()
+            if(requestCode == ResultLogin)
+            {
+                _isAuthenticated = true;
+                return;
+            }
+
+            _onceResumedTask = requestCode switch {
+                ResultRestoreSAF => new Task(async () =>
+                {
+                    await BeginRestore(intent.Data);
+                }),
+                ResultBackupSAF => new Task(() =>
+                {
+                    BeginBackup(intent.Data);
+                }),
+                ResultCustomIconSAF => new Task(async () =>
+                {
+                    await SetCustomIcon(intent.Data);
+                }),
+                ResultQRCodeSAF => new Task(async () =>
+                {
+                    await ScanQRCodeFromImage(intent.Data);
+                }),
+                ResultSettingsRecreate => new Task(() =>
+                {
+                    RunOnUiThread(Recreate);
+                }),
+                _ => _onceResumedTask
+            };
+        }
+        
+        /*
+         *  QR Code Scanning
+         */
+        
+        private async Task ScanQRCodeFromCamera()
         {
             var options = new MobileBarcodeScanningOptions
             {
@@ -608,9 +665,76 @@ namespace AuthenticatorPro.Activity
             var scanner = new MobileBarcodeScanner();
             var result = await scanner.Scan(options);
 
-            if(result == null)
-                return;
+            await ParseQRCodeScanResult(result);
+        }
 
+        private async Task ScanQRCodeFromImage(Uri uri)
+        {
+            MemoryStream memoryStream = null;
+            Stream stream = null;
+            Bitmap bitmap;
+
+            try
+            {
+                stream = ContentResolver.OpenInputStream(uri);
+                memoryStream = new MemoryStream();
+                await stream.CopyToAsync(memoryStream);
+                
+                var fileData = memoryStream.ToArray();
+                bitmap = await BitmapFactory.DecodeByteArrayAsync(fileData, 0, fileData.Length);
+            }
+            catch(Exception)
+            {
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                return;
+            }
+            finally
+            {
+                memoryStream?.Close();
+                stream?.Close();
+            }
+
+            var reader = new BarcodeReader(null, null, ls => new GlobalHistogramBinarizer(ls))
+            {
+                AutoRotate = true,
+                TryInverted = true,
+                Options = new DecodingOptions
+                {
+                    PossibleFormats = new List<BarcodeFormat> {BarcodeFormat.QR_CODE}, TryHarder = true
+                }
+            };
+
+            ZXing.Result result;
+
+            try
+            {
+                var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
+                await bitmap.CopyPixelsToBufferAsync(buffer);
+                buffer.Rewind();
+
+                var bytes = new byte[buffer.Remaining()];
+                buffer.Get(bytes);
+
+                var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height,
+                    RGBLuminanceSource.BitmapFormat.RGBA32);
+                result = reader.Decode(source);
+            }
+            catch(Exception)
+            {
+                return;
+            }
+            
+            ParseQRCodeScanResult(result);
+        }
+
+        private async Task ParseQRCodeScanResult(ZXing.Result result)
+        {
+            if(result == null)
+            {
+                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
+                return;
+            }
+            
             if(result.Text.StartsWith("otpauth-migration"))
                 await OnOtpAuthMigrationScan(result.Text);
             else if(result.Text.StartsWith("otpauth"))
@@ -621,7 +745,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            CheckEmptyState();
+            RunOnUiThread(CheckEmptyState);
             await NotifyWearAppOfChange();
 
             PreferenceManager.GetDefaultSharedPreferences(this)
@@ -666,8 +790,12 @@ namespace AuthenticatorPro.Activity
             await _authSource.Update();
             
             var position = _authSource.GetPosition(auth.Secret);
-            _authListAdapter.NotifyItemInserted(position);
-            _authList.SmoothScrollToPosition(position);
+            
+            RunOnUiThread(() =>
+            {
+                _authListAdapter.NotifyItemInserted(position);
+                _authList.SmoothScrollToPosition(position);
+            });
         }
 
         private async Task OnOtpAuthMigrationScan(string uri)
@@ -717,7 +845,7 @@ namespace AuthenticatorPro.Activity
             await _authSource.Update();
             await SwitchCategory(null);
             
-            _authListAdapter.NotifyDataSetChanged();
+            RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             
             var message = String.Format(GetString(Resource.String.restoredFromMigration), inserted);
             ShowSnackbar(message, Snackbar.LengthLong);
@@ -728,39 +856,7 @@ namespace AuthenticatorPro.Activity
             if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
                 ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.Camera }, PermissionCameraCode);
             else
-                await ScanQRCode();
-        }
-
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
-        {
-            if(resultCode != Result.Ok)
-                return;
-
-            if(requestCode == ResultLogin)
-            {
-                _isAuthenticated = true;
-                return;
-            }
-
-            _onceResumedTask = requestCode switch {
-                ResultRestoreSAF => new Task(async () =>
-                {
-                    await BeginRestore(intent.Data);
-                }),
-                ResultBackupSAF => new Task(() =>
-                {
-                    BeginBackup(intent.Data);
-                }),
-                ResultCustomIconSAF => new Task(async () =>
-                {
-                    await SetCustomIcon(intent.Data);
-                }),
-                ResultSettingsRecreate => new Task(() =>
-                {
-                    RunOnUiThread(Recreate);
-                }),
-                _ => _onceResumedTask
-            };
+                await ScanQRCodeFromCamera();
         }
 
         /*
