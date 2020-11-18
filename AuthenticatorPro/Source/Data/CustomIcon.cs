@@ -63,8 +63,6 @@ namespace AuthenticatorPro.Data
             try
             {
                 bitmap = Bitmap.CreateScaledBitmap(bitmap, size, size, true);
-                var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
-                await bitmap.CopyPixelsToBufferAsync(buffer);
                 await bitmap.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
             }
             finally
