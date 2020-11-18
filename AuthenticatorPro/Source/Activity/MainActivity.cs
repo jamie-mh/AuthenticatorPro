@@ -646,11 +646,8 @@ namespace AuthenticatorPro.Activity
                 _ => _onceResumedTask
             };
         }
-        
-        /*
-         *  QR Code Scanning
-         */
-        
+
+        #region QR Code Scanning
         private async Task ScanQRCodeFromCamera()
         {
             var options = new MobileBarcodeScanningOptions
@@ -858,11 +855,9 @@ namespace AuthenticatorPro.Activity
             else
                 await ScanQRCodeFromCamera();
         }
+        #endregion
 
-        /*
-         *  Restore
-         */
-
+        #region Restore
         private async Task BeginRestore(Uri uri)
         {
             MemoryStream memoryStream = null;
@@ -994,11 +989,9 @@ namespace AuthenticatorPro.Activity
 
             return new Tuple<int, int>(authsInserted, categoriesInserted);
         }
+        #endregion
 
-        /*
-         *  Backup
-         */
-
+        #region Backup
         private void BeginBackup(Uri uri)
         {
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Backup);
@@ -1085,11 +1078,10 @@ namespace AuthenticatorPro.Activity
             snackbar.AddCallback(callback);
             snackbar.Show();
         }
+        
+        #endregion
 
-        /*
-         *  Add Dialog
-         */
-
+        #region Add Dialog
         private void OpenAddDialog(object sender, EventArgs e)
         {
             var fragment = new AddAuthenticatorBottomSheet();
@@ -1127,11 +1119,9 @@ namespace AuthenticatorPro.Activity
             
             dialog.Dismiss();
         }
+        #endregion
 
-        /*
-         *  Rename Dialog
-         */
-
+        #region Rename Dialog
         private void OpenRenameDialog(int position)
         {
             var auth = _authSource.Get(position);
@@ -1150,11 +1140,9 @@ namespace AuthenticatorPro.Activity
             _authListAdapter.NotifyItemChanged(e.ItemPosition);
             await NotifyWearAppOfChange();
         }
+        #endregion
 
-        /*
-         *  Icon Dialog
-         */
-
+        #region Icon Dialog
         private void OpenIconDialog(int position)
         {
             var fragment = new ChangeIconBottomSheet(position, IsDark);
@@ -1183,11 +1171,9 @@ namespace AuthenticatorPro.Activity
 
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
-        
-        /*
-         *  Custom Icons
-         */
+        #endregion
 
+        #region Custom Icons
         private void StartCustomIconPicker()
         {
             var intent = new Intent(Intent.ActionOpenDocument);
@@ -1254,11 +1240,9 @@ namespace AuthenticatorPro.Activity
                     await _customIconSource.Delete(id);
             }
         }
-        
-        /*
-         *  Categories Dialog
-         */
+        #endregion
 
+        #region Categories
         private void OpenCategoriesDialog(int position)
         {
             var auth = _authSource.Get(position);
@@ -1298,11 +1282,9 @@ namespace AuthenticatorPro.Activity
             else
                 await _authSource.RemoveFromCategory(categoryId, authSecret);
         }
+        #endregion
 
-        /*
-         *  Wear OS
-         */
-
+        #region Wear OS
         public async void OnCapabilityChanged(ICapabilityInfo capabilityInfo)
         {
             await DetectWearOSCapability();
@@ -1351,11 +1333,9 @@ namespace AuthenticatorPro.Activity
             foreach(var node in nodes)
                 await client.SendMessageAsync(node.Id, WearRefreshCapability, new byte[] { });
         }
+        #endregion
 
-        /*
-         *  Misc
-         */
-
+        #region Misc
         private void ShowSnackbar(int textRes, int length)
         {
             var snackbar = Snackbar.Make(_coordinatorLayout, textRes, length);
@@ -1369,5 +1349,6 @@ namespace AuthenticatorPro.Activity
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
         }
+        #endregion
     }
 }
