@@ -165,4 +165,5 @@
     <string name="introThemesSummary">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
     <string name="scanQrCodeFromCamera">Scanner à partir de la caméra</string>
     <string name="scanQrCodeFromGallery">Scanner à partir d\'une image</string>
+    <string name="scanSuccessful">QR Code scanné avec succès</string>
 </resources>

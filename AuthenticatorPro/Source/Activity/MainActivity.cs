@@ -793,6 +793,8 @@ namespace AuthenticatorPro.Activity
                 _authListAdapter.NotifyItemInserted(position);
                 _authList.SmoothScrollToPosition(position);
             });
+            
+            ShowSnackbar(Resource.String.scanSuccessful, Snackbar.LengthShort);
         }
 
         private async Task OnOtpAuthMigrationScan(string uri)
