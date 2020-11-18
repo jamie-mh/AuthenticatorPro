@@ -664,6 +664,9 @@ namespace AuthenticatorPro.Activity
             var scanner = new MobileBarcodeScanner();
             var result = await scanner.Scan(options);
 
+            if(result == null)
+                return;
+
             await ParseQRCodeScanResult(result);
         }
 
@@ -723,17 +726,17 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            ParseQRCodeScanResult(result);
-        }
-
-        private async Task ParseQRCodeScanResult(ZXing.Result result)
-        {
             if(result == null)
             {
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
             }
             
+            ParseQRCodeScanResult(result);
+        }
+
+        private async Task ParseQRCodeScanResult(ZXing.Result result)
+        {
             if(result.Text.StartsWith("otpauth-migration"))
                 await OnOtpAuthMigrationScan(result.Text);
             else if(result.Text.StartsWith("otpauth"))
