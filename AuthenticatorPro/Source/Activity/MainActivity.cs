@@ -646,7 +646,7 @@ namespace AuthenticatorPro.Activity
             var intent = new Intent(Intent.ActionOpenDocument);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType("image/*");
-            StartActivityForResult(intent, ResultCustomIconSAF);
+            StartActivityForResult(intent, resultCode);
         }
 
         #region QR Code Scanning
