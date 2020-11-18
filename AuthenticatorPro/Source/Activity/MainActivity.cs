@@ -118,7 +118,7 @@ namespace AuthenticatorPro.Activity
 
             _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
             _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
-            _bottomAppBar.MenuItemClick += (sender, args) =>
+            _bottomAppBar.MenuItemClick += delegate
             {
                 _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
                 _authList.SmoothScrollToPosition(0);
@@ -134,10 +134,7 @@ namespace AuthenticatorPro.Activity
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
             _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
             _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
-            _viewGuideButton.Click += (sender, args) =>
-            {
-                StartActivity(typeof(GuideActivity));
-            };
+            _viewGuideButton.Click += delegate { StartActivity(typeof(GuideActivity)); };
 
             _refreshOnActivityResume = false;
 
@@ -256,7 +253,7 @@ namespace AuthenticatorPro.Activity
                     searchItem.CollapseActionView();
             };
 
-            searchView.Close += (sender, e) =>
+            searchView.Close += delegate
             {
                 searchItem.CollapseActionView();
                 _authSource.SetSearch(null);
@@ -268,13 +265,13 @@ namespace AuthenticatorPro.Activity
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
         {
             var fragment = new MainMenuBottomSheet(_categorySource, _authSource.CategoryId);
-            fragment.CategoryClick += async (s, id) =>
+            fragment.CategoryClick += async (_, id) =>
             {
                 await SwitchCategory(id);
                 fragment.Dismiss();
             };
 
-            fragment.BackupClick += (sender, e) =>
+            fragment.BackupClick += delegate
             {
                 if(!_authSource.GetAll().Any())
                 {
@@ -285,16 +282,18 @@ namespace AuthenticatorPro.Activity
                 StartBackupSaveActivity();
             };
 
-            fragment.ManageCategoriesClick += (sender, e) =>
+            fragment.ManageCategoriesClick += delegate
             {
                 _refreshOnActivityResume = true;
                 StartActivity(typeof(ManageCategoriesActivity));
             };
-            fragment.SettingsClick += (sender, e) =>
+            
+            fragment.SettingsClick += delegate
             {
                 _refreshOnActivityResume = true;
                 StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
             };
+            
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -368,7 +367,7 @@ namespace AuthenticatorPro.Activity
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.databaseError);
             builder.SetTitle(Resource.String.warning);
-            builder.SetPositiveButton(Resource.String.quit, (sender, args) =>
+            builder.SetPositiveButton(Resource.String.quit, delegate
             {
                 Finish();
             });
@@ -394,11 +393,12 @@ namespace AuthenticatorPro.Activity
 
             _authListAdapter.ItemClick += OnAuthenticatorClick;
             _authListAdapter.MenuClick += OnAuthenticatorOptionsClick;
-            _authListAdapter.MovementStarted += (sender, i) =>
+            _authListAdapter.MovementStarted += delegate
             {
                 _bottomAppBar.PerformHide();
             };
-            _authListAdapter.MovementFinished += async (sender, i) =>
+            
+            _authListAdapter.MovementFinished += async delegate
             {
                 _bottomAppBar.PerformShow();
                 await NotifyWearAppOfChange();
@@ -551,10 +551,10 @@ namespace AuthenticatorPro.Activity
                 return;
 
             var fragment = new EditMenuBottomSheet(auth.Type, auth.Counter);
-            fragment.ClickRename += (s, e) => { OpenRenameDialog(position); };
-            fragment.ClickChangeIcon += (s, e) => { OpenIconDialog(position); };
-            fragment.ClickAssignCategories += (s, e) => { OpenCategoriesDialog(position); };
-            fragment.ClickDelete += (s, e) => { OpenDeleteDialog(position); };
+            fragment.ClickRename += delegate { OpenRenameDialog(position); };
+            fragment.ClickChangeIcon += delegate { OpenIconDialog(position); };
+            fragment.ClickAssignCategories += delegate { OpenCategoriesDialog(position); };
+            fragment.ClickDelete += delegate { OpenDeleteDialog(position); };
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -563,7 +563,7 @@ namespace AuthenticatorPro.Activity
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmAuthenticatorDelete);
             builder.SetTitle(Resource.String.warning);
-            builder.SetPositiveButton(Resource.String.delete, async (sender, args) =>
+            builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 var auth = _authSource.Get(position);
                 await TryCleanupCustomIcon(auth.Icon);
@@ -574,7 +574,8 @@ namespace AuthenticatorPro.Activity
                 await NotifyWearAppOfChange();
                 CheckEmptyState();
             });
-            builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
+            
+            builder.SetNegativeButton(Resource.String.cancel, delegate { });
             builder.SetCancelable(true);
 
             var dialog = builder.Create();
@@ -584,23 +585,16 @@ namespace AuthenticatorPro.Activity
         private void OnAddButtonClick(object sender, EventArgs e)
         {
             var fragment = new AddMenuBottomSheet();
-            fragment.ClickQrCode += (s, e) =>
+            fragment.ClickQrCode += delegate
             {
                 var subFragment = new ScanQRCodeBottomSheet();
                 subFragment.ClickFromCamera += OpenQRCodeScanner;
-                subFragment.ClickFromGallery += (s, e) =>
-                {
-                    var intent = new Intent(Intent.ActionOpenDocument);
-                    intent.AddCategory(Intent.CategoryOpenable);
-                    intent.SetType("image/*");
-                    StartActivityForResult(intent, ResultQRCodeSAF);
-                };
-                
+                subFragment.ClickFromGallery += delegate { OpenImagePicker(ResultQRCodeSAF); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
             
             fragment.ClickEnterKey += OpenAddDialog;
-            fragment.ClickRestore += (s, e) =>
+            fragment.ClickRestore += delegate
             {
                 var intent = new Intent(Intent.ActionOpenDocument);
                 intent.AddCategory(Intent.CategoryOpenable);
@@ -645,6 +639,14 @@ namespace AuthenticatorPro.Activity
                 }),
                 _ => _onceResumedTask
             };
+        }
+        
+        private void OpenImagePicker(int resultCode)
+        {
+            var intent = new Intent(Intent.ActionOpenDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("image/*");
+            StartActivityForResult(intent, ResultCustomIconSAF);
         }
 
         #region QR Code Scanning
@@ -948,7 +950,7 @@ namespace AuthenticatorPro.Activity
                 await TryRestore(password, fragment);
             };
 
-            fragment.Cancel += (s, e) =>
+            fragment.Cancel += delegate
             {
                 fragment.Dismiss();
             };
@@ -1149,10 +1151,10 @@ namespace AuthenticatorPro.Activity
         {
             var fragment = new ChangeIconBottomSheet(position, IsDark);
             fragment.IconSelect += OnIconDialogIconSelected;
-            fragment.UseCustomIconClick += (sender, args) =>
+            fragment.UseCustomIconClick += delegate 
             {
                 _customIconApplyPosition = position;
-                StartCustomIconPicker();
+                OpenImagePicker(ResultCustomIconSAF);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1176,14 +1178,6 @@ namespace AuthenticatorPro.Activity
         #endregion
 
         #region Custom Icons
-        private void StartCustomIconPicker()
-        {
-            var intent = new Intent(Intent.ActionOpenDocument);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("image/*");
-            StartActivityForResult(intent, ResultCustomIconSAF);
-        }
-        
         private async Task SetCustomIcon(Uri uri)
         {
             MemoryStream memoryStream = null;
@@ -1254,7 +1248,7 @@ namespace AuthenticatorPro.Activity
 
             var fragment = new AssignCategoriesBottomSheet(_categorySource, position, _authSource.GetCategories(position));
             fragment.CategoryClick += OnCategoriesDialogCategoryClick;
-            fragment.ManageCategoriesClick += (sender, e) =>
+            fragment.ManageCategoriesClick += delegate
             {
                 _refreshOnActivityResume = true;
                 StartActivity(typeof(ManageCategoriesActivity));

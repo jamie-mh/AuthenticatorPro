@@ -16,10 +16,7 @@ namespace AuthenticatorPro.List
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);
 
             var menuButton = itemView.FindViewById<ImageButton>(Resource.Id.buttonMenu);
-            menuButton.Click += (sender, args) =>
-            {
-                MenuClick?.Invoke(this, AdapterPosition);
-            };
+            menuButton.Click += delegate { MenuClick?.Invoke(this, AdapterPosition); };
         }
     }
 }

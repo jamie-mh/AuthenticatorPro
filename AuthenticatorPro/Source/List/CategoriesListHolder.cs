@@ -14,11 +14,7 @@ namespace AuthenticatorPro.List
         public CategoriesListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);
-
-            itemView.Click += (sender, args) =>
-            {
-                Click?.Invoke(this, AdapterPosition);
-            };
+            itemView.Click += delegate { Click?.Invoke(this, AdapterPosition); };
         }
     }
 }

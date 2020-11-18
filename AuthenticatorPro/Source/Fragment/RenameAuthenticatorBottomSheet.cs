@@ -49,7 +49,7 @@ namespace AuthenticatorPro.Fragment
             _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += (s, e) =>
+            cancelButton.Click += delegate
             {
                 Dismiss();
             };

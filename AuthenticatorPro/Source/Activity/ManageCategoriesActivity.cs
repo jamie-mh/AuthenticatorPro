@@ -192,14 +192,14 @@ namespace AuthenticatorPro.Activity
             builder.SetTitle(Resource.String.warning);
             builder.SetCancelable(true);
 
-            builder.SetPositiveButton(Resource.String.delete, async (sender, args) =>
+            builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 await _categorySource.Delete(position);
                 _categoryListAdapter.NotifyItemRemoved(position);
                 CheckEmptyState();
             });
 
-            builder.SetNegativeButton(Resource.String.cancel, (sender, args) => { });
+            builder.SetNegativeButton(Resource.String.cancel, delegate { });
 
             var dialog = builder.Create();
             dialog.Show();

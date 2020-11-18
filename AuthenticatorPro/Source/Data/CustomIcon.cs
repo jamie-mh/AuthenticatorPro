@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Android.Graphics;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Util;
-using Java.Nio;
 using Newtonsoft.Json;
 using SQLite;
 

@@ -21,11 +21,7 @@ namespace AuthenticatorPro.Shared.Util
                 Duration = duration
             };
 
-            anim.AnimationEnd += (sender, e) =>
-            {
-                view.Visibility = ViewStates.Visible;
-            };
-
+            anim.AnimationEnd += delegate { view.Visibility = ViewStates.Visible; };
             view.StartAnimation(anim);
         }
 
@@ -45,11 +41,7 @@ namespace AuthenticatorPro.Shared.Util
                 Duration = duration
             };
 
-            anim.AnimationEnd += (sender, e) =>
-            {
-                view.Visibility = ViewStates.Invisible;
-            };
-
+            anim.AnimationEnd += delegate { view.Visibility = ViewStates.Invisible; };
             view.StartAnimation(anim);
         }
     }

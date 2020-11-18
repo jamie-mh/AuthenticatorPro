@@ -30,9 +30,9 @@ namespace AuthenticatorPro.List
 
             var menuButton = view.FindViewById<ImageButton>(Resource.Id.buttonMenu);
 
-            view.Click += (sender, e) => Click?.Invoke(this, AdapterPosition);
-            menuButton.Click += (sender, e) => MenuClick?.Invoke(this, AdapterPosition);
-            RefreshButton.Click += (sender, e) => RefreshClick?.Invoke(this, AdapterPosition);
+            view.Click += delegate { Click?.Invoke(this, AdapterPosition); };
+            menuButton.Click += delegate { MenuClick?.Invoke(this, AdapterPosition); };
+            RefreshButton.Click += delegate { RefreshClick?.Invoke(this, AdapterPosition); };
         }
     }
 }

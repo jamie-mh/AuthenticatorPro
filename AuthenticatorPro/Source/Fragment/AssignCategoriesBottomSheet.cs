@@ -71,7 +71,7 @@ namespace AuthenticatorPro.Fragment
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOK);
             okButton.Click += (sender, args) =>
             {
-                Close?.Invoke(this, null);
+                Close?.Invoke(sender, args);
                 Dismiss();
             };
 

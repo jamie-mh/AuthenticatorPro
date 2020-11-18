@@ -16,7 +16,7 @@ namespace AuthenticatorPro.List
             Icon = itemView.FindViewById<ImageView>(Resource.Id.imageIcon);
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);
             
-            itemView.Click += (sender, e) => clickListener(AdapterPosition);
+            itemView.Click += delegate { clickListener(AdapterPosition); };
         }
     }
 }

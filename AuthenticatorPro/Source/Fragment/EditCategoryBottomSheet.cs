@@ -76,7 +76,7 @@ namespace AuthenticatorPro.Fragment
             };
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += (sender, e) =>
+            cancelButton.Click += delegate
             {
                 Dismiss();
             };

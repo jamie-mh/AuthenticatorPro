@@ -85,14 +85,14 @@ namespace AuthenticatorPro.Fragment
 
             var advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutAdvanced);
             var advancedButton = view.FindViewById<MaterialButton>(Resource.Id.buttonShowAdvanced);
-            advancedButton.Click += (sender, e) =>
+            advancedButton.Click += delegate
             {
                 advancedLayout.Visibility = ViewStates.Visible;
                 advancedButton.Visibility = ViewStates.Gone;
             };
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += (s, e) =>
+            cancelButton.Click += delegate 
             {
                 Dismiss();
             };

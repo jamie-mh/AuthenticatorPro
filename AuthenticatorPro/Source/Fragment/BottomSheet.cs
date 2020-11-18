@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Fragment
         public override Android.App.Dialog OnCreateDialog(Bundle savedInstanceState)
         {
             var dialog = (BottomSheetDialog) base.OnCreateDialog(savedInstanceState);
-            dialog.ShowEvent += (sender, e) =>
+            dialog.ShowEvent += delegate
             {
                 var bottomSheet = dialog.FindViewById<FrameLayout>(Resource.Id.design_bottom_sheet);
                 BottomSheetBehavior.From(bottomSheet).State = BottomSheetBehavior.StateExpanded;

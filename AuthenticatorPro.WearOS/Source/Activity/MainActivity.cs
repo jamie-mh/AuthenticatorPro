@@ -141,7 +141,7 @@ namespace AuthenticatorPro.WearOS.Activity
                 {
                     var anim = new AlphaAnimation(0f, 1f) {Duration = 200};
 
-                    anim.AnimationEnd += (sender, e) =>
+                    anim.AnimationEnd += delegate
                     {
                         _authList.Visibility = ViewStates.Visible;
                         _authList.RequestFocus();
