@@ -97,7 +97,9 @@
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
     <Compile Include="Source\Data\CustomIconSource.cs" />
+    <Compile Include="Source\Data\HtmlBackup.cs" />
     <Compile Include="Source\Data\OtpAuthMigration.cs" />
+    <Compile Include="Source\Fragment\BackupBottomSheet.cs" />
     <Compile Include="Source\Fragment\ChangeIconBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryMenuBottomSheet.cs" />
@@ -167,7 +169,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\sheetScanQRCodeMenu.axml">
+    <AndroidResource Include="Resources\layout\sheetBackup.axml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\sheetScanQRCode.axml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
@@ -191,6 +197,9 @@
     </PackageReference>
     <PackageReference Include="protobuf-net">
       <Version>3.0.62</Version>
+    </PackageReference>
+    <PackageReference Include="QRCoder">
+      <Version>1.4.1</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-sqlcipher">
       <Version>1.6.292</Version>
@@ -1494,6 +1503,69 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_camera_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\backup_template.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_phonelink_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_phonelink_lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

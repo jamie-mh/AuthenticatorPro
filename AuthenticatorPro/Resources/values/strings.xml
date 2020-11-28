@@ -4,6 +4,10 @@
     <string name="settings">Settings</string>
     <string name="restore">Restore</string>
     <string name="backup">Backup</string>
+    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupHtml">Backup to HTML file</string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
     <string name="about">About</string>
     <string name="scanQrCode">Scan a QR Code</string>
     <string name="scanQrCodeFromCamera">Scan from camera</string>

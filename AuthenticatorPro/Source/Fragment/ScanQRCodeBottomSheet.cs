@@ -13,7 +13,7 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetScanQRCodeMenu, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetScanQRCode, container, false);
 
             var fromCameraItem = view.FindViewById<LinearLayout>(Resource.Id.buttonScanFromCamera);
             var fromGalleryItem = view.FindViewById<LinearLayout>(Resource.Id.buttonScanFromGallery);

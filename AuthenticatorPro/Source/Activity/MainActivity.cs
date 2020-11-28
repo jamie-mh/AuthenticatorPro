@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using Android;
@@ -58,10 +59,11 @@ namespace AuthenticatorPro.Activity
 
         private const int ResultLogin = 0;
         private const int ResultRestoreSAF = 1;
-        private const int ResultBackupSAF = 2;
-        private const int ResultQRCodeSAF = 3;
-        private const int ResultCustomIconSAF = 4;
-        private const int ResultSettingsRecreate = 5;
+        private const int ResultBackupFileSAF = 2;
+        private const int ResultBackupHtmlSAF = 3;
+        private const int ResultQRCodeSAF = 4;
+        private const int ResultCustomIconSAF = 5;
+        private const int ResultSettingsRecreate = 6;
 
         private bool _areGoogleAPIsAvailable;
         private bool _hasWearAPIs;
@@ -278,8 +280,11 @@ namespace AuthenticatorPro.Activity
                     ShowSnackbar(Resource.String.noAuthenticators, Snackbar.LengthShort);
                     return;
                 }
-
-                StartBackupSaveActivity();
+                
+                var sub = new BackupBottomSheet();
+                sub.ClickBackupFile += delegate { StartBackupFileSaveActivity(); };
+                sub.ClickHtmlFile += delegate { StartBackupHtmlSaveActivity(); };
+                sub.Show(SupportFragmentManager, sub.Tag);
             };
 
             fragment.ManageCategoriesClick += delegate
@@ -470,16 +475,6 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private void StartBackupSaveActivity()
-        {
-            var intent = new Intent(Intent.ActionCreateDocument);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("application/octet-stream");
-            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
-
-            StartActivityForResult(intent, ResultBackupSAF);
-        }
-
         private async Task SwitchCategory(string id)
         {
             if(id == _authSource.CategoryId)
@@ -621,9 +616,13 @@ namespace AuthenticatorPro.Activity
                 {
                     await BeginRestore(intent.Data);
                 }),
-                ResultBackupSAF => new Task(() =>
+                ResultBackupFileSAF => new Task(() =>
                 {
-                    BeginBackup(intent.Data);
+                    BeginBackupToFile(intent.Data);
+                }),
+                ResultBackupHtmlSAF => new Task(async () =>
+                {
+                    await DoHtmlBackup(intent.Data);
                 }),
                 ResultCustomIconSAF => new Task(async () =>
                 {
@@ -999,14 +998,34 @@ namespace AuthenticatorPro.Activity
         #endregion
 
         #region Backup
-        private void BeginBackup(Uri uri)
+        private void StartBackupFileSaveActivity()
+        {
+            var intent = new Intent(Intent.ActionCreateDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("application/octet-stream");
+            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
+
+            StartActivityForResult(intent, ResultBackupFileSAF);
+        }
+        
+        private void StartBackupHtmlSaveActivity()
+        {
+            var intent = new Intent(Intent.ActionCreateDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("text/html");
+            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.html");
+
+            StartActivityForResult(intent, ResultBackupHtmlSAF);
+        }
+
+        private void BeginBackupToFile(Uri uri)
         {
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Backup);
             fragment.PasswordEntered += async (sender, password) =>
             {
                 try
                 {
-                    await DoBackup(uri, password);
+                    await DoFileBackup(uri, password);
                 }
                 catch(Exception)
                 {
@@ -1032,7 +1051,41 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async Task DoBackup(Uri uri, string password)
+        private async Task DoHtmlBackup(Uri uri)
+        {
+            var backup = await HtmlBackup.FromAuthenticatorList(this, _authSource.GetAll());
+
+            Stream output = null;
+            BufferedWriter writer = null;
+
+            try
+            {
+                output = ContentResolver.OpenOutputStream(uri);
+                writer = new BufferedWriter(new OutputStreamWriter(output));
+
+                await writer.WriteAsync(backup.ToString());
+                await writer.FlushAsync();
+            }
+            catch(Exception)
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+            finally
+            {
+                writer?.Close();
+                output?.Close();
+            }
+            
+            PreferenceManager.GetDefaultSharedPreferences(this)
+                .Edit()
+                .PutBoolean("needsBackup", false)
+                .Commit();
+            
+            ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
+        }
+
+        private async Task DoFileBackup(Uri uri, string password)
         {
             var backup = new Backup(
                 _authSource.GetAll(),
@@ -1072,7 +1125,7 @@ namespace AuthenticatorPro.Activity
             snackbar.SetAnchorView(_addButton);
             snackbar.SetAction(Resource.String.backupNow, view =>
             {
-                StartBackupSaveActivity(); 
+                StartBackupFileSaveActivity(); 
             });
             
             var callback = new SnackbarCallback();

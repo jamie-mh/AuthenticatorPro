@@ -166,4 +166,13 @@
     <string name="scanQrCodeFromCamera">Scanner à partir de la caméra</string>
     <string name="scanQrCodeFromGallery">Scanner à partir d\'une image</string>
     <string name="scanSuccessful">QR Code scanné avec succès</string>
+    <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
+    <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré.
+        Ce fichier peut être restauré dans l\'application.
+    </string>
+    <string name="backupHtml">Fichier HTML</string>
+    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR
+        codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne sont pas
+        sauvegardées.
+    </string>
 </resources>
