@@ -146,7 +146,6 @@
     <Compile Include="Source\Service\WearQueryService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_qr_code.png" />
@@ -418,9 +417,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_done_outline.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_edit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -676,9 +672,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_done_outline.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_edit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -734,9 +727,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_done_outline.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_edit.png" />
@@ -796,9 +786,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_done_outline.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_edit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -854,9 +841,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_done_outline.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_edit.png" />
