@@ -27,7 +27,7 @@
     <integer-array name="introImage">
         <item>@mipmap/ic_launcher</item>
         <item>@drawable/ic_lock_open</item>
-        <item>@drawable/ic_backup</item>
+        <item>@drawable/ic_restore</item>
         <item>@drawable/ic_category</item>
         <item>@drawable/ic_wb_incandescent</item>
     </integer-array>
