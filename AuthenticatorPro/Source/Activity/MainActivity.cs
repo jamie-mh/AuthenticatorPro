@@ -117,11 +117,13 @@ namespace AuthenticatorPro.Activity
             SetSupportActionBar(_toolbar);
             SupportActionBar.SetTitle(Resource.String.categoryAll);
 
+            var appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appBarLayout);
             _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
             _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
             _bottomAppBar.MenuItemClick += delegate
             {
                 _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
+                appBarLayout.SetExpanded(true);
                 _authList.SmoothScrollToPosition(0);
             };
 
