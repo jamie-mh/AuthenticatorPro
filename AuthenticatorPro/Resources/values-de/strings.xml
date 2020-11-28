@@ -30,9 +30,9 @@
     <string name="ok">Ok</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
-    <string name="issuerHint">Herausgeber (z. B: Google)</string>
+    <string name="issuerHint">Herausgeber (z.B: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
-    <string name="usernameHint">Nutzername (z. B:    max@example.com)</string>
+    <string name="usernameHint">Nutzername (z.B: max@example.com)</string>
     <string name="typeHint">Typ</string>
     <string name="algorithmHint">Algorithmus</string>
     <string name="digitsHint">Stellen</string>
@@ -42,7 +42,7 @@
     <string name="save">Speichern</string>
     <string name="saveFile">Datei speichern</string>
     <string name="openFile">Datei öffnen</string>
-    <string name="noAuthenticators">Du hast keine Schlüssel zum sichern.</string>
+    <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
     <string name="noFileName">Du musst einen Dateinamen eingeben.</string>
@@ -50,12 +50,12 @@
     <string name="digitsInvalid">Es müssen zwischen 6 und 10 Stellen generiert werden</string>
     <string name="periodToShort">Die Gültigkeit muss mehr als 0 Sekunden betragen.</string>
     <string name="qrCodeFormatError">Der QR-Code ist falsch formatiert.</string>
-    <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits..</string>
+    <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
     <string name="categories">Kategorien</string>
-    <string name="assignCategories">Kategorien zuweisen </string>
-    <string name="more">Mehr </string>
+    <string name="assignCategories">Kategorien zuweisen</string>
+    <string name="more">Mehr</string>
     <string name="categoryAll">Alle</string>
     <string name="manageCategories">Kategorien verwalten</string>
     <string name="categoryNameHint">Name der Kategorie</string>
@@ -65,8 +65,8 @@
     <string name="noCategoriesTitle">Keine Kategorien</string>
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
     <string name="backupNow">Jetzt sichern</string>
-    <string name="backupReminder">Seit der letzten Sicherung wurden änderungen vorgenommen.</string>
-    <string name="backupPasswordMessage">Gebe ein Passwort ein um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
+    <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen.</string>
+    <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
     <string name="restoreError">Das Passwort ist falsch oder die Datei ist beschädigt.</string>
     <string name="filePickError">Dateifehler.</string>
     <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
@@ -74,9 +74,9 @@
     <string name="password">Passwort</string>
     <string name="passwordConfirm">Passwort bestätigen</string>
     <string name="login">Anmelden</string>
-    <string name="loginMessage">Gebe dein Passwort ein oder nutze deinen Fingerabdruck um die App zu entsperren.</string>
+    <string name="loginMessage">Gib dein Passwort ein oder nutze deinen Fingerabdruck, um die App zu entsperren.</string>
     <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
-    <string name="databaseError">Es gab einen Fehler beim öffnen der Datenbank. LÖsche die Anwendungsdaten bevor du weitermachst.</string>
+    <string name="databaseError">Es gab einen Fehler beim Öffnen der Datenbank. Lösche die Anwendungsdaten, bevor du weitermachst.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
@@ -84,17 +84,17 @@
     <string name="quit">Beenden</string>
     <!-- Getting Started Guide -->
     <string name="gettingStartedGuide">Anleitung</string>
-    <string name="noAuthenticatorsHelp">Wenn du neu bist, öffne die Anleitung in dem du unten drückst.</string>
+    <string name="noAuthenticatorsHelp">Wenn du neu bist, öffne die Anleitung, indem du unten drückst.</string>
     <string name="guideScanQRCodeTitle">Scanne einen QR-Code</string>
-    <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code der von der App oder dem Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich generieren. Du kannst die Daten auch manuell eingeben.</string>
-    <string name="guideUseCodeTitle">Benutze den Code beim anmelden</string>
-    <string name="guideUseCodeSummary">Gebe deinen Code ein wenn du dich anmelden möchtest. Der Code gilt jeweils nur für einen kurzen Zeitraum. Du kannst auf den Schlüssel tippen um den Code zu kopieren.</string>
+    <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code, der von der App oder dem Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich generieren. Du kannst die Daten auch manuell eingeben.</string>
+    <string name="guideUseCodeTitle">Benutze den Code beim Anmelden</string>
+    <string name="guideUseCodeSummary">Gib deinen Code ein, wenn du dich anmelden möchtest. Der Code gilt jeweils nur für einen kurzen Zeitraum. Du kannst auf den Schlüssel tippen, um den Code zu kopieren.</string>
     <string name="guideCustomiseTitle">Anpassen</string>
-    <string name="guideCustomiseSummary">Benenne deine Schlüssel um sie einfacher zu finden. Öffne einfach das Menü hinter dem Schlüssel und folge den Schritten.</string>
+    <string name="guideCustomiseSummary">Benenne deine Schlüssel, um sie einfacher zu finden. Öffne einfach das Menü hinter dem Schlüssel und folge den Schritten.</string>
     <string name="guideArrangeTitle">Sortieren</string>
-    <string name="guideArrangeSummary">Du kannst deine Schlüssel auch in Kategorien einteilen. Außerdem kannst du ihre Reihenfolge durch gedrückthalten und schieben ändern.</string>
+    <string name="guideArrangeSummary">Du kannst deine Schlüssel auch in Kategorien einteilen. Außerdem kannst du ihre Reihenfolge durch Gedrückthalten und schieben ändern.</string>
     <string name="guideBackupTitle">Erstelle eine Sicherung</string>
-    <string name="guideBackupSummary">Schließe dich nicht aus deinen Konten aus wenn du das Gerät wechselst oder verlierst. Erstelle eine Sicherung ung bewahre sie an einem sicheren Ort auf. Eine Sicherung kann jederzeit geladen werden und zusätzlich verschlüsselt werden.</string>
+    <string name="guideBackupSummary">Schließe dich nicht aus deinen Konten aus, wenn du das Gerät wechselst oder verlierst. Erstelle eine Sicherung und bewahre sie an einem sicheren Ort auf. Eine Sicherung kann jederzeit geladen und zusätzlich verschlüsselt werden.</string>
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleiter-App herunterladen. Du bekommst die Codes dann auf deine Uhr.</string>
     <!-- Preferences -->
@@ -103,9 +103,9 @@
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden.</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefAppLockTitle">App-Sperre</string>
-    <string name="prefAppLockSummary">Anmeldung verlangen um auf Schlüssel zuzugreifen. Dies setzt vorraus das dein Gerät einen Sperrbildschirm hat.</string>
+    <string name="prefAppLockSummary">Anmeldung verlangen, um auf Schlüssel zuzugreifen. Dies setzt voraus, dass dein Gerät einen Sperrbildschirm hat.</string>
     <string name="prefUseEncryptedDatabaseTitle">Datenbank verschlüsseln</string>
-    <string name="prefUseEncryptedDatabaseSummary">Empfohlen. Deaktiviere dies wenn du eine Drittanbieter-Sicherungsapp wie Titanium Backup, Helium, Super Backup, adb backup, etc. verwendest.</string>
+    <string name="prefUseEncryptedDatabaseSummary">Empfohlen. Deaktiviere dies, wenn du eine Drittanbieter-Sicherungsapp wie Titanium Backup, Helium, Super Backup, adb backup, etc. verwendest.</string>
     <string name="prefAppearance">Erscheinungsbild</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
@@ -121,7 +121,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
-    <string name="authAlgorithmSHA1">SHA1 (standard)</string>
+    <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
     <string name="systemDefault">Systemstandard</string>
@@ -136,9 +136,9 @@
     <string name="introBackupTitle">Sichern / Wiederherstellen</string>
     <string name="introCategoriesTitle">Kategorien</string>
     <string name="introThemesTitle">Dunkles Thema</string>
-    <string name="introWelcomeSummary">Danke für das herunterladen von Authenticator Pro.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>
+    <string name="introWelcomeSummary">Danke für das Herunterladen von Authenticator Pro.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>
     <string name="introCompatibilitySummary">Authenticator Pro ist kompatibel mit den meisten Anbietern und Diensten. Es ist zu 100% kompatibel mit Google Authenticator-kompatiblen Anbietern.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Ordne deine Schlüssel in Kategorien und arrangiere sie so wie du sie brauchst.</string>
-    <string name="introThemesSummary">Wenn du möchtest kannst du ein Dunkles Thema verwenden. Die Icons der Schlüssel werden sich daran anpassen.</string>
+    <string name="introBackupSummary">Sichere deine Schlüssel mit einer starken Verschlüsselung. Solltest du dein Gerät verlieren, kannst du so Zugriff auf deine Konten erhalten. Speichere das Backup in der Cloud oder auf deinem Gerät.</string>
+    <string name="introCategoriesSummary">Ordne deine Schlüssel in Kategorien und sortiere sie durch Drücken und Schieben, wie du möchtest.</string>
+    <string name="introThemesSummary">Wenn du möchtest, kannst du ein Dunkles Thema verwenden. Die Icons der Schlüssel werden sich daran anpassen.</string>
 </resources>
