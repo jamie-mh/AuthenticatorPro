@@ -10,5 +10,5 @@
        android:icon="@drawable/ic_action_caret_right"/>
     
     <item android:id="@+id/intro_done"
-       android:icon="@drawable/ic_action_done_outline"/>
+       android:icon="@drawable/ic_action_done"/>
 </menu>
