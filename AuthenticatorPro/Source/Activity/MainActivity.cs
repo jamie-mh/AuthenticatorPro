@@ -829,7 +829,7 @@ namespace AuthenticatorPro.Activity
                     {
                         auth = Authenticator.FromOtpAuthMigrationAuthenticator(item);
                     }
-                    catch(InvalidAuthenticatorException)
+                    catch(ArgumentException)
                     {
                         continue;
                     }
@@ -904,7 +904,7 @@ namespace AuthenticatorPro.Activity
                 {
                     (authCount, categoryCount) = await DoRestore(fileData, password);
                 }
-                catch(InvalidAuthenticatorException)
+                catch(ArgumentException)
                 {
                     sheet?.Dismiss();
                     ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
@@ -967,14 +967,16 @@ namespace AuthenticatorPro.Activity
             var backup = Backup.FromBytes(fileData, password);
 
             if(backup.Authenticators == null)
-                throw new InvalidAuthenticatorException();
+                throw new ArgumentException();
 
             var authsInserted = 0;
             var categoriesInserted = 0;
             
             foreach(var auth in backup.Authenticators.Where(auth => !_authSource.IsDuplicate(auth)))
             {
-                auth.Validate();
+                if(!auth.IsValid())
+                    continue;
+                
                 await _connection.InsertAsync(auth);
                 authsInserted++;
             }

@@ -124,13 +124,13 @@ namespace AuthenticatorPro.Data
             {
                 OtpAuthMigration.Type.Totp => AuthenticatorType.Totp,
                 OtpAuthMigration.Type.Hotp => AuthenticatorType.Hotp,
-                _ => throw new InvalidAuthenticatorException()
+                _ => throw new ArgumentException()
             };
 
             var algorithm = input.Algorithm switch
             {
                 OtpAuthMigration.Algorithm.Sha1 => OtpHashMode.Sha1,
-                _ => throw new InvalidAuthenticatorException()
+                _ => throw new ArgumentException()
             };
 
             string secret;
@@ -142,7 +142,7 @@ namespace AuthenticatorPro.Data
             }
             catch
             {
-                throw new InvalidAuthenticatorException();
+                throw new ArgumentException();
             }
 
             var auth = new Authenticator()
@@ -158,7 +158,9 @@ namespace AuthenticatorPro.Data
                 Icon = Shared.Data.Icon.FindServiceKeyByName(issuer)
             };
             
-            auth.Validate();
+            if(!auth.IsValid())
+                throw new ArgumentException();
+            
             return auth;
         }
 
@@ -172,7 +174,7 @@ namespace AuthenticatorPro.Data
             var type = uriMatch.Groups[1].Value switch {
                 "totp" => AuthenticatorType.Totp,
                 "hotp" => AuthenticatorType.Hotp,
-                _ => throw new InvalidAuthenticatorException()
+                _ => throw new ArgumentException()
             };
 
             // Get the issuer and username if possible
@@ -223,7 +225,7 @@ namespace AuthenticatorPro.Data
                         break;
 
                     default:
-                        throw new InvalidAuthenticatorException();
+                        throw new ArgumentException();
                 }
 
             var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : DefaultDigits;
@@ -243,7 +245,9 @@ namespace AuthenticatorPro.Data
                 Counter = 0
             };
 
-            auth.Validate();
+            if(!auth.IsValid())
+                throw new ArgumentException();
+            
             return auth;
         }
 
@@ -271,19 +275,9 @@ namespace AuthenticatorPro.Data
             }
         }
 
-        public void Validate()
+        public bool IsValid()
         {
-            if(String.IsNullOrEmpty(Issuer) ||
-               !IsValidSecret(Secret) || 
-               Digits < MinDigits ||
-               Digits > MaxDigits ||
-               Period <= 0)
-                throw new InvalidAuthenticatorException();
+            return !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret) && Digits >= MinDigits && Digits <= MaxDigits && Period > 0;
         }
-    }
-
-    internal class InvalidAuthenticatorException : Exception
-    {
-
     }
 }
