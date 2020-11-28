@@ -722,6 +722,7 @@ namespace AuthenticatorPro.Activity
             }
             catch(Exception)
             {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
             
