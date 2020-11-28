@@ -41,7 +41,11 @@ namespace AuthenticatorPro.Fragment
             _categoryList.HasFixedSize = true;
             _categoryList.SetLayoutManager(new LinearLayoutManager(Activity));
 
-            _categoryListAdapter.SetSelectedPosition(_source.GetPosition(_currCategoryId));
+            var selectedCategoryPosition = _currCategoryId == null
+                ? 0
+                : _source.GetPosition(_currCategoryId) + 1;
+            
+            _categoryListAdapter.SelectedPosition = selectedCategoryPosition;
             _categoryListAdapter.NotifyDataSetChanged();
 
             _categoryListAdapter.CategorySelected += (sender, id) =>

@@ -203,7 +203,7 @@ namespace AuthenticatorPro.Data
                 else
                 {
                     issuer = uriMatch.Groups[2].Value;
-                    username = "";
+                    username = null;
                 }
             }
 

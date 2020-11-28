@@ -12,7 +12,6 @@ namespace AuthenticatorPro.Data
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
-        
         public AuthenticatorType? Type { get; private set; }
         
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
@@ -76,7 +75,7 @@ namespace AuthenticatorPro.Data
             {
                 var searchLower = Search.ToLower();
                 
-                view = view.Where(i => i.Issuer.ToLower().Contains(searchLower) || i.Username.Contains(searchLower))
+                view = view.Where(i => i.Issuer.ToLower().Contains(searchLower) || (i.Username != null && i.Username.Contains(searchLower)))
                            .ToList();
             }
 
@@ -112,7 +111,7 @@ namespace AuthenticatorPro.Data
             var auth = Get(position);
 
             if(auth == null)
-                return;
+                throw new ArgumentOutOfRangeException();
 
             auth.Issuer = issuer;
             auth.Username = username;
@@ -125,7 +124,7 @@ namespace AuthenticatorPro.Data
             var auth = Get(position);
 
             if(auth == null)
-                return;
+                throw new ArgumentOutOfRangeException();
 
             await _connection.DeleteAsync<Authenticator>(auth.Secret);
             _view.Remove(auth);
@@ -141,7 +140,7 @@ namespace AuthenticatorPro.Data
             var atOldPos = Get(oldPosition);
 
             if(atNewPos == null || atOldPos == null)
-                return;
+                throw new ArgumentOutOfRangeException();
             
             _view[newPosition] = atOldPos;
             _view[oldPosition] = atNewPos;
@@ -170,8 +169,11 @@ namespace AuthenticatorPro.Data
         {
             var auth = Get(position);
 
-            if(auth == null || auth.Type != AuthenticatorType.Hotp)
-                return;
+            if(auth == null)
+                throw new ArgumentOutOfRangeException();
+
+            if(auth.Type != AuthenticatorType.Hotp)
+                throw new ArgumentException();
 
             auth.Counter++;
             await _connection.UpdateAsync(auth);
@@ -194,7 +196,7 @@ namespace AuthenticatorPro.Data
             var auth = Get(position);
 
             if(auth == null)
-                return null;
+                throw new ArgumentOutOfRangeException();
             
             var authCategories =
                 CategoryBindings.Where(b => b.AuthenticatorSecret == auth.Secret).ToList();
@@ -219,7 +221,7 @@ namespace AuthenticatorPro.Data
             var binding = CategoryBindings.Find(b => b.CategoryId == categoryId && b.AuthenticatorSecret == authSecret);
 
             if(binding == null)
-                return;
+                throw new ArgumentException();
 
             await _connection.ExecuteAsync(
                 "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ? AND categoryId = ?", 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Shared.Data;
@@ -34,7 +35,7 @@ namespace AuthenticatorPro.Data
             var category = Get(position);
 
             if(category == null)
-                return;
+                throw new ArgumentOutOfRangeException();
             
             await _connection.DeleteAsync(category);
             _all.RemoveAt(position);
@@ -66,7 +67,7 @@ namespace AuthenticatorPro.Data
             var atOldPos = Get(oldPosition);
 
             if(atNewPos == null || atOldPos == null)
-                return;
+                throw new ArgumentOutOfRangeException();
             
             _all[newPosition] = atOldPos;
             _all[oldPosition] = atNewPos;
@@ -86,8 +87,8 @@ namespace AuthenticatorPro.Data
 
         public int GetPosition(string id)
         {
-            if(id == null)
-                return -1;
+            if(String.IsNullOrEmpty(id))
+                throw new ArgumentException();
 
             return _all.FindIndex(c => c.Id == id);
         }

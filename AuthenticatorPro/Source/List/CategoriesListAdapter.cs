@@ -9,8 +9,7 @@ namespace AuthenticatorPro.List
     internal sealed class CategoriesListAdapter : RecyclerView.Adapter
     {
         public event EventHandler<string> CategorySelected;
-
-        private int _selectedPosition;
+        public int SelectedPosition { get; set; }
 
         private readonly Context _context;
         private readonly CategorySource _source;
@@ -22,17 +21,12 @@ namespace AuthenticatorPro.List
         {
             _context = context;
             _source = source;
-            _selectedPosition = -1;
+            SelectedPosition = 0;
         }
 
         public override long GetItemId(int position)
         {
             return position;
-        }
-
-        public void SetSelectedPosition(int position)
-        {
-            _selectedPosition = position + 1;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
@@ -43,7 +37,7 @@ namespace AuthenticatorPro.List
                 ? _context.Resources.GetString(Resource.String.categoryAll)
                 : _source.Get(position - 1).Name;
 
-            holder.ItemView.Selected = position == _selectedPosition;
+            holder.ItemView.Selected = position == SelectedPosition;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -53,8 +47,8 @@ namespace AuthenticatorPro.List
             var holder = new CategoriesListHolder(itemView);
             holder.Click += (sender, position) =>
             {
-                NotifyItemChanged(_selectedPosition);
-                _selectedPosition = position;
+                NotifyItemChanged(SelectedPosition);
+                SelectedPosition = position;
                 NotifyItemChanged(position);
 
                 var categoryId = position == 0

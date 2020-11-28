@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Shared.Data;
 
@@ -42,7 +43,7 @@ namespace AuthenticatorPro.Data
 
         private void Update()
         {
-            if(_search.Trim() == "")
+            if(String.IsNullOrEmpty(_search))
             {
                 _view = new Dictionary<string, int>(Icon.Service.Count);
                 foreach(var (key, _) in Icon.Service)
