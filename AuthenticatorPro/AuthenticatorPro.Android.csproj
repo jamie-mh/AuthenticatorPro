@@ -313,9 +313,6 @@
     <AndroidResource Include="Resources\drawable-v24\ic_launcher_foreground.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\listItemFile.axml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\anim\item_animation_fall_down.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -418,9 +415,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -436,13 +430,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_search.png" />
@@ -454,16 +442,10 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_arrow_upward.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_insert_drive_file.png" />
@@ -487,9 +469,6 @@
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -499,13 +478,7 @@
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_search.png" />
@@ -515,9 +488,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_vpn_key.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-hdpi\ic_arrow_upward.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_backup.png" />
@@ -547,9 +517,6 @@
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -559,13 +526,7 @@
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_search.png" />
@@ -575,9 +536,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_vpn_key.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-mdpi\ic_arrow_upward.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-mdpi\ic_backup.png" />
@@ -607,9 +565,6 @@
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -619,13 +574,7 @@
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_search.png" />
@@ -635,9 +584,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_vpn_key.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_arrow_upward.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_backup.png" />
@@ -664,9 +610,6 @@
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -676,13 +619,7 @@
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_search.png" />
@@ -692,9 +629,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_vpn_key.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_arrow_upward.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_backup.png" />
@@ -721,9 +655,6 @@
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -733,13 +664,7 @@
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_search.png" />
@@ -751,16 +676,10 @@
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_arrow_upward.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_insert_drive_file.png" />
@@ -787,9 +706,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -808,13 +724,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_search.png" />
@@ -826,16 +736,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_arrow_upward.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\ic_insert_drive_file.png" />
@@ -865,9 +769,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -886,13 +787,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_search.png" />
@@ -904,16 +799,10 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_arrow_upward.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_insert_drive_file.png" />
@@ -943,9 +832,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -964,13 +850,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_search.png" />
@@ -982,16 +862,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_vpn_key.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_arrow_upward.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_insert_drive_file.png" />
@@ -1021,9 +895,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_delete.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1042,13 +913,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_reorder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_restore.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_sd_storage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_search.png" />
@@ -1067,9 +932,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_folder.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_insert_drive_file.png" />
