@@ -733,7 +733,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            ParseQRCodeScanResult(result);
+            await ParseQRCodeScanResult(result);
         }
 
         private async Task ParseQRCodeScanResult(ZXing.Result result)
