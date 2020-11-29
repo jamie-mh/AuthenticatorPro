@@ -55,5 +55,7 @@
         android:paddingBottom="20dp"
         android:layout_width="match_parent"
         android:clipToPadding="false"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <requestFocus/>
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
