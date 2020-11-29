@@ -197,8 +197,6 @@ namespace AuthenticatorPro.Activity
                     await SwitchCategory(null);
             }
 
-            CheckEmptyState();
-
             // Launch task that needs to wait for the activity to resume
             // Useful because an activity result is called before resume
             if(_onceResumedTask != null)
@@ -207,8 +205,10 @@ namespace AuthenticatorPro.Activity
                 _onceResumedTask = null;
             }
 
-            _timer.Start();
-            Tick();
+            CheckEmptyState();
+            
+            if(_authSource.GetView().Any())
+                Tick();
 
             var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_showBackupReminders", true);
@@ -360,12 +360,10 @@ namespace AuthenticatorPro.Activity
 
             _timer = new Timer {
                 Interval = 1000,
-                AutoReset = true,
-                Enabled = true
+                AutoReset = true
             };
 
             _timer.Elapsed += Tick;
-            _timer.Start();
         }
 
         private void ShowDatabaseErrorDialog()
@@ -468,11 +466,14 @@ namespace AuthenticatorPro.Activity
                     _emptyMessageText.SetText(Resource.String.noAuthenticatorsMessage);
                     _viewGuideButton.Visibility = ViewStates.Gone;
                 }
+                
+                _timer.Stop();
             }
             else
             {
                 _emptyStateLayout.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_authList, 100, true);
+                _timer.Start();
             }
         }
 
