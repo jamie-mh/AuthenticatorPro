@@ -53,8 +53,17 @@ namespace AuthenticatorPro.Activity
 
         public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
         {
-            if(key == "pref_useEncryptedDatabase" || key == "pref_theme" || key == "pref_viewMode")
-                _shouldRecreateMain = true;
+            switch(key)
+            {
+                case "pref_useEncryptedDatabase":
+                case "pref_viewMode":
+                    _shouldRecreateMain = true;
+                    break;
+                
+                case "pref_theme":
+                    Recreate();
+                    break;
+            }
         }
 
         public async void SetDatabaseEncryption(bool shouldEncrypt)
