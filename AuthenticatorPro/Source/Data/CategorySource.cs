@@ -36,29 +36,37 @@ namespace AuthenticatorPro.Data
 
             if(category == null)
                 throw new ArgumentOutOfRangeException();
-            
-            await _connection.DeleteAsync(category);
-            _all.RemoveAt(position);
 
-            await _connection.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", category.Id);
+            await _connection.RunInTransactionAsync(conn =>
+            {
+                conn.Delete(category);
+                conn.Execute("DELETE FROM authenticatorcategory WHERE categoryId = ?", category.Id);
+            });
+            
+            _all.RemoveAt(position);
         }
 
         public async Task Rename(int position, string name)
         {
+            if(String.IsNullOrEmpty(name))
+                throw new ArgumentException();
+            
             var old = Get(position);
 
             if(old == null)
-                return;
+                throw new ArgumentOutOfRangeException();
             
             var replacement = new Category(name);
             _all[position] = replacement;
 
-            await _connection.DeleteAsync(old);
-            await _connection.InsertAsync(replacement);
+            await _connection.RunInTransactionAsync(conn =>
+            {
+                conn.Delete(old);
+                conn.Insert(replacement);
 
-            object[] args = {replacement.Id, old.Id};
-            await _connection.QueryAsync<AuthenticatorCategory>(
-                "UPDATE authenticatorcategory SET categoryId = ? WHERE categoryId = ?", args);
+                conn.Query<AuthenticatorCategory>(
+                    "UPDATE authenticatorcategory SET categoryId = ? WHERE categoryId = ?", replacement.Id, old.Id);
+            });
         }
 
         public async void Move(int oldPosition, int newPosition)
@@ -73,11 +81,9 @@ namespace AuthenticatorPro.Data
             _all[oldPosition] = atNewPos;
 
             for(var i = 0; i < _all.Count; ++i)
-            {
-                var category = Get(i);
-                category.Ranking = i;
-                await _connection.UpdateAsync(category);
-            }
+                Get(i).Ranking = i;
+
+            await _connection.UpdateAllAsync(_all);
         }
 
         public Category Get(int position)

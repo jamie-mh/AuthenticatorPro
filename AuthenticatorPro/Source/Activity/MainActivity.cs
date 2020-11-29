@@ -1335,9 +1335,9 @@ namespace AuthenticatorPro.Activity
             var authSecret = _authSource.Get(e.ItemPosition).Secret;
 
             if(e.IsChecked)
-                await _authSource.AddToCategory(categoryId, authSecret);
+                await _authSource.AddToCategory(authSecret, categoryId);
             else
-                await _authSource.RemoveFromCategory(categoryId, authSecret);
+                await _authSource.RemoveFromCategory(authSecret, categoryId);
         }
         #endregion
 
