@@ -69,7 +69,7 @@ namespace AuthenticatorPro.Data
             });
         }
 
-        public async void Move(int oldPosition, int newPosition)
+        public async Task Move(int oldPosition, int newPosition)
         {
             var atNewPos = Get(newPosition);
             var atOldPos = Get(oldPosition);

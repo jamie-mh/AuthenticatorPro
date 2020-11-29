@@ -39,18 +39,18 @@ namespace AuthenticatorPro.List
 
         public override int ItemCount => _authSource.GetView().Count;
 
-        public async void MoveItem(int oldPosition, int newPosition)
+        public async void MoveItemView(int oldPosition, int newPosition)
         {
             NotifyItemMoved(oldPosition, newPosition);
             await _authSource.Move(oldPosition, newPosition);
         }
 
-        public void OnMovementFinished()
+        public void NotifyMovementFinished(int oldPosition, int newPosition)
         {
             MovementFinished?.Invoke(this, null);
         }
 
-        public void OnMovementStarted()
+        public void NotifyMovementStarted()
         {
             MovementStarted?.Invoke(this, null);
         }

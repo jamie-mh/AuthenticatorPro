@@ -18,18 +18,17 @@ namespace AuthenticatorPro.List
             _source = source;
         }
 
-        public void MoveItem(int oldPosition, int newPosition)
+        public void MoveItemView(int oldPosition, int newPosition)
         {
-            _source.Move(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
         }
 
-        public void OnMovementFinished()
+        public async void NotifyMovementFinished(int oldPosition, int newPosition)
         {
-
+            await _source.Move(oldPosition, newPosition);
         }
 
-        public void OnMovementStarted()
+        public void NotifyMovementStarted()
         {
 
         }

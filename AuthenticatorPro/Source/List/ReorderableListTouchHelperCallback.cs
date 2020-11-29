@@ -10,14 +10,15 @@ namespace AuthenticatorPro.List
         public override bool IsLongPressDragEnabled => true;
         public override bool IsItemViewSwipeEnabled => false;
 
-        private bool _isMoving;
-
+        private int _movementStartPosition;
+        private int _movementEndPosition;
 
         public ReorderableListTouchHelperCallback(IReorderableListAdapter adapter, GridLayoutManager layoutManager)
         {
-            _isMoving = false;
             _layoutManager = layoutManager;
             _adapter = adapter;
+            _movementStartPosition = -1;
+            _movementEndPosition = -1;
         }
 
         public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
@@ -32,11 +33,11 @@ namespace AuthenticatorPro.List
 
         public override bool OnMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target)
         {
-            if(!_isMoving)
-                _adapter.OnMovementStarted();
+            if(_movementEndPosition == -1)
+                _adapter.NotifyMovementStarted();
 
-            _isMoving = true;
-            _adapter.MoveItem(viewHolder.AdapterPosition, target.AdapterPosition);
+            _movementEndPosition = target.AdapterPosition;
+            _adapter.MoveItemView(viewHolder.AdapterPosition, target.AdapterPosition);
             return true;
         }
 
@@ -45,11 +46,26 @@ namespace AuthenticatorPro.List
             return current.ItemViewType == target.ItemViewType;
         }
 
-        public override void ClearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
+        public override void OnSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState)
         {
-            base.ClearView(recyclerView, viewHolder);
-            _adapter.OnMovementFinished();
-            _isMoving = false;
+            base.OnSelectedChanged(viewHolder, actionState);
+
+            switch(actionState)
+            {
+                case ItemTouchHelper.ActionStateDrag:
+                    _movementStartPosition = viewHolder.AdapterPosition;
+                    break;
+                
+                case ItemTouchHelper.ActionStateIdle:
+                    if(viewHolder == null && _movementStartPosition > -1 &&
+                       _movementEndPosition > -1 && _movementStartPosition != _movementEndPosition)
+                    {
+                        _adapter.NotifyMovementFinished(_movementStartPosition, _movementEndPosition);
+                        _movementStartPosition = -1;
+                        _movementEndPosition = -1;
+                    }
+                    break;
+            }
         }
 
         public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction)
