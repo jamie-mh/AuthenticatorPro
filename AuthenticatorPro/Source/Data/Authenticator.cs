@@ -250,6 +250,36 @@ namespace AuthenticatorPro.Data
             
             return auth;
         }
+        
+        public string GetOtpAuthUrl()
+        {
+            var type = Type switch
+            {
+                AuthenticatorType.Hotp => "hotp",
+                AuthenticatorType.Totp => "totp",
+                _ => throw new ArgumentException()
+            };
+
+            var algorithm = Algorithm switch
+            {
+                OtpHashMode.Sha1 => "SHA1",
+                OtpHashMode.Sha256 => "SHA256",
+                OtpHashMode.Sha512 => "SHA512",
+                _ => throw new ArgumentException()
+            };
+            
+            var issuerUsername = Username == "" ? Issuer : $"{Issuer}:{Username}";
+            
+            var url =
+                $"otpauth://{type}/{Uri.EscapeDataString(issuerUsername)}?secret={Secret}&issuer={Uri.EscapeDataString(Issuer)}&algorithm={algorithm}&digits={Digits}";
+
+            if(Type == AuthenticatorType.Totp)
+                url += $"&period={Period}";
+            else if(Type == AuthenticatorType.Hotp)
+                url += $"&counter={Counter}";
+
+            return url;
+        }
 
         public static string CleanSecret(string input)
         {

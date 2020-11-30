@@ -45,36 +45,6 @@ namespace AuthenticatorPro.Data
             }
         }
 
-        private static string GetOtpAuthUrl(Authenticator auth)
-        {
-            var type = auth.Type switch
-            {
-                AuthenticatorType.Hotp => "hotp",
-                AuthenticatorType.Totp => "totp",
-                _ => throw new ArgumentException()
-            };
-
-            var algorithm = auth.Algorithm switch
-            {
-                OtpHashMode.Sha1 => "SHA1",
-                OtpHashMode.Sha256 => "SHA256",
-                OtpHashMode.Sha512 => "SHA512",
-                _ => throw new ArgumentException()
-            };
-            
-            var issuerUsername = auth.Username == "" ? auth.Issuer : $"{auth.Issuer}:{auth.Username}";
-            
-            var url =
-                $"otpauth://{type}/{Uri.EscapeDataString(issuerUsername)}?secret={auth.Secret}&issuer={Uri.EscapeDataString(auth.Issuer)}&algorithm={algorithm}&digits={auth.Digits}";
-
-            if(auth.Type == AuthenticatorType.Totp)
-                url += $"&period={auth.Period}";
-            else if(auth.Type == AuthenticatorType.Hotp)
-                url += $"&counter={auth.Counter}";
-
-            return url;
-        }
-
         public static async Task<HtmlBackup> FromAuthenticatorList(Context context, List<Authenticator> authenticators)
         {
             var template = await GetTemplate(context);
@@ -96,7 +66,7 @@ namespace AuthenticatorPro.Data
 
             foreach(var auth in authenticators)
             {
-                var url = GetOtpAuthUrl(auth);
+                var url = auth.GetOtpAuthUrl();
                 var qrCode = await GetQrCodeDataAsync(url);
 
                 itemsHtml.Append($@"
