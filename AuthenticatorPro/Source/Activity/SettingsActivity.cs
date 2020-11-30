@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Activity
 
             // If a setting that requires changes to the main activity has changed
             // return a result telling it to recreate.
-            _shouldRecreateMain = false;
+            _shouldRecreateMain = savedInstanceState != null && savedInstanceState.GetBoolean("shouldRecreateMain", false);
 
             SetContentView(Resource.Layout.activitySettings);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -92,6 +92,12 @@ namespace AuthenticatorPro.Activity
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
+            outState.PutBoolean("shouldRecreateMain", _shouldRecreateMain);
         }
 
         public override void OnBackPressed()
