@@ -560,10 +560,10 @@ namespace AuthenticatorPro.Activity
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
-                var auth = _authSource.Get(position);
-                await TryCleanupCustomIcon(auth.Icon);
-                
+                var icon = _authSource.Get(position).Icon;
                 await _authSource.Delete(position);
+                await TryCleanupCustomIcon(icon);
+                
                 _authListAdapter.NotifyItemRemoved(position);
                 
                 await NotifyWearAppOfChange();
@@ -1233,10 +1233,12 @@ namespace AuthenticatorPro.Activity
             if(auth == null)
                 return;
 
-            await TryCleanupCustomIcon(auth.Icon);
+            var oldIcon = auth.Icon;
             auth.Icon = e.Icon;
-
             await _connection.UpdateAsync(auth);
+            
+            await TryCleanupCustomIcon(oldIcon);
+
             _authListAdapter.NotifyItemChanged(e.ItemPosition);
             await NotifyWearAppOfChange();
 
@@ -1278,11 +1280,11 @@ namespace AuthenticatorPro.Activity
             
             if(!_customIconSource.IsDuplicate(icon.Id))
                 await _connection.InsertAsync(icon);
-            
-            await TryCleanupCustomIcon(auth.Icon);
-            
+
+            var oldIcon = auth.Icon;
             auth.Icon = CustomIcon.Prefix + icon.Id;
             await _connection.UpdateAsync(auth);
+            await TryCleanupCustomIcon(oldIcon);
 
             await _customIconSource.Update();
             RunOnUiThread(() =>
@@ -1299,7 +1301,7 @@ namespace AuthenticatorPro.Activity
             {
                 var id = icon.Substring(1);
 
-                if(_authSource.CountUsesOfCustomIcon(id) == 1)
+                if(!_authSource.IsCustomIconInUse(id))
                     await _customIconSource.Delete(id);
             }
         }
