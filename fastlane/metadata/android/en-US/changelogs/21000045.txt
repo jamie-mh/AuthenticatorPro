@@ -1,0 +1,7 @@
+- New Feature: Scan QR codes from gallery images.
+- New Feature: Backup to HTML document with QR codes.
+- General: Minor design improvements.
+- General: Improved performance in certain areas.
+- General: Fixed hidden search bar when scrolled.
+- General: Improved translations for French and German.
+- Wear OS: List follows curve of screen more accurately.
