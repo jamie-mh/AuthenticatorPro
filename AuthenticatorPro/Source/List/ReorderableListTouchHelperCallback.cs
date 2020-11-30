@@ -41,11 +41,6 @@ namespace AuthenticatorPro.List
             return true;
         }
 
-        public override bool CanDropOver(RecyclerView recyclerView, RecyclerView.ViewHolder current, RecyclerView.ViewHolder target)
-        {
-            return current.ItemViewType == target.ItemViewType;
-        }
-
         public override void OnSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState)
         {
             base.OnSelectedChanged(viewHolder, actionState);

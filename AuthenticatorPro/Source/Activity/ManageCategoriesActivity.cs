@@ -53,6 +53,7 @@ namespace AuthenticatorPro.Activity
             _categorySource = new CategorySource(_connection);
             _categoryListAdapter = new ManageCategoriesListAdapter(_categorySource);
             _categoryListAdapter.MenuClick += OnMenuClick;
+            _categoryListAdapter.HasStableIds = true;
 
             _categoryList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);

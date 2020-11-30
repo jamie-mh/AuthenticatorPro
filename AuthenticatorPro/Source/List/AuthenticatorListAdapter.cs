@@ -39,20 +39,26 @@ namespace AuthenticatorPro.List
 
         public override int ItemCount => _authSource.GetView().Count;
 
-        public async void MoveItemView(int oldPosition, int newPosition)
+        public void MoveItemView(int oldPosition, int newPosition)
         {
+            _authSource.Swap(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
-            await _authSource.Move(oldPosition, newPosition);
         }
 
-        public void NotifyMovementFinished(int oldPosition, int newPosition)
+        public async void NotifyMovementFinished(int oldPosition, int newPosition)
         {
             MovementFinished?.Invoke(this, null);
+            await _authSource.CommitRanking();
         }
 
         public void NotifyMovementStarted()
         {
             MovementStarted?.Invoke(this, null);
+        }
+
+        public override long GetItemId(int position)
+        {
+            return _authSource.Get(position).Secret.GetHashCode();
         }
 
         public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
@@ -67,7 +73,7 @@ namespace AuthenticatorPro.List
             holder.Issuer.Text = auth.Issuer;
             holder.Username.Text = auth.Username;
 
-            holder.Username.Visibility = auth.Username == ""
+            holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
                 ? ViewStates.Gone
                 : ViewStates.Visible;
 
@@ -180,11 +186,6 @@ namespace AuthenticatorPro.List
         {
             await _authSource.IncrementCounter(position);
             NotifyItemChanged(position);
-        }
-
-        public override long GetItemId(int position)
-        {
-            return _authSource.Get(position).GetHashCode();
         }
     }
 }

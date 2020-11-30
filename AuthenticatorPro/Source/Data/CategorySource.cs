@@ -69,7 +69,7 @@ namespace AuthenticatorPro.Data
             });
         }
 
-        public async Task Move(int oldPosition, int newPosition)
+        public void Swap(int oldPosition, int newPosition)
         {
             var atNewPos = Get(newPosition);
             var atOldPos = Get(oldPosition);
@@ -79,7 +79,10 @@ namespace AuthenticatorPro.Data
             
             _all[newPosition] = atOldPos;
             _all[oldPosition] = atNewPos;
+        }
 
+        public async Task CommitRanking()
+        {
             for(var i = 0; i < _all.Count; ++i)
                 Get(i).Ranking = i;
 

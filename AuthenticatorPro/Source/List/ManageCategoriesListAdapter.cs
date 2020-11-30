@@ -12,7 +12,6 @@ namespace AuthenticatorPro.List
 
         public override int ItemCount => _source.GetView().Count;
 
-
         public ManageCategoriesListAdapter(CategorySource source)
         {
             _source = source;
@@ -20,17 +19,23 @@ namespace AuthenticatorPro.List
 
         public void MoveItemView(int oldPosition, int newPosition)
         {
+            _source.Swap(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
         }
 
         public async void NotifyMovementFinished(int oldPosition, int newPosition)
         {
-            await _source.Move(oldPosition, newPosition);
+            await _source.CommitRanking();
         }
 
         public void NotifyMovementStarted()
         {
 
+        }
+
+        public override long GetItemId(int position)
+        {
+            return _source.Get(position).Id.GetHashCode();
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)

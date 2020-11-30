@@ -131,7 +131,7 @@ namespace AuthenticatorPro.Data
             _all.Remove(auth);
         }
 
-        public async Task Move(int oldPosition, int newPosition)
+        public void Swap(int oldPosition, int newPosition)
         {
             var atNewPos = Get(newPosition);
             var atOldPos = Get(oldPosition);
@@ -141,7 +141,10 @@ namespace AuthenticatorPro.Data
             
             _view[newPosition] = atOldPos;
             _view[oldPosition] = atNewPos;
+        }
 
+        public async Task CommitRanking()
+        {
             if(CategoryId == null)
             {
                 for(var i = 0; i < _view.Count; ++i)

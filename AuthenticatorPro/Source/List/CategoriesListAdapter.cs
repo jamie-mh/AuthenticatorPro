@@ -26,7 +26,9 @@ namespace AuthenticatorPro.List
 
         public override long GetItemId(int position)
         {
-            return position;
+            return position == 0
+                ? -1
+                : _source.Get(position - 1).Id.GetHashCode();
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)

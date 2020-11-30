@@ -392,8 +392,11 @@ namespace AuthenticatorPro.Activity
                 "tile" => AuthenticatorListAdapter.ViewMode.Tile,
                 _ => AuthenticatorListAdapter.ViewMode.Default
             };
-            
-            _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconSource, viewMode, IsDark);
+
+            _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconSource, viewMode, IsDark)
+            {
+                HasStableIds = true
+            };
 
             _authListAdapter.ItemClick += OnAuthenticatorClick;
             _authListAdapter.MenuClick += OnAuthenticatorOptionsClick;
@@ -407,8 +410,6 @@ namespace AuthenticatorPro.Activity
                 _bottomAppBar.PerformShow();
                 await NotifyWearAppOfChange();
             };
-
-            _authListAdapter.HasStableIds = true;
 
             _authList.SetAdapter(_authListAdapter);
 

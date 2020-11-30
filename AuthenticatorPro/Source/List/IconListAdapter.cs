@@ -48,7 +48,7 @@ namespace AuthenticatorPro.List
 
         public override long GetItemId(int position)
         {
-            return _iconSource.Get(position).GetHashCode();
+            return _iconSource.Get(position).Key.GetHashCode();
         }
     }
 }
