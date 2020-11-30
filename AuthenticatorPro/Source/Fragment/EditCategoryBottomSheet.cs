@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.OS;
+using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using AuthenticatorPro.Data;
@@ -54,6 +55,7 @@ namespace AuthenticatorPro.Fragment
             _textName = view.FindViewById<TextInputEditText>(Resource.Id.editName);
             _textNameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editNameLayout);
             _textNameLayout.CounterMaxLength = Category.NameMaxLength;
+            _textName.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Category.NameMaxLength) });
 
             var submitButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSubmit);
             submitButton.SetText(titleRes);

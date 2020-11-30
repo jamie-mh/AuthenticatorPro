@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.OS;
+using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using AuthenticatorPro.Data;
@@ -46,7 +47,9 @@ namespace AuthenticatorPro.Fragment
             _usernameText.Text = _username;
 
             _issuerLayout.CounterMaxLength = Authenticator.IssuerMaxLength;
+            _issuerText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.IssuerMaxLength) });
             _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
+            _usernameText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.UsernameMaxLength) });
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
             cancelButton.Click += delegate

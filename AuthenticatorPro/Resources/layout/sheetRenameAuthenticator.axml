@@ -40,7 +40,6 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editIssuer"
-                android:maxLength="32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
@@ -63,7 +62,6 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editUsername"
-                android:maxLength="40"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"

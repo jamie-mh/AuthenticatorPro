@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.Content;
 using Android.OS;
+using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -67,7 +68,9 @@ namespace AuthenticatorPro.Fragment
             _periodText = view.FindViewById<TextInputEditText>(Resource.Id.editPeriod);
 
             _issuerLayout.CounterMaxLength = Authenticator.IssuerMaxLength;
+            _issuerText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.IssuerMaxLength) });
             _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
+            _usernameText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.UsernameMaxLength) });
 
             var typeAdapter = ArrayAdapter.CreateFromResource(
                 view.Context, Resource.Array.authTypes, Resource.Layout.listItemDropdown);
