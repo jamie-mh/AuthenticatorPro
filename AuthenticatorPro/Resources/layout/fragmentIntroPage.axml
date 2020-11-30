@@ -43,6 +43,7 @@
             android:lineSpacingExtra="10dp"
             android:text="text"
             android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/secondaryTextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

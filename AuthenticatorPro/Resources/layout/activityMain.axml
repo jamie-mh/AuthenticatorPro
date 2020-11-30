@@ -64,8 +64,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="76dp"
-            android:layout_height="76dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_lock_open" />
 
@@ -83,7 +83,8 @@
             android:layout_marginTop="22dp"
             android:lineSpacingExtra="10dp"
             android:gravity="center_horizontal"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:textSize="14dp"
+            android:textColor="?attr/secondaryTextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/noAuthenticatorsMessage" />
