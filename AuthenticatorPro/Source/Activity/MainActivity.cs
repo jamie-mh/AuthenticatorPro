@@ -281,11 +281,8 @@ namespace AuthenticatorPro.Activity
                     ShowSnackbar(Resource.String.noAuthenticators, Snackbar.LengthShort);
                     return;
                 }
-                
-                var sub = new BackupBottomSheet();
-                sub.ClickBackupFile += delegate { StartBackupFileSaveActivity(); };
-                sub.ClickHtmlFile += delegate { StartBackupHtmlSaveActivity(); };
-                sub.Show(SupportFragmentManager, sub.Tag);
+
+                OpenBackupMenu();
             };
 
             fragment.ManageCategoriesClick += delegate
@@ -1004,6 +1001,14 @@ namespace AuthenticatorPro.Activity
         #endregion
 
         #region Backup
+        private void OpenBackupMenu()
+        {
+            var fragment = new BackupBottomSheet();
+            fragment.ClickBackupFile += delegate { StartBackupFileSaveActivity(); };
+            fragment.ClickHtmlFile += delegate { StartBackupHtmlSaveActivity(); };
+            fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+        
         private void StartBackupFileSaveActivity()
         {
             var intent = new Intent(Intent.ActionCreateDocument);
@@ -1131,7 +1136,7 @@ namespace AuthenticatorPro.Activity
             snackbar.SetAnchorView(_addButton);
             snackbar.SetAction(Resource.String.backupNow, view =>
             {
-                StartBackupFileSaveActivity(); 
+                OpenBackupMenu();
             });
             
             var callback = new SnackbarCallback();
