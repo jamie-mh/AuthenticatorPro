@@ -23,7 +23,6 @@ namespace AuthenticatorPro.Activity
     {
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
-        private EditCategoryBottomSheet _addDialog;
         private ManageCategoriesListAdapter _categoryListAdapter;
         private ProgressBar _progressBar;
         private RecyclerView _categoryList;
@@ -88,14 +87,18 @@ namespace AuthenticatorPro.Activity
 
         private async Task Refresh()
         {
-            _progressBar.Visibility = ViewStates.Visible;
+            RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
 
             await _categorySource.Update();
-            CheckEmptyState();
+            
+            RunOnUiThread(delegate
+            {
+                CheckEmptyState();
 
-            _categoryListAdapter.NotifyDataSetChanged();
-            _categoryList.ScheduleLayoutAnimation();
-            _progressBar.Visibility = ViewStates.Invisible;
+                _categoryListAdapter.NotifyDataSetChanged();
+                _categoryList.ScheduleLayoutAnimation();
+                _progressBar.Visibility = ViewStates.Invisible;
+            });
         }
 
         private void CheckEmptyState()
@@ -121,26 +124,31 @@ namespace AuthenticatorPro.Activity
                 transaction.Remove(old);
 
             transaction.AddToBackStack(null);
-            _addDialog = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.New, null);
-            _addDialog.Submit += OnAddDialogSubmit;
-            _addDialog.Show(transaction, "add_dialog");
+            var dialog = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.New, null);
+            dialog.Submit += OnAddDialogSubmit;
+            dialog.Show(transaction, "add_dialog");
         }
 
         private async void OnAddDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs e)
         {
+            var dialog = (EditCategoryBottomSheet) sender;
             var category = new Category(e.Name);
 
             if(_categorySource.IsDuplicate(category))
             {
-                _addDialog.NameError = GetString(Resource.String.duplicateCategory);
+                dialog.NameError = GetString(Resource.String.duplicateCategory);
                 return;
             }
 
-            _addDialog.Dismiss();
             await _connection.InsertAsync(category);
             await _categorySource.Update();
-            _categoryListAdapter.NotifyDataSetChanged();
-            CheckEmptyState();
+            
+            RunOnUiThread(delegate
+            {
+                dialog.Dismiss();
+                _categoryListAdapter.NotifyDataSetChanged();
+                CheckEmptyState();
+            });
         }
 
         private void OnMenuClick(object sender, int position)
@@ -181,9 +189,13 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            dialog.Dismiss();
             await _categorySource.Rename(e.ItemPosition.Value, e.Name);
-            _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value);
+            
+            RunOnUiThread(delegate
+            {
+                dialog.Dismiss();
+                _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value);
+            });
         }
 
         private void OnDeleteClick(object item, int position)
@@ -196,8 +208,11 @@ namespace AuthenticatorPro.Activity
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 await _categorySource.Delete(position);
-                _categoryListAdapter.NotifyItemRemoved(position);
-                CheckEmptyState();
+                RunOnUiThread(delegate
+                {
+                    _categoryListAdapter.NotifyItemRemoved(position);
+                    CheckEmptyState();
+                });
             });
 
             builder.SetNegativeButton(Resource.String.cancel, delegate { });

@@ -68,13 +68,19 @@ namespace AuthenticatorPro.Activity
 
         public async void SetDatabaseEncryption(bool shouldEncrypt)
         {
-            _progressBar.Visibility = ViewStates.Visible;
-            Window.SetFlags(WindowManagerFlags.NotTouchable, WindowManagerFlags.NotTouchable);
+            RunOnUiThread(delegate
+            {
+                _progressBar.Visibility = ViewStates.Visible;
+                Window.SetFlags(WindowManagerFlags.NotTouchable, WindowManagerFlags.NotTouchable);
+            });
 
             await Database.SetEncryptionEnabled(this, shouldEncrypt);
 
-            Window.ClearFlags(WindowManagerFlags.NotTouchable);
-            _progressBar.Visibility = ViewStates.Invisible;
+            RunOnUiThread(delegate
+            {
+                Window.ClearFlags(WindowManagerFlags.NotTouchable);
+                _progressBar.Visibility = ViewStates.Invisible;
+            });
         }
 
         public override bool OnSupportNavigateUp()

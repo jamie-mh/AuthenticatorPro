@@ -186,7 +186,7 @@ namespace AuthenticatorPro.Activity
             {
                 _refreshOnActivityResume = false;
 
-                _authList.Visibility = ViewStates.Invisible;
+                RunOnUiThread(delegate { _authList.Visibility = ViewStates.Invisible; });
                 await RefreshAuthenticators();
                 await _categorySource.Update();
                 await _customIconSource.Update();
@@ -205,7 +205,7 @@ namespace AuthenticatorPro.Activity
                 _onceResumedTask = null;
             }
 
-            CheckEmptyState();
+            RunOnUiThread(CheckEmptyState);
             
             if(_authSource.GetView().Any())
                 Tick();
@@ -271,7 +271,7 @@ namespace AuthenticatorPro.Activity
             fragment.CategoryClick += async (_, id) =>
             {
                 await SwitchCategory(id);
-                fragment.Dismiss();
+                RunOnUiThread(fragment.Dismiss);
             };
 
             fragment.BackupClick += delegate
@@ -313,14 +313,22 @@ namespace AuthenticatorPro.Activity
 
         public override async void OnBackPressed()
         {
-            var searchItem = _toolbar.Menu.FindItem(Resource.Id.actionSearch);
+            var searchBarWasClosed = false;
             
-            if(searchItem != null && searchItem.IsActionViewExpanded)
+            RunOnUiThread(delegate
             {
-                searchItem.CollapseActionView();
-                return;
-            }
+                var searchItem = _toolbar.Menu.FindItem(Resource.Id.actionSearch);
 
+                if(searchItem == null || !searchItem.IsActionViewExpanded)
+                    return;
+                
+                searchItem.CollapseActionView();
+                searchBarWasClosed = true;
+            });
+
+            if(searchBarWasClosed)
+                return;
+            
             if(_authSource.CategoryId != null)
             {
                 await SwitchCategory(null);
@@ -352,7 +360,7 @@ namespace AuthenticatorPro.Activity
             await _customIconSource.Update();
 
             _authSource = new AuthenticatorSource(_connection);
-            InitAuthenticatorList();
+            RunOnUiThread(InitAuthenticatorList);
             await RefreshAuthenticators();
 
             _timer = new Timer {
@@ -404,7 +412,7 @@ namespace AuthenticatorPro.Activity
             
             _authListAdapter.MovementFinished += async delegate
             {
-                _bottomAppBar.PerformShow();
+                RunOnUiThread(_bottomAppBar.PerformShow);
                 await NotifyWearAppOfChange();
             };
 
@@ -436,15 +444,18 @@ namespace AuthenticatorPro.Activity
         {
             if(!viewOnly)
             {
-                _progressBar.Visibility = ViewStates.Visible;
+                RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
                 await _authSource.Update();
             }
 
-            _authListAdapter.NotifyDataSetChanged();
-            _authList.ScheduleLayoutAnimation();
+            RunOnUiThread(delegate
+            {
+                _authListAdapter.NotifyDataSetChanged();
+                _authList.ScheduleLayoutAnimation();
 
-            if(!viewOnly)
-                _progressBar.Visibility = ViewStates.Invisible;
+                if(!viewOnly)
+                    _progressBar.Visibility = ViewStates.Invisible;
+            });
         }
 
         private void CheckEmptyState()
@@ -480,22 +491,29 @@ namespace AuthenticatorPro.Activity
             if(id == _authSource.CategoryId)
                 return;
 
+            string categoryName;
+           
             if(id == null)
             {
                 _authSource.SetCategory(null);
-                SupportActionBar.Title = GetString(Resource.String.categoryAll);
+                categoryName = GetString(Resource.String.categoryAll);
             }
             else
             {
                 var category = _categorySource.GetView().First(c => c.Id == id);
                 _authSource.SetCategory(id);
-                SupportActionBar.Title = category.Name;
+                categoryName = category.Name;
             }
+            
+            RunOnUiThread(delegate { SupportActionBar.Title = categoryName; });
 
             await RefreshAuthenticators(true);
 
-            _authList.Visibility = ViewStates.Invisible;
-            CheckEmptyState();
+            RunOnUiThread(delegate
+            {
+                _authList.Visibility = ViewStates.Invisible;
+                CheckEmptyState();
+            });
         }
 
         private bool RequiresAuthentication()
@@ -520,7 +538,7 @@ namespace AuthenticatorPro.Activity
             for(var i = 0; i < _authSource.GetView().Count; ++i)
             {
                 var position = i;
-                RunOnUiThread(() => { _authListAdapter.NotifyItemChanged(position, true); });
+                RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position, true); });
             }
         }
 
@@ -563,8 +581,8 @@ namespace AuthenticatorPro.Activity
                 var icon = _authSource.Get(position).Icon;
                 await _authSource.Delete(position);
                 await TryCleanupCustomIcon(icon);
-                
-                _authListAdapter.NotifyItemRemoved(position);
+
+                RunOnUiThread(delegate { _authListAdapter.NotifyItemRemoved(position); });
                 
                 await NotifyWearAppOfChange();
                 CheckEmptyState();
@@ -790,10 +808,9 @@ namespace AuthenticatorPro.Activity
                 await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
 
             await _authSource.Update();
-            
             var position = _authSource.GetPosition(auth.Secret);
             
-            RunOnUiThread(() =>
+            RunOnUiThread(delegate
             {
                 _authListAdapter.NotifyItemInserted(position);
                 _authList.SmoothScrollToPosition(position);
@@ -926,7 +943,7 @@ namespace AuthenticatorPro.Activity
 
                 // This is required because we're probably not running on the main thread
                 // as the method was called from a task
-                RunOnUiThread(async () =>
+                RunOnUiThread(async delegate
                 {
                     CheckEmptyState();
                     await RefreshAuthenticators(true);
@@ -1176,11 +1193,15 @@ namespace AuthenticatorPro.Activity
                 await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
 
             await _authSource.Update();
-            CheckEmptyState();
-
             var position = _authSource.GetPosition(auth.Secret);
-            _authListAdapter.NotifyItemInserted(position);
-            _authList.SmoothScrollToPosition(position);
+            
+            RunOnUiThread(delegate
+            {
+                CheckEmptyState();
+                _authListAdapter.NotifyItemInserted(position);
+                _authList.SmoothScrollToPosition(position);
+            });
+            
             await NotifyWearAppOfChange();
 
             PreferenceManager.GetDefaultSharedPreferences(this)
@@ -1207,8 +1228,8 @@ namespace AuthenticatorPro.Activity
 
         private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs e)
         {
-             await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
-            _authListAdapter.NotifyItemChanged(e.ItemPosition);
+            await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
+            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
             await NotifyWearAppOfChange();
         }
         #endregion
@@ -1236,10 +1257,10 @@ namespace AuthenticatorPro.Activity
             var oldIcon = auth.Icon;
             auth.Icon = e.Icon;
             await _connection.UpdateAsync(auth);
-            
             await TryCleanupCustomIcon(oldIcon);
-
-            _authListAdapter.NotifyItemChanged(e.ItemPosition);
+            
+            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
+            
             await NotifyWearAppOfChange();
 
             ((ChangeIconBottomSheet) sender).Dismiss();
@@ -1287,10 +1308,7 @@ namespace AuthenticatorPro.Activity
             await TryCleanupCustomIcon(oldIcon);
 
             await _customIconSource.Update();
-            RunOnUiThread(() =>
-            {
-                _authListAdapter.NotifyItemChanged(_customIconApplyPosition); 
-            });
+            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(_customIconApplyPosition); });
 
             await NotifyWearAppOfChange();
         }
