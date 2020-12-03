@@ -32,7 +32,7 @@ namespace AuthenticatorPro.Data
 
         public async Task Delete(string id)
         {
-            await _connection.ExecuteAsync("DELETE FROM customicon WHERE id = ?", id);
+            await _connection.DeleteAsync<CustomIcon>(id);
             _all.Remove(_all.First(i => i.Id == id));
         }
 
