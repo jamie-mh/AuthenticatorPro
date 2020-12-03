@@ -236,7 +236,7 @@ namespace AuthenticatorPro.Data
             var auth = new Authenticator {
                 Secret = secret,
                 Issuer = issuer.Trim().Truncate(IssuerMaxLength),
-                Username = username.Trim().Truncate(UsernameMaxLength),
+                Username = username?.Trim().Truncate(UsernameMaxLength),
                 Icon = Shared.Data.Icon.FindServiceKeyByName(issuer),
                 Type = type,
                 Algorithm = algorithm,
