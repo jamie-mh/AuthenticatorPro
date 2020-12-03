@@ -787,7 +787,7 @@ namespace AuthenticatorPro.Activity
             }
 
             if(_authSource.CategoryId != null)
-                await _authSource.AddToCategory(_authSource.CategoryId, auth.Secret);
+                await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
 
             await _authSource.Update();
             
@@ -1173,7 +1173,7 @@ namespace AuthenticatorPro.Activity
             await _connection.InsertAsync(auth);
 
             if(_authSource.CategoryId != null)
-                await _authSource.AddToCategory(_authSource.CategoryId, auth.Secret);
+                await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
 
             await _authSource.Update();
             CheckEmptyState();
