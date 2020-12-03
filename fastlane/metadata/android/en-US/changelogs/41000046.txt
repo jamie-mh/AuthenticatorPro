@@ -1,0 +1,3 @@
+- Icons: New icons for Playstation and Crowdin.
+- General: Fix bug when scanning QR codes without usernames.
+- General: Fix issue when adding authenticator to currently selected category.
