@@ -582,10 +582,13 @@ namespace AuthenticatorPro.Activity
                 await _authSource.Delete(position);
                 await TryCleanupCustomIcon(icon);
 
-                RunOnUiThread(delegate { _authListAdapter.NotifyItemRemoved(position); });
+                RunOnUiThread(delegate
+                {
+                    _authListAdapter.NotifyItemRemoved(position);
+                    CheckEmptyState();
+                });
                 
                 await NotifyWearAppOfChange();
-                CheckEmptyState();
             });
             
             builder.SetNegativeButton(Resource.String.cancel, delegate { });
