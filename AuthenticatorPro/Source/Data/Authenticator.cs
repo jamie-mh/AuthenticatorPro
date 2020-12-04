@@ -20,6 +20,8 @@ namespace AuthenticatorPro.Data
         public const int MinDigits = 6;
         public const int MaxDigits = 10;
 
+        public const int HotpCooldownSeconds = 10;
+
 
         [Column("type")]
         public AuthenticatorType Type { get; set; }
@@ -93,7 +95,7 @@ namespace AuthenticatorPro.Data
                 var hotp = (Hotp) _otp;
 
                 if(_code != null)
-                    TimeRenew = DateTime.Now.AddSeconds(10);
+                    TimeRenew = DateTime.Now.AddSeconds(HotpCooldownSeconds);
 
                 _code = hotp.ComputeHOTP(Counter);
                 _lastCounter = Counter;
@@ -110,14 +112,14 @@ namespace AuthenticatorPro.Data
             // Google Auth may not have an issuer, just use the username instead
             if(String.IsNullOrEmpty(input.Issuer))
             {
-                issuer = input.Username.Trim().Truncate(32);
+                issuer = input.Username.Trim().Truncate(IssuerMaxLength);
                 username = null;
             }
             else
             {
-                issuer = input.Issuer.Trim().Truncate(32);
+                issuer = input.Issuer.Trim().Truncate(IssuerMaxLength);
                 // For some odd reason the username field always follows a '[issuer]: [username]' format
-                username = input.Username.Replace($"{input.Issuer}: ", "").Trim().Truncate(40);
+                username = input.Username.Replace($"{input.Issuer}: ", "").Trim().Truncate(UsernameMaxLength);
             }
 
             var type = input.Type switch
@@ -145,7 +147,7 @@ namespace AuthenticatorPro.Data
                 throw new ArgumentException();
             }
 
-            var auth = new Authenticator()
+            var auth = new Authenticator
             {
                 Issuer = issuer,
                 Username = username,
@@ -210,23 +212,13 @@ namespace AuthenticatorPro.Data
             var algorithm = OtpHashMode.Sha1;
 
             if(args.ContainsKey("algorithm"))
-                switch(args["algorithm"].ToUpper())
+                algorithm = args["algorithm"].ToUpper() switch
                 {
-                    case "SHA1":
-                        algorithm = OtpHashMode.Sha1;
-                        break;
-
-                    case "SHA256":
-                        algorithm = OtpHashMode.Sha256;
-                        break;
-
-                    case "SHA512":
-                        algorithm = OtpHashMode.Sha512;
-                        break;
-
-                    default:
-                        throw new ArgumentException();
-                }
+                    "SHA1" => OtpHashMode.Sha1,
+                    "SHA256" => OtpHashMode.Sha256,
+                    "SHA512" => OtpHashMode.Sha512,
+                    _ => throw new ArgumentException()
+                };
 
             var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : DefaultDigits;
             var period = args.ContainsKey("period") ? Int32.Parse(args["period"]) : DefaultPeriod;
