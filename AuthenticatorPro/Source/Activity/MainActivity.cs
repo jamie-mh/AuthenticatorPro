@@ -307,8 +307,14 @@ namespace AuthenticatorPro.Activity
             _timer?.Stop();
             _pauseTime = DateTime.Now;
 
-            if(_hasWearAPIs)
+            if(!_hasWearAPIs)
+                return;
+            
+            try
+            {
                 await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
+            }
+            catch(ApiException) { }
         }
 
         public override async void OnBackPressed()
