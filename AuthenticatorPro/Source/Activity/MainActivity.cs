@@ -50,7 +50,6 @@ namespace AuthenticatorPro.Activity
     [Activity(Label = "@string/displayName", Theme = "@style/MainActivityTheme", MainLauncher = true,
               Icon = "@mipmap/ic_launcher", WindowSoftInputMode = SoftInput.AdjustPan,
               ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
-    [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     internal class MainActivity : DayNightActivity, CapabilityClient.IOnCapabilityChangedListener
     {
         private const string WearRefreshCapability = "refresh";
