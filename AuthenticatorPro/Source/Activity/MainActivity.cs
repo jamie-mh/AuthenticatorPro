@@ -494,7 +494,10 @@ namespace AuthenticatorPro.Activity
         private async Task SwitchCategory(string id)
         {
             if(id == _authSource.CategoryId)
+            {
+                RunOnUiThread(CheckEmptyState);
                 return;
+            }
 
             string categoryName;
            
