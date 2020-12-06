@@ -5,8 +5,15 @@
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
     <string name="backup">备份</string>
+    <string name="backupToFile">保存为加密文件（推荐）</string>
+    <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
+    <string name="backupHtml">保存为 HTML 文件</string>
+    <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
     <string name="about">关于</string>
     <string name="scanQrCode">扫描二维码</string>
+    <string name="scanQrCodeFromCamera">使用相机扫描</string>
+    <string name="scanQrCodeFromGallery">从相册中选择</string>
+    <string name="scanSuccessful">二维码扫描成功</string>
     <string name="enterKey">输入提供的密钥</string>
     <string name="restoreBackup">从备份中恢复</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
@@ -48,7 +55,7 @@
     <string name="secretInvalid">输入的密钥无效。</string>
     <string name="digitsInvalid">验证器只能生成 6 到 10 位的验证码。</string>
     <string name="periodToShort">时间间隔必须大于 0 秒。</string>
-    <string name="qrCodeFormatError">二维码的格式不正确。</string>
+    <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 和新分类。</string>
     <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
