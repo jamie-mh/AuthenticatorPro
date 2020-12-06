@@ -1,6 +1,6 @@
 ﻿namespace AuthenticatorPro.Data
 {
-    internal enum AuthenticatorType
+    public enum AuthenticatorType
     {
         Hotp = 1, Totp = 2
     }

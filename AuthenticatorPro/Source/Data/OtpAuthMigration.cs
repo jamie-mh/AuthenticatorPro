@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace AuthenticatorPro.Data
 {
     [ProtoContract]
-    internal class OtpAuthMigration
+    public class OtpAuthMigration
     {
         [ProtoContract]
         public enum Algorithm

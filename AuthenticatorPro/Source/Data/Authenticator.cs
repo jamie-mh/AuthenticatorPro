@@ -9,7 +9,7 @@ using SQLite;
 namespace AuthenticatorPro.Data
 {
     [Table("authenticator")]
-    internal class Authenticator
+    public class Authenticator
     {
         public const int IssuerMaxLength = 32;
         public const int UsernameMaxLength = 40;
