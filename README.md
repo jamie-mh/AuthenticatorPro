@@ -1,9 +1,10 @@
 # Authenticator Pro
 
-![GitHub](https://img.shields.io/github/license/jamie-mh/AuthenticatorPro?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/jamie-mh/AuthenticatorPro?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/jamie-mh/AuthenticatorPro?style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/jamie-mh/AuthenticatorPro?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/jamie-mh/AuthenticatorPro?style=flat)
+![GitHub stars](https://img.shields.io/github/stars/jamie-mh/AuthenticatorPro?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/jamie-mh/AuthenticatorPro?style=flat)
+![GitHub top language](https://img.shields.io/github/languages/top/jamie-mh/AuthenticatorPro?style=flat)
+[![Build Status](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_apis/build/status/jamie-mh.AuthenticatorPro?branchName=master)](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_build/latest?definitionId=1&branchName=master)
 
 ![Authenticator Pro](./doc/ic_launcher-web.png)
 
