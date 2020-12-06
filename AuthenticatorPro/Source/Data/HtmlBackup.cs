@@ -66,14 +66,14 @@ namespace AuthenticatorPro.Data
 
             foreach(var auth in authenticators)
             {
-                var url = auth.GetOtpAuthUrl();
-                var qrCode = await GetQrCodeDataAsync(url);
+                var uri = auth.GetOtpAuthUri();
+                var qrCode = await GetQrCodeDataAsync(uri);
 
                 itemsHtml.Append($@"
                     <tr>
                         <td>{auth.Issuer}</td>
                         <td>{auth.Username}</td>
-                        <td><code>{url}</code></td>
+                        <td><code>{uri}</code></td>
                         <td><img src=""data:image/png;base64,{qrCode}""></td>
                     </tr>
                 ");

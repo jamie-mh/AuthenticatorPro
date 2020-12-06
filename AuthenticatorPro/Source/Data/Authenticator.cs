@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using AuthenticatorPro.Util;
 using Newtonsoft.Json;
@@ -13,7 +14,8 @@ namespace AuthenticatorPro.Data
     {
         public const int IssuerMaxLength = 32;
         public const int UsernameMaxLength = 40;
-        
+
+        public const OtpHashMode DefaultAlgorithm = OtpHashMode.Sha1;
         public const int DefaultDigits = 6;
         public const int DefaultPeriod = 30;
 
@@ -70,6 +72,10 @@ namespace AuthenticatorPro.Data
             TimeRenew = DateTime.MinValue;
             _code = null;
             _otp = null;
+
+            Algorithm = DefaultAlgorithm;
+            Digits = DefaultDigits;
+            Period = DefaultPeriod;
         }
 
         public string GetCode()
@@ -176,7 +182,7 @@ namespace AuthenticatorPro.Data
             var type = uriMatch.Groups[1].Value switch {
                 "totp" => AuthenticatorType.Totp,
                 "hotp" => AuthenticatorType.Hotp,
-                _ => throw new ArgumentException()
+                _ => throw new ArgumentException("Unknown type")
             };
 
             // Get the issuer and username if possible
@@ -209,7 +215,7 @@ namespace AuthenticatorPro.Data
                 }
             }
 
-            var algorithm = OtpHashMode.Sha1;
+            var algorithm = DefaultAlgorithm;
 
             if(args.ContainsKey("algorithm"))
                 algorithm = args["algorithm"].ToUpper() switch
@@ -217,12 +223,27 @@ namespace AuthenticatorPro.Data
                     "SHA1" => OtpHashMode.Sha1,
                     "SHA256" => OtpHashMode.Sha256,
                     "SHA512" => OtpHashMode.Sha512,
-                    _ => throw new ArgumentException()
+                    _ => throw new ArgumentException("Unknown algorithm")
                 };
 
-            var digits = args.ContainsKey("digits") ? Int32.Parse(args["digits"]) : DefaultDigits;
-            var period = args.ContainsKey("period") ? Int32.Parse(args["period"]) : DefaultPeriod;
+            var digits = DefaultDigits;
+            if(args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
+                throw new ArgumentException("Digits parameter cannot be parsed.");
+            
+            var period = DefaultPeriod;
+            if(args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
+                throw new ArgumentException("Period parameter cannot be parsed.");
 
+            var counter = 0;
+            if(type == AuthenticatorType.Hotp && args.ContainsKey("counter") && !Int32.TryParse(args["counter"], out counter))
+                throw new ArgumentException("Counter parameter cannot be parsed.");
+            
+            if(counter < 0)
+                throw new ArgumentException("Counter cannot be negative.");
+
+            if(!args.ContainsKey("secret"))
+                throw new ArgumentException("Secret parameter is required.");
+            
             var secret = CleanSecret(args["secret"]);
 
             var auth = new Authenticator {
@@ -234,43 +255,52 @@ namespace AuthenticatorPro.Data
                 Algorithm = algorithm,
                 Digits = digits,
                 Period = period,
-                Counter = 0
+                Counter = counter
             };
 
             if(!auth.IsValid())
-                throw new ArgumentException();
+                throw new ArgumentException("Authenticator is not valid.");
             
             return auth;
         }
         
-        public string GetOtpAuthUrl()
+        public string GetOtpAuthUri()
         {
             var type = Type switch
             {
                 AuthenticatorType.Hotp => "hotp",
                 AuthenticatorType.Totp => "totp",
-                _ => throw new ArgumentException()
+                _ => throw new ArgumentException("Unknown type")
             };
+            
+            var issuerUsername = String.IsNullOrEmpty(Username) ? Issuer : $"{Issuer}:{Username}";
 
-            var algorithm = Algorithm switch
+            var uri = new StringBuilder(
+                $"otpauth://{type}/{Uri.EscapeDataString(issuerUsername)}?secret={Secret}&issuer={Uri.EscapeDataString(Issuer)}");
+
+            if(Algorithm != DefaultAlgorithm)
             {
-                OtpHashMode.Sha1 => "SHA1",
-                OtpHashMode.Sha256 => "SHA256",
-                OtpHashMode.Sha512 => "SHA512",
-                _ => throw new ArgumentException()
-            };
-            
-            var issuerUsername = Username == "" ? Issuer : $"{Issuer}:{Username}";
-            
-            var url =
-                $"otpauth://{type}/{Uri.EscapeDataString(issuerUsername)}?secret={Secret}&issuer={Uri.EscapeDataString(Issuer)}&algorithm={algorithm}&digits={Digits}";
+                var algorithmName = Algorithm switch
+                {
+                    OtpHashMode.Sha1 => "SHA1",
+                    OtpHashMode.Sha256 => "SHA256",
+                    OtpHashMode.Sha512 => "SHA512",
+                    _ => throw new ArgumentException("Unknown algorithm")
+                };
 
-            if(Type == AuthenticatorType.Totp)
-                url += $"&period={Period}";
-            else if(Type == AuthenticatorType.Hotp)
-                url += $"&counter={Counter}";
+                uri.Append($"&algorithm={algorithmName}");
+            }
 
-            return url;
+            if(Digits != DefaultDigits)
+                uri.Append($"&digits={Digits}");
+            
+            if(Type == AuthenticatorType.Totp && Period != DefaultPeriod)
+                uri.Append($"&period={Period}");
+            
+            if(Type == AuthenticatorType.Hotp)
+                uri.Append($"&counter={Counter}");
+
+            return uri.ToString();
         }
 
         public static string CleanSecret(string input)
