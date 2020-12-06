@@ -25,3 +25,17 @@ steps:
     projectFile: 'AuthenticatorPro/AuthenticatorPro.Android.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
+
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '$(outputDirectory)/*.apk'
+    apksign: true
+    zipalign: true
+    apksignerKeystoreFile: $(keystore.file)
+    apksignerKeystorePassword: $(keystore.password)
+    apksignerKeystoreAlias: $(keystore.alias)
+    apksignerKeyPassword: $(key.password)
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(outputDirectory)'
