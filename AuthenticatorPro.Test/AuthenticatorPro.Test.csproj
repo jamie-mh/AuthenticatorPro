@@ -122,11 +122,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\DatabaseTest.cs" />
     <Compile Include="Source\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\AuthenticatorTest.cs" />
+    <Compile Include="Source\Test\AuthenticatorTest.cs" />
+    <Compile Include="Source\Test\ConnectionBasedTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

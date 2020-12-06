@@ -2,10 +2,10 @@
 using Nito.AsyncEx;
 using NUnit.Framework;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.Test
 {
     [TestFixture]
-    internal class AuthenticatorTest : DatabaseTest
+    internal class AuthenticatorTest : ConnectionBasedTest
     {
         [Test]
         public void Pass()

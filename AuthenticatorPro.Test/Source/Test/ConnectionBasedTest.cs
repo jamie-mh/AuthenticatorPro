@@ -5,9 +5,9 @@ using Nito.AsyncEx;
 using NUnit.Framework;
 using SQLite;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.Test
 {
-    internal abstract class DatabaseTest
+    internal abstract class ConnectionBasedTest
     {
         protected SQLiteAsyncConnection _connection;
         
@@ -19,6 +19,12 @@ namespace AuthenticatorPro.Test
                 "test.db3"
             );
             
+            try
+            {
+                File.Delete(dbPath);     
+            }
+            catch(Exception) { }
+
             _connection = new SQLiteAsyncConnection(dbPath);
 
             AsyncContext.Run(async delegate
@@ -34,10 +40,6 @@ namespace AuthenticatorPro.Test
             {
                 await _connection.CloseAsync();
             });
-            
-            File.Delete(_connection.DatabasePath);
-            File.Delete(_connection.DatabasePath.Replace("db3", "db3-shm"));
-            File.Delete(_connection.DatabasePath.Replace("db3", "db3-wal"));
         }
     }
 }
