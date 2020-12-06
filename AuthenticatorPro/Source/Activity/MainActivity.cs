@@ -773,7 +773,6 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            RunOnUiThread(CheckEmptyState);
             await NotifyWearAppOfChange();
 
             PreferenceManager.GetDefaultSharedPreferences(this)
@@ -820,6 +819,7 @@ namespace AuthenticatorPro.Activity
             
             RunOnUiThread(delegate
             {
+                CheckEmptyState();
                 _authListAdapter.NotifyItemInserted(position);
                 _authList.SmoothScrollToPosition(position);
             });

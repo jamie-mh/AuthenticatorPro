@@ -40,7 +40,7 @@ namespace AuthenticatorPro.List
 
         public override bool SupportsPredictiveItemAnimations()
         {
-            return true;
+            return false;
         }
     }
 }
