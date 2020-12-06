@@ -31,7 +31,7 @@ steps:
     apkFiles: '$(outputDirectory)/*.apk'
     apksign: true
     zipalign: true
-    apksignerKeystoreFile: $(keystore.file)
+    apksignerKeystoreFile: 'jmh.keystore'
     apksignerKeystorePassword: $(keystore.password)
     apksignerKeystoreAlias: $(keystore.alias)
     apksignerKeyPassword: $(key.password)
