@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AuthenticatorPro.Shared.Data
 {
     public static class Icon
     {
-        public static string Default = "default";
-        
+        public const string Default = "default";
+
         public static readonly Dictionary<string, int> Service = new Dictionary<string, int> 
         {
             // Brand icons
@@ -309,8 +310,23 @@ namespace AuthenticatorPro.Shared.Data
 
         public static string FindServiceKeyByName(string name)
         {
-            var key = name.ToLower().Split(' ')[0];
-            return Service.Keys.Contains(key) ? key : Default;
+            static string Simplify(string input)
+            {
+                input = input.ToLower();
+                input = Regex.Replace(input, @"[^a-z0-9]", "");
+                return input.Trim();
+            };
+
+            var key = Simplify(name);
+
+            if(Service.ContainsKey(key))
+                return key;
+
+            var firstWordKey = Simplify(name.Split(' ', 2)[0]);
+            
+            return Service.ContainsKey(firstWordKey)
+                ? firstWordKey
+                : Default;
         }
     }
 }
