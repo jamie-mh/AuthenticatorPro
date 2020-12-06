@@ -55,7 +55,9 @@ namespace AuthenticatorPro.Test.Test
             new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA256", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha256 }}, // Algorithm parameter 3/4
             new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA512", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha512 }}, // Algorithm parameter 4/4
             new object[] { $"otpauth://totp/{new string('a', Authenticator.IssuerMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = new string('a', Authenticator.IssuerMaxLength), Username = null, Secret = "ABCDEFG" }}, // Truncate issuer
-            new object[] { $"otpauth://totp/issuer:{new string('a', Authenticator.UsernameMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = new string('a', Authenticator.UsernameMaxLength), Secret = "ABCDEFG" }} // Truncate username 
+            new object[] { $"otpauth://totp/issuer:{new string('a', Authenticator.UsernameMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = new string('a', Authenticator.UsernameMaxLength), Secret = "ABCDEFG" }}, // Truncate username
+            new object[] { "otpauth://totp/%F0%9F%98%80%3Ausername?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "😀", Username = "username", Secret = "ABCDEFG" }}, // Multibyte characters 1/2
+            new object[] { "otpauth://totp/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C%3Ausername?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "你好世界", Username = "username", Secret = "ABCDEFG" }} // Multibyte characters 2/2
         };
        
         [Test]
