@@ -63,6 +63,9 @@ namespace AuthenticatorPro.Activity
         private const int ResultCustomIconSAF = 5;
         private const int ResultSettingsRecreate = 6;
 
+        private const int BackupReminderThresholdMinutes = 120;
+        private const int AppLockThresholdMinutes = 1;
+
         private bool _areGoogleAPIsAvailable;
         private bool _hasWearAPIs;
         private bool _hasWearCompanion;
@@ -85,9 +88,11 @@ namespace AuthenticatorPro.Activity
 
         private SQLiteAsyncConnection _connection;
         private Timer _timer;
+        
         private DateTime _pauseTime;
-
+        private DateTime _lastBackupReminderTime;
         private bool _isAuthenticated;
+        
         private Task _onceResumedTask;
         private bool _refreshOnActivityResume;
         private int _customIconApplyPosition;
@@ -105,11 +110,13 @@ namespace AuthenticatorPro.Activity
             {
                 _isAuthenticated = savedInstanceState.GetBoolean("isAuthenticated");
                 _pauseTime = new DateTime(savedInstanceState.GetLong("pauseTime"));
+                _lastBackupReminderTime = new DateTime(savedInstanceState.GetLong("lastBackupReminderTime"));
             }
             else
             {
                 _isAuthenticated = false;
                 _pauseTime = DateTime.MinValue;
+                _lastBackupReminderTime = DateTime.MinValue;
             }
 
             _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
@@ -155,7 +162,7 @@ namespace AuthenticatorPro.Activity
 
             if(RequiresAuthentication())
             {
-                if((DateTime.Now - _pauseTime).TotalMinutes >= 1)
+                if((DateTime.Now - _pauseTime).TotalMinutes >= AppLockThresholdMinutes)
                     _isAuthenticated = false;
             
                 if(!_isAuthenticated)
@@ -212,7 +219,7 @@ namespace AuthenticatorPro.Activity
             var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_showBackupReminders", true);
            
-            if(showBackupReminders)
+            if(showBackupReminders && (DateTime.Now - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
 
             await DetectWearOSCapability();
@@ -226,6 +233,7 @@ namespace AuthenticatorPro.Activity
             base.OnSaveInstanceState(outState);
             outState.PutBoolean("isAuthenticated", _isAuthenticated);
             outState.PutLong("pauseTime", _pauseTime.Ticks);
+            outState.PutLong("lastBackupReminderTime", _lastBackupReminderTime.Ticks);
         }
 
         protected override async void OnDestroy()
@@ -1159,7 +1167,8 @@ namespace AuthenticatorPro.Activity
 
             if(!needsBackup)
                 return;
-            
+
+            _lastBackupReminderTime = DateTime.Now;
             var snackbar = Snackbar.Make(_coordinatorLayout, Resource.String.backupReminder, Snackbar.LengthLong);
             snackbar.SetAnchorView(_addButton);
             snackbar.SetAction(Resource.String.backupNow, view =>
