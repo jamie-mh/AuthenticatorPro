@@ -148,6 +148,7 @@ namespace AuthenticatorPro.Shared.Data
             {"paypal", Resource.Drawable.auth_paypal},
             {"playstation", Resource.Drawable.auth_playstation},
             {"pluralsight", Resource.Drawable.auth_pluralsight},
+            {"porkbun", Resource.Drawable.auth_porkbun},
             {"posteo", Resource.Drawable.auth_posteo},
             {"privacy", Resource.Drawable.auth_privacy},
             {"privateinternetaccess", Resource.Drawable.auth_privateinternetaccess},
