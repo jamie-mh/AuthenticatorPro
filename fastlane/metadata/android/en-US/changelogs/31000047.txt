@@ -1,0 +1,4 @@
+- General: Improved automatic icon matching.
+- General: Improved translations.
+- General: Backup reminders are now less frequent.
+- General: Bug fixes to QR code scanning.
