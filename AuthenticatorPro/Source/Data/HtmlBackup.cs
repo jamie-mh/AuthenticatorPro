@@ -52,11 +52,11 @@ namespace AuthenticatorPro.Data
             var itemsHtml = new StringBuilder();
             var generator = new QRCodeGenerator();
             
-            async Task<string> GetQrCodeDataAsync(string url)
+            async Task<string> GetQrCodeDataAsync(string uri)
             {
                 return await Task.Run(() =>
                 {
-                    var qrCodeData = generator.CreateQrCode(url, QRCodeGenerator.ECCLevel.Q);
+                    var qrCodeData = generator.CreateQrCode(uri, QRCodeGenerator.ECCLevel.Q);
                     var qrCode = new PngByteQRCode(qrCodeData);
 
                     var bytes = qrCode.GetGraphic(PixelsPerModule);
