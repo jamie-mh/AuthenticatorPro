@@ -6,8 +6,15 @@
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
     <string name="backup">Sichern</string>
+    <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
+    <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
+    <string name="backupHtml">Als HTML-Datei sichern</string>
+    <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="about">Über</string>
     <string name="scanQrCode">Einen QR-Code scannen</string>
+    <string name="scanQrCodeFromCamera">Mit Kamera aufnehmen</string>
+    <string name="scanQrCodeFromGallery">Bild aus Galerie scannen</string>
+    <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
     <string name="enterKey">Einen Schlüssel eingeben</string>
     <string name="restoreBackup">Eine Sicherung laden</string>
     <string name="copiedToClipboard">In Zwischenablage kopiert</string>
@@ -49,7 +56,7 @@
     <string name="secretInvalid">Der Schlüssel ist ungültig.</string>
     <string name="digitsInvalid">Es müssen zwischen 6 und 10 Stellen generiert werden</string>
     <string name="periodToShort">Die Gültigkeit muss mehr als 0 Sekunden betragen.</string>
-    <string name="qrCodeFormatError">Der QR-Code ist falsch formatiert.</string>
+    <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
