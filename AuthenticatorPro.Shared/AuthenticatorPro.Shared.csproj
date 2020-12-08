@@ -566,6 +566,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_pluralsight.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_porkbun.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_posteo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1281,6 +1284,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_pluralsight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_porkbun.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_posteo.png" />
@@ -2000,6 +2006,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\auth_pluralsight.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_porkbun.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_posteo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2717,6 +2726,9 @@
     <AndroidResource Include="Resources\drawable-mdpi\auth_pluralsight.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_porkbun.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_posteo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3432,6 +3444,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_pluralsight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_porkbun.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_posteo.png" />
