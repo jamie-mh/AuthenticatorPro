@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Data.Generator;
 using NUnit.Framework;
 using OtpNet;
 
@@ -155,7 +156,7 @@ namespace AuthenticatorPro.Test.Test
             Assert.That(auth.GetOtpAuthUri() == uri); 
         }
         
-        private static readonly object[] CleanSecretTestCases =
+        private static readonly object[] CleanSecretTotpHotpTestCases =
         {
             new object[] { "abcdefg", "ABCDEFG" }, // Make uppercase
             new object[] { "ABCD EFG", "ABCDEFG" }, // Remove spaces
@@ -163,13 +164,29 @@ namespace AuthenticatorPro.Test.Test
         };
        
         [Test]
-        [TestCaseSource(nameof(CleanSecretTestCases))]
-        public void CleanSecretTest(string input, string output)
+        [TestCaseSource(nameof(CleanSecretTotpHotpTestCases))]
+        public void CleanSecretTotpHotpTest(string input, string output)
         {
             Assert.That(Authenticator.CleanSecret(input, AuthenticatorType.Totp) == output);
+            Assert.That(Authenticator.CleanSecret(input, AuthenticatorType.Hotp) == output);
         }
         
-        private static readonly object[] IsValidSecretTestCases =
+        private static readonly object[] CleanSecretMobileOtpTestCases =
+        {
+            new object[] { "abcdefg", "abcdefg" }, // Preserve case 1/2
+            new object[] { "ABCDEFG", "ABCDEFG" }, // Preserve case 2/2
+            new object[] { "ABCD EFG", "ABCDEFG" }, // Remove spaces
+            new object[] { "ABCD-EFG", "ABCDEFG" } // Remove hyphens 
+        };
+       
+        [Test]
+        [TestCaseSource(nameof(CleanSecretMobileOtpTestCases))]
+        public void CleanSecretMobileOtpTest(string input, string output)
+        {
+            Assert.That(Authenticator.CleanSecret(input, AuthenticatorType.MobileOtp) == output);
+        }
+        
+        private static readonly object[] IsValidSecretTotpHotpTestCases =
         {
             new object[] { "ABCDEFG", true }, // Valid (uppercase)
             new object[] { "abcdefg", true }, // Valid (lowercase)
@@ -180,23 +197,40 @@ namespace AuthenticatorPro.Test.Test
         };
         
         [Test]
-        [TestCaseSource(nameof(IsValidSecretTestCases))]
-        public void IsValidSecretTest(string secret, bool expectedResult)
+        [TestCaseSource(nameof(IsValidSecretTotpHotpTestCases))]
+        public void IsValidSecretTotpHotpTest(string secret, bool expectedResult)
         {
             Assert.That(Authenticator.IsValidSecret(secret, AuthenticatorType.Totp) == expectedResult); 
+            Assert.That(Authenticator.IsValidSecret(secret, AuthenticatorType.Hotp) == expectedResult); 
+        }
+        
+        private static readonly object[] IsValidSecretMobileOtpTestCases =
+        {
+            new object[] { new string('A', MobileOtp.SecretMinLength), true }, // Valid (uppercase)
+            new object[] { new string('a', MobileOtp.SecretMinLength), true }, // Valid (lowercase)
+            new object[] { null, false }, // Missing 1/2 
+            new object[] { "", false }, // Missing 2/2
+            new object[] { new string('a', MobileOtp.SecretMinLength - 1), false } // Too few characters
+        };
+        
+        [Test]
+        [TestCaseSource(nameof(IsValidSecretMobileOtpTestCases))]
+        public void IsValidSecretMobileOtpTest(string secret, bool expectedResult)
+        {
+            Assert.That(Authenticator.IsValidSecret(secret, AuthenticatorType.MobileOtp) == expectedResult); 
         }
         
         private static readonly object[] IsValidTestCases =
         {
-            new object[] { new Authenticator { Secret = "abcdefg", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, true }, // Valid
-            new object[] { new Authenticator { Secret = "abcdefg", Issuer = null, Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing issuer 1/2
-            new object[] { new Authenticator { Secret = "abcdefg", Issuer = "", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing issuer 2/2
-            new object[] { new Authenticator { Secret = null, Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing secret 1/2
-            new object[] { new Authenticator { Secret = "", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing secret 2/2
-            new object[] { new Authenticator { Secret = "11111111", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Invalid secret 
-            new object[] { new Authenticator { Secret = "abcdefg", Issuer = "test", Digits = Authenticator.MinDigits - 1, Period = Authenticator.DefaultPeriod }, false }, // Too few digits
-            new object[] { new Authenticator { Secret = "abcdefg", Issuer = "test", Digits = Authenticator.MaxDigits + 1, Period = Authenticator.DefaultPeriod }, false }, // Too many digits
-            new object[] { new Authenticator { Secret = "abcdefg", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = -1 }, false } // Negative period
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, true }, // Valid
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = null, Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing issuer 1/2
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing issuer 2/2
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = null, Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing secret 1/2
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing secret 2/2
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "11111111", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Invalid secret 
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.MinDigits - 1, Period = Authenticator.DefaultPeriod }, false }, // Too few digits
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.MaxDigits + 1, Period = Authenticator.DefaultPeriod }, false }, // Too many digits
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = -1 }, false } // Negative period
         };
 
         [Test]
