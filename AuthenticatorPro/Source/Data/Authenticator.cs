@@ -103,7 +103,7 @@ namespace AuthenticatorPro.Data
                 if(oldCode != null || Counter == 1)
                     TimeRenew = counterGenerator.GetRenewTime();
             }
-            else if(TimeRenew <= DateTime.Now)
+            else if(TimeRenew <= DateTime.UtcNow)
             {
                 _code = _generator.Compute();
                 TimeRenew = _generator.GetRenewTime();

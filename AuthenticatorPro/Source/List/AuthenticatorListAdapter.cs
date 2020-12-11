@@ -103,7 +103,7 @@ namespace AuthenticatorPro.List
                     break;
 
                 case AuthenticatorType.Hotp:
-                    holder.RefreshButton.Visibility = auth.TimeRenew < DateTime.Now
+                    holder.RefreshButton.Visibility = auth.TimeRenew < DateTime.UtcNow
                         ? ViewStates.Visible
                         : ViewStates.Gone;
 
@@ -127,14 +127,14 @@ namespace AuthenticatorPro.List
             {
                 case AuthenticatorType.Totp:
                 case AuthenticatorType.MobileOtp:
-                    if(auth.TimeRenew < DateTime.Now)
+                    if(auth.TimeRenew < DateTime.UtcNow)
                         holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
 
                     holder.ProgressBar.Progress = GetRemainingProgress(auth);
                     break;
 
                 case AuthenticatorType.Hotp:
-                    if(auth.TimeRenew < DateTime.Now)
+                    if(auth.TimeRenew < DateTime.UtcNow)
                         holder.RefreshButton.Visibility = ViewStates.Visible;
 
                     break;
@@ -162,7 +162,7 @@ namespace AuthenticatorPro.List
 
         private static int GetRemainingProgress(Authenticator auth)
         {
-            var secondsRemaining = (auth.TimeRenew - DateTime.Now).TotalSeconds;
+            var secondsRemaining = (auth.TimeRenew - DateTime.UtcNow).TotalSeconds;
             return (int) Math.Floor(100d * secondsRemaining / auth.Period);
         }
 

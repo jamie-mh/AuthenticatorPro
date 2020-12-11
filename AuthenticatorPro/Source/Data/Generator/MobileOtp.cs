@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Data.Generator
 
         public string Compute()
         {
-            _computedAt = DateTime.Now;
+            _computedAt = DateTime.UtcNow;
             var timestamp = ((DateTimeOffset) _computedAt).ToUnixTimeSeconds() / 10;
             var material = timestamp + _secret;
             return Hash.Md5(material).Truncate(_digits);
@@ -32,7 +32,7 @@ namespace AuthenticatorPro.Data.Generator
         public DateTime GetRenewTime()
         {
             var secondsRemaining = _period - (int) ((DateTimeOffset) _computedAt).ToUnixTimeSeconds() % _period;
-            return DateTime.Now.AddSeconds(secondsRemaining);
+            return DateTime.UtcNow.AddSeconds(secondsRemaining);
         }
     }
 }

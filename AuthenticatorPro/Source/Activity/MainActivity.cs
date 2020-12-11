@@ -164,7 +164,7 @@ namespace AuthenticatorPro.Activity
 
             if(RequiresAuthentication())
             {
-                if((DateTime.Now - _pauseTime).TotalMinutes >= AppLockThresholdMinutes)
+                if((DateTime.UtcNow - _pauseTime).TotalMinutes >= AppLockThresholdMinutes)
                     _isAuthenticated = false;
             
                 if(!_isAuthenticated)
@@ -221,7 +221,7 @@ namespace AuthenticatorPro.Activity
             var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_showBackupReminders", true);
            
-            if(showBackupReminders && (DateTime.Now - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
+            if(showBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
 
             await DetectWearOSCapability();
@@ -314,7 +314,7 @@ namespace AuthenticatorPro.Activity
             base.OnPause();
 
             _timer?.Stop();
-            _pauseTime = DateTime.Now;
+            _pauseTime = DateTime.UtcNow;
 
             if(!_hasWearAPIs)
                 return;
@@ -1170,7 +1170,7 @@ namespace AuthenticatorPro.Activity
             if(!needsBackup)
                 return;
 
-            _lastBackupReminderTime = DateTime.Now;
+            _lastBackupReminderTime = DateTime.UtcNow;
             var snackbar = Snackbar.Make(_coordinatorLayout, Resource.String.backupReminder, Snackbar.LengthLong);
             snackbar.SetAnchorView(_addButton);
             snackbar.SetAction(Resource.String.backupNow, view =>

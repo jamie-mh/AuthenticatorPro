@@ -68,13 +68,13 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void UpdateProgressBar()
         {
-            var secondsRemaining = (_timeRenew - DateTime.Now).TotalSeconds;
+            var secondsRemaining = (_timeRenew - DateTime.UtcNow).TotalSeconds;
             _progressBar.Progress = (int) Math.Ceiling(100d * secondsRemaining / _period);
         }
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
         {
-            if(_timeRenew <= DateTime.Now)
+            if(_timeRenew <= DateTime.UtcNow)
                 UpdateCode();
             
             UpdateProgressBar();
@@ -90,7 +90,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private void UpdateCode()
         {
             var code = _totp.ComputeTotp();
-            _timeRenew = DateTime.Now.AddSeconds(_totp.RemainingSeconds());
+            _timeRenew = DateTime.UtcNow.AddSeconds(_totp.RemainingSeconds());
             
             code ??= "".PadRight(_digits, '-');
 

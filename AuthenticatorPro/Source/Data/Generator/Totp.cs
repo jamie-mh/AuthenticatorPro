@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Data.Generator
 
         public DateTime GetRenewTime()
         {
-            return DateTime.Now.AddSeconds(_totp.RemainingSeconds());
+            return DateTime.UtcNow.AddSeconds(_totp.RemainingSeconds());
         }
     }
 }

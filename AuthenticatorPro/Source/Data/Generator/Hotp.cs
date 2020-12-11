@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Data.Generator
 
         public string Compute()
         {
-            _computedAt = DateTime.Now;
+            _computedAt = DateTime.UtcNow;
             return _hotp.ComputeHOTP(Counter);
         }
 
