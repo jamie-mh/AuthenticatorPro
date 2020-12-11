@@ -90,23 +90,29 @@ namespace AuthenticatorPro.Data
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
             
-            if(_generator is ICounterBasedGenerator counterGenerator)
+            switch(_generator.GenerationMethod)
             {
-                if(_lastCounter == Counter)
-                    return _code;
+                case GenerationMethod.Counter:
+                {
+                    if(_lastCounter == Counter)
+                        break;
+                    
+                    var counterGenerator = (CounterBasedGenerator) _generator;
+                    counterGenerator.Counter = Counter;
+                    var oldCode = _code;
+                    _code = counterGenerator.Compute();
+                    _lastCounter = Counter;
                 
-                counterGenerator.Counter = Counter;
-                var oldCode = _code;
-                _code = counterGenerator.Compute();
-                _lastCounter = Counter;
+                    if(oldCode != null || Counter == 1)
+                        TimeRenew = counterGenerator.GetRenewTime();
+                    
+                    break;
+                }
                 
-                if(oldCode != null || Counter == 1)
-                    TimeRenew = counterGenerator.GetRenewTime();
-            }
-            else if(TimeRenew <= DateTime.UtcNow)
-            {
-                _code = _generator.Compute();
-                TimeRenew = _generator.GetRenewTime();
+                case GenerationMethod.Time when TimeRenew <= DateTime.UtcNow:
+                    _code = _generator.Compute();
+                    TimeRenew = _generator.GetRenewTime();
+                    break;
             }
 
             return _code;
@@ -272,7 +278,7 @@ namespace AuthenticatorPro.Data
             {
                 AuthenticatorType.Hotp => "hotp",
                 AuthenticatorType.Totp => "totp",
-                _ => throw new ArgumentException("Unknown type")
+                _ => throw new ArgumentException("Unsupported authenticator type.")
             };
             
             var issuerUsername = String.IsNullOrEmpty(Username) ? Issuer : $"{Issuer}:{Username}";

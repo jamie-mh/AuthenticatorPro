@@ -131,11 +131,11 @@ namespace AuthenticatorPro.Fragment
                 2 => AuthenticatorType.MobileOtp
             };
 
-            _periodLayout.Visibility = _type != AuthenticatorType.Hotp
+            _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Counter
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 
-            _algorithmLayout.Visibility = _type != AuthenticatorType.MobileOtp
+            _algorithmLayout.Visibility = _type.IsHmacBased()
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 

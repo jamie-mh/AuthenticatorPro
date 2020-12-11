@@ -7,6 +7,8 @@ namespace AuthenticatorPro.Data.Generator
     {
         private readonly OtpNet.Totp _totp;
 
+        public GenerationMethod GenerationMethod => GenerationMethod.Time;
+
         public Totp(string secret, int period, OtpHashMode algorithm, int digits)
         {
             var secretBytes = Base32Encoding.ToBytes(secret);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Data.Generator;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Shared.Data;
 using Object = Java.Lang.Object;
@@ -93,16 +94,15 @@ namespace AuthenticatorPro.List
             else
                 holder.Icon.SetImageResource(Icon.GetService(auth.Icon, _isDark));
                 
-            switch(auth.Type)
+            switch(auth.Type.GetGenerationMethod())
             {
-                case AuthenticatorType.Totp:
-                case AuthenticatorType.MobileOtp:
+                case GenerationMethod.Time:
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
                     holder.ProgressBar.Progress = GetRemainingProgress(auth);
                     break;
 
-                case AuthenticatorType.Hotp:
+                case GenerationMethod.Counter:
                     holder.RefreshButton.Visibility = auth.TimeRenew < DateTime.UtcNow
                         ? ViewStates.Visible
                         : ViewStates.Gone;
@@ -123,22 +123,20 @@ namespace AuthenticatorPro.List
             var auth = _authSource.Get(position);
             var holder = (AuthenticatorListHolder) viewHolder;
 
-            switch(auth.Type)
+            switch(auth.Type.GetGenerationMethod())
             {
-                case AuthenticatorType.Totp:
-                case AuthenticatorType.MobileOtp:
+                case GenerationMethod.Time:
                     if(auth.TimeRenew < DateTime.UtcNow)
                         holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
 
                     holder.ProgressBar.Progress = GetRemainingProgress(auth);
                     break;
-
-                case AuthenticatorType.Hotp:
+                
+                case GenerationMethod.Counter:
                     if(auth.TimeRenew < DateTime.UtcNow)
                         holder.RefreshButton.Visibility = ViewStates.Visible;
-
                     break;
-            }
+            } 
         }
 
         private static string PadCode(string code, int digits)

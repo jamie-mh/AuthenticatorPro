@@ -13,6 +13,8 @@ namespace AuthenticatorPro.Data.Generator
         private readonly int _period;
 
         private DateTime _computedAt;
+
+        public GenerationMethod GenerationMethod => GenerationMethod.Time;
         
         public MobileOtp(string secret, int digits, int period)
         {

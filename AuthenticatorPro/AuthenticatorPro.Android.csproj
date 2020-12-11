@@ -97,9 +97,10 @@
     <Compile Include="Source\Data\Backup\HtmlBackup.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
+    <Compile Include="Source\Data\Generator\GenerationMethod.cs" />
     <Compile Include="Source\Data\Generator\Hotp.cs" />
     <Compile Include="Source\Data\Generator\IGenerator.cs" />
-    <Compile Include="Source\Data\Generator\ICounterBasedGenerator.cs" />
+    <Compile Include="Source\Data\Generator\CounterBasedGenerator.cs" />
     <Compile Include="Source\Data\Generator\MobileOtp.cs" />
     <Compile Include="Source\Data\Generator\Totp.cs" />
     <Compile Include="Source\Data\OtpAuthMigration.cs" />
