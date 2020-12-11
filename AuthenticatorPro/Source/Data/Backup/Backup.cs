@@ -25,8 +25,6 @@ namespace AuthenticatorPro.Data.Backup
             Categories = categories;
             AuthenticatorCategories = authenticatorCategories;
             CustomIcons = customIcons;
-
-            var a = 1;
         }
 
         public byte[] ToBytes(string password)
