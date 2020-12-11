@@ -126,9 +126,9 @@ namespace AuthenticatorPro.Fragment
         private void OnTypeItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             _type = e.Position switch {
-                0 => AuthenticatorType.Totp,
                 1 => AuthenticatorType.Hotp,
-                2 => AuthenticatorType.MobileOtp
+                2 => AuthenticatorType.MobileOtp,
+                _ => AuthenticatorType.Totp,
             };
 
             _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Counter

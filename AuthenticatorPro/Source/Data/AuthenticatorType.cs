@@ -1,4 +1,5 @@
-﻿using AuthenticatorPro.Data.Generator;
+﻿using System;
+using AuthenticatorPro.Data.Generator;
 
 namespace AuthenticatorPro.Data
 {
@@ -15,7 +16,8 @@ namespace AuthenticatorPro.Data
             {
                 AuthenticatorType.Hotp => GenerationMethod.Counter,
                 AuthenticatorType.Totp => GenerationMethod.Time,
-                AuthenticatorType.MobileOtp => GenerationMethod.Time
+                AuthenticatorType.MobileOtp => GenerationMethod.Time,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
         }
 
@@ -25,7 +27,8 @@ namespace AuthenticatorPro.Data
             {
                 AuthenticatorType.Hotp => true,
                 AuthenticatorType.Totp => true,
-                AuthenticatorType.MobileOtp => false
+                AuthenticatorType.MobileOtp => false,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
         }
     }
