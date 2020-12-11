@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Data.Generator;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Shared.Query;
 using Newtonsoft.Json;
@@ -42,7 +43,7 @@ namespace AuthenticatorPro.Service
                 _customIconSource = new CustomIconSource(_connection);
                 _categorySource = new CategorySource(_connection);
                 _authSource = new AuthenticatorSource(_connection);
-                _authSource.SetType(AuthenticatorType.Totp);
+                _authSource.SetGenerationMethod(GenerationMethod.Time);
             });
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Data.Generator;
 using AuthenticatorPro.Shared.Data;
 using SQLite;
 
@@ -11,7 +12,7 @@ namespace AuthenticatorPro.Data.Source
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
-        public AuthenticatorType? Type { get; private set; }
+        public GenerationMethod? GenerationMethod { get; private set; }
         
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
@@ -44,9 +45,9 @@ namespace AuthenticatorPro.Data.Source
             UpdateView();
         }
 
-        public void SetType(AuthenticatorType? type)
+        public void SetGenerationMethod(GenerationMethod? generationMethod)
         {
-            Type = type;
+            GenerationMethod = generationMethod;
             UpdateView();
         }
 
@@ -54,8 +55,8 @@ namespace AuthenticatorPro.Data.Source
         {
             var view = _all;
 
-            if(Type != null)
-                view = view.Where(i => i.Type == Type.Value).ToList();
+            if(GenerationMethod != null)
+                view = view.Where(i => i.Type.GetGenerationMethod() == GenerationMethod).ToList();
 
             if(CategoryId != null)
             {
