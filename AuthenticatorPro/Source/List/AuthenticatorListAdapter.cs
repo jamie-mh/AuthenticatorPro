@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Shared.Data;
 using Object = Java.Lang.Object;
 
@@ -79,7 +80,7 @@ namespace AuthenticatorPro.List
 
             holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
 
-            if(auth.Icon.StartsWith(CustomIcon.Prefix))
+            if(auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
                 var id = auth.Icon.Substring(1);
                 var customIcon = _customIconSource.Get(id);
@@ -95,6 +96,7 @@ namespace AuthenticatorPro.List
             switch(auth.Type)
             {
                 case AuthenticatorType.Totp:
+                case AuthenticatorType.MobileOtp:
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
                     holder.ProgressBar.Progress = GetRemainingProgress(auth);
@@ -124,6 +126,7 @@ namespace AuthenticatorPro.List
             switch(auth.Type)
             {
                 case AuthenticatorType.Totp:
+                case AuthenticatorType.MobileOtp:
                     if(auth.TimeRenew < DateTime.Now)
                         holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
 

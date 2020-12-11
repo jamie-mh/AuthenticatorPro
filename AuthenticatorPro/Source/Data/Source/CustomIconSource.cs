@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using AuthenticatorPro.Shared.Data;
 using SQLite;
 
-namespace AuthenticatorPro.Data
+namespace AuthenticatorPro.Data.Source
 {
     internal class CustomIconSource : ISource<CustomIcon>
     {

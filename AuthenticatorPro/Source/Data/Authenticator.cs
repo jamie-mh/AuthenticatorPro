@@ -2,10 +2,13 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using AuthenticatorPro.Data.Generator;
 using AuthenticatorPro.Util;
 using Newtonsoft.Json;
 using OtpNet;
 using SQLite;
+using Hotp = AuthenticatorPro.Data.Generator.Hotp;
+using Totp = AuthenticatorPro.Data.Generator.Totp;
 
 namespace AuthenticatorPro.Data
 {
@@ -21,8 +24,6 @@ namespace AuthenticatorPro.Data
 
         public const int MinDigits = 6;
         public const int MaxDigits = 10;
-
-        public const int HotpCooldownSeconds = 10;
 
 
         [Column("type")]
@@ -62,7 +63,7 @@ namespace AuthenticatorPro.Data
         [JsonIgnore]
         public DateTime TimeRenew { get; private set; }
 
-        private Otp _otp;
+        private IGenerator _generator;
         private long _lastCounter;
         private string _code;
 
@@ -71,7 +72,8 @@ namespace AuthenticatorPro.Data
         {
             TimeRenew = DateTime.MinValue;
             _code = null;
-            _otp = null;
+            _generator = null;
+            _lastCounter = 0;
 
             Algorithm = DefaultAlgorithm;
             Digits = DefaultDigits;
@@ -80,31 +82,31 @@ namespace AuthenticatorPro.Data
 
         public string GetCode()
         {
-            if(_otp == null)
+            _generator ??= Type switch
             {
-                var secret = Base32Encoding.ToBytes(Secret);
-
-                if(Type == AuthenticatorType.Hotp)
-                    _otp = new Hotp(secret, Algorithm, Digits);
-                else if(Type == AuthenticatorType.Totp)
-                    _otp = new Totp(secret, Period, Algorithm, Digits);
-            }
-
-            if(Type == AuthenticatorType.Totp && TimeRenew <= DateTime.Now)
+                AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
+                AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits, Counter),
+                AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
+                _ => throw new ArgumentException("Unknown authenticator type.")
+            };
+            
+            if(_generator is ICounterBasedGenerator counterGenerator)
             {
-                var totp = (Totp) _otp;
-                _code = totp.ComputeTotp();
-                TimeRenew = DateTime.Now.AddSeconds(totp.RemainingSeconds());
-            }
-            else if(Type == AuthenticatorType.Hotp && _lastCounter != Counter)
-            {
-                var hotp = (Hotp) _otp;
-
-                if(_code != null)
-                    TimeRenew = DateTime.Now.AddSeconds(HotpCooldownSeconds);
-
-                _code = hotp.ComputeHOTP(Counter);
+                if(_lastCounter == Counter)
+                    return _code;
+                
+                counterGenerator.Counter = Counter;
+                var oldCode = _code;
+                _code = counterGenerator.Compute();
                 _lastCounter = Counter;
+                
+                if(oldCode != null || Counter == 1)
+                    TimeRenew = counterGenerator.GetRenewTime();
+            }
+            else if(TimeRenew <= DateTime.Now)
+            {
+                _code = _generator.Compute();
+                TimeRenew = _generator.GetRenewTime();
             }
 
             return _code;
@@ -146,7 +148,7 @@ namespace AuthenticatorPro.Data
             try
             {
                 secret = Base32Encoding.ToString(input.Secret);
-                secret = CleanSecret(secret);
+                secret = CleanSecret(secret, type);
             }
             catch
             {
@@ -244,7 +246,7 @@ namespace AuthenticatorPro.Data
             if(!args.ContainsKey("secret"))
                 throw new ArgumentException("Secret parameter is required.");
             
-            var secret = CleanSecret(args["secret"]);
+            var secret = CleanSecret(args["secret"], type);
 
             var auth = new Authenticator {
                 Secret = secret,
@@ -303,33 +305,46 @@ namespace AuthenticatorPro.Data
             return uri.ToString();
         }
 
-        public static string CleanSecret(string input)
+        public static string CleanSecret(string input, AuthenticatorType type)
         {
-            input = input.ToUpper();
+            if(type == AuthenticatorType.Totp || type == AuthenticatorType.Hotp)
+                input = input.ToUpper();
+            
             input = input.Replace(" ", "");
             input = input.Replace("-", "");
 
             return input;
         }
 
-        public static bool IsValidSecret(string secret)
+        public static bool IsValidSecret(string secret, AuthenticatorType type)
         {
             if(String.IsNullOrEmpty(secret))
                 return false;
 
-            try
+            switch(type)
             {
-                return Base32Encoding.ToBytes(secret).Length > 0;
-            }
-            catch(ArgumentException)
-            {
-                return false;
+                case AuthenticatorType.Totp:
+                case AuthenticatorType.Hotp:
+                    try
+                    {
+                        return Base32Encoding.ToBytes(secret).Length > 0;
+                    }
+                    catch(ArgumentException)
+                    {
+                        return false;
+                    }
+                    
+                case AuthenticatorType.MobileOtp:
+                    return secret.Length >= MobileOtp.SecretMinLength;
+                
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type));
             }
         }
 
         public bool IsValid()
         {
-            return !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret) && Digits >= MinDigits && Digits <= MaxDigits && Period > 0;
+            return !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret, Type) && Digits >= MinDigits && Digits <= MaxDigits && Period > 0;
         }
     }
 }

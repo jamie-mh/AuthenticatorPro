@@ -24,6 +24,8 @@ using AndroidX.Preference;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Data.Backup;
+using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
 using AuthenticatorPro.Shared.Util;
@@ -380,7 +382,7 @@ namespace AuthenticatorPro.Activity
                 Interval = 1000,
                 AutoReset = true
             };
-
+            
             _timer.Elapsed += Tick;
         }
 
@@ -1335,7 +1337,7 @@ namespace AuthenticatorPro.Activity
 
         private async Task TryCleanupCustomIcon(string icon)
         {
-            if(icon.StartsWith(CustomIcon.Prefix))
+            if(icon != null && icon.StartsWith(CustomIcon.Prefix))
             {
                 var id = icon.Substring(1);
 

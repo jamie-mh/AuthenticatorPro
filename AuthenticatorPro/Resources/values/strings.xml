@@ -27,6 +27,7 @@
     <string name="issuer">Issuer</string>
     <string name="username">Username</string>
     <string name="secretKey">Secret Key</string>
+    <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
     <string name="noAuthenticatorsTitle">Nothing here!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
@@ -52,8 +53,10 @@
 
     <string name="noIssuer">An issuer is required.</string>
     <string name="noSecret">A secret key is required.</string>
+    <string name="noPin">A pin is required.</string>
     <string name="noFileName">A file name is required.</string>
     <string name="secretInvalid">The secret is invalid.</string>
+    <string name="pinInvalid">The pin must be 4 characters long.</string>
     <string name="digitsInvalid">The authenticator must generate between 6 and 10 digits.</string>
     <string name="periodToShort">The period must be longer than 0 seconds.</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read.</string>
@@ -147,6 +150,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Time Based (TOTP)</string>
     <string name="authTypeCounter">Counter Based (HOTP)</string>
+    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (default)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>

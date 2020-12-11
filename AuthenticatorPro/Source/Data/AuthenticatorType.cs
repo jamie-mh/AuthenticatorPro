@@ -2,6 +2,6 @@
 {
     public enum AuthenticatorType
     {
-        Hotp = 1, Totp = 2
+        Hotp = 1, Totp = 2, MobileOtp = 3
     }
 }

@@ -30,7 +30,7 @@ namespace AuthenticatorPro
 
                 if(databaseKey == null)
                 {
-                    databaseKey = Hash.SHA1(Guid.NewGuid().ToString());
+                    databaseKey = Hash.Sha1(Guid.NewGuid().ToString());
                     await SecureStorage.SetAsync("database_key", databaseKey);
                 }
 

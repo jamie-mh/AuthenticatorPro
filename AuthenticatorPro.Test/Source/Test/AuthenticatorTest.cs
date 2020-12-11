@@ -166,7 +166,7 @@ namespace AuthenticatorPro.Test.Test
         [TestCaseSource(nameof(CleanSecretTestCases))]
         public void CleanSecretTest(string input, string output)
         {
-            Assert.That(Authenticator.CleanSecret(input) == output);
+            Assert.That(Authenticator.CleanSecret(input, AuthenticatorType.Totp) == output);
         }
         
         private static readonly object[] IsValidSecretTestCases =
@@ -183,7 +183,7 @@ namespace AuthenticatorPro.Test.Test
         [TestCaseSource(nameof(IsValidSecretTestCases))]
         public void IsValidSecretTest(string secret, bool expectedResult)
         {
-            Assert.That(Authenticator.IsValidSecret(secret) == expectedResult); 
+            Assert.That(Authenticator.IsValidSecret(secret, AuthenticatorType.Totp) == expectedResult); 
         }
         
         private static readonly object[] IsValidTestCases =

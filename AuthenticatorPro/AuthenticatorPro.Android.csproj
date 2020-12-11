@@ -93,12 +93,20 @@
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\AuthenticatorType.cs" />
-    <Compile Include="Source\Data\Backup.cs" />
+    <Compile Include="Source\Data\Backup\Backup.cs" />
+    <Compile Include="Source\Data\Backup\HtmlBackup.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
-    <Compile Include="Source\Data\CustomIconSource.cs" />
-    <Compile Include="Source\Data\HtmlBackup.cs" />
+    <Compile Include="Source\Data\Generator\Hotp.cs" />
+    <Compile Include="Source\Data\Generator\IGenerator.cs" />
+    <Compile Include="Source\Data\Generator\ICounterBasedGenerator.cs" />
+    <Compile Include="Source\Data\Generator\MobileOtp.cs" />
+    <Compile Include="Source\Data\Generator\Totp.cs" />
     <Compile Include="Source\Data\OtpAuthMigration.cs" />
+    <Compile Include="Source\Data\Source\AuthenticatorSource.cs" />
+    <Compile Include="Source\Data\Source\CategorySource.cs" />
+    <Compile Include="Source\Data\Source\CustomIconSource.cs" />
+    <Compile Include="Source\Data\Source\IconSource.cs" />
     <Compile Include="Source\Fragment\BackupBottomSheet.cs" />
     <Compile Include="Source\Fragment\ChangeIconBottomSheet.cs" />
     <Compile Include="Source\Fragment\EditCategoryBottomSheet.cs" />
@@ -129,15 +137,12 @@
     <Compile Include="Source\List\ManageCategoriesListAdapter.cs" />
     <Compile Include="Source\List\ManageCategoriesListHolder.cs" />
     <Compile Include="Source\List\AutoGridLayoutManager.cs" />
-    <Compile Include="Source\Data\CategorySource.cs" />
     <Compile Include="Source\Util\Hash.cs" />
     <Compile Include="Source\List\ReorderableListTouchHelperCallback.cs" />
-    <Compile Include="Source\Data\IconSource.cs" />
     <Compile Include="Source\List\IconListHolder.cs" />
     <Compile Include="Source\List\IconListAdapter.cs" />
     <Compile Include="Source\List\AuthenticatorListAdapter.cs" />
     <Compile Include="Source\List\AuthenticatorListHolder.cs" />
-    <Compile Include="Source\Data\AuthenticatorSource.cs" />
     <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Database.cs" />
@@ -1403,6 +1408,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-th\strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Shared.Data;
 
-namespace AuthenticatorPro.Data
+namespace AuthenticatorPro.Data.Source
 {
     internal class IconSource : ISource<KeyValuePair<string, int>>
     {

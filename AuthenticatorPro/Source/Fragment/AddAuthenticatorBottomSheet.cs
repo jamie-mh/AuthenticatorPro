@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Data.Generator;
 using AuthenticatorPro.Shared.Data;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
@@ -22,6 +23,7 @@ namespace AuthenticatorPro.Fragment
         private TextInputLayout _issuerLayout;
         private TextInputLayout _usernameLayout;
         private TextInputLayout _secretLayout;
+        private TextInputLayout _pinLayout;
         private TextInputLayout _typeLayout;
         private TextInputLayout _algorithmLayout;
         private TextInputLayout _periodLayout;
@@ -30,6 +32,7 @@ namespace AuthenticatorPro.Fragment
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
         private TextInputEditText _secretText;
+        private TextInputEditText _pinText;
         private EditText _periodText;
         private EditText _digitsText;
 
@@ -56,6 +59,7 @@ namespace AuthenticatorPro.Fragment
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);
             _usernameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editUsernameLayout);
             _secretLayout = view.FindViewById<TextInputLayout>(Resource.Id.editSecretLayout);
+            _pinLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPinLayout);
             _typeLayout = view.FindViewById<TextInputLayout>(Resource.Id.editTypeLayout);
             _algorithmLayout = view.FindViewById<TextInputLayout>(Resource.Id.editAlgorithmLayout);
             _periodLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPeriodLayout);
@@ -64,6 +68,7 @@ namespace AuthenticatorPro.Fragment
             _issuerText = view.FindViewById<TextInputEditText>(Resource.Id.editIssuer);
             _usernameText = view.FindViewById<TextInputEditText>(Resource.Id.editUsername);
             _secretText = view.FindViewById<TextInputEditText>(Resource.Id.editSecret);
+            _pinText = view.FindViewById<TextInputEditText>(Resource.Id.editPin);
             _digitsText = view.FindViewById<TextInputEditText>(Resource.Id.editDigits);
             _periodText = view.FindViewById<TextInputEditText>(Resource.Id.editPeriod);
 
@@ -71,6 +76,8 @@ namespace AuthenticatorPro.Fragment
             _issuerText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.IssuerMaxLength) });
             _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
             _usernameText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.UsernameMaxLength) });
+            _pinLayout.CounterMaxLength = MobileOtp.PinLength;
+            _pinText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(MobileOtp.PinLength) });
 
             var typeAdapter = ArrayAdapter.CreateFromResource(
                 view.Context, Resource.Array.authTypes, Resource.Layout.listItemDropdown);
@@ -118,14 +125,23 @@ namespace AuthenticatorPro.Fragment
 
         private void OnTypeItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            _periodLayout.Visibility = e.Position == 0
+            _type = e.Position switch {
+                0 => AuthenticatorType.Totp,
+                1 => AuthenticatorType.Hotp,
+                2 => AuthenticatorType.MobileOtp
+            };
+
+            _periodLayout.Visibility = _type != AuthenticatorType.Hotp
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 
-            _type = e.Position switch {
-                1 => AuthenticatorType.Hotp,
-                _ => AuthenticatorType.Totp
-            };
+            _algorithmLayout.Visibility = _type != AuthenticatorType.MobileOtp
+                ? ViewStates.Visible
+                : ViewStates.Gone;
+
+            _pinLayout.Visibility = _type == AuthenticatorType.MobileOtp
+                ? ViewStates.Visible
+                : ViewStates.Gone;
         }
 
         private void OnAlgorithmItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -141,6 +157,7 @@ namespace AuthenticatorPro.Fragment
         {
             _issuerLayout.Error = null;
             _secretLayout.Error = null;
+            _pinLayout.Error = null;
             _digitsLayout.Error = null;
             _periodLayout.Error = null;
         }
@@ -158,15 +175,36 @@ namespace AuthenticatorPro.Fragment
             }
 
             var username = _usernameText.Text.Trim();
+            var pin = _pinText.Text.Trim();
 
-            var secret = Authenticator.CleanSecret(_secretText.Text);
+            if(_type == AuthenticatorType.MobileOtp)
+            {
+                if(pin == "")
+                {
+                    _pinLayout.Error = GetString(Resource.String.noPin);
+                    isValid = false;
+                }
+                else if(pin.Length < MobileOtp.PinLength)
+                {
+                    _pinLayout.Error = GetString(Resource.String.pinInvalid);
+                    isValid = false;
+                }
+            }
 
+            var secret = _secretText.Text.Trim();
+            
             if(secret == "")
             {
                 _secretLayout.Error = GetString(Resource.String.noSecret);
                 isValid = false;
             }
-            else if(!Authenticator.IsValidSecret(secret))
+
+            if(_type == AuthenticatorType.MobileOtp)
+                secret += pin;
+            
+            secret = Authenticator.CleanSecret(secret, _type);
+            
+            if(!Authenticator.IsValidSecret(secret, _type))
             {
                 _secretLayout.Error = GetString(Resource.String.secretInvalid);
                 isValid = false;
