@@ -6,7 +6,9 @@ using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using OtpNet;
+using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -15,7 +17,7 @@ namespace AuthenticatorPro.WearOS.Activity
     {
         private const int MaxCodeGroupSize = 4;
 
-        private Totp _totp;
+        private IGenerator _generator;
         private Timer _timer;
 
         private int _period;
@@ -56,8 +58,14 @@ namespace AuthenticatorPro.WearOS.Activity
             _digits = Intent.Extras.GetInt("digits");
             var algorithm = (OtpHashMode) Intent.Extras.GetInt("algorithm");
 
-            var secret = Base32Encoding.ToBytes(Intent.Extras.GetString("secret"));
-            _totp = new Totp(secret, _period, algorithm, _digits);
+            var secret = Intent.Extras.GetString("secret");
+            var type = (AuthenticatorType) Intent.Extras.GetInt("type");
+
+            _generator = type switch
+            {
+                AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits, _period),
+                _ => new Totp(secret, _period, algorithm, _digits),
+            };
 
             _timer = new Timer {Interval = 1000, AutoReset = true, Enabled = true};
             _timer.Elapsed += Tick;
@@ -69,7 +77,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private void UpdateProgressBar()
         {
             var secondsRemaining = (_timeRenew - DateTime.UtcNow).TotalSeconds;
-            _progressBar.Progress = (int) Math.Ceiling(100d * secondsRemaining / _period);
+            _progressBar.Progress = (int) Math.Floor(100d * secondsRemaining / _period);
         }
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
@@ -89,11 +97,9 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void UpdateCode()
         {
-            var code = _totp.ComputeTotp();
-            _timeRenew = DateTime.UtcNow.AddSeconds(_totp.RemainingSeconds());
+            var code = _generator.Compute();
+            _timeRenew = _generator.GetRenewTime();
             
-            code ??= "".PadRight(_digits, '-');
-
             var spacesInserted = 0;
             var groupSize = Math.Min(MaxCodeGroupSize, _digits / 2);
 

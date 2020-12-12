@@ -208,7 +208,8 @@ namespace AuthenticatorPro.WearOS.Activity
 
             var intent = new Intent(this, typeof(CodeActivity));
             var bundle = new Bundle();
-            
+           
+            bundle.PutInt("type", (int) item.Type);
             bundle.PutString("username", item.Username);
             bundle.PutString("issuer", item.Issuer);
             bundle.PutInt("period", item.Period);

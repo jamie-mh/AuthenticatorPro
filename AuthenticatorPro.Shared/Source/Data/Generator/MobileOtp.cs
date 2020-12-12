@@ -1,7 +1,7 @@
 ﻿using System;
-using AuthenticatorPro.Util;
+using AuthenticatorPro.Shared.Util;
 
-namespace AuthenticatorPro.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class MobileOtp : IGenerator
     {

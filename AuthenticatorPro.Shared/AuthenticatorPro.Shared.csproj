@@ -48,7 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Data\AuthenticatorType.cs" />
     <Compile Include="Source\Data\ByteArrayConverter.cs" />
+    <Compile Include="Source\Data\Generator\CounterBasedGenerator.cs" />
+    <Compile Include="Source\Data\Generator\GenerationMethod.cs" />
+    <Compile Include="Source\Data\Generator\Hotp.cs" />
+    <Compile Include="Source\Data\Generator\IGenerator.cs" />
+    <Compile Include="Source\Data\Generator\MobileOtp.cs" />
+    <Compile Include="Source\Data\Generator\Totp.cs" />
     <Compile Include="Source\Data\ISource.cs" />
     <Compile Include="Source\Query\WearCategory.cs" />
     <Compile Include="Source\Query\WearCustomIcon.cs" />
@@ -57,6 +64,8 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Data\Icon.cs" />
+    <Compile Include="Source\Util\Hash.cs" />
+    <Compile Include="Source\Util\StringExt.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml">

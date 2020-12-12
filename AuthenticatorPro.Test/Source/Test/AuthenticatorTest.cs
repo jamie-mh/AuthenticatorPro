@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Data.Generator;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using NUnit.Framework;
 using OtpNet;
 

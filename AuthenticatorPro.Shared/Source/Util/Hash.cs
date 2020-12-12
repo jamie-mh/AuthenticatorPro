@@ -3,9 +3,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AuthenticatorPro.Util
+namespace AuthenticatorPro.Shared.Util
 {
-    internal static class Hash
+    public static class Hash
     {
         public static string Sha1(string input)
         {

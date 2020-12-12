@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Data;
-using AuthenticatorPro.Data.Generator;
 using AuthenticatorPro.Data.Source;
+using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Query;
 using Newtonsoft.Json;
 using SQLite;
@@ -67,7 +67,7 @@ namespace AuthenticatorPro.Service
                     .Select(c => c.CategoryId).ToList();
                 
                 var item = new WearAuthenticator(
-                    auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, categoryIds); 
+                    auth.Type, auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, categoryIds); 
                 
                 items.Add(item);
             }

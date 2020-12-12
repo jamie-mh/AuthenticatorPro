@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.Fragment
 {

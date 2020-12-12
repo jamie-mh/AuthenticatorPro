@@ -2,13 +2,14 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using AuthenticatorPro.Data.Generator;
-using AuthenticatorPro.Util;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Util;
 using Newtonsoft.Json;
 using OtpNet;
 using SQLite;
-using Hotp = AuthenticatorPro.Data.Generator.Hotp;
-using Totp = AuthenticatorPro.Data.Generator.Totp;
+using Hotp = AuthenticatorPro.Shared.Data.Generator.Hotp;
+using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.Data
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using OtpNet;
 
-namespace AuthenticatorPro.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class Totp : IGenerator
     {

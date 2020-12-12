@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public abstract class CounterBasedGenerator : IGenerator
     {

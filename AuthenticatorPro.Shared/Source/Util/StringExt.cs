@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Util
+namespace AuthenticatorPro.Shared.Util
 {
     public static class StringExt
     {

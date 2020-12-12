@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
 using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Util;
+using AuthenticatorPro.Shared.Util;
 using Newtonsoft.Json;
 using SQLite;
 
