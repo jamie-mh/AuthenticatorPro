@@ -43,11 +43,11 @@ If you are migrating your authenticators from another app, you can create your o
 
 #### Authenticator
 
-* The authenticator secret key must be an **uppercase base-32 string with no spaces**. The secret may also contain '=' as a padding character.
+* For HOTP and TOTP, the authenticator secret key must be an **uppercase base-32 string with no spaces** and secret may also contain '=' as a padding character. Mobile-Otp secrets have the 4 character pin appended to the end.
 
-* Type: 1 = HOTP, 2 = TOTP
+* Type: 1 = HOTP, 2 = TOTP, 3 = Mobile-Otp
 
-* Algorithm: 0 = SHA-1, 1 = SHA-256, 2 = SHA-512
+* Algorithm (applies to HOTP and TOTP): 0 = SHA-1, 1 = SHA-256, 2 = SHA-512
 
 * Authenticators are ordered by their ranking, unless they're placed into categories where they will be ordered by the AuthenticatorCategory ranking instead.
 
