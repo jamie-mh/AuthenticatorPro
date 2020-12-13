@@ -9,7 +9,7 @@
 ![Authenticator Pro](./doc/ic_launcher-web.png)
 
 Authenticator Pro is a free open-source two factor authentication app for Android.
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms.
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP) is also supported.
 
 View some supported providers here: [Two Factor Auth List](https://twofactorauth.org/) (marked with "software token")
 
