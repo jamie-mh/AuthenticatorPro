@@ -28,6 +28,7 @@
     <string name="issuer">Emisor</string>
     <string name="username">Nombre de usuario</string>
     <string name="secretKey">Llave Secreta</string>
+    <string name="pin">Código pin</string>
     <string name="showAdvancedOptions">Mostrar opciones avanzadas</string>
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
     <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
@@ -51,8 +52,10 @@
     <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
     <string name="noIssuer">Un Emisor es requerido.</string>
     <string name="noSecret">Una Clave secreta es requerida.</string>
+    <string name="noPin">A pin is required.</string>
     <string name="noFileName">Un nombre de archivo es requerido.</string>
     <string name="secretInvalid">La llave secreta es inválida.</string>
+    <string name="pinInvalid">The pin must be 4 characters long.</string>
     <string name="digitsInvalid">El autenticador debe generar entre 6 y 10 dígitos.</string>
     <string name="periodToShort">El período debe tener más de 0 segundos.</string>
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
@@ -127,6 +130,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Basado en tiempo (TOTP)</string>
     <string name="authTypeCounter">Basado en Contador (HOTP)</string>
+    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predeterminado)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
@@ -138,7 +142,7 @@
     <string name="tileViewMode">Mosaico</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Bienvenido a Authenticator Pro!</string>
-    <string name="introCompatibilityTitle">Autenticación TOTP / HOTP</string>
+    <string name="introCompatibilityTitle">Autenticación TOTP / HOTP / mOTP</string>
     <string name="introBackupTitle">Respaldo / Restauración</string>
     <string name="introCategoriesTitle">Categorías</string>
     <string name="introThemesTitle">Tema Oscuro</string>

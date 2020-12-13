@@ -165,7 +165,7 @@
 
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Welcome to Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP Authentication</string>
+    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentication</string>
     <string name="introBackupTitle">Backup / Restore</string>
     <string name="introCategoriesTitle">Categories</string>
     <string name="introThemesTitle">Dark Theme</string>

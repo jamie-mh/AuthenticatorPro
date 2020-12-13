@@ -28,6 +28,7 @@
     <string name="issuer">Émetteur</string>
     <string name="username">Nom d\'utilisateur</string>
     <string name="secretKey">Clé secrète</string>
+    <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
     <string name="noAuthenticatorsTitle">C\'est vide !</string>
     <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
@@ -51,8 +52,10 @@
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
     <string name="noIssuer">Un émetteur est requis.</string>
     <string name="noSecret">Une clé secrète est requise.</string>
+    <string name="noPin">Un code pin est requis.</string>
     <string name="noFileName">Un nom de fichier est requis.</string>
     <string name="secretInvalid">La clé secrète n\'est pas valide.</string>
+    <string name="pinInvalid">Le code pin doit être composé de 4 caractères.</string>
     <string name="digitsInvalid">L\'authentificateur doit générer entre 6 et 10 chiffres.</string>
     <string name="periodToShort">La période doit être plus longue que 0 secondes.</string>
     <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible.</string>
@@ -127,6 +130,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
+    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (par défaut)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
@@ -138,7 +142,7 @@
     <string name="tileViewMode">En tuile</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Bienvenue à Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Authentification TOTP / HOTP</string>
+    <string name="introCompatibilityTitle">Authentification TOTP / HOTP / mOTP</string>
     <string name="introBackupTitle">Sauvegarde / Restauration</string>
     <string name="introCategoriesTitle">Catégories</string>
     <string name="introThemesTitle">Thème Sombre</string>

@@ -28,6 +28,7 @@
     <string name="issuer">Kuruluş</string>
     <string name="username">Kullanıcı Adı</string>
     <string name="secretKey">Gizli anahtar</string>
+    <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
     <string name="noAuthenticatorsTitle">Burada bir şey yok!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
@@ -51,8 +52,10 @@
     <string name="noAuthenticators">You don\'t have any authenticators to backup.</string>
     <string name="noIssuer">Bir kuruluş gerekli.</string>
     <string name="noSecret">Gizli anahtar gerekli.</string>
+    <string name="noPin">A pin is required.</string>
     <string name="noFileName">Dosya adı gerekli.</string>
     <string name="secretInvalid">Gizli anahtar geçersiz.</string>
+    <string name="pinInvalid">The pin must be 4 characters long.</string>
     <string name="digitsInvalid">The authenticator must generate between 6 and 10 digits.</string>
     <string name="periodToShort">The period must be longer than 0 seconds.</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
@@ -127,6 +130,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
+    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (varsayılan)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
@@ -138,7 +142,7 @@
     <string name="tileViewMode">Tile</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Authenticator Pro\'ya hoş geldiniz</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP Doğrulaması</string>
+    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Doğrulaması</string>
     <string name="introBackupTitle">Yedekleme / Geri yükleme</string>
     <string name="introCategoriesTitle">Kategoriler</string>
     <string name="introThemesTitle">Koyu Tema</string>

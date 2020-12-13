@@ -28,6 +28,7 @@
     <string name="issuer">发行方</string>
     <string name="username">用户名</string>
     <string name="secretKey">密钥</string>
+    <string name="pin">Pin</string>
     <string name="showAdvancedOptions">显示高级选项</string>
     <string name="noAuthenticatorsTitle">这里什么都没有！</string>
     <string name="noAuthenticatorsMessage">您尚未添加验证器。</string>
@@ -51,8 +52,10 @@
     <string name="noAuthenticators">您没有可备份的验证器。</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
+    <string name="noPin">A pin is required.</string>
     <string name="noFileName">请输入文件名。</string>
     <string name="secretInvalid">输入的密钥无效。</string>
+    <string name="pinInvalid">The pin must be 4 characters long.</string>
     <string name="digitsInvalid">验证器只能生成 6 到 10 位的验证码。</string>
     <string name="periodToShort">时间间隔必须大于 0 秒。</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
@@ -127,6 +130,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>
+    <string name="authTypeMobileOtp">Mobile-OTP（mOTP）</string>
     <string name="authAlgorithmSHA1">SHA1（默认）</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
@@ -138,7 +142,7 @@
     <string name="tileViewMode">平铺</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">欢迎使用 Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP 身份验证</string>
+    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP 身份验证</string>
     <string name="introBackupTitle">备份 / 恢复</string>
     <string name="introCategoriesTitle">分类</string>
     <string name="introThemesTitle">深色主题</string>

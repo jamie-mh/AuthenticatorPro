@@ -29,6 +29,7 @@
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
     <string name="secretKey">Geheimer Schlüssel</string>
+    <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
@@ -52,8 +53,10 @@
     <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
+    <string name="noPin">A pin is required.</string>
     <string name="noFileName">Du musst einen Dateinamen eingeben.</string>
     <string name="secretInvalid">Der Schlüssel ist ungültig.</string>
+    <string name="pinInvalid">The pin must be 4 characters long.</string>
     <string name="digitsInvalid">Es müssen zwischen 6 und 10 Stellen generiert werden</string>
     <string name="periodToShort">Die Gültigkeit muss mehr als 0 Sekunden betragen.</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
@@ -128,6 +131,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
+    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
@@ -139,7 +143,7 @@
     <string name="tileViewMode">Kacheln</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP Authentifikation</string>
+    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentifikation</string>
     <string name="introBackupTitle">Sichern / Wiederherstellen</string>
     <string name="introCategoriesTitle">Kategorien</string>
     <string name="introThemesTitle">Dunkles Thema</string>
