@@ -14,6 +14,7 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetBackup, container, false);
+            SetupToolbar(view, Resource.String.backup, false);
         
             var fileItem = view.FindViewById<LinearLayout>(Resource.Id.buttonFile);
             var htmlItem = view.FindViewById<LinearLayout>(Resource.Id.buttonHtml);
