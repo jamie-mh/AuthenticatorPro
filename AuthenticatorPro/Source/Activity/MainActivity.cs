@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using Android;
@@ -57,6 +58,7 @@ namespace AuthenticatorPro.Activity
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
+        // Result Codes
         private const int ResultLogin = 0;
         private const int ResultRestoreSAF = 1;
         private const int ResultBackupFileSAF = 2;
@@ -68,10 +70,7 @@ namespace AuthenticatorPro.Activity
         private const int BackupReminderThresholdMinutes = 120;
         private const int AppLockThresholdMinutes = 1;
 
-        private bool _areGoogleAPIsAvailable;
-        private bool _hasWearAPIs;
-        private bool _hasWearCompanion;
-
+        // Views
         private CoordinatorLayout _coordinatorLayout;
         private MaterialToolbar _toolbar;
         private ProgressBar _progressBar;
@@ -88,21 +87,38 @@ namespace AuthenticatorPro.Activity
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
 
+        // State
         private SQLiteAsyncConnection _connection;
         private Timer _timer;
-        
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
         private bool _isAuthenticated;
-        
-        private Task _onceResumedTask;
         private bool _refreshOnActivityResume;
         private int _customIconApplyPosition;
 
+        // Wear OS State
+        private bool _areGoogleAPIsAvailable;
+        private bool _hasWearAPIs;
+        private bool _hasWearCompanion;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        // Activity lifecycle synchronisation
+        // Async activity lifecycle methods pass control to the next method, Resume is called before Create has finished.
+        // Hand control to the next method when it's safe to do so.
+        private readonly SemaphoreSlim _onCreateSemaphore;
+        private readonly SemaphoreSlim _onResumeSemaphore;
+
+
+        public MainActivity()
+        {
+            _onCreateSemaphore = new SemaphoreSlim(1, 1);
+            _onResumeSemaphore = new SemaphoreSlim(1, 1);
+        }
+
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            await _onCreateSemaphore.WaitAsync();
             MobileBarcodeScanner.Initialize(Application);
             
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
@@ -121,46 +137,51 @@ namespace AuthenticatorPro.Activity
                 _lastBackupReminderTime = DateTime.MinValue;
             }
 
-            _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(_toolbar);
-            SupportActionBar.SetTitle(Resource.String.categoryAll);
-
-            var appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appBarLayout);
-            _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
-            _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
-            _bottomAppBar.MenuItemClick += delegate
+            try
             {
-                _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
-                appBarLayout.SetExpanded(true);
-                _authList.SmoothScrollToPosition(0);
+                _connection = await Database.Connect(this);
+            }
+            catch(SQLiteException)
+            {
+                ShowDatabaseErrorDialog();
+                return;
+            }
+            
+            InitViews();
+            
+            _categorySource = new CategorySource(_connection);
+            _customIconSource = new CustomIconSource(_connection);
+            _authSource = new AuthenticatorSource(_connection);
+            RunOnUiThread(InitAuthenticatorList);
+
+            _timer = new Timer {
+                Interval = 1000,
+                AutoReset = true
             };
+            
+            _timer.Elapsed += Tick;
 
-            _coordinatorLayout = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
-
-            _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
-            _addButton.Click += OnAddButtonClick;
-
-            _authList = FindViewById<RecyclerView>(Resource.Id.list);
-            _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
-            _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
-            _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
-            _viewGuideButton.Click += delegate { StartActivity(typeof(GuideActivity)); };
-
-            _refreshOnActivityResume = false;
-
-            DetectGoogleAPIsAvailability();
-
+            _refreshOnActivityResume = true;
+            _onCreateSemaphore.Release();
+            
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             var firstLaunch = prefs.GetBoolean("firstLaunch", true);
-
+            
             if(firstLaunch)
                 StartActivity(typeof(IntroActivity));
+
+            DetectGoogleAPIsAvailability();
+            await DetectWearOSCapability();
         }
 
         protected override async void OnResume()
         {
             base.OnResume();
+            
+            await _onCreateSemaphore.WaitAsync();
+            _onCreateSemaphore.Release();
+
+            await _onResumeSemaphore.WaitAsync();
 
             if(RequiresAuthentication())
             {
@@ -170,49 +191,28 @@ namespace AuthenticatorPro.Activity
                 if(!_isAuthenticated)
                 {
                     _refreshOnActivityResume = true;
+                    _onResumeSemaphore.Release();
                     StartActivityForResult(typeof(LoginActivity), ResultLogin);
                     return;
                 }
             }
 
-            // Just launched
-            if(_connection == null)
-            {
-                try
-                {
-                    _connection = await Database.Connect(this);
-                }
-                catch(SQLiteException)
-                {
-                    ShowDatabaseErrorDialog();
-                    return;
-                }
-
-                await Init();
-            }
-            else if(_refreshOnActivityResume)
+            if(_refreshOnActivityResume)
             {
                 _refreshOnActivityResume = false;
 
                 RunOnUiThread(delegate { _authList.Visibility = ViewStates.Invisible; });
+                await _customIconSource.Update();
                 await RefreshAuthenticators();
                 await _categorySource.Update();
-                await _customIconSource.Update();
 
                 // Currently visible category has been deleted
                 if(_authSource.CategoryId != null &&
                    _categorySource.GetView().FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
                     await SwitchCategory(null);
             }
-
-            // Launch task that needs to wait for the activity to resume
-            // Useful because an activity result is called before resume
-            if(_onceResumedTask != null)
-            {
-                _onceResumedTask.Start();
-                _onceResumedTask = null;
-            }
-
+            
+            _onResumeSemaphore.Release();
             RunOnUiThread(CheckEmptyState);
             
             if(_authSource.GetView().Any())
@@ -223,8 +223,6 @@ namespace AuthenticatorPro.Activity
            
             if(showBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
-
-            await DetectWearOSCapability();
 
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
@@ -302,7 +300,6 @@ namespace AuthenticatorPro.Activity
             
             fragment.SettingsClick += delegate
             {
-                _refreshOnActivityResume = true;
                 StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
             };
             
@@ -365,27 +362,36 @@ namespace AuthenticatorPro.Activity
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-        
-        private async Task Init()
+
+        private void InitViews()
         {
-            _categorySource = new CategorySource(_connection);
-            await _categorySource.Update();
-            
-            _customIconSource = new CustomIconSource(_connection);
-            await _customIconSource.Update();
+            _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(_toolbar);
+            SupportActionBar.SetTitle(Resource.String.categoryAll);
 
-            _authSource = new AuthenticatorSource(_connection);
-            RunOnUiThread(InitAuthenticatorList);
-            await RefreshAuthenticators();
-
-            _timer = new Timer {
-                Interval = 1000,
-                AutoReset = true
+            var appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appBarLayout);
+            _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
+            _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
+            _bottomAppBar.MenuItemClick += delegate
+            {
+                _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
+                appBarLayout.SetExpanded(true);
+                _authList.SmoothScrollToPosition(0);
             };
-            
-            _timer.Elapsed += Tick;
-        }
 
+            _coordinatorLayout = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
+            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
+
+            _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
+            _addButton.Click += OnAddButtonClick;
+
+            _authList = FindViewById<RecyclerView>(Resource.Id.list);
+            _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
+            _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
+            _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
+            _viewGuideButton.Click += delegate { StartActivity(typeof(GuideActivity)); };
+        }
+        
         private void ShowDatabaseErrorDialog()
         {
             var builder = new MaterialAlertDialogBuilder(this);
@@ -639,44 +645,47 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
             if(resultCode != Result.Ok)
                 return;
 
-            if(requestCode == ResultLogin)
+            switch(requestCode)
             {
-                _isAuthenticated = true;
-                return;
+                case ResultLogin:
+                    _isAuthenticated = true;
+                    return;
+                
+                case ResultSettingsRecreate:
+                    Recreate();
+                    return;
             }
 
-            _onceResumedTask = requestCode switch {
-                ResultRestoreSAF => new Task(async () =>
-                {
+            await _onResumeSemaphore.WaitAsync();
+            _onResumeSemaphore.Release();
+            
+            switch(requestCode)
+            {
+                case ResultRestoreSAF:
                     await BeginRestore(intent.Data);
-                }),
-                ResultBackupFileSAF => new Task(() =>
-                {
+                    break;
+                
+                case ResultBackupFileSAF:
                     BeginBackupToFile(intent.Data);
-                }),
-                ResultBackupHtmlSAF => new Task(async () =>
-                {
+                    break;
+                
+                case ResultBackupHtmlSAF:
                     await DoHtmlBackup(intent.Data);
-                }),
-                ResultCustomIconSAF => new Task(async () =>
-                {
+                    break;
+                
+                case ResultCustomIconSAF:
                     await SetCustomIcon(intent.Data);
-                }),
-                ResultQRCodeSAF => new Task(async () =>
-                {
+                    break;
+                
+                case ResultQRCodeSAF:
                     await ScanQRCodeFromImage(intent.Data);
-                }),
-                ResultSettingsRecreate => new Task(() =>
-                {
-                    RunOnUiThread(Recreate);
-                }),
-                _ => _onceResumedTask
-            };
+                    break;
+            }
         }
         
         private void OpenImagePicker(int resultCode)
@@ -1096,7 +1105,7 @@ namespace AuthenticatorPro.Activity
                 // DocumentsContract.DeleteDocument(ContentResolver, uri);
                 ((BackupPasswordBottomSheet) sender).Dismiss();
             };
-
+            
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 

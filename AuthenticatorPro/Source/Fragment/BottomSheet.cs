@@ -1,6 +1,7 @@
 ﻿using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Fragment.App;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
@@ -27,6 +28,13 @@ namespace AuthenticatorPro.Fragment
             };
 
             return dialog;
+        }
+
+        public override void Show(FragmentManager manager, string tag)
+        {
+            var transaction = manager.BeginTransaction();
+            transaction.Add(this, Tag);
+            transaction.CommitAllowingStateLoss();
         }
 
         public override void OnResume()
