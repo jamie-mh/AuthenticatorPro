@@ -1,4 +1,4 @@
-using Android.Content.Res;
+﻿using Android.Content.Res;
 using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
@@ -17,6 +17,9 @@ namespace AuthenticatorPro.Activity
             _checkedOnCreate = true;
             UpdateTheme();
             base.OnCreate(savedInstanceState);
+
+            if(Build.VERSION.SdkInt < BuildVersionCodes.M)
+                Window.SetStatusBarColor(Android.Graphics.Color.Black);
         }
 
         protected void UpdateTheme()
