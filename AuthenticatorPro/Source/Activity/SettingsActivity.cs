@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Activity
                     break;
                 
                 case "pref_theme":
-                    Recreate();
+                    UpdateTheme();
                     break;
             }
         }

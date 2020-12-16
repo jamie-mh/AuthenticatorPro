@@ -1,4 +1,4 @@
-﻿using Android.Content.Res;
+using Android.Content.Res;
 using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Preference;
@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Activity
             base.OnCreate(savedInstanceState);
         }
 
-        private void UpdateTheme()
+        protected void UpdateTheme()
         {
             var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
             var theme = sharedPrefs.GetString("pref_theme", "system");
