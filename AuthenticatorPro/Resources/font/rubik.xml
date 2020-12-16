@@ -8,10 +8,4 @@
         app:font="@font/rubik_regular"
         app:fontStyle="normal"
         app:fontWeight="400" />
-  <font android:font="@font/rubik_bold"
-        android:fontStyle="normal"
-        android:fontWeight="700"
-        app:font="@font/rubik_bold"
-        app:fontStyle="normal"
-        app:fontWeight="700" />
 </font-family>

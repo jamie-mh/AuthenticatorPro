@@ -148,10 +148,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_qr_code.png" />
-    <AndroidResource Include="Resources\font\rubik_bold.ttf">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\font\rubik_regular.ttf">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
