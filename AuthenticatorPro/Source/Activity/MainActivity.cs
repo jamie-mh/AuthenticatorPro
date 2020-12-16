@@ -123,6 +123,7 @@ namespace AuthenticatorPro.Activity
             
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
+            InitViews();
 
             if(savedInstanceState != null)
             {
@@ -146,8 +147,6 @@ namespace AuthenticatorPro.Activity
                 ShowDatabaseErrorDialog();
                 return;
             }
-            
-            InitViews();
             
             _categorySource = new CategorySource(_connection);
             _customIconSource = new CustomIconSource(_connection);
