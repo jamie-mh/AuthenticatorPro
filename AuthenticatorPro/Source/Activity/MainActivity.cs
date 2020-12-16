@@ -93,7 +93,7 @@ namespace AuthenticatorPro.Activity
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
         private bool _isAuthenticated;
-        private bool _refreshOnActivityResume;
+        private bool _updateOnActivityResume;
         private int _customIconApplyPosition;
 
         // Wear OS State
@@ -161,7 +161,7 @@ namespace AuthenticatorPro.Activity
             
             _timer.Elapsed += Tick;
 
-            _refreshOnActivityResume = true;
+            _updateOnActivityResume = true;
             _onCreateSemaphore.Release();
             
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
@@ -190,20 +190,20 @@ namespace AuthenticatorPro.Activity
             
                 if(!_isAuthenticated)
                 {
-                    _refreshOnActivityResume = true;
+                    _updateOnActivityResume = true;
                     _onResumeSemaphore.Release();
                     StartActivityForResult(typeof(LoginActivity), ResultLogin);
                     return;
                 }
             }
 
-            if(_refreshOnActivityResume)
+            if(_updateOnActivityResume)
             {
-                _refreshOnActivityResume = false;
+                _updateOnActivityResume = false;
 
                 RunOnUiThread(delegate { _authList.Visibility = ViewStates.Invisible; });
                 await _customIconSource.Update();
-                await RefreshAuthenticators();
+                await UpdateList();
                 await _categorySource.Update();
 
                 // Currently visible category has been deleted
@@ -356,7 +356,7 @@ namespace AuthenticatorPro.Activity
 
             fragment.ManageCategoriesClick += delegate
             {
-                _refreshOnActivityResume = true;
+                _updateOnActivityResume = true;
                 StartActivity(typeof(ManageCategoriesActivity));
             };
             
@@ -493,7 +493,7 @@ namespace AuthenticatorPro.Activity
             touchHelper.AttachToRecyclerView(_authList);
         }
 
-        private async Task RefreshAuthenticators(bool viewOnly = false)
+        private async Task UpdateList(bool viewOnly = false)
         {
             if(!viewOnly)
             {
@@ -563,7 +563,7 @@ namespace AuthenticatorPro.Activity
             
             RunOnUiThread(delegate { SupportActionBar.Title = categoryName; });
 
-            await RefreshAuthenticators(true);
+            await UpdateList(true);
 
             RunOnUiThread(delegate
             {
@@ -944,7 +944,7 @@ namespace AuthenticatorPro.Activity
                 RunOnUiThread(async delegate
                 {
                     CheckEmptyState();
-                    await RefreshAuthenticators(true);
+                    await UpdateList(true);
                 });
 
                 await _categorySource.Update();
@@ -1336,7 +1336,7 @@ namespace AuthenticatorPro.Activity
             fragment.CategoryClick += OnCategoriesDialogCategoryClick;
             fragment.ManageCategoriesClick += delegate
             {
-                _refreshOnActivityResume = true;
+                _updateOnActivityResume = true;
                 StartActivity(typeof(ManageCategoriesActivity));
                 fragment.Dismiss();
             };
