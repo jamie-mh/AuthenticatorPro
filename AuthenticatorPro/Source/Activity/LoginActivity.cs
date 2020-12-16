@@ -10,6 +10,8 @@ namespace AuthenticatorPro.Activity
     [Activity]
     internal class LoginActivity : DayNightActivity
     {
+        private BiometricPrompt _prompt;
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -20,7 +22,7 @@ namespace AuthenticatorPro.Activity
             callback.Success += OnSuccess;
             callback.Error += OnError;
             
-            var prompt = new BiometricPrompt(this, executor, callback);
+            _prompt = new BiometricPrompt(this, executor, callback);
             
             var promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .SetTitle(GetString(Resource.String.login))
@@ -28,7 +30,13 @@ namespace AuthenticatorPro.Activity
                 .SetDeviceCredentialAllowed(true)
                 .Build();
             
-            prompt.Authenticate(promptInfo);
+            _prompt.Authenticate(promptInfo);
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            _prompt?.CancelAuthentication();
         }
 
         private void OnError(object sender, AuthenticationCallback.ErrorEventArgs e)
@@ -50,7 +58,7 @@ namespace AuthenticatorPro.Activity
 
         public override void OnBackPressed()
         {
-
+            _prompt?.CancelAuthentication();
         }
     }
 }
