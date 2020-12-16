@@ -114,6 +114,7 @@ namespace AuthenticatorPro.Activity
             _onResumeSemaphore = new SemaphoreSlim(1, 1);
         }
 
+        #region Activity Lifecycle
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -242,6 +243,68 @@ namespace AuthenticatorPro.Activity
             if(_connection != null)
                 await _connection.CloseAsync();
         }
+        
+        protected override async void OnPause()
+        {
+            base.OnPause();
+
+            _timer?.Stop();
+            _pauseTime = DateTime.UtcNow;
+
+            if(!_hasWearAPIs)
+                return;
+            
+            try
+            {
+                await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
+            }
+            catch(ApiException) { }
+        }
+        #endregion
+
+        #region Activity Events
+        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
+        {
+            if(resultCode != Result.Ok)
+                return;
+
+            switch(requestCode)
+            {
+                case ResultLogin:
+                    _isAuthenticated = true;
+                    return;
+                
+                case ResultSettingsRecreate:
+                    Recreate();
+                    return;
+            }
+
+            await _onResumeSemaphore.WaitAsync();
+            _onResumeSemaphore.Release();
+            
+            switch(requestCode)
+            {
+                case ResultRestoreSAF:
+                    await BeginRestore(intent.Data);
+                    break;
+                
+                case ResultBackupFileSAF:
+                    BeginBackupToFile(intent.Data);
+                    break;
+                
+                case ResultBackupHtmlSAF:
+                    await DoHtmlBackup(intent.Data);
+                    break;
+                
+                case ResultCustomIconSAF:
+                    await SetCustomIcon(intent.Data);
+                    break;
+                
+                case ResultQRCodeSAF:
+                    await ScanQRCodeFromImage(intent.Data);
+                    break;
+            }
+        }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -305,23 +368,6 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        protected override async void OnPause()
-        {
-            base.OnPause();
-
-            _timer?.Stop();
-            _pauseTime = DateTime.UtcNow;
-
-            if(!_hasWearAPIs)
-                return;
-            
-            try
-            {
-                await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
-            }
-            catch(ApiException) { }
-        }
-
         public override async void OnBackPressed()
         {
             var searchBarWasClosed = false;
@@ -361,7 +407,9 @@ namespace AuthenticatorPro.Activity
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        #endregion
 
+        #region Authenticator List
         private void InitViews()
         {
             _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
@@ -389,21 +437,6 @@ namespace AuthenticatorPro.Activity
             _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
             _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
             _viewGuideButton.Click += delegate { StartActivity(typeof(GuideActivity)); };
-        }
-        
-        private void ShowDatabaseErrorDialog()
-        {
-            var builder = new MaterialAlertDialogBuilder(this);
-            builder.SetMessage(Resource.String.databaseError);
-            builder.SetTitle(Resource.String.warning);
-            builder.SetPositiveButton(Resource.String.quit, delegate
-            {
-                Finish();
-            });
-            builder.SetCancelable(true);
-
-            var dialog = builder.Create();
-            dialog.Show();
         }
 
         private void InitAuthenticatorList()
@@ -539,20 +572,6 @@ namespace AuthenticatorPro.Activity
             });
         }
 
-        private bool RequiresAuthentication()
-        {
-            var hasAppLock = PreferenceManager.GetDefaultSharedPreferences(this)
-                .GetBoolean("pref_appLock", false);
-            
-            var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
-
-            var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.LollipopMr1
-                ? keyguardManager.IsKeyguardSecure
-                : keyguardManager.IsDeviceSecure;
-
-            return hasAppLock && isDeviceSecure;
-        }
-
         private void Tick(object sender = null, ElapsedEventArgs e = null)
         {
             if(_authSource == null)
@@ -643,57 +662,7 @@ namespace AuthenticatorPro.Activity
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
-
-        protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
-        {
-            if(resultCode != Result.Ok)
-                return;
-
-            switch(requestCode)
-            {
-                case ResultLogin:
-                    _isAuthenticated = true;
-                    return;
-                
-                case ResultSettingsRecreate:
-                    Recreate();
-                    return;
-            }
-
-            await _onResumeSemaphore.WaitAsync();
-            _onResumeSemaphore.Release();
-            
-            switch(requestCode)
-            {
-                case ResultRestoreSAF:
-                    await BeginRestore(intent.Data);
-                    break;
-                
-                case ResultBackupFileSAF:
-                    BeginBackupToFile(intent.Data);
-                    break;
-                
-                case ResultBackupHtmlSAF:
-                    await DoHtmlBackup(intent.Data);
-                    break;
-                
-                case ResultCustomIconSAF:
-                    await SetCustomIcon(intent.Data);
-                    break;
-                
-                case ResultQRCodeSAF:
-                    await ScanQRCodeFromImage(intent.Data);
-                    break;
-            }
-        }
-        
-        private void OpenImagePicker(int resultCode)
-        {
-            var intent = new Intent(Intent.ActionOpenDocument);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("image/*");
-            StartActivityForResult(intent, resultCode);
-        }
+        #endregion
 
         #region QR Code Scanning
         private async Task ScanQRCodeFromCamera()
@@ -1461,6 +1430,43 @@ namespace AuthenticatorPro.Activity
             var snackbar = Snackbar.Make(_coordinatorLayout, message, length);
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
+        }
+        
+        private void ShowDatabaseErrorDialog()
+        {
+            var builder = new MaterialAlertDialogBuilder(this);
+            builder.SetMessage(Resource.String.databaseError);
+            builder.SetTitle(Resource.String.warning);
+            builder.SetPositiveButton(Resource.String.quit, delegate
+            {
+                Finish();
+            });
+            builder.SetCancelable(true);
+
+            var dialog = builder.Create();
+            dialog.Show();
+        }
+        
+        private void OpenImagePicker(int resultCode)
+        {
+            var intent = new Intent(Intent.ActionOpenDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType("image/*");
+            StartActivityForResult(intent, resultCode);
+        }
+
+        private bool RequiresAuthentication()
+        {
+            var hasAppLock = PreferenceManager.GetDefaultSharedPreferences(this)
+                .GetBoolean("pref_appLock", false);
+            
+            var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
+
+            var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.LollipopMr1
+                ? keyguardManager.IsKeyguardSecure
+                : keyguardManager.IsDeviceSecure;
+
+            return hasAppLock && isDeviceSecure;
         }
         #endregion
     }
