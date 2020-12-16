@@ -27,24 +27,25 @@ namespace AuthenticatorPro.WearOS.Activity
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher", Theme = "@style/AppTheme")]
     internal class MainActivity : AppCompatActivity, MessageClient.IOnMessageReceivedListener
     {
+        // Query Paths
         private const string ProtocolVersion = "protocol_v2";
-        
         private const string ListAuthenticatorsCapability = "list_authenticators";
         private const string ListCategoriesCapability = "list_categories";
         private const string ListCustomIconsCapability = "list_custom_icons";
         private const string GetCustomIconCapability = "get_custom_icon";
         private const string RefreshCapability = "refresh";
+        
+        // Cache Names
+        private const string AuthenticatorCacheName = "authenticators";
+        private const string CategoryCacheName = "categories";
 
-        private INode _serverNode;
-        private int _responsesReceived;
-        private int _responsesRequired;
-
+        // Views
         private LinearLayout _offlineLayout;
         private RelativeLayout _loadingLayout;
         private RelativeLayout _emptyLayout;
-
         private WearableRecyclerView _authList;
-
+        
+        // Data
         private AuthenticatorSource _authSource;
         private ListCache<WearAuthenticator> _authCache;
         private ListCache<WearCategory> _categoryCache;
@@ -52,20 +53,78 @@ namespace AuthenticatorPro.WearOS.Activity
         
         private AuthenticatorListAdapter _authListAdapter;
         private CategoryListAdapter _categoryListAdapter;
+        
+        // Connection Status
+        private INode _serverNode;
+        private int _responsesReceived;
+        private int _responsesRequired;
+
+        // Lifecycle Synchronisation
+        private readonly SemaphoreSlim _onCreateSemaphore;
 
 
+        public MainActivity()
+        {
+            _onCreateSemaphore = new SemaphoreSlim(1, 1);            
+        }
+
+        #region Activity Lifecycle
         protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            
+            await _onCreateSemaphore.WaitAsync();
             SetContentView(Resource.Layout.activityMain);
+
+            _authCache = new ListCache<WearAuthenticator>(AuthenticatorCacheName, this);
+            _categoryCache = new ListCache<WearCategory>(CategoryCacheName, this);
+            _customIconCache = new CustomIconCache(this);
+            
+            await _authCache.Init();
+            await _categoryCache.Init();
+            
+            _authSource = new AuthenticatorSource(_authCache);
+            RunOnUiThread(InitViews);
+
+            _onCreateSemaphore.Release();
+        }
+
+        protected override async void OnResume()
+        {
+            base.OnResume();
+            
+            await _onCreateSemaphore.WaitAsync();
+            _onCreateSemaphore.Release();
 
             try
             {
                 await WearableClass.GetMessageClient(this).AddListenerAsync(this);
                 await FindServerNode();
             }
+            catch(ApiException)
+            {
+                RunOnUiThread(UpdateViewState);
+                return;
+            }
+
+            await Refresh();
+        }
+
+        protected override async void OnPause()
+        {
+            base.OnPause();
+
+            try
+            {
+                await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
+            }
             catch(ApiException) { }
-            
+        }
+        #endregion
+
+        #region Authenticators and Categories 
+        private void InitViews()
+        {
             _loadingLayout = FindViewById<RelativeLayout>(Resource.Id.layoutLoading);
             _emptyLayout = FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
             _offlineLayout = FindViewById<LinearLayout>(Resource.Id.layoutOffline);
@@ -75,33 +134,19 @@ namespace AuthenticatorPro.WearOS.Activity
             _authList.HasFixedSize = true;
             _authList.SetItemViewCacheSize(12);
             _authList.SetItemAnimator(null);
-
+            
             var layoutCallback = new AuthenticatorListLayoutCallback(this);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
-
-            _authCache = new ListCache<WearAuthenticator>("authenticators", this);
-            _categoryCache = new ListCache<WearCategory>("categories", this);
-            _customIconCache = new CustomIconCache(this);
-            
-            await _authCache.Init();
-            _authSource = new AuthenticatorSource(_authCache);
             
             _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconCache);
             _authListAdapter.ItemClick += OnItemClick;
             _authListAdapter.HasStableIds = true;
             _authList.SetAdapter(_authListAdapter);
-           
-            if(_authCache.GetItems().Count > 0 || _serverNode == null)
-                UpdateViewState();
             
-            await _categoryCache.Init();
-
             var categoriesDrawer = FindViewById<WearableNavigationDrawerView>(Resource.Id.drawerCategories);
             _categoryListAdapter = new CategoryListAdapter(this, _categoryCache);
             categoriesDrawer.SetAdapter(_categoryListAdapter);
             categoriesDrawer.ItemSelected += OnCategorySelected;
-            
-            await Refresh();
         }
 
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
@@ -153,7 +198,43 @@ namespace AuthenticatorPro.WearOS.Activity
                     _authList.RequestFocus();
             }
         }
+        
+        private async void OnItemClick(object sender, int position)
+        {
+            var item = _authSource.Get(position);
 
+            if(item == null)
+                return;
+
+            var intent = new Intent(this, typeof(CodeActivity));
+            var bundle = new Bundle();
+           
+            bundle.PutInt("type", (int) item.Type);
+            bundle.PutString("username", item.Username);
+            bundle.PutString("issuer", item.Issuer);
+            bundle.PutInt("period", item.Period);
+            bundle.PutInt("digits", item.Digits);
+            bundle.PutString("secret", item.Secret);
+            bundle.PutInt("algorithm", (int) item.Algorithm);
+
+            var hasCustomIcon = item.Icon.StartsWith(CustomIconCache.Prefix);
+            bundle.PutBoolean("hasCustomIcon", hasCustomIcon);
+
+            if(hasCustomIcon)
+            {
+                var id = item.Icon.Substring(1);
+                var bitmap = await _customIconCache.GetBitmap(id);
+                bundle.PutParcelable("icon", bitmap);    
+            }
+            else
+                bundle.PutString("icon", item.Icon);
+            
+            intent.PutExtras(bundle);
+            StartActivity(intent);
+        }
+        #endregion
+
+        #region Message Handling
         private async Task FindServerNode()
         {
             var capabilityInfo = await WearableClass.GetCapabilityClient(this)
@@ -199,51 +280,6 @@ namespace AuthenticatorPro.WearOS.Activity
                 .SendMessageAsync(_serverNode.Id, ListCustomIconsCapability, new byte[] { });
         }
         
-        private async void OnItemClick(object sender, int position)
-        {
-            var item = _authSource.Get(position);
-
-            if(item == null)
-                return;
-
-            var intent = new Intent(this, typeof(CodeActivity));
-            var bundle = new Bundle();
-           
-            bundle.PutInt("type", (int) item.Type);
-            bundle.PutString("username", item.Username);
-            bundle.PutString("issuer", item.Issuer);
-            bundle.PutInt("period", item.Period);
-            bundle.PutInt("digits", item.Digits);
-            bundle.PutString("secret", item.Secret);
-            bundle.PutInt("algorithm", (int) item.Algorithm);
-
-            var hasCustomIcon = item.Icon.StartsWith(CustomIconCache.Prefix);
-            bundle.PutBoolean("hasCustomIcon", hasCustomIcon);
-
-            if(hasCustomIcon)
-            {
-                var id = item.Icon.Substring(1);
-                var bitmap = await _customIconCache.GetBitmap(id);
-                bundle.PutParcelable("icon", bitmap);    
-            }
-            else
-                bundle.PutString("icon", item.Icon);
-            
-            intent.PutExtras(bundle);
-            StartActivity(intent);
-        }
-
-        protected override async void OnDestroy()
-        {
-            base.OnDestroy();
-
-            try
-            {
-                await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
-            }
-            catch(ApiException) { }
-        }
-
         private async Task OnAuthenticatorListReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
@@ -328,6 +364,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if(_responsesReceived == _responsesRequired)
                 RunOnUiThread(UpdateViewState);
         }
+        #endregion
     }
 }
 

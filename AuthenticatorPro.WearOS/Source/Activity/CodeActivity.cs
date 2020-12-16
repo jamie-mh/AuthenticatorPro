@@ -67,11 +67,23 @@ namespace AuthenticatorPro.WearOS.Activity
                 _ => new Totp(secret, _period, algorithm, _digits),
             };
 
-            _timer = new Timer {Interval = 1000, AutoReset = true, Enabled = true};
+            _timer = new Timer {Interval = 1000, AutoReset = true};
             _timer.Elapsed += Tick;
 
             UpdateCode();
             UpdateProgressBar();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            _timer?.Start();
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            _timer?.Stop();
         }
 
         private void UpdateProgressBar()
@@ -86,13 +98,6 @@ namespace AuthenticatorPro.WearOS.Activity
                 UpdateCode();
             
             UpdateProgressBar();
-        }
-
-        protected override void OnPause()
-        {
-            base.OnPause();
-            _timer.Stop();
-            Finish();
         }
 
         private void UpdateCode()
