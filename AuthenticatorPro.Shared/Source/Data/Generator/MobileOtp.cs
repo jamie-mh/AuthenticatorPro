@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
         private readonly int _digits;
         private readonly int _period;
 
-        private DateTime _computedAt;
+        private DateTimeOffset _computedAt;
 
         public GenerationMethod GenerationMethod => GenerationMethod.Time;
         
@@ -25,15 +25,15 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
         public string Compute()
         {
-            _computedAt = DateTime.UtcNow;
-            var timestamp = ((DateTimeOffset) _computedAt).ToUnixTimeSeconds() / 10;
+            _computedAt = DateTimeOffset.UtcNow;
+            var timestamp = _computedAt.ToUnixTimeSeconds() / 10;
             var material = timestamp + _secret;
             return Hash.Md5(material).Truncate(_digits);
         }
 
         public DateTime GetRenewTime()
         {
-            var secondsRemaining = _period - (int) ((DateTimeOffset) _computedAt).ToUnixTimeSeconds() % _period;
+            var secondsRemaining = _period - (int) _computedAt.ToUnixTimeSeconds() % _period;
             return DateTime.UtcNow.AddSeconds(secondsRemaining);
         }
     }
