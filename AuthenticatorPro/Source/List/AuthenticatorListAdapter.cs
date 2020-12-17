@@ -33,8 +33,8 @@ namespace AuthenticatorPro.List
        
         // Cache the remaining seconds per period, a relative DateTime calculation can be expensive
         // Cache the remaining progress per period, to keep all progressbars in sync
-        private readonly Dictionary<int, int> _remainingSecondsPerPeriod;
-        private readonly Dictionary<int, int> _remainingProgressPerPeriod;
+        private readonly Dictionary<int, int> _secondsRemainingPerPeriod;
+        private readonly Dictionary<int, int> _progressPerPeriod;
 
         public enum ViewMode
         {
@@ -48,8 +48,8 @@ namespace AuthenticatorPro.List
             _viewMode = viewMode;
             _isDark = isDark;
 
-            _remainingSecondsPerPeriod = new Dictionary<int, int>();
-            _remainingProgressPerPeriod = new Dictionary<int, int>();
+            _secondsRemainingPerPeriod = new Dictionary<int, int>();
+            _progressPerPeriod = new Dictionary<int, int>();
         }
 
         public override int ItemCount => _authSource.GetView().Count;
@@ -154,64 +154,64 @@ namespace AuthenticatorPro.List
         {
             if(invalidateCache)
             {
-                _remainingSecondsPerPeriod.Clear();
-                _remainingProgressPerPeriod.Clear();
+                _secondsRemainingPerPeriod.Clear();
+                _progressPerPeriod.Clear();
             }
             
-            foreach(var period in _remainingSecondsPerPeriod.Keys.ToList())
-                _remainingSecondsPerPeriod[period]--;
+            foreach(var period in _secondsRemainingPerPeriod.Keys.ToList())
+                _secondsRemainingPerPeriod[period]--;
             
             for(var i = 0; i < _authSource.GetView().Count; ++i)
             {
                 var auth = _authSource.Get(i);
 
-                if(auth.Type.GetGenerationMethod() != GenerationMethod.Time || _remainingSecondsPerPeriod.GetValueOrDefault(auth.Period, -1) > 0)
+                if(auth.Type.GetGenerationMethod() != GenerationMethod.Time || _secondsRemainingPerPeriod.GetValueOrDefault(auth.Period, -1) > 0)
                     continue;
 
                 NotifyItemChanged(i, true);
             }
 
-            foreach(var period in _remainingSecondsPerPeriod.Keys.ToList())
+            foreach(var period in _secondsRemainingPerPeriod.Keys.ToList())
             {
-                if(_remainingSecondsPerPeriod[period] < 0)
-                    _remainingSecondsPerPeriod[period] = period;
+                if(_secondsRemainingPerPeriod[period] < 0)
+                    _secondsRemainingPerPeriod[period] = period;
             }
 
-            _remainingProgressPerPeriod.Clear();
+            _progressPerPeriod.Clear();
         }
 
-        private int GetRemainingProgress(int period, int remainingSeconds)
+        private int GetProgress(int period, int secondsRemaining)
         {
-            var remainingProgress = _remainingProgressPerPeriod.GetValueOrDefault(period, -1);
+            var progress = _progressPerPeriod.GetValueOrDefault(period, -1);
 
-            if(remainingProgress > -1)
-                return remainingProgress;
+            if(progress > -1)
+                return progress;
 
-            remainingProgress = (int) Math.Floor((double) MaxProgress * remainingSeconds / period);
-            _remainingProgressPerPeriod.Add(period, remainingProgress);
-            return remainingProgress;
+            progress = (int) Math.Floor((double) MaxProgress * secondsRemaining / period);
+            _progressPerPeriod.Add(period, progress);
+            return progress;
         }
 
         private int GetRemainingSeconds(int period)
         {
-            var remainingSeconds = _remainingSecondsPerPeriod.GetValueOrDefault(period, -1);
+            var secondsRemaining = _secondsRemainingPerPeriod.GetValueOrDefault(period, -1);
 
-            if(remainingSeconds > -1)
-                return remainingSeconds;
+            if(secondsRemaining > -1)
+                return secondsRemaining;
 
-            remainingSeconds = period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % period;
-            _remainingSecondsPerPeriod.Add(period, remainingSeconds);
-            return remainingSeconds;
+            secondsRemaining = period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % period;
+            _secondsRemainingPerPeriod.Add(period, secondsRemaining);
+            return secondsRemaining;
         }
 
         private void AnimateProgressBar(ProgressBar progressBar, int period)
         {
-            var remainingSeconds = GetRemainingSeconds(period);
-            var remainingProgress = GetRemainingProgress(period, remainingSeconds);
-            progressBar.Progress = remainingProgress;
+            var secondsRemaining = GetRemainingSeconds(period);
+            var progress = GetProgress(period, secondsRemaining);
+            progressBar.Progress = progress;
             
             var animator = ObjectAnimator.OfInt(progressBar, "progress", 0);
-            animator.SetDuration(remainingSeconds * 1000);
+            animator.SetDuration(secondsRemaining * 1000);
             animator.SetInterpolator(new LinearInterpolator());
             animator.Start();
         }
