@@ -107,6 +107,7 @@ namespace AuthenticatorPro.WearOS.Activity
                 return;
             }
 
+            RunOnUiThread(UpdateViewState);
             await Refresh();
         }
 
