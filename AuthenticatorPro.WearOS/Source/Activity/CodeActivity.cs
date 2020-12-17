@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Timers;
+using Android.Animation;
 using Android.App;
 using Android.Graphics;
 using Android.OS;
+using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Shared.Data;
@@ -24,7 +26,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private int _digits;
 
         private ProgressBar _progressBar;
-        private DateTime _timeRenew;
+        private int _secondsRemaining;
         private TextView _codeTextView;
 
 
@@ -71,13 +73,15 @@ namespace AuthenticatorPro.WearOS.Activity
             _timer.Elapsed += Tick;
 
             UpdateCode();
-            UpdateProgressBar();
         }
 
         protected override void OnResume()
         {
             base.OnResume();
             _timer?.Start();
+            
+            _secondsRemaining = 0;
+            Tick();
         }
 
         protected override void OnPause()
@@ -86,24 +90,17 @@ namespace AuthenticatorPro.WearOS.Activity
             _timer?.Stop();
         }
 
-        private void UpdateProgressBar()
-        {
-            var secondsRemaining = (_timeRenew - DateTime.UtcNow).TotalSeconds;
-            _progressBar.Progress = (int) Math.Floor(100d * secondsRemaining / _period);
-        }
-
         private void Tick(object sender = null, ElapsedEventArgs e = null)
         {
-            if(_timeRenew <= DateTime.UtcNow)
-                UpdateCode();
+            if(--_secondsRemaining > 0)
+                return;
             
-            UpdateProgressBar();
+            RunOnUiThread(UpdateCode);
         }
 
         private void UpdateCode()
         {
             var code = _generator.Compute();
-            _timeRenew = _generator.GetRenewTime();
             
             var spacesInserted = 0;
             var groupSize = Math.Min(MaxCodeGroupSize, _digits / 2);
@@ -118,6 +115,15 @@ namespace AuthenticatorPro.WearOS.Activity
             }
 
             _codeTextView.Text = code;
+            
+            _secondsRemaining = _period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % _period;
+            var progress = (int) Math.Floor((double) _progressBar.Max * _secondsRemaining / _period);
+            _progressBar.Progress = progress;
+            
+            var animator = ObjectAnimator.OfInt(_progressBar, "progress", 0);
+            animator.SetDuration(_secondsRemaining * 1000);
+            animator.SetInterpolator(new LinearInterpolator());
+            animator.Start();
         }
     }
 }
