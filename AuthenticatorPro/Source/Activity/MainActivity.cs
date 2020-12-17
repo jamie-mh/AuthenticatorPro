@@ -950,14 +950,8 @@ namespace AuthenticatorPro.Activity
                 await _customIconSource.Update();
                 await _authSource.Update();
 
-                // This is required because we're probably not running on the main thread
-                // as the method was called from a task
-                RunOnUiThread(async delegate
-                {
-                    CheckEmptyState();
-                    await UpdateList(true);
-                });
-
+                RunOnUiThread(CheckEmptyState);
+                await UpdateList(true);
                 await _categorySource.Update();
 
                 var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
