@@ -5,7 +5,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class Hotp : CounterBasedGenerator
     {
-        private const int CooldownSeconds = 10;
+        public const int CooldownSeconds = 10;
 
         private readonly OtpNet.Hotp _hotp;
         private DateTime _computedAt;

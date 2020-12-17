@@ -35,6 +35,7 @@ namespace AuthenticatorPro.List
         // Cache the remaining progress per period, to keep all progressbars in sync
         private readonly Dictionary<int, int> _secondsRemainingPerPeriod;
         private readonly Dictionary<int, int> _progressPerPeriod;
+        private readonly Dictionary<int, int> _counterCooldownSeconds;
 
         public enum ViewMode
         {
@@ -50,6 +51,7 @@ namespace AuthenticatorPro.List
 
             _secondsRemainingPerPeriod = new Dictionary<int, int>();
             _progressPerPeriod = new Dictionary<int, int>();
+            _counterCooldownSeconds = new Dictionary<int, int>();
         }
 
         public override int ItemCount => _authSource.GetView().Count;
@@ -135,17 +137,17 @@ namespace AuthenticatorPro.List
 
             var auth = _authSource.Get(position);
             var holder = (AuthenticatorListHolder) viewHolder;
+            holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
 
             switch(auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
-                    holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
                     AnimateProgressBar(holder.ProgressBar, auth.Period);
                     break;
                 
                 case GenerationMethod.Counter:
-                    if(auth.TimeRenew < DateTime.UtcNow)
-                        holder.RefreshButton.Visibility = ViewStates.Visible;
+                    holder.RefreshButton.Visibility = ViewStates.Visible;
+                    _counterCooldownSeconds[auth.Secret.GetHashCode()] = Hotp.CooldownSeconds;
                     break;
             } 
         }
@@ -160,20 +162,24 @@ namespace AuthenticatorPro.List
             
             foreach(var period in _secondsRemainingPerPeriod.Keys.ToList())
                 _secondsRemainingPerPeriod[period]--;
+
+            foreach(var key in _counterCooldownSeconds.Keys.ToList())
+                _counterCooldownSeconds[key]--;
             
             for(var i = 0; i < _authSource.GetView().Count; ++i)
             {
                 var auth = _authSource.Get(i);
 
-                if(auth.Type.GetGenerationMethod() != GenerationMethod.Time || _secondsRemainingPerPeriod.GetValueOrDefault(auth.Period, -1) > 0)
-                    continue;
-
-                NotifyItemChanged(i, true);
+                if(auth.Type.GetGenerationMethod() == GenerationMethod.Time &&
+                   _secondsRemainingPerPeriod.GetValueOrDefault(auth.Period, -1) <= 0 ||
+                   auth.Type.GetGenerationMethod() == GenerationMethod.Counter &&
+                   _counterCooldownSeconds.GetValueOrDefault(auth.Secret.GetHashCode(), -1) <= 0)
+                    NotifyItemChanged(i, true);
             }
 
             foreach(var period in _secondsRemainingPerPeriod.Keys.ToList())
             {
-                if(_secondsRemainingPerPeriod[period] < 0)
+                if(_secondsRemainingPerPeriod[period] <= 0)
                     _secondsRemainingPerPeriod[period] = period;
             }
 
