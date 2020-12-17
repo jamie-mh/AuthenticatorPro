@@ -956,7 +956,7 @@ namespace AuthenticatorPro.Activity
             }
 
             // Open and closed curly brace (file is not encrypted)
-            if(fileData[0] == 0x7b && fileData[^1] == 0x7d)
+            if(fileData[0] == '{' && fileData[^1] == '}')
             {
                 await TryRestore(null, null);
                 return;
