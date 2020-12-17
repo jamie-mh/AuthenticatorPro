@@ -110,7 +110,7 @@ namespace AuthenticatorPro.Data
                     break;
                 }
                 
-                case GenerationMethod.Time when TimeRenew <= DateTime.UtcNow:
+                case GenerationMethod.Time:
                     _code = _generator.Compute();
                     TimeRenew = _generator.GetRenewTime();
                     break;

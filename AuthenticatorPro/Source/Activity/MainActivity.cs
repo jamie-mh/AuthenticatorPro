@@ -574,14 +574,7 @@ namespace AuthenticatorPro.Activity
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
         {
-            if(_authSource == null)
-                return;
-
-            for(var i = 0; i < _authSource.GetView().Count; ++i)
-            {
-                var position = i;
-                RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position, true); });
-            }
+            RunOnUiThread(_authListAdapter.Tick);
         }
 
         private void OnAuthenticatorClick(object sender, int position)

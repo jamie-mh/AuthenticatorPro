@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Android.Animation;
 using Android.Views;
+using Android.Views.Animations;
+using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Data.Source;
@@ -13,6 +17,7 @@ namespace AuthenticatorPro.List
     internal sealed class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private const int MaxCodeGroupSize = 4;
+        private const int MaxProgress = 10000;
 
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> MenuClick;
@@ -25,6 +30,11 @@ namespace AuthenticatorPro.List
         
         private readonly AuthenticatorSource _authSource;
         private readonly CustomIconSource _customIconSource;
+       
+        // Cache the remaining seconds per period, a relative DateTime calculation can be expensive
+        // Cache the remaining progress per period, to keep all progressbars in sync
+        private readonly Dictionary<int, int> _remainingSecondsPerPeriod;
+        private readonly Dictionary<int, int> _remainingProgressPerPeriod;
 
         public enum ViewMode
         {
@@ -37,6 +47,9 @@ namespace AuthenticatorPro.List
             _customIconSource = customIconSource;
             _viewMode = viewMode;
             _isDark = isDark;
+
+            _remainingSecondsPerPeriod = new Dictionary<int, int>();
+            _remainingProgressPerPeriod = new Dictionary<int, int>();
         }
 
         public override int ItemCount => _authSource.GetView().Count;
@@ -99,7 +112,7 @@ namespace AuthenticatorPro.List
                 case GenerationMethod.Time:
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
-                    holder.ProgressBar.Progress = GetRemainingProgress(auth);
+                    AnimateProgressBar(holder.ProgressBar, auth.Period);
                     break;
 
                 case GenerationMethod.Counter:
@@ -126,10 +139,8 @@ namespace AuthenticatorPro.List
             switch(auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
-                    if(auth.TimeRenew < DateTime.UtcNow)
-                        holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
-
-                    holder.ProgressBar.Progress = GetRemainingProgress(auth);
+                    holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
+                    AnimateProgressBar(holder.ProgressBar, auth.Period);
                     break;
                 
                 case GenerationMethod.Counter:
@@ -139,29 +150,64 @@ namespace AuthenticatorPro.List
             } 
         }
 
-        private static string PadCode(string code, int digits)
+        public void Tick()
         {
-            code ??= "".PadRight(digits, '-');
-
-            var spacesInserted = 0;
-            var groupSize = Math.Min(MaxCodeGroupSize, digits / 2);
-
-            for(var i = 0; i < digits; ++i)
+            foreach(var period in _remainingSecondsPerPeriod.Keys.ToList())
+                _remainingSecondsPerPeriod[period]--;
+            
+            for(var i = 0; i < _authSource.GetView().Count; ++i)
             {
-                if(i % groupSize == 0 && i > 0)
-                {
-                    code = code.Insert(i + spacesInserted, " ");
-                    spacesInserted++;
-                }
+                var auth = _authSource.Get(i);
+
+                if(auth.Type.GetGenerationMethod() != GenerationMethod.Time || _remainingSecondsPerPeriod.GetValueOrDefault(auth.Period, -1) > 0)
+                    continue;
+
+                NotifyItemChanged(i, true);
             }
 
-            return code;
+            foreach(var period in _remainingSecondsPerPeriod.Keys.ToList())
+            {
+                if(_remainingSecondsPerPeriod[period] < 0)
+                    _remainingSecondsPerPeriod[period] = period;
+            }
+
+            _remainingProgressPerPeriod.Clear();
         }
 
-        private static int GetRemainingProgress(Authenticator auth)
+        private int GetRemainingProgress(int period, int remainingSeconds)
         {
-            var secondsRemaining = (auth.TimeRenew - DateTime.UtcNow).TotalSeconds;
-            return (int) Math.Floor(100d * secondsRemaining / auth.Period);
+            var remainingProgress = _remainingProgressPerPeriod.GetValueOrDefault(period, -1);
+
+            if(remainingProgress > -1)
+                return remainingProgress;
+
+            remainingProgress = (int) Math.Floor((double) MaxProgress * remainingSeconds / period);
+            _remainingProgressPerPeriod.Add(period, remainingProgress);
+            return remainingProgress;
+        }
+
+        private int GetRemainingSeconds(int period)
+        {
+            var remainingSeconds = _remainingSecondsPerPeriod.GetValueOrDefault(period, -1);
+
+            if(remainingSeconds > -1)
+                return remainingSeconds;
+
+            remainingSeconds = period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % period;
+            _remainingSecondsPerPeriod.Add(period, remainingSeconds);
+            return remainingSeconds;
+        }
+
+        private void AnimateProgressBar(ProgressBar progressBar, int period)
+        {
+            var remainingSeconds = GetRemainingSeconds(period);
+            var remainingProgress = GetRemainingProgress(period, remainingSeconds);
+            progressBar.Progress = remainingProgress;
+            
+            var animator = ObjectAnimator.OfInt(progressBar, "progress", 0);
+            animator.SetDuration(remainingSeconds * 1000);
+            animator.SetInterpolator(new LinearInterpolator());
+            animator.Start();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -187,6 +233,25 @@ namespace AuthenticatorPro.List
         {
             await _authSource.IncrementCounter(position);
             NotifyItemChanged(position);
+        }
+
+        private static string PadCode(string code, int digits)
+        {
+            code ??= "".PadRight(digits, '-');
+
+            var spacesInserted = 0;
+            var groupSize = Math.Min(MaxCodeGroupSize, digits / 2);
+
+            for(var i = 0; i < digits; ++i)
+            {
+                if(i % groupSize == 0 && i > 0)
+                {
+                    code = code.Insert(i + spacesInserted, " ");
+                    spacesInserted++;
+                }
+            }
+
+            return code;
         }
     }
 }
