@@ -9,6 +9,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Content.Res;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
@@ -307,6 +308,18 @@ namespace AuthenticatorPro.Activity
                     await ScanQRCodeFromImage(intent.Data);
                     break;
             }
+        }
+
+        public override void OnConfigurationChanged(Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
+            
+            // Force a relayout when the orientation changes
+            Task.Run(async delegate
+            {
+                await Task.Delay(500);
+                RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
+            });
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
