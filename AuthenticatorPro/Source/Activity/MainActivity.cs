@@ -159,7 +159,10 @@ namespace AuthenticatorPro.Activity
                 AutoReset = true
             };
             
-            _timer.Elapsed += Tick;
+            _timer.Elapsed += (sender, args) =>
+            {
+                Tick();
+            };
 
             _updateOnActivityResume = true;
             _onCreateSemaphore.Release();
@@ -216,7 +219,7 @@ namespace AuthenticatorPro.Activity
             RunOnUiThread(CheckEmptyState);
             
             if(_authSource.GetView().Any())
-                Tick();
+                Tick(true);
 
             var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_showBackupReminders", true);
@@ -572,9 +575,11 @@ namespace AuthenticatorPro.Activity
             });
         }
 
-        private void Tick(object sender = null, ElapsedEventArgs e = null)
+        private void Tick(bool invalidateCache = false)
         {
-            RunOnUiThread(_authListAdapter.Tick);
+            RunOnUiThread(delegate {
+                _authListAdapter.Tick(invalidateCache);
+            });
         }
 
         private void OnAuthenticatorClick(object sender, int position)

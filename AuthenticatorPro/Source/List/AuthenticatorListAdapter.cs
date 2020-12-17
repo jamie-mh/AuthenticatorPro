@@ -150,8 +150,14 @@ namespace AuthenticatorPro.List
             } 
         }
 
-        public void Tick()
+        public void Tick(bool invalidateCache = false)
         {
+            if(invalidateCache)
+            {
+                _remainingSecondsPerPeriod.Clear();
+                _remainingProgressPerPeriod.Clear();
+            }
+            
             foreach(var period in _remainingSecondsPerPeriod.Keys.ToList())
                 _remainingSecondsPerPeriod[period]--;
             
