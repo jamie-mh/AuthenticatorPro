@@ -94,6 +94,7 @@ namespace AuthenticatorPro.Activity
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
         private bool _isAuthenticated;
+        private bool _returnedFromResult;
         private bool _updateOnActivityResume;
         private int _customIconApplyPosition;
 
@@ -225,8 +226,10 @@ namespace AuthenticatorPro.Activity
             var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
                 .GetBoolean("pref_showBackupReminders", true);
            
-            if(showBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
+            if(!_returnedFromResult && showBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
+
+            _returnedFromResult = false;
 
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
@@ -269,6 +272,8 @@ namespace AuthenticatorPro.Activity
         #region Activity Events
         protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
+            _returnedFromResult = true;
+            
             if(resultCode != Result.Ok)
                 return;
 
