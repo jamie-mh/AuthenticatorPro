@@ -1,0 +1,3 @@
+- General: Fix backup / restore from Nextcloud.
+- General: Progress on authenticators is now animated.
+- General: Slight design tweaks.
