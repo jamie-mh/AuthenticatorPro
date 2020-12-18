@@ -895,14 +895,17 @@ namespace AuthenticatorPro.Activity
         {
             MemoryStream memoryStream = null;
             Stream stream = null;
-            byte[] fileData;
+            byte[] fileData = null;
 
             try
             {
-                stream = ContentResolver.OpenInputStream(uri);
-                memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                fileData = memoryStream.ToArray();
+                await Task.Run(async delegate
+                {
+                    stream = ContentResolver.OpenInputStream(uri);
+                    memoryStream = new MemoryStream();
+                    await stream.CopyToAsync(memoryStream);
+                    fileData = memoryStream.ToArray();
+                });
             }
             catch(Exception)
             {
@@ -914,8 +917,8 @@ namespace AuthenticatorPro.Activity
                 memoryStream?.Close();
                 stream?.Close();
             }
-
-            if(fileData.Length == 0)
+            
+            if(fileData == null || fileData.Length == 0)
             {
                 ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                 return;
@@ -1091,11 +1094,14 @@ namespace AuthenticatorPro.Activity
 
             try
             {
-                output = ContentResolver.OpenOutputStream(uri);
-                writer = new BufferedWriter(new OutputStreamWriter(output));
+                await Task.Run(async delegate
+                {
+                    output = ContentResolver.OpenOutputStream(uri);
+                    writer = new BufferedWriter(new OutputStreamWriter(output));
 
-                await writer.WriteAsync(backup.ToString());
-                await writer.FlushAsync();
+                    await writer.WriteAsync(backup.ToString());
+                    await writer.FlushAsync();
+                });
             }
             catch(Exception)
             {
@@ -1126,22 +1132,26 @@ namespace AuthenticatorPro.Activity
             );
 
             var dataToWrite = backup.ToBytes(password);
-    
-            // This is the only way of reliably writing files using SAF on Xamarin.
-            // A file output stream will usually create 0 byte files on virtual storage such as Google Drive
-            var output = ContentResolver.OpenOutputStream(uri, "rwt");
-            var dataStream = new DataOutputStream(output);
 
-            try
+            // Run backup on separate thread, backups on the main thread fail when using Nextcloud
+            await Task.Run(async delegate
             {
-                await dataStream.WriteAsync(dataToWrite);
-                await dataStream.FlushAsync();
-            }
-            finally
-            {
-                dataStream.Close();
-                output.Close();
-            }
+                // This is the only way of reliably writing files using SAF on Xamarin.
+                // A file output stream will usually create 0 byte files on virtual storage such as Google Drive
+                var output = ContentResolver.OpenOutputStream(uri, "rwt");
+                var dataStream = new DataOutputStream(output);
+
+                try
+                {
+                    await dataStream.WriteAsync(dataToWrite);
+                    await dataStream.FlushAsync();
+                }
+                finally
+                {
+                    dataStream.Close();
+                    output.Close();
+                }
+            });
         }
         
         private void RemindBackup()
