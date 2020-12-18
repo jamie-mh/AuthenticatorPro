@@ -177,11 +177,9 @@ namespace AuthenticatorPro.List
                     NotifyItemChanged(i, true);
             }
 
-            foreach(var period in _secondsRemainingPerPeriod.Keys.ToList())
-            {
-                if(_secondsRemainingPerPeriod[period] <= 0)
-                    _secondsRemainingPerPeriod[period] = period;
-            }
+            // Force recalculation of remaining seconds in case of timer drift
+            foreach(var period in _secondsRemainingPerPeriod.Keys.ToList().Where(period => _secondsRemainingPerPeriod[period] <= 0))
+                _secondsRemainingPerPeriod.Remove(period);
 
             _progressPerPeriod.Clear();
         }
