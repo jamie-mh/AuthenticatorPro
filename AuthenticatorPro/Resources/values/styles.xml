@@ -41,6 +41,7 @@
     <style name="MainActivityTheme" parent="AppTheme">
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowBackground">@color/colorLighter</item>
     </style>
 
     <style name="BottomSheetStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
