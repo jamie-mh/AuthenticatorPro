@@ -72,6 +72,7 @@ namespace AuthenticatorPro.Activity
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
+        private AppBarLayout _appBarLayout;
         private MaterialToolbar _toolbar;
         private ProgressBar _progressBar;
         private RecyclerView _authList;
@@ -431,14 +432,13 @@ namespace AuthenticatorPro.Activity
             SetSupportActionBar(_toolbar);
             SupportActionBar.SetTitle(Resource.String.categoryAll);
 
-            var appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appBarLayout);
+            _appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appBarLayout);
             _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
             _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
             _bottomAppBar.MenuItemClick += delegate
             {
                 _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
-                appBarLayout.SetExpanded(true);
-                _authList.SmoothScrollToPosition(0);
+                ScrollToPosition(0);
             };
 
             _coordinatorLayout = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
@@ -583,6 +583,7 @@ namespace AuthenticatorPro.Activity
             {
                 _authList.Visibility = ViewStates.Invisible;
                 CheckEmptyState();
+                ScrollToPosition(0);
             });
         }
 
@@ -820,7 +821,7 @@ namespace AuthenticatorPro.Activity
             {
                 CheckEmptyState();
                 _authListAdapter.NotifyItemInserted(position);
-                _authList.SmoothScrollToPosition(position);
+                ScrollToPosition(position);
             });
             
             ShowSnackbar(Resource.String.scanSuccessful, Snackbar.LengthShort);
@@ -1211,7 +1212,7 @@ namespace AuthenticatorPro.Activity
             {
                 CheckEmptyState();
                 _authListAdapter.NotifyItemInserted(position);
-                _authList.SmoothScrollToPosition(position);
+                ScrollToPosition(position);
             });
             
             await NotifyWearAppOfChange();
@@ -1443,6 +1444,15 @@ namespace AuthenticatorPro.Activity
             var snackbar = Snackbar.Make(_coordinatorLayout, message, length);
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
+        }
+
+        private void ScrollToPosition(int position)
+        {
+            if(position < 0 || position > _authSource.GetView().Count - 1)
+                return;
+            
+            _authList.SmoothScrollToPosition(position);
+            _appBarLayout.SetExpanded(true);
         }
         
         private void ShowDatabaseErrorDialog()
