@@ -704,16 +704,19 @@ namespace AuthenticatorPro.Activity
         {
             MemoryStream memoryStream = null;
             Stream stream = null;
-            Bitmap bitmap;
+            Bitmap bitmap = null;
 
             try
             {
-                stream = ContentResolver.OpenInputStream(uri);
-                memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
-                
-                var fileData = memoryStream.ToArray();
-                bitmap = await BitmapFactory.DecodeByteArrayAsync(fileData, 0, fileData.Length);
+                await Task.Run(async delegate
+                {
+                    stream = ContentResolver.OpenInputStream(uri);
+                    memoryStream = new MemoryStream();
+                    await stream.CopyToAsync(memoryStream);
+                    
+                    var fileData = memoryStream.ToArray();
+                    bitmap = await BitmapFactory.DecodeByteArrayAsync(fileData, 0, fileData.Length);
+                });
             }
             catch(Exception)
             {
@@ -724,6 +727,12 @@ namespace AuthenticatorPro.Activity
             {
                 memoryStream?.Close();
                 stream?.Close();
+            }
+
+            if(bitmap == null)
+            {
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                return;
             }
 
             var reader = new BarcodeReader(null, null, ls => new GlobalHistogramBinarizer(ls))
