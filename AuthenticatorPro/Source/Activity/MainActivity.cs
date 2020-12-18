@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using Android;
 using Android.App;
 using Android.Content;
@@ -500,8 +499,7 @@ namespace AuthenticatorPro.Activity
             _authList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 8));
             _authList.HasFixedSize = true;
 
-            var animation =
-                AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
+            var animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
             var callback = new ReorderableListTouchHelperCallback(_authListAdapter, layout);
