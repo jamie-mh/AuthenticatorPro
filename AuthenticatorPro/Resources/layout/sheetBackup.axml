@@ -25,7 +25,7 @@
         android:orientation="horizontal"
         android:id="@+id/buttonFile"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingRight="22dp"
         android:paddingBottom="12dp"
         android:paddingTop="12dp">
 
