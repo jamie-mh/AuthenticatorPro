@@ -247,7 +247,7 @@ namespace AuthenticatorPro.List
 
         private static string PadCode(string code, int digits)
         {
-            code ??= "".PadRight(digits, '-');
+            code ??= new String('-', digits);
 
             var spacesInserted = 0;
             var groupSize = Math.Min(MaxCodeGroupSize, digits / 2);
