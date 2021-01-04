@@ -4,8 +4,8 @@
     <string name="displayName">Authenticator</string>
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
-    <string name="backup">Backup</string>
-    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backup">Yedek</string>
+    <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
     <string name="backupHtml">HTML dosyasına yedekle</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
@@ -14,11 +14,11 @@
     <string name="scanQrCodeFromCamera">Kameradan tara</string>
     <string name="scanQrCodeFromGallery">Galeriden tara</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
-    <string name="enterKey">Enter a provided key</string>
+    <string name="enterKey">Sağlanan bir anahtarı girin</string>
     <string name="restoreBackup">Yedeği geri yükle</string>
     <string name="copiedToClipboard">Kod panoya kopyalandı</string>
     <string name="warning">Uyarı</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
+    <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin misin?</string>
     <string name="delete">Sil</string>
     <string name="add">Ekle</string>
     <string name="rename">Yeniden adlandır</string>
@@ -44,20 +44,20 @@
     <string name="algorithmHint">Algoritma</string>
     <string name="digitsHint">Basamak</string>
     <string name="periodHint">Süre (Saniye)</string>
-    <string name="passwordHint">Backup Password</string>
+    <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
     <string name="save">Kaydet</string>
     <string name="saveFile">Dosyayı Kaydet</string>
     <string name="openFile">Dosyayı Aç</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to backup.</string>
+    <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
     <string name="noIssuer">Bir kuruluş gerekli.</string>
     <string name="noSecret">Gizli anahtar gerekli.</string>
-    <string name="noPin">A pin is required.</string>
+    <string name="noPin">Bir pin gereklidir.</string>
     <string name="noFileName">Dosya adı gerekli.</string>
     <string name="secretInvalid">Gizli anahtar geçersiz.</string>
-    <string name="pinInvalid">The pin must be 4 characters long.</string>
+    <string name="pinInvalid">PIN 4 karakter uzunluğunda olmalıdır.</string>
     <string name="digitsInvalid">The authenticator must generate between 6 and 10 digits.</string>
-    <string name="periodToShort">The period must be longer than 0 seconds.</string>
+    <string name="periodToShort">Süre 0 saniyeden uzun olmalıdır.</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
@@ -77,13 +77,13 @@
     <string name="backupReminder">There have been changes made since your last backup.</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
     <string name="restoreError">Parola yanlış veya dosya bozuk.</string>
-    <string name="filePickError">Error picking file.</string>
+    <string name="filePickError">Dosya seçilirken hata oluştu.</string>
     <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil.</string>
     <string name="saveSuccess">Başarıyla kaydedildi</string>
     <string name="password">Parola</string>
     <string name="passwordConfirm">Parolayı Onayla</string>
     <string name="login">Giriş</string>
-    <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators.</string>
+    <string name="loginMessage">Kimlik doğrulayıcınıza erişmek için lütfen parolanızı girin veya bir parmak izi kullanın.</string>
     <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
     <string name="databaseError">Şifrelenmiş veritabanının kilidi açılırken bir hata oluştu. Devam etmeden önce uygulama verilerini temizlemelisiniz.</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
@@ -92,16 +92,16 @@
     <string name="close">Kapat</string>
     <string name="quit">Çıkış</string>
     <!-- Getting Started Guide -->
-    <string name="gettingStartedGuide">Getting Started Guide</string>
+    <string name="gettingStartedGuide">Başlangıç Kılavuzu</string>
     <string name="noAuthenticatorsHelp">Authenticator Pro\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
     <string name="guideScanQRCodeTitle">Karekodu tara</string>
     <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de girebilirsiniz.</string>
     <string name="guideUseCodeTitle">Giriş yaparken kodu kullanın</string>
     <string name="guideUseCodeSummary">Giriş yaparken, Authenticator Pro tarafından sağlanan benzersiz kodu kullanın. Sadece kısa bir süre için geçerlidir. Kodu panoya kopyalamak için listedeki kimlik doğrulayıcıya dokunun.</string>
     <string name="guideCustomiseTitle">Özelleştirin ve düzenleyin</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
+    <string name="guideCustomiseSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için yeniden adlandırın ve özelleştirin. Bir girişteki menü simgesine dokunmanız ve adımları takip etmeniz yeterlidir.</string>
     <string name="guideArrangeTitle">Düzenleyin ve sıralayın</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    <string name="guideArrangeSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için kategoriler halinde düzenleyebilirsiniz. Ayrıca, öğeleri tutup sürüklemek onları istediğiniz sırayla yeniden düzenlemenize olanak sağlar.</string>
     <string name="guideBackupTitle">Yedek oluştur</string>
     <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
@@ -112,7 +112,7 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefAppLockTitle">Uygulama Kilidi</string>
-    <string name="prefAppLockSummary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
+    <string name="prefAppLockSummary">Kimlik doğrulayıcılara erişmek için doğrulama gereklidir. Bu özellik cihazınızda bir kilit ekranı ayarlamanızı gerektirir.</string>
     <string name="prefUseEncryptedDatabaseTitle">Şifreli Veritabanı</string>
     <string name="prefUseEncryptedDatabaseSummary">Şiddetle tavsiye edilir. Titanium yedekleme, Helium, Super yedekleme, adb yedekleme vb. gibi üçüncü taraf yedekleme araçlarını kullanmanız gerekiyorsa bu seçeneğin işaretini kaldırın.</string>
     <string name="prefAppearance">Görünüm</string>
@@ -138,8 +138,8 @@
     <string name="lightTheme">Açık Tema</string>
     <string name="darkTheme">Koyu Tema</string>
     <string name="defaultViewMode">Varsayılan</string>
-    <string name="compactViewMode">Compact</string>
-    <string name="tileViewMode">Tile</string>
+    <string name="compactViewMode">Sıkıştırılmış</string>
+    <string name="tileViewMode">Yan yana</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Authenticator Pro\'ya hoş geldiniz</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Doğrulaması</string>
@@ -148,7 +148,7 @@
     <string name="introThemesTitle">Koyu Tema</string>
     <string name="introWelcomeSummary">Authenticator Pro\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
     <string name="introCompatibilitySummary">Authenticator Pro çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator özellikli hizmetlerle %100 uyumludur.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introBackupSummary">Kimlik doğrulayıcılarınızı güçlü bir şifreleme ile yedekleyin. Cihazınızı kaybetmeniz durumunda, her zaman hesaplarınıza erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
     <string name="introThemesSummary">İsterseniz, ayarlardan karanlık temayı etkinleştirebilirsiniz. Tüm simgeler yeni arka plana eşleşecek şekilde uyarlanacaktır.</string>
 </resources>
