@@ -395,7 +395,7 @@ namespace AuthenticatorPro.Activity
             
             RunOnUiThread(delegate
             {
-                var searchItem = _toolbar.Menu.FindItem(Resource.Id.actionSearch);
+                var searchItem = _toolbar?.Menu.FindItem(Resource.Id.actionSearch);
 
                 if(searchItem == null || !searchItem.IsActionViewExpanded)
                     return;
@@ -407,7 +407,7 @@ namespace AuthenticatorPro.Activity
             if(searchBarWasClosed)
                 return;
             
-            if(_authSource.CategoryId != null)
+            if(_authSource?.CategoryId != null)
             {
                 await SwitchCategory(null);
                 return;
