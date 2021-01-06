@@ -27,10 +27,10 @@
     </string-array>
     <integer-array name="introImage">
         <item>@mipmap/ic_launcher</item>
-        <item>@drawable/ic_lock_open</item>
-        <item>@drawable/ic_restore</item>
+        <item>@drawable/ic_lock</item>
+        <item>@drawable/ic_cloud</item>
         <item>@drawable/ic_category</item>
-        <item>@drawable/ic_wb_incandescent</item>
+        <item>@drawable/ic_theme</item>
     </integer-array>
     
     <string-array name="themeNames">

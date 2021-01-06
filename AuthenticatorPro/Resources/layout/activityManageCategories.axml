@@ -74,7 +74,7 @@
             android:gravity="center"
             android:paddingRight="32dp"
             android:paddingLeft="32dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="12dp"
             android:textSize="14dp"
             android:textColor="?attr/secondaryTextColor"
             android:text="@string/noCategoriesMessage" />

@@ -67,7 +67,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_lock_open" />
+            android:src="@drawable/ic_empty" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,7 +80,7 @@
         <TextView
             android:id="@+id/textEmptyMessage"
             android:layout_gravity="center"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="12dp"
             android:lineSpacingExtra="6dp"
             android:gravity="center_horizontal"
             android:textSize="14dp"

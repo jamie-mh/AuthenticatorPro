@@ -39,10 +39,10 @@
             android:id="@+id/textSummary"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginTop="22dp"
-            android:lineSpacingExtra="6dp"
             android:text="text"
-            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="6dp"
+            android:textSize="14dp"
             android:textColor="?attr/secondaryTextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
