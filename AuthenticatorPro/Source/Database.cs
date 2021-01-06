@@ -86,8 +86,8 @@ namespace AuthenticatorPro
 
             if(encrypt)
             {
-                var databaseKey = await SecureStorage.GetAsync("database_key");
-                await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, databaseKey);
+                var key = await GetKey();
+                await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, key);
             }
             else
                 await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ''", tempPath);
