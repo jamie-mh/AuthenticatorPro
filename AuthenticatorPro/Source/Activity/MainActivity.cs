@@ -1485,9 +1485,9 @@ namespace AuthenticatorPro.Activity
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.quit, delegate
             {
-                Finish();
+                FinishAndRemoveTask();
             });
-            builder.SetCancelable(true);
+            builder.SetCancelable(false);
 
             var dialog = builder.Create();
             dialog.Show();
