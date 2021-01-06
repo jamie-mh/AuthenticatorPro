@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.Animation;
+using Android.Content;
+using Android.Provider;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
@@ -30,6 +32,8 @@ namespace AuthenticatorPro.List
         
         private readonly AuthenticatorSource _authSource;
         private readonly CustomIconSource _customIconSource;
+
+        private readonly float _animationScale;
        
         // Cache the remaining seconds per period, a relative DateTime calculation can be expensive
         // Cache the remaining progress per period, to keep all progressbars in sync
@@ -42,7 +46,7 @@ namespace AuthenticatorPro.List
             Default = 0, Compact = 1, Tile = 2
         }
 
-        public AuthenticatorListAdapter(AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
+        public AuthenticatorListAdapter(Context context, AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
         {
             _authSource = authSource;
             _customIconSource = customIconSource;
@@ -52,6 +56,8 @@ namespace AuthenticatorPro.List
             _secondsRemainingPerPeriod = new Dictionary<int, int>();
             _progressPerPeriod = new Dictionary<int, int>();
             _counterCooldownSeconds = new Dictionary<int, int>();
+
+            _animationScale = Settings.Global.GetFloat(context.ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
         }
 
         public override int ItemCount => _authSource.GetView().Count;
@@ -215,7 +221,12 @@ namespace AuthenticatorPro.List
             progressBar.Progress = progress;
             
             var animator = ObjectAnimator.OfInt(progressBar, "progress", 0);
-            animator.SetDuration(secondsRemaining * 1000);
+            var duration = secondsRemaining * 1000;
+
+            if(_animationScale > 0)
+                duration = (int) (duration / _animationScale);
+            
+            animator.SetDuration(duration);
             animator.SetInterpolator(new LinearInterpolator());
             animator.Start();
         }

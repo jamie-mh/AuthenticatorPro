@@ -477,7 +477,7 @@ namespace AuthenticatorPro.Activity
                 _ => AuthenticatorListAdapter.ViewMode.Default
             };
 
-            _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconSource, viewMode, IsDark)
+            _authListAdapter = new AuthenticatorListAdapter(this, _authSource, _customIconSource, viewMode, IsDark)
             {
                 HasStableIds = true
             };
