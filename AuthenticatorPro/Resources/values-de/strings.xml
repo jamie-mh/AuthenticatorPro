@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Locale specific notes: The term "Authenticator" (that describes a list entry) is translated as "Key" -> "Schlüssel", "Two-Factor-Authentification" -> "Zwei-Faktor-Authentisierung",  "You" -> "Du". Use protected whitespaces for abbreviations -luax -->
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
@@ -53,10 +52,10 @@
     <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
-    <string name="noPin">A pin is required.</string>
+    <string name="noPin">A pin is required</string>
     <string name="noFileName">Du musst einen Dateinamen eingeben.</string>
     <string name="secretInvalid">Der Schlüssel ist ungültig.</string>
-    <string name="pinInvalid">The pin must be 4 characters long.</string>
+    <string name="pinInvalid">The pin must be 4 characters long</string>
     <string name="digitsInvalid">Es müssen zwischen 6 und 10 Stellen generiert werden</string>
     <string name="periodToShort">Die Gültigkeit muss mehr als 0 Sekunden betragen.</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
@@ -115,7 +114,7 @@
     <string name="prefAppLockTitle">App-Sperre</string>
     <string name="prefAppLockSummary">Anmeldung verlangen, um auf Schlüssel zuzugreifen. Dies setzt voraus, dass dein Gerät einen Sperrbildschirm hat.</string>
     <string name="prefUseEncryptedDatabaseTitle">Datenbank verschlüsseln</string>
-    <string name="prefUseEncryptedDatabaseSummary">Empfohlen. Deaktiviere dies, wenn du eine Drittanbieter-Sicherungsapp wie Titanium Backup, Helium, Super Backup, adb backup, etc. verwendest.</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
     <string name="prefAppearance">Erscheinungsbild</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>

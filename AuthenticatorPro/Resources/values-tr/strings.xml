@@ -114,7 +114,7 @@
     <string name="prefAppLockTitle">Uygulama Kilidi</string>
     <string name="prefAppLockSummary">Kimlik doğrulayıcılara erişmek için doğrulama gereklidir. Bu özellik cihazınızda bir kilit ekranı ayarlamanızı gerektirir.</string>
     <string name="prefUseEncryptedDatabaseTitle">Şifreli Veritabanı</string>
-    <string name="prefUseEncryptedDatabaseSummary">Şiddetle tavsiye edilir. Titanium yedekleme, Helium, Super yedekleme, adb yedekleme vb. gibi üçüncü taraf yedekleme araçlarını kullanmanız gerekiyorsa bu seçeneğin işaretini kaldırın.</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>

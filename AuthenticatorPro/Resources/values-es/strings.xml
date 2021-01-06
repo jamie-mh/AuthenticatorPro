@@ -52,10 +52,10 @@
     <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
     <string name="noIssuer">Un Emisor es requerido.</string>
     <string name="noSecret">Una Clave secreta es requerida.</string>
-    <string name="noPin">A pin is required.</string>
+    <string name="noPin">A pin is required</string>
     <string name="noFileName">Un nombre de archivo es requerido.</string>
     <string name="secretInvalid">La llave secreta es inválida.</string>
-    <string name="pinInvalid">The pin must be 4 characters long.</string>
+    <string name="pinInvalid">The pin must be 4 characters long</string>
     <string name="digitsInvalid">El autenticador debe generar entre 6 y 10 dígitos.</string>
     <string name="periodToShort">El período debe tener más de 0 segundos.</string>
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
@@ -114,7 +114,7 @@
     <string name="prefAppLockTitle">Bloqueo de Aplicación</string>
     <string name="prefAppLockSummary">Requiere autenticación para acceder a los Autenticadores. Esta característica requiere que configure una pantalla de bloqueo en su dispositivo.</string>
     <string name="prefUseEncryptedDatabaseTitle">Base de datos encriptada</string>
-    <string name="prefUseEncryptedDatabaseSummary">Altamente recomendable: Desmarque esta opción si necesita utilizar herramientas de respaldo de terceros como Titanium Backup, Helium, Super Backup, adb backup etc...</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
     <string name="prefAppearance">Apariencia</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Elija un tema de aplicación.</string>

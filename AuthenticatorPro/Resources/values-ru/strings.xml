@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
@@ -114,7 +114,7 @@
     <string name="prefAppLockTitle">Блокировка приложения</string>
     <string name="prefAppLockSummary">Требовать аутентификацию для доступа к аутентификаторам. Эта функция использует настройки экрана блокировки на вашем устройстве.</string>
     <string name="prefUseEncryptedDatabaseTitle">Шифрование</string>
-    <string name="prefUseEncryptedDatabaseSummary">Настоятельно рекомендуется. Уберите флажок с этой опции, если вы собираетесь использовать сторонние инструменты резервного копирования, такие как Titanium Backup, Helium, Super Backup, adb backup и т.д...</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
