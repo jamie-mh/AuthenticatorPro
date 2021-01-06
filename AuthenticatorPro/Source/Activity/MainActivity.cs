@@ -357,6 +357,9 @@ namespace AuthenticatorPro.Activity
 
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
         {
+            if(_authSource == null || _categorySource == null)
+                return;
+            
             var fragment = new MainMenuBottomSheet(_categorySource, _authSource.CategoryId);
             fragment.CategoryClick += async (_, id) =>
             {
@@ -442,6 +445,9 @@ namespace AuthenticatorPro.Activity
             _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
             _bottomAppBar.MenuItemClick += delegate
             {
+                if(_authSource == null || _authListAdapter == null)
+                    return;
+                
                 _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
                 ScrollToPosition(0);
             };
@@ -657,6 +663,9 @@ namespace AuthenticatorPro.Activity
 
         private void OnAddButtonClick(object sender, EventArgs e)
         {
+            if(_authSource == null)
+                return;
+            
             var fragment = new AddMenuBottomSheet();
             fragment.ClickQrCode += delegate
             {
