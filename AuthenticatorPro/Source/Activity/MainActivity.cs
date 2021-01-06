@@ -145,7 +145,7 @@ namespace AuthenticatorPro.Activity
             {
                 _connection = await Database.Connect(this);
             }
-            catch(SQLiteException)
+            catch(Exception)
             {
                 ShowDatabaseErrorDialog();
                 return;

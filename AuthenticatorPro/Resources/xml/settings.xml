@@ -28,7 +28,7 @@
             android:key="pref_useEncryptedDatabase"
             android:summary="@string/prefUseEncryptedDatabaseSummary"
             app:iconSpaceReserved="false"
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:title="@string/prefUseEncryptedDatabaseTitle" />
     </androidx.preference.PreferenceCategory>
 
