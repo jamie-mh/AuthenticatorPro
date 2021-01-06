@@ -30,6 +30,8 @@ namespace AuthenticatorPro.Activity
                 .SetDeviceCredentialAllowed(true)
                 .Build();
             
+            // TODO: Test BiometricManager.CanAuthenticate when package is updated.
+            
             _prompt.Authenticate(promptInfo);
         }
 
