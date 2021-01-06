@@ -52,10 +52,10 @@
     <string name="noAuthenticators">您没有可备份的验证器。</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
-    <string name="noPin">A pin is required.</string>
+    <string name="noPin">A pin is required</string>
     <string name="noFileName">请输入文件名。</string>
     <string name="secretInvalid">输入的密钥无效。</string>
-    <string name="pinInvalid">The pin must be 4 characters long.</string>
+    <string name="pinInvalid">The pin must be 4 characters long</string>
     <string name="digitsInvalid">验证器只能生成 6 到 10 位的验证码。</string>
     <string name="periodToShort">时间间隔必须大于 0 秒。</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
@@ -114,7 +114,7 @@
     <string name="prefAppLockTitle">应用锁</string>
     <string name="prefAppLockSummary">访问验证器前要求验证身份。使用此功能前请先设置设备的屏幕锁定。</string>
     <string name="prefUseEncryptedDatabaseTitle">加密数据库</string>
-    <string name="prefUseEncryptedDatabaseSummary">强烈推荐启用此设置。如果您需要使用第三方备份工具（如 Titanium Backup、Helium、Super Backup 或通过 adb 备份等），请禁用此设置。</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
     <string name="prefAppearance">外观</string>
     <string name="prefThemeTitle">主题</string>
     <string name="prefThemeSummary">选择应用的主题。</string>
