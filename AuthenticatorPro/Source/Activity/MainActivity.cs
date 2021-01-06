@@ -161,7 +161,7 @@ namespace AuthenticatorPro.Activity
                 AutoReset = true
             };
             
-            _timer.Elapsed += (sender, args) =>
+            _timer.Elapsed += (_, _) =>
             {
                 Tick();
             };
