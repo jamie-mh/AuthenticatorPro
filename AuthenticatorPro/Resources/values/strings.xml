@@ -124,9 +124,7 @@
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Show Backup Reminders</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are
-        made
-    </string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
     
     <string name="prefSecurity">Security</string>
     <string name="prefAppLockTitle">App Lock</string>
