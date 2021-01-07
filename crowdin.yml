@@ -3,5 +3,5 @@ files:
     translation: /AuthenticatorPro/Resources/values-%two_letters_code%/strings.xml
     languages_mapping:
       two_letters_code:
-        zh-CN: zh_rCN
-        zh-TW: zh_rTW
+        zh-CN: zh-rCN
+        zh-TW: zh-rTW
