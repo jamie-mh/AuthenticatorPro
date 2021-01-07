@@ -132,7 +132,7 @@
     <string name="prefAppLockSummary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
 
     <string name="prefUseEncryptedDatabaseTitle">Encrypted Database</string>
-    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option will interfere with third-party backup tools and may reduce performance.</string>
 
     <string name="prefAppearance">Appearance</string>
     <string name="prefThemeTitle">Theme</string>
