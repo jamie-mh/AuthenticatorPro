@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Activity
             base.Finish();
         }
 
-        public async void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
+        public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
         {
             switch(key)
             {
