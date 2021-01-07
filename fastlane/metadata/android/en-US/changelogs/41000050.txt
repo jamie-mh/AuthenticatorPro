@@ -1,0 +1,3 @@
+- General: Design tweaks.
+- General: Translation updates.
+- General: Bug fixes and improvements to stability.
