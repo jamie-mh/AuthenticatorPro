@@ -85,10 +85,11 @@
     <string name="login">Giriş</string>
     <string name="loginMessage">Kimlik doğrulayıcınıza erişmek için lütfen parolanızı girin veya bir parmak izi kullanın.</string>
     <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
-    <string name="databaseError">Şifrelenmiş veritabanının kilidi açılırken bir hata oluştu. Devam etmeden önce uygulama verilerini temizlemelisiniz.</string>
+    <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="genericError">Bir hata meydana geldi.</string>
+    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="close">Kapat</string>
     <string name="quit">Çıkış</string>
     <!-- Getting Started Guide -->
@@ -114,7 +115,7 @@
     <string name="prefAppLockTitle">Uygulama Kilidi</string>
     <string name="prefAppLockSummary">Kimlik doğrulayıcılara erişmek için doğrulama gereklidir. Bu özellik cihazınızda bir kilit ekranı ayarlamanızı gerektirir.</string>
     <string name="prefUseEncryptedDatabaseTitle">Şifreli Veritabanı</string>
-    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option may interfere with third-party backup tools.</string>
+    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option will interfere with third-party backup tools and may reduce performance.</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
