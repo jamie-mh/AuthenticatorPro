@@ -1061,7 +1061,14 @@ namespace AuthenticatorPro.Activity
             intent.SetType("application/octet-stream");
             intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
 
-            StartActivityForResult(intent, ResultBackupFileSAF);
+            try
+            {
+                StartActivityForResult(intent, ResultBackupFileSAF);
+            }
+            catch(ActivityNotFoundException)
+            {
+                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
+            }
         }
         
         private void StartBackupHtmlSaveActivity()
@@ -1071,7 +1078,14 @@ namespace AuthenticatorPro.Activity
             intent.SetType("text/html");
             intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.html");
 
-            StartActivityForResult(intent, ResultBackupHtmlSAF);
+            try
+            {
+                StartActivityForResult(intent, ResultBackupHtmlSAF);
+            }
+            catch(ActivityNotFoundException)
+            {
+                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
+            }
         }
 
         private void BeginBackupToFile(Uri uri)
@@ -1498,7 +1512,15 @@ namespace AuthenticatorPro.Activity
             var intent = new Intent(Intent.ActionOpenDocument);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType("image/*");
-            StartActivityForResult(intent, resultCode);
+
+            try
+            {
+                StartActivityForResult(intent, resultCode);
+            }
+            catch(ActivityNotFoundException)
+            {
+                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
+            }
         }
 
         private bool RequiresAuthentication()

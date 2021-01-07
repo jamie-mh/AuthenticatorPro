@@ -94,7 +94,8 @@
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
-    <string name="genericError">An error occurred</string> 
+    <string name="genericError">An error occurred</string>
+    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     
     <string name="close">Close</string>
     <string name="quit">Quit</string>
