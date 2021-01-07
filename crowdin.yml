@@ -2,6 +2,6 @@ files:
   - source: /AuthenticatorPro/Resources/values/strings.xml
     translation: /AuthenticatorPro/Resources/values-%two_letters_code%/strings.xml
     languages_mapping:
-      - two_letters_code:
-          - zh-CN: zh_CN
-          - zh-TW: zh_TW
+      two_letters_code:
+        zh-CN: zh_CN
+        zh-TW: zh_TW
