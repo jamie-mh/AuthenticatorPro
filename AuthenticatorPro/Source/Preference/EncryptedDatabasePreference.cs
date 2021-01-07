@@ -2,6 +2,7 @@ using System;
 using Android.Content;
 using Android.Runtime;
 using Android.Util;
+using Android.Widget;
 using AndroidX.Preference;
 using AuthenticatorPro.Activity;
 
@@ -36,11 +37,21 @@ namespace AuthenticatorPro.Preference
 
         }
 
-        protected override void OnClick()
+        protected override async void OnClick()
         {
+            // Call the database encryption change here rather than listening for changes.
+            // The listener is called post update.
             var activity = (SettingsActivity) Context;
-            activity.SetDatabaseEncryption(!Checked);
-            base.OnClick();
+
+            try
+            {
+                await activity.SetDatabaseEncryption(!Checked);
+                base.OnClick();
+            }
+            catch
+            {
+                Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
+            }
         }
     }
 }

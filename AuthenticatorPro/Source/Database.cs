@@ -12,16 +12,14 @@ namespace AuthenticatorPro
 {
     internal static class Database
     {
+        private const string FileName = "proauth.db3";
+        
         public static async Task<SQLiteAsyncConnection> Connect(Context context)
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
             var isEncrypted = prefs.GetBoolean("pref_useEncryptedDatabase", false);
 
-            var dbPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                "proauth.db3"
-            );
-
+            var dbPath = GetPath();
             SQLiteAsyncConnection connection = null;
             
             async Task TryGetConnection(bool encrypted)
@@ -41,23 +39,18 @@ namespace AuthenticatorPro
                 // Attempt to use the connection
                 await connection.CreateTableAsync<Authenticator>();
             }
-
-            if(isEncrypted)
-                await TryGetConnection(true);
-            else
+            
+            try
             {
-                try
-                {
-                    await TryGetConnection(false);
-                }
-                // The preference might not be initialised and the previous default value was true
-                // Attempt an encrypted connection instead
-                catch(SQLiteException)
-                {
-                    connection = null;
-                    await TryGetConnection(true);
-                    prefs.Edit().PutBoolean("pref_useEncryptedDatabase", true).Commit();
-                }
+                await TryGetConnection(isEncrypted);
+            }
+            // The preference might not be initialised to the correct value
+            // Attempt an encrypted or unencrypted connection instead
+            catch(SQLiteException)
+            {
+                connection = null;
+                await TryGetConnection(!isEncrypted);
+                prefs.Edit().PutBoolean("pref_useEncryptedDatabase", !isEncrypted).Commit();
             }
 
             await connection.CreateTableAsync<Category>();
@@ -65,6 +58,14 @@ namespace AuthenticatorPro
             await connection.CreateTableAsync<CustomIcon>();
 
             return connection;
+        }
+
+        private static string GetPath()
+        {
+            return Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                FileName
+            );
         }
 
         private static async Task<string> GetKey()
@@ -79,12 +80,23 @@ namespace AuthenticatorPro
             return key;
         }
 
-        public static async Task SetEncryptionEnabled(Context context, bool encrypt)
+        public static async Task SetEncryptionEnabled(Context context, bool shouldEncrypt)
         {
-            var conn = await Connect(context);
-            var tempPath = conn.DatabasePath.Replace("proauth", "temp");
+            var isEncrypted = PreferenceManager.GetDefaultSharedPreferences(context)
+                .GetBoolean("pref_useEncryptedDatabase", false);
 
-            if(encrypt)
+            if(isEncrypted == shouldEncrypt)
+                return;
+            
+            var conn = await Connect(context);
+
+            var dbPath = GetPath();
+            var backupPath = dbPath + ".backup";
+            var tempPath = dbPath + ".temp";
+            
+            await conn.BackupAsync(backupPath);
+            
+            if(shouldEncrypt)
             {
                 var key = await GetKey();
                 await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, key);
@@ -94,14 +106,32 @@ namespace AuthenticatorPro
 
             await conn.ExecuteScalarAsync<string>("SELECT sqlcipher_export('temporary')");
             await conn.ExecuteAsync("DETACH DATABASE temporary");
-
             await conn.CloseAsync();
 
-            File.Delete(conn.DatabasePath);
-            File.Delete(conn.DatabasePath.Replace("db3", "db3-shm"));
-            File.Delete(conn.DatabasePath.Replace("db3", "db3-wal"));
+            void DeleteDatabase()
+            {
+                File.Delete(dbPath);
+                File.Delete(dbPath.Replace("db3", "db3-shm"));
+                File.Delete(dbPath.Replace("db3", "db3-wal"));
+            }
 
-            File.Move(tempPath, conn.DatabasePath);
+            DeleteDatabase();
+            File.Move(tempPath, dbPath);
+
+            try
+            {
+                conn = await Connect(context);
+            }
+            catch(Exception)
+            {
+                // Restore backup
+                DeleteDatabase();
+                File.Move(backupPath, dbPath);
+                throw;
+            }
+            
+            File.Delete(backupPath);
+            await conn.CloseAsync();
         }
     }
 }

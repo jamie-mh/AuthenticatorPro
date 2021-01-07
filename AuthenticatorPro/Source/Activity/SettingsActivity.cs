@@ -5,6 +5,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Preference;
 using AuthenticatorPro.Fragment;
+using Task = System.Threading.Tasks.Task;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activity
@@ -51,7 +52,7 @@ namespace AuthenticatorPro.Activity
             base.Finish();
         }
 
-        public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
+        public async void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
         {
             switch(key)
             {
@@ -66,7 +67,7 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        public async void SetDatabaseEncryption(bool shouldEncrypt)
+        public async Task SetDatabaseEncryption(bool shouldEncrypt)
         {
             RunOnUiThread(delegate
             {
@@ -74,13 +75,18 @@ namespace AuthenticatorPro.Activity
                 Window.SetFlags(WindowManagerFlags.NotTouchable, WindowManagerFlags.NotTouchable);
             });
 
-            await Database.SetEncryptionEnabled(this, shouldEncrypt);
-
-            RunOnUiThread(delegate
+            try
             {
-                Window.ClearFlags(WindowManagerFlags.NotTouchable);
-                _progressBar.Visibility = ViewStates.Invisible;
-            });
+                await Database.SetEncryptionEnabled(this, shouldEncrypt);
+            }
+            finally
+            {
+                RunOnUiThread(delegate
+                {
+                    Window.ClearFlags(WindowManagerFlags.NotTouchable);
+                    _progressBar.Visibility = ViewStates.Invisible;
+                });
+            }
         }
 
         public override bool OnSupportNavigateUp()
