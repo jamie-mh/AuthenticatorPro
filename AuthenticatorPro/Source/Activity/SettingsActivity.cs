@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Preference;
+using AuthenticatorPro.Data;
 using AuthenticatorPro.Fragment;
 using Task = System.Threading.Tasks.Task;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;

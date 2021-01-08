@@ -3,12 +3,11 @@ using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
 using AndroidX.Preference;
-using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared.Util;
 using SQLite;
 using Xamarin.Essentials;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.Data
 {
     internal static class Database
     {
