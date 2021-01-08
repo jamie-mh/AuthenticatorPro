@@ -642,7 +642,17 @@ namespace AuthenticatorPro.Activity
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 var icon = _authSource.Get(position).Icon;
-                await _authSource.Delete(position);
+
+                try
+                {
+                    await _authSource.Delete(position);
+                }
+                catch
+                {
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
+                }
+                
                 await TryCleanupCustomIcon(icon);
 
                 RunOnUiThread(delegate
