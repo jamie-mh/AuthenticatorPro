@@ -71,7 +71,15 @@ namespace AuthenticatorPro.List
         public async void NotifyMovementFinished(int oldPosition, int newPosition)
         {
             MovementFinished?.Invoke(this, null);
-            await _authSource.CommitRanking();
+
+            try
+            {
+                await _authSource.CommitRanking();
+            }
+            catch
+            {
+                // Cannot revert, keep going
+            }
         }
 
         public void NotifyMovementStarted()
