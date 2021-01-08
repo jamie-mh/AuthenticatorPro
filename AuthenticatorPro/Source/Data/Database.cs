@@ -84,12 +84,6 @@ namespace AuthenticatorPro.Data
 
         public static async Task SetEncryptionEnabled(Context context, bool shouldEncrypt)
         {
-            var isEncrypted = PreferenceManager.GetDefaultSharedPreferences(context)
-                .GetBoolean("pref_useEncryptedDatabase", false);
-
-            if(isEncrypted == shouldEncrypt)
-                return;
-            
             var conn = await Connect(context);
 
             var dbPath = GetPath();
@@ -124,7 +118,7 @@ namespace AuthenticatorPro.Data
             {
                 conn = await Connect(context, shouldEncrypt);
             }
-            catch(Exception)
+            catch
             {
                 // Restore backup
                 DeleteDatabase();
