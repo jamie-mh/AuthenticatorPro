@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Fragment
                     chip.Checked = true;
 
                 var position = i;
-                chip.Click += (sender, e) =>
+                chip.Click += (sender, _) =>
                 {
                     CategoryClick?.Invoke(sender, new CategoryClickedEventArgs(_itemPosition, position, chip.Checked));
                 };

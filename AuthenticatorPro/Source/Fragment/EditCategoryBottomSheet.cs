@@ -63,7 +63,7 @@ namespace AuthenticatorPro.Fragment
             if(_initialValue != null)
                 _textName.Text = _initialValue;
 
-            submitButton.Click += (sender, e) =>
+            submitButton.Click += (_, _) =>
             {
                 var name = _textName.Text.Trim();
 
@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Fragment
                 Dismiss();
             };
 
-            _textName.EditorAction += (sender, args) =>
+            _textName.EditorAction += (_, args) =>
             {
                 if(args.ActionId == ImeAction.Done)
                     submitButton.PerformClick();

@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Test.Test
         {
             Assert.Throws(typeof(ArgumentException), delegate
             {
-                var auth = Authenticator.FromOtpAuthUri(uri);
+                _ = Authenticator.FromOtpAuthUri(uri);
             });
         }
         

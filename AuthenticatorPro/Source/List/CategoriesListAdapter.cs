@@ -47,7 +47,7 @@ namespace AuthenticatorPro.List
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemCategory, parent, false);
 
             var holder = new CategoriesListHolder(itemView);
-            holder.Click += (sender, position) =>
+            holder.Click += (_, position) =>
             {
                 NotifyItemChanged(SelectedPosition);
                 SelectedPosition = position;

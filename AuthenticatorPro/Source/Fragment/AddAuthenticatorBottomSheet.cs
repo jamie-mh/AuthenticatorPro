@@ -108,7 +108,7 @@ namespace AuthenticatorPro.Fragment
             };
 
             // When we've finished typing the secret, remove the keyboard so it doesn't block type autocomplete
-            _secretText.EditorAction += (sender, args) =>
+            _secretText.EditorAction += (_, args) =>
             {
                 if(args.ActionId != ImeAction.Done)
                     return;

@@ -335,7 +335,7 @@ namespace AuthenticatorPro.Activity
             var searchView = (SearchView) searchItem.ActionView;
             searchView.QueryHint = GetString(Resource.String.search);
 
-            searchView.QueryTextChange += (sender, e) =>
+            searchView.QueryTextChange += (_, e) =>
             {
                 var oldSearch = _authSource.Search;
 
@@ -1000,7 +1000,7 @@ namespace AuthenticatorPro.Activity
             }
 
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Restore);
-            fragment.PasswordEntered += async (sender, password) =>
+            fragment.PasswordEntered += async (_, password) =>
             {
                 await TryRestore(password, fragment);
             };
@@ -1189,13 +1189,13 @@ namespace AuthenticatorPro.Activity
             _lastBackupReminderTime = DateTime.UtcNow;
             var snackbar = Snackbar.Make(_coordinatorLayout, Resource.String.backupReminder, Snackbar.LengthLong);
             snackbar.SetAnchorView(_addButton);
-            snackbar.SetAction(Resource.String.backupNow, view =>
+            snackbar.SetAction(Resource.String.backupNow, _ =>
             {
                 OpenBackupMenu();
             });
             
             var callback = new SnackbarCallback();
-            callback.Dismiss += (sender, e) =>
+            callback.Dismiss += (_, e) =>
             {
                 if(e == Snackbar.Callback.DismissEventSwipe)
                     prefs.Edit().PutBoolean("needsBackup", false).Commit();

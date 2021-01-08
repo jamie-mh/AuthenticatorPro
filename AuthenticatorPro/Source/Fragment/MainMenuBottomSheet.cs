@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Fragment
             _categoryListAdapter.SelectedPosition = selectedCategoryPosition;
             _categoryListAdapter.NotifyDataSetChanged();
 
-            _categoryListAdapter.CategorySelected += (sender, id) =>
+            _categoryListAdapter.CategorySelected += (_, id) =>
             {
                 CategoryClick?.Invoke(this, id);
             };
@@ -57,19 +57,19 @@ namespace AuthenticatorPro.Fragment
             var manageCategoriesButton = view.FindViewById<LinearLayout>(Resource.Id.buttonManageCategories);
             var settingsButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSettings);
 
-            backupButton.Click += (sender, args) =>
+            backupButton.Click += (_, _) =>
             {
                 BackupClick?.Invoke(this, null);
                 Dismiss();
             };
 
-            manageCategoriesButton.Click += (sender, args) =>
+            manageCategoriesButton.Click += (_, _) =>
             {
                 ManageCategoriesClick?.Invoke(this, null);
                 Dismiss();
             };
 
-            settingsButton.Click += (sender, args) =>
+            settingsButton.Click += (_, _) =>
             {
                 SettingsClick?.Invoke(this, null);
                 Dismiss();

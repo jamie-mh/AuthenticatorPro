@@ -54,7 +54,7 @@ namespace AuthenticatorPro.Fragment
                 return;
             
             toolbar.InflateMenu(Resource.Menu.sheet);
-            toolbar.MenuItemClick += (sender, args) =>
+            toolbar.MenuItemClick += (_, args) =>
             {
                 if(args.Item.ItemId == Resource.Id.actionClose)
                     Dismiss();

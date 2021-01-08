@@ -58,7 +58,7 @@ namespace AuthenticatorPro.Fragment
             };
 
             var renameButton = view.FindViewById<MaterialButton>(Resource.Id.buttonRename);
-            renameButton.Click += (s, e) =>
+            renameButton.Click += (_, _) =>
             {
                 var issuer = _issuerText.Text.Trim();
                 if(issuer == "")
@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Fragment
                 Dismiss();
             };
 
-            _usernameText.EditorAction += (sender, args) =>
+            _usernameText.EditorAction += (_, args) =>
             {
                 if(args.ActionId == ImeAction.Done)
                     renameButton.PerformClick();

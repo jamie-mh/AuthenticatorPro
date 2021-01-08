@@ -13,7 +13,7 @@ namespace AuthenticatorPro.WearOS.List
 
         public AuthenticatorListHolder(View itemView, Action<int> clickListener) : base(itemView)
         {
-            itemView.Click += (sender, e) => clickListener(AdapterPosition);
+            itemView.Click += (_, _) => clickListener(AdapterPosition);
 
             Issuer = itemView.FindViewById<TextView>(Resource.Id.textIssuer);
             Username = itemView.FindViewById<TextView>(Resource.Id.textUsername);

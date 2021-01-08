@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace AuthenticatorPro.Shared.Data
@@ -316,7 +315,7 @@ namespace AuthenticatorPro.Shared.Data
                 input = input.ToLower();
                 input = Regex.Replace(input, @"[^a-z0-9]", "");
                 return input.Trim();
-            };
+            }
 
             var key = Simplify(name);
 

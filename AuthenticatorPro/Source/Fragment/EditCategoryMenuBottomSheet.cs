@@ -26,13 +26,13 @@ namespace AuthenticatorPro.Fragment
             var renameItem = view.FindViewById<LinearLayout>(Resource.Id.buttonRename);
             var deleteItem = view.FindViewById<LinearLayout>(Resource.Id.buttonDelete);
 
-            renameItem.Click += (sender, e) =>
+            renameItem.Click += (sender, _) =>
             {
                 ClickRename?.Invoke(sender, _itemPosition);
                 Dismiss();
             };
 
-            deleteItem.Click += (sender, e) =>
+            deleteItem.Click += (sender, _) =>
             {
                 ClickDelete?.Invoke(sender, _itemPosition);
                 Dismiss();

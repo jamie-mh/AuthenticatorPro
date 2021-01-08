@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Fragment
                 message.Visibility = ViewStates.Visible; 
             }
 
-            _passwordText.EditorAction += (sender, args) =>
+            _passwordText.EditorAction += (_, args) =>
             {
                 if(args.ActionId == ImeAction.Done)
                     okButton.PerformClick();
@@ -72,9 +72,9 @@ namespace AuthenticatorPro.Fragment
                 var builder = new MaterialAlertDialogBuilder(Activity);
                 builder.SetTitle(Resource.String.warning);
                 builder.SetMessage(Resource.String.confirmEmptyPassword);
-                builder.SetNegativeButton(Resource.String.no, (s, args) => { });
+                builder.SetNegativeButton(Resource.String.no, (_, _) => { });
 
-                builder.SetPositiveButton(Resource.String.yes, (sender, args) =>
+                builder.SetPositiveButton(Resource.String.yes, (sender, _) =>
                 {
                     ((AlertDialog) sender).Dismiss();
                     PasswordEntered?.Invoke(this, null);
