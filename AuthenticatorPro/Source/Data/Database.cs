@@ -13,10 +13,10 @@ namespace AuthenticatorPro.Data
     {
         private const string FileName = "proauth.db3";
         
-        public static async Task<SQLiteAsyncConnection> Connect(Context context)
+        public static async Task<SQLiteAsyncConnection> Connect(Context context, bool? forcedEncryptionMode = null)
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
-            var isEncrypted = prefs.GetBoolean("pref_useEncryptedDatabase", false);
+            var isEncrypted = forcedEncryptionMode ?? prefs.GetBoolean("pref_useEncryptedDatabase", false);
 
             var dbPath = GetPath();
             SQLiteAsyncConnection connection = null;
@@ -47,6 +47,9 @@ namespace AuthenticatorPro.Data
             // Attempt an encrypted or unencrypted connection instead
             catch(SQLiteException)
             {
+                if(forcedEncryptionMode != null)
+                    throw;
+                
                 connection = null;
                 await TryGetConnection(!isEncrypted);
                 prefs.Edit().PutBoolean("pref_useEncryptedDatabase", !isEncrypted).Commit();
@@ -119,7 +122,7 @@ namespace AuthenticatorPro.Data
 
             try
             {
-                conn = await Connect(context);
+                conn = await Connect(context, shouldEncrypt);
             }
             catch(Exception)
             {
@@ -128,9 +131,12 @@ namespace AuthenticatorPro.Data
                 File.Move(backupPath, dbPath);
                 throw;
             }
+            finally
+            {
+                conn.CloseAsync();
+            }
             
             File.Delete(backupPath);
-            await conn.CloseAsync();
         }
     }
 }
