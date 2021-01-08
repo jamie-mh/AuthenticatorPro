@@ -157,7 +157,7 @@ namespace AuthenticatorPro.Data.Source
             _all.Remove(auth);
         }
 
-        public async Task Update(Authenticator auth)
+        public async Task UpdateSingle(Authenticator auth)
         {
             await _connection.UpdateAsync(auth);
         }

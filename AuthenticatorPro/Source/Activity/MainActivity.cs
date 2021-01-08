@@ -1297,7 +1297,7 @@ namespace AuthenticatorPro.Activity
 
             try
             {
-                await _authSource.Update(auth);
+                await _authSource.UpdateSingle(auth);
                 await TryCleanupCustomIcon(oldIcon);
             }
             catch
@@ -1360,7 +1360,7 @@ namespace AuthenticatorPro.Activity
 
             try
             {
-                await _authSource.Update(auth);
+                await _authSource.UpdateSingle(auth);
             }
             catch
             {
