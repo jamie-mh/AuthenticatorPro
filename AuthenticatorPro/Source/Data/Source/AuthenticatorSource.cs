@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -93,7 +93,7 @@ namespace AuthenticatorPro.Data.Source
 
         public async Task<int> Add(Authenticator auth)
         {
-            if(IsDuplicate(auth))
+            if(IsDuplicate(auth) || !auth.IsValid())
                 throw new ArgumentException();
             
             await _connection.InsertAsync(auth);
