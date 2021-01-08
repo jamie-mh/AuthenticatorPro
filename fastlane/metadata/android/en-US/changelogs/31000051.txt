@@ -1,0 +1,2 @@
+- General: Further bug fixes and stability improvements.
+- General: Translation updates.
