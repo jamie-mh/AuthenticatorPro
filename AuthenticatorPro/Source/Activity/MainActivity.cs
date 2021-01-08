@@ -824,21 +824,23 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
+            int position;
+
             try
             {
-                await _connection.InsertAsync(auth);
+                position = await _authSource.Add(auth);
             }
-            catch(SQLiteException)
+            catch
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
 
             if(_authSource.CategoryId != null)
+            {
                 await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
-
-            await _authSource.Update();
-            var position = _authSource.GetPosition(auth.Secret);
+                _authSource.UpdateView();
+            }
             
             RunOnUiThread(delegate
             {
@@ -864,42 +866,41 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            var inserted = 0;
+            var authenticators = new List<Authenticator>();
+            
+            foreach(var item in migration.Authenticators)
+            {
+                Authenticator auth;
+
+                try
+                {
+                    auth = Authenticator.FromOtpAuthMigrationAuthenticator(item);
+                }
+                catch(ArgumentException)
+                {
+                    continue;
+                }
+
+                if(_authSource.IsDuplicate(auth))
+                    continue;
+                
+                authenticators.Add(auth);
+            }
 
             try
             {
-                foreach(var item in migration.Authenticators)
-                {
-                    Authenticator auth;
-
-                    try
-                    {
-                        auth = Authenticator.FromOtpAuthMigrationAuthenticator(item);
-                    }
-                    catch(ArgumentException)
-                    {
-                        continue;
-                    }
-
-                    if(_authSource.IsDuplicate(auth))
-                        continue;
-
-                    await _connection.InsertAsync(auth);
-                    inserted++;
-                }
+                await _authSource.AddMany(authenticators);
             }
-            catch(SQLiteException)
+            catch
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
 
-            await _authSource.Update();
             await SwitchCategory(null);
-            
             RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             
-            var message = String.Format(GetString(Resource.String.restoredFromMigration), inserted);
+            var message = String.Format(GetString(Resource.String.restoredFromMigration), authenticators.Count);
             ShowSnackbar(message, Snackbar.LengthLong);
         }
 
@@ -972,12 +973,8 @@ namespace AuthenticatorPro.Activity
 
                 sheet?.Dismiss();
 
-                await _customIconSource.Update();
-                await _authSource.Update();
-
                 RunOnUiThread(CheckEmptyState);
                 await UpdateList(true);
-                await _categorySource.Update();
 
                 var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
                 ShowSnackbar(message, Snackbar.LengthLong);
@@ -1013,35 +1010,16 @@ namespace AuthenticatorPro.Activity
             if(backup.Authenticators == null)
                 throw new ArgumentException();
 
-            var authsInserted = 0;
-            var categoriesInserted = 0;
+            var authenticatorsAdded = await _authSource.AddMany(backup.Authenticators);
+            var categoriesAdded = await _categorySource.AddMany(backup.Categories);
             
-            foreach(var auth in backup.Authenticators.Where(auth => !_authSource.IsDuplicate(auth)))
-            {
-                if(!auth.IsValid())
-                    continue;
-                
-                await _connection.InsertAsync(auth);
-                authsInserted++;
-            }
-
-            foreach(var category in backup.Categories.Where(category => !_categorySource.IsDuplicate(category)))
-            {
-                await _connection.InsertAsync(category);
-                categoriesInserted++;
-            }
-
-            foreach(var binding in backup.AuthenticatorCategories.Where(binding => !_authSource.IsDuplicateCategoryBinding(binding)))
-                await _connection.InsertAsync(binding);
-
+            _ = await _authSource.AddManyCategoryBindings(backup.AuthenticatorCategories);
+            
             // Older backups might not have custom icons
             if(backup.CustomIcons != null)
-            {
-                foreach(var icon in backup.CustomIcons.Where(i => !_customIconSource.IsDuplicate(i.Id)))
-                    await _connection.InsertAsync(icon);
-            }
+                _ = await _customIconSource.AddMany(backup.CustomIcons);
 
-            return new Tuple<int, int>(authsInserted, categoriesInserted);
+            return new Tuple<int, int>(authenticatorsAdded, categoriesAdded);
         }
         #endregion
 
@@ -1237,14 +1215,24 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            await _connection.InsertAsync(auth);
+            int position;
 
-            if(_authSource.CategoryId != null)
-                await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
+            try
+            {
+                if(_authSource.CategoryId == null)
+                    position = await _authSource.Add(auth);
+                else
+                {
+                    await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
+                    position = _authSource.GetPosition(auth.Secret);
+                }
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
 
-            await _authSource.Update();
-            var position = _authSource.GetPosition(auth.Secret);
-            
             RunOnUiThread(delegate
             {
                 CheckEmptyState();
@@ -1306,11 +1294,19 @@ namespace AuthenticatorPro.Activity
 
             var oldIcon = auth.Icon;
             auth.Icon = e.Icon;
-            await _connection.UpdateAsync(auth);
-            await TryCleanupCustomIcon(oldIcon);
-            
+
+            try
+            {
+                await _authSource.Update(auth);
+                await TryCleanupCustomIcon(oldIcon);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
-            
             await NotifyWearAppOfChange();
 
             ((ChangeIconBottomSheet) sender).Dismiss();
@@ -1348,18 +1344,43 @@ namespace AuthenticatorPro.Activity
 
             if(auth == null || auth.Icon == CustomIcon.Prefix + icon.Id)
                 return;
-            
-            if(!_customIconSource.IsDuplicate(icon.Id))
-                await _connection.InsertAsync(icon);
+
+            try
+            {
+                await _customIconSource.Add(icon);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
 
             var oldIcon = auth.Icon;
             auth.Icon = CustomIcon.Prefix + icon.Id;
-            await _connection.UpdateAsync(auth);
+
+            try
+            {
+                await _authSource.Update(auth);
+            }
+            catch
+            {
+                try
+                {
+                    await _customIconSource.Delete(icon.Id);
+                }
+                catch
+                {
+                    // ignored, not much can be done at this point
+                }
+
+                auth.Icon = oldIcon;
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+
             await TryCleanupCustomIcon(oldIcon);
-
-            await _customIconSource.Update();
+            
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(_customIconApplyPosition); });
-
             await NotifyWearAppOfChange();
         }
 
@@ -1410,10 +1431,17 @@ namespace AuthenticatorPro.Activity
             var categoryId = _categorySource.Get(e.CategoryPosition).Id;
             var authSecret = _authSource.Get(e.ItemPosition).Secret;
 
-            if(e.IsChecked)
-                await _authSource.AddToCategory(authSecret, categoryId);
-            else
-                await _authSource.RemoveFromCategory(authSecret, categoryId);
+            try
+            {
+                if(e.IsChecked)
+                    await _authSource.AddToCategory(authSecret, categoryId);
+                else
+                    await _authSource.RemoveFromCategory(authSecret, categoryId);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+            }
         }
         #endregion
 

@@ -22,10 +22,10 @@ namespace AuthenticatorPro.Data
             Ranking = 0;
         }
 
-        public AuthenticatorCategory(string categoryId, string authenticatorSecret)
+        public AuthenticatorCategory(string authenticatorSecret, string categoryId)
         {
-            CategoryId = categoryId;
             AuthenticatorSecret = authenticatorSecret;
+            CategoryId = categoryId;
             Ranking = 0;
         }
     }

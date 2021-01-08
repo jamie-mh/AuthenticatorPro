@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Shared.Data;
@@ -23,6 +24,23 @@ namespace AuthenticatorPro.Data.Source
         {
             _all.Clear();
             _all = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
+        }
+
+        public async Task Add(CustomIcon icon)
+        {
+            if(IsDuplicate(icon.Id))
+                throw new ArgumentException();
+
+            await _connection.InsertAsync(icon);
+            await Update();
+        }
+
+        public async Task<int> AddMany(IEnumerable<CustomIcon> icons)
+        {
+            var valid = icons.Where(c => !IsDuplicate(c.Id)).ToList();
+            await _connection.InsertAllAsync(valid);
+            await Update();
+            return valid.Count;
         }
 
         public CustomIcon Get(string id)

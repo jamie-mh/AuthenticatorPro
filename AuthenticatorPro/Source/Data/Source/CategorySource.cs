@@ -25,6 +25,24 @@ namespace AuthenticatorPro.Data.Source
             _all = await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
+        public async Task<int> Add(Category category)
+        {
+            if(IsDuplicate(category))
+                throw new ArgumentException();
+            
+            await _connection.InsertAsync(category);
+            await Update();
+            return GetPosition(category.Id);
+        }
+
+        public async Task<int> AddMany(IEnumerable<Category> categories)
+        {
+            var valid = categories.Where(c => !IsDuplicate(c)).ToList();
+            await _connection.InsertAllAsync(valid);
+            await Update();
+            return valid.Count;
+        }
+
         public bool IsDuplicate(Category category)
         {
             return _all.Any(iterator => category.Id == iterator.Id);

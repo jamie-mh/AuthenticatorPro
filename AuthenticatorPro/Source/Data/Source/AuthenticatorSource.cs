@@ -91,6 +91,32 @@ namespace AuthenticatorPro.Data.Source
             UpdateView();
         }
 
+        public async Task<int> Add(Authenticator auth)
+        {
+            if(IsDuplicate(auth))
+                throw new ArgumentException();
+            
+            await _connection.InsertAsync(auth);
+            await Update();
+            return GetPosition(auth.Secret);
+        }
+
+        public async Task<int> AddMany(IEnumerable<Authenticator> authenticators)
+        {
+            var valid = authenticators.Where(a => a.IsValid() && !IsDuplicate(a)).ToList();
+            await _connection.InsertAllAsync(valid);
+            await Update();
+            return valid.Count;
+        }
+        
+        public async Task<int> AddManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
+        {
+            var valid = bindings.Where(b => !IsDuplicateCategoryBinding(b)).ToList();
+            await _connection.InsertAllAsync(valid);
+            await Update();
+            return valid.Count;
+        }
+
         public Authenticator Get(int position)
         {
             return _view.ElementAtOrDefault(position);
@@ -129,6 +155,11 @@ namespace AuthenticatorPro.Data.Source
             
             _view.Remove(auth);
             _all.Remove(auth);
+        }
+
+        public async Task Update(Authenticator auth)
+        {
+            await _connection.UpdateAsync(auth);
         }
 
         public void Swap(int oldPosition, int newPosition)
@@ -214,9 +245,12 @@ namespace AuthenticatorPro.Data.Source
 
         public async Task AddToCategory(string authSecret, string categoryId)
         {
-            var binding = new AuthenticatorCategory(categoryId, authSecret);
+            var binding = new AuthenticatorCategory(authSecret, categoryId);
             await _connection.InsertAsync(binding);
             CategoryBindings.Add(binding);
+            
+            if(CategoryId == categoryId)
+                UpdateView();
         }
 
         public async Task RemoveFromCategory(string authSecret, string categoryId)

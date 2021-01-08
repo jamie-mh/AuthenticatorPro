@@ -13,6 +13,7 @@ using AuthenticatorPro.List;
 using AuthenticatorPro.Shared.Util;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
+using Google.Android.Material.Snackbar;
 using SQLite;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
@@ -22,6 +23,7 @@ namespace AuthenticatorPro.Activity
     [Activity]
     internal class ManageCategoriesActivity : DayNightActivity
     {
+        private RelativeLayout _rootLayout;
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
         private ManageCategoriesListAdapter _categoryListAdapter;
@@ -45,6 +47,8 @@ namespace AuthenticatorPro.Activity
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+
+            _rootLayout = FindViewById<RelativeLayout>(Resource.Id.layoutRoot);
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddClick;
@@ -141,12 +145,22 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            await _connection.InsertAsync(category);
-            await _categorySource.Update();
+            try
+            {
+                await _categorySource.Add(category);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+            finally
+            {
+                RunOnUiThread(dialog.Dismiss); 
+            }
             
             RunOnUiThread(delegate
             {
-                dialog.Dismiss();
                 _categoryListAdapter.NotifyDataSetChanged();
                 CheckEmptyState();
             });
@@ -176,7 +190,7 @@ namespace AuthenticatorPro.Activity
         {
             var dialog = (EditCategoryBottomSheet) sender;
 
-            if(e.Name == e.InitialName)
+            if(e.Name == e.InitialName || e.ItemPosition == null)
             {
                 dialog.Dismiss();
                 return;
@@ -190,13 +204,21 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            await _categorySource.Rename(e.ItemPosition.Value, e.Name);
-            
-            RunOnUiThread(delegate
+            try
             {
-                dialog.Dismiss();
-                _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value);
-            });
+                await _categorySource.Rename(e.ItemPosition.Value, e.Name);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+            finally
+            {
+                RunOnUiThread(dialog.Dismiss); 
+            }
+            
+            RunOnUiThread(delegate { _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value); });
         }
 
         private void OnDeleteClick(object item, int position)
@@ -208,7 +230,16 @@ namespace AuthenticatorPro.Activity
 
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
-                await _categorySource.Delete(position);
+                try
+                {
+                    await _categorySource.Delete(position);
+                }
+                catch
+                {
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
+                }
+                
                 RunOnUiThread(delegate
                 {
                     _categoryListAdapter.NotifyItemRemoved(position);
@@ -243,6 +274,13 @@ namespace AuthenticatorPro.Activity
         {
             Finish();
             base.OnBackPressed();
+        }
+        
+        private void ShowSnackbar(int textRes, int length)
+        {
+            var snackbar = Snackbar.Make(_rootLayout, textRes, length);
+            snackbar.SetAnchorView(_addButton);
+            snackbar.Show();
         }
     }
 }
