@@ -122,7 +122,7 @@ namespace AuthenticatorPro.Activity
             base.OnCreate(savedInstanceState);
 
             await _onCreateSemaphore.WaitAsync();
-            Xamarin.Essentials.Platform.Init(Application);
+            MobileBarcodeScanner.Initialize(Application);
             
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
