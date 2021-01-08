@@ -133,7 +133,7 @@ namespace AuthenticatorPro.Data
             }
             finally
             {
-                conn.CloseAsync();
+                await conn.CloseAsync();
             }
             
             File.Delete(backupPath);
