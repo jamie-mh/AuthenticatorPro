@@ -670,7 +670,7 @@ namespace AuthenticatorPro.Activity
             fragment.ClickQrCode += delegate
             {
                 var subFragment = new ScanQRCodeBottomSheet();
-                subFragment.ClickFromCamera += OpenQRCodeScanner;
+                subFragment.ClickFromCamera += async delegate { await RequestPermissionThenScanQRCode(); };
                 subFragment.ClickFromGallery += delegate { OpenImagePicker(ResultQRCodeSAF); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
@@ -904,7 +904,7 @@ namespace AuthenticatorPro.Activity
             ShowSnackbar(message, Snackbar.LengthLong);
         }
 
-        private async void OpenQRCodeScanner(object sender, EventArgs e)
+        private async Task RequestPermissionThenScanQRCode()
         {
             if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
                 ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.Camera }, PermissionCameraCode);
