@@ -215,12 +215,7 @@ namespace AuthenticatorPro.Fragment
                 isValid = false;
             }
 
-            int digits;
-            if(_type == AuthenticatorType.SteamOtp)
-            {
-                digits = SteamOtp.Digits;
-            }
-            else if(!Int32.TryParse(_digitsText.Text, out digits) || digits < Authenticator.MinDigits || digits > Authenticator.MaxDigits)
+            if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < Authenticator.MinDigits || digits > Authenticator.MaxDigits)
             {
                 _digitsLayout.Error = GetString(Resource.String.digitsInvalid);
                 isValid = false;

@@ -6,17 +6,14 @@ namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class SteamOtp : IGenerator
     {
-        public const string Alphabet = "23456789BCDFGHJKMNPQRTVWXY";
-        public const int Digits = 5;
-
         private readonly OtpNet.Totp _totp;
 
         public GenerationMethod GenerationMethod => GenerationMethod.Time;
 
-        public SteamOtp(string secret, int digits)
+        public SteamOtp(string secret)
         {
             var secretBytes = Base32Encoding.ToBytes(secret);
-            _totp = new SteamTotp(secretBytes, digits);
+            _totp = new SteamTotp(secretBytes);
         }
 
         public string Compute()
@@ -30,11 +27,12 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
         private class SteamTotp : OtpNet.Totp
         {
-            private readonly int _digits;
+            public const int NumDigits = 5;
 
-            public SteamTotp(byte[] secretKey, int digits = 5) : base(secretKey, 30, OtpHashMode.Sha1, digits)
+            private const string Alphabet = "23456789BCDFGHJKMNPQRTVWXY";
+
+            public SteamTotp(byte[] secretKey) : base(secretKey, 30, OtpHashMode.Sha1, NumDigits)
             {
-                _digits = digits;
             }
 
             protected override string Compute(long counter, OtpHashMode mode)
@@ -46,7 +44,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
                 var builder = new StringBuilder();
 
-                for (int i = 0; i < _digits; i++) {
+                for (var i = 0; i < NumDigits; i++) {
                     builder.Append(Alphabet[otp % Alphabet.Length]);
                     otp /= Alphabet.Length;
                 }

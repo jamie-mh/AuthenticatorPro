@@ -67,7 +67,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _generator = type switch
             {
                 AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits, _period),
-                AuthenticatorType.SteamOtp => new SteamOtp(secret, _digits),
+                AuthenticatorType.SteamOtp => new SteamOtp(secret),
                 _ => new Totp(secret, _period, algorithm, _digits),
             };
 

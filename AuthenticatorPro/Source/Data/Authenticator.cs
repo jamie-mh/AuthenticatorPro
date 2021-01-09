@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Data
         public const int DefaultDigits = 6;
         public const int DefaultPeriod = 30;
 
-        public const int MinDigits = 5;
+        public const int MinDigits = 6;
         public const int MaxDigits = 10;
 
 
@@ -89,7 +89,7 @@ namespace AuthenticatorPro.Data
                 AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
                 AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits, Counter),
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
-                AuthenticatorType.SteamOtp => new SteamOtp(Secret, Digits),
+                AuthenticatorType.SteamOtp => new SteamOtp(Secret),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
             
@@ -316,7 +316,7 @@ namespace AuthenticatorPro.Data
 
         public static string CleanSecret(string input, AuthenticatorType type)
         {
-            if(type == AuthenticatorType.Totp || type == AuthenticatorType.Hotp || type == AuthenticatorType.SteamOtp)
+            if(type.IsHmacBased())
                 input = input.ToUpper();
             
             input = input.Replace(" ", "");
@@ -330,25 +330,19 @@ namespace AuthenticatorPro.Data
             if(String.IsNullOrEmpty(secret))
                 return false;
 
-            switch(type)
+            if(type.IsHmacBased())
             {
-                case AuthenticatorType.Totp:
-                case AuthenticatorType.Hotp:
-                case AuthenticatorType.SteamOtp:
-                    try
-                    {
-                        return Base32Encoding.ToBytes(secret).Length > 0;
-                    }
-                    catch(ArgumentException)
-                    {
-                        return false;
-                    }
-                    
-                case AuthenticatorType.MobileOtp:
-                    return secret.Length >= MobileOtp.SecretMinLength;
-                
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type));
+                try
+                {
+                    return Base32Encoding.ToBytes(secret).Length > 0;
+                }
+                catch(ArgumentException)
+                {
+                    return false;
+                }
+            }
+            else {
+                return secret.Length >= MobileOtp.SecretMinLength;
             }
         }
 
