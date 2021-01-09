@@ -128,6 +128,7 @@ namespace AuthenticatorPro.Fragment
             _type = e.Position switch {
                 1 => AuthenticatorType.Hotp,
                 2 => AuthenticatorType.MobileOtp,
+                3 => AuthenticatorType.SteamOtp,
                 _ => AuthenticatorType.Totp,
             };
 
@@ -135,11 +136,15 @@ namespace AuthenticatorPro.Fragment
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 
-            _algorithmLayout.Visibility = _type.IsHmacBased()
+            _algorithmLayout.Visibility = _type.IsHmacBased() && _type != AuthenticatorType.SteamOtp
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
             _pinLayout.Visibility = _type == AuthenticatorType.MobileOtp
+                ? ViewStates.Visible
+                : ViewStates.Gone;
+
+            _digitsLayout.Visibility = _type != AuthenticatorType.SteamOtp
                 ? ViewStates.Visible
                 : ViewStates.Gone;
         }

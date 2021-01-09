@@ -55,6 +55,7 @@
     <Compile Include="Source\Data\Generator\Hotp.cs" />
     <Compile Include="Source\Data\Generator\IGenerator.cs" />
     <Compile Include="Source\Data\Generator\MobileOtp.cs" />
+    <Compile Include="Source\Data\Generator\SteamOtp.cs" />
     <Compile Include="Source\Data\Generator\Totp.cs" />
     <Compile Include="Source\Data\ISource.cs" />
     <Compile Include="Source\Query\WearCategory.cs" />
