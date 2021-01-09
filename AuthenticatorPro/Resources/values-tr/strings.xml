@@ -28,7 +28,7 @@
     <string name="issuer">Kuruluş</string>
     <string name="username">Kullanıcı Adı</string>
     <string name="secretKey">Gizli anahtar</string>
-    <string name="pin">Pin</string>
+    <string name="pin">Pin kodu</string>
     <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
     <string name="noAuthenticatorsTitle">Burada bir şey yok!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
@@ -85,11 +85,11 @@
     <string name="login">Giriş</string>
     <string name="loginMessage">Kimlik doğrulayıcınıza erişmek için lütfen parolanızı girin veya bir parmak izi kullanın.</string>
     <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
-    <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
+    <string name="databaseError">Veri tabanını açarken bir hata meydana geldi. Uygulamayı tekrar başlatmayı deneyin.</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="genericError">Bir hata meydana geldi.</string>
-    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
+    <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
     <string name="close">Kapat</string>
     <string name="quit">Çıkış</string>
     <!-- Getting Started Guide -->
@@ -104,7 +104,7 @@
     <string name="guideArrangeTitle">Düzenleyin ve sıralayın</string>
     <string name="guideArrangeSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için kategoriler halinde düzenleyebilirsiniz. Ayrıca, öğeleri tutup sürüklemek onları istediğiniz sırayla yeniden düzenlemenize olanak sağlar.</string>
     <string name="guideBackupTitle">Yedek oluştur</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
+    <string name="guideBackupSummary">Cihazınızı değiştirirseniz hesaplarınıza erişimi kaybetmeyin. Bir yedekleme dosyası oluşturun ve bunu güvenli bir yerde depolayın. Yedek dilediğiniz zamanda geri yüklenebilir ve bir parola ile korunabilir.</string>
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
     <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
     <!-- Preferences -->
@@ -115,7 +115,7 @@
     <string name="prefAppLockTitle">Uygulama Kilidi</string>
     <string name="prefAppLockSummary">Kimlik doğrulayıcılara erişmek için doğrulama gereklidir. Bu özellik cihazınızda bir kilit ekranı ayarlamanızı gerektirir.</string>
     <string name="prefUseEncryptedDatabaseTitle">Şifreli Veritabanı</string>
-    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option will interfere with third-party backup tools and may reduce performance.</string>
+    <string name="prefUseEncryptedDatabaseSummary">Cihazınızdaki veri tabanını şifreleyin. Root erişiminiz varsa kullanışlıdır. Bu seçenek üçüncü taraf yedekleme araçlarına müdahale eder ve performansı düşürebilir.</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
