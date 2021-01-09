@@ -12,6 +12,7 @@ using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
 using OtpNet;
+using String = System.String;
 using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
 
 namespace AuthenticatorPro.Fragment
@@ -221,7 +222,8 @@ namespace AuthenticatorPro.Fragment
 
             if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < _type.GetMinDigits() || digits > _type.GetMaxDigits())
             {
-                _digitsLayout.Error = GetString(Resource.String.digitsInvalid);
+                var digitsError = String.Format(GetString(Resource.String.digitsInvalid), _type.GetMinDigits(), _type.GetMaxDigits());
+                _digitsLayout.Error = digitsError;
                 isValid = false;
             }
 
