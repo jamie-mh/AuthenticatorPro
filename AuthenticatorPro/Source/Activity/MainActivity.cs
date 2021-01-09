@@ -890,9 +890,6 @@ namespace AuthenticatorPro.Activity
                 {
                     continue;
                 }
-
-                if(_authSource.IsDuplicate(auth))
-                    continue;
                 
                 authenticators.Add(auth);
             }
