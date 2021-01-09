@@ -137,7 +137,7 @@ namespace AuthenticatorPro.Fragment
                 _ => AuthenticatorType.Totp,
             };
 
-            _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Counter
+            _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Time
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 

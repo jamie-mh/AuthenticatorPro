@@ -32,6 +32,23 @@
             android:paddingRight="24dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                app:hintEnabled="true"
+                android:hint="@string/typeHint"
+                android:id="@+id/editTypeLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            <com.google.android.material.textfield.TextInputLayout
                 app:errorEnabled="true"
                 app:hintEnabled="true"
                 app:counterEnabled="true"
@@ -96,43 +113,26 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                    app:errorEnabled="true"
-                    app:hintEnabled="true"
-                    app:counterEnabled="true"
-                    android:hint="@string/pin"
-                    android:id="@+id/editPinLayout"
-                    android:visibility="gone"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    app:endIconMode="custom"
-                    app:endIconDrawable="@drawable/ic_action_lock"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/editPin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionDone"
-                        android:inputType="textVisiblePassword"
-                        android:singleLine="true"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-            
-            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="true"
                 app:hintEnabled="true"
-                android:hint="@string/typeHint"
-                android:id="@+id/editTypeLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:counterEnabled="true"
+                android:hint="@string/pin"
+                android:id="@+id/editPinLayout"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_action_lock"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:editable="false"
-                    android:inputType="none"/>
+                    android:imeOptions="actionDone"
+                    android:inputType="textVisiblePassword"
+                    android:singleLine="true"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -148,7 +148,6 @@
                 android:id="@+id/layoutAdvanced"
                 android:orientation="vertical"
                 android:visibility="gone"
-                android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
