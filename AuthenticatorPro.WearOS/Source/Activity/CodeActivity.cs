@@ -19,9 +19,6 @@ namespace AuthenticatorPro.WearOS.Activity
     [Activity]
     internal class CodeActivity : AppCompatActivity
     {
-        private const int MinCodeGroupSize = 3;
-        private const int MaxCodeGroupSize = 4;
-
         private IGenerator _generator;
         private Timer _timer;
 
