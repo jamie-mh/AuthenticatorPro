@@ -9,6 +9,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Util;
 using OtpNet;
 using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
 using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
@@ -18,6 +19,7 @@ namespace AuthenticatorPro.WearOS.Activity
     [Activity]
     internal class CodeActivity : AppCompatActivity
     {
+        private const int MinCodeGroupSize = 3;
         private const int MaxCodeGroupSize = 4;
 
         private IGenerator _generator;
@@ -102,20 +104,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void UpdateCode()
         {
-            var code = _generator.Compute();
-            
-            var spacesInserted = 0;
-            var groupSize = Math.Min(MaxCodeGroupSize, _digits / 2);
-
-            for(var i = 0; i < _digits; ++i)
-            {
-                if(i % groupSize == 0 && i > 0)
-                {
-                    code = code.Insert(i + spacesInserted, " ");
-                    spacesInserted++;
-                }
-            }
-
+            var code = CodeUtil.PadCode(_generator.Compute(), _digits);
             _codeTextView.Text = code;
             
             _secondsRemaining = _period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % _period;

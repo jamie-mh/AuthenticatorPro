@@ -12,13 +12,13 @@ using AuthenticatorPro.Data;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Util;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.List
 {
     internal sealed class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
-        private const int MaxCodeGroupSize = 4;
         private const int MaxProgress = 10000;
 
         public event EventHandler<int> ItemClick;
@@ -108,7 +108,7 @@ namespace AuthenticatorPro.List
                 ? ViewStates.Gone
                 : ViewStates.Visible;
 
-            holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
+            holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
 
             if(auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
@@ -151,7 +151,7 @@ namespace AuthenticatorPro.List
 
             var auth = _authSource.Get(position);
             var holder = (AuthenticatorListHolder) viewHolder;
-            holder.Code.Text = PadCode(auth.GetCode(), auth.Digits);
+            holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
 
             switch(auth.Type.GetGenerationMethod())
             {
@@ -262,25 +262,6 @@ namespace AuthenticatorPro.List
         {
             await _authSource.IncrementCounter(position);
             NotifyItemChanged(position);
-        }
-
-        private static string PadCode(string code, int digits)
-        {
-            code ??= new String('-', digits);
-
-            var spacesInserted = 0;
-            var groupSize = Math.Min(MaxCodeGroupSize, digits / 2);
-
-            for(var i = 0; i < digits; ++i)
-            {
-                if(i % groupSize == 0 && i > 0)
-                {
-                    code = code.Insert(i + spacesInserted, " ");
-                    spacesInserted++;
-                }
-            }
-
-            return code;
         }
     }
 }
