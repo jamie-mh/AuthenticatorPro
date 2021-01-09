@@ -34,6 +34,16 @@ namespace AuthenticatorPro.Shared.Data
             };
         }
 
+        public static int GetDefaultPeriod(this AuthenticatorType type)
+        {
+            return 30;
+        }
+
+        public static int GetDefaultDigits(this AuthenticatorType type)
+        {
+            return GetMinDigits(type);
+        }
+
         public static int GetMinDigits(this AuthenticatorType type)
         {
             return type switch

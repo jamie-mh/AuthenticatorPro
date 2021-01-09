@@ -21,8 +21,6 @@ namespace AuthenticatorPro.Data
         public const int UsernameMaxLength = 40;
 
         public const OtpHashMode DefaultAlgorithm = OtpHashMode.Sha1;
-        public const int DefaultDigits = 6;
-        public const int DefaultPeriod = 30;
 
         [Column("type")]
         public AuthenticatorType Type { get; set; }
@@ -74,8 +72,9 @@ namespace AuthenticatorPro.Data
             _lastCounter = 0;
 
             Algorithm = DefaultAlgorithm;
-            Digits = DefaultDigits;
-            Period = DefaultPeriod;
+            Type = AuthenticatorType.Totp;
+            Digits = Type.GetDefaultDigits();
+            Period = Type.GetDefaultPeriod();
         }
 
         public string GetCode()
@@ -168,8 +167,8 @@ namespace AuthenticatorPro.Data
                 Type = type,
                 Secret = secret,
                 Counter = input.Counter,
-                Digits = DefaultDigits,
-                Period = DefaultPeriod,
+                Digits = type.GetDefaultDigits(),
+                Period = type.GetDefaultPeriod(),
                 Icon = Shared.Data.Icon.FindServiceKeyByName(issuer)
             };
             
@@ -185,12 +184,6 @@ namespace AuthenticatorPro.Data
 
             if(!uriMatch.Success)
                 throw new ArgumentException("URI is not valid");
-
-            var type = uriMatch.Groups[1].Value switch {
-                "totp" => AuthenticatorType.Totp,
-                "hotp" => AuthenticatorType.Hotp,
-                _ => throw new ArgumentException("Unknown type")
-            };
 
             // Get the issuer and username if possible
             var issuerUsername = uriMatch.Groups[2].Value;
@@ -221,10 +214,17 @@ namespace AuthenticatorPro.Data
                     username = null;
                 }
             }
+            
+            var type = uriMatch.Groups[1].Value switch {
+                "totp" when issuer == "Steam" => AuthenticatorType.SteamOtp,
+                "totp" => AuthenticatorType.Totp,
+                "hotp" => AuthenticatorType.Hotp,
+                _ => throw new ArgumentException("Unknown type")
+            };
 
             var algorithm = DefaultAlgorithm;
 
-            if(args.ContainsKey("algorithm"))
+            if(args.ContainsKey("algorithm") && type != AuthenticatorType.SteamOtp)
                 algorithm = args["algorithm"].ToUpper() switch
                 {
                     "SHA1" => OtpHashMode.Sha1,
@@ -233,11 +233,11 @@ namespace AuthenticatorPro.Data
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 
-            var digits = DefaultDigits;
+            var digits = type.GetDefaultDigits();
             if(args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
                 throw new ArgumentException("Digits parameter cannot be parsed.");
             
-            var period = DefaultPeriod;
+            var period = type.GetDefaultPeriod();
             if(args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
                 throw new ArgumentException("Period parameter cannot be parsed.");
 
@@ -298,10 +298,10 @@ namespace AuthenticatorPro.Data
                 uri.Append($"&algorithm={algorithmName}");
             }
 
-            if(Digits != DefaultDigits)
+            if(Digits != Type.GetDefaultDigits())
                 uri.Append($"&digits={Digits}");
             
-            if(Type == AuthenticatorType.Totp && Period != DefaultPeriod)
+            if(Type == AuthenticatorType.Totp && Period != Type.GetDefaultPeriod())
                 uri.Append($"&period={Period}");
             
             if(Type == AuthenticatorType.Hotp)

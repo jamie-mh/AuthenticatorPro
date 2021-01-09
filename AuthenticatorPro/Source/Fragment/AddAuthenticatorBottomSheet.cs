@@ -29,9 +29,12 @@ namespace AuthenticatorPro.Fragment
         private TextInputLayout _secretLayout;
         private TextInputLayout _pinLayout;
         private TextInputLayout _typeLayout;
-        private TextInputLayout _algorithmLayout;
         private TextInputLayout _periodLayout;
         private TextInputLayout _digitsLayout;
+
+        private ArrayAdapter _algorithmAdapter;
+        private TextInputLayout _algorithmLayout;
+        private AutoCompleteTextView _algorithmText;
 
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
@@ -83,19 +86,16 @@ namespace AuthenticatorPro.Fragment
             _pinLayout.CounterMaxLength = MobileOtp.PinLength;
             _pinText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(MobileOtp.PinLength) });
 
-            var typeAdapter = ArrayAdapter.CreateFromResource(
-                view.Context, Resource.Array.authTypes, Resource.Layout.listItemDropdown);
+            var typeAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.authTypes, Resource.Layout.listItemDropdown);
             var typeEditText = (AutoCompleteTextView) _typeLayout.EditText;
             typeEditText.Adapter = typeAdapter;
             typeEditText.SetText((ICharSequence) typeAdapter.GetItem(0), false);
             typeEditText.ItemClick += OnTypeItemClick;
 
-            var algorithmAdapter = ArrayAdapter.CreateFromResource(
-                view.Context, Resource.Array.authAlgorithms, Resource.Layout.listItemDropdown);
-            var algorithmEditText = (AutoCompleteTextView) _algorithmLayout.EditText;
-            algorithmEditText.Adapter = algorithmAdapter;
-            algorithmEditText.SetText((ICharSequence) algorithmAdapter.GetItem(0), false);
-            algorithmEditText.ItemClick += OnAlgorithmItemClick;
+            _algorithmAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.authAlgorithms, Resource.Layout.listItemDropdown);
+            _algorithmText = (AutoCompleteTextView) _algorithmLayout.EditText;
+            _algorithmText.Adapter = _algorithmAdapter;
+            _algorithmText.ItemClick += OnAlgorithmItemClick;
 
             _advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutAdvanced);
             _advancedButton = view.FindViewById<MaterialButton>(Resource.Id.buttonShowAdvanced);
@@ -124,6 +124,7 @@ namespace AuthenticatorPro.Fragment
             var addButton = view.FindViewById<MaterialButton>(Resource.Id.buttonAdd);
             addButton.Click += OnAddButtonClicked;
 
+            ResetAdvancedOptions();
             return view;
         }
 
@@ -152,6 +153,15 @@ namespace AuthenticatorPro.Fragment
             _advancedButton.Visibility = _type != AuthenticatorType.SteamOtp
                 ? ViewStates.Visible
                 : ViewStates.Gone;
+            
+            ResetAdvancedOptions();
+        }
+
+        private void ResetAdvancedOptions()
+        {
+            _digitsText.Text = _type.GetDefaultDigits().ToString();
+            _periodText.Text = _type.GetDefaultPeriod().ToString();
+            _algorithmText.SetText((ICharSequence) _algorithmAdapter.GetItem(0), false);
         }
 
         private void OnAlgorithmItemClick(object sender, AdapterView.ItemClickEventArgs e)
