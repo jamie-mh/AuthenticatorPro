@@ -132,6 +132,7 @@
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
     <string name="authTypeMobileOtp">Мобильный OTP (mOTP)</string>
+    <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (по умолчанию)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
