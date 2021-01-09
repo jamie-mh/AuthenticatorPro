@@ -216,7 +216,7 @@ namespace AuthenticatorPro.Data
             }
             
             var type = uriMatch.Groups[1].Value switch {
-                "totp" when issuer == "Steam" || args.ContainsKey("Steam") => AuthenticatorType.SteamOtp,
+                "totp" when issuer == "Steam" || args.ContainsKey("steam") => AuthenticatorType.SteamOtp,
                 "totp" => AuthenticatorType.Totp,
                 "hotp" => AuthenticatorType.Hotp,
                 _ => throw new ArgumentException("Unknown type")
