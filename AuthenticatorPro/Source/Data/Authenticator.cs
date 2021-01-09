@@ -341,9 +341,11 @@ namespace AuthenticatorPro.Data
                     return false;
                 }
             }
-            else {
+            
+            if(type == AuthenticatorType.MobileOtp)
                 return secret.Length >= MobileOtp.SecretMinLength;
-            }
+
+            throw new ArgumentOutOfRangeException(nameof(type));
         }
 
         public bool IsValid()
