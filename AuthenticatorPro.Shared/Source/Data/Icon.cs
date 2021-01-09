@@ -174,6 +174,7 @@ namespace AuthenticatorPro.Shared.Data
             {"solarwinds", Resource.Drawable.auth_solarwinds},
             {"square", Resource.Drawable.auth_square},
             {"statuspage", Resource.Drawable.auth_statuspage},
+            {"steam", Resource.Drawable.auth_steam},
             {"stripe", Resource.Drawable.auth_stripe},
             {"synology", Resource.Drawable.auth_synology},
             {"teamviewer", Resource.Drawable.auth_teamviewer},
