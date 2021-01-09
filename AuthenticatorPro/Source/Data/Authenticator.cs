@@ -276,8 +276,8 @@ namespace AuthenticatorPro.Data
             var type = Type switch
             {
                 AuthenticatorType.Hotp => "hotp",
-                AuthenticatorType.Totp => "totp",
-                _ => throw new ArgumentException("Unsupported authenticator type.")
+                AuthenticatorType.Totp or AuthenticatorType.SteamOtp => "totp",
+                _ => throw new NotSupportedException("Unsupported authenticator type.")
             };
             
             var issuerUsername = String.IsNullOrEmpty(Username) ? Issuer : $"{Issuer}:{Username}";
@@ -306,6 +306,9 @@ namespace AuthenticatorPro.Data
             
             if(Type == AuthenticatorType.Hotp)
                 uri.Append($"&counter={Counter}");
+
+            if(Type == AuthenticatorType.SteamOtp && Issuer != "Steam")
+                uri.Append("&steam");
 
             return uri.ToString();
         }

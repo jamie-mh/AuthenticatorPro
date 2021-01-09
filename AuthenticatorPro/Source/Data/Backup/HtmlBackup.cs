@@ -66,10 +66,17 @@ namespace AuthenticatorPro.Data.Backup
 
             foreach(var auth in authenticators)
             {
-                if(auth.Type != AuthenticatorType.Totp && auth.Type != AuthenticatorType.Hotp)
+                string uri;
+
+                try
+                {
+                    uri = auth.GetOtpAuthUri();
+                }
+                catch(NotSupportedException)
+                {
                     continue;
+                }
                 
-                var uri = auth.GetOtpAuthUri();
                 var qrCode = await GetQrCodeDataAsync(uri);
 
                 itemsHtml.Append($@"
