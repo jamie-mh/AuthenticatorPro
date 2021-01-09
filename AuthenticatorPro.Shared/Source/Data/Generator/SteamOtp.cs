@@ -22,7 +22,8 @@ namespace AuthenticatorPro.Shared.Data.Generator
             return _totp.ComputeTotp();
         }
 
-        public DateTime GetRenewTime() {
+        public DateTime GetRenewTime()
+        {
             return DateTime.UtcNow.AddSeconds(_totp.RemainingSeconds());
         }
 
@@ -45,7 +46,8 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
                 var builder = new StringBuilder();
 
-                for(var i = 0; i < NumDigits; i++) {
+                for(var i = 0; i < NumDigits; i++)
+                {
                     builder.Append(Alphabet[otp % Alphabet.Length]);
                     otp /= Alphabet.Length;
                 }
