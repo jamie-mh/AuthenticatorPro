@@ -56,7 +56,7 @@
     <string name="noFileName">Un nombre de archivo es requerido.</string>
     <string name="secretInvalid">La llave secreta es inválida.</string>
     <string name="pinInvalid">The pin must be 4 characters long</string>
-    <string name="digitsInvalid">El autenticador debe generar entre 6 y 10 dígitos.</string>
+    <string name="digitsInvalid">El autenticador debe generar entre {0} y {1} dígitos.</string>
     <string name="periodToShort">El período debe tener más de 0 segundos.</string>
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
     <string name="duplicateAuthenticator">Ya existe un autenticador con esta clave secreta.</string>

@@ -56,7 +56,7 @@
     <string name="noFileName">Du musst einen Dateinamen eingeben.</string>
     <string name="secretInvalid">Der Schlüssel ist ungültig.</string>
     <string name="pinInvalid">The pin must be 4 characters long</string>
-    <string name="digitsInvalid">Es müssen zwischen 6 und 10 Stellen generiert werden</string>
+    <string name="digitsInvalid">Es müssen zwischen {0} und {1} Stellen generiert werden</string>
     <string name="periodToShort">Die Gültigkeit muss mehr als 0 Sekunden betragen.</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
