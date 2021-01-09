@@ -132,6 +132,7 @@
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
     <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
+    <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>

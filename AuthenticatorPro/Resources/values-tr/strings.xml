@@ -132,6 +132,7 @@
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
     <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
+    <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (varsayılan)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
