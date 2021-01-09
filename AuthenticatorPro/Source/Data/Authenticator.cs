@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using OtpNet;
 using SQLite;
 using Hotp = AuthenticatorPro.Shared.Data.Generator.Hotp;
+using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
 using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.Data
@@ -23,7 +24,7 @@ namespace AuthenticatorPro.Data
         public const int DefaultDigits = 6;
         public const int DefaultPeriod = 30;
 
-        public const int MinDigits = 6;
+        public const int MinDigits = 5;
         public const int MaxDigits = 10;
 
 
@@ -88,6 +89,7 @@ namespace AuthenticatorPro.Data
                 AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
                 AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits, Counter),
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
+                AuthenticatorType.SteamOtp => new SteamOtp(Secret, Digits),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
             
@@ -314,7 +316,7 @@ namespace AuthenticatorPro.Data
 
         public static string CleanSecret(string input, AuthenticatorType type)
         {
-            if(type == AuthenticatorType.Totp || type == AuthenticatorType.Hotp)
+            if(type == AuthenticatorType.Totp || type == AuthenticatorType.Hotp || type == AuthenticatorType.SteamOtp)
                 input = input.ToUpper();
             
             input = input.Replace(" ", "");
@@ -332,6 +334,7 @@ namespace AuthenticatorPro.Data
             {
                 case AuthenticatorType.Totp:
                 case AuthenticatorType.Hotp:
+                case AuthenticatorType.SteamOtp:
                     try
                     {
                         return Base32Encoding.ToBytes(secret).Length > 0;

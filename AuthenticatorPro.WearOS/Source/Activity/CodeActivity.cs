@@ -10,6 +10,7 @@ using AndroidX.AppCompat.App;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
 using OtpNet;
+using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
 using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.WearOS.Activity
@@ -66,6 +67,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _generator = type switch
             {
                 AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits, _period),
+                AuthenticatorType.SteamOtp => new SteamOtp(secret, _digits),
                 _ => new Totp(secret, _period, algorithm, _digits),
             };
 

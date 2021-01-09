@@ -5,7 +5,7 @@ namespace AuthenticatorPro.Shared.Data
 {
     public enum AuthenticatorType
     {
-        Hotp = 1, Totp = 2, MobileOtp = 3
+        Hotp = 1, Totp = 2, MobileOtp = 3, SteamOtp = 4
     }
 
     public static class AuthenticatorTypeSpecification
@@ -17,6 +17,7 @@ namespace AuthenticatorPro.Shared.Data
                 AuthenticatorType.Hotp => GenerationMethod.Counter,
                 AuthenticatorType.Totp => GenerationMethod.Time,
                 AuthenticatorType.MobileOtp => GenerationMethod.Time,
+                AuthenticatorType.SteamOtp => GenerationMethod.Time,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
         }
@@ -28,6 +29,7 @@ namespace AuthenticatorPro.Shared.Data
                 AuthenticatorType.Hotp => true,
                 AuthenticatorType.Totp => true,
                 AuthenticatorType.MobileOtp => false,
+                AuthenticatorType.SteamOtp => true,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
         }

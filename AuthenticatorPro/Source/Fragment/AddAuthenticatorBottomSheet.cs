@@ -128,6 +128,7 @@ namespace AuthenticatorPro.Fragment
             _type = e.Position switch {
                 1 => AuthenticatorType.Hotp,
                 2 => AuthenticatorType.MobileOtp,
+                3 => AuthenticatorType.SteamOtp,
                 _ => AuthenticatorType.Totp,
             };
 
@@ -135,11 +136,15 @@ namespace AuthenticatorPro.Fragment
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 
-            _algorithmLayout.Visibility = _type.IsHmacBased()
+            _algorithmLayout.Visibility = _type.IsHmacBased() && _type != AuthenticatorType.SteamOtp
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
             _pinLayout.Visibility = _type == AuthenticatorType.MobileOtp
+                ? ViewStates.Visible
+                : ViewStates.Gone;
+
+            _digitsLayout.Visibility = _type != AuthenticatorType.SteamOtp
                 ? ViewStates.Visible
                 : ViewStates.Gone;
         }
@@ -210,7 +215,12 @@ namespace AuthenticatorPro.Fragment
                 isValid = false;
             }
 
-            if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < Authenticator.MinDigits || digits > Authenticator.MaxDigits)
+            int digits;
+            if(_type == AuthenticatorType.SteamOtp)
+            {
+                digits = SteamOtp.Digits;
+            }
+            else if(!Int32.TryParse(_digitsText.Text, out digits) || digits < Authenticator.MinDigits || digits > Authenticator.MaxDigits)
             {
                 _digitsLayout.Error = GetString(Resource.String.digitsInvalid);
                 isValid = false;
