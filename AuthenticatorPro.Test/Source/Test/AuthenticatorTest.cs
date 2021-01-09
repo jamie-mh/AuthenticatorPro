@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Test.Test
             "otpauth://totp/issuer:username?secret=ABCDEFG&period=0", // Invalid period 1/2
             "otpauth://totp/issuer:username?secret=ABCDEFG&period=test", // Invalid period 2/2
             "otpauth://hotp/issuer:username?secret=ABCDEFG&counter=test", // Invalid counter 1/2
-            "otpauth://hotp/issuer:username?secret=ABCDEFG&counter=-1", // Invalid counter 2/2
+            "otpauth://hotp/issuer:username?secret=ABCDEFG&counter=-1" // Invalid counter 2/2
         };
        
         [Test]
@@ -59,7 +59,10 @@ namespace AuthenticatorPro.Test.Test
             new object[] { $"otpauth://totp/{new string('a', Authenticator.IssuerMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = new string('a', Authenticator.IssuerMaxLength), Username = null, Secret = "ABCDEFG" }}, // Truncate issuer
             new object[] { $"otpauth://totp/issuer:{new string('a', Authenticator.UsernameMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = new string('a', Authenticator.UsernameMaxLength), Secret = "ABCDEFG" }}, // Truncate username
             new object[] { "otpauth://totp/%F0%9F%98%80%3Ausername?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "😀", Username = "username", Secret = "ABCDEFG" }}, // Multibyte characters 1/2
-            new object[] { "otpauth://totp/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C%3Ausername?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "你好世界", Username = "username", Secret = "ABCDEFG" }} // Multibyte characters 2/2
+            new object[] { "otpauth://totp/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C%3Ausername?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "你好世界", Username = "username", Secret = "ABCDEFG" }}, // Multibyte characters 2/2
+            new object[] { "otpauth://totp/Steam?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.SteamOtp, Digits = 5, Issuer = "Steam", Username = null, Secret = "ABCDEFG" }}, // Steam issuer no username
+            new object[] { "otpauth://totp/Steam:username?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.SteamOtp, Digits = 5, Issuer = "Steam", Username = "username", Secret = "ABCDEFG" }}, // Steam issuer and username
+            new object[] { "otpauth://totp/issuer:username?secret=ABCDEFG&steam", new Authenticator { Type = AuthenticatorType.SteamOtp, Digits = 5, Issuer = "issuer", Username = "username", Secret = "ABCDEFG" }} // Steam parameter
         };
        
         [Test]
@@ -148,6 +151,8 @@ namespace AuthenticatorPro.Test.Test
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Period = 60 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&period=60" }, // Period parameter
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha512 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512" }, // Algorithm parameter
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Digits = 7, Period = 60, Algorithm = OtpHashMode.Sha512 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512&digits=7&period=60" }, // All parameters
+            new object[] { new Authenticator { Type = AuthenticatorType.SteamOtp, Issuer = "Steam", Username = "username", Secret = "ABCDEFG", Digits = 5 }, "otpauth://totp/Steam%3Ausername?secret=ABCDEFG&issuer=Steam" }, // Steam issuer
+            new object[] { new Authenticator { Type = AuthenticatorType.SteamOtp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Digits = 5 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&steam" }, // Steam parameter 
         };
 
         [Test]
