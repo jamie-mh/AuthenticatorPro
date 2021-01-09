@@ -20,6 +20,9 @@ namespace AuthenticatorPro.Fragment
     {
         public event EventHandler<Authenticator> Add;
 
+        private LinearLayout _advancedLayout;
+        private MaterialButton _advancedButton;
+
         private TextInputLayout _issuerLayout;
         private TextInputLayout _usernameLayout;
         private TextInputLayout _secretLayout;
@@ -93,12 +96,12 @@ namespace AuthenticatorPro.Fragment
             algorithmEditText.SetText((ICharSequence) algorithmAdapter.GetItem(0), false);
             algorithmEditText.ItemClick += OnAlgorithmItemClick;
 
-            var advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutAdvanced);
-            var advancedButton = view.FindViewById<MaterialButton>(Resource.Id.buttonShowAdvanced);
-            advancedButton.Click += delegate
+            _advancedLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutAdvanced);
+            _advancedButton = view.FindViewById<MaterialButton>(Resource.Id.buttonShowAdvanced);
+            _advancedButton.Click += delegate
             {
-                advancedLayout.Visibility = ViewStates.Visible;
-                advancedButton.Visibility = ViewStates.Gone;
+                _advancedLayout.Visibility = ViewStates.Visible;
+                _advancedButton.Visibility = ViewStates.Gone;
             };
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
@@ -136,7 +139,7 @@ namespace AuthenticatorPro.Fragment
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 
-            _algorithmLayout.Visibility = _type.IsHmacBased() && _type != AuthenticatorType.SteamOtp
+            _algorithmLayout.Visibility = _type.IsHmacBased()
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
@@ -144,7 +147,8 @@ namespace AuthenticatorPro.Fragment
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            _digitsLayout.Visibility = _type != AuthenticatorType.SteamOtp
+            _advancedLayout.Visibility = ViewStates.Gone;
+            _advancedButton.Visibility = _type != AuthenticatorType.SteamOtp
                 ? ViewStates.Visible
                 : ViewStates.Gone;
         }
