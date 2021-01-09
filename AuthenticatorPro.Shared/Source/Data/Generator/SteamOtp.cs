@@ -6,6 +6,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class SteamOtp : IGenerator
     {
+        public const int Digits = SteamTotp.NumDigits;
         private readonly OtpNet.Totp _totp;
 
         public GenerationMethod GenerationMethod => GenerationMethod.Time;
@@ -44,7 +45,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
                 var builder = new StringBuilder();
 
-                for (var i = 0; i < NumDigits; i++) {
+                for(var i = 0; i < NumDigits; i++) {
                     builder.Append(Alphabet[otp % Alphabet.Length]);
                     otp /= Alphabet.Length;
                 }

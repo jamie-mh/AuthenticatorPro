@@ -229,8 +229,8 @@ namespace AuthenticatorPro.Test.Test
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = null, Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing secret 1/2
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Missing secret 2/2
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "11111111", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = Authenticator.DefaultPeriod }, false }, // Invalid secret 
-            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.MinDigits - 1, Period = Authenticator.DefaultPeriod }, false }, // Too few digits
-            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.MaxDigits + 1, Period = Authenticator.DefaultPeriod }, false }, // Too many digits
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = AuthenticatorType.Totp.GetMinDigits() - 1, Period = Authenticator.DefaultPeriod }, false }, // Too few digits
+            new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = AuthenticatorType.Totp.GetMaxDigits() + 1, Period = Authenticator.DefaultPeriod }, false }, // Too many digits
             new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = Authenticator.DefaultDigits, Period = -1 }, false } // Negative period
         };
 

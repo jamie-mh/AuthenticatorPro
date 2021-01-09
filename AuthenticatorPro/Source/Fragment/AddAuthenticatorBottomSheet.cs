@@ -215,7 +215,7 @@ namespace AuthenticatorPro.Fragment
                 isValid = false;
             }
 
-            if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < Authenticator.MinDigits || digits > Authenticator.MaxDigits)
+            if(!Int32.TryParse(_digitsText.Text, out var digits) || digits < _type.GetMinDigits() || digits > _type.GetMaxDigits())
             {
                 _digitsLayout.Error = GetString(Resource.String.digitsInvalid);
                 isValid = false;

@@ -33,5 +33,29 @@ namespace AuthenticatorPro.Shared.Data
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
         }
+
+        public static int GetMinDigits(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Hotp or 
+                AuthenticatorType.Totp or
+                AuthenticatorType.MobileOtp => 6,
+                AuthenticatorType.SteamOtp => SteamOtp.Digits,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
+        
+        public static int GetMaxDigits(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Hotp or 
+                AuthenticatorType.Totp or
+                AuthenticatorType.MobileOtp => 9,
+                AuthenticatorType.SteamOtp => SteamOtp.Digits,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
     }
 }

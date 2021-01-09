@@ -24,10 +24,6 @@ namespace AuthenticatorPro.Data
         public const int DefaultDigits = 6;
         public const int DefaultPeriod = 30;
 
-        public const int MinDigits = 6;
-        public const int MaxDigits = 10;
-
-
         [Column("type")]
         public AuthenticatorType Type { get; set; }
 
@@ -350,7 +346,7 @@ namespace AuthenticatorPro.Data
 
         public bool IsValid()
         {
-            return !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret, Type) && Digits >= MinDigits && Digits <= MaxDigits && Period > 0;
+            return !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret, Type) && Digits >= Type.GetMinDigits() && Digits <= Type.GetMaxDigits() && Period > 0;
         }
     }
 }
