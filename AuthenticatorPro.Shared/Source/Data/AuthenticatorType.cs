@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Shared.Data
             {
                 AuthenticatorType.Hotp or 
                 AuthenticatorType.Totp or
-                AuthenticatorType.MobileOtp => 9,
+                AuthenticatorType.MobileOtp => 10,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
