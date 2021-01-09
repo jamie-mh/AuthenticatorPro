@@ -57,6 +57,7 @@ namespace AuthenticatorPro.Shared.Data
             {"confluence", Resource.Drawable.auth_confluence},
             {"contabo", Resource.Drawable.auth_contabo},
             {"crowdin", Resource.Drawable.auth_crowdin},
+            {"ctemplar", Resource.Drawable.auth_ctemplar},
             {"dashlane", Resource.Drawable.auth_dashlane},
             {"digitalocean", Resource.Drawable.auth_digitalocean},
             {"directadmin", Resource.Drawable.auth_directadmin},
