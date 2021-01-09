@@ -7,7 +7,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
     public class SteamOtp : IGenerator
     {
         public const int Digits = SteamTotp.NumDigits;
-        private readonly OtpNet.Totp _totp;
+        private readonly SteamTotp _totp;
 
         public GenerationMethod GenerationMethod => GenerationMethod.Time;
 
