@@ -2,41 +2,39 @@
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
+    <!-- Non specific strings -->
+    <string name="warning">Attention</string>
+    <string name="delete">Supprimer</string>
+    <string name="add">Ajouter</string>
+    <string name="cancel">Annuler</string>
+    <string name="ok">OK</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="close">Fermer</string>
+    <string name="quit">Quitter</string>
+    <!-- Menu items -->
     <string name="settings">Paramètres</string>
     <string name="restore">Restaurer</string>
     <string name="backup">Sauvegarder</string>
-    <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
-    <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
-    <string name="backupHtml">Fichier HTML</string>
-    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
     <string name="about">À Propos</string>
     <string name="scanQrCode">Scanner un QR Code</string>
     <string name="scanQrCodeFromCamera">Scanner à partir de la caméra</string>
     <string name="scanQrCodeFromGallery">Scanner à partir d\'une image</string>
-    <string name="scanSuccessful">QR Code scanné avec succès</string>
-    <string name="enterKey">Utiliser une clé</string>
-    <string name="restoreBackup">Restorer une sauvegarde</string>
-    <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
-    <string name="warning">Attention</string>
-    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée sur votre compte.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nVoulez-vous vraiment continuer?</string>
-    <string name="delete">Supprimer</string>
-    <string name="add">Ajouter</string>
     <string name="rename">Renommer</string>
     <string name="changeIcon">Changer l\'icône</string>
-    <string name="useCustomIcon">Choisir une icône perso</string>
-    <string name="cancel">Annuler</string>
+    <string name="search">Rechercher</string>
+    <string name="mainMenu">Menu Principal</string>
+    <string name="enterKey">Utiliser une clé</string>
+    <string name="restoreBackup">Restorer une sauvegarde</string>
+    <!-- Authenticator -->
     <string name="issuer">Émetteur</string>
     <string name="username">Nom d\'utilisateur</string>
     <string name="secretKey">Clé secrète</string>
     <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
-    <string name="noAuthenticatorsTitle">C\'est vide !</string>
-    <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
-    <string name="search">Rechercher</string>
-    <string name="mainMenu">Menu Principal</string>
-    <string name="ok">OK</string>
-    <string name="yes">Oui</string>
-    <string name="no">Non</string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée sur votre compte.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nVoulez-vous vraiment continuer?</string>
+    <string name="useCustomIcon">Choisir une icône perso</string>
+    <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="issuerHint">Émetteur (ex: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
     <string name="usernameHint">Nom d\'utilisateur (ex: jean@example.com)</string>
@@ -44,12 +42,6 @@
     <string name="algorithmHint">Algorithme</string>
     <string name="digitsHint">Nombre de chiffres</string>
     <string name="periodHint">Période (secondes)</string>
-    <string name="passwordHint">Mot de passe de la sauvegarde</string>
-    <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
-    <string name="save">Sauvegarder</string>
-    <string name="saveFile">Sauvegarder le fichier</string>
-    <string name="openFile">Ouvrir un fichier</string>
-    <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
     <string name="noIssuer">Un émetteur est requis</string>
     <string name="noSecret">Une clé secrète est requise</string>
     <string name="noPin">Un code pin est requis</string>
@@ -62,6 +54,20 @@
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
+    <string name="scanSuccessful">QR Code scanné avec succès</string>
+    <!-- Backup menu -->
+    <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
+    <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
+    <string name="backupHtml">Fichier HTML</string>
+    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
+    <!-- Empty states -->
+    <string name="noAuthenticatorsTitle">C\'est vide !</string>
+    <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
+    <string name="gettingStartedGuide">Guide de démarrage</string>
+    <string name="noAuthenticatorsHelp">Si vous ouvrez l\'application pour la première fois, vous pouvez consulter le guide de démarrage rapide en tapant ci-dessous.</string>
+    <string name="noCategoriesTitle">Aucune catégorie</string>
+    <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant</string>
+    <!-- Categories -->
     <string name="categories">Catégories</string>
     <string name="assignCategories">Affecter des catégories</string>
     <string name="more">Plus</string>
@@ -71,30 +77,47 @@
     <string name="noCategoryName">Le nom de la catégorie est requis</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà</string>
     <string name="confirmCategoryDelete">Êtes-vous sûr de vouloir supprimer cette catégorie ?</string>
-    <string name="noCategoriesTitle">Aucune catégorie</string>
-    <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant</string>
+    <!-- Backups -->
     <string name="backupNow">Sauvegarder</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
-    <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
-    <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
     <string name="saveSuccess">Sauvegarde effectuée avec succès</string>
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>
     <string name="login">Connexion</string>
     <string name="loginMessage">Veuillez entrer votre mot de passe ou scanner une empreinte digitale pour accéder à vos authentificateurs</string>
     <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé. Voulez-vous continuer ?</string>
+    <string name="passwordHint">Mot de passe de la sauvegarde</string>
+    <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
+    <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
+    <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
-    <string name="genericError">Une erreur s\'est produite</string>
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
-    <string name="close">Fermer</string>
-    <string name="quit">Quitter</string>
+    <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
+    <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
+    <string name="genericError">Une erreur s\'est produite</string>
+    <!-- Auto backup -->
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="selectBackupLocation">Select Backup Location</string>
+    <string name="noBackupLocationSelected">No backup location selected</string>
+    <string name="backupLocationSetTo">Backup location set to {0}</string>
+    <string name="setBackupPassword">Set Backup Password</string>
+    <string name="backupPasswordNotSet">Password has not been set</string>
+    <string name="noBackupPassword">No backup password</string>
+    <string name="backupPasswordChosen">Backup password chosen</string>
+    <string name="autoBackupEnabled">Auto Backup Enabled</string>
+    <string name="testBackup">Test Backup</string>
+    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupTestTitle">Backup succeeded</string>
+    <string name="autoBackupTestText">Auto backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup Status</string>
+    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
+    <string name="backupScheduled">Backup scheduled</string>
     <!-- Getting Started Guide -->
-    <string name="gettingStartedGuide">Guide de démarrage</string>
-    <string name="noAuthenticatorsHelp">Si vous ouvrez l\'application pour la première fois, vous pouvez consulter le guide de démarrage rapide en tapant ci-dessous.</string>
     <string name="guideScanQRCodeTitle">Scanner un QR Code</string>
     <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez également renseigner les informations vous-même.</string>
     <string name="guideUseCodeTitle">Utiliser le code</string>
@@ -111,6 +134,8 @@
     <string name="prefGeneral">Paramètres généraux</string>
     <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
     <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
+    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefAppLockTitle">Verrouillage de l\'application</string>
     <string name="prefAppLockSummary">Exiger le déverrouillage par code pin ou empreinte digitale avant d\'accéder aux authentificateurs. Cette fonctionnalité exige d\'avoir configuré un écran de verrouillage sur l\'appareil.</string>
