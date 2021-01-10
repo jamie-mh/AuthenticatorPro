@@ -13,6 +13,12 @@
             android:title="@string/prefShowBackupRemindersTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true" />
+        <authenticatorpro.preference.AutoBackupPreference
+            android:key="pref_autoBackup"
+            android:summary="@string/prefAutoBackupSummary"
+            android:title="@string/prefAutoBackupTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="true" />
     </androidx.preference.PreferenceCategory>
     
     <androidx.preference.PreferenceCategory

@@ -14,8 +14,8 @@ namespace AuthenticatorPro.Fragment
     {
         public enum Mode
         {
-            Backup = 0,
-            Restore = 1
+            Set = 0,
+            Enter = 1
         }
 
         private readonly Mode _mode;
@@ -50,7 +50,7 @@ namespace AuthenticatorPro.Fragment
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
             cancelButton.Click += OnCancelButtonClick;
 
-            if(_mode == Mode.Backup)
+            if(_mode == Mode.Set)
             {
                 var message = view.FindViewById<TextView>(Resource.Id.textMessage);
                 message.Visibility = ViewStates.Visible; 
@@ -67,7 +67,7 @@ namespace AuthenticatorPro.Fragment
 
         private void OnOkButtonClick(object s, EventArgs e)
         {
-            if(_mode == Mode.Backup && _passwordText.Text == "")
+            if(_mode == Mode.Set && _passwordText.Text == "")
             {
                 var builder = new MaterialAlertDialogBuilder(Activity);
                 builder.SetTitle(Resource.String.warning);
@@ -77,7 +77,7 @@ namespace AuthenticatorPro.Fragment
                 builder.SetPositiveButton(Resource.String.yes, (sender, _) =>
                 {
                     ((AlertDialog) sender).Dismiss();
-                    PasswordEntered?.Invoke(this, null);
+                    PasswordEntered?.Invoke(this, "");
                 });
 
                 builder.SetCancelable(true);
@@ -91,6 +91,7 @@ namespace AuthenticatorPro.Fragment
 
         private void OnCancelButtonClick(object sender, EventArgs e)
         {
+            Dismiss();
             Cancel?.Invoke(this, null);
         }
     }

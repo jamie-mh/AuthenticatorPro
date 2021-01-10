@@ -14,9 +14,9 @@ namespace AuthenticatorPro.Activity
     [Activity]
     internal class SettingsActivity : DayNightActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
+        private SettingsFragment _fragment;
         private ProgressBar _progressBar;
         private bool _shouldRecreateMain;
-
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,11 +37,17 @@ namespace AuthenticatorPro.Activity
 
             _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
-            PreferenceManager.GetDefaultSharedPreferences(this)
-                .RegisterOnSharedPreferenceChangeListener(this);
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            prefs.RegisterOnSharedPreferenceChangeListener(this);
+
+            _fragment = new SettingsFragment();
+            _fragment.PreferencesCreated += (_, _) =>
+            {
+                UpdateBackupRemindersEnabled(prefs);
+            };
 
             SupportFragmentManager.BeginTransaction()
-                .Replace(Resource.Id.layoutFragment, new SettingsFragment())
+                .Replace(Resource.Id.layoutFragment, _fragment)
                 .Commit();
         }
 
@@ -64,6 +70,10 @@ namespace AuthenticatorPro.Activity
                 
                 case "pref_theme":
                     UpdateTheme();
+                    break;
+                
+                case "pref_autoBackupEnabled":
+                    UpdateBackupRemindersEnabled(sharedPreferences);
                     break;
             }
         }
@@ -88,6 +98,12 @@ namespace AuthenticatorPro.Activity
                     _progressBar.Visibility = ViewStates.Invisible;
                 });
             }
+        }
+
+        private void UpdateBackupRemindersEnabled(ISharedPreferences sharedPreferences)
+        {
+            var autoBackupEnabled = sharedPreferences.GetBoolean("pref_autoBackupEnabled", false);
+            _fragment.FindPreference("pref_showBackupReminders").Enabled = !autoBackupEnabled;
         }
 
         public override bool OnSupportNavigateUp()

@@ -997,15 +997,10 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Restore);
+            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
             fragment.PasswordEntered += async (_, password) =>
             {
                 await TryRestore(password, fragment);
-            };
-
-            fragment.Cancel += delegate
-            {
-                fragment.Dismiss();
             };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1076,7 +1071,7 @@ namespace AuthenticatorPro.Activity
 
         private void BeginBackupToFile(Uri uri)
         {
-            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Backup);
+            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
             fragment.PasswordEntered += async (sender, password) =>
             {
                 try
@@ -1180,8 +1175,9 @@ namespace AuthenticatorPro.Activity
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             var needsBackup = prefs.GetBoolean("needsBackup", false) && _authSource.GetAll().Any();
+            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
 
-            if(!needsBackup)
+            if(!needsBackup || autoBackupEnabled)
                 return;
 
             _lastBackupReminderTime = DateTime.UtcNow;
