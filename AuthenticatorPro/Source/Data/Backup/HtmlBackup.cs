@@ -4,7 +4,6 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Android.Content;
-using AuthenticatorPro.Shared.Data;
 using QRCoder;
 
 namespace AuthenticatorPro.Data.Backup
