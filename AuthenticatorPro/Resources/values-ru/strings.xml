@@ -2,41 +2,39 @@
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
+    <!-- Non specific strings -->
+    <string name="warning">Внимание</string>
+    <string name="delete">Удалить</string>
+    <string name="add">Добавить</string>
+    <string name="cancel">Отменить</string>
+    <string name="ok">Ок</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="close">Закрыть</string>
+    <string name="quit">Выход</string>
+    <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
     <string name="backup">Резервное копирование</string>
-    <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
-    <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
-    <string name="backupHtml">Резервное копирование в HTML файл</string>
-    <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
     <string name="about">О приложении</string>
     <string name="scanQrCode">Сканировать QR-код</string>
     <string name="scanQrCodeFromCamera">Сканировать с камеры</string>
     <string name="scanQrCodeFromGallery">Сканировать из галереи</string>
-    <string name="scanSuccessful">QR-код успешно отсканирован</string>
-    <string name="enterKey">Введите предоставленный ключ</string>
-    <string name="restoreBackup">Восстановление резервной копии</string>
-    <string name="copiedToClipboard">Код скопирован в буфер обмена</string>
-    <string name="warning">Внимание</string>
-    <string name="confirmAuthenticatorDelete">Удаление этого аутентификатора не позволит вам генерировать коды для этой учетной записи.\nЭто не означает, что для вашей учетной записи отключена двухфакторная аутентификация.\n\nУдаление этого аутентификатора может помешать вам получить доступ к вашей учетной записи.\nПожалуйста, убедитесь, что либо двухфакторная аутентификация отключена, либо у вас есть коды восстановления.\n\nВы уверены, что хотите продолжить?</string>
-    <string name="delete">Удалить</string>
-    <string name="add">Добавить</string>
     <string name="rename">Переименовать</string>
     <string name="changeIcon">Изменить иконку</string>
-    <string name="useCustomIcon">Использовать пользовательскую иконку</string>
-    <string name="cancel">Отменить</string>
+    <string name="search">Поиск</string>
+    <string name="mainMenu">Главное меню</string>
+    <string name="enterKey">Введите предоставленный ключ</string>
+    <string name="restoreBackup">Восстановление резервной копии</string>
+    <!-- Authenticator -->
     <string name="issuer">Издатель</string>
     <string name="username">Логин</string>
     <string name="secretKey">Секретный ключ</string>
     <string name="pin">PIN-код</string>
     <string name="showAdvancedOptions">Дополнительные параметры</string>
-    <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
-    <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
-    <string name="search">Поиск</string>
-    <string name="mainMenu">Главное меню</string>
-    <string name="ok">Ок</string>
-    <string name="yes">Да</string>
-    <string name="no">Нет</string>
+    <string name="confirmAuthenticatorDelete">Удаление этого аутентификатора не позволит вам генерировать коды для этой учетной записи.\nЭто не означает, что для вашей учетной записи отключена двухфакторная аутентификация.\n\nУдаление этого аутентификатора может помешать вам получить доступ к вашей учетной записи.\nПожалуйста, убедитесь, что либо двухфакторная аутентификация отключена, либо у вас есть коды восстановления.\n\nВы уверены, что хотите продолжить?</string>
+    <string name="useCustomIcon">Использовать пользовательскую иконку</string>
+    <string name="copiedToClipboard">Код скопирован в буфер обмена</string>
     <string name="issuerHint">Издатель (например: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
     <string name="usernameHint">Логин (например: john@example.com)</string>
@@ -44,12 +42,6 @@
     <string name="algorithmHint">Метод генерирования</string>
     <string name="digitsHint">Кол-во цифр</string>
     <string name="periodHint">Период (сек.)</string>
-    <string name="passwordHint">Пароль для резервной копии</string>
-    <string name="fileNameHint">Имя файла резервной копии</string>
-    <string name="save">Сохранить</string>
-    <string name="saveFile">Сохранить файл</string>
-    <string name="openFile">Открыть файл</string>
-    <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
     <string name="noIssuer">Обязательно укажите издателя.</string>
     <string name="noSecret">Требуется секретный ключ.</string>
     <string name="noPin">Требуется PIN-код.</string>
@@ -62,6 +54,20 @@
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
     <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
+    <string name="scanSuccessful">QR-код успешно отсканирован</string>
+    <!-- Backup menu -->
+    <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
+    <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
+    <string name="backupHtml">Резервное копирование в HTML файл</string>
+    <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
+    <!-- Empty states -->
+    <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
+    <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
+    <string name="gettingStartedGuide">Руководство по началу работы</string>
+    <string name="noAuthenticatorsHelp">Если вы новичок в Authenticator Pro, просмотрите начальное руководство, нажав ниже.</string>
+    <string name="noCategoriesTitle">Категории отсутствуют</string>
+    <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
+    <!-- Categories -->
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
     <string name="more">Подробнее</string>
@@ -71,30 +77,47 @@
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
     <string name="confirmCategoryDelete">Вы уверены в том, что хотите удалить эту категорию?</string>
-    <string name="noCategoriesTitle">Категории отсутствуют</string>
-    <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
+    <!-- Backups -->
     <string name="backupNow">Создать резервную копию</string>
     <string name="backupReminder">С момента вашего последнего резервного копирования были внесены изменения.</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
     <string name="restoreError">Неверный пароль или файл повреждён.</string>
-    <string name="filePickError">Ошибка при выборе файла.</string>
-    <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
     <string name="saveSuccess">Успешно сохранено</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Подтверждение пароля</string>
     <string name="login">Логин</string>
     <string name="loginMessage">Пожалуйста, введите ваш пароль или используйте отпечаток пальца для доступа к вашим аутентификаторам.</string>
     <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
+    <string name="passwordHint">Пароль для резервной копии</string>
+    <string name="fileNameHint">Имя файла резервной копии</string>
+    <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
+    <!-- Errors -->
     <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
-    <string name="genericError">Произошла ошибка.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
-    <string name="close">Закрыть</string>
-    <string name="quit">Выход</string>
+    <string name="filePickError">Ошибка при выборе файла.</string>
+    <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
+    <string name="genericError">Произошла ошибка.</string>
+    <!-- Auto backup -->
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="selectBackupLocation">Select Backup Location</string>
+    <string name="noBackupLocationSelected">No backup location selected</string>
+    <string name="backupLocationSetTo">Backup location set to {0}</string>
+    <string name="setBackupPassword">Set Backup Password</string>
+    <string name="backupPasswordNotSet">Password has not been set</string>
+    <string name="noBackupPassword">No backup password</string>
+    <string name="backupPasswordChosen">Backup password chosen</string>
+    <string name="autoBackupEnabled">Auto Backup Enabled</string>
+    <string name="testBackup">Test Backup</string>
+    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupTestTitle">Backup succeeded</string>
+    <string name="autoBackupTestText">Auto backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup Status</string>
+    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
+    <string name="backupScheduled">Backup scheduled</string>
     <!-- Getting Started Guide -->
-    <string name="gettingStartedGuide">Руководство по началу работы</string>
-    <string name="noAuthenticatorsHelp">Если вы новичок в Authenticator Pro, просмотрите начальное руководство, нажав ниже.</string>
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
     <string name="guideScanQRCodeSummary">Чтобы добавить аутентификатор, отсканируйте QR-код, предоставленный приложением или службой. Он будет добавлен в список и будет генерировать новые коды автоматически. Вы также можете ввести данные вручную.</string>
     <string name="guideUseCodeTitle">Используйте код при входе в систему</string>
@@ -111,6 +134,8 @@
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
     <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.</string>
+    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefAppLockTitle">Блокировка приложения</string>
     <string name="prefAppLockSummary">Требовать аутентификацию для доступа к аутентификаторам. Эта функция использует настройки экрана блокировки на вашем устройстве.</string>
