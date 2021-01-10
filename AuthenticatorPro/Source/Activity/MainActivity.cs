@@ -272,6 +272,7 @@ namespace AuthenticatorPro.Activity
         #region Activity Events
         protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
+            base.OnActivityResult(requestCode, resultCode, intent);
             _returnedFromResult = true;
             
             if(resultCode != Result.Ok)
