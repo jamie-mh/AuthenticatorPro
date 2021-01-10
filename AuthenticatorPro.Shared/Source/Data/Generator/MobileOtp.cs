@@ -14,8 +14,6 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
         private DateTimeOffset _computedAt;
 
-        public GenerationMethod GenerationMethod => GenerationMethod.Time;
-        
         public MobileOtp(string secret, int digits, int period)
         {
             _secret = secret;

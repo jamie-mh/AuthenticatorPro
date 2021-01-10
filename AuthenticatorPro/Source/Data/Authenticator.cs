@@ -88,7 +88,7 @@ namespace AuthenticatorPro.Data
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
             
-            switch(_generator.GenerationMethod)
+            switch(Type.GetGenerationMethod())
             {
                 case GenerationMethod.Counter:
                 {

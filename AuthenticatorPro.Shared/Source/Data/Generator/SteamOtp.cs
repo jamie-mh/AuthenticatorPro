@@ -9,8 +9,6 @@ namespace AuthenticatorPro.Shared.Data.Generator
         public const int Digits = SteamTotp.NumDigits;
         private readonly SteamTotp _totp;
 
-        public GenerationMethod GenerationMethod => GenerationMethod.Time;
-
         public SteamOtp(string secret)
         {
             var secretBytes = Base32Encoding.ToBytes(secret);
