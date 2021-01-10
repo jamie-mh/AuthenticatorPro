@@ -2,41 +2,39 @@
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">ตัวรับรองความถูกต้องของ</string>
+    <!-- Non specific strings -->
+    <string name="warning">คำเตือน</string>
+    <string name="delete">ลบ</string>
+    <string name="add">เพิ่ม</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="ok">ตกลง</string>
+    <string name="yes">ใช่</string>
+    <string name="no">ไม่ใช่</string>
+    <string name="close">Close</string>
+    <string name="quit">Quit</string>
+    <!-- Menu items -->
     <string name="settings">การตั้งค่า</string>
     <string name="restore"> กู้คืน</string>
     <string name="backup">การสำรองข้อมูล</string>
-    <string name="backupToFile">Backup to encrypted file (recommended)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
-    <string name="backupHtml">Backup to HTML file</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
     <string name="about">เกี่ยวกับ</string>
     <string name="scanQrCode">สแกนรหัส QR</string>
     <string name="scanQrCodeFromCamera">Scan from camera</string>
     <string name="scanQrCodeFromGallery">Scan from gallery</string>
-    <string name="scanSuccessful">QR Code scanned successfully</string>
-    <string name="enterKey">Enter a provided key</string>
-    <string name="restoreBackup">Restore a backup</string>
-    <string name="copiedToClipboard">Code copied to clipboard</string>
-    <string name="warning">คำเตือน</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
-    <string name="delete">ลบ</string>
-    <string name="add">เพิ่ม</string>
     <string name="rename">เปลี่ยนชื่อ</string>
     <string name="changeIcon">Change Icon</string>
-    <string name="useCustomIcon">Use Custom Icon</string>
-    <string name="cancel">ยกเลิก</string>
+    <string name="search">Search</string>
+    <string name="mainMenu">Main Menu</string>
+    <string name="enterKey">Enter a provided key</string>
+    <string name="restoreBackup">Restore a backup</string>
+    <!-- Authenticator -->
     <string name="issuer">Issuer</string>
     <string name="username">ชื่อผู้ใช้</string>
     <string name="secretKey">Secret Key</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
-    <string name="noAuthenticatorsTitle">Nothing here!</string>
-    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
-    <string name="search">Search</string>
-    <string name="mainMenu">Main Menu</string>
-    <string name="ok">ตกลง</string>
-    <string name="yes">ใช่</string>
-    <string name="no">ไม่ใช่</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
+    <string name="useCustomIcon">Use Custom Icon</string>
+    <string name="copiedToClipboard">Code copied to clipboard</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
     <string name="usernameHint">Username (eg: john@example.com)</string>
@@ -44,12 +42,6 @@
     <string name="algorithmHint">อัลกอริทึ่ม</string>
     <string name="digitsHint">หลัก</string>
     <string name="periodHint">Period (Seconds)</string>
-    <string name="passwordHint">Backup Password</string>
-    <string name="fileNameHint">Backup File Name</string>
-    <string name="save">Save</string>
-    <string name="saveFile">Save File</string>
-    <string name="openFile">Open File</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
     <string name="noIssuer">An issuer is required</string>
     <string name="noSecret">A secret key is required</string>
     <string name="noPin">A pin is required</string>
@@ -62,6 +54,20 @@
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromMigration">Restored {0} new authenticators</string>
+    <string name="scanSuccessful">QR Code scanned successfully</string>
+    <!-- Backup menu -->
+    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupHtml">Backup to HTML file</string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
+    <!-- Empty states -->
+    <string name="noAuthenticatorsTitle">Nothing here!</string>
+    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
+    <string name="gettingStartedGuide">Getting Started Guide</string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
+    <string name="noCategoriesTitle">No Categories</string>
+    <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
+    <!-- Categories -->
     <string name="categories">Categories</string>
     <string name="assignCategories">Assign Categories</string>
     <string name="more">More</string>
@@ -71,30 +77,47 @@
     <string name="noCategoryName">A category name is required</string>
     <string name="duplicateCategory">A category with this name already exists</string>
     <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
-    <string name="noCategoriesTitle">No Categories</string>
-    <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
+    <!-- Backups -->
     <string name="backupNow">Backup Now</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="restoreError">The password is incorrect or the file is corrupt</string>
-    <string name="filePickError">Error picking file</string>
-    <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
     <string name="saveSuccess">Saved successfully</string>
     <string name="password">Password</string>
     <string name="passwordConfirm">Password Confirm</string>
     <string name="login">Login</string>
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vulnerable. Do you wish to continue?</string>
+    <string name="passwordHint">Backup Password</string>
+    <string name="fileNameHint">Backup File Name</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
+    <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
-    <string name="genericError">An error occurred</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
-    <string name="close">Close</string>
-    <string name="quit">Quit</string>
+    <string name="filePickError">Error picking file</string>
+    <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
+    <string name="genericError">An error occurred</string>
+    <!-- Auto backup -->
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="selectBackupLocation">Select Backup Location</string>
+    <string name="noBackupLocationSelected">No backup location selected</string>
+    <string name="backupLocationSetTo">Backup location set to {0}</string>
+    <string name="setBackupPassword">Set Backup Password</string>
+    <string name="backupPasswordNotSet">Password has not been set</string>
+    <string name="noBackupPassword">No backup password</string>
+    <string name="backupPasswordChosen">Backup password chosen</string>
+    <string name="autoBackupEnabled">Auto Backup Enabled</string>
+    <string name="testBackup">Test Backup</string>
+    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupTestTitle">Backup succeeded</string>
+    <string name="autoBackupTestText">Auto backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup Status</string>
+    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
+    <string name="backupScheduled">Backup scheduled</string>
     <!-- Getting Started Guide -->
-    <string name="gettingStartedGuide">Getting Started Guide</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
     <string name="guideScanQRCodeTitle">Scan a QR Code</string>
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Use the code when logging in</string>
@@ -111,6 +134,8 @@
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Show Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
+    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Security</string>
     <string name="prefAppLockTitle">App Lock</string>
     <string name="prefAppLockSummary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
