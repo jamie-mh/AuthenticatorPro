@@ -60,7 +60,7 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>Full</AndroidLinkMode>
-    <AndroidLinkSkip>protobuf-net;protobuf-net.Core;Xamarin.AndroidX.Biometric</AndroidLinkSkip>
+    <AndroidLinkSkip>protobuf-net;protobuf-net.Core</AndroidLinkSkip>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
     <AotAssemblies>true</AotAssemblies>
