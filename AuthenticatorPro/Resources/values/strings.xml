@@ -123,7 +123,7 @@
     <string name="noBackupPassword">No backup password</string>
     <string name="backupPasswordChosen">Backup password chosen</string>
     
-    <string name="autoBackupsEnabled">Auto Backups Enabled</string>
+    <string name="autoBackupEnabled">Auto Backup Enabled</string>
     <string name="testBackup">Test Backup</string>
     
     <string name="autoBackupFailureTitle">Auto backup failed</string>

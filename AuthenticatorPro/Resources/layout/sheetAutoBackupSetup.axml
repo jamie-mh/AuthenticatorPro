@@ -81,7 +81,7 @@
                 android:layout_marginBottom="16dp"
                 android:checked="false"
                 android:textSize="16sp"
-                android:text="@string/autoBackupsEnabled"/>
+                android:text="@string/autoBackupEnabled"/>
 
             <LinearLayout
                 android:orientation="horizontal"
