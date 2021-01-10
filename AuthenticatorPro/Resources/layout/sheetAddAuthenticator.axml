@@ -36,7 +36,7 @@
                 android:hint="@string/typeHint"
                 android:id="@+id/editTypeLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="22dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -156,7 +156,7 @@
                     android:hint="@string/algorithmHint"
                     android:id="@+id/editAlgorithmLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="22dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
