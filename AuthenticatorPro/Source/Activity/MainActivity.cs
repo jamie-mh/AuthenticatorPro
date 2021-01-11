@@ -1357,6 +1357,10 @@ namespace AuthenticatorPro.Activity
             {
                 await _customIconSource.Add(icon);
             }
+            catch(ArgumentException)
+            {
+                // Duplicate icon, ignore 
+            }
             catch
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
