@@ -159,17 +159,17 @@ namespace AuthenticatorPro.Fragment
         private void UpdateLocationStatusText()
         {
             _locationStatusText.Text = _backupLocationUri == null
-                ? GetString(Resource.String.noBackupLocationSelected)
-                : String.Format(GetString(Resource.String.backupLocationSetTo), _backupLocationUri);
+                ? GetString(Resource.String.noLocationSelected)
+                : String.Format(GetString(Resource.String.locationSetTo), _backupLocationUri);
         }
 
         private void UpdatePasswordStatusText()
         {
             _passwordStatusText.SetText(_password switch
             {
-                null => Resource.String.backupPasswordNotSet,
-                "" => Resource.String.noBackupPassword,
-                _ => Resource.String.backupPasswordSet
+                null => Resource.String.passwordNotSet,
+                "" => Resource.String.noPassword,
+                _ => Resource.String.passwordSet
             });
         }
 

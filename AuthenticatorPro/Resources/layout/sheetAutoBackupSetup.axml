@@ -46,7 +46,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/selectBackupLocation" />
+                android:text="@string/selectLocation" />
 
             <TextView
                 android:id="@+id/textLocationStatus"
@@ -63,7 +63,7 @@
                 android:layout_marginBottom="4dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/setBackupPassword" />
+                android:text="@string/setPassword" />
             
             <TextView
                 android:id="@+id/textPasswordStatus"
@@ -83,7 +83,7 @@
                 android:textSize="16sp"
                 app:thumbTint="@drawable/switchmaterialthumb"
                 app:trackTint="@drawable/switchmaterialtrack"
-                android:text="@string/autoBackupEnabled"/>
+                android:text="@string/enableAutoBackups"/>
 
             <LinearLayout
                 android:orientation="horizontal"
