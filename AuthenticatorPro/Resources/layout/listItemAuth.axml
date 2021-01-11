@@ -93,7 +93,8 @@
                 android:src="@drawable/ic_action_more_vert"
                 android:scaleType="centerInside"
                 android:textSize="14dp"
-                android:background="@android:color/transparent"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_marginBottom="2dp"
                 android:layout_width="48dp"
                 android:layout_height="30dp" />
 
@@ -103,7 +104,7 @@
                 android:src="@drawable/ic_action_refresh"
                 android:scaleType="centerInside"
                 android:textSize="14dp"
-                android:background="@android:color/transparent"
+                android:background="?selectableItemBackgroundBorderless"
                 android:visibility="gone"
                 android:layout_width="48dp"
                 android:layout_height="30dp" />
