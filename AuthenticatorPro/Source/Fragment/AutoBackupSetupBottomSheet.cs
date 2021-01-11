@@ -168,7 +168,7 @@ namespace AuthenticatorPro.Fragment
             _passwordStatusText.SetText(_password switch
             {
                 null => Resource.String.passwordNotSet,
-                "" => Resource.String.noPassword,
+                "" => Resource.String.notPasswordProtected,
                 _ => Resource.String.passwordSet
             });
         }

@@ -121,7 +121,7 @@
     <string name="setPassword">Set Password</string>
     <string name="passwordNotSet">Password has not been set</string>
     <string name="passwordSet">Password set</string>
-    <string name="noPassword">No password</string>
+    <string name="notPasswordProtected">Not password protected</string>
     
     <string name="enableAutoBackups">Enable Auto Backups</string>
     <string name="testBackup">Test Backup</string>
