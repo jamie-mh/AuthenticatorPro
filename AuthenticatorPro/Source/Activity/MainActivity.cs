@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,17 +25,18 @@ using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Data.Backup;
+using AuthenticatorPro.Data.Backup.Converter;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
 using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
-using Java.IO;
 using Java.Nio;
 using SQLite;
 using ZXing;
@@ -58,14 +58,16 @@ namespace AuthenticatorPro.Activity
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
-        // Result Codes
+        // Request codes
         private const int ResultLogin = 0;
-        private const int ResultRestoreSAF = 1;
-        private const int ResultBackupFileSAF = 2;
-        private const int ResultBackupHtmlSAF = 3;
-        private const int ResultQRCodeSAF = 4;
-        private const int ResultCustomIconSAF = 5;
+        private const int ResultRestore = 1;
+        private const int ResultBackupFile = 2;
+        private const int ResultBackupHtml = 3;
+        private const int ResultQRCode = 4;
+        private const int ResultCustomIcon = 5;
         private const int ResultSettingsRecreate = 6;
+        private const int ResultImportAuthenticatorPlus = 7;
+        private const int ResultImportWinAuth = 8;
 
         private const int BackupReminderThresholdMinutes = 120;
         private const int AppLockThresholdMinutes = 1;
@@ -294,24 +296,32 @@ namespace AuthenticatorPro.Activity
             
             switch(requestCode)
             {
-                case ResultRestoreSAF:
+                case ResultRestore:
                     await BeginRestore(intent.Data);
                     break;
                 
-                case ResultBackupFileSAF:
+                case ResultBackupFile:
                     BeginBackupToFile(intent.Data);
                     break;
                 
-                case ResultBackupHtmlSAF:
+                case ResultBackupHtml:
                     await DoHtmlBackup(intent.Data);
                     break;
                 
-                case ResultCustomIconSAF:
+                case ResultCustomIcon:
                     await SetCustomIcon(intent.Data);
                     break;
                 
-                case ResultQRCodeSAF:
+                case ResultQRCode:
                     await ScanQRCodeFromImage(intent.Data);
+                    break;
+                
+                case ResultImportAuthenticatorPlus:
+                    await DoImport(new AuthenticatorPlusBackupConverter(), intent.Data);
+                    break;
+                
+                case ResultImportWinAuth:
+                    await DoImport(new WinAuthBackupConverter(), intent.Data);
                     break;
             }
         }
@@ -682,17 +692,28 @@ namespace AuthenticatorPro.Activity
             {
                 var subFragment = new ScanQRCodeBottomSheet();
                 subFragment.ClickFromCamera += async delegate { await RequestPermissionThenScanQRCode(); };
-                subFragment.ClickFromGallery += delegate { OpenImagePicker(ResultQRCodeSAF); };
+                subFragment.ClickFromGallery += delegate { OpenFilePicker("image/*", ResultQRCode); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
             
             fragment.ClickEnterKey += OpenAddDialog;
             fragment.ClickRestore += delegate
             {
-                var intent = new Intent(Intent.ActionOpenDocument);
-                intent.AddCategory(Intent.CategoryOpenable);
-                intent.SetType("application/octet-stream");
-                StartActivityForResult(intent, ResultRestoreSAF);
+                OpenFilePicker("application/octet-stream", ResultRestore);
+            };
+            
+            fragment.ClickImport += delegate
+            {
+                var sub = new ImportBottomSheet();
+                sub.ClickAuthenticatorPlus += (_, _) =>
+                {
+                    OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
+                };
+                sub.ClickWinAuth += (_, _) =>
+                {
+                    OpenFilePicker("text/plain", ResultImportWinAuth);
+                };
+                sub.Show(SupportFragmentManager, fragment.Tag);
             };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -722,31 +743,17 @@ namespace AuthenticatorPro.Activity
 
         private async Task ScanQRCodeFromImage(Uri uri)
         {
-            MemoryStream memoryStream = null;
-            Stream stream = null;
-            Bitmap bitmap = null;
+            Bitmap bitmap;
 
             try
             {
-                await Task.Run(async delegate
-                {
-                    stream = ContentResolver.OpenInputStream(uri);
-                    memoryStream = new MemoryStream();
-                    await stream.CopyToAsync(memoryStream);
-                    
-                    var fileData = memoryStream.ToArray();
-                    bitmap = await BitmapFactory.DecodeByteArrayAsync(fileData, 0, fileData.Length);
-                });
+                var data = await FileUtil.ReadFile(this, uri);
+                bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
             }
             catch(Exception)
             {
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
-            }
-            finally
-            {
-                memoryStream?.Close();
-                stream?.Close();
             }
 
             if(bitmap == null)
@@ -921,35 +928,22 @@ namespace AuthenticatorPro.Activity
         }
         #endregion
 
-        #region Restore
+        #region Restore / Import
         private async Task BeginRestore(Uri uri)
         {
-            MemoryStream memoryStream = null;
-            Stream stream = null;
-            byte[] fileData = null;
+            byte[] data;
 
             try
             {
-                await Task.Run(async delegate
-                {
-                    stream = ContentResolver.OpenInputStream(uri);
-                    memoryStream = new MemoryStream();
-                    await stream.CopyToAsync(memoryStream);
-                    fileData = memoryStream.ToArray();
-                });
+                data = await FileUtil.ReadFile(this, uri);
             }
             catch(Exception)
             {
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
-            finally
-            {
-                memoryStream?.Close();
-                stream?.Close();
-            }
             
-            if(fileData == null || fileData.Length == 0)
+            if(data.Length == 0)
             {
                 ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                 return;
@@ -961,7 +955,8 @@ namespace AuthenticatorPro.Activity
 
                 try
                 {
-                    (authCount, categoryCount) = await DoRestore(fileData, password);
+                    var backup = Backup.FromBytes(data, password);
+                    (authCount, categoryCount) = await DoRestore(backup);
                 }
                 catch(ArgumentException)
                 {
@@ -991,7 +986,7 @@ namespace AuthenticatorPro.Activity
             }
 
             // Open and closed curly brace (file is not encrypted)
-            if(fileData[0] == '{' && fileData[^1] == '}')
+            if(data[0] == '{' && data[^1] == '}')
             {
                 await TryRestore(null, null);
                 return;
@@ -1005,24 +1000,112 @@ namespace AuthenticatorPro.Activity
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
-
-        private async Task<Tuple<int, int>> DoRestore(byte[] fileData, string password)
+        
+        private async Task<Tuple<int, int>> DoRestore(Backup backup)
         {
-            var backup = Backup.FromBytes(fileData, password);
-
             if(backup.Authenticators == null)
                 throw new ArgumentException();
 
-            var authenticatorsAdded = await _authSource.AddMany(backup.Authenticators);
-            var categoriesAdded = await _categorySource.AddMany(backup.Categories);
+            var authenticatorsAdded = backup.Authenticators != null
+                ? await _authSource.AddMany(backup.Authenticators)
+                : 0;
+
+            var categoriesAdded = backup.Categories != null
+                ? await _categorySource.AddMany(backup.Categories)
+                : 0;
             
-            _ = await _authSource.AddManyCategoryBindings(backup.AuthenticatorCategories);
+            if(backup.AuthenticatorCategories != null)
+                _ = await _authSource.AddManyCategoryBindings(backup.AuthenticatorCategories);
             
-            // Older backups might not have custom icons
             if(backup.CustomIcons != null)
                 _ = await _customIconSource.AddMany(backup.CustomIcons);
 
             return new Tuple<int, int>(authenticatorsAdded, categoriesAdded);
+        }
+
+        private async Task DoImport(BackupConverter converter, Uri uri)
+        {
+            byte[] data;
+
+            try
+            {
+                data = await FileUtil.ReadFile(this, uri);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                return;
+            }
+            
+            int authCount, categoryCount;
+            BackupPasswordBottomSheet sheet;
+            
+            async Task<Tuple<int, int>> ConvertAndRestore(string password)
+            {
+                var backup = await converter.Convert(data, password);
+                return await DoRestore(backup);
+            }
+
+            async Task OnSuccess()
+            {
+                RunOnUiThread(CheckEmptyState);
+                await UpdateList(true);
+
+                var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
+                ShowSnackbar(message, Snackbar.LengthLong);
+
+                await NotifyWearAppOfChange();
+            }
+
+            void ShowPasswordSheet()
+            {
+                sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
+                sheet.PasswordEntered += async (_, password) =>
+                {
+                    try
+                    {
+                        (authCount, categoryCount) = await ConvertAndRestore(password);
+                        sheet.Dismiss();
+                        await OnSuccess();
+                    }
+                    catch(ArgumentException)
+                    {
+                        sheet.Error = GetString(Resource.String.restoreError);
+                    }
+                };
+                sheet.Show(SupportFragmentManager, sheet.Tag);
+            }
+
+            switch(converter.PasswordPolicy)
+            {
+                case BackupConverter.BackupPasswordPolicy.Never:
+                    try
+                    {
+                        (authCount, categoryCount) = await ConvertAndRestore(null);
+                        await OnSuccess();
+                    }
+                    catch(ArgumentException)
+                    {
+                        ShowSnackbar(Resource.String.restoreError, Snackbar.LengthShort);
+                    }
+                    break;
+                
+                case BackupConverter.BackupPasswordPolicy.Always:
+                    ShowPasswordSheet();
+                    break;
+                
+                case BackupConverter.BackupPasswordPolicy.Maybe:
+                    try
+                    {
+                        (authCount, categoryCount) = await ConvertAndRestore(null);
+                        await OnSuccess();
+                    }
+                    catch(ArgumentException)
+                    {
+                        ShowPasswordSheet(); 
+                    }
+                    break;
+            }
         }
         #endregion
 
@@ -1044,7 +1127,7 @@ namespace AuthenticatorPro.Activity
 
             try
             {
-                StartActivityForResult(intent, ResultBackupFileSAF);
+                StartActivityForResult(intent, ResultBackupFile);
             }
             catch(ActivityNotFoundException)
             {
@@ -1061,7 +1144,7 @@ namespace AuthenticatorPro.Activity
 
             try
             {
-                StartActivityForResult(intent, ResultBackupHtmlSAF);
+                StartActivityForResult(intent, ResultBackupHtml);
             }
             catch(ActivityNotFoundException)
             {
@@ -1106,29 +1189,14 @@ namespace AuthenticatorPro.Activity
         {
             var backup = await HtmlBackup.FromAuthenticatorList(this, _authSource.GetAll());
 
-            Stream output = null;
-            BufferedWriter writer = null;
-
             try
             {
-                await Task.Run(async delegate
-                {
-                    output = ContentResolver.OpenOutputStream(uri);
-                    writer = new BufferedWriter(new OutputStreamWriter(output));
-
-                    await writer.WriteAsync(backup.ToString());
-                    await writer.FlushAsync();
-                });
+                await FileUtil.WriteFile(this, uri, backup.ToString());
             }
             catch(Exception)
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
-            }
-            finally
-            {
-                writer?.Close();
-                output?.Close();
             }
             
             PreferenceManager.GetDefaultSharedPreferences(this)
@@ -1148,27 +1216,8 @@ namespace AuthenticatorPro.Activity
                 _customIconSource.GetAll()
             );
 
-            var dataToWrite = backup.ToBytes(password);
-
-            // Run backup on separate thread, backups on the main thread fail when using Nextcloud
-            await Task.Run(async delegate
-            {
-                // This is the only way of reliably writing files using SAF on Xamarin.
-                // A file output stream will usually create 0 byte files on virtual storage such as Google Drive
-                var output = ContentResolver.OpenOutputStream(uri, "rwt");
-                var dataStream = new DataOutputStream(output);
-
-                try
-                {
-                    await dataStream.WriteAsync(dataToWrite);
-                    await dataStream.FlushAsync();
-                }
-                finally
-                {
-                    dataStream.Close();
-                    output.Close();
-                }
-            });
+            var data = backup.ToBytes(password);
+            await FileUtil.WriteFile(this, uri, data);
         }
         
         private void RemindBackup()
@@ -1284,7 +1333,7 @@ namespace AuthenticatorPro.Activity
             fragment.UseCustomIconClick += delegate 
             {
                 _customIconApplyPosition = position;
-                OpenImagePicker(ResultCustomIconSAF);
+                OpenFilePicker("image/*", ResultCustomIcon);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1320,32 +1369,17 @@ namespace AuthenticatorPro.Activity
         #region Custom Icons
         private async Task SetCustomIcon(Uri uri)
         {
-            MemoryStream memoryStream = null;
-            Stream stream = null;
             CustomIcon icon;
 
             try
             {
-                memoryStream = new MemoryStream();
-                
-                await Task.Run(async delegate
-                {
-                    stream = ContentResolver.OpenInputStream(uri);
-                    await stream.CopyToAsync(memoryStream);
-                });
-                
-                var fileData = memoryStream.ToArray();
-                icon = await CustomIcon.FromBytes(fileData);
+                var data = await FileUtil.ReadFile(this, uri);
+                icon = await CustomIcon.FromBytes(data);
             }
             catch(Exception)
             {
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
-            }
-            finally
-            {
-                memoryStream?.Close();
-                stream?.Close();
             }
             
             var auth = _authSource.Get(_customIconApplyPosition);
@@ -1547,15 +1581,15 @@ namespace AuthenticatorPro.Activity
             dialog.Show();
         }
         
-        private void OpenImagePicker(int resultCode)
+        private void OpenFilePicker(string mimeType, int requestCode)
         {
             var intent = new Intent(Intent.ActionOpenDocument);
             intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("image/*");
+            intent.SetType(mimeType);
 
             try
             {
-                StartActivityForResult(intent, resultCode);
+                StartActivityForResult(intent, requestCode);
             }
             catch(ActivityNotFoundException)
             {

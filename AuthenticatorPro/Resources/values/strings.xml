@@ -1,5 +1,5 @@
 <resources>
-    <string name="appName">Authenticator Pro</string>
+    <string name="appName" translatable="false">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
 
     <!-- Non specific strings -->
@@ -136,6 +136,12 @@
     <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     
     <string name="backupScheduled">Backup scheduled</string>
+    
+    <!-- Import -->
+    <string name="importFromAnotherApp">Import from another app</string>
+    <string name="importFrom">Import from</string>
+    <string name="authenticatorPlus" translatable="false">Authenticator Plus</string>
+    <string name="winAuth" translatable="false">WinAuth</string>
     
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>

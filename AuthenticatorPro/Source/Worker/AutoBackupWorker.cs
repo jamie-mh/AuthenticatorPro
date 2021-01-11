@@ -5,7 +5,6 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
 using Android.Util;
 using AndroidX.Core.App;
 using AndroidX.DocumentFile.Provider;
