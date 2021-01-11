@@ -29,7 +29,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:scaleType="centerInside"
-        android:background="@android:color/transparent"
+        android:background="?selectableItemBackgroundBorderless"
         android:layout_width="24dp"
         android:layout_height="24dp" />
 
