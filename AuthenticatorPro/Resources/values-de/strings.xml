@@ -101,14 +101,14 @@
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
-    <string name="selectBackupLocation">Select Backup Location</string>
-    <string name="noBackupLocationSelected">No backup location selected</string>
-    <string name="backupLocationSetTo">Backup location set to {0}</string>
-    <string name="setBackupPassword">Set Backup Password</string>
-    <string name="backupPasswordNotSet">Password has not been set</string>
-    <string name="noBackupPassword">No backup password</string>
-    <string name="backupPasswordChosen">Backup password chosen</string>
-    <string name="autoBackupEnabled">Auto Backup Enabled</string>
+    <string name="selectLocation">Select Location</string>
+    <string name="noLocationSelected">No location selected</string>
+    <string name="locationSetTo">Location set to {0}</string>
+    <string name="setPassword">Set Password</string>
+    <string name="passwordNotSet">Password has not been set</string>
+    <string name="passwordSet">Password set</string>
+    <string name="notPasswordProtected">Not password protected</string>
+    <string name="enableAutoBackups">Enable Auto Backups</string>
     <string name="testBackup">Test Backup</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
