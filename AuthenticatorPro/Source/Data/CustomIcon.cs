@@ -116,10 +116,13 @@ namespace AuthenticatorPro.Data
             if(bitmap == null)
                 throw new Exception("Image could not be loaded.");
 
-            if(bitmap.HasAlpha)
-                bitmap = TrimWhitespace(bitmap);
-            
-            bitmap = ToSquare(bitmap);
+            await Task.Run(delegate
+            {
+                if(bitmap.HasAlpha)
+                    bitmap = TrimWhitespace(bitmap);
+                
+                bitmap = ToSquare(bitmap);
+            });
             
             var size = Math.Min(MaxSize, bitmap.Width); // width or height, doesn't matter as it's square
             var stream = new MemoryStream();
