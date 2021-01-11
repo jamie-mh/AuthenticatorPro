@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -169,7 +169,7 @@ namespace AuthenticatorPro.Fragment
             {
                 null => Resource.String.backupPasswordNotSet,
                 "" => Resource.String.noBackupPassword,
-                _ => Resource.String.backupPasswordChosen
+                _ => Resource.String.backupPasswordSet
             });
         }
 
