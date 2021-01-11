@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -180,7 +181,7 @@ namespace AuthenticatorPro.Data
 
         public static Authenticator FromOtpAuthUri(string uri)
         {
-            var uriMatch = Regex.Match(Uri.UnescapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/(.*)\?(.*)$");
+            var uriMatch = Regex.Match(Uri.UnescapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/([^?]*)(.*)$");
 
             if(!uriMatch.Success)
                 throw new ArgumentException("URI is not valid");
@@ -190,8 +191,12 @@ namespace AuthenticatorPro.Data
             var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*):(.*)$");
             
             var queryString = uriMatch.Groups[3].Value;
-            var args = Regex.Matches(queryString, "([^?=&]+)(=([^&]*))?")
-                .ToDictionary(x => x.Groups[1].Value, x => x.Groups[3].Value);
+
+            var argMatches = Regex.Matches(queryString, "([^?=&]+)(=([^&]*))?");
+            var args = new Dictionary<string, string>();
+
+            foreach(Match match in argMatches)
+                args.TryAdd(match.Groups[1].Value, match.Groups[3].Value);
 
             string issuer;
             string username;
