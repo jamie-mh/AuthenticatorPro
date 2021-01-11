@@ -74,7 +74,7 @@ namespace AuthenticatorPro.Fragment
 
             _enabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchEnabled);
             _enabledSwitch.Checked = backupEnabled;
-            _enabledSwitch.Click += OnEnabledSwitchClick;
+            _enabledSwitch.CheckedChange += OnEnabledSwitchChanged;
 
             UpdateLocationStatusText();
             UpdatePasswordStatusText();
@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Fragment
             return view;
         }
 
-        private async void OnEnabledSwitchClick(object sender, EventArgs e)
+        private async void OnEnabledSwitchChanged(object sender, EventArgs e)
         {
             await CommitPreferences();
         }
