@@ -2,41 +2,39 @@
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
+    <!-- Non specific strings -->
+    <string name="warning">Advertencia</string>
+    <string name="delete">Eliminar</string>
+    <string name="add">Añadir</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">ok</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="close">Cerrar</string>
+    <string name="quit">Salir</string>
+    <!-- Menu items -->
     <string name="settings">Configuración</string>
     <string name="restore">Restaurar</string>
     <string name="backup">Respaldo</string>
-    <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
-    <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
-    <string name="backupHtml">Respaldar a un archivo local HTML</string>
-    <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
     <string name="about">Información del programa</string>
     <string name="scanQrCode">Escanear un código QR</string>
     <string name="scanQrCodeFromCamera">Escanear desde la cámara</string>
     <string name="scanQrCodeFromGallery">Escanear desde una imagen en la galería de imágenes</string>
-    <string name="scanSuccessful">Código QR escaneado exitosamente</string>
-    <string name="enterKey">Entre la llave proporcionada</string>
-    <string name="restoreBackup">Restaurar un respaldo</string>
-    <string name="copiedToClipboard">Código copiado al portapapeles</string>
-    <string name="warning">Advertencia</string>
-    <string name="confirmAuthenticatorDelete">Eliminar este autenticador le impedirá generar códigos para esta cuenta.\nEsto no significa que la autenticación de doble factor esté deshabilitada en su cuenta.\n\nEliminar este autenticador puede impedir que accedas a tu cuenta correspondiente.\nPor favor, asegúrese de que la autenticación de dos factores está deshabilitada la cuenta correspondiente o que tiene los códigos de recuperación de dicha cuenta.\n\n¿Está seguro de que desea continuar?</string>
-    <string name="delete">Eliminar</string>
-    <string name="add">Añadir</string>
     <string name="rename">Renombrar</string>
     <string name="changeIcon">Cambiar icóno</string>
-    <string name="useCustomIcon">Usar icóno personalizado</string>
-    <string name="cancel">Cancelar</string>
+    <string name="search">Buscar</string>
+    <string name="mainMenu">Menú principal</string>
+    <string name="enterKey">Entre la llave proporcionada</string>
+    <string name="restoreBackup">Restaurar un respaldo</string>
+    <!-- Authenticator -->
     <string name="issuer">Emisor</string>
     <string name="username">Nombre de usuario</string>
     <string name="secretKey">Llave Secreta</string>
     <string name="pin">Código pin</string>
     <string name="showAdvancedOptions">Mostrar opciones avanzadas</string>
-    <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
-    <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
-    <string name="search">Buscar</string>
-    <string name="mainMenu">Menú principal</string>
-    <string name="ok">ok</string>
-    <string name="yes">Sí</string>
-    <string name="no">No</string>
+    <string name="confirmAuthenticatorDelete">Eliminar este autenticador le impedirá generar códigos para esta cuenta.\nEsto no significa que la autenticación de doble factor esté deshabilitada en su cuenta.\n\nEliminar este autenticador puede impedir que accedas a tu cuenta correspondiente.\nPor favor, asegúrese de que la autenticación de dos factores está deshabilitada la cuenta correspondiente o que tiene los códigos de recuperación de dicha cuenta.\n\n¿Está seguro de que desea continuar?</string>
+    <string name="useCustomIcon">Usar icóno personalizado</string>
+    <string name="copiedToClipboard">Código copiado al portapapeles</string>
     <string name="issuerHint">Emisor (ej: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
     <string name="usernameHint">Nombre de usuario (ej: john@example.com)</string>
@@ -44,12 +42,6 @@
     <string name="algorithmHint">Algorítmo</string>
     <string name="digitsHint">Dígitos</string>
     <string name="periodHint">Período (segundos)</string>
-    <string name="passwordHint">Respaldar contraseña</string>
-    <string name="fileNameHint">Nombre del archivo de Respaldo</string>
-    <string name="save">Guardar</string>
-    <string name="saveFile">Guardar Archivo</string>
-    <string name="openFile">Abrir Archivo</string>
-    <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
     <string name="noIssuer">Un Emisor es requerido.</string>
     <string name="noSecret">Una Clave secreta es requerida.</string>
     <string name="noPin">A pin is required</string>
@@ -62,6 +54,20 @@
     <string name="duplicateAuthenticator">Ya existe un autenticador con esta clave secreta.</string>
     <string name="restoredFromBackup">Restauró {0} nuevos autenticadores y {1} nuevas categorías.</string>
     <string name="restoredFromMigration">Restauró {0} nuevos autenticadores.</string>
+    <string name="scanSuccessful">Código QR escaneado exitosamente</string>
+    <!-- Backup menu -->
+    <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
+    <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
+    <string name="backupHtml">Respaldar a un archivo local HTML</string>
+    <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
+    <!-- Empty states -->
+    <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
+    <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
+    <string name="gettingStartedGuide">Guía de Comienzo</string>
+    <string name="noAuthenticatorsHelp">Si usted es nuevo en Autenticator Pro, vea la Guía de Comienzo haciendo clic a continuación.</string>
+    <string name="noCategoriesTitle">Sin categorías</string>
+    <string name="noCategoriesMessage">Aún no tiene ninguna Categoría configurada.</string>
+    <!-- Categories -->
     <string name="categories">Categorías</string>
     <string name="assignCategories">Asignar Categorías</string>
     <string name="more">Más</string>
@@ -71,30 +77,47 @@
     <string name="noCategoryName">Un nombre de Categoría es requerido.</string>
     <string name="duplicateCategory">Una Categoría con este nombre ya existe.</string>
     <string name="confirmCategoryDelete">¿Está seguro que desea eliminar esta categoría?</string>
-    <string name="noCategoriesTitle">Sin categorías</string>
-    <string name="noCategoriesMessage">Aún no tiene ninguna Categoría configurada.</string>
+    <!-- Backups -->
     <string name="backupNow">Respaldar ahora</string>
     <string name="backupReminder">Se han hecho cambios desde su último respaldo.</string>
     <string name="backupPasswordMessage">Introduzca una contraseña para encriptar de forma segura su archivo de respaldo. Si no desea proteger el archivo, deje la contraseña vacía.</string>
     <string name="restoreError">La contraseña es incorrecta o el archivo está corrupto.</string>
-    <string name="filePickError">Error al seleccionar el archivo.</string>
-    <string name="invalidFileError">El archivo seleccionado no es un Respaldo de Authenticator Pro.</string>
     <string name="saveSuccess">Guardado exitosamente</string>
     <string name="password">Contraseña</string>
     <string name="passwordConfirm">Confirmar Contraseña</string>
     <string name="login">Ingresar</string>
     <string name="loginMessage">Por favor, introduzca su contraseña o utilice una huella digital para acceder a sus autenticadores.</string>
     <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus llaves secretas serán vulnerables. ¿Desea continuar?</string>
+    <string name="passwordHint">Respaldar contraseña</string>
+    <string name="fileNameHint">Nombre del archivo de Respaldo</string>
+    <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
+    <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un código QR.</string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
-    <string name="genericError">Ocurrió un error.</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
-    <string name="close">Cerrar</string>
-    <string name="quit">Salir</string>
+    <string name="filePickError">Error al seleccionar el archivo.</string>
+    <string name="invalidFileError">El archivo seleccionado no es un Respaldo de Authenticator Pro.</string>
+    <string name="genericError">Ocurrió un error.</string>
+    <!-- Auto backup -->
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="selectBackupLocation">Select Backup Location</string>
+    <string name="noBackupLocationSelected">No backup location selected</string>
+    <string name="backupLocationSetTo">Backup location set to {0}</string>
+    <string name="setBackupPassword">Set Backup Password</string>
+    <string name="backupPasswordNotSet">Password has not been set</string>
+    <string name="noBackupPassword">No backup password</string>
+    <string name="backupPasswordChosen">Backup password chosen</string>
+    <string name="autoBackupEnabled">Auto Backup Enabled</string>
+    <string name="testBackup">Test Backup</string>
+    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupTestTitle">Backup succeeded</string>
+    <string name="autoBackupTestText">Auto backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup Status</string>
+    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
+    <string name="backupScheduled">Backup scheduled</string>
     <!-- Getting Started Guide -->
-    <string name="gettingStartedGuide">Guía de Comienzo</string>
-    <string name="noAuthenticatorsHelp">Si usted es nuevo en Autenticator Pro, vea la Guía de Comienzo haciendo clic a continuación.</string>
     <string name="guideScanQRCodeTitle">Escanear un código QR</string>
     <string name="guideScanQRCodeSummary">Para añadir un autenticador, escanee el código QR proporcionado por la aplicación o servicio. Este se añadirá a la lista y generará nuevos códigos automáticamente. También puede introducir los detalles manualmente.</string>
     <string name="guideUseCodeTitle">Use el código cuando esté iniciando sesión</string>
@@ -111,6 +134,8 @@
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
     <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.</string>
+    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefAppLockTitle">Bloqueo de Aplicación</string>
     <string name="prefAppLockSummary">Requiere autenticación para acceder a los Autenticadores. Esta característica requiere que configure una pantalla de bloqueo en su dispositivo.</string>

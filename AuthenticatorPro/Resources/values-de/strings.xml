@@ -2,41 +2,39 @@
 <resources>
     <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
+    <!-- Non specific strings -->
+    <string name="warning">Warnung</string>
+    <string name="delete">Löschen</string>
+    <string name="add">Hinzufügen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="ok">Ok</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="close">Schließen</string>
+    <string name="quit">Beenden</string>
+    <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
     <string name="backup">Sichern</string>
-    <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
-    <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
-    <string name="backupHtml">Als HTML-Datei sichern</string>
-    <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="about">Über</string>
     <string name="scanQrCode">Einen QR-Code scannen</string>
     <string name="scanQrCodeFromCamera">Mit Kamera aufnehmen</string>
     <string name="scanQrCodeFromGallery">Bild aus Galerie scannen</string>
-    <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
-    <string name="enterKey">Einen Schlüssel eingeben</string>
-    <string name="restoreBackup">Eine Sicherung laden</string>
-    <string name="copiedToClipboard">In Zwischenablage kopiert</string>
-    <string name="warning">Warnung</string>
-    <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes verfügst.\n\nMöchtest du fortfahren?</string>
-    <string name="delete">Löschen</string>
-    <string name="add">Hinzufügen</string>
     <string name="rename">Umbenennen</string>
     <string name="changeIcon">Icon ändern</string>
-    <string name="useCustomIcon">Eigenes Icon verwenden</string>
-    <string name="cancel">Abbrechen</string>
+    <string name="search">Suche</string>
+    <string name="mainMenu">Hauptmenü</string>
+    <string name="enterKey">Einen Schlüssel eingeben</string>
+    <string name="restoreBackup">Eine Sicherung laden</string>
+    <!-- Authenticator -->
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
     <string name="secretKey">Geheimer Schlüssel</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
-    <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
-    <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
-    <string name="search">Suche</string>
-    <string name="mainMenu">Hauptmenü</string>
-    <string name="ok">Ok</string>
-    <string name="yes">Ja</string>
-    <string name="no">Nein</string>
+    <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes verfügst.\n\nMöchtest du fortfahren?</string>
+    <string name="useCustomIcon">Eigenes Icon verwenden</string>
+    <string name="copiedToClipboard">In Zwischenablage kopiert</string>
     <string name="issuerHint">Herausgeber (z.B: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
     <string name="usernameHint">Nutzername (z.B: max@example.com)</string>
@@ -44,12 +42,6 @@
     <string name="algorithmHint">Algorithmus</string>
     <string name="digitsHint">Stellen</string>
     <string name="periodHint">Gültigkeit (Sekunden)</string>
-    <string name="passwordHint">Sicherungspasswort</string>
-    <string name="fileNameHint">Sicherungsdateiname</string>
-    <string name="save">Speichern</string>
-    <string name="saveFile">Datei speichern</string>
-    <string name="openFile">Datei öffnen</string>
-    <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
     <string name="noPin">A pin is required</string>
@@ -62,6 +54,20 @@
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
+    <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
+    <!-- Backup menu -->
+    <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
+    <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
+    <string name="backupHtml">Als HTML-Datei sichern</string>
+    <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
+    <!-- Empty states -->
+    <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
+    <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
+    <string name="gettingStartedGuide">Anleitung</string>
+    <string name="noAuthenticatorsHelp">Wenn du neu bist, öffne die Anleitung, indem du unten drückst.</string>
+    <string name="noCategoriesTitle">Keine Kategorien</string>
+    <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
+    <!-- Categories -->
     <string name="categories">Kategorien</string>
     <string name="assignCategories">Kategorien zuweisen</string>
     <string name="more">Mehr</string>
@@ -71,30 +77,47 @@
     <string name="noCategoryName">Ein Name muss angegeben werden.</string>
     <string name="duplicateCategory">Eine Kategorie mit diesem Namen existiert bereits.</string>
     <string name="confirmCategoryDelete">Möchtest du diese Kategorie wirklich löschen?</string>
-    <string name="noCategoriesTitle">Keine Kategorien</string>
-    <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
+    <!-- Backups -->
     <string name="backupNow">Jetzt sichern</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen.</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
     <string name="restoreError">Das Passwort ist falsch oder die Datei ist beschädigt.</string>
-    <string name="filePickError">Dateifehler.</string>
-    <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
     <string name="saveSuccess">Erfolgreich gespeichert</string>
     <string name="password">Passwort</string>
     <string name="passwordConfirm">Passwort bestätigen</string>
     <string name="login">Anmelden</string>
     <string name="loginMessage">Gib dein Passwort ein oder nutze deinen Fingerabdruck, um die App zu entsperren.</string>
     <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
+    <string name="passwordHint">Sicherungspasswort</string>
+    <string name="fileNameHint">Sicherungsdateiname</string>
+    <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
+    <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
-    <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
-    <string name="close">Schließen</string>
-    <string name="quit">Beenden</string>
+    <string name="filePickError">Dateifehler.</string>
+    <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
+    <string name="genericError">Es ist ein Fehler aufgetreten.</string>
+    <!-- Auto backup -->
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="selectBackupLocation">Select Backup Location</string>
+    <string name="noBackupLocationSelected">No backup location selected</string>
+    <string name="backupLocationSetTo">Backup location set to {0}</string>
+    <string name="setBackupPassword">Set Backup Password</string>
+    <string name="backupPasswordNotSet">Password has not been set</string>
+    <string name="noBackupPassword">No backup password</string>
+    <string name="backupPasswordChosen">Backup password chosen</string>
+    <string name="autoBackupEnabled">Auto Backup Enabled</string>
+    <string name="testBackup">Test Backup</string>
+    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupTestTitle">Backup succeeded</string>
+    <string name="autoBackupTestText">Auto backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup Status</string>
+    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
+    <string name="backupScheduled">Backup scheduled</string>
     <!-- Getting Started Guide -->
-    <string name="gettingStartedGuide">Anleitung</string>
-    <string name="noAuthenticatorsHelp">Wenn du neu bist, öffne die Anleitung, indem du unten drückst.</string>
     <string name="guideScanQRCodeTitle">Scanne einen QR-Code</string>
     <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code, der von der App oder dem Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich generieren. Du kannst die Daten auch manuell eingeben.</string>
     <string name="guideUseCodeTitle">Benutze den Code beim Anmelden</string>
@@ -111,6 +134,8 @@
     <string name="prefGeneral">Allgemein</string>
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden.</string>
+    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefAppLockTitle">App-Sperre</string>
     <string name="prefAppLockSummary">Anmeldung verlangen, um auf Schlüssel zuzugreifen. Dies setzt voraus, dass dein Gerät einen Sperrbildschirm hat.</string>
