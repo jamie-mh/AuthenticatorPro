@@ -123,6 +123,7 @@ namespace AuthenticatorPro.Shared.Data
             {"mega", Resource.Drawable.auth_mega},
             {"microsoft", Resource.Drawable.auth_microsoft},
             {"migadu", Resource.Drawable.auth_migadu},
+            {"myfritz", Resource.Drawable.auth_myfritz},
             {"myheritage", Resource.Drawable.auth_myheritage},
             {"namecheap", Resource.Drawable.auth_namecheap},
             {"namecom", Resource.Drawable.auth_namecom},
