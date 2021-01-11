@@ -48,6 +48,66 @@ namespace AuthenticatorPro.Data
 
             return squareBitmap;
         }
+
+        private static Bitmap TrimWhitespace(Bitmap bitmap)
+        {
+            var width = bitmap.Width;
+            var height = bitmap.Height;
+
+            var left = width;
+            
+            for(var y = 0; y < height; ++y)
+            {
+                for(var x = 0; x < width; ++x)
+                {
+                    if(bitmap.GetPixel(x, y) == Color.Transparent || x > left)
+                        continue;
+
+                    left = x;
+                }
+            }
+            
+            var top = height;
+            
+            for(var x = 0; x < width; ++x)
+            {
+                for(var y = 0; y < height; ++y)
+                {
+                    if(bitmap.GetPixel(x, y) == Color.Transparent || y > top)
+                        continue;
+
+                    top = y;
+                }
+            }
+
+            var right = 0;
+            
+            for(var y = 0; y < height; ++y)
+            {
+                for(var x = width - 1; x >= 0; --x)
+                {
+                    if(bitmap.GetPixel(x, y) == Color.Transparent || x < right)
+                        continue;
+
+                    right = x;
+                }
+            }
+
+            var bottom = 0;
+            
+            for(var x = 0; x < width; ++x)
+            {
+                for(var y = height - 1; y >= 0; --y)
+                {
+                    if(bitmap.GetPixel(x, y) == Color.Transparent || y < bottom)
+                        continue;
+
+                    bottom = y;
+                }
+            }
+            
+            return Bitmap.CreateBitmap(bitmap, left, top, right - left, bottom - top);
+        }
         
         public static async Task<CustomIcon> FromBytes(byte[] rawData)
         {
@@ -56,7 +116,11 @@ namespace AuthenticatorPro.Data
             if(bitmap == null)
                 throw new Exception("Image could not be loaded.");
 
+            if(bitmap.HasAlpha)
+                bitmap = TrimWhitespace(bitmap);
+            
             bitmap = ToSquare(bitmap);
+            
             var size = Math.Min(MaxSize, bitmap.Width); // width or height, doesn't matter as it's square
             var stream = new MemoryStream();
 
