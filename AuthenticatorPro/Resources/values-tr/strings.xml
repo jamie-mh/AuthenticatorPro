@@ -106,8 +106,8 @@
     <string name="backupLocationSetTo">Backup location set to {0}</string>
     <string name="setBackupPassword">Set Backup Password</string>
     <string name="backupPasswordNotSet">Password has not been set</string>
+    <string name="backupPasswordSet">Backup password set</string>
     <string name="noBackupPassword">No backup password</string>
-    <string name="backupPasswordChosen">Backup password chosen</string>
     <string name="autoBackupEnabled">Auto Backup Enabled</string>
     <string name="testBackup">Test Backup</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
