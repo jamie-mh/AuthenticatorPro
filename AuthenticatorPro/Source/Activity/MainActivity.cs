@@ -1326,9 +1326,13 @@ namespace AuthenticatorPro.Activity
 
             try
             {
-                stream = ContentResolver.OpenInputStream(uri);
                 memoryStream = new MemoryStream();
-                await stream.CopyToAsync(memoryStream);
+                
+                await Task.Run(async delegate
+                {
+                    stream = ContentResolver.OpenInputStream(uri);
+                    await stream.CopyToAsync(memoryStream);
+                });
                 
                 var fileData = memoryStream.ToArray();
                 icon = await CustomIcon.FromBytes(fileData);
