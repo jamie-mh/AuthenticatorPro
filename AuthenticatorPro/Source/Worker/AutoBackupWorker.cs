@@ -28,11 +28,6 @@ namespace AuthenticatorPro.Worker
         private const int NotificationId = 0;
         private readonly Context _context;
         
-        public AutoBackupWorker(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
-        {
-            
-        }
-
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
             _context = context;
