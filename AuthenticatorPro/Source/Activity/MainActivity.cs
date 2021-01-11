@@ -949,56 +949,46 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            async Task TryRestore(string password, BackupPasswordBottomSheet sheet)
+            async Task<Tuple<int, int>> DecryptAndRestore(string password)
             {
-                int authCount, categoryCount;
-
-                try
-                {
-                    var backup = Backup.FromBytes(data, password);
-                    (authCount, categoryCount) = await DoRestore(backup);
-                }
-                catch(ArgumentException)
-                {
-                    sheet?.Dismiss();
-                    ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
-                    return;
-                }
-                catch(Exception)
-                {
-                    if(sheet != null)
-                        sheet.Error = GetString(Resource.String.restoreError);
-                    else
-                        ShowSnackbar(Resource.String.restoreError, Snackbar.LengthShort);
-
-                    return;
-                }
-
-                sheet?.Dismiss();
-
-                RunOnUiThread(CheckEmptyState);
-                await UpdateList(true);
-
-                var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
-                ShowSnackbar(message, Snackbar.LengthLong);
-
-                await NotifyWearAppOfChange();
+                var backup = Backup.FromBytes(data, password);
+                return await DoRestore(backup);
             }
 
             // Open and closed curly brace (file is not encrypted)
             if(data[0] == '{' && data[^1] == '}')
             {
-                await TryRestore(null, null);
+                int authCount, categoryCount;
+                
+                try
+                {
+                    (authCount, categoryCount) = await DecryptAndRestore(null);
+                }
+                catch(ArgumentException)
+                {
+                    ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
+                    return;
+                }
+                
+                await FinaliseRestore(authCount, categoryCount);
                 return;
             }
-
-            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
-            fragment.PasswordEntered += async (_, password) =>
+            
+            var sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
+            sheet.PasswordEntered += async (_, password) =>
             {
-                await TryRestore(password, fragment);
+                try
+                {
+                    var (authCount, categoryCount) = await DecryptAndRestore(password);
+                    sheet.Dismiss();
+                    await FinaliseRestore(authCount, categoryCount);
+                }
+                catch(ArgumentException)
+                {
+                    sheet.Error = GetString(Resource.String.restoreError);
+                }
             };
-
-            fragment.Show(SupportFragmentManager, fragment.Tag);
+            sheet.Show(SupportFragmentManager, sheet.Tag);
         }
         
         private async Task<Tuple<int, int>> DoRestore(Backup backup)
@@ -1037,24 +1027,12 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            int authCount, categoryCount;
             BackupPasswordBottomSheet sheet;
             
             async Task<Tuple<int, int>> ConvertAndRestore(string password)
             {
                 var backup = await converter.Convert(data, password);
                 return await DoRestore(backup);
-            }
-
-            async Task OnSuccess()
-            {
-                RunOnUiThread(CheckEmptyState);
-                await UpdateList(true);
-
-                var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
-                ShowSnackbar(message, Snackbar.LengthLong);
-
-                await NotifyWearAppOfChange();
             }
 
             void ShowPasswordSheet()
@@ -1064,9 +1042,9 @@ namespace AuthenticatorPro.Activity
                 {
                     try
                     {
-                        (authCount, categoryCount) = await ConvertAndRestore(password);
+                        var (authCount, categoryCount) = await ConvertAndRestore(password);
                         sheet.Dismiss();
-                        await OnSuccess();
+                        await FinaliseRestore(authCount, categoryCount);
                     }
                     catch(ArgumentException)
                     {
@@ -1081,8 +1059,8 @@ namespace AuthenticatorPro.Activity
                 case BackupConverter.BackupPasswordPolicy.Never:
                     try
                     {
-                        (authCount, categoryCount) = await ConvertAndRestore(null);
-                        await OnSuccess();
+                        var (authCount, categoryCount) = await ConvertAndRestore(null);
+                        await FinaliseRestore(authCount, categoryCount);
                     }
                     catch(ArgumentException)
                     {
@@ -1097,8 +1075,8 @@ namespace AuthenticatorPro.Activity
                 case BackupConverter.BackupPasswordPolicy.Maybe:
                     try
                     {
-                        (authCount, categoryCount) = await ConvertAndRestore(null);
-                        await OnSuccess();
+                        var (authCount, categoryCount) = await ConvertAndRestore(null);
+                        await FinaliseRestore(authCount, categoryCount);
                     }
                     catch(ArgumentException)
                     {
@@ -1106,6 +1084,17 @@ namespace AuthenticatorPro.Activity
                     }
                     break;
             }
+        }
+
+        private async Task FinaliseRestore(int authCount, int categoryCount)
+        {
+            RunOnUiThread(CheckEmptyState);
+            await UpdateList(true);
+
+            var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
+            ShowSnackbar(message, Snackbar.LengthLong);
+
+            await NotifyWearAppOfChange();
         }
         #endregion
 
