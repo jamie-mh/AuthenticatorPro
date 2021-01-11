@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/authListItem_background"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:foreground="?selectableItemBackground"
         android:focusable="true"
         android:paddingTop="8dp"
         android:paddingRight="12dp"
