@@ -151,6 +151,10 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_qr_code.png" />
+    <AndroidResource Include="Resources\drawable\switchMaterialTrack.xml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\font\rubik_regular.ttf">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
@@ -1469,6 +1473,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProguardConfiguration Include="proguard.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\switchMaterialThumb.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
