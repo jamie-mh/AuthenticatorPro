@@ -45,7 +45,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="6dp"
                 android:text="@string/backupToFile"
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="16sp" />
@@ -55,8 +55,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/backupToFileMessage"
                 android:textColor="?attr/secondaryTextColor"
-                android:lineSpacingExtra="4dp"
-                android:textSize="12sp" />
+                android:lineSpacingExtra="6dp"
+                android:textSize="14sp" />
             
         </LinearLayout>
 
@@ -90,7 +90,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="6dp"
                 android:text="@string/backupHtml"
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="16sp" />
@@ -100,8 +100,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/backupHtmlMessage"
                 android:textColor="?attr/secondaryTextColor"
-                android:lineSpacingExtra="4dp"
-                android:textSize="12sp" />
+                android:lineSpacingExtra="6dp"
+                android:textSize="14sp" />
 
         </LinearLayout>
     </LinearLayout>
