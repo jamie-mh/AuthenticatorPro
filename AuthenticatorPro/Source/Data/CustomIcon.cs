@@ -49,7 +49,7 @@ namespace AuthenticatorPro.Data
             return squareBitmap;
         }
 
-        private static Bitmap TrimWhitespace(Bitmap bitmap)
+        private static Bitmap Trim(Bitmap bitmap)
         {
             var width = bitmap.Width;
             var height = bitmap.Height;
@@ -119,7 +119,7 @@ namespace AuthenticatorPro.Data
             await Task.Run(delegate
             {
                 if(bitmap.HasAlpha)
-                    bitmap = TrimWhitespace(bitmap);
+                    bitmap = Trim(bitmap);
                 
                 bitmap = ToSquare(bitmap);
             });
