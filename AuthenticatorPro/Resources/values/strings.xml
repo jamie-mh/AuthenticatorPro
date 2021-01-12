@@ -145,6 +145,7 @@
     <string name="winAuth" translatable="false">WinAuth</string>
     <string name="steam" translatable="false">Steam</string>
     <string name="blizzardAuthenticator" translatable="false">Blizzard Authenticator</string>
+    <string name="andOtp">andOTP (plain-text)</string>
     
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>

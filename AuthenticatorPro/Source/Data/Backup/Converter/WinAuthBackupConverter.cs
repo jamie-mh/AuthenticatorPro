@@ -16,7 +16,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             var lines = text.Split(new[] {"\r\n"}, StringSplitOptions.None);
 
             var authenticators = new List<Authenticator>();
-            authenticators.AddRange(from line in lines where !String.IsNullOrWhiteSpace(line) select Authenticator.FromOtpAuthUri(line));
+            authenticators.AddRange(lines.Where(line => !String.IsNullOrWhiteSpace(line)).Select(Authenticator.FromOtpAuthUri));
 
             return Task.FromResult(new Backup(authenticators, null, null, null));
         }

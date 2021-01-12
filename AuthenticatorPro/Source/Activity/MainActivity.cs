@@ -68,6 +68,7 @@ namespace AuthenticatorPro.Activity
         private const int ResultSettingsRecreate = 6;
         private const int ResultImportAuthenticatorPlus = 7;
         private const int ResultImportWinAuth = 8;
+        private const int ResultImportAndOtp = 9;
 
         private const int BackupReminderThresholdMinutes = 120;
         private const int AppLockThresholdMinutes = 1;
@@ -322,6 +323,10 @@ namespace AuthenticatorPro.Activity
                 
                 case ResultImportWinAuth:
                     await DoImport(new WinAuthBackupConverter(), intent.Data);
+                    break;
+                
+                case ResultImportAndOtp:
+                    await DoImport(new AndOtpBackupConverter(), intent.Data);
                     break;
             }
         }
@@ -938,6 +943,11 @@ namespace AuthenticatorPro.Activity
             fragment.ClickAuthenticatorPlus += (_, _) =>
             {
                 OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
+            };
+            
+            fragment.ClickAndOtp += (_, _) =>
+            {
+                OpenFilePicker("application/octet-stream", ResultImportAndOtp);
             };
             
             fragment.ClickWinAuth += (_, _) =>
