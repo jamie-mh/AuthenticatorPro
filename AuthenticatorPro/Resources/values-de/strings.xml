@@ -16,23 +16,23 @@
     <string name="restore">Wiederherstellen</string>
     <string name="backup">Sichern</string>
     <string name="about">Über</string>
-    <string name="scanQrCode">Scan a QR code</string>
+    <string name="scanQrCode">Einen QR-Code scannen</string>
     <string name="scanQrCodeFromCamera">Mit Kamera aufnehmen</string>
     <string name="scanQrCodeFromGallery">Bild aus Galerie scannen</string>
     <string name="rename">Umbenennen</string>
-    <string name="changeIcon">Change icon</string>
+    <string name="changeIcon">Icon ändern</string>
     <string name="search">Suche</string>
-    <string name="mainMenu">Main menu</string>
+    <string name="mainMenu">Hauptmenü</string>
     <string name="enterKey">Einen Schlüssel eingeben</string>
     <string name="restoreBackup">Eine Sicherung laden</string>
     <!-- Authenticator -->
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
-    <string name="secretKey">Secret key</string>
+    <string name="secretKey">Geheimer Schlüssel</string>
     <string name="pin">Pin</string>
-    <string name="showAdvancedOptions">Show advanced options</string>
+    <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
     <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes verfügst.\n\nMöchtest du fortfahren?</string>
-    <string name="useCustomIcon">Use custom icon</string>
+    <string name="useCustomIcon">Eigenes Icon verwenden</string>
     <string name="copiedToClipboard">In Zwischenablage kopiert</string>
     <string name="issuerHint">Herausgeber (z.B: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
@@ -40,7 +40,7 @@
     <string name="typeHint">Typ</string>
     <string name="algorithmHint">Algorithmus</string>
     <string name="digitsHint">Stellen</string>
-    <string name="periodHint">Period (seconds)</string>
+    <string name="periodHint">Gültigkeit (Sekunden)</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
     <string name="noPin">A pin is required</string>
@@ -53,7 +53,7 @@
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
-    <string name="scanSuccessful">QR code scanned successfully</string>
+    <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
     <!-- Backup menu -->
     <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
     <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
@@ -62,33 +62,33 @@
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
-    <string name="gettingStartedGuide">Getting started guide</string>
+    <string name="gettingStartedGuide">Anleitung</string>
     <string name="noAuthenticatorsHelp">Wenn du neu bist, öffne die Anleitung, indem du unten drückst.</string>
-    <string name="noCategoriesTitle">No categories</string>
+    <string name="noCategoriesTitle">Keine Kategorien</string>
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
     <!-- Categories -->
     <string name="categories">Kategorien</string>
-    <string name="assignCategories">Assign categories</string>
+    <string name="assignCategories">Kategorien zuweisen</string>
     <string name="more">Mehr</string>
     <string name="categoryAll">Alle</string>
-    <string name="manageCategories">Manage categories</string>
-    <string name="categoryNameHint">Category name</string>
+    <string name="manageCategories">Kategorien verwalten</string>
+    <string name="categoryNameHint">Name der Kategorie</string>
     <string name="noCategoryName">Ein Name muss angegeben werden.</string>
     <string name="duplicateCategory">Eine Kategorie mit diesem Namen existiert bereits.</string>
     <string name="confirmCategoryDelete">Möchtest du diese Kategorie wirklich löschen?</string>
     <!-- Backups -->
-    <string name="backupNow">Backup now</string>
+    <string name="backupNow">Jetzt sichern</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen.</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
     <string name="restoreError">Das Passwort ist falsch oder die Datei ist beschädigt.</string>
     <string name="saveSuccess">Erfolgreich gespeichert</string>
     <string name="password">Passwort</string>
-    <string name="passwordConfirm">Password confirm</string>
+    <string name="passwordConfirm">Passwort bestätigen</string>
     <string name="login">Anmelden</string>
     <string name="loginMessage">Gib dein Passwort ein oder nutze deinen Fingerabdruck, um die App zu entsperren.</string>
     <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
-    <string name="passwordHint">Backup password</string>
-    <string name="fileNameHint">Backup file name</string>
+    <string name="passwordHint">Sicherungspasswort</string>
+    <string name="fileNameHint">Sicherungsdateiname</string>
     <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
@@ -100,27 +100,27 @@
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
-    <string name="selectLocation">Select location</string>
+    <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to {0}</string>
-    <string name="setPassword">Set password</string>
+    <string name="setPassword">Set Password</string>
     <string name="passwordNotSet">Password has not been set</string>
     <string name="passwordSet">Password set</string>
     <string name="notPasswordProtected">Not password protected</string>
-    <string name="enableAutoBackups">Enable Auto Backup</string>
-    <string name="testBackup">Test backup</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="enableAutoBackups">Enable Auto Backups</string>
+    <string name="testBackup">Test Backup</string>
+    <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupTestTitle">Backup succeeded</string>
-    <string name="autoBackupTestText">Auto Backup is working correctly</string>
-    <string name="backupStatusChannelName">Backup status</string>
+    <string name="autoBackupTestText">Auto backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup Status</string>
     <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     <string name="backupScheduled">Backup scheduled</string>
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
     <!-- Getting Started Guide -->
-    <string name="guideScanQRCodeTitle">Scan a QR code</string>
+    <string name="guideScanQRCodeTitle">Scanne einen QR-Code</string>
     <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code, der von der App oder dem Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich generieren. Du kannst die Daten auch manuell eingeben.</string>
     <string name="guideUseCodeTitle">Benutze den Code beim Anmelden</string>
     <string name="guideUseCodeSummary">Gib deinen Code ein, wenn du dich anmelden möchtest. Der Code gilt jeweils nur für einen kurzen Zeitraum. Du kannst auf den Schlüssel tippen, um den Code zu kopieren.</string>
@@ -134,7 +134,7 @@
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleiter-App herunterladen. Du bekommst die Codes dann auf deine Uhr.</string>
     <!-- Preferences -->
     <string name="prefGeneral">Allgemein</string>
-    <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
+    <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden.</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
@@ -156,16 +156,16 @@
     <string name="prefViewGitHubTitle">Auf GitHub anzeigen</string>
     <string name="prefViewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
     <!-- Arrays -->
-    <string name="authTypeTime">Time based (TOTP)</string>
-    <string name="authTypeCounter">Counter based (HOTP)</string>
+    <string name="authTypeTime">Zeitbasiert (TOTP)</string>
+    <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
     <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
     <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
-    <string name="systemDefault">System default</string>
-    <string name="lightTheme">Light theme</string>
-    <string name="darkTheme">Dark theme</string>
+    <string name="systemDefault">Systemstandard</string>
+    <string name="lightTheme">Helles Thema</string>
+    <string name="darkTheme">Dunkles Thema</string>
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
@@ -174,7 +174,7 @@
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentifikation</string>
     <string name="introBackupTitle">Sichern / Wiederherstellen</string>
     <string name="introCategoriesTitle">Kategorien</string>
-    <string name="introThemesTitle">Dark theme</string>
+    <string name="introThemesTitle">Dunkles Thema</string>
     <string name="introWelcomeSummary">Danke für das Herunterladen von Authenticator Pro.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>
     <string name="introCompatibilitySummary">Authenticator Pro ist kompatibel mit den meisten Anbietern und Diensten. Es ist zu 100% kompatibel mit Google Authenticator-kompatiblen Anbietern.</string>
     <string name="introBackupSummary">Sichere deine Schlüssel mit einer starken Verschlüsselung. Solltest du dein Gerät verlieren, kannst du so Zugriff auf deine Konten erhalten. Speichere das Backup in der Cloud oder auf deinem Gerät.</string>
