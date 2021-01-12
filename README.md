@@ -21,11 +21,11 @@ View some supported providers here: [Two Factor Auth List](https://twofactorauth
 
 ### Importing from other apps
 
-[Google Authenticator](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/IMPORT_GOOGLE_AUTHENTICATOR.md)
+[Google Authenticator](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Google-Authenticator)
 
-[Blizzard Authenticator](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/IMPORT_BLIZZARD_AUTHENTICATOR.md)
+[Blizzard Authenticator](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Blizzard-Authenticator)
 
-[Steam](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/IMPORT_STEAM.md)
+[Steam](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Steam)
 
 ## Download
 
