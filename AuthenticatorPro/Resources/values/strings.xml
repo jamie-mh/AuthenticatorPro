@@ -146,6 +146,8 @@
     <string name="steam" translatable="false">Steam</string>
     <string name="blizzardAuthenticator" translatable="false">Blizzard Authenticator</string>
     <string name="andOtp">andOTP (plain-text)</string>
+    <string name="aegis" translatable="false">Aegis (plain-text)</string>
+    <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
     
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>

@@ -353,7 +353,12 @@ namespace AuthenticatorPro.Data
 
         public bool IsValid()
         {
-            return !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret, Type) && Digits >= Type.GetMinDigits() && Digits <= Type.GetMaxDigits() && Period > 0;
+            var isValid = !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret, Type) && Digits >= Type.GetMinDigits() && Digits <= Type.GetMaxDigits();
+
+            if(Type.GetGenerationMethod() == GenerationMethod.Time)
+                isValid = isValid && Period > 0;
+
+            return isValid;
         }
     }
 }

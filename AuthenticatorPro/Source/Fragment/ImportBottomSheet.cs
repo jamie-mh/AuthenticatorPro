@@ -12,6 +12,8 @@ namespace AuthenticatorPro.Fragment
         public event EventHandler ClickGoogleAuthenticator;
         public event EventHandler ClickAuthenticatorPlus;
         public event EventHandler ClickAndOtp;
+        public event EventHandler ClickFreeOtpPlus;
+        public event EventHandler ClickAegis;
         public event EventHandler ClickWinAuth;
         public event EventHandler ClickSteam;
         public event EventHandler ClickBlizzardAuthenticator;
@@ -28,6 +30,8 @@ namespace AuthenticatorPro.Fragment
                 new(Resource.Drawable.ic_googleauthenticator, Resource.String.googleAuthenticator, ClickGoogleAuthenticator),
                 new(Resource.Drawable.ic_authenticatorplus, Resource.String.authenticatorPlus, ClickAuthenticatorPlus),
                 new(Resource.Drawable.ic_andotp, Resource.String.andOtp, ClickAndOtp),
+                new(Resource.Drawable.ic_freeotpplus, Resource.String.freeOtpPlus, ClickFreeOtpPlus),
+                new(Resource.Drawable.ic_aegis, Resource.String.aegis, ClickAegis),
                 new(Resource.Drawable.ic_winauth, Resource.String.winAuth, ClickWinAuth),
                 new(Resource.Drawable.auth_steam, Resource.String.steam, ClickSteam),
                 new(Resource.Drawable.auth_blizzard, Resource.String.blizzardAuthenticator, ClickBlizzardAuthenticator)
