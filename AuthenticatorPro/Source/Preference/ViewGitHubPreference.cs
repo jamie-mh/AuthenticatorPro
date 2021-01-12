@@ -38,7 +38,7 @@ namespace AuthenticatorPro.Preference
 
         protected override void OnClick()
         {
-            var intent = new Intent(Intent.ActionView, Uri.Parse("https://www.github.com/jamie-mh/AuthenticatorPro"));
+            var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo));
             Context.StartActivity(intent);
         }
     }

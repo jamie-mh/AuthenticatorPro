@@ -90,6 +90,7 @@
     <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
     <Compile Include="Source\Callback\AuthenticationCallback.cs" />
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
+    <Compile Include="Source\Constants.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup\Backup.cs" />
@@ -1481,6 +1482,21 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_googleauthenticator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_googleauthenticator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_googleauthenticator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_googleauthenticator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_googleauthenticator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

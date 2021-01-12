@@ -140,8 +140,11 @@
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
+    <string name="googleAuthenticator" translatable="false">Google Authenticator</string>
     <string name="authenticatorPlus" translatable="false">Authenticator Plus</string>
     <string name="winAuth" translatable="false">WinAuth</string>
+    <string name="steam" translatable="false">Steam</string>
+    <string name="blizzardAuthenticator" translatable="false">Blizzard Authenticator</string>
     
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>

@@ -38,7 +38,7 @@ namespace AuthenticatorPro.Preference
 
         protected override void OnClick()
         {
-            var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=me.jmh.authenticatorpro"));
+            var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=" + Context.PackageName));
 
             try
             {

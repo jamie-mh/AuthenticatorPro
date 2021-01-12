@@ -705,6 +705,11 @@ namespace AuthenticatorPro.Activity
             fragment.ClickImport += delegate
             {
                 var sub = new ImportBottomSheet();
+                sub.ClickGoogleAuthenticator += (_, _) =>
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator"));
+                    StartActivity(intent);
+                };
                 sub.ClickAuthenticatorPlus += (_, _) =>
                 {
                     OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
@@ -712,6 +717,16 @@ namespace AuthenticatorPro.Activity
                 sub.ClickWinAuth += (_, _) =>
                 {
                     OpenFilePicker("text/plain", ResultImportWinAuth);
+                };
+                sub.ClickSteam += (_, _) =>
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
+                    StartActivity(intent);
+                };
+                sub.ClickBlizzardAuthenticator += (_, _) =>
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator"));
+                    StartActivity(intent);
                 };
                 sub.Show(SupportFragmentManager, fragment.Tag);
             };
