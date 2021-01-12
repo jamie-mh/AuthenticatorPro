@@ -119,6 +119,7 @@
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
+    <string name="andOtp">andOTP (plain-text)</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">扫描二维码</string>
     <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
