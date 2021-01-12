@@ -1107,7 +1107,7 @@ namespace AuthenticatorPro.Activity
                         sheet.Dismiss();
                         await FinaliseRestore(authCount, categoryCount);
                     }
-                    catch(ArgumentException)
+                    catch
                     {
                         sheet.Error = GetString(Resource.String.restoreError);
                     }
@@ -1123,7 +1123,7 @@ namespace AuthenticatorPro.Activity
                         var (authCount, categoryCount) = await ConvertAndRestore(null);
                         await FinaliseRestore(authCount, categoryCount);
                     }
-                    catch(ArgumentException)
+                    catch
                     {
                         ShowSnackbar(Resource.String.restoreError, Snackbar.LengthShort);
                     }
@@ -1139,7 +1139,7 @@ namespace AuthenticatorPro.Activity
                         var (authCount, categoryCount) = await ConvertAndRestore(null);
                         await FinaliseRestore(authCount, categoryCount);
                     }
-                    catch(ArgumentException)
+                    catch
                     {
                         ShowPasswordSheet(); 
                     }
