@@ -119,6 +119,7 @@
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
+    <string name="andOtp">andOTP (plain-text)</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scanne einen QR-Code</string>
     <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code, der von der App oder dem Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich generieren. Du kannst die Daten auch manuell eingeben.</string>
