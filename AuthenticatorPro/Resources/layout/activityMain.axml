@@ -81,7 +81,7 @@
             android:id="@+id/textEmptyMessage"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
-            android:lineSpacingExtra="6dp"
+            android:lineSpacingExtra="6sp"
             android:gravity="center_horizontal"
             android:textSize="14dp"
             android:textColor="?attr/secondaryTextColor"
