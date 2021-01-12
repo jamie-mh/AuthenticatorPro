@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Activity
 
         private LinearLayout _emptyStateLayout;
         private TextView _emptyMessageText;
-        private MaterialButton _viewGuideButton;
+        private LinearLayout _startLayout;
 
         private AuthenticatorListAdapter _authListAdapter;
         private AuthenticatorSource _authSource;
@@ -472,8 +472,14 @@ namespace AuthenticatorPro.Activity
             _authList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
             _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
-            _viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
-            _viewGuideButton.Click += delegate { StartActivity(typeof(GuideActivity)); };
+
+            _startLayout = FindViewById<LinearLayout>(Resource.Id.layoutStart);
+            
+            var viewGuideButton = FindViewById<MaterialButton>(Resource.Id.buttonViewGuide);
+            viewGuideButton.Click += delegate { StartActivity(typeof(GuideActivity)); };
+
+            var importButton = FindViewById<MaterialButton>(Resource.Id.buttonImport);
+            importButton.Click += delegate { OpenImportMenu(); };
         }
 
         private void InitAuthenticatorList()
@@ -557,12 +563,12 @@ namespace AuthenticatorPro.Activity
                 if(_authSource.CategoryId == null)
                 {
                     _emptyMessageText.SetText(Resource.String.noAuthenticatorsHelp);
-                    _viewGuideButton.Visibility = ViewStates.Visible;
+                    _startLayout.Visibility = ViewStates.Visible;
                 }
                 else
                 {
                     _emptyMessageText.SetText(Resource.String.noAuthenticatorsMessage);
-                    _viewGuideButton.Visibility = ViewStates.Gone;
+                    _startLayout.Visibility = ViewStates.Gone;
                 }
                 
                 _timer.Stop();
@@ -704,31 +710,7 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickImport += delegate
             {
-                var sub = new ImportBottomSheet();
-                sub.ClickGoogleAuthenticator += (_, _) =>
-                {
-                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator"));
-                    StartActivity(intent);
-                };
-                sub.ClickAuthenticatorPlus += (_, _) =>
-                {
-                    OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
-                };
-                sub.ClickWinAuth += (_, _) =>
-                {
-                    OpenFilePicker("text/plain", ResultImportWinAuth);
-                };
-                sub.ClickSteam += (_, _) =>
-                {
-                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
-                    StartActivity(intent);
-                };
-                sub.ClickBlizzardAuthenticator += (_, _) =>
-                {
-                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator"));
-                    StartActivity(intent);
-                };
-                sub.Show(SupportFragmentManager, fragment.Tag);
+                OpenImportMenu();
             };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -944,6 +926,40 @@ namespace AuthenticatorPro.Activity
         #endregion
 
         #region Restore / Import
+        private void OpenImportMenu()
+        {
+            var fragment = new ImportBottomSheet();
+            fragment.ClickGoogleAuthenticator += (_, _) =>
+            {
+                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator"));
+                StartActivity(intent);
+            };
+            
+            fragment.ClickAuthenticatorPlus += (_, _) =>
+            {
+                OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
+            };
+            
+            fragment.ClickWinAuth += (_, _) =>
+            {
+                OpenFilePicker("text/plain", ResultImportWinAuth);
+            };
+            
+            fragment.ClickSteam += (_, _) =>
+            {
+                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
+                StartActivity(intent);
+            };
+            
+            fragment.ClickBlizzardAuthenticator += (_, _) =>
+            {
+                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator"));
+                StartActivity(intent);
+            };
+            
+            fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+        
         private async Task BeginRestore(Uri uri)
         {
             byte[] data;

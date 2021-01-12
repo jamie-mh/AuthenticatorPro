@@ -88,15 +88,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/noAuthenticatorsMessage" />
+        
+        <LinearLayout 
+            android:id="@+id/layoutStart"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonViewGuide"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_marginTop="12dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/gettingStartedGuide" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonViewGuide"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginBottom="4dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/gettingStartedGuide" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonImport"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/importFromAnotherApp" />
+        </LinearLayout>
     </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
