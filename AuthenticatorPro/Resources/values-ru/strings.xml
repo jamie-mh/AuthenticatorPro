@@ -119,6 +119,7 @@
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
+    <string name="andOtp">andOTP (plain-text)</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
     <string name="guideScanQRCodeSummary">Чтобы добавить аутентификатор, отсканируйте QR-код, предоставленный приложением или службой. Он будет добавлен в список и будет генерировать новые коды автоматически. Вы также можете ввести данные вручную.</string>
