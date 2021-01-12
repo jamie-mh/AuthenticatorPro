@@ -14,7 +14,7 @@ using AuthenticatorPro.Activity;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Data.Backup;
 using AuthenticatorPro.Data.Source;
-using Java.IO;
+using AuthenticatorPro.Util;
 using Xamarin.Essentials;
 using Uri = Android.Net.Uri;
 
@@ -78,18 +78,7 @@ namespace AuthenticatorPro.Worker
             if(file == null)
                 throw new Exception("File creation failed, got null.");
 
-            var pfd = _context.ContentResolver.OpenFileDescriptor(file.Uri, "w");
-            var outputStream = new FileOutputStream(pfd.FileDescriptor);
-
-            try
-            {
-                await outputStream.WriteAsync(dataToWrite);
-            }
-            finally
-            {
-                outputStream.Close();
-            }
-
+            await FileUtil.WriteFile(_context, file.Uri, dataToWrite);
             await connection.CloseAsync();
         }
 
