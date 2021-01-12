@@ -15,6 +15,8 @@ View some supported providers here: [Two Factor Auth List](https://twofactorauth
 
 ## Quick Links
 
+[Frequently Asked Questions](https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions)
+
 [Contribution Guide](https://github.com/jamie-mh/AuthenticatorPro/blob/master/CONTRIBUTING.md)
 
 [Backup File Format](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md)
