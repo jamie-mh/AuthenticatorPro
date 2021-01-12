@@ -60,7 +60,7 @@ namespace AuthenticatorPro.Shared.Data
         {
             return type switch
             {
-                AuthenticatorType.Hotp or 
+                AuthenticatorType.Hotp => 8,
                 AuthenticatorType.Totp or
                 AuthenticatorType.MobileOtp => 10,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
