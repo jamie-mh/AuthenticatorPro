@@ -19,6 +19,14 @@ View some supported providers here: [Two Factor Auth List](https://twofactorauth
 
 [Backup File Format](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md)
 
+### Importing from other apps
+
+[Google Authenticator](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/IMPORT_GOOGLE_AUTHENTICATOR.md)
+
+[Blizzard Authenticator](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/IMPORT_BLIZZARD_AUTHENTICATOR.md)
+
+[Steam](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/IMPORT_STEAM.md)
+
 ## Download
 
 [<img alt="Get it on Google Play" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
