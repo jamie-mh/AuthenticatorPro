@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appName">Authenticator Pro</string>
     <string name="displayName">身份验证器</string>
     <!-- Non specific strings -->
     <string name="warning">警告</string>
@@ -17,23 +16,23 @@
     <string name="restore">恢复</string>
     <string name="backup">备份</string>
     <string name="about">关于</string>
-    <string name="scanQrCode">扫描二维码</string>
+    <string name="scanQrCode">Scan a QR code</string>
     <string name="scanQrCodeFromCamera">使用相机扫描</string>
     <string name="scanQrCodeFromGallery">从相册中选择</string>
     <string name="rename">更改名称</string>
-    <string name="changeIcon">更改图标</string>
+    <string name="changeIcon">Change icon</string>
     <string name="search">搜索​​​​</string>
-    <string name="mainMenu">主菜单</string>
+    <string name="mainMenu">Main menu</string>
     <string name="enterKey">输入提供的密钥</string>
     <string name="restoreBackup">从备份中恢复</string>
     <!-- Authenticator -->
     <string name="issuer">发行方</string>
     <string name="username">用户名</string>
-    <string name="secretKey">密钥</string>
+    <string name="secretKey">Secret key</string>
     <string name="pin">Pin</string>
-    <string name="showAdvancedOptions">显示高级选项</string>
+    <string name="showAdvancedOptions">Show advanced options</string>
     <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
-    <string name="useCustomIcon">使用自定义图标</string>
+    <string name="useCustomIcon">Use custom icon</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
     <string name="issuerHint">发行方（如：Google）</string>
     <!-- Keep domain example.com as described in RFC6761 -->
@@ -41,7 +40,7 @@
     <string name="typeHint">类型</string>
     <string name="algorithmHint">算法</string>
     <string name="digitsHint">位数</string>
-    <string name="periodHint">时间间隔（秒）</string>
+    <string name="periodHint">Period (seconds)</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
     <string name="noPin">A pin is required</string>
@@ -54,7 +53,7 @@
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 和新分类。</string>
     <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
-    <string name="scanSuccessful">二维码扫描成功</string>
+    <string name="scanSuccessful">QR code scanned successfully</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
@@ -63,33 +62,33 @@
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">这里什么都没有！</string>
     <string name="noAuthenticatorsMessage">您尚未添加验证器。</string>
-    <string name="gettingStartedGuide">入门指南</string>
+    <string name="gettingStartedGuide">Getting started guide</string>
     <string name="noAuthenticatorsHelp">如果您是第一次使用 Authenticator Pro，请点击下方的按钮阅览入门指南。</string>
-    <string name="noCategoriesTitle">暂无分类</string>
+    <string name="noCategoriesTitle">No categories</string>
     <string name="noCategoriesMessage">您还没有设置分类。</string>
     <!-- Categories -->
     <string name="categories">分类</string>
-    <string name="assignCategories">指定分类</string>
+    <string name="assignCategories">Assign categories</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
-    <string name="manageCategories">管理分类</string>
-    <string name="categoryNameHint">分类名</string>
+    <string name="manageCategories">Manage categories</string>
+    <string name="categoryNameHint">Category name</string>
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
     <string name="confirmCategoryDelete">您确定要删除这个分类吗？</string>
     <!-- Backups -->
-    <string name="backupNow">立即备份</string>
+    <string name="backupNow">Backup now</string>
     <string name="backupReminder">自上次备份后已出现新的更改。</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
     <string name="restoreError">密码不正确，或文件已损坏。</string>
     <string name="saveSuccess">保存成功</string>
     <string name="password">密码</string>
-    <string name="passwordConfirm">确认密码</string>
+    <string name="passwordConfirm">Password confirm</string>
     <string name="login">登录</string>
     <string name="loginMessage">访问验证器前，请先输入密码或使用指纹验证。</string>
     <string name="confirmEmptyPassword">您没有输入密码，这将导致您的备份处于未加密状态，且您的密钥将会被明文暴露。您确定要继续吗？</string>
-    <string name="passwordHint">备份密码</string>
-    <string name="fileNameHint">备份文件名</string>
+    <string name="passwordHint">Backup password</string>
+    <string name="fileNameHint">Backup file name</string>
     <string name="noAuthenticators">您没有可备份的验证器。</string>
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
@@ -101,24 +100,27 @@
     <string name="genericError">出现错误。</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
-    <string name="selectLocation">Select Location</string>
+    <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to {0}</string>
-    <string name="setPassword">Set Password</string>
+    <string name="setPassword">Set password</string>
     <string name="passwordNotSet">Password has not been set</string>
     <string name="passwordSet">Password set</string>
     <string name="notPasswordProtected">Not password protected</string>
-    <string name="enableAutoBackups">Enable Auto Backups</string>
-    <string name="testBackup">Test Backup</string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="enableAutoBackups">Enable Auto Backup</string>
+    <string name="testBackup">Test backup</string>
+    <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupTestTitle">Backup succeeded</string>
-    <string name="autoBackupTestText">Auto backup is working correctly</string>
-    <string name="backupStatusChannelName">Backup Status</string>
+    <string name="autoBackupTestText">Auto Backup is working correctly</string>
+    <string name="backupStatusChannelName">Backup status</string>
     <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     <string name="backupScheduled">Backup scheduled</string>
+    <!-- Import -->
+    <string name="importFromAnotherApp">Import from another app</string>
+    <string name="importFrom">Import from</string>
     <!-- Getting Started Guide -->
-    <string name="guideScanQRCodeTitle">扫描二维码</string>
+    <string name="guideScanQRCodeTitle">Scan a QR code</string>
     <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
     <string name="guideUseCodeTitle">使用验证码登录</string>
     <string name="guideUseCodeSummary">在登录的时候，请使用 Authenticator Pro 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。</string>
@@ -132,7 +134,7 @@
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
     <!-- Preferences -->
     <string name="prefGeneral">常规​​​​​</string>
-    <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
+    <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
@@ -154,16 +156,16 @@
     <string name="prefViewGitHubTitle">前往 GitHub</string>
     <string name="prefViewGitHubSummary">浏览 Authenticator Pro 在 GitHub 上的代码仓库。您可以反馈问题、请求更多图标或功能。</string>
     <!-- Arrays -->
-    <string name="authTypeTime">基于时间（TOTP）</string>
-    <string name="authTypeCounter">基于计数器（HOTP）</string>
+    <string name="authTypeTime">Time based (TOTP)</string>
+    <string name="authTypeCounter">Counter based (HOTP)</string>
     <string name="authTypeMobileOtp">Mobile-OTP（mOTP）</string>
     <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1（默认）</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
-    <string name="systemDefault">跟随系统</string>
-    <string name="lightTheme">浅色主题</string>
-    <string name="darkTheme">深色主题</string>
+    <string name="systemDefault">System default</string>
+    <string name="lightTheme">Light theme</string>
+    <string name="darkTheme">Dark theme</string>
     <string name="defaultViewMode">默认</string>
     <string name="compactViewMode">紧凑</string>
     <string name="tileViewMode">平铺</string>
@@ -172,7 +174,7 @@
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP 身份验证</string>
     <string name="introBackupTitle">备份 / 恢复</string>
     <string name="introCategoriesTitle">分类</string>
-    <string name="introThemesTitle">深色主题</string>
+    <string name="introThemesTitle">Dark theme</string>
     <string name="introWelcomeSummary">感谢您下载 Authenticator Pro。\n作为最好的开源身份验证器应用，我们将为您的在线帐户保驾护航。</string>
     <string name="introCompatibilitySummary">Authenticator Pro 支持绝大多数服务提供方和帐户，并 100% 兼容支持 Google 身份验证器的服务。</string>
     <string name="introBackupSummary">备份您的验证器并对其进行强加密。即便您的设备丢失了，您也能恢复对您帐号的访问。您可以将备份保存在云端存储或设备上。</string>
