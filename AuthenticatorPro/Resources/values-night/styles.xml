@@ -14,7 +14,7 @@
         <item name="colorSurface">@color/colorDarker</item>
         <item name="colorOnSurface">@color/colorLightest</item>
 
-        <item name="colorError">#ff4240</item>
+        <item name="colorError">@color/colorError</item>
 
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>

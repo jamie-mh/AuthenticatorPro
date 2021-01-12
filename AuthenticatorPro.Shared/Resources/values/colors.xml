@@ -11,4 +11,6 @@
     <color name="colorDark">#141414</color>
     <color name="colorDarker">#0a0a0a</color>
     <color name="colorDarkest">#000000</color>
+    
+    <color name="colorError">#ff4240</color>
 </resources>

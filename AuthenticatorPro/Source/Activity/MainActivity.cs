@@ -372,13 +372,13 @@ namespace AuthenticatorPro.Activity
                 return;
             
             var fragment = new MainMenuBottomSheet(_categorySource, _authSource.CategoryId);
-            fragment.CategoryClick += async (_, id) =>
+            fragment.ClickCategory += async (_, id) =>
             {
                 await SwitchCategory(id);
                 RunOnUiThread(fragment.Dismiss);
             };
 
-            fragment.BackupClick += delegate
+            fragment.ClickBackup += delegate
             {
                 if(!_authSource.GetAll().Any())
                 {
@@ -389,13 +389,13 @@ namespace AuthenticatorPro.Activity
                 OpenBackupMenu();
             };
 
-            fragment.ManageCategoriesClick += delegate
+            fragment.ClickManageCategories += delegate
             {
                 _updateOnActivityResume = true;
                 StartActivity(typeof(ManageCategoriesActivity));
             };
             
-            fragment.SettingsClick += delegate
+            fragment.ClickSettings += delegate
             {
                 StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
             };

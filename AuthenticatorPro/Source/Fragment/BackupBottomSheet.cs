@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -13,21 +15,15 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetBackup, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
             SetupToolbar(view, Resource.String.backup);
         
-            var fileItem = view.FindViewById<LinearLayout>(Resource.Id.buttonFile);
-            var htmlItem = view.FindViewById<LinearLayout>(Resource.Id.buttonHtml);
-        
-            fileItem.Click += (sender, e) => {
-                ClickBackupFile?.Invoke(sender, e);
-                Dismiss();
-            };
-        
-            htmlItem.Click += (sender, e) => {
-                ClickHtmlFile?.Invoke(sender, e);
-                Dismiss();
-            };
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
+            {
+                new(Resource.Drawable.ic_action_phonelink_lock, Resource.String.backupToFile, ClickBackupFile, Resource.String.backupToFileMessage),
+                new(Resource.Drawable.ic_action_code, Resource.String.backupHtml, ClickHtmlFile, Resource.String.backupHtmlMessage)
+            });
         
             return view;
         }

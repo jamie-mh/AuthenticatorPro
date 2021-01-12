@@ -1,7 +1,10 @@
-﻿using Android.OS;
+﻿using System.Collections.Generic;
+using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Fragment.App;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
@@ -49,6 +52,12 @@ namespace AuthenticatorPro.Fragment
         {
             var toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             toolbar.SetTitle(titleRes);
+            toolbar.Visibility = ViewStates.Visible;
+
+            var spacer = view.FindViewById<LinearLayout>(Resource.Id.layoutSpacer);
+            
+            if(spacer != null)
+                spacer.Visibility = ViewStates.Gone;
 
             if(!showCloseButton)
                 return;
@@ -59,6 +68,21 @@ namespace AuthenticatorPro.Fragment
                 if(args.Item.ItemId == Resource.Id.actionClose)
                     Dismiss();
             };
+        }
+
+        protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)
+        {
+            var adapter = new SheetMenuAdapter(Context, items);
+            adapter.ItemClick += (_, _) =>
+            {
+                Dismiss();
+            };
+            
+            list.SetAdapter(adapter);
+            list.HasFixedSize = true;
+
+            var layout = new LinearLayoutManager(Context);
+            list.SetLayoutManager(layout);
         }
     }
 }

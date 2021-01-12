@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -21,22 +23,20 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetEditCategoryMenu, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
 
-            var renameItem = view.FindViewById<LinearLayout>(Resource.Id.buttonRename);
-            var deleteItem = view.FindViewById<LinearLayout>(Resource.Id.buttonDelete);
-
-            renameItem.Click += (sender, _) =>
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
             {
-                ClickRename?.Invoke(sender, _itemPosition);
-                Dismiss();
-            };
-
-            deleteItem.Click += (sender, _) =>
-            {
-                ClickDelete?.Invoke(sender, _itemPosition);
-                Dismiss();
-            };
+                new(Resource.Drawable.ic_action_edit, Resource.String.rename, (_, _) =>
+                {
+                    ClickRename(this, _itemPosition);
+                }),
+                new(Resource.Drawable.ic_action_delete, Resource.String.delete, (_, _) =>
+                {
+                    ClickDelete(this, _itemPosition);
+                }, null, true)
+            });
 
             return view;
         }

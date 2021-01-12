@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -17,27 +18,18 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetImport, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
             SetupToolbar(view, Resource.String.importFrom);
 
-            var items = new Dictionary<int, EventHandler>
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
             {
-                { Resource.Id.buttonGoogleAuthenticator, ClickGoogleAuthenticator },
-                { Resource.Id.buttonAuthenticatorPlus, ClickAuthenticatorPlus },
-                { Resource.Id.buttonWinAuth, ClickWinAuth },
-                { Resource.Id.buttonSteam, ClickSteam },
-                { Resource.Id.buttonBlizzardAuthenticator, ClickBlizzardAuthenticator }
-            };
-
-            foreach(var (res, handler) in items)
-            {
-                var button = view.FindViewById<LinearLayout>(res);
-                button.Click += (sender, args) =>
-                {
-                    handler?.Invoke(sender, args);
-                    Dismiss();
-                };
-            }
+                new(Resource.Drawable.ic_googleauthenticator, Resource.String.googleAuthenticator, ClickGoogleAuthenticator),
+                new(Resource.Drawable.ic_authenticatorplus, Resource.String.authenticatorPlus, ClickAuthenticatorPlus),
+                new(Resource.Drawable.ic_winauth, Resource.String.winAuth, ClickWinAuth),
+                new(Resource.Drawable.auth_steam, Resource.String.steam, ClickSteam),
+                new(Resource.Drawable.auth_blizzard, Resource.String.blizzardAuthenticator, ClickBlizzardAuthenticator)
+            });
 
             return view;
         }

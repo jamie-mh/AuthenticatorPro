@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -13,20 +15,14 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetScanQRCode, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
 
-            var fromCameraItem = view.FindViewById<LinearLayout>(Resource.Id.buttonScanFromCamera);
-            var fromGalleryItem = view.FindViewById<LinearLayout>(Resource.Id.buttonScanFromGallery);
-
-            fromCameraItem.Click += (sender, e) => {
-                ClickFromCamera?.Invoke(sender, e);
-                Dismiss();
-            };
-
-            fromGalleryItem.Click += (sender, e) => {
-                ClickFromGallery?.Invoke(sender, e);
-                Dismiss();
-            };
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
+            {
+                new(Resource.Drawable.ic_action_camera_alt, Resource.String.scanQrCodeFromCamera, ClickFromCamera),
+                new(Resource.Drawable.ic_action_image, Resource.String.scanQrCodeFromGallery, ClickFromGallery)
+            });
 
             return view;
         }

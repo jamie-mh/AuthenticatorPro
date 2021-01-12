@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.List;
@@ -10,10 +10,10 @@ namespace AuthenticatorPro.Fragment
 {
     internal class MainMenuBottomSheet : BottomSheet
     {
-        public event EventHandler<string> CategoryClick;
-        public event EventHandler BackupClick;
-        public event EventHandler ManageCategoriesClick;
-        public event EventHandler SettingsClick;
+        public event EventHandler<string> ClickCategory;
+        public event EventHandler ClickBackup;
+        public event EventHandler ClickManageCategories;
+        public event EventHandler ClickSettings;
 
         private CategoriesListAdapter _categoryListAdapter;
         private RecyclerView _categoryList;
@@ -50,30 +50,17 @@ namespace AuthenticatorPro.Fragment
 
             _categoryListAdapter.CategorySelected += (_, id) =>
             {
-                CategoryClick?.Invoke(this, id);
+                ClickCategory?.Invoke(this, id);
             };
 
-            var backupButton = view.FindViewById<LinearLayout>(Resource.Id.buttonBackup);
-            var manageCategoriesButton = view.FindViewById<LinearLayout>(Resource.Id.buttonManageCategories);
-            var settingsButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSettings);
-
-            backupButton.Click += (_, _) =>
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
             {
-                BackupClick?.Invoke(this, null);
-                Dismiss();
-            };
-
-            manageCategoriesButton.Click += (_, _) =>
-            {
-                ManageCategoriesClick?.Invoke(this, null);
-                Dismiss();
-            };
-
-            settingsButton.Click += (_, _) =>
-            {
-                SettingsClick?.Invoke(this, null);
-                Dismiss();
-            };
+                new(Resource.Drawable.ic_action_backup, Resource.String.backup, ClickBackup),
+                new(Resource.Drawable.ic_action_category, Resource.String.manageCategories, ClickManageCategories),
+                new(Resource.Drawable.ic_action_settings, Resource.String.settings, ClickSettings)
+            });
+            
             return view;
         }
     }

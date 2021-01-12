@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -15,33 +17,16 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetAddMenu, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
 
-            var scanQrItem = view.FindViewById<LinearLayout>(Resource.Id.buttonScanQRCode);
-            var enterKeyItem = view.FindViewById<LinearLayout>(Resource.Id.buttonEnterKey);
-            var restoreItem = view.FindViewById<LinearLayout>(Resource.Id.buttonRestore);
-            var importButton = view.FindViewById<LinearLayout>(Resource.Id.buttonImport);
-
-            scanQrItem.Click += (sender, e) => {
-                ClickQrCode?.Invoke(sender, e);
-                Dismiss();
-            };
-
-            enterKeyItem.Click += (sender, e) => {
-                ClickEnterKey?.Invoke(sender, e);
-                Dismiss();
-            };
-
-            restoreItem.Click += (sender, e) => {
-                ClickRestore?.Invoke(sender, e);
-                Dismiss();
-            };
-            
-            importButton.Click += (_, _) =>
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
             {
-                ClickImport?.Invoke(this, null);
-                Dismiss();
-            };
+                new(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, ClickQrCode),
+                new(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, ClickEnterKey),
+                new(Resource.Drawable.ic_action_restore, Resource.String.restoreBackup, ClickRestore),
+                new(Resource.Drawable.ic_action_import, Resource.String.importFromAnotherApp, ClickImport)
+            });
 
             return view;
         }

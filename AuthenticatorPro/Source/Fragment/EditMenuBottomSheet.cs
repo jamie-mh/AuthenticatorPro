@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.List;
 using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -28,7 +32,7 @@ namespace AuthenticatorPro.Fragment
         {
             var view = inflater.Inflate(Resource.Layout.sheetEditMenu, container, false);
 
-            if(_type == AuthenticatorType.Hotp)
+            if(_type.GetGenerationMethod() == GenerationMethod.Counter)
             {
                 var counterText = view.FindViewById<TextView>(Resource.Id.textCounter);
                 counterText.Text = _counter.ToString();
@@ -36,34 +40,14 @@ namespace AuthenticatorPro.Fragment
                 view.FindViewById<LinearLayout>(Resource.Id.layoutCounter).Visibility = ViewStates.Visible;
             }
 
-            var renameItem = view.FindViewById<LinearLayout>(Resource.Id.buttonRename);
-            var changeIconItem = view.FindViewById<LinearLayout>(Resource.Id.buttonChangeIcon);
-            var assignCategoriesItem = view.FindViewById<LinearLayout>(Resource.Id.buttonAssignCategories);
-            var deleteItem = view.FindViewById<LinearLayout>(Resource.Id.buttonDelete);
-
-            renameItem.Click += (sender, e) =>
+            var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
+            SetupMenu(menu, new List<SheetMenuItem>
             {
-                ClickRename?.Invoke(sender, e);
-                Dismiss();
-            };
-
-            changeIconItem.Click += (sender, e) =>
-            {
-                ClickChangeIcon?.Invoke(sender, e);
-                Dismiss();
-            };
-
-            assignCategoriesItem.Click += (sender, e) =>
-            {
-                ClickAssignCategories?.Invoke(sender, e);
-                Dismiss();
-            };
-
-            deleteItem.Click += (sender, e) =>
-            {
-                ClickDelete?.Invoke(sender, e);
-                Dismiss();
-            };
+                new(Resource.Drawable.ic_action_edit, Resource.String.rename, ClickRename),
+                new(Resource.Drawable.ic_action_image, Resource.String.changeIcon, ClickChangeIcon),
+                new(Resource.Drawable.ic_action_category, Resource.String.assignCategories, ClickAssignCategories),
+                new(Resource.Drawable.ic_action_delete, Resource.String.delete, ClickDelete, null, true)
+            });
 
             return view;
         }

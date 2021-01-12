@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -127,6 +127,9 @@
     <Compile Include="Source\List\CategoriesListAdapter.cs" />
     <Compile Include="Source\List\FixedGridLayoutManager.cs" />
     <Compile Include="Source\List\GridSpacingItemDecoration.cs" />
+    <Compile Include="Source\List\SheetMenuAdapter.cs" />
+    <Compile Include="Source\List\SheetMenuItem.cs" />
+    <Compile Include="Source\List\SheetMenuItemViewHolder.cs" />
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
     <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
@@ -178,15 +181,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\sheetBackup.axml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\sheetImport.axml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\sheetScanQRCode.axml">
+    <AndroidResource Include="Resources\layout\sheetMenuItem.axml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
@@ -380,7 +375,7 @@
     <AndroidResource Include="Resources\drawable\listItemBorder.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\sheetAddMenu.axml">
+    <AndroidResource Include="Resources\layout\sheetMenu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -895,12 +890,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_image.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\sheetEditCategoryMenu.axml">
-      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_action_menu.png" />
