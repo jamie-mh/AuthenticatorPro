@@ -957,17 +957,17 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickAndOtp += (_, _) =>
             {
-                OpenFilePicker("application/octet-stream", ResultImportAndOtp);
+                OpenFilePicker("*/*", ResultImportAndOtp);
             };
             
             fragment.ClickFreeOtpPlus += (_, _) =>
             {
-                OpenFilePicker("application/octet-stream", ResultImportFreeOtpPlus);
+                OpenFilePicker("*/*", ResultImportFreeOtpPlus);
             };
             
             fragment.ClickAegis += (_, _) =>
             {
-                OpenFilePicker("application/octet-stream", ResultImportAegis);
+                OpenFilePicker("*/*", ResultImportAegis);
             };
             
             fragment.ClickWinAuth += (_, _) =>
