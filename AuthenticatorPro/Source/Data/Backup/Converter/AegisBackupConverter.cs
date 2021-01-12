@@ -91,11 +91,11 @@ namespace AuthenticatorPro.Data.Backup.Converter
             public string Issuer { get; set; }
             
             [JsonProperty(PropertyName = "group")]
-            public string? Group { get; set; }
+            public string Group { get; set; }
             
             [JsonProperty(PropertyName = "icon")]
             [JsonConverter(typeof(ByteArrayConverter))]
-            public byte[]? Icon { get; set; }
+            public byte[] Icon { get; set; }
             
             [JsonProperty(PropertyName = "info")]
             public EntryInfo Info { get; set; }
