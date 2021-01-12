@@ -71,6 +71,7 @@ namespace AuthenticatorPro.Activity
         private const int ResultImportAndOtp = 9;
         private const int ResultImportFreeOtpPlus = 10;
         private const int ResultImportAegis = 11;
+        private const int ResultImportTotpAuthenticator = 12;
 
         private const int BackupReminderThresholdMinutes = 120;
         private const int AppLockThresholdMinutes = 1;
@@ -337,6 +338,10 @@ namespace AuthenticatorPro.Activity
                 
                 case ResultImportAegis:
                     await DoImport(new AegisBackupConverter(), intent.Data);
+                    break;
+                
+                case ResultImportTotpAuthenticator:
+                    await DoImport(new TotpAuthenticatorBackupConverter(), intent.Data);
                     break;
             }
         }
@@ -973,6 +978,11 @@ namespace AuthenticatorPro.Activity
             fragment.ClickWinAuth += (_, _) =>
             {
                 OpenFilePicker("text/plain", ResultImportWinAuth);
+            };
+            
+            fragment.ClickTotpAuthenticator += (_, _) =>
+            {
+                OpenFilePicker("application/octet-stream", ResultImportTotpAuthenticator);
             };
             
             fragment.ClickSteam += (_, _) =>

@@ -148,6 +148,7 @@
     <string name="andOtp">andOTP (plain-text)</string>
     <string name="aegis" translatable="false">Aegis (plain-text)</string>
     <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
+    <string name="totpAuthenticator" translatable="false">TOTP Authenticator</string>
     
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>
