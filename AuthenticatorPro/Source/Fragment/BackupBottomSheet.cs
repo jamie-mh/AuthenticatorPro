@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_phonelink_lock, Resource.String.backupToFile, ClickBackupFile, Resource.String.backupToFileMessage),
+                new(Resource.Drawable.ic_action_file_lock, Resource.String.backupToFile, ClickBackupFile, Resource.String.backupToFileMessage),
                 new(Resource.Drawable.ic_action_code, Resource.String.backupHtml, OnHtmlClick, Resource.String.backupHtmlMessage)
             });
         
