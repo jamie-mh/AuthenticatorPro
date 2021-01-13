@@ -71,11 +71,12 @@ namespace AuthenticatorPro.Activity
         private const int ResultCustomIcon = 5;
         private const int ResultSettingsRecreate = 6;
         private const int ResultImportAuthenticatorPlus = 7;
-        private const int ResultImportWinAuth = 8;
-        private const int ResultImportAndOtp = 9;
-        private const int ResultImportFreeOtpPlus = 10;
-        private const int ResultImportAegis = 11;
-        private const int ResultImportTotpAuthenticator = 12;
+        private const int ResultImportAndOtp = 8;
+        private const int ResultImportFreeOtpPlus = 9;
+        private const int ResultImportAegis = 10;
+        private const int ResultImportBitwarden = 11;
+        private const int ResultImportWinAuth = 12;
+        private const int ResultImportTotpAuthenticator = 13;
 
         private const int BackupReminderThresholdMinutes = 120;
         private const int AppLockThresholdMinutes = 1;
@@ -337,10 +338,6 @@ namespace AuthenticatorPro.Activity
                     await DoImport(new AuthenticatorPlusBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportWinAuth:
-                    await DoImport(new WinAuthBackupConverter(), intent.Data);
-                    break;
-                
                 case ResultImportAndOtp:
                     await DoImport(new AndOtpBackupConverter(), intent.Data);
                     break;
@@ -351,6 +348,14 @@ namespace AuthenticatorPro.Activity
                 
                 case ResultImportAegis:
                     await DoImport(new AegisBackupConverter(), intent.Data);
+                    break;
+                
+                case ResultImportBitwarden:
+                    await DoImport(new BitwardenBackupConverter(), intent.Data);
+                    break;
+                
+                case ResultImportWinAuth:
+                    await DoImport(new WinAuthBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportTotpAuthenticator:
@@ -987,6 +992,11 @@ namespace AuthenticatorPro.Activity
                 OpenFilePicker("*/*", ResultImportAegis);
             };
             
+            fragment.ClickBitwarden += delegate
+            {
+                OpenFilePicker("*/*", ResultImportBitwarden);
+            };
+            
             fragment.ClickWinAuth += delegate
             {
                 OpenFilePicker("text/plain", ResultImportWinAuth);
@@ -997,15 +1007,15 @@ namespace AuthenticatorPro.Activity
                 OpenFilePicker("application/octet-stream", ResultImportTotpAuthenticator);
             };
             
-            fragment.ClickSteam += delegate
-            {
-                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
-                StartActivity(intent);
-            };
-            
             fragment.ClickBlizzardAuthenticator += delegate
             {
                 var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator"));
+                StartActivity(intent);
+            };
+            
+            fragment.ClickSteam += delegate
+            {
+                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
                 StartActivity(intent);
             };
             

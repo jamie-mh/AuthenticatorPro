@@ -14,6 +14,7 @@ namespace AuthenticatorPro.Fragment
         public event EventHandler ClickAndOtp;
         public event EventHandler ClickFreeOtpPlus;
         public event EventHandler ClickAegis;
+        public event EventHandler ClickBitwarden;
         public event EventHandler ClickWinAuth;
         public event EventHandler ClickTotpAuthenticator;
         public event EventHandler ClickSteam;
@@ -33,6 +34,7 @@ namespace AuthenticatorPro.Fragment
                 new(Resource.Drawable.ic_andotp, Resource.String.andOtp, ClickAndOtp, Resource.String.andOtpImportHint),
                 new(Resource.Drawable.ic_freeotpplus, Resource.String.freeOtpPlus, ClickFreeOtpPlus, Resource.String.freeOtpPlusImportHint),
                 new(Resource.Drawable.ic_aegis, Resource.String.aegis, ClickAegis, Resource.String.aegisImportHint),
+                new(Resource.Drawable.auth_bitwarden, Resource.String.bitwarden, ClickBitwarden, Resource.String.bitwardenImportHint),
                 new(Resource.Drawable.ic_winauth, Resource.String.winAuth, ClickWinAuth, Resource.String.winAuthImportHint),
                 new(Resource.Drawable.ic_totpauthenticator, Resource.String.totpAuthenticator, ClickTotpAuthenticator, Resource.String.totpAuthenticatorImportHint),
                 new(Resource.Drawable.auth_steam, Resource.String.steam, ClickSteam, Resource.String.viewGuideImportHint),

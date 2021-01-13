@@ -154,6 +154,8 @@
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegis" translatable="false">Aegis (plain-text)</string>
     <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="bitwarden" translatable="false">Bitwarden</string>
+    <string name="bitwardenImportHint">Import from bitwarden_export.json file</string>
     <string name="winAuth" translatable="false">WinAuth</string>
     <string name="winAuthImportHint">Import winauth.txt file</string>
     <string name="totpAuthenticator" translatable="false">TOTP Authenticator</string>

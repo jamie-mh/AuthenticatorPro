@@ -98,6 +98,7 @@
     <Compile Include="Source\Data\Backup\Converter\AndOtpBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\AuthenticatorPlusBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\BackupConverter.cs" />
+    <Compile Include="Source\Data\Backup\Converter\BitwardenBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\FreeOtpPlusBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\TotpAuthenticatorBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\WinAuthBackupConverter.cs" />
