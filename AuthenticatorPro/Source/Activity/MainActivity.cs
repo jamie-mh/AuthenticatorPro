@@ -1255,9 +1255,10 @@ namespace AuthenticatorPro.Activity
                 {
                     await DoFileBackup(uri, password);
                 }
-                catch(Exception)
+                catch
                 {
-                    ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
                 }
 
                 PreferenceManager.GetDefaultSharedPreferences(this)
@@ -1287,7 +1288,7 @@ namespace AuthenticatorPro.Activity
             {
                 await FileUtil.WriteFile(this, uri, backup.ToString());
             }
-            catch(Exception)
+            catch
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
