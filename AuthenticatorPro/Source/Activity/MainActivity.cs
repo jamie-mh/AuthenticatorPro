@@ -1022,7 +1022,13 @@ namespace AuthenticatorPro.Activity
 
             async Task<Tuple<int, int>> DecryptAndRestore(string password)
             {
-                var backup = Backup.FromBytes(data, password);
+                Backup backup = null;
+
+                await Task.Run(delegate
+                {
+                    backup = Backup.FromBytes(data, password);
+                });
+                
                 return await DoRestore(backup);
             }
 
@@ -1048,6 +1054,8 @@ namespace AuthenticatorPro.Activity
             var sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
             sheet.PasswordEntered += async (_, password) =>
             {
+                sheet.SetOkButtonEnabled(false);
+                
                 try
                 {
                     var (authCount, categoryCount) = await DecryptAndRestore(password);
@@ -1058,6 +1066,8 @@ namespace AuthenticatorPro.Activity
                 {
                     sheet.Error = GetString(Resource.String.restoreError);
                 }
+                
+                sheet.SetOkButtonEnabled(true);
             };
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
@@ -1217,6 +1227,8 @@ namespace AuthenticatorPro.Activity
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
             fragment.PasswordEntered += async (sender, password) =>
             {
+                fragment.SetOkButtonEnabled(false); 
+                
                 try
                 {
                     await DoFileBackup(uri, password);
@@ -1276,7 +1288,13 @@ namespace AuthenticatorPro.Activity
                 _customIconSource.GetAll()
             );
 
-            var data = backup.ToBytes(password);
+            byte[] data = null;
+
+            await Task.Run(delegate
+            {
+                data = backup.ToBytes(password);
+            });
+            
             await FileUtil.WriteFile(this, uri, data);
         }
         
