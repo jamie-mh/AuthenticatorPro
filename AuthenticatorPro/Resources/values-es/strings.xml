@@ -31,7 +31,7 @@
     <string name="secretKey">Llave Secreta</string>
     <string name="pin">Código pin</string>
     <string name="showAdvancedOptions">Mostrar opciones avanzadas</string>
-    <string name="confirmAuthenticatorDelete">Eliminar este autenticador le impedirá generar códigos para esta cuenta.\nEsto no significa que la autenticación de doble factor esté deshabilitada en su cuenta.\n\nEliminar este autenticador puede impedir que accedas a tu cuenta correspondiente.\nPor favor, asegúrese de que la autenticación de dos factores está deshabilitada la cuenta correspondiente o que tiene los códigos de recuperación de dicha cuenta.\n\n¿Está seguro de que desea continuar?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Usar icóno personalizado</string>
     <string name="copiedToClipboard">Código copiado al portapapeles</string>
     <string name="issuerHint">Emisor (ej: Google)</string>
@@ -59,6 +59,7 @@
     <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
     <string name="backupHtml">Respaldar a un archivo local HTML</string>
     <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
     <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
@@ -86,7 +87,7 @@
     <string name="passwordConfirm">Confirmar Contraseña</string>
     <string name="login">Ingresar</string>
     <string name="loginMessage">Por favor, introduzca su contraseña o utilice una huella digital para acceder a sus autenticadores.</string>
-    <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus llaves secretas serán vulnerables. ¿Desea continuar?</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">Respaldar contraseña</string>
     <string name="fileNameHint">Nombre del archivo de Respaldo</string>
     <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
