@@ -31,7 +31,7 @@
     <string name="secretKey">Llave Secreta</string>
     <string name="pin">Código pin</string>
     <string name="showAdvancedOptions">Mostrar opciones avanzadas</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Eliminar este autenticador le impedirá generar códigos para esta cuenta.\nEsto no significa que la autenticación de doble factor esté deshabilitada en su cuenta.\n\nEliminar este autenticador puede impedir que accedas a tu cuenta correspondiente.\nPor favor, asegúrese de que la autenticación de dos factores está deshabilitada la cuenta correspondiente o que tiene los códigos de recuperación de dicha cuenta.\n\n¿Está seguro de que desea continuar?</string>
     <string name="useCustomIcon">Usar icóno personalizado</string>
     <string name="copiedToClipboard">Código copiado al portapapeles</string>
     <string name="issuerHint">Emisor (ej: Google)</string>
@@ -87,7 +87,7 @@
     <string name="passwordConfirm">Confirmar Contraseña</string>
     <string name="login">Ingresar</string>
     <string name="loginMessage">Por favor, introduzca su contraseña o utilice una huella digital para acceder a sus autenticadores.</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus llaves secretas serán vulnerables. ¿Desea continuar?</string>
     <string name="passwordHint">Respaldar contraseña</string>
     <string name="fileNameHint">Nombre del archivo de Respaldo</string>
     <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
