@@ -53,6 +53,10 @@ namespace AuthenticatorPro.Activity
     [Activity(Label = "@string/displayName", Theme = "@style/MainActivityTheme", MainLauncher = true,
               Icon = "@mipmap/ic_launcher", WindowSoftInputMode = SoftInput.AdjustPan,
               ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
+    [IntentFilter (new[] { Intent.ActionView }, Categories = new[] {
+        Intent.CategoryDefault,
+        Intent.CategoryBrowsable
+    }, DataSchemes = new[] { "otpauth", "otpauth-migration" })]
     internal class MainActivity : DayNightActivity, CapabilityClient.IOnCapabilityChangedListener
     {
         private const string WearRefreshCapability = "refresh";
@@ -183,6 +187,16 @@ namespace AuthenticatorPro.Activity
 
             DetectGoogleAPIsAvailability();
             await DetectWearOSCapability();
+
+            // Handle QR code scanning from intent
+            if(Intent.Data == null)
+                return;
+            
+            await _onResumeSemaphore.WaitAsync();
+            _onResumeSemaphore.Release();
+                
+            var uri = Intent.Data;
+            await ParseQRCodeScanResult(uri.ToString());
         }
 
         protected override async void OnResume()
@@ -755,7 +769,7 @@ namespace AuthenticatorPro.Activity
             if(result == null)
                 return;
 
-            await ParseQRCodeScanResult(result);
+            await ParseQRCodeScanResult(result.Text);
         }
 
         private async Task ScanQRCodeFromImage(Uri uri)
@@ -816,15 +830,15 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            await ParseQRCodeScanResult(result);
+            await ParseQRCodeScanResult(result.Text);
         }
 
-        private async Task ParseQRCodeScanResult(ZXing.Result result)
+        private async Task ParseQRCodeScanResult(string uri)
         {
-            if(result.Text.StartsWith("otpauth-migration"))
-                await OnOtpAuthMigrationScan(result.Text);
-            else if(result.Text.StartsWith("otpauth"))
-                await OnOtpAuthScan(result.Text);
+            if(uri.StartsWith("otpauth-migration"))
+                await OnOtpAuthMigrationScan(uri);
+            else if(uri.StartsWith("otpauth"))
+                await OnOtpAuthScan(uri);
             else
             {
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
