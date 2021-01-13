@@ -16,22 +16,22 @@
     <string name="restore">Restaurer</string>
     <string name="backup">Sauvegarder</string>
     <string name="about">À Propos</string>
-    <string name="scanQrCode">Scanner un QR code</string>
+    <string name="scanQrCode">Scanner un QR Code</string>
     <string name="scanQrCodeFromCamera">Scanner à partir de la caméra</string>
     <string name="scanQrCodeFromGallery">Scanner à partir d\'une image</string>
     <string name="rename">Renommer</string>
     <string name="changeIcon">Changer l\'icône</string>
     <string name="search">Rechercher</string>
-    <string name="mainMenu">Menu principal</string>
+    <string name="mainMenu">Menu Principal</string>
     <string name="enterKey">Utiliser une clé</string>
     <string name="restoreBackup">Restorer une sauvegarde</string>
     <!-- Authenticator -->
     <string name="issuer">Émetteur</string>
     <string name="username">Nom d\'utilisateur</string>
     <string name="secretKey">Clé secrète</string>
-    <string name="pin">Code pin</string>
+    <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nContinuer?</string>
     <string name="useCustomIcon">Choisir une icône perso</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="issuerHint">Émetteur (ex: Google)</string>
@@ -49,17 +49,17 @@
     <string name="pinInvalid">Le code pin doit être composé de 4 caractères</string>
     <string name="digitsInvalid">L\'authentificateur doit générer entre {0} et {1} chiffres</string>
     <string name="periodToShort">La période doit être plus longue que 0 secondes</string>
-    <string name="qrCodeFormatError">Le QR code n\'est pas au bon format ou n\'est pas lisible</string>
+    <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
-    <string name="scanSuccessful">QR code scanné avec succès</string>
+    <string name="scanSuccessful">QR Code scanné avec succès</string>
     <!-- Backup menu -->
     <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
     <string name="backupHtml">Fichier HTML</string>
     <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">C\'est vide !</string>
     <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
@@ -87,13 +87,13 @@
     <string name="passwordConfirm">Confirmer le mot de passe</string>
     <string name="login">Connexion</string>
     <string name="loginMessage">Veuillez entrer votre mot de passe ou scanner une empreinte digitale pour accéder à vos authentificateurs</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé.\n\nContinuer?</string>
     <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
     <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
-    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR code</string>
+    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
@@ -122,7 +122,7 @@
     <string name="importFrom">Importer depuis</string>
     <string name="andOtp">andOTP (texte clair)</string>
     <!-- Getting Started Guide -->
-    <string name="guideScanQRCodeTitle">Scanner un QR code</string>
+    <string name="guideScanQRCodeTitle">Scanner un QR Code</string>
     <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez également renseigner les informations vous-même.</string>
     <string name="guideUseCodeTitle">Utiliser le code</string>
     <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Authenticator Pro. Ceci n\'est valide que pendant une courte période. Tappez l\'authentificateur dans la liste pour copier le code au presse-papiers.</string>
