@@ -31,7 +31,7 @@
     <string name="secretKey">Секретный ключ</string>
     <string name="pin">PIN-код</string>
     <string name="showAdvancedOptions">Дополнительные параметры</string>
-    <string name="confirmAuthenticatorDelete">Удаление этого аутентификатора не позволит вам генерировать коды для этой учетной записи.\nЭто не означает, что для вашей учетной записи отключена двухфакторная аутентификация.\n\nУдаление этого аутентификатора может помешать вам получить доступ к вашей учетной записи.\nПожалуйста, убедитесь, что либо двухфакторная аутентификация отключена, либо у вас есть коды восстановления.\n\nВы уверены, что хотите продолжить?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Использовать пользовательскую иконку</string>
     <string name="copiedToClipboard">Код скопирован в буфер обмена</string>
     <string name="issuerHint">Издатель (например: Google)</string>
@@ -59,6 +59,7 @@
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
     <string name="backupHtml">Резервное копирование в HTML файл</string>
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
     <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
@@ -86,7 +87,7 @@
     <string name="passwordConfirm">Подтверждение пароля</string>
     <string name="login">Логин</string>
     <string name="loginMessage">Пожалуйста, введите ваш пароль или используйте отпечаток пальца для доступа к вашим аутентификаторам.</string>
-    <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
     <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
