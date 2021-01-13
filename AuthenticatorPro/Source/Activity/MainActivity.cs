@@ -1167,7 +1167,7 @@ namespace AuthenticatorPro.Activity
                     }
                     catch
                     {
-                        ShowSnackbar(Resource.String.restoreError, Snackbar.LengthShort);
+                        ShowSnackbar(Resource.String.importError, Snackbar.LengthShort);
                     }
                     break;
                 

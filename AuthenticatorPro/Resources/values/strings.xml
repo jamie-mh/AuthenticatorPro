@@ -144,6 +144,7 @@
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
+    <string name="importError">The file could not be imported</string>
 
     <string name="googleAuthenticator" translatable="false">Google Authenticator</string>
     <string name="authenticatorPlus">Authenticator Plus</string>
