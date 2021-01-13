@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
     <!-- Non specific strings -->
     <string name="warning">Attention</string>
@@ -32,7 +31,7 @@
     <string name="secretKey">Clé secrète</string>
     <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
-    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée sur votre compte.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nVoulez-vous vraiment continuer?</string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nContinuer?</string>
     <string name="useCustomIcon">Choisir une icône perso</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="issuerHint">Émetteur (ex: Google)</string>
@@ -60,6 +59,7 @@
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
     <string name="backupHtml">Fichier HTML</string>
     <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
+    <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">C\'est vide !</string>
     <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
@@ -87,10 +87,12 @@
     <string name="passwordConfirm">Confirmer le mot de passe</string>
     <string name="login">Connexion</string>
     <string name="loginMessage">Veuillez entrer votre mot de passe ou scanner une empreinte digitale pour accéder à vos authentificateurs</string>
-    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé. Voulez-vous continuer ?</string>
+    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé.\n\nContinuer?</string>
     <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
+    <string name="encrypting">Chiffrement...</string>
+    <string name="decrypting">Déchiffrement...</string>
     <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
@@ -117,6 +119,20 @@
     <string name="backupStatusChannelName">État de sauvegarde</string>
     <string name="backupStatusChannelDescription">Vous avertit de l\'état des sauvegardes automatiques</string>
     <string name="backupScheduled">Sauvegarde planifiée</string>
+    <!-- Import -->
+    <string name="importFromAnotherApp">Importer depuis une autre application</string>
+    <string name="importFrom">Importer depuis</string>
+    <string name="importError">Le fichier n\'a pas pu être importé</string>
+    <string name="authenticatorPlus">Authenticator Plus</string>
+    <string name="authenticatorPlusImportHint">Importer un fichier authplus.db</string>
+    <string name="andOtp">andOTP (texte clair)</string>
+    <string name="andOtpImportHint">Importer un fichier texte clair otp_accounts.json</string>
+    <string name="freeOtpPlusImportHint">Importer un fichier freeotp-backup.json</string>
+    <string name="aegisImportHint">Importer un fichier aegis-export-plain.json</string>
+    <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
+    <string name="winAuthImportHint">Importer un fichier winauth.txt</string>
+    <string name="totpAuthenticatorImportHint">Importer un fichier TOTP_Backup.encrypt</string>
+    <string name="viewGuideImportHint">Consulter le guide sur le wiki du projet</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scanner un QR Code</string>
     <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez également renseigner les informations vous-même.</string>

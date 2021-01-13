@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
     <!-- Non specific strings -->
     <string name="warning">Внимание</string>
@@ -60,6 +59,7 @@
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
     <string name="backupHtml">Резервное копирование в HTML файл</string>
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
     <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
@@ -91,6 +91,8 @@
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
     <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
+    <string name="encrypting">Encrypting</string>
+    <string name="decrypting">Decrypting</string>
     <!-- Errors -->
     <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
@@ -117,6 +119,20 @@
     <string name="backupStatusChannelName">Backup Status</string>
     <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     <string name="backupScheduled">Backup scheduled</string>
+    <!-- Import -->
+    <string name="importFromAnotherApp">Import from another app</string>
+    <string name="importFrom">Import from</string>
+    <string name="importError">The file could not be imported</string>
+    <string name="authenticatorPlus">Authenticator Plus</string>
+    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
+    <string name="andOtp">andOTP (plain-text)</string>
+    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
+    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
     <string name="guideScanQRCodeSummary">Чтобы добавить аутентификатор, отсканируйте QR-код, предоставленный приложением или службой. Он будет добавлен в список и будет генерировать новые коды автоматически. Вы также можете ввести данные вручную.</string>

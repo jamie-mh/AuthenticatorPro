@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appName">Authenticator Pro</string>
     <string name="displayName">身份验证器</string>
     <!-- Non specific strings -->
     <string name="warning">警告</string>
@@ -60,6 +59,7 @@
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
     <string name="backupHtml">保存为 HTML 文件</string>
     <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">这里什么都没有！</string>
     <string name="noAuthenticatorsMessage">您尚未添加验证器。</string>
@@ -91,6 +91,8 @@
     <string name="passwordHint">备份密码</string>
     <string name="fileNameHint">备份文件名</string>
     <string name="noAuthenticators">您没有可备份的验证器。</string>
+    <string name="encrypting">Encrypting</string>
+    <string name="decrypting">Decrypting</string>
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
@@ -117,6 +119,20 @@
     <string name="backupStatusChannelName">Backup Status</string>
     <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     <string name="backupScheduled">Backup scheduled</string>
+    <!-- Import -->
+    <string name="importFromAnotherApp">Import from another app</string>
+    <string name="importFrom">Import from</string>
+    <string name="importError">The file could not be imported</string>
+    <string name="authenticatorPlus">Authenticator Plus</string>
+    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
+    <string name="andOtp">andOTP (plain-text)</string>
+    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
+    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">扫描二维码</string>
     <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
