@@ -99,6 +99,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
                     ? Type.GetDefaultDigits()
                     : int.Parse(Digits);
 
+                // TODO: figure out if this value ever changes
                 if(Base != 16)
                     throw new ArgumentException("Cannot parse base other than 16");
                 
