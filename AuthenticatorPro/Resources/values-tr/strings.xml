@@ -91,6 +91,8 @@
     <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
     <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
+    <string name="encrypting">Encrypting</string>
+    <string name="decrypting">Decrypting</string>
     <!-- Errors -->
     <string name="databaseError">Veri tabanını açarken bir hata meydana geldi. Uygulamayı tekrar başlatmayı deneyin.</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
@@ -120,7 +122,17 @@
     <!-- Import -->
     <string name="importFromAnotherApp">Import from another app</string>
     <string name="importFrom">Import from</string>
+    <string name="importError">The file could not be imported</string>
+    <string name="authenticatorPlus">Authenticator Plus</string>
+    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
     <string name="andOtp">andOTP (plain-text)</string>
+    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
+    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="bitwardenImportHint">Import from bitwarden_export.json file</string>
+    <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Karekodu tara</string>
     <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de girebilirsiniz.</string>
