@@ -31,7 +31,7 @@
     <string name="secretKey">密钥</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">显示高级选项</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
     <string name="useCustomIcon">使用自定义图标</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
     <string name="issuerHint">发行方（如：Google）</string>
@@ -87,7 +87,7 @@
     <string name="passwordConfirm">确认密码</string>
     <string name="login">登录</string>
     <string name="loginMessage">访问验证器前，请先输入密码或使用指纹验证。</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">您没有输入密码，这将导致您的备份处于未加密状态，且您的密钥将会被明文暴露。您确定要继续吗？</string>
     <string name="passwordHint">备份密码</string>
     <string name="fileNameHint">备份文件名</string>
     <string name="noAuthenticators">您没有可备份的验证器。</string>
@@ -97,7 +97,7 @@
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">选择文件时出错。</string>
-    <string name="invalidFileError">选择的文件不是 Authenticator Pro 备份文件。</string>
+    <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
     <string name="genericError">出现错误。</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
