@@ -153,7 +153,7 @@
     <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
     <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegis" translatable="false">Aegis (plain-text)</string>
+    <string name="aegis">Aegis (plain-text)</string>
     <string name="aegisImportHint">Import aegis-export-plain.json file</string>
     <string name="bitwarden" translatable="false">Bitwarden</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
