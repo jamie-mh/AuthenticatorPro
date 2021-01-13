@@ -73,11 +73,43 @@ If you are migrating your authenticators from another app, you can create your o
 
 ### Encrypted Backups
 
+Authenticator Pro backups are encrypted using AES_CBC_PKCS7. The key is derived using PBKDF2 with SHA1 over 100000 iterations.
+The file is structured as follows:
+
+| Section | Size | Value            |
+|---------|------|------------------|
+| Header  | 16   | AuthenticatorPro |
+| Salt    | 8    | .                |
+| IV      | 16   | .                |
+| Payload | .    | .                |
+
+A Python tool can be used to decrypt your backups.
+
+[Backup Decryption Tool](https://github.com/jamie-mh/AuthenticatorPro/blob/master/extra/decrypt_backup.py)
+
+First install the required package with ``pip``.
+
+```
+pip install pycryptodome
+```
+
+Run the Python script with your backup as a parameter. Optionally direct the output to a file.
+
+```
+python decrypt_backup.py backup.authpro > backup_decrypted.json
+```
+
+You will be prompted for the password, and once decrypted the output will be sent to the ``backup_decrypted.json`` file.
+
+### Encrypted Backups (Old)
+
 If your backup file is encrypted. The JSON data is encrypted with the AES_CBC_PKCS7 algorithm. You can decrypt a backup file using OpenSSL like this:
 
 First generate a key pair using your backup passphrase:
 
-```openssl enc -nosalt -aes-256-cbc -k [PASSPHRASE] -P```
+```
+openssl enc -nosalt -aes-256-cbc -k [PASSPHRASE] -P
+```
 
 This command will generate a pair like this:
 
