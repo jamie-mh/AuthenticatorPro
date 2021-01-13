@@ -129,7 +129,7 @@
     <string name="andOtpImportHint">Importer un fichier texte clair otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Importer un fichier freeotp-backup.json</string>
     <string name="aegisImportHint">Importer un fichier aegis-export-plain.json</string>
-    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
     <string name="winAuthImportHint">Importer un fichier winauth.txt</string>
     <string name="totpAuthenticatorImportHint">Importer un fichier TOTP_Backup.encrypt</string>
     <string name="viewGuideImportHint">Consulter le guide sur le wiki du projet</string>
