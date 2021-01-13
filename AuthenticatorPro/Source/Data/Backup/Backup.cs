@@ -16,9 +16,9 @@ namespace AuthenticatorPro.Data.Backup
         private const KeyDerivationAlgorithm KeyDerivationAlgorithm = PCLCrypto.KeyDerivationAlgorithm.Pbkdf2Sha1;
         private const SymmetricAlgorithm KeyAlgorithm = SymmetricAlgorithm.AesCbcPkcs7;
         private const string Header = "AuthenticatorPro";
-        private const int Iterations = 100000;
+        private const int Iterations = 64000;
         private const int KeySize = 32;
-        private const int SaltLength = 8;
+        private const int SaltLength = 20;
 
         public List<Authenticator> Authenticators { get; }
         public List<Category> Categories { get; }

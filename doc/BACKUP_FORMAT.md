@@ -73,13 +73,13 @@ If you are migrating your authenticators from another app, you can create your o
 
 ### Encrypted Backups
 
-Authenticator Pro backups are encrypted using AES_CBC_PKCS7. The key is derived using PBKDF2 with SHA1 over 100000 iterations.
+Authenticator Pro backups are encrypted using AES_CBC_PKCS7. The key is derived using PBKDF2 with SHA1 over 64000 iterations.
 The file is structured as follows:
 
 | Section | Size | Value            |
 |---------|------|------------------|
 | Header  | 16   | AuthenticatorPro |
-| Salt    | 8    | .                |
+| Salt    | 20   | .                |
 | IV      | 16   | .                |
 | Payload | .    | .                |
 
