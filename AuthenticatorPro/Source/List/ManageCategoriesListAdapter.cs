@@ -56,7 +56,7 @@ namespace AuthenticatorPro.List
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemManageCategory, parent, false);
 
             var holder = new ManageCategoriesListHolder(itemView);
-            holder.MenuClick += MenuClick;
+            holder.MenuButton.Click += (_, _) => { MenuClick(this, holder.AdapterPosition); };
 
             return holder;
         }

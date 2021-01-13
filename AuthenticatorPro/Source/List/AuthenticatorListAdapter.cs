@@ -251,9 +251,9 @@ namespace AuthenticatorPro.List
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthenticatorListHolder(itemView);
-            holder.Click += ItemClick;
-            holder.MenuClick += MenuClick;
-            holder.RefreshClick += OnRefreshClick;
+            holder.ItemView.Click += (_, _) => ItemClick.Invoke(this, holder.AdapterPosition);
+            holder.MenuButton.Click += (_, _) => MenuClick.Invoke(this, holder.AdapterPosition);
+            holder.RefreshButton.Click += (_, _) => OnRefreshClick(this, holder.AdapterPosition);
 
             return holder;
         }

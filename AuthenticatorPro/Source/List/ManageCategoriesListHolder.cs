@@ -7,16 +7,14 @@ namespace AuthenticatorPro.List
 {
     internal class ManageCategoriesListHolder : RecyclerView.ViewHolder
     {
-        public event EventHandler<int> MenuClick;
         public TextView Name { get; }
+        public ImageButton MenuButton { get; }
 
 
         public ManageCategoriesListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);
-
-            var menuButton = itemView.FindViewById<ImageButton>(Resource.Id.buttonMenu);
-            menuButton.Click += delegate { MenuClick?.Invoke(this, AdapterPosition); };
+            MenuButton = itemView.FindViewById<ImageButton>(Resource.Id.buttonMenu);
         }
     }
 }
