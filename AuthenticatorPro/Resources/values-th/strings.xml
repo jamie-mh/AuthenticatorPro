@@ -31,7 +31,7 @@
     <string name="secretKey">Secret Key</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
     <string name="useCustomIcon">Use Custom Icon</string>
     <string name="copiedToClipboard">Code copied to clipboard</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
@@ -87,7 +87,7 @@
     <string name="passwordConfirm">Password Confirm</string>
     <string name="login">Login</string>
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vulnerable. Do you wish to continue?</string>
     <string name="passwordHint">Backup Password</string>
     <string name="fileNameHint">Backup File Name</string>
     <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
