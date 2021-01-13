@@ -63,7 +63,7 @@ namespace AuthenticatorPro.Fragment
             if(_initialValue != null)
                 _textName.Text = _initialValue;
 
-            submitButton.Click += (_, _) =>
+            submitButton.Click += delegate
             {
                 var name = _textName.Text.Trim();
 

@@ -36,8 +36,8 @@ namespace AuthenticatorPro.Fragment
             builder.SetMessage(Resource.String.backupHtmlWarning);
             builder.SetCancelable(true);
 
-            builder.SetNegativeButton(Resource.String.cancel, (_, _) => { });
-            builder.SetPositiveButton(Resource.String.ok, (_, _) =>
+            builder.SetNegativeButton(Resource.String.cancel, delegate { });
+            builder.SetPositiveButton(Resource.String.ok, delegate
             {
                 ClickHtmlFile.Invoke(this, e);
             });

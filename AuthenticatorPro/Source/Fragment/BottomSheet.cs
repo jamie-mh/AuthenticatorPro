@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Fragment
         protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)
         {
             var adapter = new SheetMenuAdapter(Context, items);
-            adapter.ItemClick += (_, _) =>
+            adapter.ItemClick += delegate
             {
                 Dismiss();
             };

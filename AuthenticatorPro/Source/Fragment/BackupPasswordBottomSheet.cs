@@ -75,7 +75,7 @@ namespace AuthenticatorPro.Fragment
                 builder.SetMessage(Resource.String.confirmEmptyPassword);
                 builder.SetCancelable(true);
                 
-                builder.SetNegativeButton(Resource.String.cancel, (_, _) => { });
+                builder.SetNegativeButton(Resource.String.cancel, delegate { });
                 builder.SetPositiveButton(Resource.String.ok, (sender, _) =>
                 {
                     ((AlertDialog) sender).Dismiss();

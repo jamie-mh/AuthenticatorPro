@@ -1,5 +1,4 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
@@ -30,7 +29,7 @@ namespace AuthenticatorPro.Activity
                 var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
                 version = packageInfo.VersionName;
             }
-            catch(Exception)
+            catch
             {
                 version = "unknown";
             }

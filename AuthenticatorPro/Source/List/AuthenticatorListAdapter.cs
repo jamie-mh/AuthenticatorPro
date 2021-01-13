@@ -251,14 +251,14 @@ namespace AuthenticatorPro.List
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthenticatorListHolder(itemView);
-            holder.ItemView.Click += (_, _) => ItemClick.Invoke(this, holder.AdapterPosition);
-            holder.MenuButton.Click += (_, _) => MenuClick.Invoke(this, holder.AdapterPosition);
-            holder.RefreshButton.Click += (_, _) => OnRefreshClick(this, holder.AdapterPosition);
+            holder.ItemView.Click += delegate { ItemClick.Invoke(this, holder.AdapterPosition); };
+            holder.MenuButton.Click += delegate { MenuClick.Invoke(this, holder.AdapterPosition); };
+            holder.RefreshButton.Click += delegate { OnRefreshClick(holder.AdapterPosition); };
 
             return holder;
         }
 
-        private async void OnRefreshClick(object sender, int position)
+        private async void OnRefreshClick(int position)
         {
             await _authSource.IncrementCounter(position);
             NotifyItemChanged(position);

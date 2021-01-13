@@ -75,8 +75,7 @@ namespace AuthenticatorPro.Activity
             var decoration = new DividerItemDecoration(this, layout.Orientation);
             _categoryList.AddItemDecoration(decoration);
 
-            var layoutAnimation =
-                AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);
+            var layoutAnimation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);
             _categoryList.LayoutAnimation = layoutAnimation;
 
             await Refresh();

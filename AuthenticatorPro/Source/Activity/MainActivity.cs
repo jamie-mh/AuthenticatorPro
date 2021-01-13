@@ -171,7 +171,7 @@ namespace AuthenticatorPro.Activity
                 AutoReset = true
             };
             
-            _timer.Elapsed += (_, _) =>
+            _timer.Elapsed += delegate
             {
                 Tick();
             };
@@ -232,8 +232,7 @@ namespace AuthenticatorPro.Activity
                 await _categorySource.Update();
 
                 // Currently visible category has been deleted
-                if(_authSource.CategoryId != null &&
-                   _categorySource.GetView().FirstOrDefault(c => c.Id == _authSource.CategoryId) == null)
+                if(_authSource.CategoryId != null && _categorySource.GetView().All(c => c.Id != _authSource.CategoryId))
                     await SwitchCategory(null);
             }
             
@@ -814,8 +813,7 @@ namespace AuthenticatorPro.Activity
                 var bytes = new byte[buffer.Remaining()];
                 buffer.Get(bytes);
 
-                var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height,
-                    RGBLuminanceSource.BitmapFormat.RGBA32);
+                var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height, RGBLuminanceSource.BitmapFormat.RGBA32);
                 result = reader.Decode(source);
             }
             catch(Exception)
@@ -963,49 +961,49 @@ namespace AuthenticatorPro.Activity
         private void OpenImportMenu()
         {
             var fragment = new ImportBottomSheet();
-            fragment.ClickGoogleAuthenticator += (_, _) =>
+            fragment.ClickGoogleAuthenticator += delegate
             {
                 var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator"));
                 StartActivity(intent);
             };
             
-            fragment.ClickAuthenticatorPlus += (_, _) =>
+            fragment.ClickAuthenticatorPlus += delegate
             {
                 OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
             };
             
-            fragment.ClickAndOtp += (_, _) =>
+            fragment.ClickAndOtp += delegate
             {
                 OpenFilePicker("*/*", ResultImportAndOtp);
             };
             
-            fragment.ClickFreeOtpPlus += (_, _) =>
+            fragment.ClickFreeOtpPlus += delegate
             {
                 OpenFilePicker("*/*", ResultImportFreeOtpPlus);
             };
             
-            fragment.ClickAegis += (_, _) =>
+            fragment.ClickAegis += delegate
             {
                 OpenFilePicker("*/*", ResultImportAegis);
             };
             
-            fragment.ClickWinAuth += (_, _) =>
+            fragment.ClickWinAuth += delegate
             {
                 OpenFilePicker("text/plain", ResultImportWinAuth);
             };
             
-            fragment.ClickTotpAuthenticator += (_, _) =>
+            fragment.ClickTotpAuthenticator += delegate
             {
                 OpenFilePicker("application/octet-stream", ResultImportTotpAuthenticator);
             };
             
-            fragment.ClickSteam += (_, _) =>
+            fragment.ClickSteam += delegate
             {
                 var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
                 StartActivity(intent);
             };
             
-            fragment.ClickBlizzardAuthenticator += (_, _) =>
+            fragment.ClickBlizzardAuthenticator += delegate
             {
                 var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator"));
                 StartActivity(intent);

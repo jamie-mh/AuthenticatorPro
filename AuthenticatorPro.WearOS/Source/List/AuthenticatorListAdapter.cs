@@ -52,14 +52,13 @@ namespace AuthenticatorPro.WearOS.List
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             var view = LayoutInflater.FromContext(parent.Context).Inflate(Resource.Layout.authListItem, parent, false);
-            var holder = new AuthenticatorListHolder(view, OnItemClick);
+            var holder = new AuthenticatorListHolder(view);
+            holder.ItemView.Click += delegate
+            {
+                ItemClick?.Invoke(this, holder.AdapterPosition);
+            };
 
             return holder;
-        }
-
-        private void OnItemClick(int position)
-        {
-            ItemClick?.Invoke(this, position);
         }
 
         public override int ItemCount => _authSource.GetView().Count;

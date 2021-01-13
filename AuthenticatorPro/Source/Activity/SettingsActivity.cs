@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Activity
             prefs.RegisterOnSharedPreferenceChangeListener(this);
 
             _fragment = new SettingsFragment();
-            _fragment.PreferencesCreated += (_, _) =>
+            _fragment.PreferencesCreated += delegate
             {
                 UpdateBackupRemindersEnabled(prefs);
             };

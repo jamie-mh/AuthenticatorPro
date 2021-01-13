@@ -28,11 +28,11 @@ namespace AuthenticatorPro.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_edit, Resource.String.rename, (_, _) =>
+                new(Resource.Drawable.ic_action_edit, Resource.String.rename, delegate
                 {
                     ClickRename(this, _itemPosition);
                 }),
-                new(Resource.Drawable.ic_action_delete, Resource.String.delete, (_, _) =>
+                new(Resource.Drawable.ic_action_delete, Resource.String.delete, delegate
                 {
                     ClickDelete(this, _itemPosition);
                 }, null, true)
