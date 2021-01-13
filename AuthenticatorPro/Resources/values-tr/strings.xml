@@ -31,7 +31,7 @@
     <string name="secretKey">Gizli anahtar</string>
     <string name="pin">Pin kodu</string>
     <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin misin?</string>
     <string name="useCustomIcon">Özel simge kullan</string>
     <string name="copiedToClipboard">Kod panoya kopyalandı</string>
     <string name="issuerHint">Kuruluş (ör: Google)</string>
@@ -87,7 +87,7 @@
     <string name="passwordConfirm">Parolayı Onayla</string>
     <string name="login">Giriş</string>
     <string name="loginMessage">Kimlik doğrulayıcınıza erişmek için lütfen parolanızı girin veya bir parmak izi kullanın.</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
     <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
     <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
