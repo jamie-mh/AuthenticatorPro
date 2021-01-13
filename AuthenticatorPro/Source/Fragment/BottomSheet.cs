@@ -54,11 +54,6 @@ namespace AuthenticatorPro.Fragment
             toolbar.SetTitle(titleRes);
             toolbar.Visibility = ViewStates.Visible;
 
-            var spacer = view.FindViewById<LinearLayout>(Resource.Id.layoutSpacer);
-            
-            if(spacer != null)
-                spacer.Visibility = ViewStates.Gone;
-
             if(!showCloseButton)
                 return;
             
