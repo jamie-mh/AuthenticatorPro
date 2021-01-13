@@ -34,7 +34,7 @@
     <string name="secretKey">Secret key</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Show advanced options</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Use custom icon</string>
     <string name="copiedToClipboard">Code copied to clipboard</string>
     <string name="issuerHint">Issuer (eg: Google)</string>
@@ -64,7 +64,7 @@
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
     <string name="backupHtml">Backup to HTML file</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If you are unsure, opt for encrypted file backup instead.\n\nContinue anyway?</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nothing here!</string>
@@ -97,7 +97,7 @@
     <string name="passwordConfirm">Password confirm</string>
     <string name="login">Login</string>
     <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vulnerable. Do you wish to continue?</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     
     <string name="passwordHint">Backup password</string>
     <string name="fileNameHint">Backup file name</string>

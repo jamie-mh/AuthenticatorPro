@@ -73,17 +73,16 @@ namespace AuthenticatorPro.Fragment
                 var builder = new MaterialAlertDialogBuilder(Activity);
                 builder.SetTitle(Resource.String.warning);
                 builder.SetMessage(Resource.String.confirmEmptyPassword);
-                builder.SetNegativeButton(Resource.String.no, (_, _) => { });
-
-                builder.SetPositiveButton(Resource.String.yes, (sender, _) =>
+                builder.SetCancelable(true);
+                
+                builder.SetNegativeButton(Resource.String.cancel, (_, _) => { });
+                builder.SetPositiveButton(Resource.String.ok, (sender, _) =>
                 {
                     ((AlertDialog) sender).Dismiss();
                     PasswordEntered?.Invoke(this, "");
                 });
 
-                builder.SetCancelable(true);
                 builder.Create().Show();
-
                 return;
             }
 
