@@ -31,7 +31,7 @@
     <string name="secretKey">Geheimer Schlüssel</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
-    <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes verfügst.\n\nMöchtest du fortfahren?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Eigenes Icon verwenden</string>
     <string name="copiedToClipboard">In Zwischenablage kopiert</string>
     <string name="issuerHint">Herausgeber (z.B: Google)</string>
@@ -59,6 +59,7 @@
     <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
     <string name="backupHtml">Als HTML-Datei sichern</string>
     <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
@@ -86,7 +87,7 @@
     <string name="passwordConfirm">Passwort bestätigen</string>
     <string name="login">Anmelden</string>
     <string name="loginMessage">Gib dein Passwort ein oder nutze deinen Fingerabdruck, um die App zu entsperren.</string>
-    <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">Sicherungspasswort</string>
     <string name="fileNameHint">Sicherungsdateiname</string>
     <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
