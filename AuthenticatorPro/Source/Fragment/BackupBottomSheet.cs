@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.List;
+using Google.Android.Material.Dialog;
 
 namespace AuthenticatorPro.Fragment
 {
@@ -22,10 +23,26 @@ namespace AuthenticatorPro.Fragment
             SetupMenu(menu, new List<SheetMenuItem>
             {
                 new(Resource.Drawable.ic_action_phonelink_lock, Resource.String.backupToFile, ClickBackupFile, Resource.String.backupToFileMessage),
-                new(Resource.Drawable.ic_action_code, Resource.String.backupHtml, ClickHtmlFile, Resource.String.backupHtmlMessage)
+                new(Resource.Drawable.ic_action_code, Resource.String.backupHtml, OnHtmlClick, Resource.String.backupHtmlMessage)
             });
         
             return view;
+        }
+
+        private void OnHtmlClick(object sender, EventArgs e)
+        {
+            var builder = new MaterialAlertDialogBuilder(Activity);
+            builder.SetTitle(Resource.String.warning);
+            builder.SetMessage(Resource.String.backupHtmlWarning);
+            builder.SetCancelable(true);
+
+            builder.SetNegativeButton(Resource.String.no, (_, _) => { });
+            builder.SetPositiveButton(Resource.String.yes, (_, _) =>
+            {
+                ClickHtmlFile.Invoke(this, e);
+            });
+
+            builder.Create().Show();
         }
     }
 }
