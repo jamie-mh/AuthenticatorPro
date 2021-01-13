@@ -102,6 +102,9 @@
     <string name="passwordHint">Backup password</string>
     <string name="fileNameHint">Backup file name</string>
     <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
+    
+    <string name="encrypting">Encrypting</string>
+    <string name="decrypting">Decrypting</string>
 
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>

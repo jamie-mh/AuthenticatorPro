@@ -1066,7 +1066,7 @@ namespace AuthenticatorPro.Activity
             var sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
             sheet.PasswordEntered += async (_, password) =>
             {
-                sheet.SetOkButtonEnabled(false);
+                sheet.SetBusyText(Resource.String.decrypting);
                 
                 try
                 {
@@ -1079,7 +1079,7 @@ namespace AuthenticatorPro.Activity
                     sheet.Error = GetString(Resource.String.restoreError);
                 }
                 
-                sheet.SetOkButtonEnabled(true);
+                sheet.SetBusyText(null);
             };
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
@@ -1239,7 +1239,7 @@ namespace AuthenticatorPro.Activity
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
             fragment.PasswordEntered += async (sender, password) =>
             {
-                fragment.SetOkButtonEnabled(false); 
+                fragment.SetBusyText(Resource.String.encrypting); 
                 
                 try
                 {

@@ -25,6 +25,8 @@ namespace AuthenticatorPro.Fragment
 
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordTextLayout;
+        
+        private MaterialButton _cancelButton;
         private MaterialButton _okButton;
 
         public BackupPasswordBottomSheet(Mode mode)
@@ -48,8 +50,8 @@ namespace AuthenticatorPro.Fragment
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOK);
             _okButton.Click += OnOkButtonClick;
 
-            var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += OnCancelButtonClick;
+            _cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
+            _cancelButton.Click += OnCancelButtonClick;
 
             if(_mode == Mode.Set)
             {
@@ -89,9 +91,13 @@ namespace AuthenticatorPro.Fragment
             PasswordEntered?.Invoke(this, _passwordText.Text);
         }
 
-        public void SetOkButtonEnabled(bool enabled)
+        public void SetBusyText(int? busyRes)
         {
-            _okButton.Enabled = enabled;
+            var busy = busyRes != null;
+            _okButton.Enabled = _cancelButton.Enabled = _passwordText.Focusable = !busy;
+            Dialog.SetCancelable(!busy);
+            Dialog.SetCanceledOnTouchOutside(!busy);
+            _okButton.SetText(busyRes ?? Resource.String.ok);
         }
 
         private void OnCancelButtonClick(object sender, EventArgs e)
