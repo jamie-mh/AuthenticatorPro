@@ -48,7 +48,7 @@
     <string name="secretInvalid">Gizli anahtar geçersiz.</string>
     <string name="pinInvalid">PIN 4 karakter uzunluğunda olmalıdır.</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
-    <string name="periodToShort">Süre 0 saniyeden uzun olmalıdır.</string>
+    <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
