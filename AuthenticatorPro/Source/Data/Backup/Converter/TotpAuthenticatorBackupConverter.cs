@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
             var authenticators = sourceAccounts.Select(entry => entry.Convert()).ToList();
             
-            return Task.FromResult(new Backup(authenticators, null, null, null));
+            return Task.FromResult(new Backup(authenticators));
         }
 
         private class Account

@@ -26,7 +26,7 @@ namespace AuthenticatorPro.Data.Backup
         public List<CustomIcon> CustomIcons { get; }
 
 
-        public Backup(List<Authenticator> authenticators, List<Category> categories, List<AuthenticatorCategory> authenticatorCategories, List<CustomIcon> customIcons)
+        public Backup(List<Authenticator> authenticators, List<Category> categories = null, List<AuthenticatorCategory> authenticatorCategories = null, List<CustomIcon> customIcons = null)
         {
             Authenticators = authenticators;
             Categories = categories;

@@ -39,10 +39,10 @@ namespace AuthenticatorPro.Data.Backup.Converter
                 {
                     var sourceAccount = sourceAccounts[i];
 
-                    if(sourceAccount.Category == "All Accounts")
+                    if(sourceAccount.CategoryName == "All Accounts")
                         continue;
 
-                    var category = categories.FirstOrDefault(c => c.Name == sourceAccount.Category);
+                    var category = categories.FirstOrDefault(c => c.Name == sourceAccount.CategoryName);
 
                     if(category == null)
                         continue;
@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
                     bindings.Add(binding);
                 }
 
-                backup = new Backup(authenticators, categories, bindings, null);
+                backup = new Backup(authenticators, categories, bindings);
             }
             catch(SQLiteException)
             {
@@ -78,11 +78,6 @@ namespace AuthenticatorPro.Data.Backup.Converter
 
         private class Account
         {
-            public Account()
-            {
-                
-            }
-           
             [Column("email")]
             public string Email { get; set; }
            
@@ -99,7 +94,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             public string Issuer { get; set; }
            
             [Column("category")]
-            public string Category { get; set; }
+            public string CategoryName { get; set; }
 
             public Authenticator Convert()
             {
@@ -137,15 +132,9 @@ namespace AuthenticatorPro.Data.Backup.Converter
 
         private class Category
         {
-            public Category()
-            {
-                
-            }
-           
             [Column("name")]
             public string Name { get; set; }
             
-
             public Data.Category Convert()
             {
                 return new(Name);

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             var export = JsonConvert.DeserializeObject<Export>(json);
             var authenticators = export.Items.Where(item => !String.IsNullOrEmpty(item.Login.Totp)).Select(item => item.Convert()).ToList();
 
-            return Task.FromResult(new Backup(authenticators, null, null, null));
+            return Task.FromResult(new Backup(authenticators));
         }
 
         private class Export

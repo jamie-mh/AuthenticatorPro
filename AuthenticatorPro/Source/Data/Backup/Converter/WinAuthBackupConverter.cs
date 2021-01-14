@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             var authenticators = new List<Authenticator>();
             authenticators.AddRange(lines.Where(line => !String.IsNullOrWhiteSpace(line)).Select(Authenticator.FromOtpAuthUri));
 
-            return Task.FromResult(new Backup(authenticators, null, null, null));
+            return Task.FromResult(new Backup(authenticators));
         }
     }
 }

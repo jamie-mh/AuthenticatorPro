@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             var sourceTokens = JsonConvert.DeserializeObject<FreeOtpPlusBackup>(json).Tokens;
             var authenticators = sourceTokens.Select(account => account.Convert()).ToList();
 
-            return Task.FromResult(new Backup(authenticators, null, null, null));
+            return Task.FromResult(new Backup(authenticators));
         }
 
         private class FreeOtpPlusBackup

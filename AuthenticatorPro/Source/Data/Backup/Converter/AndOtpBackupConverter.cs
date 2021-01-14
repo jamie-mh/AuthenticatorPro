@@ -45,7 +45,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
                 }
             }
 
-            return Task.FromResult(new Backup(authenticators, categories, bindings, null));
+            return Task.FromResult(new Backup(authenticators, categories, bindings));
         }
 
         private class Account
