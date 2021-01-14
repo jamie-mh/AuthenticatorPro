@@ -1004,7 +1004,7 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickTotpAuthenticator += delegate
             {
-                OpenFilePicker("application/octet-stream", ResultImportTotpAuthenticator);
+                OpenFilePicker("*/*", ResultImportTotpAuthenticator);
             };
             
             fragment.ClickBlizzardAuthenticator += delegate
