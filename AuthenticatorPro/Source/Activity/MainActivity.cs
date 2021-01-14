@@ -1145,6 +1145,8 @@ namespace AuthenticatorPro.Activity
                 sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
                 sheet.PasswordEntered += async (_, password) =>
                 {
+                    sheet.SetBusyText(Resource.String.decrypting);
+                    
                     try
                     {
                         var (authCount, categoryCount) = await ConvertAndRestore(password);
@@ -1154,6 +1156,7 @@ namespace AuthenticatorPro.Activity
                     catch
                     {
                         sheet.Error = GetString(Resource.String.restoreError);
+                        sheet.SetBusyText(null);
                     }
                 };
                 sheet.Show(SupportFragmentManager, sheet.Tag);
