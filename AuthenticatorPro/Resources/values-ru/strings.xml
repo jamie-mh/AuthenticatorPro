@@ -93,6 +93,7 @@
     <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
+    <string name="saving">Saving</string>
     <!-- Errors -->
     <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
