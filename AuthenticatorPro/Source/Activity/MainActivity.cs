@@ -327,7 +327,7 @@ namespace AuthenticatorPro.Activity
                     break;
                 
                 case RequestCustomIcon:
-                    await SetCustomIcon(intent.Data);
+                    await SetCustomIcon(intent.Data, _customIconApplyPosition);
                     break;
                 
                 case RequestQrCode:
@@ -1435,13 +1435,13 @@ namespace AuthenticatorPro.Activity
         #endregion
 
         #region Custom Icons
-        private async Task SetCustomIcon(Uri uri)
+        private async Task SetCustomIcon(Uri source, int position)
         {
             CustomIcon icon;
 
             try
             {
-                var data = await FileUtil.ReadFile(this, uri);
+                var data = await FileUtil.ReadFile(this, source);
                 icon = await CustomIcon.FromBytes(data);
             }
             catch(Exception)
@@ -1450,7 +1450,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            var auth = _authSource.Get(_customIconApplyPosition);
+            var auth = _authSource.Get(position);
 
             if(auth == null || auth.Icon == CustomIcon.Prefix + icon.Id)
                 return;
@@ -1494,7 +1494,7 @@ namespace AuthenticatorPro.Activity
 
             await TryCleanupCustomIcon(oldIcon);
             
-            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(_customIconApplyPosition); });
+            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position); });
             await NotifyWearAppOfChange();
         }
 
