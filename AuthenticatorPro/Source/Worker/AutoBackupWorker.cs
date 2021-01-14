@@ -133,19 +133,20 @@ namespace AuthenticatorPro.Worker
         public override Result DoWork()
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
-            var needsBackup = prefs.GetBoolean("needsBackup", false);
+            
             var enabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
             
             var isTestRun = prefs.GetBoolean("autoBackupTestRun", false);
             prefs.Edit().PutBoolean("autoBackupTestRun", false).Commit();
             
-            if(!isTestRun && (!needsBackup || !enabled))
+            if(!isTestRun && (requirement == BackupRequirement.NotRequired || !enabled))
                 return Result.InvokeSuccess();
             
             try
             {
                 DoBackup().GetAwaiter().GetResult();
-                prefs.Edit().PutBoolean("needsBackup", false).Commit();
+                prefs.Edit().PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
             }
             catch(Exception e)
             {

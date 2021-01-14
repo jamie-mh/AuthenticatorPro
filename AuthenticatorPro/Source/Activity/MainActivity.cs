@@ -715,7 +715,8 @@ namespace AuthenticatorPro.Activity
                     _authListAdapter.NotifyItemRemoved(position);
                     CheckEmptyState();
                 });
-                
+               
+                SetBackupRequirement(BackupRequirement.WhenPossible);
                 await NotifyWearAppOfChange();
             });
             
@@ -848,12 +849,8 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
+            SetBackupRequirement(BackupRequirement.Urgent);
             await NotifyWearAppOfChange();
-
-            PreferenceManager.GetDefaultSharedPreferences(this)
-                .Edit()
-                .PutBoolean("needsBackup", true)
-                .Commit();
         }
 
         private async Task OnOtpAuthScan(string uri)
@@ -945,7 +942,7 @@ namespace AuthenticatorPro.Activity
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
-
+            
             await SwitchCategory(null);
             RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             
@@ -1130,10 +1127,12 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            async Task<RestoreResult> ConvertAndRestore(string password)
+            async Task ConvertAndRestore(string password)
             {
                 var backup = await converter.Convert(data, password);
-                return await RestoreBackup(backup);
+                var result = await RestoreBackup(backup);
+                await FinaliseRestore(result);
+                SetBackupRequirement(BackupRequirement.Urgent);
             }
 
             void ShowPasswordSheet()
@@ -1145,9 +1144,8 @@ namespace AuthenticatorPro.Activity
                     
                     try
                     {
-                        var result = await ConvertAndRestore(password);
+                        await ConvertAndRestore(password);
                         sheet.Dismiss();
-                        await FinaliseRestore(result);
                     }
                     catch
                     {
@@ -1163,8 +1161,7 @@ namespace AuthenticatorPro.Activity
                 case BackupConverter.BackupPasswordPolicy.Never:
                     try
                     {
-                        var result = await ConvertAndRestore(null);
-                        await FinaliseRestore(result);
+                        await ConvertAndRestore(null);
                     }
                     catch
                     {
@@ -1179,8 +1176,7 @@ namespace AuthenticatorPro.Activity
                 case BackupConverter.BackupPasswordPolicy.Maybe:
                     try
                     {
-                        var result = await ConvertAndRestore(null);
-                        await FinaliseRestore(result);
+                        await ConvertAndRestore(null);
                     }
                     catch
                     {
@@ -1247,11 +1243,7 @@ namespace AuthenticatorPro.Activity
                     return;
                 }
 
-                PreferenceManager.GetDefaultSharedPreferences(this)
-                    .Edit()
-                    .PutBoolean("needsBackup", false)
-                    .Commit();
-                
+                SetBackupRequirement(BackupRequirement.NotRequired);
                 ((BackupPasswordBottomSheet) sender).Dismiss();
                 ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
             };
@@ -1279,21 +1271,20 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            PreferenceManager.GetDefaultSharedPreferences(this)
-                .Edit()
-                .PutBoolean("needsBackup", false)
-                .Commit();
-            
+            SetBackupRequirement(BackupRequirement.NotRequired);
             ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
         }
         
         private void RemindBackup()
         {
+            if(!_authSource.GetAll().Any())
+                return;
+            
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var needsBackup = prefs.GetBoolean("needsBackup", false) && _authSource.GetAll().Any();
+            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
             var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
 
-            if(!needsBackup || autoBackupEnabled)
+            if(requirement != BackupRequirement.Urgent || autoBackupEnabled)
                 return;
 
             _lastBackupReminderTime = DateTime.UtcNow;
@@ -1308,13 +1299,17 @@ namespace AuthenticatorPro.Activity
             callback.Dismiss += (_, e) =>
             {
                 if(e == Snackbar.Callback.DismissEventSwipe)
-                    prefs.Edit().PutBoolean("needsBackup", false).Commit();
+                    SetBackupRequirement(BackupRequirement.NotRequired);
             };
 
             snackbar.AddCallback(callback);
             snackbar.Show();
         }
-        
+
+        private void SetBackupRequirement(BackupRequirement requirement)
+        {
+            PreferenceManager.GetDefaultSharedPreferences(this).Edit().PutInt("backupRequirement", (int) requirement).Commit();
+        }
         #endregion
 
         #region Add Dialog
@@ -1360,14 +1355,10 @@ namespace AuthenticatorPro.Activity
                 ScrollToPosition(position);
             });
             
-            await NotifyWearAppOfChange();
-
-            PreferenceManager.GetDefaultSharedPreferences(this)
-                .Edit()
-                .PutBoolean("needsBackup", true)
-                .Commit();
-            
             dialog.Dismiss();
+            SetBackupRequirement(BackupRequirement.Urgent);
+            
+            await NotifyWearAppOfChange();
         }
         #endregion
 
@@ -1388,6 +1379,7 @@ namespace AuthenticatorPro.Activity
         {
             await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
+            SetBackupRequirement(BackupRequirement.WhenPossible);
             await NotifyWearAppOfChange();
         }
         #endregion
@@ -1426,6 +1418,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
+            SetBackupRequirement(BackupRequirement.WhenPossible);
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
             await NotifyWearAppOfChange();
 
@@ -1492,6 +1485,7 @@ namespace AuthenticatorPro.Activity
             }
 
             await TryCleanupCustomIcon(oldIcon);
+            SetBackupRequirement(BackupRequirement.WhenPossible);
             
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position); });
             await NotifyWearAppOfChange();

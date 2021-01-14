@@ -94,6 +94,7 @@
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
     <Compile Include="Source\Data\Backup\Backup.cs" />
+    <Compile Include="Source\Data\Backup\BackupRequirement.cs" />
     <Compile Include="Source\Data\Backup\Converter\AegisBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\AndOtpBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\AuthenticatorPlusBackupConverter.cs" />
