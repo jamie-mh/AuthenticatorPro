@@ -44,8 +44,8 @@ namespace AuthenticatorPro.Fragment
             _usernameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editUsernameLayout);
             _usernameText = view.FindViewById<TextInputEditText>(Resource.Id.editUsername);
 
-            _issuerText.Text = _issuer;
-            _usernameText.Text = _username;
+            _issuerText.Append(_issuer);
+            _usernameText.Append(_username);
 
             _issuerLayout.CounterMaxLength = Authenticator.IssuerMaxLength;
             _issuerText.SetFilters(new IInputFilter[]{ new InputFilterLengthFilter(Authenticator.IssuerMaxLength) });

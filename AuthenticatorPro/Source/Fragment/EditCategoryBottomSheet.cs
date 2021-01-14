@@ -60,7 +60,7 @@ namespace AuthenticatorPro.Fragment
             submitButton.SetText(titleRes);
 
             if(_initialValue != null)
-                _textName.Text = _initialValue;
+                _textName.Append(_initialValue);
 
             _textName.EditorAction += (_, args) =>
             {
