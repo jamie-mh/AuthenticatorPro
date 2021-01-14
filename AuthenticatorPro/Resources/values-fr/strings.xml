@@ -48,7 +48,7 @@
     <string name="secretInvalid">La clé secrète n\'est pas valide</string>
     <string name="pinInvalid">Le code pin doit être composé de 4 caractères</string>
     <string name="digitsInvalid">L\'authentificateur doit générer entre {0} et {1} chiffres</string>
-    <string name="periodInvalid">The period is invalid</string>
+    <string name="periodInvalid">La période n\'est pas valide</string>
     <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
