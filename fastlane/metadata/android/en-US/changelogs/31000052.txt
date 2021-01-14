@@ -1,0 +1,8 @@
+- New Feature: Auto backup
+- New Feature: Import from other apps
+- New Feature: Steam Authenticator support
+- New Feature: Scan QR codes using other scanners
+- New Feature: Transparent space around custom icons now automatically trimmed
+- General: More secure backup format
+- General: Added CTemplar, MyFRITZ and Steam icons
+- General: Bug fixes and design tweaks

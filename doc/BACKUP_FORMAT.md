@@ -101,7 +101,7 @@ python decrypt_backup.py backup.authpro > backup_decrypted.json
 
 You will be prompted for the password, and once decrypted the output will be sent to the ``backup_decrypted.json`` file.
 
-### Encrypted Backups (Old)
+### Encrypted Backups (pre 1.13)
 
 If your backup file is encrypted. The JSON data is encrypted with the AES_CBC_PKCS7 algorithm. You can decrypt a backup file using OpenSSL like this:
 
