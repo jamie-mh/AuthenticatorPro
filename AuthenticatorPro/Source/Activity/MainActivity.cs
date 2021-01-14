@@ -681,7 +681,7 @@ namespace AuthenticatorPro.Activity
             if(auth == null)
                 return;
 
-            var fragment = new EditMenuBottomSheet(auth.Type, auth.Counter);
+            var fragment = new AuthenticatorMenuBottomSheet(auth.Type, auth.Counter);
             fragment.ClickRename += delegate { OpenRenameDialog(position); };
             fragment.ClickChangeIcon += delegate { OpenIconDialog(position); };
             fragment.ClickAssignCategories += delegate { OpenCategoriesDialog(position); };

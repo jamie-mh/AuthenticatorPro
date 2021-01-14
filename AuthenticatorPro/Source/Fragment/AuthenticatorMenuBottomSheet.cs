@@ -10,7 +10,7 @@ using AuthenticatorPro.Shared.Data.Generator;
 
 namespace AuthenticatorPro.Fragment
 {
-    internal class EditMenuBottomSheet : BottomSheet
+    internal class AuthenticatorMenuBottomSheet : BottomSheet
     {
         public event EventHandler ClickRename;
         public event EventHandler ClickChangeIcon;
@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Fragment
         private readonly long _counter;
 
 
-        public EditMenuBottomSheet(AuthenticatorType type, long counter)
+        public AuthenticatorMenuBottomSheet(AuthenticatorType type, long counter)
         {
             RetainInstance = true;
             _type = type;
@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetEditMenu, container, false);
+            var view = inflater.Inflate(Resource.Layout.sheetAuthenticatorMenu, container, false);
 
             if(_type.GetGenerationMethod() == GenerationMethod.Counter)
             {

@@ -123,7 +123,7 @@
     <Compile Include="Source\Fragment\AssignCategoriesBottomSheet.cs" />
     <Compile Include="Source\Fragment\BackupPasswordBottomSheet.cs" />
     <Compile Include="Source\Activity\AboutActivity.cs" />
-    <Compile Include="Source\Fragment\EditMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\AuthenticatorMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\RenameAuthenticatorBottomSheet.cs" />
     <Compile Include="Source\Fragment\AddMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\IntroPageFragment.cs" />
@@ -833,7 +833,7 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\sheetEditMenu.axml">
+    <AndroidResource Include="Resources\layout\sheetAuthenticatorMenu.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
