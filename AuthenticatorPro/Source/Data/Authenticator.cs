@@ -254,14 +254,15 @@ namespace AuthenticatorPro.Data
 
             if(!args.ContainsKey("secret"))
                 throw new ArgumentException("Secret parameter is required.");
-            
+
+            var icon = Shared.Data.Icon.FindServiceKeyByName(args.GetValueOrDefault("icon") ?? issuer);
             var secret = CleanSecret(args["secret"], type);
 
             var auth = new Authenticator {
                 Secret = secret,
                 Issuer = issuer.Trim().Truncate(IssuerMaxLength),
                 Username = username?.Trim().Truncate(UsernameMaxLength),
-                Icon = Shared.Data.Icon.FindServiceKeyByName(issuer),
+                Icon = icon,
                 Type = type,
                 Algorithm = algorithm,
                 Digits = digits,
