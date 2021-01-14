@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.Content;
 using Android.OS;
 using Android.Text;
@@ -239,7 +239,7 @@ namespace AuthenticatorPro.Fragment
 
             if(!Int32.TryParse(_periodText.Text, out var period) || period <= 0)
             {
-                _periodLayout.Error = GetString(Resource.String.periodToShort);
+                _periodLayout.Error = GetString(Resource.String.periodInvalid);
                 isValid = false;
             }
 
