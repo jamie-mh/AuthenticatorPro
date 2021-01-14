@@ -128,6 +128,7 @@
     <string name="andOtp">andOTP (texte clair)</string>
     <string name="andOtpImportHint">Importer un fichier texte clair otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Importer un fichier freeotp-backup.json</string>
+    <string name="aegis">Aegis (texte clair)</string>
     <string name="aegisImportHint">Importer un fichier aegis-export-plain.json</string>
     <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
     <string name="winAuthImportHint">Importer un fichier winauth.txt</string>
