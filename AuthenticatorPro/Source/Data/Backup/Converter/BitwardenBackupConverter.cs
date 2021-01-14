@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +39,10 @@ namespace AuthenticatorPro.Data.Backup.Converter
             
             public Authenticator Convert()
             {
-                return new()
+                if(Login.Totp.StartsWith("otpauth"))
+                    return Authenticator.FromOtpAuthUri(Login.Totp);
+                
+                return new Authenticator()
                 {
                     Issuer = Name,
                     Username = Login.Username,
