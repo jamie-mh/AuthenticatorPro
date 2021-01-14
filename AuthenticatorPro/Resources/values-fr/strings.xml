@@ -93,6 +93,7 @@
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
     <string name="encrypting">Chiffrement...</string>
     <string name="decrypting">Déchiffrement...</string>
+    <string name="saving">Saving</string>
     <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
