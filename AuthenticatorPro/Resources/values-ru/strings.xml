@@ -48,7 +48,7 @@
     <string name="secretInvalid">Ключ недействителен.</string>
     <string name="pinInvalid">PIN-код должен быть длиной в 4 символа.</string>
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
-    <string name="periodToShort">Период должен быть больше чем 0 секунд.</string>
+    <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
