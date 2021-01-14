@@ -1132,8 +1132,6 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            BackupPasswordBottomSheet sheet;
-            
             async Task<Tuple<int, int>> ConvertAndRestore(string password)
             {
                 var backup = await converter.Convert(data, password);
@@ -1142,7 +1140,7 @@ namespace AuthenticatorPro.Activity
 
             void ShowPasswordSheet()
             {
-                sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
+                var sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
                 sheet.PasswordEntered += async (_, password) =>
                 {
                     sheet.SetBusyText(Resource.String.decrypting);
