@@ -972,9 +972,12 @@ namespace AuthenticatorPro.Activity
                 StartActivity(intent);
             };
             
+            // Use */* mime-type for most binary files because some files might not show on older Android versions
+            // Use */* for json also, because application/json doesn't work
+            
             fragment.ClickAuthenticatorPlus += delegate
             {
-                OpenFilePicker("application/octet-stream", ResultImportAuthenticatorPlus);
+                OpenFilePicker("*/*", ResultImportAuthenticatorPlus);
             };
             
             fragment.ClickAndOtp += delegate
