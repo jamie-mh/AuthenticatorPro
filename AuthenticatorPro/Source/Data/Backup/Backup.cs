@@ -97,7 +97,14 @@ namespace AuthenticatorPro.Data.Backup
                     json = Encoding.UTF8.GetString(raw);
                 }
 
-                return JsonConvert.DeserializeObject<Backup>(json);
+                try
+                {
+                    return JsonConvert.DeserializeObject<Backup>(json);
+                }
+                catch(JsonException)
+                {
+                    throw new ArgumentException("File invalid");
+                }
             }
             catch
             {
@@ -124,7 +131,14 @@ namespace AuthenticatorPro.Data.Backup
                 json = Encoding.UTF8.GetString(raw);
             }
 
-            return JsonConvert.DeserializeObject<Backup>(json);
+            try
+            {
+                return JsonConvert.DeserializeObject<Backup>(json);
+            }
+            catch(JsonException)
+            {
+                throw new ArgumentException("File invalid");
+            }
         }
     }
 }
