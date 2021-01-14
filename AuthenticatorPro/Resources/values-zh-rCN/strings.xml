@@ -48,7 +48,7 @@
     <string name="secretInvalid">输入的密钥无效。</string>
     <string name="pinInvalid">The pin must be 4 characters long</string>
     <string name="digitsInvalid">验证器只能生成 {0} 到 {1} 位的验证码。</string>
-    <string name="periodToShort">时间间隔必须大于 0 秒。</string>
+    <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 和新分类。</string>
