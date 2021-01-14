@@ -1268,10 +1268,9 @@ namespace AuthenticatorPro.Activity
 
         private async Task BackupToHtmlFile(Uri destination)
         {
-            var backup = await HtmlBackup.FromAuthenticatorList(this, _authSource.GetAll());
-
             try
             {
+                var backup = await HtmlBackup.FromAuthenticatorList(this, _authSource.GetAll());
                 await FileUtil.WriteFile(this, destination, backup.ToString());
             }
             catch
@@ -1300,7 +1299,7 @@ namespace AuthenticatorPro.Activity
             _lastBackupReminderTime = DateTime.UtcNow;
             var snackbar = Snackbar.Make(_coordinatorLayout, Resource.String.backupReminder, Snackbar.LengthLong);
             snackbar.SetAnchorView(_addButton);
-            snackbar.SetAction(Resource.String.backupNow, _ =>
+            snackbar.SetAction(Resource.String.backupNow, delegate
             {
                 OpenBackupMenu();
             });
