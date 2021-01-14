@@ -315,15 +315,15 @@ namespace AuthenticatorPro.Activity
             switch(requestCode)
             {
                 case ResultRestore:
-                    await BeginRestore(intent.Data);
+                    await RestoreFromUri(intent.Data);
                     break;
                 
                 case ResultBackupFile:
-                    BeginBackupToFile(intent.Data);
+                    BackupToFile(intent.Data);
                     break;
                 
                 case ResultBackupHtml:
-                    await DoHtmlBackup(intent.Data);
+                    await BackupToHtmlFile(intent.Data);
                     break;
                 
                 case ResultCustomIcon:
@@ -335,31 +335,31 @@ namespace AuthenticatorPro.Activity
                     break;
                 
                 case ResultImportAuthenticatorPlus:
-                    await DoImport(new AuthenticatorPlusBackupConverter(), intent.Data);
+                    await ImportFromUri(new AuthenticatorPlusBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportAndOtp:
-                    await DoImport(new AndOtpBackupConverter(), intent.Data);
+                    await ImportFromUri(new AndOtpBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportFreeOtpPlus:
-                    await DoImport(new FreeOtpPlusBackupConverter(), intent.Data);
+                    await ImportFromUri(new FreeOtpPlusBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportAegis:
-                    await DoImport(new AegisBackupConverter(), intent.Data);
+                    await ImportFromUri(new AegisBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportBitwarden:
-                    await DoImport(new BitwardenBackupConverter(), intent.Data);
+                    await ImportFromUri(new BitwardenBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportWinAuth:
-                    await DoImport(new WinAuthBackupConverter(), intent.Data);
+                    await ImportFromUri(new WinAuthBackupConverter(), intent.Data);
                     break;
                 
                 case ResultImportTotpAuthenticator:
-                    await DoImport(new TotpAuthenticatorBackupConverter(), intent.Data);
+                    await ImportFromUri(new TotpAuthenticatorBackupConverter(), intent.Data);
                     break;
             }
         }
@@ -1025,7 +1025,7 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
         
-        private async Task BeginRestore(Uri uri)
+        private async Task RestoreFromUri(Uri uri)
         {
             byte[] data;
 
@@ -1054,7 +1054,7 @@ namespace AuthenticatorPro.Activity
                     backup = Backup.FromBytes(data, password);
                 });
                 
-                return await DoRestore(backup);
+                return await RestoreBackup(backup);
             }
 
             if(Backup.IsReadableWithoutPassword(data))
@@ -1095,7 +1095,7 @@ namespace AuthenticatorPro.Activity
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
         
-        private async Task<RestoreResult> DoRestore(Backup backup)
+        private async Task<RestoreResult> RestoreBackup(Backup backup)
         {
             if(backup.Authenticators == null)
                 throw new ArgumentException();
@@ -1114,10 +1114,9 @@ namespace AuthenticatorPro.Activity
                 : 0;
 
             return new RestoreResult(authCount, categoryCount, customIconCount);
-
         }
 
-        private async Task DoImport(BackupConverter converter, Uri uri)
+        private async Task ImportFromUri(BackupConverter converter, Uri uri)
         {
             byte[] data;
 
@@ -1134,7 +1133,7 @@ namespace AuthenticatorPro.Activity
             async Task<RestoreResult> ConvertAndRestore(string password)
             {
                 var backup = await converter.Convert(data, password);
-                return await DoRestore(backup);
+                return await RestoreBackup(backup);
             }
 
             void ShowPasswordSheet()
@@ -1246,7 +1245,7 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private void BeginBackupToFile(Uri uri)
+        private void BackupToFile(Uri destination)
         {
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
             fragment.PasswordEntered += async (sender, password) =>
@@ -1254,9 +1253,18 @@ namespace AuthenticatorPro.Activity
                 var busyText = !String.IsNullOrEmpty(password) ? Resource.String.encrypting : Resource.String.saving; 
                 fragment.SetBusyText(busyText); 
                 
+                var backup = new Backup(
+                    _authSource.GetAll(),
+                    _categorySource.GetAll(),
+                    _authSource.CategoryBindings,
+                    _customIconSource.GetAll()
+                );
+                
                 try
                 {
-                    await DoFileBackup(uri, password);
+                    byte[] data = null;
+                    await Task.Run(delegate { data = backup.ToBytes(password); });
+                    await FileUtil.WriteFile(this, destination, data);
                 }
                 catch
                 {
@@ -1283,13 +1291,13 @@ namespace AuthenticatorPro.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async Task DoHtmlBackup(Uri uri)
+        private async Task BackupToHtmlFile(Uri destination)
         {
             var backup = await HtmlBackup.FromAuthenticatorList(this, _authSource.GetAll());
 
             try
             {
-                await FileUtil.WriteFile(this, uri, backup.ToString());
+                await FileUtil.WriteFile(this, destination, backup.ToString());
             }
             catch
             {
@@ -1303,25 +1311,6 @@ namespace AuthenticatorPro.Activity
                 .Commit();
             
             ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
-        }
-
-        private async Task DoFileBackup(Uri uri, string password)
-        {
-            var backup = new Backup(
-                _authSource.GetAll(),
-                _categorySource.GetAll(),
-                _authSource.CategoryBindings,
-                _customIconSource.GetAll()
-            );
-
-            byte[] data = null;
-
-            await Task.Run(delegate
-            {
-                data = backup.ToBytes(password);
-            });
-            
-            await FileUtil.WriteFile(this, uri, data);
         }
         
         private void RemindBackup()
