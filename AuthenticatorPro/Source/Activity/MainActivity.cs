@@ -1057,8 +1057,7 @@ namespace AuthenticatorPro.Activity
                 return await DoRestore(backup);
             }
 
-            // Open and closed curly brace (file is not encrypted)
-            if(data[0] == '{' && data[^1] == '}')
+            if(Backup.IsReadableWithoutPassword(data))
             {
                 int authCount, categoryCount;
                 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PCLCrypto;
 using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 
@@ -138,6 +139,23 @@ namespace AuthenticatorPro.Data.Backup
             catch(JsonException)
             {
                 throw new ArgumentException("File invalid");
+            }
+        }
+
+        public static bool IsReadableWithoutPassword(byte[] data)
+        {
+            if(data[0] != '{' || data[^1] != '}')
+                return false;
+                
+            try
+            {
+                var json = Encoding.UTF8.GetString(data);
+                _ = JObject.Parse(json);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
