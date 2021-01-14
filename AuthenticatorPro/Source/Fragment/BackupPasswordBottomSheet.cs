@@ -94,7 +94,7 @@ namespace AuthenticatorPro.Fragment
         public void SetBusyText(int? busyRes)
         {
             var busy = busyRes != null;
-            _okButton.Enabled = _cancelButton.Enabled = _passwordText.Focusable = !busy;
+            _okButton.Enabled = _cancelButton.Enabled = !busy;
             Dialog.SetCancelable(!busy);
             Dialog.SetCanceledOnTouchOutside(!busy);
             _okButton.SetText(busyRes ?? Resource.String.ok);
