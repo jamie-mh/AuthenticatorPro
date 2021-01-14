@@ -101,20 +101,50 @@ namespace AuthenticatorPro.Data.Source
             return GetPosition(auth.Secret);
         }
 
-        public async Task<int> AddMany(IEnumerable<Authenticator> authenticators)
+        public async Task AddMany(IEnumerable<Authenticator> authenticators)
         {
             var valid = authenticators.Where(a => a.IsValid() && !IsDuplicate(a)).ToList();
             await _connection.InsertAllAsync(valid);
             await Update();
-            return valid.Count;
+        }
+
+        public async Task<int> AddOrUpdateMany(IEnumerable<Authenticator> authenticators)
+        {
+            var valid = authenticators.Where(a => a.IsValid()).ToList();
+            
+            var toAdd = valid.Where(a => !IsDuplicate(a)).ToList();
+            await _connection.InsertAllAsync(toAdd);
+
+            var toUpdate = valid.Where(a => !toAdd.Contains(a));
+            await _connection.UpdateAllAsync(toUpdate);
+
+            await Update();
+            return toAdd.Count;
         }
         
-        public async Task<int> AddManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
+        public async Task AddManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
         {
             var valid = bindings.Where(b => !IsDuplicateCategoryBinding(b)).ToList();
             await _connection.InsertAllAsync(valid);
             await Update();
-            return valid.Count;
+        }
+
+        public async Task AddOrUpdateManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
+        {
+            var bindingsList = bindings.ToList();
+            
+            var toAdd = bindingsList.Where(b => !IsDuplicateCategoryBinding(b)).ToList();
+            await _connection.InsertAllAsync(toAdd);
+
+            var toUpdate = bindingsList.Where(b => !toAdd.Contains(b));
+            await _connection.RunInTransactionAsync(conn =>
+            {
+                foreach(var binding in toUpdate)                
+                    conn.Execute("UPDATE authenticatorcategory SET ranking = ? WHERE categoryId = ? AND authenticatorSecret = ?",
+                        binding.Ranking, binding.CategoryId, binding.AuthenticatorSecret);
+            });
+
+            await Update();
         }
 
         public Authenticator Get(int position)

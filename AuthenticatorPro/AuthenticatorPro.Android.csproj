@@ -103,6 +103,7 @@
     <Compile Include="Source\Data\Backup\Converter\TotpAuthenticatorBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\WinAuthBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\HtmlBackup.cs" />
+    <Compile Include="Source\Data\Backup\RestoreResult.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
     <Compile Include="Source\Data\Database.cs" />

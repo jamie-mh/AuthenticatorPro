@@ -1045,7 +1045,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            async Task<Tuple<int, int>> DecryptAndRestore(string password)
+            async Task<RestoreResult> DecryptAndRestore(string password)
             {
                 Backup backup = null;
 
@@ -1059,11 +1059,11 @@ namespace AuthenticatorPro.Activity
 
             if(Backup.IsReadableWithoutPassword(data))
             {
-                int authCount, categoryCount;
+                RestoreResult result;
                 
                 try
                 {
-                    (authCount, categoryCount) = await DecryptAndRestore(null);
+                    result = await DecryptAndRestore(null);
                 }
                 catch(ArgumentException)
                 {
@@ -1071,7 +1071,7 @@ namespace AuthenticatorPro.Activity
                     return;
                 }
                 
-                await FinaliseRestore(authCount, categoryCount);
+                await FinaliseRestore(result);
                 return;
             }
             
@@ -1082,9 +1082,9 @@ namespace AuthenticatorPro.Activity
                 
                 try
                 {
-                    var (authCount, categoryCount) = await DecryptAndRestore(password);
+                    var result = await DecryptAndRestore(password);
                     sheet.Dismiss();
-                    await FinaliseRestore(authCount, categoryCount);
+                    await FinaliseRestore(result);
                 }
                 catch(ArgumentException)
                 {
@@ -1095,26 +1095,26 @@ namespace AuthenticatorPro.Activity
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
         
-        private async Task<Tuple<int, int>> DoRestore(Backup backup)
+        private async Task<RestoreResult> DoRestore(Backup backup)
         {
             if(backup.Authenticators == null)
                 throw new ArgumentException();
 
-            var authenticatorsAdded = backup.Authenticators != null
-                ? await _authSource.AddMany(backup.Authenticators)
-                : 0;
+            var authCount = await _authSource.AddOrUpdateMany(backup.Authenticators);
 
-            var categoriesAdded = backup.Categories != null
+            var categoryCount = backup.Categories != null
                 ? await _categorySource.AddMany(backup.Categories)
                 : 0;
             
             if(backup.AuthenticatorCategories != null)
-                _ = await _authSource.AddManyCategoryBindings(backup.AuthenticatorCategories);
-            
-            if(backup.CustomIcons != null)
-                _ = await _customIconSource.AddMany(backup.CustomIcons);
+                await _authSource.AddOrUpdateManyCategoryBindings(backup.AuthenticatorCategories);
+           
+            var customIconCount = backup.CustomIcons != null
+                ? await _customIconSource.AddMany(backup.CustomIcons)
+                : 0;
 
-            return new Tuple<int, int>(authenticatorsAdded, categoriesAdded);
+            return new RestoreResult(authCount, categoryCount, customIconCount);
+
         }
 
         private async Task DoImport(BackupConverter converter, Uri uri)
@@ -1131,7 +1131,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
-            async Task<Tuple<int, int>> ConvertAndRestore(string password)
+            async Task<RestoreResult> ConvertAndRestore(string password)
             {
                 var backup = await converter.Convert(data, password);
                 return await DoRestore(backup);
@@ -1146,9 +1146,9 @@ namespace AuthenticatorPro.Activity
                     
                     try
                     {
-                        var (authCount, categoryCount) = await ConvertAndRestore(password);
+                        var result = await ConvertAndRestore(password);
                         sheet.Dismiss();
-                        await FinaliseRestore(authCount, categoryCount);
+                        await FinaliseRestore(result);
                     }
                     catch
                     {
@@ -1164,8 +1164,8 @@ namespace AuthenticatorPro.Activity
                 case BackupConverter.BackupPasswordPolicy.Never:
                     try
                     {
-                        var (authCount, categoryCount) = await ConvertAndRestore(null);
-                        await FinaliseRestore(authCount, categoryCount);
+                        var result = await ConvertAndRestore(null);
+                        await FinaliseRestore(result);
                     }
                     catch
                     {
@@ -1180,8 +1180,8 @@ namespace AuthenticatorPro.Activity
                 case BackupConverter.BackupPasswordPolicy.Maybe:
                     try
                     {
-                        var (authCount, categoryCount) = await ConvertAndRestore(null);
-                        await FinaliseRestore(authCount, categoryCount);
+                        var result = await ConvertAndRestore(null);
+                        await FinaliseRestore(result);
                     }
                     catch
                     {
@@ -1191,12 +1191,12 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private async Task FinaliseRestore(int authCount, int categoryCount)
+        private async Task FinaliseRestore(RestoreResult result)
         {
             RunOnUiThread(CheckEmptyState);
             await UpdateList(true);
 
-            var message = String.Format(GetString(Resource.String.restoredFromBackup), authCount, categoryCount);
+            var message = String.Format(GetString(Resource.String.restoredFromBackup), result.AuthenticatorCount, result.CategoryCount);
             ShowSnackbar(message, Snackbar.LengthLong);
 
             await NotifyWearAppOfChange();
