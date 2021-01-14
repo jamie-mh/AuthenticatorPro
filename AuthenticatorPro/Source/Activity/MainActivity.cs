@@ -1090,9 +1090,8 @@ namespace AuthenticatorPro.Activity
                 catch(ArgumentException)
                 {
                     sheet.Error = GetString(Resource.String.restoreError);
+                    sheet.SetBusyText(null);
                 }
-                
-                sheet.SetBusyText(null);
             };
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
