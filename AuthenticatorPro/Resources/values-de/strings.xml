@@ -93,6 +93,7 @@
     <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
+    <string name="saving">Saving</string>
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
