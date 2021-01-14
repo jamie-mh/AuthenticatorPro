@@ -39,7 +39,15 @@ namespace AuthenticatorPro.WearOS.Activity
             _codeTextView = FindViewById<TextView>(Resource.Id.textCode);
 
             var usernameText = FindViewById<TextView>(Resource.Id.textUsername);
-            usernameText.Text = Intent.Extras.GetString("username");
+            var username = Intent.Extras.GetString("username");
+
+            if(String.IsNullOrEmpty(username))
+            {
+                var issuer = Intent.Extras.GetString("issuer");
+                usernameText.Text = issuer;
+            }
+            else
+                usernameText.Text = username;
 
             var iconView = FindViewById<ImageView>(Resource.Id.imageIcon);
             var hasCustomIcon = Intent.Extras.GetBoolean("hasCustomIcon");

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -211,6 +212,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var bundle = new Bundle();
            
             bundle.PutInt("type", (int) item.Type);
+            bundle.PutString("issuer", item.Issuer);
             bundle.PutString("username", item.Username);
             bundle.PutString("issuer", item.Issuer);
             bundle.PutInt("period", item.Period);
@@ -218,7 +220,7 @@ namespace AuthenticatorPro.WearOS.Activity
             bundle.PutString("secret", item.Secret);
             bundle.PutInt("algorithm", (int) item.Algorithm);
 
-            var hasCustomIcon = item.Icon.StartsWith(CustomIconCache.Prefix);
+            var hasCustomIcon = !String.IsNullOrEmpty(item.Icon) && item.Icon.StartsWith(CustomIconCache.Prefix);
             bundle.PutBoolean("hasCustomIcon", hasCustomIcon);
 
             if(hasCustomIcon)

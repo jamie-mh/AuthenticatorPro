@@ -33,20 +33,32 @@ namespace AuthenticatorPro.WearOS.List
 
             var holder = (AuthenticatorListHolder) viewHolder;
             holder.Issuer.Text = auth.Issuer;
-            holder.Username.Text = auth.Username;
 
-            if(auth.Icon.StartsWith(CustomIconCache.Prefix))
+            if(String.IsNullOrEmpty(auth.Username))
+                holder.Username.Visibility = ViewStates.Gone;
+            else
             {
-                var id = auth.Icon.Substring(1);
-                var customIcon = await _customIconCache.GetBitmap(id);
-                
-                if(customIcon != null)
-                    holder.Icon.SetImageBitmap(customIcon);
-                else
-                    holder.Icon.SetImageResource(Icon.GetService(Icon.Default, true));
+                holder.Username.Visibility = ViewStates.Visible;
+                holder.Username.Text = auth.Username;
             }
-            else 
-                holder.Icon.SetImageResource(Icon.GetService(auth.Icon, true));
+
+            if(!String.IsNullOrEmpty(auth.Icon))
+            {
+                if(auth.Icon.StartsWith(CustomIconCache.Prefix))
+                {
+                    var id = auth.Icon.Substring(1);
+                    var customIcon = await _customIconCache.GetBitmap(id);
+                    
+                    if(customIcon != null)
+                        holder.Icon.SetImageBitmap(customIcon);
+                    else
+                        holder.Icon.SetImageResource(Icon.GetService(Icon.Default, true));
+                }
+                else 
+                    holder.Icon.SetImageResource(Icon.GetService(auth.Icon, true));
+            }
+            else
+                holder.Icon.SetImageResource(Icon.GetService(Icon.Default, true));
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
