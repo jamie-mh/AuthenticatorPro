@@ -1206,43 +1206,18 @@ namespace AuthenticatorPro.Activity
         private void OpenBackupMenu()
         {
             var fragment = new BackupBottomSheet();
-            fragment.ClickBackupFile += delegate { StartBackupFileSaveActivity(); };
-            fragment.ClickHtmlFile += delegate { StartBackupHtmlSaveActivity(); };
+            
+            fragment.ClickBackupFile += delegate
+            {
+                OpenFileSaver("application/octet-stream", ResultBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
+            };
+            
+            fragment.ClickHtmlFile += delegate
+            {
+                OpenFileSaver("text/html", ResultBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
+            };
+            
             fragment.Show(SupportFragmentManager, fragment.Tag);
-        }
-        
-        private void StartBackupFileSaveActivity()
-        {
-            var intent = new Intent(Intent.ActionCreateDocument);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("application/octet-stream");
-            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
-
-            try
-            {
-                StartActivityForResult(intent, ResultBackupFile);
-            }
-            catch(ActivityNotFoundException)
-            {
-                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
-            }
-        }
-        
-        private void StartBackupHtmlSaveActivity()
-        {
-            var intent = new Intent(Intent.ActionCreateDocument);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("text/html");
-            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
-
-            try
-            {
-                StartActivityForResult(intent, ResultBackupHtml);
-            }
-            catch(ActivityNotFoundException)
-            {
-                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
-            }
         }
 
         private void BackupToFile(Uri destination)
@@ -1679,6 +1654,23 @@ namespace AuthenticatorPro.Activity
             var intent = new Intent(Intent.ActionOpenDocument);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType(mimeType);
+
+            try
+            {
+                StartActivityForResult(intent, requestCode);
+            }
+            catch(ActivityNotFoundException)
+            {
+                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
+            }
+        }
+
+        private void OpenFileSaver(string mimeType, int requestCode, string fileName)
+        {
+            var intent = new Intent(Intent.ActionCreateDocument);
+            intent.AddCategory(Intent.CategoryOpenable);
+            intent.SetType(mimeType);
+            intent.PutExtra(Intent.ExtraTitle, fileName);
 
             try
             {
