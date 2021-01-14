@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Android.Content;
 using Android.OS;
 using Android.Text;
@@ -8,6 +8,7 @@ using Android.Widget;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
@@ -71,6 +72,8 @@ namespace AuthenticatorPro.Fragment
             _algorithmLayout = view.FindViewById<TextInputLayout>(Resource.Id.editAlgorithmLayout);
             _periodLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPeriodLayout);
             _digitsLayout = view.FindViewById<TextInputLayout>(Resource.Id.editDigitsLayout);
+            
+            TextInputUtil.EnableAutoErrorClear(new[] { _issuerLayout, _secretLayout, _pinLayout, _digitsLayout, _periodLayout });
 
             _issuerText = view.FindViewById<TextInputEditText>(Resource.Id.editIssuer);
             _usernameText = view.FindViewById<TextInputEditText>(Resource.Id.editUsername);
@@ -105,12 +108,6 @@ namespace AuthenticatorPro.Fragment
                 _advancedButton.Visibility = ViewStates.Gone;
             };
 
-            var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += delegate 
-            {
-                Dismiss();
-            };
-
             // When we've finished typing the secret, remove the keyboard so it doesn't skip to advanced options 
             _secretText.EditorAction += (_, args) =>
             {
@@ -119,6 +116,12 @@ namespace AuthenticatorPro.Fragment
 
                 var imm = (InputMethodManager) Activity.GetSystemService(Context.InputMethodService);
                 imm.HideSoftInputFromWindow(_secretText.WindowToken, HideSoftInputFlags.None);
+            };
+
+            var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
+            cancelButton.Click += delegate 
+            {
+                Dismiss();
             };
 
             var addButton = view.FindViewById<MaterialButton>(Resource.Id.buttonAdd);
@@ -173,18 +176,8 @@ namespace AuthenticatorPro.Fragment
             };
         }
 
-        private void ClearErrors()
-        {
-            _issuerLayout.Error = null;
-            _secretLayout.Error = null;
-            _pinLayout.Error = null;
-            _digitsLayout.Error = null;
-            _periodLayout.Error = null;
-        }
-
         private void OnAddButtonClicked(object sender, EventArgs e)
         {
-            ClearErrors(); 
             var isValid = true;
 
             var issuer = _issuerText.Text.Trim();

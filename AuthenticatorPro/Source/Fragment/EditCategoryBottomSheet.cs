@@ -4,6 +4,7 @@ using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 
@@ -41,13 +42,11 @@ namespace AuthenticatorPro.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            int titleRes;
-
-            switch(_mode)
+            var titleRes = _mode switch
             {
-                default: titleRes = Resource.String.add; break;
-                case Mode.Edit: titleRes = Resource.String.rename; break;
-            }
+                Mode.Edit => Resource.String.rename,
+                _ => Resource.String.add
+            };
 
             var view = inflater.Inflate(Resource.Layout.sheetEditCategory, null);
             SetupToolbar(view, titleRes);
@@ -62,6 +61,14 @@ namespace AuthenticatorPro.Fragment
 
             if(_initialValue != null)
                 _textName.Text = _initialValue;
+
+            _textName.EditorAction += (_, args) =>
+            {
+                if(args.ActionId == ImeAction.Done)
+                    submitButton.PerformClick();
+            };
+            
+            TextInputUtil.EnableAutoErrorClear(_textNameLayout);
 
             submitButton.Click += delegate
             {
@@ -81,12 +88,6 @@ namespace AuthenticatorPro.Fragment
             cancelButton.Click += delegate
             {
                 Dismiss();
-            };
-
-            _textName.EditorAction += (_, args) =>
-            {
-                if(args.ActionId == ImeAction.Done)
-                    submitButton.PerformClick();
             };
 
             return view;

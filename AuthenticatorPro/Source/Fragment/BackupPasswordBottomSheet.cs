@@ -4,6 +4,7 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AuthenticatorPro.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
@@ -64,6 +65,8 @@ namespace AuthenticatorPro.Fragment
                 if(args.ActionId == ImeAction.Done)
                     _okButton.PerformClick();
             };
+            
+            TextInputUtil.EnableAutoErrorClear(_passwordTextLayout);
 
             return view;
         }
