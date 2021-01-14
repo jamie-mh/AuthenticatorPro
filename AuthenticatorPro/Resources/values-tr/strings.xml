@@ -93,6 +93,7 @@
     <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
+    <string name="saving">Saving</string>
     <!-- Errors -->
     <string name="databaseError">Veri tabanını açarken bir hata meydana geldi. Uygulamayı tekrar başlatmayı deneyin.</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
