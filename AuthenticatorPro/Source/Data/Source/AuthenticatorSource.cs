@@ -121,13 +121,6 @@ namespace AuthenticatorPro.Data.Source
             await Update();
             return toAdd.Count;
         }
-        
-        public async Task AddManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
-        {
-            var valid = bindings.Where(b => !IsDuplicateCategoryBinding(b)).ToList();
-            await _connection.InsertAllAsync(valid);
-            await Update();
-        }
 
         public async Task AddOrUpdateManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
         {
