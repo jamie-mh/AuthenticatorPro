@@ -63,20 +63,20 @@ namespace AuthenticatorPro.Activity
         private const int PermissionCameraCode = 0;
 
         // Request codes
-        private const int ResultLogin = 0;
-        private const int ResultRestore = 1;
-        private const int ResultBackupFile = 2;
-        private const int ResultBackupHtml = 3;
-        private const int ResultQRCode = 4;
-        private const int ResultCustomIcon = 5;
-        private const int ResultSettingsRecreate = 6;
-        private const int ResultImportAuthenticatorPlus = 7;
-        private const int ResultImportAndOtp = 8;
-        private const int ResultImportFreeOtpPlus = 9;
-        private const int ResultImportAegis = 10;
-        private const int ResultImportBitwarden = 11;
-        private const int ResultImportWinAuth = 12;
-        private const int ResultImportTotpAuthenticator = 13;
+        private const int RequestLogin = 0;
+        private const int RequestRestore = 1;
+        private const int RequestBackupFile = 2;
+        private const int RequestBackupHtml = 3;
+        private const int RequestQrCode = 4;
+        private const int RequestCustomIcon = 5;
+        private const int RequestSettingsRecreate = 6;
+        private const int RequestImportAuthenticatorPlus = 7;
+        private const int RequestImportAndOtp = 8;
+        private const int RequestImportFreeOtpPlus = 9;
+        private const int RequestImportAegis = 10;
+        private const int RequestImportBitwarden = 11;
+        private const int RequestImportWinAuth = 12;
+        private const int RequestImportTotpAuthenticator = 13;
 
         private const int BackupReminderThresholdMinutes = 120;
         private const int AppLockThresholdMinutes = 1;
@@ -218,7 +218,7 @@ namespace AuthenticatorPro.Activity
                 {
                     _updateOnActivityResume = true;
                     _onResumeSemaphore.Release();
-                    StartActivityForResult(typeof(LoginActivity), ResultLogin);
+                    StartActivityForResult(typeof(LoginActivity), RequestLogin);
                     return;
                 }
             }
@@ -300,11 +300,11 @@ namespace AuthenticatorPro.Activity
 
             switch(requestCode)
             {
-                case ResultLogin:
+                case RequestLogin:
                     _isAuthenticated = true;
                     return;
                 
-                case ResultSettingsRecreate:
+                case RequestSettingsRecreate:
                     Recreate();
                     return;
             }
@@ -314,51 +314,51 @@ namespace AuthenticatorPro.Activity
             
             switch(requestCode)
             {
-                case ResultRestore:
+                case RequestRestore:
                     await RestoreFromUri(intent.Data);
                     break;
                 
-                case ResultBackupFile:
+                case RequestBackupFile:
                     BackupToFile(intent.Data);
                     break;
                 
-                case ResultBackupHtml:
+                case RequestBackupHtml:
                     await BackupToHtmlFile(intent.Data);
                     break;
                 
-                case ResultCustomIcon:
+                case RequestCustomIcon:
                     await SetCustomIcon(intent.Data);
                     break;
                 
-                case ResultQRCode:
+                case RequestQrCode:
                     await ScanQRCodeFromImage(intent.Data);
                     break;
                 
-                case ResultImportAuthenticatorPlus:
+                case RequestImportAuthenticatorPlus:
                     await ImportFromUri(new AuthenticatorPlusBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportAndOtp:
+                case RequestImportAndOtp:
                     await ImportFromUri(new AndOtpBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportFreeOtpPlus:
+                case RequestImportFreeOtpPlus:
                     await ImportFromUri(new FreeOtpPlusBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportAegis:
+                case RequestImportAegis:
                     await ImportFromUri(new AegisBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportBitwarden:
+                case RequestImportBitwarden:
                     await ImportFromUri(new BitwardenBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportWinAuth:
+                case RequestImportWinAuth:
                     await ImportFromUri(new WinAuthBackupConverter(), intent.Data);
                     break;
                 
-                case ResultImportTotpAuthenticator:
+                case RequestImportTotpAuthenticator:
                     await ImportFromUri(new TotpAuthenticatorBackupConverter(), intent.Data);
                     break;
             }
@@ -435,7 +435,7 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickSettings += delegate
             {
-                StartActivityForResult(typeof(SettingsActivity), ResultSettingsRecreate);
+                StartActivityForResult(typeof(SettingsActivity), RequestSettingsRecreate);
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -736,14 +736,14 @@ namespace AuthenticatorPro.Activity
             {
                 var subFragment = new ScanQRCodeBottomSheet();
                 subFragment.ClickFromCamera += async delegate { await RequestPermissionThenScanQRCode(); };
-                subFragment.ClickFromGallery += delegate { OpenFilePicker("image/*", ResultQRCode); };
+                subFragment.ClickFromGallery += delegate { OpenFilePicker("image/*", RequestQrCode); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
             
             fragment.ClickEnterKey += OpenAddDialog;
             fragment.ClickRestore += delegate
             {
-                OpenFilePicker("application/octet-stream", ResultRestore);
+                OpenFilePicker("application/octet-stream", RequestRestore);
             };
             
             fragment.ClickImport += delegate
@@ -977,37 +977,37 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickAuthenticatorPlus += delegate
             {
-                OpenFilePicker("*/*", ResultImportAuthenticatorPlus);
+                OpenFilePicker("*/*", RequestImportAuthenticatorPlus);
             };
             
             fragment.ClickAndOtp += delegate
             {
-                OpenFilePicker("*/*", ResultImportAndOtp);
+                OpenFilePicker("*/*", RequestImportAndOtp);
             };
             
             fragment.ClickFreeOtpPlus += delegate
             {
-                OpenFilePicker("*/*", ResultImportFreeOtpPlus);
+                OpenFilePicker("*/*", RequestImportFreeOtpPlus);
             };
             
             fragment.ClickAegis += delegate
             {
-                OpenFilePicker("*/*", ResultImportAegis);
+                OpenFilePicker("*/*", RequestImportAegis);
             };
             
             fragment.ClickBitwarden += delegate
             {
-                OpenFilePicker("*/*", ResultImportBitwarden);
+                OpenFilePicker("*/*", RequestImportBitwarden);
             };
             
             fragment.ClickWinAuth += delegate
             {
-                OpenFilePicker("text/plain", ResultImportWinAuth);
+                OpenFilePicker("text/plain", RequestImportWinAuth);
             };
             
             fragment.ClickTotpAuthenticator += delegate
             {
-                OpenFilePicker("*/*", ResultImportTotpAuthenticator);
+                OpenFilePicker("*/*", RequestImportTotpAuthenticator);
             };
             
             fragment.ClickBlizzardAuthenticator += delegate
@@ -1209,12 +1209,12 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickBackupFile += delegate
             {
-                OpenFileSaver("application/octet-stream", ResultBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
+                OpenFileSaver("application/octet-stream", RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
             };
             
             fragment.ClickHtmlFile += delegate
             {
-                OpenFileSaver("text/html", ResultBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
+                OpenFileSaver("text/html", RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1401,7 +1401,7 @@ namespace AuthenticatorPro.Activity
             fragment.UseCustomIconClick += delegate 
             {
                 _customIconApplyPosition = position;
-                OpenFilePicker("image/*", ResultCustomIcon);
+                OpenFilePicker("image/*", RequestCustomIcon);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }

@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Fragment
 {
     internal class AutoBackupSetupBottomSheet : BottomSheet
     {
-        private const int ResultPicker = 0;
+        private const int RequestPicker = 0;
 
         private TextView _locationStatusText;
         private TextView _passwordStatusText;
@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Fragment
         {
             base.OnActivityResult(requestCode, resultCode, intent);
 
-            if(requestCode != ResultPicker || (Result) resultCode != Result.Ok)
+            if(requestCode != RequestPicker || (Result) resultCode != Result.Ok)
                 return;
             
             OnLocationSelected(intent.Data);
@@ -134,7 +134,7 @@ namespace AuthenticatorPro.Fragment
             if(autoBackupUri != null)
                 intent.PutExtra(DocumentsContract.ExtraInitialUri, Uri.Parse(autoBackupUri));
             
-            StartActivityForResult(intent, ResultPicker);
+            StartActivityForResult(intent, RequestPicker);
         }
         
         private void OnSetPasswordButtonClick(object sender, EventArgs e)
