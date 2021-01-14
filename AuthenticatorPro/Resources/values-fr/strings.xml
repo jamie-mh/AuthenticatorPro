@@ -121,7 +121,7 @@
     <string name="backupStatusChannelDescription">Vous avertit de l\'état des sauvegardes automatiques</string>
     <string name="backupScheduled">Sauvegarde planifiée</string>
     <!-- Import -->
-    <string name="importFromAnotherApp">Importer depuis une autre application</string>
+    <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Importer depuis</string>
     <string name="importError">Le fichier n\'a pas pu être importé</string>
     <string name="authenticatorPlus">Authenticator Plus</string>
