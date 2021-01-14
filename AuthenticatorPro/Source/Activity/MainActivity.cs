@@ -1220,7 +1220,7 @@ namespace AuthenticatorPro.Activity
             var intent = new Intent(Intent.ActionCreateDocument);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType("application/octet-stream");
-            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
+            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
 
             try
             {
@@ -1237,7 +1237,7 @@ namespace AuthenticatorPro.Activity
             var intent = new Intent(Intent.ActionCreateDocument);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType("text/html");
-            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd}.html");
+            intent.PutExtra(Intent.ExtraTitle, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
 
             try
             {

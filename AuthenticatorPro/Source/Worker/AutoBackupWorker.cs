@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Worker
             var dataToWrite = backup.ToBytes(password);
 
             var directory = DocumentFile.FromTreeUri(_context, Uri.Parse(backupDirUriStr));
-            var file = directory.CreateFile("application/octet-stream", $"backup-{DateTime.Now:yyyy-MM-dd}.authpro");
+            var file = directory.CreateFile("application/octet-stream", $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
             
             if(file == null)
                 throw new Exception("File creation failed, got null.");
