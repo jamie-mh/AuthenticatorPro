@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Fragment
         private MaterialButton _testBackupButton;
 
         private string _backupLocationUri;
-        private string _password;
+        private bool? _hasPassword;
         
         public AutoBackupSetupBottomSheet()
         {
@@ -51,8 +51,14 @@ namespace AuthenticatorPro.Fragment
         {
             var view = inflater.Inflate(Resource.Layout.sheetAutoBackupSetup, null);
             SetupToolbar(view, Resource.String.prefAutoBackupTitle);
+
+            _hasPassword = SecureStorage.GetAsync("autoBackupPassword").GetAwaiter().GetResult() switch
+            {
+                null => null,
+                "" => false,
+                _ => true
+            };
             
-            _password = SecureStorage.GetAsync("autoBackupPassword").GetAwaiter().GetResult();
             var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
             var backupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             _backupLocationUri = prefs.GetString("pref_autoBackupUri", null);
@@ -83,9 +89,11 @@ namespace AuthenticatorPro.Fragment
             return view;
         }
 
-        private async void OnEnabledSwitchChanged(object sender, EventArgs e)
+        private void OnEnabledSwitchChanged(object sender, EventArgs e)
         {
-            await CommitPreferences();
+            var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
+            editor.PutBoolean("pref_autoBackupEnabled", _enabledSwitch.Checked);
+            editor.Commit();
         }
 
         private void OnTestBackupButtonClick(object sender, EventArgs e)
@@ -140,20 +148,24 @@ namespace AuthenticatorPro.Fragment
 
         private async void OnPasswordEntered(object sender, string password)
         {
-            _password = password;
+            _hasPassword = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateEnabledSwitchAndTestButton();
-            await CommitPreferences();
+            await SecureStorage.SetAsync("autoBackupPassword", password);
         }
 
-        private async void OnLocationSelected(Uri uri)
+        private void OnLocationSelected(Uri uri)
         {
             _backupLocationUri = uri.ToString();
             Context.ContentResolver.TakePersistableUriPermission(uri, ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
+            
+            var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
+            editor.PutString("pref_autoBackupUri", _backupLocationUri);
+            editor.Commit();
+            
             UpdateLocationStatusText();
             UpdateEnabledSwitchAndTestButton();
-            await CommitPreferences();
         }
 
         private void UpdateLocationStatusText()
@@ -165,11 +177,11 @@ namespace AuthenticatorPro.Fragment
 
         private void UpdatePasswordStatusText()
         {
-            _passwordStatusText.SetText(_password switch
+            _passwordStatusText.SetText(_hasPassword switch
             {
                 null => Resource.String.passwordNotSet,
-                "" => Resource.String.notPasswordProtected,
-                _ => Resource.String.passwordSet
+                false => Resource.String.notPasswordProtected,
+                true => Resource.String.passwordSet
             });
         }
 
@@ -179,20 +191,9 @@ namespace AuthenticatorPro.Fragment
                 _enabledSwitch.Enabled = _testBackupButton.Enabled = true;
             else
             {
-                _enabledSwitch.Enabled = _testBackupButton.Enabled = _backupLocationUri != null && _password != null;
+                _enabledSwitch.Enabled = _testBackupButton.Enabled = _backupLocationUri != null && _hasPassword != null;
                 _enabledSwitch.Checked = false;
             }
-        }
-
-        private async Task CommitPreferences()
-        {
-            var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
-            editor.PutString("pref_autoBackupUri", _backupLocationUri);
-            editor.PutBoolean("pref_autoBackupEnabled", _enabledSwitch.Checked);
-            editor.Commit();
-           
-            if(_password != null)
-                await SecureStorage.SetAsync("autoBackupPassword", _password);
         }
     }
 }
