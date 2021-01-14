@@ -143,7 +143,7 @@
     <string name="backupScheduled">Backup scheduled</string>
     
     <!-- Import -->
-    <string name="importFromAnotherApp">Import from another app</string>
+    <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Import from</string>
     <string name="importError">The file could not be imported</string>
 
