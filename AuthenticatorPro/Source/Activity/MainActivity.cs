@@ -1251,7 +1251,8 @@ namespace AuthenticatorPro.Activity
             var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
             fragment.PasswordEntered += async (sender, password) =>
             {
-                fragment.SetBusyText(Resource.String.encrypting); 
+                var busyText = !String.IsNullOrEmpty(password) ? Resource.String.encrypting : Resource.String.saving; 
+                fragment.SetBusyText(busyText); 
                 
                 try
                 {
