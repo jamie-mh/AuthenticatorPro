@@ -28,7 +28,7 @@ namespace AuthenticatorPro.Data.Backup
 
         public Backup(List<Authenticator> authenticators, List<Category> categories = null, List<AuthenticatorCategory> authenticatorCategories = null, List<CustomIcon> customIcons = null)
         {
-            Authenticators = authenticators;
+            Authenticators = authenticators ?? throw new ArgumentNullException(nameof(authenticators), "Backup must contain authenticators");
             Categories = categories;
             AuthenticatorCategories = authenticatorCategories;
             CustomIcons = customIcons;
