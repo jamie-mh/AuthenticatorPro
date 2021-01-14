@@ -736,14 +736,14 @@ namespace AuthenticatorPro.Activity
             {
                 var subFragment = new ScanQRCodeBottomSheet();
                 subFragment.ClickFromCamera += async delegate { await RequestPermissionThenScanQRCode(); };
-                subFragment.ClickFromGallery += delegate { OpenFilePicker("image/*", RequestQrCode); };
+                subFragment.ClickFromGallery += delegate { StartFilePickActivity("image/*", RequestQrCode); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
             
             fragment.ClickEnterKey += OpenAddDialog;
             fragment.ClickRestore += delegate
             {
-                OpenFilePicker("application/octet-stream", RequestRestore);
+                StartFilePickActivity("application/octet-stream", RequestRestore);
             };
             
             fragment.ClickImport += delegate
@@ -977,37 +977,37 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickAuthenticatorPlus += delegate
             {
-                OpenFilePicker("*/*", RequestImportAuthenticatorPlus);
+                StartFilePickActivity("*/*", RequestImportAuthenticatorPlus);
             };
             
             fragment.ClickAndOtp += delegate
             {
-                OpenFilePicker("*/*", RequestImportAndOtp);
+                StartFilePickActivity("*/*", RequestImportAndOtp);
             };
             
             fragment.ClickFreeOtpPlus += delegate
             {
-                OpenFilePicker("*/*", RequestImportFreeOtpPlus);
+                StartFilePickActivity("*/*", RequestImportFreeOtpPlus);
             };
             
             fragment.ClickAegis += delegate
             {
-                OpenFilePicker("*/*", RequestImportAegis);
+                StartFilePickActivity("*/*", RequestImportAegis);
             };
             
             fragment.ClickBitwarden += delegate
             {
-                OpenFilePicker("*/*", RequestImportBitwarden);
+                StartFilePickActivity("*/*", RequestImportBitwarden);
             };
             
             fragment.ClickWinAuth += delegate
             {
-                OpenFilePicker("text/plain", RequestImportWinAuth);
+                StartFilePickActivity("text/plain", RequestImportWinAuth);
             };
             
             fragment.ClickTotpAuthenticator += delegate
             {
-                OpenFilePicker("*/*", RequestImportTotpAuthenticator);
+                StartFilePickActivity("*/*", RequestImportTotpAuthenticator);
             };
             
             fragment.ClickBlizzardAuthenticator += delegate
@@ -1209,12 +1209,12 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickBackupFile += delegate
             {
-                OpenFileSaver("application/octet-stream", RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
+                StartFileSaveActivity("application/octet-stream", RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
             };
             
             fragment.ClickHtmlFile += delegate
             {
-                OpenFileSaver("text/html", RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
+                StartFileSaveActivity("text/html", RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1401,7 +1401,7 @@ namespace AuthenticatorPro.Activity
             fragment.UseCustomIconClick += delegate 
             {
                 _customIconApplyPosition = position;
-                OpenFilePicker("image/*", RequestCustomIcon);
+                StartFilePickActivity("image/*", RequestCustomIcon);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1649,7 +1649,7 @@ namespace AuthenticatorPro.Activity
             dialog.Show();
         }
         
-        private void OpenFilePicker(string mimeType, int requestCode)
+        private void StartFilePickActivity(string mimeType, int requestCode)
         {
             var intent = new Intent(Intent.ActionOpenDocument);
             intent.AddCategory(Intent.CategoryOpenable);
@@ -1665,7 +1665,7 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private void OpenFileSaver(string mimeType, int requestCode, string fileName)
+        private void StartFileSaveActivity(string mimeType, int requestCode, string fileName)
         {
             var intent = new Intent(Intent.ActionCreateDocument);
             intent.AddCategory(Intent.CategoryOpenable);
