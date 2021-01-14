@@ -10,8 +10,6 @@ from getpass import getpass
 from Crypto.Cipher import AES
 
 HEADER = "AuthenticatorPro"
-HEADER_LENGTH = len(HEADER)
-
 HASH_MODE = "sha1"
 AES_MODE = AES.MODE_CBC
 ITERATIONS = 64000
@@ -29,9 +27,9 @@ def get_file_bytes(path):
 
 def decrypt(data, password):
 
-    salt = data[HEADER_LENGTH:HEADER_LENGTH + SALT_LENGTH]
-    iv = data[HEADER_LENGTH + SALT_LENGTH:HEADER_LENGTH + SALT_LENGTH + IV_LENGTH]
-    payload = data[HEADER_LENGTH + SALT_LENGTH + IV_LENGTH:]
+    salt = data[len(HEADER):len(HEADER) + SALT_LENGTH]
+    iv = data[len(HEADER) + SALT_LENGTH:len(HEADER) + SALT_LENGTH + IV_LENGTH]
+    payload = data[len(HEADER) + SALT_LENGTH + IV_LENGTH:]
 
     password_bytes = password.encode("utf-8")
     key = hashlib.pbkdf2_hmac(HASH_MODE, password_bytes, salt, ITERATIONS, DERV_KEY_LENGTH)
@@ -57,7 +55,7 @@ def main():
         return
 
     try:
-        header = data[:HEADER_LENGTH]
+        header = data[:len(HEADER)]
 
         if header.decode("utf-8") != HEADER:
             raise
