@@ -89,6 +89,7 @@
 
     <!-- Backups -->
     <string name="backupNow">Backup now</string>
+    <string name="restoreNow">Restore now</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
     
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
@@ -135,8 +136,6 @@
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     
-    <string name="testBackup">Test backup</string>
-    
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     
@@ -152,6 +151,7 @@
     <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     
     <string name="backupScheduled">Backup scheduled</string>
+    <string name="restoreScheduled">Restore scheduled</string>
     
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>

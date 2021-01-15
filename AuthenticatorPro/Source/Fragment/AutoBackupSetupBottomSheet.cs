@@ -26,8 +26,9 @@ namespace AuthenticatorPro.Fragment
 
         private SwitchMaterial _backupEnabledSwitch;
         private SwitchMaterial _restoreEnabledSwitch;
+        private MaterialButton _triggerBackupButton;
+        private MaterialButton _triggerRestoreButton;
         private MaterialButton _okButton;
-        private MaterialButton _testBackupButton;
 
         private bool _backupEnabled;
         private bool _restoreEnabled;
@@ -66,17 +67,20 @@ namespace AuthenticatorPro.Fragment
             _restoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
             _backupLocationUri = prefs.GetString("pref_autoBackupUri", null);
 
-            var selectLocationButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSelectLocation);
+            var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
             selectLocationButton.Click += OnSelectLocationClick;
 
-            var setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
+            var setPasswordButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSetPassword);
             setPasswordButton.Click += OnSetPasswordButtonClick;
 
             _locationStatusText = view.FindViewById<TextView>(Resource.Id.textLocationStatus);
             _passwordStatusText = view.FindViewById<TextView>(Resource.Id.textPasswordStatus);
 
-            _testBackupButton = view.FindViewById<MaterialButton>(Resource.Id.buttonTestBackup);
-            _testBackupButton.Click += OnTestBackupButtonClick;
+            _triggerBackupButton = view.FindViewById<MaterialButton>(Resource.Id.buttonTriggerBackup);
+            _triggerBackupButton.Click += OnTriggerBackupButtonClick;
+            
+            _triggerRestoreButton = view.FindViewById<MaterialButton>(Resource.Id.buttonTriggerRestore);
+            _triggerRestoreButton.Click += OnTriggerRestoreButtonClick;
 
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
@@ -86,7 +90,7 @@ namespace AuthenticatorPro.Fragment
 
             UpdateLocationStatusText();
             UpdatePasswordStatusText();
-            UpdateSwitchesAndTestButton();
+            UpdateSwitchesAndTriggerButton();
             
             return view;
         }
@@ -109,22 +113,32 @@ namespace AuthenticatorPro.Fragment
 
             if(!isEnabled)
             {
-                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 1, TimeUnit.Hours).Build();
+                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 30, TimeUnit.Minutes).Build();
                 workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep, workRequest);
             }
             else
                 workManager.CancelUniqueWork(AutoBackupWorker.Name);
         }
 
-        private void OnTestBackupButtonClick(object sender, EventArgs e)
+        private void OnTriggerBackupButtonClick(object sender, EventArgs e)
         {
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoBackupTestRun", true).Commit();
-            
+            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoBackupTrigger", true).Commit();
+            TriggerWork();
+            Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
+        }
+        
+        private void OnTriggerRestoreButtonClick(object sender, EventArgs e)
+        {
+            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoRestoreTrigger", true).Commit();
+            TriggerWork();
+            Toast.MakeText(Context, Resource.String.restoreScheduled, ToastLength.Short).Show();
+        }
+
+        private void TriggerWork()
+        {
             var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
             var manager = WorkManager.GetInstance(Context);
             manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace, request);
-            
-            Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
         }
 
         private void OnSelectLocationClick(object sender, EventArgs e)
@@ -153,7 +167,7 @@ namespace AuthenticatorPro.Fragment
             _hasPassword = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
-            UpdateSwitchesAndTestButton();
+            UpdateSwitchesAndTriggerButton();
             await SecureStorage.SetAsync("autoBackupPassword", password);
         }
 
@@ -167,7 +181,7 @@ namespace AuthenticatorPro.Fragment
             editor.Commit();
             
             UpdateLocationStatusText();
-            UpdateSwitchesAndTestButton();
+            UpdateSwitchesAndTriggerButton();
         }
 
         private void UpdateLocationStatusText()
@@ -187,7 +201,7 @@ namespace AuthenticatorPro.Fragment
             });
         }
 
-        private void UpdateSwitchesAndTestButton()
+        private void UpdateSwitchesAndTriggerButton()
         {
             _backupEnabledSwitch.Checked = _backupEnabled;
             _restoreEnabledSwitch.Checked = _restoreEnabled;

@@ -55,7 +55,7 @@ namespace AuthenticatorPro.Worker
 
         private enum NotificationContext
         {
-            BackupFailure, RestoreFailure, RestoreSuccess, TestRunSuccess
+            BackupFailure, RestoreFailure, RestoreSuccess, BackupTriggerSuccess
         }
 
         private async Task BackupToDir(Uri destUri)
@@ -89,16 +89,16 @@ namespace AuthenticatorPro.Worker
             await FileUtil.WriteFile(_context, file.Uri, dataToWrite);
         }
 
-        private async Task<RestoreResult> RestoreFromDir(Uri destUri, long lastBackupTicks)
+        private async Task<RestoreResult> RestoreFromDir(Uri destUri, long changesMadeAt)
         {
             if(destUri == null)
                 throw new ArgumentNullException(nameof(destUri), "No backup URI defined.");
-               
+              
             var directory = DocumentFile.FromTreeUri(_context, destUri);
             var files = directory.ListFiles();
             
             var mostRecentBackup = files
-                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Length() > 0 && f.CanRead() && f.LastModified() > lastBackupTicks)
+                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Length() > 0 && f.CanRead() && f.LastModified() > changesMadeAt)
                 .OrderByDescending(f => f.LastModified())
                 .FirstOrDefault();
 
@@ -163,12 +163,18 @@ namespace AuthenticatorPro.Worker
                     break;
                     
                 case NotificationContext.RestoreSuccess:
-                    var text = result.ToString(_context);
                     builder.SetContentTitle(_context.GetString(Resource.String.autoRestoreSuccessTitle));
-                    builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(text));
+
+                    if(result == null || result.IsVoid())
+                        builder.SetContentText(_context.GetString(Resource.String.restoredNothing));
+                    else
+                    {
+                        var text = result.ToString(_context);
+                        builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(text));
+                    }
                     break;
                 
-                case NotificationContext.TestRunSuccess:
+                case NotificationContext.BackupTriggerSuccess:
                     builder.SetContentTitle(_context.GetString(Resource.String.autoBackupTestTitle));
                     builder.SetContentText(_context.GetString(Resource.String.autoBackupTestText));
                     break;
@@ -195,17 +201,49 @@ namespace AuthenticatorPro.Worker
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
             
-            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            var isTestRun = prefs.GetBoolean("autoBackupTestRun", false);
-            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
-            var lastBackupTicks = prefs.GetLong("autoBackupLastTicks", 0);
+            var changesMadeAt = prefs.GetLong("changesMadeAt", 0);
             
             var destUriStr = prefs.GetString("pref_autoBackupUri", null);
             var destUri = destUriStr != null ? Uri.Parse(destUriStr) : null;
+            
+            var restoreTriggered = prefs.GetBoolean("autoRestoreTrigger", false);
+            
+            if(restoreTriggered)
+                prefs.Edit().PutBoolean("autoRestoreTrigger", false).Commit();
 
+            var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var restoreSucceeded = true;
+
+            if(restoreTriggered || autoRestoreEnabled)
+            {
+                await _initTask.Value;
+                
+                try
+                {
+                    var result = await RestoreFromDir(destUri, changesMadeAt);
+                    
+                    if(restoreTriggered || result != null && !result.IsVoid())
+                        ShowNotification(NotificationContext.RestoreSuccess, false, result);
+                }
+                catch(Exception e)
+                {
+                    restoreSucceeded = false;
+                    ShowNotification(NotificationContext.RestoreFailure, true);
+                    Log.Error("AUTHPRO", e.ToString());
+                }
+            }
+            
+            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
+            
+            var backupTriggered = prefs.GetBoolean("autoBackupTrigger", false);
+            
+            if(backupTriggered)
+                prefs.Edit().PutBoolean("autoBackupTrigger", false).Commit();
+            
             var backupSucceeded = true;
 
-            if(isTestRun || autoBackupEnabled && requirement != BackupRequirement.NotRequired)
+            if(backupTriggered || autoBackupEnabled && restoreSucceeded && requirement != BackupRequirement.NotRequired)
             {
                 await _initTask.Value;
                 
@@ -222,35 +260,10 @@ namespace AuthenticatorPro.Worker
 
                 if(backupSucceeded)
                 {
-                    if(isTestRun)
-                        ShowNotification(NotificationContext.TestRunSuccess, false);
+                    if(backupTriggered)
+                        ShowNotification(NotificationContext.BackupTriggerSuccess, false);
                     
-                    lastBackupTicks = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-                    prefs.Edit().PutBoolean("autoBackupTestRun", false)
-                                .PutInt("backupRequirement", (int) BackupRequirement.NotRequired)
-                                .PutLong("autoBackupLastTicks", lastBackupTicks).Commit();
-                }
-            }
-
-            var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            var restoreSucceeded = true;
-
-            if(!isTestRun && autoRestoreEnabled && backupSucceeded)
-            {
-                await _initTask.Value;
-                
-                try
-                {
-                    var result = await RestoreFromDir(destUri, lastBackupTicks);
-                    
-                    if(!result.IsVoid())
-                        ShowNotification(NotificationContext.RestoreSuccess, false, result);
-                }
-                catch(Exception e)
-                {
-                    restoreSucceeded = false;
-                    ShowNotification(NotificationContext.RestoreFailure, true);
-                    Log.Error("AUTHPRO", e.ToString());
+                    prefs.Edit().PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
                 }
             }
 

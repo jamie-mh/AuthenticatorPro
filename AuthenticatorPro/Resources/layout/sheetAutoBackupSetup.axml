@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -24,118 +23,193 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:clipChildren="false"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:clipToPadding="false"
+            android:clipChildren="false">
             
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_marginBottom="20dp"
                 android:text="@string/autoBackupHelp"
                 android:textColor="?attr/primaryTextColor"
                 android:lineSpacingExtra="6sp"
                 android:textSize="16sp" />
-            
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonSelectLocation"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginBottom="4dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="@string/selectLocation" />
-
-            <TextView
-                android:id="@+id/textLocationStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:lineSpacingExtra="6sp"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="14sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonSetPassword"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginBottom="2dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="@string/setPassword" />
-            
-            <TextView
-                android:id="@+id/textPasswordStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:lineSpacingExtra="6sp"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="14sp" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchBackupEnabled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:checked="false"
-                android:textSize="16sp"
-                app:thumbTint="@drawable/switchmaterialthumb"
-                app:trackTint="@drawable/switchmaterialtrack"
-                android:text="@string/enableAutoBackup"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:lineSpacingExtra="6sp"
-                android:text="@string/enableAutoBackupMessage"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="14sp" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchRestoreEnabled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:checked="false"
-                android:textSize="16sp"
-                app:thumbTint="@drawable/switchmaterialthumb"
-                app:trackTint="@drawable/switchmaterialtrack"
-                android:text="@string/enableAutoRestore"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:lineSpacingExtra="6sp"
-                android:text="@string/enableAutoRestoreMessage"
-                android:textColor="?attr/secondaryTextColor"
-                android:textSize="14sp" />
 
             <LinearLayout
+                android:id="@+id/buttonSelectLocation"
                 android:orientation="horizontal"
-                android:layout_gravity="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:foreground="?attr/selectableItemBackground"
+                android:background="@drawable/listitemborder"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:minHeight="56dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp">
+
+                <ImageView
+                    android:id="@+id/imageIcon"
+                    android:src="@drawable/ic_action_folder"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="32dp" />
+
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="?attr/primaryTextColor"
+                        android:text="@string/selectLocation"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textLocationStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:lineSpacingExtra="4sp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonSetPassword"
+                android:orientation="horizontal"
+                android:foreground="?attr/selectableItemBackground"
+                android:background="@drawable/listitemborder"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:minHeight="56dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp">
+
+                <ImageView
+                    android:id="@+id/imageIcon"
+                    android:src="@drawable/ic_action_vpn_key"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="32dp" />
+
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="?attr/primaryTextColor"
+                        android:text="@string/setPassword"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textPasswordStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:lineSpacingExtra="4sp"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:clipToPadding="false"
+                android:clipChildren="false">
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchBackupEnabled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:checked="false"
+                    android:textSize="16sp"
+                    app:thumbTint="@drawable/switchmaterialthumb"
+                    app:trackTint="@drawable/switchmaterialtrack"
+                    android:text="@string/enableAutoBackup"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:lineSpacingExtra="6sp"
+                    android:text="@string/enableAutoBackupMessage"
+                    android:textColor="?attr/secondaryTextColor"
+                    android:textSize="14sp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonTestBackup"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_marginRight="10dp"
+                    android:id="@+id/buttonTriggerBackup"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_marginBottom="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/testBackup"/>
+                    android:text="@string/backupNow"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchRestoreEnabled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="false"
+                    android:textSize="16sp"
+                    app:thumbTint="@drawable/switchmaterialthumb"
+                    app:trackTint="@drawable/switchmaterialtrack"
+                    android:text="@string/enableAutoRestore"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:lineSpacingExtra="6sp"
+                    android:text="@string/enableAutoRestoreMessage"
+                    android:textColor="?attr/secondaryTextColor"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonTriggerRestore"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/restoreNow"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonOk"
                     style="@style/Widget.MaterialComponents.Button"
+                    android:layout_gravity="end"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/ok"/>
             </LinearLayout>
+            
         </LinearLayout>
     </ScrollView>
-    
 </LinearLayout>
