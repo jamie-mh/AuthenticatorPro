@@ -93,6 +93,7 @@
     <Compile Include="Source\Constants.cs" />
     <Compile Include="Source\Data\Authenticator.cs" />
     <Compile Include="Source\Data\AuthenticatorCategory.cs" />
+    <Compile Include="Source\Data\AuthenticatorComparer.cs" />
     <Compile Include="Source\Data\Backup\Backup.cs" />
     <Compile Include="Source\Data\Backup\BackupRequirement.cs" />
     <Compile Include="Source\Data\Backup\Converter\AegisBackupConverter.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Source\Data\Backup\Converter\TotpAuthenticatorBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\WinAuthBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\HtmlBackup.cs" />
+    <Compile Include="Source\Data\Backup\IResult.cs" />
     <Compile Include="Source\Data\Backup\RestoreResult.cs" />
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />

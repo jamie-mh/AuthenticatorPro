@@ -42,6 +42,7 @@ using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
+using IResult = AuthenticatorPro.Data.Backup.IResult;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using Timer = System.Timers.Timer;
@@ -1096,10 +1097,14 @@ namespace AuthenticatorPro.Activity
         {
             if(backup.Authenticators == null)
                 throw new ArgumentException();
+            
+            int authsAdded;
+            var authsUpdated = 0;
 
-            var authCount = shouldUpdateExisting
-                ? await _authSource.AddOrUpdateMany(backup.Authenticators)
-                : await _authSource.AddMany(backup.Authenticators);
+            if(shouldUpdateExisting)
+                (authsAdded, authsUpdated) = await _authSource.AddOrUpdateMany(backup.Authenticators);
+            else
+                authsAdded = await _authSource.AddMany(backup.Authenticators);
 
             var categoryCount = backup.Categories != null
                 ? await _categorySource.AddMany(backup.Categories)
@@ -1117,7 +1122,7 @@ namespace AuthenticatorPro.Activity
                 ? await _customIconSource.AddMany(backup.CustomIcons)
                 : 0;
 
-            return new RestoreResult(authCount, categoryCount, customIconCount);
+            return new RestoreResult(authsAdded, authsUpdated, categoryCount, customIconCount);
         }
 
         private async Task ImportFromUri(BackupConverter converter, Uri uri)
@@ -1193,14 +1198,18 @@ namespace AuthenticatorPro.Activity
             }
         }
 
-        private async Task FinaliseRestore(RestoreResult result)
+        private async Task FinaliseRestore(IResult result)
         {
+            if(result.IsVoid())
+            {
+                ShowSnackbar(Resource.String.restoredNothing, Snackbar.LengthLong);
+                return;
+            }
+            
             RunOnUiThread(CheckEmptyState);
             await UpdateList(true);
-
-            var message = String.Format(GetString(Resource.String.restoredFromBackup), result.AuthenticatorCount, result.CategoryCount);
+            var message = result.ToString(this);
             ShowSnackbar(message, Snackbar.LengthLong);
-
             await NotifyWearAppOfChange();
         }
         #endregion

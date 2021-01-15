@@ -38,9 +38,9 @@ namespace AuthenticatorPro.Data.Source
         public async Task<int> AddMany(IEnumerable<Category> categories)
         {
             var valid = categories.Where(c => !IsDuplicate(c)).ToList();
-            await _connection.InsertAllAsync(valid);
+            var added = await _connection.InsertAllAsync(valid);
             await Update();
-            return valid.Count;
+            return added;
         }
 
         public bool IsDuplicate(Category category)

@@ -37,7 +37,7 @@ namespace AuthenticatorPro.Service
 
         public WearQueryService()
         {
-            _initTask = new Lazy<Task>(async () =>
+            _initTask = new Lazy<Task>(async delegate
             {
                 _connection = await Database.Connect(ApplicationContext);
                 _customIconSource = new CustomIconSource(_connection);

@@ -104,23 +104,33 @@ namespace AuthenticatorPro.Data.Source
         public async Task<int> AddMany(IEnumerable<Authenticator> authenticators)
         {
             var valid = authenticators.Where(a => a.IsValid() && !IsDuplicate(a)).ToList();
-            await _connection.InsertAllAsync(valid);
+            var added = await _connection.InsertAllAsync(valid);
             await Update();
-            return valid.Count;
+            return added;
         }
 
-        public async Task<int> AddOrUpdateMany(IEnumerable<Authenticator> authenticators)
+        public async Task<Tuple<int, int>> AddOrUpdateMany(IEnumerable<Authenticator> authenticators)
         {
             var valid = authenticators.Where(a => a.IsValid()).ToList();
             
             var toAdd = valid.Where(a => !IsDuplicate(a)).ToList();
-            await _connection.InsertAllAsync(toAdd);
+            var addedCount = await _connection.InsertAllAsync(toAdd);
 
-            var toUpdate = valid.Where(a => !toAdd.Contains(a));
+            var toUpdate = valid
+                .Where(a => !toAdd.Contains(a))
+                .OrderBy(a => a.Secret.GetHashCode()).ToList();
+            
+            var updateTargets = _all
+                .Where(a => toUpdate.Any(b => a.Secret == b.Secret))
+                .OrderBy(a => a.Secret.GetHashCode());
+                
+            var diff = updateTargets.Except(toUpdate, new AuthenticatorComparer());
+            var updatedCount = diff.Count();
+            
             await _connection.UpdateAllAsync(toUpdate);
-
             await Update();
-            return toAdd.Count;
+            
+            return new Tuple<int, int>(addedCount, updatedCount);
         }
         
         public async Task AddManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)

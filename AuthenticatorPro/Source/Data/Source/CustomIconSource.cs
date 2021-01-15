@@ -38,9 +38,9 @@ namespace AuthenticatorPro.Data.Source
         public async Task<int> AddMany(IEnumerable<CustomIcon> icons)
         {
             var valid = icons.Where(c => !IsDuplicate(c.Id)).ToList();
-            await _connection.InsertAllAsync(valid);
+            var added = await _connection.InsertAllAsync(valid);
             await Update();
-            return valid.Count;
+            return added;
         }
 
         public CustomIcon Get(string id)

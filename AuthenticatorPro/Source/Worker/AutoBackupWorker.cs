@@ -15,6 +15,7 @@ using AuthenticatorPro.Data;
 using AuthenticatorPro.Data.Backup;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Util;
+using SQLite;
 using Xamarin.Essentials;
 using Uri = Android.Net.Uri;
 
@@ -25,38 +26,45 @@ namespace AuthenticatorPro.Worker
         public const string Name = "autobackup";
         private const string NotificationChannelId = "0";
         private const int NotificationId = 0;
+        
         private readonly Context _context;
+        private readonly Lazy<Task> _initTask;
+        
+        private SQLiteAsyncConnection _connection;
+        private AuthenticatorSource _authSource;
+        private CategorySource _categorySource;
+        private CustomIconSource _customIconSource;
+        
         
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
             _context = context;
+            
+            _initTask = new Lazy<Task>(async delegate
+            {
+                _connection = await Database.Connect(ApplicationContext);
+                _customIconSource = new CustomIconSource(_connection);
+                _categorySource = new CategorySource(_connection);
+                _authSource = new AuthenticatorSource(_connection);
+
+                await _categorySource.Update();
+                await _customIconSource.Update();
+                await _authSource.Update();
+            });
         }
 
         private enum NotificationContext
         {
-            Failure, TestRunSuccess
+            BackupFailure, RestoreFailure, RestoreSuccess, TestRunSuccess
         }
 
-        private async Task DoBackup()
+        private async Task BackupToDir(Uri destUri)
         {
-            var connection = await Database.Connect(_context);
-            
-            var categorySource = new CategorySource(connection);
-            var customIconSource = new CustomIconSource(connection);
-            var authSource = new AuthenticatorSource(connection);
-
-            await categorySource.Update();
-            await customIconSource.Update();
-            await authSource.Update();
-
-            if(!authSource.GetAll().Any())
+            if(!_authSource.GetAll().Any())
                 return;
 
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
-            var backupDirUriStr = prefs.GetString("pref_autoBackupUri", null);
-
-            if(backupDirUriStr == null)
-                throw new Exception("No backup URI defined.");
+            if(destUri == null)
+                throw new ArgumentNullException(nameof(destUri), "No backup URI defined.");
 
             var password = await SecureStorage.GetAsync("autoBackupPassword");
 
@@ -64,22 +72,61 @@ namespace AuthenticatorPro.Worker
                 throw new Exception("No password defined.");
             
             var backup = new Backup(
-                authSource.GetAll(),
-                categorySource.GetAll(),
-                authSource.CategoryBindings,
-                customIconSource.GetAll()
+                _authSource.GetAll(),
+                _categorySource.GetAll(),
+                _authSource.CategoryBindings,
+                _customIconSource.GetAll()
             );
 
             var dataToWrite = backup.ToBytes(password);
 
-            var directory = DocumentFile.FromTreeUri(_context, Uri.Parse(backupDirUriStr));
+            var directory = DocumentFile.FromTreeUri(_context, destUri);
             var file = directory.CreateFile("application/octet-stream", $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
             
             if(file == null)
                 throw new Exception("File creation failed, got null.");
 
             await FileUtil.WriteFile(_context, file.Uri, dataToWrite);
-            await connection.CloseAsync();
+        }
+
+        private async Task<RestoreResult> RestoreFromDir(Uri destUri, long lastBackupTicks)
+        {
+            if(destUri == null)
+                throw new ArgumentNullException(nameof(destUri), "No backup URI defined.");
+               
+            var directory = DocumentFile.FromTreeUri(_context, destUri);
+            var files = directory.ListFiles();
+            
+            var mostRecentBackup = files
+                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Length() > 0 && f.CanRead() && f.LastModified() > lastBackupTicks)
+                .OrderByDescending(f => f.LastModified())
+                .FirstOrDefault();
+
+            if(mostRecentBackup == null)
+                return null;
+
+            var password = await SecureStorage.GetAsync("autoBackupPassword");
+
+            if(password == null)
+                throw new Exception("No password defined.");
+
+            var data = await FileUtil.ReadFile(_context, mostRecentBackup.Uri);
+            var backup = Backup.FromBytes(data, password);
+
+            var (authsAdded, authsUpdated) = await _authSource.AddOrUpdateMany(backup.Authenticators);
+
+            var categoriesAdded = backup.Categories != null
+                ? await _categorySource.AddMany(backup.Categories)
+                : 0;
+            
+            if(backup.AuthenticatorCategories != null)
+                await _authSource.AddOrUpdateManyCategoryBindings(backup.AuthenticatorCategories);
+          
+            var customIconsAdded = backup.CustomIcons != null
+                ? await _customIconSource.AddMany(backup.CustomIcons)
+                : 0;
+                
+            return new RestoreResult(authsAdded, authsUpdated, categoriesAdded, customIconsAdded);
         }
 
         private void CreateNotificationChannel()
@@ -96,7 +143,7 @@ namespace AuthenticatorPro.Worker
             manager.CreateNotificationChannel(channel);
         }
 
-        private void ShowNotification(NotificationContext context)
+        private void ShowNotification(NotificationContext context, IResult result = null)
         {
             var builder = new NotificationCompat.Builder(_context, NotificationChannelId)
                 .SetSmallIcon(Resource.Mipmap.ic_launcher)
@@ -105,15 +152,20 @@ namespace AuthenticatorPro.Worker
 
             switch(context)
             {
-                case NotificationContext.Failure:
+                case NotificationContext.BackupFailure:
                     builder.SetContentTitle(_context.GetString(Resource.String.autoBackupFailureTitle));
                     builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(_context.GetString(Resource.String.autoBackupFailureText)));
+                    break;
+                
+                case NotificationContext.RestoreFailure:
+                    builder.SetContentTitle(_context.GetString(Resource.String.autoBackupFailureTitle));
+                    builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(_context.GetString(Resource.String.autoBackupFailureText)));
+                    break;
                     
-                    var intent = new Intent(_context, typeof(MainActivity));
-                    intent.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
-                    var pendingIntent = PendingIntent.GetActivity(_context, 0, intent, 0);
-                    builder.SetContentIntent(pendingIntent);
-                    builder.SetAutoCancel(true);
+                case NotificationContext.RestoreSuccess:
+                    var text = result.ToString(_context);
+                    builder.SetContentTitle(_context.GetString(Resource.String.autoRestoreSuccessTitle));
+                    builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(text));
                     break;
                 
                 case NotificationContext.TestRunSuccess:
@@ -125,40 +177,93 @@ namespace AuthenticatorPro.Worker
                     throw new ArgumentOutOfRangeException(nameof(context));
             }
 
+            if(context == NotificationContext.BackupFailure || context == NotificationContext.RestoreFailure)
+            {
+                var intent = new Intent(_context, typeof(MainActivity));
+                intent.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
+                var pendingIntent = PendingIntent.GetActivity(_context, 0, intent, 0);
+                builder.SetContentIntent(pendingIntent);
+                builder.SetAutoCancel(true);
+            }
+
             CreateNotificationChannel();
             var manager = NotificationManagerCompat.From(_context);
             manager.Notify(NotificationId, builder.Build());
         }
-        
-        public override Result DoWork()
+
+        private async Task<Result> DoWorkAsync()
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
             
-            var enabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
-            
+            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             var isTestRun = prefs.GetBoolean("autoBackupTestRun", false);
-            prefs.Edit().PutBoolean("autoBackupTestRun", false).Commit();
+            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
+            var lastBackupTicks = prefs.GetLong("autoBackupLastTicks", 0);
             
-            if(!isTestRun && (requirement == BackupRequirement.NotRequired || !enabled))
-                return Result.InvokeSuccess();
-            
-            try
-            {
-                DoBackup().GetAwaiter().GetResult();
-                prefs.Edit().PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
-            }
-            catch(Exception e)
-            {
-                ShowNotification(NotificationContext.Failure);
-                Log.Error("AUTHPRO", e.ToString());
-                return Result.InvokeFailure();
-            }
-            
-            if(isTestRun)
-                ShowNotification(NotificationContext.TestRunSuccess);
+            var destUriStr = prefs.GetString("pref_autoBackupUri", null);
+            var destUri = destUriStr != null ? Uri.Parse(destUriStr) : null;
 
-            return Result.InvokeSuccess();
+            var backupSucceeded = true;
+
+            if(isTestRun || autoBackupEnabled && requirement != BackupRequirement.NotRequired)
+            {
+                await _initTask.Value;
+                
+                try
+                {
+                    await BackupToDir(destUri);
+                }
+                catch(Exception e)
+                {
+                    backupSucceeded = false;
+                    ShowNotification(NotificationContext.BackupFailure);
+                    Log.Error("AUTHPRO", e.ToString());
+                }
+
+                if(isTestRun || backupSucceeded)
+                {
+                    ShowNotification(NotificationContext.TestRunSuccess);
+                    
+                    lastBackupTicks = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                    prefs.Edit().PutBoolean("autoBackupTestRun", false)
+                                .PutInt("backupRequirement", (int) BackupRequirement.NotRequired)
+                                .PutLong("autoBackupLastTicks", lastBackupTicks).Commit();
+                }
+            }
+
+            var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var restoreSucceeded = true;
+
+            if(!isTestRun && autoRestoreEnabled)
+            {
+                await _initTask.Value;
+                
+                try
+                {
+                    var result = await RestoreFromDir(destUri, lastBackupTicks);
+                    
+                    if(!result.IsVoid())
+                        ShowNotification(NotificationContext.RestoreSuccess, result);
+                }
+                catch(Exception e)
+                {
+                    restoreSucceeded = false;
+                    ShowNotification(NotificationContext.RestoreFailure);
+                    Log.Error("AUTHPRO", e.ToString());
+                }
+            }
+
+            if(_connection != null)
+                await _connection.CloseAsync();
+            
+            return backupSucceeded && restoreSucceeded
+                ? Result.InvokeSuccess()
+                : Result.InvokeFailure();
+        }
+        
+        public override Result DoWork()
+        {
+            return DoWorkAsync().GetAwaiter().GetResult();
         }
     }
 }

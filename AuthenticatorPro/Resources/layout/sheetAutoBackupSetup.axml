@@ -60,7 +60,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSetPassword"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="2dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:text="@string/setPassword" />
@@ -75,15 +75,44 @@
                 android:textSize="14sp" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchEnabled"
+                android:id="@+id/switchBackupEnabled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="2dp"
                 android:checked="false"
                 android:textSize="16sp"
                 app:thumbTint="@drawable/switchmaterialthumb"
                 app:trackTint="@drawable/switchmaterialtrack"
-                android:text="@string/enableAutoBackups"/>
+                android:text="@string/enableAutoBackup"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/enableAutoBackupMessage"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="14sp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchRestoreEnabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:checked="false"
+                android:textSize="16sp"
+                app:thumbTint="@drawable/switchmaterialthumb"
+                app:trackTint="@drawable/switchmaterialtrack"
+                android:text="@string/enableAutoRestore"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/enableAutoRestoreMessage"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:orientation="horizontal"

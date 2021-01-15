@@ -1,16 +1,33 @@
-﻿namespace AuthenticatorPro.Data.Backup
+﻿using System;
+using Android.Content;
+
+namespace AuthenticatorPro.Data.Backup
 {
-    internal class RestoreResult
+    internal class RestoreResult : IResult
     {
-        public readonly int AuthenticatorCount;
+        public readonly int AddedAuthenticatorCount;
+        public readonly int UpdatedAuthenticatorCount;
         public readonly int CategoryCount;
         public readonly int CustomIconCount;
 
-        public RestoreResult(int authenticatorCount, int categoryCount, int customIconCount)
+        public RestoreResult(int addedAuthenticatorCount, int updatedAuthenticatorCount, int categoryCount, int customIconCount)
         {
-            AuthenticatorCount = authenticatorCount;
+            AddedAuthenticatorCount = addedAuthenticatorCount;
+            UpdatedAuthenticatorCount = updatedAuthenticatorCount;
             CategoryCount = categoryCount;
             CustomIconCount = customIconCount;
+        }
+
+        public bool IsVoid()
+        {
+            return AddedAuthenticatorCount == 0 && UpdatedAuthenticatorCount == 0 && CategoryCount == 0 && CustomIconCount == 0;
+        }
+
+        public string ToString(Context context)
+        {
+            return UpdatedAuthenticatorCount > 0
+                ? String.Format(context.GetString(Resource.String.restoredFromBackupUpdated), AddedAuthenticatorCount, CategoryCount, UpdatedAuthenticatorCount)
+                : String.Format(context.GetString(Resource.String.restoredFromBackup), AddedAuthenticatorCount, CategoryCount);
         }
     }
 }
