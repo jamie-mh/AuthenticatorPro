@@ -26,8 +26,8 @@ namespace AuthenticatorPro.Fragment
 
         private SwitchMaterial _backupEnabledSwitch;
         private SwitchMaterial _restoreEnabledSwitch;
-        private MaterialButton _triggerBackupButton;
-        private MaterialButton _triggerRestoreButton;
+        private MaterialButton _backupNowButton;
+        private MaterialButton _restoreNowButton;
         private MaterialButton _okButton;
 
         private bool _backupEnabled;
@@ -76,11 +76,11 @@ namespace AuthenticatorPro.Fragment
             _locationStatusText = view.FindViewById<TextView>(Resource.Id.textLocationStatus);
             _passwordStatusText = view.FindViewById<TextView>(Resource.Id.textPasswordStatus);
 
-            _triggerBackupButton = view.FindViewById<MaterialButton>(Resource.Id.buttonTriggerBackup);
-            _triggerBackupButton.Click += OnTriggerBackupButtonClick;
+            _backupNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonBackupNow);
+            _backupNowButton.Click += OnBackupNowButtonClick;
             
-            _triggerRestoreButton = view.FindViewById<MaterialButton>(Resource.Id.buttonTriggerRestore);
-            _triggerRestoreButton.Click += OnTriggerRestoreButtonClick;
+            _restoreNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonRestoreNow);
+            _restoreNowButton.Click += OnRestoreNowButtonClick;
 
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
@@ -120,14 +120,14 @@ namespace AuthenticatorPro.Fragment
                 workManager.CancelUniqueWork(AutoBackupWorker.Name);
         }
 
-        private void OnTriggerBackupButtonClick(object sender, EventArgs e)
+        private void OnBackupNowButtonClick(object sender, EventArgs e)
         {
             PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoBackupTrigger", true).Commit();
             TriggerWork();
             Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
         }
         
-        private void OnTriggerRestoreButtonClick(object sender, EventArgs e)
+        private void OnRestoreNowButtonClick(object sender, EventArgs e)
         {
             PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoRestoreTrigger", true).Commit();
             TriggerWork();
@@ -209,7 +209,7 @@ namespace AuthenticatorPro.Fragment
             _restoreEnabledSwitch.Checked = _restoreEnabled;
            
             var canBeChecked = _backupLocationUri != null && _hasPassword != null;
-            _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled = canBeChecked;
+            _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled = _backupNowButton.Enabled = _restoreNowButton.Enabled = canBeChecked;
 
             if(!canBeChecked)
                 _backupEnabledSwitch.Checked = _restoreEnabledSwitch.Checked = false;

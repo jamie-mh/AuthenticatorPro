@@ -167,7 +167,7 @@
                     android:textSize="14sp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonTriggerBackup"
+                    android:id="@+id/buttonBackupNow"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_marginBottom="10dp"
                     android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                     android:textSize="14sp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonTriggerRestore"
+                    android:id="@+id/buttonRestoreNow"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
