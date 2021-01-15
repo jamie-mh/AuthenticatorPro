@@ -113,8 +113,8 @@ namespace AuthenticatorPro.Fragment
 
             if(!isEnabled)
             {
-                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 30, TimeUnit.Minutes).Build();
-                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep, workRequest);
+                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 30, TimeUnit.Minutes, 15, TimeUnit.Minutes).Build();
+                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Replace, workRequest);
             }
             else
                 workManager.CancelUniqueWork(AutoBackupWorker.Name);
