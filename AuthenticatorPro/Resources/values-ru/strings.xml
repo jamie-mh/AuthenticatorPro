@@ -48,10 +48,12 @@
     <string name="secretInvalid">Ключ недействителен.</string>
     <string name="pinInvalid">PIN-код должен быть длиной в 4 символа.</string>
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
-    <string name="periodInvalid">The period is invalid</string>
+    <string name="periodInvalid">Период является недопустимым</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredNothing">Nothing to restore</string>
     <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <!-- Backup menu -->
@@ -59,7 +61,7 @@
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
     <string name="backupHtml">Резервное копирование в HTML файл</string>
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlWarning">Резервные копии в HTML файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и не содержит категорий и значков. Если не уверены, что вместо этого выберите зашифрованную резервную копию файла.\n\nПродолжить?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
     <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
@@ -79,6 +81,7 @@
     <string name="confirmCategoryDelete">Вы уверены в том, что хотите удалить эту категорию?</string>
     <!-- Backups -->
     <string name="backupNow">Создать резервную копию</string>
+    <string name="restoreNow">Restore now</string>
     <string name="backupReminder">С момента вашего последнего резервного копирования были внесены изменения.</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
     <string name="restoreError">Неверный пароль или файл повреждён.</string>
@@ -91,8 +94,9 @@
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
     <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
-    <string name="encrypting">Encrypting</string>
-    <string name="decrypting">Decrypting</string>
+    <string name="encrypting">Шифрование</string>
+    <string name="decrypting">Дешифрование</string>
+    <string name="saving">Saving</string>
     <!-- Errors -->
     <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
@@ -102,38 +106,44 @@
     <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
     <string name="genericError">Произошла ошибка.</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>
-    <string name="noLocationSelected">No location selected</string>
-    <string name="locationSetTo">Location set to {0}</string>
+    <string name="noLocationSelected">Расположение не выбрано</string>
+    <string name="locationSetTo">Расположение настроено как {0}</string>
     <string name="setPassword">Set Password</string>
-    <string name="passwordNotSet">Password has not been set</string>
-    <string name="passwordSet">Password set</string>
-    <string name="notPasswordProtected">Not password protected</string>
-    <string name="enableAutoBackups">Enable Auto Backups</string>
-    <string name="testBackup">Test Backup</string>
+    <string name="passwordNotSet">Пароль не задан</string>
+    <string name="passwordSet">Пароль задан</string>
+    <string name="notPasswordProtected">Не защищено паролем</string>
+    <string name="enableAutoBackup">Enable Auto Backup</string>
+    <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
+    <string name="enableAutoRestore">Enable Auto Restore</string>
+    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-    <string name="autoBackupTestTitle">Backup succeeded</string>
+    <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
+    <string name="autoRestoreFailureTitle">Auto Restore failed</string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
+    <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
+    <string name="autoBackupTestTitle">Резервное копирование прошло успешно</string>
     <string name="autoBackupTestText">Auto backup is working correctly</string>
     <string name="backupStatusChannelName">Backup Status</string>
-    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
-    <string name="backupScheduled">Backup scheduled</string>
+    <string name="backupStatusChannelDescription">Уведомляет Вас, когда резервная копия не удалась или удалась</string>
+    <string name="backupScheduled">Резервное копирование запланировано</string>
+    <string name="restoreScheduled">Restore scheduled</string>
     <!-- Import -->
-    <string name="importFromAnotherApp">Import from another app</string>
-    <string name="importFrom">Import from</string>
-    <string name="importError">The file could not be imported</string>
+    <string name="importFromOtherApps">Import from other apps</string>
+    <string name="importFrom">Импортировать из</string>
+    <string name="importError">Файл не может быть импортирован</string>
     <string name="authenticatorPlus">Authenticator Plus</string>
-    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtp">andOTP (plain-text)</string>
-    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
-    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegis">Aegis (plain-text)</string>
-    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
-    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
-    <string name="winAuthImportHint">Import winauth.txt file</string>
-    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="authenticatorPlusImportHint">Импортировать файл authplus.db</string>
+    <string name="andOtp">andOTP (простой текст)</string>
+    <string name="andOtpImportHint">Импортировать текстовый файл otp_accounts.json</string>
+    <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
+    <string name="aegis">Aegis (простой текст)</string>
+    <string name="aegisImportHint">Импортировать файл aegis-export-plain.json</string>
+    <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
+    <string name="winAuthImportHint">Импорт файла winauth.txt</string>
+    <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
+    <string name="viewGuideImportHint">Посмотреть руководство в разделе вики проекта</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
     <string name="guideScanQRCodeSummary">Чтобы добавить аутентификатор, отсканируйте QR-код, предоставленный приложением или службой. Он будет добавлен в список и будет генерировать новые коды автоматически. Вы также можете ввести данные вручную.</string>
@@ -151,8 +161,8 @@
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
     <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.</string>
-    <string name="prefAutoBackupTitle">Auto Backup</string>
-    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
+    <string name="prefAutoBackupSummary">Настройка автоматического резервного копирования локального или облачного хранилища при внесении изменений. Отключает напоминания о резервном копировании.</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefAppLockTitle">Блокировка приложения</string>
     <string name="prefAppLockSummary">Требовать аутентификацию для доступа к аутентификаторам. Эта функция использует настройки экрана блокировки на вашем устройстве.</string>

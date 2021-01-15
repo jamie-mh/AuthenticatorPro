@@ -52,6 +52,8 @@
     <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
+    <string name="restoredFromBackupUpdated">{0} authentificateurs et {1} catégories ont étés restaurés. {2} authenticateurs existants ont été mis à jour.</string>
+    <string name="restoredNothing">Rien à restaurer</string>
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
     <string name="scanSuccessful">QR Code scanné avec succès</string>
     <!-- Backup menu -->
@@ -79,6 +81,7 @@
     <string name="confirmCategoryDelete">Êtes-vous sûr de vouloir supprimer cette catégorie ?</string>
     <!-- Backups -->
     <string name="backupNow">Sauvegarder</string>
+    <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
@@ -93,6 +96,7 @@
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
     <string name="encrypting">Chiffrement...</string>
     <string name="decrypting">Déchiffrement...</string>
+    <string name="saving">Enregistrement...</string>
     <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
@@ -102,7 +106,7 @@
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
     <string name="genericError">Une erreur s\'est produite</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications importantes ont étés apportées.</string>
+    <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications ont étés apportées.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <string name="locationSetTo">{0} a été choisi comme emplacement</string>
@@ -110,17 +114,23 @@
     <string name="passwordNotSet">Mot de passe non renseigné</string>
     <string name="passwordSet">Mot de passe renseigné</string>
     <string name="notPasswordProtected">Non protégé par mot de passe</string>
-    <string name="enableAutoBackups">Activer les sauvegardes automatiques</string>
-    <string name="testBackup">Tester la sauvegarde</string>
+    <string name="enableAutoBackup">Activer les sauvegardes automatiques</string>
+    <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
+    <string name="enableAutoRestore">Activer la restauration automatique</string>
+    <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir à nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
+    <string name="autoRestoreFailureTitle">Échec lors de la restauration automatique</string>
+    <string name="autoRestoreFailureText">La sauvegarde automatique la plus récente a échoué. Les droits de fichier sont potentiellement expirés ou le mot de passe est erroné. Tentez de définir à nouveau l\'emplacement et le mot de passe de la sauvegarde dans les paramètres.</string>
+    <string name="autoRestoreSuccessTitle">Restauration effectuée avec succès</string>
     <string name="autoBackupTestTitle">Sauvegarde effectuée avec succès</string>
     <string name="autoBackupTestText">La sauvegarde automatique fonctionne correctement</string>
     <string name="backupStatusChannelName">État de sauvegarde</string>
     <string name="backupStatusChannelDescription">Vous avertit de l\'état des sauvegardes automatiques</string>
-    <string name="backupScheduled">Sauvegarde planifiée</string>
+    <string name="backupScheduled">Sauvegarde programmée</string>
+    <string name="restoreScheduled">Restauration programmée</string>
     <!-- Import -->
-    <string name="importFromAnotherApp">Importer depuis une autre application</string>
+    <string name="importFromOtherApps">Importer depuis une autre application</string>
     <string name="importFrom">Importer depuis</string>
     <string name="importError">Le fichier n\'a pas pu être importé</string>
     <string name="authenticatorPlus">Authenticator Plus</string>
