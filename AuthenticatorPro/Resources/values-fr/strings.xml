@@ -52,6 +52,8 @@
     <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredNothing">Nothing to restore</string>
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
     <string name="scanSuccessful">QR Code scanné avec succès</string>
     <!-- Backup menu -->
@@ -79,6 +81,7 @@
     <string name="confirmCategoryDelete">Êtes-vous sûr de vouloir supprimer cette catégorie ?</string>
     <!-- Backups -->
     <string name="backupNow">Sauvegarder</string>
+    <string name="restoreNow">Restore now</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
@@ -111,15 +114,21 @@
     <string name="passwordNotSet">Mot de passe non renseigné</string>
     <string name="passwordSet">Mot de passe renseigné</string>
     <string name="notPasswordProtected">Non protégé par mot de passe</string>
-    <string name="enableAutoBackups">Activer les sauvegardes automatiques</string>
-    <string name="testBackup">Tester la sauvegarde</string>
+    <string name="enableAutoBackup">Enable Auto Backup</string>
+    <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
+    <string name="enableAutoRestore">Enable Auto Restore</string>
+    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir à nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
+    <string name="autoRestoreFailureTitle">Auto Restore failed</string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
+    <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="autoBackupTestTitle">Sauvegarde effectuée avec succès</string>
     <string name="autoBackupTestText">La sauvegarde automatique fonctionne correctement</string>
     <string name="backupStatusChannelName">État de sauvegarde</string>
     <string name="backupStatusChannelDescription">Vous avertit de l\'état des sauvegardes automatiques</string>
     <string name="backupScheduled">Sauvegarde planifiée</string>
+    <string name="restoreScheduled">Restore scheduled</string>
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Importer depuis</string>
