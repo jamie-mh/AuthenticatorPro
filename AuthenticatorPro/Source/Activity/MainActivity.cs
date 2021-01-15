@@ -1051,7 +1051,7 @@ namespace AuthenticatorPro.Activity
                     backup = Backup.FromBytes(data, password);
                 });
                 
-                return await RestoreBackup(backup);
+                return await RestoreBackup(backup, true);
             }
 
             if(Backup.IsReadableWithoutPassword(data))
@@ -1091,20 +1091,27 @@ namespace AuthenticatorPro.Activity
             };
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
-        
-        private async Task<RestoreResult> RestoreBackup(Backup backup)
+
+        private async Task<RestoreResult> RestoreBackup(Backup backup, bool shouldUpdateExisting)
         {
             if(backup.Authenticators == null)
                 throw new ArgumentException();
 
-            var authCount = await _authSource.AddOrUpdateMany(backup.Authenticators);
+            var authCount = shouldUpdateExisting
+                ? await _authSource.AddOrUpdateMany(backup.Authenticators)
+                : await _authSource.AddMany(backup.Authenticators);
 
             var categoryCount = backup.Categories != null
                 ? await _categorySource.AddMany(backup.Categories)
                 : 0;
-            
+
             if(backup.AuthenticatorCategories != null)
-                await _authSource.AddOrUpdateManyCategoryBindings(backup.AuthenticatorCategories);
+            {
+                if(shouldUpdateExisting)
+                    await _authSource.AddOrUpdateManyCategoryBindings(backup.AuthenticatorCategories);
+                else
+                    await _authSource.AddManyCategoryBindings(backup.AuthenticatorCategories);
+            }
            
             var customIconCount = backup.CustomIcons != null
                 ? await _customIconSource.AddMany(backup.CustomIcons)
@@ -1130,7 +1137,7 @@ namespace AuthenticatorPro.Activity
             async Task ConvertAndRestore(string password)
             {
                 var backup = await converter.Convert(data, password);
-                var result = await RestoreBackup(backup);
+                var result = await RestoreBackup(backup, false);
                 await FinaliseRestore(result);
                 SetBackupRequirement(BackupRequirement.Urgent);
             }
