@@ -29,6 +29,8 @@ namespace AuthenticatorPro.Fragment
         private MaterialButton _okButton;
         private MaterialButton _testBackupButton;
 
+        private bool _backupEnabled;
+        private bool _restoreEnabled;
         private string _backupLocationUri;
         private bool? _hasPassword;
         
@@ -60,8 +62,8 @@ namespace AuthenticatorPro.Fragment
             };
             
             var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
-            var backupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            var restoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
+            _backupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            _restoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
             _backupLocationUri = prefs.GetString("pref_autoBackupUri", null);
 
             var selectLocationButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSelectLocation);
@@ -80,16 +82,14 @@ namespace AuthenticatorPro.Fragment
             _okButton.Click += delegate { Dismiss(); };
 
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
-            _backupEnabledSwitch.Checked = backupEnabled;
             _backupEnabledSwitch.CheckedChange += OnBackupEnabledSwitchChecked;
             
             _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
-            _restoreEnabledSwitch.Checked = restoreEnabled;
             _restoreEnabledSwitch.CheckedChange += OnRestoreEnabledSwitchChecked;
 
             UpdateLocationStatusText();
             UpdatePasswordStatusText();
-            UpdateEnabledSwitchAndTestButton();
+            UpdateSwitchesAndTestButton();
             
             return view;
         }
@@ -98,21 +98,19 @@ namespace AuthenticatorPro.Fragment
         {
             UpdateWorkerEnabled();
             PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoBackupEnabled", e.IsChecked).Commit();
+            _backupEnabled = e.IsChecked;
         }
 
         private void OnRestoreEnabledSwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
             UpdateWorkerEnabled();
             PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoRestoreEnabled", e.IsChecked).Commit();
+            _restoreEnabled = e.IsChecked;
         }
 
         private void UpdateWorkerEnabled()
         {
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
-            var isBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            var isRestoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
-            
-            var isEnabled = isBackupEnabled || isRestoreEnabled;
+            var isEnabled = _backupEnabled || _restoreEnabled;
             var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
             
             if(isEnabled == shouldBeEnabled)
@@ -166,7 +164,7 @@ namespace AuthenticatorPro.Fragment
             _hasPassword = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
-            UpdateEnabledSwitchAndTestButton();
+            UpdateSwitchesAndTestButton();
             await SecureStorage.SetAsync("autoBackupPassword", password);
         }
 
@@ -180,7 +178,7 @@ namespace AuthenticatorPro.Fragment
             editor.Commit();
             
             UpdateLocationStatusText();
-            UpdateEnabledSwitchAndTestButton();
+            UpdateSwitchesAndTestButton();
         }
 
         private void UpdateLocationStatusText()
@@ -200,16 +198,16 @@ namespace AuthenticatorPro.Fragment
             });
         }
 
-        private void UpdateEnabledSwitchAndTestButton()
+        private void UpdateSwitchesAndTestButton()
         {
-            if(_backupEnabledSwitch.Checked)
-                _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled = _testBackupButton.Enabled = true;
-            else
-            {
-                _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled = _testBackupButton.Enabled = _backupLocationUri != null && _hasPassword != null;
-                _backupEnabledSwitch.Checked = false;
-                _restoreEnabledSwitch.Checked = false;
-            }
+            _backupEnabledSwitch.Checked = _backupEnabled;
+            _restoreEnabledSwitch.Checked = _restoreEnabled;
+           
+            var canBeChecked = _backupLocationUri != null && _hasPassword != null;
+            _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled = canBeChecked;
+
+            if(!canBeChecked)
+                _backupEnabledSwitch.Checked = _restoreEnabledSwitch.Checked = false;
         }
     }
 }
