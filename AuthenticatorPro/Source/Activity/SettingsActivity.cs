@@ -65,9 +65,6 @@ namespace AuthenticatorPro.Activity
             {
                 case "pref_useEncryptedDatabase":
                 case "pref_viewMode":
-                // Just in case restore happens when in settings
-                case "pref_autoRestoreEnabled":
-                case "autoRestoreTrigger":
                     _shouldRecreateMain = true;
                     break;
                 

@@ -58,13 +58,27 @@ namespace AuthenticatorPro.Worker
             BackupFailure, RestoreFailure, RestoreSuccess, BackupTriggerSuccess
         }
 
+        private bool HasPersistablePermissionsAtUri(Uri uri)
+        {
+            if(uri == null)
+                throw new ArgumentNullException(nameof(uri), "No uri provided");
+
+            // Uris cannot be compared directly for some reason, use string representation
+            var permission = _context.ContentResolver.PersistedUriPermissions.FirstOrDefault(p => p.Uri.ToString() == uri.ToString());
+
+            if(permission == null)
+                return false;
+
+            return permission.IsReadPermission && permission.IsWritePermission;
+        }
+
         private async Task BackupToDir(Uri destUri)
         {
             if(!_authSource.GetAll().Any())
                 return;
 
-            if(destUri == null)
-                throw new ArgumentNullException(nameof(destUri), "No backup URI defined.");
+            if(!HasPersistablePermissionsAtUri(destUri))
+                throw new Exception("No permission at URI");
 
             var password = await SecureStorage.GetAsync("autoBackupPassword");
 
@@ -91,20 +105,20 @@ namespace AuthenticatorPro.Worker
 
         private async Task<RestoreResult> RestoreFromDir(Uri destUri, long changesMadeAt)
         {
-            if(destUri == null)
-                throw new ArgumentNullException(nameof(destUri), "No backup URI defined.");
+            if(!HasPersistablePermissionsAtUri(destUri))
+                throw new Exception("No permission at URI");
               
             var directory = DocumentFile.FromTreeUri(_context, destUri);
             var files = directory.ListFiles();
-            
+
             var mostRecentBackup = files
                 .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Length() > 0 && f.CanRead() && f.LastModified() > changesMadeAt)
                 .OrderByDescending(f => f.LastModified())
                 .FirstOrDefault();
-
+                
             if(mostRecentBackup == null)
                 return null;
-
+                
             var password = await SecureStorage.GetAsync("autoBackupPassword");
 
             if(password == null)
@@ -221,9 +235,12 @@ namespace AuthenticatorPro.Worker
                 try
                 {
                     var result = await RestoreFromDir(destUri, changesMadeAt);
-                    
+
                     if(restoreTriggered || result != null && !result.IsVoid())
+                    {
                         ShowNotification(NotificationContext.RestoreSuccess, false, result);
+                        prefs.Edit().PutBoolean("autoRestoreCompleted", true).Commit();
+                    }
                 }
                 catch(Exception e)
                 {

@@ -224,7 +224,12 @@ namespace AuthenticatorPro.Activity
                 }
             }
 
-            if(_updateOnActivityResume)
+            // In case auto restore occurs when activity is loaded
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            var autoRestoreCompleted = prefs.GetBoolean("autoRestoreCompleted", false);
+            prefs.Edit().PutBoolean("autoRestoreCompleted", false).Commit();
+
+            if(_updateOnActivityResume || autoRestoreCompleted)
             {
                 _updateOnActivityResume = false;
 
@@ -244,8 +249,7 @@ namespace AuthenticatorPro.Activity
             if(_authSource.GetView().Any())
                 Tick(true);
 
-            var showBackupReminders = PreferenceManager.GetDefaultSharedPreferences(this)
-                .GetBoolean("pref_showBackupReminders", true);
+            var showBackupReminders = prefs.GetBoolean("pref_showBackupReminders", true);
            
             if(!_returnedFromResult && showBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();

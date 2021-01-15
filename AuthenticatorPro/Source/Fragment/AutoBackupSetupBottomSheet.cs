@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Fragment
             if(requestCode != RequestPicker || (Result) resultCode != Result.Ok)
                 return;
             
-            OnLocationSelected(intent.Data);
+            OnLocationSelected(intent);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -144,7 +144,7 @@ namespace AuthenticatorPro.Fragment
         private void OnSelectLocationClick(object sender, EventArgs e)
         {
             var intent = new Intent(Intent.ActionOpenDocumentTree);
-            intent.AddFlags(ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission | ActivityFlags.GrantPersistableUriPermission);
+            intent.AddFlags(ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission | ActivityFlags.GrantPersistableUriPermission | ActivityFlags.GrantPrefixUriPermission);
 
             var autoBackupUri = PreferenceManager.GetDefaultSharedPreferences(Context).GetString("prefAutoBackupUri", null);
             if(autoBackupUri != null)
@@ -171,10 +171,12 @@ namespace AuthenticatorPro.Fragment
             await SecureStorage.SetAsync("autoBackupPassword", password);
         }
 
-        private void OnLocationSelected(Uri uri)
+        private void OnLocationSelected(Intent intent)
         {
-            _backupLocationUri = uri.ToString();
-            Context.ContentResolver.TakePersistableUriPermission(uri, ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
+            _backupLocationUri = intent.Data.ToString();
+
+            var flags = intent.Flags & (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
+            Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
             
             var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
             editor.PutString("pref_autoBackupUri", _backupLocationUri);
