@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetAutoBackupSetup, null);
-            SetupToolbar(view, Resource.String.prefAutoBackupTitle);
+            SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
             _hasPassword = SecureStorage.GetAsync("autoBackupPassword").GetAwaiter().GetResult() switch
             {
@@ -82,10 +82,7 @@ namespace AuthenticatorPro.Fragment
             _okButton.Click += delegate { Dismiss(); };
 
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
-            _backupEnabledSwitch.CheckedChange += OnBackupEnabledSwitchChecked;
-            
             _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
-            _restoreEnabledSwitch.CheckedChange += OnRestoreEnabledSwitchChecked;
 
             UpdateLocationStatusText();
             UpdatePasswordStatusText();
@@ -94,22 +91,14 @@ namespace AuthenticatorPro.Fragment
             return view;
         }
 
-        private void OnBackupEnabledSwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
+        public override void OnDismiss(IDialogInterface dialog)
         {
-            UpdateWorkerEnabled();
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoBackupEnabled", e.IsChecked).Commit();
-            _backupEnabled = e.IsChecked;
-        }
-
-        private void OnRestoreEnabledSwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
-        {
-            UpdateWorkerEnabled();
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoRestoreEnabled", e.IsChecked).Commit();
-            _restoreEnabled = e.IsChecked;
-        }
-
-        private void UpdateWorkerEnabled()
-        {
+            base.OnDismiss(dialog);
+            
+            PreferenceManager.GetDefaultSharedPreferences(Context).Edit()
+                .PutBoolean("pref_autoBackupEnabled", _backupEnabledSwitch.Checked)
+                .PutBoolean("pref_autoRestoreEnabled", _restoreEnabledSwitch.Checked).Commit();
+                
             var isEnabled = _backupEnabled || _restoreEnabled;
             var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
             
