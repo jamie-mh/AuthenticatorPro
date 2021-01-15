@@ -106,7 +106,7 @@
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
     <string name="genericError">Une erreur s\'est produite</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications importantes ont étés apportées.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <string name="locationSetTo">{0} a été choisi comme emplacement</string>
