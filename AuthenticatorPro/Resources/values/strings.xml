@@ -120,7 +120,7 @@
     <string name="genericError">An error occurred</string>
   
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     
     <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">No location selected</string>
