@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
@@ -220,9 +220,10 @@ namespace AuthenticatorPro.Worker
                     Log.Error("AUTHPRO", e.ToString());
                 }
 
-                if(isTestRun || backupSucceeded)
+                if(backupSucceeded)
                 {
-                    ShowNotification(NotificationContext.TestRunSuccess, false);
+                    if(isTestRun)
+                        ShowNotification(NotificationContext.TestRunSuccess, false);
                     
                     lastBackupTicks = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                     prefs.Edit().PutBoolean("autoBackupTestRun", false)
