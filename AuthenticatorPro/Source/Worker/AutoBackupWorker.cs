@@ -143,7 +143,7 @@ namespace AuthenticatorPro.Worker
             manager.CreateNotificationChannel(channel);
         }
 
-        private void ShowNotification(NotificationContext context, IResult result = null)
+        private void ShowNotification(NotificationContext context, bool openAppOnClick, IResult result = null)
         {
             var builder = new NotificationCompat.Builder(_context, NotificationChannelId)
                 .SetSmallIcon(Resource.Mipmap.ic_launcher)
@@ -177,7 +177,7 @@ namespace AuthenticatorPro.Worker
                     throw new ArgumentOutOfRangeException(nameof(context));
             }
 
-            if(context == NotificationContext.BackupFailure || context == NotificationContext.RestoreFailure)
+            if(openAppOnClick)
             {
                 var intent = new Intent(_context, typeof(MainActivity));
                 intent.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
@@ -216,13 +216,13 @@ namespace AuthenticatorPro.Worker
                 catch(Exception e)
                 {
                     backupSucceeded = false;
-                    ShowNotification(NotificationContext.BackupFailure);
+                    ShowNotification(NotificationContext.BackupFailure, true);
                     Log.Error("AUTHPRO", e.ToString());
                 }
 
                 if(isTestRun || backupSucceeded)
                 {
-                    ShowNotification(NotificationContext.TestRunSuccess);
+                    ShowNotification(NotificationContext.TestRunSuccess, false);
                     
                     lastBackupTicks = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                     prefs.Edit().PutBoolean("autoBackupTestRun", false)
@@ -243,12 +243,12 @@ namespace AuthenticatorPro.Worker
                     var result = await RestoreFromDir(destUri, lastBackupTicks);
                     
                     if(!result.IsVoid())
-                        ShowNotification(NotificationContext.RestoreSuccess, result);
+                        ShowNotification(NotificationContext.RestoreSuccess, false, result);
                 }
                 catch(Exception e)
                 {
                     restoreSucceeded = false;
-                    ShowNotification(NotificationContext.RestoreFailure);
+                    ShowNotification(NotificationContext.RestoreFailure, true);
                     Log.Error("AUTHPRO", e.ToString());
                 }
             }
