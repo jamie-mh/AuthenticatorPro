@@ -55,6 +55,7 @@ namespace AuthenticatorPro.Data
                 prefs.Edit().PutBoolean("pref_useEncryptedDatabase", !isEncrypted).Commit();
             }
 
+            await connection.EnableWriteAheadLoggingAsync();
             await connection.CreateTableAsync<Category>();
             await connection.CreateTableAsync<AuthenticatorCategory>();
             await connection.CreateTableAsync<CustomIcon>();
