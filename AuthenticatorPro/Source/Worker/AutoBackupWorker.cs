@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
@@ -235,7 +235,7 @@ namespace AuthenticatorPro.Worker
             var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             var restoreSucceeded = true;
 
-            if(!isTestRun && autoRestoreEnabled)
+            if(!isTestRun && autoRestoreEnabled && backupSucceeded)
             {
                 await _initTask.Value;
                 
