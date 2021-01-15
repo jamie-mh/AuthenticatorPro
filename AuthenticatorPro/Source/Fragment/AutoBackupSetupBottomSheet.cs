@@ -77,15 +77,15 @@ namespace AuthenticatorPro.Fragment
             _testBackupButton.Click += OnTestBackupButtonClick;
 
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
-            _okButton.Click += OnOkButtonClick;
+            _okButton.Click += delegate { Dismiss(); };
 
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
             _backupEnabledSwitch.Checked = backupEnabled;
-            _backupEnabledSwitch.CheckedChange += OnEnabledSwitchChanged;
+            _backupEnabledSwitch.CheckedChange += OnBackupEnabledSwitchChecked;
             
             _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
             _restoreEnabledSwitch.Checked = restoreEnabled;
-            _restoreEnabledSwitch.CheckedChange += OnEnabledSwitchChanged;
+            _restoreEnabledSwitch.CheckedChange += OnRestoreEnabledSwitchChecked;
 
             UpdateLocationStatusText();
             UpdatePasswordStatusText();
@@ -94,12 +94,39 @@ namespace AuthenticatorPro.Fragment
             return view;
         }
 
-        private void OnEnabledSwitchChanged(object sender, EventArgs e)
+        private void OnBackupEnabledSwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
-            var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
-            editor.PutBoolean("pref_autoBackupEnabled", _backupEnabledSwitch.Checked);
-            editor.PutBoolean("pref_autoRestoreEnabled", _restoreEnabledSwitch.Checked);
-            editor.Commit();
+            UpdateWorkerEnabled();
+            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoBackupEnabled", e.IsChecked).Commit();
+        }
+
+        private void OnRestoreEnabledSwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            UpdateWorkerEnabled();
+            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoRestoreEnabled", e.IsChecked).Commit();
+        }
+
+        private void UpdateWorkerEnabled()
+        {
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
+            var isBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var isRestoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
+            
+            var isEnabled = isBackupEnabled || isRestoreEnabled;
+            var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
+            
+            if(isEnabled == shouldBeEnabled)
+                return;
+            
+            var workManager = WorkManager.GetInstance(Context);
+
+            if(!isEnabled)
+            {
+                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 1, TimeUnit.Hours).Build();
+                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep, workRequest);
+            }
+            else
+                workManager.CancelUniqueWork(AutoBackupWorker.Name);
         }
 
         private void OnTestBackupButtonClick(object sender, EventArgs e)
@@ -111,24 +138,6 @@ namespace AuthenticatorPro.Fragment
             manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace, request);
             
             Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
-        }
-
-        private void OnOkButtonClick(object sender, EventArgs e)
-        {
-            var workManager = WorkManager.GetInstance(Context);
-
-            if(_backupEnabledSwitch.Checked)
-            {
-                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 1, TimeUnit.Hours).Build();
-                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep, workRequest);
-            }
-            else
-            {
-                PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("pref_autoBackupEnabled", false).Commit();
-                workManager.CancelUniqueWork(AutoBackupWorker.Name);
-            }
-
-            Dismiss();
         }
 
         private void OnSelectLocationClick(object sender, EventArgs e)
