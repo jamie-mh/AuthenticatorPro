@@ -184,7 +184,7 @@ namespace AuthenticatorPro.Worker
                     else
                     {
                         var text = result.ToString(_context);
-                        builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(text));
+                        builder.SetContentText(text);
                     }
                     break;
                 
