@@ -36,6 +36,11 @@ namespace AuthenticatorPro.Worker
         private CustomIconSource _customIconSource;
         
         
+        private enum NotificationContext
+        {
+            BackupFailure, RestoreFailure, RestoreSuccess, BackupTriggerSuccess
+        }
+        
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
             _context = context;
@@ -53,9 +58,21 @@ namespace AuthenticatorPro.Worker
             });
         }
 
-        private enum NotificationContext
+        public static void UpdateSchedule(Context context)
         {
-            BackupFailure, RestoreFailure, RestoreSuccess, BackupTriggerSuccess
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            
+            var workManager = WorkManager.GetInstance(context);
+            workManager.CancelUniqueWork(Name);
+            workManager.PruneWork();
+
+            if(!autoBackupEnabled && !autoRestoreEnabled)
+                return;
+                
+            var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 30, Java.Util.Concurrent.TimeUnit.Minutes, 15, Java.Util.Concurrent.TimeUnit.Minutes).Build();
+            workManager.EnqueueUniquePeriodicWork(Name, ExistingPeriodicWorkPolicy.Replace, workRequest);
         }
 
         private bool HasPersistablePermissionsAtUri(Uri uri)
@@ -295,6 +312,14 @@ namespace AuthenticatorPro.Worker
         public override Result DoWork()
         {
             return DoWorkAsync().GetAwaiter().GetResult();
+        }
+
+        public override async void OnStopped()
+        {
+            if(_connection != null)
+                await _connection.CloseAsync();
+            
+            base.OnStopped();
         }
     }
 }

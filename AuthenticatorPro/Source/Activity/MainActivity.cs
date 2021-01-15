@@ -7,7 +7,6 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Content.Res;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
@@ -31,6 +30,7 @@ using AuthenticatorPro.Fragment;
 using AuthenticatorPro.List;
 using AuthenticatorPro.Shared.Util;
 using AuthenticatorPro.Util;
+using AuthenticatorPro.Worker;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;
@@ -42,6 +42,7 @@ using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
+using Configuration = Android.Content.Res.Configuration;
 using IResult = AuthenticatorPro.Data.Backup.IResult;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
@@ -189,6 +190,8 @@ namespace AuthenticatorPro.Activity
 
             DetectGoogleAPIsAvailability();
             await DetectWearOSCapability();
+            
+            AutoBackupWorker.UpdateSchedule(this);
 
             // Handle QR code scanning from intent
             if(Intent.Data == null)
