@@ -241,11 +241,16 @@ namespace AuthenticatorPro.Worker
             
             if(restoreTriggered)
                 prefs.Edit().PutBoolean("autoRestoreTrigger", false).Commit();
+            
+            var backupTriggered = prefs.GetBoolean("autoBackupTrigger", false);
+            
+            if(backupTriggered)
+                prefs.Edit().PutBoolean("autoBackupTrigger", false).Commit();
 
             var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             var restoreSucceeded = true;
 
-            if(restoreTriggered || autoRestoreEnabled)
+            if(!backupTriggered && (restoreTriggered || autoRestoreEnabled))
             {
                 await _initTask.Value;
                 
@@ -270,14 +275,9 @@ namespace AuthenticatorPro.Worker
             var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
             
-            var backupTriggered = prefs.GetBoolean("autoBackupTrigger", false);
-            
-            if(backupTriggered)
-                prefs.Edit().PutBoolean("autoBackupTrigger", false).Commit();
-            
             var backupSucceeded = true;
 
-            if(backupTriggered || autoBackupEnabled && restoreSucceeded && requirement != BackupRequirement.NotRequired)
+            if(!restoreTriggered && (backupTriggered || autoBackupEnabled && restoreSucceeded && requirement != BackupRequirement.NotRequired))
             {
                 await _initTask.Value;
                 
