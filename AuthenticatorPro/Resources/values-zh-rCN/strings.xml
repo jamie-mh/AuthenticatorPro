@@ -106,7 +106,7 @@
     <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
     <string name="genericError">出现错误。</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when important changes are made.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to {0}</string>
