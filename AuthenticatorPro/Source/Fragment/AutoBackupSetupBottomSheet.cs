@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -55,17 +56,19 @@ namespace AuthenticatorPro.Fragment
             var view = inflater.Inflate(Resource.Layout.sheetAutoBackupSetup, null);
             SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
-            _hasPassword = SecureStorage.GetAsync("autoBackupPassword").GetAwaiter().GetResult() switch
-            {
-                null => null,
-                "" => false,
-                _ => true
-            };
-            
             var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
             _backupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             _restoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
             _backupLocationUri = prefs.GetString("pref_autoBackupUri", null);
+            
+            // Can't call secure storage here
+            // String is only way of having a tri-state boolean unfortunately
+            _hasPassword = prefs.GetString("pref_autoBackupPasswordProtected", null) switch
+            {
+                null => null,
+                "false" => false,
+                _ => true,
+            };
 
             var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
             selectLocationButton.Click += OnSelectLocationClick;
@@ -185,6 +188,15 @@ namespace AuthenticatorPro.Fragment
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
+            
+            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutString("pref_autoBackupPasswordProtected", _hasPassword switch
+            {
+                null => null,
+                false => "false",
+                _ => "true"
+            })
+            .Commit();
+
             // Make sure secure storage is not accessed on ui thread
             await Task.Run(async delegate
             {
