@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -34,7 +35,7 @@ namespace AuthenticatorPro.Fragment
 
         private bool _backupEnabled;
         private bool _restoreEnabled;
-        private string _backupLocationUri;
+        private Uri _backupLocationUri;
         private bool? _hasPassword;
         
         public AutoBackupSetupBottomSheet()
@@ -60,7 +61,11 @@ namespace AuthenticatorPro.Fragment
             var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
             _backupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
             _restoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
-            _backupLocationUri = prefs.GetString("pref_autoBackupUri", null);
+            
+            var backupLocationUriStr = prefs.GetString("pref_autoBackupUri", null);
+            _backupLocationUri = backupLocationUriStr != null
+                ? Uri.Parse(backupLocationUriStr)
+                : null;
             
             // Can't call secure storage here
             // String is only way of having a tri-state boolean unfortunately
@@ -204,13 +209,13 @@ namespace AuthenticatorPro.Fragment
 
         private void OnLocationSelected(Intent intent)
         {
-            _backupLocationUri = intent.Data.ToString();
+            _backupLocationUri = intent.Data;
 
             var flags = intent.Flags & (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
             Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
             
             var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
-            editor.PutString("pref_autoBackupUri", _backupLocationUri);
+            editor.PutString("pref_autoBackupUri", _backupLocationUri.ToString());
             editor.Commit();
             
             UpdateLocationStatusText();
@@ -219,9 +224,14 @@ namespace AuthenticatorPro.Fragment
 
         private void UpdateLocationStatusText()
         {
-            _locationStatusText.Text = _backupLocationUri == null
-                ? GetString(Resource.String.noLocationSelected)
-                : String.Format(GetString(Resource.String.locationSetTo), _backupLocationUri);
+            if(_backupLocationUri == null)
+            {
+                _locationStatusText.SetText(Resource.String.noLocationSelected);
+                return;
+            }
+
+            var location = _backupLocationUri.LastPathSegment?.Split(':', 2).Last();
+            _locationStatusText.Text = String.Format(GetString(Resource.String.locationSetTo), location ?? String.Empty);
         }
 
         private void UpdatePasswordStatusText()
