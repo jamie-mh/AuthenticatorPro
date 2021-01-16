@@ -10,7 +10,7 @@ namespace AuthenticatorPro.Data.Backup
         public readonly int CategoryCount;
         public readonly int CustomIconCount;
 
-        public RestoreResult(int addedAuthenticatorCount, int updatedAuthenticatorCount, int categoryCount, int customIconCount)
+        public RestoreResult(int addedAuthenticatorCount = 0, int updatedAuthenticatorCount = 0, int categoryCount = 0, int customIconCount = 0)
         {
             AddedAuthenticatorCount = addedAuthenticatorCount;
             UpdatedAuthenticatorCount = updatedAuthenticatorCount;
@@ -25,6 +25,9 @@ namespace AuthenticatorPro.Data.Backup
 
         public string ToString(Context context)
         {
+            if(IsVoid())
+                return context.GetString(Resource.String.restoredNothing);
+            
             return UpdatedAuthenticatorCount > 0
                 ? String.Format(context.GetString(Resource.String.restoredFromBackupUpdated), AddedAuthenticatorCount, CategoryCount, UpdatedAuthenticatorCount)
                 : String.Format(context.GetString(Resource.String.restoredFromBackup), AddedAuthenticatorCount, CategoryCount);

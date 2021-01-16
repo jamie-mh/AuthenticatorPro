@@ -8,11 +8,13 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Content.Res;
+using Android.Database;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.Graphics;
 using Android.OS;
+using Android.Provider;
 using Android.Runtime;
 using Android.Views;
 using Android.Views.Animations;
@@ -1204,16 +1206,13 @@ namespace AuthenticatorPro.Activity
 
         private async Task FinaliseRestore(IResult result)
         {
+            ShowSnackbar(result.ToString(this), Snackbar.LengthShort);
+            
             if(result.IsVoid())
-            {
-                ShowSnackbar(Resource.String.restoredNothing, Snackbar.LengthLong);
                 return;
-            }
             
             RunOnUiThread(CheckEmptyState);
             await UpdateList(true);
-            var message = result.ToString(this);
-            ShowSnackbar(message, Snackbar.LengthLong);
             await NotifyWearAppOfChange();
         }
         #endregion
@@ -1263,9 +1262,8 @@ namespace AuthenticatorPro.Activity
                     return;
                 }
 
-                SetBackupRequirement(BackupRequirement.NotRequired);
                 ((BackupPasswordBottomSheet) sender).Dismiss();
-                ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
+                FinaliseBackup(destination);
             };
 
             fragment.Cancel += (sender, _) =>
@@ -1290,9 +1288,33 @@ namespace AuthenticatorPro.Activity
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
-            
+
+            FinaliseBackup(destination);
+        }
+
+        private void FinaliseBackup(Uri destination)
+        {
             SetBackupRequirement(BackupRequirement.NotRequired);
-            ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
+            
+            string filePath;
+            ICursor cursor = null;
+
+            try
+            {
+                cursor = ContentResolver.Query(destination, null, null, null, null);
+                filePath = cursor.GetString(cursor.GetColumnIndex(IOpenableColumns.DisplayName));
+            }
+            catch
+            {
+                filePath = destination.LastPathSegment?.Split(':', 2).Last();
+            }
+            finally
+            {
+                cursor?.Close();
+            }
+
+            var result = new BackupResult(filePath); 
+            ShowSnackbar(result.ToString(this), Snackbar.LengthLong);
         }
         
         private void RemindBackup()

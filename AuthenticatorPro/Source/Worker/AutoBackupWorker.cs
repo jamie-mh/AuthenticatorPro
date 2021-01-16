@@ -55,7 +55,7 @@ namespace AuthenticatorPro.Worker
 
         private enum NotificationContext
         {
-            BackupFailure, RestoreFailure, RestoreSuccess, BackupTriggerSuccess
+            BackupFailure, RestoreFailure, RestoreSuccess, BackupSuccess
         }
 
         private bool HasPersistablePermissionsAtUri(Uri uri)
@@ -72,10 +72,10 @@ namespace AuthenticatorPro.Worker
             return permission.IsReadPermission && permission.IsWritePermission;
         }
 
-        private async Task BackupToDir(Uri destUri)
+        private async Task<BackupResult> BackupToDir(Uri destUri)
         {
             if(!_authSource.GetAll().Any())
-                return;
+                return new BackupResult();
 
             if(!HasPersistablePermissionsAtUri(destUri))
                 throw new Exception("No permission at URI");
@@ -101,6 +101,7 @@ namespace AuthenticatorPro.Worker
                 throw new Exception("File creation failed, got null.");
 
             await FileUtil.WriteFile(_context, file.Uri, dataToWrite);
+            return new BackupResult(file.Name);
         }
 
         private async Task<RestoreResult> RestoreFromDir(Uri destUri, long changesMadeAt)
@@ -117,7 +118,7 @@ namespace AuthenticatorPro.Worker
                 .FirstOrDefault();
                 
             if(mostRecentBackup == null)
-                return null;
+                return new RestoreResult();
                 
             var password = await SecureStorage.GetAsync("autoBackupPassword");
 
@@ -178,19 +179,12 @@ namespace AuthenticatorPro.Worker
                     
                 case NotificationContext.RestoreSuccess:
                     builder.SetContentTitle(_context.GetString(Resource.String.autoRestoreSuccessTitle));
-
-                    if(result == null || result.IsVoid())
-                        builder.SetContentText(_context.GetString(Resource.String.restoredNothing));
-                    else
-                    {
-                        var text = result.ToString(_context);
-                        builder.SetContentText(text);
-                    }
+                    builder.SetContentText(result.ToString(_context));
                     break;
-                
-                case NotificationContext.BackupTriggerSuccess:
-                    builder.SetContentTitle(_context.GetString(Resource.String.autoBackupTestTitle));
-                    builder.SetContentText(_context.GetString(Resource.String.autoBackupTestText));
+
+                case NotificationContext.BackupSuccess:
+                    builder.SetContentTitle(_context.GetString(Resource.String.autoBackupSuccessTitle));
+                    builder.SetContentText(result.ToString(_context));
                     break;
                 
                 default:
@@ -241,10 +235,12 @@ namespace AuthenticatorPro.Worker
                 {
                     var result = await RestoreFromDir(destUri, changesMadeAt);
 
-                    if(restoreTriggered || result != null && !result.IsVoid())
+                    if(result != null)
                     {
-                        ShowNotification(NotificationContext.RestoreSuccess, false, result);
-                        prefs.Edit().PutBoolean("autoRestoreCompleted", true).Commit();
+                        ShowNotification(NotificationContext.RestoreSuccess, true, result);
+                        
+                        if(!result.IsVoid())
+                            prefs.Edit().PutBoolean("autoRestoreCompleted", true).Commit();
                     }
                 }
                 catch(Exception e)
@@ -266,21 +262,17 @@ namespace AuthenticatorPro.Worker
                 
                 try
                 {
-                    await BackupToDir(destUri);
+                    var result = await BackupToDir(destUri);
+                    prefs.Edit().PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
+                    
+                    if(result != null)
+                        ShowNotification(NotificationContext.BackupSuccess, false, result);
                 }
                 catch(Exception e)
                 {
                     backupSucceeded = false;
                     ShowNotification(NotificationContext.BackupFailure, true);
                     Log.Error("AUTHPRO", e.ToString());
-                }
-
-                if(backupSucceeded)
-                {
-                    if(backupTriggered)
-                        ShowNotification(NotificationContext.BackupTriggerSuccess, false);
-                    
-                    prefs.Edit().PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
                 }
             }
 

@@ -96,6 +96,7 @@
     <Compile Include="Source\Data\AuthenticatorComparer.cs" />
     <Compile Include="Source\Data\Backup\Backup.cs" />
     <Compile Include="Source\Data\Backup\BackupRequirement.cs" />
+    <Compile Include="Source\Data\Backup\BackupResult.cs" />
     <Compile Include="Source\Data\Backup\Converter\AegisBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\AndOtpBackupConverter.cs" />
     <Compile Include="Source\Data\Backup\Converter\AuthenticatorPlusBackupConverter.cs" />
