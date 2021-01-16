@@ -24,7 +24,6 @@ namespace AuthenticatorPro.Worker
     internal class AutoBackupWorker : AndroidX.Work.Worker
     {
         public const string Name = "autobackup";
-        private const int NotificationId = 0;
         
         private readonly Context _context;
         private readonly Lazy<Task> _initTask;
@@ -154,42 +153,32 @@ namespace AuthenticatorPro.Worker
 
             var idString = ((int) context).ToString();
             string name;
-            NotificationImportance importance;
 
             switch(context)
             {
                 case NotificationContext.BackupFailure:
                     name = _context.GetString(Resource.String.autoBackupFailureTitle);
-                    importance = NotificationImportance.High;
                     break;
                 
                 case NotificationContext.RestoreFailure:
                     name = _context.GetString(Resource.String.autoRestoreFailureTitle);
-                    importance = NotificationImportance.High;
                     break;
                     
                 case NotificationContext.RestoreSuccess:
                     name = _context.GetString(Resource.String.autoRestoreSuccessTitle);
-                    importance = NotificationImportance.Low;
                     break;
 
                 case NotificationContext.BackupSuccess:
                     name = _context.GetString(Resource.String.autoBackupSuccessTitle);
-                    importance = NotificationImportance.Low;
                     break;
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(context));
             }
 
-            var channel = new NotificationChannel(idString, name, importance);
+            var channel = new NotificationChannel(idString, name, NotificationImportance.Low);
             var manager = NotificationManagerCompat.From(_context);
             manager.CreateNotificationChannel(channel);
-        }
-
-        private string GetUniqueNotificationTag()
-        {
-            return DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
         }
 
         private void ShowNotification(NotificationContext context, bool openAppOnClick, IResult result = null)
@@ -199,7 +188,7 @@ namespace AuthenticatorPro.Worker
             var builder = new NotificationCompat.Builder(_context, channelId)
                 .SetSmallIcon(Resource.Mipmap.ic_launcher)
                 .SetLargeIcon(BitmapFactory.DecodeResource(_context.Resources, Resource.Mipmap.ic_launcher))
-                .SetPriority(NotificationCompat.PriorityDefault);
+                .SetPriority(NotificationCompat.PriorityLow);
 
             switch(context)
             {
@@ -238,7 +227,7 @@ namespace AuthenticatorPro.Worker
 
             CreateNotificationChannel(context);
             var manager = NotificationManagerCompat.From(_context);
-            manager.Notify(GetUniqueNotificationTag(), NotificationId, builder.Build());
+            manager.Notify((int) context, builder.Build());
         }
 
         private async Task<Result> DoWorkAsync()
