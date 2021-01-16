@@ -1,0 +1,2 @@
+- New Feature: Auto restore
+- General: Bug fixes and improvements
