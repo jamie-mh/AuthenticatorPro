@@ -1263,7 +1263,7 @@ namespace AuthenticatorPro.Activity
                 }
 
                 ((BackupPasswordBottomSheet) sender).Dismiss();
-                FinaliseBackup(destination);
+                FinaliseBackup();
             };
 
             fragment.Cancel += (sender, _) =>
@@ -1289,32 +1289,13 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            FinaliseBackup(destination);
+            FinaliseBackup();
         }
 
-        private void FinaliseBackup(Uri destination)
+        private void FinaliseBackup()
         {
             SetBackupRequirement(BackupRequirement.NotRequired);
-            
-            string filePath;
-            ICursor cursor = null;
-
-            try
-            {
-                cursor = ContentResolver.Query(destination, null, null, null, null);
-                filePath = cursor.GetString(cursor.GetColumnIndex(IOpenableColumns.DisplayName));
-            }
-            catch
-            {
-                filePath = destination.LastPathSegment?.Split(':', 2).Last();
-            }
-            finally
-            {
-                cursor?.Close();
-            }
-
-            var result = new BackupResult(filePath); 
-            ShowSnackbar(result.ToString(this), Snackbar.LengthLong);
+            ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
         }
         
         private void RemindBackup()
