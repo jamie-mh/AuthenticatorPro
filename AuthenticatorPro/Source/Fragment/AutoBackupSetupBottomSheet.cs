@@ -82,6 +82,20 @@ namespace AuthenticatorPro.Fragment
             _restoreNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonRestoreNow);
             _restoreNowButton.Click += OnRestoreNowButtonClick;
 
+            if(Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
+
+                if(!powerManager.IsIgnoringBatteryOptimizations(Context.PackageName))
+                {
+                    var batOptimLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutBatOptim);
+                    batOptimLayout.Visibility = ViewStates.Visible;
+                    
+                    var disableBatOptimButton = view.FindViewById<MaterialButton>(Resource.Id.buttonDisableBatOptim);
+                    disableBatOptimButton.Click += OnDisableBatOptimButtonClick;
+                }
+            }
+
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
@@ -93,6 +107,13 @@ namespace AuthenticatorPro.Fragment
             UpdateSwitchesAndTriggerButton();
             
             return view;
+        }
+
+        private void OnDisableBatOptimButtonClick(object sender, EventArgs e)
+        {
+            var intent = new Intent(Settings.ActionRequestIgnoreBatteryOptimizations);
+            intent.SetData(Uri.Parse($"package:{Context.PackageName}"));
+            StartActivity(intent);
         }
 
         public override void OnDismiss(IDialogInterface dialog)

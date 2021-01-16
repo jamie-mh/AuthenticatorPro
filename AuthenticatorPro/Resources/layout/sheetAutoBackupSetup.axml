@@ -201,6 +201,32 @@
                     android:layout_width="wrap_content"
                     android:text="@string/restoreNow"/>
 
+                <LinearLayout
+                    android:id="@+id/layoutBatOptim"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
+                        android:text="@string/disableBatOptimMessage"
+                        android:textColor="?attr/secondaryTextColor"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonDisableBatOptim"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/disableBatOptim"/>
+                </LinearLayout>
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonOk"
                     style="@style/Widget.MaterialComponents.Button"

@@ -136,6 +136,9 @@
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     
+    <string name="disableBatOptim">Disable Battery Optimisation</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     
