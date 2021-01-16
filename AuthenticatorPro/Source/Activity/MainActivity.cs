@@ -1350,13 +1350,7 @@ namespace AuthenticatorPro.Activity
 
         private void SetBackupRequirement(BackupRequirement requirement)
         {
-            var editor = PreferenceManager.GetDefaultSharedPreferences(this).Edit();
-            editor.PutInt("backupRequirement", (int) requirement);
-
-            if(requirement != BackupRequirement.NotRequired)
-                editor.PutLong("changesMadeAt", DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
-
-            editor.Commit();
+            PreferenceManager.GetDefaultSharedPreferences(this).Edit().PutInt("backupRequirement", (int) requirement).Commit();
         }
         #endregion
 

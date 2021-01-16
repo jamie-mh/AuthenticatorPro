@@ -103,7 +103,7 @@ namespace AuthenticatorPro.Worker
             return new BackupResult(file.Name);
         }
 
-        private async Task<RestoreResult> RestoreFromDir(Uri destUri, long changesMadeAt)
+        private async Task<RestoreResult> RestoreFromDir(Uri destUri)
         {
             if(!HasPersistablePermissionsAtUri(destUri))
                 throw new Exception("No permission at URI");
@@ -112,13 +112,17 @@ namespace AuthenticatorPro.Worker
             var files = directory.ListFiles();
 
             var mostRecentBackup = files
-                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Name.EndsWith(Backup.FileExtension) && f.Length() > 0 && f.CanRead() && f.LastModified() > changesMadeAt)
+                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Name.EndsWith(Backup.FileExtension) && f.Length() > 0 && f.CanRead())
                 .OrderByDescending(f => f.LastModified())
                 .FirstOrDefault();
-                
-            if(mostRecentBackup == null)
+
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
+            var mostRecentBackupModifiedAt = prefs.GetLong("mostRecentBackupModifiedAt", 0);
+
+            if(mostRecentBackup == null || mostRecentBackup.LastModified() <= mostRecentBackupModifiedAt)
                 return new RestoreResult();
-                
+            
+            prefs.Edit().PutLong("mostRecentBackupModifiedAt", mostRecentBackup.LastModified()).Commit();
             var password = await SecureStorage.GetAsync("autoBackupPassword");
 
             if(password == null)
@@ -241,8 +245,6 @@ namespace AuthenticatorPro.Worker
         {
             var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
             
-            var changesMadeAt = prefs.GetLong("changesMadeAt", 0);
-            
             var destUriStr = prefs.GetString("pref_autoBackupUri", null);
             var destUri = destUriStr != null ? Uri.Parse(destUriStr) : null;
             
@@ -265,15 +267,13 @@ namespace AuthenticatorPro.Worker
                 
                 try
                 {
-                    var result = await RestoreFromDir(destUri, changesMadeAt);
-
-                    if(result != null)
-                    {
+                    var result = await RestoreFromDir(destUri);
+                    
+                    if(!result.IsVoid() || restoreTriggered)
                         ShowNotification(NotificationContext.RestoreSuccess, true, result);
-                        
-                        if(!result.IsVoid())
-                            prefs.Edit().PutBoolean("autoRestoreCompleted", true).Commit();
-                    }
+                    
+                    if(!result.IsVoid())
+                        prefs.Edit().PutBoolean("autoRestoreCompleted", true).Commit();
                 }
                 catch(Exception e)
                 {
@@ -295,10 +295,15 @@ namespace AuthenticatorPro.Worker
                 try
                 {
                     var result = await BackupToDir(destUri);
-                    prefs.Edit().PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
+                    ShowNotification(NotificationContext.BackupSuccess, false, result);
                     
-                    if(result != null)
-                        ShowNotification(NotificationContext.BackupSuccess, false, result);
+                    var editor = prefs.Edit();
+                    editor.PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
+
+                    if(!result.IsVoid())
+                        editor.PutLong("mostRecentBackupModifiedAt", DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+
+                    editor.Commit();
                 }
                 catch(Exception e)
                 {
