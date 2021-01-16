@@ -189,8 +189,8 @@ namespace AuthenticatorPro.Worker
                     break;
                 
                 case NotificationContext.RestoreFailure:
-                    builder.SetContentTitle(_context.GetString(Resource.String.autoBackupFailureTitle));
-                    builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(_context.GetString(Resource.String.autoBackupFailureText)));
+                    builder.SetContentTitle(_context.GetString(Resource.String.autoRestoreFailureTitle));
+                    builder.SetStyle(new NotificationCompat.BigTextStyle().BigText(_context.GetString(Resource.String.autoRestoreFailureText)));
                     break;
                     
                 case NotificationContext.RestoreSuccess:
