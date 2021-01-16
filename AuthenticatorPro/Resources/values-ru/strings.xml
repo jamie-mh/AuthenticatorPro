@@ -51,10 +51,6 @@
     <string name="periodInvalid">Период является недопустимым</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
-    <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
-    <string name="restoredNothing">Nothing to restore</string>
-    <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
@@ -85,7 +81,6 @@
     <string name="backupReminder">С момента вашего последнего резервного копирования были внесены изменения.</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
     <string name="restoreError">Неверный пароль или файл повреждён.</string>
-    <string name="saveSuccess">Успешно сохранено</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Подтверждение пароля</string>
     <string name="login">Логин</string>
@@ -97,6 +92,11 @@
     <string name="encrypting">Шифрование</string>
     <string name="decrypting">Дешифрование</string>
     <string name="saving">Saving</string>
+    <string name="backupSuccess">Saved backup to \'{0}\'</string>
+    <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredNothing">Nothing to restore</string>
+    <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
     <!-- Errors -->
     <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
@@ -109,7 +109,7 @@
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Расположение не выбрано</string>
-    <string name="locationSetTo">Расположение настроено как {0}</string>
+    <string name="locationSetTo">Location set to \'{0}\'</string>
     <string name="setPassword">Set Password</string>
     <string name="passwordNotSet">Пароль не задан</string>
     <string name="passwordSet">Пароль задан</string>
@@ -118,15 +118,14 @@
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
+    <string name="disableBatOptim">Disable Battery Optimisation</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
+    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
-    <string name="autoBackupTestTitle">Резервное копирование прошло успешно</string>
-    <string name="autoBackupTestText">Auto backup is working correctly</string>
-    <string name="backupStatusChannelName">Backup Status</string>
-    <string name="backupStatusChannelDescription">Уведомляет Вас, когда резервная копия не удалась или удалась</string>
     <string name="backupScheduled">Резервное копирование запланировано</string>
     <string name="restoreScheduled">Restore scheduled</string>
     <!-- Import -->
