@@ -92,7 +92,7 @@
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
     <string name="saving">Saving</string>
-    <string name="saveSuccess">Saved successfully</string>
+    <string name="saveSuccess">Erfolgreich gespeichert</string>
     <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
