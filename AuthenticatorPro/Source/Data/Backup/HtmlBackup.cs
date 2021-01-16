@@ -10,6 +10,7 @@ namespace AuthenticatorPro.Data.Backup
 {
     internal class HtmlBackup
     {
+        public const string FileExtension = "html";
         private const string BackupTemplateFileName = "backup_template.html";
         private const int PixelsPerModule = 4;
         

@@ -1225,12 +1225,12 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickBackupFile += delegate
             {
-                StartFileSaveActivity("application/octet-stream", RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
+                StartFileSaveActivity("application/octet-stream", RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
             };
             
             fragment.ClickHtmlFile += delegate
             {
-                StartFileSaveActivity("text/html", RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.html");
+                StartFileSaveActivity("text/html", RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{HtmlBackup.FileExtension}");
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);

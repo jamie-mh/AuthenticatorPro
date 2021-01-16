@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
@@ -95,7 +95,7 @@ namespace AuthenticatorPro.Worker
             var dataToWrite = backup.ToBytes(password);
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
-            var file = directory.CreateFile("application/octet-stream", $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.authpro");
+            var file = directory.CreateFile("application/octet-stream", $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
             
             if(file == null)
                 throw new Exception("File creation failed, got null.");
@@ -112,7 +112,7 @@ namespace AuthenticatorPro.Worker
             var files = directory.ListFiles();
 
             var mostRecentBackup = files
-                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Length() > 0 && f.CanRead() && f.LastModified() > changesMadeAt)
+                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Name.EndsWith(Backup.FileExtension) && f.Length() > 0 && f.CanRead() && f.LastModified() > changesMadeAt)
                 .OrderByDescending(f => f.LastModified())
                 .FirstOrDefault();
                 

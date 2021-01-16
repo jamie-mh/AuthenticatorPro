@@ -13,6 +13,8 @@ namespace AuthenticatorPro.Data.Backup
 {
     internal class Backup
     {
+        public const string FileExtension = "authpro";
+        
         // PCLCrypto does not support anything other than SHA1 on Android unfortunately
         private const KeyDerivationAlgorithm KeyDerivationAlgorithm = PCLCrypto.KeyDerivationAlgorithm.Pbkdf2Sha1;
         private const SymmetricAlgorithm KeyAlgorithm = SymmetricAlgorithm.AesCbcPkcs7;
