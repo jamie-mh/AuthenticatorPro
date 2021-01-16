@@ -51,10 +51,6 @@
     <string name="periodInvalid">La période n\'est pas valide</string>
     <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
-    <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
-    <string name="restoredFromBackupUpdated">{0} authentificateurs et {1} catégories ont étés restaurés. {2} authenticateurs existants ont été mis à jour.</string>
-    <string name="restoredNothing">Rien à restaurer</string>
-    <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
     <string name="scanSuccessful">QR Code scanné avec succès</string>
     <!-- Backup menu -->
     <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
@@ -85,7 +81,6 @@
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
-    <string name="saveSuccess">Sauvegarde effectuée avec succès</string>
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>
     <string name="login">Connexion</string>
@@ -97,6 +92,11 @@
     <string name="encrypting">Chiffrement...</string>
     <string name="decrypting">Déchiffrement...</string>
     <string name="saving">Enregistrement...</string>
+    <string name="backupSuccess">Saved backup to \'{0}\'</string>
+    <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
+    <string name="restoredFromBackupUpdated">{0} authentificateurs et {1} catégories ont étés restaurés. {2} authenticateurs existants ont été mis à jour.</string>
+    <string name="restoredNothing">Rien à restaurer</string>
+    <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
     <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
@@ -109,7 +109,7 @@
     <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications ont étés apportées.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
-    <string name="locationSetTo">{0} a été choisi comme emplacement</string>
+    <string name="locationSetTo">Location set to \'{0}\'</string>
     <string name="setPassword">Choisir un mot de passe</string>
     <string name="passwordNotSet">Mot de passe non renseigné</string>
     <string name="passwordSet">Mot de passe renseigné</string>
@@ -118,15 +118,14 @@
     <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
     <string name="enableAutoRestore">Activer la restauration automatique</string>
     <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.</string>
+    <string name="disableBatOptim">Disable Battery Optimisation</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir à nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
     <string name="autoRestoreFailureTitle">Échec lors de la restauration automatique</string>
     <string name="autoRestoreFailureText">La sauvegarde automatique la plus récente a échoué. Les droits de fichier sont potentiellement expirés ou le mot de passe est erroné. Tentez de définir à nouveau l\'emplacement et le mot de passe de la sauvegarde dans les paramètres.</string>
+    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Restauration effectuée avec succès</string>
-    <string name="autoBackupTestTitle">Sauvegarde effectuée avec succès</string>
-    <string name="autoBackupTestText">La sauvegarde automatique fonctionne correctement</string>
-    <string name="backupStatusChannelName">État de sauvegarde</string>
-    <string name="backupStatusChannelDescription">Vous avertit de l\'état des sauvegardes automatiques</string>
     <string name="backupScheduled">Sauvegarde programmée</string>
     <string name="restoreScheduled">Restauration programmée</string>
     <!-- Import -->
