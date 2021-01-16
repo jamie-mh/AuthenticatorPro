@@ -1067,7 +1067,7 @@ namespace AuthenticatorPro.Activity
                 {
                     result = await DecryptAndRestore(null);
                 }
-                catch(ArgumentException)
+                catch
                 {
                     ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                     return;
@@ -1088,7 +1088,7 @@ namespace AuthenticatorPro.Activity
                     sheet.Dismiss();
                     await FinaliseRestore(result);
                 }
-                catch(ArgumentException)
+                catch
                 {
                     sheet.Error = GetString(Resource.String.restoreError);
                     sheet.SetBusyText(null);
