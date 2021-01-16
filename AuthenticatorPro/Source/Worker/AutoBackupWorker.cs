@@ -300,7 +300,8 @@ namespace AuthenticatorPro.Worker
                     var editor = prefs.Edit();
                     editor.PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
 
-                    if(!result.IsVoid())
+                    // Don't update value if backup triggered, won't combine with restore
+                    if(!result.IsVoid() && !backupTriggered)
                         editor.PutLong("mostRecentBackupModifiedAt", DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
 
                     editor.Commit();
