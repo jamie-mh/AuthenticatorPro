@@ -29,6 +29,7 @@ namespace AuthenticatorPro.Fragment
         private SwitchMaterial _restoreEnabledSwitch;
         private MaterialButton _backupNowButton;
         private MaterialButton _restoreNowButton;
+        private LinearLayout _batOptimLayout;
         private MaterialButton _okButton;
 
         private bool _backupEnabled;
@@ -85,19 +86,9 @@ namespace AuthenticatorPro.Fragment
             _restoreNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonRestoreNow);
             _restoreNowButton.Click += OnRestoreNowButtonClick;
 
-            if(Build.VERSION.SdkInt >= BuildVersionCodes.M)
-            {
-                var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
-
-                if(!powerManager.IsIgnoringBatteryOptimizations(Context.PackageName))
-                {
-                    var batOptimLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutBatOptim);
-                    batOptimLayout.Visibility = ViewStates.Visible;
-                    
-                    var disableBatOptimButton = view.FindViewById<MaterialButton>(Resource.Id.buttonDisableBatOptim);
-                    disableBatOptimButton.Click += OnDisableBatOptimButtonClick;
-                }
-            }
+            _batOptimLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutBatOptim);
+            var disableBatOptimButton = view.FindViewById<MaterialButton>(Resource.Id.buttonDisableBatOptim);
+            disableBatOptimButton.Click += OnDisableBatOptimButtonClick;
 
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
@@ -112,11 +103,18 @@ namespace AuthenticatorPro.Fragment
             return view;
         }
 
-        private void OnDisableBatOptimButtonClick(object sender, EventArgs e)
+        public override void OnResume()
         {
-            var intent = new Intent(Settings.ActionRequestIgnoreBatteryOptimizations);
-            intent.SetData(Uri.Parse($"package:{Context.PackageName}"));
-            StartActivity(intent);
+            base.OnResume();
+            
+            if(Build.VERSION.SdkInt < BuildVersionCodes.M)
+                return;
+            
+            var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
+
+            _batOptimLayout.Visibility = powerManager.IsIgnoringBatteryOptimizations(Context.PackageName)
+                ? ViewStates.Gone
+                : ViewStates.Visible;
         }
 
         public override void OnDismiss(IDialogInterface dialog)
@@ -246,6 +244,13 @@ namespace AuthenticatorPro.Fragment
 
             if(!canBeChecked)
                 _backupEnabledSwitch.Checked = _restoreEnabledSwitch.Checked = false;
+        }
+
+        private void OnDisableBatOptimButtonClick(object sender, EventArgs e)
+        {
+            var intent = new Intent(Settings.ActionRequestIgnoreBatteryOptimizations);
+            intent.SetData(Uri.Parse($"package:{Context.PackageName}"));
+            StartActivity(intent);
         }
     }
 }
