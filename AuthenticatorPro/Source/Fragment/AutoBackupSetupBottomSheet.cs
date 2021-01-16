@@ -185,7 +185,11 @@ namespace AuthenticatorPro.Fragment
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
-            await SecureStorage.SetAsync("autoBackupPassword", password);
+            // Make sure secure storage is not accessed on ui thread
+            await Task.Run(async delegate
+            {
+                await SecureStorage.SetAsync("autoBackupPassword", password);
+            });
         }
 
         private void OnLocationSelected(Intent intent)

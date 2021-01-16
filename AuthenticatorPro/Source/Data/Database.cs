@@ -73,14 +73,18 @@ namespace AuthenticatorPro.Data
 
         private static async Task<string> GetKey()
         {
-            var key = await SecureStorage.GetAsync("database_key");
+            // Make sure secure storage is not accessed on ui thread
+            return await Task.Run(async delegate
+            {
+                var key = await SecureStorage.GetAsync("database_key");
 
-            if(key != null)
+                if(key != null)
+                    return key;
+                
+                key = Hash.Sha1(Guid.NewGuid().ToString());
+                await SecureStorage.SetAsync("database_key", key);
                 return key;
-            
-            key = Hash.Sha1(Guid.NewGuid().ToString());
-            await SecureStorage.SetAsync("database_key", key);
-            return key;
+            });
         }
 
         public static async Task SetEncryptionEnabled(Context context, bool shouldEncrypt)
