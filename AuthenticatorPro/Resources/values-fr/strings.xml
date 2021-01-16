@@ -92,8 +92,8 @@
     <string name="encrypting">Chiffrement...</string>
     <string name="decrypting">Déchiffrement...</string>
     <string name="saving">Enregistrement...</string>
-    <string name="saveSuccess">Saved successfully</string>
-    <string name="backupSuccess">Saved backup as \'{0}\'</string>
+    <string name="saveSuccess">Sauvegarde effectuée avec succès</string>
+    <string name="backupSuccess">Sauvegarde enregistrée tant que \'{0}\'</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
     <string name="restoredFromBackupUpdated">{0} authentificateurs et {1} catégories ont étés restaurés. {2} authenticateurs existants ont été mis à jour.</string>
     <string name="restoredNothing">Rien à restaurer</string>
