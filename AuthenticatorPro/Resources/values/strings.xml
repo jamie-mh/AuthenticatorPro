@@ -106,7 +106,7 @@
     <string name="saving">Saving</string>
 
     <string name="saveSuccess">Saved successfully</string>
-    <string name="backupSuccess">Saved backup to \'{0}\'</string>
+    <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nothing to restore</string>
