@@ -149,9 +149,6 @@
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     
-    <string name="backupStatusChannelName">Backup status</string>
-    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
-    
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
     
