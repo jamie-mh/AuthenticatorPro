@@ -51,10 +51,6 @@
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
-    <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 和新分类。</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
-    <string name="restoredNothing">Nothing to restore</string>
-    <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
@@ -85,7 +81,6 @@
     <string name="backupReminder">自上次备份后已出现新的更改。</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
     <string name="restoreError">密码不正确，或文件已损坏。</string>
-    <string name="saveSuccess">保存成功</string>
     <string name="password">密码</string>
     <string name="passwordConfirm">确认密码</string>
     <string name="login">登录</string>
@@ -97,6 +92,12 @@
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
     <string name="saving">Saving</string>
+    <string name="saveSuccess">保存成功</string>
+    <string name="backupSuccess">Saved backup as \'{0}\'</string>
+    <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 和新分类。</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredNothing">Nothing to restore</string>
+    <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
@@ -109,7 +110,7 @@
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
-    <string name="locationSetTo">Location set to {0}</string>
+    <string name="locationSetTo">Location set to \'{0}\'</string>
     <string name="setPassword">Set Password</string>
     <string name="passwordNotSet">Password has not been set</string>
     <string name="passwordSet">Password set</string>
@@ -118,15 +119,14 @@
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
+    <string name="disableBatOptim">Disable Battery Optimisation</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
+    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
-    <string name="autoBackupTestTitle">Backup succeeded</string>
-    <string name="autoBackupTestText">Auto backup is working correctly</string>
-    <string name="backupStatusChannelName">Backup Status</string>
-    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
     <!-- Import -->

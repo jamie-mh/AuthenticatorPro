@@ -51,10 +51,6 @@
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
-    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
-    <string name="restoredNothing">Nothing to restore</string>
-    <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <string name="scanSuccessful">QR Code scanned successfully</string>
     <!-- Backup menu -->
     <string name="backupToFile">Backup to encrypted file (recommended)</string>
@@ -85,7 +81,6 @@
     <string name="backupReminder">There have been changes made since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="restoreError">The password is incorrect or the file is corrupt</string>
-    <string name="saveSuccess">Saved successfully</string>
     <string name="password">Password</string>
     <string name="passwordConfirm">Password Confirm</string>
     <string name="login">Login</string>
@@ -97,6 +92,12 @@
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
     <string name="saving">Saving</string>
+    <string name="saveSuccess">Saved successfully</string>
+    <string name="backupSuccess">Saved backup as \'{0}\'</string>
+    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredNothing">Nothing to restore</string>
+    <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <!-- Errors -->
     <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
@@ -109,7 +110,7 @@
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
-    <string name="locationSetTo">Location set to {0}</string>
+    <string name="locationSetTo">Location set to \'{0}\'</string>
     <string name="setPassword">Set Password</string>
     <string name="passwordNotSet">Password has not been set</string>
     <string name="passwordSet">Password set</string>
@@ -118,15 +119,14 @@
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
+    <string name="disableBatOptim">Disable Battery Optimisation</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
+    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
-    <string name="autoBackupTestTitle">Backup succeeded</string>
-    <string name="autoBackupTestText">Auto backup is working correctly</string>
-    <string name="backupStatusChannelName">Backup Status</string>
-    <string name="backupStatusChannelDescription">Notifies you when an auto backup fails or succeeds</string>
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
     <!-- Import -->
