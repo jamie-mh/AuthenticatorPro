@@ -11,6 +11,7 @@ using AuthenticatorPro.Activity;
 using AuthenticatorPro.Worker;
 using Google.Android.Material.Button;
 using Google.Android.Material.SwitchMaterial;
+using Java.Util.Concurrent;
 using Xamarin.Essentials;
 using Uri = Android.Net.Uri;
 
@@ -102,7 +103,17 @@ namespace AuthenticatorPro.Fragment
                 .PutBoolean("pref_autoBackupEnabled", _backupEnabledSwitch.Checked)
                 .PutBoolean("pref_autoRestoreEnabled", _restoreEnabledSwitch.Checked).Commit();
                 
-            AutoBackupWorker.UpdateSchedule(Context);
+            var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
+            
+            var workManager = WorkManager.GetInstance(Context);
+
+            if(shouldBeEnabled)
+            {
+                var workRequest = new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 15, TimeUnit.Minutes).Build();
+                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep, workRequest);
+            }
+            else
+                workManager.CancelUniqueWork(AutoBackupWorker.Name);
         }
 
         private void OnBackupNowButtonClick(object sender, EventArgs e)
