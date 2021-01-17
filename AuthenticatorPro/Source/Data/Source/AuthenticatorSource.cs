@@ -308,11 +308,6 @@ namespace AuthenticatorPro.Data.Source
             CategoryBindings.Remove(binding);
         }
 
-        public bool IsCustomIconInUse(string id)
-        {
-            return _all.Any(a => a.Icon == CustomIcon.Prefix + id);
-        }
-
         public List<Authenticator> GetView()
         {
             return _view;
