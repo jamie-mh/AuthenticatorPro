@@ -2,7 +2,6 @@
 using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
-using AndroidX.Preference;
 using AuthenticatorPro.Shared.Util;
 using SQLite;
 using Xamarin.Essentials;
@@ -15,8 +14,8 @@ namespace AuthenticatorPro.Data
         
         public static async Task<SQLiteAsyncConnection> Connect(Context context, bool? forcedEncryptionMode = null)
         {
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
-            var isEncrypted = forcedEncryptionMode ?? prefs.GetBoolean("pref_useEncryptedDatabase", false);
+            var preferences = new PreferenceWrapper(context);
+            var isEncrypted = forcedEncryptionMode ?? preferences.UseEncryptedDatabase;
 
             var dbPath = GetPath();
             SQLiteAsyncConnection connection = null;
@@ -52,7 +51,7 @@ namespace AuthenticatorPro.Data
                 
                 connection = null;
                 await TryGetConnection(!isEncrypted);
-                prefs.Edit().PutBoolean("pref_useEncryptedDatabase", !isEncrypted).Commit();
+                preferences.UseEncryptedDatabase = !isEncrypted;
             }
 
             await connection.EnableWriteAheadLoggingAsync();

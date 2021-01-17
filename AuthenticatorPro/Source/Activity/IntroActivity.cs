@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
 using AndroidX.Fragment.App;
-using AndroidX.Preference;
 using AndroidX.ViewPager.Widget;
 using AuthenticatorPro.Intro;
 using Google.Android.Material.BottomNavigation;
@@ -57,12 +56,7 @@ namespace AuthenticatorPro.Activity
 
                 case Resource.Id.intro_done:
                 {
-                    var sharedPrefs = PreferenceManager.GetDefaultSharedPreferences(this);
-                    var editor = sharedPrefs.Edit();
-
-                    editor.PutBoolean("firstLaunch", false);
-                    editor.Commit();
-
+                    _ = new PreferenceWrapper(this) { FirstLaunch = false };
                     Finish();
                     break;
                 }

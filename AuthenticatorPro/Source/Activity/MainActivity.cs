@@ -20,7 +20,6 @@ using Android.Widget;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
-using AndroidX.Preference;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
@@ -102,6 +101,7 @@ namespace AuthenticatorPro.Activity
 
         // State
         private SQLiteAsyncConnection _connection;
+        private PreferenceWrapper _preferences;
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
@@ -163,6 +163,8 @@ namespace AuthenticatorPro.Activity
                 return;
             }
             
+            _preferences = new PreferenceWrapper(this);
+            
             _categorySource = new CategorySource(_connection);
             _customIconSource = new CustomIconSource(_connection);
             _authSource = new AuthenticatorSource(_connection);
@@ -181,10 +183,7 @@ namespace AuthenticatorPro.Activity
             _updateOnActivityResume = true;
             _onCreateSemaphore.Release();
             
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var firstLaunch = prefs.GetBoolean("firstLaunch", true);
-            
-            if(firstLaunch)
+            if(_preferences.FirstLaunch)
                 StartActivity(typeof(IntroActivity));
 
             DetectGoogleAPIsAvailability();
@@ -225,9 +224,8 @@ namespace AuthenticatorPro.Activity
             }
 
             // In case auto restore occurs when activity is loaded
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var autoRestoreCompleted = prefs.GetBoolean("autoRestoreCompleted", false);
-            prefs.Edit().PutBoolean("autoRestoreCompleted", false).Commit();
+            var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
+            _preferences.AutoRestoreCompleted = false;
 
             if(_updateOnActivityResume || autoRestoreCompleted)
             {
@@ -249,9 +247,7 @@ namespace AuthenticatorPro.Activity
             if(_authSource.GetView().Any())
                 Tick(true);
 
-            var showBackupReminders = prefs.GetBoolean("pref_showBackupReminders", true);
-           
-            if(!_returnedFromResult && showBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
+            if(!_returnedFromResult && _preferences.ShowBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
 
             _returnedFromResult = false;
@@ -527,10 +523,7 @@ namespace AuthenticatorPro.Activity
 
         private void InitAuthenticatorList()
         {
-            var viewModePref = PreferenceManager.GetDefaultSharedPreferences(this)
-                .GetString("pref_viewMode", "default");
-
-            var viewMode = viewModePref switch
+            var viewMode = _preferences.ViewMode switch
             {
                 "compact" => AuthenticatorListAdapter.ViewMode.Compact,
                 "tile" => AuthenticatorListAdapter.ViewMode.Tile,
@@ -721,7 +714,7 @@ namespace AuthenticatorPro.Activity
                     CheckEmptyState();
                 });
                
-                SetBackupRequirement(BackupRequirement.WhenPossible);
+                _preferences.BackupRequired = BackupRequirement.WhenPossible;
                 await NotifyWearAppOfChange();
             });
             
@@ -854,7 +847,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            SetBackupRequirement(BackupRequirement.Urgent);
+            _preferences.BackupRequired = BackupRequirement.Urgent;
             await NotifyWearAppOfChange();
         }
 
@@ -1148,7 +1141,7 @@ namespace AuthenticatorPro.Activity
                 var backup = await converter.Convert(data, password);
                 var result = await RestoreBackup(backup, false);
                 await FinaliseRestore(result);
-                SetBackupRequirement(BackupRequirement.Urgent);
+                _preferences.BackupRequired = BackupRequirement.Urgent;
             }
 
             void ShowPasswordSheet()
@@ -1292,7 +1285,7 @@ namespace AuthenticatorPro.Activity
 
         private void FinaliseBackup()
         {
-            SetBackupRequirement(BackupRequirement.NotRequired);
+            _preferences.BackupRequired = BackupRequirement.NotRequired;
             ShowSnackbar(Resource.String.saveSuccess, Snackbar.LengthLong);
         }
         
@@ -1300,12 +1293,8 @@ namespace AuthenticatorPro.Activity
         {
             if(!_authSource.GetAll().Any())
                 return;
-            
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
-            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
-            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
 
-            if(requirement != BackupRequirement.Urgent || autoBackupEnabled)
+            if(_preferences.BackupRequired != BackupRequirement.Urgent || _preferences.AutoBackupEnabled)
                 return;
 
             _lastBackupReminderTime = DateTime.UtcNow;
@@ -1320,16 +1309,11 @@ namespace AuthenticatorPro.Activity
             callback.Dismiss += (_, e) =>
             {
                 if(e == Snackbar.Callback.DismissEventSwipe)
-                    SetBackupRequirement(BackupRequirement.NotRequired);
+                    _preferences.BackupRequired = BackupRequirement.NotRequired;
             };
 
             snackbar.AddCallback(callback);
             snackbar.Show();
-        }
-
-        private void SetBackupRequirement(BackupRequirement requirement)
-        {
-            PreferenceManager.GetDefaultSharedPreferences(this).Edit().PutInt("backupRequirement", (int) requirement).Commit();
         }
         #endregion
 
@@ -1377,7 +1361,7 @@ namespace AuthenticatorPro.Activity
             });
             
             dialog.Dismiss();
-            SetBackupRequirement(BackupRequirement.Urgent);
+            _preferences.BackupRequired = BackupRequirement.Urgent;
             
             await NotifyWearAppOfChange();
         }
@@ -1400,7 +1384,7 @@ namespace AuthenticatorPro.Activity
         {
             await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
-            SetBackupRequirement(BackupRequirement.WhenPossible);
+            _preferences.BackupRequired = BackupRequirement.WhenPossible;
             await NotifyWearAppOfChange();
         }
         #endregion
@@ -1439,7 +1423,7 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            SetBackupRequirement(BackupRequirement.WhenPossible);
+            _preferences.BackupRequired = BackupRequirement.WhenPossible;
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
             await NotifyWearAppOfChange();
 
@@ -1506,7 +1490,7 @@ namespace AuthenticatorPro.Activity
             }
 
             await TryCleanupCustomIcon(oldIcon);
-            SetBackupRequirement(BackupRequirement.WhenPossible);
+            _preferences.BackupRequired = BackupRequirement.WhenPossible;
             
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position); });
             await NotifyWearAppOfChange();
@@ -1698,16 +1682,13 @@ namespace AuthenticatorPro.Activity
 
         private bool RequiresAuthentication()
         {
-            var hasAppLock = PreferenceManager.GetDefaultSharedPreferences(this)
-                .GetBoolean("pref_appLock", false);
-            
             var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
 
             var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.LollipopMr1
                 ? keyguardManager.IsKeyguardSecure
                 : keyguardManager.IsDeviceSecure;
 
-            return hasAppLock && isDeviceSecure;
+            return _preferences.AppLock && isDeviceSecure;
         }
         #endregion
     }

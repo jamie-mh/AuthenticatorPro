@@ -8,7 +8,6 @@ using Android.OS;
 using Android.Util;
 using AndroidX.Core.App;
 using AndroidX.DocumentFile.Provider;
-using AndroidX.Preference;
 using AndroidX.Work;
 using AuthenticatorPro.Activity;
 using AuthenticatorPro.Data;
@@ -26,6 +25,7 @@ namespace AuthenticatorPro.Worker
         public const string Name = "autobackup";
         
         private readonly Context _context;
+        private readonly PreferenceWrapper _preferences;
         private readonly Lazy<Task> _initTask;
         
         private SQLiteAsyncConnection _connection;
@@ -37,6 +37,7 @@ namespace AuthenticatorPro.Worker
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
             _context = context;
+            _preferences = new PreferenceWrapper(context);
             
             _initTask = new Lazy<Task>(async delegate
             {
@@ -115,13 +116,10 @@ namespace AuthenticatorPro.Worker
                 .OrderByDescending(f => f.LastModified())
                 .FirstOrDefault();
 
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
-            var mostRecentBackupModifiedAt = prefs.GetLong("mostRecentBackupModifiedAt", 0);
-
-            if(mostRecentBackup == null || mostRecentBackup.LastModified() <= mostRecentBackupModifiedAt)
+            if(mostRecentBackup == null || mostRecentBackup.LastModified() <= _preferences.MostRecentBackupModifiedAt)
                 return new RestoreResult();
             
-            prefs.Edit().PutLong("mostRecentBackupModifiedAt", mostRecentBackup.LastModified()).Commit();
+            _preferences.MostRecentBackupModifiedAt = mostRecentBackup.LastModified();
             var password = await SecureStorage.GetAsync("autoBackupPassword");
 
             if(password == null)
@@ -232,37 +230,29 @@ namespace AuthenticatorPro.Worker
 
         private async Task<Result> DoWorkAsync()
         {
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(_context);
-            
-            var destUriStr = prefs.GetString("pref_autoBackupUri", null);
-            var destUri = destUriStr != null ? Uri.Parse(destUriStr) : null;
-            
-            var restoreTriggered = prefs.GetBoolean("autoRestoreTrigger", false);
-            
-            if(restoreTriggered)
-                prefs.Edit().PutBoolean("autoRestoreTrigger", false).Commit();
-            
-            var backupTriggered = prefs.GetBoolean("autoBackupTrigger", false);
-            
-            if(backupTriggered)
-                prefs.Edit().PutBoolean("autoBackupTrigger", false).Commit();
+            var destination = _preferences.AutoBackupUri;
 
-            var autoRestoreEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
+            var restoreTriggered = _preferences.AutoRestoreTrigger;
+            _preferences.AutoRestoreTrigger = false;
+
+            var backupTriggered = _preferences.AutoBackupTrigger;
+            _preferences.AutoBackupTrigger = false; 
+            
             var restoreSucceeded = true;
 
-            if(!backupTriggered && (restoreTriggered || autoRestoreEnabled))
+            if(!backupTriggered && (restoreTriggered || _preferences.AutoRestoreEnabled))
             {
                 await _initTask.Value;
                 
                 try
                 {
-                    var result = await RestoreFromDir(destUri);
+                    var result = await RestoreFromDir(destination);
                     
                     if(!result.IsVoid() || restoreTriggered)
                         ShowNotification(NotificationContext.RestoreSuccess, true, result);
-                    
+
                     if(!result.IsVoid())
-                        prefs.Edit().PutBoolean("autoRestoreCompleted", true).Commit();
+                        _preferences.AutoRestoreCompleted = true;
                 }
                 catch(Exception e)
                 {
@@ -272,28 +262,21 @@ namespace AuthenticatorPro.Worker
                 }
             }
             
-            var autoBackupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            var requirement = (BackupRequirement) prefs.GetInt("backupRequirement", (int) BackupRequirement.NotRequired);
-            
             var backupSucceeded = true;
 
-            if(!restoreTriggered && (backupTriggered || autoBackupEnabled && restoreSucceeded && requirement != BackupRequirement.NotRequired))
+            if(!restoreTriggered && (backupTriggered || _preferences.AutoBackupEnabled && restoreSucceeded && _preferences.BackupRequired != BackupRequirement.NotRequired))
             {
                 await _initTask.Value;
                 
                 try
                 {
-                    var result = await BackupToDir(destUri);
+                    var result = await BackupToDir(destination);
                     ShowNotification(NotificationContext.BackupSuccess, false, result);
-                    
-                    var editor = prefs.Edit();
-                    editor.PutInt("backupRequirement", (int) BackupRequirement.NotRequired).Commit();
+                    _preferences.BackupRequired = BackupRequirement.NotRequired;
 
                     // Don't update value if backup triggered, won't combine with restore
                     if(!result.IsVoid() && !backupTriggered)
-                        editor.PutLong("mostRecentBackupModifiedAt", DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
-
-                    editor.Commit();
+                        _preferences.MostRecentBackupModifiedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                 }
                 catch(Exception e)
                 {

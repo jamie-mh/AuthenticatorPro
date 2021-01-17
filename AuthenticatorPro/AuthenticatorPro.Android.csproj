@@ -140,6 +140,7 @@
     <Compile Include="Source\List\SheetMenuAdapter.cs" />
     <Compile Include="Source\List\SheetMenuItem.cs" />
     <Compile Include="Source\List\SheetMenuItemViewHolder.cs" />
+    <Compile Include="Source\PreferenceWrapper.cs" />
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
     <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />

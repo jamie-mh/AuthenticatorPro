@@ -7,7 +7,6 @@ using Android.OS;
 using Android.Provider;
 using Android.Views;
 using Android.Widget;
-using AndroidX.Preference;
 using AndroidX.Work;
 using AuthenticatorPro.Activity;
 using AuthenticatorPro.Worker;
@@ -22,6 +21,7 @@ namespace AuthenticatorPro.Fragment
     internal class AutoBackupSetupBottomSheet : BottomSheet
     {
         private const int RequestPicker = 0;
+        private PreferenceWrapper _preferences;
 
         private TextView _locationStatusText;
         private TextView _passwordStatusText;
@@ -33,11 +33,6 @@ namespace AuthenticatorPro.Fragment
         private LinearLayout _batOptimLayout;
         private MaterialButton _okButton;
 
-        private bool _backupEnabled;
-        private bool _restoreEnabled;
-        private Uri _backupLocationUri;
-        private bool? _hasPassword;
-        
         public AutoBackupSetupBottomSheet()
         {
             RetainInstance = true;
@@ -58,23 +53,7 @@ namespace AuthenticatorPro.Fragment
             var view = inflater.Inflate(Resource.Layout.sheetAutoBackupSetup, null);
             SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
-            var prefs = PreferenceManager.GetDefaultSharedPreferences(Context);
-            _backupEnabled = prefs.GetBoolean("pref_autoBackupEnabled", false);
-            _restoreEnabled = prefs.GetBoolean("pref_autoRestoreEnabled", false);
-            
-            var backupLocationUriStr = prefs.GetString("pref_autoBackupUri", null);
-            _backupLocationUri = backupLocationUriStr != null
-                ? Uri.Parse(backupLocationUriStr)
-                : null;
-            
-            // Can't call secure storage here
-            // String is only way of having a tri-state boolean unfortunately
-            _hasPassword = prefs.GetString("pref_autoBackupPasswordProtected", null) switch
-            {
-                null => null,
-                "false" => false,
-                _ => true,
-            };
+            _preferences = new PreferenceWrapper(Context);
 
             var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
             selectLocationButton.Click += OnSelectLocationClick;
@@ -125,13 +104,11 @@ namespace AuthenticatorPro.Fragment
         public override void OnDismiss(IDialogInterface dialog)
         {
             base.OnDismiss(dialog);
+
+            _preferences.AutoBackupEnabled = _backupEnabledSwitch.Checked;
+            _preferences.AutoRestoreEnabled = _restoreEnabledSwitch.Checked;
             
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit()
-                .PutBoolean("pref_autoBackupEnabled", _backupEnabledSwitch.Checked)
-                .PutBoolean("pref_autoRestoreEnabled", _restoreEnabledSwitch.Checked).Commit();
-                
             var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
-            
             var workManager = WorkManager.GetInstance(Context);
 
             if(shouldBeEnabled)
@@ -145,14 +122,14 @@ namespace AuthenticatorPro.Fragment
 
         private void OnBackupNowButtonClick(object sender, EventArgs e)
         {
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoBackupTrigger", true).Commit();
+            _preferences.AutoBackupTrigger = true;
             TriggerWork();
             Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
         }
         
         private void OnRestoreNowButtonClick(object sender, EventArgs e)
         {
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutBoolean("autoRestoreTrigger", true).Commit();
+            _preferences.AutoRestoreTrigger = true;
             TriggerWork();
             Toast.MakeText(Context, Resource.String.restoreScheduled, ToastLength.Short).Show();
         }
@@ -169,9 +146,8 @@ namespace AuthenticatorPro.Fragment
             var intent = new Intent(Intent.ActionOpenDocumentTree);
             intent.AddFlags(ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission | ActivityFlags.GrantPersistableUriPermission | ActivityFlags.GrantPrefixUriPermission);
 
-            var autoBackupUri = PreferenceManager.GetDefaultSharedPreferences(Context).GetString("prefAutoBackupUri", null);
-            if(autoBackupUri != null)
-                intent.PutExtra(DocumentsContract.ExtraInitialUri, Uri.Parse(autoBackupUri));
+            if(_preferences.AutoBackupUri != null)
+                intent.PutExtra(DocumentsContract.ExtraInitialUri, _preferences.AutoBackupUri);
             
             StartActivityForResult(intent, RequestPicker);
         }
@@ -187,19 +163,11 @@ namespace AuthenticatorPro.Fragment
 
         private async void OnPasswordEntered(object sender, string password)
         {
-            _hasPassword = password != "";
+            _preferences.AutoBackupPasswordProtected = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
             
-            PreferenceManager.GetDefaultSharedPreferences(Context).Edit().PutString("pref_autoBackupPasswordProtected", _hasPassword switch
-            {
-                null => null,
-                false => "false",
-                _ => "true"
-            })
-            .Commit();
-
             // Make sure secure storage is not accessed on ui thread
             await Task.Run(async delegate
             {
@@ -209,14 +177,10 @@ namespace AuthenticatorPro.Fragment
 
         private void OnLocationSelected(Intent intent)
         {
-            _backupLocationUri = intent.Data;
+            _preferences.AutoBackupUri = intent.Data;
 
             var flags = intent.Flags & (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
             Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
-            
-            var editor = PreferenceManager.GetDefaultSharedPreferences(Context).Edit();
-            editor.PutString("pref_autoBackupUri", _backupLocationUri.ToString());
-            editor.Commit();
             
             UpdateLocationStatusText();
             UpdateSwitchesAndTriggerButton();
@@ -224,19 +188,19 @@ namespace AuthenticatorPro.Fragment
 
         private void UpdateLocationStatusText()
         {
-            if(_backupLocationUri == null)
+            if(_preferences.AutoBackupUri == null)
             {
                 _locationStatusText.SetText(Resource.String.noLocationSelected);
                 return;
             }
 
-            var location = _backupLocationUri.LastPathSegment?.Split(':', 2).Last();
+            var location = _preferences.AutoBackupUri.LastPathSegment?.Split(':', 2).Last();
             _locationStatusText.Text = String.Format(GetString(Resource.String.locationSetTo), location ?? String.Empty);
         }
 
         private void UpdatePasswordStatusText()
         {
-            _passwordStatusText.SetText(_hasPassword switch
+            _passwordStatusText.SetText(_preferences.AutoBackupPasswordProtected switch
             {
                 null => Resource.String.passwordNotSet,
                 false => Resource.String.notPasswordProtected,
@@ -246,10 +210,10 @@ namespace AuthenticatorPro.Fragment
 
         private void UpdateSwitchesAndTriggerButton()
         {
-            _backupEnabledSwitch.Checked = _backupEnabled;
-            _restoreEnabledSwitch.Checked = _restoreEnabled;
+            _backupEnabledSwitch.Checked = _preferences.AutoBackupEnabled;
+            _restoreEnabledSwitch.Checked = _preferences.AutoRestoreEnabled;
            
-            var canBeChecked = _backupLocationUri != null && _hasPassword != null;
+            var canBeChecked = _preferences.AutoBackupUri != null && _preferences.AutoBackupPasswordProtected != null;
             _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled = _backupNowButton.Enabled = _restoreNowButton.Enabled = canBeChecked;
 
             if(!canBeChecked)
