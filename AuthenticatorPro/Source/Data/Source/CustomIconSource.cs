@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,9 +10,7 @@ namespace AuthenticatorPro.Data.Source
     internal class CustomIconSource : ISource<CustomIcon>
     {
         private readonly SQLiteAsyncConnection _connection;
-
         private List<CustomIcon> _all;
-
 
         public CustomIconSource(SQLiteAsyncConnection connection)
         {
@@ -52,6 +50,25 @@ namespace AuthenticatorPro.Data.Source
         {
             await _connection.DeleteAsync<CustomIcon>(id);
             _all.Remove(_all.First(i => i.Id == id));
+        }
+
+        public async Task CullUnused()
+        {
+            // Cannot query as string directly for some reason
+            var distinctIconUses = await _connection.QueryAsync<Authenticator>("SELECT DISTINCT icon FROM authenticator");
+            var custom = distinctIconUses.Where(i => i.Icon != null && i.Icon.StartsWith(CustomIcon.Prefix)).Select(i => i.Icon.Substring(1));
+            var unused = _all.Select(i => i.Id).Except(custom).ToList();
+
+            if(!unused.Any())
+                return;
+
+            await _connection.RunInTransactionAsync(conn =>
+            {
+                foreach(var icon in unused)
+                    conn.Delete<CustomIcon>(icon);
+            });
+
+            await Update();
         }
 
         public bool IsDuplicate(string id)

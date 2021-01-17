@@ -140,6 +140,15 @@ namespace AuthenticatorPro.Worker
             var customIconsAdded = backup.CustomIcons != null
                 ? await _customIconSource.AddMany(backup.CustomIcons)
                 : 0;
+            
+            try
+            {
+                await _customIconSource.CullUnused();
+            }
+            catch
+            {
+                // ignored
+            }
                 
             return new RestoreResult(authsAdded, authsUpdated, categoriesAdded, customIconsAdded);
         }

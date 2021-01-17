@@ -14,6 +14,7 @@ using Android.Gms.Wearable;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
@@ -694,8 +695,6 @@ namespace AuthenticatorPro.Activity
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
-                var icon = _authSource.Get(position).Icon;
-
                 try
                 {
                     await _authSource.Delete(position);
@@ -706,7 +705,14 @@ namespace AuthenticatorPro.Activity
                     return;
                 }
                 
-                await TryCleanupCustomIcon(icon);
+                try
+                {
+                    await _customIconSource.CullUnused();
+                }
+                catch
+                {
+                    // ignored
+                }
 
                 RunOnUiThread(delegate
                 {
@@ -1119,6 +1125,15 @@ namespace AuthenticatorPro.Activity
                 ? await _customIconSource.AddMany(backup.CustomIcons)
                 : 0;
 
+            try
+            {
+                await _customIconSource.CullUnused();
+            }
+            catch
+            {
+                // ignored
+            }
+
             return new RestoreResult(authsAdded, authsUpdated, categoryCount, customIconCount);
         }
 
@@ -1415,12 +1430,21 @@ namespace AuthenticatorPro.Activity
             try
             {
                 await _authSource.UpdateSingle(auth);
-                await TryCleanupCustomIcon(oldIcon);
             }
             catch
             {
+                auth.Icon = oldIcon;
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
+            }
+            
+            try
+            {
+                await _customIconSource.CullUnused();
+            }
+            catch
+            {
+                // ignored
             }
 
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
@@ -1489,22 +1513,19 @@ namespace AuthenticatorPro.Activity
                 return;
             }
 
-            await TryCleanupCustomIcon(oldIcon);
+            try
+            {
+                await _customIconSource.CullUnused();
+            }
+            catch
+            {
+                // this shouldn't fail, but ignore if it does
+            }
+            
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
             
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position); });
             await NotifyWearAppOfChange();
-        }
-
-        private async Task TryCleanupCustomIcon(string icon)
-        {
-            if(icon != null && icon.StartsWith(CustomIcon.Prefix))
-            {
-                var id = icon.Substring(1);
-
-                if(!_authSource.IsCustomIconInUse(id))
-                    await _customIconSource.Delete(id);
-            }
         }
         #endregion
 
