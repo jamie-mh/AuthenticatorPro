@@ -2,7 +2,9 @@
 using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
+using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
@@ -17,6 +19,8 @@ namespace AuthenticatorPro.Activity
     {
         private const int MaxAttempts = 3;
         private int _failedAttempts;
+
+        private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
         private DatabasePasswordStorage _passwordStorage; 
         private TextInputEditText _passwordText;
@@ -26,6 +30,8 @@ namespace AuthenticatorPro.Activity
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityLogin);
 
+            _preferences = new PreferenceWrapper(this);
+
             SetResult(Result.Canceled);
             _passwordText = FindViewById<TextInputEditText>(Resource.Id.editPassword);
 
@@ -33,12 +39,23 @@ namespace AuthenticatorPro.Activity
             var loginButton = FindViewById<MaterialButton>(Resource.Id.buttonLogin);
             loginButton.Click += OnLoginButtonClick;
            
-            // TODO: show biometric prompt automatically
+            var canUseBiometrics = false;
+            
+            if(_preferences.AllowBiometrics)
+            {
+                var biometricManager = BiometricManager.From(this);
+                canUseBiometrics = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
+            }
+            
             var useBiometricsButton = FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
+            useBiometricsButton.Visibility = canUseBiometrics ? ViewStates.Visible : ViewStates.Gone;
             useBiometricsButton.Click += delegate
             {
                 ShowBiometricPrompt();
             };
+            
+            if(canUseBiometrics)
+                ShowBiometricPrompt();
         }
 
         private async void OnLoginButtonClick(object sender, EventArgs e)
@@ -81,6 +98,7 @@ namespace AuthenticatorPro.Activity
             
             callback.Success += async (_, result) =>
             {
+                // TODO: try catch
                 var password = passwordStorage.Fetch(result.CryptoObject.Cipher);
                 await AttemptLogin(password);
             };

@@ -261,7 +261,7 @@ namespace AuthenticatorPro.Activity
         protected override async void OnDestroy()
         {
             base.OnDestroy();
-            Database.CloseSharedConnection();
+            await Database.CloseSharedConnection();
         }
         
         protected override async void OnPause()

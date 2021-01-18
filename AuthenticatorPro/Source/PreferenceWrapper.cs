@@ -33,6 +33,14 @@ namespace AuthenticatorPro
             set => SetPreference(PasswordProtectedKey, value);
         }
         
+        private const string PasswordChangedKey = "passwordChanged";
+        private const bool PasswordChangedDefault = false;
+        public bool PasswordChanged 
+        {
+            get => _preferences.GetBoolean(PasswordChangedKey, PasswordChangedDefault);
+            set => SetPreference(PasswordChangedKey, value);
+        }
+        
         private const string AllowBiometricsKey = "pref_allowBiometrics";
         private const bool AllowBiometricsDefault = false;
         public bool AllowBiometrics

@@ -76,6 +76,13 @@ namespace AuthenticatorPro.Data
             SetNullableByteArrayPreference(PasswordPrefKey, payload); 
         }
 
+        public static void Clear()
+        {
+            var ks = KeyStore.GetInstance(KeyStoreName);
+            ks.Load(null);
+            ks.DeleteEntry(KeyAlias);
+        }
+
         public string Fetch(Cipher cipher)
         {
             var payload = GetNullableByteArrayPreference(PasswordPrefKey, null);

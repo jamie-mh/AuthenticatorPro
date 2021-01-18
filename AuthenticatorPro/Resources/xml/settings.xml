@@ -26,10 +26,16 @@
         android:key="pref_key_security">
         <authenticatorpro.preference.PasswordPreference
             android:key="pref_password"
-            android:summary="Password"
+            android:summary="@string/prefPasswordSummary"
             app:iconSpaceReserved="false"
             android:defaultValue="false"
-            android:title="Password" />
+            android:title="@string/prefPasswordTitle" />
+        <authenticatorpro.preference.BiometricsPreference
+            android:key="pref_allowBiometrics"
+            android:summary="@string/prefAllowBiometricsSummary"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"
+            android:title="@string/prefAllowBiometricsTitle" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

@@ -1,10 +1,15 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
+using AndroidX.Biometric;
+using AndroidX.Core.Content;
 using AndroidX.Preference;
+using AuthenticatorPro.Callback;
+using AuthenticatorPro.Data;
 using AuthenticatorPro.Fragment;
+using AuthenticatorPro.Preference;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activity
@@ -12,8 +17,8 @@ namespace AuthenticatorPro.Activity
     [Activity]
     internal class SettingsActivity : DayNightActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
+        private PreferenceWrapper _preferences;
         private SettingsFragment _fragment;
-        private ProgressBar _progressBar;
         private bool _shouldRecreateMain;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,6 +28,7 @@ namespace AuthenticatorPro.Activity
             // If a setting that requires changes to the main activity has changed
             // return a result telling it to recreate.
             _shouldRecreateMain = savedInstanceState != null && savedInstanceState.GetBoolean("shouldRecreateMain", false);
+            _preferences = new PreferenceWrapper(this);
 
             SetContentView(Resource.Layout.activitySettings);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -33,8 +39,6 @@ namespace AuthenticatorPro.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
 
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
-
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             prefs.RegisterOnSharedPreferenceChangeListener(this);
 
@@ -42,6 +46,7 @@ namespace AuthenticatorPro.Activity
             _fragment.PreferencesCreated += delegate
             {
                 UpdateBackupRemindersEnabled(prefs);
+                UpdateAllowBiometricsEnabled();
             };
 
             SupportFragmentManager.BeginTransaction()
@@ -61,7 +66,11 @@ namespace AuthenticatorPro.Activity
         {
             switch(key)
             {
-                case "pref_useEncryptedDatabase":
+                case "passwordChanged":
+                    _preferences.PasswordChanged = false;
+                    _shouldRecreateMain = true;
+                    break;
+                
                 case "pref_viewMode":
                     _shouldRecreateMain = true;
                     break;
@@ -73,13 +82,13 @@ namespace AuthenticatorPro.Activity
                 case "pref_autoBackupEnabled":
                     UpdateBackupRemindersEnabled(sharedPreferences);
                     break;
+                
+                case "pref_allowBiometrics":
+                    var pref = _fragment.FindPreference(key);
+                    if(pref != null)
+                        ((BiometricsPreference) pref).Checked = _preferences.AllowBiometrics; 
+                    break;
             }
-        }
-
-        private void UpdateBackupRemindersEnabled(ISharedPreferences sharedPreferences)
-        {
-            var autoBackupEnabled = sharedPreferences.GetBoolean("pref_autoBackupEnabled", false);
-            _fragment.FindPreference("pref_showBackupReminders").Enabled = !autoBackupEnabled;
         }
 
         public override bool OnSupportNavigateUp()
@@ -110,5 +119,87 @@ namespace AuthenticatorPro.Activity
             Finish();
             base.OnBackPressed();
         }
+
+        #region Preference states
+        private void UpdateBackupRemindersEnabled(ISharedPreferences sharedPreferences)
+        {
+            var autoBackupEnabled = sharedPreferences.GetBoolean("pref_autoBackupEnabled", false);
+            _fragment.FindPreference("pref_showBackupReminders").Enabled = !autoBackupEnabled;
+        }
+
+        private void UpdateAllowBiometricsEnabled()
+        {
+            var biometricManager = BiometricManager.From(this);
+            var enabled = false;
+
+            switch(biometricManager.CanAuthenticate())
+            {
+                case BiometricManager.BiometricSuccess:
+                    enabled = true;
+                    break;
+                
+                case BiometricManager.BiometricErrorNoHardware:
+                case BiometricManager.BiometricErrorHwUnavailable:
+                case BiometricManager.BiometricErrorNoneEnrolled:
+                    enabled = false;
+                    // TODO: show message
+                    break;
+            }
+            
+            _fragment.FindPreference("pref_allowBiometrics").Enabled = enabled && _preferences.PasswordProtected;
+        }
+        #endregion
+
+        #region Biometrics
+        public void EnableBiometrics(Action<bool> callback)
+        {
+            var passwordStorage = new DatabasePasswordStorage(this);
+            var executor = ContextCompat.GetMainExecutor(this);
+            var authCallback = new AuthenticationCallback();
+            
+            authCallback.Success += async (_, result) =>
+            {
+                try
+                {
+                    var password = await SecureStorageWrapper.GetDatabasePassword();
+                    passwordStorage.Store(password, result.CryptoObject.Cipher);
+                }
+                catch
+                {
+                    callback(false);
+                    return;
+                }
+                
+                callback(true);
+            };
+
+            authCallback.Failed += delegate
+            {
+                callback(false);
+            };
+            
+            authCallback.Error += delegate
+            {
+                // Do something, probably
+                callback(false);
+            };
+            
+            var prompt = new BiometricPrompt(this, executor, authCallback);
+           
+            var promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .SetTitle(GetString(Resource.String.setupBiometricUnlock))
+                .SetSubtitle(GetString(Resource.String.scanFingerprint))
+                .SetNegativeButtonText(GetString(Resource.String.cancel))
+                .Build();
+
+            var cipher = passwordStorage.GetEncryptionCipher();
+            prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
+        }
+        
+        public void ClearBiometrics()
+        {
+            DatabasePasswordStorage.Clear();
+        }
+        #endregion
     }
 }

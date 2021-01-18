@@ -79,5 +79,17 @@ namespace AuthenticatorPro.Fragment
             var layout = new LinearLayoutManager(Context);
             list.SetLayoutManager(layout);
         }
+
+        protected void Lock()
+        {
+            Dialog.SetCancelable(false);
+            Dialog.SetCanceledOnTouchOutside(false);
+        }
+
+        protected void Unlock()
+        {
+            Dialog.SetCancelable(true);
+            Dialog.SetCanceledOnTouchOutside(true);
+        }
     }
 }
