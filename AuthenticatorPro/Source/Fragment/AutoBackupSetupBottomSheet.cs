@@ -149,7 +149,8 @@ namespace AuthenticatorPro.Fragment
 
             if(_preferences.AutoBackupUri != null)
                 intent.PutExtra(DocumentsContract.ExtraInitialUri, _preferences.AutoBackupUri);
-            
+
+            ((SettingsActivity) Context).BaseApplication.PreventNextLock = true;
             StartActivityForResult(intent, RequestPicker);
         }
         

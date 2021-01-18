@@ -18,6 +18,7 @@ namespace AuthenticatorPro
     internal class BaseApplication : Android.App.Application, ILifecycleObserver
     {
         public bool IsLocked { get; private set; }
+        public bool PreventNextLock { get; set; }
         
         private Timer _timeoutTimer;
         private PreferenceWrapper _preferences;
@@ -42,7 +43,13 @@ namespace AuthenticatorPro
         {
             if(!_preferences.PasswordProtected)
                 return;
-            
+
+            if(PreventNextLock)
+            {
+                PreventNextLock = false;
+                return;
+            }
+
             var timeout = _preferences.Timeout;
             
             if(timeout == 0)

@@ -1704,6 +1704,8 @@ namespace AuthenticatorPro.Activity
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType(mimeType);
 
+            BaseApplication.PreventNextLock = true;
+
             try
             {
                 StartActivityForResult(intent, requestCode);
@@ -1721,6 +1723,8 @@ namespace AuthenticatorPro.Activity
             intent.SetType(mimeType);
             intent.PutExtra(Intent.ExtraTitle, fileName);
 
+            BaseApplication.PreventNextLock = true;
+            
             try
             {
                 StartActivityForResult(intent, requestCode);

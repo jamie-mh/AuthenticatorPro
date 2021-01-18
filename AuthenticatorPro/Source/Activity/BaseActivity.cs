@@ -7,7 +7,7 @@ namespace AuthenticatorPro.Activity
 {
     internal abstract class BaseActivity : AppCompatActivity
     {
-        protected BaseApplication BaseApplication;
+        public BaseApplication BaseApplication;
         protected bool IsDark { get; private set; }
 
         private bool _checkedOnCreate;
