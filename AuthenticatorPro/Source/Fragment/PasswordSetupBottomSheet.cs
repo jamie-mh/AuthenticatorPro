@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetPasswordSetup, null);
-            SetupToolbar(view, Resource.String.prefPasswordTitle, true);
+            SetupToolbar(view, Resource.String.prefPasswordTitle);
             
             _preferences = new PreferenceWrapper(Context);
             _hasPassword = _preferences.PasswordProtected;
