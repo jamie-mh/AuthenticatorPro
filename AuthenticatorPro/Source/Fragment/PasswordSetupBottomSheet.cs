@@ -93,7 +93,8 @@ namespace AuthenticatorPro.Fragment
 
             try
             {
-                DatabasePasswordStorage.Clear();
+                var manager = new PasswordStorageManager(Context);
+                manager.Clear();
             }
             catch
             {

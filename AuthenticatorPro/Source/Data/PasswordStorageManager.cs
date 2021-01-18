@@ -9,7 +9,7 @@ using Javax.Crypto.Spec;
 
 namespace AuthenticatorPro.Data
 {
-    internal class DatabasePasswordStorage
+    internal class PasswordStorageManager
     {
         private const string KeyStoreName = "AndroidKeyStore";
         private const string KeyAlias = "databasePassphrase";
@@ -17,7 +17,6 @@ namespace AuthenticatorPro.Data
         private const string PasswordPrefKey = "databasePassphrase";
         private const string IvPrefKey = "databasePassphraseIv";
         
-        // TODO: check api < 23
         private const string Algorithm = KeyProperties.KeyAlgorithmAes;
         private const string BlockMode = KeyProperties.BlockModeCbc;
         private const string Padding = KeyProperties.EncryptionPaddingPkcs7;
@@ -25,7 +24,7 @@ namespace AuthenticatorPro.Data
 
         private readonly ISharedPreferences _preferences;
         
-        public DatabasePasswordStorage(Context context)
+        public PasswordStorageManager(Context context)
         {
             _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
         }
@@ -76,11 +75,13 @@ namespace AuthenticatorPro.Data
             SetByteArrayPreference(PasswordPrefKey, payload); 
         }
 
-        public static void Clear()
+        public void Clear()
         {
             var ks = KeyStore.GetInstance(KeyStoreName);
             ks.Load(null);
             ks.DeleteEntry(KeyAlias);
+            SetByteArrayPreference(PasswordPrefKey, null);
+            SetByteArrayPreference(IvPrefKey, null);
         }
 
         public string Fetch(Cipher cipher)

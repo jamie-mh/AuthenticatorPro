@@ -116,7 +116,7 @@ namespace AuthenticatorPro.Activity
         private void ShowBiometricPrompt()
         {
             var executor = ContextCompat.GetMainExecutor(this);
-            var passwordStorage = new DatabasePasswordStorage(this);
+            var passwordStorage = new PasswordStorageManager(this);
             var callback = new AuthenticationCallback();
             
             callback.Success += async (_, result) =>

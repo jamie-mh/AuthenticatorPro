@@ -111,7 +111,7 @@
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
     <Compile Include="Source\Data\Database.cs" />
-    <Compile Include="Source\Data\DatabasePasswordStorage.cs" />
+    <Compile Include="Source\Data\PasswordStorageManager.cs" />
     <Compile Include="Source\Data\OtpAuthMigration.cs" />
     <Compile Include="Source\Data\Source\AuthenticatorSource.cs" />
     <Compile Include="Source\Data\Source\CategorySource.cs" />

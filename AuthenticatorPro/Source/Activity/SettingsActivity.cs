@@ -139,7 +139,7 @@ namespace AuthenticatorPro.Activity
         #region Biometrics
         public void EnableBiometrics(Action<bool> callback)
         {
-            var passwordStorage = new DatabasePasswordStorage(this);
+            var passwordStorage = new PasswordStorageManager(this);
             var executor = ContextCompat.GetMainExecutor(this);
             var authCallback = new AuthenticationCallback();
             
@@ -184,7 +184,8 @@ namespace AuthenticatorPro.Activity
         
         public void ClearBiometrics()
         {
-            DatabasePasswordStorage.Clear();
+            var storage = new PasswordStorageManager(this);
+            storage.Clear();
         }
         #endregion
     }
