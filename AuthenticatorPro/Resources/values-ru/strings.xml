@@ -83,8 +83,6 @@
     <string name="restoreError">Неверный пароль или файл повреждён.</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Подтверждение пароля</string>
-    <string name="login">Логин</string>
-    <string name="loginMessage">Пожалуйста, введите ваш пароль или используйте отпечаток пальца для доступа к вашим аутентификаторам.</string>
     <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
@@ -129,6 +127,21 @@
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Резервное копирование запланировано</string>
     <string name="restoreScheduled">Restore scheduled</string>
+    <!-- Password setup -->
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="clearPassword">Clear password</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="scanFingerprint">Scan fingerprint</string>
+    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <!-- Unlock -->
+    <string name="unlock">Unlock</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="tooManyAttempts">Too many attempts</string>
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Импортировать из</string>
@@ -164,10 +177,10 @@
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
     <string name="prefAutoBackupSummary">Настройка автоматического резервного копирования локального или облачного хранилища при внесении изменений. Отключает напоминания о резервном копировании.</string>
     <string name="prefSecurity">Безопасность</string>
-    <string name="prefAppLockTitle">Блокировка приложения</string>
-    <string name="prefAppLockSummary">Требовать аутентификацию для доступа к аутентификаторам. Эта функция использует настройки экрана блокировки на вашем устройстве.</string>
-    <string name="prefUseEncryptedDatabaseTitle">Шифрование</string>
-    <string name="prefUseEncryptedDatabaseSummary">Зашифруйте базу данных на вашем устройстве. Полезно, если у вас есть права суперпользователя. Эта опция будет препятствовать созданию резервных копий сторонних производителей и может снизить производительность.</string>
+    <string name="prefPasswordTitle">Password</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
