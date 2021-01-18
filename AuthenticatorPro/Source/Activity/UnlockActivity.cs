@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Activity
         private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
         
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityUnlock);
@@ -71,7 +71,7 @@ namespace AuthenticatorPro.Activity
             if(canUseBiometrics)
                 ShowBiometricPrompt();
             else
-                FocusPasswordText();
+                await FocusPasswordText();
         }
 
         private async void OnUnlockButtonClick(object sender, EventArgs e)
@@ -81,11 +81,19 @@ namespace AuthenticatorPro.Activity
             _unlockButton.Enabled = _useBiometricsButton.Enabled = true;
         }
 
-        private void FocusPasswordText()
+        private async Task FocusPasswordText()
         {
-            _passwordText.RequestFocus();
-            var inputManager = (InputMethodManager) GetSystemService(InputMethodService);
-            inputManager.ShowSoftInput(_passwordText, ShowFlags.Implicit);
+            await Task.Run(async delegate
+            {
+                await Task.Delay(250);
+                
+                RunOnUiThread(delegate
+                {
+                    _passwordText.RequestFocus();
+                    var inputManager = (InputMethodManager) GetSystemService(InputMethodService);
+                    inputManager.ShowSoftInput(_passwordText, ShowFlags.Implicit);
+                });
+            });
         }
 
         private async Task AttemptUnlock(string password)
@@ -141,10 +149,10 @@ namespace AuthenticatorPro.Activity
                 FocusPasswordText();
             };
 
-            callback.Error += (_, result) => 
+            callback.Error += async (_, result) => 
             {
                 Toast.MakeText(this, result.Message, ToastLength.Short).Show();
-                FocusPasswordText();
+                await FocusPasswordText();
             };
             
             _prompt = new BiometricPrompt(this, executor, callback);
