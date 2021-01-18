@@ -83,8 +83,6 @@
     <string name="restoreError">Das Passwort ist falsch oder die Datei ist beschädigt.</string>
     <string name="password">Passwort</string>
     <string name="passwordConfirm">Passwort bestätigen</string>
-    <string name="login">Anmelden</string>
-    <string name="loginMessage">Gib dein Passwort ein oder nutze deinen Fingerabdruck, um die App zu entsperren.</string>
     <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
     <string name="passwordHint">Sicherungspasswort</string>
     <string name="fileNameHint">Sicherungsdateiname</string>
@@ -129,6 +127,21 @@
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
+    <!-- Password setup -->
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="clearPassword">Clear password</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="scanFingerprint">Scan fingerprint</string>
+    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <!-- Unlock -->
+    <string name="unlock">Unlock</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="tooManyAttempts">Too many attempts</string>
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Import from</string>
@@ -164,10 +177,10 @@
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Sicherheit</string>
-    <string name="prefAppLockTitle">App-Sperre</string>
-    <string name="prefAppLockSummary">Anmeldung verlangen, um auf Schlüssel zuzugreifen. Dies setzt voraus, dass dein Gerät einen Sperrbildschirm hat.</string>
-    <string name="prefUseEncryptedDatabaseTitle">Datenbank verschlüsseln</string>
-    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option will interfere with third-party backup tools and may reduce performance.</string>
+    <string name="prefPasswordTitle">Password</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefAppearance">Erscheinungsbild</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
