@@ -1,7 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using Android.Content;
+using AndroidX.Preference;
 using SQLite;
+using Xamarin.Essentials;
 
 namespace AuthenticatorPro.Data
 {
@@ -157,6 +160,29 @@ namespace AuthenticatorPro.Data
                     await conn.CloseAsync();
                 }
             }
+        }
+
+        public static async Task UpgradeLegacy(Context context)
+        {
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(context);
+            var oldPref = prefs.GetBoolean("pref_useEncryptedDatabase", false);
+            
+            if(!oldPref)
+                return;
+                   
+            string key = null;
+            
+            await Task.Run(async delegate
+            {
+                key = await SecureStorage.GetAsync("database_key");
+            });
+
+            // this shouldn't happen
+            if(key == null)
+                return;
+
+            await SetPassword(key, null);
+            prefs.Edit().PutBoolean("pref_useEncryptedDatabase", false).Commit();
         }
     }
 }

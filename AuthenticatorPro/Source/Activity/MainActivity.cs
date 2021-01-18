@@ -151,6 +151,7 @@ namespace AuthenticatorPro.Activity
                 _lastBackupReminderTime = DateTime.MinValue;
             }
 
+            await Database.UpgradeLegacy(this);
             await UnlockIfRequired();
 
             var connection = await Database.GetSharedConnection();
