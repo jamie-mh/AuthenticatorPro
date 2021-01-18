@@ -8,15 +8,7 @@ namespace AuthenticatorPro.Util
 {
     internal class PreferenceWrapper
     {
-        // TODO: sort
-        private const string FirstLaunchKey = "firstLaunch";
-        private const bool FirstLaunchDefault = true;
-        public bool FirstLaunch 
-        {
-            get => _preferences.GetBoolean(FirstLaunchKey, FirstLaunchDefault);
-            set => SetPreference(FirstLaunchKey, value);
-        }
-
+        #region Standard preferences
         private const string ShowBackupRemindersKey = "pref_showBackupReminders";
         private const bool ShowBackupRemindersDefault = true;
         public bool ShowBackupReminders 
@@ -31,14 +23,6 @@ namespace AuthenticatorPro.Util
         {
             get => _preferences.GetBoolean(PasswordProtectedKey, PasswordProtectedDefault);
             set => SetPreference(PasswordProtectedKey, value);
-        }
-        
-        private const string PasswordChangedKey = "passwordChanged";
-        private const bool PasswordChangedDefault = false;
-        public bool PasswordChanged 
-        {
-            get => _preferences.GetBoolean(PasswordChangedKey, PasswordChangedDefault);
-            set => SetPreference(PasswordChangedKey, value);
         }
         
         private const string AllowBiometricsKey = "pref_allowBiometrics";
@@ -96,6 +80,24 @@ namespace AuthenticatorPro.Util
             get => GetNullableBooleanPreference(AutoBackupPasswordProtectedKey, AutoBackupPasswordProtectedDefault);
             set => SetNullableBooleanPreference(AutoBackupPasswordProtectedKey, value);
         }
+        #endregion
+        
+        #region State
+        private const string FirstLaunchKey = "firstLaunch";
+        private const bool FirstLaunchDefault = true;
+        public bool FirstLaunch 
+        {
+            get => _preferences.GetBoolean(FirstLaunchKey, FirstLaunchDefault);
+            set => SetPreference(FirstLaunchKey, value);
+        }
+
+        private const string PasswordChangedKey = "passwordChanged";
+        private const bool PasswordChangedDefault = false;
+        public bool PasswordChanged 
+        {
+            get => _preferences.GetBoolean(PasswordChangedKey, PasswordChangedDefault);
+            set => SetPreference(PasswordChangedKey, value);
+        }
 
         private const string AutoRestoreCompletedKey = "autoRestoreCompleted";
         private const bool AutoRestoreCompletedDefault = false;
@@ -136,6 +138,7 @@ namespace AuthenticatorPro.Util
             get => _preferences.GetLong(MostRecentBackupModifiedAtKey, MostRecentBackupModifiedAtDefault);
             set => SetPreference(MostRecentBackupModifiedAtKey, value);
         }
+        #endregion
         
         private readonly Context _context;
         private ISharedPreferences _preferences;
