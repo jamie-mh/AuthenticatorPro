@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Activity
 
             var webView = FindViewById<WebView>(Resource.Id.webView);
             webView.Settings.JavaScriptEnabled = true;
-            webView.LoadUrl($"file:///android_asset/about.html#{version}");
+            webView.LoadUrl($"file:///android_asset/about.html#{version}|{(IsDark ? "dark" : "light")}");
         }
 
         public override bool OnSupportNavigateUp()

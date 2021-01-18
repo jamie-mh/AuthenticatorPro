@@ -4,11 +4,13 @@
     <title>About</title>
     <style>
         body { font-family: sans-serif; }
+        body.light { color: #111; background: #fff; }
+        body.dark { color: #eee; background: #000; }
+        a { color: #40c4ff; }
     </style>
 </head>
 <body>
 
-<h1>About</h1>
 <p>
     <b>Authenticator Pro - jmh</b>
 </p>
@@ -63,8 +65,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <p>All product names, trademarks and registered trademarks are property of their respective owners. All company, product and service names used in this application are for identification purposes only. Use of these names, trademarks and brands does not imply endorsement.</p>
 
 <script>
+    var options = location.hash.substring(1).split('|');
+    
     var $version = document.getElementById('version');
-    $version.innerHTML = location.hash.substring(1);
+    $version.innerHTML = options[0];
+
+    $body = document.getElementsByTagName('body')[0];
+    $body.classList.add(options[1]);
 </script>
 
 </body>
