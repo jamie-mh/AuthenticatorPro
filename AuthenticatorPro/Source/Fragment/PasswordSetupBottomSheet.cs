@@ -88,8 +88,8 @@ namespace AuthenticatorPro.Fragment
             }
 
             _preferences.AllowBiometrics = false;
-            _preferences.PasswordChanged = true;
             _preferences.PasswordProtected = newPassword != null;
+            _preferences.PasswordChanged = true;
 
             try
             {

@@ -69,6 +69,7 @@ namespace AuthenticatorPro.Activity
                 case "passwordChanged":
                     _preferences.PasswordChanged = false;
                     _shouldRecreateMain = true;
+                    UpdateAllowBiometricsEnabled();
                     break;
                 
                 case "pref_viewMode":
@@ -130,23 +131,8 @@ namespace AuthenticatorPro.Activity
         private void UpdateAllowBiometricsEnabled()
         {
             var biometricManager = BiometricManager.From(this);
-            var enabled = false;
-
-            switch(biometricManager.CanAuthenticate())
-            {
-                case BiometricManager.BiometricSuccess:
-                    enabled = true;
-                    break;
-                
-                case BiometricManager.BiometricErrorNoHardware:
-                case BiometricManager.BiometricErrorHwUnavailable:
-                case BiometricManager.BiometricErrorNoneEnrolled:
-                    enabled = false;
-                    // TODO: show message
-                    break;
-            }
-            
-            _fragment.FindPreference("pref_allowBiometrics").Enabled = enabled && _preferences.PasswordProtected;
+            var enabled = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess && _preferences.PasswordProtected;
+            _fragment.FindPreference("pref_allowBiometrics").Enabled = enabled;
         }
         #endregion
 
