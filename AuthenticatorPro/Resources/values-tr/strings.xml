@@ -83,8 +83,6 @@
     <string name="restoreError">Parola yanlış veya dosya bozuk.</string>
     <string name="password">Parola</string>
     <string name="passwordConfirm">Parolayı Onayla</string>
-    <string name="login">Giriş</string>
-    <string name="loginMessage">Kimlik doğrulayıcınıza erişmek için lütfen parolanızı girin veya bir parmak izi kullanın.</string>
     <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
     <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
@@ -129,6 +127,21 @@
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
+    <!-- Password setup -->
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="clearPassword">Clear password</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="scanFingerprint">Scan fingerprint</string>
+    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <!-- Unlock -->
+    <string name="unlock">Unlock</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="tooManyAttempts">Too many attempts</string>
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Import from</string>
@@ -164,10 +177,10 @@
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Güvenlik</string>
-    <string name="prefAppLockTitle">Uygulama Kilidi</string>
-    <string name="prefAppLockSummary">Kimlik doğrulayıcılara erişmek için doğrulama gereklidir. Bu özellik cihazınızda bir kilit ekranı ayarlamanızı gerektirir.</string>
-    <string name="prefUseEncryptedDatabaseTitle">Şifreli Veritabanı</string>
-    <string name="prefUseEncryptedDatabaseSummary">Cihazınızdaki veri tabanını şifreleyin. Root erişiminiz varsa kullanışlıdır. Bu seçenek üçüncü taraf yedekleme araçlarına müdahale eder ve performansı düşürebilir.</string>
+    <string name="prefPasswordTitle">Password</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
