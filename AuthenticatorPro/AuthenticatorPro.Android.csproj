@@ -111,6 +111,7 @@
     <Compile Include="Source\Data\Category.cs" />
     <Compile Include="Source\Data\CustomIcon.cs" />
     <Compile Include="Source\Data\Database.cs" />
+    <Compile Include="Source\Data\DatabasePasswordStorage.cs" />
     <Compile Include="Source\Data\OtpAuthMigration.cs" />
     <Compile Include="Source\Data\Source\AuthenticatorSource.cs" />
     <Compile Include="Source\Data\Source\CategorySource.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Source\Fragment\BackupPasswordBottomSheet.cs" />
     <Compile Include="Source\Activity\AboutActivity.cs" />
     <Compile Include="Source\Fragment\AuthenticatorMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\PasswordSetupBottomSheet.cs" />
     <Compile Include="Source\Fragment\RenameAuthenticatorBottomSheet.cs" />
     <Compile Include="Source\Fragment\AddMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\IntroPageFragment.cs" />
@@ -142,7 +144,7 @@
     <Compile Include="Source\List\SheetMenuItemViewHolder.cs" />
     <Compile Include="Source\PreferenceWrapper.cs" />
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
-    <Compile Include="Source\Preference\EncryptedDatabasePreference.cs" />
+    <Compile Include="Source\Preference\PasswordPreference.cs" />
     <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
     <Compile Include="Source\Preference\RatePreference.cs" />
     <Compile Include="Source\Preference\AboutPreference.cs" />
@@ -161,6 +163,7 @@
     <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\List\IReorderableListAdapter.cs" />
+    <Compile Include="Source\SecureStorageWrapper.cs" />
     <Compile Include="Source\Service\WearQueryService.cs" />
     <Compile Include="Source\Util\FileUtil.cs" />
     <Compile Include="Source\Util\TextInputUtil.cs" />
@@ -194,6 +197,10 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\sheetMenuItem.axml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\sheetPasswordSetup.axml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>

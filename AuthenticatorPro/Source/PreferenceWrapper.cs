@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Android.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Data.Backup;
@@ -8,6 +8,7 @@ namespace AuthenticatorPro
 {
     internal class PreferenceWrapper
     {
+        // TODO: sort
         private const string FirstLaunchKey = "firstLaunch";
         private const bool FirstLaunchDefault = true;
         public bool FirstLaunch 
@@ -24,20 +25,20 @@ namespace AuthenticatorPro
             set => SetPreference(ShowBackupRemindersKey, value);
         }
 
-        private const string AppLockKey = "pref_appLock";
-        private const bool AppLockDefault = false;
-        public bool AppLock
+        private const string PasswordProtectedKey = "pref_passwordProtected";
+        private const bool PasswordProtectedDefault = false;
+        public bool PasswordProtected
         {
-            get => _preferences.GetBoolean(AppLockKey, AppLockDefault);
-            set => SetPreference(AppLockKey, value);
+            get => _preferences.GetBoolean(PasswordProtectedKey, PasswordProtectedDefault);
+            set => SetPreference(PasswordProtectedKey, value);
         }
         
-        private const string UseEncryptedDatabaseKey = "pref_useEncryptedDatabase";
-        private const bool UseEncryptedDatabaseDefault = false;
-        public bool UseEncryptedDatabase
+        private const string AllowBiometricsKey = "pref_allowBiometrics";
+        private const bool AllowBiometricsDefault = false;
+        public bool AllowBiometrics
         {
-            get => _preferences.GetBoolean(UseEncryptedDatabaseKey, UseEncryptedDatabaseDefault);
-            set => SetPreference(UseEncryptedDatabaseKey, value);
+            get => _preferences.GetBoolean(AllowBiometricsKey, AllowBiometricsDefault);
+            set => SetPreference(AllowBiometricsKey, value);
         }
         
         private const string ThemeKey = "pref_theme";
@@ -137,6 +138,7 @@ namespace AuthenticatorPro
             FetchPreferences();
         }
 
+        // TODO: check if necessary
         private void FetchPreferences()
         {
             _preferences = PreferenceManager.GetDefaultSharedPreferences(_context);
@@ -178,6 +180,8 @@ namespace AuthenticatorPro
                 false => "false",
                 true => "true"
             }).Commit();
+            
+            FetchPreferences();
         }
 
         private Uri? GetUriPreference(string key, Uri? defaultValue)

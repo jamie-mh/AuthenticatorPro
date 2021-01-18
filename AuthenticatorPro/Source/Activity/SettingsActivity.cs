@@ -4,9 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Preference;
-using AuthenticatorPro.Data;
 using AuthenticatorPro.Fragment;
-using Task = System.Threading.Tasks.Task;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activity
@@ -75,28 +73,6 @@ namespace AuthenticatorPro.Activity
                 case "pref_autoBackupEnabled":
                     UpdateBackupRemindersEnabled(sharedPreferences);
                     break;
-            }
-        }
-
-        public async Task SetDatabaseEncryption(bool shouldEncrypt)
-        {
-            RunOnUiThread(delegate
-            {
-                _progressBar.Visibility = ViewStates.Visible;
-                Window.SetFlags(WindowManagerFlags.NotTouchable, WindowManagerFlags.NotTouchable);
-            });
-
-            try
-            {
-                await Database.SetEncryptionEnabled(this, shouldEncrypt);
-            }
-            finally
-            {
-                RunOnUiThread(delegate
-                {
-                    Window.ClearFlags(WindowManagerFlags.NotTouchable);
-                    _progressBar.Visibility = ViewStates.Invisible;
-                });
             }
         }
 

@@ -24,18 +24,12 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefSecurity"
         android:key="pref_key_security">
-        <androidx.preference.SwitchPreferenceCompat
-            android:key="pref_appLock"
-            android:summary="@string/prefAppLockSummary"
-            android:title="@string/prefAppLockTitle"
-            app:iconSpaceReserved="false"
-            android:defaultValue="false" />
-        <authenticatorpro.preference.EncryptedDatabasePreference
-            android:key="pref_useEncryptedDatabase"
-            android:summary="@string/prefUseEncryptedDatabaseSummary"
+        <authenticatorpro.preference.PasswordPreference
+            android:key="pref_password"
+            android:summary="Password"
             app:iconSpaceReserved="false"
             android:defaultValue="false"
-            android:title="@string/prefUseEncryptedDatabaseTitle" />
+            android:title="Password" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

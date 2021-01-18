@@ -15,7 +15,6 @@ using AuthenticatorPro.Data.Backup;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Util;
 using SQLite;
-using Xamarin.Essentials;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Worker
@@ -41,7 +40,8 @@ namespace AuthenticatorPro.Worker
             
             _initTask = new Lazy<Task>(async delegate
             {
-                _connection = await Database.Connect(ApplicationContext);
+                var password = await SecureStorageWrapper.GetDatabasePassword();
+                _connection = await Database.GetPrivateConnection(password);
                 _customIconSource = new CustomIconSource(_connection);
                 _categorySource = new CategorySource(_connection);
                 _authSource = new AuthenticatorSource(_connection);
@@ -79,7 +79,7 @@ namespace AuthenticatorPro.Worker
             if(!HasPersistablePermissionsAtUri(destUri))
                 throw new Exception("No permission at URI");
 
-            var password = await SecureStorage.GetAsync("autoBackupPassword");
+            var password = await SecureStorageWrapper.GetAutoBackupPassword();
 
             if(password == null)
                 throw new Exception("No password defined.");
@@ -120,7 +120,7 @@ namespace AuthenticatorPro.Worker
                 return new RestoreResult();
             
             _preferences.MostRecentBackupModifiedAt = mostRecentBackup.LastModified();
-            var password = await SecureStorage.GetAsync("autoBackupPassword");
+            var password = await SecureStorageWrapper.GetAutoBackupPassword();
 
             if(password == null)
                 throw new Exception("No password defined.");

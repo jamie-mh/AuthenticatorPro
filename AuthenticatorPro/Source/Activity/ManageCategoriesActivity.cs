@@ -53,7 +53,7 @@ namespace AuthenticatorPro.Activity
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddClick;
 
-            _connection = await Database.Connect(this);
+            _connection = await Database.GetSharedConnection();
             _categorySource = new CategorySource(_connection);
             _categoryListAdapter = new ManageCategoriesListAdapter(_categorySource);
             _categoryListAdapter.MenuClick += OnMenuClick;

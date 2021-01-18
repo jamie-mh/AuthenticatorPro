@@ -39,7 +39,8 @@ namespace AuthenticatorPro.Service
         {
             _initTask = new Lazy<Task>(async delegate
             {
-                _connection = await Database.Connect(ApplicationContext);
+                var password = await SecureStorageWrapper.GetDatabasePassword();
+                _connection = await Database.GetPrivateConnection(password);
                 _customIconSource = new CustomIconSource(_connection);
                 _categorySource = new CategorySource(_connection);
                 _authSource = new AuthenticatorSource(_connection);

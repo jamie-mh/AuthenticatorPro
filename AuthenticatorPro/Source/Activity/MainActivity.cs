@@ -14,7 +14,6 @@ using Android.Gms.Wearable;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
@@ -106,7 +105,6 @@ namespace AuthenticatorPro.Activity
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
-        private bool _isAuthenticated;
         private bool _returnedFromResult;
         private bool _updateOnActivityResume;
         private int _customIconApplyPosition;
@@ -121,12 +119,15 @@ namespace AuthenticatorPro.Activity
         // Hand control to the next method when it's safe to do so.
         private readonly SemaphoreSlim _onCreateSemaphore;
         private readonly SemaphoreSlim _onResumeSemaphore;
+        // Pause OnCreate until login is complete
+        private readonly SemaphoreSlim _loginSemaphore;
 
 
         public MainActivity()
         {
             _onCreateSemaphore = new SemaphoreSlim(1, 1);
             _onResumeSemaphore = new SemaphoreSlim(1, 1);
+            _loginSemaphore = new SemaphoreSlim(0, 1);
         }
 
         #region Activity Lifecycle
@@ -143,28 +144,35 @@ namespace AuthenticatorPro.Activity
 
             if(savedInstanceState != null)
             {
-                _isAuthenticated = savedInstanceState.GetBoolean("isAuthenticated");
                 _pauseTime = new DateTime(savedInstanceState.GetLong("pauseTime"));
                 _lastBackupReminderTime = new DateTime(savedInstanceState.GetLong("lastBackupReminderTime"));
             }
             else
             {
-                _isAuthenticated = false;
                 _pauseTime = DateTime.MinValue;
                 _lastBackupReminderTime = DateTime.MinValue;
             }
-
-            try
-            {
-                _connection = await Database.Connect(this);
-            }
-            catch(Exception)
-            {
-                ShowDatabaseErrorDialog();
-                return;
-            }
             
             _preferences = new PreferenceWrapper(this);
+
+            if(_preferences.PasswordProtected)
+            {
+                StartActivityForResult(typeof(LoginActivity), RequestLogin);
+                await _loginSemaphore.WaitAsync();
+            }
+            else
+            {
+                try
+                {
+                    await Database.OpenSharedConnection(null);
+                    _connection = await Database.GetSharedConnection();
+                }
+                catch(Exception)
+                {
+                    StartActivityForResult(typeof(LoginActivity), RequestLogin);
+                    await _loginSemaphore.WaitAsync();
+                }
+            }
             
             _categorySource = new CategorySource(_connection);
             _customIconSource = new CustomIconSource(_connection);
@@ -210,20 +218,6 @@ namespace AuthenticatorPro.Activity
 
             await _onResumeSemaphore.WaitAsync();
 
-            if(RequiresAuthentication())
-            {
-                if((DateTime.UtcNow - _pauseTime).TotalMinutes >= AppLockThresholdMinutes)
-                    _isAuthenticated = false;
-            
-                if(!_isAuthenticated)
-                {
-                    _updateOnActivityResume = true;
-                    _onResumeSemaphore.Release();
-                    StartActivityForResult(typeof(LoginActivity), RequestLogin);
-                    return;
-                }
-            }
-
             // In case auto restore occurs when activity is loaded
             var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
             _preferences.AutoRestoreCompleted = false;
@@ -260,7 +254,6 @@ namespace AuthenticatorPro.Activity
         protected override void OnSaveInstanceState(Bundle outState)
         {
             base.OnSaveInstanceState(outState);
-            outState.PutBoolean("isAuthenticated", _isAuthenticated);
             outState.PutLong("pauseTime", _pauseTime.Ticks);
             outState.PutLong("lastBackupReminderTime", _lastBackupReminderTime.Ticks);
         }
@@ -268,9 +261,7 @@ namespace AuthenticatorPro.Activity
         protected override async void OnDestroy()
         {
             base.OnDestroy();
-
-            if(_connection != null)
-                await _connection.CloseAsync();
+            Database.CloseSharedConnection();
         }
         
         protected override async void OnPause()
@@ -296,19 +287,36 @@ namespace AuthenticatorPro.Activity
         {
             base.OnActivityResult(requestCode, resultCode, intent);
             _returnedFromResult = true;
+
+            if(requestCode == RequestLogin)
+            {
+                if(resultCode == Result.Canceled)
+                {
+                    FinishAffinity();
+                    return;
+                }
+                
+                try
+                {
+                    _connection = await Database.GetSharedConnection();
+                }
+                catch
+                {
+                    StartActivityForResult(typeof(LoginActivity), RequestLogin);
+                    return;
+                }
+                
+                _loginSemaphore.Release();
+                return;
+            }
             
             if(resultCode != Result.Ok)
                 return;
 
-            switch(requestCode)
+            if(requestCode == RequestSettingsRecreate)
             {
-                case RequestLogin:
-                    _isAuthenticated = true;
-                    return;
-                
-                case RequestSettingsRecreate:
-                    Recreate();
-                    return;
+                Recreate();
+                return;
             }
 
             await _onResumeSemaphore.WaitAsync();
@@ -1699,17 +1707,6 @@ namespace AuthenticatorPro.Activity
             {
                 ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
             }
-        }
-
-        private bool RequiresAuthentication()
-        {
-            var keyguardManager = (KeyguardManager) GetSystemService(KeyguardService);
-
-            var isDeviceSecure = Build.VERSION.SdkInt <= BuildVersionCodes.LollipopMr1
-                ? keyguardManager.IsKeyguardSecure
-                : keyguardManager.IsDeviceSecure;
-
-            return _preferences.AppLock && isDeviceSecure;
         }
         #endregion
     }
