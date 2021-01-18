@@ -83,8 +83,6 @@
     <string name="restoreError">The password is incorrect or the file is corrupt</string>
     <string name="password">Password</string>
     <string name="passwordConfirm">Password Confirm</string>
-    <string name="login">Login</string>
-    <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vulnerable. Do you wish to continue?</string>
     <string name="passwordHint">Backup Password</string>
     <string name="fileNameHint">Backup File Name</string>
@@ -129,6 +127,21 @@
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
+    <!-- Password setup -->
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="clearPassword">Clear password</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="scanFingerprint">Scan fingerprint</string>
+    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <!-- Unlock -->
+    <string name="unlock">Unlock</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="tooManyAttempts">Too many attempts</string>
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Import from</string>
@@ -164,10 +177,10 @@
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Security</string>
-    <string name="prefAppLockTitle">App Lock</string>
-    <string name="prefAppLockSummary">Require authentication to access authenticators. This feature requires that you set up a lock screen on your device.</string>
-    <string name="prefUseEncryptedDatabaseTitle">Encrypted Database</string>
-    <string name="prefUseEncryptedDatabaseSummary">Encrypt the database on your device. Useful if you have root access. This option will interfere with third-party backup tools and may reduce performance.</string>
+    <string name="prefPasswordTitle">Password</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefAppearance">Appearance</string>
     <string name="prefThemeTitle">Theme</string>
     <string name="prefThemeSummary">Choose an application theme</string>
