@@ -10,6 +10,7 @@ using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Fragment;
 using AuthenticatorPro.Preference;
+using AuthenticatorPro.Util;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Activity

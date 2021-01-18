@@ -142,7 +142,6 @@
     <Compile Include="Source\List\SheetMenuAdapter.cs" />
     <Compile Include="Source\List\SheetMenuItem.cs" />
     <Compile Include="Source\List\SheetMenuItemViewHolder.cs" />
-    <Compile Include="Source\PreferenceWrapper.cs" />
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
     <Compile Include="Source\Preference\BiometricsPreference.cs" />
     <Compile Include="Source\Preference\PasswordPreference.cs" />
@@ -164,9 +163,10 @@
     <Compile Include="Source\Activity\MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\List\IReorderableListAdapter.cs" />
-    <Compile Include="Source\SecureStorageWrapper.cs" />
     <Compile Include="Source\Service\WearQueryService.cs" />
     <Compile Include="Source\Util\FileUtil.cs" />
+    <Compile Include="Source\Util\PreferenceWrapper.cs" />
+    <Compile Include="Source\Util\SecureStorageWrapper.cs" />
     <Compile Include="Source\Util\TextInputUtil.cs" />
     <Compile Include="Source\Worker\AutoBackupWorker.cs" />
   </ItemGroup>

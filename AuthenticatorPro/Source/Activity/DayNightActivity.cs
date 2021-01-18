@@ -1,6 +1,7 @@
 ﻿using Android.Content.Res;
 using Android.OS;
 using AndroidX.AppCompat.App;
+using AuthenticatorPro.Util;
 
 namespace AuthenticatorPro.Activity
 {

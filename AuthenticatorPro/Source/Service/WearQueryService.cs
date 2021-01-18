@@ -9,6 +9,7 @@ using AuthenticatorPro.Data;
 using AuthenticatorPro.Data.Source;
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Query;
+using AuthenticatorPro.Util;
 using Newtonsoft.Json;
 using SQLite;
 

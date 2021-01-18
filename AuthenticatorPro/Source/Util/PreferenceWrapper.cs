@@ -4,7 +4,7 @@ using AndroidX.Preference;
 using AuthenticatorPro.Data.Backup;
 using Uri = Android.Net.Uri;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.Util
 {
     internal class PreferenceWrapper
     {

@@ -9,6 +9,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Work;
 using AuthenticatorPro.Activity;
+using AuthenticatorPro.Util;
 using AuthenticatorPro.Worker;
 using Google.Android.Material.Button;
 using Google.Android.Material.SwitchMaterial;

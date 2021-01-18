@@ -3,6 +3,7 @@ using Android.OS;
 using AndroidX.Fragment.App;
 using AndroidX.ViewPager.Widget;
 using AuthenticatorPro.Intro;
+using AuthenticatorPro.Util;
 using Google.Android.Material.BottomNavigation;
 
 namespace AuthenticatorPro.Activity

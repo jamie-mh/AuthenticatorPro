@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Xamarin.Essentials;
 
-namespace AuthenticatorPro
+namespace AuthenticatorPro.Util
 {
     internal static class SecureStorageWrapper
     {
