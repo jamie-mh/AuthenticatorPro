@@ -93,8 +93,6 @@
 
     <string name="password">Password</string>
     <string name="passwordConfirm">Password confirm</string>
-    <string name="login">Login</string>
-    <string name="loginMessage">Please enter your password or use a fingerprint to access your authenticators</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     
     <string name="passwordHint">Backup password</string>
@@ -161,7 +159,15 @@
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
     <string name="scanFingerprint">Scan fingerprint</string>
     <string name="passwordsDoNotMatch">Passwords do not match</string>
-            
+    
+    <!-- Unlock -->
+    <string name="unlock">Unlock</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="tooManyAttempts">Too many attempts</string>
+    
     <!-- Import -->
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Import from</string>

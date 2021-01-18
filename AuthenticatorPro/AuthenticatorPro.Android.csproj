@@ -86,7 +86,7 @@
     <Compile Include="Source\Activity\GuideActivity.cs" />
     <Compile Include="Source\Activity\IntroActivity.cs" />
     <Compile Include="Source\Activity\DayNightActivity.cs" />
-    <Compile Include="Source\Activity\LoginActivity.cs" />
+    <Compile Include="Source\Activity\UnlockActivity.cs" />
     <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
     <Compile Include="Source\Callback\AuthenticationCallback.cs" />
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
@@ -377,7 +377,7 @@
     <AndroidResource Include="Resources\anim\layout_animation_fade_in.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activityLogin.axml">
+    <AndroidResource Include="Resources\layout\activityUnlock.axml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>

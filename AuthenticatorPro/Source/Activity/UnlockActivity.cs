@@ -3,13 +3,15 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
-using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Callback;
 using AuthenticatorPro.Data;
+using AuthenticatorPro.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
+using BiometricManager = AndroidX.Biometric.BiometricManager;
 using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 
 namespace AuthenticatorPro.Activity
@@ -22,22 +24,35 @@ namespace AuthenticatorPro.Activity
 
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
-        private DatabasePasswordStorage _passwordStorage; 
+        private DatabasePasswordStorage _passwordStorage;
+
+        private MaterialButton _unlockButton;
+        private MaterialButton _useBiometricsButton;
+        private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityLogin);
+            SetContentView(Resource.Layout.activityUnlock);
+            Window.SetSoftInputMode(SoftInput.AdjustPan);
 
             _preferences = new PreferenceWrapper(this);
 
             SetResult(Result.Canceled);
-            _passwordText = FindViewById<TextInputEditText>(Resource.Id.editPassword);
 
-            // TODO: perhaps rename to 'unlock'
-            var loginButton = FindViewById<MaterialButton>(Resource.Id.buttonLogin);
-            loginButton.Click += OnLoginButtonClick;
+            _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
+            _passwordText = FindViewById<TextInputEditText>(Resource.Id.editPassword);
+            TextInputUtil.EnableAutoErrorClear(_passwordLayout);
+
+            _passwordText.EditorAction += (_, e) =>
+            {
+                if(e.ActionId == ImeAction.Done)
+                    OnUnlockButtonClick(null, null);
+            };
+
+            _unlockButton = FindViewById<MaterialButton>(Resource.Id.buttonUnlock);
+            _unlockButton.Click += OnUnlockButtonClick;
            
             var canUseBiometrics = false;
             
@@ -47,25 +62,34 @@ namespace AuthenticatorPro.Activity
                 canUseBiometrics = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
             }
             
-            var useBiometricsButton = FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
-            useBiometricsButton.Visibility = canUseBiometrics ? ViewStates.Visible : ViewStates.Gone;
-            useBiometricsButton.Click += delegate
+            _useBiometricsButton = FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
+            _useBiometricsButton.Enabled = canUseBiometrics;
+            _useBiometricsButton.Click += delegate
             {
                 ShowBiometricPrompt();
             };
-            
+
             if(canUseBiometrics)
                 ShowBiometricPrompt();
+            else
+                FocusPasswordText();
         }
 
-        private async void OnLoginButtonClick(object sender, EventArgs e)
+        private async void OnUnlockButtonClick(object sender, EventArgs e)
         {
-            // TODO: disable button until attempt is completed
-            var password = _passwordText.Text;
-            await AttemptLogin(password);
+            _unlockButton.Enabled = _useBiometricsButton.Enabled = false;
+            await AttemptUnlock(_passwordText.Text);
+            _unlockButton.Enabled = _useBiometricsButton.Enabled = true;
         }
 
-        private async Task AttemptLogin(string password)
+        private void FocusPasswordText()
+        {
+            _passwordText.RequestFocus();
+            var inputManager = (InputMethodManager) GetSystemService(InputMethodService);
+            inputManager.ShowSoftInput(_passwordText, ShowFlags.Implicit);
+        }
+
+        private async Task AttemptUnlock(string password)
         {
             try
             {
@@ -73,11 +97,11 @@ namespace AuthenticatorPro.Activity
             }
             catch
             {
-                Toast.MakeText(this, "wrong password", ToastLength.Short).Show();
+                _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
 
                 if(_failedAttempts > MaxAttempts)
                 {
-                    Toast.MakeText(this, "too many attempts", ToastLength.Short).Show();
+                    Toast.MakeText(this, Resource.String.tooManyAttempts, ToastLength.Short).Show();
                     Finish();
                     return;
                 }
@@ -98,26 +122,37 @@ namespace AuthenticatorPro.Activity
             
             callback.Success += async (_, result) =>
             {
-                // TODO: try catch
-                var password = passwordStorage.Fetch(result.CryptoObject.Cipher);
-                await AttemptLogin(password);
+                string password;
+
+                try
+                {
+                    password = passwordStorage.Fetch(result.CryptoObject.Cipher);
+                }
+                catch
+                {
+                    Toast.MakeText(this, Resource.String.genericError, ToastLength.Short);
+                    return;
+                }
+                
+                await AttemptUnlock(password);
             };
 
             callback.Failed += delegate
             {
-                // Do something, probably
+                FocusPasswordText();
             };
 
             callback.Error += (_, result) => 
             {
-                Toast.MakeText(this, result.Message, ToastLength.Long).Show();
+                Toast.MakeText(this, result.Message, ToastLength.Short).Show();
+                FocusPasswordText();
             };
             
             _prompt = new BiometricPrompt(this, executor, callback);
             
             var promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                .SetTitle(GetString(Resource.String.login))
-                .SetSubtitle(GetString(Resource.String.loginMessage))
+                .SetTitle(GetString(Resource.String.unlock))
+                .SetSubtitle(GetString(Resource.String.unlockBiometricsMessage))
                 .SetNegativeButtonText(GetString(Resource.String.cancel))
                 .Build();
             
