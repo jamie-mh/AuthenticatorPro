@@ -44,21 +44,23 @@ namespace AuthenticatorPro.Preference
             try
             {
                 if(Checked)
+                {
                     activity.ClearBiometrics();
+                    base.OnClick();
+                }
                 else
+                {
                     activity.EnableBiometrics(success =>
                     {
-                        if(!success)
-                            throw new Exception("yeet");
+                        if(success)
+                            base.OnClick();
                     });
+                }
             }
             catch
             {
                 Toast.MakeText(activity, Resource.String.genericError, ToastLength.Short).Show();
-                return;
             }
-            
-            base.OnClick();
         }
     }
 }
