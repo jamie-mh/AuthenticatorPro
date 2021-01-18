@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Data
         public Cipher GetDecryptionCipher()
         {
             var cipher = Cipher.GetInstance(Transformation);
-            var iv = GetNullableByteArrayPreference(IvPrefKey, null); 
+            var iv = GetByteArrayPreference(IvPrefKey, null); 
             cipher.Init(CipherMode.DecryptMode, GetKeyFromKeyStore(), new IvParameterSpec(iv));
             return cipher;
         }
@@ -72,8 +72,8 @@ namespace AuthenticatorPro.Data
             var iv = cipher.GetIV();
             var payload = cipher.DoFinal(passwordBytes);
             
-            SetNullableByteArrayPreference(IvPrefKey, iv); 
-            SetNullableByteArrayPreference(PasswordPrefKey, payload); 
+            SetByteArrayPreference(IvPrefKey, iv); 
+            SetByteArrayPreference(PasswordPrefKey, payload); 
         }
 
         public static void Clear()
@@ -85,12 +85,12 @@ namespace AuthenticatorPro.Data
 
         public string Fetch(Cipher cipher)
         {
-            var payload = GetNullableByteArrayPreference(PasswordPrefKey, null);
+            var payload = GetByteArrayPreference(PasswordPrefKey, null);
             var result = cipher.DoFinal(payload);
             return result == null ? null : Encoding.UTF8.GetString(result);
         }
         
-        private byte[]? GetNullableByteArrayPreference(string key, byte[]? defaultValue)
+        private byte[] GetByteArrayPreference(string key, byte[] defaultValue)
         {
             var value = _preferences.GetString(key, null);
 
@@ -99,7 +99,7 @@ namespace AuthenticatorPro.Data
                 : Convert.FromBase64String(value);
         }
         
-        private void SetNullableByteArrayPreference(string key, byte[]? value)
+        private void SetByteArrayPreference(string key, byte[] value)
         {
             var valueStr = value switch
             {

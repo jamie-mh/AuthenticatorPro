@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Data
             }
             catch
             {
-                _sharedConnection.CloseAsync();
+                await _sharedConnection.CloseAsync();
                 _sharedConnection = null;
                 throw;
             }

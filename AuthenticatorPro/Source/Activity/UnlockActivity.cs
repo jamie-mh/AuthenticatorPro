@@ -24,7 +24,6 @@ namespace AuthenticatorPro.Activity
 
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
-        private DatabasePasswordStorage _passwordStorage;
 
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;

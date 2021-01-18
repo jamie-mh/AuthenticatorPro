@@ -77,7 +77,7 @@ namespace AuthenticatorPro.Data.Backup.Converter
             public int Type { get; set; }
             
             [JsonProperty(PropertyName = "login")]
-            public Login? Login { get; set; }
+            public Login Login { get; set; }
 
             
             public Authenticator Convert()

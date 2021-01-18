@@ -82,7 +82,7 @@ namespace AuthenticatorPro
         }
         
         private const string AutoBackupUriKey = "pref_autoBackupUri";
-        private const Uri? AutoBackupUriDefault = null;
+        private const Uri AutoBackupUriDefault = null;
         public Uri AutoBackupUri
         {
             get => GetUriPreference(AutoBackupUriKey, AutoBackupUriDefault);
@@ -192,7 +192,7 @@ namespace AuthenticatorPro
             FetchPreferences();
         }
 
-        private Uri? GetUriPreference(string key, Uri? defaultValue)
+        private Uri GetUriPreference(string key, Uri defaultValue)
         {
             var value = _preferences.GetString(key, null);
 
@@ -201,7 +201,7 @@ namespace AuthenticatorPro
                 : Uri.Parse(value);
         }
 
-        private void SetUriPreference(string key, Uri? value)
+        private void SetUriPreference(string key, Uri value)
         {
             SetPreference(key, value?.ToString());
         }
