@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Preference
 
         }
 
-        protected override async void OnClick()
+        protected override void OnClick()
         {
             var activity = (SettingsActivity) Context;
             var fragment = new PasswordSetupBottomSheet();
