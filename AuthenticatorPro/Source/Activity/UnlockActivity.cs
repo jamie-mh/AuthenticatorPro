@@ -17,7 +17,7 @@ using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class LoginActivity : DayNightActivity
+    internal class UnlockActivity : BaseActivity
     {
         private const int MaxAttempts = 3;
         private int _failedAttempts;
@@ -48,6 +48,11 @@ namespace AuthenticatorPro.Activity
             {
                 if(e.ActionId == ImeAction.Done)
                     OnUnlockButtonClick(null, null);
+            };
+
+            _passwordText.TextChanged += delegate
+            {
+                _unlockButton.Enabled = _passwordText.Text != "";
             };
 
             _unlockButton = FindViewById<MaterialButton>(Resource.Id.buttonUnlock);
@@ -100,7 +105,7 @@ namespace AuthenticatorPro.Activity
         {
             try
             {
-                await Database.OpenSharedConnection(password);
+                await BaseApplication.Unlock(password);
             }
             catch
             {
@@ -116,7 +121,7 @@ namespace AuthenticatorPro.Activity
                 _failedAttempts++;
                 return;
             }
-            
+
             SetResult(Result.Ok);
             Finish();
         }
@@ -144,9 +149,9 @@ namespace AuthenticatorPro.Activity
                 await AttemptUnlock(password);
             };
 
-            callback.Failed += delegate
+            callback.Failed += async delegate
             {
-                FocusPasswordText();
+                await FocusPasswordText();
             };
 
             callback.Error += async (_, result) => 

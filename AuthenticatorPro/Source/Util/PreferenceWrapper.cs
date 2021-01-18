@@ -33,6 +33,14 @@ namespace AuthenticatorPro.Util
             set => SetPreference(AllowBiometricsKey, value);
         }
         
+        private const string TimeoutKey = "pref_timeout";
+        private const int TimeoutDefault = 60;
+        public int Timeout
+        {
+            get => int.TryParse(_preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value) ? value : TimeoutDefault;
+            set => SetPreference(TimeoutKey, value);
+        }
+
         private const string ThemeKey = "pref_theme";
         private const string ThemeDefault = "system";
         public string Theme

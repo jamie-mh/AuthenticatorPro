@@ -77,6 +77,7 @@
     <AndroidLinkTool>r8</AndroidLinkTool>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Android.Export" />
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -85,9 +86,11 @@
   <ItemGroup>
     <Compile Include="Source\Activity\GuideActivity.cs" />
     <Compile Include="Source\Activity\IntroActivity.cs" />
-    <Compile Include="Source\Activity\DayNightActivity.cs" />
+    <Compile Include="Source\Activity\BaseActivity.cs" />
+    <Compile Include="Source\Activity\SensitiveSubActivity.cs" />
     <Compile Include="Source\Activity\UnlockActivity.cs" />
     <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
+    <Compile Include="Source\BaseApplication.cs" />
     <Compile Include="Source\Callback\AuthenticationCallback.cs" />
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
     <Compile Include="Source\Constants.cs" />
@@ -253,7 +256,16 @@
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
       <Version>1.0.0.6</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common">
+      <Version>2.2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions">
+      <Version>2.2.0.6</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
+      <Version>2.2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
       <Version>2.2.0.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Media">

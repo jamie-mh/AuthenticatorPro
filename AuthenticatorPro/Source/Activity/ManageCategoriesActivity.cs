@@ -21,7 +21,7 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class ManageCategoriesActivity : DayNightActivity
+    internal class ManageCategoriesActivity : SensitiveSubActivity
     {
         private RelativeLayout _rootLayout;
         private LinearLayout _emptyStateLayout;
@@ -79,14 +79,6 @@ namespace AuthenticatorPro.Activity
             _categoryList.LayoutAnimation = layoutAnimation;
 
             await Refresh();
-        }
-
-        protected override async void OnDestroy()
-        {
-            base.OnDestroy();
-
-            if(_connection != null)
-                await _connection.CloseAsync();
         }
 
         private async Task Refresh()

@@ -7,7 +7,7 @@ using Google.Android.Material.AppBar;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class AboutActivity : DayNightActivity
+    internal class AboutActivity : BaseActivity 
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

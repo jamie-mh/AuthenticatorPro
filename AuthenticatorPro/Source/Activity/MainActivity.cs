@@ -37,7 +37,6 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.Nio;
-using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
@@ -57,13 +56,13 @@ namespace AuthenticatorPro.Activity
         Intent.CategoryDefault,
         Intent.CategoryBrowsable
     }, DataSchemes = new[] { "otpauth", "otpauth-migration" })]
-    internal class MainActivity : DayNightActivity, CapabilityClient.IOnCapabilityChangedListener
+    internal class MainActivity : BaseActivity, CapabilityClient.IOnCapabilityChangedListener
     {
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
         // Request codes
-        private const int RequestLogin = 0;
+        private const int RequestUnlock = 0;
         private const int RequestRestore = 1;
         private const int RequestBackupFile = 2;
         private const int RequestBackupHtml = 3;
@@ -79,7 +78,6 @@ namespace AuthenticatorPro.Activity
         private const int RequestImportTotpAuthenticator = 13;
 
         private const int BackupReminderThresholdMinutes = 120;
-        private const int AppLockThresholdMinutes = 1;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -100,7 +98,6 @@ namespace AuthenticatorPro.Activity
         private CustomIconSource _customIconSource;
 
         // State
-        private SQLiteAsyncConnection _connection;
         private PreferenceWrapper _preferences;
         private Timer _timer;
         private DateTime _pauseTime;
@@ -134,10 +131,11 @@ namespace AuthenticatorPro.Activity
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             await _onCreateSemaphore.WaitAsync();
-            MobileBarcodeScanner.Initialize(Application);
             
+            MobileBarcodeScanner.Initialize(Application);
+            _preferences = new PreferenceWrapper(this);
+
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             SetContentView(Resource.Layout.activityMain);
             InitViews();
@@ -152,31 +150,13 @@ namespace AuthenticatorPro.Activity
                 _pauseTime = DateTime.MinValue;
                 _lastBackupReminderTime = DateTime.MinValue;
             }
-            
-            _preferences = new PreferenceWrapper(this);
 
-            if(_preferences.PasswordProtected)
-            {
-                StartActivityForResult(typeof(LoginActivity), RequestLogin);
-                await _loginSemaphore.WaitAsync();
-            }
-            else
-            {
-                try
-                {
-                    await Database.OpenSharedConnection(null);
-                    _connection = await Database.GetSharedConnection();
-                }
-                catch(Exception)
-                {
-                    StartActivityForResult(typeof(LoginActivity), RequestLogin);
-                    await _loginSemaphore.WaitAsync();
-                }
-            }
-            
-            _categorySource = new CategorySource(_connection);
-            _customIconSource = new CustomIconSource(_connection);
-            _authSource = new AuthenticatorSource(_connection);
+            await UnlockIfRequired();
+
+            var connection = await Database.GetSharedConnection();
+            _categorySource = new CategorySource(connection);
+            _customIconSource = new CustomIconSource(connection);
+            _authSource = new AuthenticatorSource(connection);
             RunOnUiThread(InitAuthenticatorList);
 
             _timer = new Timer {
@@ -215,8 +195,9 @@ namespace AuthenticatorPro.Activity
             
             await _onCreateSemaphore.WaitAsync();
             _onCreateSemaphore.Release();
-
+            
             await _onResumeSemaphore.WaitAsync();
+            await UnlockIfRequired();
 
             // In case auto restore occurs when activity is loaded
             var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
@@ -257,12 +238,6 @@ namespace AuthenticatorPro.Activity
             outState.PutLong("pauseTime", _pauseTime.Ticks);
             outState.PutLong("lastBackupReminderTime", _lastBackupReminderTime.Ticks);
         }
-
-        protected override async void OnDestroy()
-        {
-            base.OnDestroy();
-            await Database.CloseSharedConnection();
-        }
         
         protected override async void OnPause()
         {
@@ -270,6 +245,9 @@ namespace AuthenticatorPro.Activity
 
             _timer?.Stop();
             _pauseTime = DateTime.UtcNow;
+
+            if(_authList != null)
+                _authList.Visibility = ViewStates.Invisible;
 
             if(!_hasWearAPIs)
                 return;
@@ -288,25 +266,17 @@ namespace AuthenticatorPro.Activity
             base.OnActivityResult(requestCode, resultCode, intent);
             _returnedFromResult = true;
 
-            if(requestCode == RequestLogin)
+            if(requestCode == RequestUnlock)
             {
                 if(resultCode == Result.Canceled)
                 {
                     FinishAffinity();
                     return;
                 }
+
+                if(BaseApplication.IsLocked == false)
+                    _loginSemaphore.Release();
                 
-                try
-                {
-                    _connection = await Database.GetSharedConnection();
-                }
-                catch
-                {
-                    StartActivityForResult(typeof(LoginActivity), RequestLogin);
-                    return;
-                }
-                
-                _loginSemaphore.Release();
                 return;
             }
             
@@ -315,6 +285,7 @@ namespace AuthenticatorPro.Activity
 
             if(requestCode == RequestSettingsRecreate)
             {
+                await _onResumeSemaphore.WaitAsync();
                 Recreate();
                 return;
             }
@@ -489,6 +460,72 @@ namespace AuthenticatorPro.Activity
             }
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        #endregion
+        
+        #region Database
+        private async Task UnlockIfRequired()
+        {
+            async Task WaitForUnlock()
+            {
+                StartActivityForResult(typeof(UnlockActivity), RequestUnlock);
+                await _loginSemaphore.WaitAsync();
+            }
+
+            async Task AttemptUnlockWithoutPassword()
+            {
+                try
+                {
+                    await BaseApplication.Unlock(null);
+                }
+                catch
+                {
+                    ShowDatabaseErrorDialog();
+                }
+            }
+
+            switch(BaseApplication.IsLocked)
+            {
+                // Unlocked, check if the connection is usable
+                case false:
+                    try
+                    {
+                        _ = await Database.GetSharedConnection();
+                    }
+                    catch
+                    {
+                        if(_preferences.PasswordProtected)
+                            await WaitForUnlock();
+                        else
+                            await AttemptUnlockWithoutPassword();
+                    }
+                    return;
+                
+                // Locked and has password, wait for unlock in unlockactivity
+                case true when _preferences.PasswordProtected:
+                    await WaitForUnlock();
+                    break;
+                    
+                // Locked but no password, unlock now
+                case true:
+                    await AttemptUnlockWithoutPassword();
+                    break;
+            }
+        }
+        
+        private void ShowDatabaseErrorDialog()
+        {
+            var builder = new MaterialAlertDialogBuilder(this);
+            builder.SetMessage(Resource.String.databaseError);
+            builder.SetTitle(Resource.String.warning);
+            builder.SetPositiveButton(Resource.String.quit, delegate
+            {
+                Process.KillProcess(Process.MyPid());
+            });
+            builder.SetCancelable(false);
+
+            var dialog = builder.Create();
+            dialog.Show();
         }
         #endregion
 
@@ -1659,21 +1696,6 @@ namespace AuthenticatorPro.Activity
             
             _authList.SmoothScrollToPosition(position);
             _appBarLayout.SetExpanded(true);
-        }
-        
-        private void ShowDatabaseErrorDialog()
-        {
-            var builder = new MaterialAlertDialogBuilder(this);
-            builder.SetMessage(Resource.String.databaseError);
-            builder.SetTitle(Resource.String.warning);
-            builder.SetPositiveButton(Resource.String.quit, delegate
-            {
-                Process.KillProcess(Process.MyPid());
-            });
-            builder.SetCancelable(false);
-
-            var dialog = builder.Create();
-            dialog.Show();
         }
         
         private void StartFilePickActivity(string mimeType, int requestCode)

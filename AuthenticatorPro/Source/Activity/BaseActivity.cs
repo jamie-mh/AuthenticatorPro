@@ -5,8 +5,9 @@ using AuthenticatorPro.Util;
 
 namespace AuthenticatorPro.Activity
 {
-    internal abstract class DayNightActivity : AppCompatActivity
+    internal abstract class BaseActivity : AppCompatActivity
     {
+        protected BaseApplication BaseApplication;
         protected bool IsDark { get; private set; }
 
         private bool _checkedOnCreate;
@@ -17,6 +18,8 @@ namespace AuthenticatorPro.Activity
             _checkedOnCreate = true;
             UpdateTheme();
             base.OnCreate(savedInstanceState);
+
+            BaseApplication = (BaseApplication) Application;
 
             if(Build.VERSION.SdkInt < BuildVersionCodes.M)
                 Window.SetStatusBarColor(Android.Graphics.Color.Black);

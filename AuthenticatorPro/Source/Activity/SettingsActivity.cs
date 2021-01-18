@@ -16,7 +16,7 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 namespace AuthenticatorPro.Activity
 {
     [Activity]
-    internal class SettingsActivity : DayNightActivity, ISharedPreferencesOnSharedPreferenceChangeListener
+    internal class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
         private PreferenceWrapper _preferences;
         private SettingsFragment _fragment;
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Activity
             _fragment.PreferencesCreated += delegate
             {
                 UpdateBackupRemindersEnabled(prefs);
-                UpdateAllowBiometricsEnabled();
+                UpdateSecuritySettingsEnabled();
             };
 
             SupportFragmentManager.BeginTransaction()
@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Activity
                 case "passwordChanged":
                     _preferences.PasswordChanged = false;
                     _shouldRecreateMain = true;
-                    UpdateAllowBiometricsEnabled();
+                    UpdateSecuritySettingsEnabled();
                     break;
                 
                 case "pref_viewMode":
@@ -129,11 +129,20 @@ namespace AuthenticatorPro.Activity
             _fragment.FindPreference("pref_showBackupReminders").Enabled = !autoBackupEnabled;
         }
 
-        private void UpdateAllowBiometricsEnabled()
+        private void UpdateSecuritySettingsEnabled()
         {
+            if(!_preferences.PasswordProtected)
+            {
+                _fragment.FindPreference("pref_allowBiometrics").Enabled = false;
+                _fragment.FindPreference("pref_timeout").Enabled = false;
+                return;
+            }
+                
             var biometricManager = BiometricManager.From(this);
-            var enabled = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess && _preferences.PasswordProtected;
-            _fragment.FindPreference("pref_allowBiometrics").Enabled = enabled;
+            var biometricsAvailable = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
+            _fragment.FindPreference("pref_allowBiometrics").Enabled = biometricsAvailable;
+            
+            _fragment.FindPreference("pref_timeout").Enabled = true;
         }
         #endregion
 
