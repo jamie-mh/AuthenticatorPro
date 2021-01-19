@@ -80,16 +80,10 @@ namespace AuthenticatorPro.Fragment
             list.SetLayoutManager(layout);
         }
 
-        protected void Lock()
+        protected void SetCancelable(bool cancelable)
         {
-            Dialog.SetCancelable(false);
-            Dialog.SetCanceledOnTouchOutside(false);
-        }
-
-        protected void Unlock()
-        {
-            Dialog.SetCancelable(true);
-            Dialog.SetCanceledOnTouchOutside(true);
+            Dialog.SetCancelable(cancelable);
+            Dialog.SetCanceledOnTouchOutside(cancelable);
         }
     }
 }

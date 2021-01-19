@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Fragment
 
             _setPasswordButton.Enabled = _cancelButton.Enabled = false;
             _setPasswordButton.SetText(newPassword != null ? Resource.String.encrypting : Resource.String.decrypting);
-            Lock();
+            SetCancelable(false);
 
             try
             {
@@ -91,7 +91,7 @@ namespace AuthenticatorPro.Fragment
             catch
             {
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
-                Unlock();
+                SetCancelable(true);
                 UpdateSetPasswordButton();
                 _cancelButton.Enabled = true;
                 return;
