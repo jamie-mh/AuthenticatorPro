@@ -17,6 +17,7 @@ namespace AuthenticatorPro.Fragment
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordConfirmLayout;
         private TextInputEditText _passwordConfirmText;
+        private MaterialButton _cancelButton;
         private MaterialButton _setPasswordButton;
         
         public PasswordSetupBottomSheet()
@@ -42,8 +43,8 @@ namespace AuthenticatorPro.Fragment
             _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
             _setPasswordButton.Click += OnSetPasswordButtonClick;
             
-            var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += delegate { Dismiss(); };
+            _cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
+            _cancelButton.Click += delegate { Dismiss(); };
 
             UpdateSetPasswordButton();
             return view;
@@ -59,7 +60,7 @@ namespace AuthenticatorPro.Fragment
 
             var newPassword = _passwordText.Text == "" ? null : _passwordText.Text;
 
-            _setPasswordButton.Enabled = false;
+            _setPasswordButton.Enabled = _cancelButton.Enabled = false;
             _setPasswordButton.SetText(newPassword != null ? Resource.String.encrypting : Resource.String.decrypting);
             Lock();
 
@@ -84,6 +85,7 @@ namespace AuthenticatorPro.Fragment
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
                 Unlock();
                 UpdateSetPasswordButton();
+                _cancelButton.Enabled = true;
                 return;
             }
 
