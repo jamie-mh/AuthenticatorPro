@@ -35,21 +35,21 @@ namespace AuthenticatorPro.Data
 
         public static async Task OpenSharedConnection(string password)
         {
+            await CloseSharedConnection();
             _sharedConnection = await GetPrivateConnection(password);
         }
 
         public static async Task CloseSharedConnection()
         {
-            if(_sharedConnection != null)
-                await _sharedConnection.CloseAsync();
-
+            if(_sharedConnection == null)
+                return;
+                
+            await _sharedConnection.CloseAsync();
             _sharedConnection = null;
         }
 
         public static async Task<SQLiteAsyncConnection> GetPrivateConnection(string password)
         {
-            // TODO: migrate from old encryption
-            
             var dbPath = GetPath();
             SQLiteAsyncConnection connection;
 
@@ -97,10 +97,10 @@ namespace AuthenticatorPro.Data
                 var backupPath = dbPath + ".backup";
                 var tempPath = dbPath + ".temp";
                 
-                await conn.BackupAsync(backupPath);
-
                 try
                 {
+                    await conn.BackupAsync(backupPath);
+
                     if(newPassword != null)
                         await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, newPassword);
                     else
@@ -112,6 +112,7 @@ namespace AuthenticatorPro.Data
                 finally
                 {
                     await conn.CloseAsync();
+                    File.Delete(backupPath);
                 }
                 
                 void DeleteDatabase()
