@@ -94,7 +94,7 @@ namespace AuthenticatorPro.Worker
             var dataToWrite = backup.ToBytes(password);
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
-            var file = directory.CreateFile("application/octet-stream", $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
+            var file = directory.CreateFile(Backup.MimeType, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
             
             if(file == null)
                 throw new Exception("File creation failed, got null.");
@@ -112,7 +112,7 @@ namespace AuthenticatorPro.Worker
             var files = directory.ListFiles();
 
             var mostRecentBackup = files
-                .Where(f => f.IsFile && f.Type == "application/octet-stream" && f.Name.EndsWith(Backup.FileExtension) && f.Length() > 0 && f.CanRead())
+                .Where(f => f.IsFile && f.Type == Backup.MimeType && f.Name.EndsWith(Backup.FileExtension) && f.Length() > 0 && f.CanRead())
                 .OrderByDescending(f => f.LastModified())
                 .FirstOrDefault();
 

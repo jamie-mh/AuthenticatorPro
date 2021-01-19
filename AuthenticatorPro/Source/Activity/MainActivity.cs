@@ -794,7 +794,7 @@ namespace AuthenticatorPro.Activity
             fragment.ClickEnterKey += OpenAddDialog;
             fragment.ClickRestore += delegate
             {
-                StartFilePickActivity("application/octet-stream", RequestRestore);
+                StartFilePickActivity(Backup.MimeType, RequestRestore);
             };
             
             fragment.ClickImport += delegate
@@ -1276,12 +1276,12 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickBackupFile += delegate
             {
-                StartFileSaveActivity("application/octet-stream", RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
+                StartFileSaveActivity(Backup.MimeType, RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
             };
             
             fragment.ClickHtmlFile += delegate
             {
-                StartFileSaveActivity("text/html", RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{HtmlBackup.FileExtension}");
+                StartFileSaveActivity(HtmlBackup.MimeType, RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{HtmlBackup.FileExtension}");
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
