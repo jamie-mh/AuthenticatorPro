@@ -1,7 +1,9 @@
 using System;
 using Android.OS;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
+using AuthenticatorPro.Activity;
 using AuthenticatorPro.Data;
 using AuthenticatorPro.Util;
 using Google.Android.Material.Button;
@@ -39,6 +41,12 @@ namespace AuthenticatorPro.Fragment
             _passwordConfirmLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordConfirmLayout);
             _passwordConfirmText = view.FindViewById<TextInputEditText>(Resource.Id.editPasswordConfirm);
             TextInputUtil.EnableAutoErrorClear(_passwordConfirmLayout);
+
+            _passwordConfirmText.EditorAction += (_, e) =>
+            {
+                if(e.ActionId == ImeAction.Done)
+                    OnSetPasswordButtonClick(null, null);
+            };
 
             _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
             _setPasswordButton.Click += OnSetPasswordButtonClick;
@@ -102,7 +110,8 @@ namespace AuthenticatorPro.Fragment
             {
                 // Not really an issue if this fails
             }
-            
+
+            await ((SettingsActivity) Context).BaseApplication.Unlock(newPassword);
             Dismiss();
         }
 
