@@ -69,7 +69,6 @@ namespace AuthenticatorPro.Activity
             {
                 case "passwordChanged":
                     _preferences.PasswordChanged = false;
-                    _shouldRecreateMain = true;
                     UpdateSecuritySettingsEnabled();
                     break;
                 

@@ -75,7 +75,6 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonUnlock"
-                    android:enabled="false"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"

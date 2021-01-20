@@ -50,11 +50,6 @@ namespace AuthenticatorPro.Activity
                     OnUnlockButtonClick(null, null);
             };
 
-            _passwordText.TextChanged += delegate
-            {
-                _unlockButton.Enabled = _passwordText.Text != "";
-            };
-
             _unlockButton = FindViewById<MaterialButton>(Resource.Id.buttonUnlock);
             _unlockButton.Click += OnUnlockButtonClick;
            
