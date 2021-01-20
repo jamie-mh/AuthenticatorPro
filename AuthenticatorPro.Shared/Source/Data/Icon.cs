@@ -109,6 +109,7 @@ namespace AuthenticatorPro.Shared.Data
             {"keeper", Resource.Drawable.auth_keeper},
             {"kickstarter", Resource.Drawable.auth_kickstarter},
             {"kraken", Resource.Drawable.auth_kraken},
+            {"kucoin", Resource.Drawable.auth_kucoin},
             {"lastpass", Resource.Drawable.auth_lastpass},
             {"leaseweb", Resource.Drawable.auth_leaseweb},
             {"linkedin", Resource.Drawable.auth_linkedin},
