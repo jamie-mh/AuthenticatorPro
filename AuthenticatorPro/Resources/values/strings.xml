@@ -253,6 +253,7 @@
     <string name="authAlgorithmSHA512">SHA512</string>
     
     <string name="immediately">Immediately</string>
+    <string name="timeout30Sec">30 seconds</string>
     <string name="timeout1Min">1 minute</string>
     <string name="timeout2Min">2 minutes</string>
     <string name="timeout5Min">5 minutes</string>

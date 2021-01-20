@@ -43,7 +43,7 @@
             app:iconSpaceReserved="false"
             android:entries="@array/timeoutNames"
             android:entryValues="@array/timeoutValues"
-            android:defaultValue="60" />
+            android:defaultValue="0" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

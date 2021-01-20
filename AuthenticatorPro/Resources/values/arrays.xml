@@ -36,6 +36,7 @@
     
     <string-array name="timeoutNames">
         <item>@string/immediately</item>
+        <item>@string/timeout30Sec</item>
         <item>@string/timeout1Min</item>
         <item>@string/timeout2Min</item>
         <item>@string/timeout5Min</item>
@@ -43,6 +44,7 @@
     </string-array>
     <string-array name="timeoutValues">
         <item>0</item>
+        <item>30</item>
         <item>60</item>
         <item>120</item>
         <item>300</item>

@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Util
         }
         
         private const string TimeoutKey = "pref_timeout";
-        private const int TimeoutDefault = 60;
+        private const int TimeoutDefault = 0;
         public int Timeout
         {
             get => int.TryParse(_preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value) ? value : TimeoutDefault;
