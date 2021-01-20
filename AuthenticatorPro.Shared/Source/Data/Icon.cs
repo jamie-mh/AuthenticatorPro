@@ -129,6 +129,7 @@ namespace AuthenticatorPro.Shared.Data
             {"migadu", Resource.Drawable.auth_migadu},
             {"myfritz", Resource.Drawable.auth_myfritz},
             {"myheritage", Resource.Drawable.auth_myheritage},
+            {"myuscis", Ressource.Drawable.auth_myuscis},
             {"namecheap", Resource.Drawable.auth_namecheap},
             {"namecom", Resource.Drawable.auth_namecom},
             {"namesilo", Resource.Drawable.auth_namesilo},
