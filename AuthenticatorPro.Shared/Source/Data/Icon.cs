@@ -117,7 +117,7 @@ namespace AuthenticatorPro.Shared.Data
             {"leaseweb", Resource.Drawable.auth_leaseweb},
             {"linkedin", Resource.Drawable.auth_linkedin},
             {"linode", Resource.Drawable.auth_linode},
-            {"logingov", Ressource.Drawable.auth_logingov},
+            {"logingov", Resource.Drawable.auth_logingov},
             {"logmein", Resource.Drawable.auth_logmein},
             {"mailboxorg", Resource.Drawable.auth_mailboxorg},
             {"mailchimp", Resource.Drawable.auth_mailchimp},
