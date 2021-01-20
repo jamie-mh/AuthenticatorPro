@@ -78,6 +78,7 @@ namespace AuthenticatorPro.Shared.Data
             {"firefox", Resource.Drawable.auth_firefox},
             {"funio", Resource.Drawable.auth_funio},
             {"gandi", Resource.Drawable.auth_gandi},
+            {"gemini", Resource.Drawable.auth_gemini},
             {"github", Resource.Drawable.auth_github},
             {"gitlab", Resource.Drawable.auth_gitlab},
             {"gmail", Resource.Drawable.auth_gmail},
