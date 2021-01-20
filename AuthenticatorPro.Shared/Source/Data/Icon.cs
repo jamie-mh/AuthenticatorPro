@@ -94,6 +94,7 @@ namespace AuthenticatorPro.Shared.Data
             {"hangouts", Resource.Drawable.auth_hangouts},
             {"heroku", Resource.Drawable.auth_heroku},
             {"hetzner", Resource.Drawable.auth_hetzner},
+            {"homeassistant", Ressource.Drawable.auth_homeassistant},
             {"hosteurope", Resource.Drawable.auth_hosteurope},
             {"hover", Resource.Drawable.auth_hover},
             {"humblebundle", Resource.Drawable.auth_humblebundle},
