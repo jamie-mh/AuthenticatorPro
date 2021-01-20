@@ -185,6 +185,7 @@ namespace AuthenticatorPro.Activity
                 .SetTitle(GetString(Resource.String.setupBiometricUnlock))
                 .SetSubtitle(GetString(Resource.String.scanFingerprint))
                 .SetNegativeButtonText(GetString(Resource.String.cancel))
+                .SetConfirmationRequired(false)
                 .Build();
 
             var cipher = passwordStorage.GetEncryptionCipher();
