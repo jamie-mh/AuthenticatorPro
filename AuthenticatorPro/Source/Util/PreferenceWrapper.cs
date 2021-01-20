@@ -148,19 +148,11 @@ namespace AuthenticatorPro.Util
         }
         #endregion
         
-        private readonly Context _context;
-        private ISharedPreferences _preferences;
+        private readonly ISharedPreferences _preferences;
         
         public PreferenceWrapper(Context context)
         {
-            _context = context;
-            FetchPreferences();
-        }
-
-        // TODO: check if necessary
-        private void FetchPreferences()
-        {
-            _preferences = PreferenceManager.GetDefaultSharedPreferences(_context);
+            _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
         }
         
         private T GetEnumPreference<T>(string key, T defaultValue) where T : Enum
@@ -171,7 +163,6 @@ namespace AuthenticatorPro.Util
         private void SetEnumPreference<T>(string key, T value) where T : Enum
         {
             _preferences.Edit().PutInt(key, (int) (object) value).Commit();
-            FetchPreferences();
         }
         
         private bool? GetNullableBooleanPreference(string key, bool? defaultValue)
@@ -199,8 +190,6 @@ namespace AuthenticatorPro.Util
                 false => "false",
                 true => "true"
             }).Commit();
-            
-            FetchPreferences();
         }
 
         private Uri GetUriPreference(string key, Uri defaultValue)
@@ -220,19 +209,16 @@ namespace AuthenticatorPro.Util
         private void SetPreference(string key, string value)
         {
             _preferences.Edit().PutString(key, value).Commit();
-            FetchPreferences();
         }
         
         private void SetPreference(string key, bool value)
         {
             _preferences.Edit().PutBoolean(key, value).Commit();
-            FetchPreferences();
         }
         
         private void SetPreference(string key, long value)
         {
             _preferences.Edit().PutLong(key, value).Commit();
-            FetchPreferences();
         }
     }
 }
