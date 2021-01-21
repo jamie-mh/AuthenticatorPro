@@ -698,6 +698,15 @@ namespace AuthenticatorPro.Activity
             });
         }
 
+        private void ScrollToPosition(int position)
+        {
+            if(position < 0 || position > _authSource.GetView().Count - 1)
+                return;
+            
+            _authList.SmoothScrollToPosition(position);
+            _appBarLayout.SetExpanded(true);
+        }
+
         private void Tick(bool invalidateCache = false)
         {
             RunOnUiThread(delegate {
@@ -1688,15 +1697,6 @@ namespace AuthenticatorPro.Activity
             var snackbar = Snackbar.Make(_coordinatorLayout, message, length);
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
-        }
-
-        private void ScrollToPosition(int position)
-        {
-            if(position < 0 || position > _authSource.GetView().Count - 1)
-                return;
-            
-            _authList.SmoothScrollToPosition(position);
-            _appBarLayout.SetExpanded(true);
         }
         
         private void StartFilePickActivity(string mimeType, int requestCode)
