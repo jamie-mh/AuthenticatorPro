@@ -15,7 +15,7 @@ namespace AuthenticatorPro
 #else
     [Application(Debuggable = false)]
 #endif
-    internal class BaseApplication : Android.App.Application, ILifecycleObserver
+    internal class BaseApplication : Application, ILifecycleObserver
     {
         public bool IsLocked { get; private set; }
         public bool PreventNextLock { get; set; }
