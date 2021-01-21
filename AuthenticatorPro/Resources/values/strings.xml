@@ -186,11 +186,14 @@
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuth" translatable="false">WinAuth</string>
     <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="authy" translatable="false">Authy</string>
     <string name="totpAuthenticator" translatable="false">TOTP Authenticator</string>
     <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
     <string name="steam" translatable="false">Steam</string>
     <string name="blizzardAuthenticator" translatable="false">Blizzard Authenticator</string>
     <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="uriList">URI list</string>
+    <string name="uriListHint">Plain text list of otpauth URIs</string>
     
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>

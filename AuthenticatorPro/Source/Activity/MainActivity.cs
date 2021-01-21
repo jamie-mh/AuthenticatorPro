@@ -76,6 +76,7 @@ namespace AuthenticatorPro.Activity
         private const int RequestImportBitwarden = 11;
         private const int RequestImportWinAuth = 12;
         private const int RequestImportTotpAuthenticator = 13;
+        private const int RequestImportUriList = 14;
 
         private const int BackupReminderThresholdMinutes = 120;
 
@@ -337,11 +338,15 @@ namespace AuthenticatorPro.Activity
                     break;
                 
                 case RequestImportWinAuth:
-                    await ImportFromUri(new WinAuthBackupConverter(), intent.Data);
+                    await ImportFromUri(new UriListBackupConverter(), intent.Data);
                     break;
                 
                 case RequestImportTotpAuthenticator:
                     await ImportFromUri(new TotpAuthenticatorBackupConverter(), intent.Data);
+                    break;
+                
+                case RequestImportUriList:
+                    await ImportFromUri(new UriListBackupConverter(), intent.Data);
                     break;
             }
         }
@@ -1060,6 +1065,11 @@ namespace AuthenticatorPro.Activity
                 StartFilePickActivity("text/plain", RequestImportWinAuth);
             };
             
+            fragment.ClickAuthy += delegate
+            {
+                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Authy");
+            };
+            
             fragment.ClickTotpAuthenticator += delegate
             {
                 StartFilePickActivity("*/*", RequestImportTotpAuthenticator);
@@ -1073,6 +1083,11 @@ namespace AuthenticatorPro.Activity
             fragment.ClickSteam += delegate
             {
                 StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
+            };
+            
+            fragment.ClickUriList += delegate
+            {
+                StartFilePickActivity("*/*", RequestImportUriList);
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
