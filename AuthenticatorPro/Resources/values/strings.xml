@@ -157,14 +157,13 @@
     <string name="clearPassword">Clear password</string>
     <string name="confirmPassword">Confirm password</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
-    <string name="scanFingerprint">Scan fingerprint</string>
     <string name="passwordsDoNotMatch">Passwords do not match</string>
     
     <!-- Unlock -->
     <string name="unlock">Unlock</string>
     <string name="useBiometrics">Use biometrics</string>
     <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
-    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
     <string name="passwordIncorrect">Password is incorrect</string>
     <string name="tooManyAttempts">Too many attempts</string>
     

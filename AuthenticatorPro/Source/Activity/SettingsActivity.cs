@@ -183,7 +183,6 @@ namespace AuthenticatorPro.Activity
            
             var promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .SetTitle(GetString(Resource.String.setupBiometricUnlock))
-                .SetSubtitle(GetString(Resource.String.scanFingerprint))
                 .SetNegativeButtonText(GetString(Resource.String.cancel))
                 .SetConfirmationRequired(false)
                 .Build();
