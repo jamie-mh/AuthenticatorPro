@@ -25,6 +25,7 @@ namespace AuthenticatorPro.Activity
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
 
+        private LinearLayout _middleLayout;
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
@@ -34,12 +35,13 @@ namespace AuthenticatorPro.Activity
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityUnlock);
-            Window.SetSoftInputMode(SoftInput.AdjustPan);
+            Window.SetSoftInputMode(SoftInput.AdjustResize);
+            SetResult(Result.Canceled);
 
             _preferences = new PreferenceWrapper(this);
 
-            SetResult(Result.Canceled);
-
+            _middleLayout = FindViewById<LinearLayout>(Resource.Id.layoutMiddle);
+            
             _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
             _passwordText = FindViewById<TextInputEditText>(Resource.Id.editPassword);
             TextInputUtil.EnableAutoErrorClear(_passwordLayout);
@@ -91,7 +93,7 @@ namespace AuthenticatorPro.Activity
                 {
                     _passwordText.RequestFocus();
                     var inputManager = (InputMethodManager) GetSystemService(InputMethodService);
-                    inputManager.ShowSoftInput(_passwordText, ShowFlags.Implicit);
+                    inputManager.ShowSoftInput(_middleLayout, ShowFlags.Implicit);
                 });
             });
         }
