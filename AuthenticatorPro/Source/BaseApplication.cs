@@ -72,6 +72,13 @@ namespace AuthenticatorPro
             _timeoutTimer?.Stop();
         }
 
+        [Lifecycle.Event.OnDestroy]
+        [Export]
+        public async void OnDestroyed()
+        {
+            await Lock();
+        }
+
         public async Task Unlock(string password)
         {
             IsLocked = false;
