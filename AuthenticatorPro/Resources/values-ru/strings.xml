@@ -157,6 +157,8 @@
     <string name="winAuthImportHint">Импорт файла winauth.txt</string>
     <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
     <string name="viewGuideImportHint">Посмотреть руководство в разделе вики проекта</string>
+    <string name="uriList">URI list</string>
+    <string name="uriListHint">Plain text list of otpauth URIs</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
     <string name="guideScanQRCodeSummary">Чтобы добавить аутентификатор, отсканируйте QR-код, предоставленный приложением или службой. Он будет добавлен в список и будет генерировать новые коды автоматически. Вы также можете ввести данные вручную.</string>
