@@ -103,6 +103,7 @@
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
+    <string name="webBrowserMissing">Aucun navigateur web n’est installé</string>
     <string name="genericError">Une erreur s\'est produite</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications ont étés apportées.</string>
@@ -133,13 +134,12 @@
     <string name="clearPassword">Effacer le mot de passe</string>
     <string name="confirmPassword">Confirmation du mot de passe</string>
     <string name="setupBiometricUnlock">Configurer le déverrouillage biométrique</string>
-    <string name="scanFingerprint">Scanner une empreinte digitale</string>
     <string name="passwordsDoNotMatch">Les mots de passe ne correspondent pas</string>
     <!-- Unlock -->
     <string name="unlock">Déverrouiller</string>
     <string name="useBiometrics">Utiliser la biométrie</string>
     <string name="unlockMessage">Entrez votre mot de passe ou utilisez la biométrie pour déverrouiller la base de données</string>
-    <string name="unlockBiometricsMessage">Scannez une empreinte digitale pour accéder à vos authentificateurs</string>
+    <string name="unlockBiometricsMessage">Utilisez la biométrie pour accéder à vos authentificateurs</string>
     <string name="passwordIncorrect">Le mot de passe est incorrect</string>
     <string name="tooManyAttempts">Trop de tentatives</string>
     <!-- Import -->
