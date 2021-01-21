@@ -83,8 +83,6 @@
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>
-    <string name="login">Connexion</string>
-    <string name="loginMessage">Veuillez entrer votre mot de passe ou scanner une empreinte digitale pour accéder à vos authentificateurs</string>
     <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé.\n\nContinuer?</string>
     <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
@@ -129,6 +127,21 @@
     <string name="autoRestoreSuccessTitle">Restauration effectuée avec succès</string>
     <string name="backupScheduled">Sauvegarde programmée</string>
     <string name="restoreScheduled">Restauration programmée</string>
+    <!-- Password setup -->
+    <string name="passwordSetupHelp">Chiffrez la base de données avec un mot de passe. Le mot de passe vous sera demandé lorsque vous ouvrirez l\'application. Laissez le champ vide pour effacer le mot de passe.</string>
+    <string name="passwordSetupWarning">Utilisez un mot de passe que vous pouvez mémoriser, la base de données est irrécupérable sans !</string>
+    <string name="clearPassword">Effacer le mot de passe</string>
+    <string name="confirmPassword">Confirmation du mot de passe</string>
+    <string name="setupBiometricUnlock">Configurer le déverrouillage biométrique</string>
+    <string name="scanFingerprint">Scanner une empreinte digitale</string>
+    <string name="passwordsDoNotMatch">Les mots de passe ne correspondent pas</string>
+    <!-- Unlock -->
+    <string name="unlock">Déverrouiller</string>
+    <string name="useBiometrics">Utiliser la biométrie</string>
+    <string name="unlockMessage">Entrez votre mot de passe ou utilisez la biométrie pour déverrouiller la base de données</string>
+    <string name="unlockBiometricsMessage">Scannez une empreinte digitale pour accéder à vos authentificateurs</string>
+    <string name="passwordIncorrect">Le mot de passe est incorrect</string>
+    <string name="tooManyAttempts">Trop de tentatives</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importer depuis une autre application</string>
     <string name="importFrom">Importer depuis</string>
@@ -164,10 +177,12 @@
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
     <string name="prefAutoBackupSummary">Mettre en place des sauvegardes automatiques sur un stockage local ou cloud lorsque des modifications importantes ont étés effectuées. Désactive les rappels de sauvegarde.</string>
     <string name="prefSecurity">Sécurité</string>
-    <string name="prefAppLockTitle">Verrouillage de l\'application</string>
-    <string name="prefAppLockSummary">Exiger le déverrouillage par code pin ou empreinte digitale avant d\'accéder aux authentificateurs. Cette fonctionnalité exige d\'avoir configuré un écran de verrouillage sur l\'appareil.</string>
-    <string name="prefUseEncryptedDatabaseTitle">Base de données chiffrée</string>
-    <string name="prefUseEncryptedDatabaseSummary">Chiffrer la base de données sur votre appareil. Utile si vous avez un accès root. Ce paramètre va nuire au fonctionnement d\'outils de sauvegarde tierces et peut dégrader la performance.</string>
+    <string name="prefPasswordTitle">Mot de passe</string>
+    <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
+    <string name="prefTimeoutTitle">Délai de verrouillage</string>
+    <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
+    <string name="prefAllowBiometricsTitle">Déverrouillage biométrique</string>
+    <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefAppearance">Apparence</string>
     <string name="prefThemeTitle">Thème</string>
     <string name="prefThemeSummary">Changer le thème de l\'application</string>
@@ -188,6 +203,12 @@
     <string name="authAlgorithmSHA1">SHA1 (par défaut)</string>
     <string name="authAlgorithmSHA256">SHA256</string>
     <string name="authAlgorithmSHA512">SHA512</string>
+    <string name="immediately">Immédiatement</string>
+    <string name="timeout30Sec">30 secondes</string>
+    <string name="timeout1Min">1 minute</string>
+    <string name="timeout2Min">2 minutes</string>
+    <string name="timeout5Min">5 minutes</string>
+    <string name="timeout10Min">10 minutes</string>
     <string name="systemDefault">Valeur système</string>
     <string name="lightTheme">Thème clair</string>
     <string name="darkTheme">Thème sombre</string>
