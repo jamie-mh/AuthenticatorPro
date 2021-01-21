@@ -2,6 +2,7 @@ using System;
 using Android.Content;
 using Android.Runtime;
 using Android.Util;
+using Android.Widget;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Preference
@@ -39,7 +40,15 @@ namespace AuthenticatorPro.Preference
         protected override void OnClick()
         {
             var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo));
-            Context.StartActivity(intent);
+            
+            try
+            {
+                Context.StartActivity(intent);
+            }
+            catch(ActivityNotFoundException)
+            {
+                Toast.MakeText(Context, Resource.String.webBrowserMissing, ToastLength.Short).Show(); 
+            }
         }
     }
 }

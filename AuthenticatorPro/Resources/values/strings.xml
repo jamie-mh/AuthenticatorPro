@@ -117,6 +117,7 @@
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error picking file</string>
     <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
+    <string name="webBrowserMissing">No web browser installed</string>
     <string name="genericError">An error occurred</string>
   
     <!-- Auto backup -->

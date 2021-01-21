@@ -1024,8 +1024,7 @@ namespace AuthenticatorPro.Activity
             var fragment = new ImportBottomSheet();
             fragment.ClickGoogleAuthenticator += delegate
             {
-                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator"));
-                StartActivity(intent);
+                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
             };
             
             // Use */* mime-type for most binary files because some files might not show on older Android versions
@@ -1068,14 +1067,12 @@ namespace AuthenticatorPro.Activity
             
             fragment.ClickBlizzardAuthenticator += delegate
             {
-                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator"));
-                StartActivity(intent);
+                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
             };
             
             fragment.ClickSteam += delegate
             {
-                var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo + "/wiki/Importing-from-Steam"));
-                StartActivity(intent);
+                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1733,6 +1730,20 @@ namespace AuthenticatorPro.Activity
             catch(ActivityNotFoundException)
             {
                 ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong); 
+            }
+        }
+
+        private void StartWebBrowserActivity(string url)
+        {
+            var intent = new Intent(Intent.ActionView, Uri.Parse(url));
+            
+            try
+            {
+                StartActivity(intent);
+            }
+            catch(ActivityNotFoundException)
+            {
+                ShowSnackbar(Resource.String.webBrowserMissing, Snackbar.LengthLong); 
             }
         }
         #endregion
