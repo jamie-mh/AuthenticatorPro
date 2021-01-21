@@ -103,6 +103,7 @@
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error picking file</string>
     <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
+    <string name="webBrowserMissing">No web browser installed</string>
     <string name="genericError">An error occurred</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
@@ -133,13 +134,12 @@
     <string name="clearPassword">Clear password</string>
     <string name="confirmPassword">Confirm password</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
-    <string name="scanFingerprint">Scan fingerprint</string>
     <string name="passwordsDoNotMatch">Passwords do not match</string>
     <!-- Unlock -->
     <string name="unlock">Unlock</string>
     <string name="useBiometrics">Use biometrics</string>
     <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
-    <string name="unlockBiometricsMessage">Use a fingerprint to access your authenticators</string>
+    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
     <string name="passwordIncorrect">Password is incorrect</string>
     <string name="tooManyAttempts">Too many attempts</string>
     <!-- Import -->
