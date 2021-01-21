@@ -68,7 +68,7 @@ namespace AuthenticatorPro.Activity
             var layout = new FixedGridLayoutManager(this, 1);
             _categoryList.SetLayoutManager(layout);
 
-            var callback = new ReorderableListTouchHelperCallback(_categoryListAdapter, layout);
+            var callback = new ReorderableListTouchHelperCallback(this, _categoryListAdapter, layout);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_categoryList);
 

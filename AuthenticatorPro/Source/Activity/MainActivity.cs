@@ -618,7 +618,7 @@ namespace AuthenticatorPro.Activity
             var animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
-            var callback = new ReorderableListTouchHelperCallback(_authListAdapter, layout);
+            var callback = new ReorderableListTouchHelperCallback(this, _authListAdapter, layout);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
         }
