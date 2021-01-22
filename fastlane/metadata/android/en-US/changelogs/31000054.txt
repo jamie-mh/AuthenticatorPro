@@ -1,0 +1,3 @@
+- New Feature: Device independent lock screen
+- General: Improvements to Bitwarden import
+- General: New icons for KuCoin, Gemini, Bitstamp, HomeAssistant, Login.gov and myUSCIS
