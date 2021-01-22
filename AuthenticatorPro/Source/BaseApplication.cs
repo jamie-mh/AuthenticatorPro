@@ -85,7 +85,7 @@ namespace AuthenticatorPro
             await Database.OpenSharedConnection(password);
         }
 
-        private async Task Lock()
+        public async Task Lock()
         {
             IsLocked = true;
             await Database.CloseSharedConnection();
