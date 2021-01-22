@@ -1464,7 +1464,16 @@ namespace AuthenticatorPro.Activity
 
         private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs e)
         {
-            await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
+            try
+            {
+                await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
             await NotifyWearAppOfChange();
