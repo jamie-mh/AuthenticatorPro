@@ -21,6 +21,7 @@ namespace AuthenticatorPro.Activity
     {
         private const int MaxAttempts = 3;
         private int _failedAttempts;
+        private bool _canUseBiometrics;
 
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
@@ -55,22 +56,20 @@ namespace AuthenticatorPro.Activity
             _unlockButton = FindViewById<MaterialButton>(Resource.Id.buttonUnlock);
             _unlockButton.Click += OnUnlockButtonClick;
            
-            var canUseBiometrics = false;
-            
             if(_preferences.AllowBiometrics)
             {
                 var biometricManager = BiometricManager.From(this);
-                canUseBiometrics = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
+                _canUseBiometrics = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
             }
             
             _useBiometricsButton = FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
-            _useBiometricsButton.Enabled = canUseBiometrics;
+            _useBiometricsButton.Enabled = _canUseBiometrics;
             _useBiometricsButton.Click += delegate
             {
                 ShowBiometricPrompt();
             };
 
-            if(canUseBiometrics)
+            if(_canUseBiometrics)
                 ShowBiometricPrompt();
             else
                 await FocusPasswordText();
@@ -80,7 +79,8 @@ namespace AuthenticatorPro.Activity
         {
             _unlockButton.Enabled = _useBiometricsButton.Enabled = false;
             await AttemptUnlock(_passwordText.Text);
-            _unlockButton.Enabled = _useBiometricsButton.Enabled = true;
+            _unlockButton.Enabled = true;
+            _useBiometricsButton.Enabled = _canUseBiometrics;
         }
 
         private async Task FocusPasswordText()
