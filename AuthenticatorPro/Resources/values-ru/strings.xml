@@ -153,9 +153,12 @@
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
     <string name="aegis">Aegis (простой текст)</string>
     <string name="aegisImportHint">Импортировать файл aegis-export-plain.json</string>
+    <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
     <string name="winAuthImportHint">Импорт файла winauth.txt</string>
     <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
+    <string name="uriList">URI list</string>
+    <string name="uriListHint">Plain text list of otpauth URIs</string>
     <string name="viewGuideImportHint">Посмотреть руководство в разделе вики проекта</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
