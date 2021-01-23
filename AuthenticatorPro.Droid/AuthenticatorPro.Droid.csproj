@@ -1657,6 +1657,10 @@
       <Project>{31a1d6fa-66b2-47d6-8f67-2b0eaa9010e9}</Project>
       <Name>AuthenticatorPro.Droid.Shared</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj">
+      <Project>{f532841a-17dc-4d56-9d43-1040efcd9019}</Project>
+      <Name>AuthenticatorPro.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
