@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using AuthenticatorPro.Data;
+using AuthenticatorPro.Droid.Data;
 using Nito.AsyncEx;
 using NUnit.Framework;
 using SQLite;

@@ -133,13 +133,13 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AuthenticatorPro.Droid\AuthenticatorPro.Droid.csproj">
+      <Project>{a8ef8411-d689-46b2-9595-5f1c27494dbd}</Project>
+      <Name>AuthenticatorPro.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj">
       <Project>{31a1d6fa-66b2-47d6-8f67-2b0eaa9010e9}</Project>
       <Name>AuthenticatorPro.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AuthenticatorPro\AuthenticatorPro.Android.csproj">
-      <Project>{a8ef8411-d689-46b2-9595-5f1c27494dbd}</Project>
-      <Name>AuthenticatorPro.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

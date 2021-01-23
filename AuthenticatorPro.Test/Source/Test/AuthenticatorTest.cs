@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using AuthenticatorPro.Data;
+using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
 using NUnit.Framework;

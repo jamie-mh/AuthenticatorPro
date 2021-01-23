@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Android", "AuthenticatorPro\AuthenticatorPro.Android.csproj", "{A8EF8411-D689-46B2-9595-5F1C27494DBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Droid", "AuthenticatorPro.Droid\AuthenticatorPro.Droid.csproj", "{A8EF8411-D689-46B2-9595-5F1C27494DBD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.WearOS", "AuthenticatorPro.WearOS\AuthenticatorPro.WearOS.csproj", "{9B757B46-9195-487F-9E95-03ACD22FDCA4}"
 EndProject
