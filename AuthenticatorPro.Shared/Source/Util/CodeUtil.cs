@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Droid.Shared.Util
+namespace AuthenticatorPro.Shared.Source.Util
 {
     public class CodeUtil
     {

@@ -5,10 +5,10 @@ using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Source.Data.Generator;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
@@ -44,6 +44,7 @@ namespace AuthenticatorPro.Droid.Fragment
         private EditText _periodText;
         private EditText _digitsText;
 
+        private readonly IIconResolver _iconResolver;
         private AuthenticatorType _type;
         private OtpHashMode _algorithm;
 
@@ -51,10 +52,11 @@ namespace AuthenticatorPro.Droid.Fragment
             set => _secretLayout.Error = value;
         }
 
-        public AddAuthenticatorBottomSheet()
+        public AddAuthenticatorBottomSheet(IIconResolver iconResolver)
         {
             RetainInstance = true;
 
+            _iconResolver = iconResolver;
             _type = AuthenticatorType.Totp;
             _algorithm = OtpHashMode.Sha1;
         }
@@ -247,7 +249,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 Counter = 0,
                 Digits = digits,
                 Period = period,
-                Icon = Icon.FindServiceKeyByName(issuer),
+                Icon = _iconResolver.FindServiceKeyByName(issuer),
                 Ranking = 0,
                 Secret = secret
             };

@@ -5,8 +5,8 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.List;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Source.Data.Generator;
 
 namespace AuthenticatorPro.Droid.Fragment
 {

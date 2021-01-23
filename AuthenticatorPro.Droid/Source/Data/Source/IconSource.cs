@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Shared.Source.Data;
 
 namespace AuthenticatorPro.Droid.Data.Source
 {
@@ -15,7 +16,7 @@ namespace AuthenticatorPro.Droid.Data.Source
         {
             _search = "";
             _isDark = isDark;
-            _view = new Dictionary<string, int>(Icon.Service.Count);
+            _view = new Dictionary<string, int>(IconResolver.Service.Count);
 
             Update();
         }
@@ -33,7 +34,7 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public List<KeyValuePair<string, int>> GetAll()
         {
-            return Icon.Service.ToList();
+            return IconResolver.Service.ToList();
         }
 
         public KeyValuePair<string, int> Get(int position)
@@ -45,18 +46,18 @@ namespace AuthenticatorPro.Droid.Data.Source
         {
             if(String.IsNullOrEmpty(_search))
             {
-                _view = new Dictionary<string, int>(Icon.Service.Count);
-                foreach(var (key, _) in Icon.Service)
-                    _view.Add(key, Icon.GetService(key, _isDark));
+                _view = new Dictionary<string, int>(IconResolver.Service.Count);
+                foreach(var (key, _) in IconResolver.Service)
+                    _view.Add(key, IconResolver.GetService(key, _isDark));
 
                 return;
             }
 
             var query = _search.ToLower();
 
-            var keys = Icon.Service.Keys.Where(k => k.Contains(query)).ToList();
+            var keys = IconResolver.Service.Keys.Where(k => k.Contains(query)).ToList();
             _view = new Dictionary<string, int>(keys.Count);
-            keys.ForEach(key => _view.Add(key, Icon.GetService(key, _isDark)));
+            keys.ForEach(key => _view.Add(key, IconResolver.GetService(key, _isDark)));
         }
     }
 }

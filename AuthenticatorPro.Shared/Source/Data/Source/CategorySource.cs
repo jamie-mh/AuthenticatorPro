@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Droid.Shared.Data;
 using SQLite;
 
-namespace AuthenticatorPro.Droid.Data.Source
+namespace AuthenticatorPro.Shared.Source.Data.Source
 {
-    internal class CategorySource : ISource<Category>
+    public class CategorySource : ISource<Category>
     {
         private readonly SQLiteAsyncConnection _connection;
         private List<Category> _all;

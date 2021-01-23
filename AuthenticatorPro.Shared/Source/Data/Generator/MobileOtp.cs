@@ -1,7 +1,7 @@
 ﻿using System;
-using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Source.Util;
 
-namespace AuthenticatorPro.Droid.Shared.Data.Generator
+namespace AuthenticatorPro.Shared.Source.Data.Generator
 {
     public class MobileOtp : IGenerator
     {

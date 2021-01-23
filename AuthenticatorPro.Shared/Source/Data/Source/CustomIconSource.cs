@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Droid.Shared.Data;
 using SQLite;
 
-namespace AuthenticatorPro.Droid.Data.Source
+namespace AuthenticatorPro.Shared.Source.Data.Source
 {
-    internal class CustomIconSource : ISource<CustomIcon>
+    public class CustomIconSource : ISource<CustomIcon>
     {
         private readonly SQLiteAsyncConnection _connection;
         private List<CustomIcon> _all;

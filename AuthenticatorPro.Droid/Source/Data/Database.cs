@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
 using AndroidX.Preference;
+using AuthenticatorPro.Shared.Source.Data;
 using SQLite;
 using Xamarin.Essentials;
 

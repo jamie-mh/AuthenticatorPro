@@ -8,11 +8,12 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
-using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Source.Util;
 using OtpNet;
-using SteamOtp = AuthenticatorPro.Droid.Shared.Data.Generator.SteamOtp;
-using Totp = AuthenticatorPro.Droid.Shared.Data.Generator.Totp;
+using SteamOtp = AuthenticatorPro.Shared.Source.Data.Generator.SteamOtp;
+using Totp = AuthenticatorPro.Shared.Source.Data.Generator.Totp;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -59,10 +60,10 @@ namespace AuthenticatorPro.WearOS.Activity
                 if(bitmap != null)
                     iconView.SetImageBitmap(bitmap);
                 else
-                    iconView.SetImageResource(Icon.GetService(Icon.Default, true));
+                    iconView.SetImageResource(IconResolver.GetService(IconResolver.Default, true));
             }
             else
-                iconView.SetImageResource(Icon.GetService(Intent.Extras.GetString("icon"), true));
+                iconView.SetImageResource(IconResolver.GetService(Intent.Extras.GetString("icon"), true));
 
             _period = Intent.Extras.GetInt("period");
             _digits = Intent.Extras.GetInt("digits");

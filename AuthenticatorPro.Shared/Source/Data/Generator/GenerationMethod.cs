@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro.Droid.Shared.Data.Generator
+﻿namespace AuthenticatorPro.Shared.Source.Data.Generator
 {
     public enum GenerationMethod
     {

@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using AuthenticatorPro.Shared.Source.Data;
 
 namespace AuthenticatorPro.Droid.Shared.Data
 {
-    public static class Icon
+    public class IconResolver : IIconResolver
     {
         public const string Default = "default";
 
@@ -318,7 +319,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             return Service.ContainsKey(key) ? Service[key] : Service[Default];
         }
 
-        public static string FindServiceKeyByName(string name)
+        public string FindServiceKeyByName(string name)
         {
             static string Simplify(string input)
             {

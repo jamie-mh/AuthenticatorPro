@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Shared.Source.Data;
 using OtpNet;
 
 namespace AuthenticatorPro.Droid.Shared.Query

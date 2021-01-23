@@ -3,8 +3,8 @@ using Android.OS;
 using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
-using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
+using AuthenticatorPro.Shared.Source.Data;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 

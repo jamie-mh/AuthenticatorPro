@@ -2,27 +2,16 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Source.Util;
 using Newtonsoft.Json;
 using SQLite;
 
 namespace AuthenticatorPro.Droid.Data
 {
-    [Table("customicon")]
-    internal class CustomIcon
+    internal class DroidCustomIcon : CustomIcon
     {
-        public const char Prefix = '@';
         private const int MaxSize = 128;
-        
-        [Column("id")]
-        [PrimaryKey]
-        public string Id { get; set; }
-        
-        [Column("data")]
-        [JsonConverter(typeof(ByteArrayConverter))]
-        public byte[] Data { get; set; }
-
         private Bitmap _bitmap;
         
         public async Task<Bitmap> GetBitmap()

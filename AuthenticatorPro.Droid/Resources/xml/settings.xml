@@ -13,7 +13,7 @@
             android:title="@string/prefShowBackupRemindersTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true" />
-        <authenticatorpro.preference.AutoBackupPreference
+        <authenticatorpro.droid.preference.AutoBackupPreference
             android:key="pref_autoBackup"
             android:summary="@string/prefAutoBackupSummary"
             android:title="@string/prefAutoBackupTitle"
@@ -24,13 +24,13 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefSecurity"
         android:key="pref_key_security">
-        <authenticatorpro.preference.PasswordPreference
+        <authenticatorpro.droid.preference.PasswordPreference
             android:key="pref_password"
             android:summary="@string/prefPasswordSummary"
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefPasswordTitle" />
-        <authenticatorpro.preference.BiometricsPreference
+        <authenticatorpro.droid.preference.BiometricsPreference
             android:key="pref_allowBiometrics"
             android:summary="@string/prefAllowBiometricsSummary"
             app:iconSpaceReserved="false"
@@ -71,19 +71,19 @@
         android:title="@string/prefMore"
         android:key="pref_key_more">
 
-        <authenticatorpro.preference.AboutPreference
+        <authenticatorpro.droid.preference.AboutPreference
             android:key="pref_key_about"
             android:summary="@string/prefAboutSummary"
             app:iconSpaceReserved="false"
             android:title="@string/prefAboutTitle" />
 
-        <authenticatorpro.preference.RatePreference
+        <authenticatorpro.droid.preference.RatePreference
             android:key="pref_key_rate"
             android:summary="@string/prefRateSummary"
             app:iconSpaceReserved="false"
             android:title="@string/prefRateTitle" />
 
-        <authenticatorpro.preference.ViewGitHubPreference
+        <authenticatorpro.droid.preference.ViewGitHubPreference
             android:key="pref_key_view_github"
             android:summary="@string/prefViewGitHubSummary"
             app:iconSpaceReserved="false"

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ProtoBuf;
 
-namespace AuthenticatorPro.Droid.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
     [ProtoContract]
     public class OtpAuthMigration

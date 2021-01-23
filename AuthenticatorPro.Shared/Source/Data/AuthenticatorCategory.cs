@@ -1,9 +1,9 @@
 ﻿using SQLite;
 
-namespace AuthenticatorPro.Droid.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
     [Table("authenticatorcategory")]
-    internal class AuthenticatorCategory
+    public class AuthenticatorCategory
     {
         [Column("categoryId")]
         [Indexed]

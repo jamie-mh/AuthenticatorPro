@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AuthenticatorPro.Droid.Shared.Util
+namespace AuthenticatorPro.Shared.Source.Util
 {
     public static class Hash
     {

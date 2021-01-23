@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.List;
+using AuthenticatorPro.Shared.Source.Data.Source;
 
 namespace AuthenticatorPro.Droid.Fragment
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AuthenticatorPro.Droid.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
-    internal class AuthenticatorComparer : IEqualityComparer<Authenticator>
+    public class AuthenticatorComparer : IEqualityComparer<Authenticator>
     {
         public bool Equals(Authenticator x, Authenticator y)
         {

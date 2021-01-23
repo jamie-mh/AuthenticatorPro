@@ -2,9 +2,8 @@
 using System;
 using Newtonsoft.Json;
 
-namespace AuthenticatorPro.Droid.Shared.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
-    [Android.Runtime.Preserve(AllMembers = true)]
     public class ByteArrayConverter : JsonConverter
     {
         public override async void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)

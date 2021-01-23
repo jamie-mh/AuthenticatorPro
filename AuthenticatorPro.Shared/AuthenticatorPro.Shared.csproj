@@ -6,7 +6,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Source" />
+      <PackageReference Include="Newtonsoft.Json">
+        <Version>12.0.3</Version>
+      </PackageReference>
+      <PackageReference Include="Otp.NET">
+        <Version>1.2.2</Version>
+      </PackageReference>
+      <PackageReference Include="PCLCrypto">
+        <Version>2.0.147</Version>
+      </PackageReference>
+      <PackageReference Include="protobuf-net">
+        <Version>3.0.73</Version>
+      </PackageReference>
+      <PackageReference Include="sqlite-net-pcl">
+        <Version>1.6.292</Version>
+      </PackageReference>
     </ItemGroup>
 
 </Project>

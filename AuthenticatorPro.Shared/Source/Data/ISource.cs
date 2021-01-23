@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AuthenticatorPro.Droid.Shared.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
     public interface ISource<T>
     {

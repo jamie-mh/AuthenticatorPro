@@ -1,0 +1,20 @@
+using Newtonsoft.Json;
+using SQLite;
+
+namespace AuthenticatorPro.Shared.Source.Data
+{
+    [Table("customicon")]
+    public class CustomIcon
+    {
+        public const char Prefix = '@';
+        private const int MaxSize = 128;
+        
+        [Column("id")]
+        [PrimaryKey]
+        public string Id { get; set; }
+        
+        [Column("data")]
+        [JsonConverter(typeof(ByteArrayConverter))]
+        public byte[] Data { get; set; }
+    }
+}

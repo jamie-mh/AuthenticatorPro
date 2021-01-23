@@ -24,12 +24,15 @@ using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Data.Backup;
-using AuthenticatorPro.Droid.Data.Backup.Converter;
-using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Fragment;
 using AuthenticatorPro.Droid.List;
+using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Source.Data.Backup;
+using AuthenticatorPro.Shared.Source.Data.Backup.Converter;
+using AuthenticatorPro.Shared.Source.Data.Source;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;
@@ -100,6 +103,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         // State
         private PreferenceWrapper _preferences;
+        private IconResolver _iconResolver;
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
@@ -122,7 +126,8 @@ namespace AuthenticatorPro.Droid.Activity
 
 
         public MainActivity()
-        {
+        {   
+            _iconResolver = new IconResolver();
             _onCreateSemaphore = new SemaphoreSlim(1, 1);
             _onResumeSemaphore = new SemaphoreSlim(1, 1);
             _loginSemaphore = new SemaphoreSlim(0, 1);
@@ -318,35 +323,35 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
                 
                 case RequestImportAuthenticatorPlus:
-                    await ImportFromUri(new AuthenticatorPlusBackupConverter(), intent.Data);
+                    await ImportFromUri(new AuthenticatorPlusBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportAndOtp:
-                    await ImportFromUri(new AndOtpBackupConverter(), intent.Data);
+                    await ImportFromUri(new AndOtpBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportFreeOtpPlus:
-                    await ImportFromUri(new FreeOtpPlusBackupConverter(), intent.Data);
+                    await ImportFromUri(new FreeOtpPlusBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportAegis:
-                    await ImportFromUri(new AegisBackupConverter(), intent.Data);
+                    await ImportFromUri(new AegisBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportBitwarden:
-                    await ImportFromUri(new BitwardenBackupConverter(), intent.Data);
+                    await ImportFromUri(new BitwardenBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportWinAuth:
-                    await ImportFromUri(new UriListBackupConverter(), intent.Data);
+                    await ImportFromUri(new UriListBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportTotpAuthenticator:
-                    await ImportFromUri(new TotpAuthenticatorBackupConverter(), intent.Data);
+                    await ImportFromUri(new TotpAuthenticatorBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportUriList:
-                    await ImportFromUri(new UriListBackupConverter(), intent.Data);
+                    await ImportFromUri(new UriListBackupConverter(_iconResolver), intent.Data);
                     break;
             }
         }
@@ -924,7 +929,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                auth = Authenticator.FromOtpAuthUri(uri);
+                auth = Authenticator.FromOtpAuthUri(uri, _iconResolver);
             }
             catch
             {
@@ -988,7 +993,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 try
                 {
-                    auth = Authenticator.FromOtpAuthMigrationAuthenticator(item);
+                    auth = Authenticator.FromOtpAuthMigrationAuthenticator(item, _iconResolver);
                 }
                 catch(ArgumentException)
                 {
@@ -1403,7 +1408,7 @@ namespace AuthenticatorPro.Droid.Activity
         #region Add Dialog
         private void OpenAddDialog(object sender, EventArgs e)
         {
-            var fragment = new AddAuthenticatorBottomSheet();
+            var fragment = new AddAuthenticatorBottomSheet(_iconResolver);
             fragment.Add += OnAddDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1540,7 +1545,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 var data = await FileUtil.ReadFile(this, source);
-                icon = await CustomIcon.FromBytes(data);
+                icon = await DroidCustomIcon.FromBytes(data);
             }
             catch(Exception)
             {

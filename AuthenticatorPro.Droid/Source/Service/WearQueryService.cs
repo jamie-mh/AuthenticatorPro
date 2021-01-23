@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Droid.Data;
-using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
 using AuthenticatorPro.Droid.Shared.Query;
+using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Source.Data.Source;
 using Newtonsoft.Json;
 using SQLite;
 

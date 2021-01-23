@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
-using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Source.Util;
 using Newtonsoft.Json;
 using OtpNet;
 using SQLite;
-using Hotp = AuthenticatorPro.Droid.Shared.Data.Generator.Hotp;
-using SteamOtp = AuthenticatorPro.Droid.Shared.Data.Generator.SteamOtp;
-using Totp = AuthenticatorPro.Droid.Shared.Data.Generator.Totp;
+using Hotp = AuthenticatorPro.Shared.Source.Data.Generator.Hotp;
+using SteamOtp = AuthenticatorPro.Shared.Source.Data.Generator.SteamOtp;
+using Totp = AuthenticatorPro.Shared.Source.Data.Generator.Totp;
 
-namespace AuthenticatorPro.Droid.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
     [Table("authenticator")]
     public class Authenticator
@@ -116,7 +115,7 @@ namespace AuthenticatorPro.Droid.Data
             return _code;
         }
 
-        public static Authenticator FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator input)
+        public static Authenticator FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator input, IIconResolver iconResolver)
         {
             string issuer;
             string username;
@@ -169,7 +168,7 @@ namespace AuthenticatorPro.Droid.Data
                 Counter = input.Counter,
                 Digits = type.GetDefaultDigits(),
                 Period = type.GetDefaultPeriod(),
-                Icon = Shared.Data.Icon.FindServiceKeyByName(issuer)
+                Icon = iconResolver.FindServiceKeyByName(issuer)
             };
             
             if(!auth.IsValid())
@@ -178,7 +177,7 @@ namespace AuthenticatorPro.Droid.Data
             return auth;
         }
 
-        public static Authenticator FromOtpAuthUri(string uri)
+        public static Authenticator FromOtpAuthUri(string uri, IIconResolver iconResolver)
         {
             var uriMatch = Regex.Match(Uri.UnescapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/([^?]*)(.*)$");
 
@@ -255,7 +254,7 @@ namespace AuthenticatorPro.Droid.Data
             if(!args.ContainsKey("secret"))
                 throw new ArgumentException("Secret parameter is required.");
 
-            var icon = Shared.Data.Icon.FindServiceKeyByName(args.GetValueOrDefault("icon") ?? issuer);
+            var icon = iconResolver.FindServiceKeyByName(args.GetValueOrDefault("icon") ?? issuer);
             var secret = CleanSecret(args["secret"], type);
 
             var auth = new Authenticator {

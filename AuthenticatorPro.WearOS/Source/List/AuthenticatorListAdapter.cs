@@ -52,13 +52,13 @@ namespace AuthenticatorPro.WearOS.List
                     if(customIcon != null)
                         holder.Icon.SetImageBitmap(customIcon);
                     else
-                        holder.Icon.SetImageResource(Icon.GetService(Icon.Default, true));
+                        holder.Icon.SetImageResource(IconResolver.GetService(IconResolver.Default, true));
                 }
                 else 
-                    holder.Icon.SetImageResource(Icon.GetService(auth.Icon, true));
+                    holder.Icon.SetImageResource(IconResolver.GetService(auth.Icon, true));
             }
             else
-                holder.Icon.SetImageResource(Icon.GetService(Icon.Default, true));
+                holder.Icon.SetImageResource(IconResolver.GetService(IconResolver.Default, true));
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

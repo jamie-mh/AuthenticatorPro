@@ -1,10 +1,10 @@
-﻿using AuthenticatorPro.Droid.Shared.Util;
+﻿using AuthenticatorPro.Shared.Source.Util;
 using SQLite;
 
-namespace AuthenticatorPro.Droid.Data
+namespace AuthenticatorPro.Shared.Source.Data
 {
     [Table("category")]
-    internal class Category
+    public class Category
     {
         private const int IdLength = 8;
         public const int NameMaxLength = 32;

@@ -1,7 +1,7 @@
 ﻿using System;
 using OtpNet;
 
-namespace AuthenticatorPro.Droid.Shared.Data.Generator
+namespace AuthenticatorPro.Shared.Source.Data.Generator
 {
     public class Totp : IGenerator
     {

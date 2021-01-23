@@ -9,10 +9,11 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data;
-using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
-using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Source.Data.Source;
+using AuthenticatorPro.Shared.Source.Util;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.List
@@ -113,15 +114,15 @@ namespace AuthenticatorPro.Droid.List
             if(auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
                 var id = auth.Icon.Substring(1);
-                var customIcon = _customIconSource.Get(id);
+                var customIcon = (DroidCustomIcon) _customIconSource.Get(id);
                 
                 if(customIcon != null)
                     holder.Icon.SetImageBitmap(await customIcon.GetBitmap()); 
                 else
-                    holder.Icon.SetImageResource(Icon.GetService(Icon.Default, _isDark));
+                    holder.Icon.SetImageResource(IconResolver.GetService(IconResolver.Default, _isDark));
             }
             else
-                holder.Icon.SetImageResource(Icon.GetService(auth.Icon, _isDark));
+                holder.Icon.SetImageResource(IconResolver.GetService(auth.Icon, _isDark));
                 
             switch(auth.Type.GetGenerationMethod())
             {

@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Source.Data.Generator;
 using SQLite;
 
-namespace AuthenticatorPro.Droid.Data.Source
+namespace AuthenticatorPro.Shared.Source.Data.Source
 {
-    internal class AuthenticatorSource : ISource<Authenticator>
+    public class AuthenticatorSource : ISource<Authenticator>
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
