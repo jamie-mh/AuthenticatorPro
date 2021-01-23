@@ -19,7 +19,7 @@
       <PackageReference Include="protobuf-net">
         <Version>3.0.73</Version>
       </PackageReference>
-      <PackageReference Include="sqlite-net-pcl">
+      <PackageReference Include="sqlite-net-sqlcipher">
         <Version>1.6.292</Version>
       </PackageReference>
     </ItemGroup>
