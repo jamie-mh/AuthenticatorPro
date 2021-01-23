@@ -13,9 +13,11 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
         // Encrypted backups not yet supported, see andOTP converter
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
-        public AegisBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        private readonly ICustomIconDecoder _customIconDecoder;
+
+        public AegisBackupConverter(IIconResolver iconResolver, ICustomIconDecoder customIconDecoder) : base(iconResolver)
         {
-        
+            _customIconDecoder = customIconDecoder;
         }
         
         public override async Task<Backup> Convert(byte[] data, string password = null)
@@ -50,21 +52,19 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                     bindings.Add(binding);
                 }
 
-                // TODO: custom icon generator for platform?
-
-                // if(entry.Icon != null)
-                // {
-                //     var newIcon = await CustomIcon.FromBytes(entry.Icon);
-                //     var icon = icons.FirstOrDefault(ic => ic.Id == newIcon.Id);
-                //
-                //     if(icon == null)
-                //     {
-                //         icon = newIcon;
-                //         icons.Add(newIcon);
-                //     }
-                //
-                //     auth.Icon = CustomIcon.Prefix + icon.Id;
-                // }
+                if(entry.Icon != null)
+                {
+                    var newIcon = await _customIconDecoder.Decode(entry.Icon);
+                    var icon = icons.FirstOrDefault(ic => ic.Id == newIcon.Id);
+                
+                    if(icon == null)
+                    {
+                        icon = newIcon;
+                        icons.Add(newIcon);
+                    }
+                
+                    auth.Icon = CustomIcon.Prefix + icon.Id;
+                }
             }
 
             return new Backup(authenticators, categories, bindings, icons);

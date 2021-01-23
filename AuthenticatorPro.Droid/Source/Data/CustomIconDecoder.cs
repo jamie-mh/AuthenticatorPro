@@ -7,7 +7,7 @@ using AuthenticatorPro.Shared.Source.Util;
 
 namespace AuthenticatorPro.Droid.Data
 {
-    internal static class DroidCustomIcon
+    internal class CustomIconDecoder : ICustomIconDecoder
     {
         private static Bitmap ToSquare(Bitmap bitmap)
         {
@@ -88,7 +88,7 @@ namespace AuthenticatorPro.Droid.Data
             return Bitmap.CreateBitmap(bitmap, left, top, right - left, bottom - top);
         }
         
-        public static async Task<CustomIcon> FromBytes(byte[] rawData)
+        public async Task<CustomIcon> Decode(byte[] rawData)
         {
             var bitmap = await BitmapFactory.DecodeByteArrayAsync(rawData, 0, rawData.Length);
                 

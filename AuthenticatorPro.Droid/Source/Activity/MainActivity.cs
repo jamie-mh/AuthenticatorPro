@@ -335,7 +335,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
                 
                 case RequestImportAegis:
-                    await ImportFromUri(new AegisBackupConverter(_iconResolver), intent.Data);
+                    await ImportFromUri(new AegisBackupConverter(_iconResolver, new CustomIconDecoder()), intent.Data);
                     break;
                 
                 case RequestImportBitwarden:
@@ -1540,12 +1540,13 @@ namespace AuthenticatorPro.Droid.Activity
         #region Custom Icons
         private async Task SetCustomIcon(Uri source, int position)
         {
+            var decoder = new CustomIconDecoder();
             CustomIcon icon;
 
             try
             {
                 var data = await FileUtil.ReadFile(this, source);
-                icon = await DroidCustomIcon.FromBytes(data);
+                icon = await decoder.Decode(data);
             }
             catch(Exception)
             {
