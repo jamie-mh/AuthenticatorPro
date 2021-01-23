@@ -7,16 +7,8 @@ using AuthenticatorPro.Shared.Source.Util;
 
 namespace AuthenticatorPro.Droid.Data
 {
-    internal class DroidCustomIcon : CustomIcon
+    internal static class DroidCustomIcon
     {
-        private const int MaxSize = 128;
-        private Bitmap _bitmap;
-        
-        public async Task<Bitmap> GetBitmap()
-        {
-            return _bitmap ??= await BitmapFactory.DecodeByteArrayAsync(Data, 0, Data.Length);
-        }
-
         private static Bitmap ToSquare(Bitmap bitmap)
         {
             if(bitmap.Height == bitmap.Width)
@@ -111,7 +103,7 @@ namespace AuthenticatorPro.Droid.Data
                 bitmap = ToSquare(bitmap);
             });
             
-            var size = Math.Min(MaxSize, bitmap.Width); // width or height, doesn't matter as it's square
+            var size = Math.Min(CustomIcon.MaxSize, bitmap.Width); // width or height, doesn't matter as it's square
             var stream = new MemoryStream();
 
             try

@@ -7,7 +7,7 @@ namespace AuthenticatorPro.Shared.Source.Data
     public class CustomIcon
     {
         public const char Prefix = '@';
-        private const int MaxSize = 128;
+        public const int MaxSize = 128;
         
         [Column("id")]
         [PrimaryKey]

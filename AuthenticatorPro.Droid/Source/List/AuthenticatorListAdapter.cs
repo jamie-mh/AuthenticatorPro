@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Android.Animation;
 using Android.Content;
+using Android.Graphics;
 using Android.Provider;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Data.Generator;
@@ -33,6 +33,7 @@ namespace AuthenticatorPro.Droid.List
         
         private readonly AuthenticatorSource _authSource;
         private readonly CustomIconSource _customIconSource;
+        private readonly Dictionary<string, Bitmap> _decodedCustomIcons;
 
         private readonly float _animationScale;
        
@@ -53,6 +54,8 @@ namespace AuthenticatorPro.Droid.List
             _customIconSource = customIconSource;
             _viewMode = viewMode;
             _isDark = isDark;
+            
+            _decodedCustomIcons = new Dictionary<string, Bitmap>();
 
             _secondsRemainingPerPeriod = new Dictionary<int, int>();
             _progressPerPeriod = new Dictionary<int, int>();
@@ -114,10 +117,15 @@ namespace AuthenticatorPro.Droid.List
             if(auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
                 var id = auth.Icon.Substring(1);
-                var customIcon = (DroidCustomIcon) _customIconSource.Get(id);
-                
+                var customIcon = _customIconSource.Get(id);
+
                 if(customIcon != null)
-                    holder.Icon.SetImageBitmap(await customIcon.GetBitmap()); 
+                {
+                    if(!_decodedCustomIcons.ContainsKey(customIcon.Id))
+                        _decodedCustomIcons.Add(customIcon.Id, await BitmapFactory.DecodeByteArrayAsync(customIcon.Data, 0, customIcon.Data.Length));
+                    
+                    holder.Icon.SetImageBitmap(_decodedCustomIcons[customIcon.Id]); 
+                }
                 else
                     holder.Icon.SetImageResource(IconResolver.GetService(IconResolver.Default, _isDark));
             }
