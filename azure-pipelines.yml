@@ -17,18 +17,28 @@ steps:
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
+  displayName: 'Restore packages'
   inputs:
     restoreSolution: '**/*.sln'
 
 - task: XamarinAndroid@1
+  displayName: 'Build Android'
   inputs:
     projectFile: 'AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj'
-    outputDirectory: '$(outputDirectory)'
+    outputDirectory: '$(outputDirectory)/android'
+    configuration: '$(buildConfiguration)'
+
+- task: XamarinAndroid@1
+  displayName: 'Build Wear OS'
+  inputs:
+    projectFile: 'AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj'
+    outputDirectory: '$(outputDirectory)/wearos'
     configuration: '$(buildConfiguration)'
 
 - task: AndroidSigning@3
+  displayName: 'Sign APKs'
   inputs:
-    apkFiles: '$(outputDirectory)/*.apk'
+    apkFiles: '$(outputDirectory)/*/*.apk'
     apksign: true
     zipalign: true
     apksignerKeystoreFile: 'jmh.keystore'
@@ -37,6 +47,7 @@ steps:
     apksignerKeyPassword: $(key.password)
     
 - task: DotNetCoreCLI@2
+  displayName: 'Run tests'
   inputs:
     command: 'test'
     arguments: '--configuration $(buildConfiguration)'
@@ -44,6 +55,7 @@ steps:
     projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
 
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts'
   condition: succeeded()
   inputs:
     pathtoPublish: '$(outputDirectory)'
