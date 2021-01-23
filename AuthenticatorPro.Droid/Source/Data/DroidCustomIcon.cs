@@ -4,8 +4,6 @@ using System.Threading.Tasks;
 using Android.Graphics;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Util;
-using Newtonsoft.Json;
-using SQLite;
 
 namespace AuthenticatorPro.Droid.Data
 {
