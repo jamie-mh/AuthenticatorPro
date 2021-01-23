@@ -37,7 +37,7 @@ steps:
 - task: AndroidSigning@3
   displayName: 'Sign APKs'
   inputs:
-    apkFiles: '$(outputDirectory)/*/*.apk'
+    apkFiles: '$(Build.BinariesDirectory)/*/*.apk'
     apksign: true
     zipalign: true
     apksignerKeystoreFile: 'jmh.keystore'
