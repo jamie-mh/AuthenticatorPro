@@ -10,8 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  buildConfiguration: 'Release'
-  outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
+  configuration: 'Release'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -25,15 +24,15 @@ steps:
   displayName: 'Build Android'
   inputs:
     projectFile: 'AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj'
-    outputDirectory: '$(outputDirectory)/android'
-    configuration: '$(buildConfiguration)'
+    outputDirectory: '$(Build.BinariesDirectory)/android'
+    configuration: '$(configuration)'
 
 - task: XamarinAndroid@1
   displayName: 'Build Wear OS'
   inputs:
     projectFile: 'AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj'
-    outputDirectory: '$(outputDirectory)/wearos'
-    configuration: '$(buildConfiguration)'
+    outputDirectory: '$(Build.BinariesDirectory)/wearos'
+    configuration: '$(configuration)'
 
 - task: AndroidSigning@3
   displayName: 'Sign APKs'
@@ -50,12 +49,18 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: 'test'
-    arguments: '--configuration $(buildConfiguration)'
+    arguments: '--configuration $(configuration)'
     publishTestResults: true
     projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
+    
+- task: CopyFiles@2
+  condition: succeeded()
+  inputs:
+    contents: '$(Build.BinariesDirectory)/*/*.apk'
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifacts'
   condition: succeeded()
   inputs:
-    pathtoPublish: '$(outputDirectory)'
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
