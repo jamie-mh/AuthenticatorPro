@@ -35,7 +35,15 @@ steps:
     apksignerKeystorePassword: $(keystore.password)
     apksignerKeystoreAlias: $(keystore.alias)
     apksignerKeyPassword: $(key.password)
+    
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    arguments: '--configuration $(buildConfiguration)'
+    publishTestResults: true
+    projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
 
 - task: PublishBuildArtifacts@1
+  condition: succeeded()
   inputs:
     pathtoPublish: '$(outputDirectory)'
