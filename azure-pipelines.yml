@@ -22,7 +22,7 @@ steps:
 
 - task: XamarinAndroid@1
   inputs:
-    projectFile: 'AuthenticatorPro/AuthenticatorPro.Android.csproj'
+    projectFile: 'AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
 

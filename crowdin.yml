@@ -1,6 +1,6 @@
 files:
-  - source: /AuthenticatorPro/Resources/values/strings.xml
-    translation: /AuthenticatorPro/Resources/values-%two_letters_code%/strings.xml
+  - source: /AuthenticatorPro.Droid/Resources/values/strings.xml
+    translation: /AuthenticatorPro.Droid/Resources/values-%two_letters_code%/strings.xml
     languages_mapping:
       two_letters_code:
         zh-CN: zh-rCN
