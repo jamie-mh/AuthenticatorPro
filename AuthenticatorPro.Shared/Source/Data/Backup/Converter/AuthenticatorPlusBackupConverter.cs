@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 "authplus.db"
             );
 
-            await File.WriteAllBytesAsync(path, data);
+            await Task.Run(delegate { File.WriteAllBytes(path, data); });
             
             var connStr = new SQLiteConnectionString(path, true, password);
             var connection = new SQLiteAsyncConnection(connStr);

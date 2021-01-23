@@ -194,7 +194,10 @@ namespace AuthenticatorPro.Shared.Source.Data
             var args = new Dictionary<string, string>();
 
             foreach(Match match in argMatches)
-                args.TryAdd(match.Groups[1].Value, match.Groups[3].Value);
+            {
+                if(!args.ContainsKey(match.Groups[1].Value))
+                    args.Add(match.Groups[1].Value, match.Groups[3].Value);
+            }
 
             string issuer;
             string username;
@@ -254,7 +257,13 @@ namespace AuthenticatorPro.Shared.Source.Data
             if(!args.ContainsKey("secret"))
                 throw new ArgumentException("Secret parameter is required.");
 
-            var icon = iconResolver.FindServiceKeyByName(args.GetValueOrDefault("icon") ?? issuer);
+            string icon;
+
+            if(args.ContainsKey("icon"))
+                icon = iconResolver.FindServiceKeyByName(args["icon"]);
+            else
+                icon = iconResolver.FindServiceKeyByName(issuer);
+
             var secret = CleanSecret(args["secret"], type);
 
             var auth = new Authenticator {

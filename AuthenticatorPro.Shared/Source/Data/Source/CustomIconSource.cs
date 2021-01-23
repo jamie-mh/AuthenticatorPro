@@ -55,7 +55,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
         {
             // Cannot query as string directly for some reason
             var distinctIconUses = await _connection.QueryAsync<Authenticator>("SELECT DISTINCT icon FROM authenticator");
-            var custom = distinctIconUses.Where(i => i.Icon != null && i.Icon.StartsWith(CustomIcon.Prefix)).Select(i => i.Icon.Substring(1));
+            var custom = distinctIconUses.Where(i => i.Icon != null && i.Icon.StartsWith(CustomIcon.Prefix.ToString())).Select(i => i.Icon.Substring(1));
             var unused = _all.Select(i => i.Id).Except(custom).ToList();
 
             if(!unused.Any())
