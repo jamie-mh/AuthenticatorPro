@@ -2,7 +2,7 @@
 using Android.Graphics.Drawables;
 using AndroidX.Core.Content;
 using AndroidX.Wear.Widget.Drawer;
-using AuthenticatorPro.Shared.Query;
+using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.WearOS.Cache;
 using Java.Lang;
 

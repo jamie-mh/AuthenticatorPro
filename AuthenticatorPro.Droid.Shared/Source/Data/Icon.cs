@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace AuthenticatorPro.Shared.Data
+namespace AuthenticatorPro.Droid.Shared.Data
 {
     public static class Icon
     {

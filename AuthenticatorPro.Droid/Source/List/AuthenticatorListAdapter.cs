@@ -10,9 +10,9 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Data.Source;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Generator;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Droid.Shared.Util;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.List

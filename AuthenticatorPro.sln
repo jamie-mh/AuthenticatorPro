@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Droid", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.WearOS", "AuthenticatorPro.WearOS\AuthenticatorPro.WearOS.csproj", "{9B757B46-9195-487F-9E95-03ACD22FDCA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Shared", "AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj", "{31A1D6FA-66B2-47D6-8F67-2B0EAA9010E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Droid.Shared", "AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj", "{31A1D6FA-66B2-47D6-8F67-2B0EAA9010E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Test", "AuthenticatorPro.Test\AuthenticatorPro.Test.csproj", "{B619FF28-F4AB-4D86-92F0-B9F1841B892C}"
 EndProject

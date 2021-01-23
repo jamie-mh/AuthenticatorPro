@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Shared.Data.Generator
+namespace AuthenticatorPro.Droid.Shared.Data.Generator
 {
     public interface IGenerator
     {

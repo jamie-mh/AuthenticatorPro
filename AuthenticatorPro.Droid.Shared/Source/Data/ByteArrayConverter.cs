@@ -2,7 +2,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace AuthenticatorPro.Shared.Data
+namespace AuthenticatorPro.Droid.Shared.Data
 {
     [Android.Runtime.Preserve(AllMembers = true)]
     public class ByteArrayConverter : JsonConverter

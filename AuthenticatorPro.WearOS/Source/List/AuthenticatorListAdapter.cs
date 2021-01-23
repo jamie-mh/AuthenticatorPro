@@ -1,7 +1,7 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Data;
 

@@ -10,7 +10,7 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Fragment;
 using AuthenticatorPro.Droid.List;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;

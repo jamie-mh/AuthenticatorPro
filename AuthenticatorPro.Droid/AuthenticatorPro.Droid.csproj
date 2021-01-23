@@ -834,12 +834,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj">
-      <Project>{31a1d6fa-66b2-47d6-8f67-2b0eaa9010e9}</Project>
-      <Name>AuthenticatorPro.Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\font\rubik.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
@@ -1657,6 +1651,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-v21\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj">
+      <Project>{31a1d6fa-66b2-47d6-8f67-2b0eaa9010e9}</Project>
+      <Name>AuthenticatorPro.Droid.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

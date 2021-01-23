@@ -1,4 +1,4 @@
-﻿using AuthenticatorPro.Shared.Util;
+﻿using AuthenticatorPro.Droid.Shared.Util;
 using SQLite;
 
 namespace AuthenticatorPro.Droid.Data

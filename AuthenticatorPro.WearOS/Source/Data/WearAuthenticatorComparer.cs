@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AuthenticatorPro.Shared.Query;
+using AuthenticatorPro.Droid.Shared.Query;
 
 namespace AuthenticatorPro.WearOS.Data
 {

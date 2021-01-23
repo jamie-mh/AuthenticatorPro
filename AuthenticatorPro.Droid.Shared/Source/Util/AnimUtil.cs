@@ -1,7 +1,7 @@
 ﻿using Android.Views;
 using Android.Views.Animations;
 
-namespace AuthenticatorPro.Shared.Util
+namespace AuthenticatorPro.Droid.Shared.Util
 {
     public static class AnimUtil
     {

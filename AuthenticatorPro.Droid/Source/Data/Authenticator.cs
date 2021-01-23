@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Generator;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Droid.Shared.Util;
 using Newtonsoft.Json;
 using OtpNet;
 using SQLite;
-using Hotp = AuthenticatorPro.Shared.Data.Generator.Hotp;
-using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
-using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
+using Hotp = AuthenticatorPro.Droid.Shared.Data.Generator.Hotp;
+using SteamOtp = AuthenticatorPro.Droid.Shared.Data.Generator.SteamOtp;
+using Totp = AuthenticatorPro.Droid.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.Droid.Data
 {

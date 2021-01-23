@@ -1,7 +1,7 @@
-﻿using AuthenticatorPro.Shared.Data;
+﻿using AuthenticatorPro.Droid.Shared.Data;
 using Newtonsoft.Json;
 
-namespace AuthenticatorPro.Shared.Query
+namespace AuthenticatorPro.Droid.Shared.Query
 {
     [Android.Runtime.Preserve(AllMembers = true)]
     public class WearCustomIcon

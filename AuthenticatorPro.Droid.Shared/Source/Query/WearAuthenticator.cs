@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Data;
 using OtpNet;
 
-namespace AuthenticatorPro.Shared.Query
+namespace AuthenticatorPro.Droid.Shared.Query
 {
     [Android.Runtime.Preserve(AllMembers = true)]
     public class WearAuthenticator

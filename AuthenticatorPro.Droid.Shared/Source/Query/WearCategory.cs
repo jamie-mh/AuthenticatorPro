@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro.Shared.Query
+﻿namespace AuthenticatorPro.Droid.Shared.Query
 {
     [Android.Runtime.Preserve(AllMembers = true)]
     public class WearCategory

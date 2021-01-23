@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Util;
 using Newtonsoft.Json;
 using SQLite;
 

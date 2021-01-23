@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Shared.Util
+namespace AuthenticatorPro.Droid.Shared.Util
 {
     public static class StringExt
     {

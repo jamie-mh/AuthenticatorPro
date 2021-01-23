@@ -29,7 +29,7 @@ using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Fragment;
 using AuthenticatorPro.Droid.List;
 using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;

@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using OtpNet;
 
-namespace AuthenticatorPro.Shared.Data.Generator
+namespace AuthenticatorPro.Droid.Shared.Data.Generator
 {
     public class SteamOtp : IGenerator
     {

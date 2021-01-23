@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using AuthenticatorPro.Droid.Data;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Data.Generator;
 using NUnit.Framework;
 using OtpNet;
 

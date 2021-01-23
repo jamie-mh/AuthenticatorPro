@@ -1,4 +1,4 @@
-﻿using AuthenticatorPro.Shared.Data;
+﻿using AuthenticatorPro.Droid.Shared.Data;
 using NUnit.Framework;
 
 namespace AuthenticatorPro.Test.Test

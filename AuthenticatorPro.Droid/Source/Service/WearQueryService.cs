@@ -8,8 +8,8 @@ using Android.Gms.Wearable;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Data.Generator;
-using AuthenticatorPro.Shared.Query;
+using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Droid.Shared.Query;
 using Newtonsoft.Json;
 using SQLite;
 

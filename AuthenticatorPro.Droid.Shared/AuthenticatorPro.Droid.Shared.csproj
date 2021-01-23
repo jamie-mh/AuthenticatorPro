@@ -10,8 +10,8 @@
     <TemplateGuid>{9ef11e43-1701-4396-8835-8392d57abb70}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AuthenticatorPro.Shared</RootNamespace>
-    <AssemblyName>AuthenticatorPro.Shared</AssemblyName>
+    <RootNamespace>AuthenticatorPro.Droid.Shared</RootNamespace>
+    <AssemblyName>AuthenticatorPro.Droid.Shared</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <Deterministic>True</Deterministic>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>

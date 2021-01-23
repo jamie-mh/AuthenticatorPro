@@ -7,12 +7,12 @@ using Android.OS;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Generator;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Data.Generator;
+using AuthenticatorPro.Droid.Shared.Util;
 using OtpNet;
-using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
-using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
+using SteamOtp = AuthenticatorPro.Droid.Shared.Data.Generator.SteamOtp;
+using Totp = AuthenticatorPro.Droid.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.WearOS.Activity
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using OtpNet;
 
-namespace AuthenticatorPro.Shared.Data.Generator
+namespace AuthenticatorPro.Droid.Shared.Data.Generator
 {
     public class Hotp : CounterBasedGenerator
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Droid.Shared.Data.Generator;
 
-namespace AuthenticatorPro.Shared.Data
+namespace AuthenticatorPro.Droid.Shared.Data
 {
     public enum AuthenticatorType
     {
