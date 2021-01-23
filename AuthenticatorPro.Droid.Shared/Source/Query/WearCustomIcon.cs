@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Droid.Shared.Query
 {
-    [Android.Runtime.Preserve(AllMembers = true)]
     public class WearCustomIcon
     {
         public readonly string Id;

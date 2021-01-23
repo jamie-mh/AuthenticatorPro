@@ -1,6 +1,5 @@
 ﻿namespace AuthenticatorPro.Droid.Shared.Query
 {
-    [Android.Runtime.Preserve(AllMembers = true)]
     public class WearCategory
     {
         public readonly string Id;

@@ -4,7 +4,6 @@ using OtpNet;
 
 namespace AuthenticatorPro.Droid.Shared.Query
 {
-    [Android.Runtime.Preserve(AllMembers = true)]
     public class WearAuthenticator
     {
         public readonly AuthenticatorType Type;
