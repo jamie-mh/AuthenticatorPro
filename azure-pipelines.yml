@@ -14,11 +14,20 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+  displayName: 'Install NuGet'
 
 - task: NuGetCommand@2
   displayName: 'Restore packages'
   inputs:
     restoreSolution: '**/*.sln'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run tests'
+  inputs:
+    command: 'test'
+    arguments: '--configuration $(configuration)'
+    publishTestResults: true
+    projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
 
 - task: XamarinAndroid@1
   displayName: 'Build Android'
@@ -44,19 +53,12 @@ steps:
     apksignerKeystorePassword: $(keystore.password)
     apksignerKeystoreAlias: $(keystore.alias)
     apksignerKeyPassword: $(key.password)
-    
-- task: DotNetCoreCLI@2
-  displayName: 'Run tests'
-  inputs:
-    command: 'test'
-    arguments: '--configuration $(configuration)'
-    publishTestResults: true
-    projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
-    
+
 - task: CopyFiles@2
+  displayName: 'Copy APKs to staging dir'
   condition: succeeded()
   inputs:
-    contents: '$(Build.BinariesDirectory)/*/*.apk'
+    contents: '**/*.apk'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
