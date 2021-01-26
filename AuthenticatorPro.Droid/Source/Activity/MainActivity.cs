@@ -1431,6 +1431,7 @@ namespace AuthenticatorPro.Droid.Activity
                     position = await _authSource.Add(auth);
                 else
                 {
+                    await _authSource.Add(auth);
                     await _authSource.AddToCategory(auth.Secret, _authSource.CategoryId);
                     position = _authSource.GetPosition(auth.Secret);
                 }
