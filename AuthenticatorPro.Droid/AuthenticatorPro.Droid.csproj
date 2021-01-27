@@ -302,6 +302,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\about.html" />
+    <AndroidAsset Include="Assets\icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\sheetBackupPassword.axml">
