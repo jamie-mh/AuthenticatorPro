@@ -102,8 +102,8 @@ namespace AuthenticatorPro.Droid.Activity
         private CustomIconSource _customIconSource;
 
         // State
+        private readonly IconResolver _iconResolver;
         private PreferenceWrapper _preferences;
-        private IconResolver _iconResolver;
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
