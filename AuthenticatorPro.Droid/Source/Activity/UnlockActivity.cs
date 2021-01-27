@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
-using Android.Security.Keystore;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;

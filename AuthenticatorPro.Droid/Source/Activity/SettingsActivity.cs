@@ -2,7 +2,6 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Security.Keystore;
 using Android.Views;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
