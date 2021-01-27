@@ -1632,9 +1632,6 @@
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_list.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable-v21\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj">
       <Project>{31a1d6fa-66b2-47d6-8f67-2b0eaa9010e9}</Project>
       <Name>AuthenticatorPro.Droid.Shared</Name>
