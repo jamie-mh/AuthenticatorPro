@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
+using Android.Security.Keystore;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -11,6 +12,7 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
+using Javax.Crypto;
 using BiometricManager = AndroidX.Biometric.BiometricManager;
 using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 
@@ -165,8 +167,20 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetNegativeButtonText(GetString(Resource.String.cancel))
                 .SetConfirmationRequired(false)
                 .Build();
+
+            Cipher cipher;
+
+            try
+            {
+                cipher = passwordStorage.GetDecryptionCipher();
+            }
+            catch
+            {
+                _canUseBiometrics = false;
+                _useBiometricsButton.Enabled = false;
+                return;
+            }
             
-            var cipher = passwordStorage.GetDecryptionCipher();
             _prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
         }
 

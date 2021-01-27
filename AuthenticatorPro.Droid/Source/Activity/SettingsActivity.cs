@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Security.Keystore;
 using Android.Views;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
@@ -11,6 +12,7 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Fragment;
 using AuthenticatorPro.Droid.Preference;
 using AuthenticatorPro.Droid.Util;
+using Javax.Crypto;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -188,7 +190,19 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetConfirmationRequired(false)
                 .Build();
 
-            var cipher = passwordStorage.GetEncryptionCipher();
+            Cipher cipher;
+            
+            try
+            {
+                cipher = passwordStorage.GetEncryptionCipher();
+            }
+            catch
+            {
+                passwordStorage.Clear();
+                callback(false);
+                return;
+            }
+            
             prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
         }
         
