@@ -226,7 +226,17 @@ namespace AuthenticatorPro.Droid.Activity
             _onCreateSemaphore.Release();
             
             await _onResumeSemaphore.WaitAsync();
-            await UnlockIfRequired();
+
+            try
+            {
+                await UnlockIfRequired();
+            }
+            catch
+            {
+                _onResumeSemaphore.Release();
+                Recreate();
+                return;
+            }
 
             // In case auto restore occurs when activity is loaded
             var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
