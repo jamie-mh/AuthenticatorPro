@@ -40,6 +40,7 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.Nio;
+using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
@@ -158,9 +159,30 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await Database.UpgradeLegacy(this);
-            await UnlockIfRequired();
 
-            var connection = await Database.GetSharedConnection();
+            try
+            {
+                await UnlockIfRequired();
+            }
+            catch
+            {
+                ShowDatabaseErrorDialog();
+                return;
+            }
+            
+            SQLiteAsyncConnection connection;
+
+            try
+            {
+                connection = await Database.GetSharedConnection();
+            }
+            catch
+            {
+                // This should never happen, start activity just in case
+                Recreate();
+                return;
+            }
+            
             _categorySource = new CategorySource(connection);
             _customIconSource = new CustomIconSource(connection);
             _authSource = new AuthenticatorSource(connection);
@@ -484,18 +506,6 @@ namespace AuthenticatorPro.Droid.Activity
                 await _loginSemaphore.WaitAsync();
             }
 
-            async Task AttemptUnlockWithoutPassword()
-            {
-                try
-                {
-                    await BaseApplication.Unlock(null);
-                }
-                catch
-                {
-                    ShowDatabaseErrorDialog();
-                }
-            }
-
             switch(BaseApplication.IsLocked)
             {
                 // Unlocked, check if the connection is usable
@@ -509,7 +519,7 @@ namespace AuthenticatorPro.Droid.Activity
                         if(_preferences.PasswordProtected)
                             await WaitForUnlock();
                         else
-                            await AttemptUnlockWithoutPassword();
+                            await BaseApplication.Unlock(null);
                     }
                     return;
                 
@@ -520,7 +530,7 @@ namespace AuthenticatorPro.Droid.Activity
                     
                 // Locked but no password, unlock now
                 case true:
-                    await AttemptUnlockWithoutPassword();
+                    await BaseApplication.Unlock(null);
                     break;
             }
         }
