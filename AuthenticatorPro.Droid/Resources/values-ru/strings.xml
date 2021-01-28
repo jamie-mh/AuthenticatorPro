@@ -75,6 +75,8 @@
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
     <string name="confirmCategoryDelete">Вы уверены в том, что хотите удалить эту категорию?</string>
+    <string name="setAsDefault">Set as default</string>
+    <string name="clearDefault">Clear default</string>
     <!-- Backups -->
     <string name="backupNow">Создать резервную копию</string>
     <string name="restoreNow">Restore now</string>

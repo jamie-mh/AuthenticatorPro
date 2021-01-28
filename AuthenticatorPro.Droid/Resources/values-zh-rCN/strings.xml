@@ -75,6 +75,8 @@
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
     <string name="confirmCategoryDelete">您确定要删除这个分类吗？</string>
+    <string name="setAsDefault">Set as default</string>
+    <string name="clearDefault">Clear default</string>
     <!-- Backups -->
     <string name="backupNow">立即备份</string>
     <string name="restoreNow">Restore now</string>

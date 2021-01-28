@@ -75,6 +75,8 @@
     <string name="noCategoryName">Un nombre de Categoría es requerido.</string>
     <string name="duplicateCategory">Una Categoría con este nombre ya existe.</string>
     <string name="confirmCategoryDelete">¿Está seguro que desea eliminar esta categoría?</string>
+    <string name="setAsDefault">Set as default</string>
+    <string name="clearDefault">Clear default</string>
     <!-- Backups -->
     <string name="backupNow">Respaldar ahora</string>
     <string name="restoreNow">Restore now</string>
