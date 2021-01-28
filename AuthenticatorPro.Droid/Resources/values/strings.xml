@@ -176,7 +176,7 @@
     <string name="importError">The file could not be imported</string>
 
     <string name="googleAuthenticator" translatable="false">Google Authenticator</string>
-    <string name="authenticatorPlus">Authenticator Plus</string>
+    <string name="authenticatorPlus" translatable="false">Authenticator Plus</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
     <string name="andOtp">andOTP (plain-text)</string>
     <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
@@ -251,11 +251,11 @@
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>
     <string name="authTypeCounter">Counter based (HOTP)</string>
-    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
-    <string name="authTypeSteam">Steam</string>
+    <string name="authTypeMobileOtp" translatable="false">Mobile-OTP (mOTP)</string>
+    <string name="authTypeSteam" translatable="false">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (default)</string>
-    <string name="authAlgorithmSHA256">SHA256</string>
-    <string name="authAlgorithmSHA512">SHA512</string>
+    <string name="authAlgorithmSHA256" translatable="false">SHA256</string>
+    <string name="authAlgorithmSHA512" translatable="false">SHA512</string>
     
     <string name="immediately">Immediately</string>
     <string name="timeout30Sec">30 seconds</string>
