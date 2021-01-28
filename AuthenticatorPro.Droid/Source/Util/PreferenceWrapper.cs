@@ -99,6 +99,14 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(FirstLaunchKey, value);
         }
 
+        private const string DefaultCategoryKey = "defaultCategory";
+        private const string DefaultCategoryDefault = null;
+        public string DefaultCategory
+        {
+            get => _preferences.GetString(DefaultCategoryKey, DefaultCategoryDefault);
+            set => SetPreference(DefaultCategoryKey, value);
+        }
+
         private const string PasswordChangedKey = "passwordChanged";
         private const bool PasswordChangedDefault = false;
         public bool PasswordChanged 

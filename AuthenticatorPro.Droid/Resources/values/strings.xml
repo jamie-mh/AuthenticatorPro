@@ -82,6 +82,8 @@
     <string name="noCategoryName">A category name is required</string>
     <string name="duplicateCategory">A category with this name already exists</string>
     <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
+    <string name="setAsDefault">Set as default</string>
+    <string name="clearDefault">Clear default</string>
 
     <!-- Backups -->
     <string name="backupNow">Backup now</string>

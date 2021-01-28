@@ -23,14 +23,29 @@
         android:scrollHorizontally="true"
         android:id="@+id/textName" />
 
-    <ImageButton
-        android:id="@+id/buttonMenu"
-        android:src="@drawable/ic_action_more_vert"
+    <LinearLayout 
+        android:orientation="horizontal"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:scaleType="centerInside"
-        android:background="?selectableItemBackgroundBorderless"
-        android:layout_width="24dp"
-        android:layout_height="24dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageDefault"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_action_star"
+            android:visibility="gone"
+            android:layout_marginRight="12dp" />
+
+        <ImageButton
+            android:id="@+id/buttonMenu"
+            android:src="@drawable/ic_action_more_vert"
+            android:scaleType="centerInside"
+            android:background="?selectableItemBackgroundBorderless"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        
+    </LinearLayout>
 
 </RelativeLayout>

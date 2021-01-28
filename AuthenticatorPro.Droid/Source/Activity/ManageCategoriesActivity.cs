@@ -10,6 +10,7 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Fragment;
 using AuthenticatorPro.Droid.List;
 using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Data.Source;
 using Google.Android.Material.Dialog;
@@ -31,14 +32,16 @@ namespace AuthenticatorPro.Droid.Activity
         private ProgressBar _progressBar;
         private RecyclerView _categoryList;
 
+        private PreferenceWrapper _preferences;
         private CategorySource _categorySource;
-        private SQLiteAsyncConnection _connection;
 
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityManageCategories);
+
+            _preferences = new PreferenceWrapper(this);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
@@ -54,11 +57,12 @@ namespace AuthenticatorPro.Droid.Activity
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddClick;
 
-            _connection = await Database.GetSharedConnection();
-            _categorySource = new CategorySource(_connection);
+            var connection = await Database.GetSharedConnection();
+            _categorySource = new CategorySource(connection);
             _categoryListAdapter = new ManageCategoriesListAdapter(_categorySource);
             _categoryListAdapter.MenuClick += OnMenuClick;
             _categoryListAdapter.HasStableIds = true;
+            _categoryListAdapter.DefaultId = _preferences.DefaultCategory;
 
             _categoryList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
@@ -160,8 +164,15 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void OnMenuClick(object sender, int position)
         {
-            var fragment = new EditCategoryMenuBottomSheet(position);
+            var category = _categorySource.Get(position);
+
+            if(category == null)
+                return;
+
+            var isDefault = _preferences.DefaultCategory == category.Id;
+            var fragment = new EditCategoryMenuBottomSheet(position, isDefault);
             fragment.ClickRename += OnRenameClick;
+            fragment.ClickSetDefault += OnSetDefaultClick;
             fragment.ClickDelete += OnDeleteClick;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -188,6 +199,9 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
+            var currentId = _categorySource.Get(e.ItemPosition.Value).Id;
+            var isDefault = _preferences.DefaultCategory == currentId;
+
             var category = new Category(e.Name);
 
             if(_categorySource.IsDuplicate(category))
@@ -209,8 +223,34 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 RunOnUiThread(dialog.Dismiss); 
             }
-            
+
+            if(isDefault)
+                SetDefaultCategory(category.Id);
+                
             RunOnUiThread(delegate { _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value); });
+        }
+        
+        private void OnSetDefaultClick(object item, int position)
+        {
+            var category = _categorySource.Get(position);
+
+            if(category == null)
+                return;
+
+            var oldDefault = _preferences.DefaultCategory;
+            var isDefault = oldDefault == category.Id;
+
+            SetDefaultCategory(isDefault ? null : category.Id);
+
+            if(oldDefault != null)
+            {
+                var oldDefaultPos = _categorySource.GetPosition(oldDefault);
+                
+                if(oldDefaultPos > -1)
+                    _categoryListAdapter.NotifyItemChanged(oldDefaultPos);
+            }
+            
+            _categoryListAdapter.NotifyItemChanged(position);
         }
 
         private void OnDeleteClick(object item, int position)
@@ -222,6 +262,14 @@ namespace AuthenticatorPro.Droid.Activity
 
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
+                var category = _categorySource.Get(position);
+
+                if(category == null)
+                    return;
+
+                if(_preferences.DefaultCategory == category.Id)
+                    SetDefaultCategory(null);
+                
                 try
                 {
                     await _categorySource.Delete(position);
@@ -243,6 +291,11 @@ namespace AuthenticatorPro.Droid.Activity
 
             var dialog = builder.Create();
             dialog.Show();
+        }
+
+        private void SetDefaultCategory(string id)
+        {
+            _preferences.DefaultCategory = _categoryListAdapter.DefaultId = id;
         }
 
         public override bool OnSupportNavigateUp()

@@ -187,6 +187,10 @@ namespace AuthenticatorPro.Droid.Activity
             _categorySource = new CategorySource(connection);
             _customIconSource = new CustomIconSource(connection);
             _authSource = new AuthenticatorSource(connection);
+
+            if(_preferences.DefaultCategory != null)
+                _authSource.SetCategory(_preferences.DefaultCategory);
+            
             RunOnUiThread(InitAuthenticatorList);
 
             _timer = new Timer {
@@ -252,9 +256,19 @@ namespace AuthenticatorPro.Droid.Activity
                 await UpdateList();
                 await _categorySource.Update();
 
-                // Currently visible category has been deleted
-                if(_authSource.CategoryId != null && _categorySource.GetView().All(c => c.Id != _authSource.CategoryId))
-                    await SwitchCategory(null);
+                if(_authSource.CategoryId != null)
+                {
+                    // Currently visible category has been deleted
+                    if(_categorySource.GetView().All(c => c.Id != _authSource.CategoryId))
+                        await SwitchCategory(null);
+                    else
+                    {
+                        var category = _categorySource.GetAll().FirstOrDefault(c => c.Id == _authSource.CategoryId);
+
+                        if(category != null)
+                            RunOnUiThread(delegate { SupportActionBar.Title = category.Name; });
+                    }
+                }
             }
             
             _onResumeSemaphore.Release();

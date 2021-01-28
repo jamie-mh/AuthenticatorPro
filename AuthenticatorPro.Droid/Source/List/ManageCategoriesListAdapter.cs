@@ -8,6 +8,8 @@ namespace AuthenticatorPro.Droid.List
     internal sealed class ManageCategoriesListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         public event EventHandler<int> MenuClick;
+        public string DefaultId { get; set; }
+        
         private readonly CategorySource _source;
 
         public override int ItemCount => _source.GetView().Count;
@@ -47,8 +49,16 @@ namespace AuthenticatorPro.Droid.List
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
+            var category = _source.Get(position);
+
+            if(category == null)
+                return;
+            
             var holder = (ManageCategoriesListHolder) viewHolder;
-            holder.Name.Text = _source.Get(position).Name;
+            holder.Name.Text = category.Name;
+            holder.DefaultImage.Visibility = DefaultId == category.Id
+                ? ViewStates.Visible
+                : ViewStates.Invisible;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

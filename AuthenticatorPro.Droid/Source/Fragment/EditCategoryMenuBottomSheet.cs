@@ -10,15 +10,18 @@ namespace AuthenticatorPro.Droid.Fragment
     internal class EditCategoryMenuBottomSheet: BottomSheet
     {
         public event EventHandler<int> ClickRename;
+        public event EventHandler<int> ClickSetDefault;
         public event EventHandler<int> ClickDelete;
 
         private readonly int _itemPosition;
+        private readonly bool _isDefault;
 
 
-        public EditCategoryMenuBottomSheet(int itemPosition)
+        public EditCategoryMenuBottomSheet(int itemPosition, bool isDefault)
         {
             RetainInstance = true;
             _itemPosition = itemPosition;
+            _isDefault = isDefault;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -31,6 +34,10 @@ namespace AuthenticatorPro.Droid.Fragment
                 new(Resource.Drawable.ic_action_edit, Resource.String.rename, delegate
                 {
                     ClickRename(this, _itemPosition);
+                }),
+                new(Resource.Drawable.ic_action_star, _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault, delegate
+                {
+                    ClickSetDefault(this, _itemPosition);
                 }),
                 new(Resource.Drawable.ic_action_delete, Resource.String.delete, delegate
                 {
