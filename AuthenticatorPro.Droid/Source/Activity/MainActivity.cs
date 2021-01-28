@@ -98,6 +98,7 @@ namespace AuthenticatorPro.Droid.Activity
         private LinearLayout _startLayout;
 
         private AuthenticatorListAdapter _authListAdapter;
+        private AutoGridLayoutManager _authLayout;
         private AuthenticatorSource _authSource;
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
@@ -635,16 +636,16 @@ namespace AuthenticatorPro.Droid.Activity
                 _ => 340
             };
 
-            var layout = new AutoGridLayoutManager(this, minColumnWidth);
-            _authList.SetLayoutManager(layout);
+            _authLayout = new AutoGridLayoutManager(this, minColumnWidth);
+            _authList.SetLayoutManager(_authLayout);
 
-            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 8));
-            _authList.HasFixedSize = true;
+            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, _authLayout, 8));
+            _authList.HasFixedSize = false;
 
             var animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
-            var callback = new ReorderableListTouchHelperCallback(this, _authListAdapter, layout);
+            var callback = new ReorderableListTouchHelperCallback(this, _authListAdapter, _authLayout);
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_authList);
         }
@@ -692,6 +693,18 @@ namespace AuthenticatorPro.Droid.Activity
                 _emptyStateLayout.Visibility = ViewStates.Invisible;
                 AnimUtil.FadeInView(_authList, 100, true);
                 _timer.Start();
+
+                var firstVisiblePos = _authLayout.FindFirstCompletelyVisibleItemPosition();
+                var lastVisiblePos = _authLayout.FindLastCompletelyVisibleItemPosition();
+                
+                var shouldShowOverscroll =
+                    firstVisiblePos >= 0 && lastVisiblePos >= 0 &&
+                    (firstVisiblePos > 0 || lastVisiblePos < _authSource.GetView().Count - 1);
+                
+                _authList.OverScrollMode = shouldShowOverscroll ? OverScrollMode.Always : OverScrollMode.Never;
+                
+                if(!shouldShowOverscroll)
+                    ScrollToPosition(0);
             }
         }
 
