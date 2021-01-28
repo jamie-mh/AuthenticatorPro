@@ -148,7 +148,6 @@
     <string name="importFromOtherApps">Importer depuis une autre application</string>
     <string name="importFrom">Importer depuis</string>
     <string name="importError">Le fichier n\'a pas pu être importé</string>
-    <string name="authenticatorPlus">Authenticator Plus</string>
     <string name="authenticatorPlusImportHint">Importer un fichier authplus.db</string>
     <string name="andOtp">andOTP (texte clair)</string>
     <string name="andOtpImportHint">Importer un fichier texte clair otp_accounts.json</string>
@@ -203,11 +202,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
-    <string name="authTypeMobileOtp">Mobile-OTP (mOTP)</string>
-    <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (par défaut)</string>
-    <string name="authAlgorithmSHA256">SHA256</string>
-    <string name="authAlgorithmSHA512">SHA512</string>
     <string name="immediately">Immédiatement</string>
     <string name="timeout30Sec">30 secondes</string>
     <string name="timeout1Min">1 minute</string>
