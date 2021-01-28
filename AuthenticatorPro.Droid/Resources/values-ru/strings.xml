@@ -148,7 +148,6 @@
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">Импортировать из</string>
     <string name="importError">Файл не может быть импортирован</string>
-    <string name="authenticatorPlus">Authenticator Plus</string>
     <string name="authenticatorPlusImportHint">Импортировать файл authplus.db</string>
     <string name="andOtp">andOTP (простой текст)</string>
     <string name="andOtpImportHint">Импортировать текстовый файл otp_accounts.json</string>
@@ -203,11 +202,7 @@
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
-    <string name="authTypeMobileOtp">Мобильный OTP (mOTP)</string>
-    <string name="authTypeSteam">Steam</string>
     <string name="authAlgorithmSHA1">SHA1 (по умолчанию)</string>
-    <string name="authAlgorithmSHA256">SHA256</string>
-    <string name="authAlgorithmSHA512">SHA512</string>
     <string name="immediately">Immediately</string>
     <string name="timeout30Sec">30 seconds</string>
     <string name="timeout1Min">1 minute</string>
