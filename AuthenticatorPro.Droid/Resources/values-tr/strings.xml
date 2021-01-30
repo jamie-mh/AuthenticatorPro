@@ -11,6 +11,7 @@
     <string name="no">Hayır</string>
     <string name="close">Kapat</string>
     <string name="quit">Çıkış</string>
+    <string name="error">Error</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -107,6 +108,10 @@
     <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil.</string>
     <string name="webBrowserMissing">No web browser installed</string>
     <string name="genericError">Bir hata meydana geldi.</string>
+    <!-- Error reporting -->
+    <string name="unhandledErrorMessage">An handled error occurred within the application. Details of the error are below:</string>
+    <string name="report">Report</string>
+    <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>

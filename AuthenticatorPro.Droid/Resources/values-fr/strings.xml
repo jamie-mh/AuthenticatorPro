@@ -11,6 +11,7 @@
     <string name="no">Non</string>
     <string name="close">Fermer</string>
     <string name="quit">Quitter</string>
+    <string name="error">Erreur</string>
     <!-- Menu items -->
     <string name="settings">Paramètres</string>
     <string name="restore">Restaurer</string>
@@ -107,6 +108,10 @@
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
     <string name="webBrowserMissing">Aucun navigateur web n’est installé</string>
     <string name="genericError">Une erreur s\'est produite</string>
+    <!-- Error reporting -->
+    <string name="unhandledErrorMessage">Une erreur s\'est produite dans l\'application. Les détails de l\'erreur sont ci-dessous :</string>
+    <string name="report">Signaler</string>
+    <string name="errorCopiedToClipboard">Erreur copié dans le presse-papiers</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications ont étés apportées.</string>
     <string name="selectLocation">Choisir un emplacement</string>
