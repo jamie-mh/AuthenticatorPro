@@ -11,6 +11,7 @@
     <string name="no">否</string>
     <string name="close">关闭</string>
     <string name="quit">退出</string>
+    <string name="error">Error</string>
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
