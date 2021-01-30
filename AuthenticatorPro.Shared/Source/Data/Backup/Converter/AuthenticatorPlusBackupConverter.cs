@@ -82,9 +82,6 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
         private class Account
         {
-            [Column("email")]
-            public string Email { get; set; }
-           
             [Column("secret")]
             public string Secret { get; set; }
             
@@ -93,9 +90,9 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
             
             [Column("type")]
             public Type Type { get; set; }
-
-            [Column("issuer")]
-            public string Issuer { get; set; }
+            
+            [Column("original_name")]
+            public string OriginalName { get; set; }
            
             [Column("category")]
             public string CategoryName { get; set; }
@@ -110,18 +107,29 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 };
 
                 string issuer;
-                string username = null;
-                string icon = null;
+                string username;
 
-                if(Issuer == "")
-                    issuer = Email;
+                var originalNameParts = OriginalName.Split(new[] { ':' }, 2);
+
+                if(originalNameParts.Length == 2)
+                {
+                    issuer = originalNameParts[0];
+                    username = originalNameParts[1];
+
+                    if(issuer == "")
+                    {
+                        issuer = username;
+                        username = null;
+                    }
+                    else if(username == "")
+                        username = null;
+                }
                 else
                 {
-                    issuer = Issuer;
-                    username = Email;
-                    icon = iconResolver.FindServiceKeyByName(Issuer);
+                    issuer = OriginalName;
+                    username = null;
                 }
-
+                
                 return new Authenticator
                 {
                     Issuer = issuer,
@@ -129,7 +137,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                     Type = type,
                     Secret = Authenticator.CleanSecret(Secret, type),
                     Counter = Counter,
-                    Icon = icon
+                    Icon = iconResolver.FindServiceKeyByName(issuer)
                 };
             }
         }
