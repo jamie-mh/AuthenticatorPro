@@ -11,6 +11,7 @@
     <string name="no">Nein</string>
     <string name="close">Schließen</string>
     <string name="quit">Beenden</string>
+    <string name="error">Error</string>
     <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
