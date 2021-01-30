@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Android.Animation;
 using Android.Content;
 using Android.Graphics;
@@ -33,6 +35,8 @@ namespace AuthenticatorPro.Droid.List
         
         private readonly AuthenticatorSource _authSource;
         private readonly CustomIconSource _customIconSource;
+
+        private readonly SemaphoreSlim _customIconDecodeLock;
         private readonly Dictionary<string, Bitmap> _decodedCustomIcons;
 
         private readonly float _animationScale;
@@ -54,7 +58,8 @@ namespace AuthenticatorPro.Droid.List
             _customIconSource = customIconSource;
             _viewMode = viewMode;
             _isDark = isDark;
-            
+
+            _customIconDecodeLock = new SemaphoreSlim(1, 1);
             _decodedCustomIcons = new Dictionary<string, Bitmap>();
 
             _secondsRemainingPerPeriod = new Dictionary<int, int>();
@@ -120,12 +125,7 @@ namespace AuthenticatorPro.Droid.List
                 var customIcon = _customIconSource.Get(id);
 
                 if(customIcon != null)
-                {
-                    if(!_decodedCustomIcons.ContainsKey(customIcon.Id))
-                        _decodedCustomIcons.Add(customIcon.Id, await BitmapFactory.DecodeByteArrayAsync(customIcon.Data, 0, customIcon.Data.Length));
-                    
-                    holder.Icon.SetImageBitmap(_decodedCustomIcons[customIcon.Id]); 
-                }
+                    holder.Icon.SetImageBitmap(await DecodeCustomIcon(customIcon)); 
                 else
                     holder.Icon.SetImageResource(IconResolver.GetService(IconResolver.Default, _isDark));
             }
@@ -147,6 +147,28 @@ namespace AuthenticatorPro.Droid.List
 
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
+            }
+        }
+
+        private async Task<Bitmap> DecodeCustomIcon(CustomIcon customIcon)
+        {
+            if(_decodedCustomIcons.TryGetValue(customIcon.Id, out var bitmap))
+                return bitmap;
+
+            await _customIconDecodeLock.WaitAsync();
+            
+            try
+            {
+                if(_decodedCustomIcons.TryGetValue(customIcon.Id, out bitmap))
+                    return bitmap;
+
+                bitmap = await BitmapFactory.DecodeByteArrayAsync(customIcon.Data, 0, customIcon.Data.Length);
+                _decodedCustomIcons.Add(customIcon.Id, bitmap);
+                return bitmap;
+            }
+            finally
+            {
+                _customIconDecodeLock.Release();
             }
         }
 
