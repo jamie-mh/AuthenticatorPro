@@ -165,22 +165,23 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await UnlockIfRequired();
             }
-            catch
+            catch(Exception e)
             {
-                ShowDatabaseErrorDialog();
+                Logger.Error($"Database unlock failed? error: {e}");
+                ShowDatabaseErrorDialog(e);
                 return;
             }
-            
+
             SQLiteAsyncConnection connection;
 
             try
             {
                 connection = await Database.GetSharedConnection();
             }
-            catch
+            catch(Exception e)
             {
-                // This should never happen, start activity just in case
-                Recreate();
+                Logger.Error($"Database not unlocked? error: {e}");
+                ShowDatabaseErrorDialog(e);
                 return;
             }
             
@@ -236,10 +237,10 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await UnlockIfRequired();
             }
-            catch
+            catch(Exception e)
             {
-                _onResumeSemaphore.Release();
-                Recreate();
+                Logger.Error($"Database not usable? error: {e}");
+                ShowDatabaseErrorDialog(e);
                 return;
             }
 
@@ -560,10 +561,11 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
         
-        private void ShowDatabaseErrorDialog()
+        private void ShowDatabaseErrorDialog(Exception e)
         {
             var builder = new MaterialAlertDialogBuilder(this);
-            builder.SetMessage(Resource.String.databaseError);
+            var message = $"{GetString(Resource.String.databaseError)} error: {e}";
+            builder.SetMessage(message);
             builder.SetTitle(Resource.String.warning);
             builder.SetPositiveButton(Resource.String.quit, delegate
             {

@@ -1,23 +1,32 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Shared.Source.Data;
 using SQLite;
 using Xamarin.Essentials;
+using Exception = System.Exception;
+using String = System.String;
 
 namespace AuthenticatorPro.Droid.Data
 {
     internal static class Database
     {
         private const string FileName = "proauth.db3";
+        private static readonly SemaphoreSlim _sharedLock = new(1, 1);
         private static SQLiteAsyncConnection _sharedConnection;
 
         public static async Task<SQLiteAsyncConnection> GetSharedConnection()
         {
+            await _sharedLock.WaitAsync();
+
             if(_sharedConnection == null)
+            {
+                _sharedLock.Release();
                 throw new Exception("Shared connection not open");
+            }
 
             try
             {
@@ -30,23 +39,50 @@ namespace AuthenticatorPro.Droid.Data
                 _sharedConnection = null;
                 throw;
             }
-
+            finally
+            {
+                _sharedLock.Release();
+            }
+            
             return _sharedConnection;
         }
 
         public static async Task OpenSharedConnection(string password)
         {
-            await CloseSharedConnection();
-            _sharedConnection = await GetPrivateConnection(password);
+            await _sharedLock.WaitAsync();
+
+            try
+            {
+                if(_sharedConnection != null)
+                    await _sharedConnection.CloseAsync();
+
+                _sharedConnection = await GetPrivateConnection(password);
+            }
+            finally
+            {
+                _sharedLock.Release();
+            }
         }
 
         public static async Task CloseSharedConnection()
         {
+            await _sharedLock.WaitAsync();
+
             if(_sharedConnection == null)
+            {
+                _sharedLock.Release(); 
                 return;
-                
-            await _sharedConnection.CloseAsync();
-            _sharedConnection = null;
+            }
+
+            try
+            {
+                await _sharedConnection.CloseAsync();
+                _sharedConnection = null;
+            }
+            finally
+            {
+                _sharedLock.Release();
+            }
         }
 
         public static async Task<SQLiteAsyncConnection> GetPrivateConnection(string password)

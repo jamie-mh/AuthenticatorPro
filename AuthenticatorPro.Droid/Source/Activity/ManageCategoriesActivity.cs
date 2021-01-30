@@ -16,7 +16,6 @@ using AuthenticatorPro.Shared.Source.Data.Source;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
-using SQLite;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 

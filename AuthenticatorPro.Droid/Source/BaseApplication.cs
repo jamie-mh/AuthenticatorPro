@@ -81,14 +81,14 @@ namespace AuthenticatorPro.Droid
 
         public async Task Unlock(string password)
         {
-            IsLocked = false;
             await Database.OpenSharedConnection(password);
+            IsLocked = false;
         }
 
         public async Task Lock()
         {
-            IsLocked = true;
             await Database.CloseSharedConnection();
+            IsLocked = true;
         }
     }
 }
