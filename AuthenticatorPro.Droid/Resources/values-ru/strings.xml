@@ -11,6 +11,7 @@
     <string name="no">Нет</string>
     <string name="close">Закрыть</string>
     <string name="quit">Выход</string>
+    <string name="error">Error</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
