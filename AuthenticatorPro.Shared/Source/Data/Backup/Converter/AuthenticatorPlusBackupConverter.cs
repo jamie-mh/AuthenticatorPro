@@ -82,6 +82,9 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
         private class Account
         {
+            [Column("email")]
+            public string Email { get; set; }
+            
             [Column("secret")]
             public string Secret { get; set; }
             
@@ -90,6 +93,9 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
             
             [Column("type")]
             public Type Type { get; set; }
+            
+            [Column("issuer")]
+            public string Issuer { get; set; }
             
             [Column("original_name")]
             public string OriginalName { get; set; }
@@ -107,27 +113,30 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 };
 
                 string issuer;
-                string username;
+                string username = null;
 
-                var originalNameParts = OriginalName.Split(new[] { ':' }, 2);
-
-                if(originalNameParts.Length == 2)
+                if(!String.IsNullOrEmpty(Issuer))
                 {
-                    issuer = originalNameParts[0];
-                    username = originalNameParts[1];
+                    issuer = Issuer;
 
-                    if(issuer == "")
-                    {
-                        issuer = username;
-                        username = null;
-                    }
-                    else if(username == "")
-                        username = null;
+                    if(!String.IsNullOrEmpty(Email))
+                        username = Email;
                 }
                 else
                 {
-                    issuer = OriginalName;
-                    username = null;
+                    var originalNameParts = OriginalName.Split(new[] { ':' }, 2);
+                    
+                    if(originalNameParts.Length == 2)
+                    {
+                        issuer = originalNameParts[0];
+
+                        if(issuer == "")
+                            issuer = Email;
+                        else
+                            username = Email;
+                    }
+                    else
+                        issuer = Email;
                 }
                 
                 return new Authenticator
