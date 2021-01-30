@@ -12,6 +12,7 @@
     <string name="no">No</string>
     <string name="close">Close</string>
     <string name="quit">Quit</string>
+    <string name="error">Error</string>
 
     <!-- Menu items -->
     <string name="settings">Settings</string>

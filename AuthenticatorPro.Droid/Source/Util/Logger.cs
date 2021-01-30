@@ -14,7 +14,7 @@ namespace AuthenticatorPro.Droid.Util
         
         public static void Error(Exception e)
         {
-            Log.Info(Tag, $"Unexpected exception: {e}. Report at {Constants.GitHubRepo}");
+            Log.Error(Tag, $"Unexpected exception: {e}. Report at {Constants.GitHubRepo}");
         }
         
         public static void Info(string message)

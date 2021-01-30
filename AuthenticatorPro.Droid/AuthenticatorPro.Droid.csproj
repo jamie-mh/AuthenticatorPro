@@ -84,6 +84,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Activity\ErrorActivity.cs" />
     <Compile Include="Source\Activity\GuideActivity.cs" />
     <Compile Include="Source\Activity\IntroActivity.cs" />
     <Compile Include="Source\Activity\BaseActivity.cs" />
@@ -173,6 +174,10 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\activityError.axml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\activityMain.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
