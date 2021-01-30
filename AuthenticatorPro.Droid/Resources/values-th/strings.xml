@@ -108,6 +108,10 @@
     <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
     <string name="webBrowserMissing">No web browser installed</string>
     <string name="genericError">เกิดข้อผิดพลาด</string>
+    <!-- Error reporting -->
+    <string name="unhandledErrorMessage">An handled error occurred within the application. Details of the error are below:</string>
+    <string name="report">Report</string>
+    <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
     <string name="selectLocation">Select Location</string>
