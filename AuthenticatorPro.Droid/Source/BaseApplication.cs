@@ -37,6 +37,7 @@ namespace AuthenticatorPro.Droid
             
             AppDomain.CurrentDomain.UnhandledException += OnCurrentDomainUnhandledException;
             AndroidEnvironment.UnhandledExceptionRaiser += OnAndroidEnvironmentUnhandledExceptionRaised;
+            TaskScheduler.UnobservedTaskException += OnTaskSchedulerUnobservedTaskException;
             
             ProcessLifecycleOwner.Get().Lifecycle.AddObserver(this);
             _preferences = new PreferenceWrapper(Context);
@@ -55,10 +56,17 @@ namespace AuthenticatorPro.Droid
             HandleException(exception);
         }
 
+        private void OnTaskSchedulerUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        {
+            e.SetObserved();
+            HandleException(e.Exception);
+        }
+
         private void HandleException(Exception exception)
         {
             Logger.Error(exception);
             var intent = new Intent(this, typeof(ErrorActivity));
+            intent.SetFlags(ActivityFlags.NewTask);
             intent.PutExtra("exception", exception.ToString());
             StartActivity(intent);
         }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -11,11 +12,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar" />
-
-    <android.webkit.WebView
+    
+    <ScrollView 
+        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:id="@+id/webView" />
+        android:layout_height="wrap_content">
+       
+        <LinearLayout 
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/unhandledErrorMessage"
+                android:textColor="?attr/primaryTextColor"
+                android:lineSpacingExtra="6sp"
+                android:textSize="16sp" />
 
-</RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:layout_below="@id/toolbar"
+                android:typeface="monospace"
+                android:textSize="14sp"
+                android:textIsSelectable="true"
+                android:focusable="true"
+                android:longClickable="true"
+                android:id="@+id/errorText" />
+        </LinearLayout>
+        
+    </ScrollView>
+
+</LinearLayout>

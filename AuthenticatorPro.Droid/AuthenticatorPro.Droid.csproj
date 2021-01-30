@@ -197,6 +197,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\menu\error.xml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <AndroidResource Include="Resources\menu\sheet.xml" />
     <AndroidResource Include="Resources\values-ru\strings.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
