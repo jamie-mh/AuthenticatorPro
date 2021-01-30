@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -12,17 +13,17 @@ namespace AuthenticatorPro.WearOS.Cache
     {
         private readonly string _name;
         private readonly Context _context;
+        private readonly SemaphoreSlim _flushLock;
 
         private List<T> _items;
         public int Count => _items.Count;
-
-        private Task _flushTask;
 
         public ListCache(string name, Context context)
         {
             _name = name;
             _context = context;
             _items = new List<T>();
+            _flushLock = new SemaphoreSlim(1, 1);
         }
 
         private string GetFilePath()
@@ -57,12 +58,16 @@ namespace AuthenticatorPro.WearOS.Cache
         private async Task Flush()
         {
             var json = JsonConvert.SerializeObject(_items);
+            await _flushLock.WaitAsync();
 
-            if(_flushTask != null)
-                await _flushTask;
-            
-            _flushTask = File.WriteAllTextAsync(GetFilePath(), json);
-            await _flushTask;
+            try
+            {
+                await File.WriteAllTextAsync(GetFilePath(), json);
+            }
+            finally
+            {
+                _flushLock.Release();
+            }
         }
 
         public T Get(int position)

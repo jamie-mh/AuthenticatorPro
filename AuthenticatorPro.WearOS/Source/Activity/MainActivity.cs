@@ -363,8 +363,11 @@ namespace AuthenticatorPro.WearOS.Activity
             }
 
             Interlocked.Add(ref _responsesReceived, 1);
+            
+            var received = Interlocked.CompareExchange(ref _responsesReceived, 0, 0);
+            var required = Interlocked.CompareExchange(ref _responsesRequired, 0, 0);
 
-            if(_responsesReceived == _responsesRequired)
+            if(received == required)
                 RunOnUiThread(UpdateViewState);
         }
         #endregion

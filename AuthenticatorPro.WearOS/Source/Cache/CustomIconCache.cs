@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
@@ -14,13 +15,15 @@ namespace AuthenticatorPro.WearOS.Cache
         private const string IconFileExtension = "bmp";
         
         private readonly Context _context;
-        private readonly Dictionary<string, Task<Bitmap>> _bitmaps;
+        private readonly SemaphoreSlim _decodeLock;
+        private readonly Dictionary<string, Bitmap> _bitmaps;
 
         
         public CustomIconCache(Context context)
         {
             _context = context;
-            _bitmaps = new Dictionary<string, Task<Bitmap>>();
+            _decodeLock = new SemaphoreSlim(1, 1);
+            _bitmaps = new Dictionary<string, Bitmap>();
         }
 
         public async Task Add(string id, byte[] data)
@@ -46,13 +49,24 @@ namespace AuthenticatorPro.WearOS.Cache
         
         public async Task<Bitmap> GetBitmap(string id)
         {
-            if(_bitmaps.ContainsKey(id))
-                return await _bitmaps[id];
+            if(_bitmaps.TryGetValue(id, out var bitmap))
+                return bitmap;
+            
+            await _decodeLock.WaitAsync();
+            
+            try
+            {
+                if(_bitmaps.TryGetValue(id, out bitmap))
+                    return bitmap;
 
-            var bitmapTask = BitmapFactory.DecodeFileAsync(GetIconPath(id));
-            _bitmaps.Add(id, bitmapTask);
-
-            return await bitmapTask;
+                bitmap = await BitmapFactory.DecodeFileAsync(GetIconPath(id));
+                _bitmaps.Add(id, bitmap);
+                return bitmap;
+            }
+            finally
+            {
+                _decodeLock.Release();
+            }
         }
 
         private string GetIconPath(string id)
