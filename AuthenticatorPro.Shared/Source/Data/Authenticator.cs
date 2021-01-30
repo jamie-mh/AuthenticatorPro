@@ -186,7 +186,7 @@ namespace AuthenticatorPro.Shared.Source.Data
 
             // Get the issuer and username if possible
             var issuerUsername = uriMatch.Groups[2].Value;
-            var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*):(.*)$");
+            var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*?):(.*)$");
             
             var queryString = uriMatch.Groups[3].Value;
 
@@ -204,8 +204,19 @@ namespace AuthenticatorPro.Shared.Source.Data
 
             if(issuerUsernameMatch.Success)
             {
-                issuer = issuerUsernameMatch.Groups[1].Value;
-                username = issuerUsernameMatch.Groups[2].Value;
+                var issuerValue = issuerUsernameMatch.Groups[1].Value;
+                var usernameValue = issuerUsernameMatch.Groups[2].Value;
+
+                if(issuerValue == "")
+                {
+                    issuer = usernameValue;
+                    username = null;
+                }
+                else
+                {
+                    issuer = issuerValue;
+                    username = usernameValue;
+                }
             }
             else
             {
