@@ -11,6 +11,7 @@
     <string name="no">Hayır</string>
     <string name="close">Kapat</string>
     <string name="quit">Çıkış</string>
+    <string name="error">Error</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
