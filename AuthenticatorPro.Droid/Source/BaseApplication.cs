@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -9,6 +9,7 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using Java.Interop;
+using Timer = System.Timers.Timer;
 
 namespace AuthenticatorPro.Droid
 {
@@ -19,7 +20,9 @@ namespace AuthenticatorPro.Droid
 #endif
     internal class BaseApplication : Application, ILifecycleObserver
     {
-        public bool IsLocked { get; private set; }
+        private int _isLocked;
+        public bool IsLocked => Interlocked.CompareExchange(ref _isLocked, 0, 0) == 1;
+        
         public bool PreventNextLock { get; set; }
         
         private Timer _timeoutTimer;
@@ -41,7 +44,7 @@ namespace AuthenticatorPro.Droid
             
             ProcessLifecycleOwner.Get().Lifecycle.AddObserver(this);
             _preferences = new PreferenceWrapper(Context);
-            IsLocked = true;
+            Interlocked.Exchange(ref _isLocked, 1);
         }
 
         private void OnAndroidEnvironmentUnhandledExceptionRaised(object sender, RaiseThrowableEventArgs e)
@@ -116,13 +119,13 @@ namespace AuthenticatorPro.Droid
         public async Task Unlock(string password)
         {
             await Database.OpenSharedConnection(password);
-            IsLocked = false;
+            Interlocked.Exchange(ref _isLocked, 0);
         }
 
         public async Task Lock()
         {
             await Database.CloseSharedConnection();
-            IsLocked = true;
+            Interlocked.Exchange(ref _isLocked, 1);
         }
     }
 }
