@@ -40,7 +40,6 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.Nio;
-using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
@@ -169,22 +168,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 Logger.Error($"Database unlock failed? error: {e}");
                 ShowDatabaseErrorDialog(e);
-                return;
             }
 
-            SQLiteAsyncConnection connection;
-
-            try
-            {
-                connection = await Database.GetSharedConnection();
-            }
-            catch(Exception e)
-            {
-                Logger.Error($"Database not unlocked? error: {e}");
-                ShowDatabaseErrorDialog(e);
-                return;
-            }
-            
+            var connection = await Database.GetSharedConnection();
             _categorySource = new CategorySource(connection);
             _customIconSource = new CustomIconSource(connection);
             _authSource = new AuthenticatorSource(connection);
