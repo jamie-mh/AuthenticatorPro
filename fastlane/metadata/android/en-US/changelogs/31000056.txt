@@ -1,0 +1,4 @@
+- General: Improvements to Authenticator Plus import
+- General: Fix issue related to custom icons
+- General: Fix issue related to scanning of certain QR codes
+- General: Translation updates
