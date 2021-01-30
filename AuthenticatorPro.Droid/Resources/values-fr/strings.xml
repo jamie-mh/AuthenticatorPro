@@ -108,6 +108,10 @@
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
     <string name="webBrowserMissing">Aucun navigateur web n’est installé</string>
     <string name="genericError">Une erreur s\'est produite</string>
+    <!-- Error reporting -->
+    <string name="unhandledErrorMessage">An handled error occurred within the application. Details of the error are below:</string>
+    <string name="report">Report</string>
+    <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Choisissez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications ont étés apportées.</string>
     <string name="selectLocation">Choisir un emplacement</string>
