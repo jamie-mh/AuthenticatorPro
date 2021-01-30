@@ -108,6 +108,10 @@
     <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
     <string name="genericError">出现错误。</string>
+    <!-- Error reporting -->
+    <string name="unhandledErrorMessage">An handled error occurred within the application. Details of the error are below:</string>
+    <string name="report">Report</string>
+    <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">请选择自动备份保存的位置以及所使用的密码。有新的更改时将会自动触发备份操作。</string>
     <string name="selectLocation">Select Location</string>
