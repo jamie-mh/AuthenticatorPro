@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using Android.Content;
 using Android.Security.Keystore;
@@ -37,7 +37,7 @@ namespace AuthenticatorPro.Droid.Data
                 .SetUserAuthenticationRequired(true)
                 .Build();
                 
-            var generator = KeyGenerator.GetInstance(KeyProperties.KeyAlgorithmAes, "AndroidKeyStore");
+            var generator = KeyGenerator.GetInstance(Algorithm, KeyStoreName);
             generator.Init(spec);
             generator.GenerateKey();
         }
