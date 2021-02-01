@@ -309,15 +309,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(requestCode == RequestUnlock)
             {
-                if(resultCode == Result.Canceled)
+                if(resultCode != Result.Ok)
                 {
                     FinishAffinity();
                     return;
                 }
 
-                if(BaseApplication.IsLocked == false)
-                    _loginSemaphore.Release();
-                
+                _loginSemaphore.Release();
                 return;
             }
             
@@ -512,32 +510,16 @@ namespace AuthenticatorPro.Droid.Activity
         #region Database
         private async Task UnlockIfRequired()
         {
-            async Task WaitForUnlock()
-            {
-                StartActivityForResult(typeof(UnlockActivity), RequestUnlock);
-                await _loginSemaphore.WaitAsync();
-            }
-
             switch(BaseApplication.IsLocked)
             {
-                // Unlocked, check if the connection is usable
+                // Unlocked, no need to do anything
                 case false:
-                    try
-                    {
-                        _ = await Database.GetSharedConnection();
-                    }
-                    catch
-                    {
-                        if(_preferences.PasswordProtected)
-                            await WaitForUnlock();
-                        else
-                            await BaseApplication.Unlock(null);
-                    }
                     return;
                 
                 // Locked and has password, wait for unlock in unlockactivity
                 case true when _preferences.PasswordProtected:
-                    await WaitForUnlock();
+                    StartActivityForResult(typeof(UnlockActivity), RequestUnlock);
+                    await _loginSemaphore.WaitAsync();
                     break;
                     
                 // Locked but no password, unlock now
