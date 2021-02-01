@@ -41,25 +41,20 @@ namespace AuthenticatorPro.Droid.Preference
         {
             var activity = (SettingsActivity) Context;
             
-            try
+            if(Checked)
             {
-                if(Checked)
-                {
-                    activity.ClearBiometrics();
-                    base.OnClick();
-                }
-                else
-                {
-                    activity.EnableBiometrics(success =>
-                    {
-                        if(success)
-                            base.OnClick();
-                    });
-                }
+                activity.ClearBiometrics();
+                base.OnClick();
             }
-            catch
+            else
             {
-                Toast.MakeText(activity, Resource.String.genericError, ToastLength.Short).Show();
+                activity.EnableBiometrics(success =>
+                {
+                    if(success)
+                        base.OnClick();
+                    else
+                        Toast.MakeText(activity, Resource.String.genericError, ToastLength.Short).Show();
+                });
             }
         }
     }

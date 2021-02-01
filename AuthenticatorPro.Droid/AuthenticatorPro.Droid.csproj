@@ -102,7 +102,6 @@
     <Compile Include="Source\Data\Backup\RestoreResult.cs" />
     <Compile Include="Source\Data\CustomIconDecoder.cs" />
     <Compile Include="Source\Data\Database.cs" />
-    <Compile Include="Source\Data\PasswordStorageManager.cs" />
     <Compile Include="Source\Data\Source\IconSource.cs" />
     <Compile Include="Source\Fragment\AutoBackupSetupBottomSheet.cs" />
     <Compile Include="Source\Fragment\BackupBottomSheet.cs" />
@@ -153,6 +152,7 @@
     <Compile Include="Source\Service\WearQueryService.cs" />
     <Compile Include="Source\Util\FileUtil.cs" />
     <Compile Include="Source\Util\Logger.cs" />
+    <Compile Include="Source\Util\PasswordStorageManager.cs" />
     <Compile Include="Source\Util\PreferenceWrapper.cs" />
     <Compile Include="Source\Util\SecureStorageWrapper.cs" />
     <Compile Include="Source\Util\TextInputUtil.cs" />

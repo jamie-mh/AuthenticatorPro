@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 using Android.Content;
 using Android.Security.Keystore;
@@ -7,7 +7,7 @@ using Java.Security;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
 
-namespace AuthenticatorPro.Droid.Data
+namespace AuthenticatorPro.Droid.Util
 {
     internal class PasswordStorageManager
     {
@@ -51,9 +51,28 @@ namespace AuthenticatorPro.Droid.Data
 
         public Cipher GetEncryptionCipher()
         {
-            GenerateKey();
+            try
+            {
+                GenerateKey();
+            }
+            catch
+            {
+                Clear();
+                throw;
+            }
+            
             var cipher = Cipher.GetInstance(Transformation);
-            cipher.Init(CipherMode.EncryptMode, GetKeyFromKeyStore());
+
+            try
+            {
+                cipher.Init(CipherMode.EncryptMode, GetKeyFromKeyStore());
+            }
+            catch(KeyPermanentlyInvalidatedException)
+            {
+                Clear();
+                throw;
+            }
+            
             return cipher;
         }
         
@@ -70,6 +89,12 @@ namespace AuthenticatorPro.Droid.Data
             var passwordBytes = Encoding.UTF8.GetBytes(password);
             var iv = cipher.GetIV();
             var payload = cipher.DoFinal(passwordBytes);
+
+            if(iv == null || payload == null)
+            {
+                Clear();
+                throw new Exception("Encryption failed, no result");
+            }
             
             SetByteArrayPreference(IvPrefKey, iv); 
             SetByteArrayPreference(PasswordPrefKey, payload); 
@@ -79,7 +104,16 @@ namespace AuthenticatorPro.Droid.Data
         {
             var ks = KeyStore.GetInstance(KeyStoreName);
             ks.Load(null);
-            ks.DeleteEntry(KeyAlias);
+
+            try
+            {
+                ks.DeleteEntry(KeyAlias);
+            }
+            catch(KeyStoreException)
+            {
+                // Perhaps the key doesn't exist? 
+            }
+            
             SetByteArrayPreference(PasswordPrefKey, null);
             SetByteArrayPreference(IvPrefKey, null);
         }
