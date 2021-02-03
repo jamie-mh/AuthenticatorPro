@@ -137,7 +137,7 @@ namespace AuthenticatorPro.Droid.List
                 case GenerationMethod.Time:
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
-                    AnimateProgressBar(holder.ProgressBar, auth.Period);
+                    BindProgressBar(auth, holder.ProgressBar);
                     break;
 
                 case GenerationMethod.Counter:
@@ -148,6 +148,44 @@ namespace AuthenticatorPro.Droid.List
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
             }
+        }
+
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
+        {
+            if(payloads == null || payloads.Count == 0)
+            {
+                OnBindViewHolder(viewHolder, position);
+                return;
+            }
+
+            var auth = _authSource.Get(position);
+            var holder = (AuthenticatorListHolder) viewHolder;
+            holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
+
+            switch(auth.Type.GetGenerationMethod())
+            {
+                case GenerationMethod.Time:
+                    BindProgressBar(auth, holder.ProgressBar);
+                    break;
+                
+                case GenerationMethod.Counter:
+                    holder.RefreshButton.Visibility = ViewStates.Visible;
+                    _counterCooldownSeconds[auth.Secret.GetHashCode()] = Hotp.CooldownSeconds;
+                    break;
+            } 
+        }
+
+        private void BindProgressBar(Authenticator auth, ProgressBar progressBar)
+        {
+            if(_animationScale == 0)
+            {
+                var remainingSeconds = GetRemainingSeconds(auth.Period);
+                var progress = GetProgress(auth.Period, remainingSeconds);
+                progressBar.Progress = progress;
+                return;
+            }
+            
+            AnimateProgressBar(progressBar, auth.Period);
         }
 
         private async Task<Bitmap> DecodeCustomIcon(CustomIcon customIcon)
@@ -172,31 +210,6 @@ namespace AuthenticatorPro.Droid.List
             }
         }
 
-        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
-        {
-            if(payloads == null || payloads.Count == 0)
-            {
-                OnBindViewHolder(viewHolder, position);
-                return;
-            }
-
-            var auth = _authSource.Get(position);
-            var holder = (AuthenticatorListHolder) viewHolder;
-            holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
-
-            switch(auth.Type.GetGenerationMethod())
-            {
-                case GenerationMethod.Time:
-                    AnimateProgressBar(holder.ProgressBar, auth.Period);
-                    break;
-                
-                case GenerationMethod.Counter:
-                    holder.RefreshButton.Visibility = ViewStates.Visible;
-                    _counterCooldownSeconds[auth.Secret.GetHashCode()] = Hotp.CooldownSeconds;
-                    break;
-            } 
-        }
-
         public void Tick(bool invalidateCache = false)
         {
             if(invalidateCache)
@@ -215,11 +228,15 @@ namespace AuthenticatorPro.Droid.List
             {
                 var auth = _authSource.Get(i);
 
-                if(auth.Type.GetGenerationMethod() == GenerationMethod.Time &&
-                   _secondsRemainingPerPeriod.GetValueOrDefault(auth.Period, -1) <= 0 ||
-                   auth.Type.GetGenerationMethod() == GenerationMethod.Counter &&
-                   _counterCooldownSeconds.GetValueOrDefault(auth.Secret.GetHashCode(), -1) <= 0)
-                    NotifyItemChanged(i, true);
+                var shouldUpdateView = auth.Type.GetGenerationMethod() switch
+                {
+                    GenerationMethod.Time => _animationScale == 0 || _secondsRemainingPerPeriod.GetValueOrDefault(auth.Period, -1) <= 0,
+                    GenerationMethod.Counter => _counterCooldownSeconds.GetValueOrDefault(auth.Secret.GetHashCode(), -1) <= 0,
+                    _ => false
+                };
+
+                if(shouldUpdateView)
+                    NotifyItemChanged(i, true); 
             }
 
             // Force recalculation of remaining seconds in case of timer drift
