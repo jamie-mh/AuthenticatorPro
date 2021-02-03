@@ -11,7 +11,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
         
         protected readonly IIconResolver _iconResolver;
 
-        public BackupConverter(IIconResolver iconResolver)
+        protected BackupConverter(IIconResolver iconResolver)
         {
             _iconResolver = iconResolver; 
         }
