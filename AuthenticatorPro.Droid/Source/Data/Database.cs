@@ -141,7 +141,7 @@ namespace AuthenticatorPro.Droid.Data
                 File.Move(backupPath, dbPath);
             }
             
-            File.Copy(dbPath, backupPath);
+            File.Copy(dbPath, backupPath, true);
             var conn = await GetPrivateConnection(currentPassword);
 
             // Change encryption mode
