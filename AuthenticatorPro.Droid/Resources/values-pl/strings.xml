@@ -18,6 +18,7 @@
     <string name="backup">Backup</string>
     <string name="about">About</string>
     <string name="scanQrCode">Scan a QR code</string>
+    <string name="showQrCode">Show QR code</string>
     <string name="scanQrCodeFromCamera">Scan from camera</string>
     <string name="scanQrCodeFromGallery">Scan from gallery</string>
     <string name="rename">Rename</string>
@@ -53,6 +54,12 @@
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
+    <!-- QR code dialog -->
+    <string name="qrCode">QR code</string>
+    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
+    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Backup to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
