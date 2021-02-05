@@ -197,6 +197,8 @@
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
     <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
+    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Déverrouillage biométrique</string>
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefAppearance">Apparence</string>
