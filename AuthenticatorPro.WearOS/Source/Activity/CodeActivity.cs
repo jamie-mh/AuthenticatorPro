@@ -116,7 +116,6 @@ namespace AuthenticatorPro.WearOS.Activity
                     return;
 
                 var code = GenerateCode();
-                RunOnUiThread(delegate { _codeTextView.Text = code; });
                 secondsRemaining = Interlocked.CompareExchange(ref _secondsRemaining, 0, 0);
 
                 var remainingProgress = GetRemainingProgress(secondsRemaining);
@@ -124,6 +123,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
                 RunOnUiThread(delegate
                 {
+                    _codeTextView.Text = code;
                     _progressBar.Progress = remainingProgress;
                 
                     var animator = ObjectAnimator.OfInt(_progressBar, "progress", 0);
