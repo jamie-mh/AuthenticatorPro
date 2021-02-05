@@ -18,6 +18,7 @@
     <string name="backup">Yedek</string>
     <string name="about">Hakkında</string>
     <string name="scanQrCode">Karekodu tara</string>
+    <string name="showQrCode">Show QR code</string>
     <string name="scanQrCodeFromCamera">Kameradan tara</string>
     <string name="scanQrCodeFromGallery">Galeriden tara</string>
     <string name="rename">Yeniden adlandır</string>
@@ -53,6 +54,12 @@
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
+    <!-- QR code dialog -->
+    <string name="qrCode">QR code</string>
+    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
+    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
