@@ -46,6 +46,7 @@
 
     <style name="BottomSheetStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorError">#ff4240</item>
         <item name="listBorderColor">@color/colorLighter</item>
 

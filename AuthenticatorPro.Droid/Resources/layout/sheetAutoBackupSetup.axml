@@ -153,8 +153,6 @@
                     android:layout_marginBottom="2dp"
                     android:checked="false"
                     android:textSize="16sp"
-                    app:thumbTint="@drawable/switchmaterialthumb"
-                    app:trackTint="@drawable/switchmaterialtrack"
                     android:text="@string/enableAutoBackup"/>
 
                 <TextView
@@ -181,8 +179,6 @@
                     android:layout_marginBottom="4dp"
                     android:checked="false"
                     android:textSize="16sp"
-                    app:thumbTint="@drawable/switchmaterialthumb"
-                    app:trackTint="@drawable/switchmaterialtrack"
                     android:text="@string/enableAutoRestore"/>
 
                 <TextView
