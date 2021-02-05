@@ -339,7 +339,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
                 
                 case RequestBackupFile:
-                    BackupToFile(intent.Data);
+                    await BackupToFile(intent.Data);
                     break;
                 
                 case RequestBackupHtml:
@@ -1360,14 +1360,10 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private void BackupToFile(Uri destination)
+        private async Task BackupToFile(Uri destination)
         {
-            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
-            fragment.PasswordEntered += async (sender, password) =>
+            async Task DoBackup(string password)
             {
-                var busyText = !String.IsNullOrEmpty(password) ? Resource.String.encrypting : Resource.String.saving; 
-                fragment.SetBusyText(busyText); 
-                
                 var backup = new Backup(
                     _authSource.GetAll(),
                     _categorySource.GetAll(),
@@ -1386,9 +1382,25 @@ namespace AuthenticatorPro.Droid.Activity
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }
-
-                ((BackupPasswordBottomSheet) sender).Dismiss();
+                
                 FinaliseBackup();
+            }
+
+            if(_preferences.PasswordProtected && _preferences.DatabasePasswordBackup)
+            {
+                var password = await SecureStorageWrapper.GetDatabasePassword();
+                await DoBackup(password);
+                return;
+            }
+            
+            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
+            
+            fragment.PasswordEntered += async (sender, password) =>
+            {
+                var busyText = !String.IsNullOrEmpty(password) ? Resource.String.encrypting : Resource.String.saving; 
+                fragment.SetBusyText(busyText);
+                await DoBackup(password);
+                ((BackupPasswordBottomSheet) sender).Dismiss();
             };
 
             fragment.Cancel += (sender, _) =>

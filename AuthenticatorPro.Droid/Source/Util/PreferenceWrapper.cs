@@ -33,6 +33,14 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(AllowBiometricsKey, value);
         }
         
+        private const string DatabasePasswordBackupKey = "pref_databasePasswordBackup";
+        private const bool DatabasePasswordBackupDefault = false;
+        public bool DatabasePasswordBackup
+        {
+            get => _preferences.GetBoolean(DatabasePasswordBackupKey, DatabasePasswordBackupDefault);
+            set => SetPreference(DatabasePasswordBackupKey, value);
+        }
+        
         private const string TimeoutKey = "pref_timeout";
         private const int TimeoutDefault = 0;
         public int Timeout

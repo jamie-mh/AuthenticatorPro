@@ -136,6 +136,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 _fragment.FindPreference("pref_allowBiometrics").Enabled = false;
                 _fragment.FindPreference("pref_timeout").Enabled = false;
+                _fragment.FindPreference("pref_databasePasswordBackup").Enabled = false;
                 return;
             }
                 
@@ -144,6 +145,7 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment.FindPreference("pref_allowBiometrics").Enabled = biometricsAvailable;
             
             _fragment.FindPreference("pref_timeout").Enabled = true;
+            _fragment.FindPreference("pref_databasePasswordBackup").Enabled = true;
         }
         #endregion
 
