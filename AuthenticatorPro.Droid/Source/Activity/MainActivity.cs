@@ -259,7 +259,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             
             _onResumeSemaphore.Release();
-            RunOnUiThread(CheckEmptyState);
+            CheckEmptyState();
             
             if(_authSource.GetView().Any())
                 Tick(true);
@@ -656,39 +656,46 @@ namespace AuthenticatorPro.Droid.Activity
         {
             if(!_authSource.GetView().Any())
             {
-                _authList.Visibility = ViewStates.Invisible;
-                AnimUtil.FadeInView(_emptyStateLayout, 500, true);
+                RunOnUiThread(delegate
+                {
+                    _authList.Visibility = ViewStates.Invisible;
+                    AnimUtil.FadeInView(_emptyStateLayout, 500, true);
 
-                if(_authSource.CategoryId == null)
-                {
-                    _emptyMessageText.SetText(Resource.String.noAuthenticatorsHelp);
-                    _startLayout.Visibility = ViewStates.Visible;
-                }
-                else
-                {
-                    _emptyMessageText.SetText(Resource.String.noAuthenticatorsMessage);
-                    _startLayout.Visibility = ViewStates.Gone;
-                }
+                    if(_authSource.CategoryId == null)
+                    {
+                        _emptyMessageText.SetText(Resource.String.noAuthenticatorsHelp);
+                        _startLayout.Visibility = ViewStates.Visible;
+                    }
+                    else
+                    {
+                        _emptyMessageText.SetText(Resource.String.noAuthenticatorsMessage);
+                        _startLayout.Visibility = ViewStates.Gone;
+                    }
+                });
                 
                 _timer.Stop();
             }
             else
             {
-                _emptyStateLayout.Visibility = ViewStates.Invisible;
-                AnimUtil.FadeInView(_authList, 100, true);
-                _timer.Start();
+                RunOnUiThread(delegate
+                {
+                    _emptyStateLayout.Visibility = ViewStates.Invisible;
+                    AnimUtil.FadeInView(_authList, 100, true);
 
-                var firstVisiblePos = _authLayout.FindFirstCompletelyVisibleItemPosition();
-                var lastVisiblePos = _authLayout.FindLastCompletelyVisibleItemPosition();
+                    var firstVisiblePos = _authLayout.FindFirstCompletelyVisibleItemPosition();
+                    var lastVisiblePos = _authLayout.FindLastCompletelyVisibleItemPosition();
+                    
+                    var shouldShowOverscroll =
+                        firstVisiblePos >= 0 && lastVisiblePos >= 0 &&
+                        (firstVisiblePos > 0 || lastVisiblePos < _authSource.GetView().Count - 1);
+                    
+                    _authList.OverScrollMode = shouldShowOverscroll ? OverScrollMode.Always : OverScrollMode.Never;
+                    
+                    if(!shouldShowOverscroll)
+                        ScrollToPosition(0);
+                });
                 
-                var shouldShowOverscroll =
-                    firstVisiblePos >= 0 && lastVisiblePos >= 0 &&
-                    (firstVisiblePos > 0 || lastVisiblePos < _authSource.GetView().Count - 1);
-                
-                _authList.OverScrollMode = shouldShowOverscroll ? OverScrollMode.Always : OverScrollMode.Never;
-                
-                if(!shouldShowOverscroll)
-                    ScrollToPosition(0);
+                _timer.Start();
             }
         }
 
@@ -696,7 +703,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             if(id == _authSource.CategoryId)
             {
-                RunOnUiThread(CheckEmptyState);
+                CheckEmptyState();
                 return;
             }
 
@@ -717,11 +724,11 @@ namespace AuthenticatorPro.Droid.Activity
             RunOnUiThread(delegate { SupportActionBar.Title = categoryName; });
 
             await UpdateList(true);
+            CheckEmptyState();
 
             RunOnUiThread(delegate
             {
                 _authList.Visibility = ViewStates.Invisible;
-                CheckEmptyState();
                 ScrollToPosition(0);
             });
         }
@@ -797,12 +804,9 @@ namespace AuthenticatorPro.Droid.Activity
                     // ignored
                 }
 
-                RunOnUiThread(delegate
-                {
-                    _authListAdapter.NotifyItemRemoved(position);
-                    CheckEmptyState();
-                });
-               
+                RunOnUiThread(delegate { _authListAdapter.NotifyItemRemoved(position); });
+                CheckEmptyState();
+                
                 _preferences.BackupRequired = BackupRequirement.WhenPossible;
                 await NotifyWearAppOfChange();
             });
@@ -978,9 +982,10 @@ namespace AuthenticatorPro.Droid.Activity
                 _authSource.UpdateView();
             }
             
+            CheckEmptyState();
+            
             RunOnUiThread(delegate
             {
-                CheckEmptyState();
                 _authListAdapter.NotifyItemInserted(position);
                 ScrollToPosition(position);
             });
@@ -1307,7 +1312,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(result.IsVoid())
                 return;
             
-            RunOnUiThread(CheckEmptyState);
+            CheckEmptyState();
             await UpdateList(true);
             await NotifyWearAppOfChange();
         }
@@ -1458,10 +1463,11 @@ namespace AuthenticatorPro.Droid.Activity
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
+            
+            CheckEmptyState();
 
             RunOnUiThread(delegate
             {
-                CheckEmptyState();
                 _authListAdapter.NotifyItemInserted(position);
                 ScrollToPosition(position);
             });
