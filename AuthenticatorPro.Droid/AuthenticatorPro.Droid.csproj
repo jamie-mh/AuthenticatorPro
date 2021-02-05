@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -116,6 +116,7 @@
     <Compile Include="Source\Activity\AboutActivity.cs" />
     <Compile Include="Source\Fragment\AuthenticatorMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\PasswordSetupBottomSheet.cs" />
+    <Compile Include="Source\Fragment\QrCodeBottomSheet.cs" />
     <Compile Include="Source\Fragment\RenameAuthenticatorBottomSheet.cs" />
     <Compile Include="Source\Fragment\AddMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\IntroPageFragment.cs" />
@@ -190,6 +191,10 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\sheetPasswordSetup.axml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\sheetQrCode.axml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>

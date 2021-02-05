@@ -774,7 +774,31 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.ClickRename += delegate { OpenRenameDialog(position); };
             fragment.ClickChangeIcon += delegate { OpenIconDialog(position); };
             fragment.ClickAssignCategories += delegate { OpenCategoriesDialog(position); };
+            fragment.ClickShowQrCode += delegate { OpenQrCodeDialog(position); };
             fragment.ClickDelete += delegate { OpenDeleteDialog(position); };
+            fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+
+        private void OpenQrCodeDialog(int position)
+        {
+            var auth = _authSource.Get(position);
+            
+            if(auth == null)
+                return;
+
+            string uri;
+
+            try
+            {
+                uri = auth.GetOtpAuthUri();
+            }
+            catch(NotSupportedException)
+            {
+                ShowSnackbar(Resource.String.qrCodeNotSupported, Snackbar.LengthShort);
+                return;
+            }
+            
+            var fragment = new QrCodeBottomSheet(this, uri);
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 

@@ -15,6 +15,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickRename;
         public event EventHandler ClickChangeIcon;
         public event EventHandler ClickAssignCategories;
+        public event EventHandler ClickShowQrCode;
         public event EventHandler ClickDelete;
 
         private readonly AuthenticatorType _type;
@@ -46,6 +47,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 new(Resource.Drawable.ic_action_edit, Resource.String.rename, ClickRename),
                 new(Resource.Drawable.ic_action_image, Resource.String.changeIcon, ClickChangeIcon),
                 new(Resource.Drawable.ic_action_category, Resource.String.assignCategories, ClickAssignCategories),
+                new(Resource.Drawable.ic_action_qr_code, Resource.String.showQrCode, ClickShowQrCode),
                 new(Resource.Drawable.ic_action_delete, Resource.String.delete, ClickDelete, null, true)
             });
 
