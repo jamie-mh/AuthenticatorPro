@@ -15,6 +15,8 @@ namespace AuthenticatorPro.Droid.Data
     internal static class Database
     {
         private const string FileName = "proauth.db3";
+        private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex;
+        
         private static readonly SemaphoreSlim _sharedLock = new(1, 1);
         private static SQLiteAsyncConnection _sharedConnection;
 
@@ -25,7 +27,7 @@ namespace AuthenticatorPro.Droid.Data
             if(_sharedConnection == null)
             {
                 _sharedLock.Release();
-                throw new Exception("Shared connection not open");
+                throw new InvalidOperationException("Shared connection not open");
             }
 
             try
@@ -92,11 +94,11 @@ namespace AuthenticatorPro.Droid.Data
 
             if(!String.IsNullOrEmpty(password))
             {
-                var connStr = new SQLiteConnectionString(dbPath, true, password);
+                var connStr = new SQLiteConnectionString(dbPath, Flags, true, password);
                 connection = new SQLiteAsyncConnection(connStr);
             }
             else
-                connection = new SQLiteAsyncConnection(dbPath);
+                connection = new SQLiteAsyncConnection(dbPath, Flags);
 
             try
             {

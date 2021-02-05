@@ -40,6 +40,7 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Java.Nio;
+using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
@@ -159,18 +160,24 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await Database.UpgradeLegacy(this);
+            SQLiteAsyncConnection connection;
 
             try
             {
-                await UnlockIfRequired();
+                connection = await GetConnection();
+            }
+            catch(InvalidOperationException)
+            {
+                Logger.Error("Shared connection not open after unlock");
+                throw;
             }
             catch(Exception e)
             {
-                Logger.Error($"Database unlock failed? error: {e}");
-                ShowDatabaseErrorDialog(e);
+                Logger.Error(e);
+                ShowDatabaseErrorDialog();
+                return;
             }
 
-            var connection = await Database.GetSharedConnection();
             _categorySource = new CategorySource(connection);
             _customIconSource = new CustomIconSource(connection);
             _authSource = new AuthenticatorSource(connection);
@@ -226,7 +233,7 @@ namespace AuthenticatorPro.Droid.Activity
             catch(Exception e)
             {
                 Logger.Error($"Database not usable? error: {e}");
-                ShowDatabaseErrorDialog(e);
+                ShowDatabaseErrorDialog();
                 return;
             }
 
@@ -508,6 +515,28 @@ namespace AuthenticatorPro.Droid.Activity
         #endregion
         
         #region Database
+        private async Task<SQLiteAsyncConnection> GetConnection()
+        {
+            var tries = 0;
+
+            while(true)
+            {
+                await UnlockIfRequired();
+
+                try
+                {
+                    var connection = await Database.GetSharedConnection();
+                    return connection;
+                }
+                catch
+                {
+                    // Try again, busy perhaps?
+                    if(++tries == 3)
+                        throw;
+                }
+            }
+        }
+        
         private async Task UnlockIfRequired()
         {
             switch(BaseApplication.IsLocked)
@@ -529,12 +558,11 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
         
-        private void ShowDatabaseErrorDialog(Exception e)
+        private void ShowDatabaseErrorDialog()
         {
             var builder = new MaterialAlertDialogBuilder(this);
-            var message = $"{GetString(Resource.String.databaseError)} error: {e}";
-            builder.SetMessage(message);
-            builder.SetTitle(Resource.String.warning);
+            builder.SetMessage(Resource.String.databaseError);
+            builder.SetTitle(Resource.String.error);
             builder.SetPositiveButton(Resource.String.quit, delegate
             {
                 Process.KillProcess(Process.MyPid());
