@@ -102,6 +102,10 @@ namespace AuthenticatorPro.Droid.Data
 
             try
             {
+                // TODO: update to SQLCipher 4 encryption
+                // Performance issue: https://github.com/praeclarum/sqlite-net/issues/978
+                await connection.ExecuteAsync("PRAGMA cipher_compatibility = 3");
+                
                 await connection.EnableWriteAheadLoggingAsync();
                 await connection.CreateTableAsync<Authenticator>();
                 await connection.CreateTableAsync<Category>();
@@ -158,6 +162,7 @@ namespace AuthenticatorPro.Droid.Data
                     else
                         await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ''", tempPath);
 
+                    await conn.ExecuteAsync("PRAGMA temporary.cipher_compatibility = 3");
                     await conn.ExecuteScalarAsync<string>("SELECT sqlcipher_export('temporary')");
                 }
                 catch
