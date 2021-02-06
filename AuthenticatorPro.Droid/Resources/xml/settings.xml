@@ -30,18 +30,18 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefPasswordTitle" />
-        <authenticatorpro.droid.preference.BiometricsPreference
-            android:key="pref_allowBiometrics"
-            android:summary="@string/prefAllowBiometricsSummary"
-            app:iconSpaceReserved="false"
-            android:defaultValue="false"
-            android:title="@string/prefAllowBiometricsTitle" />
         <androidx.preference.SwitchPreference
             android:key="pref_databasePasswordBackup"
             android:summary="@string/prefDatabasePasswordBackupSummary"
             android:title="@string/prefDatabasePasswordBackupTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false" />
+        <authenticatorpro.droid.preference.BiometricsPreference
+            android:key="pref_allowBiometrics"
+            android:summary="@string/prefAllowBiometricsSummary"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"
+            android:title="@string/prefAllowBiometricsTitle" />
         <androidx.preference.ListPreference
             android:key="pref_timeout"
             android:summary="@string/prefTimeoutSummary"
