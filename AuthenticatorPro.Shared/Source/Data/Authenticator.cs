@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Shared.Source.Data
 
         [Ignore]
         [JsonIgnore]
-        public DateTime TimeRenew { get; private set; }
+        public DateTimeOffset TimeRenew { get; private set; }
 
         private IGenerator _generator;
         private long _lastCounter;
@@ -65,7 +65,7 @@ namespace AuthenticatorPro.Shared.Source.Data
 
         public Authenticator()
         {
-            TimeRenew = DateTime.MinValue;
+            TimeRenew = DateTimeOffset.MinValue;
             _code = null;
             _generator = null;
             _lastCounter = 0;
@@ -105,8 +105,9 @@ namespace AuthenticatorPro.Shared.Source.Data
                     
                     break;
                 }
-                
-                case GenerationMethod.Time when TimeRenew < DateTime.UtcNow:
+               
+                // Disregard milliseconds in case of timer inaccuracies
+                case GenerationMethod.Time when TimeRenew.ToUnixTimeSeconds() <= DateTimeOffset.UtcNow.ToUnixTimeSeconds():
                     _code = _generator.Compute();
                     TimeRenew = _generator.GetRenewTime();
                     break;
