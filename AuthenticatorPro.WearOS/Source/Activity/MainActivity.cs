@@ -172,7 +172,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private void UpdateViewState()
         {
             if(_loadingLayout.Visibility == ViewStates.Visible)
-                AnimUtil.FadeOutView(_loadingLayout, 200);
+                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort);
             
             _emptyLayout.Visibility = ViewStates.Gone;
 
@@ -186,15 +186,10 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 if(_authList.Visibility == ViewStates.Invisible)
                 {
-                    var anim = new AlphaAnimation(0f, 1f) {Duration = 200};
-
-                    anim.AnimationEnd += delegate
+                    AnimUtil.FadeInView(_authList, AnimUtil.LengthShort, false, delegate
                     {
-                        _authList.Visibility = ViewStates.Visible;
                         _authList.RequestFocus();
-                    };
-
-                    _authList.StartAnimation(anim);
+                    });
                 }
                 else
                     _authList.RequestFocus();

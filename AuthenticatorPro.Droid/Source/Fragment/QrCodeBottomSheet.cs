@@ -68,8 +68,8 @@ namespace AuthenticatorPro.Droid.Fragment
 
             var bitmap = await BitmapFactory.DecodeByteArrayAsync(bytes, 0, bytes.Length);
            
-            AnimUtil.FadeOutView(_progressBar, 200);
-            AnimUtil.FadeInView(_image, 400);
+            AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort);
+            AnimUtil.FadeInView(_image, AnimUtil.LengthLong);
             _image.SetImageBitmap(bitmap);
         }
     }

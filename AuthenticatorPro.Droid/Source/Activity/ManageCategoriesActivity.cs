@@ -28,7 +28,6 @@ namespace AuthenticatorPro.Droid.Activity
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
         private ManageCategoriesListAdapter _categoryListAdapter;
-        private ProgressBar _progressBar;
         private RecyclerView _categoryList;
 
         private PreferenceWrapper _preferences;
@@ -43,7 +42,6 @@ namespace AuthenticatorPro.Droid.Activity
             _preferences = new PreferenceWrapper(this);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
             SetSupportActionBar(toolbar);
 
             SupportActionBar.SetTitle(Resource.String.categories);
@@ -87,8 +85,6 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task Refresh()
         {
-            RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
-
             await _categorySource.Update();
             
             RunOnUiThread(delegate
@@ -97,7 +93,6 @@ namespace AuthenticatorPro.Droid.Activity
 
                 _categoryListAdapter.NotifyDataSetChanged();
                 _categoryList.ScheduleLayoutAnimation();
-                _progressBar.Visibility = ViewStates.Invisible;
             });
         }
 
@@ -105,13 +100,19 @@ namespace AuthenticatorPro.Droid.Activity
         {
             if(_categorySource.GetView().Count == 0)
             {
-                _categoryList.Visibility = ViewStates.Gone;
-                AnimUtil.FadeInView(_emptyStateLayout, 500);
+                if(_categoryList.Visibility == ViewStates.Visible)
+                    AnimUtil.FadeOutView(_categoryList, AnimUtil.LengthShort);
+
+                if(_emptyStateLayout.Visibility == ViewStates.Invisible)
+                    AnimUtil.FadeInView(_emptyStateLayout, AnimUtil.LengthLong);
             }
             else
             {
-                _emptyStateLayout.Visibility = ViewStates.Invisible;
-                _categoryList.Visibility = ViewStates.Visible;
+                if(_categoryList.Visibility == ViewStates.Invisible)
+                    AnimUtil.FadeInView(_categoryList, AnimUtil.LengthLong);
+                
+                if(_emptyStateLayout.Visibility == ViewStates.Visible)
+                    AnimUtil.FadeOutView(_emptyStateLayout, AnimUtil.LengthShort);
             }
         }
 

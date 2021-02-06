@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,35 +7,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        app:elevation="0dp"
+    <com.google.android.material.appbar.MaterialToolbar
+        style="Widget.MaterialComponents.Toolbar"
+        android:minHeight="?android:attr/actionBarSize"
         android:background="?attr/colorBase"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            style="Widget.MaterialComponents.Toolbar"
-            android:minHeight="?android:attr/actionBarSize"
-            android:background="?attr/colorBase"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbar" />
-
-        <ProgressBar
-            android:id="@+id/appBarProgressBar"
-            android:layout_marginTop="-7dp"
-            android:layout_marginBottom="-7dp"
-            android:indeterminate="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        android:layout_below="@id/appBarLayout"
+        android:layout_below="@id/toolbar"
+        android:visibility="invisible"
         android:scrollbars="vertical"
         android:clipToPadding="false"
         android:paddingBottom="80dp"
@@ -48,7 +32,7 @@
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/appBarLayout">
+        android:layout_below="@id/toolbar">
 
         <ImageView
             android:layout_width="64dp"
