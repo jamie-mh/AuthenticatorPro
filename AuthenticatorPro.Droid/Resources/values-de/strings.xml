@@ -186,6 +186,10 @@
     <string name="guideBackupSummary">Schließe dich nicht aus deinen Konten aus, wenn du das Gerät wechselst oder verlierst. Erstelle eine Sicherung und bewahre sie an einem sicheren Ort auf. Eine Sicherung kann jederzeit geladen und zusätzlich verschlüsselt werden.</string>
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleiter-App herunterladen. Du bekommst die Codes dann auf deine Uhr.</string>
+    <!-- QR code scanner -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">Allgemein</string>
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
