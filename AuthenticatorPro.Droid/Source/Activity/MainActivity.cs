@@ -122,25 +122,25 @@ namespace AuthenticatorPro.Droid.Activity
         // Activity lifecycle synchronisation
         // Async activity lifecycle methods pass control to the next method, Resume is called before Create has finished.
         // Hand control to the next method when it's safe to do so.
-        private readonly SemaphoreSlim _onCreateSemaphore;
-        private readonly SemaphoreSlim _onResumeSemaphore;
-        // Pause OnCreate until login is complete
-        private readonly SemaphoreSlim _loginSemaphore;
+        private readonly SemaphoreSlim _onCreateLock;
+        private readonly SemaphoreSlim _onResumeLock;
+        // Pause OnCreate until unlock is complete
+        private readonly SemaphoreSlim _unlockDatabaseLock;
 
 
         public MainActivity()
         {   
             _iconResolver = new IconResolver();
-            _onCreateSemaphore = new SemaphoreSlim(1, 1);
-            _onResumeSemaphore = new SemaphoreSlim(1, 1);
-            _loginSemaphore = new SemaphoreSlim(0, 1);
+            _onCreateLock = new SemaphoreSlim(1, 1);
+            _onResumeLock = new SemaphoreSlim(1, 1);
+            _unlockDatabaseLock = new SemaphoreSlim(0, 1);
         }
 
         #region Activity Lifecycle
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            await _onCreateSemaphore.WaitAsync();
+            await _onCreateLock.WaitAsync();
 
             _justLaunched = true;
             
@@ -201,7 +201,7 @@ namespace AuthenticatorPro.Droid.Activity
             };
 
             _updateOnActivityResume = true;
-            _onCreateSemaphore.Release();
+            _onCreateLock.Release();
             
             if(_preferences.FirstLaunch)
                 StartActivity(typeof(IntroActivity));
@@ -213,8 +213,8 @@ namespace AuthenticatorPro.Droid.Activity
             if(Intent.Data == null)
                 return;
             
-            await _onResumeSemaphore.WaitAsync();
-            _onResumeSemaphore.Release();
+            await _onResumeLock.WaitAsync();
+            _onResumeLock.Release();
                 
             var uri = Intent.Data;
             await ParseQRCodeScanResult(uri.ToString());
@@ -224,10 +224,10 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnResume();
             
-            await _onCreateSemaphore.WaitAsync();
-            _onCreateSemaphore.Release();
+            await _onCreateLock.WaitAsync();
+            _onCreateLock.Release();
             
-            await _onResumeSemaphore.WaitAsync();
+            await _onResumeLock.WaitAsync();
             
             RunOnUiThread(delegate
             {
@@ -278,7 +278,7 @@ namespace AuthenticatorPro.Droid.Activity
             else
                 Tick(true);
             
-            _onResumeSemaphore.Release();
+            _onResumeLock.Release();
             CheckEmptyState();
 
             if(!_preventBackupReminder && _preferences.ShowBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
@@ -335,7 +335,7 @@ namespace AuthenticatorPro.Droid.Activity
                     return;
                 }
 
-                _loginSemaphore.Release();
+                _unlockDatabaseLock.Release();
                 return;
             }
             
@@ -344,13 +344,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(requestCode == RequestSettingsRecreate)
             {
-                await _onResumeSemaphore.WaitAsync();
+                await _onResumeLock.WaitAsync();
                 Recreate();
                 return;
             }
 
-            await _onResumeSemaphore.WaitAsync();
-            _onResumeSemaphore.Release();
+            await _onResumeLock.WaitAsync();
+            _onResumeLock.Release();
             
             switch(requestCode)
             {
@@ -561,7 +561,7 @@ namespace AuthenticatorPro.Droid.Activity
                 // Locked and has password, wait for unlock in unlockactivity
                 case true when _preferences.PasswordProtected:
                     StartActivityForResult(typeof(UnlockActivity), RequestUnlock);
-                    await _loginSemaphore.WaitAsync();
+                    await _unlockDatabaseLock.WaitAsync();
                     break;
                     
                 // Locked but no password, unlock now

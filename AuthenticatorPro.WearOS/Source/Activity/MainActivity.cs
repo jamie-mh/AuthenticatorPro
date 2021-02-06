@@ -60,12 +60,12 @@ namespace AuthenticatorPro.WearOS.Activity
         private int _responsesRequired;
 
         // Lifecycle Synchronisation
-        private readonly SemaphoreSlim _onCreateSemaphore;
+        private readonly SemaphoreSlim _onCreateLock;
 
 
         public MainActivity()
         {
-            _onCreateSemaphore = new SemaphoreSlim(1, 1);            
+            _onCreateLock = new SemaphoreSlim(1, 1);            
         }
 
         #region Activity Lifecycle
@@ -73,7 +73,7 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             base.OnCreate(bundle);
             
-            await _onCreateSemaphore.WaitAsync();
+            await _onCreateLock.WaitAsync();
             SetContentView(Resource.Layout.activityMain);
 
             _authCache = new ListCache<WearAuthenticator>(AuthenticatorCacheName, this);
@@ -86,15 +86,15 @@ namespace AuthenticatorPro.WearOS.Activity
             _authSource = new AuthenticatorSource(_authCache);
             RunOnUiThread(InitViews);
 
-            _onCreateSemaphore.Release();
+            _onCreateLock.Release();
         }
 
         protected override async void OnResume()
         {
             base.OnResume();
             
-            await _onCreateSemaphore.WaitAsync();
-            _onCreateSemaphore.Release();
+            await _onCreateLock.WaitAsync();
+            _onCreateLock.Release();
 
             try
             {
