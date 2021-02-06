@@ -7,7 +7,6 @@ using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Callback;
-using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Fragment;
 using AuthenticatorPro.Droid.Preference;
 using AuthenticatorPro.Droid.Util;

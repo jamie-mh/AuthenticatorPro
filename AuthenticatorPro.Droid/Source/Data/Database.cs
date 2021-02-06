@@ -7,7 +7,6 @@ using AndroidX.Preference;
 using AuthenticatorPro.Shared.Source.Data;
 using SQLite;
 using Xamarin.Essentials;
-using Exception = System.Exception;
 using String = System.String;
 
 namespace AuthenticatorPro.Droid.Data

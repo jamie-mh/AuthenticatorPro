@@ -7,7 +7,6 @@ using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
-using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;

@@ -10,7 +10,6 @@ using Android.Gms.Common.Apis;
 using Android.Gms.Wearable;
 using Android.OS;
 using Android.Views;
-using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Wear.Widget;
