@@ -17,7 +17,8 @@
     <string name="restore">Restaurer</string>
     <string name="backup">Sauvegarder</string>
     <string name="about">À Propos</string>
-    <string name="scanQrCode">Scanner un QR Code</string>
+    <string name="scanQrCode">Scanner un QR code</string>
+    <string name="showQrCode">Afficher le QR code</string>
     <string name="scanQrCodeFromCamera">Scanner à partir de la caméra</string>
     <string name="scanQrCodeFromGallery">Scanner à partir d\'une image</string>
     <string name="rename">Renommer</string>
@@ -50,9 +51,15 @@
     <string name="pinInvalid">Le code pin doit être composé de 4 caractères</string>
     <string name="digitsInvalid">L\'authentificateur doit générer entre {0} et {1} chiffres</string>
     <string name="periodInvalid">La période n\'est pas valide</string>
-    <string name="qrCodeFormatError">Le QR Code n\'est pas au bon format ou n\'est pas lisible</string>
+    <string name="qrCodeFormatError">Le QR code n\'est pas au bon format ou n\'est pas lisible</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
-    <string name="scanSuccessful">QR Code scanné avec succès</string>
+    <string name="scanSuccessful">QR code scanné avec succès</string>
+    <!-- QR code dialog -->
+    <string name="qrCode">QR code</string>
+    <string name="qrCodeHelp">Copiez cet authentificateur vers un autre appareil ou application en scannant le QR code</string>
+    <string name="qrCodeNotSupported">Les QR codes ne sont pas pris en charge pour ce type</string>
+    <string name="copyUri">Copier l\'URI</string>
+    <string name="uriCopiedToClipboard">URI copiée dans le presse-papiers</string>
     <!-- Backup menu -->
     <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
@@ -101,7 +108,7 @@
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
     <!-- Errors -->
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application.</string>
-    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR Code</string>
+    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
@@ -167,7 +174,7 @@
     <string name="uriListHint">Liste en texte claire d\'URIs otpauth</string>
     <string name="viewGuideImportHint">Consulter le guide sur le wiki du projet</string>
     <!-- Getting Started Guide -->
-    <string name="guideScanQRCodeTitle">Scanner un QR Code</string>
+    <string name="guideScanQRCodeTitle">Scanner un QR code</string>
     <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez également renseigner les informations vous-même.</string>
     <string name="guideUseCodeTitle">Utiliser le code</string>
     <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Authenticator Pro. Ceci n\'est valide que pendant une courte période. Tappez l\'authentificateur dans la liste pour copier le code au presse-papiers.</string>
@@ -190,6 +197,8 @@
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
     <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
+    <string name="prefDatabasePasswordBackupTitle">Sauvegarder avec le mot de passe de la base de données</string>
+    <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes en utilisant le mot de passe de la base de données. Cela vous évite de le saisir à chaque fois.</string>
     <string name="prefAllowBiometricsTitle">Déverrouillage biométrique</string>
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefAppearance">Apparence</string>

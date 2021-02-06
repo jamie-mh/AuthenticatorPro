@@ -18,6 +18,7 @@
     <string name="backup">备份</string>
     <string name="about">关于</string>
     <string name="scanQrCode">扫描二维码</string>
+    <string name="showQrCode">Show QR code</string>
     <string name="scanQrCodeFromCamera">使用相机扫描</string>
     <string name="scanQrCodeFromGallery">从相册中选择</string>
     <string name="rename">更改名称</string>
@@ -53,6 +54,12 @@
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
+    <!-- QR code dialog -->
+    <string name="qrCode">QR code</string>
+    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
+    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
@@ -190,6 +197,8 @@
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
     <string name="prefTimeoutTitle">超时时间</string>
     <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
+    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefAppearance">外观</string>
