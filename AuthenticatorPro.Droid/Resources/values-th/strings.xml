@@ -186,6 +186,10 @@
     <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
     <string name="guideWearOSTitle">Download the Wear OS companion</string>
     <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
+    <!-- QR code scanner -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">ทั่วไป</string>
     <string name="prefShowBackupRemindersTitle">Show Backup Reminders</string>
