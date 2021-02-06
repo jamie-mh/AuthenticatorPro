@@ -110,6 +110,7 @@ namespace AuthenticatorPro.Droid.Activity
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
         private bool _returnedFromResult;
+        private bool _returnedFromScan;
         private bool _justLaunched;
         private bool _updateOnActivityResume;
         private int _customIconApplyPosition;
@@ -281,7 +282,8 @@ namespace AuthenticatorPro.Droid.Activity
             _onResumeSemaphore.Release();
             CheckEmptyState();
 
-            if(!_returnedFromResult && _preferences.ShowBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
+            if(!_returnedFromResult && !_returnedFromScan && _preferences.ShowBackupReminders &&
+              (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
 
             _returnedFromResult = false;
@@ -967,6 +969,7 @@ namespace AuthenticatorPro.Droid.Activity
             };
 
             var scanner = new MobileBarcodeScanner();
+            _returnedFromScan = true;
             var result = await scanner.Scan(options);
 
             if(result == null)
