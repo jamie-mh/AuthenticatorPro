@@ -81,12 +81,8 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
         public async Task Update()
         {
-            _all.Clear();
             _all = await _connection.QueryAsync<Authenticator>("SELECT * FROM authenticator ORDER BY ranking, issuer, username");
-            
-            CategoryBindings.Clear();
             CategoryBindings = await _connection.QueryAsync<AuthenticatorCategory>("SELECT * FROM authenticatorcategory ORDER BY ranking");
-
             UpdateView();
         }
 

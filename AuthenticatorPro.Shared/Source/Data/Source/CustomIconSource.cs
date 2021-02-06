@@ -19,7 +19,6 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
         public async Task Update()
         {
-            _all.Clear();
             _all = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
         }
 

@@ -20,7 +20,6 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
         public async Task Update()
         {
-            _all.Clear();
             _all = await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
