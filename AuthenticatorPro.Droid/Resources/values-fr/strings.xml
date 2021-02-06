@@ -187,9 +187,9 @@
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
     <string name="guideWearOSSummary">Si vous avez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Le code sera scanné automatiquement. Tapez pour focaliser.</string>
+    <string name="scanHelpSecondary">Essayez d\'éviter les ombres et les éclats de lumière. Maintenez l\'appareil à environ 15 cm (6 pouces) du code.</string>
+    <string name="toggleFlash">Activer/désactiver le flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">Paramètres généraux</string>
     <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
