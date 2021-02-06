@@ -3,6 +3,7 @@
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+	<uses-permission android:name="android.permission.FLASHLIGHT" />
 	<application android:allowBackup="false" android:label="@string/appName" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme"></application>
 	<supports-screens android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:normalScreens="true" android:anyDensity="true" />
 </manifest>

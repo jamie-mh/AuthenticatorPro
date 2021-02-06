@@ -144,7 +144,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _justLaunched = true;
             
-            MobileBarcodeScanner.Initialize(Application);
+            Xamarin.Essentials.Platform.Init(BaseApplication);
             _preferences = new PreferenceWrapper(this);
 
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
@@ -963,10 +963,27 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     BarcodeFormat.QR_CODE
                 },
-                TryHarder = true
+                TryHarder = true,
+                AutoRotate = true
             };
 
-            var scanner = new MobileBarcodeScanner();
+            var overlay = LayoutInflater.Inflate(Resource.Layout.scanOverlay, null);
+
+            var scanner = new MobileBarcodeScanner
+            {
+                UseCustomOverlay = true, 
+                CustomOverlay = overlay
+            };
+            
+            var flashButton = overlay.FindViewById<MaterialButton>(Resource.Id.buttonFlash);
+            flashButton.Click += delegate
+            {
+                scanner.ToggleTorch();
+            };
+
+            var hasFlashlight = PackageManager.HasSystemFeature(PackageManager.FeatureCameraFlash);
+            flashButton.Visibility = hasFlashlight ? ViewStates.Visible : ViewStates.Gone;
+            
             _preventBackupReminder = true;
             var result = await scanner.Scan(options);
 
@@ -997,7 +1014,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var reader = new BarcodeReader(null, null, ls => new GlobalHistogramBinarizer(ls))
+            var reader = new BarcodeReader<Bitmap>(null, null, ls => new GlobalHistogramBinarizer(ls))
             {
                 AutoRotate = true,
                 TryInverted = true,
