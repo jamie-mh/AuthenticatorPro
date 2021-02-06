@@ -186,6 +186,10 @@
     <string name="guideBackupSummary">Cihazınızı değiştirirseniz hesaplarınıza erişimi kaybetmeyin. Bir yedekleme dosyası oluşturun ve bunu güvenli bir yerde depolayın. Yedek dilediğiniz zamanda geri yüklenebilir ve bir parola ile korunabilir.</string>
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
     <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
+    <!-- QR code scanner -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">Genel</string>
     <string name="prefShowBackupRemindersTitle">Yedekleme Hatırlatıcılarını Göster</string>
