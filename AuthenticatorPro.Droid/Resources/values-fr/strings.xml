@@ -199,12 +199,12 @@
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
-    <string name="prefTimeoutTitle">Délai de verrouillage</string>
-    <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
     <string name="prefDatabasePasswordBackupTitle">Sauvegarder avec le mot de passe de la base de données</string>
     <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes en utilisant le mot de passe de la base de données. Cela vous évite de le saisir à chaque fois.</string>
     <string name="prefAllowBiometricsTitle">Déverrouillage biométrique</string>
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
+    <string name="prefTimeoutTitle">Délai de verrouillage</string>
+    <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
     <string name="prefAppearance">Apparence</string>
     <string name="prefThemeTitle">Thème</string>
     <string name="prefThemeSummary">Changer le thème de l\'application</string>
