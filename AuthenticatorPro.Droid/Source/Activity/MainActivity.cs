@@ -109,8 +109,7 @@ namespace AuthenticatorPro.Droid.Activity
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
-        private bool _returnedFromResult;
-        private bool _returnedFromScan;
+        private bool _preventBackupReminder;
         private bool _justLaunched;
         private bool _updateOnActivityResume;
         private int _customIconApplyPosition;
@@ -282,11 +281,10 @@ namespace AuthenticatorPro.Droid.Activity
             _onResumeSemaphore.Release();
             CheckEmptyState();
 
-            if(!_returnedFromResult && !_returnedFromScan && _preferences.ShowBackupReminders &&
-              (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
+            if(!_preventBackupReminder && _preferences.ShowBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
 
-            _returnedFromResult = false;
+            _preventBackupReminder = false;
 
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
@@ -327,7 +325,7 @@ namespace AuthenticatorPro.Droid.Activity
         protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
         {
             base.OnActivityResult(requestCode, resultCode, intent);
-            _returnedFromResult = true;
+            _preventBackupReminder = true;
 
             if(requestCode == RequestUnlock)
             {
@@ -969,7 +967,7 @@ namespace AuthenticatorPro.Droid.Activity
             };
 
             var scanner = new MobileBarcodeScanner();
-            _returnedFromScan = true;
+            _preventBackupReminder = true;
             var result = await scanner.Scan(options);
 
             if(result == null)
