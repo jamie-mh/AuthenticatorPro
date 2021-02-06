@@ -186,6 +186,10 @@
     <string name="guideBackupSummary">即便您更换了设备，也不会无法登录帐号。您可以创建一个备份文件，并将其保存在安全的位置。您还可以随时恢复备份，也可以使用密码加密备份。</string>
     <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
+    <!-- QR code scanner -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">常规​​​​​</string>
     <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
