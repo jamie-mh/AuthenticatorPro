@@ -32,6 +32,8 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
             try
             {
+                await connection.ExecuteAsync("PRAGMA cipher_compatibility = 3");
+                
                 var sourceAccounts = await connection.QueryAsync<Account>("SELECT * FROM accounts");
                 var sourceCategories = await connection.QueryAsync<Category>("SELECT * FROM category");
 
