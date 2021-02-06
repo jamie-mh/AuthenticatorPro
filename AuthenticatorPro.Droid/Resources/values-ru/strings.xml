@@ -199,12 +199,12 @@
     <string name="prefSecurity">Безопасность</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Запрашивать пароль для доступа к аутентификаторам. База данных будет зашифрована с помощью пароля.</string>
-    <string name="prefTimeoutTitle">Время ожидания истекло</string>
-    <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
     <string name="prefDatabasePasswordBackupTitle">Резервное копирование с паролем базы данных</string>
     <string name="prefDatabasePasswordBackupSummary">Шифровать все резервные копии, используя пароль базы данных, чтобы не вводить его каждый раз</string>
     <string name="prefAllowBiometricsTitle">Биометрическая разблокировка</string>
     <string name="prefAllowBiometricsSummary">Разрешить разблокировку базы данных с помощью биометрической аутентификации</string>
+    <string name="prefTimeoutTitle">Время ожидания истекло</string>
+    <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
