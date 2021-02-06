@@ -93,11 +93,16 @@ namespace AuthenticatorPro.Droid
                 await Lock();
             else
             {
-                _timeoutTimer = new Timer(timeout * 1000);
+                _timeoutTimer = new Timer(timeout * 1000)
+                {
+                    AutoReset = false
+                };
+                
                 _timeoutTimer.Elapsed += async delegate
                 {
                     await Lock();
                 };
+                
                 _timeoutTimer.Start();
             }
         }
