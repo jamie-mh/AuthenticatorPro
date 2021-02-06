@@ -186,6 +186,10 @@
     <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une sauvegarde et placez le dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut même être protégée par un mot de passe.</string>
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
     <string name="guideWearOSSummary">Si vous avez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
+    <!-- QR code scanner -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">Paramètres généraux</string>
     <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
