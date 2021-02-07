@@ -157,13 +157,17 @@ namespace AuthenticatorPro.Droid.Data
                 try
                 {
                     if(newPassword != null)
+                    {
                         await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, newPassword);
+                        await conn.ExecuteAsync("PRAGMA temporary.cipher_compatibility = 3");
+                    }
                     else
                         await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ''", tempPath);
 
-                    await conn.ExecuteAsync("PRAGMA temporary.cipher_compatibility = 3");
                     await conn.ExecuteScalarAsync<string>("SELECT sqlcipher_export('temporary')");
                 }
+                // TODO: investigate strange exception, SQLite out of memory when clearing password
+                // Only first attempt though?
                 catch
                 {
                     File.Delete(tempPath);
