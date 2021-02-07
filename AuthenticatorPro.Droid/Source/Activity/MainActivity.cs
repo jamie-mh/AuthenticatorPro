@@ -109,9 +109,11 @@ namespace AuthenticatorPro.Droid.Activity
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
+        
         private bool _preventBackupReminder;
         private bool _justLaunched;
         private bool _updateOnActivityResume;
+        private bool _currentlyResuming;
         private int _customIconApplyPosition;
 
         // Wear OS State
@@ -223,6 +225,12 @@ namespace AuthenticatorPro.Droid.Activity
         protected override async void OnResume()
         {
             base.OnResume();
+           
+            // Prevent double calls to onresume when unlocking database
+            if(_currentlyResuming)
+                return;
+
+            _currentlyResuming = true;
             
             await _onCreateLock.WaitAsync();
             _onCreateLock.Release();
@@ -253,13 +261,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(_updateOnActivityResume || _justLaunched || autoRestoreCompleted)
             {
                 _updateOnActivityResume = false;
-                await Update();
-
-                if(_justLaunched)
-                {
-                    RunOnUiThread(delegate { _authList.ScheduleLayoutAnimation(); });
-                    _justLaunched = false;
-                }
+                await Update(_justLaunched);
 
                 if(_authSource.CategoryId != null)
                 {
@@ -278,13 +280,15 @@ namespace AuthenticatorPro.Droid.Activity
             else
                 Tick(true);
             
+            _preventBackupReminder = false;
+            _justLaunched = false;
+            _currentlyResuming = false;
+            
             _onResumeLock.Release();
             CheckEmptyState();
 
             if(!_preventBackupReminder && _preferences.ShowBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
-
-            _preventBackupReminder = false;
 
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
@@ -675,7 +679,7 @@ namespace AuthenticatorPro.Droid.Activity
             touchHelper.AttachToRecyclerView(_authList);
         }
 
-        private async Task Update()
+        private async Task Update(bool animateLayout)
         {
             var uiLock = new SemaphoreSlim(0, 1);
             var showingProgress = false;
@@ -715,14 +719,17 @@ namespace AuthenticatorPro.Droid.Activity
 
             RunOnUiThread(delegate
             {
+                _authListAdapter.NotifyDataSetChanged();
+                Tick(true);
+                
+                if(animateLayout)
+                    _authList.ScheduleLayoutAnimation();
+                
+                if(showingProgress || alreadyLoading)
+                    AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort, true);
+                    
                 AnimUtil.FadeInView(_authList, AnimUtil.LengthShort, true, delegate
                 {
-                    _authListAdapter.NotifyDataSetChanged();
-                    Tick(true);
-                    
-                    if(showingProgress || alreadyLoading)
-                        AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort, true);
-                   
                     uiLock.Release();
                 });
             });

@@ -49,6 +49,7 @@
         android:clipToPadding="false"
         android:paddingBottom="80dp"
         android:background="?attr/colorBase"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
