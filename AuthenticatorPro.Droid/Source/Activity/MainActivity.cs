@@ -280,7 +280,6 @@ namespace AuthenticatorPro.Droid.Activity
             else
                 Tick(true);
             
-            _preventBackupReminder = false;
             _justLaunched = false;
             _currentlyResuming = false;
             
@@ -290,6 +289,8 @@ namespace AuthenticatorPro.Droid.Activity
             if(!_preventBackupReminder && _preferences.ShowBackupReminders && (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
                 RemindBackup();
 
+            _preventBackupReminder = false;
+            
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
         }
