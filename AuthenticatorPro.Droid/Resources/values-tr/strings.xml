@@ -199,12 +199,12 @@
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
-    <string name="prefTimeoutTitle">Timeout</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefTimeoutTitle">Timeout</string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>

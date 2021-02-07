@@ -199,12 +199,12 @@
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
-    <string name="prefTimeoutTitle">超时时间</string>
-    <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefTimeoutTitle">超时时间</string>
+    <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefAppearance">外观</string>
     <string name="prefThemeTitle">主题</string>
     <string name="prefThemeSummary">选择应用的主题。</string>
