@@ -124,7 +124,7 @@
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <string name="locationSetTo">\'{0}\' a été choisi comme emplacement</string>
-    <string name="setPassword">Choisir un mot de passe</string>
+    <string name="setPassword">Définir le mot de passe</string>
     <string name="passwordNotSet">Mot de passe non renseigné</string>
     <string name="passwordSet">Mot de passe renseigné</string>
     <string name="notPasswordProtected">Non protégé par mot de passe</string>
