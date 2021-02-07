@@ -7,6 +7,7 @@ using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
@@ -27,6 +28,7 @@ namespace AuthenticatorPro.Droid.Activity
         private BiometricPrompt _prompt;
 
         private LinearLayout _middleLayout;
+        private LinearLayout _unlockLayout;
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
@@ -41,6 +43,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preferences = new PreferenceWrapper(this);
 
+            _unlockLayout = FindViewById<LinearLayout>(Resource.Id.layoutUnlock);
             _middleLayout = FindViewById<LinearLayout>(Resource.Id.layoutMiddle);
             
             _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
@@ -85,9 +88,15 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task FocusPasswordText()
         {
+            RunOnUiThread(delegate
+            {
+                if(_unlockLayout.Visibility != ViewStates.Visible)
+                    AnimUtil.FadeInView(_unlockLayout, AnimUtil.LengthLong, true);
+            });
+            
             await Task.Run(async delegate
             {
-                await Task.Delay(250);
+                await Task.Delay(300);
                 
                 RunOnUiThread(delegate
                 {
