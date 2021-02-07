@@ -35,6 +35,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             {"aws", Resource.Drawable.auth_aws},
             {"azure", Resource.Drawable.auth_azure},
             {"backblaze", Resource.Drawable.auth_backblaze},
+            {"bethesda", Resource.Drawable.auth_bethesda},
             {"binance", Resource.Drawable.auth_binance},
             {"bitbucket", Resource.Drawable.auth_bitbucket},
             {"bitcoin", Resource.Drawable.auth_bitcoin},
