@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -8,6 +9,7 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
+using SQLite;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
@@ -58,6 +60,19 @@ namespace AuthenticatorPro.Droid.Fragment
             return view;
         }
 
+        private async Task SetDatabasePassword(string currentPassword, string newPassword)
+        {
+            try
+            {
+                await Database.SetPassword(currentPassword, newPassword);
+            }
+            catch(SQLiteException)
+            {
+                // Temp workaround for strange bug, see Database.cs
+                await Database.SetPassword(currentPassword, newPassword);
+            }
+        }
+
         private async void OnSetPasswordButtonClick(object sender, EventArgs e)
         {
             if(_passwordText.Text != _passwordConfirmText.Text)
@@ -75,7 +90,7 @@ namespace AuthenticatorPro.Droid.Fragment
             try
             {
                 var currentPassword = await SecureStorageWrapper.GetDatabasePassword();
-                await Database.SetPassword(currentPassword, newPassword);
+                await SetDatabasePassword(currentPassword, newPassword);
 
                 try
                 {
@@ -84,7 +99,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 catch
                 {
                     // Revert changes
-                    await Database.SetPassword(newPassword, currentPassword);
+                    await SetDatabasePassword(newPassword, currentPassword);
                     throw;
                 }
             }
