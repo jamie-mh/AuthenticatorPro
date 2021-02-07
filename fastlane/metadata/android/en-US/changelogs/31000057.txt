@@ -1,0 +1,6 @@
+- New feature: Show QR codes for authenticators
+- New feature: Backup using database password
+- General: Improvements to animations
+- General: Added Bethesda icon
+- General: Translation updates
+- General: Bug fixes
