@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
@@ -27,14 +28,13 @@ namespace AuthenticatorPro.Droid.Activity
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
 
-        private LinearLayout _middleLayout;
         private LinearLayout _unlockLayout;
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
         
-        protected override async void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activityUnlock);
@@ -42,9 +42,7 @@ namespace AuthenticatorPro.Droid.Activity
             SetResult(Result.Canceled);
 
             _preferences = new PreferenceWrapper(this);
-
             _unlockLayout = FindViewById<LinearLayout>(Resource.Id.layoutUnlock);
-            _middleLayout = FindViewById<LinearLayout>(Resource.Id.layoutMiddle);
             
             _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
             _passwordText = FindViewById<TextInputEditText>(Resource.Id.editPassword);
@@ -75,7 +73,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(_canUseBiometrics)
                 ShowBiometricPrompt();
             else
-                await FocusPasswordText();
+                FocusPasswordText();
         }
 
         private async void OnUnlockButtonClick(object sender, EventArgs e)
@@ -86,23 +84,20 @@ namespace AuthenticatorPro.Droid.Activity
             _useBiometricsButton.Enabled = _canUseBiometrics;
         }
 
-        private async Task FocusPasswordText()
+        private void FocusPasswordText()
         {
             RunOnUiThread(delegate
             {
-                if(_unlockLayout.Visibility != ViewStates.Visible)
-                    AnimUtil.FadeInView(_unlockLayout, AnimUtil.LengthLong, true);
-            });
-            
-            await Task.Run(async delegate
-            {
-                await Task.Delay(300);
+                if(_unlockLayout.Visibility == ViewStates.Visible)
+                    return;
                 
-                RunOnUiThread(delegate
+                AnimUtil.FadeInView(_unlockLayout, AnimUtil.LengthLong, true, delegate
                 {
-                    _passwordText.RequestFocus();
+                    if(!_passwordText.RequestFocus())
+                        return;
+                        
                     var inputManager = (InputMethodManager) GetSystemService(InputMethodService);
-                    inputManager.ShowSoftInput(_middleLayout, ShowFlags.Implicit);
+                    inputManager.ShowSoftInput(_passwordText, ShowFlags.Implicit);
                 });
             });
         }
@@ -155,15 +150,15 @@ namespace AuthenticatorPro.Droid.Activity
                 await AttemptUnlock(password);
             };
 
-            callback.Failed += async delegate
+            callback.Failed += delegate
             {
-                await FocusPasswordText();
+                FocusPasswordText();
             };
 
-            callback.Error += async (_, result) => 
+            callback.Error += (_, result) => 
             {
                 Toast.MakeText(this, result.Message, ToastLength.Short).Show();
-                await FocusPasswordText();
+                FocusPasswordText();
             };
             
             _prompt = new BiometricPrompt(this, executor, callback);
