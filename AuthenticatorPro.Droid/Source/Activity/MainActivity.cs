@@ -146,7 +146,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _justLaunched = true;
             
-            Xamarin.Essentials.Platform.Init(BaseApplication);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
 
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
