@@ -507,11 +507,24 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(searchBarWasClosed)
                 return;
-            
-            if(_authSource?.CategoryId != null)
+
+            var defaultCategory = _preferences.DefaultCategory;
+
+            if(defaultCategory == null)
             {
-                SwitchCategory(null);
-                return;
+                if(_authSource?.CategoryId != null)
+                {
+                    SwitchCategory(null);
+                    return;
+                }
+            }
+            else
+            {
+                if(_authSource?.CategoryId != defaultCategory)
+                {
+                    SwitchCategory(defaultCategory);
+                    return;
+                }
             }
 
             await BaseApplication.Lock();
