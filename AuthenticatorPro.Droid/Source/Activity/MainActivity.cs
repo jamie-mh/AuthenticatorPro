@@ -1238,12 +1238,12 @@ namespace AuthenticatorPro.Droid.Activity
             
             fragment.ClickBlizzardAuthenticator += delegate
             {
-                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
+                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator");
             };
             
             fragment.ClickSteam += delegate
             {
-                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
+                StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Steam");
             };
             
             fragment.ClickUriList += delegate
