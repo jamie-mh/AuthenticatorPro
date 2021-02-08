@@ -334,7 +334,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             if(Service.ContainsKey(key))
                 return key;
 
-            var firstWordKey = Simplify(name.Split(' ', 2)[0]);
+            var firstWordKey = Simplify(name.Split(new[] { ' ', '.' }, 2)[0]);
             
             return Service.ContainsKey(firstWordKey)
                 ? firstWordKey
