@@ -338,7 +338,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             
             return Service.ContainsKey(firstWordKey)
                 ? firstWordKey
-                : Default;
+                : null;
         }
     }
 }

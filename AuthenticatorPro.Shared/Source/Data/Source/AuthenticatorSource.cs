@@ -163,19 +163,6 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
             return _view.FindIndex(a => a.Secret == secret);
         }
 
-        public async Task Rename(int position, string issuer, string username)
-        {
-            var auth = Get(position);
-
-            if(auth == null)
-                throw new ArgumentOutOfRangeException();
-
-            auth.Issuer = issuer;
-            auth.Username = username;
-
-            await _connection.UpdateAsync(auth);
-        }
-
         public async Task Delete(int position)
         {
             var auth = Get(position);

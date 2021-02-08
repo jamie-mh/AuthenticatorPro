@@ -1659,9 +1659,18 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs e)
         {
+            var auth = _authSource.Get(e.ItemPosition);
+
+            if(auth == null)
+                return;
+            
+            auth.Issuer = e.Issuer;
+            auth.Username = e.Username;
+            auth.Icon ??= _iconResolver.FindServiceKeyByName(auth.Issuer);
+            
             try
             {
-                await _authSource.Rename(e.ItemPosition, e.Issuer, e.Username);
+                await _authSource.UpdateSingle(auth);
             }
             catch
             {
