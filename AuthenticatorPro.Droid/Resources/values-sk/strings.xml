@@ -38,7 +38,7 @@
     <string name="copiedToClipboard">Kód skopírovaný do schránky</string>
     <string name="issuerHint">Vydavateľ (napr. Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
-    <string name="usernameHint">Používateľské meno (napr. jan@priklad.sk)</string>
+    <string name="usernameHint">Používateľské meno (napr. jan@example.com)</string>
     <string name="typeHint">Typ</string>
     <string name="algorithmHint">Algoritmus</string>
     <string name="digitsHint">Číslice</string>
