@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Droid.List
 
         public override bool SupportsPredictiveItemAnimations()
         {
-            return false;
+            return true;
         }
     }
 }

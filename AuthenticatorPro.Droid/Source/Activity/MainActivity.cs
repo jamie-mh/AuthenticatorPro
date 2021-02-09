@@ -677,13 +677,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void InitAuthenticatorList()
         {
-            var viewMode = _preferences.ViewMode switch
-            {
-                "compact" => AuthenticatorListAdapter.ViewMode.Compact,
-                "tile" => AuthenticatorListAdapter.ViewMode.Tile,
-                _ => AuthenticatorListAdapter.ViewMode.Default
-            };
-
+            var viewMode = ViewModeSpecification.FromName(_preferences.ViewMode);
             _authListAdapter = new AuthenticatorListAdapter(this, _authSource, _customIconSource, viewMode, IsDark)
             {
                 HasStableIds = true
@@ -704,17 +698,10 @@ namespace AuthenticatorPro.Droid.Activity
 
             _authList.SetAdapter(_authListAdapter);
 
-            var minColumnWidth = viewMode switch
-            {
-                AuthenticatorListAdapter.ViewMode.Compact => 300,
-                AuthenticatorListAdapter.ViewMode.Tile => 170,
-                _ => 340
-            };
-
-            _authLayout = new AutoGridLayoutManager(this, minColumnWidth);
+            _authLayout = new AutoGridLayoutManager(this, viewMode.GetMinColumnWidth());
             _authList.SetLayoutManager(_authLayout);
 
-            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, _authLayout, 8));
+            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, _authLayout, viewMode.GetSpacing(), viewMode.HasEdgeSpacing()));
             _authList.HasFixedSize = false;
 
             var animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);

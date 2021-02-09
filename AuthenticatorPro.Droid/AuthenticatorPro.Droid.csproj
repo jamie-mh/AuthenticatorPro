@@ -129,6 +129,7 @@
     <Compile Include="Source\List\SheetMenuAdapter.cs" />
     <Compile Include="Source\List\SheetMenuItem.cs" />
     <Compile Include="Source\List\SheetMenuItemViewHolder.cs" />
+    <Compile Include="Source\List\ViewMode.cs" />
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
     <Compile Include="Source\Preference\BiometricsPreference.cs" />
     <Compile Include="Source\Preference\PasswordPreference.cs" />

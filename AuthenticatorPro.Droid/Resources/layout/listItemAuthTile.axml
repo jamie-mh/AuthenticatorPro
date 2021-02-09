@@ -1,126 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:background="?attr/authListItem_background"
-    android:foreground="?selectableItemBackground"
-    android:focusable="true"
-    android:clickable="true"
-    android:orientation="vertical">
-
+    android:layout_height="wrap_content">
+    
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="12dp">
+        android:background="?attr/authListItem_background"
+        android:foreground="?selectableItemBackground"
+        android:focusable="true"
+        android:clickable="true"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="12dp">
 
-            <RelativeLayout
-                android:layout_marginBottom="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_alignParentLeft="true"
-                    android:layout_toLeftOf="@id/imageIcon"
-                    android:layout_marginRight="12dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:text="GitHub"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16dp"
-                        android:textColor="?attr/primaryTextColor"
-                        android:singleLine="true"
-                        android:id="@+id/textIssuer" />
-
-                    <TextView
-                        android:text="johnsmith@example.com"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12dp"
-                        android:textColor="?attr/secondaryTextColor"
-                        android:layout_below="@id/textIssuer"
-                        android:singleLine="true"
-                        android:id="@+id/textUsername" />
-                </LinearLayout>
-                
-                <ImageView
-                    android:id="@+id/imageIcon"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:scaleType="centerInside"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/auth_github" />
-            </RelativeLayout>
-
-            <RelativeLayout 
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:text="000 000"
+                <RelativeLayout
+                    android:layout_marginBottom="4dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="24dp"
-                    android:textColor="?attr/authListItem_code"
-                    android:layout_marginTop="2dp"
-                    android:id="@+id/textCode" />
-                
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
 
-                    <ImageButton
-                        android:id="@+id/buttonRefresh"
-                        android:src="@drawable/ic_action_refresh"
-                        android:scaleType="centerInside"
-                        android:textSize="14dp"
-                        android:background="?selectableItemBackgroundBorderless"
-                        android:visibility="gone"
-                        android:layout_width="28dp"
-                        android:layout_height="30dp" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@id/imageIcon"
+                        android:layout_marginRight="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                    <ImageButton
-                        android:id="@+id/buttonMenu"
-                        android:src="@drawable/ic_action_expand_more"
-                        android:scaleType="centerInside"
-                        android:textSize="14dp"
-                        android:background="?selectableItemBackgroundBorderless"
+                        <TextView
+                            android:text="GitHub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textColor="?attr/primaryTextColor"
+                            android:singleLine="true"
+                            android:id="@+id/textIssuer" />
+
+                        <TextView
+                            android:text="johnsmith@example.com"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12dp"
+                            android:textColor="?attr/secondaryTextColor"
+                            android:layout_below="@id/textIssuer"
+                            android:singleLine="true"
+                            android:id="@+id/textUsername" />
+                    </LinearLayout>
+                    
+                    <ImageView
+                        android:id="@+id/imageIcon"
                         android:layout_width="28dp"
-                        android:layout_height="30dp" />
-                </LinearLayout>
-                
-            </RelativeLayout>
+                        android:layout_height="28dp"
+                        android:scaleType="centerInside"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/auth_github" />
+                </RelativeLayout>
+
+                <RelativeLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="000 000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="24dp"
+                        android:textColor="?attr/authListItem_code"
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/textCode" />
+                    
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/buttonRefresh"
+                            android:src="@drawable/ic_action_refresh"
+                            android:scaleType="centerInside"
+                            android:textSize="14dp"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:visibility="gone"
+                            android:layout_width="28dp"
+                            android:layout_height="30dp" />
+
+                        <ImageButton
+                            android:id="@+id/buttonMenu"
+                            android:src="@drawable/ic_action_expand_more"
+                            android:scaleType="centerInside"
+                            android:textSize="14dp"
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:layout_width="28dp"
+                            android:layout_height="30dp" />
+                    </LinearLayout>
+                    
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:progressBackgroundTint="?attr/authListItem_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-8dp"
+            android:layout_marginTop="-7dp"
+            android:min="0"
+            android:max="10000"
+            android:progress="10000"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+
     </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:progressBackgroundTint="?attr/authListItem_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-8dp"
-        android:layout_marginTop="-7dp"
-        android:min="0"
-        android:max="10000"
-        android:progress="10000"
-        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

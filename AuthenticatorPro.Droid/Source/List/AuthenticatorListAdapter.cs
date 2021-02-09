@@ -47,11 +47,6 @@ namespace AuthenticatorPro.Droid.List
         private readonly Dictionary<int, int> _progressPerPeriod;
         private readonly Dictionary<int, int> _counterCooldownSeconds;
 
-        public enum ViewMode
-        {
-            Default = 0, Compact = 1, Tile = 2
-        }
-
         public AuthenticatorListAdapter(Context context, AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
         {
             _authSource = authSource;
