@@ -5,9 +5,11 @@ using Android.Widget;
 using AndroidX.Fragment.App;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.List;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
+using Java.Lang;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
@@ -35,9 +37,17 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override void Show(FragmentManager manager, string tag)
         {
-            var transaction = manager.BeginTransaction();
-            transaction.Add(this, Tag);
-            transaction.CommitAllowingStateLoss();
+            try
+            {
+                var transaction = manager.BeginTransaction();
+                transaction.Add(this, Tag);
+                transaction.CommitAllowingStateLoss();
+            }
+            catch(IllegalStateException e)
+            {
+                // This sometimes fails for some reason, not sure why
+                Logger.Error(e);
+            }
         }
 
         public override void OnResume()
