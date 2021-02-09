@@ -11,14 +11,14 @@
     <string name="no">ไม่ใช่</string>
     <string name="close">ปิด</string>
     <string name="quit">ออก</string>
-    <string name="error">Error</string>
+    <string name="error">ขัดข้อง</string>
     <!-- Menu items -->
     <string name="settings">การตั้งค่า</string>
     <string name="restore"> กู้คืน</string>
     <string name="backup">การสำรองข้อมูล</string>
     <string name="about">เกี่ยวกับ</string>
     <string name="scanQrCode">สแกนรหัส QR</string>
-    <string name="showQrCode">Show QR code</string>
+    <string name="showQrCode">แสดง QR code</string>
     <string name="scanQrCodeFromCamera">สแกนจากกล้อง</string>
     <string name="scanQrCodeFromGallery">สแกนจากแกลเลอรี</string>
     <string name="rename">เปลี่ยนชื่อ</string>
