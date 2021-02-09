@@ -11,14 +11,14 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         app:elevation="0dp"
+        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/toolbarWrapLayout"
             app:layout_scrollFlags="scroll"
-            android:fitsSystemWindows="true"
             android:orientation="vertical"
-            android:background="?attr/colorBase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -38,16 +38,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
-
         </LinearLayout>
-
+        
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:clipToPadding="false"
-        android:paddingBottom="80dp"
         android:background="?attr/colorBase"
         android:visibility="invisible"
         android:layout_width="match_parent"
@@ -128,6 +126,7 @@
         app:hideOnScroll="true"
         app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
+        app:paddingBottomSystemWindowInsets="true"
         app:navigationIcon="@drawable/ic_action_menu" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

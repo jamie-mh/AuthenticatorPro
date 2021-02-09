@@ -40,14 +40,13 @@
 
     <style name="MainActivityTheme" parent="AppTheme">
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowBackground">@color/colorLighter</item>
     </style>
 
     <style name="BottomSheetStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorSecondary">@color/colorAccent</item>
-        <item name="colorError">#ff4240</item>
+        <item name="colorError">@color/colorError</item>
         <item name="listBorderColor">@color/colorLighter</item>
 
         <item name="android:windowIsFloating">false</item>

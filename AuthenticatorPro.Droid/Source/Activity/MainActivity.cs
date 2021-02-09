@@ -20,6 +20,7 @@ using Android.Widget;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
+using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Data;
@@ -38,6 +39,7 @@ using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
+using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using Java.Nio;
 using SQLite;
@@ -60,10 +62,13 @@ namespace AuthenticatorPro.Droid.Activity
         Intent.CategoryDefault,
         Intent.CategoryBrowsable
     }, DataSchemes = new[] { "otpauth", "otpauth-migration" })]
-    internal class MainActivity : BaseActivity, CapabilityClient.IOnCapabilityChangedListener
+    internal class MainActivity : BaseActivity, CapabilityClient.IOnCapabilityChangedListener, IOnApplyWindowInsetsListener
     {
         private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
+
+        private const int BackupReminderThresholdMinutes = 120;
+        private const int ListPaddingBottom = 80;
 
         // Request codes
         private const int RequestUnlock = 0;
@@ -81,8 +86,6 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestImportWinAuth = 12;
         private const int RequestImportTotpAuthenticator = 13;
         private const int RequestImportUriList = 14;
-
-        private const int BackupReminderThresholdMinutes = 120;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -148,9 +151,25 @@ namespace AuthenticatorPro.Droid.Activity
             
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
-
-            Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+            
             SetContentView(Resource.Layout.activityMain);
+            var windowFlags = WindowManagerFlags.Secure;
+
+            // BuildVersionCodes.R == 10000?, use fixed value for now
+            if((int) Build.VERSION.SdkInt >= 30)
+            {
+                Window.SetDecorFitsSystemWindows(false);
+                Window.SetStatusBarColor(Color.Transparent);
+                Window.SetNavigationBarColor(Color.Transparent);
+                
+                if(!IsDark)
+                    Window.InsetsController?.SetSystemBarsAppearance(
+                        (int) WindowInsetsControllerAppearance.LightStatusBars, (int) WindowInsetsControllerAppearance.LightStatusBars);
+            }
+            else
+                windowFlags |= WindowManagerFlags.TranslucentStatus;
+            
+            Window.SetFlags(windowFlags, windowFlags);
             InitViews();
 
             if(savedInstanceState != null)
@@ -425,6 +444,17 @@ namespace AuthenticatorPro.Droid.Activity
             });
         }
 
+        public WindowInsetsCompat OnApplyWindowInsets(View view, WindowInsetsCompat insets)
+        {
+            var layout = FindViewById<LinearLayout>(Resource.Id.toolbarWrapLayout);
+            layout.SetPadding(0, insets.SystemWindowInsetTop, 0, 0);
+
+            var bottomPadding = (int) ViewUtils.DpToPx(this, ListPaddingBottom) + insets.SystemWindowInsetBottom;
+            _authList.SetPadding(0, 0, 0, bottomPadding);
+            
+            return insets;
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.main, menu);
@@ -608,6 +638,9 @@ namespace AuthenticatorPro.Droid.Activity
         #region Authenticator List
         private void InitViews()
         {
+            _coordinatorLayout = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
+            ViewCompat.SetOnApplyWindowInsetsListener(_coordinatorLayout, this);
+            
             _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(_toolbar);
             SupportActionBar.SetTitle(Resource.String.categoryAll);
@@ -623,8 +656,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _toolbar.Menu.FindItem(Resource.Id.actionSearch).ExpandActionView();
                 ScrollToPosition(0);
             };
-
-            _coordinatorLayout = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
+            
             _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
