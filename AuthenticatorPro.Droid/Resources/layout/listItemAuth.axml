@@ -102,7 +102,7 @@
                     android:textSize="14dp"
                     android:background="?selectableItemBackgroundBorderless"
                     android:layout_marginBottom="2dp"
-                    android:layout_width="48dp"
+                    android:layout_width="40dp"
                     android:layout_height="30dp" />
 
                 <ImageButton
@@ -113,7 +113,7 @@
                     android:textSize="14dp"
                     android:background="?selectableItemBackgroundBorderless"
                     android:visibility="gone"
-                    android:layout_width="48dp"
+                    android:layout_width="40dp"
                     android:layout_height="30dp" />
 
             </LinearLayout>
