@@ -14,7 +14,7 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class QrCodeBottomSheet : BottomSheet
     {
-        private const int PixelsPerModule = 12;
+        private const int PixelsPerModule = 4;
 
         private ImageView _image;
         private ProgressBar _progressBar;
