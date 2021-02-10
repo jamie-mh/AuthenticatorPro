@@ -45,6 +45,8 @@ namespace AuthenticatorPro.Droid.List
                 outRect.Left = column * _spacing / _layoutManager.SpanCount;
                 outRect.Right = _spacing - (column + 1) * _spacing / _layoutManager.SpanCount;
             }
+
+            outRect.Bottom = _spacing;
         }
     }
 }

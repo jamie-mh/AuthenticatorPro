@@ -2,7 +2,6 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginBottom="4dp"
     app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
     android:layout_width="match_parent"
