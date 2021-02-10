@@ -2,8 +2,11 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="?attr/authListItem_background"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp"
+    android:focusable="true"
+    android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     
@@ -11,10 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:background="?attr/authListItem_background"
-        android:foreground="?selectableItemBackground"
-        android:focusable="true"
-        android:clickable="true"
         android:orientation="vertical">
 
         <LinearLayout
