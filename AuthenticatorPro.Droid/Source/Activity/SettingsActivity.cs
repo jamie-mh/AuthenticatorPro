@@ -140,7 +140,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
                 
             var biometricManager = BiometricManager.From(this);
-            var biometricsAvailable = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
+            var biometricsAvailable = biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) == BiometricManager.BiometricSuccess;
             _fragment.FindPreference("pref_allowBiometrics").Enabled = biometricsAvailable;
             
             _fragment.FindPreference("pref_timeout").Enabled = true;
@@ -188,6 +188,7 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetTitle(GetString(Resource.String.setupBiometricUnlock))
                 .SetNegativeButtonText(GetString(Resource.String.cancel))
                 .SetConfirmationRequired(false)
+                .SetAllowedAuthenticators(BiometricManager.Authenticators.BiometricStrong)
                 .Build();
 
             Cipher cipher;

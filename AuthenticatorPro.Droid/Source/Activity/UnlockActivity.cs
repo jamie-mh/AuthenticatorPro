@@ -60,7 +60,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(_preferences.AllowBiometrics)
             {
                 var biometricManager = BiometricManager.From(this);
-                _canUseBiometrics = biometricManager.CanAuthenticate() == BiometricManager.BiometricSuccess;
+                _canUseBiometrics = biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) == BiometricManager.BiometricSuccess;
             }
             
             _useBiometricsButton = FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
@@ -168,6 +168,7 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetSubtitle(GetString(Resource.String.unlockBiometricsMessage))
                 .SetNegativeButtonText(GetString(Resource.String.cancel))
                 .SetConfirmationRequired(false)
+                .SetAllowedAuthenticators(BiometricManager.Authenticators.BiometricStrong)
                 .Build();
 
             Cipher cipher;
