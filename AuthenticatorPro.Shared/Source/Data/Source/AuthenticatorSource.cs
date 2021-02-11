@@ -88,7 +88,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
         public async Task<int> Add(Authenticator auth)
         {
-            if(IsDuplicate(auth) || !auth.IsValid())
+            if(Exists(auth) || !auth.IsValid())
                 throw new ArgumentException();
             
             await _connection.InsertAsync(auth);
@@ -98,7 +98,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
         public async Task<int> AddMany(IEnumerable<Authenticator> authenticators)
         {
-            var valid = authenticators.Where(a => a.IsValid() && !IsDuplicate(a)).ToList();
+            var valid = GetDistinct(authenticators.Where(a => a.IsValid() && !Exists(a))).ToList();
             var added = await _connection.InsertAllAsync(valid);
             await Update();
             return added;
@@ -106,9 +106,9 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
         public async Task<Tuple<int, int>> AddOrUpdateMany(IEnumerable<Authenticator> authenticators)
         {
-            var valid = authenticators.Where(a => a.IsValid()).ToList();
+            var valid = GetDistinct(authenticators.Where(a => a.IsValid())).ToList();
             
-            var toAdd = valid.Where(a => !IsDuplicate(a)).ToList();
+            var toAdd = valid.Where(a => !Exists(a)).ToList();
             var addedCount = await _connection.InsertAllAsync(toAdd);
 
             var toUpdate = valid
@@ -126,6 +126,11 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
             await Update();
             
             return new Tuple<int, int>(addedCount, updatedCount);
+        }
+
+        private static IEnumerable<Authenticator> GetDistinct(IEnumerable<Authenticator> authenticators)
+        {
+            return authenticators.GroupBy(a => a.Secret).Select(a => a.First());
         }
         
         public async Task AddManyCategoryBindings(IEnumerable<AuthenticatorCategory> bindings)
@@ -237,7 +242,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
             await _connection.UpdateAsync(auth);
         }
 
-        public bool IsDuplicate(Authenticator auth)
+        public bool Exists(Authenticator auth)
         {
             return _all.Any(iterator => auth.Secret == iterator.Secret);
         }

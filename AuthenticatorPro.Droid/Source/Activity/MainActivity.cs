@@ -1133,7 +1133,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if(_authSource.IsDuplicate(auth))
+            if(_authSource.Exists(auth))
             {
                 ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
                 return;
@@ -1633,7 +1633,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var dialog = (AddAuthenticatorBottomSheet) sender;
 
-            if(_authSource.IsDuplicate(auth))
+            if(_authSource.Exists(auth))
             {
                 dialog.SecretError = GetString(Resource.String.duplicateAuthenticator);
                 return;
