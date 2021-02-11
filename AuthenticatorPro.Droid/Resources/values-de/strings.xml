@@ -110,7 +110,7 @@
     <string name="databaseError">Die Datenbank konnte nicht geöffnet werden. Versuche die App neu zu starten.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
-    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
+    <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert sein.</string>
     <string name="filePickError">Dateifehler.</string>
     <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
@@ -194,7 +194,7 @@
     <string name="prefGeneral">Allgemein</string>
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden.</string>
-    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupTitle">Automatische Sicherung</string>
     <string name="prefAutoBackupSummary">Automatische Sicherung lokal oder in die Cloud konfigurieren. Einnerungen werden deaktiviert.</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appName">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="categoryAll">All</string>
+    <string name="noAuthenticators">Keine Schlüssel</string>
+    <string name="noAuthenticatorsMessage">Hier ist nichts. Füge auf der Telefonapp einen Schlüssel hinzu.</string>
+    <string name="categoryAll">Alle</string>
     <string name="offline">Offline</string>
 </resources>
