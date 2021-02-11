@@ -1,0 +1,10 @@
+<resources>
+    <string name="appName">Authenticator Pro</string>
+    <string name="displayName">Authenticator</string>
+
+    <string name="noAuthenticators">Keine Schlüssel</string>
+    <string name="noAuthenticatorsMessage">Hier ist nichts. Füge auf der Telefonapp einen Schlüssel hinzu.</string>
+
+    <string name="categoryAll">Alle</string>
+    <string name="offline">Offline</string>
+</resources>
