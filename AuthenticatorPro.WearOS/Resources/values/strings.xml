@@ -1,5 +1,5 @@
 <resources>
-    <string name="appName">Authenticator Pro</string>
+    <string name="appName" translatable="false">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
 
     <string name="noAuthenticators">No Authenticators</string>
