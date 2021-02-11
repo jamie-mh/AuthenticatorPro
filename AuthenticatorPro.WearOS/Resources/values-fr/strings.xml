@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Authenticator Pro</string>
+    <string name="displayName">Authenticator</string>
+    <string name="noAuthenticators">Rien ici !</string>
+    <string name="noAuthenticatorsMessage">Ajoutez des authentificateurs depuis l\'application principal</string>
+    <string name="categoryAll">Tout</string>
+    <string name="offline">Déconnecté</string>
+</resources>
