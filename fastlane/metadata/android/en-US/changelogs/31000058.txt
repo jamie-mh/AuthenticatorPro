@@ -1,0 +1,5 @@
+- General: Bug fixes
+- General: Design improvements on Android 11
+- General: Wear OS default category
+- General: Slight design tweaks
+- General: Translation updates
