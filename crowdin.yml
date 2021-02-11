@@ -5,3 +5,10 @@ files:
       two_letters_code:
         zh-CN: zh-rCN
         zh-TW: zh-rTW
+        
+  - source: /AuthenticatorPro.WearOS/Resources/values/strings.xml
+    translation: /AuthenticatorPro.WearOS/Resources/values-%two_letters_code%/strings.xml
+    languages_mapping:
+      two_letters_code:
+        zh-CN: zh-rCN
+        zh-TW: zh-rTW
