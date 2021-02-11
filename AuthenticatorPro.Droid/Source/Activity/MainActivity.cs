@@ -292,7 +292,13 @@ namespace AuthenticatorPro.Droid.Activity
                         var category = _categorySource.GetAll().FirstOrDefault(c => c.Id == _authSource.CategoryId);
 
                         if(category != null)
-                            RunOnUiThread(delegate { SupportActionBar.Title = category.Name; });
+                        {
+                            RunOnUiThread(delegate
+                            {
+                                SupportActionBar.SetDisplayShowTitleEnabled(true);
+                                SupportActionBar.Title = category.Name;
+                            });
+                        }
                     }
                 }
             }
@@ -643,7 +649,11 @@ namespace AuthenticatorPro.Droid.Activity
             
             _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(_toolbar);
-            SupportActionBar.SetTitle(Resource.String.categoryAll);
+            
+            if(_preferences.DefaultCategory == null)
+                SupportActionBar.SetTitle(Resource.String.categoryAll);
+            else
+                SupportActionBar.SetDisplayShowTitleEnabled(false);
 
             _appBarLayout = FindViewById<AppBarLayout>(Resource.Id.appBarLayout);
             _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
