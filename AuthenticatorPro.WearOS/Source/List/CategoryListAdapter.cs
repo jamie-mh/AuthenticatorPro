@@ -29,7 +29,7 @@ namespace AuthenticatorPro.WearOS.List
             if(pos == 0)
                 return new String(_context.GetString(Resource.String.categoryAll));
             
-            var item = _cache.Get(pos - 1);
+            var item = _cache[pos - 1];
 
             return item == null
                 ? new String() 

@@ -27,6 +27,7 @@ namespace AuthenticatorPro.Droid.Service
         private const string ListCategoriesCapability = "list_categories";
         private const string ListCustomIconsCapability = "list_custom_icons";
         private const string GetCustomIconCapability = "get_custom_icon";
+        private const string GetPreferencesCapability = "get_preferences";
 
         private readonly Lazy<Task> _initTask;
         
@@ -127,6 +128,17 @@ namespace AuthenticatorPro.Droid.Service
                 .SendMessageAsync(nodeId, GetCustomIconCapability, data);
         }
 
+        private async Task GetPreferences(string nodeId)
+        {
+            var preferences = new PreferenceWrapper(this);
+            var settings = new WearPreferences(preferences.DefaultCategory);
+            var json = JsonConvert.SerializeObject(settings);
+            var data = Encoding.UTF8.GetBytes(json);
+
+            await WearableClass.GetMessageClient(this)
+                .SendMessageAsync(nodeId, GetPreferencesCapability, data);
+        }
+
         public override async void OnMessageReceived(IMessageEvent messageEvent)
         {
             await _initTask.Value;
@@ -151,6 +163,10 @@ namespace AuthenticatorPro.Droid.Service
                     await GetCustomIcon(id, messageEvent.SourceNodeId);
                     break;
                 }
+                
+                case GetPreferencesCapability:
+                    await GetPreferences(messageEvent.SourceNodeId);
+                    break;
             }
         }
     }

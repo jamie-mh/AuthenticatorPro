@@ -1,4 +1,6 @@
-﻿using Android.Content;
+﻿using System;
+using System.Collections;
+using Android.Content;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,13 +11,13 @@ using Newtonsoft.Json;
 
 namespace AuthenticatorPro.WearOS.Cache
 {
-    internal class ListCache<T>
+    internal class ListCache<T> : IEnumerable
     {
         private readonly string _name;
         private readonly Context _context;
         private readonly SemaphoreSlim _flushLock;
-
         private List<T> _items;
+        
         public int Count => _items.Count;
 
         public ListCache(string name, Context context)
@@ -48,7 +50,7 @@ namespace AuthenticatorPro.WearOS.Cache
             await Flush();
         }
 
-        public bool Dirty(List<T> items, IEqualityComparer<T> comparer = null)
+        public bool Dirty(IEnumerable<T> items, IEqualityComparer<T> comparer = null)
         {
             return comparer != null
                 ? !_items.SequenceEqual(items, comparer)
@@ -70,14 +72,35 @@ namespace AuthenticatorPro.WearOS.Cache
             }
         }
 
-        public T Get(int position)
-        {
-            return _items.ElementAtOrDefault(position);
-        }
-
         public List<T> GetItems()
         {
             return _items;
+        }
+
+        public bool Contains(T item)
+        {
+            return _items.Contains(item);
+        }
+
+        private IEnumerator<T> GetEnumerator()
+        {
+            return _items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public int FindIndex(Predicate<T> predicate)
+        {
+            return _items.FindIndex(predicate);
+        }
+
+        public T this[int index]
+        {
+            get => _items[index];
+            set => _items[index] = value;
         }
     }
 }
