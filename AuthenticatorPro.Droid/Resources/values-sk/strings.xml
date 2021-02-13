@@ -116,7 +116,7 @@
     <string name="webBrowserMissing">Nie je nainštalovaný žiadny webový prehliadač</string>
     <string name="genericError">Vyskytla sa chyba</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Nahlásiť</string>
     <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
     <!-- Auto backup -->
