@@ -15,7 +15,7 @@
     <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
-    <string name="backup">Sichern</string>
+    <string name="backup">Sicherung</string>
     <string name="about">Über</string>
     <string name="scanQrCode">Einen QR-Code scannen</string>
     <string name="showQrCode">QR-Code anzeigen</string>
@@ -31,7 +31,7 @@
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
     <string name="secretKey">Geheimer Schlüssel</string>
-    <string name="pin">Pin</string>
+    <string name="pin">Anheften</string>
     <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
     <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes verfügst.\n\nMöchtest du fortfahren?</string>
     <string name="useCustomIcon">Eigenes Icon verwenden</string>
@@ -116,7 +116,7 @@
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->
