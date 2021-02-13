@@ -116,7 +116,7 @@
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
     <string name="genericError">出现错误。</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An handled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Report</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
