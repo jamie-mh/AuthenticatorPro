@@ -116,7 +116,7 @@
     <string name="webBrowserMissing">No web browser installed</string>
     <string name="genericError">Ocurrió un error.</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An handled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Report</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
