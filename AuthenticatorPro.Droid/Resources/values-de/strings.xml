@@ -116,7 +116,7 @@
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">Ein behandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Melden</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->
