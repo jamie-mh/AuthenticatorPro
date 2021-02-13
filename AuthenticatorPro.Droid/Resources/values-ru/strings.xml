@@ -116,7 +116,7 @@
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
     <string name="genericError">Произошла ошибка.</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">Произошла обработанная ошибка внутри приложения. Подробности об ошибке ниже:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Отчёт</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
     <!-- Auto backup -->
