@@ -383,6 +383,14 @@ namespace AuthenticatorPro.WearOS.Activity
             _preferences.DefaultCategory = prefs.DefaultCategory;
         }
 
+        private async Task OnRefreshRecieved()
+        {
+            await Refresh();
+            await _refreshLock.WaitAsync();
+            _refreshLock.Release();
+            RunOnUiThread(CheckEmptyState);
+        }
+
         public async void OnMessageReceived(IMessageEvent messageEvent)
         {
             switch(messageEvent.Path)
@@ -408,7 +416,7 @@ namespace AuthenticatorPro.WearOS.Activity
                     break;
 
                 case RefreshCapability:
-                    await Refresh();
+                    await OnRefreshRecieved();
                     break;
             }
 
