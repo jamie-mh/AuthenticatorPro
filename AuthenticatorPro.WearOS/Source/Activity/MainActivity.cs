@@ -386,8 +386,6 @@ namespace AuthenticatorPro.WearOS.Activity
         private async Task OnRefreshRecieved()
         {
             await Refresh();
-            await _refreshLock.WaitAsync();
-            _refreshLock.Release();
             RunOnUiThread(CheckEmptyState);
         }
 
