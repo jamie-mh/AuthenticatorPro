@@ -252,10 +252,9 @@ namespace AuthenticatorPro.Droid.Worker
 
             if(!backupTriggered && (restoreTriggered || _preferences.AutoRestoreEnabled))
             {
-                await _initTask.Value;
-                
                 try
                 {
+                    await _initTask.Value;
                     var result = await RestoreFromDir(destination);
                     
                     if(!result.IsVoid() || restoreTriggered)
@@ -276,10 +275,9 @@ namespace AuthenticatorPro.Droid.Worker
 
             if(!restoreTriggered && (backupTriggered || _preferences.AutoBackupEnabled && restoreSucceeded && _preferences.BackupRequired != BackupRequirement.NotRequired))
             {
-                await _initTask.Value;
-                
                 try
                 {
+                    await _initTask.Value;
                     var result = await BackupToDir(destination);
                     ShowNotification(NotificationContext.BackupSuccess, false, result);
                     _preferences.BackupRequired = BackupRequirement.NotRequired;
