@@ -169,12 +169,7 @@ namespace AuthenticatorPro.Droid.Fragment
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
-            
-            // Make sure secure storage is not accessed on ui thread
-            await Task.Run(async delegate
-            {
-                await SecureStorage.SetAsync("autoBackupPassword", password);
-            });
+            await SecureStorageWrapper.SetDatabasePassword(password);
         }
 
         private void OnLocationSelected(Intent intent)
