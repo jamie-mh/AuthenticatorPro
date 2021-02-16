@@ -169,7 +169,7 @@ namespace AuthenticatorPro.Droid.Fragment
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
-            await SecureStorageWrapper.SetDatabasePassword(password);
+            await SecureStorageWrapper.SetAutoBackupPassword(password);
         }
 
         private void OnLocationSelected(Intent intent)
