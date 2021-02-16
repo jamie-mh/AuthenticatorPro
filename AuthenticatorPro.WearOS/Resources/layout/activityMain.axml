@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.wear.widget.drawer.WearableDrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layoutLoading"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <RelativeLayout
-            android:id="@+id/layoutLoading"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
         <ProgressBar
-                android:indeterminate="true"
-                android:layout_centerInParent="true"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:indeterminate="true"
+            android:layout_centerInParent="true"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
     <RelativeLayout
-            android:id="@+id/layoutEmpty"
-            android:visibility="gone"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:id="@+id/layoutEmpty"
+        android:visibility="gone"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-                android:orientation="vertical"
-                android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/noAuthenticators"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="16dp"
+                android:layout_marginBottom="4dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/noAuthenticatorsMessage"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="12dp"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <TextView
-                    android:text="@string/noAuthenticators"
-                    android:textColor="?attr/primaryTextColor"
-                    android:textSize="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            <TextView
-                    android:text="@string/noAuthenticatorsMessage"
-                    android:textColor="?attr/secondaryTextColor"
-                    android:textSize="12dp"
-                    android:gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </RelativeLayout>
@@ -60,41 +60,41 @@
         android:layout_height="match_parent">
 
         <androidx.wear.widget.WearableRecyclerView
-                android:id="@+id/list"
-                android:visibility="invisible"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:scrollbars="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            android:id="@+id/list"
+            android:visibility="invisible"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
         
         <LinearLayout
-                android:id="@+id/layoutOffline"
-                android:gravity="center_horizontal"
-                android:visibility="gone"
-                android:background="#BF000000"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:orientation="vertical"
-                android:layout_gravity="top"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:id="@+id/layoutOffline"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:background="#BF000000"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:orientation="vertical"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:contentDescription="@string/offline"
-                    android:src="@drawable/ic_action_cloud_off" />
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@string/offline"
+                android:src="@drawable/ic_action_cloud_off" />
 
         </LinearLayout>
         
     </FrameLayout>
 
     <androidx.wear.widget.drawer.WearableNavigationDrawerView
-            android:id="@+id/drawerCategories"
-            android:background="@color/colorDark"
-            app:navigationStyle="multiPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+        android:id="@+id/drawerCategories"
+        android:background="@color/colorDark"
+        app:navigationStyle="multiPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.wear.widget.drawer.WearableDrawerLayout>
