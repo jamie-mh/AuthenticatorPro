@@ -11,7 +11,11 @@ namespace AuthenticatorPro.WearOS.List
     {
         private readonly AuthenticatorSource _authSource;
         private readonly CustomIconCache _customIconCache;
+        
+        public int? DefaultAuth { get; set; }
+
         public event EventHandler<int> ItemClick;
+        public event EventHandler<int> ItemLongClick;
 
         public AuthenticatorListAdapter(AuthenticatorSource authSource, CustomIconCache customIconCache)
         {
@@ -33,6 +37,10 @@ namespace AuthenticatorPro.WearOS.List
 
             var holder = (AuthenticatorListHolder) viewHolder;
             holder.Issuer.Text = auth.Issuer;
+
+            holder.DefaultImage.Visibility = DefaultAuth != null && auth.Secret.GetHashCode() == DefaultAuth
+                ? ViewStates.Visible
+                : ViewStates.Gone;
 
             if(String.IsNullOrEmpty(auth.Username))
                 holder.Username.Visibility = ViewStates.Gone;
@@ -68,6 +76,11 @@ namespace AuthenticatorPro.WearOS.List
             holder.ItemView.Click += delegate
             {
                 ItemClick?.Invoke(this, holder.AdapterPosition);
+            };
+
+            holder.ItemView.LongClick += delegate
+            {
+                ItemLongClick?.Invoke(this, holder.AdapterPosition);
             };
 
             return holder;

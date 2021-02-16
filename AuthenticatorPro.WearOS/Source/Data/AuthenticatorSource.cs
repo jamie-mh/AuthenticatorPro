@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Shared.Source.Data;
@@ -47,6 +48,11 @@ namespace AuthenticatorPro.WearOS.Data
         public WearAuthenticator Get(int position)
         {
             return _view.ElementAtOrDefault(position);
+        }
+
+        public int FindIndex(Predicate<WearAuthenticator> predicate)
+        {
+            return _view.FindIndex(predicate);
         }
     }
 }

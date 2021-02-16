@@ -22,17 +22,34 @@
     <LinearLayout
         android:layout_gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <ImageView 
+                android:id="@+id/imageDefault"
+                android:src="@drawable/ic_action_star"
+                android:visibility="gone"
+                android:layout_marginRight="4dp"
+                android:layout_centerVertical="true"
+                android:layout_width="14dp"
+                android:layout_height="14dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14dp"
-            android:gravity="left"
-            android:textColor="?attr/primaryTextColor"
-            android:singleLine="true"
-            android:id="@+id/textIssuer" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imageDefault"
+                android:layout_centerVertical="true"
+                android:textSize="14dp"
+                android:gravity="left"
+                android:textColor="?attr/primaryTextColor"
+                android:singleLine="true"
+                android:id="@+id/textIssuer" />
+            
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"

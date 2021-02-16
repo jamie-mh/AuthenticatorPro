@@ -65,12 +65,14 @@ namespace AuthenticatorPro.WearOS.Activity
 
         // Lifecycle Synchronisation
         private readonly SemaphoreSlim _onCreateLock;
+        private readonly SemaphoreSlim _onResumeLock;
         private readonly SemaphoreSlim _refreshLock;
 
 
         public MainActivity()
         {
             _onCreateLock = new SemaphoreSlim(1, 1);
+            _onResumeLock = new SemaphoreSlim(1, 1);
             _refreshLock = new SemaphoreSlim(1, 1);
         }
 
@@ -95,11 +97,49 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(InitViews);
 
             _onCreateLock.Release();
+            
+            await _onResumeLock.WaitAsync();
+            _onResumeLock.Release();
+
+            HandleDefaults();
+        }
+
+        private void HandleDefaults()
+        {
+            var defaultAuth = _preferences.DefaultAuth;
+
+            if(defaultAuth != null)
+            {
+                var authPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
+                OnItemClick(null, authPosition);
+            }
+            
+            var defaultCategory = _preferences.DefaultCategory;
+
+            if(defaultCategory == null)
+            {
+                RunOnUiThread(CheckEmptyState);
+                return;
+            }
+
+            _authSource.SetCategory(defaultCategory);
+            var categoryPosition = _categoryCache.FindIndex(c => c.Id == defaultCategory) + 1;
+
+            if(categoryPosition < 0)
+                return;
+            
+            RunOnUiThread(delegate
+            {
+                _categoryList.SetCurrentItem(categoryPosition, false);
+                _authListAdapter.NotifyDataSetChanged();
+                CheckEmptyState();
+            });
         }
 
         protected override async void OnResume()
         {
             base.OnResume();
+            await _onResumeLock.WaitAsync();
             
             await _onCreateLock.WaitAsync();
             _onCreateLock.Release();
@@ -116,31 +156,9 @@ namespace AuthenticatorPro.WearOS.Activity
             }
 
             RunOnUiThread(CheckOfflineState);
+            
             await Refresh();
-
-            await _refreshLock.WaitAsync();
-            _refreshLock.Release();
-            
-            var defaultCategory = _preferences.DefaultCategory;
-
-            if(defaultCategory == null)
-            {
-                RunOnUiThread(CheckEmptyState);
-                return;
-            }
-
-            _authSource.SetCategory(defaultCategory);
-            var position = _categoryCache.FindIndex(c => c.Id == defaultCategory) + 1;
-
-            if(position < 0)
-                return;
-            
-            RunOnUiThread(delegate
-            {
-                _categoryList.SetCurrentItem(position, false);
-                _authListAdapter.NotifyDataSetChanged();
-                CheckEmptyState();
-            });
+            _onResumeLock.Release();
         }
 
         protected override async void OnPause()
@@ -173,7 +191,9 @@ namespace AuthenticatorPro.WearOS.Activity
             
             _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconCache);
             _authListAdapter.ItemClick += OnItemClick;
+            _authListAdapter.ItemLongClick += OnItemLongClick;
             _authListAdapter.HasStableIds = true;
+            _authListAdapter.DefaultAuth = _preferences.DefaultAuth;
             _authList.SetAdapter(_authListAdapter);
             
             _categoryList = FindViewById<WearableNavigationDrawerView>(Resource.Id.drawerCategories);
@@ -267,6 +287,33 @@ namespace AuthenticatorPro.WearOS.Activity
             
             intent.PutExtras(bundle);
             StartActivity(intent);
+        }
+
+        private void OnItemLongClick(object sender, int position)
+        {
+            var item = _authSource.Get(position);
+
+            if(item == null)
+                return;
+
+            var oldDefault = _preferences.DefaultAuth;
+            var newDefault = item.Secret.GetHashCode();
+
+            if(oldDefault == newDefault)
+                _authListAdapter.DefaultAuth = _preferences.DefaultAuth = null;
+            else
+            {
+                _authListAdapter.DefaultAuth = _preferences.DefaultAuth = newDefault;
+                _authListAdapter.NotifyItemChanged(position);
+            }
+
+            if(oldDefault != null)
+            {
+                var oldPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == oldDefault);
+                
+                if(oldPosition > -1)
+                    _authListAdapter.NotifyItemChanged(oldPosition);
+            }
         }
         #endregion
 
