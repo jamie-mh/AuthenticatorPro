@@ -60,6 +60,10 @@ namespace AuthenticatorPro.WearOS.Cache
                     return bitmap;
 
                 bitmap = await BitmapFactory.DecodeFileAsync(GetIconPath(id));
+
+                if(bitmap == null)
+                    return null;
+                
                 _bitmaps.Add(id, bitmap);
                 return bitmap;
             }
