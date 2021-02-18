@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
@@ -78,18 +78,15 @@ namespace AuthenticatorPro.Droid
         [Export]
         public async void OnStopped()
         {
-            if(!_preferences.PasswordProtected)
-                return;
-
             if(PreventNextLock)
             {
                 PreventNextLock = false;
                 return;
             }
 
-            var timeout = _preferences.Timeout;
+            int timeout;
             
-            if(timeout == 0)
+            if(!_preferences.PasswordProtected || (timeout = _preferences.Timeout) == 0)
                 await Lock();
             else
             {
