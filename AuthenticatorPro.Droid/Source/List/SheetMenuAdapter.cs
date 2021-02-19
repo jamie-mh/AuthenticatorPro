@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Droid.List
 
             if(item.IsSensitive)
             {
-                var colourValue = ContextCompat.GetColor(_context, Resource.Color.colorError);
+                var colourValue = ContextCompat.GetColor(_context, Shared.Resource.Color.colorError);
                 var colour = Color.Rgb(Color.GetRedComponent(colourValue), Color.GetBlueComponent(colourValue), Color.GetGreenComponent(colourValue));
                     
                 holder.Icon.SetColorFilter(colour);
