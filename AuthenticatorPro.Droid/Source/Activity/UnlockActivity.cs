@@ -180,6 +180,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 _canUseBiometrics = false;
                 _useBiometricsButton.Enabled = false;
+                FocusPasswordText();
                 return;
             }
             
