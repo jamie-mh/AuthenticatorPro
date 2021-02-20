@@ -170,21 +170,17 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetAllowedAuthenticators(BiometricManager.Authenticators.BiometricStrong)
                 .Build();
 
-            Cipher cipher;
-
             try
             {
-                cipher = passwordStorage.GetDecryptionCipher();
+                var cipher = passwordStorage.GetDecryptionCipher();
+                _prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
             }
             catch
             {
                 _canUseBiometrics = false;
                 _useBiometricsButton.Enabled = false;
                 FocusPasswordText();
-                return;
             }
-            
-            _prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
         }
 
         protected override void OnPause()
