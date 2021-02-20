@@ -120,12 +120,18 @@ namespace AuthenticatorPro.Droid
 
         public async Task Unlock(string password)
         {
+            if(IsLocked)
+                await Lock();
+            
             await Database.OpenSharedConnection(password);
             Interlocked.Exchange(ref _isLocked, 0);
         }
 
         public async Task Lock()
         {
+            if(IsLocked)
+                return;
+            
             await Database.CloseSharedConnection();
             Interlocked.Exchange(ref _isLocked, 1);
         }
