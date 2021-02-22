@@ -60,19 +60,6 @@ namespace AuthenticatorPro.Droid.Fragment
             return view;
         }
 
-        private async Task SetDatabasePassword(string currentPassword, string newPassword)
-        {
-            try
-            {
-                await Database.SetPassword(currentPassword, newPassword);
-            }
-            catch(SQLiteException)
-            {
-                // Temp workaround for strange bug, see Database.cs
-                await Database.SetPassword(currentPassword, newPassword);
-            }
-        }
-
         private async void OnSetPasswordButtonClick(object sender, EventArgs e)
         {
             if(_passwordText.Text != _passwordConfirmText.Text)
@@ -90,7 +77,7 @@ namespace AuthenticatorPro.Droid.Fragment
             try
             {
                 var currentPassword = await SecureStorageWrapper.GetDatabasePassword();
-                await SetDatabasePassword(currentPassword, newPassword);
+                await Database.SetPassword(currentPassword, newPassword);
 
                 try
                 {
@@ -99,7 +86,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 catch
                 {
                     // Revert changes
-                    await SetDatabasePassword(newPassword, currentPassword);
+                    await Database.SetPassword(newPassword, currentPassword);
                     throw;
                 }
             }

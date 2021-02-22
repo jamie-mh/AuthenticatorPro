@@ -25,15 +25,17 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
             await Task.Run(delegate { File.WriteAllBytes(path, data); });
             
-            var connStr = new SQLiteConnectionString(path, true, password);
+            var connStr = new SQLiteConnectionString(path, true, password, null, conn =>
+            {
+                conn.Execute("PRAGMA cipher_compatibility = 3");
+            });
+            
             var connection = new SQLiteAsyncConnection(connStr);
 
             Backup backup;
 
             try
             {
-                await connection.ExecuteAsync("PRAGMA cipher_compatibility = 3");
-                
                 var sourceAccounts = await connection.QueryAsync<Account>("SELECT * FROM accounts");
                 var sourceCategories = await connection.QueryAsync<Category>("SELECT * FROM category");
 
