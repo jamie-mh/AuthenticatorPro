@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,22 +29,7 @@ namespace AuthenticatorPro.Droid.Data
                 throw new InvalidOperationException("Shared connection not open");
             }
 
-            try
-            {
-                // Attempt to use the connection
-                await _sharedConnection.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM sqlite_master");
-            }
-            catch
-            {
-                await _sharedConnection.CloseAsync();
-                _sharedConnection = null;
-                throw;
-            }
-            finally
-            {
-                _sharedLock.Release();
-            }
-            
+            _sharedLock.Release();
             return _sharedConnection;
         }
 
@@ -54,9 +39,6 @@ namespace AuthenticatorPro.Droid.Data
 
             try
             {
-                if(_sharedConnection != null)
-                    await _sharedConnection.CloseAsync();
-
                 _sharedConnection = await GetPrivateConnection(password);
             }
             finally
