@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Droid.Data
         {
             var dbPath = GetPath();
 
-            if(String.IsNullOrEmpty(password))
+            if(password == "")
                 password = null;
 
             var connStr = new SQLiteConnectionString(dbPath, Flags, true, password, null, conn =>
