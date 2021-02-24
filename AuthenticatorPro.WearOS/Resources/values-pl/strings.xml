@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="displayName">Authenticator</string>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="categoryAll">All</string>
+    <string name="noAuthenticators">Brak wpisów</string>
+    <string name="noAuthenticatorsMessage">Nic tu nie ma, dodaj kilka wpisów na telefonie.</string>
+    <string name="categoryAll">Wszystko</string>
     <string name="offline">Offline</string>
 </resources>
