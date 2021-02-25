@@ -145,6 +145,8 @@ namespace AuthenticatorPro.Droid.Shared.Data
             {"nintendo", Resource.Drawable.auth_nintendo},
             {"nitrado", Resource.Drawable.auth_nitrado},
             {"nominet", Resource.Drawable.auth_nominet},
+            {"nordlocker", Resource.Drawable.auth_nordlocker},
+            {"nordpass", Resource.Drawable.auth_nordpass},
             {"npm", Resource.Drawable.auth_npm},
             {"office365", Resource.Drawable.auth_office365},
             {"onedrive", Resource.Drawable.auth_onedrive},

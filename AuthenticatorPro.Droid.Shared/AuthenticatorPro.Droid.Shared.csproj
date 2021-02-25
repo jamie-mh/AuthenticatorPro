@@ -105,7 +105,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_algolia.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -837,7 +837,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_algolia.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1569,7 +1569,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_algolia.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2301,7 +2301,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_algolia.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2577,10 +2577,10 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_hushmail_dark.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_ifirmapl.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_ifirmapl_dark.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3033,7 +3033,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_algolia.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
@@ -3309,7 +3309,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_hushmail_dark.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_ifirmapl.png" />
   </ItemGroup>
   <ItemGroup>
@@ -4297,6 +4297,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_bethesda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_nordlocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_nordpass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_nordlocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_nordpass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_nordlocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_nordpass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_nordlocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_nordpass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_nordlocker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_nordpass.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
