@@ -105,6 +105,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_algolia.png" />
   </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_allegro.png" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_allinkl.png" />
   </ItemGroup>
@@ -377,6 +380,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_hushmail_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_ifirmapl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_ifirmapl_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_ifttt.png" />
@@ -760,6 +769,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_wpengine.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\auth_wykop.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\auth_xbox.png" />
   </ItemGroup>
   <ItemGroup>
@@ -824,6 +836,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_algolia.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_allinkl.png" />
@@ -1097,6 +1112,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_hushmail_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ifirmapl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ifirmapl_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ifttt.png" />
@@ -1480,6 +1501,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_wpengine.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\auth_wykop.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\auth_xbox.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1544,6 +1568,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_algolia.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_allinkl.png" />
@@ -1817,6 +1844,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_hushmail_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_ifirmapl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_ifirmapl_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_ifttt.png" />
@@ -2200,6 +2233,9 @@
     <AndroidResource Include="Resources\drawable-hdpi\auth_wpengine.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\auth_wykop.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\auth_xbox.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2264,6 +2300,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_algolia.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_allinkl.png" />
@@ -2537,6 +2576,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_hushmail_dark.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_ifirmapl.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_ifirmapl_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_ifttt.png" />
@@ -2920,6 +2965,9 @@
     <AndroidResource Include="Resources\drawable-mdpi\auth_wpengine.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\auth_wykop.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\auth_xbox.png" />
   </ItemGroup>
   <ItemGroup>
@@ -2984,6 +3032,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_algolia.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_allegro.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_allinkl.png" />
@@ -3257,6 +3308,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_hushmail_dark.png" />
+  </ItemGroup>
+    <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_ifirmapl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_ifirmapl_dark.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_ifttt.png" />
@@ -3638,6 +3695,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_wpengine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\auth_wykop.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\auth_xbox.png" />
