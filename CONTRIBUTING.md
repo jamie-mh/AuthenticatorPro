@@ -16,7 +16,7 @@ If you wish to contribute more icons to the application, the procedure is as fol
 
 * Name the icon "auth_xxxxx", with xxxxx being the name of the service in lowercase with spaces and special characters removed. Eg: Authenticator Pro -> authenticatorpro.
 
-* Copy the icons into the Resources directory of the AuthenticatorPro.Shared project.
+* Copy the icons into the Resources directory of the AuthenticatorPro.Droid.Shared project.
 
 * Update AuthenticatorPro.Droid.Shared/Source/Data/IconResolver.cs by adding the icon into the Service dictionary in alphabetical order. If the icon is barely visible on a dark background. Create an alternative icon as before with the name auth_xxxxx_dark and place it into the ServiceDark dictionary.
 
