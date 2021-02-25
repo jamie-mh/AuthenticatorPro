@@ -8,14 +8,13 @@ using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Source.Data;
 using SQLite;
 using Xamarin.Essentials;
-using String = System.String;
 
 namespace AuthenticatorPro.Droid.Data
 {
     internal static class Database
     {
         private const string FileName = "proauth.db3";
-        private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex;
+        private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.SharedCache;
         
         private static readonly SemaphoreSlim _sharedLock = new(1, 1);
         private static SQLiteAsyncConnection _sharedConnection;
