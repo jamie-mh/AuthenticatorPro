@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.Content;
 using AndroidX.Preference;
+using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Source.Data;
 using SQLite;
 using Xamarin.Essentials;
@@ -98,6 +99,12 @@ namespace AuthenticatorPro.Droid.Data
                 await connection.CloseAsync();
                 throw;
             }
+
+#if DEBUG
+            connection.Trace = true;
+            connection.Tracer = Logger.Info;
+            connection.TimeExecution = true;
+#endif
 
             return connection;
         }
