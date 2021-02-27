@@ -20,7 +20,7 @@ If you wish to contribute more icons to the application, the procedure is as fol
 
 * Update AuthenticatorPro.Droid.Shared/Source/Data/IconResolver.cs by adding the icon into the Service dictionary in alphabetical order. If the icon is barely visible on a dark background. Create an alternative icon as before with the name auth_xxxxx_dark and place it into the ServiceDark dictionary.
 
-* Test the changes if possible.
+* Optional: To build and test the project with the new icons, they must be added to the AuthenticatorPro.Droid.Shared/AuthenticatorPro.Droid.Shared.csproj file. This step can be skipped if you don't have Visual Studio + Xamarin installed.
 
 * Create a pull request.
 
