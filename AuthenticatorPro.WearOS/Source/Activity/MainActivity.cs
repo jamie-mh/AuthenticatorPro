@@ -54,6 +54,8 @@ namespace AuthenticatorPro.WearOS.Activity
         private ListCache<WearCategory> _categoryCache;
         private CustomIconCache _customIconCache;
         private PreferenceWrapper _preferences;
+        private bool _justLaunched;
+        private bool _preventCategorySelectEvent;
         
         private AuthenticatorListAdapter _authListAdapter;
         private CategoryListAdapter _categoryListAdapter;
@@ -65,23 +67,25 @@ namespace AuthenticatorPro.WearOS.Activity
 
         // Lifecycle Synchronisation
         private readonly SemaphoreSlim _onCreateLock;
-        private readonly SemaphoreSlim _onResumeLock;
-        private readonly SemaphoreSlim _refreshLock;
+        private readonly SemaphoreSlim _requestLock;
+        private readonly SemaphoreSlim _responseLock;
 
 
         public MainActivity()
         {
-            _onCreateLock = new SemaphoreSlim(0, 1);
-            _onResumeLock = new SemaphoreSlim(0, 1);
-            _refreshLock = new SemaphoreSlim(0, 1);
+            _justLaunched = true;
+            _onCreateLock = new SemaphoreSlim(1, 1);
+            _requestLock = new SemaphoreSlim(1, 1);
+            _responseLock = new SemaphoreSlim(0, 1);
         }
 
         #region Activity Lifecycle
         protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+            await _onCreateLock.WaitAsync();
+            
             SetContentView(Resource.Layout.activityMain);
-
             _preferences = new PreferenceWrapper(this);
 
             _authCache = new ListCache<WearAuthenticator>(AuthenticatorCacheName, this);
@@ -92,47 +96,21 @@ namespace AuthenticatorPro.WearOS.Activity
             await _categoryCache.Init();
             
             _authSource = new AuthenticatorSource(_authCache);
-            RunOnUiThread(InitViews);
-
-            _onCreateLock.Release();
-            await _onResumeLock.WaitAsync();
-
-            HandleDefaults();
-        }
-
-        private void HandleDefaults()
-        {
-            var defaultAuth = _preferences.DefaultAuth;
-
-            if(defaultAuth != null)
-            {
-                var authPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
-                OnItemClick(null, authPosition);
-            }
-            
             var defaultCategory = _preferences.DefaultCategory;
 
-            if(defaultCategory == null)
-                return;
-
-            _authSource.SetCategory(defaultCategory);
-            var categoryPosition = _categoryCache.FindIndex(c => c.Id == defaultCategory) + 1;
-
-            if(categoryPosition < 0)
-                return;
+            if(defaultCategory != null)
+                _authSource.SetCategory(defaultCategory);
             
-            RunOnUiThread(delegate
-            {
-                _categoryList.SetCurrentItem(categoryPosition, false);
-                _authListAdapter.NotifyDataSetChanged();
-                CheckEmptyState();
-            });
+            RunOnUiThread(InitViews);
+            _onCreateLock.Release();
         }
 
         protected override async void OnResume()
         {
             base.OnResume();
+            
             await _onCreateLock.WaitAsync();
+            _onCreateLock.Release();
 
             try
             {
@@ -145,6 +123,18 @@ namespace AuthenticatorPro.WearOS.Activity
                 return;
             }
 
+            if(_justLaunched)
+            {
+                _justLaunched = false;
+                var defaultAuth = _preferences.DefaultAuth;
+
+                if(defaultAuth != null)
+                {
+                    var authPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
+                    OnItemClick(null, authPosition);
+                }
+            }
+
             await Refresh();
             
             RunOnUiThread(delegate
@@ -152,8 +142,6 @@ namespace AuthenticatorPro.WearOS.Activity
                 CheckOfflineState();
                 CheckEmptyState();
             });
-            
-            _onResumeLock.Release();
         }
 
         protected override async void OnPause()
@@ -195,10 +183,27 @@ namespace AuthenticatorPro.WearOS.Activity
             _categoryListAdapter = new CategoryListAdapter(this, _categoryCache);
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.ItemSelected += OnCategorySelected;
+
+            if(_authSource.CategoryId == null)
+                return;
+            
+            var categoryPosition = _categoryCache.FindIndex(c => c.Id == _authSource.CategoryId) + 1;
+
+            if(categoryPosition <= -1)
+                return;
+            
+            _preventCategorySelectEvent = true; 
+            _categoryList.SetCurrentItem(categoryPosition, false);
         }
 
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
         {
+            if(_preventCategorySelectEvent)
+            {
+                _preventCategorySelectEvent = false;
+                return;
+            }
+            
             if(e.Pos > 0)
             {
                 var category = _categoryCache[e.Pos - 1];
@@ -355,12 +360,14 @@ namespace AuthenticatorPro.WearOS.Activity
                 await client.SendMessageAsync(_serverNode.Id, capability, new byte[] { });
             }
 
+            await _requestLock.WaitAsync();
             await MakeRequest(ListAuthenticatorsCapability);
             await MakeRequest(ListCategoriesCapability);
             await MakeRequest(ListCustomIconsCapability);
             await MakeRequest(GetPreferencesCapability);
+            _requestLock.Release();
             
-            await _refreshLock.WaitAsync();
+            await _responseLock.WaitAsync();
         }
         
         private async Task OnAuthenticatorListReceived(byte[] data)
@@ -433,6 +440,9 @@ namespace AuthenticatorPro.WearOS.Activity
 
         public async void OnMessageReceived(IMessageEvent messageEvent)
         {
+            await _requestLock.WaitAsync();
+            _requestLock.Release();
+
             switch(messageEvent.Path)
             {
                 case ListAuthenticatorsCapability:
@@ -466,7 +476,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var required = Interlocked.CompareExchange(ref _responsesRequired, 0, 0);
 
             if(received == required)
-                _refreshLock.Release();
+                _responseLock.Release();
         }
         #endregion
     }
