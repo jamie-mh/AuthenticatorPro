@@ -1,28 +1,29 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Provider;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Activity.Result;
+using AndroidX.Activity.Result.Contract;
 using AndroidX.Work;
 using AuthenticatorPro.Droid.Activity;
+using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Droid.Worker;
 using Google.Android.Material.Button;
 using Google.Android.Material.SwitchMaterial;
 using Java.Util.Concurrent;
-using Xamarin.Essentials;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
     internal class AutoBackupSetupBottomSheet : BottomSheet
     {
-        private const int RequestPicker = 0;
         private PreferenceWrapper _preferences;
+        private ActivityResultLauncher _locationSelectResultLauncher;
 
         private TextView _locationStatusText;
         private TextView _passwordStatusText;
@@ -39,14 +40,28 @@ namespace AuthenticatorPro.Droid.Fragment
             RetainInstance = true;
         }
 
-        public override void OnActivityResult(int requestCode, int resultCode, Intent intent)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnActivityResult(requestCode, resultCode, intent);
-
-            if(requestCode != RequestPicker || (Result) resultCode != Result.Ok)
-                return;
+            base.OnCreate(savedInstanceState);
             
-            OnLocationSelected(intent);
+            var callback = new ActivityResultCallback();
+            callback.Result += (_, result) =>
+            {
+                var intent = result.Data;
+                
+                if((Result) result.ResultCode != Result.Ok || intent.Data == null)
+                    return;
+
+                _preferences.AutoBackupUri = intent.Data;
+
+                var flags = intent.Flags & (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
+                Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
+                
+                UpdateLocationStatusText();
+                UpdateSwitchesAndTriggerButton();
+            };
+
+            _locationSelectResultLauncher = RegisterForActivityResult(new ActivityResultContracts.StartActivityForResult(), callback);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -149,9 +164,9 @@ namespace AuthenticatorPro.Droid.Fragment
 
             if(_preferences.AutoBackupUri != null)
                 intent.PutExtra(DocumentsContract.ExtraInitialUri, _preferences.AutoBackupUri);
-
+            
             ((SettingsActivity) Context).BaseApplication.PreventNextLock = true;
-            StartActivityForResult(intent, RequestPicker);
+            _locationSelectResultLauncher.Launch(intent);
         }
         
         private void OnSetPasswordButtonClick(object sender, EventArgs e)
@@ -170,17 +185,6 @@ namespace AuthenticatorPro.Droid.Fragment
             UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
             await SecureStorageWrapper.SetAutoBackupPassword(password);
-        }
-
-        private void OnLocationSelected(Intent intent)
-        {
-            _preferences.AutoBackupUri = intent.Data;
-
-            var flags = intent.Flags & (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
-            Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
-            
-            UpdateLocationStatusText();
-            UpdateSwitchesAndTriggerButton();
         }
 
         private void UpdateLocationStatusText()
