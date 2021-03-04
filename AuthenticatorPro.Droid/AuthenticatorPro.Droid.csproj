@@ -93,6 +93,7 @@
     <Compile Include="Source\Activity\ManageCategoriesActivity.cs" />
     <Compile Include="Source\BaseApplication.cs" />
     <Compile Include="Source\Callback\AuthenticationCallback.cs" />
+    <Compile Include="Source\Callback\PageChangeCallback.cs" />
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
     <Compile Include="Source\Constants.cs" />
     <Compile Include="Source\Data\Backup\BackupRequirement.cs" />
@@ -269,6 +270,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Preference">
       <Version>1.1.1.8</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.ViewPager2">
+      <Version>1.0.0.9</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime">
       <Version>2.5.0.1</Version>

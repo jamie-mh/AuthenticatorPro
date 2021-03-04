@@ -1,7 +1,9 @@
 ﻿using Android.App;
 using Android.OS;
 using AndroidX.Fragment.App;
-using AndroidX.ViewPager.Widget;
+using AndroidX.ViewPager2.Adapter;
+using AndroidX.ViewPager2.Widget;
+using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Intro;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.BottomNavigation;
@@ -12,8 +14,8 @@ namespace AuthenticatorPro.Droid.Activity
     internal class IntroActivity : FragmentActivity
     {
         private int _pageCount;
-        private ViewPager _pager;
-        private PagerAdapter _adapter;
+        private ViewPager2 _pager;
+        private FragmentStateAdapter _adapter;
         private BottomNavigationView _nav;
 
 
@@ -24,19 +26,23 @@ namespace AuthenticatorPro.Droid.Activity
 
             _pageCount = Resources.GetStringArray(Resource.Array.introTitle).Length;
 
-            _pager = FindViewById<ViewPager>(Resource.Id.viewPager);
+            _pager = FindViewById<ViewPager2>(Resource.Id.viewPager);
             _nav = FindViewById<BottomNavigationView>(Resource.Id.navigationView);
 
             _nav.NavigationItemSelected += OnNavigationItemSelected;
-            _pager.PageSelected += OnPageSelected;
 
-            _adapter = new IntroPagerAdapter(SupportFragmentManager, _pageCount);
+            var callback = new PageChangeCallback();
+            callback.PageSelect += delegate { OnPageSelected(); };
+            
+            _pager.RegisterOnPageChangeCallback(callback);
+
+            _adapter = new IntroPagerAdapter(this, _pageCount);
             _pager.Adapter = _adapter;
 
             OnPageSelected();
         }
 
-        private void OnPageSelected(object sender = null, ViewPager.PageSelectedEventArgs e = null)
+        private void OnPageSelected()
         {
             _nav.Menu.FindItem(Resource.Id.intro_prev).SetVisible(_pager.CurrentItem > 0);
             _nav.Menu.FindItem(Resource.Id.intro_next).SetVisible(_pager.CurrentItem < _pageCount - 1);
