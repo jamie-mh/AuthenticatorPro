@@ -2,12 +2,13 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Android.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Source.Data;
+using Polly;
 using SQLite;
 using Xamarin.Essentials;
+using Context = Android.Content.Context;
 
 namespace AuthenticatorPro.Droid.Data
 {
@@ -86,12 +87,11 @@ namespace AuthenticatorPro.Droid.Data
 
             try
             {
-                
-                await connection.EnableWriteAheadLoggingAsync();
-                await connection.CreateTableAsync<Authenticator>();
-                await connection.CreateTableAsync<Category>();
-                await connection.CreateTableAsync<AuthenticatorCategory>();
-                await connection.CreateTableAsync<CustomIcon>();
+                await AttemptAndRetry(() => connection.EnableWriteAheadLoggingAsync());
+                await AttemptAndRetry(() => connection.CreateTableAsync<Authenticator>());
+                await AttemptAndRetry(() => connection.CreateTableAsync<Category>());
+                await AttemptAndRetry(() => connection.CreateTableAsync<AuthenticatorCategory>());
+                await AttemptAndRetry(() => connection.CreateTableAsync<CustomIcon>());
             }
             catch
             {
@@ -106,6 +106,12 @@ namespace AuthenticatorPro.Droid.Data
 #endif
 
             return connection;
+        }
+        
+        private static Task AttemptAndRetry(Func<Task> action, int numRetries = 4)
+        {
+            static TimeSpan durationProvider(int attemptNumber) => TimeSpan.FromMilliseconds(Math.Pow(2, attemptNumber));
+            return Policy.Handle<SQLiteException>().WaitAndRetryAsync(numRetries, durationProvider).ExecuteAsync(action);
         }
 
         private static string GetPath()
