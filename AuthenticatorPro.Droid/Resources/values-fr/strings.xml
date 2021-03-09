@@ -66,9 +66,9 @@
     <string name="backupHtml">Fichier HTML</string>
     <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
     <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
-    <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriList">Fichier texte</string>
+    <string name="backupUriListMessage">Sauvegarder ses authentificateurs dans un fichier texte non chiffré contenant une liste d\'URIs. Ce fichier est compatible avec de nombreuses applications et services alternatifs. Les catégories et icônes ne sont pas sauvegardées.</string>
+    <string name="backupUriListWarning">Les sauvegardes en fichier texte ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">C\'est vide !</string>
     <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
