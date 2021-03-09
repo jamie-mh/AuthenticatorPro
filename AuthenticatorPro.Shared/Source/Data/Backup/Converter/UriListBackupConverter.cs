@@ -18,10 +18,10 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
         public override Task<Backup> Convert(byte[] data, string password = null)
         {
             var text = Encoding.UTF8.GetString(data);
-            var lines = text.Split(new[] {"\r\n"}, StringSplitOptions.None);
+            var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             var authenticators = new List<Authenticator>();
-            authenticators.AddRange(lines.Where(line => !String.IsNullOrWhiteSpace(line)).Select(u => Authenticator.FromOtpAuthUri(u, _iconResolver)));
+            authenticators.AddRange(lines.Select(u => Authenticator.FromOtpAuthUri(u, _iconResolver)));
 
             return Task.FromResult(new Backup(authenticators));
         }
