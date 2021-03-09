@@ -66,6 +66,9 @@
     <string name="backupHtml">Respaldar a un archivo local HTML</string>
     <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
     <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
     <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
