@@ -75,17 +75,18 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestRestore = 1;
         private const int RequestBackupFile = 2;
         private const int RequestBackupHtml = 3;
-        private const int RequestQrCode = 4;
-        private const int RequestCustomIcon = 5;
-        private const int RequestSettingsRecreate = 6;
-        private const int RequestImportAuthenticatorPlus = 7;
-        private const int RequestImportAndOtp = 8;
-        private const int RequestImportFreeOtpPlus = 9;
-        private const int RequestImportAegis = 10;
-        private const int RequestImportBitwarden = 11;
-        private const int RequestImportWinAuth = 12;
-        private const int RequestImportTotpAuthenticator = 13;
-        private const int RequestImportUriList = 14;
+        private const int RequestBackupUriList = 4;
+        private const int RequestQrCode = 5;
+        private const int RequestCustomIcon = 6;
+        private const int RequestSettingsRecreate = 7;
+        private const int RequestImportAuthenticatorPlus = 8;
+        private const int RequestImportAndOtp = 9;
+        private const int RequestImportFreeOtpPlus = 10;
+        private const int RequestImportAegis = 11;
+        private const int RequestImportBitwarden = 12;
+        private const int RequestImportWinAuth = 13;
+        private const int RequestImportTotpAuthenticator = 14;
+        private const int RequestImportUriList = 15;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -394,6 +395,10 @@ namespace AuthenticatorPro.Droid.Activity
                 
                 case RequestBackupHtml:
                     await BackupToHtmlFile(intent.Data);
+                    break;
+                
+                case RequestBackupUriList:
+                    await BackupToUriListFile(intent.Data);
                     break;
                 
                 case RequestCustomIcon:
@@ -1505,14 +1510,24 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var fragment = new BackupBottomSheet();
             
+            void ShowPicker(string mimeType, int requestCode, string fileExtension)
+            {
+                StartFileSaveActivity(mimeType, requestCode, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{fileExtension}");
+            }
+            
             fragment.ClickBackupFile += delegate
             {
-                StartFileSaveActivity(Backup.MimeType, RequestBackupFile, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
+                ShowPicker(Backup.MimeType, RequestBackupFile, Backup.FileExtension);
             };
             
             fragment.ClickHtmlFile += delegate
             {
-                StartFileSaveActivity(HtmlBackup.MimeType, RequestBackupHtml, $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{HtmlBackup.FileExtension}");
+                ShowPicker(HtmlBackup.MimeType, RequestBackupHtml, HtmlBackup.FileExtension);
+            };
+
+            fragment.ClickUriList += delegate
+            {
+                ShowPicker(UriListBackup.MimeType, RequestBackupUriList, UriListBackup.FileExtension);
             };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1575,7 +1590,23 @@ namespace AuthenticatorPro.Droid.Activity
         {
             try
             {
-                var backup = await HtmlBackup.FromAuthenticatorList(this, _authSource.GetAll());
+                var backup = await HtmlBackup.FromAuthenticators(this, _authSource.GetAll());
+                await FileUtil.WriteFile(this, destination, backup.ToString());
+            }
+            catch
+            {
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                return;
+            }
+
+            FinaliseBackup();
+        }
+        
+        private async Task BackupToUriListFile(Uri destination)
+        {
+            try
+            {
+                var backup = UriListBackup.FromAuthenticators(_authSource.GetAll());
                 await FileUtil.WriteFile(this, destination, backup.ToString());
             }
             catch

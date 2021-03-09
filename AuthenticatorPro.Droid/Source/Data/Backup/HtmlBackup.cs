@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Droid.Data.Backup
             }
         }
 
-        public static async Task<HtmlBackup> FromAuthenticatorList(Context context, List<Authenticator> authenticators)
+        public static async Task<HtmlBackup> FromAuthenticators(Context context, IEnumerable<Authenticator> authenticators)
         {
             var template = await GetTemplate(context);
             

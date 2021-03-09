@@ -102,6 +102,7 @@
     <Compile Include="Source\Data\Backup\HtmlBackup.cs" />
     <Compile Include="Source\Data\Backup\IResult.cs" />
     <Compile Include="Source\Data\Backup\RestoreResult.cs" />
+    <Compile Include="Source\Data\Backup\UriListBackup.cs" />
     <Compile Include="Source\Data\CustomIconDecoder.cs" />
     <Compile Include="Source\Data\Database.cs" />
     <Compile Include="Source\Data\Source\IconSource.cs" />

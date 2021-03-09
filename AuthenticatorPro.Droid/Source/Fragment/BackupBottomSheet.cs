@@ -12,6 +12,7 @@ namespace AuthenticatorPro.Droid.Fragment
     {
         public event EventHandler ClickBackupFile;
         public event EventHandler ClickHtmlFile;
+        public event EventHandler ClickUriList;
 
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -23,23 +24,24 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu, new List<SheetMenuItem>
             {
                 new(Resource.Drawable.ic_action_file_lock, Resource.String.backupToFile, ClickBackupFile, Resource.String.backupToFileMessage),
-                new(Resource.Drawable.ic_action_code, Resource.String.backupHtml, OnHtmlClick, Resource.String.backupHtmlMessage)
+                new(Resource.Drawable.ic_action_code, Resource.String.backupHtml, delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, ClickHtmlFile); }, Resource.String.backupHtmlMessage),
+                new(Resource.Drawable.ic_list, Resource.String.backupUriList, delegate { ShowUnencryptedWarning(Resource.String.backupUriListWarning, ClickUriList); }, Resource.String.backupUriListMessage)
             });
         
             return view;
         }
 
-        private void OnHtmlClick(object sender, EventArgs e)
+        private void ShowUnencryptedWarning(int warningRes, EventHandler onContinue)
         {
             var builder = new MaterialAlertDialogBuilder(Activity);
             builder.SetTitle(Resource.String.warning);
-            builder.SetMessage(Resource.String.backupHtmlWarning);
+            builder.SetMessage(warningRes);
             builder.SetCancelable(true);
 
             builder.SetNegativeButton(Resource.String.cancel, delegate { });
             builder.SetPositiveButton(Resource.String.ok, delegate
             {
-                ClickHtmlFile.Invoke(this, e);
+                onContinue.Invoke(this, EventArgs.Empty);
             });
 
             builder.Create().Show();
