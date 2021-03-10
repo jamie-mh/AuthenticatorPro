@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Source.Util;
 using Newtonsoft.Json;
 using OtpNet;
 using PCLCrypto;
@@ -67,18 +68,6 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
             [JsonProperty(PropertyName = "base")]
             public int Base { get; set; }
 
-
-            private static byte[] HexToBytes(string data)
-            {
-                var len = data.Length;
-                var output = new byte[len / 2];
-                
-                for(var i = 0; i < len; i += 2)
-                    output[i / 2] = System.Convert.ToByte(data.Substring(i, 2), 16);
-                
-                return output;
-            }
-            
             public Authenticator Convert(IIconResolver iconResolver)
             {
                 string issuer;
@@ -107,7 +96,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 if(Base != 16)
                     throw new ArgumentException("Cannot parse base other than 16");
                 
-                var secret = Base32Encoding.ToString(HexToBytes(Key));
+                var secret = Base32Encoding.ToString(Key.ToHexBytes());
 
                 return new Authenticator
                 {

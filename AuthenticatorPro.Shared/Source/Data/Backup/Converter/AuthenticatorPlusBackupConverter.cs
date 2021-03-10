@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Source.Util;
+using OtpNet;
 using SQLite;
 
 namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
@@ -10,6 +12,10 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
     public class AuthenticatorPlusBackupConverter : BackupConverter
     {
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
+
+        private const string TempFileName = "authplus.db";
+        private const string BlizzardIssuer = "Blizzard";
+        private const int BlizzardDigits = 8;
 
         public AuthenticatorPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver)
         {
@@ -20,7 +26,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
         {
             var path = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.Personal),
-                "authplus.db"
+                TempFileName 
             );
 
             await Task.Run(delegate { File.WriteAllBytes(path, data); });
@@ -81,7 +87,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
         private enum Type
         {
-            Totp = 0, Hotp = 1
+            Totp = 0, Hotp = 1, Blizzard = 2
         }
 
         private class Account
@@ -113,6 +119,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 {
                     Type.Totp => AuthenticatorType.Totp,
                     Type.Hotp => AuthenticatorType.Hotp,
+                    Type.Blizzard => AuthenticatorType.Totp,
                     _ => throw new ArgumentOutOfRangeException()
                 };
 
@@ -121,7 +128,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
                 if(!String.IsNullOrEmpty(Issuer))
                 {
-                    issuer = Issuer;
+                    issuer = Type == Type.Blizzard ? BlizzardIssuer : Issuer;
 
                     if(!String.IsNullOrEmpty(Email))
                         username = Email;
@@ -142,14 +149,27 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                     else
                         issuer = Email;
                 }
+
+                var digits = Type == Type.Blizzard ? BlizzardDigits : type.GetDefaultDigits();
+
+                string secret;
+
+                if(Type == Type.Blizzard)
+                {
+                    var base32Secret = Base32Encoding.ToString(Secret.ToHexBytes());
+                    secret = Authenticator.CleanSecret(base32Secret, type);
+                }
+                else
+                    secret = Authenticator.CleanSecret(Secret, type);
                 
                 return new Authenticator
                 {
                     Issuer = issuer,
                     Username = username,
                     Type = type,
-                    Secret = Authenticator.CleanSecret(Secret, type),
+                    Secret = secret,
                     Counter = Counter,
+                    Digits = digits,
                     Icon = iconResolver.FindServiceKeyByName(issuer)
                 };
             }
