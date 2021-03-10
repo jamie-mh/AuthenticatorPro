@@ -24,11 +24,6 @@ namespace AuthenticatorPro.Droid.Fragment
         private MaterialButton _cancelButton;
         private MaterialButton _setPasswordButton;
         
-        public PasswordSetupBottomSheet()
-        {
-            RetainInstance = true;
-        }
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetPasswordSetup, null);

@@ -35,11 +35,6 @@ namespace AuthenticatorPro.Droid.Fragment
         private LinearLayout _batOptimLayout;
         private MaterialButton _okButton;
 
-        public AutoBackupSetupBottomSheet()
-        {
-            RetainInstance = true;
-        }
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
