@@ -1,0 +1,4 @@
+- New feature: Backup to text URI list file
+- General: 8 new icons for Allegro, ifirma.pl, Wykop, NordLocker, NordPass, NordVPN, AnonAddy and SimpleLogin
+- General: Bug fixes
+- General: Translation updates
