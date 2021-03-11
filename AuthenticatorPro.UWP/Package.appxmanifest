@@ -14,8 +14,8 @@
   <mp:PhoneIdentity PhoneProductId="bb1979dd-7d41-487d-af68-f97d010c750f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>AuthenticatorPro.Windows</DisplayName>
-    <PublisherDisplayName>jamie</PublisherDisplayName>
+    <DisplayName>AuthenticatorPro.UWP</DisplayName>
+    <PublisherDisplayName>jmh</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,20 +30,16 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="AuthenticatorPro.Windows.App">
+      EntryPoint="AuthenticatorPro.UWP.App">
       <uap:VisualElements
-        DisplayName="AuthenticatorPro.Windows"
+        DisplayName="Authenticator Pro"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="AuthenticatorPro.Windows"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        Description="Authenticator Pro"
+        BackgroundColor="#171717">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png"  BackgroundColor="#000000"/>
       </uap:VisualElements>
     </Application>
   </Applications>
-
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
 </Package>
