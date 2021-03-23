@@ -214,7 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
+      <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="Otp.NET">
       <Version>1.2.2</Version>
@@ -226,7 +226,7 @@
       <Version>7.2.1</Version>
     </PackageReference>
     <PackageReference Include="protobuf-net">
-      <Version>3.0.73</Version>
+      <Version>3.0.101</Version>
     </PackageReference>
     <PackageReference Include="QRCoder">
       <Version>1.4.1</Version>
