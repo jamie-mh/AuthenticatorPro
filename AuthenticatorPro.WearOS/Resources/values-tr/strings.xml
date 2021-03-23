@@ -3,6 +3,6 @@
     <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">No Authenticators</string>
     <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
+    <string name="categoryAll">Tümü</string>
+    <string name="offline">Çevrimdışı</string>
 </resources>
