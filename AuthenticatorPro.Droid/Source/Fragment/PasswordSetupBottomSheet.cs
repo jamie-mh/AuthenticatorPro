@@ -31,6 +31,9 @@ namespace AuthenticatorPro.Droid.Fragment
             
             _preferences = new PreferenceWrapper(Context);
             _hasPassword = _preferences.PasswordProtected;
+            
+            _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
+            _setPasswordButton.Click += OnSetPasswordButtonClick;
 
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             _passwordText.TextChanged += delegate { UpdateSetPasswordButton(); };
@@ -41,12 +44,9 @@ namespace AuthenticatorPro.Droid.Fragment
 
             _passwordConfirmText.EditorAction += (_, e) =>
             {
-                if(e.ActionId == ImeAction.Done)
+                if(_setPasswordButton.Enabled && e.ActionId == ImeAction.Done)
                     OnSetPasswordButtonClick(null, null);
             };
-
-            _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
-            _setPasswordButton.Click += OnSetPasswordButtonClick;
             
             _cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
             _cancelButton.Click += delegate { Dismiss(); };
