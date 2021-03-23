@@ -9,7 +9,7 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
       <PackageReference Include="Newtonsoft.Json">
-        <Version>12.0.3</Version>
+        <Version>13.0.1</Version>
       </PackageReference>
       <PackageReference Include="Otp.NET">
         <Version>1.2.2</Version>
@@ -18,7 +18,7 @@
         <Version>2.0.147</Version>
       </PackageReference>
       <PackageReference Include="protobuf-net">
-        <Version>3.0.73</Version>
+        <Version>3.0.101</Version>
       </PackageReference>
       <PackageReference Include="sqlite-net-sqlcipher">
         <Version>1.6.292</Version>
