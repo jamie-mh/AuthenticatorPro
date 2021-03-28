@@ -21,7 +21,7 @@
         <Version>3.0.101</Version>
       </PackageReference>
       <PackageReference Include="sqlite-net-sqlcipher">
-        <Version>1.6.292</Version>
+        <Version>1.7.335</Version>
       </PackageReference>
     </ItemGroup>
 
