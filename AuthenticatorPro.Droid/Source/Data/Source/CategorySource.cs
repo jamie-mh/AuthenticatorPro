@@ -6,7 +6,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Shared.Source.Data.Source
 {
-    public class CategorySource : ISource<Category>
+    internal class CategorySource : ISource<Category>
     {
         private readonly SQLiteAsyncConnection _connection;
         private List<Category> _all;

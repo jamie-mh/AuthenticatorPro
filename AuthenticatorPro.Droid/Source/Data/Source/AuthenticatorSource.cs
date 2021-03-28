@@ -7,7 +7,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Shared.Source.Data.Source
 {
-    public class AuthenticatorSource : ISource<Authenticator>
+    internal class AuthenticatorSource : ISource<Authenticator>
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }

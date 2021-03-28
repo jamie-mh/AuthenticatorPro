@@ -6,7 +6,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Shared.Source.Data.Source
 {
-    public class CustomIconSource : ISource<CustomIcon>
+    internal class CustomIconSource : ISource<CustomIcon>
     {
         private readonly SQLiteAsyncConnection _connection;
         private List<CustomIcon> _all;
