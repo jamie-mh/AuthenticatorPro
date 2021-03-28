@@ -160,8 +160,6 @@ namespace AuthenticatorPro.Droid.Data
 
                     await conn.ExecuteScalarAsync<string>("SELECT sqlcipher_export('temporary')");
                 }
-                // TODO: investigate strange exception, SQLite out of memory when clearing password
-                // Only first attempt though?
                 catch
                 {
                     File.Delete(tempPath);
