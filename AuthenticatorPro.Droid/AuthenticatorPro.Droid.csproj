@@ -256,7 +256,7 @@
       <Version>1.0.0.7</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common">
-      <Version>2.3.0.1</Version>
+      <Version>2.3.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions">
       <Version>2.2.0.7</Version>
