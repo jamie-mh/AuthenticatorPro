@@ -123,7 +123,7 @@
       <Version>1.0.0.7</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-      <Version>2.3.0.1</Version>
+      <Version>2.3.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Preference">
       <Version>1.1.1.8</Version>
