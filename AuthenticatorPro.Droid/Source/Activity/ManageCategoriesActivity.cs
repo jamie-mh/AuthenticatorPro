@@ -125,7 +125,11 @@ namespace AuthenticatorPro.Droid.Activity
                 transaction.Remove(old);
 
             transaction.AddToBackStack(null);
-            var dialog = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.New, null);
+
+            var bundle = new Bundle();
+            bundle.PutInt("mode", (int) EditCategoryBottomSheet.Mode.New);
+            
+            var dialog = new EditCategoryBottomSheet {Arguments = bundle};
             dialog.Submit += OnAddDialogSubmit;
             dialog.Show(transaction, "add_dialog");
         }
@@ -169,8 +173,11 @@ namespace AuthenticatorPro.Droid.Activity
             if(category == null)
                 return;
 
-            var isDefault = _preferences.DefaultCategory == category.Id;
-            var fragment = new EditCategoryMenuBottomSheet(position, isDefault);
+            var bundle = new Bundle();
+            bundle.PutInt("position", position);
+            bundle.PutBoolean("isDefault", _preferences.DefaultCategory == category.Id);
+
+            var fragment = new EditCategoryMenuBottomSheet {Arguments = bundle};
             fragment.ClickRename += OnRenameClick;
             fragment.ClickSetDefault += OnSetDefaultClick;
             fragment.ClickDelete += OnDeleteClick;
@@ -184,7 +191,12 @@ namespace AuthenticatorPro.Droid.Activity
             if(category == null)
                 return;
 
-            var fragment = new EditCategoryBottomSheet(EditCategoryBottomSheet.Mode.Edit, position, category.Name);
+            var bundle = new Bundle();
+            bundle.PutInt("mode", (int) EditCategoryBottomSheet.Mode.Edit);
+            bundle.PutInt("position", position);
+            bundle.PutString("initialValue", category.Name);
+
+            var fragment = new EditCategoryBottomSheet {Arguments = bundle};
             fragment.Submit += OnRenameDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -193,13 +205,13 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var dialog = (EditCategoryBottomSheet) sender;
 
-            if(e.Name == e.InitialName || e.ItemPosition == null)
+            if(e.Name == e.InitialName || e.Position == -1)
             {
                 dialog.Dismiss();
                 return;
             }
 
-            var currentId = _categorySource.Get(e.ItemPosition.Value).Id;
+            var currentId = _categorySource.Get(e.Position).Id;
             var isDefault = _preferences.DefaultCategory == currentId;
 
             var category = new Category(e.Name);
@@ -212,7 +224,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                await _categorySource.Rename(e.ItemPosition.Value, e.Name);
+                await _categorySource.Rename(e.Position, e.Name);
             }
             catch
             {
@@ -227,7 +239,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(isDefault)
                 SetDefaultCategory(category.Id);
                 
-            RunOnUiThread(delegate { _categoryListAdapter.NotifyItemChanged(e.ItemPosition.Value); });
+            RunOnUiThread(delegate { _categoryListAdapter.NotifyItemChanged(e.Position); });
         }
         
         private void OnSetDefaultClick(object item, int position)

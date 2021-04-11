@@ -8,7 +8,7 @@ namespace AuthenticatorPro.Droid.Activity
     internal abstract class BaseActivity : AppCompatActivity
     {
         public BaseApplication BaseApplication { get; private set; }
-        protected bool IsDark { get; private set; }
+        public bool IsDark { get; private set; }
 
         private bool _checkedOnCreate;
         private string _lastTheme;

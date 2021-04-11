@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.List;
-using AuthenticatorPro.Shared.Source.Data.Source;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
@@ -18,34 +17,36 @@ namespace AuthenticatorPro.Droid.Fragment
         private CategoriesListAdapter _categoryListAdapter;
         private RecyclerView _categoryList;
 
-        private readonly string _currCategoryId;
-        private readonly CategorySource _source;
+        private string _currentCategoryId;
 
-
-        public MainMenuBottomSheet(CategorySource source, string currCategoryId)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _source = source;
-            _currCategoryId = currCategoryId;
+            base.OnCreate(savedInstanceState);
+            
+            _currentCategoryId = Arguments.GetString("currentCategoryId");
+
+            var categoryIds = Arguments.GetStringArray("categoryIds");
+            var categoryNames = Arguments.GetStringArray("categoryNames");
+            
+            if(categoryIds == null)
+                return;
+            
+            _categoryListAdapter = new CategoriesListAdapter(Activity, categoryIds, categoryNames) {HasStableIds = true};
+
+            var selectedCategoryPosition = _currentCategoryId == null ? 0 : Array.IndexOf(categoryIds, _currentCategoryId) + 1;
+            _categoryListAdapter.SelectedPosition = selectedCategoryPosition;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetMainMenu, container, false);
             SetupToolbar(view, Resource.String.mainMenu, true);
-            
-            _categoryListAdapter = new CategoriesListAdapter(Activity, _source) {HasStableIds = true};
 
             _categoryList = view.FindViewById<RecyclerView>(Resource.Id.listCategories);
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.HasFixedSize = true;
             _categoryList.SetLayoutManager(new LinearLayoutManager(Activity));
 
-            var selectedCategoryPosition = _currCategoryId == null
-                ? 0
-                : _source.GetPosition(_currCategoryId) + 1;
-            
-            _categoryListAdapter.SelectedPosition = selectedCategoryPosition;
             _categoryListAdapter.NotifyDataSetChanged();
 
             _categoryListAdapter.CategorySelected += (_, id) =>

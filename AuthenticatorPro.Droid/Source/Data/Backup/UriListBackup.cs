@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
-using System.Threading.Tasks;
-using Android.Content;
 using AuthenticatorPro.Shared.Source.Data;
-using QRCoder;
 
 namespace AuthenticatorPro.Droid.Data.Backup
 {

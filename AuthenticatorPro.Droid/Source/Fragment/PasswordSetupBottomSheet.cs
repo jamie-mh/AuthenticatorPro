@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -9,7 +8,6 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
-using SQLite;
 
 namespace AuthenticatorPro.Droid.Fragment
 {

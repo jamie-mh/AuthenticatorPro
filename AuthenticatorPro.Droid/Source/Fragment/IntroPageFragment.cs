@@ -6,12 +6,12 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class IntroPageFragment : AndroidX.Fragment.App.Fragment
     {
-        private readonly int _position;
+        private int _position;
 
-        public IntroPageFragment(int position)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _position = position;            
+            base.OnCreate(savedInstanceState);
+            _position = Arguments.GetInt("position", -1);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

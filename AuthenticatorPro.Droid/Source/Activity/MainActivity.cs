@@ -498,8 +498,16 @@ namespace AuthenticatorPro.Droid.Activity
         {
             if(_authSource == null || _categorySource == null)
                 return;
+
+            var categoryIds = _categorySource.GetView().Select(c => c.Id).ToArray();
+            var categoryNames = _categorySource.GetView().Select(c => c.Name).ToArray();
             
-            var fragment = new MainMenuBottomSheet(_categorySource, _authSource.CategoryId);
+            var bundle = new Bundle();
+            bundle.PutStringArray("categoryIds", categoryIds);
+            bundle.PutStringArray("categoryNames", categoryNames);
+            bundle.PutString("currentCategoryId", _authSource.CategoryId);
+            
+            var fragment = new MainMenuBottomSheet {Arguments = bundle};
             fragment.ClickCategory += (_, id) =>
             {
                 SwitchCategory(id);
@@ -908,12 +916,18 @@ namespace AuthenticatorPro.Droid.Activity
             if(auth == null)
                 return;
 
-            var fragment = new AuthenticatorMenuBottomSheet(auth.Type, auth.Counter);
+            var bundle = new Bundle();
+            bundle.PutInt("type", (int) auth.Type);
+            bundle.PutLong("counter", auth.Counter);
+            
+            var fragment = new AuthenticatorMenuBottomSheet {Arguments = bundle};
+
             fragment.ClickRename += delegate { OpenRenameDialog(position); };
             fragment.ClickChangeIcon += delegate { OpenIconDialog(position); };
             fragment.ClickAssignCategories += delegate { OpenCategoriesDialog(position); };
             fragment.ClickShowQrCode += delegate { OpenQrCodeDialog(position); };
             fragment.ClickDelete += delegate { OpenDeleteDialog(position); };
+            
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -935,8 +949,11 @@ namespace AuthenticatorPro.Droid.Activity
                 ShowSnackbar(Resource.String.qrCodeNotSupported, Snackbar.LengthShort);
                 return;
             }
+
+            var bundle = new Bundle();
+            bundle.PutString("uri", uri);
             
-            var fragment = new QrCodeBottomSheet(this, uri);
+            var fragment = new QrCodeBottomSheet {Arguments = bundle};
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -1350,8 +1367,11 @@ namespace AuthenticatorPro.Droid.Activity
                 await FinaliseRestore(result);
                 return;
             }
+
+            var bundle = new Bundle();
+            bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
+            var sheet = new BackupPasswordBottomSheet {Arguments = bundle};
             
-            var sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
             sheet.PasswordEntered += async (_, password) =>
             {
                 sheet.SetBusyText(Resource.String.decrypting);
@@ -1368,6 +1388,7 @@ namespace AuthenticatorPro.Droid.Activity
                     sheet.SetBusyText(null);
                 }
             };
+            
             sheet.Show(SupportFragmentManager, sheet.Tag);
         }
 
@@ -1436,7 +1457,10 @@ namespace AuthenticatorPro.Droid.Activity
 
             void ShowPasswordSheet()
             {
-                var sheet = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Enter);
+                var bundle = new Bundle();
+                bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
+                var sheet = new BackupPasswordBottomSheet {Arguments = bundle};
+                
                 sheet.PasswordEntered += async (_, password) =>
                 {
                     sheet.SetBusyText(Resource.String.decrypting);
@@ -1565,8 +1589,10 @@ namespace AuthenticatorPro.Droid.Activity
                 await DoBackup(password);
                 return;
             }
-            
-            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
+
+            var bundle = new Bundle();
+            bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Set); 
+            var fragment = new BackupPasswordBottomSheet {Arguments = bundle};
             
             fragment.PasswordEntered += async (sender, password) =>
             {
@@ -1655,7 +1681,7 @@ namespace AuthenticatorPro.Droid.Activity
         #region Add Dialog
         private void OpenAddDialog(object sender, EventArgs e)
         {
-            var fragment = new AddAuthenticatorBottomSheet(_iconResolver);
+            var fragment = new AddAuthenticatorBottomSheet();
             fragment.Add += OnAddDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1712,7 +1738,12 @@ namespace AuthenticatorPro.Droid.Activity
             if(auth == null)
                 return;
 
-            var fragment = new RenameAuthenticatorBottomSheet(position, auth.Issuer, auth.Username);
+            var bundle = new Bundle();
+            bundle.PutInt("position", position);
+            bundle.PutString("issuer", auth.Issuer);
+            bundle.PutString("username", auth.Username);
+            
+            var fragment = new RenameAuthenticatorBottomSheet {Arguments = bundle};
             fragment.Rename += OnRenameDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1747,7 +1778,10 @@ namespace AuthenticatorPro.Droid.Activity
         #region Icon Dialog
         private void OpenIconDialog(int position)
         {
-            var fragment = new ChangeIconBottomSheet(position, IsDark);
+            var bundle = new Bundle();
+            bundle.PutInt("position", position);
+
+            var fragment = new ChangeIconBottomSheet {Arguments = bundle};
             fragment.IconSelect += OnIconDialogIconSelected;
             fragment.UseCustomIconClick += delegate 
             {
@@ -1877,8 +1911,17 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(auth == null)
                 return;
+            
+            var categoryIds = _categorySource.GetView().Select(c => c.Id).ToArray();
+            var categoryNames = _categorySource.GetView().Select(c => c.Name).ToArray();
 
-            var fragment = new AssignCategoriesBottomSheet(_categorySource, position, _authSource.GetCategories(position));
+            var bundle = new Bundle();
+            bundle.PutInt("position", position);
+            bundle.PutStringArray("categoryIds", categoryIds);
+            bundle.PutStringArray("categoryNames", categoryNames);
+            bundle.PutStringArray("assignedCategoryIds", _authSource.GetCategories(position));
+
+            var fragment = new AssignCategoriesBottomSheet {Arguments = bundle};
             fragment.CategoryClick += OnCategoriesDialogCategoryClick;
             fragment.ManageCategoriesClick += delegate
             {

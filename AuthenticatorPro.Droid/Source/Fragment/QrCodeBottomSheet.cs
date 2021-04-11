@@ -5,7 +5,6 @@ using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AndroidX.Fragment.App;
 using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Button;
 using QRCoder;
@@ -19,14 +18,12 @@ namespace AuthenticatorPro.Droid.Fragment
         private ImageView _image;
         private ProgressBar _progressBar;
 
-        private readonly Context _context;
-        private readonly string _uri;
+        private string _uri;
 
-        public QrCodeBottomSheet(Context context, string uri)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _context = context;
-            _uri = uri;
+            base.OnCreate(savedInstanceState);
+            _uri = Arguments.GetString("uri");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -43,20 +40,19 @@ namespace AuthenticatorPro.Droid.Fragment
             var copyButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCopyUri);
             copyButton.Click += delegate
             {
-                var clipboard = (ClipboardManager) _context.GetSystemService(Context.ClipboardService);
+                var clipboard = (ClipboardManager) Context.GetSystemService(Context.ClipboardService);
                 var clip = ClipData.NewPlainText("uri", _uri);
                 clipboard.PrimaryClip = clip;
-                Toast.MakeText(_context, Resource.String.uriCopiedToClipboard, ToastLength.Short).Show();
+                Toast.MakeText(Context, Resource.String.uriCopiedToClipboard, ToastLength.Short).Show();
             };
             
             return view;
         }
 
-        public override async void Show(FragmentManager manager, string tag)
+        public override async void OnViewCreated(View view, Bundle savedInstanceState)
         {
-            base.Show(manager, tag);
-            
-            var ppm = (int) Math.Floor(PixelsPerModule * _context.Resources.DisplayMetrics.Density);
+            base.OnViewCreated(view, savedInstanceState);
+            var ppm = (int) Math.Floor(PixelsPerModule * Resources.DisplayMetrics.Density);
             
             var bytes = await Task.Run(delegate
             {

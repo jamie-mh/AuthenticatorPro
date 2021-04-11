@@ -2,7 +2,6 @@
 using Android.Content;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Shared.Source.Data.Source;
 
 namespace AuthenticatorPro.Droid.List
 {
@@ -12,15 +11,18 @@ namespace AuthenticatorPro.Droid.List
         public int SelectedPosition { get; set; }
 
         private readonly Context _context;
-        private readonly CategorySource _source;
+        private readonly string[] _categoryIds;
+        private readonly string[] _categoryNames;
 
-        public override int ItemCount => _source.GetView().Count + 1;
+        public override int ItemCount => _categoryIds.Length + 1;
 
 
-        public CategoriesListAdapter(Context context, CategorySource source)
+        public CategoriesListAdapter(Context context, string[] categoryIds, string[] categoryNames)
         {
             _context = context;
-            _source = source;
+            _categoryIds = categoryIds;
+            _categoryNames = categoryNames;
+            
             SelectedPosition = 0;
         }
 
@@ -28,7 +30,7 @@ namespace AuthenticatorPro.Droid.List
         {
             return position == 0
                 ? -1
-                : _source.Get(position - 1).Id.GetHashCode();
+                : _categoryIds[position - 1].GetHashCode();
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
@@ -37,7 +39,7 @@ namespace AuthenticatorPro.Droid.List
 
             holder.Name.Text = position == 0
                 ? _context.Resources.GetString(Resource.String.categoryAll)
-                : _source.Get(position - 1).Name;
+                : _categoryNames[position - 1];
 
             holder.ItemView.Selected = position == SelectedPosition;
         }
@@ -53,10 +55,7 @@ namespace AuthenticatorPro.Droid.List
                 SelectedPosition = position;
                 NotifyItemChanged(position);
 
-                var categoryId = position == 0
-                    ? null
-                    : _source.Get(position - 1).Id;
-
+                var categoryId = position == 0 ? null : _categoryIds[position - 1];
                 CategorySelected?.Invoke(this, categoryId);
             };
 

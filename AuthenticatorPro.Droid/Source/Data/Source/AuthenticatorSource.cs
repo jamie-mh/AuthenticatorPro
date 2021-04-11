@@ -247,14 +247,14 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
             return _all.Any(iterator => auth.Secret == iterator.Secret);
         }
 
-        public bool IsDuplicateCategoryBinding(AuthenticatorCategory binding)
+        private bool IsDuplicateCategoryBinding(AuthenticatorCategory binding)
         {
             return CategoryBindings.Any(
                 ac => binding.AuthenticatorSecret == ac.AuthenticatorSecret &&
                          binding.CategoryId == ac.CategoryId);
         }
 
-        public List<string> GetCategories(int position)
+        public string[] GetCategories(int position)
         {
             var auth = Get(position);
 
@@ -263,7 +263,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Source
 
             return CategoryBindings.Where(c => c.AuthenticatorSecret == auth.Secret)
                                    .Select(c => c.CategoryId)
-                                   .ToList();
+                                   .ToArray();
         }
 
         private AuthenticatorCategory GetAuthenticatorCategoryBinding(string authSecret, string categoryId)

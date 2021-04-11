@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AuthenticatorPro.Shared.Source.Data.Source;
 using Google.Android.Material.Button;
 using Google.Android.Material.Chip;
 
@@ -15,20 +14,21 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ManageCategoriesClick;
         public event EventHandler Close;
 
-        private readonly int _itemPosition;
-        private readonly CategorySource _categorySource;
-        private readonly List<string> _checkedCategories;
-
         private ChipGroup _chipGroup;
+        
+        private int position;
+        private string[] _categoryIds;
+        private string[] _categoryNames;
+        private string[] _assignedCategoryIds;
 
-
-        public AssignCategoriesBottomSheet(CategorySource categorySource, int itemPosition, List<string> checkedCategories)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
+            base.OnCreate(savedInstanceState);
 
-            _categorySource = categorySource;
-            _checkedCategories = checkedCategories;
-            _itemPosition = itemPosition;
+            position = Arguments.GetInt("position", -1);
+            _categoryIds = Arguments.GetStringArray("categoryIds");
+            _categoryNames = Arguments.GetStringArray("categoryNames");
+            _assignedCategoryIds = Arguments.GetStringArray("assignedCategoryIds");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -39,34 +39,35 @@ namespace AuthenticatorPro.Droid.Fragment
             
             var emptyText = view.FindViewById<TextView>(Resource.Id.textEmpty);
 
-            if(_categorySource.GetView().Count == 0)
+            if(!_categoryIds.Any())
             {
                 emptyText.Visibility = ViewStates.Visible;
                 _chipGroup.Visibility = ViewStates.Gone;
             }
 
-            for(var i = 0; i < _categorySource.GetView().Count; ++i)
+            for(var i = 0; i < _categoryIds.Length; ++i)
             {
-                var category = _categorySource.Get(i);
                 var chip = (Chip) inflater.Inflate(Resource.Layout.chipChoice, _chipGroup, false);
-                chip.Text = category.Name;
+                chip.Text = _categoryNames[i];
                 chip.Checkable = true;
                 chip.Clickable = true;
 
-                if(_checkedCategories.Contains(category.Id))
+                if(_assignedCategoryIds.Contains(_categoryIds[i]))
                     chip.Checked = true;
 
-                var position = i;
+                var categoryPos = i;
                 chip.Click += (sender, _) =>
                 {
-                    CategoryClick?.Invoke(sender, new CategoryClickedEventArgs(_itemPosition, position, chip.Checked));
+                    CategoryClick?.Invoke(sender, new CategoryClickedEventArgs(position, categoryPos, chip.Checked));
                 };
 
                 _chipGroup.AddView(chip);
             }
 
             var manageCategoriesButton = view.FindViewById<MaterialButton>(Resource.Id.buttonManageCategories);
-            manageCategoriesButton.Click += ManageCategoriesClick;
+            
+            if(ManageCategoriesClick != null)
+                manageCategoriesButton.Click += ManageCategoriesClick;
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOK);
             okButton.Click += (sender, args) =>

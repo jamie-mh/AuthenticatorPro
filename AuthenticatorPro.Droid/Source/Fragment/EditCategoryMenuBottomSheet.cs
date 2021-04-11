@@ -13,15 +13,14 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler<int> ClickSetDefault;
         public event EventHandler<int> ClickDelete;
 
-        private readonly int _itemPosition;
-        private readonly bool _isDefault;
+        private int _position;
+        private bool _isDefault;
 
-
-        public EditCategoryMenuBottomSheet(int itemPosition, bool isDefault)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _itemPosition = itemPosition;
-            _isDefault = isDefault;
+            base.OnCreate(savedInstanceState);
+            _position = Arguments.GetInt("position", -1);
+            _isDefault = Arguments.GetBoolean("isDefault", false);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -33,15 +32,15 @@ namespace AuthenticatorPro.Droid.Fragment
             {
                 new(Resource.Drawable.ic_action_edit, Resource.String.rename, delegate
                 {
-                    ClickRename(this, _itemPosition);
+                    ClickRename(this, _position);
                 }),
                 new(Resource.Drawable.ic_action_star, _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault, delegate
                 {
-                    ClickSetDefault(this, _itemPosition);
+                    ClickSetDefault(this, _position);
                 }),
                 new(Resource.Drawable.ic_action_delete, Resource.String.delete, delegate
                 {
-                    ClickDelete(this, _itemPosition);
+                    ClickDelete(this, _position);
                 }, null, true)
             });
 

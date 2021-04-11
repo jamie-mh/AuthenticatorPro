@@ -5,6 +5,7 @@ using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
+using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Data.Generator;
@@ -51,11 +52,9 @@ namespace AuthenticatorPro.Droid.Fragment
             set => _secretLayout.Error = value;
         }
 
-        public AddAuthenticatorBottomSheet(IIconResolver iconResolver)
+        public AddAuthenticatorBottomSheet()
         {
-            RetainInstance = true;
-
-            _iconResolver = iconResolver;
+            _iconResolver = new IconResolver();
             _type = AuthenticatorType.Totp;
             _algorithm = OtpHashMode.Sha1;
         }

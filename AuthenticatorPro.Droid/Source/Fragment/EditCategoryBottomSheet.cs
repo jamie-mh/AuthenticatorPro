@@ -19,9 +19,9 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public event EventHandler<EditCategoryEventArgs> Submit;
 
-        private readonly Mode _mode;
-        private readonly int? _itemPosition;
-        private readonly string _initialValue;
+        private Mode _mode;
+        private int _position;
+        private string _initialValue;
 
         private TextInputEditText _textName;
         private TextInputLayout _textNameLayout;
@@ -30,13 +30,13 @@ namespace AuthenticatorPro.Droid.Fragment
             set => _textNameLayout.Error = value;
         }
 
-
-        public EditCategoryBottomSheet(Mode mode, int? itemPosition, string initialValue = null)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _mode = mode;
-            _itemPosition = itemPosition;
-            _initialValue = initialValue;
+            base.OnCreate(savedInstanceState);
+
+            _mode = (Mode) Arguments.GetInt("mode", 0);
+            _position = Arguments.GetInt("position", -1);
+            _initialValue = Arguments.GetString("initialValue");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -79,7 +79,7 @@ namespace AuthenticatorPro.Droid.Fragment
                     return;
                 }
 
-                var args = new EditCategoryEventArgs(_itemPosition, _initialValue, name);
+                var args = new EditCategoryEventArgs(_position, _initialValue, name);
                 Submit?.Invoke(this, args);
             };
 
@@ -94,13 +94,13 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public class EditCategoryEventArgs : EventArgs
         {
-            public readonly int? ItemPosition;
+            public readonly int Position;
             public readonly string InitialName;
             public readonly string Name;
 
-            public EditCategoryEventArgs(int? itemPosition, string initialName, string name)
+            public EditCategoryEventArgs(int position, string initialName, string name)
             {
-                ItemPosition = itemPosition;
+                Position = position;
                 InitialName = initialName;
                 Name = name;
             }

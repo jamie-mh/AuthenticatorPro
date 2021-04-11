@@ -11,7 +11,6 @@ using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
-using Javax.Crypto;
 using BiometricManager = AndroidX.Biometric.BiometricManager;
 using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 

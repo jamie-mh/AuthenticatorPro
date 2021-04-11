@@ -166,7 +166,10 @@ namespace AuthenticatorPro.Droid.Fragment
         
         private void OnSetPasswordButtonClick(object sender, EventArgs e)
         {
-            var fragment = new BackupPasswordBottomSheet(BackupPasswordBottomSheet.Mode.Set);
+            var bundle = new Bundle();
+            bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Set);
+
+            var fragment = new BackupPasswordBottomSheet {Arguments = bundle};
             fragment.PasswordEntered += OnPasswordEntered;
             
             var activity = (SettingsActivity) Context;

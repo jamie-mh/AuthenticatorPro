@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Droid.Fragment
             Enter = 1
         }
 
-        private readonly Mode _mode;
+        private Mode _mode;
 
         public event EventHandler Cancel;
         public event EventHandler<string> PasswordEntered;
@@ -30,15 +30,15 @@ namespace AuthenticatorPro.Droid.Fragment
         private MaterialButton _cancelButton;
         private MaterialButton _okButton;
 
-        public BackupPasswordBottomSheet(Mode mode)
-        {
-            RetainInstance = true;
-            _mode = mode;
-        }
-
         public string Error
         {
             set => _passwordTextLayout.Error = value;
+        }
+
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            _mode = (Mode) Arguments.GetInt("mode", 0);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

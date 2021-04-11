@@ -18,15 +18,16 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickShowQrCode;
         public event EventHandler ClickDelete;
 
-        private readonly AuthenticatorType _type;
-        private readonly long _counter;
+        private AuthenticatorType _type;
+        private long _counter;
 
 
-        public AuthenticatorMenuBottomSheet(AuthenticatorType type, long counter)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _type = type;
-            _counter = counter;
+            base.OnCreate(savedInstanceState);
+
+            _type = (AuthenticatorType) Arguments.GetInt("type", 0);
+            _counter = Arguments.GetLong("counter", 0);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

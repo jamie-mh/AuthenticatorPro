@@ -4,6 +4,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.List;
 using Google.Android.Material.Button;
@@ -15,20 +16,21 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler<IconSelectedEventArgs> IconSelect;
         public event EventHandler UseCustomIconClick;
 
-        private readonly IconSource _iconSource;
-        private readonly int _itemPosition;
+        private IconSource _iconSource;
+        private int _position;
 
         private IconListAdapter _iconListAdapter;
         private RecyclerView _iconList;
         private EditText _searchText;
 
 
-        public ChangeIconBottomSheet(int itemPosition, bool isDark)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-
-            _itemPosition = itemPosition;
-            _iconSource = new IconSource(isDark);
+            base.OnCreate(savedInstanceState);
+            _position = Arguments.GetInt("position", 0);
+            
+            var activity = (BaseActivity) Activity;
+            _iconSource = new IconSource(activity.IsDark);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -71,7 +73,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private void OnItemClick(object sender, int iconPosition)
         {
-            var eventArgs = new IconSelectedEventArgs(_itemPosition, _iconSource.Get(iconPosition).Key);
+            var eventArgs = new IconSelectedEventArgs(_position, _iconSource.Get(iconPosition).Key);
             IconSelect?.Invoke(this, eventArgs);
         }
 

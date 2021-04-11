@@ -15,9 +15,9 @@ namespace AuthenticatorPro.Droid.Fragment
     {
         public event EventHandler<RenameEventArgs> Rename;
 
-        private readonly int _itemPosition;
-        private readonly string _issuer;
-        private readonly string _username;
+        private int _position;
+        private string _issuer;
+        private string _username;
 
         private TextInputLayout _issuerLayout;
         private TextInputLayout _usernameLayout;
@@ -26,12 +26,13 @@ namespace AuthenticatorPro.Droid.Fragment
         private TextInputEditText _usernameText;
 
 
-        public RenameAuthenticatorBottomSheet(int itemPosition, string issuer, string username)
+        public override void OnCreate(Bundle savedInstanceState)
         {
-            RetainInstance = true;
-            _itemPosition = itemPosition;
-            _issuer = issuer;
-            _username = username;
+            base.OnCreate(savedInstanceState);
+
+            _position = Arguments.GetInt("position", -1);
+            _issuer = Arguments.GetString("issuer");
+            _username = Arguments.GetString("username");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -72,7 +73,7 @@ namespace AuthenticatorPro.Droid.Fragment
                     return;
                 }
 
-                var args = new RenameEventArgs(_itemPosition, issuer, _usernameText.Text);
+                var args = new RenameEventArgs(_position, issuer, _usernameText.Text);
                 Rename?.Invoke(this, args);
                 Dismiss();
             };
