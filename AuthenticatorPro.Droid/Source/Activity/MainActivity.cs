@@ -716,7 +716,7 @@ namespace AuthenticatorPro.Droid.Activity
             _authLayout = new AutoGridLayoutManager(this, viewMode.GetMinColumnWidth());
             _authList.SetLayoutManager(_authLayout);
 
-            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, _authLayout, viewMode.GetSpacing(), viewMode.HasEdgeSpacing()));
+            _authList.AddItemDecoration(new GridSpacingItemDecoration(this, _authLayout, viewMode.GetSpacing(), true));
             _authList.HasFixedSize = false;
 
             var animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);

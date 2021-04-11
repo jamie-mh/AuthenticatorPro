@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="?attr/authListItem_background"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="6dp"
     app:cardElevation="0dp"
     android:focusable="true"
     android:clickable="true"

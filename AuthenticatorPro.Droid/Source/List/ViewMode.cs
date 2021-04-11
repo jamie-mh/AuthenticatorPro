@@ -32,16 +32,8 @@
             return viewMode switch
             {
                 ViewMode.Default => 8,
+                ViewMode.Compact => 6,
                 _ => 4
-            };
-        }
-
-        public static bool HasEdgeSpacing(this ViewMode viewMode)
-        {
-            return viewMode switch
-            {
-                ViewMode.Default => true,
-                _ => false
             };
         }
     }
