@@ -1,7 +1,7 @@
 ﻿using System;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Shared.Source.Data.Source;
+using AuthenticatorPro.Droid.Data.Source;
 
 namespace AuthenticatorPro.Droid.List
 {

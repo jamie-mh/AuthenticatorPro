@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Data.Generator;
 using SQLite;
 
-namespace AuthenticatorPro.Shared.Source.Data.Source
+namespace AuthenticatorPro.Droid.Data.Source
 {
     internal class AuthenticatorSource : ISource<Authenticator>
     {

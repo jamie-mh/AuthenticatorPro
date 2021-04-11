@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Source.Data;
 using SQLite;
 
-namespace AuthenticatorPro.Shared.Source.Data.Source
+namespace AuthenticatorPro.Droid.Data.Source
 {
     internal class CategorySource : ISource<Category>
     {

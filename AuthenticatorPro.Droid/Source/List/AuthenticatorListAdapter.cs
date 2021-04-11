@@ -11,10 +11,10 @@ using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Data.Generator;
-using AuthenticatorPro.Shared.Source.Data.Source;
 using AuthenticatorPro.Shared.Source.Util;
 using Object = Java.Lang.Object;
 
