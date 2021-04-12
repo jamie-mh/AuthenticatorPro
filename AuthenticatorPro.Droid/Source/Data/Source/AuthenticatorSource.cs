@@ -53,31 +53,27 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public void UpdateView()
         {
-            var view = _all;
+            var view = _all.AsEnumerable();
 
             if(GenerationMethod != null)
-                view = view.Where(i => i.Type.GetGenerationMethod() == GenerationMethod).ToList();
+                view = view.Where(i => i.Type.GetGenerationMethod() == GenerationMethod);
 
             if(CategoryId != null)
             {
-                var bindingForCategory =
-                    CategoryBindings.Where(b => b.CategoryId == CategoryId).ToList();
+                var bindingForCategory = CategoryBindings.Where(b => b.CategoryId == CategoryId);
 
                 view = view
                     .Where(a => bindingForCategory.Any(c => c.AuthenticatorSecret == a.Secret))
-                    .OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking)
-                    .ToList();
+                    .OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking);
             }
 
             if(!String.IsNullOrEmpty(Search))
             {
                 var searchLower = Search.ToLower();
-                
-                view = view.Where(i => i.Issuer.ToLower().Contains(searchLower) || i.Username != null && i.Username.Contains(searchLower))
-                           .ToList();
+                view = view.Where(i => i.Issuer.ToLower().Contains(searchLower) || i.Username != null && i.Username.Contains(searchLower));
             }
 
-            _view = view;
+            _view = view.ToList();
         }
 
         public async Task Update()
