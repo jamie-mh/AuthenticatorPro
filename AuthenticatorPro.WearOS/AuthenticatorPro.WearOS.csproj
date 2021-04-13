@@ -116,9 +116,6 @@
     <PackageReference Include="Otp.NET">
       <Version>1.2.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.AppCompat">
-      <Version>1.2.0.7</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
       <Version>1.0.0.7</Version>
     </PackageReference>

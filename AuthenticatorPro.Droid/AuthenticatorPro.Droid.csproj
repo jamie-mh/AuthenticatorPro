@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -237,12 +237,6 @@
     <PackageReference Include="sqlite-net-sqlcipher">
       <Version>1.7.335</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.AppCompat">
-      <Version>1.2.0.7</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.AppCompat.Resources">
-      <Version>1.1.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Biometric">
       <Version>1.1.0.1</Version>
     </PackageReference>
@@ -266,9 +260,6 @@
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
       <Version>2.3.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Media">
-      <Version>1.2.1.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Preference">
       <Version>1.1.1.8</Version>
