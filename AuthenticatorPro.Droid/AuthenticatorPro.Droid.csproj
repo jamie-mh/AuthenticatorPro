@@ -226,7 +226,7 @@
       <Version>2.0.147</Version>
     </PackageReference>
     <PackageReference Include="Polly">
-      <Version>7.2.1</Version>
+      <Version>7.2.2</Version>
     </PackageReference>
     <PackageReference Include="protobuf-net">
       <Version>3.0.101</Version>
