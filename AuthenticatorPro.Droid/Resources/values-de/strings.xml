@@ -66,9 +66,9 @@
     <string name="backupHtml">Als HTML-Datei sichern</string>
     <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="backupHtmlWarning">Sicherungen in HTML-Dokumente sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir nicht sicher bist, was du tust, verwende eine verschlüsselte Sicherung.\n\nFortfahren?</string>
-    <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriList">Sicherung als URI-Listen-Datei</string>
+    <string name="backupUriListMessage">Speichern Sie Ihre Authentifikatoren in einer unverschlüsselten Klartext-URI-Listendatei. Diese Datei ist mit vielen alternativen Anwendungen und Diensten kompatibel. Kategorien und Symbole werden nicht gespeichert.</string>
+    <string name="backupUriListWarning">Sicherungen in Klartext-Dateien sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir unsicher bist, verwende stattdessen eine verschlüsselte Sicherung.\n\nFortfahren?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
