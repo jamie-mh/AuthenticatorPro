@@ -13,9 +13,18 @@ namespace AuthenticatorPro.WearOS.Data
             if(ReferenceEquals(x, null)) return false;
             if(ReferenceEquals(y, null)) return false;
             if(x.GetType() != y.GetType()) return false;
+            if(x.Categories == null && y.Categories != null) return false;
+            if(x.Categories != null && y.Categories == null) return false;
 
-            var differentCategories =
-                x.CategoryIds.Except(y.CategoryIds).Any() || y.CategoryIds.Except(x.CategoryIds).Any();
+            var differentCategories = false;
+
+            if(x.Categories != null && y.Categories != null)
+            {
+                var categoryComparer = new WearAuthenticatorCategoryComparer();
+
+                differentCategories =
+                    x.Categories.Except(y.Categories, categoryComparer).Any() || y.Categories.Except(x.Categories, categoryComparer).Any();
+            }
 
             var isEqual = !differentCategories && x.Secret == y.Secret && x.Icon == y.Icon && x.Issuer == y.Issuer &&
                 x.Username == y.Username && x.Period == y.Period && x.Digits == y.Digits && x.Algorithm == y.Algorithm;
@@ -25,7 +34,7 @@ namespace AuthenticatorPro.WearOS.Data
 
         public int GetHashCode(WearAuthenticator obj)
         {
-            return HashCode.Combine(obj.Secret, obj.Icon, obj.Issuer, obj.Username, obj.Period, obj.Digits, (int) obj.Algorithm, obj.CategoryIds);
+            return HashCode.Combine(obj.Secret, obj.Icon, obj.Issuer, obj.Username, obj.Period, obj.Digits, (int) obj.Algorithm, obj.Categories);
         }
     }
 }

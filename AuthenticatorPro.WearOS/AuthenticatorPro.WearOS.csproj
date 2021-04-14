@@ -76,6 +76,7 @@
     <Compile Include="Source\Cache\ListCache.cs" />
     <Compile Include="Source\Cache\CustomIconCache.cs" />
     <Compile Include="Source\Data\AuthenticatorSource.cs" />
+    <Compile Include="Source\Data\WearAuthenticatorCategoryComparer.cs" />
     <Compile Include="Source\Data\WearAuthenticatorComparer.cs" />
     <Compile Include="Source\Data\WearCategoryComparer.cs" />
     <Compile Include="Source\List\AuthenticatorListAdapter.cs" />

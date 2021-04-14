@@ -29,10 +29,18 @@ namespace AuthenticatorPro.WearOS.Data
 
         public void UpdateView()
         {
-            _view = _cache.GetItems();
+            var view = _cache.GetItems().AsEnumerable();
 
             if(CategoryId != null)
-                _view = _view.Where(a => a.CategoryIds.Contains(CategoryId)).ToList();
+            {
+                view = view
+                    .Where(a => a.Categories != null && a.Categories.Any(c => c.CategoryId == CategoryId))
+                    .OrderBy(a => a.Categories.First(c => c.CategoryId == CategoryId).Ranking);
+            }
+            else
+                view = view.OrderBy(a => a.Ranking);
+
+            _view = view.ToList();
         }
         
         public List<WearAuthenticator> GetView()

@@ -62,21 +62,22 @@ namespace AuthenticatorPro.Droid.Service
             
             foreach(var auth in _authSource.GetView())
             {
-                var categoryIds = _authSource.CategoryBindings
+                var bindings = _authSource.CategoryBindings
                     .Where(c => c.AuthenticatorSecret == auth.Secret)
-                    .Select(c => c.CategoryId).ToList();
+                    .Select(c => new WearAuthenticatorCategory(c.CategoryId, c.Ranking))
+                    .ToList();
                 
                 var item = new WearAuthenticator(
-                    auth.Type, auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, categoryIds); 
+                    auth.Type, auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, auth.Ranking, bindings); 
                 
                 auths.Add(item);
             }
             
             await _categorySource.Update();
-            var categories = _categorySource.GetView().Select(c => new WearCategory(c.Id, c.Name)).ToList();
+            var categories = _categorySource.GetAll().Select(c => new WearCategory(c.Id, c.Name)).ToList();
 
             await _customIconSource.Update();
-            var customIconIds = _customIconSource.GetView().Select(i => i.Id).ToList();
+            var customIconIds = _customIconSource.GetAll().Select(i => i.Id).ToList();
             
             var preferenceWrapper = new PreferenceWrapper(this);
             var preferences = new WearPreferences(preferenceWrapper.DefaultCategory);
