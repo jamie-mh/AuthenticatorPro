@@ -96,8 +96,15 @@ namespace AuthenticatorPro.WearOS.Activity
             if(defaultCategory != null)
                 _authSource.SetCategory(defaultCategory);
             
-            RunOnUiThread(InitViews);
-            _onCreateLock.Release();
+            RunOnUiThread(delegate
+            {
+                InitViews();
+                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort, false, delegate
+                {
+                    CheckEmptyState();
+                    _onCreateLock.Release();
+                });
+            });
         }
 
         protected override async void OnResume()
@@ -228,24 +235,16 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void CheckEmptyState()
         {
-            if(_loadingLayout.Visibility == ViewStates.Visible)
-                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort);
-            
-            _emptyLayout.Visibility = ViewStates.Gone;
-
-            if(_authSource.GetView().Count == 0)
+            if(!_authSource.GetView().Any())
+            {
                 _emptyLayout.Visibility = ViewStates.Visible;
+                _authList.Visibility = ViewStates.Invisible;
+            }
             else
             {
-                if(_authList.Visibility == ViewStates.Invisible)
-                {
-                    AnimUtil.FadeInView(_authList, AnimUtil.LengthShort, false, delegate
-                    {
-                        _authList.RequestFocus();
-                    });
-                }
-                else
-                    _authList.RequestFocus();
+                _emptyLayout.Visibility = ViewStates.Invisible;
+                _authList.Visibility = ViewStates.Visible;
+                _authList.RequestFocus();
             }
         }
         
