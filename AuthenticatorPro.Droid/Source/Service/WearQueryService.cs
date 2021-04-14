@@ -23,11 +23,8 @@ namespace AuthenticatorPro.Droid.Service
     )]
     internal class WearQueryService : WearableListenerService
     {
-        private const string ListAuthenticatorsCapability = "list_authenticators";
-        private const string ListCategoriesCapability = "list_categories";
-        private const string ListCustomIconsCapability = "list_custom_icons";
+        private const string GetSyncBundleCapability = "get_sync_bundle";
         private const string GetCustomIconCapability = "get_custom_icon";
-        private const string GetPreferencesCapability = "get_preferences";
 
         private readonly Lazy<Task> _initTask;
         
@@ -58,11 +55,11 @@ namespace AuthenticatorPro.Droid.Service
                 await _connection.CloseAsync();
         }
 
-        private async Task ListAuthenticators(string nodeId)
+        private async Task GetSyncBundle(string nodeId)
         {
             await _authSource.Update();
-            var items = new List<WearAuthenticator>();
-
+            var auths = new List<WearAuthenticator>();
+            
             foreach(var auth in _authSource.GetView())
             {
                 var categoryIds = _authSource.CategoryBindings
@@ -72,42 +69,24 @@ namespace AuthenticatorPro.Droid.Service
                 var item = new WearAuthenticator(
                     auth.Type, auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits, auth.Algorithm, categoryIds); 
                 
-                items.Add(item);
+                auths.Add(item);
             }
             
-            var json = JsonConvert.SerializeObject(items);
-            var data = Encoding.UTF8.GetBytes(json);
-
-            await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, ListAuthenticatorsCapability, data);
-        }
-
-        private async Task ListCategories(string nodeId)
-        {
             await _categorySource.Update();
-            
-            var categories = 
-                _categorySource.GetView().Select(c => new WearCategory(c.Id, c.Name)).ToList();
-            
-            var json = JsonConvert.SerializeObject(categories);
-            var data = Encoding.UTF8.GetBytes(json);
+            var categories = _categorySource.GetView().Select(c => new WearCategory(c.Id, c.Name)).ToList();
 
-            await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, ListCategoriesCapability, data);
-        }
-
-        private async Task ListCustomIcons(string nodeId)
-        {
             await _customIconSource.Update();
+            var customIconIds = _customIconSource.GetView().Select(i => i.Id).ToList();
             
-            var ids = new List<string>();
-            _customIconSource.GetView().ForEach(i => ids.Add(i.Id));
-
-            var json = JsonConvert.SerializeObject(ids);
+            var preferenceWrapper = new PreferenceWrapper(this);
+            var preferences = new WearPreferences(preferenceWrapper.DefaultCategory);
+            
+            var bundle = new WearSyncBundle(auths, categories, customIconIds, preferences);
+            
+            var json = JsonConvert.SerializeObject(bundle);
             var data = Encoding.UTF8.GetBytes(json);
 
-            await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, ListCustomIconsCapability, data);
+            await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId, GetSyncBundleCapability, data);
         }
 
         private async Task GetCustomIcon(string customIconId, string nodeId)
@@ -124,19 +103,7 @@ namespace AuthenticatorPro.Droid.Service
                 data = Encoding.UTF8.GetBytes(json);
             }
 
-            await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, GetCustomIconCapability, data);
-        }
-
-        private async Task GetPreferences(string nodeId)
-        {
-            var preferences = new PreferenceWrapper(this);
-            var settings = new WearPreferences(preferences.DefaultCategory);
-            var json = JsonConvert.SerializeObject(settings);
-            var data = Encoding.UTF8.GetBytes(json);
-
-            await WearableClass.GetMessageClient(this)
-                .SendMessageAsync(nodeId, GetPreferencesCapability, data);
+            await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId, GetCustomIconCapability, data);
         }
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
@@ -145,28 +112,16 @@ namespace AuthenticatorPro.Droid.Service
 
             switch(messageEvent.Path)
             {
-                case ListAuthenticatorsCapability:
-                    await ListAuthenticators(messageEvent.SourceNodeId);
+                case GetSyncBundleCapability:
+                    await GetSyncBundle(messageEvent.SourceNodeId);
                     break;
                 
-                case ListCategoriesCapability:
-                    await ListCategories(messageEvent.SourceNodeId);
-                    break;
-                
-                case ListCustomIconsCapability:
-                    await ListCustomIcons(messageEvent.SourceNodeId);
-                    break;
-
                 case GetCustomIconCapability:
                 {
                     var id = Encoding.UTF8.GetString(messageEvent.GetData());
                     await GetCustomIcon(id, messageEvent.SourceNodeId);
                     break;
                 }
-                
-                case GetPreferencesCapability:
-                    await GetPreferences(messageEvent.SourceNodeId);
-                    break;
             }
         }
     }

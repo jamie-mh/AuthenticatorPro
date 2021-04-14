@@ -51,6 +51,7 @@
     <Compile Include="Source\Query\WearCategory.cs" />
     <Compile Include="Source\Query\WearCustomIcon.cs" />
     <Compile Include="Source\Query\WearPreferences.cs" />
+    <Compile Include="Source\Query\WearSyncBundle.cs" />
     <Compile Include="Source\Util\AnimUtil.cs" />
     <Compile Include="Source\Query\WearAuthenticator.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

@@ -29,12 +29,9 @@ namespace AuthenticatorPro.WearOS.Activity
     internal class MainActivity : AppCompatActivity, MessageClient.IOnMessageReceivedListener
     {
         // Query Paths
-        private const string ProtocolVersion = "protocol_v2.1";
-        private const string ListAuthenticatorsCapability = "list_authenticators";
-        private const string ListCategoriesCapability = "list_categories";
-        private const string ListCustomIconsCapability = "list_custom_icons";
+        private const string ProtocolVersion = "protocol_v3.0";
+        private const string GetSyncBundleCapability = "get_sync_bundle";
         private const string GetCustomIconCapability = "get_custom_icon";
-        private const string GetPreferencesCapability = "get_preferences";
         private const string RefreshCapability = "refresh";
         
         // Cache Names
@@ -67,7 +64,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
         // Lifecycle Synchronisation
         private readonly SemaphoreSlim _onCreateLock;
-        private readonly SemaphoreSlim _requestLock;
         private readonly SemaphoreSlim _responseLock;
 
 
@@ -75,7 +71,6 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             _justLaunched = true;
             _onCreateLock = new SemaphoreSlim(1, 1);
-            _requestLock = new SemaphoreSlim(1, 1);
             _responseLock = new SemaphoreSlim(0, 1);
         }
 
@@ -351,69 +346,50 @@ namespace AuthenticatorPro.WearOS.Activity
                 return;
 
             Interlocked.Exchange(ref _responsesReceived, 0);
-            Interlocked.Exchange(ref _responsesRequired, 4);
+            Interlocked.Exchange(ref _responsesRequired, 1);
             
             var client = WearableClass.GetMessageClient(this);
-
-            async Task MakeRequest(string capability)
-            {
-                await client.SendMessageAsync(_serverNode.Id, capability, new byte[] { });
-            }
-
-            await _requestLock.WaitAsync();
-            await MakeRequest(ListAuthenticatorsCapability);
-            await MakeRequest(ListCategoriesCapability);
-            await MakeRequest(ListCustomIconsCapability);
-            await MakeRequest(GetPreferencesCapability);
-            _requestLock.Release();
+            await client.SendMessageAsync(_serverNode.Id, GetSyncBundleCapability, new byte[] { });
             
             await _responseLock.WaitAsync();
         }
         
-        private async Task OnAuthenticatorListReceived(byte[] data)
+        private async Task OnSyncBundleReceived(byte[] data)
         {
             var json = Encoding.UTF8.GetString(data);
-            var items = JsonConvert.DeserializeObject<List<WearAuthenticator>>(json);
+            var bundle = JsonConvert.DeserializeObject<WearSyncBundle>(json);
 
-            if(_authCache.Dirty(items, new WearAuthenticatorComparer()))
+            _preferences.DefaultCategory = bundle.Preferences.DefaultCategory;
+            
+            if(_authCache.Dirty(bundle.Authenticators, new WearAuthenticatorComparer()))
             {
-                await _authCache.Replace(items);
+                await _authCache.Replace(bundle.Authenticators);
                 _authSource.UpdateView();
                 RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             }
-        }
-
-        private async Task OnCategoriesListReceived(byte[] data)
-        {
-            var json = Encoding.UTF8.GetString(data);
-            var items = JsonConvert.DeserializeObject<List<WearCategory>>(json);
-
-            if(_categoryCache.Dirty(items, new WearCategoryComparer()))
+            
+            if(_categoryCache.Dirty(bundle.Categories, new WearCategoryComparer()))
             {
-                await _categoryCache.Replace(items);
+                await _categoryCache.Replace(bundle.Categories);
                 RunOnUiThread(_categoryListAdapter.NotifyDataSetChanged);
             }
-        }
-        
-        private async Task OnCustomIconListReceived(byte[] data)
-        {
-            var json = Encoding.UTF8.GetString(data);
-            var ids = JsonConvert.DeserializeObject<List<string>>(json);
-
+           
             var inCache = _customIconCache.GetIcons();
 
-            var toRequest = ids.Where(i => !inCache.Contains(i)).ToList();
-            var toRemove = inCache.Where(i => !ids.Contains(i)).ToList();
+            var toRequest = bundle.CustomIconIds.Where(i => !inCache.Contains(i)).ToList();
+            var toRemove = inCache.Where(i => !bundle.CustomIconIds.Contains(i)).ToList();
 
+            foreach(var icon in toRemove)
+                _customIconCache.Remove(icon);
+            
+            if(!toRequest.Any())
+                return;
+            
             var client = WearableClass.GetMessageClient(this);
-
             Interlocked.Add(ref _responsesRequired, toRequest.Count);
             
             foreach(var icon in toRequest)
                 await client.SendMessageAsync(_serverNode.Id, GetCustomIconCapability, Encoding.UTF8.GetBytes(icon));
-
-            foreach(var icon in toRemove)
-                _customIconCache.Remove(icon);
         }
 
         private async Task OnCustomIconReceived(byte[] data)
@@ -424,14 +400,6 @@ namespace AuthenticatorPro.WearOS.Activity
             await _customIconCache.Add(icon.Id, icon.Data);
         }
         
-        private void OnPreferencesReceived(byte[] data)
-        {
-            var json = Encoding.UTF8.GetString(data);
-            var prefs = JsonConvert.DeserializeObject<WearPreferences>(json);
-
-            _preferences.DefaultCategory = prefs.DefaultCategory;
-        }
-
         private async Task OnRefreshRecieved()
         {
             await Refresh();
@@ -440,29 +408,14 @@ namespace AuthenticatorPro.WearOS.Activity
 
         public async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            await _requestLock.WaitAsync();
-            _requestLock.Release();
-
             switch(messageEvent.Path)
             {
-                case ListAuthenticatorsCapability:
-                    await OnAuthenticatorListReceived(messageEvent.GetData());
-                    break;
-                
-                case ListCategoriesCapability:
-                    await OnCategoriesListReceived(messageEvent.GetData());
-                    break;
-                
-                case ListCustomIconsCapability:
-                    await OnCustomIconListReceived(messageEvent.GetData());
+                case GetSyncBundleCapability:
+                    await OnSyncBundleReceived(messageEvent.GetData());
                     break;
                 
                 case GetCustomIconCapability:
                     await OnCustomIconReceived(messageEvent.GetData());
-                    break;
-                
-                case GetPreferencesCapability:
-                    OnPreferencesReceived(messageEvent.GetData());
                     break;
 
                 case RefreshCapability:
