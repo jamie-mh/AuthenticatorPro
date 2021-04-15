@@ -875,7 +875,11 @@ namespace AuthenticatorPro.Droid.Activity
                 SupportActionBar.Title = categoryName;
                 _authListAdapter.NotifyDataSetChanged();
                 _authList.ScheduleLayoutAnimation();
-                ScrollToPosition(0);
+                
+                _authList.AnimationEnd += delegate
+                {
+                    ScrollToPosition(0);
+                };
             });
         }
 
