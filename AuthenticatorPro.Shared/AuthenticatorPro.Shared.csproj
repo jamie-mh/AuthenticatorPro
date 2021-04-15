@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <LangVersion>default</LangVersion>
         <NoWarn>NU1701</NoWarn>
     </PropertyGroup>
@@ -11,14 +11,14 @@
       <PackageReference Include="Newtonsoft.Json">
         <Version>13.0.1</Version>
       </PackageReference>
-      <PackageReference Include="Otp.NET">
-        <Version>1.2.2</Version>
-      </PackageReference>
       <PackageReference Include="PCLCrypto">
         <Version>2.0.147</Version>
       </PackageReference>
       <PackageReference Include="protobuf-net">
         <Version>3.0.101</Version>
+      </PackageReference>
+      <PackageReference Include="SimpleBase">
+        <Version>3.0.2</Version>
       </PackageReference>
       <PackageReference Include="sqlite-net-sqlcipher">
         <Version>1.7.335</Version>

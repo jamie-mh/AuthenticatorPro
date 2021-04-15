@@ -1,34 +1,27 @@
 ﻿using System;
-using OtpNet;
+using AuthenticatorPro.Shared.Source.Util;
 
 namespace AuthenticatorPro.Shared.Source.Data.Generator
 {
-    public class Hotp : CounterBasedGenerator
+    public class Hotp : HmacOtp, ICounterBasedGenerator
     {
         public const int CooldownSeconds = 10;
-
-        private readonly OtpNet.Hotp _hotp;
-        private DateTime _computedAt;
-        private long _counter;
-        public override long Counter
-        {
-            set => _counter = value;
-        }
+        private DateTimeOffset _computedAt;
         
-        public Hotp(string secret, OtpHashMode algorithm, int digits, long counter)
+        public Hotp(string secret, Algorithm algorithm, int digits) : base(secret, algorithm, digits)
         {
-            var secretBytes = Base32Encoding.ToBytes(secret);
-            _hotp = new OtpNet.Hotp(secretBytes, algorithm, digits);
-            _counter = counter;
+            
         }
 
-        public override string Compute()
+        public string Compute(long counter)
         {
-            _computedAt = DateTime.UtcNow;
-            return _hotp.ComputeHOTP(_counter);
+            _computedAt = DateTimeOffset.UtcNow;
+            var counterBytes = ByteUtil.GetBigEndianBytes(counter);
+            var material = base.Compute(counterBytes);
+            return Truncate(material);
         }
 
-        public override DateTime GetRenewTime()
+        public DateTimeOffset GetRenewTime()
         {
             return _computedAt.AddSeconds(CooldownSeconds);
         }

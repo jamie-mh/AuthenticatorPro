@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using AuthenticatorPro.Shared.Source.Data.Generator;
 using AuthenticatorPro.Shared.Source.Util;
 using Newtonsoft.Json;
-using OtpNet;
+using SimpleBase;
 using SQLite;
 using Hotp = AuthenticatorPro.Shared.Source.Data.Generator.Hotp;
 using SteamOtp = AuthenticatorPro.Shared.Source.Data.Generator.SteamOtp;
@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Shared.Source.Data
         public const int IssuerMaxLength = 32;
         public const int UsernameMaxLength = 40;
 
-        public const OtpHashMode DefaultAlgorithm = OtpHashMode.Sha1;
+        public const Algorithm DefaultAlgorithm = Generator.Algorithm.Sha1;
 
         [Column("type")]
         public AuthenticatorType Type { get; set; }
@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Shared.Source.Data
         public string Secret { get; set; }
 
         [Column("algorithm")]
-        public OtpHashMode Algorithm { get; set; }
+        public Algorithm Algorithm { get; set; }
 
         [Column("digits")]
         public int Digits { get; set; }
@@ -81,36 +81,33 @@ namespace AuthenticatorPro.Shared.Source.Data
             _generator ??= Type switch
             {
                 AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
-                AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits, Counter),
+                AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits),
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
                 AuthenticatorType.SteamOtp => new SteamOtp(Secret),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
-            
-            switch(Type.GetGenerationMethod())
+
+            switch(_generator)
             {
-                case GenerationMethod.Counter:
-                {
-                    if(_lastCounter == Counter)
-                        break;
-                    
-                    var counterGenerator = (CounterBasedGenerator) _generator;
-                    counterGenerator.Counter = Counter;
-                    var oldCode = _code;
-                    _code = counterGenerator.Compute();
-                    _lastCounter = Counter;
+                case ITimeBasedGenerator timeBasedGenerator when TimeRenew <= DateTimeOffset.UtcNow:
+                    _code = timeBasedGenerator.Compute();
+                    TimeRenew = _generator.GetRenewTime();
+                    break;
                 
+                case ICounterBasedGenerator when _lastCounter == Counter:
+                    return _code;
+                
+                case ICounterBasedGenerator counterBasedGenerator:
+                {
+                    var oldCode = _code;
+                    _code = counterBasedGenerator.Compute(Counter);
+                    _lastCounter = Counter;
+            
                     if(oldCode != null || Counter == 1)
-                        TimeRenew = counterGenerator.GetRenewTime();
+                        TimeRenew = counterBasedGenerator.GetRenewTime();
                     
                     break;
                 }
-               
-                // Disregard milliseconds in case of timer inaccuracies
-                case GenerationMethod.Time when TimeRenew.ToUnixTimeSeconds() <= DateTimeOffset.UtcNow.ToUnixTimeSeconds():
-                    _code = _generator.Compute();
-                    TimeRenew = _generator.GetRenewTime();
-                    break;
             }
 
             return _code;
@@ -143,7 +140,7 @@ namespace AuthenticatorPro.Shared.Source.Data
 
             var algorithm = input.Algorithm switch
             {
-                OtpAuthMigration.Algorithm.Sha1 => OtpHashMode.Sha1,
+                OtpAuthMigration.Algorithm.Sha1 => Algorithm.Sha1,
                 _ => throw new ArgumentException()
             };
 
@@ -151,7 +148,7 @@ namespace AuthenticatorPro.Shared.Source.Data
 
             try
             {
-                secret = Base32Encoding.ToString(input.Secret);
+                secret = Base32.Rfc4648.Encode(input.Secret);
                 secret = CleanSecret(secret, type);
             }
             catch
@@ -245,9 +242,9 @@ namespace AuthenticatorPro.Shared.Source.Data
             if(args.ContainsKey("algorithm") && type != AuthenticatorType.SteamOtp)
                 algorithm = args["algorithm"].ToUpper() switch
                 {
-                    "SHA1" => OtpHashMode.Sha1,
-                    "SHA256" => OtpHashMode.Sha256,
-                    "SHA512" => OtpHashMode.Sha512,
+                    "SHA1" => Algorithm.Sha1,
+                    "SHA256" => Algorithm.Sha256,
+                    "SHA512" => Algorithm.Sha512,
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 
@@ -314,9 +311,9 @@ namespace AuthenticatorPro.Shared.Source.Data
             {
                 var algorithmName = Algorithm switch
                 {
-                    OtpHashMode.Sha1 => "SHA1",
-                    OtpHashMode.Sha256 => "SHA256",
-                    OtpHashMode.Sha512 => "SHA512",
+                    Algorithm.Sha1 => "SHA1",
+                    Algorithm.Sha256 => "SHA256",
+                    Algorithm.Sha512 => "SHA512",
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 
@@ -358,7 +355,8 @@ namespace AuthenticatorPro.Shared.Source.Data
             {
                 try
                 {
-                    return Base32Encoding.ToBytes(secret).Length > 0;
+                    var output = Base32.Rfc4648.Decode(secret);
+                    return output.Length > 0;
                 }
                 catch(ArgumentException)
                 {

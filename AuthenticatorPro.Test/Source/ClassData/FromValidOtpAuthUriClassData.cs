@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using AuthenticatorPro.Shared.Source.Data;
-using OtpNet;
+using AuthenticatorPro.Shared.Source.Data.Generator;
 
 namespace AuthenticatorPro.Test.ClassData
 {
@@ -23,9 +23,9 @@ namespace AuthenticatorPro.Test.ClassData
             yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&digits=7", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Digits = 7 }}; // Digits parameter 
             yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&period=60", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Period = 60 }}; // Period parameter
             yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = Authenticator.DefaultAlgorithm }}; // Algorithm parameter 1/4
-            yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA1", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha1 }}; // Algorithm parameter 2/4
-            yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA256", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha256 }}; // Algorithm parameter 3/4
-            yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA512", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha512 }}; // Algorithm parameter 4/4
+            yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA1", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = Algorithm.Sha1 }}; // Algorithm parameter 2/4
+            yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA256", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = Algorithm.Sha256 }}; // Algorithm parameter 3/4
+            yield return new object[] { "otpauth://totp/issuer?secret=ABCDEFG&algorithm=SHA512", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG", Algorithm = Algorithm.Sha512 }}; // Algorithm parameter 4/4
             yield return new object[] { $"otpauth://totp/{new string('a', Authenticator.IssuerMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = new string('a', Authenticator.IssuerMaxLength), Username = null, Secret = "ABCDEFG" }}; // Truncate issuer
             yield return new object[] { $"otpauth://totp/issuer:{new string('a', Authenticator.UsernameMaxLength + 1)}?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = new string('a', Authenticator.UsernameMaxLength), Secret = "ABCDEFG" }}; // Truncate username
             yield return new object[] { "otpauth://totp/%F0%9F%98%80%3Ausername?secret=ABCDEFG", new Authenticator { Type = AuthenticatorType.Totp, Issuer = "😀", Username = "username", Secret = "ABCDEFG" }}; // Multibyte characters 1/2

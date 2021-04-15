@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Source.Data.Generator;
 using Newtonsoft.Json;
-using OtpNet;
 
 namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 {
@@ -119,9 +119,9 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
                 var algorithm = Info.Algorithm switch
                 {
-                    "SHA1" => OtpHashMode.Sha1,
-                    "SHA256" => OtpHashMode.Sha256,
-                    "SHA512" => OtpHashMode.Sha512,
+                    "SHA1" => Algorithm.Sha1,
+                    "SHA256" => Algorithm.Sha256,
+                    "SHA512" => Algorithm.Sha512,
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 

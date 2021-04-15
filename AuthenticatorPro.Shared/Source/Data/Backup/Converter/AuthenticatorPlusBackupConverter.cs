@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Shared.Source.Util;
-using OtpNet;
+using SimpleBase;
 using SQLite;
 
 namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
@@ -29,7 +28,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 TempFileName 
             );
 
-            await Task.Run(delegate { File.WriteAllBytes(path, data); });
+            await File.WriteAllBytesAsync(path, data);
             
             var connStr = new SQLiteConnectionString(path, true, password, null, conn =>
             {
@@ -156,7 +155,8 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
 
                 if(Type == Type.Blizzard)
                 {
-                    var base32Secret = Base32Encoding.ToString(Secret.ToHexBytes());
+                    var bytes = Base16.Decode(Secret);
+                    var base32Secret = Base32.Rfc4648.Encode(bytes);
                     secret = Authenticator.CleanSecret(base32Secret, type);
                 }
                 else

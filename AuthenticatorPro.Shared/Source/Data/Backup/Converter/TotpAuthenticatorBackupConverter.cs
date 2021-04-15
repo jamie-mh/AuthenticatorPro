@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AuthenticatorPro.Shared.Source.Util;
 using Newtonsoft.Json;
-using OtpNet;
 using PCLCrypto;
+using SimpleBase;
 using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 
 namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
@@ -96,7 +96,8 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
                 if(Base != 16)
                     throw new ArgumentException("Cannot parse base other than 16");
                 
-                var secret = Base32Encoding.ToString(Key.ToHexBytes());
+                var secretBytes = Base16.Decode(Key);
+                var secret = Base32.Rfc4648.Encode(secretBytes);
 
                 return new Authenticator
                 {

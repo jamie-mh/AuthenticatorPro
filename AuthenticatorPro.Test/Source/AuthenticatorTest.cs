@@ -1,7 +1,7 @@
 ﻿using System;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Test.ClassData;
-using OtpNet;
+using SimpleBase;
 using Xunit;
 
 namespace AuthenticatorPro.Test
@@ -49,7 +49,7 @@ namespace AuthenticatorPro.Test
             Assert.Equal(a.Period, b.Period);
             Assert.Equal(a.Issuer, b.Issuer);
             Assert.Equal(a.Username, b.Username);
-            Assert.Equal(Base32Encoding.ToBytes(a.Secret), Base32Encoding.ToBytes(b.Secret));
+            Assert.Equal(a.Secret, b.Secret);
         }
        
         [Theory]
@@ -78,7 +78,7 @@ namespace AuthenticatorPro.Test
             Assert.Equal(a.Period, b.Period);
             Assert.Equal(a.Issuer, b.Issuer);
             Assert.Equal(a.Username, b.Username);
-            Assert.Equal(Base32Encoding.ToBytes(a.Secret), Base32Encoding.ToBytes(b.Secret));
+            Assert.True(Base32.Rfc4648.Decode(a.Secret).SequenceEqual(Base32.Rfc4648.Decode(b.Secret)));
         }
        
         [Theory]

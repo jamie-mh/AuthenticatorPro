@@ -11,16 +11,5 @@ namespace AuthenticatorPro.Shared.Source.Util
 
             return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
-        
-        public static byte[] ToHexBytes(this string data)
-        {
-            var len = data.Length;
-            var output = new byte[len / 2];
-            
-            for(var i = 0; i < len; i += 2)
-                output[i / 2] = Convert.ToByte(data.Substring(i, 2), 16);
-            
-            return output;
-        }
     }
 }

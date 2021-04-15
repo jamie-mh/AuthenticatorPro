@@ -1,57 +1,30 @@
-using System;
 using System.Text;
-using OtpNet;
 
 namespace AuthenticatorPro.Shared.Source.Data.Generator
 {
-    public class SteamOtp : IGenerator
+    public class SteamOtp : Totp
     {
-        public const int Digits = SteamTotp.NumDigits;
-        private readonly SteamTotp _totp;
+        public const int Digits = 5;
+        private const int Period = 30;
+        private const Algorithm Algorithm = Generator.Algorithm.Sha1;
+        private const string Alphabet = "23456789BCDFGHJKMNPQRTVWXY";
 
-        public SteamOtp(string secret)
+        public SteamOtp(string secret) : base(secret, Period, Algorithm, Digits)
         {
-            var secretBytes = Base32Encoding.ToBytes(secret);
-            _totp = new SteamTotp(secretBytes);
+            
         }
 
-        public string Compute()
+        protected override string Finalise(int material)
         {
-            return _totp.ComputeTotp();
-        }
+            var builder = new StringBuilder();
 
-        public DateTime GetRenewTime()
-        {
-            return DateTime.UtcNow.AddSeconds(_totp.RemainingSeconds());
-        }
-
-        private class SteamTotp : OtpNet.Totp
-        {
-            public const int NumDigits = 5;
-
-            private const string Alphabet = "23456789BCDFGHJKMNPQRTVWXY";
-
-            public SteamTotp(byte[] secretKey) : base(secretKey, 30, OtpHashMode.Sha1, NumDigits)
+            for(var i = 0; i < Digits; i++)
             {
+                builder.Append(Alphabet[material % Alphabet.Length]);
+                material /= Alphabet.Length;
             }
 
-            protected override string Compute(long counter, OtpHashMode mode)
-            {
-                // As base.Compute(long, OtpHashMode), but doesn't call Digits(long, int)
-                var data = BitConverter.GetBytes(counter);
-                Array.Reverse(data);
-                var otp = (int) CalculateOtp(data, mode);
-
-                var builder = new StringBuilder();
-
-                for(var i = 0; i < NumDigits; i++)
-                {
-                    builder.Append(Alphabet[otp % Alphabet.Length]);
-                    otp /= Alphabet.Length;
-                }
-
-                return builder.ToString();
-            }
+            return builder.ToString();
         }
     }
 }

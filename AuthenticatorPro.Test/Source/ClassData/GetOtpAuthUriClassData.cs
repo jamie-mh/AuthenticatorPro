@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using AuthenticatorPro.Shared.Source.Data;
-using OtpNet;
+using AuthenticatorPro.Shared.Source.Data.Generator;
 
 namespace AuthenticatorPro.Test.ClassData
 {
@@ -17,8 +17,8 @@ namespace AuthenticatorPro.Test.ClassData
             yield return new object[] { new Authenticator { Type = AuthenticatorType.Hotp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Counter = 10 }, "otpauth://hotp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&counter=10" }; // Hotp
             yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Digits = 7 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&digits=7" }; // Digits parameter
             yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Period = 60 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&period=60" }; // Period parameter
-            yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Algorithm = OtpHashMode.Sha512 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512" }; // Algorithm parameter
-            yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Digits = 7, Period = 60, Algorithm = OtpHashMode.Sha512 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512&digits=7&period=60" }; // All parameters
+            yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Algorithm = Algorithm.Sha512 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512" }; // Algorithm parameter
+            yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Digits = 7, Period = 60, Algorithm = Algorithm.Sha512 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512&digits=7&period=60" }; // All parameters
             yield return new object[] { new Authenticator { Type = AuthenticatorType.SteamOtp, Issuer = "Steam", Username = "username", Secret = "ABCDEFG", Digits = 5 }, "otpauth://totp/Steam%3Ausername?secret=ABCDEFG&issuer=Steam" }; // Steam issuer
             yield return new object[] { new Authenticator { Type = AuthenticatorType.SteamOtp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG", Digits = 5 }, "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&steam" }; // Steam parameter 
         }

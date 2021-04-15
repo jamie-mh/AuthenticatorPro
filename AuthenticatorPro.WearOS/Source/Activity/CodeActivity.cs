@@ -13,7 +13,6 @@ using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Source.Data;
 using AuthenticatorPro.Shared.Source.Data.Generator;
 using AuthenticatorPro.Shared.Source.Util;
-using OtpNet;
 using SteamOtp = AuthenticatorPro.Shared.Source.Data.Generator.SteamOtp;
 using Timer = System.Timers.Timer;
 using Totp = AuthenticatorPro.Shared.Source.Data.Generator.Totp;
@@ -23,7 +22,7 @@ namespace AuthenticatorPro.WearOS.Activity
     [Activity]
     internal class CodeActivity : AppCompatActivity
     {
-        private IGenerator _generator;
+        private ITimeBasedGenerator _generator;
         private Timer _timer;
         private float _animationScale;
 
@@ -73,7 +72,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _period = Intent.Extras.GetInt("period");
             _digits = Intent.Extras.GetInt("digits");
-            var algorithm = (OtpHashMode) Intent.Extras.GetInt("algorithm");
+            var algorithm = (Algorithm) Intent.Extras.GetInt("algorithm");
 
             var secret = Intent.Extras.GetString("secret");
             var type = (AuthenticatorType) Intent.Extras.GetInt("type");

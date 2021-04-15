@@ -12,7 +12,6 @@ using AuthenticatorPro.Shared.Source.Data.Generator;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
-using OtpNet;
 using String = System.String;
 using TextInputLayout = Google.Android.Material.TextField.TextInputLayout;
 
@@ -46,7 +45,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private readonly IIconResolver _iconResolver;
         private AuthenticatorType _type;
-        private OtpHashMode _algorithm;
+        private Algorithm _algorithm;
 
         public string SecretError {
             set => _secretLayout.Error = value;
@@ -56,7 +55,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             _iconResolver = new IconResolver();
             _type = AuthenticatorType.Totp;
-            _algorithm = OtpHashMode.Sha1;
+            _algorithm = Algorithm.Sha1;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -170,9 +169,9 @@ namespace AuthenticatorPro.Droid.Fragment
         private void OnAlgorithmItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             _algorithm = e.Position switch {
-                1 => OtpHashMode.Sha256,
-                2 => OtpHashMode.Sha512,
-                _ => OtpHashMode.Sha1
+                1 => Algorithm.Sha256,
+                2 => Algorithm.Sha512,
+                _ => Algorithm.Sha1
             };
         }
 

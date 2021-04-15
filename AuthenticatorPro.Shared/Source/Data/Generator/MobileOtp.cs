@@ -3,7 +3,7 @@ using AuthenticatorPro.Shared.Source.Util;
 
 namespace AuthenticatorPro.Shared.Source.Data.Generator
 {
-    public class MobileOtp : IGenerator
+    public class MobileOtp : ITimeBasedGenerator
     {
         public const int SecretMinLength = 16;
         public const int PinLength = 4;
@@ -29,10 +29,10 @@ namespace AuthenticatorPro.Shared.Source.Data.Generator
             return Hash.Md5(material).Truncate(_digits);
         }
 
-        public DateTime GetRenewTime()
+        public DateTimeOffset GetRenewTime()
         {
             var secondsRemaining = _period - (int) _computedAt.ToUnixTimeSeconds() % _period;
-            return DateTime.UtcNow.AddSeconds(secondsRemaining);
+            return DateTimeOffset.UtcNow.AddSeconds(secondsRemaining);
         }
     }
 }
