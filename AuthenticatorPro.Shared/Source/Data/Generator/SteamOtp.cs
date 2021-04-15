@@ -16,8 +16,8 @@ namespace AuthenticatorPro.Shared.Source.Data.Generator
 
         protected override string Finalise(int material)
         {
-            var builder = new StringBuilder();
-
+            var builder = new StringBuilder(Digits);
+            
             for(var i = 0; i < Digits; i++)
             {
                 builder.Append(Alphabet[material % Alphabet.Length]);
