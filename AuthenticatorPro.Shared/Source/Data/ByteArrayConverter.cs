@@ -2,7 +2,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace AuthenticatorPro.Shared.Source.Data
+namespace AuthenticatorPro.Shared.Data
 {
     public class ByteArrayConverter : JsonConverter
     {

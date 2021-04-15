@@ -1,7 +1,7 @@
 ﻿using System;
-using AuthenticatorPro.Shared.Source.Util;
+using AuthenticatorPro.Shared.Util;
 
-namespace AuthenticatorPro.Shared.Source.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class Hotp : HmacOtp, ICounterBasedGenerator
     {

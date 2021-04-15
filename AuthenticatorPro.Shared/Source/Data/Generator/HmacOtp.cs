@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Security.Cryptography;
 using SimpleBase;
 
-namespace AuthenticatorPro.Shared.Source.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public abstract class HmacOtp : IDisposable
     {

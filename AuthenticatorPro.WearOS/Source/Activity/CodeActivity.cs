@@ -10,12 +10,12 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Shared.Source.Data;
-using AuthenticatorPro.Shared.Source.Data.Generator;
-using AuthenticatorPro.Shared.Source.Util;
-using SteamOtp = AuthenticatorPro.Shared.Source.Data.Generator.SteamOtp;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Util;
+using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
 using Timer = System.Timers.Timer;
-using Totp = AuthenticatorPro.Shared.Source.Data.Generator.Totp;
+using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.WearOS.Activity
 {

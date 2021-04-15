@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AuthenticatorPro.Shared.Source.Data
+namespace AuthenticatorPro.Shared.Data
 {
     public class AuthenticatorComparer : IEqualityComparer<Authenticator>
     {

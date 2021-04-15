@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
-using AuthenticatorPro.Shared.Source.Data;
-using AuthenticatorPro.Shared.Source.Util;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Util;
 
 namespace AuthenticatorPro.Droid.Data
 {

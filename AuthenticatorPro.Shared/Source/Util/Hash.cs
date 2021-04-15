@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AuthenticatorPro.Shared.Source.Util
+namespace AuthenticatorPro.Shared.Util
 {
     public static class Hash
     {

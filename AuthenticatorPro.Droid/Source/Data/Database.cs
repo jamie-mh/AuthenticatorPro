@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Data;
 using Polly;
 using SQLite;
 using Xamarin.Essentials;

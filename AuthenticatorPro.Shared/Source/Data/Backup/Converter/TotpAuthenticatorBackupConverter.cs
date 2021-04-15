@@ -9,7 +9,7 @@ using PCLCrypto;
 using SimpleBase;
 using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class TotpAuthenticatorBackupConverter : BackupConverter
     {

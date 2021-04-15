@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.Droid.Shared.Data
 {

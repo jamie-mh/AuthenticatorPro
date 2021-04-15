@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Shared.Source.Util
+namespace AuthenticatorPro.Shared.Util
 {
     public static class CodeUtil
     {

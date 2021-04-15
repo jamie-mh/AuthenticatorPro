@@ -9,7 +9,7 @@ using PCLCrypto;
 using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup
+namespace AuthenticatorPro.Shared.Data.Backup
 {
     public class Backup
     {

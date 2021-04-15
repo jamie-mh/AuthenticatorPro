@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AuthenticatorPro.Shared.Source.Data;
-using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using SQLite;
 
 namespace AuthenticatorPro.Droid.Data.Source

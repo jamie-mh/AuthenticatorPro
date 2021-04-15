@@ -1,7 +1,7 @@
 ﻿using System;
-using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Data.Generator;
 
-namespace AuthenticatorPro.Shared.Source.Data
+namespace AuthenticatorPro.Shared.Data
 {
     public enum AuthenticatorType
     {

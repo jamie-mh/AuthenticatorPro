@@ -1,5 +1,5 @@
 ﻿using System;
-using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Test.ClassData;
 using SimpleBase;
 using Xunit;

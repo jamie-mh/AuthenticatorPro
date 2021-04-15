@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using AuthenticatorPro.Shared.Source.Data;
-using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using SimpleBase;
 
 namespace AuthenticatorPro.Test.ClassData

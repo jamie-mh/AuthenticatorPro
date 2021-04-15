@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro.Shared.Source.Data
+﻿namespace AuthenticatorPro.Shared.Data
 {
     public interface IIconResolver
     {

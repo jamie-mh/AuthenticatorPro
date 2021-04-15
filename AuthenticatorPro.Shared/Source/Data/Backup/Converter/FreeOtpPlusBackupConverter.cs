@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SimpleBase;
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class FreeOtpPlusBackupConverter : BackupConverter
     {

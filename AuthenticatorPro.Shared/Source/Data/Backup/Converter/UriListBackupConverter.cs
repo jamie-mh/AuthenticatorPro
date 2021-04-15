@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class UriListBackupConverter : BackupConverter
     {

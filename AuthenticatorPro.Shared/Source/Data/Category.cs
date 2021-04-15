@@ -1,7 +1,7 @@
-﻿using AuthenticatorPro.Shared.Source.Util;
+﻿using AuthenticatorPro.Shared.Util;
 using SQLite;
 
-namespace AuthenticatorPro.Shared.Source.Data
+namespace AuthenticatorPro.Shared.Data
 {
     [Table("category")]
     public class Category

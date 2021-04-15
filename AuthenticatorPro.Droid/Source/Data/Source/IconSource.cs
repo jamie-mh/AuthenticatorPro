@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.Droid.Data.Source
 {

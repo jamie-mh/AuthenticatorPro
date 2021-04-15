@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticatorPro.Shared.Source.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public interface IGenerator
     {

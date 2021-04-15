@@ -1,4 +1,4 @@
-﻿using AuthenticatorPro.Shared.Source.Data;
+﻿using AuthenticatorPro.Shared.Data;
 using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Droid.Shared.Query

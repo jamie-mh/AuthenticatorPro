@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+﻿namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     // TODO: investigate password protected zip
     public class WinAuthBackupConverter : UriListBackupConverter

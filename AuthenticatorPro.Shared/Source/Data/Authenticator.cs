@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using AuthenticatorPro.Shared.Source.Data.Generator;
-using AuthenticatorPro.Shared.Source.Util;
+using AuthenticatorPro.Shared.Data.Generator;
+using AuthenticatorPro.Shared.Util;
 using Newtonsoft.Json;
 using SimpleBase;
 using SQLite;
-using Hotp = AuthenticatorPro.Shared.Source.Data.Generator.Hotp;
-using SteamOtp = AuthenticatorPro.Shared.Source.Data.Generator.SteamOtp;
-using Totp = AuthenticatorPro.Shared.Source.Data.Generator.Totp;
+using Hotp = AuthenticatorPro.Shared.Data.Generator.Hotp;
+using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
+using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
-namespace AuthenticatorPro.Shared.Source.Data
+namespace AuthenticatorPro.Shared.Data
 {
     [Table("authenticator")]
     public class Authenticator
@@ -80,10 +80,10 @@ namespace AuthenticatorPro.Shared.Source.Data
         {
             _generator ??= Type switch
             {
-                AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
-                AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits),
+                AuthenticatorType.Totp => new Generator.Totp(Secret, Period, Algorithm, Digits),
+                AuthenticatorType.Hotp => new Generator.Hotp(Secret, Algorithm, Digits),
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
-                AuthenticatorType.SteamOtp => new SteamOtp(Secret),
+                AuthenticatorType.SteamOtp => new Generator.SteamOtp(Secret),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
 

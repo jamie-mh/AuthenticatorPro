@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public abstract class BackupConverter
     {

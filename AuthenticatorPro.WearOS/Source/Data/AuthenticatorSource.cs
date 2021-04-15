@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Droid.Shared.Query;
-using AuthenticatorPro.Shared.Source.Data;
+using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.WearOS.Cache;
 
 namespace AuthenticatorPro.WearOS.Data

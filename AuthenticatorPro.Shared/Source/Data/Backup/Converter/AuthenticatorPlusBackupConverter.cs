@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SimpleBase;
 using SQLite;
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class AuthenticatorPlusBackupConverter : BackupConverter
     {

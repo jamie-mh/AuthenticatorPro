@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace AuthenticatorPro.Shared.Source.Data
+namespace AuthenticatorPro.Shared.Data
 {
     [Table("authenticatorcategory")]
     public class AuthenticatorCategory

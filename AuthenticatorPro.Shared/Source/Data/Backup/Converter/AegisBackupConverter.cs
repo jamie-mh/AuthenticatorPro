@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AuthenticatorPro.Shared.Source.Data.Generator;
+using AuthenticatorPro.Shared.Data.Generator;
 using Newtonsoft.Json;
 
-namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter
+namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class AegisBackupConverter : BackupConverter
     {

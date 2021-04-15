@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace AuthenticatorPro.Shared.Source.Data.Generator
+namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class SteamOtp : Totp
     {
