@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using AuthenticatorPro.Shared.Source.Util;
 using Newtonsoft.Json;
 using PCLCrypto;
 using SimpleBase;

@@ -5,22 +5,22 @@ namespace AuthenticatorPro.Droid.Data.Backup
 {
     internal class RestoreResult : IResult
     {
-        public readonly int AddedAuthenticatorCount;
-        public readonly int UpdatedAuthenticatorCount;
-        public readonly int CategoryCount;
-        public readonly int CustomIconCount;
+        private readonly int _addedAuthenticatorCount;
+        private readonly int _updatedAuthenticatorCount;
+        private readonly int _categoryCount;
+        private readonly int _customIconCount;
 
         public RestoreResult(int addedAuthenticatorCount = 0, int updatedAuthenticatorCount = 0, int categoryCount = 0, int customIconCount = 0)
         {
-            AddedAuthenticatorCount = addedAuthenticatorCount;
-            UpdatedAuthenticatorCount = updatedAuthenticatorCount;
-            CategoryCount = categoryCount;
-            CustomIconCount = customIconCount;
+            _addedAuthenticatorCount = addedAuthenticatorCount;
+            _updatedAuthenticatorCount = updatedAuthenticatorCount;
+            _categoryCount = categoryCount;
+            _customIconCount = customIconCount;
         }
 
         public bool IsVoid()
         {
-            return AddedAuthenticatorCount == 0 && UpdatedAuthenticatorCount == 0 && CategoryCount == 0 && CustomIconCount == 0;
+            return _addedAuthenticatorCount == 0 && _updatedAuthenticatorCount == 0 && _categoryCount == 0 && _customIconCount == 0;
         }
 
         public string ToString(Context context)
@@ -28,9 +28,9 @@ namespace AuthenticatorPro.Droid.Data.Backup
             if(IsVoid())
                 return context.GetString(Resource.String.restoredNothing);
             
-            return UpdatedAuthenticatorCount > 0
-                ? String.Format(context.GetString(Resource.String.restoredFromBackupUpdated), AddedAuthenticatorCount, CategoryCount, UpdatedAuthenticatorCount)
-                : String.Format(context.GetString(Resource.String.restoredFromBackup), AddedAuthenticatorCount, CategoryCount);
+            return _updatedAuthenticatorCount > 0
+                ? String.Format(context.GetString(Resource.String.restoredFromBackupUpdated), _addedAuthenticatorCount, _categoryCount, _updatedAuthenticatorCount)
+                : String.Format(context.GetString(Resource.String.restoredFromBackup), _addedAuthenticatorCount, _categoryCount);
         }
     }
 }

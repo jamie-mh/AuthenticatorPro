@@ -5,23 +5,23 @@ namespace AuthenticatorPro.Droid.Data.Backup
 {
     internal class BackupResult : IResult
     {
-        public readonly string FileName;
+        private readonly string _fileName;
 
         public BackupResult(string fileName = null)
         {
-            FileName = fileName;
+            _fileName = fileName;
         }
         
         public bool IsVoid()
         {
-            return String.IsNullOrEmpty(FileName);
+            return String.IsNullOrEmpty(_fileName);
         }
 
         public string ToString(Context context)
         {
             return IsVoid()
                 ? context.GetString(Resource.String.noAuthenticators)
-                : String.Format(context.GetString(Resource.String.backupSuccess), FileName);
+                : String.Format(context.GetString(Resource.String.backupSuccess), _fileName);
         }
     }
 }

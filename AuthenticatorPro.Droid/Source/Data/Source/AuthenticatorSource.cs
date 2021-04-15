@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Droid.Data.Source
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
-        public GenerationMethod? GenerationMethod { get; private set; }
+        private GenerationMethod? GenerationMethod { get; set; }
         
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 

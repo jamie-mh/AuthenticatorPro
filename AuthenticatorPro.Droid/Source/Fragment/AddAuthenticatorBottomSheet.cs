@@ -136,7 +136,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 1 => AuthenticatorType.Hotp,
                 2 => AuthenticatorType.MobileOtp,
                 3 => AuthenticatorType.SteamOtp,
-                _ => AuthenticatorType.Totp,
+                _ => AuthenticatorType.Totp
             };
 
             _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Time

@@ -194,7 +194,7 @@ namespace AuthenticatorPro.Droid.Util
             {
                 null => null,
                 "false" => false,
-                _ => true,
+                _ => true
             };
         }
         

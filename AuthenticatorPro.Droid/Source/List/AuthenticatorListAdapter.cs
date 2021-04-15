@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Droid.List
             NotifyItemMoved(oldPosition, newPosition);
         }
 
-        public async void NotifyMovementFinished(int oldPosition, int newPosition)
+        public async void NotifyMovementFinished()
         {
             MovementFinished?.Invoke(this, null);
 

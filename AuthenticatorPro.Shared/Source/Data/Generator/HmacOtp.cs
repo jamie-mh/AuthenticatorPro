@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Security.Cryptography;
 using SimpleBase;
 
@@ -28,7 +27,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Generator
         protected int Compute(byte[] counter)
         {
             var hash = _hmac.ComputeHash(counter);
-            var offset = hash.Last() & 0xF;
+            var offset = hash[^1] & 0xF;
             
             return ((hash[offset] & 0x7F) << 24) |
                    ((hash[offset + 1] & 0xFF) << 16) |

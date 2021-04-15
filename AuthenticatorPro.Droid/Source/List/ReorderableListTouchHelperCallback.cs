@@ -77,7 +77,7 @@ namespace AuthenticatorPro.Droid.List
                 {
                     if(viewHolder == null && _movementStartPosition > -1 && _movementEndPosition > -1 && _movementStartPosition != _movementEndPosition)
                     {
-                        _adapter.NotifyMovementFinished(_movementStartPosition, _movementEndPosition);
+                        _adapter.NotifyMovementFinished();
                         _movementStartPosition = -1;
                         _movementEndPosition = -1;
                     }

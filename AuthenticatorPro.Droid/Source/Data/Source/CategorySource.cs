@@ -24,14 +24,13 @@ namespace AuthenticatorPro.Droid.Data.Source
             _all = await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
         }
 
-        public async Task<int> Add(Category category)
+        public async Task Add(Category category)
         {
             if(IsDuplicate(category))
                 throw new ArgumentException();
             
             await _connection.InsertAsync(category);
             await Update();
-            return GetPosition(category.Id);
         }
 
         public async Task<int> AddMany(IEnumerable<Category> categories)

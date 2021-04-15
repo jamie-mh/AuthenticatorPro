@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Shared.Source.Data
         public const int IssuerMaxLength = 32;
         public const int UsernameMaxLength = 40;
 
-        public const Algorithm DefaultAlgorithm = Generator.Algorithm.Sha1;
+        public const Algorithm DefaultAlgorithm = Algorithm.Sha1;
 
         [Column("type")]
         public AuthenticatorType Type { get; set; }
@@ -266,13 +266,7 @@ namespace AuthenticatorPro.Shared.Source.Data
             if(!args.ContainsKey("secret"))
                 throw new ArgumentException("Secret parameter is required.");
 
-            string icon;
-
-            if(args.ContainsKey("icon"))
-                icon = iconResolver.FindServiceKeyByName(args["icon"]);
-            else
-                icon = iconResolver.FindServiceKeyByName(issuer);
-
+            var icon = iconResolver.FindServiceKeyByName(args.ContainsKey("icon") ? args["icon"] : issuer);
             var secret = CleanSecret(args["secret"], type);
 
             var auth = new Authenticator {

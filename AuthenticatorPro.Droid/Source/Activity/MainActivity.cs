@@ -430,7 +430,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
                 
                 case RequestImportWinAuth:
-                    await ImportFromUri(new UriListBackupConverter(_iconResolver), intent.Data);
+                    await ImportFromUri(new WinAuthBackupConverter(_iconResolver), intent.Data);
                     break;
                 
                 case RequestImportTotpAuthenticator:

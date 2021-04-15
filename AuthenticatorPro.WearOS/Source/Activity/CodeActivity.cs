@@ -81,7 +81,7 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits, _period),
                 AuthenticatorType.SteamOtp => new SteamOtp(secret),
-                _ => new Totp(secret, _period, algorithm, _digits),
+                _ => new Totp(secret, _period, algorithm, _digits)
             };
 
             _timer = new Timer {Interval = 1000, AutoReset = true};

@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Droid.Data.Source
             await Update();
         }
 
-        public bool IsDuplicate(string id)
+        private bool IsDuplicate(string id)
         {
             return Get(id) != null;
         }

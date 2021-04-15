@@ -44,7 +44,7 @@ namespace AuthenticatorPro.WearOS.Util
             
             return result switch {
                 null => null,
-                _ => int.Parse(result),
+                _ => int.Parse(result)
             };
         }
         

@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Shared.Source.Data
 
             if(rawData.Length % 4 != 0)
             {
-                var nextFactor = ((rawData.Length + 4 - 1) / 4) * 4;
+                var nextFactor = (rawData.Length + 4 - 1) / 4 * 4;
                 rawData = rawData.PadRight(nextFactor, '=');
             }
                 

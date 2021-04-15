@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AuthenticatorPro.Shared.Source.Data.Generator;
 using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Shared.Source.Data.Backup.Converter

@@ -160,29 +160,15 @@ namespace AuthenticatorPro.Droid.Worker
                 return;
 
             var idString = ((int) context).ToString();
-            string name;
 
-            switch(context)
+            var name = context switch
             {
-                case NotificationContext.BackupFailure:
-                    name = _context.GetString(Resource.String.autoBackupFailureTitle);
-                    break;
-                
-                case NotificationContext.RestoreFailure:
-                    name = _context.GetString(Resource.String.autoRestoreFailureTitle);
-                    break;
-                    
-                case NotificationContext.RestoreSuccess:
-                    name = _context.GetString(Resource.String.autoRestoreSuccessTitle);
-                    break;
-
-                case NotificationContext.BackupSuccess:
-                    name = _context.GetString(Resource.String.autoBackupSuccessTitle);
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(context));
-            }
+                NotificationContext.BackupFailure => _context.GetString(Resource.String.autoBackupFailureTitle),
+                NotificationContext.RestoreFailure => _context.GetString(Resource.String.autoRestoreFailureTitle),
+                NotificationContext.RestoreSuccess => _context.GetString(Resource.String.autoRestoreSuccessTitle),
+                NotificationContext.BackupSuccess => _context.GetString(Resource.String.autoBackupSuccessTitle),
+                _ => throw new ArgumentOutOfRangeException(nameof(context))
+            };
 
             var channel = new NotificationChannel(idString, name, NotificationImportance.Low);
             var manager = NotificationManagerCompat.From(_context);

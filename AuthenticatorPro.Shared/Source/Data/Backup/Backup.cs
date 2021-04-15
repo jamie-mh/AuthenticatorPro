@@ -147,7 +147,7 @@ namespace AuthenticatorPro.Shared.Source.Data.Backup
 
         public static bool IsReadableWithoutPassword(byte[] data)
         {
-            if(data[0] != '{' || data[data.Length - 1] != '}')
+            if(data[0] != '{' || data[^1] != '}')
                 return false;
                 
             try
