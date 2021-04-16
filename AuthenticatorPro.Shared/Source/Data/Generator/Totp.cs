@@ -26,7 +26,12 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
         public string Compute()
         {
-            _computedAt = DateTimeOffset.UtcNow;
+            return Compute(DateTimeOffset.UtcNow);
+        }
+
+        public string Compute(DateTimeOffset offset)
+        {
+            _computedAt = offset;
             var material = base.Compute(GetCounter());
             return Finalise(material);
         }
