@@ -66,7 +66,8 @@
     <AotAssemblies>true</AotAssemblies>
     <EnableLLVM>true</EnableLLVM>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
-    <BundleAssemblies>true</BundleAssemblies>
+    <BundleAssemblies>false</BundleAssemblies>
+	<AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <AndroidDexTool>d8</AndroidDexTool>
