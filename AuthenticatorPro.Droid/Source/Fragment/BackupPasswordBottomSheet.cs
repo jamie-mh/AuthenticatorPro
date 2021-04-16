@@ -7,6 +7,7 @@ using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Fragment
@@ -24,6 +25,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler Cancel;
         public event EventHandler<string> PasswordEntered;
 
+        private ProgressBar _progressBar;
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordTextLayout;
         
@@ -45,6 +47,8 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             var view = inflater.Inflate(Resource.Layout.sheetBackupPassword, null);
             SetupToolbar(view, Resource.String.password);
+
+            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             _passwordTextLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
 
@@ -98,6 +102,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             var busy = busyRes != null;
             SetCancelable(!busy);
+            _progressBar.Visibility = busy ? ViewStates.Visible : ViewStates.Invisible;
             _okButton.Enabled = _cancelButton.Enabled = !busy;
             _okButton.SetText(busyRes ?? Resource.String.ok);
         }
