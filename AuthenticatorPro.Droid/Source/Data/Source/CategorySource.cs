@@ -7,7 +7,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Droid.Data.Source
 {
-    internal class CategorySource : ISource<Category>
+    internal class CategorySource
     {
         private readonly SQLiteAsyncConnection _connection;
         private List<Category> _all;

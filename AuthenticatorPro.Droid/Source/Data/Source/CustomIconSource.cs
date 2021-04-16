@@ -7,7 +7,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Droid.Data.Source
 {
-    internal class CustomIconSource : ISource<CustomIcon>
+    internal class CustomIconSource
     {
         private readonly SQLiteAsyncConnection _connection;
         private List<CustomIcon> _all;
@@ -75,19 +75,9 @@ namespace AuthenticatorPro.Droid.Data.Source
             return Get(id) != null;
         }
 
-        public List<CustomIcon> GetView()
-        {
-            return _all;
-        }
-
         public List<CustomIcon> GetAll()
         {
             return _all;
-        }
-
-        public CustomIcon Get(int position)
-        {
-            return _all.ElementAtOrDefault(position);
         }
     }
 }

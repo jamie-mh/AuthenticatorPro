@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Shared.Data;
 
 namespace AuthenticatorPro.Droid.Data.Source
 {
-    internal class IconSource : ISource<KeyValuePair<string, int>>
+    internal class IconSource
     {
         private readonly bool _isDark;
         private string _search;
@@ -30,11 +29,6 @@ namespace AuthenticatorPro.Droid.Data.Source
         public List<KeyValuePair<string, int>> GetView()
         {
             return _view.ToList();
-        }
-
-        public List<KeyValuePair<string, int>> GetAll()
-        {
-            return IconResolver.Service.ToList();
         }
 
         public KeyValuePair<string, int> Get(int position)

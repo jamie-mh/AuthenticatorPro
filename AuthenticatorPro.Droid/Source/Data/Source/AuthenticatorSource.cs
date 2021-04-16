@@ -8,7 +8,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Droid.Data.Source
 {
-    internal class AuthenticatorSource : ISource<Authenticator>
+    internal class AuthenticatorSource
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }

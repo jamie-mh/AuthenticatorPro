@@ -77,11 +77,6 @@ namespace AuthenticatorPro.WearOS.Cache
             return _items;
         }
 
-        public bool Contains(T item)
-        {
-            return _items.Contains(item);
-        }
-
         private IEnumerator<T> GetEnumerator()
         {
             return _items.GetEnumerator();

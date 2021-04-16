@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using AuthenticatorPro.Droid.Shared.Query;
-using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.WearOS.Cache;
 
 namespace AuthenticatorPro.WearOS.Data
 {
-    internal class AuthenticatorSource : ISource<WearAuthenticator>
+    internal class AuthenticatorSource
     {
         private readonly ListCache<WearAuthenticator> _cache;
         public string CategoryId { get; private set; }
@@ -46,11 +45,6 @@ namespace AuthenticatorPro.WearOS.Data
         public List<WearAuthenticator> GetView()
         {
             return _view;
-        }
-
-        public List<WearAuthenticator> GetAll()
-        {
-            return _cache.GetItems();
         }
 
         public WearAuthenticator Get(int position)
