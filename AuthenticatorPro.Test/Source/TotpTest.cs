@@ -37,7 +37,8 @@ namespace AuthenticatorPro.Test
             {
                 Algorithm.Sha1 => Sha1Secret,
                 Algorithm.Sha256 => Sha256Secret,
-                Algorithm.Sha512 => Sha512Secret
+                Algorithm.Sha512 => Sha512Secret,
+                _ => throw new ArgumentOutOfRangeException(nameof(algorithm))
             };
             
             var totp = new Totp(secret, 30, algorithm, 8);

@@ -1,3 +1,4 @@
+using System;
 using Android.Content;
 using AndroidX.Preference;
 
@@ -44,7 +45,7 @@ namespace AuthenticatorPro.WearOS.Util
             
             return result switch {
                 null => null,
-                _ => int.Parse(result)
+                _ => Int32.Parse(result)
             };
         }
         

@@ -5,7 +5,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class Hotp : HmacOtp, ICounterBasedGenerator
     {
-        public const int CooldownSeconds = 10;
+        private const int CooldownSeconds = 10;
         private DateTimeOffset _computedAt;
         
         public Hotp(string secret, Algorithm algorithm, int digits) : base(secret, algorithm, digits)

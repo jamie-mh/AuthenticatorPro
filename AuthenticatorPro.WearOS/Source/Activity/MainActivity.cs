@@ -271,7 +271,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if(hasCustomIcon)
             {
-                var id = item.Icon.Substring(1);
+                var id = item.Icon[1..];
                 var bitmap = await _customIconCache.GetBitmap(id);
                 bundle.PutParcelable("icon", bitmap);    
             }

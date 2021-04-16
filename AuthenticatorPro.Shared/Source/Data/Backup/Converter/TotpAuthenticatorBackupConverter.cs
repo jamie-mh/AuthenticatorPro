@@ -37,8 +37,8 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             var json = Encoding.UTF8.GetString(raw);
 
             // Deal with strange json
-            json = json.Substring(2);
-            json = json.Substring(0, json.LastIndexOf(']') + 1);
+            json = json[2..];
+            json = json[..(json.LastIndexOf(']') + 1)];
             json = json.Replace(@"\""", @"""");
 
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
@@ -85,11 +85,11 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 var period = Period == ""
                     ? Type.GetDefaultPeriod()
-                    : int.Parse(Period);
+                    : Int32.Parse(Period);
                     
                 var digits = Digits == ""
                     ? Type.GetDefaultDigits()
-                    : int.Parse(Digits);
+                    : Int32.Parse(Digits);
 
                 // TODO: figure out if this value ever changes
                 if(Base != 16)

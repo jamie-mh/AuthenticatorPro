@@ -42,7 +42,7 @@ namespace AuthenticatorPro.WearOS.Cache
 
             var ids = info.GetFiles()
                 .Where(f => f.Extension == $".{IconFileExtension}")
-                .Select(f => f.Name.Substring(0, f.Name.LastIndexOf('.'))).ToList();
+                .Select(f => f.Name[..f.Name.LastIndexOf('.')]).ToList();
             
             return ids;
         }

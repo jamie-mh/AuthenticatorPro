@@ -16,7 +16,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private ChipGroup _chipGroup;
         
-        private int position;
+        private int _position;
         private string[] _categoryIds;
         private string[] _categoryNames;
         private string[] _assignedCategoryIds;
@@ -25,7 +25,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             base.OnCreate(savedInstanceState);
 
-            position = Arguments.GetInt("position", -1);
+            _position = Arguments.GetInt("position", -1);
             _categoryIds = Arguments.GetStringArray("categoryIds");
             _categoryNames = Arguments.GetStringArray("categoryNames");
             _assignedCategoryIds = Arguments.GetStringArray("assignedCategoryIds");
@@ -58,7 +58,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 var categoryPos = i;
                 chip.Click += (sender, _) =>
                 {
-                    CategoryClick?.Invoke(sender, new CategoryClickedEventArgs(position, categoryPos, chip.Checked));
+                    CategoryClick?.Invoke(sender, new CategoryClickedEventArgs(_position, categoryPos, chip.Checked));
                 };
 
                 _chipGroup.AddView(chip);

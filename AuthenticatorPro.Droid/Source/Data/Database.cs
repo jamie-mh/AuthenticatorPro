@@ -110,8 +110,8 @@ namespace AuthenticatorPro.Droid.Data
         
         private static Task AttemptAndRetry(Func<Task> action, int numRetries = 4)
         {
-            static TimeSpan durationProvider(int attemptNumber) => TimeSpan.FromMilliseconds(Math.Pow(2, attemptNumber));
-            return Policy.Handle<SQLiteException>().WaitAndRetryAsync(numRetries, durationProvider).ExecuteAsync(action);
+            static TimeSpan DurationProvider(int attemptNumber) => TimeSpan.FromMilliseconds(Math.Pow(2, attemptNumber));
+            return Policy.Handle<SQLiteException>().WaitAndRetryAsync(numRetries, DurationProvider).ExecuteAsync(action);
         }
 
         private static string GetPath()

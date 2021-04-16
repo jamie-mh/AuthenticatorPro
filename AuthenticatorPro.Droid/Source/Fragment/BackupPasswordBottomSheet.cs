@@ -7,7 +7,6 @@ using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Fragment

@@ -106,7 +106,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 if(Login.Totp.StartsWith("steam"))
                 {
-                    var secret = Login.Totp.Substring("steam://".Length);
+                    var secret = Login.Totp["steam://".Length..];
                     return ConvertFromInfo(AuthenticatorType.SteamOtp, secret);
                 }
                 

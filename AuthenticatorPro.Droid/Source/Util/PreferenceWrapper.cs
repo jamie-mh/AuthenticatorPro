@@ -45,7 +45,7 @@ namespace AuthenticatorPro.Droid.Util
         private const int TimeoutDefault = 0;
         public int Timeout
         {
-            get => int.TryParse(_preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value) ? value : TimeoutDefault;
+            get => Int32.TryParse(_preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value) ? value : TimeoutDefault;
             set => SetPreference(TimeoutKey, value);
         }
 

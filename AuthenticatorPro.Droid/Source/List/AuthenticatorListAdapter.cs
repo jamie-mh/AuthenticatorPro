@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.Animation;
@@ -106,7 +105,7 @@ namespace AuthenticatorPro.Droid.List
 
             if(auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
-                var id = auth.Icon.Substring(1);
+                var id = auth.Icon[1..];
                 var customIcon = _customIconSource.Get(id);
 
                 if(customIcon != null)

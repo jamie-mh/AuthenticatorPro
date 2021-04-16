@@ -54,7 +54,7 @@ namespace AuthenticatorPro.WearOS.List
             {
                 if(auth.Icon.StartsWith(CustomIconCache.Prefix))
                 {
-                    var id = auth.Icon.Substring(1);
+                    var id = auth.Icon[1..];
                     var customIcon = await _customIconCache.GetBitmap(id);
                     
                     if(customIcon != null)
