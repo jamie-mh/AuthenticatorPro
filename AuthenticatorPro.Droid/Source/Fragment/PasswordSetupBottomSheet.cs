@@ -16,6 +16,7 @@ namespace AuthenticatorPro.Droid.Fragment
         private PreferenceWrapper _preferences;
         private bool _hasPassword;
 
+        private ProgressBar _progressBar;
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordConfirmLayout;
         private TextInputEditText _passwordConfirmText;
@@ -29,6 +30,8 @@ namespace AuthenticatorPro.Droid.Fragment
             
             _preferences = new PreferenceWrapper(Context);
             _hasPassword = _preferences.PasswordProtected;
+
+            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
             
             _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
             _setPasswordButton.Click += OnSetPasswordButtonClick;
@@ -65,6 +68,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
             _setPasswordButton.Enabled = _cancelButton.Enabled = false;
             _setPasswordButton.SetText(newPassword != null ? Resource.String.encrypting : Resource.String.decrypting);
+            _progressBar.Visibility = ViewStates.Visible;
             SetCancelable(false);
 
             try
@@ -86,6 +90,7 @@ namespace AuthenticatorPro.Droid.Fragment
             catch
             {
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
+                _progressBar.Visibility = ViewStates.Invisible;
                 SetCancelable(true);
                 UpdateSetPasswordButton();
                 _cancelButton.Enabled = true;
