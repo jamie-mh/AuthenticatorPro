@@ -57,7 +57,7 @@
     <EnableLLVM>true</EnableLLVM>
     <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
-	<AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
+    <AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidDexTool>d8</AndroidDexTool>
