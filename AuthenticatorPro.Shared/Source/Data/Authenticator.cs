@@ -7,9 +7,6 @@ using AuthenticatorPro.Shared.Util;
 using Newtonsoft.Json;
 using SimpleBase;
 using SQLite;
-using Hotp = AuthenticatorPro.Shared.Data.Generator.Hotp;
-using SteamOtp = AuthenticatorPro.Shared.Data.Generator.SteamOtp;
-using Totp = AuthenticatorPro.Shared.Data.Generator.Totp;
 
 namespace AuthenticatorPro.Shared.Data
 {
@@ -80,10 +77,10 @@ namespace AuthenticatorPro.Shared.Data
         {
             _generator ??= Type switch
             {
-                AuthenticatorType.Totp => new Generator.Totp(Secret, Period, Algorithm, Digits),
-                AuthenticatorType.Hotp => new Generator.Hotp(Secret, Algorithm, Digits),
+                AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
+                AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits),
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
-                AuthenticatorType.SteamOtp => new Generator.SteamOtp(Secret),
+                AuthenticatorType.SteamOtp => new SteamOtp(Secret),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
 
