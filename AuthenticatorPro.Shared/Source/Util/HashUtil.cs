@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AuthenticatorPro.Shared.Util
 {
-    public static class Hash
+    public static class HashUtil
     {
         public static string Sha1(string input)
         {

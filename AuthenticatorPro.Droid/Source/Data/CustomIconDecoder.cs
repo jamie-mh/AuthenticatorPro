@@ -118,7 +118,7 @@ namespace AuthenticatorPro.Droid.Data
             }
             
             var data = stream.ToArray();
-            var hash = Hash.Sha1(Convert.ToBase64String(data));
+            var hash = HashUtil.Sha1(Convert.ToBase64String(data));
             var id = hash.Truncate(8);
             
             return new CustomIcon

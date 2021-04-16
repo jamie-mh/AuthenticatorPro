@@ -26,7 +26,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
             _computedAt = DateTimeOffset.UtcNow;
             var timestamp = _computedAt.ToUnixTimeSeconds() / 10;
             var material = timestamp + _secret;
-            return Hash.Md5(material).Truncate(_digits);
+            return HashUtil.Md5(material).Truncate(_digits);
         }
 
         public DateTimeOffset GetRenewTime()

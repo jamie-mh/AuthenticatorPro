@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Shared.Data
         public Category(string name)
         {
             name = name.Trim().Truncate(NameMaxLength);
-            Id = Hash.Sha1(name).Truncate(IdLength);
+            Id = HashUtil.Sha1(name).Truncate(IdLength);
             Name = name;
             Ranking = 0;
         }

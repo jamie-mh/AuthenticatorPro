@@ -2,7 +2,7 @@
 
 namespace AuthenticatorPro.Shared.Util
 {
-    public static class StringExt
+    public static class StringUtil
     {
         public static string Truncate(this string value, int maxLength)
         {
