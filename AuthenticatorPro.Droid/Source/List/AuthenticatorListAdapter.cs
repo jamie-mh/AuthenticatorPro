@@ -40,12 +40,6 @@ namespace AuthenticatorPro.Droid.List
         private readonly Dictionary<string, Bitmap> _decodedCustomIcons;
 
         private readonly float _animationScale;
-       
-        // Cache the remaining seconds per period, a relative DateTime calculation can be expensive
-        // Cache the remaining progress per period, to keep all progressbars in sync
-        private readonly Dictionary<int, int> _secondsRemainingPerPeriod;
-        private readonly Dictionary<int, int> _progressPerPeriod;
-        private readonly Dictionary<int, int> _counterCooldownSeconds;
 
         public AuthenticatorListAdapter(Context context, AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
         {
@@ -56,10 +50,6 @@ namespace AuthenticatorPro.Droid.List
 
             _customIconDecodeLock = new SemaphoreSlim(1, 1);
             _decodedCustomIcons = new Dictionary<string, Bitmap>();
-
-            _secondsRemainingPerPeriod = new Dictionary<int, int>();
-            _progressPerPeriod = new Dictionary<int, int>();
-            _counterCooldownSeconds = new Dictionary<int, int>();
 
             _animationScale = Settings.Global.GetFloat(context.ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
         }
@@ -126,20 +116,18 @@ namespace AuthenticatorPro.Droid.List
             }
             else
                 holder.Icon.SetImageResource(IconResolver.GetService(auth.Icon, _isDark));
-                
+
             switch(auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
-                    BindProgressBar(auth, holder.ProgressBar);
+                    UpdateProgressBar(holder.ProgressBar, auth.Period, auth.TimeRenew);
                     break;
 
                 case GenerationMethod.Counter:
-                    holder.RefreshButton.Visibility = auth.TimeRenew < DateTimeOffset.UtcNow
-                        ? ViewStates.Visible
-                        : ViewStates.Gone;
-
+                    var isExpired = auth.TimeRenew <= DateTimeOffset.UtcNow;
+                    holder.RefreshButton.Visibility = isExpired ? ViewStates.Visible : ViewStates.Invisible;
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
             }
@@ -155,32 +143,22 @@ namespace AuthenticatorPro.Droid.List
 
             var auth = _authSource.Get(position);
             var holder = (AuthenticatorListHolder) viewHolder;
-            holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
-
+            
+            var isExpired = (bool) payloads[0];
+            
+            if(isExpired)
+                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
+            
             switch(auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
-                    BindProgressBar(auth, holder.ProgressBar);
+                    UpdateProgressBar(holder.ProgressBar, auth.Period, auth.TimeRenew);
                     break;
                 
                 case GenerationMethod.Counter:
-                    holder.RefreshButton.Visibility = ViewStates.Visible;
-                    _counterCooldownSeconds[auth.Secret.GetHashCode()] = Hotp.CooldownSeconds;
+                    holder.RefreshButton.Visibility = isExpired ? ViewStates.Visible : ViewStates.Invisible;
                     break;
             } 
-        }
-
-        private void BindProgressBar(Authenticator auth, ProgressBar progressBar)
-        {
-            if(_animationScale == 0)
-            {
-                var remainingSeconds = GetRemainingSeconds(auth.Period);
-                var progress = GetProgress(auth.Period, remainingSeconds);
-                progressBar.Progress = progress;
-                return;
-            }
-            
-            AnimateProgressBar(progressBar, auth.Period);
         }
 
         private async Task<Bitmap> DecodeCustomIcon(CustomIcon customIcon)
@@ -205,77 +183,34 @@ namespace AuthenticatorPro.Droid.List
             }
         }
 
-        public void Tick(bool invalidateCache = false)
+        public void Tick()
         {
-            if(invalidateCache)
-            {
-                _secondsRemainingPerPeriod.Clear();
-                _progressPerPeriod.Clear();
-            }
-            
-            foreach(var period in _secondsRemainingPerPeriod.Keys.ToList())
-                _secondsRemainingPerPeriod[period]--;
-
-            foreach(var key in _counterCooldownSeconds.Keys.ToList())
-                _counterCooldownSeconds[key]--;
+            var now = DateTimeOffset.UtcNow;
             
             for(var i = 0; i < _authSource.GetView().Count; ++i)
             {
                 var auth = _authSource.Get(i);
 
-                var shouldUpdateView = auth.Type.GetGenerationMethod() switch
-                {
-                    GenerationMethod.Time => _animationScale == 0 || _secondsRemainingPerPeriod.GetValueOrDefault(auth.Period, -1) <= 0,
-                    GenerationMethod.Counter => _counterCooldownSeconds.GetValueOrDefault(auth.Secret.GetHashCode(), -1) <= 0,
-                    _ => false
-                };
-
-                if(shouldUpdateView)
-                    NotifyItemChanged(i, true); 
+                if(auth.TimeRenew <= now)
+                    NotifyItemChanged(i, true);
+                else if(_animationScale == 0)
+                    NotifyItemChanged(i, false);
             }
-
-            // Force recalculation of remaining seconds in case of timer drift
-            foreach(var period in _secondsRemainingPerPeriod.Keys.ToList().Where(period => _secondsRemainingPerPeriod[period] <= 0))
-                _secondsRemainingPerPeriod.Remove(period);
-
-            _progressPerPeriod.Clear();
         }
-
-        private int GetProgress(int period, int secondsRemaining)
+        
+        private void UpdateProgressBar(ProgressBar progressBar, int period, DateTimeOffset timeRenew)
         {
-            var progress = _progressPerPeriod.GetValueOrDefault(period, -1);
-
-            if(progress > -1)
-                return progress;
-
-            progress = (int) Math.Floor((double) MaxProgress * secondsRemaining / period);
-            _progressPerPeriod.Add(period, progress);
-            return progress;
-        }
-
-        private int GetRemainingSeconds(int period)
-        {
-            var secondsRemaining = _secondsRemainingPerPeriod.GetValueOrDefault(period, -1);
-
-            if(secondsRemaining > -1)
-                return secondsRemaining;
-
-            secondsRemaining = period - (int) DateTimeOffset.UtcNow.ToUnixTimeSeconds() % period;
-            _secondsRemainingPerPeriod.Add(period, secondsRemaining);
-            return secondsRemaining;
-        }
-
-        private void AnimateProgressBar(ProgressBar progressBar, int period)
-        {
-            var secondsRemaining = GetRemainingSeconds(period);
-            var progress = GetProgress(period, secondsRemaining);
+            var millisRemaining = timeRenew.ToUnixTimeMilliseconds() - DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            var periodMillis = period * 1000;
+            var progress = (int) Math.Round((double) MaxProgress * millisRemaining / periodMillis);
+            
             progressBar.Progress = progress;
             
+            if(_animationScale == 0)
+                return;
+            
             var animator = ObjectAnimator.OfInt(progressBar, "progress", 0);
-            var duration = secondsRemaining * 1000;
-
-            if(_animationScale > 0)
-                duration = (int) (duration / _animationScale);
+            var duration = (int) (millisRemaining / _animationScale);
             
             animator.SetDuration(duration);
             animator.SetInterpolator(new LinearInterpolator());

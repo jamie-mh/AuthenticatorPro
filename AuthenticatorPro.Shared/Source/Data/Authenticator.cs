@@ -86,7 +86,7 @@ namespace AuthenticatorPro.Shared.Data
 
             switch(_generator)
             {
-                case ITimeBasedGenerator timeBasedGenerator when TimeRenew <= DateTimeOffset.UtcNow:
+                case ITimeBasedGenerator timeBasedGenerator:
                     _code = timeBasedGenerator.Compute();
                     TimeRenew = _generator.GetRenewTime();
                     break;

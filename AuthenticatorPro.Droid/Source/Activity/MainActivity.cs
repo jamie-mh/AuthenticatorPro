@@ -305,7 +305,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
             else
-                Tick(true);
+                Tick();
             
             _justLaunched = false;
             _currentlyResuming = false;
@@ -777,7 +777,7 @@ namespace AuthenticatorPro.Droid.Activity
             RunOnUiThread(delegate
             {
                 _authListAdapter.NotifyDataSetChanged();
-                Tick(true);
+                Tick();
                 
                 if(animateLayout)
                     _authList.ScheduleLayoutAnimation();
@@ -893,10 +893,10 @@ namespace AuthenticatorPro.Droid.Activity
             _appBarLayout.SetExpanded(true);
         }
 
-        private void Tick(bool invalidateCache = false)
+        private void Tick()
         {
             RunOnUiThread(delegate {
-                _authListAdapter.Tick(invalidateCache);
+                _authListAdapter.Tick();
             });
         }
 
@@ -1529,7 +1529,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _authList.ScheduleLayoutAnimation();
             });
           
-            Tick(true);
+            Tick();
             await NotifyWearAppOfChange();
         }
         #endregion
