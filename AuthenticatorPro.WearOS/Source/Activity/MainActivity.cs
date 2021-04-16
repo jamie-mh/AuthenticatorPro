@@ -414,6 +414,18 @@ namespace AuthenticatorPro.WearOS.Activity
             var icon = JsonConvert.DeserializeObject<WearCustomIcon>(json);
             
             await _customIconCache.Add(icon.Id, icon.Data);
+
+            // During initial loading an attempt to decode the icon was made, but it will fail
+            // Once the icon data has been received, notify the adapter
+            var prefixedId = CustomIcon.Prefix + icon.Id;
+            var authPositionsUsingIcon = 
+                Enumerable.Range(0, _authSource.GetView().Count).Where(i => _authSource.Get(i).Icon == prefixedId);
+        
+            RunOnUiThread(delegate
+            {
+                foreach(var position in authPositionsUsingIcon)
+                    _authListAdapter.NotifyItemChanged(position);
+            });
         }
         
         private async Task OnRefreshRecieved()
