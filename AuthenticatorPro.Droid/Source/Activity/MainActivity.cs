@@ -1078,7 +1078,7 @@ namespace AuthenticatorPro.Droid.Activity
                 var data = await FileUtil.ReadFile(this, uri);
                 bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
             }
-            catch(Exception)
+            catch
             {
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
@@ -1114,7 +1114,7 @@ namespace AuthenticatorPro.Droid.Activity
                 var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height, RGBLuminanceSource.BitmapFormat.RGBA32);
                 result = reader.Decode(source);
             }
-            catch(Exception)
+            catch
             {
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
@@ -1202,7 +1202,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 migration = OtpAuthMigration.FromOtpAuthMigrationUri(uri);
             }
-            catch(Exception)
+            catch
             {
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
@@ -1330,7 +1330,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 data = await FileUtil.ReadFile(this, uri);
             }
-            catch(Exception)
+            catch
             {
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
@@ -1844,7 +1844,7 @@ namespace AuthenticatorPro.Droid.Activity
                 var data = await FileUtil.ReadFile(this, source);
                 icon = await decoder.Decode(data);
             }
-            catch(Exception)
+            catch
             {
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
