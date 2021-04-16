@@ -40,7 +40,6 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Internal;
-using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Snackbar;
 using Java.Nio;
 using SQLite;
@@ -93,7 +92,7 @@ namespace AuthenticatorPro.Droid.Activity
         private CoordinatorLayout _coordinatorLayout;
         private AppBarLayout _appBarLayout;
         private MaterialToolbar _toolbar;
-        private LinearProgressIndicator _progressIndicator;
+        private ProgressBar _progressBar;
         private RecyclerView _authList;
         private FloatingActionButton _addButton;
         private BottomAppBar _bottomAppBar;
@@ -681,7 +680,7 @@ namespace AuthenticatorPro.Droid.Activity
                 ScrollToPosition(0);
             };
             
-            _progressIndicator = FindViewById<LinearProgressIndicator>(Resource.Id.appBarProgressBar);
+            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddButtonClick;
@@ -752,7 +751,7 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     showingProgress = true;
                     
-                    AnimUtil.FadeInView(_progressIndicator, AnimUtil.LengthShort, false, delegate
+                    AnimUtil.FadeInView(_progressBar, AnimUtil.LengthShort, false, delegate
                     {
                         if(uiLock.CurrentCount == 0)
                             uiLock.Release();
@@ -760,7 +759,7 @@ namespace AuthenticatorPro.Droid.Activity
                 });
             };
 
-            var alreadyLoading = _progressIndicator.Visibility == ViewStates.Visible;
+            var alreadyLoading = _progressBar.Visibility == ViewStates.Visible;
 
             if(!alreadyLoading)
                 loadTimer.Enabled = true;
@@ -783,7 +782,7 @@ namespace AuthenticatorPro.Droid.Activity
                     _authList.ScheduleLayoutAnimation();
                 
                 if(showingProgress || alreadyLoading)
-                    AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
+                    AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort, true);
                     
                 AnimUtil.FadeInView(_authList, AnimUtil.LengthShort, true, delegate
                 {
