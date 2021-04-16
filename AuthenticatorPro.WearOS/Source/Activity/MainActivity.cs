@@ -100,6 +100,13 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(delegate
             {
                 InitViews();
+
+                if(!_authCache.GetItems().Any())
+                {
+                    _onCreateLock.Release();
+                    return;
+                }
+                
                 AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort, false, delegate
                 {
                     CheckEmptyState();
@@ -142,8 +149,11 @@ namespace AuthenticatorPro.WearOS.Activity
             
             RunOnUiThread(delegate
             {
-                CheckOfflineState();
-                CheckEmptyState();
+                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort, false, delegate
+                {
+                    CheckOfflineState();
+                    CheckEmptyState();
+                });
             });
         }
 
