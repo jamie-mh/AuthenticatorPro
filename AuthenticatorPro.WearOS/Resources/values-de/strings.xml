@@ -3,6 +3,7 @@
     <string name="displayName">Authentifikator</string>
     <string name="noAuthenticators">Keine Schlüssel</string>
     <string name="noAuthenticatorsMessage">Hier ist nichts. Füge auf der Telefonapp einen Schlüssel hinzu.</string>
+    <string name="hotpNotSupported">HOTP not supported</string>
     <string name="categoryAll">Alle</string>
     <string name="offline">Offline</string>
 </resources>
