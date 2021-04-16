@@ -80,39 +80,44 @@ namespace AuthenticatorPro.Shared.Data.Backup
         {
             try
             {
-                string json;
-                
-                if(String.IsNullOrEmpty(password))
-                    json = Encoding.UTF8.GetString(data);
-                else
-                {
-                    var foundHeader = data.Take(Header.Length).ToArray();
-                    var headerBytes = Encoding.UTF8.GetBytes(Header);
-
-                    if(!headerBytes.SequenceEqual(foundHeader))
-                        throw new ArgumentException("Header does not match.");
-                    
-                    var salt = data.Skip(Header.Length).Take(SaltLength).ToArray();
-                    var (key, blockLength) = GetKeyAndBlockLength(salt, password);
-                    var iv = data.Skip(Header.Length).Skip(SaltLength).Take(blockLength).ToArray();
-                    var payload = data.Skip(Header.Length + SaltLength + blockLength).Take(data.Length - Header.Length - SaltLength - blockLength).ToArray();
-                    
-                    var raw = WinRTCrypto.CryptographicEngine.Decrypt(key, payload, iv);
-                    json = Encoding.UTF8.GetString(raw);
-                }
-
-                try
-                {
-                    return JsonConvert.DeserializeObject<Backup>(json);
-                }
-                catch(JsonException)
-                {
-                    throw new ArgumentException("File invalid");
-                }
+                return FromBytesNew(data, password);
             }
             catch
             {
                 return FromBytesOld(data, password);
+            }
+        }
+
+        private static Backup FromBytesNew(byte[] data, string password)
+        {
+            string json;
+            
+            if(String.IsNullOrEmpty(password))
+                json = Encoding.UTF8.GetString(data);
+            else
+            {
+                var foundHeader = data.Take(Header.Length).ToArray();
+                var headerBytes = Encoding.UTF8.GetBytes(Header);
+
+                if(!headerBytes.SequenceEqual(foundHeader))
+                    throw new ArgumentException("Header does not match.");
+                
+                var salt = data.Skip(Header.Length).Take(SaltLength).ToArray();
+                var (key, blockLength) = GetKeyAndBlockLength(salt, password);
+                var iv = data.Skip(Header.Length).Skip(SaltLength).Take(blockLength).ToArray();
+                var payload = data.Skip(Header.Length + SaltLength + blockLength).Take(data.Length - Header.Length - SaltLength - blockLength).ToArray();
+                
+                var raw = WinRTCrypto.CryptographicEngine.Decrypt(key, payload, iv);
+                json = Encoding.UTF8.GetString(raw);
+            }
+
+            try
+            {
+                return JsonConvert.DeserializeObject<Backup>(json);
+            }
+            catch(JsonException)
+            {
+                throw new ArgumentException("File invalid");
             }
         }
 
