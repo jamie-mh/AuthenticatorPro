@@ -72,7 +72,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _period = Intent.Extras.GetInt("period");
             _digits = Intent.Extras.GetInt("digits");
-            var algorithm = (Algorithm) Intent.Extras.GetInt("algorithm");
+            var algorithm = (HashAlgorithm) Intent.Extras.GetInt("algorithm");
 
             var secret = Intent.Extras.GetString("secret");
             var type = (AuthenticatorType) Intent.Extras.GetInt("type");

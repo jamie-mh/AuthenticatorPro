@@ -10,16 +10,16 @@ namespace AuthenticatorPro.Shared.Data.Generator
         private readonly HMAC _hmac;
         private readonly int _digits;
     
-        protected HmacOtp(string secret, Algorithm algorithm, int digits)
+        protected HmacOtp(string secret, HashAlgorithm algorithm, int digits)
         {
             _digits = digits;
 
             var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
             _hmac = algorithm switch
             {
-                Algorithm.Sha1 => new HMACSHA1(secretBytes),
-                Algorithm.Sha256 => new HMACSHA256(secretBytes),
-                Algorithm.Sha512 => new HMACSHA512(secretBytes),
+                HashAlgorithm.Sha1 => new HMACSHA1(secretBytes),
+                HashAlgorithm.Sha256 => new HMACSHA256(secretBytes),
+                HashAlgorithm.Sha512 => new HMACSHA512(secretBytes),
                 _ => throw new ArgumentOutOfRangeException(nameof(algorithm))
             };
         }

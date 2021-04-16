@@ -119,9 +119,9 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 var algorithm = Info.Algorithm switch
                 {
-                    "SHA1" => Algorithm.Sha1,
-                    "SHA256" => Algorithm.Sha256,
-                    "SHA512" => Algorithm.Sha512,
+                    "SHA1" => HashAlgorithm.Sha1,
+                    "SHA256" => HashAlgorithm.Sha256,
+                    "SHA512" => HashAlgorithm.Sha512,
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 

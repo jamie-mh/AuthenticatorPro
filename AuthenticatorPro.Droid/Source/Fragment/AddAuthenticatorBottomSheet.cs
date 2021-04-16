@@ -45,7 +45,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private readonly IIconResolver _iconResolver;
         private AuthenticatorType _type;
-        private Algorithm _algorithm;
+        private HashAlgorithm _algorithm;
 
         public string SecretError {
             set => _secretLayout.Error = value;
@@ -55,7 +55,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             _iconResolver = new IconResolver();
             _type = AuthenticatorType.Totp;
-            _algorithm = Algorithm.Sha1;
+            _algorithm = HashAlgorithm.Sha1;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -169,9 +169,9 @@ namespace AuthenticatorPro.Droid.Fragment
         private void OnAlgorithmItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             _algorithm = e.Position switch {
-                1 => Algorithm.Sha256,
-                2 => Algorithm.Sha512,
-                _ => Algorithm.Sha1
+                1 => HashAlgorithm.Sha256,
+                2 => HashAlgorithm.Sha512,
+                _ => HashAlgorithm.Sha1
             };
         }
 

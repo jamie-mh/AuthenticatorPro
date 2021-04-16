@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Shared.Data.Generator;
 using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Shared.Data.Backup.Converter
@@ -96,9 +97,9 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 var algorithm = Algorithm switch
                 {
-                    "SHA1" => Generator.Algorithm.Sha1,
-                    "SHA256" => Generator.Algorithm.Sha256,
-                    "SHA512" => Generator.Algorithm.Sha512,
+                    "SHA1" => HashAlgorithm.Sha1,
+                    "SHA256" => HashAlgorithm.Sha256,
+                    "SHA512" => HashAlgorithm.Sha512,
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 

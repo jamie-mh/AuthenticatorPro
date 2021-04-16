@@ -11,33 +11,33 @@ namespace AuthenticatorPro.Test
         private const string Sha512Secret = "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZDGNA=";
 
         [Theory]
-        [InlineData(59, "94287082", Algorithm.Sha1)]
-        [InlineData(59, "46119246", Algorithm.Sha256)]               
-        [InlineData(59, "90693936", Algorithm.Sha512)]          
-        [InlineData(1111111109, "07081804", Algorithm.Sha1)]             
-        [InlineData(1111111109, "68084774", Algorithm.Sha256)]             
-        [InlineData(1111111109, "25091201", Algorithm.Sha512)]                
-        [InlineData(1111111111, "14050471", Algorithm.Sha1)]             
-        [InlineData(1111111111, "67062674", Algorithm.Sha256)]            
-        [InlineData(1111111111, "99943326", Algorithm.Sha512)]             
-        [InlineData(1234567890, "89005924", Algorithm.Sha1)]              
-        [InlineData(1234567890, "91819424", Algorithm.Sha256)]              
-        [InlineData(1234567890, "93441116", Algorithm.Sha512)]              
-        [InlineData(2000000000, "69279037", Algorithm.Sha1)]                
-        [InlineData(2000000000, "90698825", Algorithm.Sha256)]               
-        [InlineData(2000000000, "38618901", Algorithm.Sha512)]                  
-        [InlineData(20000000000, "65353130", Algorithm.Sha1)]                   
-        [InlineData(20000000000, "77737706", Algorithm.Sha256)]
-        [InlineData(20000000000, "47863826", Algorithm.Sha512)]
-        public void ComputeTest(long time, string expectedResult, Algorithm algorithm)
+        [InlineData(59, "94287082", HashAlgorithm.Sha1)]
+        [InlineData(59, "46119246", HashAlgorithm.Sha256)]               
+        [InlineData(59, "90693936", HashAlgorithm.Sha512)]          
+        [InlineData(1111111109, "07081804", HashAlgorithm.Sha1)]             
+        [InlineData(1111111109, "68084774", HashAlgorithm.Sha256)]             
+        [InlineData(1111111109, "25091201", HashAlgorithm.Sha512)]                
+        [InlineData(1111111111, "14050471", HashAlgorithm.Sha1)]             
+        [InlineData(1111111111, "67062674", HashAlgorithm.Sha256)]            
+        [InlineData(1111111111, "99943326", HashAlgorithm.Sha512)]             
+        [InlineData(1234567890, "89005924", HashAlgorithm.Sha1)]              
+        [InlineData(1234567890, "91819424", HashAlgorithm.Sha256)]              
+        [InlineData(1234567890, "93441116", HashAlgorithm.Sha512)]              
+        [InlineData(2000000000, "69279037", HashAlgorithm.Sha1)]                
+        [InlineData(2000000000, "90698825", HashAlgorithm.Sha256)]               
+        [InlineData(2000000000, "38618901", HashAlgorithm.Sha512)]                  
+        [InlineData(20000000000, "65353130", HashAlgorithm.Sha1)]                   
+        [InlineData(20000000000, "77737706", HashAlgorithm.Sha256)]
+        [InlineData(20000000000, "47863826", HashAlgorithm.Sha512)]
+        public void ComputeTest(long time, string expectedResult, HashAlgorithm algorithm)
         {
             var offset = DateTimeOffset.FromUnixTimeSeconds(time);
 
             var secret = algorithm switch
             {
-                Algorithm.Sha1 => Sha1Secret,
-                Algorithm.Sha256 => Sha256Secret,
-                Algorithm.Sha512 => Sha512Secret,
+                HashAlgorithm.Sha1 => Sha1Secret,
+                HashAlgorithm.Sha256 => Sha256Secret,
+                HashAlgorithm.Sha512 => Sha512Secret,
                 _ => throw new ArgumentOutOfRangeException(nameof(algorithm))
             };
             

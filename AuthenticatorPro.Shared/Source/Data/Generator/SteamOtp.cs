@@ -6,7 +6,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
     {
         public const int Digits = 5;
         private const int Period = 30;
-        private const Algorithm Algorithm = Generator.Algorithm.Sha1;
+        private const HashAlgorithm Algorithm = Generator.HashAlgorithm.Sha1;
         private const string Alphabet = "23456789BCDFGHJKMNPQRTVWXY";
 
         public SteamOtp(string secret) : base(secret, Period, Algorithm, Digits)

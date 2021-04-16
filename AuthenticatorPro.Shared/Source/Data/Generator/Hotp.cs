@@ -8,7 +8,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
         private const int CooldownSeconds = 10;
         private DateTimeOffset _computedAt;
         
-        public Hotp(string secret, Algorithm algorithm, int digits) : base(secret, algorithm, digits)
+        public Hotp(string secret, HashAlgorithm algorithm, int digits) : base(secret, algorithm, digits)
         {
             
         }

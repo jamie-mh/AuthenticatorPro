@@ -9,7 +9,7 @@ namespace AuthenticatorPro.Test
 
         public HotpTest()
         {
-            _computeTestHotp = new Hotp("GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ", Algorithm.Sha1, 6);
+            _computeTestHotp = new Hotp("GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ", HashAlgorithm.Sha1, 6);
         }
         
         [Theory]

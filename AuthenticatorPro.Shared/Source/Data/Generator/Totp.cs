@@ -8,7 +8,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
         private readonly int _period;
         private DateTimeOffset _computedAt;
 
-        public Totp(string secret, int period, Algorithm algorithm, int digits) : base(secret, algorithm, digits)
+        public Totp(string secret, int period, HashAlgorithm algorithm, int digits) : base(secret, algorithm, digits)
         {
             _period = period;
         }

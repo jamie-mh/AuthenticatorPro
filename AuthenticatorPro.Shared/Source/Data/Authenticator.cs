@@ -16,7 +16,7 @@ namespace AuthenticatorPro.Shared.Data
         public const int IssuerMaxLength = 32;
         public const int UsernameMaxLength = 40;
 
-        public const Algorithm DefaultAlgorithm = Algorithm.Sha1;
+        public const HashAlgorithm DefaultAlgorithm = HashAlgorithm.Sha1;
 
         [Column("type")]
         public AuthenticatorType Type { get; set; }
@@ -37,7 +37,7 @@ namespace AuthenticatorPro.Shared.Data
         public string Secret { get; set; }
 
         [Column("algorithm")]
-        public Algorithm Algorithm { get; set; }
+        public HashAlgorithm Algorithm { get; set; }
 
         [Column("digits")]
         public int Digits { get; set; }
@@ -137,7 +137,7 @@ namespace AuthenticatorPro.Shared.Data
 
             var algorithm = input.Algorithm switch
             {
-                OtpAuthMigration.Algorithm.Sha1 => Algorithm.Sha1,
+                OtpAuthMigration.Algorithm.Sha1 => HashAlgorithm.Sha1,
                 _ => throw new ArgumentException()
             };
 
@@ -239,9 +239,9 @@ namespace AuthenticatorPro.Shared.Data
             if(args.ContainsKey("algorithm") && type != AuthenticatorType.SteamOtp)
                 algorithm = args["algorithm"].ToUpper() switch
                 {
-                    "SHA1" => Algorithm.Sha1,
-                    "SHA256" => Algorithm.Sha256,
-                    "SHA512" => Algorithm.Sha512,
+                    "SHA1" => HashAlgorithm.Sha1,
+                    "SHA256" => HashAlgorithm.Sha256,
+                    "SHA512" => HashAlgorithm.Sha512,
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 
@@ -302,9 +302,9 @@ namespace AuthenticatorPro.Shared.Data
             {
                 var algorithmName = Algorithm switch
                 {
-                    Algorithm.Sha1 => "SHA1",
-                    Algorithm.Sha256 => "SHA256",
-                    Algorithm.Sha512 => "SHA512",
+                    HashAlgorithm.Sha1 => "SHA1",
+                    HashAlgorithm.Sha256 => "SHA256",
+                    HashAlgorithm.Sha512 => "SHA512",
                     _ => throw new ArgumentException("Unknown algorithm")
                 };
 
