@@ -136,7 +136,7 @@ namespace AuthenticatorPro.Droid.List
                     break;
 
                 case GenerationMethod.Counter:
-                    holder.RefreshButton.Visibility = auth.TimeRenew < DateTime.UtcNow
+                    holder.RefreshButton.Visibility = auth.TimeRenew < DateTimeOffset.UtcNow
                         ? ViewStates.Visible
                         : ViewStates.Gone;
 
@@ -260,7 +260,7 @@ namespace AuthenticatorPro.Droid.List
             if(secondsRemaining > -1)
                 return secondsRemaining;
 
-            secondsRemaining = period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % period;
+            secondsRemaining = period - (int) DateTimeOffset.UtcNow.ToUnixTimeSeconds() % period;
             _secondsRemainingPerPeriod.Add(period, secondsRemaining);
             return secondsRemaining;
         }

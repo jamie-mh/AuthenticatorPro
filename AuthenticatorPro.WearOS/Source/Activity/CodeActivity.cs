@@ -152,7 +152,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private string GenerateCode()
         {
             var code = CodeUtil.PadCode(_generator.Compute(), _digits);
-            Interlocked.Exchange(ref _secondsRemaining, _period - (int) DateTimeOffset.Now.ToUnixTimeSeconds() % _period);
+            Interlocked.Exchange(ref _secondsRemaining, _period - (int) DateTimeOffset.UtcNow.ToUnixTimeSeconds() % _period);
             return code;
         }
     }
