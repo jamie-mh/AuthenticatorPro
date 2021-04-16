@@ -30,14 +30,13 @@
                 android:layout_width="match_parent"
                 android:id="@+id/toolbar" />
 
-            <ProgressBar
+            <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/appBarProgressBar"
                 android:layout_marginTop="-7dp"
                 android:layout_marginBottom="-7dp"
                 android:indeterminate="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
         
     </com.google.android.material.appbar.AppBarLayout>
