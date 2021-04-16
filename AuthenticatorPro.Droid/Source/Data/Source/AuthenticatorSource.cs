@@ -12,7 +12,6 @@ namespace AuthenticatorPro.Droid.Data.Source
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
-        private GenerationMethod? GenerationMethod { get; set; }
         
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
@@ -45,18 +44,9 @@ namespace AuthenticatorPro.Droid.Data.Source
             UpdateView();
         }
 
-        public void SetGenerationMethod(GenerationMethod? generationMethod)
-        {
-            GenerationMethod = generationMethod;
-            UpdateView();
-        }
-
         public void UpdateView()
         {
             var view = _all.AsEnumerable();
-
-            if(GenerationMethod != null)
-                view = view.Where(i => i.Type.GetGenerationMethod() == GenerationMethod);
 
             if(CategoryId != null)
             {

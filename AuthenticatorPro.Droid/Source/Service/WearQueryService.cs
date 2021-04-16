@@ -43,7 +43,6 @@ namespace AuthenticatorPro.Droid.Service
                 _customIconSource = new CustomIconSource(_connection);
                 _categorySource = new CategorySource(_connection);
                 _authSource = new AuthenticatorSource(_connection);
-                _authSource.SetGenerationMethod(GenerationMethod.Time);
             });
         }
 

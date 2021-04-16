@@ -15,6 +15,8 @@ using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Data;
 using AuthenticatorPro.WearOS.List;
@@ -253,6 +255,12 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if(item == null)
                 return;
+
+            if(item.Type.GetGenerationMethod() == GenerationMethod.Counter)
+            {
+                Toast.MakeText(this, Resource.String.hotpNotSupported, ToastLength.Short).Show();
+                return;
+            }
 
             var intent = new Intent(this, typeof(CodeActivity));
             var bundle = new Bundle();

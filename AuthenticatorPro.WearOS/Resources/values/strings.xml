@@ -4,6 +4,7 @@
 
     <string name="noAuthenticators">No Authenticators</string>
     <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
+    <string name="hotpNotSupported">HOTP not supported</string>
 
     <string name="categoryAll">All</string>
     <string name="offline">Offline</string>
