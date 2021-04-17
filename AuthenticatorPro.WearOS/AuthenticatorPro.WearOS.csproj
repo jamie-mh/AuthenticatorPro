@@ -61,11 +61,11 @@
     <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidDexTool>d8</AndroidDexTool>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidLinkMode>Full</AndroidLinkMode>
     <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <AndroidLinkSkip>Xamarin.GooglePlayServices.Wearable</AndroidLinkSkip>
+    <AndroidLinkSkip>AuthenticatorPro.Shared;AuthenticatorPro.Droid.Shared;Xamarin.GooglePlayServices.Wearable</AndroidLinkSkip>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -115,9 +115,6 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
-      <Version>1.0.0.7</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
       <Version>2.3.1</Version>

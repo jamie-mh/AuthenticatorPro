@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -59,8 +59,8 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <AndroidLinkSkip>protobuf-net;protobuf-net.Core;Xamarin.AndroidX.Biometric;Xamarin.GooglePlayServices.Wearable</AndroidLinkSkip>
+    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkSkip>AuthenticatorPro.Shared;AuthenticatorPro.Droid.Shared;protobuf-net;protobuf-net.Core;Xamarin.AndroidX.Biometric;Xamarin.GooglePlayServices.Wearable</AndroidLinkSkip>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
     <AotAssemblies>true</AotAssemblies>
@@ -225,9 +225,6 @@
     </PackageReference>
     <PackageReference Include="Polly">
       <Version>7.2.2</Version>
-    </PackageReference>
-    <PackageReference Include="protobuf-net">
-      <Version>3.0.101</Version>
     </PackageReference>
     <PackageReference Include="QRCoder">
       <Version>1.4.1</Version>
