@@ -27,6 +27,10 @@
     <string name="mainMenu">Main Menu</string>
     <string name="enterKey">ป้อนคีย์ที่ให้มา</string>
     <string name="restoreBackup">คืนค่าข้อมูลสำรอง</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
     <!-- Authenticator -->
     <string name="issuer">ออกโดย</string>
     <string name="username">ชื่อผู้ใช้</string>
