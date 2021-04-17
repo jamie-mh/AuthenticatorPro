@@ -1519,8 +1519,8 @@ namespace AuthenticatorPro.Droid.Activity
             
             if(result.IsVoid())
                 return;
-            
-            CheckEmptyState();
+           
+            SwitchCategory(null);
             
             RunOnUiThread(delegate
             {
