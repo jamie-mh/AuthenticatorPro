@@ -27,6 +27,10 @@
     <string name="mainMenu">Ana Menü</string>
     <string name="enterKey">Sağlanan bir anahtarı girin</string>
     <string name="restoreBackup">Yedeği geri yükle</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
     <!-- Authenticator -->
     <string name="issuer">Kuruluş</string>
     <string name="username">Kullanıcı Adı</string>
