@@ -27,6 +27,10 @@
     <string name="mainMenu">主菜单</string>
     <string name="enterKey">输入提供的密钥</string>
     <string name="restoreBackup">从备份中恢复</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
     <!-- Authenticator -->
     <string name="issuer">发行方</string>
     <string name="username">用户名</string>
