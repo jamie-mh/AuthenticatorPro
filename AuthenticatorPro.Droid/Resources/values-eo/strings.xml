@@ -27,6 +27,10 @@
     <string name="mainMenu">Ĉefa menuo</string>
     <string name="enterKey">Enter a provided key</string>
     <string name="restoreBackup">Restore a backup</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
     <!-- Authenticator -->
     <string name="issuer">Issuer</string>
     <string name="username">Uzantnomo</string>
