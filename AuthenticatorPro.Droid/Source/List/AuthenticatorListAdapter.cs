@@ -199,7 +199,7 @@ namespace AuthenticatorPro.Droid.List
         
         private void UpdateProgressBar(ProgressBar progressBar, int period, DateTimeOffset timeRenew)
         {
-            var millisRemaining = timeRenew.ToUnixTimeMilliseconds() - DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            var millisRemaining = Math.Max(timeRenew.ToUnixTimeMilliseconds() - DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(), 0);
             var periodMillis = period * 1000;
             var progress = (int) Math.Round((double) MaxProgress * millisRemaining / periodMillis);
             
