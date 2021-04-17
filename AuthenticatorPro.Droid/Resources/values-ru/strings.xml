@@ -27,6 +27,10 @@
     <string name="mainMenu">Главное меню</string>
     <string name="enterKey">Введите предоставленный ключ</string>
     <string name="restoreBackup">Восстановление резервной копии</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
     <!-- Authenticator -->
     <string name="issuer">Издатель</string>
     <string name="username">Логин</string>
