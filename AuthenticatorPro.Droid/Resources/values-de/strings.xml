@@ -27,6 +27,10 @@
     <string name="mainMenu">Hauptmenü</string>
     <string name="enterKey">Einen Schlüssel eingeben</string>
     <string name="restoreBackup">Eine Sicherung laden</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
     <!-- Authenticator -->
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
