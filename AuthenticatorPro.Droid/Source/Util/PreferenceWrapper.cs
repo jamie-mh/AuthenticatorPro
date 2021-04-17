@@ -2,6 +2,7 @@ using System;
 using Android.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Data.Backup;
+using AuthenticatorPro.Droid.List;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Util
@@ -95,6 +96,14 @@ namespace AuthenticatorPro.Droid.Util
         {
             get => GetNullableBooleanPreference(AutoBackupPasswordProtectedKey, AutoBackupPasswordProtectedDefault);
             set => SetNullableBooleanPreference(AutoBackupPasswordProtectedKey, value);
+        }
+
+        private const string SortModeKey = "pref_sortMode";
+        private const SortMode SortModeDefault = SortMode.AlphabeticalAscending;
+        public SortMode SortMode
+        {
+            get => GetEnumPreference(SortModeKey, SortModeDefault);
+            set => SetEnumPreference(SortModeKey, value);
         }
         #endregion
         

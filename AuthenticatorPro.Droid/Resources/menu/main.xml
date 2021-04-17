@@ -1,14 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <item
+    <item
         android:id="@+id/actionSearch"
         android:icon="@drawable/ic_action_search"
         app:showAsAction="collapseActionView"
         android:title="@string/search"
         android:visible="false"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/actionSort"
+        android:icon="@drawable/ic_action_sort"
+        app:showAsAction="always"
+        android:title="@string/sort">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/actionSortAZ"
+                      android:title="@string/sortAZ" />
+
+                <item android:id="@+id/actionSortZA"
+                      android:title="@string/sortZA" />
+
+                <item android:id="@+id/actionSortCustom"
+                      android:title="@string/sortCustom" />
+            </group>
+        </menu>
+
+    </item>
 
 </menu>

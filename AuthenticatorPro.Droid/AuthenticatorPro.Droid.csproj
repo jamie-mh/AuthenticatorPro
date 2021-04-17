@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -136,6 +136,7 @@
     <Compile Include="Source\List\SheetMenuAdapter.cs" />
     <Compile Include="Source\List\SheetMenuItem.cs" />
     <Compile Include="Source\List\SheetMenuItemViewHolder.cs" />
+    <Compile Include="Source\List\SortMode.cs" />
     <Compile Include="Source\List\ViewMode.cs" />
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
     <Compile Include="Source\Preference\BiometricsPreference.cs" />
@@ -1674,6 +1675,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-sk\strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_sort.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

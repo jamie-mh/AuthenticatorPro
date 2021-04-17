@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Droid.List;
 using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Generator;
 using SQLite;
 
 namespace AuthenticatorPro.Droid.Data.Source
@@ -12,6 +12,7 @@ namespace AuthenticatorPro.Droid.Data.Source
     {
         public string Search { get; private set; }
         public string CategoryId { get; private set; }
+        public SortMode SortMode { get; private set; }
         
         public List<AuthenticatorCategory> CategoryBindings { get; private set; }
 
@@ -44,6 +45,12 @@ namespace AuthenticatorPro.Droid.Data.Source
             UpdateView();
         }
 
+        public void SetSortMode(SortMode mode)
+        {
+            SortMode = mode;
+            UpdateView();
+        }
+
         public void UpdateView()
         {
             var view = _all.AsEnumerable();
@@ -51,10 +58,10 @@ namespace AuthenticatorPro.Droid.Data.Source
             if(CategoryId != null)
             {
                 var bindingForCategory = CategoryBindings.Where(b => b.CategoryId == CategoryId);
-
-                view = view
-                    .Where(a => bindingForCategory.Any(c => c.AuthenticatorSecret == a.Secret))
-                    .OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking);
+                view = view.Where(a => bindingForCategory.Any(c => c.AuthenticatorSecret == a.Secret));
+                    
+                if(SortMode == SortMode.Custom)
+                    view = view.OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking);
             }
 
             if(!String.IsNullOrEmpty(Search))
@@ -63,13 +70,21 @@ namespace AuthenticatorPro.Droid.Data.Source
                 view = view.Where(i => i.Issuer.ToLower().Contains(searchLower) || i.Username != null && i.Username.Contains(searchLower));
             }
 
+            view = SortMode switch
+            {
+                SortMode.AlphabeticalAscending => view.OrderBy(a => a.Issuer).ThenBy(a => a.Username),
+                SortMode.AlphabeticalDescending => view.OrderByDescending(a => a.Issuer).ThenByDescending(a => a.Username),
+                SortMode.Custom when CategoryId == null => view.OrderBy(a => a.Ranking).ThenBy(a => a.Issuer).ThenBy(a => a.Username),
+                _ => view
+            };
+
             _view = view.ToList();
         }
 
         public async Task Update()
         {
-            _all = await _connection.QueryAsync<Authenticator>("SELECT * FROM authenticator ORDER BY ranking, issuer, username");
-            CategoryBindings = await _connection.QueryAsync<AuthenticatorCategory>("SELECT * FROM authenticatorcategory ORDER BY ranking");
+            _all = await _connection.Table<Authenticator>().ToListAsync();
+            CategoryBindings = await _connection.Table<AuthenticatorCategory>().ToListAsync();
             UpdateView();
         }
 

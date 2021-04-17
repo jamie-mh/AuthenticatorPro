@@ -209,6 +209,8 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(_preferences.DefaultCategory != null)
                 _authSource.SetCategory(_preferences.DefaultCategory);
+
+            _authSource.SetSortMode(_preferences.SortMode);
             
             RunOnUiThread(InitAuthenticatorList);
 
@@ -494,6 +496,52 @@ namespace AuthenticatorPro.Droid.Activity
             return base.OnCreateOptionsMenu(menu);
         }
 
+        public override bool OnMenuOpened(int featureId, IMenu menu)
+        {
+            var sortItemId = _authSource.SortMode switch
+            {
+                SortMode.AlphabeticalAscending => Resource.Id.actionSortAZ,
+                SortMode.AlphabeticalDescending => Resource.Id.actionSortZA,
+                _ => Resource.Id.actionSortCustom,
+            };
+
+            menu.FindItem(sortItemId).SetChecked(true);
+            return base.OnMenuOpened(featureId, menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            SortMode sortMode;
+            
+            switch(item.ItemId)
+            {
+                case Resource.Id.actionSortAZ:
+                    sortMode = SortMode.AlphabeticalAscending;
+                    break;
+                
+                case Resource.Id.actionSortZA:
+                    sortMode = SortMode.AlphabeticalDescending;
+                    break;
+                
+                case Resource.Id.actionSortCustom:
+                    sortMode = SortMode.Custom;
+                    break;
+                
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+
+            if(_authSource.SortMode == sortMode)
+                return false;
+            
+            _authSource.SetSortMode(sortMode);
+            _preferences.SortMode = sortMode;
+            _authListAdapter.NotifyDataSetChanged();
+            item.SetChecked(true);
+
+            return true;
+        }
+
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
         {
             if(_authSource == null || _categorySource == null)
@@ -717,6 +765,12 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 RunOnUiThread(_bottomAppBar.PerformShow);
                 await NotifyWearAppOfChange();
+
+                if(_preferences.SortMode != SortMode.Custom)
+                {
+                    _preferences.SortMode = SortMode.Custom;
+                    _authSource.SetSortMode(SortMode.Custom);
+                }
             };
 
             _authList.SetAdapter(_authListAdapter);
