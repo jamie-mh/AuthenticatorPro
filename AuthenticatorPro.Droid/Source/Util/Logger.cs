@@ -9,12 +9,12 @@ namespace AuthenticatorPro.Droid.Util
 
         public static void Error(string message)
         {
-            Log.Error(Tag, $"{message}. Report at {Constants.GitHubRepo}");
+            Log.Error(Tag, message);
         }
         
         public static void Error(Exception e)
         {
-            Log.Error(Tag, $"Unexpected exception: {e}. Report at {Constants.GitHubRepo}");
+            Log.Error(Tag, e.ToString());
         }
         
         public static void Info(string message)
