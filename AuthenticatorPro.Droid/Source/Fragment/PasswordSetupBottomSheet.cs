@@ -115,7 +115,6 @@ namespace AuthenticatorPro.Droid.Fragment
             }
             
             var app = ((SettingsActivity) Context).BaseApplication;
-            await app.Lock();
             await app.Unlock(newPassword);
             
             Dismiss();
