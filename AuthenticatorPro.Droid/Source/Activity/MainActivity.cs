@@ -190,7 +190,8 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                connection = await GetConnection();
+                await UnlockIfRequired();
+                connection = await Database.GetSharedConnection();
             }
             catch(InvalidOperationException)
             {
@@ -685,28 +686,6 @@ namespace AuthenticatorPro.Droid.Activity
         #endregion
         
         #region Database
-        private async Task<SQLiteAsyncConnection> GetConnection()
-        {
-            var tries = 0;
-
-            while(true)
-            {
-                await UnlockIfRequired();
-
-                try
-                {
-                    var connection = await Database.GetSharedConnection();
-                    return connection;
-                }
-                catch
-                {
-                    // Try again, busy perhaps?
-                    if(++tries == 3)
-                        throw;
-                }
-            }
-        }
-        
         private async Task UnlockIfRequired()
         {
             switch(BaseApplication.IsLocked)
