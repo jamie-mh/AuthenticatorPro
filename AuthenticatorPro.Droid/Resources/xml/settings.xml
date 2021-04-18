@@ -73,26 +73,4 @@
             android:defaultValue="default" />
     </androidx.preference.PreferenceCategory>
 
-    <androidx.preference.PreferenceCategory
-        android:title="@string/prefMore"
-        android:key="pref_key_more">
-
-        <authenticatorpro.droid.preference.AboutPreference
-            android:key="pref_key_about"
-            android:summary="@string/prefAboutSummary"
-            app:iconSpaceReserved="false"
-            android:title="@string/prefAboutTitle" />
-
-        <authenticatorpro.droid.preference.RatePreference
-            android:key="pref_key_rate"
-            android:summary="@string/prefRateSummary"
-            app:iconSpaceReserved="false"
-            android:title="@string/prefRateTitle" />
-
-        <authenticatorpro.droid.preference.ViewGitHubPreference
-            android:key="pref_key_view_github"
-            android:summary="@string/prefViewGitHubSummary"
-            app:iconSpaceReserved="false"
-            android:title="@string/prefViewGitHubTitle" />
-    </androidx.preference.PreferenceCategory>
 </androidx.preference.PreferenceScreen>

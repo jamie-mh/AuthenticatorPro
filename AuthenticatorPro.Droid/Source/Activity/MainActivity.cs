@@ -583,6 +583,46 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 StartActivityForResult(typeof(SettingsActivity), RequestSettingsRecreate);
             };
+
+            fragment.ClickInfo += delegate
+            {
+                var sub = new InfoBottomSheet();
+
+                sub.ClickAbout += delegate
+                {
+                    StartActivity(typeof(AboutActivity));
+                };
+
+                sub.ClickRate += delegate
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=" + PackageName));
+
+                    try
+                    {
+                        StartActivity(intent);
+                    }
+                    catch(ActivityNotFoundException)
+                    {
+                        Toast.MakeText(this, Resource.String.googlePlayNotInstalledError, ToastLength.Short).Show();
+                    }
+                };
+
+                sub.ClickViewGitHub += delegate
+                {
+                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo));
+            
+                    try
+                    {
+                        StartActivity(intent);
+                    }
+                    catch(ActivityNotFoundException)
+                    {
+                        Toast.MakeText(this, Resource.String.webBrowserMissing, ToastLength.Short).Show(); 
+                    }
+                };
+                
+                sub.Show(SupportFragmentManager, sub.Tag);
+            };
             
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }

@@ -122,6 +122,7 @@
     <Compile Include="Source\Fragment\BackupPasswordBottomSheet.cs" />
     <Compile Include="Source\Activity\AboutActivity.cs" />
     <Compile Include="Source\Fragment\AuthenticatorMenuBottomSheet.cs" />
+    <Compile Include="Source\Fragment\InfoBottomSheet.cs" />
     <Compile Include="Source\Fragment\PasswordSetupBottomSheet.cs" />
     <Compile Include="Source\Fragment\QrCodeBottomSheet.cs" />
     <Compile Include="Source\Fragment\RenameAuthenticatorBottomSheet.cs" />
@@ -141,9 +142,6 @@
     <Compile Include="Source\Preference\AutoBackupPreference.cs" />
     <Compile Include="Source\Preference\BiometricsPreference.cs" />
     <Compile Include="Source\Preference\PasswordPreference.cs" />
-    <Compile Include="Source\Preference\ViewGitHubPreference.cs" />
-    <Compile Include="Source\Preference\RatePreference.cs" />
-    <Compile Include="Source\Preference\AboutPreference.cs" />
     <Compile Include="Source\Fragment\AddAuthenticatorBottomSheet.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Source\Fragment\SettingsFragment.cs" />
@@ -1705,6 +1703,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-mdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_action_info_outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_info_outline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
