@@ -31,6 +31,12 @@
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
+    <string name="info">Info</string>
+    <string name="aboutSummary">View about and licence information</string>
+    <string name="rate">Rate</string>
+    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="viewGitHub">View on GitHub</string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">Issuer</string>
     <string name="username">Uzantnomo</string>
@@ -217,13 +223,6 @@
     <string name="prefThemeSummary">Choose an application theme</string>
     <string name="prefViewModeTitle">Vida Reĝimo</string>
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
-    <string name="prefMore">Pli</string>
-    <string name="prefAboutTitle">Pri</string>
-    <string name="prefAboutSummary">View about and licence information</string>
-    <string name="prefRateTitle">Rate</string>
-    <string name="prefRateSummary">Rate Authenticator Pro on the Google Play store</string>
-    <string name="prefViewGitHubTitle">View on GitHub</string>
-    <string name="prefViewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>
     <string name="authTypeCounter">Counter based (HOTP)</string>
