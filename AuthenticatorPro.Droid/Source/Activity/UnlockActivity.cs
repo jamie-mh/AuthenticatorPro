@@ -10,6 +10,7 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 using BiometricManager = AndroidX.Biometric.BiometricManager;
 using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
@@ -27,6 +28,7 @@ namespace AuthenticatorPro.Droid.Activity
         private BiometricPrompt _prompt;
 
         private LinearLayout _unlockLayout;
+        private LinearProgressIndicator _progressIndicator;
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
@@ -41,6 +43,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preferences = new PreferenceWrapper(this);
             _unlockLayout = FindViewById<LinearLayout>(Resource.Id.layoutUnlock);
+            _progressIndicator = FindViewById<LinearProgressIndicator>(Resource.Id.progressIndicator);
             
             _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
             _passwordText = FindViewById<TextInputEditText>(Resource.Id.editPassword);
@@ -102,13 +105,19 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task AttemptUnlock(string password)
         {
+            RunOnUiThread(delegate { _progressIndicator.Visibility = ViewStates.Visible; });
+            
             try
             {
                 await BaseApplication.Unlock(password);
             }
             catch
             {
-                _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
+                RunOnUiThread(delegate
+                {
+                    _progressIndicator.Visibility = ViewStates.Invisible;
+                    _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
+                });
 
                 if(_failedAttempts > MaxAttempts)
                 {
