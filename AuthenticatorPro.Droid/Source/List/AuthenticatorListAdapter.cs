@@ -182,13 +182,20 @@ namespace AuthenticatorPro.Droid.List
             }
         }
 
-        public void Tick()
+        public void Tick(int startPos, int endPos)
         {
+            if(startPos < 0 || endPos < 0)
+                return;
+            
+            endPos = Math.Min(endPos, ItemCount - 1);
             var now = DateTimeOffset.UtcNow;
             
-            for(var i = 0; i < _authSource.GetView().Count; ++i)
+            for(var i = startPos; i <= endPos; ++i)
             {
                 var auth = _authSource.Get(i);
+
+                if(auth == null)
+                    continue;
 
                 if(auth.TimeRenew <= now)
                     NotifyItemChanged(i, true);
