@@ -1,7 +1,9 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -29,8 +31,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
                 version = packageInfo.VersionName;
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 version = "unknown";
             }
 

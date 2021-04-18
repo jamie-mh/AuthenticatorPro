@@ -347,12 +347,15 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(!_hasWearAPIs)
                 return;
-            
+
             try
             {
                 await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
             }
-            catch(ApiException) { }
+            catch(ApiException e)
+            {
+                Logger.Error(e);
+            }
         }
         #endregion
 
@@ -1047,8 +1050,9 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     await _authSource.Delete(position);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e); 
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }
@@ -1057,8 +1061,9 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     await _customIconSource.CullUnused();
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     // ignored
                 }
 
@@ -1153,8 +1158,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var data = await FileUtil.ReadFile(this, uri);
                 bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e); 
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
@@ -1189,8 +1195,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height, RGBLuminanceSource.BitmapFormat.RGBA32);
                 result = reader.Decode(source);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1228,8 +1235,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 auth = Authenticator.FromOtpAuthUri(uri, _iconResolver);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
             }
@@ -1246,8 +1254,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 position = await _authSource.Add(auth);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1277,8 +1286,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 migration = OtpAuthMigration.FromOtpAuthMigrationUri(uri);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
             }
@@ -1305,8 +1315,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await _authSource.AddMany(authenticators);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1405,8 +1416,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 data = await FileUtil.ReadFile(this, uri);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
@@ -1437,8 +1449,9 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     result = await DecryptAndRestore(null);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                     return;
                 }
@@ -1461,8 +1474,9 @@ namespace AuthenticatorPro.Droid.Activity
                     sheet.Dismiss();
                     await FinaliseRestore(result);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     sheet.Error = GetString(Resource.String.restoreError);
                     sheet.SetBusyText(null);
                 }
@@ -1474,7 +1488,7 @@ namespace AuthenticatorPro.Droid.Activity
         private async Task<RestoreResult> RestoreBackup(Backup backup, bool shouldUpdateExisting)
         {
             if(backup.Authenticators == null)
-                throw new ArgumentException();
+                throw new ArgumentException("Authenticators is null");
             
             int authsAdded;
             var authsUpdated = 0;
@@ -1504,9 +1518,10 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await _customIconSource.CullUnused();
             }
-            catch
+            catch(Exception e)
             {
                 // ignored
+                Logger.Error(e);
             }
 
             return new RestoreResult(authsAdded, authsUpdated, categoryCount, customIconCount);
@@ -1520,8 +1535,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 data = await FileUtil.ReadFile(this, uri);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
@@ -1549,8 +1565,9 @@ namespace AuthenticatorPro.Droid.Activity
                         await ConvertAndRestore(password);
                         sheet.Dismiss();
                     }
-                    catch
+                    catch(Exception e)
                     {
+                        Logger.Error(e);
                         sheet.Error = GetString(Resource.String.restoreError);
                         sheet.SetBusyText(null);
                     }
@@ -1565,8 +1582,9 @@ namespace AuthenticatorPro.Droid.Activity
                     {
                         await ConvertAndRestore(null);
                     }
-                    catch
+                    catch(Exception e)
                     {
+                        Logger.Error(e);
                         ShowSnackbar(Resource.String.importError, Snackbar.LengthShort);
                     }
                     break;
@@ -1653,8 +1671,9 @@ namespace AuthenticatorPro.Droid.Activity
                     await Task.Run(delegate { data = backup.ToBytes(password); });
                     await FileUtil.WriteFile(this, destination, data);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }
@@ -1698,8 +1717,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var backup = await HtmlBackup.FromAuthenticators(this, _authSource.GetAll());
                 await FileUtil.WriteFile(this, destination, backup.ToString());
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1714,8 +1734,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var backup = UriListBackup.FromAuthenticators(_authSource.GetAll());
                 await FileUtil.WriteFile(this, destination, backup.ToString());
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1788,8 +1809,9 @@ namespace AuthenticatorPro.Droid.Activity
                     position = _authSource.GetPosition(auth.Secret);
                 }
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1827,28 +1849,29 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs e)
+        private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs args)
         {
-            var auth = _authSource.Get(e.ItemPosition);
+            var auth = _authSource.Get(args.ItemPosition);
 
             if(auth == null)
                 return;
             
-            auth.Issuer = e.Issuer;
-            auth.Username = e.Username;
+            auth.Issuer = args.Issuer;
+            auth.Username = args.Username;
             auth.Icon ??= _iconResolver.FindServiceKeyByName(auth.Issuer);
             
             try
             {
                 await _authSource.UpdateSingle(auth);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
 
-            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
+            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(args.ItemPosition); });
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
             await NotifyWearAppOfChange();
         }
@@ -1870,22 +1893,23 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs e)
+        private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs args)
         {
-            var auth = _authSource.Get(e.ItemPosition);
+            var auth = _authSource.Get(args.ItemPosition);
 
             if(auth == null)
                 return;
 
             var oldIcon = auth.Icon;
-            auth.Icon = e.Icon;
+            auth.Icon = args.Icon;
 
             try
             {
                 await _authSource.UpdateSingle(auth);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 auth.Icon = oldIcon;
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
@@ -1895,13 +1919,14 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await _customIconSource.CullUnused();
             }
-            catch
+            catch(Exception e)
             {
                 // ignored
+                Logger.Error(e);
             }
 
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
-            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(e.ItemPosition); });
+            RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(args.ItemPosition); });
             await NotifyWearAppOfChange();
 
             ((ChangeIconBottomSheet) sender).Dismiss();
@@ -1919,8 +1944,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var data = await FileUtil.ReadFile(this, source);
                 icon = await decoder.Decode(data);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
@@ -1938,8 +1964,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 // Duplicate icon, ignore 
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1951,15 +1978,18 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await _authSource.UpdateSingle(auth);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
+                
                 try
                 {
                     await _customIconSource.Delete(icon.Id);
                 }
-                catch
+                catch(Exception e2)
                 {
                     // ignored, not much can be done at this point
+                    Logger.Error(e2);
                 }
 
                 auth.Icon = oldIcon;
@@ -1971,9 +2001,10 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await _customIconSource.CullUnused();
             }
-            catch
+            catch(Exception e)
             {
                 // this shouldn't fail, but ignore if it does
+                Logger.Error(e);
             }
             
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
@@ -2022,20 +2053,21 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
 
-        private async void OnCategoriesDialogCategoryClick(object sender, AssignCategoriesBottomSheet.CategoryClickedEventArgs e)
+        private async void OnCategoriesDialogCategoryClick(object sender, AssignCategoriesBottomSheet.CategoryClickedEventArgs args)
         {
-            var categoryId = _categorySource.Get(e.CategoryPosition).Id;
-            var authSecret = _authSource.Get(e.ItemPosition).Secret;
+            var categoryId = _categorySource.Get(args.CategoryPosition).Id;
+            var authSecret = _authSource.Get(args.ItemPosition).Secret;
 
             try
             {
-                if(e.IsChecked)
+                if(args.IsChecked)
                     await _authSource.AddToCategory(authSecret, categoryId);
                 else
                     await _authSource.RemoveFromCategory(authSecret, categoryId);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
             }
         }

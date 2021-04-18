@@ -2,6 +2,7 @@
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data.Source;
+using AuthenticatorPro.Droid.Util;
 
 namespace AuthenticatorPro.Droid.List
 {
@@ -31,9 +32,10 @@ namespace AuthenticatorPro.Droid.List
             {
                 await _source.CommitRanking();
             }
-            catch
+            catch(Exception e)
             {
                 // Cannot revert, keep going
+                Logger.Error(e);
             }
         }
 

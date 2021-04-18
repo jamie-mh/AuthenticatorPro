@@ -162,8 +162,9 @@ namespace AuthenticatorPro.Droid.Activity
                     var password = await SecureStorageWrapper.GetDatabasePassword();
                     passwordStorage.Store(password, result.CryptoObject.Cipher);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     callback(false);
                     return;
                 }
@@ -197,8 +198,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 cipher = passwordStorage.GetEncryptionCipher();
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 passwordStorage.Clear();
                 callback(false);
                 return;

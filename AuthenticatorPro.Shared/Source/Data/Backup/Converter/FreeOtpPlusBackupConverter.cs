@@ -66,7 +66,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 {
                     "TOTP" => AuthenticatorType.Totp,
                     "HOTP" => AuthenticatorType.Hotp,
-                    _ => throw new ArgumentException("Unknown type")
+                    _ => throw new ArgumentOutOfRangeException(nameof(Type))
                 };
 
                 var algorithm = Algorithm switch
@@ -74,7 +74,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
-                    _ => throw new ArgumentException("Unknown algorithm")
+                    _ => throw new ArgumentOutOfRangeException(nameof(Algorithm))
                 };
 
                 string issuer;

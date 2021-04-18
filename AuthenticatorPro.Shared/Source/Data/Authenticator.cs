@@ -132,13 +132,13 @@ namespace AuthenticatorPro.Shared.Data
             {
                 OtpAuthMigration.Type.Totp => AuthenticatorType.Totp,
                 OtpAuthMigration.Type.Hotp => AuthenticatorType.Hotp,
-                _ => throw new ArgumentException()
+                _ => throw new ArgumentOutOfRangeException(nameof(input.Type), "Unknown type")
             };
 
             var algorithm = input.Algorithm switch
             {
                 OtpAuthMigration.Algorithm.Sha1 => HashAlgorithm.Sha1,
-                _ => throw new ArgumentException()
+                _ => throw new ArgumentOutOfRangeException(nameof(input.Algorithm), "Unknown algorithm")
             };
 
             string secret;
@@ -148,9 +148,9 @@ namespace AuthenticatorPro.Shared.Data
                 secret = Base32.Rfc4648.Encode(input.Secret);
                 secret = CleanSecret(secret, type);
             }
-            catch
+            catch(Exception e)
             {
-                throw new ArgumentException();
+                throw new ArgumentException("Failed to parse secret", e);
             }
 
             var auth = new Authenticator
@@ -167,7 +167,7 @@ namespace AuthenticatorPro.Shared.Data
             };
             
             if(!auth.IsValid())
-                throw new ArgumentException();
+                throw new ArgumentException("Authenticator is invalid");
             
             return auth;
         }
@@ -279,7 +279,7 @@ namespace AuthenticatorPro.Shared.Data
             };
 
             if(!auth.IsValid())
-                throw new ArgumentException("Authenticator is not valid.");
+                throw new ArgumentException("Authenticator is invalid");
             
             return auth;
         }
@@ -305,7 +305,7 @@ namespace AuthenticatorPro.Shared.Data
                     HashAlgorithm.Sha1 => "SHA1",
                     HashAlgorithm.Sha256 => "SHA256",
                     HashAlgorithm.Sha512 => "SHA512",
-                    _ => throw new ArgumentException("Unknown algorithm")
+                    _ => throw new ArgumentOutOfRangeException(nameof(Algorithm))
                 };
 
                 uri.Append($"&algorithm={algorithmName}");

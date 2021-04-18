@@ -134,12 +134,12 @@ namespace AuthenticatorPro.Droid.Activity
             dialog.Show(transaction, "add_dialog");
         }
 
-        private async void OnAddDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs e)
+        private async void OnAddDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs args)
         {
             var dialog = (EditCategoryBottomSheet) sender;
-            var category = new Category(e.Name);
+            var category = new Category(args.Name);
 
-            if(_categorySource.IsDuplicate(category))
+            if(_categorySource.Exists(category))
             {
                 dialog.NameError = GetString(Resource.String.duplicateCategory);
                 return;
@@ -149,8 +149,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await _categorySource.Add(category);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -201,22 +202,22 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnRenameDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs e)
+        private async void OnRenameDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs args)
         {
             var dialog = (EditCategoryBottomSheet) sender;
 
-            if(e.Name == e.InitialName || e.Position == -1)
+            if(args.Name == args.InitialName || args.Position == -1)
             {
                 dialog.Dismiss();
                 return;
             }
 
-            var currentId = _categorySource.Get(e.Position).Id;
+            var currentId = _categorySource.Get(args.Position).Id;
             var isDefault = _preferences.DefaultCategory == currentId;
 
-            var category = new Category(e.Name);
+            var category = new Category(args.Name);
 
-            if(_categorySource.IsDuplicate(category))
+            if(_categorySource.Exists(category))
             {
                 dialog.NameError = GetString(Resource.String.duplicateCategory);
                 return;
@@ -224,10 +225,11 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                await _categorySource.Rename(e.Position, e.Name);
+                await _categorySource.Rename(args.Position, args.Name);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -239,7 +241,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(isDefault)
                 SetDefaultCategory(category.Id);
                 
-            RunOnUiThread(delegate { _categoryListAdapter.NotifyItemChanged(e.Position); });
+            RunOnUiThread(delegate { _categoryListAdapter.NotifyItemChanged(args.Position); });
         }
         
         private void OnSetDefaultClick(object item, int position)
@@ -286,8 +288,9 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     await _categorySource.Delete(position);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using SQLite;
 
 namespace AuthenticatorPro.Droid.Data.Source
@@ -90,8 +91,11 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task<int> Add(Authenticator auth)
         {
-            if(Exists(auth) || !auth.IsValid())
-                throw new ArgumentException();
+            if(Exists(auth))
+                throw new ArgumentException("Authenticator already exists");
+            
+            if(!auth.IsValid())
+                throw new ArgumentException("Authenticator is invalid");
             
             await _connection.InsertAsync(auth);
             await Update();
@@ -175,7 +179,7 @@ namespace AuthenticatorPro.Droid.Data.Source
             var auth = Get(position);
 
             if(auth == null)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(position), "No authenticator at position");
 
             await _connection.RunInTransactionAsync(conn =>
             {
@@ -198,10 +202,14 @@ namespace AuthenticatorPro.Droid.Data.Source
                 SortMode = SortMode.Custom;
             
             var atNewPos = Get(newPosition);
-            var atOldPos = Get(oldPosition);
 
-            if(atNewPos == null || atOldPos == null)
-                throw new ArgumentOutOfRangeException();
+            if(atNewPos == null)
+                throw new ArgumentOutOfRangeException(nameof(newPosition), "No authenticator at position");
+            
+            var atOldPos = Get(oldPosition);
+            
+            if(atOldPos == null)
+                throw new ArgumentOutOfRangeException(nameof(oldPosition), "No authenticator at position");
             
             _view[newPosition] = atOldPos;
             _view[oldPosition] = atNewPos;
@@ -241,10 +249,10 @@ namespace AuthenticatorPro.Droid.Data.Source
             var auth = Get(position);
 
             if(auth == null)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(position), "No authenticator at position");
 
-            if(auth.Type != AuthenticatorType.Hotp)
-                throw new ArgumentException();
+            if(auth.Type.GetGenerationMethod() != GenerationMethod.Counter)
+                throw new ArgumentException("Authenticator is not counter based");
 
             auth.Counter++;
             await _connection.UpdateAsync(auth);
@@ -267,7 +275,7 @@ namespace AuthenticatorPro.Droid.Data.Source
             var auth = Get(position);
 
             if(auth == null)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(position), "No authenticator at position");
 
             return CategoryBindings.Where(c => c.AuthenticatorSecret == auth.Secret)
                                    .Select(c => c.CategoryId)
@@ -294,7 +302,7 @@ namespace AuthenticatorPro.Droid.Data.Source
             var binding = GetAuthenticatorCategoryBinding(authSecret, categoryId);
 
             if(binding == null)
-                throw new ArgumentException();
+                throw new ArgumentException("Category binding does not exist");
 
             await _connection.ExecuteAsync(
                 "DELETE FROM authenticatorcategory WHERE authenticatorSecret = ? AND categoryId = ?", 

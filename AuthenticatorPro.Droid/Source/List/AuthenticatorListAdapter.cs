@@ -12,6 +12,7 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Util;
@@ -69,9 +70,10 @@ namespace AuthenticatorPro.Droid.List
             {
                 await _authSource.CommitRanking();
             }
-            catch
+            catch(Exception e)
             {
                 // Cannot revert, keep going
+                Logger.Error(e);
             }
         }
 

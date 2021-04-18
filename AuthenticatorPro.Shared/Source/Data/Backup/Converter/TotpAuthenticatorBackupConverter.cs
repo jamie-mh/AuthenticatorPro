@@ -93,7 +93,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 // TODO: figure out if this value ever changes
                 if(Base != 16)
-                    throw new ArgumentException("Cannot parse base other than 16");
+                    throw new ArgumentOutOfRangeException(nameof(Base), "Cannot parse base other than 16");
                 
                 var secretBytes = Base16.Decode(Key);
                 var secret = Base32.Rfc4648.Encode(secretBytes);

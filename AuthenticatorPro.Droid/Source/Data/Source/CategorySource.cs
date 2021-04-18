@@ -26,8 +26,8 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task Add(Category category)
         {
-            if(IsDuplicate(category))
-                throw new ArgumentException();
+            if(Exists(category))
+                throw new ArgumentException("Category already exists");
             
             await _connection.InsertAsync(category);
             await Update();
@@ -35,13 +35,13 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task<int> AddMany(IEnumerable<Category> categories)
         {
-            var valid = categories.Where(c => !IsDuplicate(c)).ToList();
+            var valid = categories.Where(c => !Exists(c)).ToList();
             var added = await _connection.InsertAllAsync(valid);
             await Update();
             return added;
         }
 
-        public bool IsDuplicate(Category category)
+        public bool Exists(Category category)
         {
             return _all.Any(iterator => category.Id == iterator.Id);
         }
@@ -51,7 +51,7 @@ namespace AuthenticatorPro.Droid.Data.Source
             var category = Get(position);
 
             if(category == null)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(position), "No category at position");
 
             await _connection.RunInTransactionAsync(conn =>
             {
@@ -65,12 +65,12 @@ namespace AuthenticatorPro.Droid.Data.Source
         public async Task Rename(int position, string name)
         {
             if(String.IsNullOrEmpty(name))
-                throw new ArgumentException();
+                throw new ArgumentException("Name cannot be null or empty");
             
             var old = Get(position);
 
             if(old == null)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(position), "No category at position");
             
             var replacement = new Category(name);
             _all[position] = replacement;
@@ -88,10 +88,14 @@ namespace AuthenticatorPro.Droid.Data.Source
         public void Swap(int oldPosition, int newPosition)
         {
             var atNewPos = Get(newPosition);
-            var atOldPos = Get(oldPosition);
 
-            if(atNewPos == null || atOldPos == null)
-                throw new ArgumentOutOfRangeException();
+            if(atNewPos == null)
+                throw new ArgumentOutOfRangeException(nameof(oldPosition), "No category at position");
+            
+            var atOldPos = Get(oldPosition);
+            
+            if(atOldPos == null)
+                throw new ArgumentOutOfRangeException(nameof(newPosition), "No category at position");
             
             _all[newPosition] = atOldPos;
             _all[oldPosition] = atNewPos;
@@ -113,7 +117,7 @@ namespace AuthenticatorPro.Droid.Data.Source
         public int GetPosition(string id)
         {
             if(String.IsNullOrEmpty(id))
-                throw new ArgumentException();
+                throw new ArgumentException("Id cannot be null or empty");
 
             return _all.FindIndex(c => c.Id == id);
         }

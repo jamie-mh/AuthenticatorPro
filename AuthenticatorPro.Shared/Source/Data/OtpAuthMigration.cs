@@ -77,7 +77,7 @@ namespace AuthenticatorPro.Shared.Data
             var match = Regex.Match(real, @"^otpauth-migration:\/\/offline\?data=(.*)$");
             
             if(!match.Success)
-                throw new Exception("Invalid URI.");
+                throw new ArgumentException("Invalid URI");
 
             var rawData = match.Groups[1].Value;
 

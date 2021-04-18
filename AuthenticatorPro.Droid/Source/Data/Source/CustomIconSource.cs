@@ -25,8 +25,8 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task Add(CustomIcon icon)
         {
-            if(IsDuplicate(icon.Id))
-                throw new ArgumentException();
+            if(Exists(icon.Id))
+                throw new ArgumentException("Custom icon already exists");
 
             await _connection.InsertAsync(icon);
             await Update();
@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task<int> AddMany(IEnumerable<CustomIcon> icons)
         {
-            var valid = icons.Where(c => !IsDuplicate(c.Id)).ToList();
+            var valid = icons.Where(c => !Exists(c.Id)).ToList();
             var added = await _connection.InsertAllAsync(valid);
             await Update();
             return added;
@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Droid.Data.Source
             await Update();
         }
 
-        private bool IsDuplicate(string id)
+        private bool Exists(string id)
         {
             return Get(id) != null;
         }

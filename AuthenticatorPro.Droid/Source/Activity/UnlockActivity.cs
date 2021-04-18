@@ -139,8 +139,9 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     password = passwordStorage.Fetch(result.CryptoObject.Cipher);
                 }
-                catch
+                catch(Exception e)
                 {
+                    Logger.Error(e);
                     Toast.MakeText(this, Resource.String.genericError, ToastLength.Short);
                     return;
                 }
@@ -174,8 +175,9 @@ namespace AuthenticatorPro.Droid.Activity
                 var cipher = passwordStorage.GetDecryptionCipher();
                 _prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
                 _canUseBiometrics = false;
                 _useBiometricsButton.Enabled = false;
                 FocusPasswordText();

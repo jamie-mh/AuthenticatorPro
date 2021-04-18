@@ -5,7 +5,6 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
-using Android.Util;
 using AndroidX.Core.App;
 using AndroidX.DocumentFile.Provider;
 using AndroidX.Work;
@@ -16,6 +15,7 @@ using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Data.Backup;
 using SQLite;
+using Logger = AuthenticatorPro.Droid.Util.Logger;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Worker
@@ -146,9 +146,10 @@ namespace AuthenticatorPro.Droid.Worker
             {
                 await _customIconSource.CullUnused();
             }
-            catch
+            catch(Exception e)
             {
                 // ignored
+                Logger.Error(e);
             }
                 
             return new RestoreResult(authsAdded, authsUpdated, categoriesAdded, customIconsAdded);
@@ -253,7 +254,7 @@ namespace AuthenticatorPro.Droid.Worker
                 {
                     restoreSucceeded = false;
                     ShowNotification(NotificationContext.RestoreFailure, true);
-                    Log.Error("AUTHPRO", e.ToString());
+                    Logger.Error(e);
                 }
             }
             
@@ -276,7 +277,7 @@ namespace AuthenticatorPro.Droid.Worker
                 {
                     backupSucceeded = false;
                     ShowNotification(NotificationContext.BackupFailure, true);
-                    Log.Error("AUTHPRO", e.ToString());
+                    Logger.Error(e);
                 }
             }
 

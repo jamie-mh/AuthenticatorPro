@@ -115,9 +115,9 @@ namespace AuthenticatorPro.Shared.Data.Backup
             {
                 return JsonConvert.DeserializeObject<Backup>(json);
             }
-            catch(JsonException)
+            catch(JsonException e)
             {
-                throw new ArgumentException("File invalid");
+                throw new ArgumentException("File invalid", e);
             }
         }
 
@@ -144,9 +144,9 @@ namespace AuthenticatorPro.Shared.Data.Backup
             {
                 return JsonConvert.DeserializeObject<Backup>(json);
             }
-            catch(JsonException)
+            catch(JsonException e)
             {
-                throw new ArgumentException("File invalid");
+                throw new ArgumentException("File invalid", e);
             }
         }
 

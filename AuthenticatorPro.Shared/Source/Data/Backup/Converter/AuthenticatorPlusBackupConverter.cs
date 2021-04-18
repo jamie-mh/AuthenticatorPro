@@ -71,9 +71,9 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 backup = new Backup(authenticators, categories, bindings);
             }
-            catch(SQLiteException)
+            catch(SQLiteException e)
             {
-                throw new ArgumentException("Database cannot be opened");
+                throw new ArgumentException("Database cannot be opened", e);
             }
             finally
             {
@@ -119,7 +119,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     Type.Totp => AuthenticatorType.Totp,
                     Type.Hotp => AuthenticatorType.Hotp,
                     Type.Blizzard => AuthenticatorType.Totp,
-                    _ => throw new ArgumentOutOfRangeException()
+                    _ => throw new ArgumentOutOfRangeException(nameof(Type))
                 };
 
                 string issuer;

@@ -109,9 +109,10 @@ namespace AuthenticatorPro.Droid.Util
             {
                 ks.DeleteEntry(KeyAlias);
             }
-            catch(KeyStoreException)
+            catch(KeyStoreException e)
             {
                 // Perhaps the key doesn't exist? 
+                Logger.Error(e);
             }
             
             SetByteArrayPreference(PasswordPrefKey, null);

@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Droid.Fragment
             return view;
         }
 
-        private async void OnSetPasswordButtonClick(object sender, EventArgs e)
+        private async void OnSetPasswordButtonClick(object sender, EventArgs args)
         {
             if(_passwordText.Text != _passwordConfirmText.Text)
             {
@@ -87,8 +87,10 @@ namespace AuthenticatorPro.Droid.Fragment
                     throw;
                 }
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
+                     
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
                 _progressBar.Visibility = ViewStates.Invisible;
                 SetCancelable(true);
@@ -106,9 +108,10 @@ namespace AuthenticatorPro.Droid.Fragment
                 var manager = new PasswordStorageManager(Context);
                 manager.Clear();
             }
-            catch
+            catch(Exception e)
             {
                 // Not really an issue if this fails
+                Logger.Error(e);
             }
             
             var app = ((SettingsActivity) Context).BaseApplication;
