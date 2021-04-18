@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task Update()
         {
-            _all = await _connection.QueryAsync<CustomIcon>("SELECT * FROM customicon");
+            _all = await _connection.Table<CustomIcon>().ToListAsync();
         }
 
         public async Task Add(CustomIcon icon)

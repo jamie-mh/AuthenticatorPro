@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task Update()
         {
-            _all = await _connection.QueryAsync<Category>("SELECT * FROM category ORDER BY ranking ASC");
+            _all = await _connection.Table<Category>().OrderBy(c => c.Ranking).ToListAsync();
         }
 
         public async Task Add(Category category)
