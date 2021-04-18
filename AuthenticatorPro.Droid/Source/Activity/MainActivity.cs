@@ -103,6 +103,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private AuthenticatorListAdapter _authListAdapter;
         private AutoGridLayoutManager _authLayout;
+        private ReorderableListTouchHelperCallback _authTouchHelperCallback;
         private AuthenticatorSource _authSource;
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
@@ -483,14 +484,15 @@ namespace AuthenticatorPro.Droid.Activity
                 _authSource.SetSearch(e.NewText);
                 _authListAdapter.NotifyDataSetChanged();
 
-                if(e.NewText == "" && !String.IsNullOrEmpty(oldSearch))
-                    searchItem.CollapseActionView();
-            };
+                if(e.NewText == "")
+                {
+                    _authTouchHelperCallback.IsLocked = false;
 
-            searchView.Close += delegate
-            {
-                searchItem.CollapseActionView();
-                _authSource.SetSearch(null);
+                    if(!String.IsNullOrEmpty(oldSearch))
+                        searchItem.CollapseActionView();
+                }
+                else
+                    _authTouchHelperCallback.IsLocked = true;
             };
 
             return base.OnCreateOptionsMenu(menu);
@@ -821,8 +823,8 @@ namespace AuthenticatorPro.Droid.Activity
             var animation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fall_down);
             _authList.LayoutAnimation = animation;
 
-            var callback = new ReorderableListTouchHelperCallback(this, _authListAdapter, _authLayout);
-            var touchHelper = new ItemTouchHelper(callback);
+            _authTouchHelperCallback = new ReorderableListTouchHelperCallback(this, _authListAdapter, _authLayout);
+            var touchHelper = new ItemTouchHelper(_authTouchHelperCallback);
             touchHelper.AttachToRecyclerView(_authList);
         }
 

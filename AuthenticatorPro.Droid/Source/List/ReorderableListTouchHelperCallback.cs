@@ -17,6 +17,7 @@ namespace AuthenticatorPro.Droid.List
 
         public override bool IsLongPressDragEnabled => true;
         public override bool IsItemViewSwipeEnabled => false;
+        public bool IsLocked { get; set; }
 
         private int _movementStartPosition;
         private int _movementEndPosition;
@@ -33,6 +34,9 @@ namespace AuthenticatorPro.Droid.List
 
         public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
         {
+            if(IsLocked)
+                return MakeMovementFlags(0, 0);
+            
             var dragFlags = ItemTouchHelper.Up | ItemTouchHelper.Down;
 
             if(_layoutManager.SpanCount > 1)
