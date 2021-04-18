@@ -194,6 +194,9 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public void Swap(int oldPosition, int newPosition)
         {
+            if(SortMode != SortMode.Custom)
+                SortMode = SortMode.Custom;
+            
             var atNewPos = Get(newPosition);
             var atOldPos = Get(oldPosition);
 
@@ -206,6 +209,9 @@ namespace AuthenticatorPro.Droid.Data.Source
 
         public async Task CommitRanking()
         {
+            if(SortMode != SortMode.Custom)
+                throw new InvalidOperationException("Cannot commit ranking to fixed sort mode");
+            
             if(CategoryId == null)
             {
                 for(var i = 0; i < _view.Count; ++i)

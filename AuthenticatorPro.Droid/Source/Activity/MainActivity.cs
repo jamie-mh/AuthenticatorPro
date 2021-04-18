@@ -807,10 +807,7 @@ namespace AuthenticatorPro.Droid.Activity
                 await NotifyWearAppOfChange();
 
                 if(_preferences.SortMode != SortMode.Custom)
-                {
                     _preferences.SortMode = SortMode.Custom;
-                    _authSource.SetSortMode(SortMode.Custom);
-                }
             };
 
             _authList.SetAdapter(_authListAdapter);
