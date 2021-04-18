@@ -9,7 +9,7 @@ using AuthenticatorPro.Droid.Shared.Data;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
-    internal class InfoBottomSheet : BottomSheet
+    internal class AboutBottomSheet : BottomSheet
     {
         public event EventHandler ClickAbout;
         public event EventHandler ClickRate;

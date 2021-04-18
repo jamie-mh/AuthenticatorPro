@@ -586,9 +586,9 @@ namespace AuthenticatorPro.Droid.Activity
                 StartActivityForResult(typeof(SettingsActivity), RequestSettingsRecreate);
             };
 
-            fragment.ClickInfo += delegate
+            fragment.ClickAbout += delegate
             {
-                var sub = new InfoBottomSheet();
+                var sub = new AboutBottomSheet();
 
                 sub.ClickAbout += delegate
                 {

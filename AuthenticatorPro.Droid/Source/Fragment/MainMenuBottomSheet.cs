@@ -13,7 +13,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickBackup;
         public event EventHandler ClickManageCategories;
         public event EventHandler ClickSettings;
-        public event EventHandler ClickInfo;
+        public event EventHandler ClickAbout;
 
         private CategoriesListAdapter _categoryListAdapter;
         private RecyclerView _categoryList;
@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 new(Resource.Drawable.ic_action_backup, Resource.String.backup, ClickBackup),
                 new(Resource.Drawable.ic_action_category, Resource.String.manageCategories, ClickManageCategories),
                 new(Resource.Drawable.ic_action_settings, Resource.String.settings, ClickSettings),
-                new(Resource.Drawable.ic_action_info_outline, Resource.String.info, ClickInfo)
+                new(Resource.Drawable.ic_action_info_outline, Resource.String.about, ClickAbout)
             });
             
             return view;
