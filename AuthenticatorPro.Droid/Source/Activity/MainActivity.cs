@@ -201,7 +201,7 @@ namespace AuthenticatorPro.Droid.Activity
             catch(Exception e)
             {
                 Logger.Error(e);
-                ShowDatabaseErrorDialog();
+                ShowDatabaseErrorDialog(e);
                 return;
             }
 
@@ -274,7 +274,7 @@ namespace AuthenticatorPro.Droid.Activity
             catch(Exception e)
             {
                 Logger.Error($"Database not usable? error: {e}");
-                ShowDatabaseErrorDialog();
+                ShowDatabaseErrorDialog(e);
                 return;
             }
 
@@ -710,19 +710,27 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
         
-        private void ShowDatabaseErrorDialog()
+        private void ShowDatabaseErrorDialog(Exception exception)
         {
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.databaseError);
             builder.SetTitle(Resource.String.error);
-            builder.SetPositiveButton(Resource.String.quit, delegate
+            
+            builder.SetNeutralButton(Resource.String.viewErrorLog, delegate
             {
-                Process.KillProcess(Process.MyPid());
+                var intent = new Intent(this, typeof(ErrorActivity));
+                intent.PutExtra("exception", exception.ToString());
+                StartActivity(intent);
             });
+            
+            builder.SetPositiveButton(Resource.String.retry, async delegate
+            {
+                await BaseApplication.Lock();
+                Recreate();
+            });
+            
             builder.SetCancelable(false);
-
-            var dialog = builder.Create();
-            dialog.Show();
+            builder.Create().Show();
         }
         #endregion
 

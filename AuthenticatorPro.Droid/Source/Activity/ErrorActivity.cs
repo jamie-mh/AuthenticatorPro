@@ -1,10 +1,13 @@
-﻿using Android.App;
+﻿using System.Text;
+using Android.App;
 using Android.Content;
 using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
+using Google.Android.Material.Dialog;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -28,6 +31,8 @@ namespace AuthenticatorPro.Droid.Activity
             _exception = Intent.GetStringExtra("exception");
             var textError = FindViewById<TextView>(Resource.Id.errorText);
             textError.Text = _exception;
+            
+            Logger.Error(_exception);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -51,14 +56,30 @@ namespace AuthenticatorPro.Droid.Activity
                     return true;
                 
                 case Resource.Id.actionReport:
-                    ReportError();
+                    ShowReportOptionDialog();
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
         }
 
-        private void ReportError()
+        private void ShowReportOptionDialog()
+        {
+            var builder = new MaterialAlertDialogBuilder(this);
+            builder.SetTitle(Resource.String.reportVia);
+            
+            builder.SetItems(Resource.Array.reportOptions, (_, args) =>
+            {
+                if(args.Which == 0)
+                    ReportGitHub();
+                else
+                    ReportEmail();
+            });
+            
+            builder.Create().Show();
+        }
+
+        private void ReportGitHub()
         {
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
             var clip = ClipData.NewPlainText("error", _exception);
@@ -75,6 +96,50 @@ namespace AuthenticatorPro.Droid.Activity
             catch(ActivityNotFoundException)
             {
                 Toast.MakeText(this, Resource.String.webBrowserMissing, ToastLength.Short).Show(); 
+            }
+        }
+
+        private void ReportEmail()
+        {
+            var intent = new Intent(Intent.ActionSendto);
+            intent.SetData(Uri.Parse("mailto:"));
+            intent.PutExtra(Intent.ExtraEmail, new[] { Constants.ContactEmail });
+            intent.PutExtra(Intent.ExtraSubject, "Bug report");
+
+            string version;
+            
+            try
+            {
+                var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
+                version = packageInfo.VersionName;
+            }
+            catch
+            {
+                version = "unknown";
+            }
+            
+            var body = new StringBuilder();
+            body.AppendLine("Describe the bug: ");
+            body.AppendLine();
+            body.AppendLine("Steps to reproduce: ");
+            body.AppendLine();
+            body.AppendLine("Additional context: ");
+            body.AppendLine();
+            body.AppendLine($"App version: {version}");
+            body.AppendLine();
+            body.AppendLine("Error log:");
+            body.AppendLine();
+            body.Append(_exception);
+            
+            intent.PutExtra(Intent.ExtraText, body.ToString());
+
+            try
+            {
+                StartActivity(intent);
+            }
+            catch(ActivityNotFoundException)
+            {
+                Toast.MakeText(this, Resource.String.emailClientMissing, ToastLength.Short).Show(); 
             }
         }
     }
