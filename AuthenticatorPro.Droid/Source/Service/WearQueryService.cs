@@ -9,7 +9,6 @@ using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Droid.Shared.Query;
-using AuthenticatorPro.Shared.Data.Generator;
 using Newtonsoft.Json;
 using SQLite;
 
