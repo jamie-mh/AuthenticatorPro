@@ -31,6 +31,12 @@
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
+    <string name="info">Info</string>
+    <string name="aboutSummary">View about and licence information</string>
+    <string name="rate">Rate</string>
+    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="viewGitHub">View on GitHub</string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
@@ -217,13 +223,6 @@
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
     <string name="prefViewModeTitle">Anzeigemodus</string>
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste.</string>
-    <string name="prefMore">Mehr</string>
-    <string name="prefAboutTitle">Informationen</string>
-    <string name="prefAboutSummary">Infos über die App und Lizenzen anzeigen</string>
-    <string name="prefRateTitle">Bewerten</string>
-    <string name="prefRateSummary">Bewerte Authenticator Pro im Google Play Store</string>
-    <string name="prefViewGitHubTitle">Auf GitHub anzeigen</string>
-    <string name="prefViewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
