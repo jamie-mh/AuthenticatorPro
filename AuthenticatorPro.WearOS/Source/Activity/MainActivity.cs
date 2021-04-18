@@ -92,6 +92,8 @@ namespace AuthenticatorPro.WearOS.Activity
             await _categoryCache.Init();
             
             _authSource = new AuthenticatorSource(_authCache);
+            _authSource.SetSortMode(_preferences.SortMode);
+            
             var defaultCategory = _preferences.DefaultCategory;
 
             if(defaultCategory != null)
@@ -375,7 +377,15 @@ namespace AuthenticatorPro.WearOS.Activity
             var json = Encoding.UTF8.GetString(data);
             var bundle = JsonConvert.DeserializeObject<WearSyncBundle>(json);
 
-            _preferences.DefaultCategory = bundle.Preferences.DefaultCategory;
+            var oldSortMode = _preferences.SortMode;
+
+            if(oldSortMode != bundle.Preferences.SortMode)
+            {
+                _authSource.SetSortMode(bundle.Preferences.SortMode);
+                RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
+            }
+
+            _preferences.ApplySyncedPreferences(bundle.Preferences);
             
             if(_authCache.Dirty(bundle.Authenticators, new WearAuthenticatorComparer()))
             {

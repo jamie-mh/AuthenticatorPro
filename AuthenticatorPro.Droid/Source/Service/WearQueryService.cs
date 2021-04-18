@@ -79,7 +79,7 @@ namespace AuthenticatorPro.Droid.Service
             var customIconIds = _customIconSource.GetAll().Select(i => i.Id).ToList();
             
             var preferenceWrapper = new PreferenceWrapper(this);
-            var preferences = new WearPreferences(preferenceWrapper.DefaultCategory);
+            var preferences = new WearPreferences(preferenceWrapper.DefaultCategory, preferenceWrapper.SortMode);
             
             var bundle = new WearSyncBundle(auths, categories, customIconIds, preferences);
             

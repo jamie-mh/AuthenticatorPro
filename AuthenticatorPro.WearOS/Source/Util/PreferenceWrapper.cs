@@ -1,10 +1,11 @@
-using System;
 using Android.Content;
-using AndroidX.Preference;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Query;
+using AuthenticatorPro.Droid.Shared.Util;
 
 namespace AuthenticatorPro.WearOS.Util
 {
-    internal class PreferenceWrapper
+    internal class PreferenceWrapper : BasePreferenceWrapper
     {
         private const string DefaultCategoryKey = "defaultCategory";
         private const string DefaultCategoryDefault = null;
@@ -22,40 +23,23 @@ namespace AuthenticatorPro.WearOS.Util
             set => SetNullableIntPreference(DefaultAuthKey, value);
         }
         
-        private readonly ISharedPreferences _preferences;
-        
-        public PreferenceWrapper(Context context)
+        private const string SortModeKey = "sortMode";
+        private const SortMode SortModeDefault = SortMode.AlphabeticalAscending;
+        public SortMode SortMode
         {
-            _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
-        }
-        private void SetPreference(string key, string value)
-        {
-            _preferences.Edit().PutString(key, value).Commit();
+            get => GetEnumPreference(SortModeKey, SortModeDefault);
+            set => SetEnumPreference(SortModeKey, value);
         }
         
-        private int? GetNullableIntPreference(string key, int? defaultValue)
+        public PreferenceWrapper(Context context) : base(context)
         {
-            var defaultStr = defaultValue switch
-            {
-                null => null,
-                _ => defaultValue.ToString()
-            };
-
-            var result = _preferences.GetString(key, defaultStr);
             
-            return result switch {
-                null => null,
-                _ => Int32.Parse(result)
-            };
         }
-        
-        private void SetNullableIntPreference(string key, int? value)
+
+        public void ApplySyncedPreferences(WearPreferences preferences)
         {
-            _preferences.Edit().PutString(key, value switch
-            {
-                null => null,
-                _ => value.ToString()
-            }).Commit();
+            DefaultCategory = preferences.DefaultCategory;
+            SortMode = preferences.SortMode;
         }
     }
 }

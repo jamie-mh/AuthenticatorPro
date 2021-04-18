@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Data\SortMode.cs" />
     <Compile Include="Source\Query\WearAuthenticatorCategory.cs" />
     <Compile Include="Source\Query\WearCategory.cs" />
     <Compile Include="Source\Query\WearCustomIcon.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Data\IconResolver.cs" />
+    <Compile Include="Source\Util\BasePreferenceWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml">
@@ -4124,6 +4126,9 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Preference">
+      <Version>1.1.1.8</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

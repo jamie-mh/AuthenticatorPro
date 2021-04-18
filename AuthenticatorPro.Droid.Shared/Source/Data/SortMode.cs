@@ -1,4 +1,4 @@
-﻿namespace AuthenticatorPro.Droid.List
+﻿namespace AuthenticatorPro.Droid.Shared.Data
 {
     public enum SortMode
     {

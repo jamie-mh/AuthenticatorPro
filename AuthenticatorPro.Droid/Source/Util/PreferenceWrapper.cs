@@ -1,13 +1,13 @@
 using System;
 using Android.Content;
-using AndroidX.Preference;
 using AuthenticatorPro.Droid.Data.Backup;
-using AuthenticatorPro.Droid.List;
+using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Util;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Util
 {
-    internal class PreferenceWrapper
+    internal class PreferenceWrapper : BasePreferenceWrapper
     {
         #region Standard preferences
         private const string ShowBackupRemindersKey = "pref_showBackupReminders";
@@ -173,77 +173,9 @@ namespace AuthenticatorPro.Droid.Util
         }
         #endregion
         
-        private readonly ISharedPreferences _preferences;
-        
-        public PreferenceWrapper(Context context)
+        public PreferenceWrapper(Context context) : base(context)
         {
-            _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
-        }
-        
-        private T GetEnumPreference<T>(string key, T defaultValue) where T : Enum
-        {
-            return (T) (object) _preferences.GetInt(key, (int) (object) defaultValue);
-        }
-        
-        private void SetEnumPreference<T>(string key, T value) where T : Enum
-        {
-            _preferences.Edit().PutInt(key, (int) (object) value).Commit();
-        }
-        
-        private bool? GetNullableBooleanPreference(string key, bool? defaultValue)
-        {
-            var defaultStr = defaultValue switch
-            {
-                null => null,
-                false => "false",
-                true => "true"
-            };
             
-            return _preferences.GetString(key, defaultStr) switch
-            {
-                null => null,
-                "false" => false,
-                _ => true
-            };
-        }
-        
-        private void SetNullableBooleanPreference(string key, bool? value)
-        {
-            _preferences.Edit().PutString(key, value switch
-            {
-                null => null,
-                false => "false",
-                true => "true"
-            }).Commit();
-        }
-
-        private Uri GetUriPreference(string key, Uri defaultValue)
-        {
-            var value = _preferences.GetString(key, null);
-
-            return value == null
-                ? defaultValue
-                : Uri.Parse(value);
-        }
-
-        private void SetUriPreference(string key, Uri value)
-        {
-            SetPreference(key, value?.ToString());
-        }
-
-        private void SetPreference(string key, string value)
-        {
-            _preferences.Edit().PutString(key, value).Commit();
-        }
-        
-        private void SetPreference(string key, bool value)
-        {
-            _preferences.Edit().PutBoolean(key, value).Commit();
-        }
-        
-        private void SetPreference(string key, long value)
-        {
-            _preferences.Edit().PutLong(key, value).Commit();
         }
     }
 }
