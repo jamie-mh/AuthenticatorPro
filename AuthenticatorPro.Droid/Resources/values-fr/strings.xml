@@ -31,12 +31,11 @@
     <string name="sortAZ">Ordre alphabétique (de A à Z)</string>
     <string name="sortZA">Ordre alphabétique (de Z à A)</string>
     <string name="sortCustom">Perso</string>
-    <string name="info">Info</string>
-    <string name="aboutSummary">View about and licence information</string>
-    <string name="rate">Rate</string>
-    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
-    <string name="viewGitHub">View on GitHub</string>
-    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
+    <string name="aboutSummary">Lire des informations sur l\'application est les licences open-source</string>
+    <string name="rate">Noter</string>
+    <string name="rateSummary">Noter Authenticator Pro sur Google Play</string>
+    <string name="viewGitHub">Ouvrir le dépôt GitHub</string>
+    <string name="viewGitHubSummary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler des problèmes avec l\'application et faire une demande pour plus d\'icônes ou fonctionnalités.</string>
     <!-- Authenticator -->
     <string name="issuer">Émetteur</string>
     <string name="username">Nom d\'utilisateur</string>
