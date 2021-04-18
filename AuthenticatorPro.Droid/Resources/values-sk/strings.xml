@@ -31,12 +31,11 @@
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
-    <string name="info">Info</string>
-    <string name="aboutSummary">View about and licence information</string>
-    <string name="rate">Rate</string>
-    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
-    <string name="viewGitHub">View on GitHub</string>
-    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
+    <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
+    <string name="rate">Ohodnotiť</string>
+    <string name="rateSummary">Ohodnotiť Authenticator Pro v obchode Google Play</string>
+    <string name="viewGitHub">Zobraziť na stránke GitHub</string>
+    <string name="viewGitHubSummary">Zobraziť repozitár aplikácie Authenticator Pro na stránke GitHub. Môžete nahlásiť chybu, požiadať viac ikon a funkcií.</string>
     <!-- Authenticator -->
     <string name="issuer">Vydavateľ</string>
     <string name="username">Používateľské meno</string>
