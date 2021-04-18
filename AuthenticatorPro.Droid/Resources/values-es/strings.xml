@@ -31,6 +31,12 @@
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
+    <string name="info">Info</string>
+    <string name="aboutSummary">View about and licence information</string>
+    <string name="rate">Rate</string>
+    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="viewGitHub">View on GitHub</string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">Emisor</string>
     <string name="username">Nombre de usuario</string>
@@ -217,13 +223,6 @@
     <string name="prefThemeSummary">Elija un tema de aplicación.</string>
     <string name="prefViewModeTitle">Modo de Vista</string>
     <string name="prefViewModeSummary">Elija un modo de vista para la lista de autenticadores.</string>
-    <string name="prefMore">Más</string>
-    <string name="prefAboutTitle">Acerca del programa</string>
-    <string name="prefAboutSummary">Ver información de Aplicación y Licencias.</string>
-    <string name="prefRateTitle">Valorar</string>
-    <string name="prefRateSummary">Valora Authenticator Pro en la tienda Google Play.</string>
-    <string name="prefViewGitHubTitle">Ver en GitHub</string>
-    <string name="prefViewGitHubSummary">Ver el repositorio Authenticator Pro en GitHub. Puede reportar un problema, solicitar más iconos y características.</string>
     <!-- Arrays -->
     <string name="authTypeTime">Basado en tiempo (TOTP)</string>
     <string name="authTypeCounter">Basado en Contador (HOTP)</string>
