@@ -31,6 +31,12 @@
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
+    <string name="info">Info</string>
+    <string name="aboutSummary">View about and licence information</string>
+    <string name="rate">Rate</string>
+    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="viewGitHub">View on GitHub</string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">发行方</string>
     <string name="username">用户名</string>
@@ -217,13 +223,6 @@
     <string name="prefThemeSummary">选择应用的主题。</string>
     <string name="prefViewModeTitle">视图</string>
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
-    <string name="prefMore">更多</string>
-    <string name="prefAboutTitle">关于</string>
-    <string name="prefAboutSummary">浏览关于和许可证信息。</string>
-    <string name="prefRateTitle">评分</string>
-    <string name="prefRateSummary">在 Google Play 商店上为 Authenticator Pro 评分。</string>
-    <string name="prefViewGitHubTitle">前往 GitHub</string>
-    <string name="prefViewGitHubSummary">浏览 Authenticator Pro 在 GitHub 上的代码仓库。您可以反馈问题、请求更多图标或功能。</string>
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>
