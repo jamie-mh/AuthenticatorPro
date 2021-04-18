@@ -31,6 +31,12 @@
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
+    <string name="info">Info</string>
+    <string name="aboutSummary">View about and licence information</string>
+    <string name="rate">Rate</string>
+    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="viewGitHub">View on GitHub</string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">Kuruluş</string>
     <string name="username">Kullanıcı Adı</string>
@@ -217,13 +223,6 @@
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
     <string name="prefViewModeTitle">Görüntüleme Modu</string>
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
-    <string name="prefMore">Daha Fazla</string>
-    <string name="prefAboutTitle">Hakkında</string>
-    <string name="prefAboutSummary">Hakkında ve lisans bilgilerini görüntüleyin.</string>
-    <string name="prefRateTitle">Değerlendir</string>
-    <string name="prefRateSummary">Google Play mağazasında Authenticator Pro\'yu değerlendirin.</string>
-    <string name="prefViewGitHubTitle">GitHub\'da görüntüle</string>
-    <string name="prefViewGitHubSummary">Authenticator Pro deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha fazla simge ve özellik talep edebilirsiniz.</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
