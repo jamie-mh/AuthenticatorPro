@@ -10,8 +10,8 @@
     <string name="yes">Jes</string>
     <string name="no">Ne</string>
     <string name="close">Fermi</string>
-    <string name="quit">Eliri</string>
     <string name="error">Eraro</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Agordoj</string>
     <string name="restore">Restaŭri</string>
@@ -119,17 +119,21 @@
     <string name="restoredNothing">Nothing to restore</string>
     <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <!-- Errors -->
-    <string name="databaseError">There was an error opening the database. Try launching the app again.</string>
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error picking file</string>
     <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
     <string name="webBrowserMissing">No web browser installed</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Eraro okazis</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Report</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
