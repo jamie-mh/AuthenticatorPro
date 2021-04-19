@@ -10,8 +10,8 @@
     <string name="yes">Áno</string>
     <string name="no">Nie</string>
     <string name="close">Zatvoriť</string>
-    <string name="quit">Ukončiť</string>
     <string name="error">Chyba</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Nastavenia</string>
     <string name="restore">Obnoviť</string>
@@ -119,17 +119,21 @@
     <string name="restoredNothing">Nič na obnovenie</string>
     <string name="restoredFromMigration">Obnovené {0} nové autentifikátory</string>
     <!-- Errors -->
-    <string name="databaseError">Vyskytla sa chyba pri otváraní databázy. Pokúste sa spustiť aplikáciu ešte raz.</string>
     <string name="cameraPermissionError">Pre naskenovanie QR kódu je potrebné udeliť oprávnenie pre prístup k fotoaparátu</string>
     <string name="googlePlayNotInstalledError">Google Play nie je nainštalovaný na vašom zariadení</string>
     <string name="filePickerMissing">Nepodarilo sa otvoriť výber súborov. Musí byť nainštalovaný správca súborov.</string>
     <string name="filePickError">Chyba pri výbere súboru</string>
     <string name="invalidFileError">Vybraný súbor nie je súbor zálohy z aplikácie Authenticator Pro</string>
     <string name="webBrowserMissing">Nie je nainštalovaný žiadny webový prehliadač</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Vyskytla sa chyba</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
     <string name="report">Nahlásiť</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Vybrať umiestnenie a heslo pre automatické zálohy. Zálohy sú naplánované po vykonaní zmien.</string>
