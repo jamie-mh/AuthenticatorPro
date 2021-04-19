@@ -2122,13 +2122,32 @@ namespace AuthenticatorPro.Droid.Activity
             if(!_hasWearCompanion)
                 return;
 
-            var nodes = (await WearableClass.GetCapabilityClient(this)
-                .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable)).Nodes;
+            ICollection<INode> nodes;
+
+            try
+            {
+                nodes = (await WearableClass.GetCapabilityClient(this)
+                    .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable)).Nodes;
+            }
+            catch(ApiException e)
+            {
+                Logger.Error(e);
+                return;
+            }
 
             var client = WearableClass.GetMessageClient(this);
 
             foreach(var node in nodes)
-                await client.SendMessageAsync(node.Id, WearRefreshCapability, new byte[] { });
+            {
+                try
+                {
+                    await client.SendMessageAsync(node.Id, WearRefreshCapability, new byte[] { });
+                }
+                catch(ApiException e)
+                {
+                    Logger.Error(e); 
+                }
+            }
         }
         #endregion
 
