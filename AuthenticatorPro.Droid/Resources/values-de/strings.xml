@@ -10,8 +10,8 @@
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="close">Schließen</string>
-    <string name="quit">Beenden</string>
     <string name="error">Fehler</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
@@ -119,17 +119,21 @@
     <string name="restoredNothing">Es gibt nichts wiederherzustellen</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
     <!-- Errors -->
-    <string name="databaseError">Die Datenbank konnte nicht geöffnet werden. Versuche die App neu zu starten.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
     <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert sein.</string>
     <string name="filePickError">Fehler beim Auswählen der Datei</string>
     <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Wähle ein Passwort und einen Ort für Sicherungen. Sicherungen werden ausgeführt, wenn du etwas geändert hast.</string>
