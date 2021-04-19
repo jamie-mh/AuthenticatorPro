@@ -10,8 +10,8 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="close">Закрыть</string>
-    <string name="quit">Выход</string>
     <string name="error">Ошибка</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -119,17 +119,21 @@
     <string name="restoredNothing">Нет данных для восстановления</string>
     <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
     <!-- Errors -->
-    <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
     <string name="filePickError">Ошибка при выборе файла.</string>
     <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Произошла ошибка.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Произошла обработанная ошибка внутри приложения. Подробности об ошибке ниже:</string>
     <string name="report">Отчёт</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Выберите расположение и пароль для автоматического резервного копирования. Резервные копии выполняются при каких-либо изменениях.</string>
