@@ -109,9 +109,10 @@ namespace AuthenticatorPro.Droid.List
             {
                 var id = auth.Icon[1..];
                 var customIcon = _customIconSource.Get(id);
+                Bitmap decoded;
 
-                if(customIcon != null)
-                    holder.Icon.SetImageBitmap(await DecodeCustomIcon(customIcon)); 
+                if(customIcon != null && (decoded = await DecodeCustomIcon(customIcon)) != null)
+                    holder.Icon.SetImageBitmap(decoded); 
                 else
                     holder.Icon.SetImageResource(IconResolver.GetService(IconResolver.Default, _isDark));
             }
@@ -177,6 +178,11 @@ namespace AuthenticatorPro.Droid.List
                 bitmap = await BitmapFactory.DecodeByteArrayAsync(customIcon.Data, 0, customIcon.Data.Length);
                 _decodedCustomIcons.Add(customIcon.Id, bitmap);
                 return bitmap;
+            }
+            catch(Exception e)
+            {
+                Logger.Error(e);
+                return null;
             }
             finally
             {
