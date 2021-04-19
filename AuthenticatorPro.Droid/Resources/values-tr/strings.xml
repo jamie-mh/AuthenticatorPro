@@ -10,8 +10,8 @@
     <string name="yes">Evet</string>
     <string name="no">Hayır</string>
     <string name="close">Kapat</string>
-    <string name="quit">Çıkış</string>
     <string name="error">Hata</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -119,17 +119,21 @@
     <string name="restoredNothing">Geri yüklenecek bir şey yok</string>
     <string name="restoredFromMigration">{0} yeni kimlik doğrulayıcı geri yüklendi.</string>
     <!-- Errors -->
-    <string name="databaseError">Veri tabanını açarken bir hata meydana geldi. Uygulamayı tekrar başlatmayı deneyin.</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
     <string name="filePickError">Dosya seçilirken hata oluştu.</string>
     <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil.</string>
     <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Bir hata meydana geldi.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
     <string name="report">Bildir</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Otomatik yedeklemeler için bir konum ve parola seçin. Değişiklikler yapıldığında yedeklemeler zamanlanacak.</string>
