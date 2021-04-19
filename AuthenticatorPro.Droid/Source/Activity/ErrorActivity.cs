@@ -5,7 +5,6 @@ using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.Dialog;
 
@@ -31,8 +30,6 @@ namespace AuthenticatorPro.Droid.Activity
             _exception = Intent.GetStringExtra("exception");
             var textError = FindViewById<TextView>(Resource.Id.errorText);
             textError.Text = _exception;
-            
-            Logger.Error(_exception);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
