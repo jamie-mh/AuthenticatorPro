@@ -10,8 +10,8 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="close">关闭</string>
-    <string name="quit">退出</string>
     <string name="error">Error</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
@@ -119,17 +119,21 @@
     <string name="restoredNothing">没有可以恢复的内容。</string>
     <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
     <!-- Errors -->
-    <string name="databaseError">打开数据库时出现错误。请尝试重启应用。</string>
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
     <string name="filePickError">选择文件时出错。</string>
     <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">出现错误。</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Report</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">请选择自动备份保存的位置以及所使用的密码。有新的更改时将会自动触发备份操作。</string>
