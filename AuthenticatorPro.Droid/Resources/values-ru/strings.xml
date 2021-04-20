@@ -27,10 +27,10 @@
     <string name="mainMenu">Главное меню</string>
     <string name="enterKey">Введите предоставленный ключ</string>
     <string name="restoreBackup">Восстановление резервной копии</string>
-    <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
-    <string name="sortCustom">Custom</string>
+    <string name="sort">Сортировка</string>
+    <string name="sortAZ">По алфавитному порядку (А-Я)</string>
+    <string name="sortZA">По алфавитному порядку (Я-А)</string>
+    <string name="sortCustom">Пользовательский</string>
     <string name="aboutSummary">Просмотр информации о приложении и лицензии.</string>
     <string name="rate">Оценить</string>
     <string name="rateSummary">Оцените Authenticator Pro в магазине Google Play.</string>
@@ -75,7 +75,7 @@
     <string name="backupHtml">Резервное копирование в HTML файл</string>
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
     <string name="backupHtmlWarning">Резервные копии в HTML файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и не содержит категорий и значков. Если не уверены, что вместо этого выберите зашифрованную резервную копию файла.\n\nПродолжить?</string>
-    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriList">Резервное копирование в файл списка URI</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
@@ -203,9 +203,9 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpPrimary">Наведите видоискатель ка QR-код, чтобы отсканировать его. Процесс автоматичен. Нажмите для фокусировки.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
