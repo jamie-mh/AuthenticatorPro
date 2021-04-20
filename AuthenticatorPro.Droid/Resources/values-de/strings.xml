@@ -10,8 +10,8 @@
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="close">Schließen</string>
-    <string name="quit">Beenden</string>
     <string name="error">Fehler</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
@@ -27,6 +27,15 @@
     <string name="mainMenu">Hauptmenü</string>
     <string name="enterKey">Einen Schlüssel eingeben</string>
     <string name="restoreBackup">Eine Sicherung laden</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
+    <string name="aboutSummary">Infos über die App und Lizenzen anzeigen</string>
+    <string name="rate">Bewerten</string>
+    <string name="rateSummary">Bewerte Authenticator Pro im Google Play Store</string>
+    <string name="viewGitHub">Auf GitHub anzeigen</string>
+    <string name="viewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
     <!-- Authenticator -->
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
@@ -110,17 +119,21 @@
     <string name="restoredNothing">Es gibt nichts wiederherzustellen</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
     <!-- Errors -->
-    <string name="databaseError">Die Datenbank konnte nicht geöffnet werden. Versuche die App neu zu starten.</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
     <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert sein.</string>
     <string name="filePickError">Fehler beim Auswählen der Datei</string>
     <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Wähle ein Passwort und einen Ort für Sicherungen. Sicherungen werden ausgeführt, wenn du etwas geändert hast.</string>
@@ -213,13 +226,6 @@
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
     <string name="prefViewModeTitle">Anzeigemodus</string>
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste.</string>
-    <string name="prefMore">Mehr</string>
-    <string name="prefAboutTitle">Informationen</string>
-    <string name="prefAboutSummary">Infos über die App und Lizenzen anzeigen</string>
-    <string name="prefRateTitle">Bewerten</string>
-    <string name="prefRateSummary">Bewerte Authenticator Pro im Google Play Store</string>
-    <string name="prefViewGitHubTitle">Auf GitHub anzeigen</string>
-    <string name="prefViewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>

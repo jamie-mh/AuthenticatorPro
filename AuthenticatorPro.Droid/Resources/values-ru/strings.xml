@@ -10,8 +10,8 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="close">Закрыть</string>
-    <string name="quit">Выход</string>
     <string name="error">Ошибка</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -27,6 +27,15 @@
     <string name="mainMenu">Главное меню</string>
     <string name="enterKey">Введите предоставленный ключ</string>
     <string name="restoreBackup">Восстановление резервной копии</string>
+    <string name="sort">Сортировка</string>
+    <string name="sortAZ">По алфавитному порядку (А-Я)</string>
+    <string name="sortZA">По алфавитному порядку (Я-А)</string>
+    <string name="sortCustom">Пользовательский</string>
+    <string name="aboutSummary">Просмотр информации о приложении и лицензии.</string>
+    <string name="rate">Оценить</string>
+    <string name="rateSummary">Оцените Authenticator Pro в магазине Google Play.</string>
+    <string name="viewGitHub">Посмотреть на GitHub</string>
+    <string name="viewGitHubSummary">Посмотреть репозиторий Authenticator Pro на GitHub. Вы можете сообщить об ошибке, запросить больше иконок и функций.</string>
     <!-- Authenticator -->
     <string name="issuer">Издатель</string>
     <string name="username">Логин</string>
@@ -66,7 +75,7 @@
     <string name="backupHtml">Резервное копирование в HTML файл</string>
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
     <string name="backupHtmlWarning">Резервные копии в HTML файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и не содержит категорий и значков. Если не уверены, что вместо этого выберите зашифрованную резервную копию файла.\n\nПродолжить?</string>
-    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriList">Резервное копирование в файл списка URI</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
@@ -110,17 +119,21 @@
     <string name="restoredNothing">Нет данных для восстановления</string>
     <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
     <!-- Errors -->
-    <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение еще раз.</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
     <string name="filePickError">Ошибка при выборе файла.</string>
     <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Произошла ошибка.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Произошла обработанная ошибка внутри приложения. Подробности об ошибке ниже:</string>
     <string name="report">Отчёт</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Выберите расположение и пароль для автоматического резервного копирования. Резервные копии выполняются при каких-либо изменениях.</string>
@@ -190,9 +203,9 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpPrimary">Наведите видоискатель ка QR-код, чтобы отсканировать его. Процесс автоматичен. Нажмите для фокусировки.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
@@ -213,13 +226,6 @@
     <string name="prefThemeSummary">Выберите тему приложения.</string>
     <string name="prefViewModeTitle">Режим отображения</string>
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
-    <string name="prefMore">Подробнее</string>
-    <string name="prefAboutTitle">О приложении</string>
-    <string name="prefAboutSummary">Просмотр информации о приложении и лицензии.</string>
-    <string name="prefRateTitle">Оценить</string>
-    <string name="prefRateSummary">Оцените Authenticator Pro в магазине Google Play.</string>
-    <string name="prefViewGitHubTitle">Посмотреть на GitHub</string>
-    <string name="prefViewGitHubSummary">Посмотреть репозиторий Authenticator Pro на GitHub. Вы можете сообщить об ошибке, запросить больше иконок и функций.</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>

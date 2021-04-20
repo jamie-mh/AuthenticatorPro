@@ -1,0 +1,56 @@
+Authenticator Pro génère des codes d'authentification à deux facteurs (2FA) pour vos comptes. TOTP, HOTP, mOTP (Mobile-OTP) et Steam sont pris en charge. Les codes générés sont des jetons uniques qui fournissent une couche de sécurité supplémentaire à vos comptes. Après avoir scanné un QR code, votre compte est protégé.
+
+<b>Veuillez diriger tous les commentaires / problèmes vers GitHub ou par e-mail (section contact développeur) au lieu d'écrire un commentaire pour un suivi plus facile de votre problème.</b>
+
+<b>Foire aux questions :</b>
+https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+
+<b>Compatibilité</b>
+Authenticator Pro est compatible avec la plupart des fournisseurs et comptes.
+
+<b>Sauvegarde et restauration</b>
+Sauvegardez vos authentificateurs avec un chiffrement fort. En cas de perte ou de changement de téléphone, vous avez toujours accès à vos comptes. Enregistrez dans un stockage cloud ou sur votre appareil.
+
+<b>Importer</b>
+Migrez facilement vos comptes vers Authenticator Pro à partir d'applications alternatives.
+
+<b>Mode sombre</b>
+Authenticator Pro a une interface "Material Design" avec un thème clair et un thème sombre.
+
+<b>Icônes</b>
+Trouvez facilement vos authentificateurs avec les logos et icônes de marque reconnaissables à côté de chaque code.
+
+<b>Catégories</b>
+Organisez vos authentificateurs en catégories.
+
+<b>Hors ligne avec peu de permissions</b>
+Authenticator Pro ne nécessite qu'une seule autorisation et ne nécessite pas d'accès Internet pour fonctionner.
+
+<b>Personnalisation</b>
+Définir les icônes et renommer. Vous pouvez également organiser vos authentificateurs dans l'ordre que vous voulez, afin que vous puissiez les trouver facilement.
+
+<b>Wear OS</b>
+Authenticator Pro est également disponible en tant que compagnon Wear OS. Affichez rapidement vos authentificateurs directement depuis votre montre connectée.
+
+<b>Sécurité</b>
+Définissez un mot de passe et utilisez l'authentification biométrique pour protéger vos authentificateurs.
+
+<b>Open Source</b>
+Le code source de l'application peut être consulté par tout le monde sur GitHub.
+
+
+L'authentification à deux facteurs fournit un niveau de sécurité supplémentaire à vos comptes en exigeant l'utilisation d'un code unique pour vous connecter. En plus de votre nom d'utilisateur et de votre mot de passe, vous aurez besoin d'un code fourni par Authenticator Pro. Ainsi, même si vos informations de connexion sont fuitées, votre compte reste sécurisé.
+
+
+Gratuit et Open Source
+https://github.com/jamie-mh/AuthenticatorPro
+
+<b>Autorisations</b>
+
+L'autorisation de l'appareil photo est requise pour ajouter des comptes via des QR codes.
+
+<b>Avertissement :</b>
+
+Ce programme est un logiciel libre : vous pouvez le partager et/ou le modifier selon les termes de la licence publique générale GNU publiée par la Free Software Foundation, soit la version 3 de cette licence soit (à votre convenance) toute version ultérieure.
+
+Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE ; sans même la garantie implicite de QUALITÉ MARCHANDE ou D'ADAPTATION À UN USAGE PARTICULIER. Consultez la licence publique générale GNU pour plus d'informations.

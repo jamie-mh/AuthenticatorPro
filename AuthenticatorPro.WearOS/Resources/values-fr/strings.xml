@@ -3,6 +3,7 @@
     <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">Rien ici !</string>
     <string name="noAuthenticatorsMessage">Ajoutez des authentificateurs depuis l\'application principal</string>
+    <string name="hotpNotSupported">HOTP non pris en charge</string>
     <string name="categoryAll">Tout</string>
     <string name="offline">Déconnecté</string>
 </resources>

@@ -10,8 +10,8 @@
     <string name="yes">Áno</string>
     <string name="no">Nie</string>
     <string name="close">Zatvoriť</string>
-    <string name="quit">Ukončiť</string>
     <string name="error">Chyba</string>
+    <string name="retry">Retry</string>
     <!-- Menu items -->
     <string name="settings">Nastavenia</string>
     <string name="restore">Obnoviť</string>
@@ -27,6 +27,15 @@
     <string name="mainMenu">Hlavné menu</string>
     <string name="enterKey">Zadajte poskytnutý kľúč</string>
     <string name="restoreBackup">Obnoviť zálohu</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortCustom">Custom</string>
+    <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
+    <string name="rate">Ohodnotiť</string>
+    <string name="rateSummary">Ohodnotiť Authenticator Pro v obchode Google Play</string>
+    <string name="viewGitHub">Zobraziť na stránke GitHub</string>
+    <string name="viewGitHubSummary">Zobraziť repozitár aplikácie Authenticator Pro na stránke GitHub. Môžete nahlásiť chybu, požiadať viac ikon a funkcií.</string>
     <!-- Authenticator -->
     <string name="issuer">Vydavateľ</string>
     <string name="username">Používateľské meno</string>
@@ -110,17 +119,21 @@
     <string name="restoredNothing">Nič na obnovenie</string>
     <string name="restoredFromMigration">Obnovené {0} nové autentifikátory</string>
     <!-- Errors -->
-    <string name="databaseError">Vyskytla sa chyba pri otváraní databázy. Pokúste sa spustiť aplikáciu ešte raz.</string>
     <string name="cameraPermissionError">Pre naskenovanie QR kódu je potrebné udeliť oprávnenie pre prístup k fotoaparátu</string>
     <string name="googlePlayNotInstalledError">Google Play nie je nainštalovaný na vašom zariadení</string>
     <string name="filePickerMissing">Nepodarilo sa otvoriť výber súborov. Musí byť nainštalovaný správca súborov.</string>
     <string name="filePickError">Chyba pri výbere súboru</string>
     <string name="invalidFileError">Vybraný súbor nie je súbor zálohy z aplikácie Authenticator Pro</string>
     <string name="webBrowserMissing">Nie je nainštalovaný žiadny webový prehliadač</string>
+    <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Vyskytla sa chyba</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
     <string name="report">Nahlásiť</string>
+    <string name="email">Email</string>
+    <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Vybrať umiestnenie a heslo pre automatické zálohy. Zálohy sú naplánované po vykonaní zmien.</string>
@@ -213,13 +226,6 @@
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
     <string name="prefViewModeTitle">Mód zobrazenia</string>
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
-    <string name="prefMore">Viac</string>
-    <string name="prefAboutTitle">O aplikácii</string>
-    <string name="prefAboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
-    <string name="prefRateTitle">Ohodnotiť</string>
-    <string name="prefRateSummary">Ohodnotiť Authenticator Pro v obchode Google Play</string>
-    <string name="prefViewGitHubTitle">Zobraziť na stránke GitHub</string>
-    <string name="prefViewGitHubSummary">Zobraziť repozitár aplikácie Authenticator Pro na stránke GitHub. Môžete nahlásiť chybu, požiadať viac ikon a funkcií.</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
