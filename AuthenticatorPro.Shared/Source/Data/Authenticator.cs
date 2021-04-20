@@ -4,7 +4,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Util;
-using Newtonsoft.Json;
 using SimpleBase;
 using SQLite;
 
@@ -51,10 +50,7 @@ namespace AuthenticatorPro.Shared.Data
         [Column("ranking")]
         public int Ranking { get; set; }
 
-        [Ignore]
-        [JsonIgnore]
-        public DateTimeOffset TimeRenew { get; private set; }
-
+        
         private IGenerator _generator;
         private long _lastCounter;
         private string _code;
@@ -62,7 +58,6 @@ namespace AuthenticatorPro.Shared.Data
 
         public Authenticator()
         {
-            TimeRenew = DateTimeOffset.MinValue;
             _code = null;
             _generator = null;
             _lastCounter = 0;
@@ -73,41 +68,59 @@ namespace AuthenticatorPro.Shared.Data
             Period = Type.GetDefaultPeriod();
         }
 
-        public string GetCode()
+        public string GetCode(long counter)
         {
             _generator ??= Type switch
             {
                 AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
                 AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits),
-                AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits, Period),
+                AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits),
                 AuthenticatorType.SteamOtp => new SteamOtp(Secret),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
 
-            switch(_generator)
+            switch(Type.GetGenerationMethod())
             {
-                case ITimeBasedGenerator timeBasedGenerator:
-                    _code = timeBasedGenerator.Compute();
-                    TimeRenew = _generator.GetRenewTime();
+                case GenerationMethod.Time:
+                    _code = _generator.Compute(counter);
                     break;
                 
-                case ICounterBasedGenerator when _lastCounter == Counter:
+                case GenerationMethod.Counter when _lastCounter == Counter:
                     return _code;
                 
-                case ICounterBasedGenerator counterBasedGenerator:
+                case GenerationMethod.Counter:
                 {
-                    var oldCode = _code;
-                    _code = counterBasedGenerator.Compute(Counter);
+                    _code = _generator.Compute(Counter);
                     _lastCounter = Counter;
-            
-                    if(oldCode != null || Counter == 1)
-                        TimeRenew = counterBasedGenerator.GetRenewTime();
-                    
                     break;
                 }
             }
 
             return _code;
+        }
+
+        public string GetCode()
+        {
+            long counter;
+            
+            switch(Type.GetGenerationMethod())
+            {
+                case GenerationMethod.Time:
+                {
+                    var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    counter = now - now % Period;
+                    break;
+                }
+
+                case GenerationMethod.Counter:
+                    counter = Counter;
+                    break;
+                
+                default:
+                    throw new ArgumentException("Unknown generation method");
+            }
+
+            return GetCode(counter);
         }
 
         public static Authenticator FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator input, IIconResolver iconResolver)

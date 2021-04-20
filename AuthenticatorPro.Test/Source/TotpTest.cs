@@ -29,10 +29,8 @@ namespace AuthenticatorPro.Test
         [InlineData(20000000000, "65353130", HashAlgorithm.Sha1)]                   
         [InlineData(20000000000, "77737706", HashAlgorithm.Sha256)]
         [InlineData(20000000000, "47863826", HashAlgorithm.Sha512)]
-        public void ComputeTest(long time, string expectedResult, HashAlgorithm algorithm)
+        public void ComputeTest(long offset, string expectedResult, HashAlgorithm algorithm)
         {
-            var offset = DateTimeOffset.FromUnixTimeSeconds(time);
-
             var secret = algorithm switch
             {
                 HashAlgorithm.Sha1 => Sha1Secret,

@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace AuthenticatorPro.Shared.Data.Generator
+﻿namespace AuthenticatorPro.Shared.Data.Generator
 {
     public interface IGenerator
     {
-        public DateTimeOffset GetRenewTime();
+        public string Compute(long counter);
     }
 }

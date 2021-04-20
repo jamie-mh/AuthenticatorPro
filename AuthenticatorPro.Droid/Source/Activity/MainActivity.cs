@@ -977,12 +977,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void Tick()
         {
-            RunOnUiThread(delegate
-            {
-                var start = _authLayout.FindFirstVisibleItemPosition();
-                var end = _authLayout.FindLastVisibleItemPosition();
-                _authListAdapter.Tick(start, end);
-            });
+            RunOnUiThread(_authListAdapter.Tick);
         }
 
         private void OnAuthenticatorClick(object sender, int position)

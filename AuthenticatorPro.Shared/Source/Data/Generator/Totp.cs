@@ -1,21 +1,19 @@
-﻿using System;
-using AuthenticatorPro.Shared.Util;
+﻿using AuthenticatorPro.Shared.Util;
 
 namespace AuthenticatorPro.Shared.Data.Generator
 {
-    public class Totp : HmacOtp, ITimeBasedGenerator
+    public class Totp : HmacOtp, IGenerator
     {
         private readonly int _period;
-        private DateTimeOffset _computedAt;
 
         public Totp(string secret, int period, HashAlgorithm algorithm, int digits) : base(secret, algorithm, digits)
         {
             _period = period;
         }
 
-        private byte[] GetCounter()
+        private byte[] GetCounterBytes(long counter)
         {
-            var window = _computedAt.ToUnixTimeSeconds() / _period;
+            var window = counter / _period;
             return ByteUtil.GetBigEndianBytes(window);
         }
 
@@ -24,22 +22,10 @@ namespace AuthenticatorPro.Shared.Data.Generator
             return Truncate(material);
         }
 
-        public string Compute()
+        public string Compute(long counter)
         {
-            return Compute(DateTimeOffset.UtcNow);
-        }
-
-        public string Compute(DateTimeOffset offset)
-        {
-            _computedAt = offset;
-            var material = base.Compute(GetCounter());
+            var material = base.Compute(GetCounterBytes(counter));
             return Finalise(material);
-        }
-
-        public DateTimeOffset GetRenewTime()
-        {
-            var secondsRemaining = _period - (int) _computedAt.ToUnixTimeSeconds() % _period;
-            return DateTimeOffset.UtcNow.AddSeconds(secondsRemaining);
         }
     }
 }

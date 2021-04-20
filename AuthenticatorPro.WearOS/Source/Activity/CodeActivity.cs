@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Timers;
 using Android.Animation;
 using Android.App;
@@ -22,15 +21,15 @@ namespace AuthenticatorPro.WearOS.Activity
     [Activity]
     internal class CodeActivity : AppCompatActivity
     {
-        private ITimeBasedGenerator _generator;
+        private IGenerator _generator;
         private Timer _timer;
         private float _animationScale;
 
         private int _period;
         private int _digits;
+        private long _renewTime;
 
         private ProgressBar _progressBar;
-        private int _secondsRemaining;
         private TextView _codeTextView;
 
 
@@ -79,23 +78,24 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _generator = type switch
             {
-                AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits, _period),
+                AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits),
                 AuthenticatorType.SteamOtp => new SteamOtp(secret),
                 _ => new Totp(secret, _period, algorithm, _digits)
             };
 
-            _timer = new Timer {Interval = 1000, AutoReset = true};
+            _timer = new Timer
+            {
+                Interval = 1000,
+                AutoReset = true
+            };
+            
             _timer.Elapsed += Tick;
-
-            GenerateCode();
         }
 
         protected override void OnResume()
         {
             base.OnResume();
             _timer?.Start();
-            
-            _secondsRemaining = 0;
             Tick();
         }
 
@@ -107,53 +107,39 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void Tick(object sender = null, ElapsedEventArgs e = null)
         {
-            var secondsRemaining = Math.Max(0, Interlocked.Decrement(ref _secondsRemaining));
+            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             
-            if(_animationScale > 0)
+            if(_renewTime <= now)
             {
-                if(secondsRemaining > 0)
-                    return;
-
-                var code = GenerateCode();
-                secondsRemaining = Interlocked.CompareExchange(ref _secondsRemaining, 0, 0);
-
-                var remainingProgress = GetRemainingProgress(secondsRemaining);
-                var duration = (int) (secondsRemaining * 1000 / _animationScale);
-
+                var generationOffset = now - now % _period;
+                var code = _generator.Compute(generationOffset);
+                _renewTime = generationOffset + _period;
+                
                 RunOnUiThread(delegate
                 {
-                    _codeTextView.Text = code;
-                    _progressBar.Progress = remainingProgress;
-                
-                    var animator = ObjectAnimator.OfInt(_progressBar, "progress", 0);
-                    animator.SetDuration(duration);
-                    animator.SetInterpolator(new LinearInterpolator());
-                    animator.Start();
+                    _codeTextView.Text = CodeUtil.PadCode(code, _digits);
+                    UpdateProgressBar(now);
                 });
             }
-            else
-            {
-                if(secondsRemaining <= 0)
-                {
-                    var code = GenerateCode();
-                    RunOnUiThread(delegate { _codeTextView.Text = code; });
-                }
-                
-                var remainingProgress = GetRemainingProgress(secondsRemaining);
-                RunOnUiThread(delegate { _progressBar.Progress = remainingProgress; });
-            }
+            else if(_animationScale == 0)
+                RunOnUiThread(delegate { UpdateProgressBar(now); });
         }
 
-        private int GetRemainingProgress(int secondsRemaining)
+        private void UpdateProgressBar(long now)
         {
-            return (int) Math.Floor((double) _progressBar.Max * secondsRemaining / _period);
-        }
-
-        private string GenerateCode()
-        {
-            var code = CodeUtil.PadCode(_generator.Compute(), _digits);
-            Interlocked.Exchange(ref _secondsRemaining, _period - (int) DateTimeOffset.UtcNow.ToUnixTimeSeconds() % _period);
-            return code;
+            var secondsRemaining = Math.Max(_renewTime - now, 0);
+            var progress = (int) Math.Round((double) _progressBar.Max * secondsRemaining / _period);
+            _progressBar.Progress = progress;
+            
+            if(_animationScale == 0)
+                return;
+            
+            var duration = (int) (secondsRemaining * 1000 / _animationScale);
+            
+            var animator = ObjectAnimator.OfInt(_progressBar, "progress", 0);
+            animator.SetDuration(duration);
+            animator.SetInterpolator(new LinearInterpolator());
+            animator.Start();
         }
     }
 }
