@@ -63,8 +63,6 @@ Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-
 ![Screenshot 3](./doc/screenshot3.png)
 ![Screenshot 4](./doc/screenshot4.png)
 ![Screenshot 5](./doc/screenshot5.png)
-![Screenshot 6](./doc/screenshot6.png)
-![Screenshot 7](./doc/screenshot7.png)
 
 ### Wear OS Companion
 
