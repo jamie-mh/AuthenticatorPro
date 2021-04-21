@@ -286,26 +286,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 _updateOnActivityResume = false;
                 await Update(_justLaunched);
-
-                if(_authSource.CategoryId != null)
-                {
-                    // Currently visible category has been deleted
-                    if(_categorySource.GetView().All(c => c.Id != _authSource.CategoryId))
-                        SwitchCategory(null);
-                    else
-                    {
-                        var category = _categorySource.GetAll().FirstOrDefault(c => c.Id == _authSource.CategoryId);
-
-                        if(category != null)
-                        {
-                            RunOnUiThread(delegate
-                            {
-                                SupportActionBar.SetDisplayShowTitleEnabled(true);
-                                SupportActionBar.Title = category.Name;
-                            });
-                        }
-                    }
-                }
+                CheckCategoryState();
             }
             else
                 Tick();
@@ -874,6 +855,29 @@ namespace AuthenticatorPro.Droid.Activity
             });
 
             await uiLock.WaitAsync();
+        }
+
+        private void CheckCategoryState()
+        {
+            if(_authSource.CategoryId == null)
+                return;
+            
+            // Currently visible category has been deleted
+            if(_categorySource.GetView().All(c => c.Id != _authSource.CategoryId))
+                SwitchCategory(null);
+            else
+            {
+                var category = _categorySource.GetAll().FirstOrDefault(c => c.Id == _authSource.CategoryId);
+
+                if(category == null)
+                    return;
+                
+                RunOnUiThread(delegate
+                {
+                    SupportActionBar.SetDisplayShowTitleEnabled(true);
+                    SupportActionBar.Title = category.Name;
+                });
+            }
         }
 
         private void CheckEmptyState()
