@@ -1447,7 +1447,8 @@ namespace AuthenticatorPro.Droid.Activity
             if(Backup.IsReadableWithoutPassword(data))
             {
                 RestoreResult result;
-                
+                RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
+
                 try
                 {
                     result = await DecryptAndRestore(null);
@@ -1457,6 +1458,10 @@ namespace AuthenticatorPro.Droid.Activity
                     Logger.Error(e);
                     ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                     return;
+                }
+                finally
+                {
+                    RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Invisible; });
                 }
                 
                 await FinaliseRestore(result);
