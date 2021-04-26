@@ -58,10 +58,10 @@ namespace AuthenticatorPro.Droid.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_backup, Resource.String.backup, ClickBackup),
-                new(Resource.Drawable.ic_action_category, Resource.String.manageCategories, ClickManageCategories),
-                new(Resource.Drawable.ic_action_settings, Resource.String.settings, ClickSettings),
-                new(Resource.Drawable.ic_action_info_outline, Resource.String.about, ClickAbout)
+                new SheetMenuItem(Resource.Drawable.ic_action_backup, Resource.String.backup, ClickBackup),
+                new SheetMenuItem(Resource.Drawable.ic_action_category, Resource.String.manageCategories, ClickManageCategories),
+                new SheetMenuItem(Resource.Drawable.ic_action_settings, Resource.String.settings, ClickSettings),
+                new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, ClickAbout)
             });
             
             return view;

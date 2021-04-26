@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Droid.Data
         private const string FileName = "proauth.db3";
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.SharedCache;
         
-        private static readonly SemaphoreSlim _sharedLock = new(1, 1);
+        private static readonly SemaphoreSlim _sharedLock = new SemaphoreSlim(1, 1);
         private static SQLiteAsyncConnection _sharedConnection;
 
         public static async Task<SQLiteAsyncConnection> GetSharedConnection()

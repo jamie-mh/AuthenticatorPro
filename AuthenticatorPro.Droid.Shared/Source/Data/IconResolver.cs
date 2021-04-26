@@ -8,7 +8,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
     {
         public const string Default = "default";
 
-        public static readonly Dictionary<string, int> Service = new()
+        public static readonly Dictionary<string, int> Service = new Dictionary<string, int>()
         {
             // Brand icons
             {"500px", Resource.Drawable.auth_500px},
@@ -254,7 +254,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             {Default, Resource.Drawable.auth_default}
         };
 
-        private static readonly Dictionary<string, int> ServiceDark = new()
+        private static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>()
         {
             // Brand icons
             {"500px", Resource.Drawable.auth_500px_dark},

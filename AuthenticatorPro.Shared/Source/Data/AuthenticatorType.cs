@@ -48,8 +48,8 @@ namespace AuthenticatorPro.Shared.Data
         {
             return type switch
             {
-                AuthenticatorType.Hotp or 
-                AuthenticatorType.Totp or
+                AuthenticatorType.Hotp => 6,
+                AuthenticatorType.Totp => 6,
                 AuthenticatorType.MobileOtp => 6,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Shared.Data
             return type switch
             {
                 AuthenticatorType.Hotp => 8,
-                AuthenticatorType.Totp or
+                AuthenticatorType.Totp => 10,
                 AuthenticatorType.MobileOtp => 10,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))

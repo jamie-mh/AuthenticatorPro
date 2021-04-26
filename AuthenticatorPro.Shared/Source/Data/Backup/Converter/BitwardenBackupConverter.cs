@@ -65,7 +65,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             
             public Category Convert()
             {
-                return new(Name);
+                return new Category(Name);
             }
         }
 
@@ -88,8 +88,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             {
                 Authenticator ConvertFromInfo(AuthenticatorType type, string secret)
                 {
-                    return new()
-                    {
+                    return new Authenticator {
                         Issuer = Name,
                         Username = Login.Username,
                         Type = type,

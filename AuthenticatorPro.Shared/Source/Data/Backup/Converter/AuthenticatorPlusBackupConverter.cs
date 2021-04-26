@@ -182,7 +182,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             
             public Data.Category Convert()
             {
-                return new(Name);
+                return new Data.Category(Name);
             }
         }
     }

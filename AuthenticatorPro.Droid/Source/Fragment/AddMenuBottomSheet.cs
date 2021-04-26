@@ -22,10 +22,10 @@ namespace AuthenticatorPro.Droid.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, ClickQrCode),
-                new(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, ClickEnterKey),
-                new(Resource.Drawable.ic_action_restore, Resource.String.restoreBackup, ClickRestore),
-                new(Resource.Drawable.ic_action_import, Resource.String.importFromOtherApps, ClickImport)
+                new SheetMenuItem(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, ClickQrCode),
+                new SheetMenuItem(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, ClickEnterKey),
+                new SheetMenuItem(Resource.Drawable.ic_action_restore, Resource.String.restoreBackup, ClickRestore),
+                new SheetMenuItem(Resource.Drawable.ic_action_import, Resource.String.importFromOtherApps, ClickImport)
             });
 
             return view;

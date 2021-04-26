@@ -19,7 +19,7 @@
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidUseAapt2>true</AndroidUseAapt2>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

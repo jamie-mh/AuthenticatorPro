@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
-    <LangVersion>default</LangVersion>
+    <LangVersion>8</LangVersion>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>

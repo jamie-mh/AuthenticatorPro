@@ -24,9 +24,9 @@ namespace AuthenticatorPro.Droid.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_info_outline, Resource.String.about, ClickAbout, Resource.String.aboutSummary),
-                new(IconResolver.GetService("googleplay", isDark), Resource.String.rate, ClickRate, Resource.String.rateSummary),
-                new(IconResolver.GetService("github", isDark), Resource.String.viewGitHub, ClickViewGitHub, Resource.String.viewGitHubSummary)
+                new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, ClickAbout, Resource.String.aboutSummary),
+                new SheetMenuItem(IconResolver.GetService("googleplay", isDark), Resource.String.rate, ClickRate, Resource.String.rateSummary),
+                new SheetMenuItem(IconResolver.GetService("github", isDark), Resource.String.viewGitHub, ClickViewGitHub, Resource.String.viewGitHubSummary)
             });
 
             return view;

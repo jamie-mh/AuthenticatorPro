@@ -20,8 +20,8 @@ namespace AuthenticatorPro.Droid.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_camera_alt, Resource.String.scanQrCodeFromCamera, ClickFromCamera),
-                new(Resource.Drawable.ic_action_image, Resource.String.scanQrCodeFromGallery, ClickFromGallery)
+                new SheetMenuItem(Resource.Drawable.ic_action_camera_alt, Resource.String.scanQrCodeFromCamera, ClickFromCamera),
+                new SheetMenuItem(Resource.Drawable.ic_action_image, Resource.String.scanQrCodeFromGallery, ClickFromGallery)
             });
 
             return view;

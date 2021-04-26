@@ -302,7 +302,8 @@ namespace AuthenticatorPro.Shared.Data
             var type = Type switch
             {
                 AuthenticatorType.Hotp => "hotp",
-                AuthenticatorType.Totp or AuthenticatorType.SteamOtp => "totp",
+                AuthenticatorType.Totp => "totp",
+                AuthenticatorType.SteamOtp => "totp",
                 _ => throw new NotSupportedException("Unsupported authenticator type.")
             };
             

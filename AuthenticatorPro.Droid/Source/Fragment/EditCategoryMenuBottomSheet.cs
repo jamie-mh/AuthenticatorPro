@@ -30,15 +30,15 @@ namespace AuthenticatorPro.Droid.Fragment
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {
-                new(Resource.Drawable.ic_action_edit, Resource.String.rename, delegate
+                new SheetMenuItem(Resource.Drawable.ic_action_edit, Resource.String.rename, delegate
                 {
                     ClickRename(this, _position);
                 }),
-                new(Resource.Drawable.ic_action_star, _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault, delegate
+                new SheetMenuItem(Resource.Drawable.ic_action_star, _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault, delegate
                 {
                     ClickSetDefault(this, _position);
                 }),
-                new(Resource.Drawable.ic_action_delete, Resource.String.delete, delegate
+                new SheetMenuItem(Resource.Drawable.ic_action_delete, Resource.String.delete, delegate
                 {
                     ClickDelete(this, _position);
                 }, null, true)
