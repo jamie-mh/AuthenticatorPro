@@ -2,7 +2,6 @@
 # View https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md#encrypted-backups for details
 
 import sys
-import array
 import hashlib
 import json
 
@@ -26,7 +25,6 @@ def get_file_bytes(path):
 
 
 def decrypt(data, password):
-
     salt = data[len(HEADER):len(HEADER) + SALT_LENGTH]
     iv = data[len(HEADER) + SALT_LENGTH:len(HEADER) + SALT_LENGTH + IV_LENGTH]
     payload = data[len(HEADER) + SALT_LENGTH + IV_LENGTH:]
@@ -41,7 +39,6 @@ def decrypt(data, password):
 
 
 def main():
-
     if len(sys.argv) < 2:
         print("error: File path expected")
         return
