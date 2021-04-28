@@ -63,7 +63,7 @@ def adjust_version_code():
         manifest.write(file, xml_declaration=True, encoding="utf-8")
 
 
-def build_project(args: dict):
+def build_project(args: argparse.Namespace):
 
     msbuild_args = f'-p:Configuration="Release" -p:AndroidSdkDirectory="{args.sdk}" -p:AndroidNdkDirectory="{args.ndk}"'
 
@@ -121,7 +121,7 @@ def get_args() -> argparse.Namespace:
     return args
 
 
-def run(args: dict):
+def run(args: argparse.Namespace):
     clean()
     clone()
 
