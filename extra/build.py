@@ -72,7 +72,7 @@ def build_project(args: dict):
     os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} -p:OutputPath="{args.output}" -t:PackageForAndroid')
 
     signing_args = f'-p:AndroidKeyStore=True -p:AndroidSigningKeyStore="{args.keystore}" -p:AndroidSigningStorePass="{args.keystore_pass}" -p:AndroidSigningKeyAlias="{args.keystore_alias}" -p:AndroidSigningKeyPass="{args.keystore_key_pass}"'
-    os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} {signing_args} /p:OutputPath="{args.output}" /t:SignAndroidPackage')
+    os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} {signing_args} -p:OutputPath="{args.output}" -t:SignAndroidPackage')
 
 
 def clean_build_artifacts(output_dir: str, package: str):
