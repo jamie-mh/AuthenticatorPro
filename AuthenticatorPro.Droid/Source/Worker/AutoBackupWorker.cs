@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Graphics;
 using Android.OS;
 using AndroidX.Core.App;
 using AndroidX.DocumentFile.Provider;
@@ -181,8 +180,8 @@ namespace AuthenticatorPro.Droid.Worker
             var channelId = ((int) context).ToString();
             
             var builder = new NotificationCompat.Builder(_context, channelId)
-                .SetSmallIcon(Resource.Mipmap.ic_launcher)
-                .SetLargeIcon(BitmapFactory.DecodeResource(_context.Resources, Resource.Mipmap.ic_launcher))
+                .SetSmallIcon(Resource.Drawable.ic_notification)
+                .SetColor(_context.Resources.GetColor(Shared.Resource.Color.colorAccent))
                 .SetPriority(NotificationCompat.PriorityLow);
 
             switch(context)
