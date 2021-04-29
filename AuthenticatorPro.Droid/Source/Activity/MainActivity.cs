@@ -22,6 +22,7 @@ using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;
+using AndroidX.Work;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Data.Backup;
@@ -31,6 +32,7 @@ using AuthenticatorPro.Droid.List;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Droid.Worker;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Backup;
 using AuthenticatorPro.Shared.Data.Backup.Converter;
@@ -46,7 +48,9 @@ using SQLite;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
+using Configuration = Android.Content.Res.Configuration;
 using IResult = AuthenticatorPro.Droid.Data.Backup.IResult;
+using Logger = AuthenticatorPro.Droid.Util.Logger;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using Timer = System.Timers.Timer;
@@ -301,6 +305,7 @@ namespace AuthenticatorPro.Droid.Activity
                 RemindBackup();
 
             _preventBackupReminder = false;
+            TriggerAutoBackupWorker();
             
             if(_hasWearAPIs)
                 await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
@@ -2219,6 +2224,16 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 ShowSnackbar(Resource.String.webBrowserMissing, Snackbar.LengthLong); 
             }
+        }
+
+        private void TriggerAutoBackupWorker()
+        {
+            if(!_preferences.AutoBackupEnabled && !_preferences.AutoRestoreEnabled)
+                return;
+            
+            var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
+            var manager = WorkManager.GetInstance(this);
+            manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace, request);
         }
         #endregion
     }
