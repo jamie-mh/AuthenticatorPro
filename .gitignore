@@ -328,6 +328,6 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 
-**/Resources/Resource.Designer.cs
+**/Resources/Resource.[Dd]esigner.cs
 .env
 fastlane/report.xml
