@@ -119,11 +119,11 @@ namespace AuthenticatorPro.Droid.Data.Source
 
             var toUpdate = valid
                 .Where(a => !toAdd.Contains(a))
-                .OrderBy(a => a.Secret.GetHashCode()).ToList();
+                .OrderBy(a => a.Secret).ToList();
             
             var updateTargets = _all
                 .Where(a => toUpdate.Any(b => a.Secret == b.Secret))
-                .OrderBy(a => a.Secret.GetHashCode());
+                .OrderBy(a => a.Secret);
                 
             var diff = updateTargets.Except(toUpdate, new AuthenticatorComparer());
             var updatedCount = diff.Count();
