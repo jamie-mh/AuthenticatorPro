@@ -65,10 +65,10 @@ def adjust_version_code():
 
 def build_project(args: argparse.Namespace):
 
-    msbuild_args = f'-p:Configuration="Release" -p:AndroidSdkDirectory="{args.sdk}" -p:AndroidNdkDirectory="{args.ndk}"'
-
-    os.system(f'msbuild "{BUILD_DIR}/AuthenticatorPro.sln" {msbuild_args} -t:Restore')
+    os.system(f'msbuild "{BUILD_DIR}/AuthenticatorPro.sln" -t:Restore')
     os.system(f'mkdir -p "{args.output}"')
+
+    msbuild_args = f'-p:Configuration="Release" -p:AndroidSdkDirectory="{args.sdk}" -p:AndroidNdkDirectory="{args.ndk}"'
     os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} -p:OutputPath="{args.output}" -t:PackageForAndroid')
 
     signing_args = f'-p:AndroidKeyStore=True -p:AndroidSigningKeyStore="{args.keystore}" -p:AndroidSigningStorePass="{args.keystore_pass}" -p:AndroidSigningKeyAlias="{args.keystore_alias}" -p:AndroidSigningKeyPass="{args.keystore_key_pass}"'
