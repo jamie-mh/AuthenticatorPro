@@ -5,6 +5,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using AndroidX.Core.App;
+using AndroidX.Core.Content;
 using AndroidX.DocumentFile.Provider;
 using AndroidX.Work;
 using AuthenticatorPro.Droid.Activity;
@@ -181,7 +182,7 @@ namespace AuthenticatorPro.Droid.Worker
             
             var builder = new NotificationCompat.Builder(_context, channelId)
                 .SetSmallIcon(Resource.Drawable.ic_notification)
-                .SetColor(_context.Resources.GetColor(Shared.Resource.Color.colorAccent))
+                .SetColor(ContextCompat.GetColor(_context, Shared.Resource.Color.colorAccent))
                 .SetPriority(NotificationCompat.PriorityLow);
 
             switch(context)
