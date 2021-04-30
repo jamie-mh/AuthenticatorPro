@@ -153,6 +153,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             {"nordpass", Resource.Drawable.auth_nordpass},
             {"nordvpn", Resource.Drawable.auth_nordvpn},
             {"npm", Resource.Drawable.auth_npm},
+            {"nvidia", Resource.Drawable.auth_nvidia},
             {"office365", Resource.Drawable.auth_office365},
             {"onedrive", Resource.Drawable.auth_onedrive},
             {"onshape", Resource.Drawable.auth_onshape},
