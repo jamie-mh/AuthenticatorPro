@@ -25,7 +25,9 @@ If you wish to contribute more icons to the application, the procedure is as fol
 
 * If the icon requires a dark theme variant, repeat the process and append "_dark" to the name.
 
-* Optional: To build and test the project with the new icons, run the `generate_icons.py` script in the extras directory. This will generate the DPI variants, reference them in the csproj file and icon map.
+* Optional: To complete the process and to build / test the project with the new icons, run the `generate_icons.py` script in the extras directory. This will generate the DPI variants, reference them in the csproj file and icon map.
+
+* Commit changes (if the above script was run, commit the changes to the `AuthenticatorPro.Droid.Shared.csproj` and `IconMap.cs` files and add the generated drawables)
 
 * Create a pull request with your changes
 
