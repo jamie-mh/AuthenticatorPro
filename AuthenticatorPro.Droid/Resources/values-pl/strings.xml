@@ -11,7 +11,7 @@
     <string name="no">Nie</string>
     <string name="close">Zamknij</string>
     <string name="error">Błąd</string>
-    <string name="retry">Retry</string>
+    <string name="retry">Powtórz</string>
     <!-- Menu items -->
     <string name="settings">Ustawienia</string>
     <string name="restore">Przywróć</string>
@@ -27,10 +27,10 @@
     <string name="mainMenu">Menu główne</string>
     <string name="enterKey">Wprowadź klucz</string>
     <string name="restoreBackup">Przywróć kopię</string>
-    <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
-    <string name="sortCustom">Custom</string>
+    <string name="sort">Sortowanie</string>
+    <string name="sortAZ">Alfabetycznie (A-Z)</string>
+    <string name="sortZA">Alfabetycznie (Z-A)</string>
+    <string name="sortCustom">Niestandardowo</string>
     <string name="aboutSummary">Wyświetl informacje o i licencjach</string>
     <string name="rate">Oceń</string>
     <string name="rateSummary">Oceń Authenticator Pro w sklepie Google Play</string>
@@ -125,15 +125,15 @@
     <string name="filePickError">Błąd podczas wybierania pliku</string>
     <string name="invalidFileError">Wybrany plik nie jest plikiem kopii zapasowej Authenticator Pro</string>
     <string name="webBrowserMissing">Brak zainstalowanej przeglądarki</string>
-    <string name="emailClientMissing">No email client installed</string>
+    <string name="emailClientMissing">Nie zainstalowano klienta poczty</string>
     <string name="genericError">Wystąpił nieoczekiwany błąd</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
-    <string name="viewErrorLog">View error log</string>
+    <string name="databaseError">Wystąpił błąd podczas otwierania bazy danych. Spróbuj uruchomić aplikację ponownie. Jeśli problem będzie się powtarzał, wyczyść dane aplikacji i przywrócić najnowszą kopię zapasową.\n\nAlternatywnie, możesz przesłać raport o błędzie.</string>
+    <string name="viewErrorLog">Wyświetl dziennik błędów</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Wystąpił nieobsługiwany błąd w aplikacji. Szczegóły błędu znajdują się poniżej:</string>
     <string name="report">Raport</string>
-    <string name="email">Email</string>
-    <string name="reportVia">Report via</string>
+    <string name="email">E-Mail</string>
+    <string name="reportVia">Zgłoś przez</string>
     <string name="errorCopiedToClipboard">Błąd skopiowany do schowka</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Wybierz lokalizację i hasło do automatycznych kopii zapasowych. Kopie zapasowe są planowane po wprowadzeniu zmian.</string>
