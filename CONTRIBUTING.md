@@ -8,21 +8,24 @@ Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin pr
 
 If you wish to contribute more icons to the application, the procedure is as follows:
 
-* Fork the repo.
+* Fork the repo
 
-* Find a high-quality icon for the service you want to add. Try searching online for '{service_name} brand' - generally, many companies offer high-res versions of their logos and icons for press and media. Avoid icons made by 3rd parties with different styles from the original. Prefer flat icons instead of complex ones.
+* Find a high-quality icon for the service you want to add. Try searching online for '{service_name} brand' - generally, many services offer high-res versions of their logos and icons for press and media.
+  
+    * Avoid icons made by 3rd parties with different styles from the original
+    * Prefer flat icons instead of complex ones
+    * Avoid text
+    * Avoid frames and backgrounds
+  
+* Save the icon as a square 128x128 png file
 
-* Use the [Android Asset Studio](https://romannurik.github.io/AndroidAssetStudio/index.html) to generate the appropriate asset sizes for the icon. Use the "Generic Icon Generator" with Trim enabled, 0% padding, 32dp Asset Size, 0dp Asset Padding and Color transparent.
+* Name the icon as lowercase with spaces and special characters removed. Eg: Authenticator Pro -> authenticatorpro
+  
+* Place the file in the "icons" directory
 
-* Name the icon "auth_xxxxx", with xxxxx being the name of the service in lowercase with spaces and special characters removed. Eg: Authenticator Pro -> authenticatorpro.
+* Optional: To build and test the project with the new icons, run the `generate_icons.py` script in the extras directory. This will generate the DPI variants, reference them in the csproj file and icon map.
 
-* Copy the icons into the Resources directory of the AuthenticatorPro.Droid.Shared project.
-
-* Update AuthenticatorPro.Droid.Shared/Source/Data/IconResolver.cs by adding the icon into the Service dictionary in alphabetical order. If the icon is barely visible on a dark background. Create an alternative icon as before with the name auth_xxxxx_dark and place it into the ServiceDark dictionary.
-
-* Optional: To build and test the project with the new icons, they must be added to the AuthenticatorPro.Droid.Shared/AuthenticatorPro.Droid.Shared.csproj file. This step can be skipped if you don't have Visual Studio + Xamarin installed.
-
-* Create a pull request.
+* Create a pull request with your changes
 
 ## Code / Features
 
