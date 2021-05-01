@@ -15,7 +15,7 @@ namespace AuthenticatorPro.Droid.Data.Source
         {
             _search = "";
             _isDark = isDark;
-            _view = new Dictionary<string, int>(IconResolver.Service.Count);
+            _view = new Dictionary<string, int>(IconMap.Service.Count);
 
             Update();
         }
@@ -40,8 +40,8 @@ namespace AuthenticatorPro.Droid.Data.Source
         {
             if(String.IsNullOrEmpty(_search))
             {
-                _view = new Dictionary<string, int>(IconResolver.Service.Count);
-                foreach(var (key, _) in IconResolver.Service)
+                _view = new Dictionary<string, int>(IconMap.Service.Count);
+                foreach(var (key, _) in IconMap.Service)
                     _view.Add(key, IconResolver.GetService(key, _isDark));
 
                 return;
@@ -49,7 +49,7 @@ namespace AuthenticatorPro.Droid.Data.Source
 
             var query = _search.ToLower();
 
-            var keys = IconResolver.Service.Keys.Where(k => k.Contains(query)).ToList();
+            var keys = IconMap.Service.Keys.Where(k => k.Contains(query)).ToList();
             _view = new Dictionary<string, int>(keys.Count);
             keys.ForEach(key => _view.Add(key, IconResolver.GetService(key, _isDark)));
         }
