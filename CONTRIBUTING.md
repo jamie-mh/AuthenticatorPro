@@ -23,6 +23,8 @@ If you wish to contribute more icons to the application, the procedure is as fol
   
 * Place the file in the "icons" directory
 
+* If the icon requires a dark theme variant, repeat the process and append "_dark" to the name.
+
 * Optional: To build and test the project with the new icons, run the `generate_icons.py` script in the extras directory. This will generate the DPI variants, reference them in the csproj file and icon map.
 
 * Create a pull request with your changes
