@@ -90,9 +90,13 @@ def build_csproj(icons: list):
 
 def generate_for_dpi(dpi: str, filename: str, icon: Image):
 
+    output_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/Resources/drawable-{dpi}/{RES_PREFIX}{filename}"
+
+    if os.path.isfile(output_path):
+        return
+
     with icon.copy() as resized:
         resized.thumbnail((DPI_SIZES[dpi], DPI_SIZES[dpi]), resample=Image.LANCZOS, reducing_gap=3.0)
-        output_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/Resources/drawable-{dpi}/{RES_PREFIX}{filename}"
         resized.save(output_path, optimize=True)
 
 
