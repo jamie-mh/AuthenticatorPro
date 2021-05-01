@@ -42,8 +42,7 @@ def adjust_csproj(project: str, package: str):
     package_per_abi = property_group.find(f"{{{namespace}}}AndroidCreatePackagePerAbi")
     package_per_abi.text = "true" if package == "apk" else "false"
 
-    with open(csproj_path, "wb") as file:
-        csproj.write(csproj_path, xml_declaration=True, encoding="utf-8")
+    csproj.write(csproj_path, xml_declaration=True, encoding="utf-8")
 
 
 def adjust_version_code():
