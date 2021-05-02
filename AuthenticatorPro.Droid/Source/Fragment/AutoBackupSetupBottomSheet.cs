@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -16,6 +15,7 @@ using AuthenticatorPro.Droid.Worker;
 using Google.Android.Material.Button;
 using Google.Android.Material.SwitchMaterial;
 using Java.Util.Concurrent;
+using Logger = AuthenticatorPro.Droid.Util.Logger;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Fragment
@@ -185,16 +185,31 @@ namespace AuthenticatorPro.Droid.Fragment
             await SecureStorageWrapper.SetAutoBackupPassword(password);
         }
 
+
+
         private void UpdateLocationStatusText()
         {
-            if(_preferences.AutoBackupUri == null)
+            var uri = _preferences.AutoBackupUri;
+            
+            if(uri == null)
             {
                 _locationStatusText.SetText(Resource.String.noLocationSelected);
                 return;
             }
 
-            var location = _preferences.AutoBackupUri.LastPathSegment?.Split(':', 2).Last();
-            _locationStatusText.Text = String.Format(GetString(Resource.String.locationSetTo), location ?? String.Empty);
+            string dirName;
+
+            try
+            {
+                dirName = FileUtil.GetDocumentName(Context.ContentResolver, uri);
+            }
+            catch(Exception e)
+            {
+                Logger.Error(e);
+                dirName = "Unknown";
+            }
+
+            _locationStatusText.Text = String.Format(GetString(Resource.String.locationSetTo), dirName);
         }
 
         private void UpdatePasswordStatusText()

@@ -1,6 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Android.Content;
+using Android.Database;
+using Android.Provider;
 using Java.IO;
 using IOException = System.IO.IOException;
 using Uri = Android.Net.Uri;
@@ -81,6 +85,39 @@ namespace AuthenticatorPro.Droid.Util
                 writer?.Close();
                 output?.Close();
             } 
+        }
+        
+        public static string GetDocumentName(ContentResolver resolver, Uri uri)
+        {
+            string name = null;
+
+            if(uri.Scheme == "content")
+            {
+                ICursor cursor = null;
+
+                try
+                {
+                    var documentUri = DocumentsContract.BuildDocumentUriUsingTree(uri, DocumentsContract.GetTreeDocumentId(uri));
+
+                    if(documentUri == null)
+                        throw new Exception("Cannot get document URI");
+                    
+                    cursor = resolver.Query(documentUri, null, null, null, null);
+
+                    if(cursor != null && cursor.MoveToFirst())
+                    {
+                        var index = cursor.GetColumnIndex(DocumentsContract.Document.ColumnDisplayName);
+                        name = cursor.GetString(index);
+                    }
+                }
+                finally
+                {
+                    cursor?.Close();
+                }
+            } else
+                name = uri.LastPathSegment?.Split(':', 2).Last();
+
+            return name;
         }
     }
 }
