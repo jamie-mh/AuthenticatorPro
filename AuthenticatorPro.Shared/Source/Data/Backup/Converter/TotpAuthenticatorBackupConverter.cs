@@ -16,10 +16,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
         private const AuthenticatorType Type = AuthenticatorType.Totp;
 
-        public TotpAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver)
-        {
-            
-        }
+        public TotpAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
         
         public override Task<Backup> Convert(byte[] data, string password = null)
         {

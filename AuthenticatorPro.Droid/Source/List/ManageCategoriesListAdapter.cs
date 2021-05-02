@@ -39,10 +39,7 @@ namespace AuthenticatorPro.Droid.List
             }
         }
 
-        public void NotifyMovementStarted()
-        {
-
-        }
+        public void NotifyMovementStarted() { }
 
         public override long GetItemId(int position)
         {

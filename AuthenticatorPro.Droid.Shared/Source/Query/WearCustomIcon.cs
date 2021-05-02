@@ -10,7 +10,6 @@ namespace AuthenticatorPro.Droid.Shared.Query
         [JsonConverter(typeof(ByteArrayConverter))]
         public readonly byte[] Data;
         
-
         public WearCustomIcon(string id, byte[] data)
         {
             Id = id;

@@ -11,10 +11,7 @@ namespace AuthenticatorPro.WearOS.List
     {
         private const float MaxIconProgress = .65f;
 
-        public AuthenticatorListLayoutCallback(Context context) : base(context)
-        {
-            
-        }
+        public AuthenticatorListLayoutCallback(Context context) : base(context) { }
 
         public override void OnLayoutFinished(View child, RecyclerView parent)
         {

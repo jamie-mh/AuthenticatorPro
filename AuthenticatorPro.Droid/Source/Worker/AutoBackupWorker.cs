@@ -33,7 +33,6 @@ namespace AuthenticatorPro.Droid.Worker
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
         
-        
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
             _context = context;

@@ -106,7 +106,6 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             [JsonProperty(PropertyName = "info")]
             public EntryInfo Info { get; set; }
 
-
             public Authenticator Convert(IIconResolver iconResolver)
             {
                 var type = Type switch

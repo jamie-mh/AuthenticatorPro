@@ -10,7 +10,6 @@ namespace AuthenticatorPro.Droid.List
         public event EventHandler<int> Click;
         public TextView Name { get; }
 
-
         public CategoriesListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);

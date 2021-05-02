@@ -21,7 +21,6 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickSteam;
         public event EventHandler ClickBlizzardAuthenticator;
         public event EventHandler ClickUriList;
-        
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

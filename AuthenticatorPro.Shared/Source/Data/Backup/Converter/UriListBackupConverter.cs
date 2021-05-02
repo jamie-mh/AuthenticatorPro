@@ -10,10 +10,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
     {
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
-        public UriListBackupConverter(IIconResolver iconResolver) : base(iconResolver)
-        {
-            
-        }
+        public UriListBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
         public override Task<Backup> Convert(byte[] data, string password = null)
         {

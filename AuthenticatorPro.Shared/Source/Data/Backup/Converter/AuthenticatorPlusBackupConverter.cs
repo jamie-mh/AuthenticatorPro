@@ -16,10 +16,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         private const string BlizzardIssuer = "Blizzard";
         private const int BlizzardDigits = 8;
 
-        public AuthenticatorPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver)
-        {
-            
-        }
+        public AuthenticatorPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
         public override async Task<Backup> Convert(byte[] data, string password = null)
         {

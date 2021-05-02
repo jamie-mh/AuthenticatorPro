@@ -12,10 +12,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
         private const int LoginType = 1;
 
-        public BitwardenBackupConverter(IIconResolver iconResolver) : base(iconResolver)
-        {
-            
-        }
+        public BitwardenBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
         
         public override Task<Backup> Convert(byte[] data, string password = null)
         {
@@ -62,7 +59,6 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             [JsonProperty(PropertyName = "name")]
             public string Name { get; set; }
           
-            
             public Category Convert()
             {
                 return new Category(Name);

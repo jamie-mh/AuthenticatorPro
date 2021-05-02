@@ -14,7 +14,6 @@ namespace AuthenticatorPro.Droid.List
         public ImageButton RefreshButton { get; }
         public ImageView Icon { get; }
 
-
         public AuthenticatorListHolder(View view) : base(view)
         {
             Issuer = view.FindViewById<TextView>(Resource.Id.textIssuer);

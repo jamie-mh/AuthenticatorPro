@@ -101,9 +101,6 @@ namespace AuthenticatorPro.Droid.List
                 ViewCompat.SetElevation(viewHolder.ItemView, 0f);
         }
 
-        public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction)
-        {
-
-        }
+        public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction) { }
     }
 }

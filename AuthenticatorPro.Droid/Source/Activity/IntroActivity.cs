@@ -18,7 +18,6 @@ namespace AuthenticatorPro.Droid.Activity
         private FragmentStateAdapter _adapter;
         private BottomNavigationView _nav;
 
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

@@ -5,7 +5,6 @@
         public readonly string CategoryId;
         public readonly int Ranking;
 
-
         public WearAuthenticatorCategory(string categoryId, int ranking)
         {
             CategoryId = categoryId;

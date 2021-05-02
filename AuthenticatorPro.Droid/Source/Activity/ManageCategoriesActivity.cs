@@ -18,7 +18,6 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
-
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
@@ -32,7 +31,6 @@ namespace AuthenticatorPro.Droid.Activity
 
         private PreferenceWrapper _preferences;
         private CategorySource _categorySource;
-
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {

@@ -12,7 +12,6 @@ namespace AuthenticatorPro.Droid.List
         private readonly int _spacing;
         private readonly bool _hasEdgeSpacing;
 
-
         public GridSpacingItemDecoration(Context context, GridLayoutManager layoutManager, int spacingDp, bool hasEdgeSpacing)
         {
             _layoutManager = layoutManager;

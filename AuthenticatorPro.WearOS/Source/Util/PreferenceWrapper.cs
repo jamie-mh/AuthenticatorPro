@@ -31,10 +31,7 @@ namespace AuthenticatorPro.WearOS.Util
             set => SetEnumPreference(SortModeKey, value);
         }
         
-        public PreferenceWrapper(Context context) : base(context)
-        {
-            
-        }
+        public PreferenceWrapper(Context context) : base(context) { }
 
         public void ApplySyncedPreferences(WearPreferences preferences)
         {

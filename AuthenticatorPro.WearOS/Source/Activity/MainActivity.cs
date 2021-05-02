@@ -67,7 +67,6 @@ namespace AuthenticatorPro.WearOS.Activity
         private readonly SemaphoreSlim _onCreateLock;
         private readonly SemaphoreSlim _responseLock;
 
-
         public MainActivity()
         {
             _justLaunched = true;
@@ -472,4 +471,3 @@ namespace AuthenticatorPro.WearOS.Activity
         #endregion
     }
 }
-

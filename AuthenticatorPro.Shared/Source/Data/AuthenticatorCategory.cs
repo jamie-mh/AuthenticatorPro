@@ -16,7 +16,6 @@ namespace AuthenticatorPro.Shared.Data
         [Column("ranking")]
         public int Ranking { get; set; }
 
-
         public AuthenticatorCategory()
         {
             Ranking = 0;

@@ -9,32 +9,17 @@ namespace AuthenticatorPro.Droid.Preference
 {
     internal class PasswordPreference : AndroidX.Preference.Preference
     {
-        public PasswordPreference(Context context) : base(context)
-        {
+        public PasswordPreference(Context context) : base(context) { }
 
-        }
-
-        public PasswordPreference(Context context, IAttributeSet attrs) : base(context, attrs)
-        {
-
-        }
+        public PasswordPreference(Context context, IAttributeSet attrs) : base(context, attrs) { }
 
         public PasswordPreference(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs,
-            defStyleAttr)
-        {
-
-        }
+            defStyleAttr) { }
 
         public PasswordPreference(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context,
-            attrs, defStyleAttr, defStyleRes)
-        {
+            attrs, defStyleAttr, defStyleRes) { }
 
-        }
-
-        protected PasswordPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
-        {
-
-        }
+        protected PasswordPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
 
         protected override void OnClick()
         {

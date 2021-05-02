@@ -8,7 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-
 namespace AuthenticatorPro.WearOS.Cache
 {
     internal class ListCache<T> : IEnumerable

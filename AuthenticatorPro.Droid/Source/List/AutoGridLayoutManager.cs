@@ -11,7 +11,6 @@ namespace AuthenticatorPro.Droid.List
         private int _lastWidth;
         private int _lastHeight;
 
-
         public AutoGridLayoutManager(Context context, int minColumnWidth) : base(context, 1)
         {
             _minColumnWidth = (int) ViewUtils.DpToPx(context, minColumnWidth);

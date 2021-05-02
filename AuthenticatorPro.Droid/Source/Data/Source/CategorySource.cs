@@ -12,7 +12,6 @@ namespace AuthenticatorPro.Droid.Data.Source
         private readonly SQLiteAsyncConnection _connection;
         private List<Category> _all;
 
-
         public CategorySource(SQLiteAsyncConnection connection)
         {
             _all = new List<Category>();

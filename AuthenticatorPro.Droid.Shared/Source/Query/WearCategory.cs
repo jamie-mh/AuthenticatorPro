@@ -4,7 +4,6 @@
     {
         public readonly string Id;
         public readonly string Name;
-
         
         public WearCategory(string id, string name)
         {

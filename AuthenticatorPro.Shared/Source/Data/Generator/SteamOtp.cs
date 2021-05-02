@@ -9,10 +9,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
         private const HashAlgorithm Algorithm = HashAlgorithm.Sha1;
         private const string Alphabet = "23456789BCDFGHJKMNPQRTVWXY";
 
-        public SteamOtp(string secret) : base(secret, Period, Algorithm, Digits)
-        {
-            
-        }
+        public SteamOtp(string secret) : base(secret, Period, Algorithm, Digits) { }
 
         protected override string Finalise(int material)
         {

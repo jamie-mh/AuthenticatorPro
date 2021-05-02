@@ -32,7 +32,6 @@ namespace AuthenticatorPro.Droid.Service
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
         
-
         public WearQueryService()
         {
             _initTask = new Lazy<Task>(async delegate

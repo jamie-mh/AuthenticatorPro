@@ -173,9 +173,6 @@ namespace AuthenticatorPro.Droid.Util
         }
         #endregion
         
-        public PreferenceWrapper(Context context) : base(context)
-        {
-            
-        }
+        public PreferenceWrapper(Context context) : base(context) { }
     }
 }

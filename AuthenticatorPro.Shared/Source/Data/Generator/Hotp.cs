@@ -4,10 +4,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 {
     public class Hotp : HmacOtp, IGenerator
     {
-        public Hotp(string secret, HashAlgorithm algorithm, int digits) : base(secret, algorithm, digits)
-        {
-            
-        }
+        public Hotp(string secret, HashAlgorithm algorithm, int digits) : base(secret, algorithm, digits) { }
 
         public string Compute(long counter)
         {

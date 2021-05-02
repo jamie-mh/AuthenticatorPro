@@ -14,7 +14,6 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickHtmlFile;
         public event EventHandler ClickUriList;
 
-
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);

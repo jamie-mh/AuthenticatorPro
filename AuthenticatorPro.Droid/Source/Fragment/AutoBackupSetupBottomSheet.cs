@@ -185,8 +185,6 @@ namespace AuthenticatorPro.Droid.Fragment
             await SecureStorageWrapper.SetAutoBackupPassword(password);
         }
 
-
-
         private void UpdateLocationStatusText()
         {
             var uri = _preferences.AutoBackupUri;

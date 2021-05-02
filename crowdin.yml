@@ -5,16 +5,16 @@ files:
       two_letters_code:
         zh-CN: zh-rCN
         zh-TW: zh-rTW
-        
+
   - source: /AuthenticatorPro.WearOS/Resources/values/strings.xml
     translation: /AuthenticatorPro.WearOS/Resources/values-%two_letters_code%/strings.xml
     languages_mapping:
       two_letters_code:
         zh-CN: zh-rCN
         zh-TW: zh-rTW
-        
+
   - source: /fastlane/metadata/android/en-US/short_description.txt
     translation: /fastlane/metadata/android/%locale%/short_description.txt
-            
+
   - source: /fastlane/metadata/android/en-US/full_description.txt
     translation: /fastlane/metadata/android/%locale%/full_description.txt

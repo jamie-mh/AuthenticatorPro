@@ -23,7 +23,6 @@ namespace AuthenticatorPro.Droid.Fragment
         private RecyclerView _iconList;
         private EditText _searchText;
 
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

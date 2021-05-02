@@ -11,7 +11,6 @@ namespace AuthenticatorPro.Droid.Callback
         public event EventHandler Failed;
         public event EventHandler<BiometricPrompt.AuthenticationResult> Success;
         
-        
         public override void OnAuthenticationError(int errorCode, ICharSequence errString)
         {
             base.OnAuthenticationError(errorCode, errString);

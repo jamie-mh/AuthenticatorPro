@@ -14,10 +14,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         // https://github.com/mono/mono/issues/19285
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
-        public AndOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver)
-        {
-            
-        }
+        public AndOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
         
         public override Task<Backup> Convert(byte[] data, string password = null)
         {

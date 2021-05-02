@@ -21,7 +21,6 @@ namespace AuthenticatorPro.Droid.Fragment
         private AuthenticatorType _type;
         private long _counter;
 
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

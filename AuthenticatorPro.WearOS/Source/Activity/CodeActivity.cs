@@ -32,7 +32,6 @@ namespace AuthenticatorPro.WearOS.Activity
         private ProgressBar _progressBar;
         private TextView _codeTextView;
 
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);

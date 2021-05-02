@@ -13,10 +13,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
     {
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
-        public FreeOtpPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver)
-        {
-            
-        }
+        public FreeOtpPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
         
         public override Task<Backup> Convert(byte[] data, string password = null)
         {
@@ -58,7 +55,6 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             
             [JsonProperty(PropertyName = "secret")]
             public sbyte[] Secret { get; set; }
-
 
             public Authenticator Convert(IIconResolver iconResolver)
             {

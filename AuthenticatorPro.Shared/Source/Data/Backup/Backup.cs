@@ -8,7 +8,6 @@ using Newtonsoft.Json.Linq;
 using PCLCrypto;
 using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 
-
 namespace AuthenticatorPro.Shared.Data.Backup
 {
     public class Backup
@@ -28,7 +27,6 @@ namespace AuthenticatorPro.Shared.Data.Backup
         public List<Category> Categories { get; }
         public List<AuthenticatorCategory> AuthenticatorCategories { get; }
         public List<CustomIcon> CustomIcons { get; }
-
 
         public Backup(List<Authenticator> authenticators, List<Category> categories = null, List<AuthenticatorCategory> authenticatorCategories = null, List<CustomIcon> customIcons = null)
         {

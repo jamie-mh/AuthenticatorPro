@@ -9,32 +9,17 @@ namespace AuthenticatorPro.Droid.Preference
 {
     internal class AutoBackupPreference : AndroidX.Preference.Preference
     {
-        public AutoBackupPreference(Context context) : base(context)
-        {
-            
-        }
+        public AutoBackupPreference(Context context) : base(context) { }
 
-        public AutoBackupPreference(Context context, IAttributeSet attrs) : base(context, attrs)
-        {
-
-        }
+        public AutoBackupPreference(Context context, IAttributeSet attrs) : base(context, attrs) { }
 
         public AutoBackupPreference(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs,
-            defStyleAttr)
-        {
-
-        }
+            defStyleAttr) { }
 
         public AutoBackupPreference(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context,
-            attrs, defStyleAttr, defStyleRes)
-        {
+            attrs, defStyleAttr, defStyleRes) { }
 
-        }
-
-        protected AutoBackupPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
-        {
-
-        }
+        protected AutoBackupPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
 
         protected override void OnClick()
         {

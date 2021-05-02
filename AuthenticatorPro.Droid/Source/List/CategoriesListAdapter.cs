@@ -16,7 +16,6 @@ namespace AuthenticatorPro.Droid.List
 
         public override int ItemCount => _categoryIds.Length + 1;
 
-
         public CategoriesListAdapter(Context context, string[] categoryIds, string[] categoryNames)
         {
             _context = context;

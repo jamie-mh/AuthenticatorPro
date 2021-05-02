@@ -17,7 +17,6 @@ namespace AuthenticatorPro.WearOS.Cache
         private readonly Context _context;
         private readonly SemaphoreSlim _decodeLock;
         private readonly Dictionary<string, Bitmap> _bitmaps;
-
         
         public CustomIconCache(Context context)
         {
