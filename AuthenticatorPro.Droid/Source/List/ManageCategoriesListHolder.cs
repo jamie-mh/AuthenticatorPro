@@ -10,7 +10,6 @@ namespace AuthenticatorPro.Droid.List
         public ImageView DefaultImage { get; }
         public ImageButton MenuButton { get; }
 
-
         public ManageCategoriesListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);

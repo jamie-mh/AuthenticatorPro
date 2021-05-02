@@ -28,10 +28,7 @@ namespace AuthenticatorPro.Droid
         private Timer _timeoutTimer;
         private PreferenceWrapper _preferences;
        
-        public BaseApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
-        {
-            
-        }
+        public BaseApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
 
         public override void OnCreate()
         {

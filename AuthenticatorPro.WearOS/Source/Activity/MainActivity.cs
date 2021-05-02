@@ -23,7 +23,6 @@ using AuthenticatorPro.WearOS.List;
 using AuthenticatorPro.WearOS.Util;
 using Newtonsoft.Json;
 
-
 namespace AuthenticatorPro.WearOS.Activity
 {
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher", Theme = "@style/AppTheme")]

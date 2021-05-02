@@ -25,7 +25,6 @@ namespace AuthenticatorPro.Droid.Fragment
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
 
-
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
