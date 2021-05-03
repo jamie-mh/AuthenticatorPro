@@ -27,10 +27,10 @@
     <string name="mainMenu">Hauptmenü</string>
     <string name="enterKey">Einen Schlüssel eingeben</string>
     <string name="restoreBackup">Eine Sicherung laden</string>
-    <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
-    <string name="sortCustom">Custom</string>
+    <string name="sort">Sortieren</string>
+    <string name="sortAZ">Alphabetisch (A-Z)</string>
+    <string name="sortZA">Alphabetisch (Z-A)</string>
+    <string name="sortCustom">Benutzerdefiniert</string>
     <string name="aboutSummary">Infos über die App und Lizenzen anzeigen</string>
     <string name="rate">Bewerten</string>
     <string name="rateSummary">Bewerte Authenticator Pro im Google Play Store</string>
@@ -125,14 +125,14 @@
     <string name="filePickError">Fehler beim Auswählen der Datei</string>
     <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
-    <string name="emailClientMissing">No email client installed</string>
+    <string name="emailClientMissing">Keine E-Mail-Anwendung installiert</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
-    <string name="viewErrorLog">View error log</string>
+    <string name="viewErrorLog">Fehlerprotokoll anzeigen</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
-    <string name="email">Email</string>
+    <string name="email">E-Mail</string>
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->

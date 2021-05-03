@@ -3,7 +3,7 @@
     <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">Brak wpisów</string>
     <string name="noAuthenticatorsMessage">Nic tu nie ma, dodaj kilka wpisów na telefonie.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
+    <string name="hotpNotSupported">HOTP nie jest obsługiwane</string>
     <string name="categoryAll">Wszystko</string>
     <string name="offline">Offline</string>
 </resources>
