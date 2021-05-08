@@ -1,0 +1,7 @@
+Changes to Wear OS app, update both apps to latest version in order to retain functionality.
+
+- New feature: Sort modes
+- General: 4 new icons for ControlD, NextDNS, Filen and NVIDIA
+- General: Bug fixes
+- General: Design tweaks
+- General: Translation updates
