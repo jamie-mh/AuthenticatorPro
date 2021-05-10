@@ -11,7 +11,7 @@
     <string name="no">Hayır</string>
     <string name="close">Kapat</string>
     <string name="error">Hata</string>
-    <string name="retry">Retry</string>
+    <string name="retry">Tekrar dene</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -28,8 +28,8 @@
     <string name="enterKey">Sağlanan bir anahtarı girin</string>
     <string name="restoreBackup">Yedeği geri yükle</string>
     <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortAZ">Alfabetik (a\'dan z\'ye)</string>
+    <string name="sortZA">Alfabetik (z\'den a\'ya)</string>
     <string name="sortCustom">Custom</string>
     <string name="aboutSummary">Hakkında ve lisans bilgilerini görüntüleyin.</string>
     <string name="rate">Değerlendir</string>
@@ -125,14 +125,14 @@
     <string name="filePickError">Dosya seçilirken hata oluştu.</string>
     <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil.</string>
     <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
-    <string name="emailClientMissing">No email client installed</string>
+    <string name="emailClientMissing">Kurulu e-posta istemcisi yok</string>
     <string name="genericError">Bir hata meydana geldi.</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
-    <string name="viewErrorLog">View error log</string>
+    <string name="databaseError">Veritabanı açılırken bir hata oluştu. Uygulamayı yeniden başlatmayı deneyin. Sorun devam ederse uygulama verilerini temizleyin ve en son yedeklemenizi geri yükleyin.\n\nAyrıca bir hata raporu gönderebilirsiniz.</string>
+    <string name="viewErrorLog">Hata günlüğünü görüntüle</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
     <string name="report">Bildir</string>
-    <string name="email">Email</string>
+    <string name="email">E-posta</string>
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
@@ -161,7 +161,7 @@
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
     <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
-    <string name="clearPassword">Clear password</string>
+    <string name="clearPassword">Parolayı kaldır</string>
     <string name="confirmPassword">Parolayı onayla</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
     <string name="passwordsDoNotMatch">Parolalar uyuşmuyor</string>
@@ -174,7 +174,7 @@
     <string name="tooManyAttempts">Çok fazla deneme</string>
     <!-- Import -->
     <string name="importFromOtherApps">Diğer uygulamalardan içe aktar</string>
-    <string name="importFrom">Import from</string>
+    <string name="importFrom">Buradan içer aktar</string>
     <string name="importError">Dosya içe aktarılamadı</string>
     <string name="authenticatorPlusImportHint">authplus.db dosyasını içe aktar</string>
     <string name="andOtp">andOTP (plain-text)</string>
