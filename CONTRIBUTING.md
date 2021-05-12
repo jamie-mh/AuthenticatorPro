@@ -6,7 +6,9 @@ Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin pr
 
 ## Icons
 
-If you wish to contribute more icons to the application, the procedure is as follows:
+If you'd like to contribute some icons, check the [missing icons list](./extra/missing_icons.txt) for some that might need adding. There may be duplicates, so check first!
+
+To add an icon to the project the procedure is as follows:
 
 * Fork the repo
 
@@ -26,6 +28,8 @@ If you wish to contribute more icons to the application, the procedure is as fol
 * If the icon requires a dark theme variant, repeat the process and append "_dark" to the name.
 
 * Optional: To complete the process and to build / test the project with the new icons, run the `generate_icons.py` script in the extras directory. This will generate the DPI variants, reference them in the csproj file and icon map.
+
+* Remove the entry from the [missing icons list](./extra/missing_icons.txt) if it exists.
 
 * Commit changes (if the above script was run, commit the changes to the `AuthenticatorPro.Droid.Shared.csproj` and `IconMap.cs` files and add the generated drawables)
 

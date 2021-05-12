@@ -1,0 +1,556 @@
+007Names
+101domain
+20i
+2Checkout
+34SP.com
+Above.com
+Acquia
+Action Network
+Actionstep
+ACTIVE 24
+ActiveState
+Addiko Bank
+Airbrake
+Airship
+AJ Bell Youinvest
+ALL-INKL.COM
+AltoIRA
+Amazon Pay
+Andrews & Arnold
+AngelList
+AppFolio
+AppSignal
+Arduino
+Asana
+Ashes of Creation
+Assembla
+Aternos
+Atlassian Cloud
+Audiense
+Automate.io
+Automater
+Avanza
+Back4App
+Balena
+Basecamp
+Basic Attention Token
+Batch
+Best Buy
+Betfair
+Betterment
+Betvictor
+BGL Corporate Solutions
+Bill
+Binary Lane
+BitBay
+Bitbond
+Bitcoin.de
+BitcoinTrade
+Bitflyer
+BitForex
+BitGo
+Bithumb
+BitMEX
+Bitpanda
+Bitrise
+Bitrix24
+BitSight
+Bitso
+Bittrex
+Bitwala
+Black Desert Online
+Blacknight
+Blade & Soul
+BlockFi
+Blur
+Bohemia Interactive
+Bonusly
+Box
+Braintree
+Braziliex
+Brightbox
+BTC BOX
+BTC Markets
+BTCPOP
+Buda
+Buddy
+Buffer
+bugcrowd
+Bugsnag
+Bugzilla@Mozilla
+Buildkite
+BuiltWith
+bunny.net
+Bybit
+Call Of Duty
+Campfire
+Capsule
+Carrd
+Carta
+Caspio
+CDN77
+CDNsun
+Centrify
+Changelly
+Chartbeat
+Circle
+Cisco Meraki
+ClearScore
+CleverTap
+ClickUp
+Clio
+Close
+Cloud 66
+CloudBees
+Cloudbet
+cloud.ca
+CloudConvert
+Cloudinary
+ClouDNS
+Clover
+Cloze
+Clubhouse
+Cobalt
+Coda
+Coinapult
+Coinberry
+Coin Cafe
+Coincheck
+CoinDeal
+CoinFalcon
+CoinGate
+Coinify
+Coinjar
+CoinOne
+CoinSmart
+Coins.ph
+Coinspot
+CoinTiger
+CoinTracker
+CoinTracking
+Coinut
+Compose
+Con Edison
+ConnectWise Control (ScreenConnect)
+Contentful
+Cronometer
+Crypto
+Cryptonator
+Customer.io
+cyon
+Databox
+Deel
+DEGIRO
+Demio
+DeployHQ
+Deputy
+Detectify
+DigiCert
+Digitec
+Direct Mail
+Directnic
+DMARC Analyzer
+dmarcian
+DNSimple
+DNS Made Easy
+Docusign
+Dome9 Security
+Domeneshop
+Domino Data Lab
+Drift
+Dwolla
+Dyn
+Dynadot
+Dynu
+East Carolina University
+Easy
+EasyDMARC
+easyDNS
+EasySendy
+eclincher
+ecobee
+Egnyte
+elmah.io
+Eneba
+Engine Yard
+eNom
+Envoyer
+Equinix Metal
+ESL
+Esri
+EuroDNS
+Everlaw
+Exact Online
+Exmo
+Expensify
+Fabulous
+FaceIT
+Falcon
+FastComet
+Fasthosts
+Fastly
+Fastmail
+FAX.PLUS
+Files.com
+Findmyshift
+Floatplane
+Flywheel
+FogBugz & Kiln
+FollowMyHealth
+Formstack
+fortrabbit
+FreeAgent
+FreeTaxUSA
+Freewallet
+Front App
+FTX
+Gaijin Entertainment
+Gatehub
+Gate.io
+Glassdoor
+Glesys
+GoCardless
+Google Domains
+Google Fi
+Google Fiber
+Google Fit
+Google Pay
+Grape
+GREE
+Greenhost
+Groups.io
+GrowingIO
+Guideline
+Gusto
+HackerOne
+Hack The Box
+HashiCorp Terraform Enterprise
+HashiCorp Vagrant Cloud
+Heap
+Heap Analytics
+HelloSign
+Help Scout
+Hexonet
+HEY
+Hint Health
+HitBTC
+HootSuite
+Hostens
+Hostiso
+Hostpoint
+HostUS
+Hover.com
+H&R Block
+HubSpot
+Huobi
+Hurricane Electric
+Hypixel
+IBM Cloud
+ICDSoft
+ICUK
+ID.me
+Imperva
+ImprovMX
+Infomaniak
+InMotion Hosting
+Intercom
+Internet.bs
+intigriti
+Intuit TurboTax
+Invictus Capital
+InVision
+IO Zoom
+(ISC)2
+ISL Online
+itch.io
+IT Glue
+itslearning
+IVPN
+Jelastic
+Jitbit Helpdesk
+join.me (w/ LogMeIn account)
+Joker.com
+Joyent
+justhost
+Justworks
+Karlsruher Institut für Technologie
+Kaspersky
+Kayako
+KnowBe4
+KnownHost
+Koofr
+Korbit
+Krystal
+Kuna
+Laravel Forge
+LATOKEN
+Launchpad
+LCN.com
+lichess.org
+Liquid
+Liquid Web
+LiteBit
+Lobsters
+LocalBitcoins
+LocalCryptos
+LocalMonero
+Looker
+Luno
+MacStadium
+MaiCoin
+Mail.com
+Mailfence
+Mammoth Networks
+MathWorks
+MB Connect Line
+McGill University
+Meistertask
+Mercado Bitcoin
+Mercury
+Metaname
+Metorik
+Microsoft Azure
+Microsoft To-Do
+Migros
+Mimecast
+Mint
+Mintos
+Miss Hosting
+Missive App
+mLab
+Monday.com
+Moneybird
+MongoDB Atlas
+MongoDB Cloud Manager
+Moniker
+Moqups
+NairaEx
+Namesco
+NameSilo.com
+NDAX
+NearlyFreeSpeech.net
+Neolo
+NETELLER
+Netim
+Netlify
+Nexon
+Niconico
+Nimbox
+Noez
+NordVPN Teams
+North Carolina State University
+No Starch Press
+Notejoy
+Nozbe Teams
+NS1
+NuGet
+Nulab
+Nutmeg
+O&O Syspectr
+Oculus
+Oderland
+OKEx
+Okta
+OMGServ
+Onehub
+OneLogin
+Online
+OpenDNS
+Openprovider
+Open Science Framework (OSF)
+OpenSRS
+Optimizely
+Oracle Cloud
+ORCID
+Packagist
+pair Domains
+Panic Sync
+Panther
+Parimatch
+Paritex
+Passwarden
+Paxful
+Paxos
+PayKassa
+Paysafecard
+PCloud
+Pennsylvania Dept of Revenue myPATH
+Pepipost
+Philipps-Universität Marburg
+Phrase
+Pivotal Tracker
+PlanetHoster
+Planio
+Playstation Network
+Plex
+Plurk
+Pobox
+Pocketsmith
+Poloniex
+Postmarkapp
+Prey
+Principal
+ProBit
+ProfitWell
+Purse
+Pusher
+PythonAnywhere
+QNAP
+Quickbooks Online
+QuickFile
+Quidax
+Radius Bank
+RamNode
+Ravelin
+Raygun
+Razer
+RBCommons
+RBLTracker
+ReadMe
+RealMe
+Rebel.com
+Rebrandly
+RedShelf
+Refersion
+Register365
+Register4Less
+Registro.br
+Remitano
+Remote Desktop Manager
+Repairshopr
+Report URI
+Republic Wireless
+Restream.io
+RevenueCat
+RightCapital
+Ripe NCC
+River Financial
+Roberts Space Industries
+Robinhood
+Rocket Beans TV
+Rollbar
+RubyGems.org
+Runbox
+RuneScape
+RunSignUp
+Ryerson University
+Samsung SmartThings
+SaneBox
+SAPO Mail
+SatoshiTango
+Scalr
+Scripting Helpers
+Scryfall
+section.io
+SecurityTrails
+Segment
+SelfWealth
+Semaphore
+Server.pro
+Short.io
+SimpleTax
+SiteGround
+Smarkets
+Smartly.io
+SmartSimple
+smashcast
+Socialbakers
+SocketLabs
+Sonic
+Sonix
+Sophos Central
+SourceForge
+SparkPost
+Spreedly
+SproutSocial
+Squarespace
+SSLTrust
+Stackfield
+StackPath
+StartMail
+StatusCake
+STEX
+StormGain
+Sumo Logic
+Surfshark
+Swyftx
+Sync
+Synergy Wholesale
+Taxact
+Teamwork
+Tebex
+Telzio
+Tesla
+Textlocal
+Thexyz
+ThreatConnect
+ThreatX
+ThriveCart
+Tibia
+Tilaa
+Tinfoil Security
+Ting
+Tito
+T-Mobile
+Tokopedia
+Toodledo
+Toontown Rewritten
+TransIP
+Tresorit
+Tumblr
+Twilio
+Ubiquiti Inc
+UK2
+UKFast
+Ukraine
+Unbounce
+Uniregistry
+united-domains.de
+united-domains Reselling
+United Domains USA
+University of Delaware
+UpCloud
+UpCloud
+Upwork
+Usabilla
+US Citizenship and Immigration Services
+Userify
+Valr
+VeeroTech
+VentraIP
+Versio
+ViaBTC
+VirusTotal
+Visual Studio Codespaces
+VK
+VMware
+VoIP.ms
+Voyager
+VPN Unlimited
+VPS Server
+VRChat
+Watchman Monitoring
+Wealthfront
+Wealthsimple
+WebFaction
+Webflow
+Webroot
+Weclapp
+Wedos
+WePay
+When I Work
+Whois
+Windscribe
+Wirex
+Woodforest National Bank
+World4You
+Wyze
+Xero
+Yahoo Japan Mail
+Yandex.Money
+Yclas
+YourAcclaim
+YoYo Games
+Zimbra
+Zoolz
+Zoom
