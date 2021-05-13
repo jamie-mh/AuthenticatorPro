@@ -6,7 +6,7 @@ Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin pr
 
 ## Icons
 
-If you'd like to contribute some icons, check the [missing icons list](./extra/missing_icons.txt) for some that might need adding. There may be duplicates, so check first!
+If you'd like to contribute some icons, check the [missing icons list](./extra/missing_icons.txt) for some that might need adding. They may already exist, so check first!
 
 To add an icon to the project the procedure is as follows:
 
@@ -27,7 +27,10 @@ To add an icon to the project the procedure is as follows:
 
 * If the icon requires a dark theme variant, repeat the process and append "_dark" to the name.
 
-* Optional: To complete the process and to build / test the project with the new icons, run the `generate_icons.py` script in the extras directory. This will generate the DPI variants, reference them in the csproj file and icon map.
+* Optional: To complete the process and to build / test the project with the new icons, the DPI variants and map must be generated. If you're not comfortable with running Python scripts, skip this step.
+
+  * Install the Pillow library: [https://pillow.readthedocs.io/en/stable/installation.html](https://pillow.readthedocs.io/en/stable/installation.html)
+  * Run the `generate_icons.py` script in the extras directory.
 
 * Remove the entry from the [missing icons list](./extra/missing_icons.txt) if it exists.
 
