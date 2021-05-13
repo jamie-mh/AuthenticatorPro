@@ -141,7 +141,18 @@ namespace AuthenticatorPro.Droid.Data
             }
             
             File.Copy(dbPath, backupPath, true);
-            var conn = await GetPrivateConnection(currentPassword);
+            SQLiteAsyncConnection conn;
+
+            try
+            {
+                conn = await GetPrivateConnection(currentPassword);
+                await conn.ExecuteScalarAsync<string>("PRAGMA wal_checkpoint(TRUNCATE)");
+            }
+            catch
+            {
+                File.Delete(backupPath);
+                throw;
+            }
 
             // Change encryption mode
             if(currentPassword == null && newPassword != null || currentPassword != null && newPassword == null)
