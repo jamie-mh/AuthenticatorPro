@@ -381,7 +381,6 @@ Phrase
 Pivotal Tracker
 PlanetHoster
 Planio
-Playstation Network
 Plex
 Plurk
 Pobox
@@ -505,11 +504,7 @@ UKFast
 Ukraine
 Unbounce
 Uniregistry
-united-domains.de
-united-domains Reselling
-United Domains USA
 University of Delaware
-UpCloud
 UpCloud
 Upwork
 Usabilla
@@ -521,7 +516,6 @@ VentraIP
 Versio
 ViaBTC
 VirusTotal
-Visual Studio Codespaces
 VK
 VMware
 VoIP.ms
