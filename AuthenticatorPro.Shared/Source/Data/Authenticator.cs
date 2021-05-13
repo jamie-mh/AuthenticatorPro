@@ -363,7 +363,7 @@ namespace AuthenticatorPro.Shared.Data
                     var output = Base32.Rfc4648.Decode(secret);
                     return output.Length > 0;
                 }
-                catch(ArgumentException)
+                catch
                 {
                     return false;
                 }
