@@ -25,14 +25,12 @@ Asana
 Ashes of Creation
 Assembla
 Aternos
-Atlassian Cloud
 Audiense
 Automate.io
 Automater
 Avanza
 Back4App
 Balena
-Basecamp
 Basic Attention Token
 Batch
 Best Buy
@@ -66,7 +64,6 @@ Blur
 Bohemia Interactive
 Bonusly
 Box
-Braintree
 Braziliex
 Brightbox
 BTC BOX
@@ -309,7 +306,6 @@ Mercado Bitcoin
 Mercury
 Metaname
 Metorik
-Microsoft Azure
 Microsoft To-Do
 Migros
 Mimecast
@@ -534,7 +530,6 @@ Wedos
 WePay
 When I Work
 Whois
-Windscribe
 Wirex
 Woodforest National Bank
 World4You
@@ -547,4 +542,3 @@ YourAcclaim
 YoYo Games
 Zimbra
 Zoolz
-Zoom
