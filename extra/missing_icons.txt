@@ -59,7 +59,6 @@ Bitwala
 Black Desert Online
 Blacknight
 Blade & Soul
-BlockFi
 Blur
 Bohemia Interactive
 Bonusly
@@ -131,7 +130,6 @@ Con Edison
 ConnectWise Control (ScreenConnect)
 Contentful
 Cronometer
-Crypto
 Cryptonator
 Customer.io
 cyon
@@ -515,7 +513,6 @@ VirusTotal
 VK
 VMware
 VoIP.ms
-Voyager
 VPN Unlimited
 VPS Server
 VRChat
