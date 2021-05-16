@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+from xml.dom import minidom
 import xml.etree.ElementTree as ET
 
 from PIL import Image
@@ -65,6 +66,15 @@ def build_map(files: list):
     file.close()
 
 
+def write_element_tree(tree: ET.ElementTree, output_path: str):
+    contents = ET.tostring(tree.getroot(), encoding="utf-8", xml_declaration=True) 
+    formatted = minidom.parseString(contents).toprettyxml(indent="    ")
+    formatted = "\n".join([l for l in formatted.splitlines() if l.strip()])
+
+    with open(output_path, "w") as file:
+        file.write(formatted)
+
+
 def build_csproj(icons: list):
 
     csproj_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/AuthenticatorPro.Droid.Shared.csproj"
@@ -85,7 +95,7 @@ def build_csproj(icons: list):
             resource.set("Include", f"Resources\\drawable-{dpi}\\{RES_PREFIX}{icon}")
             icons_group.append(resource)
 
-    csproj.write(csproj_path, xml_declaration=True, encoding="utf-8")
+    write_element_tree(csproj, csproj_path)
 
 
 def generate_for_dpi(dpi: str, filename: str, icon: Image):
