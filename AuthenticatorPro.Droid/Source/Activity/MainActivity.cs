@@ -496,7 +496,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _ => Resource.Id.actionSortCustom,
             };
 
-            menu.FindItem(sortItemId).SetChecked(true);
+            menu.FindItem(sortItemId)?.SetChecked(true);
             return base.OnMenuOpened(featureId, menu);
         }
 
