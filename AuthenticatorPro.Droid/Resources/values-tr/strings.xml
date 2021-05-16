@@ -168,7 +168,7 @@
     <!-- Unlock -->
     <string name="unlock">Kilidi Aç</string>
     <string name="useBiometrics">Biyometri kullan</string>
-    <string name="unlockMessage">Veritabanının kilidini açmak için parolanızı girin veya biyometri kullanın</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
     <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
     <string name="passwordIncorrect">Parola hatalı</string>
     <string name="tooManyAttempts">Çok fazla deneme</string>
