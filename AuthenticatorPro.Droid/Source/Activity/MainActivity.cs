@@ -528,7 +528,7 @@ namespace AuthenticatorPro.Droid.Activity
             _authSource.SetSortMode(sortMode);
             _preferences.SortMode = sortMode;
             _authListAdapter.NotifyDataSetChanged();
-            item.SetChecked(true);
+            item?.SetChecked(true);
 
             return true;
         }
