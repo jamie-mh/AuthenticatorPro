@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+
 # Authenticator Pro Backup Decryption Tool
 # View https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md#encrypted-backups for details
 
 import sys
 import hashlib
 import json
+import argparse
 
 from getpass import getpass
 from Crypto.Cipher import AES
@@ -17,14 +20,15 @@ IV_LENGTH = 16
 DERV_KEY_LENGTH = 32
 
 
-def get_file_bytes(path):
-    with open(path, "rb") as f:
-        data = f.read()
+def get_cli_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Decrypt Authenticator Pro backup")
+    parser.add_argument("path", metavar="p", type=str, help="Path to file to decrypt")
+    parser.add_argument("--password", type=str, help="Backup password")
 
-    return data
+    return parser.parse_args()
 
 
-def decrypt(data, password):
+def decrypt(data: bytes, password: str) -> str:
     salt = data[len(HEADER):len(HEADER) + SALT_LENGTH]
     iv = data[len(HEADER) + SALT_LENGTH:len(HEADER) + SALT_LENGTH + IV_LENGTH]
     payload = data[len(HEADER) + SALT_LENGTH + IV_LENGTH:]
@@ -39,34 +43,32 @@ def decrypt(data, password):
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("error: File path expected")
-        return
 
-    path = sys.argv[1]
+    args = get_cli_args()
 
     try:
-        data = get_file_bytes(path)
-    except:
+        with open(args.path, "rb") as f:
+            data = f.read()
+    except FileNotFoundError:
         print("error: File cannot be read")
-        return
+        sys.exit(1)
 
     try:
         header = data[:len(HEADER)]
 
         if header.decode("utf-8") != HEADER:
-            raise
-    except:
+            raise ValueError
+    except ValueError:
         print("error: File is not a valid backup file or uses an older format")
-        return
+        sys.exit(1)
 
-    password = getpass("Password: ")
+    password = args.password if args.password is not None else getpass("Password: ")
 
     try:
         result = decrypt(data, password)
-    except:
+    except ValueError:
         print("error: Invalid password")
-        return
+        sys.exit(1)
 
     backup = json.loads(result)
     sys.stdout.write(json.dumps(backup, indent=4))
