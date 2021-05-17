@@ -89,7 +89,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("project", metavar="P", type=str, choices=PROJECT_NAMES.keys(), help="Project to build")
     parser.add_argument("package", metavar="T", type=str, choices=["apk", "aab"], help="Package type to build")
 
-    parser.add_argument("--output", type=str, help="Build output path (defaults to 'build')", default="build")
+    parser.add_argument("--output", type=str, help="Build output path (defaults to 'out')", default="out")
     parser.add_argument("--sdk", type=str, help="Android SDK location (defaults to $ANDROID_SDK)", default=os.getenv("ANDROID_SDK"))
     parser.add_argument("--ndk", type=str, help="Android NDK location (defaults to $ANDROID_NDK)", default=os.getenv("ANDROID_NDK"))
 
