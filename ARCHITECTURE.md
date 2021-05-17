@@ -21,7 +21,7 @@ This contains code shared between both Android versions (primary and companion).
 
 #### Notable classes
 
-- `Data/IconResolver.cs` Resolves icon IDs (eg: github) to compile-time Android resource IDs. Newly added icons must be referenced here.
+- `Data/IconMap.cs` Resolves icon IDs (eg: github) to compile-time Android resource IDs. The `extra/generate_icons.py` script generates this file.
 
 ### `AuthenticatorPro.Shared`
 

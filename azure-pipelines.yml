@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  configuration: 'Release'
+  configuration: 'Debug'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -49,10 +49,10 @@ steps:
     apkFiles: '**/*.apk'
     apksign: true
     zipalign: true
-    apksignerKeystoreFile: 'jmh.keystore'
-    apksignerKeystorePassword: $(keystore.password)
-    apksignerKeystoreAlias: $(keystore.alias)
-    apksignerKeyPassword: $(key.password)
+    apksignerKeystoreFile: 'debug.keystore'
+    apksignerKeystorePassword: android
+    apksignerKeystoreAlias: androiddebugkey
+    apksignerKeyPassword: android
 
 - task: CopyFiles@2
   displayName: 'Copy APKs to staging dir'
