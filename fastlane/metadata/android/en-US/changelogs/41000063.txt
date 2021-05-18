@@ -1,0 +1,2 @@
+- General: 10 new icons for Basecamp, BlockFi, Braintree, Celsius, CoinLoan, Ledn, Nexo, Voyager, Windscribe and Zoom
+- General: Bug fixes
