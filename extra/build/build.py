@@ -70,7 +70,11 @@ def build_project(args: argparse.Namespace):
     msbuild_args = f'-p:Configuration="Release" -p:AndroidSdkDirectory="{args.sdk}" -p:AndroidNdkDirectory="{args.ndk}"'
     os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} -p:OutputPath="{args.output}" -t:PackageForAndroid')
 
-    signing_args = f'-p:AndroidKeyStore=True -p:AndroidSigningKeyStore="{args.keystore}" -p:AndroidSigningStorePass="{args.keystore_pass}" -p:AndroidSigningKeyAlias="{args.keystore_alias}" -p:AndroidSigningKeyPass="{args.keystore_key_pass}"'
+    if args.keystore is not None:
+        signing_args = f'-p:AndroidKeyStore=True -p:AndroidSigningKeyStore="{args.keystore}" -p:AndroidSigningStorePass="{args.keystore_pass}" -p:AndroidSigningKeyAlias="{args.keystore_alias}" -p:AndroidSigningKeyPass="{args.keystore_key_pass}"'
+    else:
+        signing_args = "-p:AndroidKeyStore=False"
+
     os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} {signing_args} -p:OutputPath="{args.output}" -t:SignAndroidPackage')
 
 
@@ -94,28 +98,27 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("--ndk", type=str, help="Android NDK location (defaults to $ANDROID_NDK)", default=os.getenv("ANDROID_NDK"))
 
     signing = parser.add_argument_group("build signing")
-    signing.add_argument("--keystore", type=str, help="Keystore location (defaults to $ANDROID_KEYSTORE)", default=os.getenv("ANDROID_KEYSTORE"))
-    signing.add_argument("--keystore-pass", type=str, help="Keystore password", required=True)
-    signing.add_argument("--keystore-alias", type=str, help="Keystore alias", required=True)
-    signing.add_argument("--keystore-key-pass", type=str, help="Keystore key password", required=True)
+    signing.add_argument("--keystore", type=str, help="Keystore location (if not set, output is signed with debug keystore)")
+    signing.add_argument("--keystore-pass", type=str, help="Keystore password")
+    signing.add_argument("--keystore-alias", type=str, help="Keystore alias")
+    signing.add_argument("--keystore-key-pass", type=str, help="Keystore key password")
 
     args = parser.parse_args()
 
     if args.sdk is None:
-        print("error: No Android SDK defined")
-        sys.exit(-1)
+        raise RuntimeError("error: No Android SDK defined")
 
     if args.ndk is None:
-        print("error: No Android NDK defined")
-        sys.exit(-1)
+        raise RuntimeError("error: No Android NDK defined")
 
-    if args.keystore is None:
-        print("error: No keystore location provided")
-        sys.exit(-1)
+    if args.keystore is not None:
+        if args.keystore_pass is None or args.keystore_alias is None or args.keystore_key_pass is None:
+            raise RuntimeError("error: Keystore provided but not all signing arguments are present")
+
+        args.keystore = get_full_path(args.keystore)
 
     args.output = get_full_path(args.output)
     args.project = PROJECT_NAMES[args.project]
-    args.keystore = get_full_path(args.keystore)
 
     return args
 
@@ -134,7 +137,13 @@ def run(args: argparse.Namespace):
 
 
 def main():
-    args = get_args()
+
+    try:
+        args = get_args()
+    except RuntimeError as e:
+        print(e)
+        sys.exit(2)
+
     print(f"Building {args.project} as {args.package}")
 
     try:
