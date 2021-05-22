@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Droid.Data
             {
                 // TODO: update to SQLCipher 4 encryption
                 // Performance issue: https://github.com/praeclarum/sqlite-net/issues/978
-                conn.Execute("PRAGMA cipher_compatibility = 3");
+                conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
             });
             
             var connection = new SQLiteAsyncConnection(connStr);

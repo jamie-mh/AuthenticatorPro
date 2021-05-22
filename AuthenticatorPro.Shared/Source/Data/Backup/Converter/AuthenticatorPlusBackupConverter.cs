@@ -32,7 +32,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             
             var connStr = new SQLiteConnectionString(path, true, password, null, conn =>
             {
-                conn.Execute("PRAGMA cipher_compatibility = 3");
+                conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
             });
             
             var connection = new SQLiteAsyncConnection(connStr);
