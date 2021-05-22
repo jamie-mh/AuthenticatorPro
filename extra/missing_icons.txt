@@ -320,7 +320,6 @@ Moniker
 Moqups
 NairaEx
 Namesco
-NameSilo.com
 NDAX
 NearlyFreeSpeech.net
 Neolo
@@ -396,7 +395,6 @@ Radius Bank
 RamNode
 Ravelin
 Raygun
-Razer
 RBCommons
 RBLTracker
 ReadMe
@@ -473,7 +471,6 @@ Taxact
 Teamwork
 Tebex
 Telzio
-Tesla
 Textlocal
 Thexyz
 ThreatConnect
@@ -492,7 +489,6 @@ TransIP
 Tresorit
 Tumblr
 Twilio
-Ubiquiti Inc
 UK2
 UKFast
 Ukraine
@@ -510,7 +506,6 @@ VentraIP
 Versio
 ViaBTC
 VirusTotal
-VK
 VMware
 VoIP.ms
 VPN Unlimited
@@ -537,5 +532,4 @@ Yandex.Money
 Yclas
 YourAcclaim
 YoYo Games
-Zimbra
 Zoolz
