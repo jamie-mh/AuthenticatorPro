@@ -119,6 +119,8 @@ namespace AuthenticatorPro.Droid.Activity
             }
             
             var body = new StringBuilder();
+            body.AppendLine("-- please fill out the following information --");
+            body.AppendLine();
             body.AppendLine("Describe the bug: ");
             body.AppendLine();
             body.AppendLine("Steps to reproduce: ");
