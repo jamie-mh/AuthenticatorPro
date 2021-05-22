@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Copyright (C) 2021 jmh
+# SPDX-License-Identifier: GPL-3.0-only
+
 # Authenticator Pro Backup Decryption Tool
 # View https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md#encrypted-backups for details
 

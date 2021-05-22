@@ -1,4 +1,7 @@
-﻿using Android.Views;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 

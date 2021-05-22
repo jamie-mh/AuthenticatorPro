@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace AuthenticatorPro.Droid.Util

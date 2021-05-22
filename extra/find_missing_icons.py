@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# Copyright (C) 2021 jmh
+# SPDX-License-Identifier: GPL-3.0-only
+
 import os
 import re
 import yaml

@@ -1,4 +1,7 @@
-﻿using Android.App;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using Android.App;
 using Android.OS;
 using Android.Views;
 using Google.Android.Material.AppBar;

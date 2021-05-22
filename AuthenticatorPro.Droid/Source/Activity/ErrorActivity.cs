@@ -1,4 +1,7 @@
-﻿using System.Text;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Net;

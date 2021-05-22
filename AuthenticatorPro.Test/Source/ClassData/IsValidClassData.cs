@@ -1,4 +1,7 @@
-﻿using System.Collections;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using System.Collections;
 using System.Collections.Generic;
 using AuthenticatorPro.Shared.Data;
 

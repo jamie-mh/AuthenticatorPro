@@ -1,4 +1,7 @@
-﻿using Android.Content;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using Android.Content;
 using Android.Graphics.Drawables;
 using AndroidX.Core.Content;
 using AndroidX.Wear.Widget.Drawer;

@@ -1,4 +1,7 @@
-﻿using System;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using System;
 using System.Collections.Generic;
 using Android.OS;
 using Android.Views;

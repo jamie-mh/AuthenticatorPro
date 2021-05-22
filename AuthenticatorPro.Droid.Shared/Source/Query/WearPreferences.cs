@@ -1,4 +1,7 @@
-﻿using AuthenticatorPro.Droid.Shared.Data;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using AuthenticatorPro.Droid.Shared.Data;
 
 namespace AuthenticatorPro.Droid.Shared.Query
 {

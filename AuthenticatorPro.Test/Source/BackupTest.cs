@@ -1,4 +1,7 @@
-﻿using System.IO;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using System.IO;
 using AuthenticatorPro.Shared.Data.Backup;
 using Newtonsoft.Json;
 using Xunit;

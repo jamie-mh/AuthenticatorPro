@@ -1,4 +1,7 @@
-﻿using Android.Animation;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using Android.Animation;
 using Android.Content;
 using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;

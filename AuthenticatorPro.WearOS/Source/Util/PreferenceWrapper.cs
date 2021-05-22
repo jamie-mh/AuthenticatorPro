@@ -1,3 +1,6 @@
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
 using Android.Content;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Droid.Shared.Query;

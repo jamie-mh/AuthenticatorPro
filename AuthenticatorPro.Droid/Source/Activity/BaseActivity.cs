@@ -1,4 +1,7 @@
-﻿using Android.Content.Res;
+// Copyright (C) 2021 jmh
+// SPDX-License-Identifier: GPL-3.0-only
+
+using Android.Content.Res;
 using Android.OS;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Util;
