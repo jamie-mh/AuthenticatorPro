@@ -138,7 +138,6 @@ namespace AuthenticatorPro.Droid.Activity
         // Pause OnCreate until unlock is complete
         private readonly SemaphoreSlim _unlockDatabaseLock;
 
-
         public MainActivity()
         {   
             _iconResolver = new IconResolver();
@@ -370,60 +369,46 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 case RequestRestore:
                     await RestoreFromUri(intent.Data);
-                    break;
+                    return;
                 
                 case RequestBackupFile:
                     await BackupToFile(intent.Data);
-                    break;
+                    return;
                 
                 case RequestBackupHtml:
                     await BackupToHtmlFile(intent.Data);
-                    break;
+                    return;
                 
                 case RequestBackupUriList:
                     await BackupToUriListFile(intent.Data);
-                    break;
+                    return;
                 
                 case RequestCustomIcon:
                     await SetCustomIcon(intent.Data, _customIconApplyPosition);
-                    break;
+                    return;
                 
                 case RequestQrCode:
                     await ScanQRCodeFromImage(intent.Data);
-                    break;
-                
-                case RequestImportAuthenticatorPlus:
-                    await ImportFromUri(new AuthenticatorPlusBackupConverter(_iconResolver), intent.Data);
-                    break;
-                
-                case RequestImportAndOtp:
-                    await ImportFromUri(new AndOtpBackupConverter(_iconResolver), intent.Data);
-                    break;
-                
-                case RequestImportFreeOtpPlus:
-                    await ImportFromUri(new FreeOtpPlusBackupConverter(_iconResolver), intent.Data);
-                    break;
-                
-                case RequestImportAegis:
-                    await ImportFromUri(new AegisBackupConverter(_iconResolver, new CustomIconDecoder()), intent.Data);
-                    break;
-                
-                case RequestImportBitwarden:
-                    await ImportFromUri(new BitwardenBackupConverter(_iconResolver), intent.Data);
-                    break;
-                
-                case RequestImportWinAuth:
-                    await ImportFromUri(new WinAuthBackupConverter(_iconResolver), intent.Data);
-                    break;
-                
-                case RequestImportTotpAuthenticator:
-                    await ImportFromUri(new TotpAuthenticatorBackupConverter(_iconResolver), intent.Data);
-                    break;
-                
-                case RequestImportUriList:
-                    await ImportFromUri(new UriListBackupConverter(_iconResolver), intent.Data);
-                    break;
+                    return;
             }
+
+            BackupConverter converter = requestCode switch
+            {
+                RequestImportAuthenticatorPlus => new AuthenticatorPlusBackupConverter(_iconResolver),
+                RequestImportAndOtp => new AndOtpBackupConverter(_iconResolver),
+                RequestImportFreeOtpPlus => new FreeOtpPlusBackupConverter(_iconResolver),
+                RequestImportAegis => new AegisBackupConverter(_iconResolver, new CustomIconDecoder()),
+                RequestImportBitwarden => new BitwardenBackupConverter(_iconResolver),
+                RequestImportWinAuth => new WinAuthBackupConverter(_iconResolver),
+                RequestImportTotpAuthenticator => new TotpAuthenticatorBackupConverter(_iconResolver),
+                RequestImportUriList => new UriListBackupConverter(_iconResolver),
+                _ => null
+            };
+
+            if(converter == null)
+                return;
+
+            await ImportFromUri(converter, intent.Data);
         }
 
         public override void OnConfigurationChanged(Configuration newConfig)
