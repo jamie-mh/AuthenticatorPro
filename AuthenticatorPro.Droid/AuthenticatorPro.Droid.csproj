@@ -163,6 +163,7 @@
     <Compile Include="Source\Util\PreferenceWrapper.cs" />
     <Compile Include="Source\Util\SecureStorageWrapper.cs" />
     <Compile Include="Source\Util\TextInputUtil.cs" />
+    <Compile Include="Source\Util\WearClient.cs" />
     <Compile Include="Source\Worker\AutoBackupWorker.cs" />
   </ItemGroup>
   <ItemGroup>

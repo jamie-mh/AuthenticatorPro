@@ -68,9 +68,8 @@ namespace AuthenticatorPro.Droid.Activity
         Intent.CategoryDefault,
         Intent.CategoryBrowsable
     }, DataSchemes = new[] { "otpauth", "otpauth-migration" })]
-    internal class MainActivity : BaseActivity, CapabilityClient.IOnCapabilityChangedListener, IOnApplyWindowInsetsListener
+    internal class MainActivity : BaseActivity, IOnApplyWindowInsetsListener
     {
-        private const string WearRefreshCapability = "refresh";
         private const int PermissionCameraCode = 0;
 
         private const int BackupReminderThresholdMinutes = 120;
@@ -118,7 +117,9 @@ namespace AuthenticatorPro.Droid.Activity
        
         // State
         private readonly IconResolver _iconResolver;
+        private readonly WearClient _wearClient;
         private PreferenceWrapper _preferences;
+        
         private Timer _timer;
         private DateTime _pauseTime;
         private DateTime _lastBackupReminderTime;
@@ -128,11 +129,6 @@ namespace AuthenticatorPro.Droid.Activity
         private bool _updateOnActivityResume;
         private bool _currentlyResuming;
         private int _customIconApplyPosition;
-
-        // Wear OS State
-        private bool _areGoogleAPIsAvailable;
-        private bool _hasWearAPIs;
-        private bool _hasWearCompanion;
 
         // Activity lifecycle synchronisation
         // Async activity lifecycle methods pass control to the next method, Resume is called before Create has finished.
@@ -146,6 +142,8 @@ namespace AuthenticatorPro.Droid.Activity
         public MainActivity()
         {   
             _iconResolver = new IconResolver();
+            _wearClient = new WearClient(this);
+            
             _onCreateLock = new SemaphoreSlim(1, 1);
             _onResumeLock = new SemaphoreSlim(1, 1);
             _unlockDatabaseLock = new SemaphoreSlim(0, 1);
@@ -240,8 +238,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(_preferences.FirstLaunch)
                 StartActivity(typeof(IntroActivity));
 
-            DetectGoogleAPIsAvailability();
-            await DetectWearOSCapability();
+            await _wearClient.DetectCapability();
 
             // Handle QR code scanning from intent
             if(Intent.Data == null)
@@ -310,9 +307,8 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preventBackupReminder = false;
             TriggerAutoBackupWorker();
-            
-            if(_hasWearAPIs)
-                await WearableClass.GetCapabilityClient(this).AddListenerAsync(this, WearRefreshCapability);
+
+            await _wearClient.StartListening();
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
@@ -335,17 +331,7 @@ namespace AuthenticatorPro.Droid.Activity
                     AnimUtil.FadeOutView(_authList, AnimUtil.LengthLong);
             });
 
-            if(!_hasWearAPIs)
-                return;
-
-            try
-            {
-                await WearableClass.GetCapabilityClient(this).RemoveListenerAsync(this, WearRefreshCapability);
-            }
-            catch(ApiException e)
-            {
-                Logger.Error(e);
-            }
+            await _wearClient.StopListening();
         }
         #endregion
 
@@ -786,7 +772,7 @@ namespace AuthenticatorPro.Droid.Activity
             _authListAdapter.MovementFinished += async delegate
             {
                 RunOnUiThread(_bottomAppBar.PerformShow);
-                await NotifyWearAppOfChange();
+                await _wearClient.NotifyChange();
 
                 if(_preferences.SortMode != SortMode.Custom)
                     _preferences.SortMode = SortMode.Custom;
@@ -1087,7 +1073,7 @@ namespace AuthenticatorPro.Droid.Activity
                 CheckEmptyState();
                 
                 _preferences.BackupRequired = BackupRequirement.WhenPossible;
-                await NotifyWearAppOfChange();
+                await _wearClient.NotifyChange();
             });
             
             builder.SetNegativeButton(Resource.String.cancel, delegate { });
@@ -1240,7 +1226,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             _preferences.BackupRequired = BackupRequirement.Urgent;
-            await NotifyWearAppOfChange();
+            await _wearClient.NotifyChange();
         }
 
         private async Task OnOtpAuthScan(string uri)
@@ -1643,7 +1629,7 @@ namespace AuthenticatorPro.Droid.Activity
             });
           
             Tick();
-            await NotifyWearAppOfChange();
+            await _wearClient.NotifyChange();
         }
         #endregion
 
@@ -1848,7 +1834,7 @@ namespace AuthenticatorPro.Droid.Activity
             dialog.Dismiss();
             _preferences.BackupRequired = BackupRequirement.Urgent;
             
-            await NotifyWearAppOfChange();
+            await _wearClient.NotifyChange();
         }
         #endregion
 
@@ -1894,7 +1880,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(args.ItemPosition); });
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
-            await NotifyWearAppOfChange();
+            await _wearClient.NotifyChange();
         }
         #endregion
 
@@ -1948,7 +1934,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(args.ItemPosition); });
-            await NotifyWearAppOfChange();
+            await _wearClient.NotifyChange();
 
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
@@ -2031,7 +2017,7 @@ namespace AuthenticatorPro.Droid.Activity
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
             
             RunOnUiThread(delegate { _authListAdapter.NotifyItemChanged(position); });
-            await NotifyWearAppOfChange();
+            await _wearClient.NotifyChange();
         }
         #endregion
 
@@ -2090,76 +2076,6 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 Logger.Error(e);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
-            }
-        }
-        #endregion
-
-        #region Wear OS
-        public async void OnCapabilityChanged(ICapabilityInfo capabilityInfo)
-        {
-            await DetectWearOSCapability();
-        }
-
-        private void DetectGoogleAPIsAvailability()
-        {
-            _areGoogleAPIsAvailable = GoogleApiAvailabilityLight.Instance.IsGooglePlayServicesAvailable(this) == 
-                                      ConnectionResult.Success;
-        }
-
-        private async Task DetectWearOSCapability()
-        {
-            if(!_areGoogleAPIsAvailable)
-            {
-                _hasWearAPIs = false;
-                _hasWearCompanion = false;
-                return;
-            }
-
-            try
-            {
-                var capabiltyInfo = await WearableClass.GetCapabilityClient(this)
-                    .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable);
-
-                _hasWearAPIs = true;
-                _hasWearCompanion = capabiltyInfo.Nodes.Count > 0;
-            }
-            catch(ApiException)
-            {
-                _hasWearAPIs = false;
-                _hasWearCompanion = false;
-            }
-        }
-
-        private async Task NotifyWearAppOfChange()
-        {
-            if(!_hasWearCompanion)
-                return;
-
-            ICollection<INode> nodes;
-
-            try
-            {
-                nodes = (await WearableClass.GetCapabilityClient(this)
-                    .GetCapabilityAsync(WearRefreshCapability, CapabilityClient.FilterReachable)).Nodes;
-            }
-            catch(ApiException e)
-            {
-                Logger.Error(e);
-                return;
-            }
-
-            var client = WearableClass.GetMessageClient(this);
-
-            foreach(var node in nodes)
-            {
-                try
-                {
-                    await client.SendMessageAsync(node.Id, WearRefreshCapability, new byte[] { });
-                }
-                catch(ApiException e)
-                {
-                    Logger.Error(e); 
-                }
             }
         }
         #endregion
