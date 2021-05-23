@@ -110,10 +110,12 @@ namespace AuthenticatorPro.Droid.Activity
         private AuthenticatorListAdapter _authListAdapter;
         private AutoGridLayoutManager _authLayout;
         private ReorderableListTouchHelperCallback _authTouchHelperCallback;
+
+        // Data
         private AuthenticatorSource _authSource;
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
-
+       
         // State
         private readonly IconResolver _iconResolver;
         private PreferenceWrapper _preferences;
