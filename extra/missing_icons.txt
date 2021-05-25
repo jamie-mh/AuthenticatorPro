@@ -19,7 +19,6 @@ Amazon Pay
 Andrews & Arnold
 AngelList
 AppFolio
-AppSignal
 Arduino
 Asana
 Ashes of Creation
@@ -97,7 +96,6 @@ ClickUp
 Clio
 Close
 Cloud 66
-CloudBees
 Cloudbet
 cloud.ca
 CloudConvert
@@ -188,7 +186,6 @@ Fastmail
 FAX.PLUS
 Files.com
 Findmyshift
-Floatplane
 Flywheel
 FogBugz & Kiln
 FollowMyHealth
@@ -202,7 +199,6 @@ FTX
 Gaijin Entertainment
 Gatehub
 Gate.io
-Glassdoor
 Glesys
 GoCardless
 Google Domains
@@ -229,7 +225,6 @@ Hexonet
 HEY
 Hint Health
 HitBTC
-HootSuite
 Hostens
 Hostiso
 Hostpoint
@@ -257,7 +252,6 @@ InVision
 IO Zoom
 (ISC)2
 ISL Online
-itch.io
 IT Glue
 itslearning
 IVPN
@@ -286,14 +280,12 @@ Liquid
 Liquid Web
 LiteBit
 Lobsters
-LocalBitcoins
 LocalCryptos
 LocalMonero
 Looker
 Luno
 MacStadium
 MaiCoin
-Mail.com
 Mailfence
 Mammoth Networks
 MathWorks
@@ -340,7 +332,6 @@ NuGet
 Nulab
 Nutmeg
 O&O Syspectr
-Oculus
 Oderland
 OKEx
 Okta
@@ -422,7 +413,6 @@ Rocket Beans TV
 Rollbar
 RubyGems.org
 Runbox
-RuneScape
 RunSignUp
 Ryerson University
 Samsung SmartThings
