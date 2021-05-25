@@ -96,6 +96,8 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\values-ar\strings.xml" />
+    <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
     <AndroidResource Include="Resources\values\strings.xml">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
