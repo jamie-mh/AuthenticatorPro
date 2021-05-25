@@ -51,6 +51,6 @@ Camera permission is required to add accounts through QR codes.
 
 <b>Disclaimer:</b>
 
-Эта программа является свободным программным обеспечением: Вы можете распространять ее и (или) изменять, соблюдаяусловия Генеральной публичной лицензии GNU, опубликованной Фондом свободного программного обеспечения; либо редакции 3 Лицензии, либо (на Ваше усмотрение) любой редакции, выпущенной позже.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Эта программа распространяется в расчете на то, что она окажется полезной, но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ, включая подразумеваемую гарантию КАЧЕСТВА либо ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Ознакомьтесь с Генеральной публичной лицензией GNU для получения более подробной информации.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

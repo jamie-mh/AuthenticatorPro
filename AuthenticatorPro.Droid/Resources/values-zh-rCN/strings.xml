@@ -10,15 +10,15 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="close">关闭</string>
-    <string name="error">Error</string>
-    <string name="retry">Retry</string>
+    <string name="error">错误</string>
+    <string name="retry">重试</string>
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
     <string name="backup">备份</string>
     <string name="about">关于</string>
     <string name="scanQrCode">扫描二维码</string>
-    <string name="showQrCode">Show QR code</string>
+    <string name="showQrCode">显示二维码</string>
     <string name="scanQrCodeFromCamera">使用相机扫描</string>
     <string name="scanQrCodeFromGallery">从相册中选择</string>
     <string name="rename">更改名称</string>
@@ -27,9 +27,9 @@
     <string name="mainMenu">主菜单</string>
     <string name="enterKey">输入提供的密钥</string>
     <string name="restoreBackup">从备份中恢复</string>
-    <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sort">排序</string>
+    <string name="sortAZ">字母顺序 (a 至 z)</string>
+    <string name="sortZA">字母顺序 (z 至 a)</string>
     <string name="sortCustom">Custom</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="rate">评分</string>
@@ -64,7 +64,7 @@
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
     <!-- QR code dialog -->
-    <string name="qrCode">QR code</string>
+    <string name="qrCode">二维码</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
     <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
     <string name="copyUri">Copy URI</string>
@@ -128,7 +128,7 @@
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">出现错误。</string>
     <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
-    <string name="viewErrorLog">View error log</string>
+    <string name="viewErrorLog">查看错误日志</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Report</string>
