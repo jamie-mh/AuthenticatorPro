@@ -5,8 +5,8 @@
     android:background="?android:attr/windowBackground"
     android:foreground="?selectableItemBackground"
     android:layout_width="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
     android:layout_height="52dp"
     android:clickable="true"
     android:focusable="true">
@@ -36,7 +36,7 @@
             android:layout_height="22dp"
             android:src="@drawable/ic_action_star"
             android:visibility="gone"
-            android:layout_marginRight="12dp" />
+            android:layout_marginEnd="12dp" />
 
         <ImageButton
             android:id="@+id/buttonMenu"

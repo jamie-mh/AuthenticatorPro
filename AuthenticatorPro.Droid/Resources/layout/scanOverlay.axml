@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="10dp"
-        android:paddingRight="20dp"
+        android:paddingEnd="20dp"
         android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:background="#80000000"
         android:layout_weight="0.1">
         
@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="10dp"
-        android:paddingRight="20dp"
+        android:paddingEnd="20dp"
         android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:layout_weight="0.1"
         android:layout_gravity="center">
         

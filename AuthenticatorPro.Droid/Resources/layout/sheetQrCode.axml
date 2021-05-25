@@ -52,8 +52,8 @@
             android:clipChildren="false"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
             
             <ImageView
                 android:id="@+id/imageQrCode"
@@ -82,7 +82,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonCopyUri"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/copyUri"/>

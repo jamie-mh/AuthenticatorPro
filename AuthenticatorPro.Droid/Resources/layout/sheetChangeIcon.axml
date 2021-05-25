@@ -18,8 +18,8 @@
    
     <LinearLayout 
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -50,8 +50,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_marginTop="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="20dp"
         android:layout_width="match_parent"
         android:clipToPadding="false"

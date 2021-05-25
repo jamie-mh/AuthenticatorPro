@@ -55,8 +55,8 @@
         android:id="@+id/layoutEmptyState"
         android:orientation="vertical"
         android:gravity="center"
-        android:paddingRight="32dp"
-        android:paddingLeft="32dp"
+        android:paddingEnd="32dp"
+        android:paddingStart="32dp"
         android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

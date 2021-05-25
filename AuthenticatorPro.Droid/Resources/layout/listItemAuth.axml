@@ -21,9 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:paddingRight="18dp"
+            android:paddingEnd="18dp"
             android:paddingBottom="10dp"
-            android:paddingLeft="32dp">
+            android:paddingStart="32dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -42,7 +42,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center"
-                        android:layout_marginRight="12dp"
+                        android:layout_marginEnd="12dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/auth_github" />
 
@@ -79,10 +79,10 @@
                     android:layout_height="wrap_content"
                     android:textSize="38dp"
                     android:textColor="?attr/authListItem_code"
-                    android:gravity="left"
+                    android:gravity="start"
                     android:layout_below="@id/layoutIcon"
                     android:layout_marginTop="2dp"
-                    android:layout_marginLeft="44dp"
+                    android:layout_marginStart="44dp"
                     android:id="@+id/textCode" />
             </LinearLayout>
 

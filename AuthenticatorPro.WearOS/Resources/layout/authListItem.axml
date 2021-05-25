@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:paddingLeft="8dp"
+    android:paddingStart="8dp"
     android:paddingTop="4dp"
     android:paddingBottom="4dp"
     android:layout_marginBottom="2dp"
@@ -16,7 +16,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="center"
-        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
         android:scaleType="centerInside" />
 
     <LinearLayout
@@ -33,7 +33,7 @@
                 android:id="@+id/imageDefault"
                 android:src="@drawable/ic_action_star"
                 android:visibility="gone"
-                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_centerVertical="true"
                 android:layout_width="14dp"
                 android:layout_height="14dp" />
@@ -41,10 +41,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageDefault"
+                android:layout_toEndOf="@id/imageDefault"
                 android:layout_centerVertical="true"
                 android:textSize="14dp"
-                android:gravity="left"
+                android:gravity="start"
                 android:textColor="?attr/primaryTextColor"
                 android:singleLine="true"
                 android:id="@+id/textIssuer" />
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:gravity="left"
+            android:gravity="start"
             android:textColor="?attr/secondaryTextColor"
             android:singleLine="true"
             android:id="@+id/textUsername" />

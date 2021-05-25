@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="23" android:versionName="2.4.1" package="me.jmh.authenticatorpro" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="30" />
 	<uses-feature android:name="android.hardware.type.watch" />
-	<application android:allowBackup="true" android:label="@string/appName" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="false" android:theme="@style/AppTheme" android:extractNativeLibs="true">
+	<application android:allowBackup="true" android:label="@string/appName" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme" android:extractNativeLibs="true">
 		<uses-library android:name="com.google.android.wearable" android:required="true" />
 		<meta-data android:name="com.google.android.wearable.standalone" android:value="false" />
 	</application>

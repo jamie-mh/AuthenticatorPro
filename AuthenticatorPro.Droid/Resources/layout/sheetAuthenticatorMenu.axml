@@ -12,8 +12,8 @@
         android:id="@+id/layoutCounter"
         android:visibility="gone"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:paddingTop="8dp"
         android:layout_marginBottom="10dp"
@@ -24,7 +24,7 @@
         <ImageView
             android:src="@drawable/ic_action_refresh"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_width="24dp"
             android:layout_height="24dp" />
 

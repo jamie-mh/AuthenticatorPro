@@ -16,7 +16,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_weight="0"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/auth_google" />
     
     <TextView 

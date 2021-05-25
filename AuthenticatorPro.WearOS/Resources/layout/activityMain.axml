@@ -7,8 +7,8 @@
 
     <RelativeLayout
         android:id="@+id/layoutLoading"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,8 +24,8 @@
     <RelativeLayout
         android:id="@+id/layoutEmpty"
         android:visibility="gone"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
