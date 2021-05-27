@@ -159,15 +159,10 @@ namespace AuthenticatorPro.Droid.List
             var holder = (AuthenticatorListHolder) viewHolder;
             var payload = (TimerPartialUpdate) payloads[0];
             
-            long offset;
+            var offset = GetGenerationOffset(auth.Period);
 
             if(payload.RequiresGeneration)
-            {
-                offset = GetGenerationOffset(auth.Period, true);
                 holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
-            }
-            else
-                offset = GetGenerationOffset(auth.Period, false);
             
             UpdateProgressBar(holder.ProgressBar, auth.Period, offset, payload.CurrentOffset);
         }
@@ -182,7 +177,7 @@ namespace AuthenticatorPro.Droid.List
             if(auth == null || auth.Type.GetGenerationMethod() != GenerationMethod.Time)
                 return;
             
-            var offset = GetGenerationOffset(auth.Period, false);
+            var offset = GetGenerationOffset(auth.Period);
             holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
             
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
@@ -231,8 +226,12 @@ namespace AuthenticatorPro.Droid.List
             
             var timerUpdate = new TimerPartialUpdate
             {
-                CurrentOffset = now
+                CurrentOffset = now,
+                RequiresGeneration = false
             };
+
+            var positionsToUpdate = new List<int>(ItemCount);
+            var offsetsToUpdate = new List<int>(_generationOffsets.Count);
 
             for(var i = 0; i < ItemCount; ++i)
             {
@@ -241,25 +240,44 @@ namespace AuthenticatorPro.Droid.List
                 if(auth == null || auth.Type.GetGenerationMethod() != GenerationMethod.Time)
                     continue;
 
-                var offset = GetGenerationOffset(auth.Period, false);
-                var requiresGeneration = timerUpdate.RequiresGeneration = offset + auth.Period <= now;
+                var offset = GetGenerationOffset(auth.Period);
+                var isExpired = offset + auth.Period <= now;
 
-                if(requiresGeneration || _animationScale == 0)
-                    NotifyItemChanged(i, timerUpdate);
+                if(!isExpired)
+                {
+                    if(_animationScale == 0)
+                        NotifyItemChanged(i, timerUpdate);
+                    
+                    continue;
+                }
+
+                positionsToUpdate.Add(i);
+                offsetsToUpdate.Add(auth.Period);
             }
+            
+            foreach(var offset in offsetsToUpdate)
+                UpdateGenerationOffset(offset, now);
+
+            timerUpdate.RequiresGeneration = true;
+            
+            foreach(var i in positionsToUpdate)
+                NotifyItemChanged(i, timerUpdate);
         }
 
-        private long GetGenerationOffset(int period, bool forceCalculation)
+        private long GetGenerationOffset(int period)
         {
-            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-
-            if(!forceCalculation && _generationOffsets.TryGetValue(period, out var offset))
+            if(_generationOffsets.TryGetValue(period, out var offset))
                 return offset;
-            
-            offset = now - now % period;
-            _generationOffsets[period] = offset;
 
-            return offset;
+            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            UpdateGenerationOffset(period, now);
+            return _generationOffsets[period];
+        }
+
+        private void UpdateGenerationOffset(int period, long now)
+        {
+            var offset = now - now % period;
+            _generationOffsets[period] = offset;
         }
         
         private void UpdateProgressBar(ProgressBar progressBar, int period, long generationOffset, long now)
