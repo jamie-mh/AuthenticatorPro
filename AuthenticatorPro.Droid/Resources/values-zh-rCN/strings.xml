@@ -226,6 +226,8 @@
     <string name="prefThemeSummary">选择应用的主题。</string>
     <string name="prefViewModeTitle">视图</string>
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
+    <string name="prefAccentColourTitle">Accent Colour</string>
+    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>
@@ -242,6 +244,23 @@
     <string name="defaultViewMode">默认</string>
     <string name="compactViewMode">紧凑</string>
     <string name="tileViewMode">平铺</string>
+    <!-- Arrays / Accent colours -->
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Purple</string>
+    <string name="deepPurple">Deep purple</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blue</string>
+    <string name="lightBlue">Light blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Green</string>
+    <string name="lightGreen">Light green</string>
+    <string name="lime">Lime</string>
+    <string name="yellow">Yellow</string>
+    <string name="amber">Amber</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Deep orange</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">欢迎使用 Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP 身份验证</string>
