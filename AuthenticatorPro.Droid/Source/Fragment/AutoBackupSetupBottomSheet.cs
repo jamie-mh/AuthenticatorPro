@@ -37,6 +37,8 @@ namespace AuthenticatorPro.Droid.Fragment
         private MaterialButton _restoreNowButton;
         private LinearLayout _batOptimLayout;
         private MaterialButton _okButton;
+        
+        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -64,7 +66,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetAutoBackupSetup, null);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
             _preferences = new PreferenceWrapper(Context);

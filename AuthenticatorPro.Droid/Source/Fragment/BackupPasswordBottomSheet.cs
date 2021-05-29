@@ -38,6 +38,8 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             set => _passwordTextLayout.Error = value;
         }
+        
+        public BackupPasswordBottomSheet() : base(Resource.Layout.sheetBackupPassword) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,7 +49,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetBackupPassword, null);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.password);
 
             _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);

@@ -13,25 +13,37 @@ namespace AuthenticatorPro.Droid.Activity
         public BaseApplication BaseApplication { get; private set; }
         public bool IsDark { get; private set; }
 
+        private readonly int _layout;
+        private PreferenceWrapper _preferences;
+        
         private bool _checkedOnCreate;
         private string _lastTheme;
 
+        protected BaseActivity(int layout)
+        {
+            _layout = layout;
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            base.OnCreate(savedInstanceState);
+            _preferences = new PreferenceWrapper(this);
+            
             _checkedOnCreate = true;
             UpdateTheme();
-            base.OnCreate(savedInstanceState);
 
             BaseApplication = (BaseApplication) Application;
 
             if(Build.VERSION.SdkInt < BuildVersionCodes.M)
                 Window.SetStatusBarColor(Android.Graphics.Color.Black);
+          
+            Theme.ApplyStyle(_preferences.AccentOverlay, true);
+            SetContentView(_layout);
         }
 
         protected void UpdateTheme()
         {
-            var preferences = new PreferenceWrapper(this);
-            var theme = preferences.Theme;
+            var theme = _preferences.Theme;
             
             if(theme == _lastTheme)
                 return; 

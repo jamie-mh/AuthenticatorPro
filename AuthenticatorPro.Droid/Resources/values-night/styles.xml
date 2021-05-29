@@ -4,13 +4,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="colorPrimary">@color/colorAccent</item>
-        <item name="colorPrimaryDark">@color/colorDarkest</item>"
-        <item name="colorPrimaryVariant">@color/colorAccentDark</item>
-
-        <item name="colorSecondary">@color/colorAccent</item>
-        <item name="colorSecondaryVariant">@color/colorAccentDark</item>
-
         <item name="colorSurface">@color/colorDarker</item>
         <item name="colorOnSurface">@color/colorLightest</item>
 
@@ -42,8 +35,6 @@
     </style>
 
     <style name="BottomSheetStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="colorPrimary">@color/colorAccent</item>
-        <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorError">@color/colorError</item>
         <item name="listBorderColor">#1e1e1e</item>
 

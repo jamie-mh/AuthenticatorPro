@@ -24,6 +24,8 @@ namespace AuthenticatorPro.Droid.Fragment
         private string[] _categoryNames;
         private string[] _assignedCategoryIds;
 
+        public AssignCategoriesBottomSheet() : base(Resource.Layout.sheetAssignCategories) { }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -36,7 +38,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetAssignCategories, null);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.assignCategories);
             _chipGroup = view.FindViewById<ChipGroup>(Resource.Id.chipGroup);
             

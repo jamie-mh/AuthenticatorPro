@@ -54,7 +54,7 @@ namespace AuthenticatorPro.Droid.Fragment
             set => _secretLayout.Error = value;
         }
 
-        public AddAuthenticatorBottomSheet()
+        public AddAuthenticatorBottomSheet() : base(Resource.Layout.sheetAddAuthenticator)
         {
             _iconResolver = new IconResolver();
             _type = AuthenticatorType.Totp;
@@ -63,7 +63,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetAddAuthenticator, null);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.add);
             
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);

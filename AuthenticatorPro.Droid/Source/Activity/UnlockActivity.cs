@@ -37,10 +37,11 @@ namespace AuthenticatorPro.Droid.Activity
         private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
         
+        public UnlockActivity() : base(Resource.Layout.activityUnlock) { }
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityUnlock);
             Window.SetSoftInputMode(SoftInput.AdjustResize);
             SetResult(Result.Canceled);
 

@@ -24,6 +24,8 @@ namespace AuthenticatorPro.Droid.Activity
         private PreferenceWrapper _preferences;
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
+        
+        public SettingsActivity() : base(Resource.Layout.activitySettings) { }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,7 +36,6 @@ namespace AuthenticatorPro.Droid.Activity
             _shouldRecreateMain = savedInstanceState != null && savedInstanceState.GetBoolean("shouldRecreateMain", false);
             _preferences = new PreferenceWrapper(this);
 
-            SetContentView(Resource.Layout.activitySettings);
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 

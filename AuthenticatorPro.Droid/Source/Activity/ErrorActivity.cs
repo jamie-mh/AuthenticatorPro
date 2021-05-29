@@ -17,11 +17,12 @@ namespace AuthenticatorPro.Droid.Activity
     internal class ErrorActivity : BaseActivity
     {
         private string _exception;
+        
+        public ErrorActivity() : base(Resource.Layout.activityError) { }
     
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityError);
             
             var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);

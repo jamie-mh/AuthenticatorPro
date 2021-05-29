@@ -3,8 +3,10 @@
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal class SensitiveSubActivity : BaseActivity
+    internal abstract class SensitiveSubActivity : BaseActivity
     {
+        protected SensitiveSubActivity(int layout) : base(layout) { }
+        
         protected override void OnResume()
         {
             base.OnResume();

@@ -16,11 +16,12 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickEnterKey;
         public event EventHandler ClickRestore;
         public event EventHandler ClickImport;
+        
+        public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
-
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>
             {

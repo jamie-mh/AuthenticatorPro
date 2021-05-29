@@ -19,11 +19,11 @@ namespace AuthenticatorPro.Droid.Fragment
     internal abstract class BottomSheet : BottomSheetDialogFragment
     {
         private const int MaxWidth = 650;
+        private readonly int _layout;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        protected BottomSheet(int layout)
         {
-            base.OnCreate(savedInstanceState);
-            SetStyle(StyleNormal, Resource.Style.BottomSheetStyle);
+            _layout = layout;
         }
 
         public override Android.App.Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -36,6 +36,14 @@ namespace AuthenticatorPro.Droid.Fragment
             };
 
             return dialog;
+        }
+
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            SetStyle(StyleNormal, Resource.Style.BottomSheetStyle);
+            var prefs = new PreferenceWrapper(Context);
+            Context.Theme.ApplyStyle(prefs.AccentOverlay, true);
+            return inflater.Inflate(_layout, container, false);
         }
 
         public override void Show(FragmentManager manager, string tag)

@@ -18,6 +18,8 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private int _position;
         private bool _isDefault;
+        
+        public EditCategoryMenuBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,7 +30,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu, new List<SheetMenuItem>

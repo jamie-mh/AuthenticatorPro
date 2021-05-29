@@ -22,6 +22,8 @@ namespace AuthenticatorPro.Droid.Fragment
         private ProgressBar _progressBar;
 
         private string _uri;
+        
+        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -31,7 +33,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetQrCode, null);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.qrCode, true);
 
             _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);

@@ -23,6 +23,8 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private AuthenticatorType _type;
         private long _counter;
+        
+        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,7 +36,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetAuthenticatorMenu, container, false);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
 
             if(_type.GetGenerationMethod() == GenerationMethod.Counter)
             {

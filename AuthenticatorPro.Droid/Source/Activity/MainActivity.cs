@@ -135,7 +135,7 @@ namespace AuthenticatorPro.Droid.Activity
         // Pause OnCreate until unlock is complete
         private readonly SemaphoreSlim _unlockDatabaseLock;
 
-        public MainActivity()
+        public MainActivity() : base(Resource.Layout.activityMain)
         {   
             _iconResolver = new IconResolver();
             _wearClient = new WearClient(this);
@@ -155,8 +155,7 @@ namespace AuthenticatorPro.Droid.Activity
             
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
-            
-            SetContentView(Resource.Layout.activityMain);
+           
             var windowFlags = WindowManagerFlags.Secure;
 
             // BuildVersionCodes.R == 10000?, use fixed value for now

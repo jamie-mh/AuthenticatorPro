@@ -35,10 +35,11 @@ namespace AuthenticatorPro.Droid.Activity
         private PreferenceWrapper _preferences;
         private CategorySource _categorySource;
 
+        public ManageCategoriesActivity() : base(Resource.Layout.activityManageCategories) { }
+        
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityManageCategories);
 
             _preferences = new PreferenceWrapper(this);
 

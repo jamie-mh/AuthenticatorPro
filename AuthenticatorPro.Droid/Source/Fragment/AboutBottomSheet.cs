@@ -17,10 +17,12 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickAbout;
         public event EventHandler ClickRate;
         public event EventHandler ClickViewGitHub;
+        
+        public AboutBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             var isDark = ((BaseActivity) Context).IsDark; 
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);

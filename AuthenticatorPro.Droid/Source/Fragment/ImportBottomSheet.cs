@@ -24,10 +24,12 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler ClickSteam;
         public event EventHandler ClickBlizzardAuthenticator;
         public event EventHandler ClickUriList;
+        
+        public ImportBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.sheetMenu, container, false);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.importFrom);
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);

@@ -136,6 +136,6 @@
         android:src="@drawable/ic_action_add"
         app:tint="@color/colorDark"
         app:layout_anchor="@id/bottomAppBar"
-        app:backgroundTint="@color/colorAccent" />
+        app:backgroundTint="?attr/colorAccent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

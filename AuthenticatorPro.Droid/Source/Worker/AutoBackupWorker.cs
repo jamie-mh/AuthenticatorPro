@@ -184,7 +184,7 @@ namespace AuthenticatorPro.Droid.Worker
             
             var builder = new NotificationCompat.Builder(_context, channelId)
                 .SetSmallIcon(Resource.Drawable.ic_notification)
-                .SetColor(ContextCompat.GetColor(_context, Shared.Resource.Color.colorAccent))
+                .SetColor(ContextCompat.GetColor(_context, Shared.Resource.Color.colorLightBlueA200))
                 .SetPriority(NotificationCompat.PriorityLow);
 
             switch(context)

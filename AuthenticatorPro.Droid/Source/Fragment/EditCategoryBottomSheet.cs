@@ -29,9 +29,12 @@ namespace AuthenticatorPro.Droid.Fragment
         private TextInputEditText _textName;
         private TextInputLayout _textNameLayout;
 
-        public string NameError {
+        public string NameError
+        {
             set => _textNameLayout.Error = value;
         }
+        
+        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,7 +53,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 _ => Resource.String.add
             };
 
-            var view = inflater.Inflate(Resource.Layout.sheetEditCategory, null);
+            var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, titleRes);
             
             _textName = view.FindViewById<TextInputEditText>(Resource.Id.editName);

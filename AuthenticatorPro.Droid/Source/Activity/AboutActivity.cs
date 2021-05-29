@@ -14,10 +14,11 @@ namespace AuthenticatorPro.Droid.Activity
     [Activity]
     internal class AboutActivity : BaseActivity 
     {
+        public AboutActivity() : base(Resource.Layout.activityAbout) { }
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityAbout);
 
             var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
