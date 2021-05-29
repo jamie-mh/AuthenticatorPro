@@ -1018,7 +1018,7 @@ namespace AuthenticatorPro.Droid.Activity
             var bundle = new Bundle();
             bundle.PutString("uri", uri);
             
-            var fragment = new QrCodeBottomSheet {Arguments = bundle};
+            var fragment = new QRCodeBottomSheet {Arguments = bundle};
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 

@@ -14,7 +14,7 @@ using QRCoder;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
-    internal class QrCodeBottomSheet : BottomSheet
+    internal class QRCodeBottomSheet : BottomSheet
     {
         private const int PixelsPerModule = 4;
 
@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private string _uri;
         
-        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode) { }
+        public QRCodeBottomSheet() : base(Resource.Layout.sheetQrCode) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
