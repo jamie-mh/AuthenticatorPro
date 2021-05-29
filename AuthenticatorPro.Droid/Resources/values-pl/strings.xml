@@ -226,6 +226,8 @@
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
     <string name="prefViewModeTitle">Tryb przeglądania</string>
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
+    <string name="prefAccentColourTitle">Accent Colour</string>
+    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
@@ -242,6 +244,23 @@
     <string name="defaultViewMode">Domyślny</string>
     <string name="compactViewMode">Kompaktowy</string>
     <string name="tileViewMode">Kafelki</string>
+    <!-- Arrays / Accent colours -->
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Purple</string>
+    <string name="deepPurple">Deep purple</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blue</string>
+    <string name="lightBlue">Light blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Green</string>
+    <string name="lightGreen">Light green</string>
+    <string name="lime">Lime</string>
+    <string name="yellow">Yellow</string>
+    <string name="amber">Amber</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Deep orange</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Witaj w Authenticator Pro</string>
     <string name="introCompatibilityTitle">Autoryzacja TOTP / HOTP / mOTP</string>
