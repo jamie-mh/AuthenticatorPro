@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -172,12 +172,18 @@
     <AndroidResource Include="Resources\drawable-hdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_notification.png" />
     <AndroidResource Include="Resources\drawable-mdpi\ic_qr_code.png" />
+    <AndroidResource Include="Resources\drawable-night\ic_empty.xml" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_notification.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_notification.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_qr_code.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notification.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_qr_code.png" />
+    <AndroidResource Include="Resources\drawable\ic_category.xml" />
+    <AndroidResource Include="Resources\drawable\ic_cloud.xml" />
+    <AndroidResource Include="Resources\drawable\ic_empty.xml" />
+    <AndroidResource Include="Resources\drawable\ic_lock.xml" />
+    <AndroidResource Include="Resources\drawable\ic_theme.xml" />
     <AndroidResource Include="Resources\font\rubik_regular.ttf">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
@@ -472,9 +478,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -670,9 +673,6 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -716,9 +716,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_backup.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_category.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_add.png" />
@@ -766,9 +763,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_backup.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_category.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_action_add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -812,9 +806,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_backup.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_category.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-night\styles.xml">
@@ -1313,21 +1304,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_cloud.png" />
   </ItemGroup>
   <ItemGroup>
@@ -1344,48 +1320,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\ic_theme.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_lock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_theme.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_lock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_theme.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_cloud.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_lock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_theme.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xhdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-hdpi\ic_empty.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-night-mdpi\ic_empty.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-zh-rCN\strings.xml" />

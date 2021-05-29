@@ -3,7 +3,6 @@
 
 using Android.App;
 using Android.OS;
-using AndroidX.Fragment.App;
 using AndroidX.ViewPager2.Adapter;
 using AndroidX.ViewPager2.Widget;
 using AuthenticatorPro.Droid.Callback;
@@ -14,17 +13,18 @@ using Google.Android.Material.BottomNavigation;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class IntroActivity : FragmentActivity
+    internal class IntroActivity : BaseActivity
     {
         private int _pageCount;
         private ViewPager2 _pager;
         private FragmentStateAdapter _adapter;
         private BottomNavigationView _nav;
 
+        public IntroActivity() : base(Resource.Layout.activityIntro) { }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.activityIntro);
 
             _pageCount = Resources.GetStringArray(Resource.Array.introTitle).Length;
 
