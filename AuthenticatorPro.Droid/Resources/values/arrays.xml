@@ -73,6 +73,43 @@
         <item>tile</item>
     </string-array>
     
+    <string-array name="accentColourNames">
+        <item>@string/red</item>
+        <item>@string/pink</item>
+        <item>@string/purple</item>
+        <item>@string/deepPurple</item>
+        <item>@string/indigo</item>
+        <item>@string/blue</item>
+        <item>@string/lightBlue</item>
+        <item>@string/cyan</item>
+        <item>@string/teal</item>
+        <item>@string/green</item>
+        <item>@string/lightGreen</item>
+        <item>@string/lime</item>
+        <item>@string/yellow</item>
+        <item>@string/amber</item>
+        <item>@string/orange</item>
+        <item>@string/deepOrange</item>
+    </string-array>
+    <string-array name="accentColourValues">
+        <item>red</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>deepPurple</item>
+        <item>indigo</item>
+        <item>blue</item>
+        <item>lightBlue</item>
+        <item>cyan</item>
+        <item>teal</item>
+        <item>green</item>
+        <item>lightGreen</item>
+        <item>lime</item>
+        <item>yellow</item>
+        <item>amber</item>
+        <item>orange</item>
+        <item>deepOrange</item>
+    </string-array>
+    
     <string-array name="reportOptions">
         <item>GitHub</item>
         <item>@string/email</item>

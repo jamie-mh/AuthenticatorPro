@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Fragment.App;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.List;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
@@ -42,7 +43,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             SetStyle(StyleNormal, Resource.Style.BottomSheetStyle);
             var prefs = new PreferenceWrapper(Context);
-            Context.Theme.ApplyStyle(prefs.AccentOverlay, true);
+            Context.Theme.ApplyStyle(AccentColourMap.GetOverlay(prefs.AccentColour), true);
             return inflater.Inflate(_layout, container, false);
         }
 

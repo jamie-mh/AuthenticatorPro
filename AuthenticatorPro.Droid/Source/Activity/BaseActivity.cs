@@ -4,6 +4,7 @@
 using Android.Content.Res;
 using Android.OS;
 using AndroidX.AppCompat.App;
+using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -36,8 +37,9 @@ namespace AuthenticatorPro.Droid.Activity
 
             if(Build.VERSION.SdkInt < BuildVersionCodes.M)
                 Window.SetStatusBarColor(Android.Graphics.Color.Black);
-          
-            Theme.ApplyStyle(_preferences.AccentOverlay, true);
+
+            var overlay = AccentColourMap.GetOverlay(_preferences.AccentColour);
+            Theme.ApplyStyle(overlay, true);
             SetContentView(_layout);
         }
 

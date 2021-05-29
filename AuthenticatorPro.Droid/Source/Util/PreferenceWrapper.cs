@@ -69,12 +69,12 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(ViewModeKey, value);
         }
 
-        private const string AccentOverlayKey = "pref_accentOverlay";
-        private const int AccentOverlayDefault = 0;
-        public int AccentOverlay
+        private const string AccentColourKey = "pref_accentColour";
+        private const string AccentColourDefault = "lightBlue";
+        public string AccentColour
         {
-            get => _preferences.GetInt(AccentOverlayKey, AccentOverlayDefault);
-            set => SetPreference(AccentOverlayKey, value);
+            get => _preferences.GetString(AccentColourKey, AccentColourDefault);
+            set => SetPreference(AccentColourKey, value);
         }
         
         private const string AutoBackupEnabledKey = "pref_autoBackupEnabled";

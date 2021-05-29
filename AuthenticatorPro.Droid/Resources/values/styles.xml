@@ -52,6 +52,7 @@
         <item name="colorPrimaryVariant">@color/colorRedA700</item>
         <item name="colorSecondary">@color/colorRedA200</item>
         <item name="colorSecondaryVariant">@color/colorRedA700</item>
+        <item name="colorTint">@color/colorRedTint</item>
     </style>
     
     <style name="OverlayAccentPink">
@@ -59,6 +60,7 @@
         <item name="colorPrimaryVariant">@color/colorPinkA700</item>
         <item name="colorSecondary">@color/colorPinkA200</item>
         <item name="colorSecondaryVariant">@color/colorPinkA700</item>
+        <item name="colorTint">@color/colorPinkTint</item>
     </style>
     
     <style name="OverlayAccentPurple">
@@ -66,6 +68,7 @@
         <item name="colorPrimaryVariant">@color/colorPurpleA700</item>
         <item name="colorSecondary">@color/colorPurpleA200</item>
         <item name="colorSecondaryVariant">@color/colorPurpleA700</item>
+        <item name="colorTint">@color/colorPurpleTint</item>
     </style>
     
     <style name="OverlayAccentDeepPurple">
@@ -73,6 +76,7 @@
         <item name="colorPrimaryVariant">@color/colorDeepPurpleA700</item>
         <item name="colorSecondary">@color/colorDeepPurpleA200</item>
         <item name="colorSecondaryVariant">@color/colorDeepPurpleA700</item>
+        <item name="colorTint">@color/colorDeepPurpleTint</item>
     </style>
     
     <style name="OverlayAccentIndigo">
@@ -80,6 +84,7 @@
         <item name="colorPrimaryVariant">@color/colorIndigoA700</item>
         <item name="colorSecondary">@color/colorIndigoA200</item>
         <item name="colorSecondaryVariant">@color/colorIndigoA700</item>
+        <item name="colorTint">@color/colorIndigoTint</item>
     </style>
     
     <style name="OverlayAccentBlue">
@@ -87,6 +92,7 @@
         <item name="colorPrimaryVariant">@color/colorBlueA700</item>
         <item name="colorSecondary">@color/colorBlueA200</item>
         <item name="colorSecondaryVariant">@color/colorBlueA700</item>
+        <item name="colorTint">@color/colorBlueTint</item>
     </style>
     
     <style name="OverlayAccentLightBlue">
@@ -94,6 +100,7 @@
         <item name="colorPrimaryVariant">@color/colorLightBlueA700</item>
         <item name="colorSecondary">@color/colorLightBlueA200</item>
         <item name="colorSecondaryVariant">@color/colorLightBlueA700</item>
+        <item name="colorTint">@color/colorLightBlueTint</item>
     </style>
     
     <style name="OverlayAccentCyan">
@@ -101,6 +108,7 @@
         <item name="colorPrimaryVariant">@color/colorCyanA700</item>
         <item name="colorSecondary">@color/colorCyanA200</item>
         <item name="colorSecondaryVariant">@color/colorCyanA700</item>
+        <item name="colorTint">@color/colorCyanTint</item>
     </style>
     
     <style name="OverlayAccentTeal">
@@ -108,6 +116,7 @@
         <item name="colorPrimaryVariant">@color/colorTealA700</item>
         <item name="colorSecondary">@color/colorTealA200</item>
         <item name="colorSecondaryVariant">@color/colorTealA700</item>
+        <item name="colorTint">@color/colorTealTint</item>
     </style>
     
     <style name="OverlayAccentGreen">
@@ -115,6 +124,7 @@
         <item name="colorPrimaryVariant">@color/colorGreenA700</item>
         <item name="colorSecondary">@color/colorGreenA200</item>
         <item name="colorSecondaryVariant">@color/colorGreenA700</item>
+        <item name="colorTint">@color/colorGreenTint</item>
     </style>
     
     <style name="OverlayAccentLightGreen">
@@ -122,6 +132,7 @@
         <item name="colorPrimaryVariant">@color/colorLightGreenA700</item>
         <item name="colorSecondary">@color/colorLightGreenA200</item>
         <item name="colorSecondaryVariant">@color/colorLightGreenA700</item>
+        <item name="colorTint">@color/colorLightGreenTint</item>
     </style>
     
     <style name="OverlayAccentLime">
@@ -129,6 +140,7 @@
         <item name="colorPrimaryVariant">@color/colorLimeA700</item>
         <item name="colorSecondary">@color/colorLimeA200</item>
         <item name="colorSecondaryVariant">@color/colorLimeA700</item>
+        <item name="colorTint">@color/colorLimeTint</item>
     </style>
     
     <style name="OverlayAccentYellow">
@@ -136,6 +148,7 @@
         <item name="colorPrimaryVariant">@color/colorYellowA700</item>
         <item name="colorSecondary">@color/colorYellowA200</item>
         <item name="colorSecondaryVariant">@color/colorYellowA700</item>
+        <item name="colorTint">@color/colorYellowTint</item>
     </style>
     
     <style name="OverlayAccentAmber">
@@ -143,6 +156,7 @@
         <item name="colorPrimaryVariant">@color/colorAmberA700</item>
         <item name="colorSecondary">@color/colorAmberA200</item>
         <item name="colorSecondaryVariant">@color/colorAmberA700</item>
+        <item name="colorTint">@color/colorAmberTint</item>
     </style>
     
     <style name="OverlayAccentOrange">
@@ -150,6 +164,7 @@
         <item name="colorPrimaryVariant">@color/colorOrangeA700</item>
         <item name="colorSecondary">@color/colorOrangeA200</item>
         <item name="colorSecondaryVariant">@color/colorOrangeA700</item>
+        <item name="colorTint">@color/colorOrangeTint</item>
     </style>
     
     <style name="OverlayAccentDeepOrange">
@@ -157,5 +172,6 @@
         <item name="colorPrimaryVariant">@color/colorDeepOrangeA700</item>
         <item name="colorSecondary">@color/colorDeepOrangeA200</item>
         <item name="colorSecondaryVariant">@color/colorDeepOrangeA700</item>
+        <item name="colorTint">@color/colorDeepOrangeTint</item>
     </style>
 </resources>

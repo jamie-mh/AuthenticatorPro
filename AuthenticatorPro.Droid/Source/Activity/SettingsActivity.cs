@@ -85,6 +85,11 @@ namespace AuthenticatorPro.Droid.Activity
                     UpdateTheme();
                     break;
                 
+                case "pref_accentColour":
+                    _shouldRecreateMain = true;
+                    Recreate();
+                    break;
+                
                 case "pref_autoBackupEnabled":
                     UpdateBackupRemindersEnabled(sharedPreferences);
                     break;

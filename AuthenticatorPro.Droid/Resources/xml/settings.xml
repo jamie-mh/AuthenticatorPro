@@ -71,6 +71,14 @@
             android:entries="@array/viewModeNames"
             android:entryValues="@array/viewModeValues"
             android:defaultValue="default" />
+        <androidx.preference.ListPreference
+            android:key="pref_accentColour"
+            android:summary="@string/prefAccentColourSummary"
+            android:title="@string/prefAccentColourTitle"
+            app:iconSpaceReserved="false"
+            android:entries="@array/accentColourNames"
+            android:entryValues="@array/accentColourValues"
+            android:defaultValue="lightBlue" />
     </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

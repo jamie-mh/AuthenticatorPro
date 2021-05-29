@@ -98,6 +98,7 @@
     <Compile Include="Source\Callback\PageChangeCallback.cs" />
     <Compile Include="Source\Callback\SnackbarCallback.cs" />
     <Compile Include="Source\Constants.cs" />
+    <Compile Include="Source\Data\AccentColourMap.cs" />
     <Compile Include="Source\Data\Backup\BackupRequirement.cs" />
     <Compile Include="Source\Data\Backup\BackupResult.cs" />
     <Compile Include="Source\Data\Backup\HtmlBackup.cs" />

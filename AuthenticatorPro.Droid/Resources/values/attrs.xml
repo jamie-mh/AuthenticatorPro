@@ -3,6 +3,7 @@
 <resources>
     <declare-styleable name="AppTheme">
         <attr name="colorBase" format="color" />
+        <attr name="colorTint" format="color" />
 
         <attr name="colorPrimary" format="color" />
         <attr name="colorPrimaryDark" format="color" />
