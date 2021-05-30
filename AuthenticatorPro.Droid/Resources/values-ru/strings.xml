@@ -221,6 +221,8 @@
     <string name="prefAllowBiometricsSummary">Разрешить разблокировку базы данных с помощью биометрической аутентификации</string>
     <string name="prefTimeoutTitle">Время ожидания истекло</string>
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
