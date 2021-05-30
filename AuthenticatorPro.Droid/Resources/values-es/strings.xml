@@ -221,6 +221,8 @@
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Timeout</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Apariencia</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Elija un tema de aplicación.</string>
