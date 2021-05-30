@@ -221,6 +221,8 @@
     <string name="prefAllowBiometricsSummary">Povoliť odomknutie databázy použitím biometrickej autentifikácie</string>
     <string name="prefTimeoutTitle">Časový limit</string>
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Vzhľad</string>
     <string name="prefThemeTitle">Téma</string>
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
