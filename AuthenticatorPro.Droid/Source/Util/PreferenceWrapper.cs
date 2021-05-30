@@ -53,6 +53,14 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(TimeoutKey, value);
         }
 
+        private const string TapToRevealKey = "pref_tapToReveal";
+        private const bool TapToRevealDefault = false;
+        public bool TapToReveal
+        {
+            get => _preferences.GetBoolean(TapToRevealKey, TapToRevealDefault);
+            set => SetPreference(TapToRevealKey, value);
+        }
+
         private const string ThemeKey = "pref_theme";
         private const string ThemeDefault = "system";
         public string Theme

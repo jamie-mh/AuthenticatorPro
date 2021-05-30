@@ -77,6 +77,10 @@ namespace AuthenticatorPro.Droid.Activity
                     _shouldRecreateMain = true;
                     break;
                 
+                case "pref_tapToReveal":
+                    _shouldRecreateMain = true;
+                    break;
+                
                 case "pref_viewMode":
                     _shouldRecreateMain = true;
                     break;

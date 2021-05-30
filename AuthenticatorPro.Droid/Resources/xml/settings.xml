@@ -50,6 +50,12 @@
             android:entries="@array/timeoutNames"
             android:entryValues="@array/timeoutValues"
             android:defaultValue="0" />
+        <androidx.preference.SwitchPreference
+            android:key="pref_tapToReveal"
+            android:summary="@string/prefTapToRevealSummary"
+            android:title="@string/prefTapToRevealTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false" />
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

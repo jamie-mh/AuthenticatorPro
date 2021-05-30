@@ -16,6 +16,7 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Shared.Data;
+using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
@@ -28,6 +29,7 @@ namespace AuthenticatorPro.Droid.List
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
+        private const int RevealLength = 4000;
 
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> MenuClick;
@@ -37,6 +39,7 @@ namespace AuthenticatorPro.Droid.List
 
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
+        private readonly bool _tapToReveal;
         
         private readonly AuthenticatorSource _authSource;
         private readonly CustomIconSource _customIconSource;
@@ -49,12 +52,13 @@ namespace AuthenticatorPro.Droid.List
 
         private readonly float _animationScale;
         
-        public AuthenticatorListAdapter(Context context, AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark)
+        public AuthenticatorListAdapter(Context context, AuthenticatorSource authSource, CustomIconSource customIconSource, ViewMode viewMode, bool isDark, bool tapToReveal)
         {
             _authSource = authSource;
             _customIconSource = customIconSource;
             _viewMode = viewMode;
             _isDark = isDark;
+            _tapToReveal = tapToReveal;
 
             _customIconDecodeLock = new SemaphoreSlim(1, 1);
             _decodedCustomIcons = new Dictionary<string, Bitmap>();
@@ -141,6 +145,8 @@ namespace AuthenticatorPro.Droid.List
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
             }
+
+            holder.Code.Visibility = _tapToReveal ? ViewStates.Invisible : ViewStates.Visible;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
@@ -311,11 +317,22 @@ namespace AuthenticatorPro.Droid.List
             var itemView = LayoutInflater.From(parent.Context).Inflate(layout, parent, false);
 
             var holder = new AuthenticatorListHolder(itemView);
-            holder.ItemView.Click += delegate { ItemClick.Invoke(this, holder.AdapterPosition); };
+            holder.ItemView.Click += delegate { OnItemClick(holder); };
             holder.MenuButton.Click += delegate { MenuClick.Invoke(this, holder.AdapterPosition); };
             holder.RefreshButton.Click += delegate { OnRefreshClick(holder.AdapterPosition); };
 
             return holder;
+        }
+
+        private void OnItemClick(AuthenticatorListHolder holder)
+        {
+            if(_tapToReveal)
+            {
+                holder.Code.Visibility = ViewStates.Visible;
+                AnimUtil.FadeOutView(holder.Code, RevealLength);
+            }
+            
+            ItemClick?.Invoke(this, holder.AdapterPosition); 
         }
 
         private async void OnRefreshClick(int position)

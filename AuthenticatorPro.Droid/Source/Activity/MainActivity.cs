@@ -738,7 +738,7 @@ namespace AuthenticatorPro.Droid.Activity
         private void InitAuthenticatorList()
         {
             var viewMode = ViewModeSpecification.FromName(_preferences.ViewMode);
-            _authListAdapter = new AuthenticatorListAdapter(this, _authSource, _customIconSource, viewMode, IsDark)
+            _authListAdapter = new AuthenticatorListAdapter(this, _authSource, _customIconSource, viewMode, IsDark, _preferences.TapToReveal)
             {
                 HasStableIds = true
             };
