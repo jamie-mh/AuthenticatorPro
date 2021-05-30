@@ -221,6 +221,8 @@
     <string name="prefAllowBiometricsSummary">Entsperren mittels Biometrie erlauben</string>
     <string name="prefTimeoutTitle">Zeitlimit</string>
     <string name="prefTimeoutSummary">Legen Sie die Zeit fest, nach der die Datenbank nach dem Verlassen der App gesperrt wird.</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Darstellung</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
