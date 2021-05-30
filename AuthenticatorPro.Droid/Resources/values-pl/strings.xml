@@ -221,6 +221,8 @@
     <string name="prefAllowBiometricsSummary">Umożliwiają odblokowanie bazy danych z uwierzytelnianiem biometrycznym</string>
     <string name="prefTimeoutTitle">Limit czasu</string>
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Wygląd</string>
     <string name="prefThemeTitle">Motyw</string>
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
