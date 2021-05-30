@@ -221,6 +221,8 @@
     <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
     <string name="prefTimeoutTitle">Zaman aşımı</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
