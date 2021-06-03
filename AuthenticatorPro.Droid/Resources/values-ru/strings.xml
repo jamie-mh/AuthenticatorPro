@@ -221,11 +221,15 @@
     <string name="prefAllowBiometricsSummary">Разрешить разблокировку базы данных с помощью биометрической аутентификации</string>
     <string name="prefTimeoutTitle">Время ожидания истекло</string>
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
     <string name="prefViewModeTitle">Режим отображения</string>
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
+    <string name="prefAccentColourTitle">Accent Colour</string>
+    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
@@ -242,6 +246,23 @@
     <string name="defaultViewMode">По умолчанию</string>
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>
+    <!-- Arrays / Accent colours -->
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Purple</string>
+    <string name="deepPurple">Deep purple</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blue</string>
+    <string name="lightBlue">Light blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Green</string>
+    <string name="lightGreen">Light green</string>
+    <string name="lime">Lime</string>
+    <string name="yellow">Yellow</string>
+    <string name="amber">Amber</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Deep orange</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Добро пожаловать в Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP аутентификация</string>

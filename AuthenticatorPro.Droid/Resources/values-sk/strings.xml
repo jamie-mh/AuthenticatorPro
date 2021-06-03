@@ -221,11 +221,15 @@
     <string name="prefAllowBiometricsSummary">Povoliť odomknutie databázy použitím biometrickej autentifikácie</string>
     <string name="prefTimeoutTitle">Časový limit</string>
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Vzhľad</string>
     <string name="prefThemeTitle">Téma</string>
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
     <string name="prefViewModeTitle">Mód zobrazenia</string>
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
+    <string name="prefAccentColourTitle">Accent Colour</string>
+    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
@@ -242,6 +246,23 @@
     <string name="defaultViewMode">Predvolený</string>
     <string name="compactViewMode">Kompaktný</string>
     <string name="tileViewMode">Dlaždice</string>
+    <!-- Arrays / Accent colours -->
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Purple</string>
+    <string name="deepPurple">Deep purple</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blue</string>
+    <string name="lightBlue">Light blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Green</string>
+    <string name="lightGreen">Light green</string>
+    <string name="lime">Lime</string>
+    <string name="yellow">Yellow</string>
+    <string name="amber">Amber</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Deep orange</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Vitajte v Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP autentifikácia</string>
