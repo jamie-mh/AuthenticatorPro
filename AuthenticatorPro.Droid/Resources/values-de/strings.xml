@@ -221,11 +221,15 @@
     <string name="prefAllowBiometricsSummary">Entsperren mittels Biometrie erlauben</string>
     <string name="prefTimeoutTitle">Zeitlimit</string>
     <string name="prefTimeoutSummary">Legen Sie die Zeit fest, nach der die Datenbank nach dem Verlassen der App gesperrt wird.</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Darstellung</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
     <string name="prefViewModeTitle">Anzeigemodus</string>
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste.</string>
+    <string name="prefAccentColourTitle">Accent Colour</string>
+    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
@@ -242,6 +246,23 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
+    <!-- Arrays / Accent colours -->
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Purple</string>
+    <string name="deepPurple">Deep purple</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blue</string>
+    <string name="lightBlue">Light blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Green</string>
+    <string name="lightGreen">Light green</string>
+    <string name="lime">Lime</string>
+    <string name="yellow">Yellow</string>
+    <string name="amber">Amber</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Deep orange</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentifikation</string>

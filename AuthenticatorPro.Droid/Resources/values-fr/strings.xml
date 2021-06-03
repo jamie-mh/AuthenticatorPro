@@ -221,11 +221,15 @@
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
     <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
+    <string name="prefTapToRevealTitle">Taper pour afficher</string>
+    <string name="prefTapToRevealSummary">Cacher les codes jusqu\'à ce qu\'ils soient tapés. Ils disparaîtront au bout de quelques secondes.</string>
     <string name="prefAppearance">Apparence</string>
     <string name="prefThemeTitle">Thème</string>
     <string name="prefThemeSummary">Changer le thème de l\'application</string>
     <string name="prefViewModeTitle">Mode d\'affichage</string>
     <string name="prefViewModeSummary">Changer le mode d\'affichage de la liste</string>
+    <string name="prefAccentColourTitle">Couleur d\'accentuation</string>
+    <string name="prefAccentColourSummary">Choisir une couleur d\'accentuation à utiliser dans l\'application</string>
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
@@ -242,6 +246,23 @@
     <string name="defaultViewMode">Par défaut</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">En tuile</string>
+    <!-- Arrays / Accent colours -->
+    <string name="red">Rouge</string>
+    <string name="pink">Rose</string>
+    <string name="purple">Violet</string>
+    <string name="deepPurple">Violet foncé</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Bleu</string>
+    <string name="lightBlue">Bleu clair</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Sarcelle</string>
+    <string name="green">Vert</string>
+    <string name="lightGreen">Vert clair</string>
+    <string name="lime">Vert citron</string>
+    <string name="yellow">Jaune</string>
+    <string name="amber">Ambre</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Orange foncé</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Bienvenue à Authenticator Pro</string>
     <string name="introCompatibilityTitle">Authentification TOTP / HOTP / mOTP</string>
