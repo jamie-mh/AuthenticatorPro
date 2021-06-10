@@ -31,33 +31,33 @@
     <color name="colorLightBlueA700">#0091EA</color>
     <color name="colorLightBlueTint">#1E40C4FF</color>
     
-    <color name="colorCyanA200">#18FFFF</color>
+    <color name="colorCyanA200">#00E5FF</color>
     <color name="colorCyanA700">#00B8D4</color>
-    <color name="colorCyanTint">#1E18FFFF</color>
+    <color name="colorCyanTint">#1E00E5FF</color>
     
-    <color name="colorTealA200">#64FFDA</color>
+    <color name="colorTealA200">#1DE9B6</color>
     <color name="colorTealA700">#00BFA5</color>
     <color name="colorTealTint">#1E64FFDA</color>
     
-    <color name="colorGreenA200">#69F0AE</color>
+    <color name="colorGreenA200">#00E676</color>
     <color name="colorGreenA700">#00C853</color>
-    <color name="colorGreenTint">#1E69F0AE</color>
+    <color name="colorGreenTint">#1E00E676</color>
     
-    <color name="colorLightGreenA200">#B2FF59</color>
+    <color name="colorLightGreenA200">#76FF03</color>
     <color name="colorLightGreenA700">#64DD17</color>
-    <color name="colorLightGreenTint">#1EB2FF59</color>
+    <color name="colorLightGreenTint">#1E76FF03</color>
     
-    <color name="colorLimeA200">#EEFF41</color>
+    <color name="colorLimeA200">#C6FF00</color>
     <color name="colorLimeA700">#AEEA00</color>
-    <color name="colorLimeTint">#1EEEFF41</color>
+    <color name="colorLimeTint">#1EC6FF00</color>
     
-    <color name="colorYellowA200">#FFFF00</color>
+    <color name="colorYellowA200">#FFEA00</color>
     <color name="colorYellowA700">#FFD600</color>
-    <color name="colorYellowTint">#1EFFFF00</color>
+    <color name="colorYellowTint">#1EFFEA00</color>
     
-    <color name="colorAmberA200">#FFD740</color>
+    <color name="colorAmberA200">#FFC400</color>
     <color name="colorAmberA700">#FFAB00</color>
-    <color name="colorAmberTint">#1EFFD740</color>
+    <color name="colorAmberTint">#1EFFC400</color>
         
     <color name="colorOrangeA200">#FFAB40</color>
     <color name="colorOrangeA700">#FF6D00</color>
