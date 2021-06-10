@@ -173,9 +173,9 @@
     <string name="passwordIncorrect">A senha está incorreta</string>
     <string name="tooManyAttempts">Too many attempts</string>
     <!-- Import -->
-    <string name="importFromOtherApps">Import from other apps</string>
-    <string name="importFrom">Import from</string>
-    <string name="importError">The file could not be imported</string>
+    <string name="importFromOtherApps">Importar de outros aplicativos</string>
+    <string name="importFrom">Importar de</string>
+    <string name="importError">Não foi possível importar o arquivo</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
     <string name="andOtp">andOTP (plain-text)</string>
     <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
