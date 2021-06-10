@@ -48,130 +48,130 @@
 
     <!-- Accent colours -->
     <style name="OverlayAccentRed">
-        <item name="colorPrimary">@color/colorRedA200</item>
-        <item name="colorPrimaryVariant">@color/colorRedA700</item>
-        <item name="colorSecondary">@color/colorRedA200</item>
-        <item name="colorSecondaryVariant">@color/colorRedA700</item>
+        <item name="colorPrimary">@color/colorRedPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorRedSecondary</item>
+        <item name="colorSecondary">@color/colorRedPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorRedSecondary</item>
         <item name="colorTint">@color/colorRedTint</item>
     </style>
     
     <style name="OverlayAccentPink">
-        <item name="colorPrimary">@color/colorPinkA200</item>
-        <item name="colorPrimaryVariant">@color/colorPinkA700</item>
-        <item name="colorSecondary">@color/colorPinkA200</item>
-        <item name="colorSecondaryVariant">@color/colorPinkA700</item>
+        <item name="colorPrimary">@color/colorPinkPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPinkSecondary</item>
+        <item name="colorSecondary">@color/colorPinkPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPinkSecondary</item>
         <item name="colorTint">@color/colorPinkTint</item>
     </style>
     
     <style name="OverlayAccentPurple">
-        <item name="colorPrimary">@color/colorPurpleA200</item>
-        <item name="colorPrimaryVariant">@color/colorPurpleA700</item>
-        <item name="colorSecondary">@color/colorPurpleA200</item>
-        <item name="colorSecondaryVariant">@color/colorPurpleA700</item>
+        <item name="colorPrimary">@color/colorPurplePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPurpleSecondary</item>
+        <item name="colorSecondary">@color/colorPurplePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPurpleSecondary</item>
         <item name="colorTint">@color/colorPurpleTint</item>
     </style>
     
     <style name="OverlayAccentDeepPurple">
-        <item name="colorPrimary">@color/colorDeepPurpleA200</item>
-        <item name="colorPrimaryVariant">@color/colorDeepPurpleA700</item>
-        <item name="colorSecondary">@color/colorDeepPurpleA200</item>
-        <item name="colorSecondaryVariant">@color/colorDeepPurpleA700</item>
+        <item name="colorPrimary">@color/colorDeepPurplePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorDeepPurpleSecondary</item>
+        <item name="colorSecondary">@color/colorDeepPurplePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorDeepPurpleSecondary</item>
         <item name="colorTint">@color/colorDeepPurpleTint</item>
     </style>
     
     <style name="OverlayAccentIndigo">
-        <item name="colorPrimary">@color/colorIndigoA200</item>
-        <item name="colorPrimaryVariant">@color/colorIndigoA700</item>
-        <item name="colorSecondary">@color/colorIndigoA200</item>
-        <item name="colorSecondaryVariant">@color/colorIndigoA700</item>
+        <item name="colorPrimary">@color/colorIndigoPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorIndigoSecondary</item>
+        <item name="colorSecondary">@color/colorIndigoPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorIndigoSecondary</item>
         <item name="colorTint">@color/colorIndigoTint</item>
     </style>
     
     <style name="OverlayAccentBlue">
-        <item name="colorPrimary">@color/colorBlueA200</item>
-        <item name="colorPrimaryVariant">@color/colorBlueA700</item>
-        <item name="colorSecondary">@color/colorBlueA200</item>
-        <item name="colorSecondaryVariant">@color/colorBlueA700</item>
+        <item name="colorPrimary">@color/colorBluePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorBlueSecondary</item>
+        <item name="colorSecondary">@color/colorBluePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorBlueSecondary</item>
         <item name="colorTint">@color/colorBlueTint</item>
     </style>
     
     <style name="OverlayAccentLightBlue">
-        <item name="colorPrimary">@color/colorLightBlueA200</item>
-        <item name="colorPrimaryVariant">@color/colorLightBlueA700</item>
-        <item name="colorSecondary">@color/colorLightBlueA200</item>
-        <item name="colorSecondaryVariant">@color/colorLightBlueA700</item>
+        <item name="colorPrimary">@color/colorLightBluePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorLightBlueSecondary</item>
+        <item name="colorSecondary">@color/colorLightBluePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorLightBlueSecondary</item>
         <item name="colorTint">@color/colorLightBlueTint</item>
     </style>
     
     <style name="OverlayAccentCyan">
-        <item name="colorPrimary">@color/colorCyanA200</item>
-        <item name="colorPrimaryVariant">@color/colorCyanA700</item>
-        <item name="colorSecondary">@color/colorCyanA200</item>
-        <item name="colorSecondaryVariant">@color/colorCyanA700</item>
+        <item name="colorPrimary">@color/colorCyanPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorCyanSecondary</item>
+        <item name="colorSecondary">@color/colorCyanPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorCyanSecondary</item>
         <item name="colorTint">@color/colorCyanTint</item>
     </style>
     
     <style name="OverlayAccentTeal">
-        <item name="colorPrimary">@color/colorTealA200</item>
-        <item name="colorPrimaryVariant">@color/colorTealA700</item>
-        <item name="colorSecondary">@color/colorTealA200</item>
-        <item name="colorSecondaryVariant">@color/colorTealA700</item>
+        <item name="colorPrimary">@color/colorTealPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorTealSecondary</item>
+        <item name="colorSecondary">@color/colorTealPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorTealSecondary</item>
         <item name="colorTint">@color/colorTealTint</item>
     </style>
     
     <style name="OverlayAccentGreen">
-        <item name="colorPrimary">@color/colorGreenA200</item>
-        <item name="colorPrimaryVariant">@color/colorGreenA700</item>
-        <item name="colorSecondary">@color/colorGreenA200</item>
-        <item name="colorSecondaryVariant">@color/colorGreenA700</item>
+        <item name="colorPrimary">@color/colorGreenPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorGreenSecondary</item>
+        <item name="colorSecondary">@color/colorGreenPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorGreenSecondary</item>
         <item name="colorTint">@color/colorGreenTint</item>
     </style>
     
     <style name="OverlayAccentLightGreen">
-        <item name="colorPrimary">@color/colorLightGreenA200</item>
-        <item name="colorPrimaryVariant">@color/colorLightGreenA700</item>
-        <item name="colorSecondary">@color/colorLightGreenA200</item>
-        <item name="colorSecondaryVariant">@color/colorLightGreenA700</item>
+        <item name="colorPrimary">@color/colorLightGreenPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorLightGreenSecondary</item>
+        <item name="colorSecondary">@color/colorLightGreenPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorLightGreenSecondary</item>
         <item name="colorTint">@color/colorLightGreenTint</item>
     </style>
     
     <style name="OverlayAccentLime">
-        <item name="colorPrimary">@color/colorLimeA200</item>
-        <item name="colorPrimaryVariant">@color/colorLimeA700</item>
-        <item name="colorSecondary">@color/colorLimeA200</item>
-        <item name="colorSecondaryVariant">@color/colorLimeA700</item>
+        <item name="colorPrimary">@color/colorLimePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorLimeSecondary</item>
+        <item name="colorSecondary">@color/colorLimePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorLimeSecondary</item>
         <item name="colorTint">@color/colorLimeTint</item>
     </style>
     
     <style name="OverlayAccentYellow">
-        <item name="colorPrimary">@color/colorYellowA200</item>
-        <item name="colorPrimaryVariant">@color/colorYellowA700</item>
-        <item name="colorSecondary">@color/colorYellowA200</item>
-        <item name="colorSecondaryVariant">@color/colorYellowA700</item>
+        <item name="colorPrimary">@color/colorYellowPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorYellowSecondary</item>
+        <item name="colorSecondary">@color/colorYellowPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorYellowSecondary</item>
         <item name="colorTint">@color/colorYellowTint</item>
     </style>
     
     <style name="OverlayAccentAmber">
-        <item name="colorPrimary">@color/colorAmberA200</item>
-        <item name="colorPrimaryVariant">@color/colorAmberA700</item>
-        <item name="colorSecondary">@color/colorAmberA200</item>
-        <item name="colorSecondaryVariant">@color/colorAmberA700</item>
+        <item name="colorPrimary">@color/colorAmberPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorAmberSecondary</item>
+        <item name="colorSecondary">@color/colorAmberPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorAmberSecondary</item>
         <item name="colorTint">@color/colorAmberTint</item>
     </style>
     
     <style name="OverlayAccentOrange">
-        <item name="colorPrimary">@color/colorOrangeA200</item>
-        <item name="colorPrimaryVariant">@color/colorOrangeA700</item>
-        <item name="colorSecondary">@color/colorOrangeA200</item>
-        <item name="colorSecondaryVariant">@color/colorOrangeA700</item>
+        <item name="colorPrimary">@color/colorOrangePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorOrangeSecondary</item>
+        <item name="colorSecondary">@color/colorOrangePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorOrangeSecondary</item>
         <item name="colorTint">@color/colorOrangeTint</item>
     </style>
     
     <style name="OverlayAccentDeepOrange">
-        <item name="colorPrimary">@color/colorDeepOrangeA200</item>
-        <item name="colorPrimaryVariant">@color/colorDeepOrangeA700</item>
-        <item name="colorSecondary">@color/colorDeepOrangeA200</item>
-        <item name="colorSecondaryVariant">@color/colorDeepOrangeA700</item>
+        <item name="colorPrimary">@color/colorDeepOrangePrimary</item>
+        <item name="colorPrimaryVariant">@color/colorDeepOrangeSecondary</item>
+        <item name="colorSecondary">@color/colorDeepOrangePrimary</item>
+        <item name="colorSecondaryVariant">@color/colorDeepOrangeSecondary</item>
         <item name="colorTint">@color/colorDeepOrangeTint</item>
     </style>
 </resources>
