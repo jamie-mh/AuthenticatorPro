@@ -16,7 +16,6 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data.Source;
 using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
@@ -135,18 +134,30 @@ namespace AuthenticatorPro.Droid.List
             switch(auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
+                {
+                    if(_tapToReveal)
+                        holder.Code.Text = CodeUtil.PadCode(null, auth.Digits);
+                    
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
                     break;
+                }
 
                 case GenerationMethod.Counter:
-                    holder.Code.Text = CodeUtil.PadCode(auth.GetCode(), auth.Digits);
-                    holder.RefreshButton.Visibility = _counterCooldownOffsets.ContainsKey(position) ? ViewStates.Invisible : ViewStates.Visible;
+                {
+                    var inCooldown = _counterCooldownOffsets.ContainsKey(position);
+
+                    if(_tapToReveal)
+                    {
+                        var code = inCooldown ? auth.GetCode() : null;
+                        holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
+                    }
+                    
+                    holder.RefreshButton.Visibility = inCooldown ? ViewStates.Invisible : ViewStates.Visible;
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
+                }
             }
-
-            holder.Code.Visibility = _tapToReveal ? ViewStates.Invisible : ViewStates.Visible;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position, IList<Object> payloads)
@@ -164,11 +175,13 @@ namespace AuthenticatorPro.Droid.List
             
             var holder = (AuthenticatorListHolder) viewHolder;
             var payload = (TimerPartialUpdate) payloads[0];
-            
             var offset = GetGenerationOffset(auth.Period);
-
+            
             if(payload.RequiresGeneration)
-                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
+            {
+                var code = _tapToReveal ? null : auth.GetCode(offset);
+                holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
+            }
             
             UpdateProgressBar(holder.ProgressBar, auth.Period, offset, payload.CurrentOffset);
         }
@@ -184,7 +197,8 @@ namespace AuthenticatorPro.Droid.List
                 return;
             
             var offset = GetGenerationOffset(auth.Period);
-            holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
+            var code = _tapToReveal ? null : auth.GetCode(offset);
+            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
             
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
@@ -328,8 +342,13 @@ namespace AuthenticatorPro.Droid.List
         {
             if(_tapToReveal)
             {
-                holder.Code.Visibility = ViewStates.Visible;
-                AnimUtil.FadeOutView(holder.Code, RevealLength);
+                var auth = _authSource.Get(holder.AdapterPosition);
+
+                if(auth != null)
+                {
+                    var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
+                }
             }
             
             ItemClick?.Invoke(this, holder.AdapterPosition); 

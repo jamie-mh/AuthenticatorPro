@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Shared.Util
         
         public static string PadCode(string code, int digits)
         {
-            code ??= new string('-', digits);
+            code ??= new string('–', digits);
 
             var spacesInserted = 0;
             var groupSize = Math.Min(MaxCodeGroupSize, Math.Max(digits / 2, MinCodeGroupSize));
