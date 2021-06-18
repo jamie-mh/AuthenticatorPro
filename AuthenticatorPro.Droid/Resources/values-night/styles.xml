@@ -28,6 +28,7 @@
 
         <item name="android:navigationBarColor">@color/colorDarkest</item>
         <item name="bottomAppBarBackground">@color/colorDarkest</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetStyle</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">

@@ -30,6 +30,7 @@
         <item name="android:statusBarColor">@color/colorLighter</item>
         
         <item name="bottomAppBarBackground">@color/colorLightest</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetStyle</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">

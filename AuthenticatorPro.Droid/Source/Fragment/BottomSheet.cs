@@ -14,6 +14,7 @@ using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
 using Java.Lang;
+using ContextThemeWrapper = AndroidX.AppCompat.View.ContextThemeWrapper;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
@@ -41,10 +42,10 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            SetStyle(StyleNormal, Resource.Style.BottomSheetStyle);
+            var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
             var prefs = new PreferenceWrapper(Context);
-            Context.Theme.ApplyStyle(AccentColourMap.GetOverlay(prefs.AccentColour), true);
-            return inflater.Inflate(_layout, container, false);
+            contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlay(prefs.AccentColour), true);
+            return inflater.CloneInContext(contextThemeWrapper).Inflate(_layout, container, false);
         }
 
         public override void Show(FragmentManager manager, string tag)
