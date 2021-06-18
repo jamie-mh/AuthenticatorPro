@@ -146,13 +146,9 @@ namespace AuthenticatorPro.Droid.List
                 case GenerationMethod.Counter:
                 {
                     var inCooldown = _counterCooldownOffsets.ContainsKey(position);
-
-                    if(_tapToReveal)
-                    {
-                        var code = inCooldown ? auth.GetCode() : null;
-                        holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
-                    }
+                    var code = _tapToReveal && inCooldown || !_tapToReveal ? auth.GetCode() : null;
                     
+                    holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
                     holder.RefreshButton.Visibility = inCooldown ? ViewStates.Invisible : ViewStates.Visible;
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
