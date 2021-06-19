@@ -12,6 +12,8 @@
     <string name="close">Zamknij</string>
     <string name="error">Błąd</string>
     <string name="retry">Powtórz</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
     <!-- Menu items -->
     <string name="settings">Ustawienia</string>
     <string name="restore">Przywróć</string>
@@ -136,7 +138,7 @@
     <string name="reportVia">Zgłoś przez</string>
     <string name="errorCopiedToClipboard">Błąd skopiowany do schowka</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Wybierz lokalizację i hasło do automatycznych kopii zapasowych. Kopie zapasowe są planowane po wprowadzeniu zmian.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Wybierz lokalizację</string>
     <string name="noLocationSelected">Nie wybrano lokalizacji</string>
     <string name="locationSetTo">Lokalizacja: \'{0}\'</string>
@@ -148,7 +150,7 @@
     <string name="enableAutoBackupMessage">Automatyczne tworzenie kopii zapasowych w wybranej lokalizacji</string>
     <string name="enableAutoRestore">Włącz automatyczne przywracanie</string>
     <string name="enableAutoRestoreMessage">Automatycznie przywróć najnowszą kopię zapasową znalezioną w wybranej lokalizacji. Przydatne do synchronizacji między urządzeniami.</string>
-    <string name="disableBatOptim">Wyłącz optymalizację baterii</string>
+    <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">Na niektórych urządzeniach ustawienia zasilania mogą uniemożliwić prawidłowe działanie kopii zapasowych. Jeśli masz problemy, spróbuj wyłączyć optymalizację baterii dla Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
@@ -211,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Przypomnienia o kopii zapasowej</string>
     <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia ważnych zmian</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
-    <string name="prefAutoBackupSummary">Skonfiguruj automatyczne tworzenie kopii zapasowych w pamięci lokalnej lub w chmurze po wprowadzeniu zmian. Wyłącza przypomnienia o kopii zapasowej.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
@@ -221,15 +223,15 @@
     <string name="prefAllowBiometricsSummary">Umożliwiają odblokowanie bazy danych z uwierzytelnianiem biometrycznym</string>
     <string name="prefTimeoutTitle">Limit czasu</string>
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
+    <string name="prefTapToRevealSummary">Ukryj kody, dopóki nie zostaną dotknięte. Po kilku sekundach znikną.</string>
     <string name="prefAppearance">Wygląd</string>
     <string name="prefThemeTitle">Motyw</string>
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
     <string name="prefViewModeTitle">Tryb przeglądania</string>
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
-    <string name="prefAccentColourTitle">Accent Colour</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefAccentColourTitle">Kolor akcentów</string>
+    <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
@@ -247,22 +249,22 @@
     <string name="compactViewMode">Kompaktowy</string>
     <string name="tileViewMode">Kafelki</string>
     <!-- Arrays / Accent colours -->
-    <string name="red">Red</string>
-    <string name="pink">Pink</string>
-    <string name="purple">Purple</string>
-    <string name="deepPurple">Deep purple</string>
-    <string name="indigo">Indigo</string>
-    <string name="blue">Blue</string>
-    <string name="lightBlue">Light blue</string>
-    <string name="cyan">Cyan</string>
-    <string name="teal">Teal</string>
-    <string name="green">Green</string>
-    <string name="lightGreen">Light green</string>
-    <string name="lime">Lime</string>
-    <string name="yellow">Yellow</string>
-    <string name="amber">Amber</string>
-    <string name="orange">Orange</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="red">Czerwony</string>
+    <string name="pink">Różowy</string>
+    <string name="purple">Fioletowy</string>
+    <string name="deepPurple">Ciemnofioletowy</string>
+    <string name="indigo">Indygo</string>
+    <string name="blue">Niebieski</string>
+    <string name="lightBlue">Jasnoniebieski</string>
+    <string name="cyan">Cyjan</string>
+    <string name="teal">Morski</string>
+    <string name="green">Zielony</string>
+    <string name="lightGreen">Jasnozielony</string>
+    <string name="lime">Limonkowy</string>
+    <string name="yellow">Żółty</string>
+    <string name="amber">Bursztynowy</string>
+    <string name="orange">Pomarańczowy</string>
+    <string name="deepOrange">Ciemnopomarańczowy</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Witaj w Authenticator Pro</string>
     <string name="introCompatibilityTitle">Autoryzacja TOTP / HOTP / mOTP</string>
