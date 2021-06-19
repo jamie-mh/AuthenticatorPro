@@ -35,7 +35,7 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="BottomSheetStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
+    <style name="BottomSheetStyle" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
         <item name="colorError">@color/colorError</item>
         <item name="listBorderColor">#1e1e1e</item>
 
@@ -43,5 +43,6 @@
         <item name="colorBackgroundFloating">@color/colorDark</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/colorDark</item>
     </style>
 </resources>
