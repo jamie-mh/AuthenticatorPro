@@ -12,6 +12,8 @@
     <string name="close">Cerrar</string>
     <string name="error">Error</string>
     <string name="retry">Retry</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
     <!-- Menu items -->
     <string name="settings">Configuración</string>
     <string name="restore">Restaurar</string>
@@ -136,7 +138,7 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to \'{0}\'</string>
@@ -148,7 +150,7 @@
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
-    <string name="disableBatOptim">Disable Battery Optimisation</string>
+    <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
@@ -211,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
     <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
-    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Password</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
