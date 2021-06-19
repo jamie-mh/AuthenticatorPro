@@ -42,7 +42,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             json = json.Replace(@"\""", @"""");
 
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
-            var authenticators = sourceAccounts.Select(entry => entry.Convert(_iconResolver)).ToList();
+            var authenticators = sourceAccounts.Select(entry => entry.Convert(IconResolver)).ToList();
             
             return Task.FromResult(new Backup(authenticators));
         }

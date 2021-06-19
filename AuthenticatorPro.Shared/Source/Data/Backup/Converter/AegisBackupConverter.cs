@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             if(backup.Version != 1)
                 throw new NotSupportedException("Unsupported backup version");
             
-            var authenticators = backup.Database.Entries.Select(entry => entry.Convert(_iconResolver)).ToList();
+            var authenticators = backup.Database.Entries.Select(entry => entry.Convert(IconResolver)).ToList();
             var categories = new List<Category>();
             var bindings = new List<AuthenticatorCategory>();
             var icons = new List<CustomIcon>();

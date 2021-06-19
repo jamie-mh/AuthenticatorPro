@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 var sourceAccounts = await connection.QueryAsync<Account>("SELECT * FROM accounts");
                 var sourceCategories = await connection.QueryAsync<Category>("SELECT * FROM category");
 
-                var authenticators = sourceAccounts.Select(account => account.Convert(_iconResolver)).ToList();
+                var authenticators = sourceAccounts.Select(account => account.Convert(IconResolver)).ToList();
                 var categories = sourceCategories.Select(category => category.Convert()).ToList();
                 var bindings = new List<AuthenticatorCategory>();
 

@@ -12,11 +12,11 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             Never, Always, Maybe
         }
         
-        protected readonly IIconResolver _iconResolver;
+        protected readonly IIconResolver IconResolver;
 
         protected BackupConverter(IIconResolver iconResolver)
         {
-            _iconResolver = iconResolver; 
+            IconResolver = iconResolver; 
         }
         
         public abstract BackupPasswordPolicy PasswordPolicy { get; }

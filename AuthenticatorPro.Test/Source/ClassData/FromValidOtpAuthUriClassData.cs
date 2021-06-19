@@ -38,6 +38,9 @@ namespace AuthenticatorPro.Test.ClassData
             yield return new object[] { "otpauth://totp/issuer:username?secret=ABCDEFG&steam", new Authenticator { Type = AuthenticatorType.SteamOtp, Digits = 5, Issuer = "issuer", Username = "username", Secret = "ABCDEFG" }}; // Steam parameter
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

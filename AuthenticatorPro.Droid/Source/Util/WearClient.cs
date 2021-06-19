@@ -1,6 +1,7 @@
 // Copyright (C) 2021 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.Content;
@@ -14,8 +15,8 @@ namespace AuthenticatorPro.Droid.Util
     {
         private const string RefreshCapability = "refresh";
         
-        private bool _areGoogleAPIsAvailable;
-        private bool _hasWearAPIs;
+        private bool _areGoogleApisAvailable;
+        private bool _hasWearApis;
         private bool _hasWearCompanion;
 
         private readonly Context _context;
@@ -27,19 +28,19 @@ namespace AuthenticatorPro.Droid.Util
 
         public async Task DetectCapability()
         {
-            DetectGoogleAPIsAvailability();
-            await DetectWearOSCapability();
+            DetectGoogleApisAvailability();
+            await DetectWearOsCapability();
         }
 
         public async Task StartListening()
         {
-            if(_hasWearAPIs)
+            if(_hasWearApis)
                 await WearableClass.GetCapabilityClient(_context).AddListenerAsync(this, RefreshCapability);
         }
 
         public async Task StopListening()
         {
-            if(!_hasWearAPIs)
+            if(!_hasWearApis)
                 return;
 
             try
@@ -52,17 +53,17 @@ namespace AuthenticatorPro.Droid.Util
             }
         }
 
-        private void DetectGoogleAPIsAvailability()
+        private void DetectGoogleApisAvailability()
         {
-            _areGoogleAPIsAvailable = 
+            _areGoogleApisAvailable = 
                 GoogleApiAvailabilityLight.Instance.IsGooglePlayServicesAvailable(_context) == ConnectionResult.Success;
         }
 
-        private async Task DetectWearOSCapability()
+        private async Task DetectWearOsCapability()
         {
-            if(!_areGoogleAPIsAvailable)
+            if(!_areGoogleApisAvailable)
             {
-                _hasWearAPIs = false;
+                _hasWearApis = false;
                 _hasWearCompanion = false;
                 return;
             }
@@ -72,12 +73,12 @@ namespace AuthenticatorPro.Droid.Util
                 var capabiltyInfo = await WearableClass.GetCapabilityClient(_context)
                     .GetCapabilityAsync(RefreshCapability, CapabilityClient.FilterReachable);
 
-                _hasWearAPIs = true;
+                _hasWearApis = true;
                 _hasWearCompanion = capabiltyInfo.Nodes.Count > 0;
             }
             catch(ApiException)
             {
-                _hasWearAPIs = false;
+                _hasWearApis = false;
                 _hasWearCompanion = false;
             }
         }
@@ -106,7 +107,7 @@ namespace AuthenticatorPro.Droid.Util
             {
                 try
                 {
-                    await client.SendMessageAsync(node.Id, RefreshCapability, new byte[] { });
+                    await client.SendMessageAsync(node.Id, RefreshCapability, Array.Empty<byte>());
                 }
                 catch(ApiException e)
                 {
@@ -117,7 +118,7 @@ namespace AuthenticatorPro.Droid.Util
         
         public async void OnCapabilityChanged(ICapabilityInfo capabilityInfo)
         {
-            await DetectWearOSCapability();
+            await DetectWearOsCapability();
         }
     }
 }

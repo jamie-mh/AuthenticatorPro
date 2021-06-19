@@ -20,26 +20,26 @@ namespace AuthenticatorPro.Droid.Data
         private const string FileName = "proauth.db3";
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.SharedCache;
         
-        private static readonly SemaphoreSlim _sharedLock = new SemaphoreSlim(1, 1);
+        private static readonly SemaphoreSlim SharedLock = new SemaphoreSlim(1, 1);
         private static SQLiteAsyncConnection _sharedConnection;
 
         public static async Task<SQLiteAsyncConnection> GetSharedConnection()
         {
-            await _sharedLock.WaitAsync();
+            await SharedLock.WaitAsync();
 
             if(_sharedConnection == null)
             {
-                _sharedLock.Release();
+                SharedLock.Release();
                 throw new InvalidOperationException("Shared connection not open");
             }
 
-            _sharedLock.Release();
+            SharedLock.Release();
             return _sharedConnection;
         }
 
         public static async Task OpenSharedConnection(string password)
         {
-            await _sharedLock.WaitAsync();
+            await SharedLock.WaitAsync();
 
             try
             {
@@ -47,17 +47,17 @@ namespace AuthenticatorPro.Droid.Data
             }
             finally
             {
-                _sharedLock.Release();
+                SharedLock.Release();
             }
         }
 
         public static async Task CloseSharedConnection()
         {
-            await _sharedLock.WaitAsync();
+            await SharedLock.WaitAsync();
 
             if(_sharedConnection == null)
             {
-                _sharedLock.Release(); 
+                SharedLock.Release(); 
                 return;
             }
 
@@ -68,7 +68,7 @@ namespace AuthenticatorPro.Droid.Data
             }
             finally
             {
-                _sharedLock.Release();
+                SharedLock.Release();
             }
         }
 

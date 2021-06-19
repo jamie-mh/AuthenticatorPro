@@ -10,21 +10,21 @@ namespace AuthenticatorPro.Droid.Shared.Util
 {
     public abstract class BasePreferenceWrapper
     {
-        protected readonly ISharedPreferences _preferences;
+        protected readonly ISharedPreferences Preferences;
         
         protected BasePreferenceWrapper(Context context)
         {
-            _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
+            Preferences = PreferenceManager.GetDefaultSharedPreferences(context);
         }
         
         protected T GetEnumPreference<T>(string key, T defaultValue) where T : Enum
         {
-            return (T) (object) _preferences.GetInt(key, (int) (object) defaultValue);
+            return (T) (object) Preferences.GetInt(key, (int) (object) defaultValue);
         }
         
         protected void SetEnumPreference<T>(string key, T value) where T : Enum
         {
-            _preferences.Edit().PutInt(key, (int) (object) value).Commit();
+            Preferences.Edit().PutInt(key, (int) (object) value).Commit();
         }
         
         protected bool? GetNullableBooleanPreference(string key, bool? defaultValue)
@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
                 true => "true"
             };
             
-            return _preferences.GetString(key, defaultStr) switch
+            return Preferences.GetString(key, defaultStr) switch
             {
                 null => null,
                 "false" => false,
@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
         
         protected void SetNullableBooleanPreference(string key, bool? value)
         {
-            _preferences.Edit().PutString(key, value switch
+            Preferences.Edit().PutString(key, value switch
             {
                 null => null,
                 false => "false",
@@ -62,7 +62,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
                 _ => defaultValue.ToString()
             };
 
-            var result = _preferences.GetString(key, defaultStr);
+            var result = Preferences.GetString(key, defaultStr);
             
             return result switch {
                 null => null,
@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
         
         protected void SetNullableIntPreference(string key, int? value)
         {
-            _preferences.Edit().PutString(key, value switch
+            Preferences.Edit().PutString(key, value switch
             {
                 null => null,
                 _ => value.ToString()
@@ -81,7 +81,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
 
         protected Uri GetUriPreference(string key, Uri defaultValue)
         {
-            var value = _preferences.GetString(key, null);
+            var value = Preferences.GetString(key, null);
 
             return value == null
                 ? defaultValue
@@ -95,17 +95,17 @@ namespace AuthenticatorPro.Droid.Shared.Util
 
         protected void SetPreference(string key, string value)
         {
-            _preferences.Edit().PutString(key, value).Commit();
+            Preferences.Edit().PutString(key, value).Commit();
         }
         
         protected void SetPreference(string key, bool value)
         {
-            _preferences.Edit().PutBoolean(key, value).Commit();
+            Preferences.Edit().PutBoolean(key, value).Commit();
         }
         
         protected void SetPreference(string key, long value)
         {
-            _preferences.Edit().PutLong(key, value).Commit();
+            Preferences.Edit().PutLong(key, value).Commit();
         }
     }
 }

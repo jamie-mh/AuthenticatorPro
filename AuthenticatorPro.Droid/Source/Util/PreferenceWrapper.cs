@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool ShowBackupRemindersDefault = true;
         public bool ShowBackupReminders 
         {
-            get => _preferences.GetBoolean(ShowBackupRemindersKey, ShowBackupRemindersDefault);
+            get => Preferences.GetBoolean(ShowBackupRemindersKey, ShowBackupRemindersDefault);
             set => SetPreference(ShowBackupRemindersKey, value);
         }
 
@@ -25,7 +25,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool PasswordProtectedDefault = false;
         public bool PasswordProtected
         {
-            get => _preferences.GetBoolean(PasswordProtectedKey, PasswordProtectedDefault);
+            get => Preferences.GetBoolean(PasswordProtectedKey, PasswordProtectedDefault);
             set => SetPreference(PasswordProtectedKey, value);
         }
         
@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool AllowBiometricsDefault = false;
         public bool AllowBiometrics
         {
-            get => _preferences.GetBoolean(AllowBiometricsKey, AllowBiometricsDefault);
+            get => Preferences.GetBoolean(AllowBiometricsKey, AllowBiometricsDefault);
             set => SetPreference(AllowBiometricsKey, value);
         }
         
@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool DatabasePasswordBackupDefault = false;
         public bool DatabasePasswordBackup
         {
-            get => _preferences.GetBoolean(DatabasePasswordBackupKey, DatabasePasswordBackupDefault);
+            get => Preferences.GetBoolean(DatabasePasswordBackupKey, DatabasePasswordBackupDefault);
             set => SetPreference(DatabasePasswordBackupKey, value);
         }
         
@@ -49,7 +49,7 @@ namespace AuthenticatorPro.Droid.Util
         private const int TimeoutDefault = 0;
         public int Timeout
         {
-            get => Int32.TryParse(_preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value) ? value : TimeoutDefault;
+            get => Int32.TryParse(Preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value) ? value : TimeoutDefault;
             set => SetPreference(TimeoutKey, value);
         }
 
@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool TapToRevealDefault = false;
         public bool TapToReveal
         {
-            get => _preferences.GetBoolean(TapToRevealKey, TapToRevealDefault);
+            get => Preferences.GetBoolean(TapToRevealKey, TapToRevealDefault);
             set => SetPreference(TapToRevealKey, value);
         }
 
@@ -65,7 +65,7 @@ namespace AuthenticatorPro.Droid.Util
         private const string ThemeDefault = "system";
         public string Theme
         {
-            get => _preferences.GetString(ThemeKey, ThemeDefault);
+            get => Preferences.GetString(ThemeKey, ThemeDefault);
             set => SetPreference(ThemeKey, value);
         }
         
@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Droid.Util
         private const string ViewModeDefault = "default";
         public string ViewMode
         {
-            get => _preferences.GetString(ViewModeKey, ViewModeDefault);
+            get => Preferences.GetString(ViewModeKey, ViewModeDefault);
             set => SetPreference(ViewModeKey, value);
         }
 
@@ -81,7 +81,7 @@ namespace AuthenticatorPro.Droid.Util
         private const string AccentColourDefault = "lightBlue";
         public string AccentColour
         {
-            get => _preferences.GetString(AccentColourKey, AccentColourDefault);
+            get => Preferences.GetString(AccentColourKey, AccentColourDefault);
             set => SetPreference(AccentColourKey, value);
         }
         
@@ -89,7 +89,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool AutoBackupEnabledDefault = false;
         public bool AutoBackupEnabled
         {
-            get => _preferences.GetBoolean(AutoBackupEnabledKey, AutoBackupEnabledDefault);
+            get => Preferences.GetBoolean(AutoBackupEnabledKey, AutoBackupEnabledDefault);
             set => SetPreference(AutoBackupEnabledKey, value);
         }
         
@@ -97,7 +97,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool AutoRestoreEnabledDefault = false;
         public bool AutoRestoreEnabled
         {
-            get => _preferences.GetBoolean(AutoRestoreEnabledKey, AutoRestoreEnabledDefault);
+            get => Preferences.GetBoolean(AutoRestoreEnabledKey, AutoRestoreEnabledDefault);
             set => SetPreference(AutoRestoreEnabledKey, value);
         }
         
@@ -131,7 +131,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool FirstLaunchDefault = true;
         public bool FirstLaunch 
         {
-            get => _preferences.GetBoolean(FirstLaunchKey, FirstLaunchDefault);
+            get => Preferences.GetBoolean(FirstLaunchKey, FirstLaunchDefault);
             set => SetPreference(FirstLaunchKey, value);
         }
 
@@ -139,7 +139,7 @@ namespace AuthenticatorPro.Droid.Util
         private const string DefaultCategoryDefault = null;
         public string DefaultCategory
         {
-            get => _preferences.GetString(DefaultCategoryKey, DefaultCategoryDefault);
+            get => Preferences.GetString(DefaultCategoryKey, DefaultCategoryDefault);
             set => SetPreference(DefaultCategoryKey, value);
         }
 
@@ -147,7 +147,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool PasswordChangedDefault = false;
         public bool PasswordChanged 
         {
-            get => _preferences.GetBoolean(PasswordChangedKey, PasswordChangedDefault);
+            get => Preferences.GetBoolean(PasswordChangedKey, PasswordChangedDefault);
             set => SetPreference(PasswordChangedKey, value);
         }
 
@@ -155,7 +155,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool AutoRestoreCompletedDefault = false;
         public bool AutoRestoreCompleted
         {
-            get => _preferences.GetBoolean(AutoRestoreCompletedKey, AutoRestoreCompletedDefault);
+            get => Preferences.GetBoolean(AutoRestoreCompletedKey, AutoRestoreCompletedDefault);
             set => SetPreference(AutoRestoreCompletedKey, value);
         }
         
@@ -171,7 +171,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool AutoBackupTriggerDefault = false;
         public bool AutoBackupTrigger
         {
-            get => _preferences.GetBoolean(AutoBackupTriggerKey, AutoBackupTriggerDefault);
+            get => Preferences.GetBoolean(AutoBackupTriggerKey, AutoBackupTriggerDefault);
             set => SetPreference(AutoBackupTriggerKey, value);
         }
         
@@ -179,7 +179,7 @@ namespace AuthenticatorPro.Droid.Util
         private const bool AutoRestoreTriggerDefault = false;
         public bool AutoRestoreTrigger
         {
-            get => _preferences.GetBoolean(AutoRestoreTriggerKey, AutoRestoreTriggerDefault);
+            get => Preferences.GetBoolean(AutoRestoreTriggerKey, AutoRestoreTriggerDefault);
             set => SetPreference(AutoRestoreTriggerKey, value);
         }
         
@@ -187,7 +187,7 @@ namespace AuthenticatorPro.Droid.Util
         private const long MostRecentBackupModifiedAtDefault = 0;
         public long MostRecentBackupModifiedAt
         {
-            get => _preferences.GetLong(MostRecentBackupModifiedAtKey, MostRecentBackupModifiedAtDefault);
+            get => Preferences.GetLong(MostRecentBackupModifiedAtKey, MostRecentBackupModifiedAtDefault);
             set => SetPreference(MostRecentBackupModifiedAtKey, value);
         }
         #endregion

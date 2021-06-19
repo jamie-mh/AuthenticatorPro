@@ -22,6 +22,9 @@ namespace AuthenticatorPro.Test.ClassData
             yield return new object[] { new Authenticator { Type = AuthenticatorType.Totp, Secret = "abcdefg", Issuer = "test", Digits = AuthenticatorType.Totp.GetDefaultDigits(), Period = -1 }, false }; // Negative period
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

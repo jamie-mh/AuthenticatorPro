@@ -14,7 +14,7 @@ namespace AuthenticatorPro.WearOS.Util
         private const string DefaultCategoryDefault = null;
         public string DefaultCategory
         {
-            get => _preferences.GetString(DefaultCategoryKey, DefaultCategoryDefault);
+            get => Preferences.GetString(DefaultCategoryKey, DefaultCategoryDefault);
             set => SetPreference(DefaultCategoryKey, value);
         }
         

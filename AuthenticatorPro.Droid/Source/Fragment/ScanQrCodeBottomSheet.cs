@@ -10,12 +10,12 @@ using AuthenticatorPro.Droid.List;
 
 namespace AuthenticatorPro.Droid.Fragment
 {
-    internal class ScanQRCodeBottomSheet : BottomSheet
+    internal class ScanQrCodeBottomSheet : BottomSheet
     {
         public event EventHandler ClickFromCamera;
         public event EventHandler ClickFromGallery;
         
-        public ScanQRCodeBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

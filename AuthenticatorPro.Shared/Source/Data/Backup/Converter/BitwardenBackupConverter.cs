@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             var convertableItems = export.Items.Where(item => item.Type == LoginType && item.Login != null && !String.IsNullOrEmpty(item.Login.Totp)).ToList();
             
-            var authenticators = convertableItems.Select(item => item.Convert(_iconResolver)).ToList();
+            var authenticators = convertableItems.Select(item => item.Convert(IconResolver)).ToList();
             var categories = export.Folders.Select(f => f.Convert()).ToList();
             var bindings = new List<AuthenticatorCategory>();
 

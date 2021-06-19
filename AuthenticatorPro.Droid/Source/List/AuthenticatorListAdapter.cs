@@ -28,7 +28,6 @@ namespace AuthenticatorPro.Droid.List
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
-        private const int RevealLength = 4000;
 
         public event EventHandler<int> ItemClick;
         public event EventHandler<int> MenuClick;

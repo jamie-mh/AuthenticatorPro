@@ -125,11 +125,11 @@
     <Compile Include="Source\Fragment\AuthenticatorMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\AboutBottomSheet.cs" />
     <Compile Include="Source\Fragment\PasswordSetupBottomSheet.cs" />
-    <Compile Include="Source\Fragment\QRCodeBottomSheet.cs" />
+    <Compile Include="Source\Fragment\QrCodeBottomSheet.cs" />
     <Compile Include="Source\Fragment\RenameAuthenticatorBottomSheet.cs" />
     <Compile Include="Source\Fragment\AddMenuBottomSheet.cs" />
     <Compile Include="Source\Fragment\IntroPageFragment.cs" />
-    <Compile Include="Source\Fragment\ScanQRCodeBottomSheet.cs" />
+    <Compile Include="Source\Fragment\ScanQrCodeBottomSheet.cs" />
     <Compile Include="Source\Intro\IntroPagerAdapter.cs" />
     <Compile Include="Source\List\CategoriesListHolder.cs" />
     <Compile Include="Source\List\CategoriesListAdapter.cs" />

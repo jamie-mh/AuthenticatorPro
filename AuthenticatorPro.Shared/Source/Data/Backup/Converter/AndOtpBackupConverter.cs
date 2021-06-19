@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             var json = Encoding.UTF8.GetString(data);
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
 
-            var authenticators = sourceAccounts.Select(account => account.Convert(_iconResolver)).ToList();
+            var authenticators = sourceAccounts.Select(account => account.Convert(IconResolver)).ToList();
             var categories = new List<Category>();
             var bindings = new List<AuthenticatorCategory>();
 

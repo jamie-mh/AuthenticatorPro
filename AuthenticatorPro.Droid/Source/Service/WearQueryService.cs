@@ -95,7 +95,7 @@ namespace AuthenticatorPro.Droid.Service
             await _customIconSource.Update();
             var icon = _customIconSource.Get(customIconId);
             
-            var data = new byte[] { };
+            var data = Array.Empty<byte>();
 
             if(icon != null)
             {

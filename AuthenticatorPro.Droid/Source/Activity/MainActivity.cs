@@ -243,7 +243,7 @@ namespace AuthenticatorPro.Droid.Activity
             _onResumeLock.Release();
                 
             var uri = Intent.Data;
-            await ParseQRCodeScanResult(uri.ToString());
+            await ParseQrCodeScanResult(uri.ToString());
         }
 
         protected override async void OnResume()
@@ -384,7 +384,7 @@ namespace AuthenticatorPro.Droid.Activity
                     return;
                 
                 case RequestQrCode:
-                    await ScanQRCodeFromImage(intent.Data);
+                    await ScanQrCodeFromImage(intent.Data);
                     return;
             }
 
@@ -465,7 +465,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 SortMode.AlphabeticalAscending => Resource.Id.actionSortAZ,
                 SortMode.AlphabeticalDescending => Resource.Id.actionSortZA,
-                _ => Resource.Id.actionSortCustom,
+                _ => Resource.Id.actionSortCustom
             };
 
             menu.FindItem(sortItemId)?.SetChecked(true);
@@ -500,7 +500,7 @@ namespace AuthenticatorPro.Droid.Activity
             _authSource.SetSortMode(sortMode);
             _preferences.SortMode = sortMode;
             _authListAdapter.NotifyDataSetChanged();
-            item?.SetChecked(true);
+            item.SetChecked(true);
 
             return true;
         }
@@ -636,7 +636,7 @@ namespace AuthenticatorPro.Droid.Activity
             if(requestCode == PermissionCameraCode)
             {
                 if(grantResults.Length > 0 && grantResults[0] == Permission.Granted)
-                    await ScanQRCodeFromCamera();
+                    await ScanQrCodeFromCamera();
                 else
                     ShowSnackbar(Resource.String.cameraPermissionError, Snackbar.LengthShort);
             }
@@ -1018,7 +1018,7 @@ namespace AuthenticatorPro.Droid.Activity
             var bundle = new Bundle();
             bundle.PutString("uri", uri);
             
-            var fragment = new QRCodeBottomSheet {Arguments = bundle};
+            var fragment = new QrCodeBottomSheet {Arguments = bundle};
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -1072,8 +1072,8 @@ namespace AuthenticatorPro.Droid.Activity
             var fragment = new AddMenuBottomSheet();
             fragment.ClickQrCode += delegate
             {
-                var subFragment = new ScanQRCodeBottomSheet();
-                subFragment.ClickFromCamera += async delegate { await RequestPermissionThenScanQRCode(); };
+                var subFragment = new ScanQrCodeBottomSheet();
+                subFragment.ClickFromCamera += async delegate { await RequestPermissionThenScanQrCode(); };
                 subFragment.ClickFromGallery += delegate { StartFilePickActivity("image/*", RequestQrCode); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
@@ -1094,7 +1094,7 @@ namespace AuthenticatorPro.Droid.Activity
         #endregion
 
         #region QR Code Scanning
-        private async Task ScanQRCodeFromCamera()
+        private async Task ScanQrCodeFromCamera()
         {
             var options = new MobileBarcodeScanningOptions
             {
@@ -1129,10 +1129,10 @@ namespace AuthenticatorPro.Droid.Activity
             if(result == null)
                 return;
 
-            await ParseQRCodeScanResult(result.Text);
+            await ParseQrCodeScanResult(result.Text);
         }
 
-        private async Task ScanQRCodeFromImage(Uri uri)
+        private async Task ScanQrCodeFromImage(Uri uri)
         {
             Bitmap bitmap;
 
@@ -1191,10 +1191,10 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
             
-            await ParseQRCodeScanResult(result.Text);
+            await ParseQrCodeScanResult(result.Text);
         }
 
-        private async Task ParseQRCodeScanResult(string uri)
+        private async Task ParseQrCodeScanResult(string uri)
         {
             if(uri.StartsWith("otpauth-migration"))
                 await OnOtpAuthMigrationScan(uri);
@@ -1312,12 +1312,12 @@ namespace AuthenticatorPro.Droid.Activity
             ShowSnackbar(message, Snackbar.LengthLong);
         }
 
-        private async Task RequestPermissionThenScanQRCode()
+        private async Task RequestPermissionThenScanQrCode()
         {
             if(ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
                 ActivityCompat.RequestPermissions(this, new[] { Manifest.Permission.Camera }, PermissionCameraCode);
             else
-                await ScanQRCodeFromCamera();
+                await ScanQrCodeFromCamera();
         }
         #endregion
 

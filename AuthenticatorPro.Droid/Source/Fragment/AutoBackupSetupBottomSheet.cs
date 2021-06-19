@@ -93,7 +93,7 @@ namespace AuthenticatorPro.Droid.Fragment
             {
                 if(args.IsChecked)
                     ShowBatteryOptimisationDialog();
-            };
+            }
             
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
             _backupEnabledSwitch.CheckedChange += SwitchChecked;
@@ -106,11 +106,6 @@ namespace AuthenticatorPro.Droid.Fragment
             UpdateSwitchesAndTriggerButton();
             
             return view;
-        }
-
-        public override void OnResume()
-        {
-            base.OnResume();
         }
 
         public override void OnDismiss(IDialogInterface dialog)

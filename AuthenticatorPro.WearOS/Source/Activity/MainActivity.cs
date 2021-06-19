@@ -350,7 +350,7 @@ namespace AuthenticatorPro.WearOS.Activity
             // So, make sure that the phone *really* is connected before continuing.
             try
             {
-                await WearableClass.GetMessageClient(this).SendMessageAsync(capableNode.Id, ProtocolVersion, new byte[] { });
+                await WearableClass.GetMessageClient(this).SendMessageAsync(capableNode.Id, ProtocolVersion, Array.Empty<byte>());
                 _serverNode = capableNode;
             }
             catch(ApiException)
@@ -368,7 +368,7 @@ namespace AuthenticatorPro.WearOS.Activity
             Interlocked.Exchange(ref _responsesRequired, 1);
             
             var client = WearableClass.GetMessageClient(this);
-            await client.SendMessageAsync(_serverNode.Id, GetSyncBundleCapability, new byte[] { });
+            await client.SendMessageAsync(_serverNode.Id, GetSyncBundleCapability, Array.Empty<byte>());
             
             await _responseLock.WaitAsync();
         }

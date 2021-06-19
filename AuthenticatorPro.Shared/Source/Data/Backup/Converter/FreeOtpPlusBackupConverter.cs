@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         {
             var json = Encoding.UTF8.GetString(data);
             var sourceTokens = JsonConvert.DeserializeObject<FreeOtpPlusBackup>(json).Tokens;
-            var authenticators = sourceTokens.Select(account => account.Convert(_iconResolver)).ToList();
+            var authenticators = sourceTokens.Select(account => account.Convert(IconResolver)).ToList();
 
             return Task.FromResult(new Backup(authenticators));
         }
