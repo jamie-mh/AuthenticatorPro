@@ -421,10 +421,12 @@ namespace AuthenticatorPro.Droid.Activity
 
         public WindowInsetsCompat OnApplyWindowInsets(View view, WindowInsetsCompat insets)
         {
+            var systemBarInsets = insets.GetInsets(WindowInsetsCompat.Type.SystemBars());
+            
             var layout = FindViewById<LinearLayout>(Resource.Id.toolbarWrapLayout);
-            layout.SetPadding(0, insets.SystemWindowInsetTop, 0, 0);
+            layout.SetPadding(0, systemBarInsets.Top, 0, 0);
 
-            var bottomPadding = (int) ViewUtils.DpToPx(this, ListPaddingBottom) + insets.SystemWindowInsetBottom;
+            var bottomPadding = (int) ViewUtils.DpToPx(this, ListPaddingBottom) + systemBarInsets.Bottom;
             _authList.SetPadding(0, 0, 0, bottomPadding);
             
             return insets;
