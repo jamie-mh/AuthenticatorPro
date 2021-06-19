@@ -12,8 +12,8 @@
     <string name="close">Fermer</string>
     <string name="error">Erreur</string>
     <string name="retry">Retenter</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="ignore">Ignorer</string>
+    <string name="disable">Désactiver</string>
     <!-- Menu items -->
     <string name="settings">Paramètres</string>
     <string name="restore">Restaurer</string>
@@ -138,7 +138,7 @@
     <string name="reportVia">Signaler via</string>
     <string name="errorCopiedToClipboard">Erreur copié dans le presse-papiers</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Sélectionnez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications sont faites. Les stockages cloud ne sont pas pris en charge, utilisez le menu de sauvegarde à la place.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <string name="locationSetTo">\'{0}\' a été choisi comme emplacement</string>
@@ -150,7 +150,7 @@
     <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
     <string name="enableAutoRestore">Activer la restauration automatique</string>
     <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.</string>
-    <string name="batOptim">Battery Optimisation</string>
+    <string name="batOptim">Optimisation de la batterie</string>
     <string name="disableBatOptimMessage">Sur certains appareils, les paramètres d\'alimentation peuvent empêcher les sauvegardes de fonctionner correctement. Si vous rencontrez des problèmes, tentez de désactiver l\'optimisation de batterie pour Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir à nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
@@ -213,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
     <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
