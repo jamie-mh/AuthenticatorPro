@@ -12,6 +12,8 @@
     <string name="close">Kapat</string>
     <string name="error">Hata</string>
     <string name="retry">Tekrar dene</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -136,7 +138,7 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Otomatik yedeklemeler için bir konum ve parola seçin. Değişiklikler yapıldığında yedeklemeler zamanlanacak.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Konum seçilmedi</string>
     <string name="locationSetTo">Konum \'{0}\' olarak ayarlandı</string>
@@ -148,7 +150,7 @@
     <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
     <string name="enableAutoRestore">Otomatik geri yüklemeyi etkinleştir</string>
     <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
-    <string name="disableBatOptim">Pil Optimizasyonunu Devre Dışı Bırak</string>
+    <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
@@ -211,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Yedekleme Hatırlatıcılarını Göster</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
-    <string name="prefAutoBackupSummary">Setup auto backups to local or cloud storage when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
