@@ -16,6 +16,7 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Droid.Worker;
 using Google.Android.Material.Button;
+using Google.Android.Material.Dialog;
 using Google.Android.Material.SwitchMaterial;
 using Java.Util.Concurrent;
 using Logger = AuthenticatorPro.Droid.Util.Logger;
@@ -35,7 +36,6 @@ namespace AuthenticatorPro.Droid.Fragment
         private SwitchMaterial _restoreEnabledSwitch;
         private MaterialButton _backupNowButton;
         private MaterialButton _restoreNowButton;
-        private LinearLayout _batOptimLayout;
         private MaterialButton _okButton;
         
         public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup) { }
@@ -86,15 +86,20 @@ namespace AuthenticatorPro.Droid.Fragment
             _restoreNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonRestoreNow);
             _restoreNowButton.Click += OnRestoreNowButtonClick;
 
-            _batOptimLayout = view.FindViewById<LinearLayout>(Resource.Id.layoutBatOptim);
-            var disableBatOptimButton = view.FindViewById<MaterialButton>(Resource.Id.buttonDisableBatOptim);
-            disableBatOptimButton.Click += OnDisableBatOptimButtonClick;
-
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
+            void SwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs args)
+            {
+                if(args.IsChecked)
+                    ShowBatteryOptimisationDialog();
+            };
+            
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
+            _backupEnabledSwitch.CheckedChange += SwitchChecked;
+            
             _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
+            _restoreEnabledSwitch.CheckedChange += SwitchChecked;
 
             UpdateLocationStatusText();
             UpdatePasswordStatusText();
@@ -106,15 +111,6 @@ namespace AuthenticatorPro.Droid.Fragment
         public override void OnResume()
         {
             base.OnResume();
-            
-            if(Build.VERSION.SdkInt < BuildVersionCodes.M)
-                return;
-            
-            var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
-
-            _batOptimLayout.Visibility = powerManager.IsIgnoringBatteryOptimizations(Context.PackageName)
-                ? ViewStates.Gone
-                : ViewStates.Visible;
         }
 
         public override void OnDismiss(IDialogInterface dialog)
@@ -237,11 +233,28 @@ namespace AuthenticatorPro.Droid.Fragment
                 _backupEnabledSwitch.Checked = _restoreEnabledSwitch.Checked = false;
         }
 
-        private void OnDisableBatOptimButtonClick(object sender, EventArgs e)
+        private void ShowBatteryOptimisationDialog()
         {
-            var intent = new Intent(Settings.ActionRequestIgnoreBatteryOptimizations);
-            intent.SetData(Uri.Parse($"package:{Context.PackageName}"));
-            StartActivity(intent);
+            if(Build.VERSION.SdkInt < BuildVersionCodes.M)
+                return;
+            
+            var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
+
+            if(powerManager.IsIgnoringBatteryOptimizations(Context.PackageName))
+                return;
+            
+            var builder = new MaterialAlertDialogBuilder(Context)
+                .SetTitle(Resource.String.batOptim)
+                .SetMessage(Resource.String.disableBatOptimMessage)
+                .SetNegativeButton(Resource.String.ignore, delegate { })
+                .SetPositiveButton(Resource.String.disable, delegate
+                {
+                    var intent = new Intent(Settings.ActionRequestIgnoreBatteryOptimizations);
+                    intent.SetData(Uri.Parse($"package:{Context.PackageName}"));
+                    StartActivity(intent);
+                });
+            
+            builder.Create().Show();
         }
     }
 }

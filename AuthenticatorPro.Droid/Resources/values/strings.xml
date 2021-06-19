@@ -13,6 +13,8 @@
     <string name="close">Close</string>
     <string name="error">Error</string>
     <string name="retry">Retry</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
 
     <!-- Menu items -->
     <string name="settings">Settings</string>
@@ -170,8 +172,8 @@
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
-    
-    <string name="disableBatOptim">Disable Battery Optimisation</string>
+   
+    <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
