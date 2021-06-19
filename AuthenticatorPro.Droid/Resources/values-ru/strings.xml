@@ -12,6 +12,8 @@
     <string name="close">Закрыть</string>
     <string name="error">Ошибка</string>
     <string name="retry">Retry</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -136,7 +138,7 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Выберите расположение и пароль для автоматического резервного копирования. Резервные копии выполняются при каких-либо изменениях.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Расположение не выбрано</string>
     <string name="locationSetTo">Расположение настроено как {0}</string>
@@ -148,7 +150,7 @@
     <string name="enableAutoBackupMessage">Автоматически создавать резервные копии в выбранное место хранения</string>
     <string name="enableAutoRestore">Включить автоматическое восстановление</string>
     <string name="enableAutoRestoreMessage">Автоматически восстанавливать последнюю резервную копию, найденную в выбранном месте хранения. Полезно для синхронизации между устройствами.</string>
-    <string name="disableBatOptim">Отключить экономию заряда батареи</string>
+    <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">На некоторых устройствах настройки питания могут предотвратить корректную работу резервных копий. Если у вас возникли проблемы, попробуйте отключить оптимизацию заряда батареи для Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
@@ -211,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
     <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.</string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
-    <string name="prefAutoBackupSummary">Настройка автоматического резервного копирования локального или облачного хранилища при внесении изменений. Отключает напоминания о резервном копировании.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Запрашивать пароль для доступа к аутентификаторам. База данных будет зашифрована с помощью пароля.</string>
