@@ -12,6 +12,8 @@
     <string name="close">Zatvoriť</string>
     <string name="error">Chyba</string>
     <string name="retry">Retry</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
     <!-- Menu items -->
     <string name="settings">Nastavenia</string>
     <string name="restore">Obnoviť</string>
@@ -136,7 +138,7 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Vybrať umiestnenie a heslo pre automatické zálohy. Zálohy sú naplánované po vykonaní zmien.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Vybrať umiestnenie</string>
     <string name="noLocationSelected">Umiestnenie nebolo vybraté</string>
     <string name="locationSetTo">Umiestnenie nastavené na \'{0}\'</string>
@@ -148,7 +150,7 @@
     <string name="enableAutoBackupMessage">Automaticky zálohovať na vybrané miesto v úložisku</string>
     <string name="enableAutoRestore">Povoliť automatické obnovenie</string>
     <string name="enableAutoRestoreMessage">Automaticky obnovovať poslednú zálohu nájdenú vo vybranom miesto v úložisku. Užitočné na synchronizáciu medzi zariadeniami.</string>
-    <string name="disableBatOptim">Vypnúť optimalizáciu batérie</string>
+    <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">Na niektorých zariadeniach môže nastavenie napájania zabrániť správnemu fungovaniu záloh. Ak máte problémy, skúste vypnúť optimalizáciu batérie pre aplikáciu Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
     <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
@@ -211,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Pripomienky zálohovania</string>
     <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory</string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Nastaviť automatické zálohovanie po vykonaní zmien do lokálneho alebo cloudového úložiska. Vypne pripomienky zálohovania.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
