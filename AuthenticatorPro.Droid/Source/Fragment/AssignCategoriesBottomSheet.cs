@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
             for(var i = 0; i < _categoryIds.Length; ++i)
             {
-                var chip = (Chip) inflater.Inflate(Resource.Layout.chipChoice, _chipGroup, false);
+                var chip = (Chip) StyledInflater.Inflate(Resource.Layout.chipChoice, _chipGroup, false);
                 chip.Text = _categoryNames[i];
                 chip.Checkable = true;
                 chip.Clickable = true;

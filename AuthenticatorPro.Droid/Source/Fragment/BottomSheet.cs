@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.View;
 using AndroidX.Fragment.App;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Data;
@@ -21,7 +22,9 @@ namespace AuthenticatorPro.Droid.Fragment
     internal abstract class BottomSheet : BottomSheetDialogFragment
     {
         private const int MaxWidth = 650;
+        
         private readonly int _layout;
+        protected LayoutInflater StyledInflater;
 
         protected BottomSheet(int layout)
         {
@@ -40,12 +43,14 @@ namespace AuthenticatorPro.Droid.Fragment
             return dialog;
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        public override View OnCreateView(LayoutInflater contextInflater, ViewGroup container, Bundle savedInstanceState)
         {
             var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
             var prefs = new PreferenceWrapper(Context);
             contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlay(prefs.AccentColour), true);
-            return inflater.CloneInContext(contextThemeWrapper).Inflate(_layout, container, false);
+            StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
+            
+            return StyledInflater.Inflate(_layout, container, false);
         }
 
         public override void Show(FragmentManager manager, string tag)
