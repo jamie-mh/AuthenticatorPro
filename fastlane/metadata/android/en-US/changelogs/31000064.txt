@@ -1,0 +1,5 @@
+- New feature: Tap to reveal
+- New feature: Ability to change accent colour
+- General: 6 new icons for Razer, SOGo, Tesla, Ubiquiti, VK and Zimbra
+- General: Bug fixes
+- General: Translation updates
