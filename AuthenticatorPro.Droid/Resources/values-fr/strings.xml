@@ -100,7 +100,7 @@
     <string name="setAsDefault">Définir comme categorie par défault</string>
     <string name="clearDefault">Effacer comme catégorie par défaut</string>
     <!-- Backups -->
-    <string name="backupNow">Sauvegarder</string>
+    <string name="backupNow">Sauvegarder maintenant</string>
     <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>

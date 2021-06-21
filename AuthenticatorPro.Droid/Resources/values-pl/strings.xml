@@ -12,8 +12,8 @@
     <string name="close">Zamknij</string>
     <string name="error">Błąd</string>
     <string name="retry">Powtórz</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="ignore">Ignoruj</string>
+    <string name="disable">Wyłącz</string>
     <!-- Menu items -->
     <string name="settings">Ustawienia</string>
     <string name="restore">Przywróć</string>
@@ -138,7 +138,7 @@
     <string name="reportVia">Zgłoś przez</string>
     <string name="errorCopiedToClipboard">Błąd skopiowany do schowka</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Wybierz lokalizację i hasło dla automatycznej kopii zapasowej. Kopie zapasowe są zaplanowane po dokonaniu zmian. Zapis w chmurze nie jest obsługiwany, zamiast tego użyj opcji kopii zapasowej w menu.</string>
     <string name="selectLocation">Wybierz lokalizację</string>
     <string name="noLocationSelected">Nie wybrano lokalizacji</string>
     <string name="locationSetTo">Lokalizacja: \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="enableAutoBackupMessage">Automatyczne tworzenie kopii zapasowych w wybranej lokalizacji</string>
     <string name="enableAutoRestore">Włącz automatyczne przywracanie</string>
     <string name="enableAutoRestoreMessage">Automatycznie przywróć najnowszą kopię zapasową znalezioną w wybranej lokalizacji. Przydatne do synchronizacji między urządzeniami.</string>
-    <string name="batOptim">Battery Optimisation</string>
+    <string name="batOptim">Optymalizacja baterii</string>
     <string name="disableBatOptimMessage">Na niektórych urządzeniach ustawienia zasilania mogą uniemożliwić prawidłowe działanie kopii zapasowych. Jeśli masz problemy, spróbuj wyłączyć optymalizację baterii dla Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
@@ -213,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Przypomnienia o kopii zapasowej</string>
     <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia ważnych zmian</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
