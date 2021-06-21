@@ -148,16 +148,27 @@ namespace AuthenticatorPro.Droid.Fragment
             manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace, request);
         }
 
-        private void OnSelectLocationClick(object sender, EventArgs e)
+        private void OnSelectLocationClick(object sender, EventArgs args)
         {
             var intent = new Intent(Intent.ActionOpenDocumentTree);
             intent.AddFlags(ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission | ActivityFlags.GrantPersistableUriPermission | ActivityFlags.GrantPrefixUriPermission);
 
             if(_preferences.AutoBackupUri != null)
                 intent.PutExtra(DocumentsContract.ExtraInitialUri, _preferences.AutoBackupUri);
-            
-            ((SettingsActivity) Context).BaseApplication.PreventNextLock = true;
-            _locationSelectResultLauncher.Launch(intent);
+           
+            var baseApplication = ((SettingsActivity) Context).BaseApplication;
+            baseApplication.PreventNextLock = true;
+
+            try
+            {
+                _locationSelectResultLauncher.Launch(intent);
+            }
+            catch(ActivityNotFoundException e)
+            {
+                Logger.Error(e);
+                Toast.MakeText(Context, Resource.String.filePickerMissing, ToastLength.Long);
+                baseApplication.PreventNextLock = false;
+            }
         }
         
         private void OnSetPasswordButtonClick(object sender, EventArgs e)
