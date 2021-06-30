@@ -15,7 +15,7 @@ Kimlik doğrulama kodlarınızı güçlü şifreleme ile yedekleyin. Telefonunuz
 Desteklenen alternatif uygulamalardan hesaplarınızı Authenticator Pro'ya kolayca aktarın.
 
 <b>Karanlık Mod</b>
-Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+Authenticator Pro, material design'dan ilham alan açık ve koyu temalar ile güzel bir görünüme sahiptir.
 
 <b>Simgeler</b>
 Her kodun yanındaki marka logoları ve simgelerle kimlik doğrulama kodlarını kolayca bulun.
