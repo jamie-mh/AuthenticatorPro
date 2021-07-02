@@ -282,7 +282,7 @@
       <Version>1.0.0.9</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime">
-      <Version>2.5.0.1</Version>
+      <Version>2.5.0.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.6.1</Version>
