@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal abstract class BottomSheet : BottomSheetDialogFragment
     {
-        private const int MaxWidth = 650;
+        private const int MaxWidth = 600;
         
         private readonly int _layout;
         protected LayoutInflater StyledInflater;
