@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Droid.Activity
             _pager = FindViewById<ViewPager2>(Resource.Id.viewPager);
             _nav = FindViewById<BottomNavigationView>(Resource.Id.navigationView);
 
-            _nav.NavigationItemSelected += OnNavigationItemSelected;
+            _nav.ItemSelected += OnItemSelected;
 
             var callback = new PageChangeCallback();
             callback.PageSelect += delegate { OnPageSelected(); };
@@ -51,9 +51,9 @@ namespace AuthenticatorPro.Droid.Activity
             _nav.Menu.FindItem(Resource.Id.intro_done).SetVisible(_pager.CurrentItem == _pageCount - 1);
         }
 
-        private void OnNavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
+        private void OnItemSelected(object sender, BottomNavigationView.ItemSelectedEventArgs e)
         {
-            switch(e.Item.ItemId)
+            switch(e.P0.ItemId)
             {
                 case Resource.Id.intro_prev:
                     _pager.CurrentItem--;
