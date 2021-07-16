@@ -53,8 +53,8 @@ namespace AuthenticatorPro.Droid.List
             if(_movementEndPosition == -1)
                 _adapter.NotifyMovementStarted();
 
-            _movementEndPosition = target.AdapterPosition;
-            _adapter.MoveItemView(viewHolder.AdapterPosition, target.AdapterPosition);
+            _movementEndPosition = target.BindingAdapterPosition;
+            _adapter.MoveItemView(viewHolder.BindingAdapterPosition, target.BindingAdapterPosition);
             return true;
         }
 
@@ -66,7 +66,7 @@ namespace AuthenticatorPro.Droid.List
             {
                 case ItemTouchHelper.ActionStateDrag:
                 {
-                    _movementStartPosition = viewHolder.AdapterPosition;
+                    _movementStartPosition = viewHolder.BindingAdapterPosition;
 
                     if(viewHolder.ItemView is MaterialCardView card)
                         card.Dragged = true;

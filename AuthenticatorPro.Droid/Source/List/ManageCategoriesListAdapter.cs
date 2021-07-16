@@ -68,7 +68,7 @@ namespace AuthenticatorPro.Droid.List
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemManageCategory, parent, false);
 
             var holder = new ManageCategoriesListHolder(itemView);
-            holder.MenuButton.Click += delegate { MenuClick(this, holder.AdapterPosition); };
+            holder.MenuButton.Click += delegate { MenuClick(this, holder.BindingAdapterPosition); };
 
             return holder;
         }

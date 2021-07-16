@@ -186,7 +186,7 @@ namespace AuthenticatorPro.Droid.List
             base.OnViewAttachedToWindow(holderObj);
             
             var holder = (AuthenticatorListHolder) holderObj;
-            var auth = _authSource.Get(holder.AdapterPosition);
+            var auth = _authSource.Get(holder.BindingAdapterPosition);
 
             if(auth == null || auth.Type.GetGenerationMethod() != GenerationMethod.Time)
                 return;
@@ -327,8 +327,8 @@ namespace AuthenticatorPro.Droid.List
 
             var holder = new AuthenticatorListHolder(itemView);
             holder.ItemView.Click += delegate { OnItemClick(holder); };
-            holder.MenuButton.Click += delegate { MenuClick.Invoke(this, holder.AdapterPosition); };
-            holder.RefreshButton.Click += delegate { OnRefreshClick(holder.AdapterPosition); };
+            holder.MenuButton.Click += delegate { MenuClick.Invoke(this, holder.BindingAdapterPosition); };
+            holder.RefreshButton.Click += delegate { OnRefreshClick(holder.BindingAdapterPosition); };
 
             return holder;
         }
@@ -337,7 +337,7 @@ namespace AuthenticatorPro.Droid.List
         {
             if(_tapToReveal)
             {
-                var auth = _authSource.Get(holder.AdapterPosition);
+                var auth = _authSource.Get(holder.BindingAdapterPosition);
 
                 if(auth != null)
                 {
@@ -346,7 +346,7 @@ namespace AuthenticatorPro.Droid.List
                 }
             }
             
-            ItemClick?.Invoke(this, holder.AdapterPosition); 
+            ItemClick?.Invoke(this, holder.BindingAdapterPosition); 
         }
 
         private async void OnRefreshClick(int position)

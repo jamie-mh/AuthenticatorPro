@@ -78,12 +78,12 @@ namespace AuthenticatorPro.WearOS.List
             var holder = new AuthenticatorListHolder(view);
             holder.ItemView.Click += delegate
             {
-                ItemClick?.Invoke(this, holder.AdapterPosition);
+                ItemClick?.Invoke(this, holder.BindingAdapterPosition);
             };
 
             holder.ItemView.LongClick += delegate
             {
-                ItemLongClick?.Invoke(this, holder.AdapterPosition);
+                ItemLongClick?.Invoke(this, holder.BindingAdapterPosition);
             };
 
             return holder;
