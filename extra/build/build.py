@@ -62,8 +62,7 @@ def adjust_version_code():
     version_code = manifest.getroot().get(version_code_path)
     manifest.getroot().set(version_code_path, "100" + version_code[1:])
 
-    with open(manifest_path, "wb") as file:
-        manifest.write(file, xml_declaration=True, encoding="utf-8")
+    manifest.write(manifest_path, xml_declaration=True, encoding="utf-8")
 
 
 def build_project(args: argparse.Namespace):
