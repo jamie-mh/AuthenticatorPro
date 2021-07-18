@@ -100,35 +100,51 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
 
+        private string GetAppVersion()
+        {
+            try
+            {
+                var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
+                return packageInfo.VersionName;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private string GetDeviceName()
+        {
+            if(Build.Manufacturer != null && Build.Model.StartsWith(Build.Manufacturer))
+                return Build.Model;
+           
+            return $"{Build.Manufacturer} {Build.Model}";
+        }
+
+        private string GetAndroidVersion()
+        {
+            return Build.VERSION.Release == null
+                ? null
+                : $"{Build.VERSION.Release} (API {Build.VERSION.SdkInt})";
+        }
+
         private void ReportEmail()
         {
             var intent = new Intent(Intent.ActionSendto);
             intent.SetData(Uri.Parse("mailto:"));
             intent.PutExtra(Intent.ExtraEmail, new[] { Constants.ContactEmail });
             intent.PutExtra(Intent.ExtraSubject, "Bug report");
-
-            string version;
-            
-            try
-            {
-                var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
-                version = packageInfo.VersionName;
-            }
-            catch
-            {
-                version = "unknown";
-            }
             
             var body = new StringBuilder();
-            body.AppendLine("-- please fill out the following information --");
+            body.AppendLine("== Please describe the bug here ==");
             body.AppendLine();
-            body.AppendLine("Describe the bug: ");
             body.AppendLine();
-            body.AppendLine("Steps to reproduce: ");
             body.AppendLine();
-            body.AppendLine("Additional context: ");
+            body.AppendLine($"App version: {GetAppVersion()}");
             body.AppendLine();
-            body.AppendLine($"App version: {version}");
+            body.AppendLine($"Device name: {GetDeviceName()}");
+            body.AppendLine();
+            body.AppendLine($"Android version: {GetAndroidVersion()}");
             body.AppendLine();
             body.AppendLine("Error log:");
             body.AppendLine();
