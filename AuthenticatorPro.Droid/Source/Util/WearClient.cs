@@ -34,8 +34,17 @@ namespace AuthenticatorPro.Droid.Util
 
         public async Task StartListening()
         {
-            if(_hasWearApis)
+            if(!_hasWearApis)
+                return;
+
+            try
+            {
                 await WearableClass.GetCapabilityClient(_context).AddListenerAsync(this, RefreshCapability);
+            }
+            catch(ApiException e)
+            {
+                Logger.Error(e);
+            }
         }
 
         public async Task StopListening()
