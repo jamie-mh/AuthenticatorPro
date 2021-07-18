@@ -463,6 +463,9 @@ namespace AuthenticatorPro.Droid.Activity
 
         public override bool OnMenuOpened(int featureId, IMenu menu)
         {
+            if(_authSource == null)
+                return base.OnMenuOpened(featureId, menu);
+            
             var sortItemId = _authSource.SortMode switch
             {
                 SortMode.AlphabeticalAscending => Resource.Id.actionSortAZ,
