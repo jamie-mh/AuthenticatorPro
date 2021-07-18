@@ -74,23 +74,27 @@ namespace AuthenticatorPro.Droid.Data
 
         public static async Task<SQLiteAsyncConnection> GetPrivateConnection(string password)
         {
-            var dbPath = GetPath();
+            var path = GetPath();
+            var firstLaunch = !File.Exists(path);
 
             if(password == "")
                 password = null;
 
-            var connStr = new SQLiteConnectionString(dbPath, Flags, true, password, null, conn =>
+            var connStr = new SQLiteConnectionString(path, Flags, true, password, null, conn =>
             {
                 // TODO: update to SQLCipher 4 encryption
                 // Performance issue: https://github.com/praeclarum/sqlite-net/issues/978
-                conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
+                if(password != null)
+                    conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
             });
             
             var connection = new SQLiteAsyncConnection(connStr);
 
             try
             {
-                await AttemptAndRetry(() => connection.EnableWriteAheadLoggingAsync());
+                if(firstLaunch)
+                    await AttemptAndRetry(() => connection.EnableWriteAheadLoggingAsync());
+                
                 await AttemptAndRetry(() => connection.CreateTableAsync<Authenticator>());
                 await AttemptAndRetry(() => connection.CreateTableAsync<Category>());
                 await AttemptAndRetry(() => connection.CreateTableAsync<AuthenticatorCategory>());
