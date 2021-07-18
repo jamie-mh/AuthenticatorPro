@@ -70,7 +70,7 @@ def build_project(args: argparse.Namespace):
     os.system(f'msbuild "{BUILD_DIR}/AuthenticatorPro.sln" -t:Restore')
     os.system(f'mkdir -p "{args.output}"')
 
-    msbuild_args = f'-p:Configuration="Release" -p:AndroidSdkDirectory="{args.sdk}" -p:AndroidNdkDirectory="{args.ndk}"'
+    msbuild_args = f'-p:Configuration="Release" -p:AndroidSdkDirectory="{args.sdk}" -p:AndroidNdkDirectory="{args.ndk}" -p:JavaSdkDirectory="{args.jdk}"'
     os.system(f'msbuild "{BUILD_DIR}/{args.project}/{args.project}.csproj" {msbuild_args} -p:OutputPath="{args.output}" -t:PackageForAndroid')
 
     if args.keystore is not None:
@@ -99,6 +99,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument("--output", type=str, help="Build output path (defaults to 'out')", default="out")
     parser.add_argument("--sdk", type=str, help="Android SDK location (defaults to $ANDROID_SDK)", default=os.getenv("ANDROID_SDK"))
     parser.add_argument("--ndk", type=str, help="Android NDK location (defaults to $ANDROID_NDK)", default=os.getenv("ANDROID_NDK"))
+    parser.add_argument("--jdk", type=str, help="JDK location (defaults to $JAVA_HOME)", default=os.getenv("JAVA_HOME"))
 
     signing = parser.add_argument_group("build signing")
     signing.add_argument("--keystore", type=str, help="Keystore location (if not set, output is signed with debug keystore)")
@@ -113,6 +114,9 @@ def get_args() -> argparse.Namespace:
 
     if args.ndk is None:
         raise RuntimeError("error: No Android NDK defined")
+
+    if args.jdk is None:
+        raise RuntimeError("error: No JDK defined")
 
     if args.keystore is not None:
         if args.keystore_pass is None or args.keystore_alias is None or args.keystore_key_pass is None:
