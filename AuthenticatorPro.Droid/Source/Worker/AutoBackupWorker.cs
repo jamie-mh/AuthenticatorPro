@@ -31,8 +31,7 @@ namespace AuthenticatorPro.Droid.Worker
         private readonly PreferenceWrapper _preferences;
         private readonly Lazy<Task> _initTask;
         private bool _shouldCloseDatabase;
-        
-        private SQLiteAsyncConnection _connection;
+
         private AuthenticatorSource _authSource;
         private CategorySource _categorySource;
         private CustomIconSource _customIconSource;
@@ -45,18 +44,20 @@ namespace AuthenticatorPro.Droid.Worker
             
             _initTask = new Lazy<Task>(async delegate
             {
+                SQLiteAsyncConnection connection;
+                
                 if(Database.IsOpen)
-                    _connection = Database.GetConnection();
+                    connection = Database.GetConnection();
                 else
                 {
                     var password = await SecureStorageWrapper.GetDatabasePassword();
-                    _connection = await Database.Open(password);
+                    connection = await Database.Open(password);
                     _shouldCloseDatabase = true;
                 }
                 
-                _customIconSource = new CustomIconSource(_connection);
-                _categorySource = new CategorySource(_connection);
-                _authSource = new AuthenticatorSource(_connection);
+                _customIconSource = new CustomIconSource(connection);
+                _categorySource = new CategorySource(connection);
+                _authSource = new AuthenticatorSource(connection);
 
                 await _categorySource.Update();
                 await _customIconSource.Update();
