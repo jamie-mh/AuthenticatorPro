@@ -157,7 +157,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 intent.PutExtra(DocumentsContract.ExtraInitialUri, _preferences.AutoBackupUri);
            
             var baseApplication = ((SettingsActivity) Context).BaseApplication;
-            baseApplication.PreventNextLock = true;
+            baseApplication.PreventNextStop = true;
 
             try
             {
@@ -167,7 +167,7 @@ namespace AuthenticatorPro.Droid.Fragment
             {
                 Logger.Error(e);
                 Toast.MakeText(Context, Resource.String.filePickerMissing, ToastLength.Long);
-                baseApplication.PreventNextLock = false;
+                baseApplication.PreventNextStop = false;
             }
         }
         

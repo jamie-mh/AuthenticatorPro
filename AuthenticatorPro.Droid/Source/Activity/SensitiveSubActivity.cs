@@ -1,6 +1,8 @@
 // Copyright (C) 2021 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Droid.Data;
+
 namespace AuthenticatorPro.Droid.Activity
 {
     internal abstract class SensitiveSubActivity : BaseActivity
@@ -11,7 +13,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnResume();
             
-            if(BaseApplication.IsLocked)
+            if(!Database.IsOpen)
                 Finish();
         }
     }

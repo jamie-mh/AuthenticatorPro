@@ -192,7 +192,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 await UnlockIfRequired();
-                connection = await Database.GetSharedConnection();
+                connection = Database.GetConnection();
             }
             catch(InvalidOperationException)
             {
@@ -595,7 +595,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        public override async void OnBackPressed()
+        public override void OnBackPressed()
         {
             var searchBarWasClosed = false;
             
@@ -632,7 +632,6 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
 
-            await BaseApplication.Lock();
             Finish();
         }
 
@@ -653,21 +652,21 @@ namespace AuthenticatorPro.Droid.Activity
         #region Database
         private async Task UnlockIfRequired()
         {
-            switch(BaseApplication.IsLocked)
+            switch(Database.IsOpen)
             {
                 // Unlocked, no need to do anything
-                case false:
+                case true:
                     return;
                 
                 // Locked and has password, wait for unlock in unlockactivity
-                case true when _preferences.PasswordProtected:
+                case false when _preferences.PasswordProtected:
                     StartActivityForResult(typeof(UnlockActivity), RequestUnlock);
                     await _unlockDatabaseLock.WaitAsync();
                     break;
                     
                 // Locked but no password, unlock now
-                case true:
-                    await BaseApplication.Unlock(null);
+                case false:
+                    await Database.Open(null);
                     break;
             }
         }
@@ -687,7 +686,7 @@ namespace AuthenticatorPro.Droid.Activity
             
             builder.SetPositiveButton(Resource.String.retry, async delegate
             {
-                await BaseApplication.Lock();
+                await Database.Close();
                 Recreate();
             });
             
@@ -2087,7 +2086,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType(mimeType);
 
-            BaseApplication.PreventNextLock = true;
+            BaseApplication.PreventNextStop = true;
 
             try
             {
@@ -2106,7 +2105,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.SetType(mimeType);
             intent.PutExtra(Intent.ExtraTitle, fileName);
 
-            BaseApplication.PreventNextLock = true;
+            BaseApplication.PreventNextStop = true;
             
             try
             {

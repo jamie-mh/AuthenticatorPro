@@ -10,6 +10,7 @@ using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
@@ -113,7 +114,7 @@ namespace AuthenticatorPro.Droid.Activity
             
             try
             {
-                await BaseApplication.Unlock(password);
+                await Database.Open(password);
             }
             catch
             {

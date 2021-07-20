@@ -119,9 +119,6 @@ namespace AuthenticatorPro.Droid.Fragment
                 Logger.Error(e);
             }
             
-            var app = ((SettingsActivity) Context).BaseApplication;
-            await app.Unlock(newPassword);
-            
             Dismiss();
         }
 

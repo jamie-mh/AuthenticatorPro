@@ -3,7 +3,6 @@
 
 using System;
 using System.IO;
-using System.Threading;
 using System.Threading.Tasks;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Util;
@@ -20,60 +19,31 @@ namespace AuthenticatorPro.Droid.Data
         private const string FileName = "proauth.db3";
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.SharedCache;
         
-        private static readonly SemaphoreSlim SharedLock = new SemaphoreSlim(1, 1);
-        private static SQLiteAsyncConnection _sharedConnection;
+        private static SQLiteAsyncConnection _connection;
+        public static bool IsOpen => _connection != null;
 
-        public static async Task<SQLiteAsyncConnection> GetSharedConnection()
+        public static SQLiteAsyncConnection GetConnection()
         {
-            await SharedLock.WaitAsync();
-
-            if(_sharedConnection == null)
-            {
-                SharedLock.Release();
+            if(_connection == null)
                 throw new InvalidOperationException("Shared connection not open");
-            }
-
-            SharedLock.Release();
-            return _sharedConnection;
+                                
+            return _connection;
         }
 
-        public static async Task OpenSharedConnection(string password)
+        public static async Task Close()
         {
-            await SharedLock.WaitAsync();
-
-            try
-            {
-                _sharedConnection = await GetPrivateConnection(password);
-            }
-            finally
-            {
-                SharedLock.Release();
-            }
-        }
-
-        public static async Task CloseSharedConnection()
-        {
-            await SharedLock.WaitAsync();
-
-            if(_sharedConnection == null)
-            {
-                SharedLock.Release(); 
+            if(_connection == null)
                 return;
-            }
 
-            try
-            {
-                await _sharedConnection.CloseAsync();
-                _sharedConnection = null;
-            }
-            finally
-            {
-                SharedLock.Release();
-            }
+            await _connection.CloseAsync();
+            _connection = null;
         }
 
-        public static async Task<SQLiteAsyncConnection> GetPrivateConnection(string password)
+        public static async Task<SQLiteAsyncConnection> Open(string password)
         {
+            if(_connection != null)
+                await Close();
+            
             var path = GetPath();
             var firstLaunch = !File.Exists(path);
 
@@ -88,31 +58,32 @@ namespace AuthenticatorPro.Droid.Data
                     conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
             });
             
-            var connection = new SQLiteAsyncConnection(connStr);
+            _connection = new SQLiteAsyncConnection(connStr);
 
             try
             {
                 if(firstLaunch)
-                    await AttemptAndRetry(() => connection.EnableWriteAheadLoggingAsync());
+                    await AttemptAndRetry(() => _connection.EnableWriteAheadLoggingAsync());
                 
-                await AttemptAndRetry(() => connection.CreateTableAsync<Authenticator>());
-                await AttemptAndRetry(() => connection.CreateTableAsync<Category>());
-                await AttemptAndRetry(() => connection.CreateTableAsync<AuthenticatorCategory>());
-                await AttemptAndRetry(() => connection.CreateTableAsync<CustomIcon>());
+                await AttemptAndRetry(() => _connection.CreateTableAsync<Authenticator>());
+                await AttemptAndRetry(() => _connection.CreateTableAsync<Category>());
+                await AttemptAndRetry(() => _connection.CreateTableAsync<AuthenticatorCategory>());
+                await AttemptAndRetry(() => _connection.CreateTableAsync<CustomIcon>());
             }
             catch
             {
-                await connection.CloseAsync();
+                await _connection.CloseAsync();
+                _connection = null;
                 throw;
             }
 
 #if DEBUG
-            connection.Trace = true;
-            connection.Tracer = Logger.Info;
-            connection.TimeExecution = true;
+            _connection.Trace = true;
+            _connection.Tracer = Logger.Info;
+            _connection.TimeExecution = true;
 #endif
 
-            return connection;
+            return _connection;
         }
         
         private static Task AttemptAndRetry(Func<Task> action, int numRetries = 4)
@@ -152,7 +123,7 @@ namespace AuthenticatorPro.Droid.Data
 
             try
             {
-                conn = await GetPrivateConnection(currentPassword);
+                conn = GetConnection();
                 await conn.ExecuteScalarAsync<string>("PRAGMA wal_checkpoint(TRUNCATE)");
             }
             catch
@@ -187,25 +158,25 @@ namespace AuthenticatorPro.Droid.Data
                 finally
                 {
                     await conn.ExecuteAsync("DETACH DATABASE temporary");
-                    await conn.CloseAsync();
                 }
                 
                 try
                 {
+                    await Close();
                     DeleteDatabase();
                     File.Move(tempPath, dbPath);
-                    conn = await GetPrivateConnection(newPassword);
+                    conn = await Open(newPassword);
                 }
                 catch
                 {
                     // Perhaps it wasn't moved correctly
                     File.Delete(tempPath);
                     RestoreBackup();
+                    await Open(currentPassword);
                     throw;
                 }
                 finally
                 {
-                    await conn.CloseAsync();
                     File.Delete(backupPath);
                 }
             }
@@ -217,27 +188,15 @@ namespace AuthenticatorPro.Droid.Data
 
                 try
                 {
-                    try
-                    {
-                        await conn.ExecuteAsync($"PRAGMA rekey = {quoted}");
-                    }
-                    finally
-                    {
-                        await conn.CloseAsync();
-                    }
+                    await conn.ExecuteAsync($"PRAGMA rekey = {quoted}");
 
-                    try
-                    {
-                        conn = await GetPrivateConnection(newPassword);
-                    }
-                    finally
-                    {
-                        await conn.CloseAsync();
-                    }
+                    await Close();
+                    conn = await Open(newPassword);
                 }
                 catch
                 {
                     RestoreBackup();
+                    await Open(currentPassword);
                     throw;
                 }
                 finally

@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
-using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -23,10 +22,7 @@ namespace AuthenticatorPro.Droid
 #endif
     internal class BaseApplication : Application, ILifecycleObserver
     {
-        private int _isLocked;
-        public bool IsLocked => Interlocked.CompareExchange(ref _isLocked, 0, 0) == 1;
-        
-        public bool PreventNextLock { get; set; }
+        public bool PreventNextStop { get; set; }
         
         private Timer _timeoutTimer;
         private PreferenceWrapper _preferences;
@@ -43,7 +39,6 @@ namespace AuthenticatorPro.Droid
             
             ProcessLifecycleOwner.Get().Lifecycle.AddObserver(this);
             _preferences = new PreferenceWrapper(Context);
-            Interlocked.Exchange(ref _isLocked, 1);
         }
 
         private void OnAndroidEnvironmentUnhandledExceptionRaised(object sender, RaiseThrowableEventArgs e)
@@ -77,16 +72,16 @@ namespace AuthenticatorPro.Droid
         [Export]
         public async void OnStopped()
         {
-            if(PreventNextLock)
+            if(PreventNextStop)
             {
-                PreventNextLock = false;
+                PreventNextStop = false;
                 return;
             }
 
             int timeout;
             
             if(!_preferences.PasswordProtected || (timeout = _preferences.Timeout) == 0)
-                await Lock();
+                await Database.Close();
             else
             {
                 _timeoutTimer = new Timer(timeout * 1000)
@@ -96,7 +91,7 @@ namespace AuthenticatorPro.Droid
                 
                 _timeoutTimer.Elapsed += async delegate
                 {
-                    await Lock();
+                    await Database.Close();
                 };
                 
                 _timeoutTimer.Start();
@@ -114,25 +109,7 @@ namespace AuthenticatorPro.Droid
         [Export]
         public async void OnDestroyed()
         {
-            await Lock();
-        }
-
-        public async Task Unlock(string password)
-        {
-            if(!IsLocked)
-                await Lock();
-            
-            await Database.OpenSharedConnection(password);
-            Interlocked.Exchange(ref _isLocked, 0);
-        }
-
-        public async Task Lock()
-        {
-            if(IsLocked)
-                return;
-            
-            await Database.CloseSharedConnection();
-            Interlocked.Exchange(ref _isLocked, 1);
+            await Database.Close();
         }
     }
 }

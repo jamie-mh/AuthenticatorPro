@@ -28,6 +28,7 @@ namespace AuthenticatorPro.Droid.Service
         private const string GetSyncBundleCapability = "get_sync_bundle";
         private const string GetCustomIconCapability = "get_custom_icon";
 
+        private bool _shouldCloseDatabase;
         private readonly Lazy<Task> _initTask;
         
         private SQLiteAsyncConnection _connection;
@@ -37,10 +38,19 @@ namespace AuthenticatorPro.Droid.Service
         
         public WearQueryService()
         {
+            _shouldCloseDatabase = false;
+            
             _initTask = new Lazy<Task>(async delegate
             {
-                var password = await SecureStorageWrapper.GetDatabasePassword();
-                _connection = await Database.GetPrivateConnection(password);
+                if(Database.IsOpen)
+                    _connection = Database.GetConnection();
+                else
+                {
+                    var password = await SecureStorageWrapper.GetDatabasePassword();
+                    _connection = await Database.Open(password);
+                    _shouldCloseDatabase = true;
+                }
+                
                 _customIconSource = new CustomIconSource(_connection);
                 _categorySource = new CategorySource(_connection);
                 _authSource = new AuthenticatorSource(_connection);
@@ -51,8 +61,8 @@ namespace AuthenticatorPro.Droid.Service
         {
             base.OnDestroy();
 
-            if(_connection != null)
-                await _connection.CloseAsync();
+            if(_shouldCloseDatabase)
+                await Database.Close();
         }
 
         private async Task GetSyncBundle(string nodeId)
