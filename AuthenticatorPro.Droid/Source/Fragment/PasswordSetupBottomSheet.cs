@@ -6,7 +6,6 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
