@@ -192,7 +192,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 await UnlockIfRequired();
-                connection = Database.GetConnection();
+                connection = await Database.GetConnection();
             }
             catch(InvalidOperationException)
             {

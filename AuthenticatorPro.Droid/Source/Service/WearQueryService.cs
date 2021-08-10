@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Droid.Service
                 SQLiteAsyncConnection connection;
                 
                 if(Database.IsOpen)
-                    connection = Database.GetConnection();
+                    connection = await Database.GetConnection();
                 else
                 {
                     var password = await SecureStorageWrapper.GetDatabasePassword();

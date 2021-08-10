@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Droid.Activity
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddClick;
 
-            var connection = Database.GetConnection();
+            var connection = await Database.GetConnection();
             _categorySource = new CategorySource(connection);
             _categoryListAdapter = new ManageCategoriesListAdapter(_categorySource);
             _categoryListAdapter.MenuClick += OnMenuClick;

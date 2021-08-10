@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Util;
@@ -18,31 +19,52 @@ namespace AuthenticatorPro.Droid.Data
     {
         private const string FileName = "proauth.db3";
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.SharedCache;
-        
+       
+        private static readonly SemaphoreSlim Lock = new SemaphoreSlim(1, 1);
         private static SQLiteAsyncConnection _connection;
         public static bool IsOpen => _connection != null;
 
-        public static SQLiteAsyncConnection GetConnection()
+        public static async Task<SQLiteAsyncConnection> GetConnection()
         {
+            await Lock.WaitAsync();
+
             if(_connection == null)
-                throw new InvalidOperationException("Shared connection not open");
-                                
+            {
+                Lock.Release();
+                throw new InvalidOperationException("Connection not open");
+            }
+
+            Lock.Release();
             return _connection;
         }
 
         public static async Task Close()
         {
-            if(_connection == null)
-                return;
+            await Lock.WaitAsync();
 
-            await _connection.CloseAsync();
-            _connection = null;
+            if(_connection == null)
+            {
+                Lock.Release(); 
+                return;
+            }
+
+            try
+            {
+                await _connection.CloseAsync();
+                _connection = null;
+            }
+            finally
+            {
+                Lock.Release();
+            }
         }
 
         public static async Task<SQLiteAsyncConnection> Open(string password)
         {
             if(_connection != null)
                 await Close();
+
+            await Lock.WaitAsync();
             
             var path = GetPath();
             var firstLaunch = !File.Exists(path);
@@ -72,8 +94,8 @@ namespace AuthenticatorPro.Droid.Data
             }
             catch
             {
-                await _connection.CloseAsync();
-                _connection = null;
+                Lock.Release();
+                await Close();
                 throw;
             }
 
@@ -83,6 +105,7 @@ namespace AuthenticatorPro.Droid.Data
             _connection.TimeExecution = true;
 #endif
 
+            Lock.Release();
             return _connection;
         }
         
@@ -123,7 +146,7 @@ namespace AuthenticatorPro.Droid.Data
 
             try
             {
-                conn = GetConnection();
+                conn = await GetConnection();
                 await conn.ExecuteScalarAsync<string>("PRAGMA wal_checkpoint(TRUNCATE)");
             }
             catch
