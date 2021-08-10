@@ -214,6 +214,8 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Password</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -248,7 +250,8 @@
     <string name="defaultViewMode">Default</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>
