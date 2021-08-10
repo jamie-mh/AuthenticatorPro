@@ -20,6 +20,14 @@ namespace AuthenticatorPro.Droid.Util
             get => Preferences.GetBoolean(ShowBackupRemindersKey, ShowBackupRemindersDefault);
             set => SetPreference(ShowBackupRemindersKey, value);
         }
+        
+        private const string LanguageKey = "pref_language";
+        private const string LanguageDefault = "system";
+        public string Language
+        {
+            get => Preferences.GetString(LanguageKey, LanguageDefault);
+            set => SetPreference(LanguageKey, value);
+        }
 
         private const string PasswordProtectedKey = "pref_passwordProtected";
         private const bool PasswordProtectedDefault = false;

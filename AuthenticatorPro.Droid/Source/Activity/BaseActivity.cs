@@ -1,11 +1,13 @@
 // Copyright (C) 2021 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using Android.Content;
 using Android.Content.Res;
 using Android.OS;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Data;
 using AuthenticatorPro.Droid.Util;
+using Java.Util;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -17,7 +19,7 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly int _layout;
         private PreferenceWrapper _preferences;
         
-        private bool _checkedOnCreate;
+        private bool _updatedThemeOnCreate;
         private string _lastTheme;
 
         protected BaseActivity(int layout)
@@ -28,9 +30,8 @@ namespace AuthenticatorPro.Droid.Activity
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _preferences = new PreferenceWrapper(this);
             
-            _checkedOnCreate = true;
+            _updatedThemeOnCreate = true;
             UpdateTheme();
 
             BaseApplication = (BaseApplication) Application;
@@ -40,7 +41,43 @@ namespace AuthenticatorPro.Droid.Activity
 
             var overlay = AccentColourMap.GetOverlay(_preferences.AccentColour);
             Theme.ApplyStyle(overlay, true);
+            
             SetContentView(_layout);
+        }
+
+        protected override void AttachBaseContext(Context context)
+        {
+            _preferences = new PreferenceWrapper(context);
+            var language = _preferences.Language;
+
+            var resources = context.Resources;
+            var config = resources?.Configuration;
+            
+            Locale locale;
+
+            if(language == "system")
+                locale = Locale.Default;
+            else if(language.Contains('-'))
+            {
+                var parts = language.Split('-', 2);
+                locale = new Locale(parts[0], parts[1]);
+            }
+            else
+                locale = new Locale(language);
+
+            config?.SetLocale(locale);
+
+            if(Build.VERSION.SdkInt >= BuildVersionCodes.N)
+            {
+                if(config != null)
+                    context = context.CreateConfigurationContext(config);
+            }
+            else
+#pragma warning disable 618
+                resources?.UpdateConfiguration(config, resources.DisplayMetrics);
+#pragma warning restore 618
+            
+            base.AttachBaseContext(context);
         }
 
         protected void UpdateTheme()
@@ -75,9 +112,9 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnResume();
             
-            if(_checkedOnCreate)
+            if(_updatedThemeOnCreate)
             {
-                _checkedOnCreate = false;
+                _updatedThemeOnCreate = false;
                 return;
             }
             

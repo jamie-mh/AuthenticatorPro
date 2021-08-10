@@ -77,6 +77,11 @@ namespace AuthenticatorPro.Droid.Activity
                     _shouldRecreateMain = true;
                     break;
                 
+                case "pref_language":
+                    _shouldRecreateMain = true;
+                    Recreate();
+                    break;
+                
                 case "pref_tapToReveal":
                     _shouldRecreateMain = true;
                     break;

@@ -19,6 +19,14 @@
             android:title="@string/prefAutoBackupTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true" />
+        <androidx.preference.ListPreference
+            android:key="pref_language"
+            android:summary="@string/prefLanguageSummary"
+            android:title="@string/prefLanguageTitle"
+            app:iconSpaceReserved="false"
+            android:entries="@array/languageNames"
+            android:entryValues="@array/languageValues"
+            android:defaultValue="system" />
     </androidx.preference.PreferenceCategory>
     
     <androidx.preference.PreferenceCategory

@@ -263,6 +263,9 @@
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Password</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -306,8 +309,23 @@
     <string name="defaultViewMode">Default</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
-    
-    <!-- Arrays / Accent colours -->
+
+    <!-- Arrays > Languages -->
+    <string name="german" translatable="false">Deutsche</string>
+    <string name="english" translatable="false">English</string>
+    <string name="spanish" translatable="false">Español</string>
+    <string name="esperanto" translatable="false">Esperanto</string>
+    <string name="french" translatable="false">Français</string>
+    <string name="dutch" translatable="false">Nederlands</string>
+    <string name="polish" translatable="false">Polskie</string>
+    <string name="brazilianPortuguese" translatable="false">Portugues do Brasil</string>
+    <string name="russian" translatable="false">Pусский</string>
+    <string name="slovak" translatable="false">Slovensky</string>
+    <string name="turkish" translatable="false">Türk</string>
+    <string name="thai" translatable="false">ภาษาไทย</string>
+    <string name="chineseSimplified" translatable="false">简体中文</string>
+
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>
