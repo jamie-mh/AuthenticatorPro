@@ -122,21 +122,23 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     _progressIndicator.Visibility = ViewStates.Invisible;
                     _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
-                });
 
-                if(_failedAttempts > MaxAttempts)
-                {
+                    if(_failedAttempts <= MaxAttempts) 
+                        return;
+                    
                     Toast.MakeText(this, Resource.String.tooManyAttempts, ToastLength.Short).Show();
                     Finish();
-                    return;
-                }
+                });
                 
                 _failedAttempts++;
                 return;
             }
 
-            SetResult(Result.Ok);
-            Finish();
+            RunOnUiThread(delegate
+            {
+                SetResult(Result.Ok);
+                Finish();
+            });
         }
 
         private void ShowBiometricPrompt()
