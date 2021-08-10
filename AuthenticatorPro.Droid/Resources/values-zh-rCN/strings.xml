@@ -214,6 +214,8 @@
     <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
     <string name="prefAutoBackupTitle">自动备份</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
@@ -248,7 +250,8 @@
     <string name="defaultViewMode">默认</string>
     <string name="compactViewMode">紧凑</string>
     <string name="tileViewMode">平铺</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>
