@@ -214,8 +214,8 @@
     <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
     <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
-    <string name="prefLanguageTitle">Language</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefLanguageTitle">Langue</string>
+    <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
