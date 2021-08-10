@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System.Collections.Generic;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -38,6 +39,9 @@ namespace AuthenticatorPro.Droid.Fragment
                 var bottomSheet = dialog.FindViewById<FrameLayout>(Resource.Id.design_bottom_sheet);
                 BottomSheetBehavior.From(bottomSheet).State = BottomSheetBehavior.StateExpanded;
             };
+
+            if(Build.VERSION.SdkInt < BuildVersionCodes.OMr1)
+                dialog.Window.SetNavigationBarColor(Color.Black);
 
             return dialog;
         }
