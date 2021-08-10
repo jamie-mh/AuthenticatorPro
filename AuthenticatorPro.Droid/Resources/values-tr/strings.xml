@@ -214,6 +214,8 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
@@ -248,7 +250,8 @@
     <string name="defaultViewMode">Varsayılan</string>
     <string name="compactViewMode">Sıkıştırılmış</string>
     <string name="tileViewMode">Yan yana</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Kırmızı</string>
     <string name="pink">Pembe</string>
     <string name="purple">Mor</string>
