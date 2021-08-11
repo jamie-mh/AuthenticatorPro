@@ -75,7 +75,7 @@
                         android:hint="@string/password" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:orientation="horizontal"
                     android:layout_gravity="end"
                     android:layout_width="wrap_content"
@@ -95,9 +95,20 @@
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:text="@string/unlock" />
-                </LinearLayout>
-            </LinearLayout>
 
+                    <androidx.constraintlayout.helper.widget.Flow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="buttonUseBiometrics,buttonUnlock"
+                        app:flow_horizontalGap="10dp"
+                        app:flow_horizontalBias="1.0"
+                        app:flow_wrapMode="chain"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
     
