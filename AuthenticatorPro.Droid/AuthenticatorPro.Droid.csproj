@@ -242,9 +242,6 @@
     <PackageReference Include="PCLCrypto">
       <Version>2.0.147</Version>
     </PackageReference>
-    <PackageReference Include="Polly">
-      <Version>7.2.2</Version>
-    </PackageReference>
     <PackageReference Include="QRCoder">
       <Version>1.4.1</Version>
     </PackageReference>
