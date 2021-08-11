@@ -116,12 +116,15 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await Database.Open(password);
             }
-            catch
+            catch(Exception e)
             {
+                Logger.Error(e);
+                
                 RunOnUiThread(delegate
                 {
                     _progressIndicator.Visibility = ViewStates.Invisible;
                     _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
+                    FocusPasswordText();
 
                     if(_failedAttempts <= MaxAttempts) 
                         return;
