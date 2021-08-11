@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.wear.widget.BoxInsetLayout
+<androidx.wear.widget.CircularProgressLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    android:id="@+id/layoutCircularProgress"
     android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -27,6 +27,17 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
                 android:scaleType="centerInside" />
+            
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textSize="14dp"
+                android:gravity="center_horizontal"
+                android:textColor="?attr/primaryTextColor"
+                android:singleLine="true"
+                android:id="@+id/textIssuer" />
 
             <TextView
                 android:text=""
@@ -38,15 +49,6 @@
                 android:textColor="?attr/secondaryTextColor"
                 android:singleLine="true"
                 android:id="@+id/textUsername" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-                android:progress="0"
-                android:min="0"
-                android:max="10000"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -61,4 +63,4 @@
 
     </RelativeLayout>
 
-</androidx.wear.widget.BoxInsetLayout>
+</androidx.wear.widget.CircularProgressLayout>

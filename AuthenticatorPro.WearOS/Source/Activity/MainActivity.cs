@@ -14,6 +14,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.Core.Content;
 using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
 using AuthenticatorPro.Droid.Shared.Query;
@@ -43,7 +44,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         // Views
         private LinearLayout _offlineLayout;
-        private RelativeLayout _loadingLayout;
+        private CircularProgressLayout _circularProgressLayout;
         private RelativeLayout _emptyLayout;
         private WearableRecyclerView _authList;
         private WearableNavigationDrawerView _categoryList;
@@ -110,7 +111,7 @@ namespace AuthenticatorPro.WearOS.Activity
                     return;
                 }
                 
-                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort, false, delegate
+                AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, delegate
                 {
                     CheckEmptyState();
                     _onCreateLock.Release();
@@ -152,7 +153,7 @@ namespace AuthenticatorPro.WearOS.Activity
             
             RunOnUiThread(delegate
             {
-                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort, false, delegate
+                AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, delegate
                 {
                     CheckOfflineState();
                     CheckEmptyState();
@@ -175,7 +176,7 @@ namespace AuthenticatorPro.WearOS.Activity
         #region Authenticators and Categories 
         private void InitViews()
         {
-            _loadingLayout = FindViewById<RelativeLayout>(Resource.Id.layoutLoading);
+            _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _emptyLayout = FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
             _offlineLayout = FindViewById<LinearLayout>(Resource.Id.layoutOffline);
 
@@ -240,7 +241,7 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             if(_serverNode == null)
             {
-                AnimUtil.FadeOutView(_loadingLayout, AnimUtil.LengthShort);
+                AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort);
                 _offlineLayout.Visibility = ViewStates.Visible;
             }
             else

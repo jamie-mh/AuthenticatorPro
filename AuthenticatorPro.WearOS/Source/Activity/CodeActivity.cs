@@ -8,9 +8,13 @@ using Android.App;
 using Android.Graphics;
 using Android.OS;
 using Android.Provider;
+using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.Core.Content;
+using AndroidX.Core.Content.Resources;
+using AndroidX.Wear.Widget;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
@@ -25,14 +29,11 @@ namespace AuthenticatorPro.WearOS.Activity
     internal class CodeActivity : AppCompatActivity
     {
         private IGenerator _generator;
-        private Timer _timer;
-        private float _animationScale;
 
         private int _period;
         private int _digits;
-        private long _renewTime;
 
-        private ProgressBar _progressBar;
+        private CircularProgressLayout _circularProgressLayout;
         private TextView _codeTextView;
 
         protected override void OnCreate(Bundle bundle)
@@ -40,19 +41,22 @@ namespace AuthenticatorPro.WearOS.Activity
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activityCode);
 
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.progressBar);
+            _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
+            var accentColour = ContextCompat.GetColor(this, Resource.Color.colorAccent);
+            _circularProgressLayout.SetColorSchemeColors(accentColour);
+            
             _codeTextView = FindViewById<TextView>(Resource.Id.textCode);
 
-            _animationScale = Settings.Global.GetFloat(ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
-
+            var issuerText = FindViewById<TextView>(Resource.Id.textIssuer);
             var usernameText = FindViewById<TextView>(Resource.Id.textUsername);
+            
             var username = Intent.Extras.GetString("username");
+            var issuer = Intent.Extras.GetString("issuer");
+
+            issuerText.Text = issuer;
 
             if(String.IsNullOrEmpty(username))
-            {
-                var issuer = Intent.Extras.GetString("issuer");
-                usernameText.Text = issuer;
-            }
+                usernameText.Visibility = ViewStates.Gone;
             else
                 usernameText.Text = username;
 
@@ -73,6 +77,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _period = Intent.Extras.GetInt("period");
             _digits = Intent.Extras.GetInt("digits");
+            
             var algorithm = (HashAlgorithm) Intent.Extras.GetInt("algorithm");
 
             var secret = Intent.Extras.GetString("secret");
@@ -85,63 +90,38 @@ namespace AuthenticatorPro.WearOS.Activity
                 _ => new Totp(secret, _period, algorithm, _digits)
             };
 
-            _timer = new Timer
-            {
-                Interval = 1000,
-                AutoReset = true
-            };
-            
-            _timer.Elapsed += Tick;
+            _circularProgressLayout.TimerFinished += Refresh;
         }
 
         protected override void OnResume()
         {
             base.OnResume();
-            _timer?.Start();
-            Tick();
+            Refresh();
         }
 
         protected override void OnPause()
         {
             base.OnPause();
-            _timer?.Stop();
+            _circularProgressLayout.StopTimer();
         }
 
-        private void Tick(object sender = null, ElapsedEventArgs e = null)
+        private void Refresh(object sender = null, CircularProgressLayout.TimerFinishedEventArgs args = null)
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            var generationOffset = now - now % _period;
             
-            if(_renewTime <= now)
+            var code = _generator.Compute(generationOffset);
+            var renewTime = generationOffset + _period;
+            
+            var secondsRemaining = Math.Max(renewTime - now, 0);
+            
+            RunOnUiThread(delegate
             {
-                var generationOffset = now - now % _period;
-                var code = _generator.Compute(generationOffset);
-                _renewTime = generationOffset + _period;
-                
-                RunOnUiThread(delegate
-                {
-                    _codeTextView.Text = CodeUtil.PadCode(code, _digits);
-                    UpdateProgressBar(now);
-                });
-            }
-            else if(_animationScale == 0)
-                RunOnUiThread(delegate { UpdateProgressBar(now); });
-        }
-
-        private void UpdateProgressBar(long now)
-        {
-            var secondsRemaining = Math.Max(_renewTime - now, 0);
-            var progress = (int) Math.Round((double) _progressBar.Max * secondsRemaining / _period);
-            _progressBar.Progress = progress;
-            
-            if(_animationScale == 0)
-                return;
-            
-            var duration = (int) (secondsRemaining * 1000 / _animationScale);
-            
-            var animator = ObjectAnimator.OfInt(_progressBar, "progress", 0);
-            animator.SetDuration(duration);
-            animator.SetInterpolator(new LinearInterpolator());
-            animator.Start();
+                _codeTextView.Text = CodeUtil.PadCode(code, _digits);
+                _circularProgressLayout.StopTimer();
+                _circularProgressLayout.TotalTime = secondsRemaining * 1000;
+                _circularProgressLayout.StartTimer();
+            });
         }
     }
 }

@@ -5,21 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/layoutLoading"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
+    <androidx.wear.widget.CircularProgressLayout
+        android:id="@+id/layoutCircularProgress"
+        app:indeterminate="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ProgressBar
-            android:indeterminate="true"
-            android:layout_centerInParent="true"
-            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </RelativeLayout>
+        android:layout_height="match_parent" />
 
     <RelativeLayout
         android:id="@+id/layoutEmpty"
