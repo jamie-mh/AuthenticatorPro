@@ -365,46 +365,60 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 case RequestRestore:
                     await RestoreFromUri(intent.Data);
-                    return;
+                    break;
                 
                 case RequestBackupFile:
                     await BackupToFile(intent.Data);
-                    return;
+                    break;
                 
                 case RequestBackupHtml:
                     await BackupToHtmlFile(intent.Data);
-                    return;
+                    break;
                 
                 case RequestBackupUriList:
                     await BackupToUriListFile(intent.Data);
-                    return;
+                    break;
                 
                 case RequestCustomIcon:
                     await SetCustomIcon(intent.Data, _customIconApplyPosition);
-                    return;
+                    break;
                 
                 case RequestQrCode:
                     await ScanQrCodeFromImage(intent.Data);
-                    return;
+                    break;
+                
+                case RequestImportAuthenticatorPlus:
+                    await ImportFromUri(new AuthenticatorPlusBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportAndOtp:
+                    await ImportFromUri(new AndOtpBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportFreeOtpPlus:
+                    await ImportFromUri(new FreeOtpPlusBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportAegis:
+                    await ImportFromUri(new AegisBackupConverter(_iconResolver, new CustomIconDecoder()), intent.Data);
+                    break;
+                
+                case RequestImportBitwarden:
+                    await ImportFromUri(new BitwardenBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportWinAuth:
+                    await ImportFromUri(new WinAuthBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportTotpAuthenticator:
+                    await ImportFromUri(new TotpAuthenticatorBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportUriList:
+                    await ImportFromUri(new UriListBackupConverter(_iconResolver), intent.Data);
+                    break;
             }
-
-            BackupConverter converter = requestCode switch
-            {
-                RequestImportAuthenticatorPlus => new AuthenticatorPlusBackupConverter(_iconResolver),
-                RequestImportAndOtp => new AndOtpBackupConverter(_iconResolver),
-                RequestImportFreeOtpPlus => new FreeOtpPlusBackupConverter(_iconResolver),
-                RequestImportAegis => new AegisBackupConverter(_iconResolver, new CustomIconDecoder()),
-                RequestImportBitwarden => new BitwardenBackupConverter(_iconResolver),
-                RequestImportWinAuth => new WinAuthBackupConverter(_iconResolver),
-                RequestImportTotpAuthenticator => new TotpAuthenticatorBackupConverter(_iconResolver),
-                RequestImportUriList => new UriListBackupConverter(_iconResolver),
-                _ => null
-            };
-
-            if(converter == null)
-                return;
-
-            await ImportFromUri(converter, intent.Data);
         }
 
         public override void OnConfigurationChanged(Configuration newConfig)
