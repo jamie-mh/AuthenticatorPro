@@ -215,7 +215,7 @@
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
     <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
     <string name="prefLanguageTitle">Język</string>
-    <string name="prefLanguageSummary">Wybierz w jakim języku na być aplikacja</string>
+    <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
