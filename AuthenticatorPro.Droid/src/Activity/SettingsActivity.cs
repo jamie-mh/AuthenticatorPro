@@ -80,26 +80,20 @@ namespace AuthenticatorPro.Droid.Activity
                     _shouldRecreateMain = true;
                     break;
 
+                case "pref_theme":
+                    UpdateTheme();
+                    break;
+
                 case "pref_language":
+                case "pref_accentColour":
                     _shouldRecreateMain = true;
                     Recreate();
                     break;
 
                 case "pref_tapToReveal":
-                    _shouldRecreateMain = true;
-                    break;
-
                 case "pref_viewMode":
+                case "pref_transparentStatusBar":
                     _shouldRecreateMain = true;
-                    break;
-
-                case "pref_theme":
-                    UpdateTheme();
-                    break;
-
-                case "pref_accentColour":
-                    _shouldRecreateMain = true;
-                    Recreate();
                     break;
 
                 case "pref_autoBackupEnabled":

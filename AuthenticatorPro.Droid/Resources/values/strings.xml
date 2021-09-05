@@ -355,6 +355,8 @@
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
 
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>

@@ -93,6 +93,12 @@
             android:entries="@array/accentColourNames"
             android:entryValues="@array/accentColourValues"
             android:defaultValue="lightBlue"/>
+        <androidx.preference.SwitchPreference
+            android:key="pref_transparentStatusBar"
+            android:summary="@string/prefTransparentStatusBarSummary"
+            android:title="@string/prefTransparentStatusBarTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

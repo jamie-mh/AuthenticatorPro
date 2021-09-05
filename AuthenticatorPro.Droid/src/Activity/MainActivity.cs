@@ -184,8 +184,12 @@ namespace AuthenticatorPro.Droid.Activity
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.R)
             {
+                if (_preferences.TransparentStatusBar)
+                {
+                    Window.SetStatusBarColor(Color.Transparent);
+                }
+
                 Window.SetDecorFitsSystemWindows(false);
-                Window.SetStatusBarColor(Color.Transparent);
                 Window.SetNavigationBarColor(Color.Transparent);
 
                 if (!IsDark)
@@ -195,7 +199,7 @@ namespace AuthenticatorPro.Droid.Activity
                         (int) WindowInsetsControllerAppearance.LightStatusBars);
                 }
             }
-            else
+            else if (_preferences.TransparentStatusBar)
             {
                 windowFlags |= WindowManagerFlags.TranslucentStatus;
             }

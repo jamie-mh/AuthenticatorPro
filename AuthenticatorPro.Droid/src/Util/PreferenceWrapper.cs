@@ -106,6 +106,15 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(AccentColourKey, value);
         }
 
+        private const string TransparentStatusBarKey = "pref_transparentStatusBar";
+        private const bool TransparentStatusBarDefault = false;
+
+        public bool TransparentStatusBar
+        {
+            get => Preferences.GetBoolean(TransparentStatusBarKey, TransparentStatusBarDefault);
+            set => SetPreference(TransparentStatusBarKey, value);
+        }
+
         private const string AutoBackupEnabledKey = "pref_autoBackupEnabled";
         private const bool AutoBackupEnabledDefault = false;
 
