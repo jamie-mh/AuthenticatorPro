@@ -37,8 +37,8 @@
     <string name="rate">Bewerten</string>
     <string name="rateSummary">Bewerte Authenticator Pro im Google Play Store</string>
     <string name="viewGitHub">Auf GitHub anzeigen</string>
-    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request
-        more icons and features.
+    <string name="viewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden
+        oder Vorschläge machen.
     </string>
     <!-- Authenticator -->
     <string name="issuer">Herausgeber</string>
@@ -46,10 +46,11 @@
     <string name="secretKey">Geheimer Schlüssel</string>
     <string name="pin">Anheften</string>
     <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for
-        this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may
-        prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or
-        that you have the recovery codes.\n\nContinue?
+    <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes
+        mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den
+        Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du die
+        Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes
+        verfügst.\n\nMöchtest du fortfahren?
     </string>
     <string name="useCustomIcon">Eigenes Icon verwenden</string>
     <string name="copiedToClipboard">In Zwischenablage kopiert</string>
@@ -79,32 +80,32 @@
     <string name="uriCopiedToClipboard">URI wurde in die Zwischenablage kopiert</string>
     <!-- Backup menu -->
     <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file.
-        This file can be restored within the app.
+    <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer
+        verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.
     </string>
     <string name="backupHtml">Als HTML-Datei sichern</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore,
-        these codes must be scanned individually. Categories and icons are not saved.
+    <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes.
+        Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht
+        gespeichert.
     </string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure,
-        opt for encrypted file backup instead.\n\nContinue?
+    <string name="backupHtmlWarning">Sicherungen in HTML-Dokumente sind unverschlüsselt.\n\nDie Datei ist eine reine
+        Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir nicht sicher bist, was du tust,
+        verwende eine verschlüsselte Sicherung.\n\nFortfahren?
     </string>
     <string name="backupUriList">Sicherung als URI-Listen-Datei</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
-        is compatible with many alternative applications and services. Categories and icons are not saved.
+    <string name="backupUriListMessage">Speichern Sie Ihre Authentifikatoren in einer unverschlüsselten
+        Klartext-URI-Listendatei. Diese Datei ist mit vielen alternativen Anwendungen und Diensten kompatibel.
+        Kategorien und Symbole werden nicht gespeichert.
     </string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
-        instead.\n\nContinue?
+    <string name="backupUriListWarning">Sicherungen in Klartext-Dateien sind unverschlüsselt.\n\nDie Datei ist eine
+        reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir unsicher bist, verwende
+        stattdessen eine verschlüsselte Sicherung.\n\nFortfahren?
     </string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
     <string name="gettingStartedGuide">Anleitung</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking
-        below.
-    </string>
+    <string name="noAuthenticatorsHelp">Wenn du neu bei Authenticator Pro bist, tippe unten auf Anleitung.</string>
     <string name="noCategoriesTitle">Keine Kategorien</string>
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
     <!-- Categories -->
@@ -123,14 +124,14 @@
     <string name="backupNow">Jetzt sichern</string>
     <string name="restoreNow">Jetzt wiederherstellen</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen.</string>
-    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to
-        password protect the file, leave the password empty.
+    <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die
+        Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.
     </string>
     <string name="restoreError">Das Passwort ist falsch oder die Datei ist beschädigt.</string>
     <string name="password">Passwort</string>
     <string name="passwordConfirm">Passwort bestätigen</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your
-        secret keys may be vulnerable.\n\nContinue?
+    <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und
+        deine Schlüssel können womöglich gestohlen werden. Fortfahren?
     </string>
     <string name="passwordHint">Sicherungspasswort</string>
     <string name="fileNameHint">Sicherungsdateiname</string>
@@ -141,15 +142,17 @@
     <string name="saveSuccess">Erfolgreich gespeichert</string>
     <string name="backupSuccess">Sicherung gespeichert als \'{0}\'</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2}
-        existing authenticators.
+    <string name="restoredFromBackupUpdated">{0} Schlüssel und {1} Kategorien wiederhergestellt. {2} bereits vorhandene
+        Schlüssel wurden aktualisiert.
     </string>
     <string name="restoredNothing">Es gibt nichts wiederherzustellen</string>
     <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
-    <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert sein.</string>
+    <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert
+        sein.
+    </string>
     <string name="filePickError">Fehler beim Auswählen der Datei</string>
     <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
@@ -160,8 +163,8 @@
     </string>
     <string name="viewErrorLog">Fehlerprotokoll anzeigen</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are
-        below:
+    <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten
+        angezeigt:
     </string>
     <string name="report">Melden</string>
     <string name="email">E-Mail</string>
@@ -181,31 +184,32 @@
     <string name="enableAutoBackup">Automatische Sicherung</string>
     <string name="enableAutoBackupMessage">Automatisch Sicherungen am gewählten Ort erstellen</string>
     <string name="enableAutoRestore">Aktiviere automatische Wiederherstellung</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage
-        location. Useful for syncing between devices.
+    <string name="enableAutoRestoreMessage">Automatisch die letze Sicherung wiederherstellen. Nützlich für
+        synchronisieren zwischen Geräten.
     </string>
     <string name="batOptim">Batterieoptimierung</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly.
-        If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.
+    <string name="disableBatOptimMessage">Auf manchen Geräten verhindern die Energieeinstellungen das automatische
+        Sichern. Falls du Probleme hast, kann es helfen, eine Ausnahme für Authenticator Pro zu erstellen.
     </string>
     <string name="autoBackupFailureTitle">Automatische Sicherung fehlgeschlagen</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
-        expired, try setting the backup location again in the auto backup settings.
+    <string name="autoBackupFailureText">Die letzte automatische Sicherung ist fehlgeschlagen. Berechtigungen sind
+        möglicherweise abgelaufen, versuche den Sicherungsort neu einzugeben.
     </string>
     <string name="autoRestoreFailureTitle">Automatische Wiederherstellung fehlgeschlagen</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have
-        expired or the password is incorrect. Try setting the backup location and password again in the auto backup
-        settings.
+    <string name="autoRestoreFailureText">Die letzte Wiederherstellung ist fehlgeschlagen. Berechtigungen sind
+        möglicherweise abgelaufen oder das Passwort ist falsch. Versuche den Sicherungsort und das Passwort neu
+        einzugeben.
     </string>
     <string name="autoBackupSuccessTitle">Automatische Sicherung abgeschlossen</string>
     <string name="autoRestoreSuccessTitle">Automatische Wiederherstellung abgeschlossen</string>
     <string name="backupScheduled">Sicherung geplant</string>
     <string name="restoreScheduled">Wiederherstellung geplant</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when
-        you open the app. Leave the field blank to clear the password.
+    <string name="passwordSetupHelp">Verschlüssele die Datenbank mit einem Passwort. Du musst das Passwort eingeben,
+        wenn du die App öffnest. Lasse das Feld leer um kein Passwort zu setzen.
     </string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!
+    <string name="passwordSetupWarning">Verwende ein Passwort das du dir merken kannst. Ohne das Passwort kannst du
+        nicht mehr auf die Schlüssel zugreifen!
     </string>
     <string name="clearPassword">Passwort entfernen</string>
     <string name="confirmPassword">Passwort bestätigen</string>
@@ -237,42 +241,43 @@
     <string name="viewGuideImportHint">Anleitung auf Projektseite anzeigen</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scanne einen QR-Code</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It
-        will be added to the list and will generate new codes automatically. You can also enter the details manually.
+    <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code, der von der App oder dem
+        Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich
+        generieren. Du kannst die Daten auch manuell eingeben.
     </string>
     <string name="guideUseCodeTitle">Benutze den Code beim Anmelden</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only
-        valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.
+    <string name="guideUseCodeSummary">Gib deinen Code ein, wenn du dich anmelden möchtest. Der Code gilt jeweils nur
+        für einen kurzen Zeitraum. Du kannst auf den Schlüssel tippen, um den Code zu kopieren.
     </string>
     <string name="guideCustomiseTitle">Anpassen</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the
-        menu icon on an entry and follow the steps.
+    <string name="guideCustomiseSummary">Benenne deine Schlüssel, um sie einfacher zu finden. Öffne einfach das Menü
+        hinter dem Schlüssel und folge den Schritten.
     </string>
     <string name="guideArrangeTitle">Sortieren</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily.
-        Furthermore, holding and dragging items will allow you to rearrange them in any order you like.
+    <string name="guideArrangeSummary">Du kannst deine Schlüssel auch in Kategorien einteilen. Außerdem kannst du ihre
+        Reihenfolge durch Gedrückthalten und schieben ändern.
     </string>
     <string name="guideBackupTitle">Erstelle eine Sicherung</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file
-        and store it in a safe place. A backup can be restored at any time and protected with a password.
+    <string name="guideBackupSummary">Schließe dich nicht aus deinen Konten aus, wenn du das Gerät wechselst oder
+        verlierst. Erstelle eine Sicherung und bewahre sie an einem sicheren Ort auf. Eine Sicherung kann jederzeit
+        geladen und zusätzlich verschlüsselt werden.
     </string>
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
-    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view
-        codes directly on your watch.
+    <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleit-App herunterladen. Du bekommst
+        die Codes dann auf deiner Uhr angezeigt.
     </string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
-        to focus.
+    <string name="scanHelpPrimary">Plaziere den QR-Code im Sichtbereich um ihn zu scannen. Tippe um zu fokussieren.
     </string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from
-        the code.
+    <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den
+        Code.
     </string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
     <!-- Preferences -->
     <string name="prefGeneral">Allgemein</string>
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are
-        made
+    <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige
+        Änderungen vorgenommen wurden.
     </string>
     <string name="prefAutoBackupTitle">Automatische Sicherung</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
@@ -282,17 +287,18 @@
     <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with
-        your password.
+    <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit
+        dem Passwort verschlüsselt.
     </string>
     <string name="prefDatabasePasswordBackupTitle">Mit Datenbank-Passwort sichern</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need
-        to enter it each time
+    <string name="prefDatabasePasswordBackupSummary">Verschlüsseln der Sicherungen mit dem Datenbank-Passwort, damit du
+        es nicht jedes Mal eingeben musst.
     </string>
     <string name="prefAllowBiometricsTitle">Biometrie verwenden</string>
     <string name="prefAllowBiometricsSummary">Entsperren mittels Biometrie erlauben</string>
     <string name="prefTimeoutTitle">Zeitlimit</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen
+    <string name="prefTimeoutSummary">Legen Sie die Zeit fest, nach der die Datenbank nach dem Verlassen der App
+        gesperrt wird.
     </string>
     <string name="prefTapToRevealTitle">Tippe um aufzudecken</string>
     <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
@@ -344,19 +350,20 @@
     <string name="introBackupTitle">Sichern / Wiederherstellen</string>
     <string name="introCategoriesTitle">Kategorien</string>
     <string name="introThemesTitle">Dunkles Thema</string>
-    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and
-        protected with the best open-source authentication app.
+    <string name="introWelcomeSummary">Danke für das Herunterladen von Authenticator Pro.\nSchütze deine Onlinekonten
+        mit der besten, quelloffenen 2FA-App.
     </string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is
-        100% compatible with Google Authenticator enabled services.
+    <string name="introCompatibilitySummary">Authenticator Pro ist mit den meisten Anbietern und Konten kompatibel. Er
+        ist zu 100% kompatibel mit Google Authenticator fähigen Diensten.
     </string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device,
-        you can always gain access to your accounts. Save to cloud storage or to your device.
+    <string name="introBackupSummary">Sichere deine Schlüssel mit einer starken Verschlüsselung. Solltest du dein Gerät
+        verlieren, kannst du so Zugriff auf deine Konten erhalten. Speichere das Backup in der Cloud oder auf deinem
+        Gerät.
     </string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a
-        simple hold and drag.
+    <string name="introCategoriesSummary">Ordne deine Schlüssel in Kategorien und sortiere sie durch Drücken und
+        Schieben, wie du möchtest.
     </string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt
-        to match their new background.
+    <string name="introThemesSummary">Wenn du möchtest, kannst du ein Dunkles Thema verwenden. Die Icons der Schlüssel
+        werden sich daran anpassen.
     </string>
 </resources>
