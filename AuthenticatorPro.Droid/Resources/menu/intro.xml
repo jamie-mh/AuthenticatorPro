@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+>
 
     <item android:id="@+id/intro_prev"
-       android:icon="@drawable/ic_action_caret_left"/>
+          android:icon="@drawable/ic_action_caret_left"/>
 
     <item android:id="@+id/intro_next"
-       android:icon="@drawable/ic_action_caret_right"/>
-    
+          android:icon="@drawable/ic_action_caret_right"/>
+
     <item android:id="@+id/intro_done"
-       android:icon="@drawable/ic_action_done"/>
+          android:icon="@drawable/ic_action_done"/>
 </menu>

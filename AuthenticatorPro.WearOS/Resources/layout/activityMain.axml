@@ -9,7 +9,7 @@
         android:id="@+id/layoutCircularProgress"
         app:indeterminate="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <RelativeLayout
         android:id="@+id/layoutEmpty"
@@ -44,7 +44,7 @@
 
         </LinearLayout>
     </RelativeLayout>
-  
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -57,7 +57,7 @@
             android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-        
+
         <LinearLayout
             android:id="@+id/layoutOffline"
             android:gravity="center_horizontal"
@@ -74,10 +74,10 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:contentDescription="@string/offline"
-                android:src="@drawable/ic_action_cloud_off" />
+                android:src="@drawable/ic_action_cloud_off"/>
 
         </LinearLayout>
-        
+
     </FrameLayout>
 
     <androidx.wear.widget.drawer.WearableNavigationDrawerView

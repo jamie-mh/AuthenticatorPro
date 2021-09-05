@@ -1,68 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    
+
     <!-- Material colours -->
     <color name="colorRedPrimary">#FF5252</color>
     <color name="colorRedSecondary">#D50000</color>
     <color name="colorRedTint">#1EFF5252</color>
-    
+
     <color name="colorPinkPrimary">#FF4081</color>
     <color name="colorPinkSecondary">#C51162</color>
     <color name="colorPinkTint">#1EFF4081</color>
-    
+
     <color name="colorPurplePrimary">#E040FB</color>
     <color name="colorPurpleSecondary">#AA00FF</color>
     <color name="colorPurpleTint">#1EE040FB</color>
-    
+
     <color name="colorDeepPurplePrimary">#7C4DFF</color>
     <color name="colorDeepPurpleSecondary">#6200EA</color>
     <color name="colorDeepPurpleTint">#1E7C4DFF</color>
-    
+
     <color name="colorIndigoPrimary">#536DFE</color>
     <color name="colorIndigoSecondary">#304FFE</color>
     <color name="colorIndigoTint">#1E536DFE</color>
-        
+
     <color name="colorBluePrimary">#448AFF</color>
     <color name="colorBlueSecondary">#2962FF</color>
     <color name="colorBlueTint">#1E448AFF</color>
-    
+
     <color name="colorLightBluePrimary">#40C4FF</color>
     <color name="colorLightBlueSecondary">#0091EA</color>
     <color name="colorLightBlueTint">#1E40C4FF</color>
-    
+
     <color name="colorCyanPrimary">#00E5FF</color>
     <color name="colorCyanSecondary">#00B8D4</color>
     <color name="colorCyanTint">#1E00E5FF</color>
-    
+
     <color name="colorTealPrimary">#1DE9B6</color>
     <color name="colorTealSecondary">#00BFA5</color>
     <color name="colorTealTint">#1E64FFDA</color>
-    
+
     <color name="colorGreenPrimary">#00E676</color>
     <color name="colorGreenSecondary">#00C853</color>
     <color name="colorGreenTint">#1E00E676</color>
-    
+
     <color name="colorLightGreenPrimary">#76FF03</color>
     <color name="colorLightGreenSecondary">#64DD17</color>
     <color name="colorLightGreenTint">#1E76FF03</color>
-    
+
     <color name="colorLimePrimary">#C6FF00</color>
     <color name="colorLimeSecondary">#AEEA00</color>
     <color name="colorLimeTint">#1EC6FF00</color>
-    
+
     <color name="colorYellowPrimary">#FFEA00</color>
     <color name="colorYellowSecondary">#FFD600</color>
     <color name="colorYellowTint">#1EFFEA00</color>
-    
+
     <color name="colorAmberPrimary">#FFC400</color>
     <color name="colorAmberSecondary">#FFAB00</color>
     <color name="colorAmberTint">#1EFFC400</color>
-        
+
     <color name="colorOrangePrimary">#FFAB40</color>
     <color name="colorOrangeSecondary">#FF6D00</color>
     <color name="colorOrangeTint">#1EFFAB40</color>
-    
+
     <color name="colorDeepOrangePrimary">#FF6E40</color>
     <color name="colorDeepOrangeSecondary">#DD2C00</color>
     <color name="colorDeepOrangeTint">#1EFF6E40</color>
@@ -75,6 +75,6 @@
     <color name="colorDark">#141414</color>
     <color name="colorDarker">#0a0a0a</color>
     <color name="colorDarkest">#000000</color>
-    
+
     <color name="colorError">#ff4240</color>
 </resources>

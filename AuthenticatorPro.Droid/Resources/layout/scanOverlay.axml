@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:weightSum="1.0">
-    
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:paddingStart="20dp"
         android:background="#80000000"
         android:layout_weight="0.1">
-        
+
         <TextView
             android:text="@string/scanHelpPrimary"
             android:layout_width="match_parent"
@@ -26,16 +26,16 @@
             android:gravity="center"
             android:textColor="@android:color/white"
             android:lineSpacingExtra="6sp"
-            android:textSize="16sp" />
-        
+            android:textSize="16sp"/>
+
     </LinearLayout>
-    
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.8" />
-    
+        android:layout_weight="0.8"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:background="#80000000"
@@ -48,7 +48,7 @@
         android:paddingStart="20dp"
         android:layout_weight="0.1"
         android:layout_gravity="center">
-        
+
         <TextView
             android:text="@string/scanHelpSecondary"
             android:layout_width="match_parent"
@@ -56,8 +56,8 @@
             android:gravity="center"
             android:textColor="@android:color/white"
             android:lineSpacingExtra="6sp"
-            android:textSize="16sp" />
-        
+            android:textSize="16sp"/>
+
         <com.google.android.material.button.MaterialButton
             android:text="@string/toggleFlash"
             android:layout_width="match_parent"
@@ -65,8 +65,8 @@
             android:layout_marginTop="20dp"
             android:id="@+id/buttonFlash"
             android:layout_gravity="bottom"
-            style="@style/Widget.MaterialComponents.Button" />
-        
+            style="@style/Widget.MaterialComponents.Button"/>
+
     </LinearLayout>
-    
+
 </LinearLayout>

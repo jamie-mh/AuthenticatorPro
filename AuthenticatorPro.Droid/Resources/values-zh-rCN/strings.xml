@@ -44,7 +44,9 @@
     <string name="secretKey">密钥</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">显示高级选项</string>
-    <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
+    <string name="confirmAuthenticatorDelete">
+        删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？
+    </string>
     <string name="useCustomIcon">使用自定义图标</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
     <string name="issuerHint">发行方（如：Google）</string>
@@ -76,10 +78,17 @@
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
     <string name="backupHtml">保存为 HTML 文件</string>
     <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
-    <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <string name="backupHtmlWarning">保存为 HTML
+        文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？
+    </string>
     <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
+        is compatible with many alternative applications and services. Categories and icons are not saved.
+    </string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
+        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
+        instead.\n\nContinue?
+    </string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">这里什么都没有！</string>
     <string name="noAuthenticatorsMessage">您尚未添加验证器。</string>
@@ -129,16 +138,22 @@
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">出现错误。</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue
+        persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.
+    </string>
     <string name="viewErrorLog">查看错误日志</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are
+        below:
+    </string>
     <string name="report">Report</string>
     <string name="email">Email</string>
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
+        are made. Cloud storage is not supported, use the backup menu instead.
+    </string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to \'{0}\'</string>
@@ -151,9 +166,13 @@
     <string name="enableAutoRestore">启用自动恢复</string>
     <string name="enableAutoRestoreMessage">从指定的存储位置中使用最新的备份文件进行自动恢复。可以用于在设备间同步。</string>
     <string name="batOptim">Battery Optimisation</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly.
+        If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.
+    </string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
+        expired, try setting the backup location again in the auto backup settings.
+    </string>
     <string name="autoRestoreFailureTitle">自动恢复失败</string>
     <string name="autoRestoreFailureText">最近的自动恢复未能成功完成。文件访问权限可能已被撤销，或密码不正确。请在自动备份设置中重新设置备份位置和密码。</string>
     <string name="autoBackupSuccessTitle">自动备份完成</string>
@@ -161,8 +180,11 @@
     <string name="backupScheduled">已触发自动备份</string>
     <string name="restoreScheduled">已触发自动恢复</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when
+        you open the app. Leave the field blank to clear the password.
+    </string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!
+    </string>
     <string name="clearPassword">Clear password</string>
     <string name="confirmPassword">Confirm password</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
@@ -195,7 +217,8 @@
     <string name="guideScanQRCodeTitle">扫描二维码</string>
     <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
     <string name="guideUseCodeTitle">使用验证码登录</string>
-    <string name="guideUseCodeSummary">在登录的时候，请使用 Authenticator Pro 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。</string>
+    <string name="guideUseCodeSummary">在登录的时候，请使用 Authenticator Pro 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。
+    </string>
     <string name="guideCustomiseTitle">自定义与编辑</string>
     <string name="guideCustomiseSummary">您可以为您的验证器修改名称，或者对其进行自定义，下次就能更方便地找到它。点击任意一个验证器的菜单图标，然后按提示操作。</string>
     <string name="guideArrangeTitle">分类与排序</string>
@@ -205,26 +228,35 @@
     <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
+        to focus.
+    </string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from
+        the code.
+    </string>
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">常规​​​​​</string>
     <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
     <string name="prefAutoBackupTitle">自动备份</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
+        made. Disables backup reminders.
+    </string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need
+        to enter it each time
+    </string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">超时时间</string>
     <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
+    </string>
     <string name="prefAppearance">外观</string>
     <string name="prefThemeTitle">主题</string>
     <string name="prefThemeSummary">选择应用的主题。</string>

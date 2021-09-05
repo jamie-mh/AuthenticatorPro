@@ -14,7 +14,7 @@
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,7 +26,7 @@
         android:paddingBottom="10dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
-        
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:id="@+id/editNameLayout"
@@ -42,7 +42,7 @@
                 android:inputType="textCapSentences"
                 android:imeOptions="actionDone"
                 android:hint="@string/categoryNameHint">
-                <requestFocus />
+                <requestFocus/>
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -59,14 +59,14 @@
                 android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/cancel" />
+                android:text="@string/cancel"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSubmit"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="" />
+                android:text=""/>
 
         </LinearLayout>
 
