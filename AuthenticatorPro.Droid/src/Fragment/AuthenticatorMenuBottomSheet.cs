@@ -14,11 +14,11 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class AuthenticatorMenuBottomSheet : BottomSheet
     {
-        public event EventHandler Rename;
-        public event EventHandler ChangeIcon;
-        public event EventHandler AssignCategories;
-        public event EventHandler ShowQrCode;
-        public event EventHandler Delete;
+        public event EventHandler RenameClicked;
+        public event EventHandler ChangeIconClicked;
+        public event EventHandler AssignCategoriesClicked;
+        public event EventHandler ShowQrCodeClicked;
+        public event EventHandler DeleteClicked;
 
         private AuthenticatorType _type;
         private long _counter;
@@ -49,14 +49,14 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_edit, Resource.String.rename, Rename),
+                    new SheetMenuItem(Resource.Drawable.ic_action_edit, Resource.String.rename, RenameClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_image, Resource.String.changeIcon,
-                        ChangeIcon),
+                        ChangeIconClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_category, Resource.String.assignCategories,
-                        AssignCategories),
+                        AssignCategoriesClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_qr_code, Resource.String.showQrCode,
-                        ShowQrCode),
-                    new SheetMenuItem(Resource.Drawable.ic_action_delete, Resource.String.delete, Delete, null,
+                        ShowQrCodeClicked),
+                    new SheetMenuItem(Resource.Drawable.ic_action_delete, Resource.String.delete, DeleteClicked, null,
                         true)
                 });
 

@@ -11,9 +11,9 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class EditCategoryMenuBottomSheet : BottomSheet
     {
-        public event EventHandler<int> Rename;
-        public event EventHandler<int> SetDefault;
-        public event EventHandler<int> Delete;
+        public event EventHandler<int> RenameClicked;
+        public event EventHandler<int> SetDefaultClicked;
+        public event EventHandler<int> DeleteClicked;
 
         private int _position;
         private bool _isDefault;
@@ -36,16 +36,16 @@ namespace AuthenticatorPro.Droid.Fragment
             {
                 new SheetMenuItem(Resource.Drawable.ic_action_edit, Resource.String.rename, delegate
                 {
-                    Rename(this, _position);
+                    RenameClicked(this, _position);
                 }),
                 new SheetMenuItem(Resource.Drawable.ic_action_star,
                     _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault, delegate
                     {
-                        SetDefault(this, _position);
+                        SetDefaultClicked(this, _position);
                     }),
                 new SheetMenuItem(Resource.Drawable.ic_action_delete, Resource.String.delete, delegate
                 {
-                    Delete(this, _position);
+                    DeleteClicked(this, _position);
                 }, null, true)
             });
 

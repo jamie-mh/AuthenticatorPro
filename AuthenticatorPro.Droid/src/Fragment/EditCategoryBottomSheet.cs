@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Droid.Fragment
             New, Edit
         }
 
-        public event EventHandler<EditCategoryEventArgs> Submit;
+        public event EventHandler<EditCategoryEventArgs> Submitted;
 
         private Mode _mode;
         private int _position;
@@ -90,7 +90,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 }
 
                 var args = new EditCategoryEventArgs(_position, _initialValue, name);
-                Submit?.Invoke(this, args);
+                Submitted?.Invoke(this, args);
             };
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);

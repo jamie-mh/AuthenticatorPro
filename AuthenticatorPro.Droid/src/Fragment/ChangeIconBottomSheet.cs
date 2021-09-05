@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class ChangeIconBottomSheet : BottomSheet
     {
-        public event EventHandler<IconSelectedEventArgs> IconSelect;
+        public event EventHandler<IconSelectedEventArgs> IconSelected;
         public event EventHandler UseCustomIconClick;
 
         private readonly IIconView _iconView;
@@ -60,7 +60,7 @@ namespace AuthenticatorPro.Droid.Fragment
             _iconView.Update();
 
             _iconListAdapter = new IconListAdapter(Context, _iconView);
-            _iconListAdapter.ItemClick += OnItemClick;
+            _iconListAdapter.ItemClicked += OnItemClicked;
             _iconListAdapter.HasStableIds = true;
 
             _iconList.SetAdapter(_iconListAdapter);
@@ -80,10 +80,10 @@ namespace AuthenticatorPro.Droid.Fragment
             _iconListAdapter.NotifyDataSetChanged();
         }
 
-        private void OnItemClick(object sender, int iconPosition)
+        private void OnItemClicked(object sender, int iconPosition)
         {
             var eventArgs = new IconSelectedEventArgs(_position, _iconView[iconPosition].Key);
-            IconSelect?.Invoke(this, eventArgs);
+            IconSelected?.Invoke(this, eventArgs);
         }
 
         public class IconSelectedEventArgs : EventArgs

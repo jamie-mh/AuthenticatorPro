@@ -165,7 +165,7 @@ namespace AuthenticatorPro.Droid.Activity
             var passwordStorage = new PasswordStorageManager(this);
             var callback = new AuthenticationCallback();
 
-            callback.Success += async (_, result) =>
+            callback.Succeeded += async (_, result) =>
             {
                 string password;
 
@@ -188,7 +188,7 @@ namespace AuthenticatorPro.Droid.Activity
                 FocusPasswordText();
             };
 
-            callback.Error += (_, result) =>
+            callback.Errored += (_, result) =>
             {
                 Toast.MakeText(this, result.Message, ToastLength.Short).Show();
                 FocusPasswordText();

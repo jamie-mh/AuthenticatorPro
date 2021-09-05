@@ -8,26 +8,26 @@ namespace AuthenticatorPro.Droid.Callback
 {
     internal class PageChangeCallback : ViewPager2.OnPageChangeCallback
     {
-        public event EventHandler<int> PageScrollStateChange;
-        public event EventHandler<PageScrollEventArgs> PageScroll;
-        public event EventHandler<int> PageSelect;
+        public event EventHandler<int> PageScrollStateChanged;
+        public event EventHandler<PageScrollEventArgs> PageScrolled;
+        public event EventHandler<int> PageSelected;
 
         public override void OnPageScrollStateChanged(int state)
         {
             base.OnPageScrollStateChanged(state);
-            PageScrollStateChange?.Invoke(this, state);
+            PageScrollStateChanged?.Invoke(this, state);
         }
 
         public override void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
         {
             base.OnPageScrolled(position, positionOffset, positionOffsetPixels);
-            PageScroll?.Invoke(this, new PageScrollEventArgs(position, positionOffset, positionOffsetPixels));
+            PageScrolled?.Invoke(this, new PageScrollEventArgs(position, positionOffset, positionOffsetPixels));
         }
 
         public override void OnPageSelected(int position)
         {
             base.OnPageSelected(position);
-            PageSelect?.Invoke(this, position);
+            PageSelected?.Invoke(this, position);
         }
 
         public class PageScrollEventArgs : EventArgs

@@ -184,7 +184,7 @@ namespace AuthenticatorPro.Droid.Activity
             var executor = ContextCompat.GetMainExecutor(this);
             var authCallback = new AuthenticationCallback();
 
-            authCallback.Success += async (_, result) =>
+            authCallback.Succeeded += async (_, result) =>
             {
                 try
                 {
@@ -206,7 +206,7 @@ namespace AuthenticatorPro.Droid.Activity
                 callback(false);
             };
 
-            authCallback.Error += delegate
+            authCallback.Errored += delegate
             {
                 // Do something, probably
                 callback(false);

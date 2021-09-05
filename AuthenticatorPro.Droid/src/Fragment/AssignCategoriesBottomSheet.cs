@@ -14,9 +14,9 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class AssignCategoriesBottomSheet : BottomSheet
     {
-        public event EventHandler<CategoryClickedEventArgs> CategoryClick;
-        public event EventHandler EditCategoriesClick;
-        public event EventHandler Close;
+        public event EventHandler<CategoryClickedEventArgs> CategoryClicked;
+        public event EventHandler EditCategoriesClicked;
+        public event EventHandler Closed;
 
         private readonly ICategoryView _categoryView;
         private int _position;
@@ -41,15 +41,15 @@ namespace AuthenticatorPro.Droid.Fragment
 
             var editCategoriesButton = view.FindViewById<MaterialButton>(Resource.Id.buttonEditCategories);
 
-            if (EditCategoriesClick != null)
+            if (EditCategoriesClicked != null)
             {
-                editCategoriesButton.Click += EditCategoriesClick;
+                editCategoriesButton.Click += EditCategoriesClicked;
             }
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOK);
             okButton.Click += (sender, args) =>
             {
-                Close?.Invoke(sender, args);
+                Closed?.Invoke(sender, args);
                 Dismiss();
             };
 
@@ -84,7 +84,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
                 chip.Click += (sender, _) =>
                 {
-                    CategoryClick?.Invoke(sender, new CategoryClickedEventArgs(_position, category.Id, chip.Checked));
+                    CategoryClicked?.Invoke(sender, new CategoryClickedEventArgs(_position, category.Id, chip.Checked));
                 };
 
                 chipGroup.AddView(chip);

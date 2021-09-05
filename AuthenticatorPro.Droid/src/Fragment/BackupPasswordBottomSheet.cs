@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private Mode _mode;
 
-        public event EventHandler Cancel;
+        public event EventHandler CancelClicked;
         public event EventHandler<string> PasswordEntered;
 
         private ProgressBar _progressBar;
@@ -116,7 +116,7 @@ namespace AuthenticatorPro.Droid.Fragment
         private void OnCancelButtonClick(object sender, EventArgs e)
         {
             Dismiss();
-            Cancel?.Invoke(this, null);
+            CancelClicked?.Invoke(this, null);
         }
     }
 }

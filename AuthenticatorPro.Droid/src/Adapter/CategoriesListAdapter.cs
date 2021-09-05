@@ -50,7 +50,7 @@ namespace AuthenticatorPro.Droid.Adapter
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemCategory, parent, false);
 
             var holder = new CategoriesListHolder(itemView);
-            holder.Click += (_, position) =>
+            holder.Clicked += (_, position) =>
             {
                 NotifyItemChanged(SelectedPosition);
                 SelectedPosition = position;

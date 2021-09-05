@@ -14,7 +14,7 @@ namespace AuthenticatorPro.Droid.Adapter
 {
     internal class IconListAdapter : RecyclerView.Adapter
     {
-        public event EventHandler<int> ItemClick;
+        public event EventHandler<int> ItemClicked;
         public override int ItemCount => _iconView.Count;
 
         private readonly Context _context;
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
         private void OnItemClick(int position)
         {
-            ItemClick?.Invoke(this, position);
+            ItemClicked?.Invoke(this, position);
         }
 
         public override long GetItemId(int position)

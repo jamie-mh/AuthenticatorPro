@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Droid.Adapter
         private readonly Context _context;
         private readonly List<SheetMenuItem> _items;
 
-        public event EventHandler ItemClick;
+        public event EventHandler ItemClicked;
         public override int ItemCount => _items.Count;
 
         public SheetMenuAdapter(Context context, List<SheetMenuItem> items)
@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Droid.Adapter
             holder.ItemView.Click += (sender, args) =>
             {
                 item.Handler.Invoke(sender, args);
-                ItemClick?.Invoke(sender, args);
+                ItemClicked?.Invoke(sender, args);
             };
 
             holder.Icon.SetImageResource(item.Icon);

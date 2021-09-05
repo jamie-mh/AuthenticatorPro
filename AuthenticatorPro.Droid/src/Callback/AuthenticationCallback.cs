@@ -10,15 +10,15 @@ namespace AuthenticatorPro.Droid.Callback
 {
     internal class AuthenticationCallback : BiometricPrompt.AuthenticationCallback
     {
-        public event EventHandler<ErrorEventArgs> Error;
+        public event EventHandler<ErrorEventArgs> Errored;
         public event EventHandler Failed;
-        public event EventHandler<BiometricPrompt.AuthenticationResult> Success;
+        public event EventHandler<BiometricPrompt.AuthenticationResult> Succeeded;
 
         public override void OnAuthenticationError(int errorCode, ICharSequence errString)
         {
             base.OnAuthenticationError(errorCode, errString);
             var args = new ErrorEventArgs((BiometricErrorCode) errorCode, errString.ToString());
-            Error?.Invoke(this, args);
+            Errored?.Invoke(this, args);
         }
 
         public override void OnAuthenticationFailed()
@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Droid.Callback
         public override void OnAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result)
         {
             base.OnAuthenticationSucceeded(result);
-            Success?.Invoke(this, result);
+            Succeeded?.Invoke(this, result);
         }
 
         public class ErrorEventArgs : EventArgs

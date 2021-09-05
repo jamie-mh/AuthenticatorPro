@@ -15,7 +15,7 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class RenameAuthenticatorBottomSheet : BottomSheet
     {
-        public event EventHandler<RenameEventArgs> Rename;
+        public event EventHandler<RenameEventArgs> RenameClicked;
 
         private int _position;
         private string _issuer;
@@ -80,7 +80,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 }
 
                 var args = new RenameEventArgs(_position, issuer, _usernameText.Text);
-                Rename?.Invoke(this, args);
+                RenameClicked?.Invoke(this, args);
                 Dismiss();
             };
 

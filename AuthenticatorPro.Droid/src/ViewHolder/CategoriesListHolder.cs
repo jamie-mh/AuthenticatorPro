@@ -10,13 +10,13 @@ namespace AuthenticatorPro.Droid.ViewHolder
 {
     internal class CategoriesListHolder : RecyclerView.ViewHolder
     {
-        public event EventHandler<int> Click;
+        public event EventHandler<int> Clicked;
         public TextView Name { get; }
 
         public CategoriesListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<TextView>(Resource.Id.textName);
-            itemView.Click += delegate { Click?.Invoke(this, BindingAdapterPosition); };
+            itemView.Click += delegate { Clicked?.Invoke(this, BindingAdapterPosition); };
         }
     }
 }

@@ -149,7 +149,7 @@ namespace AuthenticatorPro.WearOS.Activity
                 if (defaultAuth != null)
                 {
                     var authPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
-                    OnItemClick(null, authPosition);
+                    OnItemClicked(null, authPosition);
                 }
             }
 
@@ -196,8 +196,8 @@ namespace AuthenticatorPro.WearOS.Activity
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
             _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconCache);
-            _authListAdapter.ItemClick += OnItemClick;
-            _authListAdapter.ItemLongClick += OnItemLongClick;
+            _authListAdapter.ItemClicked += OnItemClicked;
+            _authListAdapter.ItemLongClicked += OnItemLongClicked;
             _authListAdapter.HasStableIds = true;
             _authListAdapter.DefaultAuth = _preferences.DefaultAuth;
             _authList.SetAdapter(_authListAdapter);
@@ -279,7 +279,7 @@ namespace AuthenticatorPro.WearOS.Activity
             }
         }
 
-        private async void OnItemClick(object sender, int position)
+        private async void OnItemClicked(object sender, int position)
         {
             var item = _authSource.Get(position);
 
@@ -324,7 +324,7 @@ namespace AuthenticatorPro.WearOS.Activity
             StartActivity(intent);
         }
 
-        private void OnItemLongClick(object sender, int position)
+        private void OnItemLongClicked(object sender, int position)
         {
             var item = _authSource.Get(position);
 

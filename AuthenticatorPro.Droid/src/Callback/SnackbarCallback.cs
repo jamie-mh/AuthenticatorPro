@@ -8,19 +8,19 @@ namespace AuthenticatorPro.Droid.Callback
 {
     public class SnackbarCallback : Snackbar.Callback
     {
-        public event EventHandler<int> Dismiss;
-        public event EventHandler Show;
+        public event EventHandler<int> Dismissed;
+        public event EventHandler Shown;
 
         public override void OnDismissed(Snackbar transientBottomBar, int e)
         {
             base.OnDismissed(transientBottomBar, e);
-            Dismiss?.Invoke(transientBottomBar, e);
+            Dismissed?.Invoke(transientBottomBar, e);
         }
 
         public override void OnShown(Snackbar sb)
         {
             base.OnShown(sb);
-            Show?.Invoke(sb, null);
+            Shown?.Invoke(sb, null);
         }
     }
 }

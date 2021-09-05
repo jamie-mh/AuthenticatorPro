@@ -108,7 +108,7 @@ namespace AuthenticatorPro.Droid.Fragment
         protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)
         {
             var adapter = new SheetMenuAdapter(Context, items);
-            adapter.ItemClick += delegate
+            adapter.ItemClicked += delegate
             {
                 Dismiss();
             };

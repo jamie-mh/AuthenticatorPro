@@ -11,8 +11,8 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class ScanQrCodeBottomSheet : BottomSheet
     {
-        public event EventHandler FromCamera;
-        public event EventHandler FromGallery;
+        public event EventHandler FromCameraClicked;
+        public event EventHandler FromGalleryClicked;
 
         public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
@@ -25,9 +25,9 @@ namespace AuthenticatorPro.Droid.Fragment
                 new List<SheetMenuItem>
                 {
                     new SheetMenuItem(Resource.Drawable.ic_action_camera_alt, Resource.String.scanQrCodeFromCamera,
-                        FromCamera),
+                        FromCameraClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_image, Resource.String.scanQrCodeFromGallery,
-                        FromGallery)
+                        FromGalleryClicked)
                 });
 
             return view;

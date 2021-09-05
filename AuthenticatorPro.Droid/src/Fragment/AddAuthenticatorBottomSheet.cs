@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class AddAuthenticatorBottomSheet : BottomSheet
     {
-        public event EventHandler<Authenticator> Add;
+        public event EventHandler<Authenticator> AddClicked;
 
         private LinearLayout _advancedLayout;
         private MaterialButton _advancedButton;
@@ -117,7 +117,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 _advancedButton.Visibility = ViewStates.Gone;
             };
 
-            // When we've finished typing the secret, remove the keyboard so it doesn't skip to advanced options 
+            // When we've finished typing the secret, remove the keyboard so it doesn't skip to advanced options
             _secretText.EditorAction += (_, args) =>
             {
                 if (args.ActionId != ImeAction.Done)
@@ -272,7 +272,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 Secret = secret
             };
 
-            Add?.Invoke(this, auth);
+            AddClicked?.Invoke(this, auth);
         }
     }
 }

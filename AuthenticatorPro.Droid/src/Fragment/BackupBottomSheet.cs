@@ -12,9 +12,9 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class BackupBottomSheet : BottomSheet
     {
-        public event EventHandler BackupFile;
-        public event EventHandler HtmlFile;
-        public event EventHandler UriList;
+        public event EventHandler BackupFileClicked;
+        public event EventHandler BackupHtmlFileClicked;
+        public event EventHandler BackupUriListClicked;
 
         public BackupBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
@@ -28,12 +28,12 @@ namespace AuthenticatorPro.Droid.Fragment
                 new List<SheetMenuItem>
                 {
                     new SheetMenuItem(Resource.Drawable.ic_action_file_lock, Resource.String.backupToFile,
-                        BackupFile, Resource.String.backupToFileMessage),
+                        BackupFileClicked, Resource.String.backupToFileMessage),
                     new SheetMenuItem(Resource.Drawable.ic_action_code, Resource.String.backupHtml,
-                        delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, HtmlFile); },
+                        delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, BackupHtmlFileClicked); },
                         Resource.String.backupHtmlMessage),
                     new SheetMenuItem(Resource.Drawable.ic_list, Resource.String.backupUriList,
-                        delegate { ShowUnencryptedWarning(Resource.String.backupUriListWarning, UriList); },
+                        delegate { ShowUnencryptedWarning(Resource.String.backupUriListWarning, BackupUriListClicked); },
                         Resource.String.backupUriListMessage)
                 });
 

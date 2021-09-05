@@ -17,8 +17,8 @@ namespace AuthenticatorPro.WearOS.List
 
         public int? DefaultAuth { get; set; }
 
-        public event EventHandler<int> ItemClick;
-        public event EventHandler<int> ItemLongClick;
+        public event EventHandler<int> ItemClicked;
+        public event EventHandler<int> ItemLongClicked;
 
         public AuthenticatorListAdapter(AuthenticatorSource authSource, CustomIconCache customIconCache)
         {
@@ -90,12 +90,12 @@ namespace AuthenticatorPro.WearOS.List
             var holder = new AuthenticatorListHolder(view);
             holder.ItemView.Click += delegate
             {
-                ItemClick?.Invoke(this, holder.BindingAdapterPosition);
+                ItemClicked?.Invoke(this, holder.BindingAdapterPosition);
             };
 
             holder.ItemView.LongClick += delegate
             {
-                ItemLongClick?.Invoke(this, holder.BindingAdapterPosition);
+                ItemLongClicked?.Invoke(this, holder.BindingAdapterPosition);
             };
 
             return holder;

@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Droid.Activity
             _nav.ItemSelected += OnItemSelected;
 
             var callback = new PageChangeCallback();
-            callback.PageSelect += delegate { OnPageSelected(); };
+            callback.PageSelected += delegate { OnPageSelected(); };
 
             _pager.RegisterOnPageChangeCallback(callback);
 

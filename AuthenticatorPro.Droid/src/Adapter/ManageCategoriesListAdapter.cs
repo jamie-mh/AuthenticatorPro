@@ -11,7 +11,7 @@ namespace AuthenticatorPro.Droid.Adapter
 {
     internal class ManageCategoriesListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
-        public event EventHandler<int> MenuClick;
+        public event EventHandler<int> MenuClicked;
         public event EventHandler MovementFinished;
         public string DefaultId { get; set; }
 
@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Droid.Adapter
                 .Inflate(Resource.Layout.listItemEditCategory, parent, false);
 
             var holder = new EditCategoriesListHolder(itemView);
-            holder.MenuButton.Click += delegate { MenuClick(this, holder.BindingAdapterPosition); };
+            holder.MenuButton.Click += delegate { MenuClicked(this, holder.BindingAdapterPosition); };
 
             return holder;
         }

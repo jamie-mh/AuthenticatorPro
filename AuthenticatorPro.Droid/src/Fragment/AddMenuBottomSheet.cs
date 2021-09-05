@@ -11,10 +11,10 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class AddMenuBottomSheet : BottomSheet
     {
-        public event EventHandler QrCode;
-        public event EventHandler EnterKey;
-        public event EventHandler Restore;
-        public event EventHandler Import;
+        public event EventHandler QrCodeClicked;
+        public event EventHandler EnterKeyClicked;
+        public event EventHandler RestoreClicked;
+        public event EventHandler ImportClicked;
 
         public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
@@ -25,12 +25,12 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, QrCode),
-                    new SheetMenuItem(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, EnterKey),
+                    new SheetMenuItem(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, QrCodeClicked),
+                    new SheetMenuItem(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, EnterKeyClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_restore, Resource.String.restoreBackup,
-                        Restore),
+                        RestoreClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_import, Resource.String.importFromOtherApps,
-                        Import)
+                        ImportClicked)
                 });
 
             return view;

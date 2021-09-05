@@ -13,9 +13,9 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class AboutBottomSheet : BottomSheet
     {
-        public event EventHandler About;
-        public event EventHandler Rate;
-        public event EventHandler ViewGitHub;
+        public event EventHandler AboutClicked;
+        public event EventHandler RateClicked;
+        public event EventHandler ViewGitHubClicked;
 
         public AboutBottomSheet() : base(Resource.Layout.sheetMenu) { }
 
@@ -28,12 +28,12 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, About,
+                    new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, AboutClicked,
                         Resource.String.aboutSummary),
                     new SheetMenuItem(IconResolver.GetService("googleplay", isDark), Resource.String.rate,
-                        Rate, Resource.String.rateSummary),
+                        RateClicked, Resource.String.rateSummary),
                     new SheetMenuItem(IconResolver.GetService("github", isDark), Resource.String.viewGitHub,
-                        ViewGitHub, Resource.String.viewGitHubSummary)
+                        ViewGitHubClicked, Resource.String.viewGitHubSummary)
                 });
 
             return view;

@@ -33,8 +33,8 @@ namespace AuthenticatorPro.Droid.Adapter
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
 
-        public event EventHandler<int> ItemClick;
-        public event EventHandler<int> MenuClick;
+        public event EventHandler<int> ItemClicked;
+        public event EventHandler<int> MenuClicked;
 
         public event EventHandler MovementStarted;
         public event EventHandler MovementFinished;
@@ -365,7 +365,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
             var holder = new AuthenticatorListHolder(itemView);
             holder.ItemView.Click += delegate { OnItemClick(holder); };
-            holder.MenuButton.Click += delegate { MenuClick.Invoke(this, holder.BindingAdapterPosition); };
+            holder.MenuButton.Click += delegate { MenuClicked.Invoke(this, holder.BindingAdapterPosition); };
             holder.RefreshButton.Click += delegate { OnRefreshClick(holder.BindingAdapterPosition); };
 
             return holder;
@@ -380,7 +380,7 @@ namespace AuthenticatorPro.Droid.Adapter
                 holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
             }
 
-            ItemClick?.Invoke(this, holder.BindingAdapterPosition);
+            ItemClicked?.Invoke(this, holder.BindingAdapterPosition);
         }
 
         private async void OnRefreshClick(int position)

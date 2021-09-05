@@ -13,11 +13,11 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal class MainMenuBottomSheet : BottomSheet
     {
-        public event EventHandler<string> Category;
-        public event EventHandler Backup;
-        public event EventHandler EditCategories;
-        public event EventHandler Settings;
-        public event EventHandler About;
+        public event EventHandler<string> CategoryClicked;
+        public event EventHandler BackupClicked;
+        public event EventHandler EditCategoriesClicked;
+        public event EventHandler SettingsClicked;
+        public event EventHandler AboutClicked;
 
         private readonly ICategoryView _categoryView;
         private CategoriesListAdapter _categoryListAdapter;
@@ -61,19 +61,19 @@ namespace AuthenticatorPro.Droid.Fragment
 
             _categoryListAdapter.CategorySelected += (_, id) =>
             {
-                Category?.Invoke(this, id);
+                CategoryClicked?.Invoke(this, id);
             };
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_backup, Resource.String.backup, Backup),
+                    new SheetMenuItem(Resource.Drawable.ic_action_backup, Resource.String.backup, BackupClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_category, Resource.String.editCategories,
-                        EditCategories),
+                        EditCategoriesClicked),
                     new SheetMenuItem(Resource.Drawable.ic_action_settings, Resource.String.settings,
-                        Settings),
-                    new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, About)
+                        SettingsClicked),
+                    new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, AboutClicked)
                 });
 
             return view;

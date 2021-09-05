@@ -547,13 +547,13 @@ namespace AuthenticatorPro.Droid.Activity
             bundle.PutString("currentCategoryId", _authenticatorView.CategoryId);
 
             var fragment = new MainMenuBottomSheet { Arguments = bundle };
-            fragment.Category += async (_, id) =>
+            fragment.CategoryClicked += async (_, id) =>
             {
                 await SwitchCategory(id);
                 RunOnUiThread(fragment.Dismiss);
             };
 
-            fragment.Backup += delegate
+            fragment.BackupClicked += delegate
             {
                 if (!_authenticatorView.AnyWithoutFilter())
                 {
@@ -564,27 +564,27 @@ namespace AuthenticatorPro.Droid.Activity
                 OpenBackupMenu();
             };
 
-            fragment.EditCategories += delegate
+            fragment.EditCategoriesClicked += delegate
             {
                 _updateOnResume = true;
                 StartActivity(typeof(EditCategoriesActivity));
             };
 
-            fragment.Settings += delegate
+            fragment.SettingsClicked += delegate
             {
                 StartActivityForResult(typeof(SettingsActivity), RequestSettingsRecreate);
             };
 
-            fragment.About += delegate
+            fragment.AboutClicked += delegate
             {
                 var sub = new AboutBottomSheet();
 
-                sub.About += delegate
+                sub.AboutClicked += delegate
                 {
                     StartActivity(typeof(AboutActivity));
                 };
 
-                sub.Rate += delegate
+                sub.RateClicked += delegate
                 {
                     var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=" + PackageName));
 
@@ -598,7 +598,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                 };
 
-                sub.ViewGitHub += delegate
+                sub.ViewGitHubClicked += delegate
                 {
                     var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo));
 
@@ -790,8 +790,8 @@ namespace AuthenticatorPro.Droid.Activity
                     viewMode, IsDark,
                     _preferences.TapToReveal) { HasStableIds = true };
 
-            _authenticatorListAdapter.ItemClick += OnAuthenticatorClick;
-            _authenticatorListAdapter.MenuClick += OnAuthenticatorMenuClick;
+            _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
+            _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
             _authenticatorListAdapter.MovementStarted += OnAuthenticatorListMovementStarted;
             _authenticatorListAdapter.MovementFinished += OnAuthenticatorListMovementFinished;
 
@@ -1049,7 +1049,7 @@ namespace AuthenticatorPro.Droid.Activity
             RunOnUiThread(_authenticatorListAdapter.Tick);
         }
 
-        private void OnAuthenticatorClick(object sender, int position)
+        private void OnAuthenticatorClicked(object sender, int position)
         {
             var auth = _authenticatorView[position];
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
@@ -1059,7 +1059,7 @@ namespace AuthenticatorPro.Droid.Activity
             ShowSnackbar(Resource.String.copiedToClipboard, Snackbar.LengthShort);
         }
 
-        private void OnAuthenticatorMenuClick(object sender, int position)
+        private void OnAuthenticatorMenuClicked(object sender, int position)
         {
             var auth = _authenticatorView[position];
             var bundle = new Bundle();
@@ -1068,11 +1068,11 @@ namespace AuthenticatorPro.Droid.Activity
 
             var fragment = new AuthenticatorMenuBottomSheet { Arguments = bundle };
 
-            fragment.Rename += delegate { OpenRenameDialog(position); };
-            fragment.ChangeIcon += delegate { OpenIconDialog(position); };
-            fragment.AssignCategories += async delegate { await OpenCategoriesDialog(position); };
-            fragment.ShowQrCode += delegate { OpenQrCodeDialog(position); };
-            fragment.Delete += delegate { OpenDeleteDialog(position); };
+            fragment.RenameClicked += delegate { OpenRenameDialog(position); };
+            fragment.ChangeIconClicked += delegate { OpenIconDialog(position); };
+            fragment.AssignCategoriesClicked += async delegate { await OpenCategoriesDialog(position); };
+            fragment.ShowQrCodeClicked += delegate { OpenQrCodeDialog(position); };
+            fragment.DeleteClicked += delegate { OpenDeleteDialog(position); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1147,21 +1147,21 @@ namespace AuthenticatorPro.Droid.Activity
         private void OnAddButtonClick(object sender, EventArgs e)
         {
             var fragment = new AddMenuBottomSheet();
-            fragment.QrCode += delegate
+            fragment.QrCodeClicked += delegate
             {
                 var subFragment = new ScanQrCodeBottomSheet();
-                subFragment.FromCamera += async delegate { await RequestPermissionThenScanQrCode(); };
-                subFragment.FromGallery += delegate { StartFilePickActivity("image/*", RequestQrCode); };
+                subFragment.FromCameraClicked += async delegate { await RequestPermissionThenScanQrCode(); };
+                subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCode); };
                 subFragment.Show(SupportFragmentManager, subFragment.Tag);
             };
 
-            fragment.EnterKey += OpenAddDialog;
-            fragment.Restore += delegate
+            fragment.EnterKeyClicked += OpenAddDialog;
+            fragment.RestoreClicked += delegate
             {
                 StartFilePickActivity(Backup.MimeType, RequestRestore);
             };
 
-            fragment.Import += delegate
+            fragment.ImportClicked += delegate
             {
                 OpenImportMenu();
             };
@@ -1381,7 +1381,7 @@ namespace AuthenticatorPro.Droid.Activity
         private void OpenImportMenu()
         {
             var fragment = new ImportBottomSheet();
-            fragment.GoogleAuthenticator += delegate
+            fragment.GoogleAuthenticatorClicked += delegate
             {
                 StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Google-Authenticator");
             };
@@ -1389,57 +1389,57 @@ namespace AuthenticatorPro.Droid.Activity
             // Use */* mime-type for most binary files because some files might not show on older Android versions
             // Use */* for json also, because application/json doesn't work
 
-            fragment.AuthenticatorPlus += delegate
+            fragment.AuthenticatorPlusClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportAuthenticatorPlus);
             };
 
-            fragment.AndOtp += delegate
+            fragment.AndOtpClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportAndOtp);
             };
 
-            fragment.FreeOtpPlus += delegate
+            fragment.FreeOtpPlusClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportFreeOtpPlus);
             };
 
-            fragment.Aegis += delegate
+            fragment.AegisClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportAegis);
             };
 
-            fragment.Bitwarden += delegate
+            fragment.BitwardenClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportBitwarden);
             };
 
-            fragment.WinAuth += delegate
+            fragment.WinAuthClicked += delegate
             {
                 StartFilePickActivity("text/plain", RequestImportWinAuth);
             };
 
-            fragment.Authy += delegate
+            fragment.AuthyClicked += delegate
             {
                 StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Authy");
             };
 
-            fragment.TotpAuthenticator += delegate
+            fragment.TotpAuthenticatorClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportTotpAuthenticator);
             };
 
-            fragment.BlizzardAuthenticator += delegate
+            fragment.BlizzardAuthenticatorClicked += delegate
             {
                 StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Blizzard-Authenticator");
             };
 
-            fragment.Steam += delegate
+            fragment.SteamClicked += delegate
             {
                 StartWebBrowserActivity(Constants.GitHubRepo + "/wiki/Importing-from-Steam");
             };
 
-            fragment.UriList += delegate
+            fragment.UriListClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportUriList);
             };
@@ -1645,17 +1645,17 @@ namespace AuthenticatorPro.Droid.Activity
                     $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{fileExtension}");
             }
 
-            fragment.BackupFile += delegate
+            fragment.BackupFileClicked += delegate
             {
                 ShowPicker(Backup.MimeType, RequestBackupFile, Backup.FileExtension);
             };
 
-            fragment.HtmlFile += delegate
+            fragment.BackupHtmlFileClicked += delegate
             {
                 ShowPicker(HtmlBackup.MimeType, RequestBackupHtml, HtmlBackup.FileExtension);
             };
 
-            fragment.UriList += delegate
+            fragment.BackupUriListClicked += delegate
             {
                 ShowPicker(UriListBackup.MimeType, RequestBackupUriList, UriListBackup.FileExtension);
             };
@@ -1704,7 +1704,7 @@ namespace AuthenticatorPro.Droid.Activity
                 ((BackupPasswordBottomSheet) sender).Dismiss();
             };
 
-            fragment.Cancel += (sender, _) =>
+            fragment.CancelClicked += (sender, _) =>
             {
                 // TODO: Delete empty file only if we just created it
                 // DocumentsContract.DeleteDocument(ContentResolver, uri);
@@ -1775,7 +1775,7 @@ namespace AuthenticatorPro.Droid.Activity
             });
 
             var callback = new SnackbarCallback();
-            callback.Dismiss += (_, e) =>
+            callback.Dismissed += (_, e) =>
             {
                 if (e == Snackbar.Callback.DismissEventSwipe)
                 {
@@ -1794,7 +1794,7 @@ namespace AuthenticatorPro.Droid.Activity
         private void OpenAddDialog(object sender, EventArgs e)
         {
             var fragment = new AddAuthenticatorBottomSheet();
-            fragment.Add += OnAddDialogSubmit;
+            fragment.AddClicked += OnAddDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -1859,7 +1859,7 @@ namespace AuthenticatorPro.Droid.Activity
             bundle.PutString("username", auth.Username);
 
             var fragment = new RenameAuthenticatorBottomSheet { Arguments = bundle };
-            fragment.Rename += OnRenameDialogSubmit;
+            fragment.RenameClicked += OnRenameDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
@@ -1893,7 +1893,7 @@ namespace AuthenticatorPro.Droid.Activity
             bundle.PutInt("position", position);
 
             var fragment = new ChangeIconBottomSheet { Arguments = bundle };
-            fragment.IconSelect += OnIconDialogIconSelected;
+            fragment.IconSelected += OnIconDialogIconSelected;
             fragment.UseCustomIconClick += delegate
             {
                 _customIconApplyPosition = position;
@@ -1982,18 +1982,18 @@ namespace AuthenticatorPro.Droid.Activity
             bundle.PutStringArray("assignedCategoryIds", categoryIds);
 
             var fragment = new AssignCategoriesBottomSheet { Arguments = bundle };
-            fragment.CategoryClick += OnCategoriesDialogCategoryClick;
-            fragment.EditCategoriesClick += delegate
+            fragment.CategoryClicked += OnCategoriesDialogCategoryClicked;
+            fragment.EditCategoriesClicked += delegate
             {
                 _updateOnResume = true;
                 StartActivity(typeof(EditCategoriesActivity));
                 fragment.Dismiss();
             };
-            fragment.Close += OnCategoriesDialogClose;
+            fragment.Closed += OnCategoriesDialogClosed;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnCategoriesDialogClose(object sender, EventArgs e)
+        private async void OnCategoriesDialogClosed(object sender, EventArgs e)
         {
             await _authenticatorView.LoadFromPersistenceAsync();
 
@@ -2006,7 +2006,7 @@ namespace AuthenticatorPro.Droid.Activity
             CheckEmptyState();
         }
 
-        private async void OnCategoriesDialogCategoryClick(object sender,
+        private async void OnCategoriesDialogCategoryClicked(object sender,
             AssignCategoriesBottomSheet.CategoryClickedEventArgs args)
         {
             var auth = _authenticatorView[args.ItemPosition];
