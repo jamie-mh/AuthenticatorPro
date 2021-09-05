@@ -59,9 +59,9 @@ namespace AuthenticatorPro.Droid
 
         private static void RegisterViews()
         {
-            Container.Register<IAuthenticatorView, AuthenticatorView>();
-            Container.Register<ICategoryView, CategoryView>();
-            Container.Register<IIconView, IconView>();
+            Container.Register<IAuthenticatorView, AuthenticatorView>().AsMultiInstance();
+            Container.Register<ICategoryView, CategoryView>().AsMultiInstance();
+            Container.Register<IIconView, IconView>().AsMultiInstance();
         }
 
         public static T Resolve<T>() where T : class
