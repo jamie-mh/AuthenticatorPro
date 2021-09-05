@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
             return auth;
         }
 
-        public async Task<int> ParseOtpMigrationUri(string uri)
+        public Task<int> ParseOtpMigrationUri(string uri)
         {
             var migration = OtpAuthMigration.FromOtpAuthMigrationUri(uri);
             var authenticators = new List<Authenticator>();
@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
                 authenticators.Add(auth);
             }
 
-            return await _authenticatorService.AddManyAsync(authenticators);
+            return _authenticatorService.AddManyAsync(authenticators);
         }
     }
 }

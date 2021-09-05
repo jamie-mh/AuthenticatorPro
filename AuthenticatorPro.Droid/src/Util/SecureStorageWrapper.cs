@@ -10,26 +10,26 @@ namespace AuthenticatorPro.Droid.Util
     {
         private const string AutoBackupPasswordKey = "autoBackupPassword";
 
-        public static async Task<string> GetAutoBackupPassword()
+        public static Task<string> GetAutoBackupPassword()
         {
-            return await Get(AutoBackupPasswordKey);
+            return Get(AutoBackupPasswordKey);
         }
 
-        public static async Task SetAutoBackupPassword(string value)
+        public static Task SetAutoBackupPassword(string value)
         {
-            await Set(AutoBackupPasswordKey, value);
+            return Set(AutoBackupPasswordKey, value);
         }
 
         private const string DatabasePasswordKey = "databasePassword";
 
-        public static async Task<string> GetDatabasePassword()
+        public static Task<string> GetDatabasePassword()
         {
-            return await Get(DatabasePasswordKey);
+            return Get(DatabasePasswordKey);
         }
 
-        public static async Task SetDatabasePassword(string value)
+        public static Task SetDatabasePassword(string value)
         {
-            await Set(DatabasePasswordKey, value);
+            return Set(DatabasePasswordKey, value);
         }
 
         private static async Task Set(string key, string value)
@@ -47,10 +47,10 @@ namespace AuthenticatorPro.Droid.Util
             });
         }
 
-        private static async Task<string> Get(string key)
+        private static Task<string> Get(string key)
         {
             // Don't call secure storage on the ui thread
-            return await Task.Run(async () => await SecureStorage.GetAsync(key));
+            return Task.Run(() => SecureStorage.GetAsync(key));
         }
     }
 }

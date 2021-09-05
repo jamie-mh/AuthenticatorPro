@@ -30,9 +30,9 @@ namespace AuthenticatorPro.Shared.Data.Backup
             return _contents;
         }
 
-        private static async Task<string> GetTemplate(IAssetProvider assetProvider)
+        private static Task<string> GetTemplate(IAssetProvider assetProvider)
         {
-            return await assetProvider.ReadStringAsync(BackupTemplateFileName);
+            return assetProvider.ReadStringAsync(BackupTemplateFileName);
         }
 
         public static async Task<HtmlBackup> FromAuthenticators(IAssetProvider assetProvider,
@@ -43,9 +43,9 @@ namespace AuthenticatorPro.Shared.Data.Backup
             var itemsHtml = new StringBuilder();
             var generator = new QRCodeGenerator();
 
-            async Task<string> GetQrCodeDataAsync(string uri)
+            Task<string> GetQrCodeDataAsync(string uri)
             {
-                return await Task.Run(() =>
+                return Task.Run(() =>
                 {
                     var qrCodeData = generator.CreateQrCode(uri, QRCodeGenerator.ECCLevel.Q);
                     var qrCode = new PngByteQRCode(qrCodeData);
