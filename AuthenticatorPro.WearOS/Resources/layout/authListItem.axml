@@ -44,6 +44,7 @@
                 android:layout_toEndOf="@id/imageDefault"
                 android:layout_centerVertical="true"
                 android:textSize="14dp"
+                android:fontFamily="sans-serif-medium"
                 android:gravity="start"
                 android:textColor="?attr/primaryTextColor"
                 android:singleLine="true"
