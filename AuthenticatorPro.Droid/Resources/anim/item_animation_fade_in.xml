@@ -3,9 +3,9 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
      android:duration="50">
 
-  <alpha
-    android:fromAlpha="0.5"
-    android:toAlpha="1"
-    android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+    <alpha
+        android:fromAlpha="0.5"
+        android:toAlpha="1"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
 
 </set>

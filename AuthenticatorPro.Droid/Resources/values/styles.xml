@@ -28,7 +28,7 @@
 
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@color/colorLighter</item>
-        
+
         <item name="bottomAppBarBackground">@color/colorLightest</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetStyle</item>
     </style>
@@ -57,7 +57,7 @@
         <item name="colorSecondaryVariant">@color/colorRedSecondary</item>
         <item name="colorTint">@color/colorRedTint</item>
     </style>
-    
+
     <style name="OverlayAccentPink">
         <item name="colorPrimary">@color/colorPinkPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPinkSecondary</item>
@@ -65,7 +65,7 @@
         <item name="colorSecondaryVariant">@color/colorPinkSecondary</item>
         <item name="colorTint">@color/colorPinkTint</item>
     </style>
-    
+
     <style name="OverlayAccentPurple">
         <item name="colorPrimary">@color/colorPurplePrimary</item>
         <item name="colorPrimaryVariant">@color/colorPurpleSecondary</item>
@@ -73,7 +73,7 @@
         <item name="colorSecondaryVariant">@color/colorPurpleSecondary</item>
         <item name="colorTint">@color/colorPurpleTint</item>
     </style>
-    
+
     <style name="OverlayAccentDeepPurple">
         <item name="colorPrimary">@color/colorDeepPurplePrimary</item>
         <item name="colorPrimaryVariant">@color/colorDeepPurpleSecondary</item>
@@ -81,7 +81,7 @@
         <item name="colorSecondaryVariant">@color/colorDeepPurpleSecondary</item>
         <item name="colorTint">@color/colorDeepPurpleTint</item>
     </style>
-    
+
     <style name="OverlayAccentIndigo">
         <item name="colorPrimary">@color/colorIndigoPrimary</item>
         <item name="colorPrimaryVariant">@color/colorIndigoSecondary</item>
@@ -89,7 +89,7 @@
         <item name="colorSecondaryVariant">@color/colorIndigoSecondary</item>
         <item name="colorTint">@color/colorIndigoTint</item>
     </style>
-    
+
     <style name="OverlayAccentBlue">
         <item name="colorPrimary">@color/colorBluePrimary</item>
         <item name="colorPrimaryVariant">@color/colorBlueSecondary</item>
@@ -97,7 +97,7 @@
         <item name="colorSecondaryVariant">@color/colorBlueSecondary</item>
         <item name="colorTint">@color/colorBlueTint</item>
     </style>
-    
+
     <style name="OverlayAccentLightBlue">
         <item name="colorPrimary">@color/colorLightBluePrimary</item>
         <item name="colorPrimaryVariant">@color/colorLightBlueSecondary</item>
@@ -105,7 +105,7 @@
         <item name="colorSecondaryVariant">@color/colorLightBlueSecondary</item>
         <item name="colorTint">@color/colorLightBlueTint</item>
     </style>
-    
+
     <style name="OverlayAccentCyan">
         <item name="colorPrimary">@color/colorCyanPrimary</item>
         <item name="colorPrimaryVariant">@color/colorCyanSecondary</item>
@@ -113,7 +113,7 @@
         <item name="colorSecondaryVariant">@color/colorCyanSecondary</item>
         <item name="colorTint">@color/colorCyanTint</item>
     </style>
-    
+
     <style name="OverlayAccentTeal">
         <item name="colorPrimary">@color/colorTealPrimary</item>
         <item name="colorPrimaryVariant">@color/colorTealSecondary</item>
@@ -121,7 +121,7 @@
         <item name="colorSecondaryVariant">@color/colorTealSecondary</item>
         <item name="colorTint">@color/colorTealTint</item>
     </style>
-    
+
     <style name="OverlayAccentGreen">
         <item name="colorPrimary">@color/colorGreenPrimary</item>
         <item name="colorPrimaryVariant">@color/colorGreenSecondary</item>
@@ -129,7 +129,7 @@
         <item name="colorSecondaryVariant">@color/colorGreenSecondary</item>
         <item name="colorTint">@color/colorGreenTint</item>
     </style>
-    
+
     <style name="OverlayAccentLightGreen">
         <item name="colorPrimary">@color/colorLightGreenPrimary</item>
         <item name="colorPrimaryVariant">@color/colorLightGreenSecondary</item>
@@ -137,7 +137,7 @@
         <item name="colorSecondaryVariant">@color/colorLightGreenSecondary</item>
         <item name="colorTint">@color/colorLightGreenTint</item>
     </style>
-    
+
     <style name="OverlayAccentLime">
         <item name="colorPrimary">@color/colorLimePrimary</item>
         <item name="colorPrimaryVariant">@color/colorLimeSecondary</item>
@@ -145,7 +145,7 @@
         <item name="colorSecondaryVariant">@color/colorLimeSecondary</item>
         <item name="colorTint">@color/colorLimeTint</item>
     </style>
-    
+
     <style name="OverlayAccentYellow">
         <item name="colorPrimary">@color/colorYellowPrimary</item>
         <item name="colorPrimaryVariant">@color/colorYellowSecondary</item>
@@ -153,7 +153,7 @@
         <item name="colorSecondaryVariant">@color/colorYellowSecondary</item>
         <item name="colorTint">@color/colorYellowTint</item>
     </style>
-    
+
     <style name="OverlayAccentAmber">
         <item name="colorPrimary">@color/colorAmberPrimary</item>
         <item name="colorPrimaryVariant">@color/colorAmberSecondary</item>
@@ -161,7 +161,7 @@
         <item name="colorSecondaryVariant">@color/colorAmberSecondary</item>
         <item name="colorTint">@color/colorAmberTint</item>
     </style>
-    
+
     <style name="OverlayAccentOrange">
         <item name="colorPrimary">@color/colorOrangePrimary</item>
         <item name="colorPrimaryVariant">@color/colorOrangeSecondary</item>
@@ -169,7 +169,7 @@
         <item name="colorSecondaryVariant">@color/colorOrangeSecondary</item>
         <item name="colorTint">@color/colorOrangeTint</item>
     </style>
-    
+
     <style name="OverlayAccentDeepOrange">
         <item name="colorPrimary">@color/colorDeepOrangePrimary</item>
         <item name="colorPrimaryVariant">@color/colorDeepOrangeSecondary</item>

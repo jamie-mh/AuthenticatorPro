@@ -12,13 +12,13 @@
             android:summary="@string/prefShowBackupRemindersSummary"
             android:title="@string/prefShowBackupRemindersTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="true" />
+            android:defaultValue="true"/>
         <authenticatorpro.droid.preference.AutoBackupPreference
             android:key="pref_autoBackup"
             android:summary="@string/prefAutoBackupSummary"
             android:title="@string/prefAutoBackupTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="true" />
+            android:defaultValue="true"/>
         <androidx.preference.ListPreference
             android:key="pref_language"
             android:summary="@string/prefLanguageSummary"
@@ -26,9 +26,9 @@
             app:iconSpaceReserved="false"
             android:entries="@array/languageNames"
             android:entryValues="@array/languageValues"
-            android:defaultValue="system" />
+            android:defaultValue="system"/>
     </androidx.preference.PreferenceCategory>
-    
+
     <androidx.preference.PreferenceCategory
         android:title="@string/prefSecurity"
         android:key="pref_key_security">
@@ -37,19 +37,19 @@
             android:summary="@string/prefPasswordSummary"
             app:iconSpaceReserved="false"
             android:defaultValue="false"
-            android:title="@string/prefPasswordTitle" />
+            android:title="@string/prefPasswordTitle"/>
         <androidx.preference.SwitchPreference
             android:key="pref_databasePasswordBackup"
             android:summary="@string/prefDatabasePasswordBackupSummary"
             android:title="@string/prefDatabasePasswordBackupTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="false" />
+            android:defaultValue="false"/>
         <authenticatorpro.droid.preference.BiometricsPreference
             android:key="pref_allowBiometrics"
             android:summary="@string/prefAllowBiometricsSummary"
             app:iconSpaceReserved="false"
             android:defaultValue="false"
-            android:title="@string/prefAllowBiometricsTitle" />
+            android:title="@string/prefAllowBiometricsTitle"/>
         <androidx.preference.ListPreference
             android:key="pref_timeout"
             android:summary="@string/prefTimeoutSummary"
@@ -57,13 +57,13 @@
             app:iconSpaceReserved="false"
             android:entries="@array/timeoutNames"
             android:entryValues="@array/timeoutValues"
-            android:defaultValue="0" />
+            android:defaultValue="0"/>
         <androidx.preference.SwitchPreference
             android:key="pref_tapToReveal"
             android:summary="@string/prefTapToRevealSummary"
             android:title="@string/prefTapToRevealTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="false" />
+            android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory
@@ -76,7 +76,7 @@
             app:iconSpaceReserved="false"
             android:entries="@array/themeNames"
             android:entryValues="@array/themeValues"
-            android:defaultValue="system" />
+            android:defaultValue="system"/>
         <androidx.preference.ListPreference
             android:key="pref_viewMode"
             android:summary="@string/prefViewModeSummary"
@@ -84,7 +84,7 @@
             app:iconSpaceReserved="false"
             android:entries="@array/viewModeNames"
             android:entryValues="@array/viewModeValues"
-            android:defaultValue="default" />
+            android:defaultValue="default"/>
         <androidx.preference.ListPreference
             android:key="pref_accentColour"
             android:summary="@string/prefAccentColourSummary"
@@ -92,7 +92,7 @@
             app:iconSpaceReserved="false"
             android:entries="@array/accentColourNames"
             android:entryValues="@array/accentColourValues"
-            android:defaultValue="lightBlue" />
+            android:defaultValue="lightBlue"/>
     </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

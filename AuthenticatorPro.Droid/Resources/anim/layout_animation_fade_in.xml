@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <layoutAnimation
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:animation="@anim/item_animation_fade_in"
-  android:delay="10%"
-  android:animationOrder="normal" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/item_animation_fade_in"
+    android:delay="10%"
+    android:animationOrder="normal"/>

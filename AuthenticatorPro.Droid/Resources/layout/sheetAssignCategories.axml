@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:background="?attr/colorBackgroundFloating"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="8dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="?attr/colorBackgroundFloating"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="8dp">
 
     <com.google.android.material.appbar.MaterialToolbar
         style="Widget.MaterialComponents.Toolbar"
@@ -51,12 +51,12 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonManageCategories"
+                android:id="@+id/buttonEditCategories"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/manageCategories"/>
+                android:text="@string/editCategories"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonOK"

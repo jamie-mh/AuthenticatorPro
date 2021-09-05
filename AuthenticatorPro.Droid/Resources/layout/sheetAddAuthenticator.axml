@@ -14,7 +14,7 @@
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
                     android:inputType="none"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-            
+
             <com.google.android.material.textfield.TextInputLayout
                 app:errorEnabled="true"
                 app:hintEnabled="true"

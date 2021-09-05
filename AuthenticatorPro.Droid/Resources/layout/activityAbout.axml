@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+>
 
     <com.google.android.material.appbar.MaterialToolbar
         style="Widget.MaterialComponents.Toolbar"
@@ -12,12 +11,12 @@
         android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"/>
 
     <android.webkit.WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        android:id="@+id/webView" />
+        android:id="@+id/webView"/>
 
 </RelativeLayout>

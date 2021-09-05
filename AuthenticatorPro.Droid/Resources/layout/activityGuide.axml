@@ -2,7 +2,6 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,7 +12,7 @@
         android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"/>
 
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -38,13 +37,13 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:src="@drawable/ic_qr_code"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideScanQRCodeTitle"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                        android:textAppearance="?attr/textAppearanceHeadline6"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -53,7 +52,7 @@
                         android:text="@string/guideScanQRCodeSummary"
                         android:lineSpacingExtra="6sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
@@ -74,13 +73,13 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:src="@drawable/ic_timer"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideUseCodeTitle"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                        android:textAppearance="?attr/textAppearanceHeadline6"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -89,7 +88,7 @@
                         android:text="@string/guideUseCodeSummary"
                         android:lineSpacingExtra="6sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
@@ -110,13 +109,13 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:src="@drawable/ic_edit"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideCustomiseTitle"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                        android:textAppearance="?attr/textAppearanceHeadline6"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -125,7 +124,7 @@
                         android:text="@string/guideCustomiseSummary"
                         android:lineSpacingExtra="6sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
@@ -146,13 +145,13 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:src="@drawable/ic_sort"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideArrangeTitle"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                        android:textAppearance="?attr/textAppearanceHeadline6"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -161,7 +160,7 @@
                         android:text="@string/guideArrangeSummary"
                         android:lineSpacingExtra="6sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
@@ -182,13 +181,13 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:src="@drawable/ic_backup"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideBackupTitle"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                        android:textAppearance="?attr/textAppearanceHeadline6"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -197,7 +196,7 @@
                         android:text="@string/guideBackupSummary"
                         android:lineSpacingExtra="6sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
@@ -218,13 +217,13 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:src="@drawable/ic_watch"
-                        android:layout_marginBottom="16dp" />
+                        android:layout_marginBottom="16dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideWearOSTitle"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
+                        android:textAppearance="?attr/textAppearanceHeadline6"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -233,7 +232,7 @@
                         android:text="@string/guideWearOSSummary"
                         android:lineSpacingExtra="6sp"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"/>
 
                 </LinearLayout>
 
