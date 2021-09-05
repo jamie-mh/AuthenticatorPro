@@ -37,14 +37,20 @@
     <string name="rate">评分</string>
     <string name="rateSummary">在 Google Play 商店上为 Authenticator Pro 评分。</string>
     <string name="viewGitHub">前往 GitHub</string>
-    <string name="viewGitHubSummary">浏览 Authenticator Pro 在 GitHub 上的代码仓库。您可以反馈问题、请求更多图标或功能。</string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request
+        more icons and features.
+    </string>
     <!-- Authenticator -->
     <string name="issuer">发行方</string>
     <string name="username">用户名</string>
     <string name="secretKey">密钥</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">显示高级选项</string>
-    <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for
+        this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may
+        prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or
+        that you have the recovery codes.\n\nContinue?
+    </string>
     <string name="useCustomIcon">使用自定义图标</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
     <string name="issuerHint">发行方（如：Google）</string>
@@ -73,18 +79,32 @@
     <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
-    <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file.
+        This file can be restored within the app.
+    </string>
     <string name="backupHtml">保存为 HTML 文件</string>
-    <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
-    <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore,
+        these codes must be scanned individually. Categories and icons are not saved.
+    </string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys
+        vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure,
+        opt for encrypted file backup instead.\n\nContinue?
+    </string>
     <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
+        is compatible with many alternative applications and services. Categories and icons are not saved.
+    </string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
+        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
+        instead.\n\nContinue?
+    </string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">这里什么都没有！</string>
     <string name="noAuthenticatorsMessage">您尚未添加验证器。</string>
     <string name="gettingStartedGuide">入门指南</string>
-    <string name="noAuthenticatorsHelp">如果您是第一次使用 Authenticator Pro，请点击下方的按钮阅览入门指南。</string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking
+        below.
+    </string>
     <string name="noCategoriesTitle">暂无分类</string>
     <string name="noCategoriesMessage">您还没有设置分类。</string>
     <!-- Categories -->
@@ -92,7 +112,7 @@
     <string name="assignCategories">指定分类</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
-    <string name="manageCategories">管理分类</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">分类名</string>
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
@@ -103,11 +123,15 @@
     <string name="backupNow">立即备份</string>
     <string name="restoreNow">立即恢复</string>
     <string name="backupReminder">自上次备份后已出现新的更改。</string>
-    <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
+    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to
+        password protect the file, leave the password empty.
+    </string>
     <string name="restoreError">密码不正确，或文件已损坏。</string>
     <string name="password">密码</string>
     <string name="passwordConfirm">确认密码</string>
-    <string name="confirmEmptyPassword">您没有输入密码，这将导致您的备份处于未加密状态，且您的密钥将会被明文暴露。您确定要继续吗？</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your
+        secret keys may be vulnerable.\n\nContinue?
+    </string>
     <string name="passwordHint">备份密码</string>
     <string name="fileNameHint">备份文件名</string>
     <string name="noAuthenticators">您没有可备份的验证器。</string>
@@ -117,7 +141,9 @@
     <string name="saveSuccess">保存成功</string>
     <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 和新分类。</string>
-    <string name="restoredFromBackupUpdated">已恢复 {0} 个新验证器和 {1} 个新分类。更新了 {2} 个已有的验证器。</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2}
+        existing authenticators.
+    </string>
     <string name="restoredNothing">没有可以恢复的内容。</string>
     <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
     <!-- Errors -->
@@ -129,16 +155,22 @@
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">出现错误。</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue
+        persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.
+    </string>
     <string name="viewErrorLog">查看错误日志</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are
+        below:
+    </string>
     <string name="report">Report</string>
     <string name="email">Email</string>
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
+        are made. Cloud storage is not supported, use the backup menu instead.
+    </string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to \'{0}\'</string>
@@ -149,20 +181,32 @@
     <string name="enableAutoBackup">启用自动备份</string>
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">启用自动恢复</string>
-    <string name="enableAutoRestoreMessage">从指定的存储位置中使用最新的备份文件进行自动恢复。可以用于在设备间同步。</string>
+    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage
+        location. Useful for syncing between devices.
+    </string>
     <string name="batOptim">Battery Optimisation</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly.
+        If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.
+    </string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
+        expired, try setting the backup location again in the auto backup settings.
+    </string>
     <string name="autoRestoreFailureTitle">自动恢复失败</string>
-    <string name="autoRestoreFailureText">最近的自动恢复未能成功完成。文件访问权限可能已被撤销，或密码不正确。请在自动备份设置中重新设置备份位置和密码。</string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have
+        expired or the password is incorrect. Try setting the backup location and password again in the auto backup
+        settings.
+    </string>
     <string name="autoBackupSuccessTitle">自动备份完成</string>
     <string name="autoRestoreSuccessTitle">自动恢复完成</string>
     <string name="backupScheduled">已触发自动备份</string>
     <string name="restoreScheduled">已触发自动恢复</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when
+        you open the app. Leave the field blank to clear the password.
+    </string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!
+    </string>
     <string name="clearPassword">Clear password</string>
     <string name="confirmPassword">Confirm password</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
@@ -193,40 +237,66 @@
     <string name="viewGuideImportHint">在项目 wiki 上查看教程</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">扫描二维码</string>
-    <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
+    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It
+        will be added to the list and will generate new codes automatically. You can also enter the details manually.
+    </string>
     <string name="guideUseCodeTitle">使用验证码登录</string>
-    <string name="guideUseCodeSummary">在登录的时候，请使用 Authenticator Pro 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。</string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only
+        valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.
+    </string>
     <string name="guideCustomiseTitle">自定义与编辑</string>
-    <string name="guideCustomiseSummary">您可以为您的验证器修改名称，或者对其进行自定义，下次就能更方便地找到它。点击任意一个验证器的菜单图标，然后按提示操作。</string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the
+        menu icon on an entry and follow the steps.
+    </string>
     <string name="guideArrangeTitle">分类与排序</string>
-    <string name="guideArrangeSummary">您可以将您的验证器归入到多个分类，方便您下次找到它。除此之外，您还可以长按并拖拽它，按您的意愿对所有验证器进行排序。</string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily.
+        Furthermore, holding and dragging items will allow you to rearrange them in any order you like.
+    </string>
     <string name="guideBackupTitle">创建备份</string>
-    <string name="guideBackupSummary">即便您更换了设备，也不会无法登录帐号。您可以创建一个备份文件，并将其保存在安全的位置。您还可以随时恢复备份，也可以使用密码加密备份。</string>
+    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file
+        and store it in a safe place. A backup can be restored at any time and protected with a password.
+    </string>
     <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
-    <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
+    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view
+        codes directly on your watch.
+    </string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
+        to focus.
+    </string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from
+        the code.
+    </string>
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">常规​​​​​</string>
     <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
-    <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are
+        made
+    </string>
     <string name="prefAutoBackupTitle">自动备份</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
+        made. Disables backup reminders.
+    </string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
-    <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with
+        your password.
+    </string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need
+        to enter it each time
+    </string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">超时时间</string>
-    <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen
+    </string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
+    </string>
     <string name="prefAppearance">外观</string>
     <string name="prefThemeTitle">主题</string>
     <string name="prefThemeSummary">选择应用的主题。</string>
@@ -274,9 +344,19 @@
     <string name="introBackupTitle">备份 / 恢复</string>
     <string name="introCategoriesTitle">分类</string>
     <string name="introThemesTitle">深色主题</string>
-    <string name="introWelcomeSummary">感谢您下载 Authenticator Pro。\n作为最好的开源身份验证器应用，我们将为您的在线帐户保驾护航。</string>
-    <string name="introCompatibilitySummary">Authenticator Pro 支持绝大多数服务提供方和帐户，并 100% 兼容支持 Google 身份验证器的服务。</string>
-    <string name="introBackupSummary">备份您的验证器并对其进行强加密。即便您的设备丢失了，您也能恢复对您帐号的访问。您可以将备份保存在云端存储或设备上。</string>
-    <string name="introCategoriesSummary">将您的验证器归入到多个分类中，并通过长按和拖拽轻松改变排序。</string>
-    <string name="introThemesSummary">如有需要，您可以在设置中启用深色主题。所有的图标会配合背景调整显示。</string>
+    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and
+        protected with the best open-source authentication app.
+    </string>
+    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is
+        100% compatible with Google Authenticator enabled services.
+    </string>
+    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device,
+        you can always gain access to your accounts. Save to cloud storage or to your device.
+    </string>
+    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a
+        simple hold and drag.
+    </string>
+    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt
+        to match their new background.
+    </string>
 </resources>
