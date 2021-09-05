@@ -308,6 +308,8 @@
     <string name="prefViewModeSummary">Escolha um modo de exibição para a lista de autenticações</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Baseado no horário (TOTP)</string>
     <string name="authTypeCounter">Baseado em um contador (HOTP)</string>
