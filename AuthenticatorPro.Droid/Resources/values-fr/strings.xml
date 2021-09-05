@@ -115,7 +115,7 @@
     <string name="assignCategories">Affecter des catégories</string>
     <string name="more">Plus</string>
     <string name="categoryAll">Tout</string>
-    <string name="editCategories">Edit categories</string>
+    <string name="editCategories">Gérer les catégories</string>
     <string name="categoryNameHint">Nom de la catégorie</string>
     <string name="noCategoryName">Le nom de la catégorie est requis</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà</string>
@@ -324,6 +324,8 @@
     <string name="prefViewModeSummary">Changer le mode d\'affichage de la liste</string>
     <string name="prefAccentColourTitle">Couleur d\'accentuation</string>
     <string name="prefAccentColourSummary">Choisir une couleur d\'accentuation à utiliser dans l\'application</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
