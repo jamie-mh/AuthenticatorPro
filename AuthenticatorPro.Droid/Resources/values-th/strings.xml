@@ -47,9 +47,9 @@
     <string name="pin">PIN</string>
     <string name="showAdvancedOptions">Show Advanced Options</string>
     <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for
-        this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may
-        prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or
-        that you have the recovery codes.\n\nContinue?
+        this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this
+        authenticator may prevent you from accessing your account.\nPlease make sure that either two factor
+        authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?
     </string>
     <string name="useCustomIcon">Use Custom Icon</string>
     <string name="copiedToClipboard">คัดลอกโค้ดไปยังคลิปบอร์ดแล้ว</string>
@@ -130,7 +130,7 @@
     <string name="password">รหัสผ่าน</string>
     <string name="passwordConfirm">Password Confirm</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your
-        secret keys may be vulnerable.\n\nContinue?
+        secret keys will be vulnerable. Do you wish to continue?
     </string>
     <string name="passwordHint">Backup Password</string>
     <string name="fileNameHint">Backup File Name</string>
@@ -304,6 +304,8 @@
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Time Based (TOTP)</string>
     <string name="authTypeCounter">Counter Based (HOTP)</string>
@@ -356,7 +358,7 @@
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a
         simple hold and drag.
     </string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt
-        to match their new background.
+    <string name="introThemesSummary">หากคุณต้องการ, สามารถเปิดธีมสีเข้มได้ในเมนูตั้งค่า
+        ไอคอนทั้งหมดจะปรับให้เข้ากับพื้นหลังไหม่
     </string>
 </resources>
