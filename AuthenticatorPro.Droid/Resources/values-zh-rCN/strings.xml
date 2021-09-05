@@ -12,8 +12,8 @@
     <string name="close">关闭</string>
     <string name="error">错误</string>
     <string name="retry">重试</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="ignore">忽略</string>
+    <string name="disable">禁用</string>
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
@@ -32,7 +32,7 @@
     <string name="sort">排序</string>
     <string name="sortAZ">字母顺序 (a 至 z)</string>
     <string name="sortZA">字母顺序 (z 至 a)</string>
-    <string name="sortCustom">Custom</string>
+    <string name="sortCustom">自定义</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="rate">评分</string>
     <string name="rateSummary">在 Google Play 商店上为 Authenticator Pro 评分。</string>
@@ -42,7 +42,7 @@
     <string name="issuer">发行方</string>
     <string name="username">用户名</string>
     <string name="secretKey">密钥</string>
-    <string name="pin">Pin</string>
+    <string name="pin">PIN码</string>
     <string name="showAdvancedOptions">显示高级选项</string>
     <string name="confirmAuthenticatorDelete">        删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？
     </string>
@@ -57,10 +57,10 @@
     <string name="periodHint">时间间隔（秒）</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
-    <string name="noPin">A pin is required</string>
+    <string name="noPin">需要设置一个PIN码</string>
     <string name="noFileName">请输入文件名。</string>
     <string name="secretInvalid">输入的密钥无效。</string>
-    <string name="pinInvalid">The pin must be 4 characters long</string>
+    <string name="pinInvalid">Pin长度必须大于4个字符</string>
     <string name="digitsInvalid">验证器只能生成 {0} 到 {1} 位的验证码。</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
@@ -265,6 +265,8 @@
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>
