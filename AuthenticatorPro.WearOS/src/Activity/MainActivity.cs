@@ -51,7 +51,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private WearableNavigationDrawerView _categoryList;
 
         // Data
-        private AuthenticatorSource _authSource;
+        private AuthenticatorView _authView;
         private ListCache<WearAuthenticator> _authCache;
         private ListCache<WearCategory> _categoryCache;
         private CustomIconCache _customIconCache;
@@ -95,15 +95,8 @@ namespace AuthenticatorPro.WearOS.Activity
             await _authCache.Init();
             await _categoryCache.Init();
 
-            _authSource = new AuthenticatorSource(_authCache);
-            _authSource.SetSortMode(_preferences.SortMode);
-
             var defaultCategory = _preferences.DefaultCategory;
-
-            if (defaultCategory != null)
-            {
-                _authSource.SetCategory(defaultCategory);
-            }
+            _authView = new AuthenticatorView(_authCache, defaultCategory, _preferences.SortMode);
 
             RunOnUiThread(delegate
             {
@@ -148,7 +141,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
                 if (defaultAuth != null)
                 {
-                    var authPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
+                    var authPosition = _authView.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
                     OnItemClicked(null, authPosition);
                 }
             }
@@ -195,7 +188,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var layoutCallback = new AuthenticatorListLayoutCallback(this);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
-            _authListAdapter = new AuthenticatorListAdapter(_authSource, _customIconCache);
+            _authListAdapter = new AuthenticatorListAdapter(_authView, _customIconCache);
             _authListAdapter.ItemClicked += OnItemClicked;
             _authListAdapter.ItemLongClicked += OnItemLongClicked;
             _authListAdapter.HasStableIds = true;
@@ -207,12 +200,12 @@ namespace AuthenticatorPro.WearOS.Activity
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.ItemSelected += OnCategorySelected;
 
-            if (_authSource.CategoryId == null)
+            if (_authView.CategoryId == null)
             {
                 return;
             }
 
-            var categoryPosition = _categoryCache.FindIndex(c => c.Id == _authSource.CategoryId) + 1;
+            var categoryPosition = _categoryCache.FindIndex(c => c.Id == _authView.CategoryId) + 1;
 
             if (categoryPosition <= -1)
             {
@@ -240,11 +233,11 @@ namespace AuthenticatorPro.WearOS.Activity
                     return;
                 }
 
-                _authSource.SetCategory(category.Id);
+                _authView.CategoryId = category.Id;
             }
             else
             {
-                _authSource.SetCategory(null);
+                _authView.CategoryId = null;
             }
 
             _authListAdapter.NotifyDataSetChanged();
@@ -266,7 +259,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void CheckEmptyState()
         {
-            if (!_authSource.GetView().Any())
+            if (!_authView.Any())
             {
                 _emptyLayout.Visibility = ViewStates.Visible;
                 _authList.Visibility = ViewStates.Invisible;
@@ -281,7 +274,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private async void OnItemClicked(object sender, int position)
         {
-            var item = _authSource.Get(position);
+            var item = _authView[position];
 
             if (item == null)
             {
@@ -326,7 +319,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void OnItemLongClicked(object sender, int position)
         {
-            var item = _authSource.Get(position);
+            var item = _authView[position];
 
             if (item == null)
             {
@@ -348,7 +341,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (oldDefault != null)
             {
-                var oldPosition = _authSource.FindIndex(a => a.Secret.GetHashCode() == oldDefault);
+                var oldPosition = _authView.FindIndex(a => a.Secret.GetHashCode() == oldDefault);
 
                 if (oldPosition > -1)
                 {
@@ -414,7 +407,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (oldSortMode != bundle.Preferences.SortMode)
             {
-                _authSource.SetSortMode(bundle.Preferences.SortMode);
+                _authView.SortMode = bundle.Preferences.SortMode;
                 RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             }
 
@@ -423,7 +416,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if (_authCache.Dirty(bundle.Authenticators, new WearAuthenticatorComparer()))
             {
                 await _authCache.Replace(bundle.Authenticators);
-                _authSource.UpdateView();
+                _authView.Update();
                 RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             }
 
@@ -468,7 +461,7 @@ namespace AuthenticatorPro.WearOS.Activity
             // Once the icon data has been received, notify the adapter
             var prefixedId = CustomIcon.Prefix + icon.Id;
             var authPositionsUsingIcon =
-                Enumerable.Range(0, _authSource.GetView().Count).Where(i => _authSource.Get(i).Icon == prefixedId);
+                Enumerable.Range(0, _authView.Count).Where(i => _authView[i].Icon == prefixedId);
 
             RunOnUiThread(delegate
             {

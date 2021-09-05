@@ -39,9 +39,9 @@
         <EnableLLVM>false</EnableLLVM>
         <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
         <BundleAssemblies>false</BundleAssemblies>
-        <AndroidHttpClientHandlerType/>
+        <AndroidHttpClientHandlerType />
         <AndroidSupportedAbis>x86</AndroidSupportedAbis>
-        <MandroidI18n/>
+        <MandroidI18n />
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <DebugSymbols>false</DebugSymbols>
@@ -68,46 +68,46 @@
         <AndroidLinkSkip>AuthenticatorPro.Shared;AuthenticatorPro.Droid.Shared;Xamarin.GooglePlayServices.Wearable</AndroidLinkSkip>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="System"/>
-        <Reference Include="System.Xml"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="Mono.Android"/>
+        <Reference Include="System" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Core" />
+        <Reference Include="Mono.Android" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="src\Cache\ListCache.cs"/>
-        <Compile Include="src\Cache\CustomIconCache.cs"/>
-        <Compile Include="src\Data\AuthenticatorSource.cs"/>
-        <Compile Include="src\Data\WearAuthenticatorCategoryComparer.cs"/>
-        <Compile Include="src\Data\WearAuthenticatorComparer.cs"/>
-        <Compile Include="src\Data\WearCategoryComparer.cs"/>
-        <Compile Include="src\List\AuthenticatorListAdapter.cs"/>
-        <Compile Include="src\List\AuthenticatorListHolder.cs"/>
-        <Compile Include="src\List\CategoryListAdapter.cs"/>
-        <Compile Include="src\List\AuthenticatorListLayoutCallback.cs"/>
-        <Compile Include="src\Activity\CodeActivity.cs"/>
-        <Compile Include="src\Activity\MainActivity.cs"/>
-        <Compile Include="Resources\Resource.designer.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="src\Util\PreferenceWrapper.cs"/>
+        <Compile Include="src\Cache\ListCache.cs" />
+        <Compile Include="src\Cache\CustomIconCache.cs" />
+        <Compile Include="src\Data\AuthenticatorView.cs" />
+        <Compile Include="src\Data\WearAuthenticatorCategoryComparer.cs" />
+        <Compile Include="src\Data\WearAuthenticatorComparer.cs" />
+        <Compile Include="src\Data\WearCategoryComparer.cs" />
+        <Compile Include="src\List\AuthenticatorListAdapter.cs" />
+        <Compile Include="src\List\AuthenticatorListHolder.cs" />
+        <Compile Include="src\List\CategoryListAdapter.cs" />
+        <Compile Include="src\List\AuthenticatorListLayoutCallback.cs" />
+        <Compile Include="src\Activity\CodeActivity.cs" />
+        <Compile Include="src\Activity\MainActivity.cs" />
+        <Compile Include="Resources\Resource.designer.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="src\Util\PreferenceWrapper.cs" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Assets\AboutAssets.txt"/>
-        <ProguardConfiguration Include="proguard.cfg"/>
-        <None Include="Properties\AndroidManifest.xml"/>
+        <None Include="Assets\AboutAssets.txt" />
+        <ProguardConfiguration Include="proguard.cfg" />
+        <None Include="Properties\AndroidManifest.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-ar\strings.xml"/>
-        <AndroidResource Include="Resources\values-nl\strings.xml"/>
-        <AndroidResource Include="Resources\values-pt-rBR\strings.xml"/>
+        <AndroidResource Include="Resources\values-ar\strings.xml" />
+        <AndroidResource Include="Resources\values-nl\strings.xml" />
+        <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
         <AndroidResource Include="Resources\values\strings.xml">
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\layout\activityMain.axml"/>
+        <AndroidResource Include="Resources\layout\activityMain.axml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values\dimens.xml"/>
+        <AndroidResource Include="Resources\values\dimens.xml" />
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png">
@@ -173,19 +173,19 @@
         </AndroidResource>
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-hdpi\ic_action_cloud_off.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_action_cloud_off.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-mdpi\ic_action_cloud_off.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_action_cloud_off.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xhdpi\ic_action_cloud_off.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_action_cloud_off.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_cloud_off.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_cloud_off.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_cloud_off.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_cloud_off.png" />
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png">
@@ -290,19 +290,19 @@
         </AndroidResource>
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-hdpi\ic_menu.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_menu.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-mdpi\ic_menu.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_menu.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xhdpi\ic_menu.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_menu.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu.png" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj">
@@ -315,52 +315,52 @@
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-v24\ic_launcher_foreground.xml"/>
+        <AndroidResource Include="Resources\drawable-v24\ic_launcher_foreground.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-de\strings.xml"/>
+        <AndroidResource Include="Resources\values-de\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-eo\strings.xml"/>
+        <AndroidResource Include="Resources\values-eo\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-es\strings.xml"/>
+        <AndroidResource Include="Resources\values-es\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-fr\strings.xml"/>
+        <AndroidResource Include="Resources\values-fr\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-pl\strings.xml"/>
+        <AndroidResource Include="Resources\values-pl\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-ru\strings.xml"/>
+        <AndroidResource Include="Resources\values-ru\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-sk\strings.xml"/>
+        <AndroidResource Include="Resources\values-sk\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-th\strings.xml"/>
+        <AndroidResource Include="Resources\values-th\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-tr\strings.xml"/>
+        <AndroidResource Include="Resources\values-tr\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\values-zh-rCN\strings.xml"/>
+        <AndroidResource Include="Resources\values-zh-rCN\strings.xml" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-mdpi\ic_action_star.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\ic_action_star.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xhdpi\ic_action_star.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_action_star.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_star.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_star.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_star.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_action_star.png" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable-hdpi\ic_action_star.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_action_star.png" />
     </ItemGroup>
-    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets"/>
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

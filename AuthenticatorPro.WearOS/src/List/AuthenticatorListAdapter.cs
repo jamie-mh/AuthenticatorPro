@@ -12,7 +12,7 @@ namespace AuthenticatorPro.WearOS.List
 {
     internal class AuthenticatorListAdapter : RecyclerView.Adapter
     {
-        private readonly AuthenticatorSource _authSource;
+        private readonly AuthenticatorView _authView;
         private readonly CustomIconCache _customIconCache;
 
         public int? DefaultAuth { get; set; }
@@ -20,20 +20,20 @@ namespace AuthenticatorPro.WearOS.List
         public event EventHandler<int> ItemClicked;
         public event EventHandler<int> ItemLongClicked;
 
-        public AuthenticatorListAdapter(AuthenticatorSource authSource, CustomIconCache customIconCache)
+        public AuthenticatorListAdapter(AuthenticatorView authView, CustomIconCache customIconCache)
         {
-            _authSource = authSource;
+            _authView = authView;
             _customIconCache = customIconCache;
         }
 
         public override long GetItemId(int position)
         {
-            return _authSource.Get(position).GetHashCode();
+            return _authView[position].GetHashCode();
         }
 
         public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var auth = _authSource.Get(position);
+            var auth = _authView[position];
 
             if (auth == null)
             {
@@ -101,6 +101,6 @@ namespace AuthenticatorPro.WearOS.List
             return holder;
         }
 
-        public override int ItemCount => _authSource.GetView().Count;
+        public override int ItemCount => _authView.Count;
     }
 }

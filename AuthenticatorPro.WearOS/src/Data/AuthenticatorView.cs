@@ -5,39 +5,48 @@ using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.WearOS.Cache;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace AuthenticatorPro.WearOS.Data
 {
-    internal class AuthenticatorSource
+    internal class AuthenticatorView : IReadOnlyList<WearAuthenticator>
     {
         private readonly ListCache<WearAuthenticator> _cache;
-        public string CategoryId { get; private set; }
-        public SortMode SortMode { get; private set; }
-
         private List<WearAuthenticator> _view;
+        private string _categoryId;
+        private SortMode _sortMode;
 
+        public string CategoryId
+        {
+            get => _categoryId;
+            set
+            {
+                _categoryId = value;
+                Update();
+            }
+        }
 
-        public AuthenticatorSource(ListCache<WearAuthenticator> cache)
+        public SortMode SortMode
+        {
+            get => _sortMode;
+            set
+            {
+                _sortMode = value;
+                Update();
+            }
+        }
+
+        public AuthenticatorView(ListCache<WearAuthenticator> cache, string categoryId, SortMode sortMode)
         {
             _cache = cache;
-            _view = cache.GetItems();
+            _categoryId = categoryId;
+            _sortMode = sortMode;
+            Update();
         }
 
-        public void SetCategory(string id)
-        {
-            CategoryId = id;
-            UpdateView();
-        }
-
-        public void SetSortMode(SortMode sortMode)
-        {
-            SortMode = sortMode;
-            UpdateView();
-        }
-
-        public void UpdateView()
+        public void Update()
         {
             var view = _cache.GetItems().AsEnumerable();
 
@@ -64,19 +73,23 @@ namespace AuthenticatorPro.WearOS.Data
             _view = view.ToList();
         }
 
-        public List<WearAuthenticator> GetView()
-        {
-            return _view;
-        }
-
-        public WearAuthenticator Get(int position)
-        {
-            return _view.ElementAtOrDefault(position);
-        }
-
         public int FindIndex(Predicate<WearAuthenticator> predicate)
         {
             return _view.FindIndex(predicate);
         }
+
+        public IEnumerator<WearAuthenticator> GetEnumerator()
+        {
+            return _view.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public int Count => _view.Count;
+
+        public WearAuthenticator this[int index] => _view[index];
     }
 }
