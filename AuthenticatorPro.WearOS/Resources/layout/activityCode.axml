@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:textSize="14dp"
-                android:fontFamily="sans-serif-medium"
                 android:gravity="center_horizontal"
                 android:textColor="?attr/primaryTextColor"
                 android:singleLine="true"
