@@ -3,6 +3,7 @@
 <androidx.wear.widget.CircularProgressLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:colorSchemeColors="@color/colorLightBluePrimary"
     android:id="@+id/layoutCircularProgress"
     android:padding="8dp"
     android:layout_width="match_parent"

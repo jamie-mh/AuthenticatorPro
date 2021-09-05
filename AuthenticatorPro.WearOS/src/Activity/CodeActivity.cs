@@ -7,7 +7,6 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AndroidX.Core.Content;
 using AndroidX.Wear.Widget;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Data;
@@ -34,9 +33,6 @@ namespace AuthenticatorPro.WearOS.Activity
             SetContentView(Resource.Layout.activityCode);
 
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
-            var accentColour = ContextCompat.GetColor(this, Resource.Color.colorAccent);
-            _circularProgressLayout.SetColorSchemeColors(accentColour);
-
             _codeTextView = FindViewById<TextView>(Resource.Id.textCode);
 
             var issuerText = FindViewById<TextView>(Resource.Id.textIssuer);
