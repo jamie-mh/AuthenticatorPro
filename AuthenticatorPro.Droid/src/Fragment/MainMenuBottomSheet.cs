@@ -38,12 +38,6 @@ namespace AuthenticatorPro.Droid.Fragment
                 new CategoriesListAdapter(Activity, _categoryView) { HasStableIds = true };
 
             _currentCategoryId = Arguments.GetString("currentCategoryId");
-
-            var selectedCategoryPosition =
-                _currentCategoryId == null ? 0 : _categoryView.IndexOf(_currentCategoryId) + 1;
-
-            _categoryListAdapter.SelectedPosition = selectedCategoryPosition;
-            _categoryListAdapter.NotifyItemChanged(selectedCategoryPosition);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -84,6 +78,12 @@ namespace AuthenticatorPro.Droid.Fragment
             base.OnViewCreated(view, savedInstanceState);
             await _categoryView.LoadFromPersistence();
             _categoryListAdapter.NotifyDataSetChanged();
+
+            var selectedCategoryPosition =
+                _currentCategoryId == null ? 0 : _categoryView.IndexOf(_currentCategoryId) + 1;
+
+            _categoryListAdapter.SelectedPosition = selectedCategoryPosition;
+            _categoryListAdapter.NotifyItemChanged(selectedCategoryPosition);
         }
     }
 }
