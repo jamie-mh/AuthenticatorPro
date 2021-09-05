@@ -37,8 +37,8 @@
     <string name="rate">Valorar</string>
     <string name="rateSummary">Valora Authenticator Pro en la tienda Google Play.</string>
     <string name="viewGitHub">Ver en GitHub</string>
-    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request
-        more icons and features.
+    <string name="viewGitHubSummary">Ver el repositorio Authenticator Pro en GitHub. Puede reportar un problema,
+        solicitar más iconos y características.
     </string>
     <!-- Authenticator -->
     <string name="issuer">Emisor</string>
@@ -46,10 +46,11 @@
     <string name="secretKey">Llave Secreta</string>
     <string name="pin">Código pin</string>
     <string name="showAdvancedOptions">Mostrar opciones avanzadas</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for
-        this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may
-        prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or
-        that you have the recovery codes.\n\nContinue?
+    <string name="confirmAuthenticatorDelete">Eliminar este autenticador le impedirá generar códigos para esta
+        cuenta.\nEsto no significa que la autenticación de doble factor esté deshabilitada en su cuenta.\n\nEliminar
+        este autenticador puede impedir que accedas a tu cuenta correspondiente.\nPor favor, asegúrese de que la
+        autenticación de dos factores está deshabilitada la cuenta correspondiente o que tiene los códigos de
+        recuperación de dicha cuenta.\n\n¿Está seguro de que desea continuar?
     </string>
     <string name="useCustomIcon">Usar icóno personalizado</string>
     <string name="copiedToClipboard">Código copiado al portapapeles</string>
@@ -79,12 +80,12 @@
     <string name="uriCopiedToClipboard">URI copiado al portapapeles</string>
     <!-- Backup menu -->
     <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file.
-        This file can be restored within the app.
+    <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado.
+        Este archivo puede ser restaurado con la aplicación.
     </string>
     <string name="backupHtml">Respaldar a un archivo local HTML</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore,
-        these codes must be scanned individually. Categories and icons are not saved.
+    <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para
+        restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.
     </string>
     <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys
         vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure,
@@ -102,8 +103,8 @@
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
     <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
     <string name="gettingStartedGuide">Guía de Comienzo</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking
-        below.
+    <string name="noAuthenticatorsHelp">Si usted es nuevo en Autenticator Pro, vea la Guía de Comienzo haciendo clic a
+        continuación.
     </string>
     <string name="noCategoriesTitle">Sin categorías</string>
     <string name="noCategoriesMessage">Aún no tiene ninguna Categoría configurada.</string>
@@ -123,14 +124,14 @@
     <string name="backupNow">Respaldar ahora</string>
     <string name="restoreNow">Restaurar ahora</string>
     <string name="backupReminder">Se han hecho cambios desde su último respaldo.</string>
-    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to
-        password protect the file, leave the password empty.
+    <string name="backupPasswordMessage">Introduzca una contraseña para encriptar de forma segura su archivo de
+        respaldo. Si no desea proteger el archivo, deje la contraseña vacía.
     </string>
     <string name="restoreError">La contraseña es incorrecta o el archivo está corrupto.</string>
     <string name="password">Contraseña</string>
     <string name="passwordConfirm">Confirmar Contraseña</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your
-        secret keys may be vulnerable.\n\nContinue?
+    <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus
+        llaves secretas serán vulnerables. ¿Desea continuar?
     </string>
     <string name="passwordHint">Respaldar contraseña</string>
     <string name="fileNameHint">Nombre del archivo de Respaldo</string>
@@ -147,7 +148,9 @@
     <string name="restoredNothing">Nada para restaurar</string>
     <string name="restoredFromMigration">Restauró {0} nuevos autenticadores.</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un código QR.</string>
+    <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un
+        código QR.
+    </string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error al seleccionar el archivo.</string>
@@ -237,28 +240,31 @@
     <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Escanear un código QR</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It
-        will be added to the list and will generate new codes automatically. You can also enter the details manually.
+    <string name="guideScanQRCodeSummary">Para añadir un autenticador, escanee el código QR proporcionado por la
+        aplicación o servicio. Este se añadirá a la lista y generará nuevos códigos automáticamente. También puede
+        introducir los detalles manualmente.
     </string>
     <string name="guideUseCodeTitle">Use el código cuando esté iniciando sesión</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only
-        valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.
+    <string name="guideUseCodeSummary">Cuando esté iniciando sesión, utilice el código único proporcionado por
+        Authenticator Pro. Sólo es válido por un corto tiempo. Pulse el autenticador en la lista para copiar el código
+        al portapapeles.
     </string>
     <string name="guideCustomiseTitle">Personalizar y editar</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the
-        menu icon on an entry and follow the steps.
+    <string name="guideCustomiseSummary">Renombrar y personalizar sus autenticadores para encontrarlos fácilmente.
+        Simplemente pulse el icóno Menú en una entrada y siga los pasos.
     </string>
     <string name="guideArrangeTitle">Organizar y ordenar</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily.
-        Furthermore, holding and dragging items will allow you to rearrange them in any order you like.
+    <string name="guideArrangeSummary">Puede organizar sus autentificadores en categorías para encontrarlos fácilmente.
+        Además, mantener y arrastrar objetos le permitirá reorganizarlos en el orden que desee.
     </string>
     <string name="guideBackupTitle">Crear un respaldo</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file
-        and store it in a safe place. A backup can be restored at any time and protected with a password.
+    <string name="guideBackupSummary">No permita que sus cuentas queden bloqueadas si cambia de dispositivo. Cree un
+        archivo de Respaldo y guárdelo en un lugar seguro. Un Respaldo puede ser restaurado en cualquier momento y
+        protegido con una contraseña.
     </string>
     <string name="guideWearOSTitle">Descargar el anexo para Wear OS</string>
-    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view
-        codes directly on your watch.
+    <string name="guideWearOSSummary">Si tiene un reloj Wear OS, puede descargar la aplicación anexa. Puede ver los
+        códigos directamente en su reloj!
     </string>
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
@@ -271,8 +277,8 @@
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are
-        made
+    <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores
+        si se realizan cambios importantes.
     </string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
@@ -344,19 +350,19 @@
     <string name="introBackupTitle">Respaldo / Restauración</string>
     <string name="introCategoriesTitle">Categorías</string>
     <string name="introThemesTitle">Tema Oscuro</string>
-    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and
-        protected with the best open-source authentication app.
+    <string name="introWelcomeSummary">Gracias por descargar Authenticator Pro.\nMantenga sus cuentas en línea seguras y
+        protegidas con la mejor aplicación de autenticación de código abierto.
     </string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is
-        100% compatible with Google Authenticator enabled services.
+    <string name="introCompatibilitySummary">Authenticator Pro es compatible con la mayoría de proveedores y cuentas. Es
+        100% compatible con los servicios habilitados por Google Authenticator.
     </string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device,
-        you can always gain access to your accounts. Save to cloud storage or to your device.
+    <string name="introBackupSummary">Respalde sus autenticadores con un cifrado fuerte. En caso de que pierda su
+        dispositivo, siempre podrá acceder a sus cuentas. Guarde en la nube o en su dispositivo.
     </string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a
-        simple hold and drag.
+    <string name="introCategoriesSummary">Organice sus autentificadores en categorías e incluso cambie el orden con un
+        simple movimiento de arrastre.
     </string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt
-        to match their new background.
+    <string name="introThemesSummary">Si lo prefiere, puede habilitar un tema oscuro en los ajustes. Todos los iconos se
+        adaptarán para que coincidan con su nuevo fondo.
     </string>
 </resources>
