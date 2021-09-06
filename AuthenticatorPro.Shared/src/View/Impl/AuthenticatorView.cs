@@ -176,6 +176,11 @@ namespace AuthenticatorPro.Shared.View.Impl
             }
         }
 
+        public void Clear()
+        {
+            _view.Clear();
+        }
+
         public IEnumerable<AuthenticatorCategory> GetCurrentBindings()
         {
             if (_categoryId == null)

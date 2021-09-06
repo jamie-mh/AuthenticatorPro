@@ -284,6 +284,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             else
             {
+                _authenticatorView.Update();
                 Tick();
             }
 
@@ -341,6 +342,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             });
 
+            _authenticatorView.Clear();
             await _wearClient.StopListening();
         }
 
