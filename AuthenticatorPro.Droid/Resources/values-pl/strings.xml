@@ -37,20 +37,14 @@
     <string name="rate">Oceń</string>
     <string name="rateSummary">Oceń Authenticator Pro w sklepie Google Play</string>
     <string name="viewGitHub">Zobacz na GitHub</string>
-    <string name="viewGitHubSummary">Wyświetl repozytorium Authenticator Pro w serwisie GitHub. Możesz zgłosić problem,
-        poprosić o więcej ikon i funkcji.
-    </string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">Wystawca</string>
     <string name="username">Nazwa użytkownika</string>
     <string name="secretKey">Sekret</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Pokaż opcje zaawansowane</string>
-    <string name="confirmAuthenticatorDelete">Usunięcie tego wpisu uniemożliwi generowanie kodów dla tego konta. Nie
-        oznacza to, że uwierzytelnianie dwuskładnikowe jest wyłączone.\n\nUsunięcie tego wpisu może uniemożliwić dostęp
-        do konta.\nUpewnij się, że uwierzytelnianie dwuskładnikowe jest wyłączone lub że masz kody
-        odzyskiwania.\n\nKontynuować?
-    </string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Użyj niestandardowej ikony</string>
     <string name="copiedToClipboard">Kod został skopiowany do schowka</string>
     <string name="issuerHint">Wystawca (np.: Google)</string>
@@ -79,33 +73,18 @@
     <string name="uriCopiedToClipboard">URI skopiowane do schowka</string>
     <!-- Backup menu -->
     <string name="backupToFile">Kopia do zaszyfrowanego pliku (zalecane)</string>
-    <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii
-        zapasowej. Ten plik można przywrócić w aplikacji.
-    </string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
     <string name="backupHtml">Kopia do pliku HTML</string>
-    <string name="backupHtmlMessage">Zapisz swoje wpisy w niezaszyfrowanym dokumencie HTML z kodami QR. Aby przywrócić,
-        kody te należy zeskanować indywidualnie. Kategorie i ikony nie są zapisywane.
-    </string>
-    <string name="backupHtmlWarning">Kopie zapasowe plików HTML są niezaszyfrowane i mogą narażać Twoje tajne
-        klucze.\n\nTego pliku nie można przywrócić w aplikacji i nie zawiera on kategorii ani ikon. Jeśli nie masz
-        pewności, wybierz zamiast tego kopię zapasową do zaszyfrowanego pliku.\n\nKontynuować?
-    </string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Kopia do pliku listy adresów URL</string>
-    <string name="backupUriListMessage">Zapisz swoje wpisy w niezaszyfrowanym pliku tekstowym w postaci listy adresów
-        URL. Ten plik jest kompatybilny z wieloma alternatywnymi aplikacjami i usługami. Kategorie i ikony nie są
-        zapisywane.
-    </string>
-    <string name="backupUriListWarning">Kopie zapasowe do plików tekstowych nie są szyfrowane i mogą narazić twoje tajne
-        klucze na ujawnienie.\n\nTen plik nie zawiera kategorii i ikon. Jeśli nie jesteś pewien, wybierz zaszyfrowaną
-        kopię zapasową.\n\nKontynuować?
-    </string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nic tu nie ma!</string>
     <string name="noAuthenticatorsMessage">Nie masz żadnych wpisów</string>
     <string name="gettingStartedGuide">Przewodniki dla początkujących</string>
-    <string name="noAuthenticatorsHelp">Jeśli jesteś nowy w Authenticator Pro, wyświetl przewodnik wprowadzający,
-        klikając poniżej.
-    </string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
     <string name="noCategoriesTitle">Brak kategorii</string>
     <string name="noCategoriesMessage">Nie masz jeszcze ustawionych kategorii</string>
     <!-- Categories -->
@@ -124,15 +103,11 @@
     <string name="backupNow">Wykonaj kopię</string>
     <string name="restoreNow">Przywróć kopię</string>
     <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
-    <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie
-        chcesz, aby plik był chroniony hasłem, pozostaw je puste.
-    </string>
+    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="restoreError">Hasło jest nieprawidłowe lub plik jest uszkodzony</string>
     <string name="password">Hasło</string>
     <string name="passwordConfirm">Potwierdzenie hasła</string>
-    <string name="confirmEmptyPassword">Nie wybrałeś hasła, kopia zapasowa nie będzie szyfrowana, a Twoje tajne klucze
-        mogą być podatne na ataki.\n\nKontynuować?
-    </string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">Hasło kopii</string>
     <string name="fileNameHint">Nazwa pliku kopii</string>
     <string name="noAuthenticators">Nie masz nic do zapisania w kopii</string>
@@ -142,9 +117,7 @@
     <string name="saveSuccess">Zapisano pomyślnie</string>
     <string name="backupSuccess">Zapisano kopię jako \'{0}\'</string>
     <string name="restoredFromBackup">Przywrócono {0} nowych wpisów i {1} nowych kategorii</string>
-    <string name="restoredFromBackupUpdated">Przywrócono {0} nowych wpisów i {1} nowych kategorii. Zaktualizowano {2}
-        istniejący(ch) wpisów.
-    </string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Brak rzeczy do przywrócenia</string>
     <string name="restoredFromMigration">Przywrócono {0} nowych wpisów</string>
     <!-- Errors -->
@@ -158,24 +131,16 @@
     <string name="webBrowserMissing">Brak zainstalowanej przeglądarki</string>
     <string name="emailClientMissing">Nie zainstalowano klienta poczty</string>
     <string name="genericError">Wystąpił nieoczekiwany błąd</string>
-    <string name="databaseError">Wystąpił błąd podczas otwierania bazy danych. Spróbuj uruchomić aplikację ponownie.
-        Jeśli problem będzie się powtarzał, wyczyść dane aplikacji i przywrócić najnowszą kopię
-        zapasową.\n\nAlternatywnie, możesz przesłać raport o błędzie.
-    </string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">Wyświetl dziennik błędów</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">Wystąpił nieobsługiwany błąd w aplikacji. Szczegóły błędu znajdują się
-        poniżej:
-    </string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Raport</string>
     <string name="email">E-Mail</string>
     <string name="reportVia">Zgłoś przez</string>
     <string name="errorCopiedToClipboard">Błąd skopiowany do schowka</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Wybierz lokalizację i hasło dla automatycznej kopii zapasowej. Kopie zapasowe są
-        zaplanowane po dokonaniu zmian. Zapis w chmurze nie jest obsługiwany, zamiast tego użyj opcji kopii zapasowej w
-        menu.
-    </string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Wybierz lokalizację</string>
     <string name="noLocationSelected">Nie wybrano lokalizacji</string>
     <string name="locationSetTo">Lokalizacja: \'{0}\'</string>
@@ -186,33 +151,20 @@
     <string name="enableAutoBackup">Włącz automatyczne kopie</string>
     <string name="enableAutoBackupMessage">Automatyczne tworzenie kopii zapasowych w wybranej lokalizacji</string>
     <string name="enableAutoRestore">Włącz automatyczne przywracanie</string>
-    <string name="enableAutoRestoreMessage">Automatycznie przywróć najnowszą kopię zapasową znalezioną w wybranej
-        lokalizacji. Przydatne do synchronizacji między urządzeniami.
-    </string>
+    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Optymalizacja baterii</string>
-    <string name="disableBatOptimMessage">Na niektórych urządzeniach ustawienia zasilania mogą uniemożliwić prawidłowe
-        działanie kopii zapasowych. Jeśli masz problemy, spróbuj wyłączyć optymalizację baterii dla Authenticator Pro.
-    </string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
-    <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do
-        plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii
-        zapasowej.
-    </string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Automatyczne przywracanie nie powiodło się</string>
-    <string name="autoRestoreFailureText">Nie udało się ukończyć ostatniego automatycznego przywracania. Uprawnienia do
-        plików mogły wygasnąć lub hasło jest nieprawidłowe. Spróbuj ponownie ustawić lokalizację kopii zapasowej i hasło
-        w ustawieniach automatycznej kopii zapasowej.
-    </string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Automatyczna kopia zapasowa zakończona</string>
     <string name="autoRestoreSuccessTitle">Automatyczne przywracanie zakończone</string>
     <string name="backupScheduled">Zaplanowano tworzenie kopii zapasowych</string>
     <string name="restoreScheduled">Zaplanowano przywracanie kopii zapasowych</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Zaszyfruj bazę danych hasłem. Po otwarciu aplikacji zostaniesz poproszony o podanie
-        hasła. Pozostaw to pole puste, aby usunąć hasło.
-    </string>
-    <string name="passwordSetupWarning">Użyj hasła, które pamiętasz, bez niego baza danych jest nie do odzyskania!
-    </string>
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
     <string name="clearPassword">Usuń hasło</string>
     <string name="confirmPassword">Potwierdź hasło</string>
     <string name="setupBiometricUnlock">Skonfiguruj odblokowanie biometryczne</string>
@@ -244,67 +196,41 @@
     <string name="viewGuideImportHint">Zobacz przewodnik na wiki projektu</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Skanuj kod QR</string>
-    <string name="guideScanQRCodeSummary">Aby dodać wpis, zeskanuj kod QR dostarczony przez aplikację lub usługę.
-        Zostanie dodany do listy i automatycznie wygeneruje nowe kody. Możesz również wprowadzić dane ręcznie.
-    </string>
+    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Użyj kodu podczas logowania</string>
-    <string name="guideUseCodeSummary">Podczas logowania użyj unikalnego kodu dostarczonego przez Authenticator Pro.
-        Jest ważny tylko przez krótki czas. Dotknij wpisu na liście, aby skopiować kod do schowka.
-    </string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
     <string name="guideCustomiseTitle">Dostosuj i edytuj</string>
-    <string name="guideCustomiseSummary">Zmień nazwę i dostosuj swoje wpisy, aby łatwo je znaleźć. Wystarczy dotknąć
-        ikony menu przy wpisie i postępować zgodnie z instrukcjami.
-    </string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Ułóż i sortuj</string>
-    <string name="guideArrangeSummary">Możesz podzielić swoje wpisy na kategorie, aby łatwo je znaleźć. Co więcej,
-        trzymanie i przeciąganie przedmiotów pozwoli ci zmienić ich kolejność.
-    </string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
     <string name="guideBackupTitle">Stwórz kopię</string>
-    <string name="guideBackupSummary">Nie daj sobie zablokować dostępu do swoich kont, jeśli zmienisz urządzenie. Utwórz
-        plik kopii zapasowej i przechowuj go w bezpiecznym miejscu. Kopię zapasową można w każdej chwili przywrócić i
-        zabezpieczyć hasłem.
-    </string>
+    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
     <string name="guideWearOSTitle">Pobierz aplikację towarzyszącą Wear OS</string>
-    <string name="guideWearOSSummary">Jeśli masz zegarek z Wear OS, możesz pobrać aplikację towarzyszącą. Możesz
-        przeglądać kody bezpośrednio na zegarku.
-    </string>
+    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Umieść kod QR w wizjerze, aby go zeskanować. Kod zostanie zeskanowany automatycznie.
-        Dotknij, aby wyostrzyć.
-    </string>
-    <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.
-    </string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!-- Preferences -->
     <string name="prefGeneral">Ogólne</string>
     <string name="prefShowBackupRemindersTitle">Przypomnienia o kopii zapasowej</string>
-    <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia
-        ważnych zmian
-    </string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
-    <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy
-        pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Język</string>
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
-    <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana
-        Twoim hasłem.
-    </string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
     <string name="prefDatabasePasswordBackupTitle">Kopia zapasowa z hasłem bazy danych</string>
-    <string name="prefDatabasePasswordBackupSummary">Szyfruj wszystkie kopie zapasowe przy użyciu hasła bazy danych, aby
-        nie trzeba było go wprowadzać za każdym razem
-    </string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Odblokowanie biometryczne</string>
     <string name="prefAllowBiometricsSummary">Umożliwiają odblokowanie bazy danych z uwierzytelnianiem biometrycznym
     </string>
     <string name="prefTimeoutTitle">Limit czasu</string>
-    <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści
-        ekran
-    </string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
-    <string name="prefTapToRevealSummary">Ukryj kody, dopóki nie zostaną dotknięte. Po kilku sekundach znikną.</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Wygląd</string>
     <string name="prefThemeTitle">Motyw</string>
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
@@ -354,19 +280,9 @@
     <string name="introBackupTitle">Kopia / Przywracanie</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Ciemny motyw</string>
-    <string name="introWelcomeSummary">Dziękujemy za pobranie Authenticator Pro.\n\nDbaj o bezpieczeństwo swoich kont
-        online dzięki najlepszej aplikacji do uwierzytelniania typu open source.
-    </string>
-    <string name="introCompatibilitySummary">Authenticator Pro jest kompatybilny z większością dostawców i kont. Jest w
-        100% kompatybilny z usługami obsługującymi Google Authenticator.
-    </string>
-    <string name="introBackupSummary">Twórz kopie za pomocą silnego szyfrowania. W przypadku utraty urządzenia zawsze
-        możesz uzyskać dostęp do swoich kont. Zapisz w chmurze lub na swoim urządzeniu.
-    </string>
-    <string name="introCategoriesSummary">Organizuj wpisy w kategorie, a nawet zmieniaj ich kolejność za pomocą prostego
-        przytrzymania i przeciągnięcia.
-    </string>
-    <string name="introThemesSummary">Jeśli wolisz, możesz włączyć ciemny motyw w ustawieniach. Wszystkie ikony
-        dostosują się do nowego tła.
-    </string>
+    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
+    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>
