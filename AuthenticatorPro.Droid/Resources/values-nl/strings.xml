@@ -37,20 +37,14 @@
     <string name="rate">Beoordelen</string>
     <string name="rateSummary">Beoordeel Authenticator Pro in de Google Play Store</string>
     <string name="viewGitHub">Bekijk op GitHub</string>
-    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request
-        more icons and features.
-    </string>
+    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
     <string name="issuer">Naam</string>
     <string name="username">Gebruikersnaam</string>
     <string name="secretKey">Geheime sleutel</string>
     <string name="pin">Vastzetten</string>
     <string name="showAdvancedOptions">Toon geadvanceerde opties</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for
-        this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may
-        prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or
-        that you have the recovery codes.\n\nContinue?
-    </string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Gebruik aangepast icoon</string>
     <string name="copiedToClipboard">Code gekopieerd naar klembord</string>
     <string name="issuerHint">Naam (bijv. Google)</string>
@@ -79,32 +73,18 @@
     <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Backup to encrypted file (recommended)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file.
-        This file can be restored within the app.
-    </string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
     <string name="backupHtml">Backup to HTML file</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore,
-        these codes must be scanned individually. Categories and icons are not saved.
-    </string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure,
-        opt for encrypted file backup instead.\n\nContinue?
-    </string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
-        is compatible with many alternative applications and services. Categories and icons are not saved.
-    </string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
-        instead.\n\nContinue?
-    </string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nothing here!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
     <string name="gettingStartedGuide">Getting started guide</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking
-        below.
-    </string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
     <string name="noCategoriesTitle">No categories</string>
     <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
     <!-- Categories -->
@@ -123,15 +103,11 @@
     <string name="backupNow">Backup now</string>
     <string name="restoreNow">Restore now</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
-    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to
-        password protect the file, leave the password empty.
-    </string>
+    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="restoreError">The password is incorrect or the file is corrupt</string>
     <string name="password">Password</string>
     <string name="passwordConfirm">Password confirm</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your
-        secret keys may be vulnerable.\n\nContinue?
-    </string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">Backup password</string>
     <string name="fileNameHint">Backup file name</string>
     <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
@@ -141,9 +117,7 @@
     <string name="saveSuccess">Saved successfully</string>
     <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2}
-        existing authenticators.
-    </string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nothing to restore</string>
     <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <!-- Errors -->
@@ -155,22 +129,16 @@
     <string name="webBrowserMissing">No web browser installed</string>
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">An error occurred</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue
-        persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.
-    </string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are
-        below:
-    </string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Report</string>
     <string name="email">Email</string>
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
-        are made. Cloud storage is not supported, use the backup menu instead.
-    </string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">No location selected</string>
     <string name="locationSetTo">Location set to \'{0}\'</string>
@@ -181,32 +149,20 @@
     <string name="enableAutoBackup">Enable Auto Backup</string>
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage
-        location. Useful for syncing between devices.
-    </string>
+    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Battery Optimisation</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly.
-        If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.
-    </string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
-        expired, try setting the backup location again in the auto backup settings.
-    </string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have
-        expired or the password is incorrect. Try setting the backup location and password again in the auto backup
-        settings.
-    </string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Backup scheduled</string>
     <string name="restoreScheduled">Restore scheduled</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when
-        you open the app. Leave the field blank to clear the password.
-    </string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!
-    </string>
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
     <string name="clearPassword">Clear password</string>
     <string name="confirmPassword">Confirm password</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
@@ -237,64 +193,40 @@
     <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scan a QR code</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It
-        will be added to the list and will generate new codes automatically. You can also enter the details manually.
-    </string>
+    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Use the code when logging in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only
-        valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.
-    </string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
     <string name="guideCustomiseTitle">Customise and edit</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the
-        menu icon on an entry and follow the steps.
-    </string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Arrange and sort</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily.
-        Furthermore, holding and dragging items will allow you to rearrange them in any order you like.
-    </string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
     <string name="guideBackupTitle">Create a backup</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file
-        and store it in a safe place. A backup can be restored at any time and protected with a password.
-    </string>
+    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
     <string name="guideWearOSTitle">Download the Wear OS companion</string>
-    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view
-        codes directly on your watch.
-    </string>
+    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
-        to focus.
-    </string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from
-        the code.
-    </string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are
-        made
-    </string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Password</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with
-        your password.
-    </string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need
-        to enter it each time
-    </string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Timeout</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen
-    </string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
-    </string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Appearance</string>
     <string name="prefThemeTitle">Theme</string>
     <string name="prefThemeSummary">Choose an application theme</string>
@@ -344,19 +276,9 @@
     <string name="introBackupTitle">Backup / Restore</string>
     <string name="introCategoriesTitle">Categories</string>
     <string name="introThemesTitle">Dark theme</string>
-    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and
-        protected with the best open-source authentication app.
-    </string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is
-        100% compatible with Google Authenticator enabled services.
-    </string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device,
-        you can always gain access to your accounts. Save to cloud storage or to your device.
-    </string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a
-        simple hold and drag.
-    </string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt
-        to match their new background.
-    </string>
+    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
+    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>

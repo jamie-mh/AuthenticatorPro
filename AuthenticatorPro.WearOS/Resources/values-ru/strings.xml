@@ -2,8 +2,7 @@
 <resources>
     <string name="displayName">Аутентификатор</string>
     <string name="noAuthenticators">Без аутентификаторов</string>
-    <string name="noAuthenticatorsMessage">Пусто. Добавьте несколько аутентификаторов из телефонного приложения.
-    </string>
+    <string name="noAuthenticatorsMessage">Пусто. Добавьте несколько аутентификаторов из телефонного приложения.</string>
     <string name="hotpNotSupported">HOTP не поддерживается</string>
     <string name="categoryAll">Все</string>
     <string name="offline">Оффлайн</string>
