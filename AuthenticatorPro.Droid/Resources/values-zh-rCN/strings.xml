@@ -44,8 +44,7 @@
     <string name="secretKey">密钥</string>
     <string name="pin">PIN码</string>
     <string name="showAdvancedOptions">显示高级选项</string>
-    <string name="confirmAuthenticatorDelete">        删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？
-    </string>
+    <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
     <string name="useCustomIcon">使用自定义图标</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
     <string name="issuerHint">发行方（如：Google）</string>
@@ -77,9 +76,7 @@
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
     <string name="backupHtml">保存为 HTML 文件</string>
     <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
-    <string name="backupHtmlWarning">保存为 HTML
-        文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？
-    </string>
+    <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
     <string name="backupUriList">Backup to URI list file</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
         is compatible with many alternative applications and services. Categories and icons are not saved.
@@ -216,8 +213,7 @@
     <string name="guideScanQRCodeTitle">扫描二维码</string>
     <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
     <string name="guideUseCodeTitle">使用验证码登录</string>
-    <string name="guideUseCodeSummary">在登录的时候，请使用 Authenticator Pro 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。
-    </string>
+    <string name="guideUseCodeSummary">在登录的时候，请使用 Authenticator Pro 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。</string>
     <string name="guideCustomiseTitle">自定义与编辑</string>
     <string name="guideCustomiseSummary">您可以为您的验证器修改名称，或者对其进行自定义，下次就能更方便地找到它。点击任意一个验证器的菜单图标，然后按提示操作。</string>
     <string name="guideArrangeTitle">分类与排序</string>
