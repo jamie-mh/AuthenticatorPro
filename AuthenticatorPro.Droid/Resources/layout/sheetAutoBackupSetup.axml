@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/colorBackgroundFloating"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -13,8 +12,8 @@
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:id="@+id/toolbar" />
-    
+        android:id="@+id/toolbar"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,7 +26,7 @@
             android:paddingBottom="20dp"
             android:clipToPadding="false"
             android:clipChildren="false">
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +36,7 @@
                 android:text="@string/autoBackupHelp"
                 android:textColor="?attr/primaryTextColor"
                 android:lineSpacingExtra="6sp"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
 
             <LinearLayout
                 android:id="@+id/buttonSelectLocation"
@@ -60,7 +59,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="32dp" />
+                    android:layout_marginEnd="32dp"/>
 
                 <LinearLayout
                     android:layout_gravity="center_vertical"
@@ -75,7 +74,7 @@
                         android:layout_gravity="center_vertical"
                         android:textColor="?attr/primaryTextColor"
                         android:text="@string/selectLocation"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/textLocationStatus"
@@ -84,7 +83,7 @@
                         android:layout_marginTop="6dp"
                         android:textColor="?attr/secondaryTextColor"
                         android:lineSpacingExtra="4sp"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -109,7 +108,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="32dp" />
+                    android:layout_marginEnd="32dp"/>
 
                 <LinearLayout
                     android:layout_gravity="center_vertical"
@@ -124,7 +123,7 @@
                         android:layout_gravity="center_vertical"
                         android:textColor="?attr/primaryTextColor"
                         android:text="@string/setPassword"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/textPasswordStatus"
@@ -133,11 +132,11 @@
                         android:layout_marginTop="6dp"
                         android:textColor="?attr/secondaryTextColor"
                         android:lineSpacingExtra="4sp"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
-            
-            <LinearLayout 
+
+            <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,7 +161,7 @@
                     android:lineSpacingExtra="4sp"
                     android:text="@string/enableAutoBackupMessage"
                     android:textColor="?attr/secondaryTextColor"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonBackupNow"
@@ -188,7 +187,7 @@
                     android:lineSpacingExtra="4sp"
                     android:text="@string/enableAutoRestoreMessage"
                     android:textColor="?attr/secondaryTextColor"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonRestoreNow"
@@ -215,7 +214,7 @@
                     android:layout_width="wrap_content"
                     android:text="@string/ok"/>
             </LinearLayout>
-            
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

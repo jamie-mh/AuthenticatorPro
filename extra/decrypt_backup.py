@@ -13,6 +13,7 @@ import argparse
 
 from getpass import getpass
 from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
 
 HEADER = "AuthenticatorPro"
 HASH_MODE = "sha1"
@@ -39,10 +40,10 @@ def decrypt(data: bytes, password: str) -> str:
     password_bytes = password.encode("utf-8")
     key = hashlib.pbkdf2_hmac(HASH_MODE, password_bytes, salt, ITERATIONS, DERV_KEY_LENGTH)
     aes = AES.new(key, AES_MODE, iv)
-    result = aes.decrypt(payload)
+    decrypted_bytes = unpad(aes.decrypt(payload), IV_LENGTH)
+    result = decrypted_bytes.decode("utf-8")
 
-    # strip extra invalid chars at end of file
-    return result.decode("utf-8").rpartition("}")[0] + "}"
+    return result
 
 
 def main():

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-  <declare-styleable name="AppTheme">
-    <attr name="colorPrimary" format="color" />
-    <attr name="colorPrimaryDark" format="color" />
+    <declare-styleable name="AppTheme">
+        <attr name="colorPrimary" format="color"/>
+        <attr name="colorPrimaryDark" format="color"/>
 
-    <attr name="primaryTextColor" format="color" />
-    <attr name="secondaryTextColor" format="color" />
-  </declare-styleable>
+        <attr name="primaryTextColor" format="color"/>
+        <attr name="secondaryTextColor" format="color"/>
+    </declare-styleable>
 </resources>

@@ -8,7 +8,7 @@
         app:showAsAction="collapseActionView"
         android:title="@string/search"
         android:visible="false"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
     <item
         android:id="@+id/actionSort"
@@ -19,13 +19,13 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item android:id="@+id/actionSortAZ"
-                      android:title="@string/sortAZ" />
+                      android:title="@string/sortAZ"/>
 
                 <item android:id="@+id/actionSortZA"
-                      android:title="@string/sortZA" />
+                      android:title="@string/sortZA"/>
 
                 <item android:id="@+id/actionSortCustom"
-                      android:title="@string/sortCustom" />
+                      android:title="@string/sortCustom"/>
             </group>
         </menu>
 

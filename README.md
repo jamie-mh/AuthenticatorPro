@@ -6,7 +6,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/jamie-mh/AuthenticatorPro?style=flat)
 [![Crowdin](https://badges.crowdin.net/authenticator-pro/localized.svg)](https://crowdin.com/project/authenticator-pro)
 [![Build Status](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_apis/build/status/jamie-mh.AuthenticatorPro?branchName=master)](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_build/latest?definitionId=1&branchName=master)
-[![CodeFactor](https://www.codefactor.io/repository/github/jamie-mh/authenticatorpro/badge)](https://www.codefactor.io/repository/github/jamie-mh/authenticatorpro)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b43c6acd26db4beea256d94544ad63e9)](https://www.codacy.com/gh/jamie-mh/AuthenticatorPro/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jamie-mh/AuthenticatorPro&amp;utm_campaign=Badge_Grade)
 
 ![Authenticator Pro](./doc/ic_launcher-web.png)
 

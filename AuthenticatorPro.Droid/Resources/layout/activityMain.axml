@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:id="@+id/coordinatorLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:background="?attr/colorBase"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -28,7 +27,7 @@
                 android:minHeight="?android:attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:id="@+id/toolbar" />
+                android:id="@+id/toolbar"/>
 
             <ProgressBar
                 android:id="@+id/appBarProgressBar"
@@ -37,9 +36,9 @@
                 android:indeterminate="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
         </LinearLayout>
-        
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -49,7 +48,7 @@
         android:background="?attr/colorBase"
         android:visibility="invisible"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:id="@+id/layoutEmptyState"
@@ -65,7 +64,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_empty" />
+            android:src="@drawable/ic_empty"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,7 +72,7 @@
             android:layout_gravity="center"
             android:textAppearance="?attr/textAppearanceHeadline5"
             android:layout_marginTop="22dp"
-            android:text="@string/noAuthenticatorsTitle" />
+            android:text="@string/noAuthenticatorsTitle"/>
 
         <TextView
             android:id="@+id/textEmptyMessage"
@@ -85,9 +84,9 @@
             android:textColor="?attr/secondaryTextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/noAuthenticatorsMessage" />
-        
-        <LinearLayout 
+            android:text="@string/noAuthenticatorsMessage"/>
+
+        <LinearLayout
             android:id="@+id/layoutStart"
             android:orientation="vertical"
             android:gravity="center"
@@ -102,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/gettingStartedGuide" />
+                android:text="@string/gettingStartedGuide"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonImport"
@@ -110,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/importFromOtherApps" />
+                android:text="@string/importFromOtherApps"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -127,7 +126,7 @@
         app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:paddingBottomSystemWindowInsets="true"
-        app:navigationIcon="@drawable/ic_action_menu" />
+        app:navigationIcon="@drawable/ic_action_menu"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAdd"
@@ -136,6 +135,6 @@
         android:src="@drawable/ic_action_add"
         app:tint="@color/colorDark"
         app:layout_anchor="@id/bottomAppBar"
-        app:backgroundTint="?attr/colorAccent" />
+        app:backgroundTint="?attr/colorAccent"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

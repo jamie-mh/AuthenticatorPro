@@ -11,7 +11,7 @@
         <item>@string/authAlgorithmSHA256</item>
         <item>@string/authAlgorithmSHA512</item>
     </string-array>
-    
+
     <string-array name="introTitle">
         <item>@string/introWelcomeTitle</item>
         <item>@string/introCompatibilityTitle</item>
@@ -33,7 +33,40 @@
         <item>@drawable/ic_category</item>
         <item>@drawable/ic_theme</item>
     </integer-array>
-    
+
+    <string-array name="languageNames">
+        <item>@string/systemDefault</item>
+        <item>@string/german</item>
+        <item>@string/english</item>
+        <item>@string/spanish</item>
+        <item>@string/esperanto</item>
+        <item>@string/french</item>
+        <item>@string/dutch</item>
+        <item>@string/polish</item>
+        <item>@string/brazilianPortuguese</item>
+        <item>@string/russian</item>
+        <item>@string/slovak</item>
+        <item>@string/turkish</item>
+        <item>@string/thai</item>
+        <item>@string/chineseSimplified</item>
+    </string-array>
+    <string-array name="languageValues">
+        <item>system</item>
+        <item>de</item>
+        <item>en</item>
+        <item>es</item>
+        <item>eo</item>
+        <item>fr</item>
+        <item>nl</item>
+        <item>pl</item>
+        <item>pt-BR</item>
+        <item>ru</item>
+        <item>sk</item>
+        <item>tr</item>
+        <item>th</item>
+        <item>zh-CN</item>
+    </string-array>
+
     <string-array name="timeoutNames">
         <item>@string/immediately</item>
         <item>@string/timeout30Sec</item>
@@ -50,7 +83,7 @@
         <item>300</item>
         <item>600</item>
     </string-array>
-    
+
     <string-array name="themeNames">
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
@@ -61,7 +94,7 @@
         <item>light</item>
         <item>dark</item>
     </string-array>
-    
+
     <string-array name="viewModeNames">
         <item>@string/defaultViewMode</item>
         <item>@string/compactViewMode</item>
@@ -72,7 +105,7 @@
         <item>compact</item>
         <item>tile</item>
     </string-array>
-    
+
     <string-array name="accentColourNames">
         <item>@string/red</item>
         <item>@string/pink</item>
@@ -109,7 +142,7 @@
         <item>orange</item>
         <item>deepOrange</item>
     </string-array>
-    
+
     <string-array name="reportOptions">
         <item>GitHub</item>
         <item>@string/email</item>

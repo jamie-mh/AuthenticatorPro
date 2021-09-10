@@ -23,7 +23,7 @@
             android:layout_height="64dp"
             android:layout_gravity="center"
             android:id="@+id/image"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             android:textAppearance="?attr/textAppearanceHeadline5"
             android:layout_marginTop="22dp"
             android:id="@+id/textTitle"
-            android:text="title" />
+            android:text="title"/>
 
         <TextView
             android:id="@+id/textSummary"
@@ -45,7 +45,7 @@
             android:textSize="14dp"
             android:textColor="?attr/secondaryTextColor"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

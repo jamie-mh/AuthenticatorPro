@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/toolbar"/>
-    
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
                 android:singleLine="true">
-                <requestFocus />
+                <requestFocus/>
             </com.google.android.material.textfield.TextInputEditText>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:imeOptions="actionDone"
-                android:singleLine="true" />
+                android:singleLine="true"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,14 +83,14 @@
                 android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/cancel" />
+                android:text="@string/cancel"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonRename"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/rename" />
+                android:text="@string/rename"/>
 
         </LinearLayout>
 
