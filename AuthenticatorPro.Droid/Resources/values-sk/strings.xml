@@ -78,13 +78,8 @@
     <string name="backupHtmlMessage">Uložiť vaše autentifikátory do nezašifrovaného HTML dokumentu s QR kódmi. Pre obnovenie musia byť tieto kódy naskenované individuálne.</string>
     <string name="backupHtmlWarning">Zálohy do HTML súborov sú nezašifrované a môžu viesť k zneužitiu vašich tajných kľúčov.\n\nTento súbor nemôže byť obnovený v rámci aplikácie a neobsahuje kategórie a ikony. Ak si nie ste istí, rozhodnite sa radšej pre zálohu do šifrovaného súboru.\n\nPokračovať?</string>
     <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
-        is compatible with many alternative applications and services. Categories and icons are not saved.
-    </string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
-        instead.\n\nContinue?
-    </string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nič tu nie je!</string>
     <string name="noAuthenticatorsMessage">Zatiaľ nemáte žiadne autentifikátory</string>
@@ -134,9 +129,7 @@
     <string name="webBrowserMissing">Nie je nainštalovaný žiadny webový prehliadač</string>
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">Vyskytla sa chyba</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue
-        persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.
-    </string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">View error log</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
@@ -145,9 +138,7 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
-        are made. Cloud storage is not supported, use the backup menu instead.
-    </string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Vybrať umiestnenie</string>
     <string name="noLocationSelected">Umiestnenie nebolo vybraté</string>
     <string name="locationSetTo">Umiestnenie nastavené na \'{0}\'</string>
@@ -222,9 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Pripomienky zálohovania</string>
     <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory</string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
-        made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Bezpečnosť</string>
@@ -237,8 +226,7 @@
     <string name="prefTimeoutTitle">Časový limit</string>
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
-    </string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Vzhľad</string>
     <string name="prefThemeTitle">Téma</string>
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
