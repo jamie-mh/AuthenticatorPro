@@ -37,20 +37,14 @@
     <string name="rate">Noter</string>
     <string name="rateSummary">Noter Authenticator Pro sur Google Play</string>
     <string name="viewGitHub">Ouvrir le dépôt GitHub</string>
-    <string name="viewGitHubSummary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler des
-        problèmes avec l\'application et faire une demande pour plus d\'icônes ou fonctionnalités.
-    </string>
+    <string name="viewGitHubSummary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler des problèmes avec l\'application et faire une demande pour plus d\'icônes ou fonctionnalités.</string>
     <!-- Authenticator -->
     <string name="issuer">Émetteur</string>
     <string name="username">Nom d\'utilisateur</string>
     <string name="secretKey">Clé secrète</string>
     <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
-    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes
-        pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée.\n\nLa suppression
-        de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en
-        2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nContinuer?
-    </string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée.\n\nLa suppression de cet authentificateur pourra vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes est désactivée ou que vous disposez des codes de récupération.\n\nContinuer?</string>
     <string name="useCustomIcon">Choisir une icône perso</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="issuerHint">Émetteur (ex: Google)</string>
@@ -73,41 +67,24 @@
     <string name="scanSuccessful">QR code scanné avec succès</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
-    <string name="qrCodeHelp">Copiez cet authentificateur vers un autre appareil ou application en scannant le QR code
-    </string>
+    <string name="qrCodeHelp">Copiez cet authentificateur vers un autre appareil ou application en scannant le QR code</string>
     <string name="qrCodeNotSupported">Les QR codes ne sont pas pris en charge pour ce type</string>
     <string name="copyUri">Copier l\'URI</string>
     <string name="uriCopiedToClipboard">URI copiée dans le presse-papiers</string>
     <!-- Backup menu -->
     <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
-    <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré.
-        Ce fichier peut être restauré dans l\'application.
-    </string>
+    <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
     <string name="backupHtml">Fichier HTML</string>
-    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR
-        codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas
-        sauvegardées.
-    </string>
-    <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes
-        vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni
-        d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?
-    </string>
+    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non-chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
+    <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <string name="backupUriList">Fichier texte</string>
-    <string name="backupUriListMessage">Sauvegarder ses authentificateurs dans un fichier texte non chiffré contenant
-        une liste d\'URIs. Ce fichier est compatible avec de nombreuses applications et services alternatifs. Les
-        catégories et icônes ne sont pas sauvegardées.
-    </string>
-    <string name="backupUriListWarning">Les sauvegardes en fichier texte ne sont pas chiffrées et pourront rendre vos
-        clés secrètes vulnérables.\n\nCe fichier ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr,
-        optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?
-    </string>
+    <string name="backupUriListMessage">Sauvegarder ses authentificateurs dans un fichier texte non chiffré contenant une liste d\'URIs. Ce fichier est compatible avec de nombreuses applications et services alternatifs. Les catégories et icônes ne sont pas sauvegardées.</string>
+    <string name="backupUriListWarning">Les sauvegardes en fichier texte ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne contient pas de catégories ni d\'icônes. Si vous n\'êtes pas sûr, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">C\'est vide !</string>
     <string name="noAuthenticatorsMessage">Vous n\'avez aucun authentificateur ici</string>
     <string name="gettingStartedGuide">Guide de démarrage</string>
-    <string name="noAuthenticatorsHelp">Si vous ouvrez l\'application pour la première fois, vous pouvez consulter le
-        guide de démarrage rapide en tapant ci-dessous.
-    </string>
+    <string name="noAuthenticatorsHelp">Si vous ouvrez l\'application pour la première fois, vous pouvez consulter le guide de démarrage rapide en tapant ci-dessous.</string>
     <string name="noCategoriesTitle">Aucune catégorie</string>
     <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant</string>
     <!-- Categories -->
@@ -126,15 +103,11 @@
     <string name="backupNow">Sauvegarder maintenant</string>
     <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
-    <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas
-        mettre un mot de passe, laissez le champ vide.
-    </string>
+    <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne voulez pas mettre un mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>
-    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré
-        et ne sera pas sécurisé.\n\nContinuer?
-    </string>
+    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffré et ne sera pas sécurisé.\n\nContinuer?</string>
     <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
@@ -144,41 +117,28 @@
     <string name="saveSuccess">Sauvegarde effectuée avec succès</string>
     <string name="backupSuccess">Sauvegarde enregistrée tant que \'{0}\'</string>
     <string name="restoredFromBackup">{0} authentificateurs et {1} catégories ont étés restaurés</string>
-    <string name="restoredFromBackupUpdated">{0} authentificateurs et {1} catégories ont étés restaurés. {2}
-        authenticateurs existants ont été mis à jour.
-    </string>
+    <string name="restoredFromBackupUpdated">{0} authentificateurs et {1} catégories ont étés restaurés. {2} authenticateurs existants ont été mis à jour.</string>
     <string name="restoredNothing">Rien à restaurer</string>
     <string name="restoredFromMigration">{0} authentificateurs ont étés restaurés</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR code
-    </string>
+    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra est requise pour scanner un QR code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
-    <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être
-        installé.
-    </string>
+    <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
     <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
     <string name="webBrowserMissing">Aucun navigateur web n’est installé</string>
     <string name="emailClientMissing">Aucun client mail n\'est installé</string>
     <string name="genericError">Une erreur s\'est produite</string>
-    <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer
-        l\'application. Si le problème persiste, effacez les données de l\'application et restaurez votre dernière
-        sauvegarde.\n\nVous pouvez également envoyer un rapport d\'erreur.
-    </string>
+    <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application. Si le problème persiste, effacez les données de l\'application et restaurez votre dernière sauvegarde.\n\nVous pouvez également envoyer un rapport d\'erreur.</string>
     <string name="viewErrorLog">Afficher le log d\'erreur</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">Une erreur s\'est produite dans l\'application. Les détails de l\'erreur se
-        trouvent ci-dessous :
-    </string>
+    <string name="unhandledErrorMessage">Une erreur s\'est produite dans l\'application. Les détails de l\'erreur se trouvent ci-dessous :</string>
     <string name="report">Signaler</string>
     <string name="email">Mail</string>
     <string name="reportVia">Signaler via</string>
     <string name="errorCopiedToClipboard">Erreur copié dans le presse-papiers</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Sélectionnez un emplacement et un mot de passe pour les sauvegardes automatiques. Les
-        sauvegardes sont planifiées lorsque des modifications sont faites. Les stockages cloud ne sont pas pris en
-        charge, utilisez le menu de sauvegarde à la place.
-    </string>
+    <string name="autoBackupHelp">Sélectionnez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications sont faites. Les stockages cloud ne sont pas pris en charge, utilisez le menu de sauvegarde à la place.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <string name="locationSetTo">\'{0}\' a été choisi comme emplacement</string>
@@ -189,34 +149,20 @@
     <string name="enableAutoBackup">Activer les sauvegardes automatiques</string>
     <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
     <string name="enableAutoRestore">Activer la restauration automatique</string>
-    <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement
-        de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.
-    </string>
+    <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.</string>
     <string name="batOptim">Optimisation de la batterie</string>
-    <string name="disableBatOptimMessage">Sur certains appareils, les paramètres d\'alimentation peuvent empêcher les
-        sauvegardes de fonctionner correctement. Si vous rencontrez des problèmes, tentez de désactiver l\'optimisation
-        de batterie pour Authenticator Pro.
-    </string>
+    <string name="disableBatOptimMessage">Sur certains appareils, les paramètres d\'alimentation peuvent empêcher les sauvegardes de fonctionner correctement. Si vous rencontrez des problèmes, tentez de désactiver l\'optimisation de batterie pour Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
-    <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont
-        potentiellement expirés, tentez de définir à nouveau l\'emplacement de la sauvegarde dans les paramètres.
-    </string>
+    <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir à nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
     <string name="autoRestoreFailureTitle">Échec lors de la restauration automatique</string>
-    <string name="autoRestoreFailureText">La sauvegarde automatique la plus récente a échoué. Les droits de fichier sont
-        potentiellement expirés ou le mot de passe est erroné. Tentez de définir à nouveau l\'emplacement et le mot de
-        passe de la sauvegarde dans les paramètres.
-    </string>
+    <string name="autoRestoreFailureText">La sauvegarde automatique la plus récente a échoué. Les droits de fichier sont potentiellement expirés ou le mot de passe est erroné. Tentez de définir à nouveau l\'emplacement et le mot de passe de la sauvegarde dans les paramètres.</string>
     <string name="autoBackupSuccessTitle">Sauvegarde effectuée avec succès</string>
     <string name="autoRestoreSuccessTitle">Restauration effectuée avec succès</string>
     <string name="backupScheduled">Sauvegarde programmée</string>
     <string name="restoreScheduled">Restauration programmée</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Chiffrez la base de données avec un mot de passe. Le mot de passe vous sera demandé
-        lorsque vous ouvrirez l\'application. Laissez le champ vide pour effacer le mot de passe.
-    </string>
-    <string name="passwordSetupWarning">Utilisez un mot de passe que vous pouvez mémoriser, la base de données est
-        irrécupérable sans !
-    </string>
+    <string name="passwordSetupHelp">Chiffrez la base de données avec un mot de passe. Le mot de passe vous sera demandé lorsque vous ouvrirez l\'application. Laissez le champ vide pour effacer le mot de passe.</string>
+    <string name="passwordSetupWarning">Utilisez un mot de passe que vous pouvez mémoriser, la base de données est irrécupérable sans !</string>
     <string name="clearPassword">Effacer le mot de passe</string>
     <string name="confirmPassword">Confirmation du mot de passe</string>
     <string name="setupBiometricUnlock">Configurer le déverrouillage biométrique</string>
@@ -224,9 +170,7 @@
     <!-- Unlock -->
     <string name="unlock">Déverrouiller</string>
     <string name="useBiometrics">Utiliser la biométrie</string>
-    <string name="unlockMessage">Entrez votre mot de passe ou utilisez la biométrie pour déverrouiller la base de
-        données
-    </string>
+    <string name="unlockMessage">Entrez votre mot de passe ou utilisez la biométrie pour déverrouiller la base de données</string>
     <string name="unlockBiometricsMessage">Utilisez la biométrie pour accéder à vos authentificateurs</string>
     <string name="passwordIncorrect">Le mot de passe est incorrect</string>
     <string name="tooManyAttempts">Trop de tentatives</string>
@@ -249,74 +193,40 @@
     <string name="viewGuideImportHint">Consulter le guide sur le wiki du projet</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Scanner un QR code</string>
-    <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application
-        ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez
-        également renseigner les informations vous-même.
-    </string>
+    <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera des codes automatiquement. Vous pouvez également renseigner les informations vous-même.</string>
     <string name="guideUseCodeTitle">Utiliser le code</string>
-    <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Authenticator
-        Pro. Ceci n\'est valide que pendant une courte période. Tappez l\'authentificateur dans la liste pour copier le
-        code au presse-papiers.
-    </string>
+    <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Authenticator Pro. Ceci n\'est valide que pendant une courte période. Tappez l\'authentificateur dans la liste pour copier le code au presse-papiers.</string>
     <string name="guideCustomiseTitle">Personnaliser et modifier</string>
-    <string name="guideCustomiseSummary">Renommez vos authentificateurs et changez l\'icône. Tappez sur le bouton menu
-        pour accèder aux paramètres.
-    </string>
+    <string name="guideCustomiseSummary">Renommez vos authentificateurs et changez l\'icône. Tappez sur le bouton menu pour accèder aux paramètres.</string>
     <string name="guideArrangeTitle">Organiser et trier</string>
-    <string name="guideArrangeSummary">Vous pouvez affecter des catégories à vos authentificateurs pour les retrouver
-        plus facilement. De plus, appuyez et faites glisser votre doigt sur des élements de la liste pour les placer
-        dans l\'ordre que vous souhaitez.
-    </string>
+    <string name="guideArrangeSummary">Vous pouvez affecter des catégories à vos authentificateurs pour les retrouver plus facilement. De plus, appuyez et faites glisser votre doigt sur des élements de la liste pour les placer dans l\'ordre que vous souhaitez.</string>
     <string name="guideBackupTitle">Créer une sauvegarde</string>
-    <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une
-        sauvegarde et placez le dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut
-        même être protégée par un mot de passe.
-    </string>
+    <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une sauvegarde et placez le dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut même être protégée par un mot de passe.</string>
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
-    <string name="guideWearOSSummary">Si vous avez une montre connectée Wear OS, vous pouvez télécharger l\'application
-        Authenticator Pro pour obtenir des codes à partir de votre montre.
-    </string>
+    <string name="guideWearOSSummary">Si vous avez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Le code sera scanné automatiquement.
-        Tapez pour focaliser.
-    </string>
-    <string name="scanHelpSecondary">Essayez d\'éviter les ombres et les éclats de lumière. Maintenez l\'appareil à
-        environ 15 cm (6 pouces) du code.
-    </string>
+    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Le code sera scanné automatiquement. Tapez pour focaliser.</string>
+    <string name="scanHelpSecondary">Essayez d\'éviter les ombres et les éclats de lumière. Maintenez l\'appareil à environ 15 cm (6 pouces) du code.</string>
     <string name="toggleFlash">Activer/désactiver le flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">Paramètres généraux</string>
     <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
-    <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des
-        modifications importantes ont été apportées
-    </string>
+    <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
-    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque
-        des modifications sont faites. Désactive les rappels de sauvegarde.
-    </string>
+    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
     <string name="prefLanguageTitle">Langue</string>
     <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
-    <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données
-        sera chiffrée avec votre mot de passe.
-    </string>
+    <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
     <string name="prefDatabasePasswordBackupTitle">Sauvegarder avec le mot de passe de la base de données</string>
-    <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes en utilisant le mot de passe de la
-        base de données. Cela vous évite de le saisir à chaque fois.
-    </string>
+    <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes en utilisant le mot de passe de la base de données. Cela vous évite de le saisir à chaque fois.</string>
     <string name="prefAllowBiometricsTitle">Déverrouillage biométrique</string>
-    <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une
-        authentification biométrique
-    </string>
+    <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
-    <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que
-        l\'application quitte l\'écran
-    </string>
+    <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
     <string name="prefTapToRevealTitle">Taper pour afficher</string>
-    <string name="prefTapToRevealSummary">Cacher les codes jusqu\'à ce qu\'ils soient tapés. Ils disparaîtront au bout
-        de quelques secondes.
-    </string>
+    <string name="prefTapToRevealSummary">Cacher les codes jusqu\'à ce qu\'ils soient tapés. Ils disparaîtront au bout de quelques secondes.</string>
     <string name="prefAppearance">Apparence</string>
     <string name="prefThemeTitle">Thème</string>
     <string name="prefThemeSummary">Changer le thème de l\'application</string>
@@ -366,20 +276,9 @@
     <string name="introBackupTitle">Sauvegarde / Restauration</string>
     <string name="introCategoriesTitle">Catégories</string>
     <string name="introThemesTitle">Thème Sombre</string>
-    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et
-        protégés avec le meilleur authentificateur open-source.
-    </string>
-    <string name="introCompatibilitySummary">Authenticator Pro est compatible avec la plupart des comptes. C\'est 100%
-        compatible avec les services fonctionnant avec Google Authenticator.
-    </string>
-    <string name="introBackupSummary">Sauvegardez vos authentificateurs avec un chiffrement fort. Dans le cas où vous
-        perdez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil
-        ou un stockage cloud.
-    </string>
-    <string name="introCategoriesSummary">Organisez vos authentificateurs dans des catégories. Également, vous pouvez
-        changer l\'ordre en maintenant votre doigt et en faisant glisser.
-    </string>
-    <string name="introThemesSummary">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les
-        paramètres. Toutes les icônes s\'adaptent à la couleur de fond.
-    </string>
+    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro est compatible avec la plupart des comptes. C\'est 100% compatible avec les services fonctionnant avec Google Authenticator.</string>
+    <string name="introBackupSummary">Sauvegardez vos authentificateurs avec un chiffrement fort. Dans le cas où vous perdez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
+    <string name="introCategoriesSummary">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>
+    <string name="introThemesSummary">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
 </resources>
