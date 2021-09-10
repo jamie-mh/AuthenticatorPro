@@ -112,7 +112,7 @@
     <string name="assignCategories">Priradiť kategórie</string>
     <string name="more">Viac</string>
     <string name="categoryAll">Všetko</string>
-    <string name="manageCategories">Spravovať kategórie</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">Názov kategórie</string>
     <string name="noCategoryName">Názov kategórie je povinný</string>
     <string name="duplicateCategory">Kategória z takýmto názvom už existuje</string>
@@ -276,9 +276,9 @@
         autentifikátory
     </string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
-        made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou
@@ -304,6 +304,8 @@
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
@@ -320,7 +322,8 @@
     <string name="defaultViewMode">Predvolený</string>
     <string name="compactViewMode">Kompaktný</string>
     <string name="tileViewMode">Dlaždice</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>

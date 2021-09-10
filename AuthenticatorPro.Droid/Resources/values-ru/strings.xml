@@ -114,7 +114,7 @@
     <string name="assignCategories">Присвоить категории</string>
     <string name="more">Подробнее</string>
     <string name="categoryAll">Все</string>
-    <string name="manageCategories">Управление категориями</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">Название категории</string>
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
@@ -287,9 +287,9 @@
         внесении важных изменений.
     </string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
-        made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Запрашивать пароль для доступа к аутентификаторам. База данных будет зашифрована
@@ -317,6 +317,8 @@
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
@@ -333,7 +335,8 @@
     <string name="defaultViewMode">По умолчанию</string>
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>

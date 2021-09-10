@@ -115,7 +115,7 @@
     <string name="assignCategories">Affecter des catégories</string>
     <string name="more">Plus</string>
     <string name="categoryAll">Tout</string>
-    <string name="manageCategories">Gérer les catégories</string>
+    <string name="editCategories">Gérer les catégories</string>
     <string name="categoryNameHint">Nom de la catégorie</string>
     <string name="noCategoryName">Le nom de la catégorie est requis</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà</string>
@@ -291,9 +291,9 @@
         modifications importantes ont été apportées
     </string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
-    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque
-        des modifications sont faites. Désactive les rappels de sauvegarde.
-    </string>
+    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
+    <string name="prefLanguageTitle">Langue</string>
+    <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données
@@ -322,6 +322,8 @@
     <string name="prefViewModeSummary">Changer le mode d\'affichage de la liste</string>
     <string name="prefAccentColourTitle">Couleur d\'accentuation</string>
     <string name="prefAccentColourSummary">Choisir une couleur d\'accentuation à utiliser dans l\'application</string>
+    <string name="prefTransparentStatusBarTitle">Barre d\'état transparente</string>
+    <string name="prefTransparentStatusBarSummary">Rendre la liste visible derrière la barre d\'état lors du défilement de la liste</string>
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
@@ -338,7 +340,8 @@
     <string name="defaultViewMode">Par défaut</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">En tuile</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Rouge</string>
     <string name="pink">Rose</string>
     <string name="purple">Violet</string>
