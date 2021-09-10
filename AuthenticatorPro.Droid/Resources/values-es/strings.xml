@@ -76,18 +76,10 @@
     <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
     <string name="backupHtml">Respaldar a un archivo local HTML</string>
     <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure,
-        opt for encrypted file backup instead.\n\nContinue?
-    </string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Hacer copia de seguridad al archivo de la lista URI</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
-        is compatible with many alternative applications and services. Categories and icons are not saved.
-    </string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
-        instead.\n\nContinue?
-    </string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
     <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
@@ -139,22 +131,16 @@
     <string name="webBrowserMissing">Ningún navegador web instalado</string>
     <string name="emailClientMissing">Ningún cliente de correo electrónico instalado</string>
     <string name="genericError">Ocurrió un error.</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue
-        persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.
-    </string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">Ver registro de errores</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are
-        below:
-    </string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Reportar</string>
     <string name="email">Email</string>
     <string name="reportVia">Reportar vía</string>
     <string name="errorCopiedToClipboard">Errores copiados al portapapeles</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
-        are made. Cloud storage is not supported, use the backup menu instead.
-    </string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Sin ubicación seleccionada</string>
     <string name="locationSetTo">Ubicación establecida en \'{0}\'</string>
@@ -165,32 +151,20 @@
     <string name="enableAutoBackup">Habilitar respaldos automáticos</string>
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
     <string name="enableAutoRestore">Habilitar restauración automatica</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage
-        location. Useful for syncing between devices.
-    </string>
+    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Optimización de batería</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly.
-        If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.
-    </string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
-        expired, try setting the backup location again in the auto backup settings.
-    </string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have
-        expired or the password is incorrect. Try setting the backup location and password again in the auto backup
-        settings.
-    </string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Copia de seguridad programada</string>
     <string name="restoreScheduled">Restauración programada</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when
-        you open the app. Leave the field blank to clear the password.
-    </string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!
-    </string>
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
     <string name="clearPassword">Borrar contraseña</string>
     <string name="confirmPassword">Confirmar contraseña</string>
     <string name="setupBiometricUnlock">Configurar desbloqueo por biometría</string>
@@ -236,37 +210,27 @@
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
         to focus.
     </string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from
-        the code.
-    </string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
     <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
-        made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Password</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with
-        your password.
-    </string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need
-        to enter it each time
-    </string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Timeout</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen
-    </string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
-    </string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Apariencia</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Elija un tema de aplicación.</string>
