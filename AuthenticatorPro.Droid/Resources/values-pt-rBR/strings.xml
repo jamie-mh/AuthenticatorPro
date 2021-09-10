@@ -73,32 +73,18 @@
     <string name="uriCopiedToClipboard">URI copiada para a área de transferência</string>
     <!-- Backup menu -->
     <string name="backupToFile">Backup em um arquivo criptografado (recomendado)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file.
-        This file can be restored within the app.
-    </string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
     <string name="backupHtml">Backup em um arquivo HTML</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore,
-        these codes must be scanned individually. Categories and icons are not saved.
-    </string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure,
-        opt for encrypted file backup instead.\n\nContinue?
-    </string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file
-        is compatible with many alternative applications and services. Categories and icons are not saved.
-    </string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys
-        vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup
-        instead.\n\nContinue?
-    </string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nada aqui!</string>
     <string name="noAuthenticatorsMessage">Você não tem nenhuma autenticação aqui</string>
     <string name="gettingStartedGuide">Guia de introdução</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking
-        below.
-    </string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
     <string name="noCategoriesTitle">Sem categorias</string>
     <string name="noCategoriesMessage">Você ainda não configurou nenhuma categoria</string>
     <!-- Categories -->
@@ -131,9 +117,7 @@
     <string name="saveSuccess">Salvo com sucesso</string>
     <string name="backupSuccess">Backup salvo como \'{0}\'</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2}
-        existing authenticators.
-    </string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nada para restaurar</string>
     <string name="restoredFromMigration">{0} novas autenticações restauradas</string>
     <!-- Errors -->
@@ -154,9 +138,7 @@
     <string name="reportVia">Reportar por</string>
     <string name="errorCopiedToClipboard">Erro ao copiar para a área de transferência</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
-        are made. Cloud storage is not supported, use the backup menu instead.
-    </string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Selecione um local</string>
     <string name="noLocationSelected">Nenhum local foi selecionado</string>
     <string name="locationSetTo">O local foi definido para \'{0}\'</string>
@@ -211,25 +193,15 @@
     <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Escanear um código QR</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It
-        will be added to the list and will generate new codes automatically. You can also enter the details manually.
-    </string>
+    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Use the code when logging in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only
-        valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.
-    </string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
     <string name="guideCustomiseTitle">Customise and edit</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the
-        menu icon on an entry and follow the steps.
-    </string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Arrange and sort</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily.
-        Furthermore, holding and dragging items will allow you to rearrange them in any order you like.
-    </string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
     <string name="guideBackupTitle">Criar um backup</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file
-        and store it in a safe place. A backup can be restored at any time and protected with a password.
-    </string>
+    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
     <string name="guideWearOSTitle">Download the Wear OS companion</string>
     <string name="guideWearOSSummary">Se você tem um Wear OS, você pode baixar o aplicativo acompanhante. Você pode ver os códigos diretamente do seu relógio.</string>
     <!-- QR code scanner -->
@@ -241,9 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Configurar lembretes de backup</string>
     <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita</string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
-        made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Segurança</string>
