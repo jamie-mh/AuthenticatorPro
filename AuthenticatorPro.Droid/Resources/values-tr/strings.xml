@@ -37,21 +37,14 @@
     <string name="rate">Değerlendir</string>
     <string name="rateSummary">Google Play mağazasında Authenticator Pro\'yu değerlendirin.</string>
     <string name="viewGitHub">GitHub\'da görüntüle</string>
-    <string name="viewGitHubSummary">Authenticator Pro deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha
-        fazla simge ve özellik talep edebilirsiniz.
-    </string>
+    <string name="viewGitHubSummary">Authenticator Pro deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha fazla simge ve özellik talep edebilirsiniz.</string>
     <!-- Authenticator -->
     <string name="issuer">Kuruluş</string>
     <string name="username">Kullanıcı Adı</string>
     <string name="secretKey">Gizli anahtar</string>
     <string name="pin">Pin kodu</string>
     <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
-    <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı
-        engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu
-        kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın
-        devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin
-        misin?
-    </string>
+    <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin misin?</string>
     <string name="useCustomIcon">Özel simge kullan</string>
     <string name="copiedToClipboard">Kod panoya kopyalandı</string>
     <string name="issuerHint">Kuruluş (ör: Google)</string>
@@ -74,40 +67,24 @@
     <string name="scanSuccessful">Karekod taraması başarılı</string>
     <!-- QR code dialog -->
     <string name="qrCode">Karekod</string>
-    <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya
-        kopyalayın
-    </string>
+    <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
     <string name="qrCodeNotSupported">Karekodları bu tür için desteklenmez</string>
     <string name="copyUri">URI\'yi kopyala</string>
     <string name="uriCopiedToClipboard">URI panoya kopyalandı</string>
     <!-- Backup menu -->
     <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
-    <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş
-        bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.
-    </string>
+    <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
     <string name="backupHtml">HTML dosyasına yedekle</string>
-    <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin.
-        Geri yüklemek için bu kodların ayrı ayrı taranması gerekir. Kategoriler ve simgeler kaydedilmez.
-    </string>
-    <string name="backupHtmlWarning">HTML dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı
-        savunmasız bırakabilir.\n\nBu dosya uygulama içinde geri yüklenemez ve kategoriler ve simgeler içermez. Emin
-        değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?
-    </string>
+    <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin. Geri yüklemek için bu kodların ayrı ayrı taranması gerekir. Kategoriler ve simgeler kaydedilmez.</string>
+    <string name="backupHtmlWarning">HTML dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya uygulama içinde geri yüklenemez ve kategoriler ve simgeler içermez. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
     <string name="backupUriList">URI liste dosyasına yedekle</string>
-    <string name="backupUriListMessage">Kimlik doğrulama kodlarınızı şifrelenmemiş düz metin URI listesi dosyasına
-        kaydedin. Bu dosya çoğu alternatif uygulama ve hizmetle uyumludur. Kategoriler ve simgeler kaydedilmez.
-    </string>
-    <string name="backupUriListWarning">Düz metin dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli
-        anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya kategoriler ve simgeler içermiyor. Emin değilseniz bunun
-        yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?
-    </string>
+    <string name="backupUriListMessage">Kimlik doğrulama kodlarınızı şifrelenmemiş düz metin URI listesi dosyasına kaydedin. Bu dosya çoğu alternatif uygulama ve hizmetle uyumludur. Kategoriler ve simgeler kaydedilmez.</string>
+    <string name="backupUriListWarning">Düz metin dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya kategoriler ve simgeler içermiyor. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Burada bir şey yok!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
     <string name="gettingStartedGuide">Başlangıç Kılavuzu</string>
-    <string name="noAuthenticatorsHelp">Authenticator Pro\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz
-        atın.
-    </string>
+    <string name="noAuthenticatorsHelp">Authenticator Pro\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
     <string name="noCategoriesTitle">Kategori yok</string>
     <string name="noCategoriesMessage">Henüz herhangi bir kategori oluşturmadınız.</string>
     <!-- Categories -->
@@ -126,15 +103,11 @@
     <string name="backupNow">Şimdi Yedekle</string>
     <string name="restoreNow">Şimdi geri yükle</string>
     <string name="backupReminder">There have been changes made since your last backup.</string>
-    <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı
-        parolayla korumak istemiyorsanız parolayı boş bırakın.
-    </string>
+    <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
     <string name="restoreError">Parola yanlış veya dosya bozuk.</string>
     <string name="password">Parola</string>
     <string name="passwordConfirm">Parolayı Onayla</string>
-    <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız
-        savunmasız olacaktır. Devam etmek istiyor musunuz?
-    </string>
+    <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
     <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
     <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
@@ -144,9 +117,7 @@
     <string name="saveSuccess">Başarıyla kaydedildi</string>
     <string name="backupSuccess">Yedekleme \'{0}\' olarak kaydedildi</string>
     <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
-    <string name="restoredFromBackupUpdated">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi. Mevcut {2}
-        kimlik doğrulayıcı güncellendi.
-    </string>
+    <string name="restoredFromBackupUpdated">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi. Mevcut {2} kimlik doğrulayıcı güncellendi.</string>
     <string name="restoredNothing">Geri yüklenecek bir şey yok</string>
     <string name="restoredFromMigration">{0} yeni kimlik doğrulayıcı geri yüklendi.</string>
     <!-- Errors -->
@@ -158,10 +129,7 @@
     <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
     <string name="emailClientMissing">Kurulu e-posta istemcisi yok</string>
     <string name="genericError">Bir hata meydana geldi.</string>
-    <string name="databaseError">Veritabanı açılırken bir hata oluştu. Uygulamayı yeniden başlatmayı deneyin. Sorun
-        devam ederse uygulama verilerini temizleyin ve en son yedeklemenizi geri yükleyin.\n\nAyrıca bir hata raporu
-        gönderebilirsiniz.
-    </string>
+    <string name="databaseError">Veritabanı açılırken bir hata oluştu. Uygulamayı yeniden başlatmayı deneyin. Sorun devam ederse uygulama verilerini temizleyin ve en son yedeklemenizi geri yükleyin.\n\nAyrıca bir hata raporu gönderebilirsiniz.</string>
     <string name="viewErrorLog">Hata günlüğünü görüntüle</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
@@ -181,9 +149,7 @@
     <string name="enableAutoBackup">Otomatik yedeklemeyi etkinleştir</string>
     <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
     <string name="enableAutoRestore">Otomatik geri yüklemeyi etkinleştir</string>
-    <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri
-        yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.
-    </string>
+    <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
@@ -191,21 +157,14 @@
         expired, try setting the backup location again in the auto backup settings.
     </string>
     <string name="autoRestoreFailureTitle">Otomatik geri yükleme başarısız oldu</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have
-        expired or the password is incorrect. Try setting the backup location and password again in the auto backup
-        settings.
-    </string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
     <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
     <string name="restoreScheduled">Restore scheduled</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola
-        istenecektir. Parolayı temizlemek için alanı boş bırakın.
-    </string>
-    <string name="passwordSetupWarning">Hatırlayabileceğiniz bir parola kullanın, veri tabanı parola olmadan
-        kurtarılamaz.
-    </string>
+    <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
+    <string name="passwordSetupWarning">Hatırlayabileceğiniz bir parola kullanın, veri tabanı parola olmadan kurtarılamaz.</string>
     <string name="clearPassword">Parolayı kaldır</string>
     <string name="confirmPassword">Parolayı onayla</string>
     <string name="setupBiometricUnlock">Biyometri ile kilit açma kurulumu</string>
@@ -236,32 +195,17 @@
     <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Karekodu tara</string>
-    <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan
-        karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de
-        girebilirsiniz.
-    </string>
+    <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de girebilirsiniz.</string>
     <string name="guideUseCodeTitle">Giriş yaparken kodu kullanın</string>
-    <string name="guideUseCodeSummary">Giriş yaparken, Authenticator Pro tarafından sağlanan benzersiz kodu kullanın.
-        Sadece kısa bir süre için geçerlidir. Kodu panoya kopyalamak için listedeki kimlik doğrulayıcıya dokunun.
-    </string>
+    <string name="guideUseCodeSummary">Giriş yaparken, Authenticator Pro tarafından sağlanan benzersiz kodu kullanın. Sadece kısa bir süre için geçerlidir. Kodu panoya kopyalamak için listedeki kimlik doğrulayıcıya dokunun.</string>
     <string name="guideCustomiseTitle">Özelleştirin ve düzenleyin</string>
-    <string name="guideCustomiseSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için yeniden adlandırın ve
-        özelleştirin. Bir girişteki menü simgesine dokunmanız ve adımları takip etmeniz yeterlidir.
-    </string>
+    <string name="guideCustomiseSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için yeniden adlandırın ve özelleştirin. Bir girişteki menü simgesine dokunmanız ve adımları takip etmeniz yeterlidir.</string>
     <string name="guideArrangeTitle">Düzenleyin ve sıralayın</string>
-    <string name="guideArrangeSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için kategoriler halinde
-        düzenleyebilirsiniz. Ayrıca, öğeleri tutup sürüklemek onları istediğiniz sırayla yeniden düzenlemenize olanak
-        sağlar.
-    </string>
+    <string name="guideArrangeSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için kategoriler halinde düzenleyebilirsiniz. Ayrıca, öğeleri tutup sürüklemek onları istediğiniz sırayla yeniden düzenlemenize olanak sağlar.</string>
     <string name="guideBackupTitle">Yedek oluştur</string>
-    <string name="guideBackupSummary">Cihazınızı değiştirirseniz hesaplarınıza erişimi kaybetmeyin. Bir yedekleme
-        dosyası oluşturun ve bunu güvenli bir yerde depolayın. Yedek dilediğiniz zamanda geri yüklenebilir ve bir parola
-        ile korunabilir.
-    </string>
+    <string name="guideBackupSummary">Cihazınızı değiştirirseniz hesaplarınıza erişimi kaybetmeyin. Bir yedekleme dosyası oluşturun ve bunu güvenli bir yerde depolayın. Yedek dilediğiniz zamanda geri yüklenebilir ve bir parola ile korunabilir.</string>
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
-    <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan
-        saatinizde görüntüleyebilirsiniz.
-    </string>
+    <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Karekodunu taramak için vizöre yerleştirin. Kod otomatik taranacaktır. Odaklanmak
         için dokunun.
@@ -271,9 +215,7 @@
     <!-- Preferences -->
     <string name="prefGeneral">Genel</string>
     <string name="prefShowBackupRemindersTitle">Yedekleme Hatırlatıcılarını Göster</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are
-        made.
-    </string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
         made. Disables backup reminders.
@@ -282,20 +224,15 @@
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
-    <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla
-        şifrelenecektir.
-    </string>
+    <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin,
         böylece her seferinde parola girmenize gerek kalmaz
     </string>
     <string name="prefAllowBiometricsTitle">Kilidi biyometri ile aç</string>
-    <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin
-        ver
-    </string>
+    <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
     <string name="prefTimeoutTitle">Zaman aşımı</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen
-    </string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
     <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
     </string>
@@ -348,19 +285,9 @@
     <string name="introBackupTitle">Yedekleme / Geri yükleme</string>
     <string name="introCategoriesTitle">Kategoriler</string>
     <string name="introThemesTitle">Koyu Tema</string>
-    <string name="introWelcomeSummary">Authenticator Pro\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik
-        doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.
-    </string>
-    <string name="introCompatibilitySummary">Authenticator Pro çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator
-        özellikli hizmetlerle %100 uyumludur.
-    </string>
-    <string name="introBackupSummary">Kimlik doğrulayıcılarınızı güçlü bir şifreleme ile yedekleyin. Cihazınızı
-        kaybetmeniz durumunda, her zaman hesaplarınıza erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.
-    </string>
-    <string name="introCategoriesSummary">Kimlik doğrulama kodlarınızı kategorilere ayırın ve hatta basitçe tutup
-        sürükleyerek sıralamayı değiştirin.
-    </string>
-    <string name="introThemesSummary">İsterseniz, ayarlardan karanlık temayı etkinleştirebilirsiniz. Tüm simgeler yeni
-        arka plana eşleşecek şekilde uyarlanacaktır.
-    </string>
+    <string name="introWelcomeSummary">Authenticator Pro\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator özellikli hizmetlerle %100 uyumludur.</string>
+    <string name="introBackupSummary">Kimlik doğrulayıcılarınızı güçlü bir şifreleme ile yedekleyin. Cihazınızı kaybetmeniz durumunda, her zaman hesaplarınıza erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.</string>
+    <string name="introCategoriesSummary">Kimlik doğrulama kodlarınızı kategorilere ayırın ve hatta basitçe tutup sürükleyerek sıralamayı değiştirin.</string>
+    <string name="introThemesSummary">İsterseniz, ayarlardan karanlık temayı etkinleştirebilirsiniz. Tüm simgeler yeni arka plana eşleşecek şekilde uyarlanacaktır.</string>
 </resources>
