@@ -138,13 +138,11 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
-        are made. Cloud storage is not supported, use the backup menu instead.
-    </string>
-    <string name="selectLocation">Select Location</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">Konum seçilmedi</string>
     <string name="locationSetTo">Konum \'{0}\' olarak ayarlandı</string>
-    <string name="setPassword">Set Password</string>
+    <string name="setPassword">Set password</string>
     <string name="passwordNotSet">Parola ayarlanmadı</string>
     <string name="passwordSet">Parola ayarlandı</string>
     <string name="notPasswordProtected">Parola korumalı değil</string>
@@ -154,15 +152,12 @@
     <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
         expired, try setting the backup location again in the auto backup settings.
     </string>
     <string name="autoRestoreFailureTitle">Otomatik geri yükleme başarısız oldu</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have
-        expired or the password is incorrect. Try setting the backup location and password again in the auto backup
-        settings.
-    </string>
+    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
     <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
@@ -237,8 +232,7 @@
     <string name="prefAllowBiometricsTitle">Kilidi biyometri ile aç</string>
     <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
     <string name="prefTimeoutTitle">Zaman aşımı</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen
-    </string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
     <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
     </string>
