@@ -21,6 +21,6 @@
         android:singleLine="true"
         android:ellipsize="start"
         android:scrollHorizontally="true"
-        android:id="@+id/textName" />
+        android:id="@+id/textName"/>
 
 </RelativeLayout>

@@ -92,7 +92,7 @@
     <string name="assignCategories">Przypisz kategorię</string>
     <string name="more">Więcej</string>
     <string name="categoryAll">Wszystkie</string>
-    <string name="manageCategories">Zarządzaj kategoriami</string>
+    <string name="editCategories">Edytuj kategorie</string>
     <string name="categoryNameHint">Nazwa kategorii</string>
     <string name="noCategoryName">Nazwa kategorii jest wymagana</string>
     <string name="duplicateCategory">Kategoria już istnieje</string>
@@ -214,6 +214,8 @@
     <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia ważnych zmian</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
     <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
+    <string name="prefLanguageTitle">Język</string>
+    <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
@@ -232,6 +234,8 @@
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
     <string name="prefAccentColourTitle">Kolor akcentów</string>
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
+    <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
+    <string name="prefTransparentStatusBarSummary">Lista będzie widoczna za paskiem statusu podczas przewijania</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
@@ -248,7 +252,8 @@
     <string name="defaultViewMode">Domyślny</string>
     <string name="compactViewMode">Kompaktowy</string>
     <string name="tileViewMode">Kafelki</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Czerwony</string>
     <string name="pink">Różowy</string>
     <string name="purple">Fioletowy</string>

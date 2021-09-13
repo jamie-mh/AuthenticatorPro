@@ -12,6 +12,8 @@
         <item name="primaryTextColor">@color/colorLighter</item>
         <item name="secondaryTextColor">@color/colorLight</item>
 
+        <item name="android:fontFamily">sans-serif</item>
+
         <item name="android:windowBackground">@color/colorDarkest</item>
     </style>
 </resources>

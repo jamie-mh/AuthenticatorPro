@@ -24,9 +24,9 @@
     <string name="scanQrCodeFromCamera">สแกนจากกล้อง</string>
     <string name="scanQrCodeFromGallery">สแกนจากแกลเลอรี</string>
     <string name="rename">เปลี่ยนชื่อ</string>
-    <string name="changeIcon">Change Icon</string>
+    <string name="changeIcon">Change icon</string>
     <string name="search">ค้นหา</string>
-    <string name="mainMenu">Main Menu</string>
+    <string name="mainMenu">Main menu</string>
     <string name="enterKey">ป้อนคีย์ที่ให้มา</string>
     <string name="restoreBackup">คืนค่าข้อมูลสำรอง</string>
     <string name="sort">Sort</string>
@@ -41,11 +41,11 @@
     <!-- Authenticator -->
     <string name="issuer">ออกโดย</string>
     <string name="username">ชื่อผู้ใช้</string>
-    <string name="secretKey">Secret Key</string>
-    <string name="pin">PIN</string>
-    <string name="showAdvancedOptions">Show Advanced Options</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account.\nThis does not mean that two factor authentication is disabled on your account.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nAre you sure you want to continue?</string>
-    <string name="useCustomIcon">Use Custom Icon</string>
+    <string name="secretKey">Secret key</string>
+    <string name="pin">Pin</string>
+    <string name="showAdvancedOptions">Show advanced options</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="useCustomIcon">Use custom icon</string>
     <string name="copiedToClipboard">คัดลอกโค้ดไปยังคลิปบอร์ดแล้ว</string>
     <string name="issuerHint">ผู้ออก (ตัวอย่าง: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
@@ -53,7 +53,7 @@
     <string name="typeHint">ประเภท</string>
     <string name="algorithmHint">อัลกอริทึ่ม</string>
     <string name="digitsHint">หลัก</string>
-    <string name="periodHint">Period (Seconds)</string>
+    <string name="periodHint">Period (seconds)</string>
     <string name="noIssuer">ต้องระบุผู้ออก</string>
     <string name="noSecret">ต้องระบุคีย์ลับ</string>
     <string name="noPin">ต้องระบุ PIN</string>
@@ -64,7 +64,7 @@
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
-    <string name="scanSuccessful">QR Code scanned successfully</string>
+    <string name="scanSuccessful">QR code scanned successfully</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
@@ -83,33 +83,33 @@
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">ไม่มีอะไรที่นี่!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
-    <string name="gettingStartedGuide">Getting Started Guide</string>
+    <string name="gettingStartedGuide">Getting started guide</string>
     <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
-    <string name="noCategoriesTitle">No Categories</string>
+    <string name="noCategoriesTitle">No categories</string>
     <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
     <!-- Categories -->
     <string name="categories">หมวดหมู่</string>
-    <string name="assignCategories">Assign Categories</string>
+    <string name="assignCategories">Assign categories</string>
     <string name="more">เพิ่มเติม</string>
     <string name="categoryAll">ทั้งหมด</string>
-    <string name="manageCategories">Manage Categories</string>
-    <string name="categoryNameHint">Category Name</string>
+    <string name="editCategories">Edit categories</string>
+    <string name="categoryNameHint">Category name</string>
     <string name="noCategoryName">ต้องระบุชื่อหมวดหมู่</string>
     <string name="duplicateCategory">A category with this name already exists</string>
     <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
     <string name="setAsDefault">Set as default</string>
     <string name="clearDefault">Clear default</string>
     <!-- Backups -->
-    <string name="backupNow">Backup Now</string>
+    <string name="backupNow">Backup now</string>
     <string name="restoreNow">คืนค่าทันที</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="restoreError">The password is incorrect or the file is corrupt</string>
     <string name="password">รหัสผ่าน</string>
-    <string name="passwordConfirm">Password Confirm</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys will be vulnerable. Do you wish to continue?</string>
-    <string name="passwordHint">Backup Password</string>
-    <string name="fileNameHint">Backup File Name</string>
+    <string name="passwordConfirm">Password confirm</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="passwordHint">Backup password</string>
+    <string name="fileNameHint">Backup file name</string>
     <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
     <string name="encrypting">กำลังเข้ารหัส</string>
     <string name="decrypting">กำลังถอดรหัส</string>
@@ -139,10 +139,10 @@
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
-    <string name="selectLocation">Select Location</string>
+    <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">ไม่ได้ระบุตำแหน่ง</string>
     <string name="locationSetTo">Location set to \'{0}\'</string>
-    <string name="setPassword">Set Password</string>
+    <string name="setPassword">Set password</string>
     <string name="passwordNotSet">Password has not been set</string>
     <string name="passwordSet">ตั้งรหัสผ่าน</string>
     <string name="notPasswordProtected">ไม่ได้ป้องกันด้วยรหัสผ่าน</string>
@@ -152,7 +152,7 @@
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
@@ -192,7 +192,7 @@
     <string name="uriListHint">Plain text list of otpauth URIs</string>
     <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
-    <string name="guideScanQRCodeTitle">Scan a QR Code</string>
+    <string name="guideScanQRCodeTitle">Scan a QR code</string>
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Use the code when logging in</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
@@ -210,10 +210,12 @@
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">ทั่วไป</string>
-    <string name="prefShowBackupRemindersTitle">Show Backup Reminders</string>
+    <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">สำรองอัตโนมัติ</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">ความปลอดภัย</string>
     <string name="prefPasswordTitle">รหัสผ่าน</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -232,9 +234,11 @@
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
-    <string name="authTypeTime">Time Based (TOTP)</string>
-    <string name="authTypeCounter">Counter Based (HOTP)</string>
+    <string name="authTypeTime">Time based (TOTP)</string>
+    <string name="authTypeCounter">Counter based (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (ค่าเริ่มต้น)</string>
     <string name="immediately">Immediately</string>
     <string name="timeout30Sec">30 วินาที</string>
@@ -242,13 +246,14 @@
     <string name="timeout2Min">2 นาที</string>
     <string name="timeout5Min">5 นาที</string>
     <string name="timeout10Min">10 นาที</string>
-    <string name="systemDefault">System Default</string>
-    <string name="lightTheme">Light Theme</string>
-    <string name="darkTheme">Dark Theme</string>
+    <string name="systemDefault">System default</string>
+    <string name="lightTheme">Light theme</string>
+    <string name="darkTheme">Dark theme</string>
     <string name="defaultViewMode">ค่าเริ่มต้น</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>
@@ -270,7 +275,7 @@
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentication</string>
     <string name="introBackupTitle">สำรอง / คืนค่า</string>
     <string name="introCategoriesTitle">หมวดหมู่</string>
-    <string name="introThemesTitle">Dark Theme</string>
+    <string name="introThemesTitle">Dark theme</string>
     <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
     <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>

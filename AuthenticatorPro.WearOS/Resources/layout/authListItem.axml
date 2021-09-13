@@ -17,26 +17,26 @@
         android:layout_height="32dp"
         android:layout_gravity="center"
         android:layout_marginEnd="12dp"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"/>
 
     <LinearLayout
         android:layout_gravity="center_vertical"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            
-            <ImageView 
+
+            <ImageView
                 android:id="@+id/imageDefault"
                 android:src="@drawable/ic_action_star"
                 android:visibility="gone"
                 android:layout_marginEnd="4dp"
                 android:layout_centerVertical="true"
                 android:layout_width="14dp"
-                android:layout_height="14dp" />
+                android:layout_height="14dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,8 +47,8 @@
                 android:gravity="start"
                 android:textColor="?attr/primaryTextColor"
                 android:singleLine="true"
-                android:id="@+id/textIssuer" />
-            
+                android:id="@+id/textIssuer"/>
+
         </RelativeLayout>
 
         <TextView
@@ -58,7 +58,7 @@
             android:gravity="start"
             android:textColor="?attr/secondaryTextColor"
             android:singleLine="true"
-            android:id="@+id/textUsername" />
+            android:id="@+id/textUsername"/>
 
     </LinearLayout>
 </LinearLayout>

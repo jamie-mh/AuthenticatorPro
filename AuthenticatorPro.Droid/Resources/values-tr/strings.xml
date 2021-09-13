@@ -92,7 +92,7 @@
     <string name="assignCategories">Kategori ata</string>
     <string name="more">Daha Fazla</string>
     <string name="categoryAll">Tümü</string>
-    <string name="manageCategories">Kategorileri Yönet</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">Kategori Adı</string>
     <string name="noCategoryName">Kategori adı gerekli.</string>
     <string name="duplicateCategory">Bu isimde bir kategori zaten var.</string>
@@ -139,10 +139,10 @@
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
-    <string name="selectLocation">Select Location</string>
+    <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">Konum seçilmedi</string>
     <string name="locationSetTo">Konum \'{0}\' olarak ayarlandı</string>
-    <string name="setPassword">Set Password</string>
+    <string name="setPassword">Set password</string>
     <string name="passwordNotSet">Parola ayarlanmadı</string>
     <string name="passwordSet">Parola ayarlandı</string>
     <string name="notPasswordProtected">Parola korumalı değil</string>
@@ -152,8 +152,10 @@
     <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
+        expired, try setting the backup location again in the auto backup settings.
+    </string>
     <string name="autoRestoreFailureTitle">Otomatik geri yükleme başarısız oldu</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
@@ -205,7 +207,9 @@
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
     <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Karekodunu taramak için vizöre yerleştirin. Kod otomatik taranacaktır. Odaklanmak için dokunun.</string>
+    <string name="scanHelpPrimary">Karekodunu taramak için vizöre yerleştirin. Kod otomatik taranacaktır. Odaklanmak
+        için dokunun.
+    </string>
     <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
     <string name="toggleFlash">Flaşı aç/kapat</string>
     <!-- Preferences -->
@@ -213,18 +217,25 @@
     <string name="prefShowBackupRemindersTitle">Yedekleme Hatırlatıcılarını Göster</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
+        made. Disables backup reminders.
+    </string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin, böylece her seferinde parola girmenize gerek kalmaz</string>
+    <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin,
+        böylece her seferinde parola girmenize gerek kalmaz
+    </string>
     <string name="prefAllowBiometricsTitle">Kilidi biyometri ile aç</string>
     <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
     <string name="prefTimeoutTitle">Zaman aşımı</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
-    <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.</string>
+    <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
+    </string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
@@ -232,6 +243,8 @@
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
@@ -248,7 +261,8 @@
     <string name="defaultViewMode">Varsayılan</string>
     <string name="compactViewMode">Sıkıştırılmış</string>
     <string name="tileViewMode">Yan yana</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Kırmızı</string>
     <string name="pink">Pembe</string>
     <string name="purple">Mor</string>

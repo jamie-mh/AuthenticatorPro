@@ -92,7 +92,7 @@
     <string name="assignCategories">Assign categories</string>
     <string name="more">Pli</string>
     <string name="categoryAll">Ĉiuj</string>
-    <string name="manageCategories">Manage categories</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">Kategorinomo</string>
     <string name="noCategoryName">A category name is required</string>
     <string name="duplicateCategory">A category with this name already exists</string>
@@ -214,6 +214,8 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Pasvorto</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -232,6 +234,8 @@
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>
     <string name="authTypeCounter">Counter based (HOTP)</string>
@@ -248,7 +252,8 @@
     <string name="defaultViewMode">Default</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>

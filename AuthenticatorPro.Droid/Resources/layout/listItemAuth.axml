@@ -9,7 +9,7 @@
     android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="12dp"
                         android:scaleType="centerInside"
-                        android:src="@drawable/auth_github" />
+                        android:src="@drawable/auth_github"/>
 
                     <LinearLayout
                         android:orientation="vertical"
@@ -59,7 +59,7 @@
                             android:textSize="16dp"
                             android:textColor="?attr/primaryTextColor"
                             android:singleLine="true"
-                            android:id="@+id/textIssuer" />
+                            android:id="@+id/textIssuer"/>
 
                         <TextView
                             android:text="johnsmith@example.com"
@@ -69,7 +69,7 @@
                             android:textColor="?attr/secondaryTextColor"
                             android:layout_below="@id/textIssuer"
                             android:singleLine="true"
-                            android:id="@+id/textUsername" />
+                            android:id="@+id/textUsername"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -83,7 +83,7 @@
                     android:layout_below="@id/layoutIcon"
                     android:layout_marginTop="2dp"
                     android:layout_marginStart="44dp"
-                    android:id="@+id/textCode" />
+                    android:id="@+id/textCode"/>
             </LinearLayout>
 
             <LinearLayout
@@ -101,7 +101,7 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:layout_marginBottom="2dp"
                     android:layout_width="40dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"/>
 
                 <ImageButton
                     android:id="@+id/buttonRefresh"
@@ -112,7 +112,7 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:visibility="gone"
                     android:layout_width="40dp"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -127,7 +127,7 @@
             android:min="0"
             android:max="10000"
             android:progress="10000"
-            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

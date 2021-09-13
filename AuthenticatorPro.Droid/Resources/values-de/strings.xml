@@ -11,9 +11,9 @@
     <string name="no">Nein</string>
     <string name="close">Schließen</string>
     <string name="error">Fehler</string>
-    <string name="retry">Retry</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="retry">Wiederholen</string>
+    <string name="ignore">Ignorieren</string>
+    <string name="disable">Deaktivieren</string>
     <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
@@ -92,7 +92,7 @@
     <string name="assignCategories">Kategorien zuweisen</string>
     <string name="more">Mehr</string>
     <string name="categoryAll">Alle</string>
-    <string name="manageCategories">Kategorien verwalten</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">Name der Kategorie</string>
     <string name="noCategoryName">Ein Name muss angegeben werden.</string>
     <string name="duplicateCategory">Eine Kategorie mit diesem Namen existiert bereits.</string>
@@ -129,16 +129,20 @@
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
     <string name="emailClientMissing">Keine E-Mail-Anwendung installiert</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue
+        persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.
+    </string>
     <string name="viewErrorLog">Fehlerprotokoll anzeigen</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
     <string name="email">E-Mail</string>
-    <string name="reportVia">Report via</string>
+    <string name="reportVia">Bericht über</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes
+        are made. Cloud storage is not supported, use the backup menu instead.
+    </string>
     <string name="selectLocation">Ort auswählen</string>
     <string name="noLocationSelected">Keinen Ort ausgewählt</string>
     <string name="locationSetTo">Ort gesetzt zu: \'{0}\'</string>
@@ -150,7 +154,7 @@
     <string name="enableAutoBackupMessage">Automatisch Sicherungen am gewählten Ort erstellen</string>
     <string name="enableAutoRestore">Aktiviere automatische Wiederherstellung</string>
     <string name="enableAutoRestoreMessage">Automatisch die letze Sicherung wiederherstellen. Nützlich für synchronisieren zwischen Geräten.</string>
-    <string name="batOptim">Battery Optimisation</string>
+    <string name="batOptim">Batterieoptimierung</string>
     <string name="disableBatOptimMessage">Auf manchen Geräten verhindern die Energieeinstellungen das automatische Sichern. Falls du Probleme hast, kann es helfen, eine Ausnahme für Authenticator Pro zu erstellen.</string>
     <string name="autoBackupFailureTitle">Automatische Sicherung fehlgeschlagen</string>
     <string name="autoBackupFailureText">Die letzte automatische Sicherung ist fehlgeschlagen. Berechtigungen sind möglicherweise abgelaufen, versuche den Sicherungsort neu einzugeben.</string>
@@ -213,7 +217,11 @@
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden.</string>
     <string name="prefAutoBackupTitle">Automatische Sicherung</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
+        made. Disables backup reminders.
+    </string>
+    <string name="prefLanguageTitle">Sprache</string>
+    <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
     <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit dem Passwort verschlüsselt.</string>
@@ -223,15 +231,18 @@
     <string name="prefAllowBiometricsSummary">Entsperren mittels Biometrie erlauben</string>
     <string name="prefTimeoutTitle">Zeitlimit</string>
     <string name="prefTimeoutSummary">Legen Sie die Zeit fest, nach der die Datenbank nach dem Verlassen der App gesperrt wird.</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealTitle">Tippe um aufzudecken</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.
+    </string>
     <string name="prefAppearance">Darstellung</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
     <string name="prefViewModeTitle">Anzeigemodus</string>
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste.</string>
-    <string name="prefAccentColourTitle">Accent Colour</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefAccentColourTitle">Akzentfarbe</string>
+    <string name="prefAccentColourSummary">Wählen Sie eine Akzentfarbe, die in der App verwendet werden soll</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
@@ -248,23 +259,24 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
-    <!-- Arrays / Accent colours -->
-    <string name="red">Red</string>
-    <string name="pink">Pink</string>
-    <string name="purple">Purple</string>
-    <string name="deepPurple">Deep purple</string>
-    <string name="indigo">Indigo</string>
-    <string name="blue">Blue</string>
-    <string name="lightBlue">Light blue</string>
-    <string name="cyan">Cyan</string>
-    <string name="teal">Teal</string>
-    <string name="green">Green</string>
-    <string name="lightGreen">Light green</string>
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
+    <string name="red">Rot</string>
+    <string name="pink">Rosa</string>
+    <string name="purple">Violett</string>
+    <string name="deepPurple">Dunkelviolett</string>
+    <string name="indigo">Indigoblau</string>
+    <string name="blue">Blau</string>
+    <string name="lightBlue">Hellblau</string>
+    <string name="cyan">Türkis</string>
+    <string name="teal">Blaugrün</string>
+    <string name="green">Grün</string>
+    <string name="lightGreen">Hellgrün</string>
     <string name="lime">Lime</string>
-    <string name="yellow">Yellow</string>
-    <string name="amber">Amber</string>
+    <string name="yellow">Gelb</string>
+    <string name="amber">Ambra</string>
     <string name="orange">Orange</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="deepOrange">Dunkelorange</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentifikation</string>

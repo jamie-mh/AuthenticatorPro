@@ -5,14 +5,14 @@
         <selector>
             <item android:state_selected="true">
                 <shape android:shape="rectangle">
-                    <solid android:color="?attr/colorTint" />
-                    <corners android:radius="8dp" />
+                    <solid android:color="?attr/colorTint"/>
+                    <corners android:radius="8dp"/>
                 </shape>
             </item>
             <item>
-                <color android:color="@android:color/transparent" />
+                <color android:color="@android:color/transparent"/>
             </item>
         </selector>
     </item>
-    <item android:drawable="?attr/selectableItemBackground" />
+    <item android:drawable="?attr/selectableItemBackground"/>
 </layer-list>

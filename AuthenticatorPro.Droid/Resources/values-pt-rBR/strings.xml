@@ -92,7 +92,7 @@
     <string name="assignCategories">Atribuir categorias</string>
     <string name="more">Mais</string>
     <string name="categoryAll">Tudo</string>
-    <string name="manageCategories">Gerenciar categorias</string>
+    <string name="editCategories">Edit categories</string>
     <string name="categoryNameHint">Nome da categoria</string>
     <string name="noCategoryName">É necessário um nome para a categoria</string>
     <string name="duplicateCategory">A category with this name already exists</string>
@@ -214,6 +214,8 @@
     <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita</string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Senha</string>
     <string name="prefPasswordSummary">Uma senha é necessária para acessar os autenticadores. O banco de dados será encriptado com sua senha.</string>
@@ -232,6 +234,8 @@
     <string name="prefViewModeSummary">Escolha um modo de exibição para a lista de autenticações</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Baseado no horário (TOTP)</string>
     <string name="authTypeCounter">Baseado em um contador (HOTP)</string>
@@ -248,7 +252,8 @@
     <string name="defaultViewMode">Padrão</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Lista</string>
-    <!-- Arrays / Accent colours -->
+    <!-- Arrays > Languages -->
+    <!-- Arrays > Accent colours -->
     <string name="red">Vermelho</string>
     <string name="pink">Rosa</string>
     <string name="purple">Roxo</string>

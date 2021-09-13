@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="?attr/colorBackgroundFloating"
@@ -13,19 +13,19 @@
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-            
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listMenu"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:clipToPadding="false"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

@@ -3,6 +3,7 @@
 <androidx.wear.widget.CircularProgressLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:colorSchemeColors="@color/colorLightBluePrimary"
     android:id="@+id/layoutCircularProgress"
     android:padding="8dp"
     android:layout_width="match_parent"
@@ -26,8 +27,8 @@
                 android:layout_height="28dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
-                android:scaleType="centerInside" />
-            
+                android:scaleType="centerInside"/>
+
             <TextView
                 android:text=""
                 android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                 android:gravity="center_horizontal"
                 android:textColor="?attr/primaryTextColor"
                 android:singleLine="true"
-                android:id="@+id/textIssuer" />
+                android:id="@+id/textIssuer"/>
 
             <TextView
                 android:text=""
@@ -48,7 +49,7 @@
                 android:gravity="center_horizontal"
                 android:textColor="?attr/secondaryTextColor"
                 android:singleLine="true"
-                android:id="@+id/textUsername" />
+                android:id="@+id/textUsername"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -56,8 +57,9 @@
                 android:gravity="center_horizontal"
                 android:textColor="?attr/primaryTextColor"
                 android:textSize="28dp"
+                android:fontFamily="sans-serif-condensed"
                 android:maxLines="1"
-                android:id="@+id/textCode" />
+                android:id="@+id/textCode"/>
 
         </LinearLayout>
 

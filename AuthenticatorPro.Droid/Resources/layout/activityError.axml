@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         style="Widget.MaterialComponents.Toolbar"
@@ -11,20 +11,20 @@
         android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar" />
-    
-    <ScrollView 
+        android:id="@+id/toolbar"/>
+
+    <ScrollView
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-       
-        <LinearLayout 
+
+        <LinearLayout
             android:orientation="vertical"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:text="@string/unhandledErrorMessage"
                 android:textColor="?attr/primaryTextColor"
                 android:lineSpacingExtra="6sp"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,9 +47,9 @@
                 android:textIsSelectable="true"
                 android:focusable="true"
                 android:longClickable="true"
-                android:id="@+id/errorText" />
+                android:id="@+id/errorText"/>
         </LinearLayout>
-        
+
     </ScrollView>
 
 </LinearLayout>
