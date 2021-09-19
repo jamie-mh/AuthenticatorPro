@@ -670,6 +670,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_galaxus.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_galaxus.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_galaxus.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_galaxus_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_gaming.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_gaming.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_gaming.png"/>
