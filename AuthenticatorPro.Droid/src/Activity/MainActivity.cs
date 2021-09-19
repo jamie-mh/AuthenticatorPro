@@ -1741,7 +1741,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             try
             {
-                var backup = _backupService.CreateUriListBackupAsync();
+                var backup = await _backupService.CreateUriListBackupAsync();
                 await FileUtil.WriteFile(this, destination, backup.ToString());
             }
             catch (Exception e)
