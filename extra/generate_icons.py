@@ -40,7 +40,7 @@ def build_map(files: list):
         else:
             standard.append(filename)
 
-    map_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/Source/Data/IconMap.cs"
+    map_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/src/Data/IconMap.cs"
     file = open(map_path, "w")
 
     file.write("// Copyright (C) 2021 jmh\n")
