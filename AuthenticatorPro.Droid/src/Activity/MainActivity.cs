@@ -1585,6 +1585,8 @@ namespace AuthenticatorPro.Droid.Activity
             switch (converter.PasswordPolicy)
             {
                 case BackupConverter.BackupPasswordPolicy.Never:
+                    RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
+
                     try
                     {
                         await ConvertAndRestore(null);
@@ -1593,6 +1595,10 @@ namespace AuthenticatorPro.Droid.Activity
                     {
                         Logger.Error(e);
                         ShowSnackbar(Resource.String.importError, Snackbar.LengthShort);
+                    }
+                    finally
+                    {
+                        RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Invisible; });
                     }
 
                     break;
