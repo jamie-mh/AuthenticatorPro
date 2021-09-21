@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" ?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -525,6 +525,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_digitalocean.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_digitalocean.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_digitalocean.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_digitec.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_digitec.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_digitec.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_digitec.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_digitec.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_directadmin.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_directadmin.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_directadmin.png"/>
@@ -625,6 +630,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_fanatical.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_fanatical.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_fanatical.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_fastmail.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_fastmail.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_fastmail.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_fastmail.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_fastmail.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_figma.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_figma.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_figma.png"/>
@@ -645,11 +655,26 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_firefox.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_firefox.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_firefox.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_floatplane.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_floatplane.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_floatplane.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_floatplane.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_floatplane.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_funio.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_funio.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_funio.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_funio.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_funio.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_galaxus.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_galaxus.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_galaxus.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_galaxus.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_galaxus.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_galaxus_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_galaxus_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_gaming.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_gaming.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_gaming.png"/>
@@ -800,6 +825,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_immobilienscout24.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_immobilienscout24.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_immobilienscout24.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_infomaniak.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_infomaniak.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_infomaniak.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_infomaniak.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_infomaniak.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_instagram.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_instagram.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_instagram.png"/>
@@ -810,6 +840,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_integromat.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_integromat.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_integromat.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_invision.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_invision.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_invision.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_invision.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_invision.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_inwx.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_inwx.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_inwx.png"/>
@@ -945,6 +980,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_mega.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_mega.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_mega.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_meistertask.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_meistertask.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_meistertask.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_meistertask.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_meistertask.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_messaging.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_messaging.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_messaging.png"/>
@@ -960,11 +1000,21 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_microsoft.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_microsoft.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_microsoft.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_microsofttodo.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_microsofttodo.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_microsofttodo.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_microsofttodo.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_microsofttodo.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_migadu.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_migadu.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_migadu.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_migadu.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_migadu.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_migros.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_migros.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_migros.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_migros.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_migros.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_mobile.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_mobile.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_mobile.png"/>
