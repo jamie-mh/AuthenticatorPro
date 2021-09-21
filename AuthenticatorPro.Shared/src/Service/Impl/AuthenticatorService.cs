@@ -122,6 +122,8 @@ namespace AuthenticatorPro.Shared.Service.Impl
                 await _customIconRepository.DeleteAsync(icon);
                 throw;
             }
+
+            await _customIconService.CullUnused();
         }
 
         public async Task<int> AddManyAsync(IEnumerable<Authenticator> auths)
