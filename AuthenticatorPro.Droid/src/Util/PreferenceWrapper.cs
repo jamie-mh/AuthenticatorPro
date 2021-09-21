@@ -107,7 +107,7 @@ namespace AuthenticatorPro.Droid.Util
         }
 
         private const string TransparentStatusBarKey = "pref_transparentStatusBar";
-        private const bool TransparentStatusBarDefault = false;
+        private const bool TransparentStatusBarDefault = true;
 
         public bool TransparentStatusBar
         {
