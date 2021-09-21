@@ -61,7 +61,22 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 if (entry.Icon != null)
                 {
-                    var newIcon = await _customIconDecoder.Decode(entry.Icon);
+                    CustomIcon newIcon;
+
+                    try
+                    {
+                        newIcon = await _customIconDecoder.Decode(entry.Icon);
+                    }
+                    catch (ArgumentException)
+                    {
+                        continue;
+                    }
+
+                    if (newIcon == null)
+                    {
+                        continue;
+                    }
+
                     var icon = icons.FirstOrDefault(ic => ic.Id == newIcon.Id);
 
                     if (icon == null)

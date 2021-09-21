@@ -112,7 +112,7 @@ namespace AuthenticatorPro.Droid
 
             if (bitmap == null)
             {
-                throw new Exception("Image could not be loaded.");
+                throw new ArgumentException("Image could not be loaded.");
             }
 
             await Task.Run(delegate
