@@ -79,6 +79,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "desktop", Resource.Drawable.auth_desktop },
             { "dev", Resource.Drawable.auth_dev },
             { "digitalocean", Resource.Drawable.auth_digitalocean },
+            { "digitec", Resource.Drawable.auth_digitec },
             { "directadmin", Resource.Drawable.auth_directadmin },
             { "discord", Resource.Drawable.auth_discord },
             { "docker", Resource.Drawable.auth_docker },
@@ -95,10 +96,13 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "evernote", Resource.Drawable.auth_evernote },
             { "facebook", Resource.Drawable.auth_facebook },
             { "fanatical", Resource.Drawable.auth_fanatical },
+            { "fastmail", Resource.Drawable.auth_fastmail },
             { "figma", Resource.Drawable.auth_figma },
             { "filen", Resource.Drawable.auth_filen },
             { "firefox", Resource.Drawable.auth_firefox },
+            { "floatplane", Resource.Drawable.auth_floatplane },
             { "funio", Resource.Drawable.auth_funio },
+            { "galaxus", Resource.Drawable.auth_galaxus },
             { "gaming", Resource.Drawable.auth_gaming },
             { "gandi", Resource.Drawable.auth_gandi },
             { "gemini", Resource.Drawable.auth_gemini },
@@ -124,8 +128,10 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "ifirmapl", Resource.Drawable.auth_ifirmapl },
             { "ifttt", Resource.Drawable.auth_ifttt },
             { "immobilienscout24", Resource.Drawable.auth_immobilienscout24 },
+            { "infomaniak", Resource.Drawable.auth_infomaniak },
             { "instagram", Resource.Drawable.auth_instagram },
             { "integromat", Resource.Drawable.auth_integromat },
+            { "invision", Resource.Drawable.auth_invision },
             { "inwx", Resource.Drawable.auth_inwx },
             { "jetbrains", Resource.Drawable.auth_jetbrains },
             { "jetbrains2", Resource.Drawable.auth_jetbrains2 },
@@ -151,9 +157,12 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "mapbox", Resource.Drawable.auth_mapbox },
             { "mastodon", Resource.Drawable.auth_mastodon },
             { "mega", Resource.Drawable.auth_mega },
+            { "meistertask", Resource.Drawable.auth_meistertask },
             { "messaging", Resource.Drawable.auth_messaging },
             { "microsoft", Resource.Drawable.auth_microsoft },
+            { "microsofttodo", Resource.Drawable.auth_microsofttodo },
             { "migadu", Resource.Drawable.auth_migadu },
+            { "migros", Resource.Drawable.auth_migros },
             { "mobile", Resource.Drawable.auth_mobile },
             { "money", Resource.Drawable.auth_money },
             { "money2", Resource.Drawable.auth_money2 },
@@ -268,7 +277,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "zimbra", Resource.Drawable.auth_zimbra },
             { "zohomail", Resource.Drawable.auth_zohomail },
             { "zoom", Resource.Drawable.auth_zoom },
-            { "zyxel", Resource.Drawable.auth_zyxel }
+            { "zyxel", Resource.Drawable.auth_zyxel },
         };
 
         public static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
@@ -296,6 +305,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "email", Resource.Drawable.auth_email_dark },
             { "eveonline", Resource.Drawable.auth_eveonline_dark },
             { "filen", Resource.Drawable.auth_filen_dark },
+            { "galaxus", Resource.Drawable.auth_galaxus_dark },
             { "gaming", Resource.Drawable.auth_gaming_dark },
             { "github", Resource.Drawable.auth_github_dark },
             { "hushmail", Resource.Drawable.auth_hushmail_dark },
@@ -327,7 +337,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "wordpress", Resource.Drawable.auth_wordpress_dark },
             { "xbox", Resource.Drawable.auth_xbox_dark },
             { "zendesk", Resource.Drawable.auth_zendesk_dark },
-            { "zyxel", Resource.Drawable.auth_zyxel_dark }
+            { "zyxel", Resource.Drawable.auth_zyxel_dark },
         };
     }
 }
