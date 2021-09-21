@@ -194,6 +194,12 @@ namespace AuthenticatorPro.Droid.Adapter
             base.OnViewAttachedToWindow(holderObj);
 
             var holder = (AuthenticatorListHolder) holderObj;
+
+            if (holder.BindingAdapterPosition == RecyclerView.NoPosition)
+            {
+                return;
+            }
+
             var auth = _authenticatorView[holder.BindingAdapterPosition];
 
             if (auth.Type.GetGenerationMethod() != GenerationMethod.Time)
@@ -373,6 +379,11 @@ namespace AuthenticatorPro.Droid.Adapter
 
         private void OnItemClick(AuthenticatorListHolder holder)
         {
+            if (holder.BindingAdapterPosition == RecyclerView.NoPosition)
+            {
+                return;
+            }
+
             if (_tapToReveal)
             {
                 var auth = _authenticatorView[holder.BindingAdapterPosition];
