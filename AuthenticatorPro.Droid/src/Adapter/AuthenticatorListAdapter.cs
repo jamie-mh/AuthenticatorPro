@@ -263,19 +263,26 @@ namespace AuthenticatorPro.Droid.Adapter
             }
         }
 
-        public void Tick()
+        public void Tick(bool useCache)
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-            foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
+            if (!useCache)
             {
-                if (offset > now)
+                _counterCooldownOffsets.Clear();
+            }
+            else
+            {
+                foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
                 {
-                    continue;
-                }
+                    if (offset > now)
+                    {
+                        continue;
+                    }
 
-                NotifyItemChanged(position);
-                _counterCooldownOffsets.Remove(position);
+                    NotifyItemChanged(position);
+                    _counterCooldownOffsets.Remove(position);
+                }
             }
 
             var timerUpdate = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = false };

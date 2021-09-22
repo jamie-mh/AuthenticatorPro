@@ -231,7 +231,10 @@ namespace AuthenticatorPro.Droid.Activity
 
             _timer.Elapsed += delegate
             {
-                Tick();
+                RunOnUiThread(delegate
+                {
+                    _authenticatorListAdapter.Tick(true);
+                });
             };
 
             _updateOnResume = true;
@@ -276,6 +279,11 @@ namespace AuthenticatorPro.Droid.Activity
             var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
             _preferences.AutoRestoreCompleted = false;
 
+            RunOnUiThread(delegate
+            {
+                _authenticatorList.SetAdapter(_authenticatorListAdapter);
+            });
+
             if (_updateOnResume || _hasCreated || autoRestoreCompleted)
             {
                 _updateOnResume = false;
@@ -285,7 +293,12 @@ namespace AuthenticatorPro.Droid.Activity
             else
             {
                 _authenticatorView.Update();
-                Tick();
+
+                RunOnUiThread(delegate
+                {
+                    _authenticatorListAdapter.NotifyDataSetChanged();
+                    _authenticatorListAdapter.Tick(false);
+                });
             }
 
             _hasCreated = false;
@@ -338,6 +351,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 if (_authenticatorList != null)
                 {
+                    _authenticatorList.SetAdapter(null);
                     AnimUtil.FadeOutView(_authenticatorList, AnimUtil.LengthLong);
                 }
             });
@@ -890,7 +904,7 @@ namespace AuthenticatorPro.Droid.Activity
             RunOnUiThread(delegate
             {
                 _authenticatorListAdapter.NotifyDataSetChanged();
-                Tick();
+                _authenticatorListAdapter.Tick(false);
 
                 if (animateLayout)
                 {
@@ -1048,11 +1062,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             _appBarLayout.SetExpanded(true);
-        }
-
-        private void Tick()
-        {
-            RunOnUiThread(_authenticatorListAdapter.Tick);
         }
 
         private void OnAuthenticatorClicked(object sender, int position)
@@ -1639,7 +1648,6 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorList.ScheduleLayoutAnimation();
             });
 
-            Tick();
             await _wearClient.NotifyChange();
         }
 
