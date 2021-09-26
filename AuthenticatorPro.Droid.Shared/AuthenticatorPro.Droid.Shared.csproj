@@ -560,6 +560,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_docker.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_docker.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_docker.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_docusign.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_docusign.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_docusign.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_docusign.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_docusign.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_domain.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_domain.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_domain.png"/>

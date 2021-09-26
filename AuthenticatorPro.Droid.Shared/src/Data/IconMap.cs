@@ -85,6 +85,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "discogs", Resource.Drawable.auth_discogs },
             { "discord", Resource.Drawable.auth_discord },
             { "docker", Resource.Drawable.auth_docker },
+            { "docusign", Resource.Drawable.auth_docusign },
             { "domain", Resource.Drawable.auth_domain },
             { "dreamhost", Resource.Drawable.auth_dreamhost },
             { "dropbox", Resource.Drawable.auth_dropbox },
