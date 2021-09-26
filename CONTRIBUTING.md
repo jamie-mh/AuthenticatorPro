@@ -17,9 +17,12 @@ To add an icon to the project the procedure is as follows:
     * Avoid icons made by 3rd parties with different styles from the original
     * Prefer flat icons instead of complex ones
     * Avoid text
-    * Avoid frames and backgrounds
+    * Avoid unnecessary frames and backgrounds
   
-* Save the icon as a square 128x128 png file
+* Save the icon as a square 128x128 png
+
+  * The icon must fill as much space as possible
+  * The background should be transparent
 
 * Name the icon as lowercase with spaces and special characters removed. Eg: Authenticator Pro -> authenticatorpro
   
@@ -27,14 +30,9 @@ To add an icon to the project the procedure is as follows:
 
 * If the icon requires a dark theme variant, repeat the process and append "_dark" to the name.
 
-* Optional: To complete the process and to build / test the project with the new icons, the DPI variants and map must be generated. If you're not comfortable with running Python scripts, skip this step.
-
-  * Install the Pillow library: [https://pillow.readthedocs.io/en/stable/installation.html](https://pillow.readthedocs.io/en/stable/installation.html)
-  * Run the `generate_icons.py` script in the extras directory.
-
 * Remove the entry from the [missing icons list](./extra/missing_icons.txt) if it exists.
 
-* Commit changes (if the above script was run, commit the changes to the `AuthenticatorPro.Droid.Shared.csproj` and `IconMap.cs` files and add the generated drawables)
+* Commit your changes
 
 * Create a pull request with your changes
 
