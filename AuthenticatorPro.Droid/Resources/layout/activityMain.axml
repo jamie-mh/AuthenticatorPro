@@ -47,6 +47,7 @@
         android:clipToPadding="false"
         android:background="?attr/colorBase"
         android:visibility="invisible"
+        android:paddingBottom="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
