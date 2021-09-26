@@ -136,6 +136,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "invision", Resource.Drawable.auth_invision },
             { "invoiceninja", Resource.Drawable.auth_invoiceninja },
             { "inwx", Resource.Drawable.auth_inwx },
+            { "ipphoneforum", Resource.Drawable.auth_ipphoneforum },
             { "itchio", Resource.Drawable.auth_itchio },
             { "jetbrains", Resource.Drawable.auth_jetbrains },
             { "jetbrains2", Resource.Drawable.auth_jetbrains2 },

@@ -870,6 +870,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_inwx.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_inwx.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_inwx.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_ipphoneforum.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_ipphoneforum.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_ipphoneforum.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_ipphoneforum.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ipphoneforum.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_itchio.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_itchio.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_itchio.png"/>
