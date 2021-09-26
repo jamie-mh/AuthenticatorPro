@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
             }
 
             var backup = await converter.ConvertAsync(data, password);
-            return await _restoreService.RestoreAndUpdateAsync(backup);
+            return await _restoreService.RestoreAsync(backup);
         }
     }
 }
