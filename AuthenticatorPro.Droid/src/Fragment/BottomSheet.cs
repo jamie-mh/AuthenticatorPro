@@ -53,7 +53,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
             var prefs = new PreferenceWrapper(Context);
-            contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlay(prefs.AccentColour), true);
+            contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlayId(prefs.AccentColour), true);
             StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
 
             return StyledInflater.Inflate(_layout, container, false);
