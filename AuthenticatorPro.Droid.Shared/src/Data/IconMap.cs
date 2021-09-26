@@ -310,6 +310,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "default", Resource.Drawable.auth_default_dark },
             { "desktop", Resource.Drawable.auth_desktop_dark },
             { "dev", Resource.Drawable.auth_dev_dark },
+            { "discogs", Resource.Drawable.auth_discogs_dark },
             { "domain", Resource.Drawable.auth_domain_dark },
             { "electronicarts", Resource.Drawable.auth_electronicarts_dark },
             { "email", Resource.Drawable.auth_email_dark },

@@ -545,6 +545,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_discogs.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_discogs.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_discogs.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_discogs_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_discogs_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_discogs_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_discogs_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_discogs_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_discord.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_discord.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_discord.png"/>
