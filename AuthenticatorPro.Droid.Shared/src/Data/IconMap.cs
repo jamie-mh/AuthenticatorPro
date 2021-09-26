@@ -91,6 +91,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "drupal", Resource.Drawable.auth_drupal },
             { "electronicarts", Resource.Drawable.auth_electronicarts },
             { "email", Resource.Drawable.auth_email },
+            { "emclient", Resource.Drawable.auth_emclient },
             { "envato", Resource.Drawable.auth_envato },
             { "epicgames", Resource.Drawable.auth_epicgames },
             { "etsy", Resource.Drawable.auth_etsy },

@@ -605,6 +605,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_email_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_email_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_email_dark.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_emclient.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_emclient.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_emclient.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_emclient.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_emclient.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_envato.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_envato.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_envato.png"/>
