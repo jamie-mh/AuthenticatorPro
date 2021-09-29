@@ -4,7 +4,7 @@
 using AuthenticatorPro.Shared.Data.Generator;
 using Xunit;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.AuthenticatorTest
 {
     public class HotpTest
     {

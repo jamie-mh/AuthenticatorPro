@@ -8,7 +8,7 @@ using SimpleBase;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AuthenticatorPro.Test.ClassData
+namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
 {
     internal class FromOtpAuthMigrationAuthenticatorClassData : IEnumerable<object[]>
     {

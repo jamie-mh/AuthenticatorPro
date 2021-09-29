@@ -7,7 +7,7 @@ using AuthenticatorPro.Shared.Entity;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AuthenticatorPro.Test.ClassData
+namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
 {
     internal class GetOtpAuthUriClassData : IEnumerable<object[]>
     {

@@ -8,5 +8,9 @@ namespace AuthenticatorPro.Shared.Persistence.Exception
         public EntityDuplicateException(System.Exception inner) : base(inner.Message, inner)
         {
         }
+
+        public EntityDuplicateException()
+        {
+        }
     }
 }

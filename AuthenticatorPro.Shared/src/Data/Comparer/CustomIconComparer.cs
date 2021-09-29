@@ -4,7 +4,6 @@
 using AuthenticatorPro.Shared.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace AuthenticatorPro.Shared.Data.Comparer
 {
@@ -32,12 +31,13 @@ namespace AuthenticatorPro.Shared.Data.Comparer
                 return false;
             }
 
-            return x.Id == y.Id && x.Data.SequenceEqual(y.Data);
+            // No need to compare the data as the id is a hash
+            return x.Id == y.Id;
         }
 
         public int GetHashCode(CustomIcon obj)
         {
-            return HashCode.Combine(obj.Id, obj.Data);
+            return HashCode.Combine(obj.Id);
         }
     }
 }

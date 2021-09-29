@@ -56,6 +56,11 @@ namespace AuthenticatorPro.Shared.Service.Impl
 
             foreach (var auth in auths)
             {
+                if (!auth.IsValid())
+                {
+                    continue;
+                }
+
                 var original = await _authenticatorRepository.GetAsync(auth.Secret);
 
                 if (original == null || comparer.Equals(original, auth))

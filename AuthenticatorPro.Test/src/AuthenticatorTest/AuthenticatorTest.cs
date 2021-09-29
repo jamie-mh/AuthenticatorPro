@@ -3,25 +3,25 @@
 
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Entity;
-using AuthenticatorPro.Test.ClassData;
+using AuthenticatorPro.Test.AuthenticatorTest.ClassData;
 using SimpleBase;
 using System;
 using Xunit;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.AuthenticatorTest
 {
     public class AuthenticatorTest
     {
-        private readonly MockIconResolver _iconResolver;
+        private readonly IIconResolver _iconResolver;
 
-        public AuthenticatorTest()
+        public AuthenticatorTest(IIconResolver iconResolver)
         {
-            _iconResolver = new MockIconResolver();
+            _iconResolver = iconResolver;
         }
 
         [Theory]
         [InlineData("definitely not valid")] // Simple fail
-        [InlineData("otpauth://totp/?secret=ABCDEFG")] // No issuer username 
+        [InlineData("otpauth://totp/?secret=ABCDEFG")] // No issuer username
         [InlineData("otpauth://totp")] // No parameters
         [InlineData("otpauth://totp?issuer=test")] // No secret
         [InlineData("otpauth://test/issuer:username?secret=ABCDEFG")] // Invalid type
@@ -59,7 +59,7 @@ namespace AuthenticatorPro.Test
         [Theory]
         [InlineData("otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer")] // Standard TOTP
         [InlineData(
-            "otpauth://totp/Big%20Company%3AMy%20User?secret=ABCDEFG&issuer=Big%20Company")] // Encoded username issuer pair 
+            "otpauth://totp/Big%20Company%3AMy%20User?secret=ABCDEFG&issuer=Big%20Company")] // Encoded username issuer pair
         [InlineData("otpauth://hotp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&counter=10")] // Standard HOTP
         [InlineData("otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&digits=7")] // Digits parameter
         [InlineData("otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&period=60")] // Period parameter
@@ -100,7 +100,7 @@ namespace AuthenticatorPro.Test
         [InlineData("ABCD EFG", "ABCDEFG", AuthenticatorType.Totp, AuthenticatorType.Hotp, AuthenticatorType.SteamOtp,
             AuthenticatorType.MobileOtp)] // Remove spaces
         [InlineData("ABCD-EFG", "ABCDEFG", AuthenticatorType.Totp, AuthenticatorType.Hotp, AuthenticatorType.SteamOtp,
-            AuthenticatorType.MobileOtp)] // Remove hyphens 
+            AuthenticatorType.MobileOtp)] // Remove hyphens
         [InlineData("abcdefg", "abcdefg", AuthenticatorType.MobileOtp)] // Preserve case 1/2
         [InlineData("ABCDEFG", "ABCDEFG", AuthenticatorType.MobileOtp)] // Preserve case 2/2
         public void CleanSecretTest(string input, string output, params AuthenticatorType[] types)
@@ -113,7 +113,7 @@ namespace AuthenticatorPro.Test
 
         [Theory]
         [InlineData(null, false, AuthenticatorType.Totp, AuthenticatorType.Hotp, AuthenticatorType.SteamOtp,
-            AuthenticatorType.MobileOtp)] // Missing 1/2 
+            AuthenticatorType.MobileOtp)] // Missing 1/2
         [InlineData("", false, AuthenticatorType.Totp, AuthenticatorType.Hotp, AuthenticatorType.SteamOtp,
             AuthenticatorType.MobileOtp)] // Missing 2/2
         [InlineData("ABCDEFG", true, AuthenticatorType.Totp, AuthenticatorType.Hotp,

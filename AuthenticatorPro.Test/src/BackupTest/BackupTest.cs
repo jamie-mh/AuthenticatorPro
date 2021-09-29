@@ -2,23 +2,19 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Shared.Data.Backup;
-using Newtonsoft.Json;
-using System.IO;
 using Xunit;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.BackupTest
 {
     public class BackupTest
     {
         private readonly BackupComparer _backupComparer;
         private readonly Backup _testBackup;
 
-        public BackupTest()
+        public BackupTest(Backup testBackup)
         {
             _backupComparer = new BackupComparer();
-
-            var contents = File.ReadAllText("test.authpro");
-            _testBackup = JsonConvert.DeserializeObject<Backup>(contents);
+            _testBackup = testBackup;
         }
 
         [Theory]

@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.BackupTest
 {
     public class BackupComparer : IEqualityComparer<Backup>
     {
