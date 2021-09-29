@@ -48,13 +48,11 @@ Bitflyer
 BitForex
 BitGo
 Bithumb
-BitMEX
 Bitpanda
 Bitrise
 Bitrix24
 BitSight
 Bitso
-Bittrex
 Bitwala
 Black Desert Online
 Blacknight
@@ -116,11 +114,9 @@ CoinDeal
 CoinFalcon
 CoinGate
 Coinify
-Coinjar
 CoinOne
 CoinSmart
 Coins.ph
-Coinspot
 CoinTiger
 CoinTracker
 CoinTracking
@@ -195,7 +191,6 @@ FreeAgent
 FreeTaxUSA
 Freewallet
 Front App
-FTX
 Gaijin Entertainment
 Gatehub
 Gate.io
