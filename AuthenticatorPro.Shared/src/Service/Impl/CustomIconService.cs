@@ -3,8 +3,8 @@
 
 using AuthenticatorPro.Shared.Entity;
 using AuthenticatorPro.Shared.Persistence;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Shared.Service.Impl
@@ -12,10 +12,13 @@ namespace AuthenticatorPro.Shared.Service.Impl
     public class CustomIconService : ICustomIconService
     {
         private readonly ICustomIconRepository _customIconRepository;
+        private readonly IAuthenticatorRepository _authenticatorRepository;
 
-        public CustomIconService(ICustomIconRepository customIconRepository)
+        public CustomIconService(ICustomIconRepository customIconRepository,
+            IAuthenticatorRepository authenticatorRepository)
         {
             _customIconRepository = customIconRepository;
+            _authenticatorRepository = authenticatorRepository;
         }
 
         public async Task AddIfNotExists(CustomIcon icon)
@@ -53,9 +56,22 @@ namespace AuthenticatorPro.Shared.Service.Impl
             return added;
         }
 
-        public Task CullUnused()
+        public async Task CullUnused()
         {
-            throw new NotImplementedException();
+            var authenticators = await _authenticatorRepository.GetAllAsync();
+            var icons = await _customIconRepository.GetAllAsync();
+
+            var iconsInUse = authenticators
+                .Where(a => a.Icon != null && a.Icon.StartsWith(CustomIcon.Prefix))
+                .Select(a => a.Icon[1..])
+                .Distinct();
+
+            var unusedIcons = icons.Where(i => !iconsInUse.Contains(i.Id));
+
+            foreach (var icon in unusedIcons)
+            {
+                await _customIconRepository.DeleteAsync(icon);
+            }
         }
     }
 }

@@ -1,11 +1,13 @@
 // Copyright (C) 2021 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using Android.App;
 using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
 using AndroidX.AppCompat.App;
+using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Util;
 using Java.Util;
 
@@ -41,7 +43,7 @@ namespace AuthenticatorPro.Droid.Activity
                 Window.SetStatusBarColor(Color.Black);
             }
 
-            var overlay = AccentColourMap.GetOverlay(_preferences.AccentColour);
+            var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
             Theme.ApplyStyle(overlay, true);
 
             SetContentView(_layout);
@@ -123,6 +125,22 @@ namespace AuthenticatorPro.Droid.Activity
         protected override void OnResume()
         {
             base.OnResume();
+
+            var label = GetString(Resource.String.appName);
+            var colourInt = ContextCompat.GetColor(this, AccentColourMap.GetColourId(_preferences.AccentColour));
+            var colour = new Color(colourInt);
+
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
+            {
+                SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
+            }
+            else
+            {
+                var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
+#pragma warning disable 618
+                SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
+#pragma warning restore 618
+            }
 
             if (_updatedThemeOnCreate)
             {

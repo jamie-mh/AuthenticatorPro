@@ -194,6 +194,12 @@ namespace AuthenticatorPro.Droid.Adapter
             base.OnViewAttachedToWindow(holderObj);
 
             var holder = (AuthenticatorListHolder) holderObj;
+
+            if (holder.BindingAdapterPosition == RecyclerView.NoPosition)
+            {
+                return;
+            }
+
             var auth = _authenticatorView[holder.BindingAdapterPosition];
 
             if (auth.Type.GetGenerationMethod() != GenerationMethod.Time)
@@ -257,19 +263,26 @@ namespace AuthenticatorPro.Droid.Adapter
             }
         }
 
-        public void Tick()
+        public void Tick(bool useCache)
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-            foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
+            if (!useCache)
             {
-                if (offset > now)
+                _counterCooldownOffsets.Clear();
+            }
+            else
+            {
+                foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
                 {
-                    continue;
-                }
+                    if (offset > now)
+                    {
+                        continue;
+                    }
 
-                NotifyItemChanged(position);
-                _counterCooldownOffsets.Remove(position);
+                    NotifyItemChanged(position);
+                    _counterCooldownOffsets.Remove(position);
+                }
             }
 
             var timerUpdate = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = false };
@@ -373,6 +386,11 @@ namespace AuthenticatorPro.Droid.Adapter
 
         private void OnItemClick(AuthenticatorListHolder holder)
         {
+            if (holder.BindingAdapterPosition == RecyclerView.NoPosition)
+            {
+                return;
+            }
+
             if (_tapToReveal)
             {
                 var auth = _authenticatorView[holder.BindingAdapterPosition];

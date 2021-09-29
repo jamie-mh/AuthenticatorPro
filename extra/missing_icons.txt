@@ -141,7 +141,6 @@ DeployHQ
 Deputy
 Detectify
 DigiCert
-Digitec
 Direct Mail
 Directnic
 DMARC Analyzer
@@ -184,11 +183,9 @@ Falcon
 FastComet
 Fasthosts
 Fastly
-Fastmail
 FAX.PLUS
 Files.com
 Findmyshift
-Floatplane
 Flywheel
 FogBugz & Kiln
 FollowMyHealth
@@ -246,14 +243,12 @@ ICUK
 ID.me
 Imperva
 ImprovMX
-Infomaniak
 InMotion Hosting
 Intercom
 Internet.bs
 intigriti
 Intuit TurboTax
 Invictus Capital
-InVision
 IO Zoom
 (ISC)2
 ISL Online
@@ -299,13 +294,10 @@ Mammoth Networks
 MathWorks
 MB Connect Line
 McGill University
-Meistertask
 Mercado Bitcoin
 Mercury
 Metaname
 Metorik
-Microsoft To-Do
-Migros
 Mimecast
 Mint
 Mintos

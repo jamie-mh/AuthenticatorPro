@@ -4,7 +4,7 @@ namespace AuthenticatorPro.Droid
 {
     internal static class AccentColourMap
     {
-        public static int GetOverlay(string name)
+        public static int GetOverlayId(string name)
         {
             return name switch
             {
@@ -24,6 +24,30 @@ namespace AuthenticatorPro.Droid
                 "amber" => Resource.Style.OverlayAccentAmber,
                 "orange" => Resource.Style.OverlayAccentOrange,
                 "deepOrange" => Resource.Style.OverlayAccentDeepOrange,
+                _ => throw new ArgumentOutOfRangeException(nameof(name))
+            };
+        }
+
+        public static int GetColourId(string name)
+        {
+            return name switch
+            {
+                "red" => Resource.Color.colorRedPrimary,
+                "pink" => Resource.Color.colorPinkPrimary,
+                "purple" => Resource.Color.colorPurplePrimary,
+                "deepPurple" => Resource.Color.colorDeepPurplePrimary,
+                "indigo" => Resource.Color.colorIndigoPrimary,
+                "blue" => Resource.Color.colorBluePrimary,
+                "lightBlue" => Resource.Color.colorLightBluePrimary,
+                "cyan" => Resource.Color.colorCyanPrimary,
+                "teal" => Resource.Color.colorTealPrimary,
+                "green" => Resource.Color.colorGreenPrimary,
+                "lightGreen" => Resource.Color.colorLightGreenPrimary,
+                "lime" => Resource.Color.colorLimePrimary,
+                "yellow" => Resource.Color.colorYellowPrimary,
+                "amber" => Resource.Color.colorAmberPrimary,
+                "orange" => Resource.Color.colorOrangePrimary,
+                "deepOrange" => Resource.Color.colorDeepOrangePrimary,
                 _ => throw new ArgumentOutOfRangeException(nameof(name))
             };
         }

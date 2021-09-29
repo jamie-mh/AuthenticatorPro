@@ -40,7 +40,7 @@ def build_map(files: list):
         else:
             standard.append(filename)
 
-    map_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/Source/Data/IconMap.cs"
+    map_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/src/Data/IconMap.cs"
     file = open(map_path, "w")
 
     file.write("// Copyright (C) 2021 jmh\n")
@@ -55,14 +55,14 @@ def build_map(files: list):
     file.write("        {\n")
 
     for icon in standard:
-        file.write("            {" + f'"{icon}", Resource.Drawable.' + RES_PREFIX + icon + "},\n")
+        file.write("            { " + f'"{icon}", Resource.Drawable.' + RES_PREFIX + icon + " },\n")
 
     file.write("        };\n\n")
     file.write("        public static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>\n")
     file.write("        {\n")
 
     for icon in dark:
-        file.write("            {" + '"' + icon[:-len(DARK_SUFFIX)] + '", Resource.Drawable.' + RES_PREFIX + icon + "},\n")
+        file.write("            { " + '"' + icon[:-len(DARK_SUFFIX)] + '", Resource.Drawable.' + RES_PREFIX + icon + " },\n")
 
     file.write("        };\n")
     file.write("    }\n")

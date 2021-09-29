@@ -98,7 +98,7 @@
             android:summary="@string/prefTransparentStatusBarSummary"
             android:title="@string/prefTransparentStatusBarTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="false"/>
+            android:defaultValue="true"/>
     </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

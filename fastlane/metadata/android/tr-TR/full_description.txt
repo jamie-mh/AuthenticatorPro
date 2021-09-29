@@ -1,4 +1,4 @@
-Authenticator Pro hesaplarınız için İki Faktörlü Kimlik Doğrulama (2FA) kodları oluşturur. TOTP, HOTP, mOTP (Mobile-OTP) ve Steam desteklenmekte. Oluşturulan kodlar, hesaplarınız için ekstra bir güvenlik katmanı sağlayan tek seferlik parolalardır. After scanning a simple QR code, your account is protected.
+Authenticator Pro hesaplarınız için İki Faktörlü Kimlik Doğrulama (2FA) kodları oluşturur. TOTP, HOTP, mOTP (Mobile-OTP) ve Steam desteklenmekte. Oluşturulan kodlar, hesaplarınız için ekstra bir güvenlik katmanı sağlayan tek seferlik parolalardır. Basit bir QR kodunu taradıktan sonra hesabınız korunur.
 
 <b>Sorununuzu daha kolay takip etmek için bir değerlendirme yazmak yerine lütfen tüm sorunları/geri bildirimleri GitHub'a veya e-postaya (geliştirici iletişim bölümü) yönlendirin.</b>
 
@@ -23,7 +23,7 @@ Her kodun yanındaki marka logoları ve simgelerle kimlik doğrulama kodlarını
 <b>Kategoriler</b>
 Kimlik doğrulama kodlarınızı kategoriler halinde düzenleyin.
 
-<b>Offline with few permissions</b>
+<b>Birkaç izinle çevrimdışı</b>
 Authenticator Pro yalnızca tek bir izin gerektirir ve çalışması için İnternet erişimi gerektirmez.
 
 <b>Kişiselleştirme</b>
@@ -36,7 +36,7 @@ Authenticator Pro, Wear OS yardımcı uygulaması olarak da mevcuttur. Kimlik do
 Kodlarınızı korumak için bir parola belirleyin ve biyometri kimlik doğrulama kullanın.
 
 <b>Açık Kaynak</b>
-The application source code can be viewed by anyone on GitHub.
+Uygulama açık kaynak kodu GitHub'daki herkes tarafından görüntülenebilir.
 
 
 2 Faktörlü kimlik doğrulaması oturum açmak için tek seferlik bir kod kullanılmasını gerektirerek hesaplarınıza ek bir güvenlik katmanı sağlar. Kullanıcı adınız ve parolanız yanında Authenticator Pro tarafından sağlanan bir koda ihtiyacınız olacaktır. Böylece, bilgileriniz ele geçirilse bile hesabınız güvende kalır.
