@@ -233,7 +233,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 RunOnUiThread(delegate
                 {
-                    _authenticatorListAdapter.Tick(true);
+                    _authenticatorListAdapter.Tick();
                 });
             };
 
@@ -279,11 +279,6 @@ namespace AuthenticatorPro.Droid.Activity
             var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
             _preferences.AutoRestoreCompleted = false;
 
-            RunOnUiThread(delegate
-            {
-                _authenticatorList.SetAdapter(_authenticatorListAdapter);
-            });
-
             if (_updateOnResume || _hasCreated || autoRestoreCompleted)
             {
                 _updateOnResume = false;
@@ -293,12 +288,7 @@ namespace AuthenticatorPro.Droid.Activity
             else
             {
                 _authenticatorView.Update();
-
-                RunOnUiThread(delegate
-                {
-                    _authenticatorListAdapter.NotifyDataSetChanged();
-                    _authenticatorListAdapter.Tick(false);
-                });
+                RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
             }
 
             _hasCreated = false;
@@ -351,7 +341,6 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 if (_authenticatorList != null)
                 {
-                    _authenticatorList.SetAdapter(null);
                     AnimUtil.FadeOutView(_authenticatorList, AnimUtil.LengthLong);
                 }
             });
@@ -904,7 +893,7 @@ namespace AuthenticatorPro.Droid.Activity
             RunOnUiThread(delegate
             {
                 _authenticatorListAdapter.NotifyDataSetChanged();
-                _authenticatorListAdapter.Tick(false);
+                _authenticatorListAdapter.Tick();
 
                 if (animateLayout)
                 {

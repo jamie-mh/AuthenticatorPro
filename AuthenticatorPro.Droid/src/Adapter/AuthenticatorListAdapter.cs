@@ -145,6 +145,10 @@ namespace AuthenticatorPro.Droid.Adapter
 
                     holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressBar.Visibility = ViewStates.Visible;
+
+                    var offset = GetGenerationOffset(auth.Period);
+                    var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
                     break;
                 }
 
@@ -166,6 +170,11 @@ namespace AuthenticatorPro.Droid.Adapter
             if (payloads == null || payloads.Count == 0)
             {
                 OnBindViewHolder(viewHolder, position);
+                return;
+            }
+
+            if (position == RecyclerView.NoPosition)
+            {
                 return;
             }
 
@@ -263,26 +272,19 @@ namespace AuthenticatorPro.Droid.Adapter
             }
         }
 
-        public void Tick(bool useCache)
+        public void Tick()
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-            if (!useCache)
+            foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
             {
-                _counterCooldownOffsets.Clear();
-            }
-            else
-            {
-                foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
+                if (offset > now)
                 {
-                    if (offset > now)
-                    {
-                        continue;
-                    }
-
-                    NotifyItemChanged(position);
-                    _counterCooldownOffsets.Remove(position);
+                    continue;
                 }
+
+                NotifyItemChanged(position);
+                _counterCooldownOffsets.Remove(position);
             }
 
             var timerUpdate = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = false };
@@ -310,7 +312,11 @@ namespace AuthenticatorPro.Droid.Adapter
                 }
 
                 _positionsToUpdate.Enqueue(i);
-                _offsetsToUpdate.Enqueue(auth.Period);
+
+                if (!_offsetsToUpdate.Contains(auth.Period))
+                {
+                    _offsetsToUpdate.Enqueue(auth.Period);
+                }
             }
 
             while (_offsetsToUpdate.Count > 0)
