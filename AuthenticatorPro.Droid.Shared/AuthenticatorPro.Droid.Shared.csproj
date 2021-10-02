@@ -930,6 +930,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_invoiceninja.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_invoiceninja.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_invoiceninja.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_invoiceninja_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_invoiceninja_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_invoiceninja_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_invoiceninja_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_invoiceninja_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_inwx.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_inwx.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_inwx.png"/>
