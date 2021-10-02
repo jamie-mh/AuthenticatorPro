@@ -1,0 +1,6 @@
+- New feature: Language switch
+- New feature: Toggle transparent status bar
+- Wear OS: Improved UI and design
+- General: 34 new icons
+- General: Bug fixes
+- General: Translation updates
