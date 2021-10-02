@@ -70,6 +70,7 @@
         <AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
         <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
         <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+        <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
         <AndroidDexTool>d8</AndroidDexTool>
         <MandroidI18n />
         <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -1677,6 +1678,9 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\drawable-night-hdpi\ic_action_info_outline.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidAotProfile Include="custom.aprof" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

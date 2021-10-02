@@ -56,6 +56,7 @@
         <AotAssemblies>true</AotAssemblies>
         <EnableLLVM>true</EnableLLVM>
         <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+        <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
         <BundleAssemblies>false</BundleAssemblies>
         <AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
         <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
@@ -361,6 +362,9 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\drawable-hdpi\ic_action_star.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidAotProfile Include="custom.aprof" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
