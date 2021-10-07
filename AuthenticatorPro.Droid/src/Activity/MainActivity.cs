@@ -296,6 +296,11 @@ namespace AuthenticatorPro.Droid.Activity
 
         protected override async Task OnResumeDeferredAsync()
         {
+            if (_isWaitingForUnlock)
+            {
+                return;
+            }
+
             // Handle QR code scanning from intent
             if (Intent?.Data != null)
             {
