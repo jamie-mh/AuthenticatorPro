@@ -148,7 +148,7 @@ namespace AuthenticatorPro.Shared.View.Impl
 
         public bool AnyWithoutFilter()
         {
-            return _all.Any();
+            return _all != null && _all.Any();
         }
 
         public int IndexOf(Authenticator auth)
