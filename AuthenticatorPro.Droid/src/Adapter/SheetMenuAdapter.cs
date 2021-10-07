@@ -39,7 +39,7 @@ namespace AuthenticatorPro.Droid.Adapter
             var holder = (SheetMenuItemViewHolder) viewHolder;
             holder.ItemView.Click += (sender, args) =>
             {
-                item.Handler.Invoke(sender, args);
+                item.Handler?.Invoke(sender, args);
                 ItemClicked?.Invoke(sender, args);
             };
 
