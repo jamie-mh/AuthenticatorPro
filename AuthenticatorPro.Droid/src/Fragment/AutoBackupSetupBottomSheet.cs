@@ -170,7 +170,7 @@ namespace AuthenticatorPro.Droid.Fragment
             }
 
             var baseApplication = ((SettingsActivity) Context).BaseApplication;
-            baseApplication.PreventNextLock = true;
+            baseApplication.PreventAutoLock = true;
 
             try
             {
@@ -180,7 +180,7 @@ namespace AuthenticatorPro.Droid.Fragment
             {
                 Logger.Error(e);
                 Toast.MakeText(Context, Resource.String.filePickerMissing, ToastLength.Long);
-                baseApplication.PreventNextLock = false;
+                baseApplication.PreventAutoLock = false;
             }
         }
 

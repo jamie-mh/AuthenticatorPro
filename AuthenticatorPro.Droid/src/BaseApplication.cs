@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Droid
 #endif
     internal class BaseApplication : Application, ILifecycleObserver
     {
-        public bool PreventNextLock { get; set; }
+        public bool PreventAutoLock { get; set; }
 
         private readonly Database _database;
         private Timer _timeoutTimer;
@@ -78,9 +78,9 @@ namespace AuthenticatorPro.Droid
         [Export]
         public async void OnStopped()
         {
-            if (PreventNextLock)
+            if (PreventAutoLock)
             {
-                PreventNextLock = false;
+                PreventAutoLock = false;
                 return;
             }
 

@@ -177,6 +177,9 @@ namespace AuthenticatorPro.Droid.Activity
         {
             _hasCreated = true;
 
+            // Prevent autolock while application is loading
+            BaseApplication.PreventAutoLock = true;
+
             Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
 
@@ -291,6 +294,8 @@ namespace AuthenticatorPro.Droid.Activity
                 RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
             }
 
+            // Loading finished, allow auto locking on lifecycle stop
+            BaseApplication.PreventAutoLock = false;
             _hasCreated = false;
         }
 
@@ -2068,7 +2073,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType(mimeType);
 
-            BaseApplication.PreventNextLock = true;
+            BaseApplication.PreventAutoLock = true;
 
             try
             {
@@ -2087,7 +2092,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.SetType(mimeType);
             intent.PutExtra(Intent.ExtraTitle, fileName);
 
-            BaseApplication.PreventNextLock = true;
+            BaseApplication.PreventAutoLock = true;
 
             try
             {
