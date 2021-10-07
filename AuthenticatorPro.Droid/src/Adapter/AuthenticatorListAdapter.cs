@@ -84,6 +84,11 @@ namespace AuthenticatorPro.Droid.Adapter
 
         public void MoveItemView(int oldPosition, int newPosition)
         {
+            if (!ValidatePosition(oldPosition) || !ValidatePosition(newPosition))
+            {
+                return;
+            }
+
             _authenticatorView.Swap(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
         }
@@ -100,11 +105,23 @@ namespace AuthenticatorPro.Droid.Adapter
 
         public override long GetItemId(int position)
         {
-            return _authenticatorView[position].Secret.GetHashCode();
+            return ValidatePosition(position)
+                ? _authenticatorView[position].Secret.GetHashCode()
+                : RecyclerView.NoId;
+        }
+
+        private bool ValidatePosition(int position)
+        {
+            return position >= 0 && position < _authenticatorView.Count;
         }
 
         public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
+            if (!ValidatePosition(position))
+            {
+                return;
+            }
+
             var auth = _authenticatorView[position];
             var holder = (AuthenticatorListHolder) viewHolder;
 
@@ -173,7 +190,7 @@ namespace AuthenticatorPro.Droid.Adapter
                 return;
             }
 
-            if (position == RecyclerView.NoPosition)
+            if (!ValidatePosition(position))
             {
                 return;
             }
@@ -392,7 +409,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
         private void OnItemClick(AuthenticatorListHolder holder)
         {
-            if (holder.BindingAdapterPosition == RecyclerView.NoPosition)
+            if (!ValidatePosition(holder.BindingAdapterPosition))
             {
                 return;
             }
@@ -409,6 +426,11 @@ namespace AuthenticatorPro.Droid.Adapter
 
         private async void OnRefreshClick(int position)
         {
+            if (!ValidatePosition(position))
+            {
+                return;
+            }
+
             var auth = _authenticatorView[position];
             await _authenticatorService.IncrementCounterAsync(auth);
 
