@@ -2,7 +2,7 @@
 <resources>
     <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
+    <string name="noAuthenticatorsMessage">Burada hiçbir şey yok. Telefonunuzdan bazı doğrulama kodları ekleyin.</string>
     <string name="hotpNotSupported">HOTP desteklenmiyor</string>
     <string name="categoryAll">Tümü</string>
     <string name="offline">Çevrimdışı</string>
