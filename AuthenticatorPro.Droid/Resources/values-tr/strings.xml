@@ -241,6 +241,8 @@
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
     <string name="prefViewModeTitle">Görüntüleme Modu</string>
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
