@@ -177,9 +177,6 @@ namespace AuthenticatorPro.Droid.Activity
         {
             _hasCreated = true;
 
-            // Prevent autolock while application is loading
-            BaseApplication.PreventAutoLock = true;
-
             Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
 
@@ -294,8 +291,6 @@ namespace AuthenticatorPro.Droid.Activity
                 RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
             }
 
-            // Loading finished, allow auto locking on lifecycle stop
-            BaseApplication.PreventAutoLock = false;
             _hasCreated = false;
         }
 
@@ -376,7 +371,12 @@ namespace AuthenticatorPro.Droid.Activity
                     return;
                 }
 
-                _unlockDatabaseLock.Release();
+                if (_unlockDatabaseLock.CurrentCount == 0)
+                {
+                    _unlockDatabaseLock.Release();
+                }
+
+                BaseApplication.AutoLockEnabled = true;
                 return;
             }
 
@@ -721,6 +721,7 @@ namespace AuthenticatorPro.Droid.Activity
                 // Locked but no password, unlock now
                 case false:
                     await _database.Open(null);
+                    BaseApplication.AutoLockEnabled = true;
                     break;
             }
         }
@@ -2073,7 +2074,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType(mimeType);
 
-            BaseApplication.PreventAutoLock = true;
+            BaseApplication.PreventNextAutoLock = true;
 
             try
             {
@@ -2092,7 +2093,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.SetType(mimeType);
             intent.PutExtra(Intent.ExtraTitle, fileName);
 
-            BaseApplication.PreventAutoLock = true;
+            BaseApplication.PreventNextAutoLock = true;
 
             try
             {
