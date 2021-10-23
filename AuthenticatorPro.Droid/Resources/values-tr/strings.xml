@@ -12,8 +12,8 @@
     <string name="close">Kapat</string>
     <string name="error">Hata</string>
     <string name="retry">Tekrar dene</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="ignore">Yoksay</string>
+    <string name="disable">Devre dışı bırak</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -61,7 +61,7 @@
     <string name="secretInvalid">Gizli anahtar geçersiz.</string>
     <string name="pinInvalid">PIN 4 karakter uzunluğunda olmalıdır.</string>
     <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
-    <string name="periodInvalid">The period is invalid</string>
+    <string name="periodInvalid">Geçersiz süre</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
@@ -92,13 +92,13 @@
     <string name="assignCategories">Kategori ata</string>
     <string name="more">Daha Fazla</string>
     <string name="categoryAll">Tümü</string>
-    <string name="editCategories">Edit categories</string>
+    <string name="editCategories">Kategorileri düzenle</string>
     <string name="categoryNameHint">Kategori Adı</string>
     <string name="noCategoryName">Kategori adı gerekli.</string>
     <string name="duplicateCategory">Bu isimde bir kategori zaten var.</string>
     <string name="confirmCategoryDelete">Bu kategoriyi silmek istediğinize emin misiniz?</string>
     <string name="setAsDefault">Varsayılan olarak ayarla</string>
-    <string name="clearDefault">Clear default</string>
+    <string name="clearDefault">Varsayılanları temizle</string>
     <!-- Backups -->
     <string name="backupNow">Şimdi Yedekle</string>
     <string name="restoreNow">Şimdi geri yükle</string>
@@ -135,14 +135,14 @@
     <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
     <string name="report">Bildir</string>
     <string name="email">E-posta</string>
-    <string name="reportVia">Report via</string>
+    <string name="reportVia">aracılığıyla rapor</string>
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
-    <string name="selectLocation">Select location</string>
+    <string name="autoBackupHelp">Otomatik yedeklemeler için bir konum ve şifre seçin. Değişiklikler yapıldığında yedeklemeler belirlenir. Bulut depolama desteklenmez, bunun yerine yedekleme menüsünü kullanın.</string>
+    <string name="selectLocation">Konum seçin</string>
     <string name="noLocationSelected">Konum seçilmedi</string>
     <string name="locationSetTo">Konum \'{0}\' olarak ayarlandı</string>
-    <string name="setPassword">Set password</string>
+    <string name="setPassword">Parola ayarlayın</string>
     <string name="passwordNotSet">Parola ayarlanmadı</string>
     <string name="passwordSet">Parola ayarlandı</string>
     <string name="notPasswordProtected">Parola korumalı değil</string>
@@ -152,7 +152,7 @@
     <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="autoBackupFailureTitle">Otomatik Yedekleme başarısız</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
         expired, try setting the backup location again in the auto backup settings.
     </string>
@@ -161,7 +161,7 @@
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
     <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
-    <string name="restoreScheduled">Restore scheduled</string>
+    <string name="restoreScheduled">Geri yükleme planlandı</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
     <string name="passwordSetupWarning">Hatırlayabileceğiniz bir parola kullanın, veri tabanı parola olmadan kurtarılamaz.</string>
@@ -192,7 +192,7 @@
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
     <string name="uriListHint">Plain text list of otpauth URIs</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="viewGuideImportHint">Kılavuzu wiki\'de görüntüle</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Karekodu tara</string>
     <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de girebilirsiniz.</string>
@@ -220,12 +220,12 @@
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
         made. Disables backup reminders.
     </string>
-    <string name="prefLanguageTitle">Language</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefLanguageTitle">Dil</string>
+    <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
-    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
+    <string name="prefDatabasePasswordBackupTitle">Veritabanı Şifresi ile Yedekle</string>
     <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin,
         böylece her seferinde parola girmenize gerek kalmaz
     </string>
@@ -243,7 +243,7 @@
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
@@ -267,18 +267,18 @@
     <string name="pink">Pembe</string>
     <string name="purple">Mor</string>
     <string name="deepPurple">Koyu mor</string>
-    <string name="indigo">Indigo</string>
+    <string name="indigo">Çivit</string>
     <string name="blue">Mavi</string>
     <string name="lightBlue">Açık mavi</string>
     <string name="cyan">Camgöbeği</string>
-    <string name="teal">Teal</string>
+    <string name="teal">Deniz mavisi</string>
     <string name="green">Yeşil</string>
     <string name="lightGreen">Açık yeşil</string>
     <string name="lime">Çim rengi</string>
     <string name="yellow">Sarı</string>
     <string name="amber">Kehribar</string>
     <string name="orange">Turuncu</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="deepOrange">Keskin turuncu</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Authenticator Pro\'ya hoş geldiniz</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Doğrulaması</string>

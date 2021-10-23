@@ -1,56 +1,56 @@
-Authenticator Pro generates Two Factor Authentication (2FA) codes for your online accounts. TOTP, HOTP, mOTP (Mobile-OTP) and Steam are supported. The generated codes are one time tokens that provide an extra layer of security to your online accounts. After scanning a simple QR code, your account is protected.
+Authenticator Pro 为您的在线帐号生成两因素认证 (2FA) 代码。 支持TOTP、HOTP、mOTP (Mobile-OTP) 和Steam。 生成的代码是为您的在线帐户提供额外一层安全的一次性令牌。 在扫描简单的 QR 码后，您的帐户将得到保护。
 
-<b>Please direct all feedback / issues to either GitHub or email (developer contact section) instead of writing a review to more easily follow up on your issue.</b>
+<b>请不要通过评论进行反馈。将所有反馈/问题直接发送至 GitHub 或 email (详见开发者联系部分) 会让我们更容易地跟踪您的问题。</b>
 
-<b>Frequently Asked Questions:</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+<b>常见问题</b>
+https://github.com/jamie-mh/AuthicatorPro/wiki#frequently-questions
 
-<b>Compatibility</b>
-Authenticator Pro is compatible with most providers and accounts.
+<b>兼容性</b>
+Authenticator Pro 兼容大多数提供商和账户。
 
-<b>Backup / Restore</b>
-Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
+<b>备份 / 还原</b>
+用强加密来备份您的身份验证器。 如果您不小心丢失或更换了你的手机，您还是可以随时访问您的帐户。 您可以将备份保存到云存储或设备中。
 
-<b>Import</b>
-Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+<b>导入</b>
+轻松地将您的帐户从支持的其他应用程序迁移到Authenticator Pro。
 
-<b>Dark Mode</b>
-Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+<b>黑暗模式</b>
+Authenticator Pro 有美丽的符合Material Desgi n的亮色或黑暗主题。
 
-<b>Icons</b>
-Find your authenticators easily with recognisable brand logos and icons next to each code.
+<b>图标</b>
+为每个代码旁边添加方便识别的品牌标志和图标来方便您寻找您的身份验证器。
 
-<b>Categories</b>
-Organise your authenticators into categories.
+<b>分类</b>
+使用分类对您的身份验证器进行整理。
 
-<b>Offline with few permissions</b>
-Authenticator Pro only requires a single permission and does not require Internet access to function.
+<b>只需要极少权限的离线应用</b>
+Authenticator Pro只需要一个权限，并且完全不需要网络权限。
 
-<b>Customisation</b>
-Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+<b>自定义</b>
+您可以对其自定义图标和重命名。 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
 
 <b>Wear OS</b>
-Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch.
+Authenticator Pro也有 Wear OS 的配套应用。让您可以从您的手表中快速查看您的身份验证器。
 
-<b>Security</b>
-Set a password and use biometric authentification to protect your codes.
+<b>安全</b>
+您可以设置密码并使用生物识别来保护您的代码。
 
-<b>Open-Source</b>
-The application source code can be viewed by anyone on GitHub.
-
-
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+<b>开源</b>
+任何人都可以在 GitHub 审查程序源代码。
 
 
-Free and Open-Source
-https://github.com/jamie-mh/AuthenticatorPro
+二步验证要求使用一次性代码登录，从而为您的帐户提供额外的一层安全保护。 除了您的用户名和密码，您还需要 Authenticator Pro 提供的代码。 因此，即使您的登录信息被泄露，您的账户仍然是安全的。
 
-<b>Permissions:</b>
 
-Camera permission is required to add accounts through QR codes.
+免费且开源
+https://github.com/jamie-mh/authenticatorPro
 
-<b>Disclaimer:</b>
+<b>权限</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+通过二维码添加帐户需要相机权限。
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+<b>免责声明：</b>
+
+这个软件是一个免费且自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证（许可证的第 3 版或（由您选择）任何更高版本）的条款重新分发和/或修改它。
+
+这个软件被设计出来的目的是方便大家, 但是 *没有任何担保* ! 包括但不限于对特定用途的商品性和适用性的暗示性担保。 查看 GNU 通用公共许可协议 (GNU General Public License) 来获取更多信息。 了解更多详情，请参阅GNU通用公共许可协议。
