@@ -205,7 +205,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             Window.SetFlags(windowFlags, windowFlags);
-            InitViews();
+            RunOnUiThread(InitViews);
 
             if (savedInstanceState != null)
             {
@@ -2020,7 +2020,11 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            _authenticatorListAdapter.NotifyDataSetChanged();
+            RunOnUiThread(delegate
+            {
+                _authenticatorListAdapter.NotifyDataSetChanged();
+            });
+
             CheckEmptyState();
         }
 
