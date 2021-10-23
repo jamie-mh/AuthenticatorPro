@@ -246,7 +246,7 @@
     <string name="timeout2Min">2 minuty</string>
     <string name="timeout5Min">5 minut</string>
     <string name="timeout10Min">10 minut</string>
-    <string name="systemDefault">Ustawienia systemu</string>
+    <string name="systemDefault">Domyślny systemu</string>
     <string name="lightTheme">Jasny motyw</string>
     <string name="darkTheme">Ciemny motyw</string>
     <string name="defaultViewMode">Domyślny</string>

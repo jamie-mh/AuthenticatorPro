@@ -1,1 +1,1 @@
-Free and open-source 2FA OTP code generator with backups and Wear OS support
+免费且开源的 2FA OTP 代码生成器，同时支持备份和Wear OS
