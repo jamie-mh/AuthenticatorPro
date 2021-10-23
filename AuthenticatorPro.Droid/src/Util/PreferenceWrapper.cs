@@ -64,9 +64,7 @@ namespace AuthenticatorPro.Droid.Util
 
         public int Timeout
         {
-            get => Int32.TryParse(Preferences.GetString(TimeoutKey, TimeoutDefault.ToString()), out var value)
-                ? value
-                : TimeoutDefault;
+            get => GetStringBackedIntPreference(TimeoutKey, TimeoutDefault);
             set => SetPreference(TimeoutKey, value);
         }
 
@@ -95,6 +93,15 @@ namespace AuthenticatorPro.Droid.Util
         {
             get => Preferences.GetString(ViewModeKey, ViewModeDefault);
             set => SetPreference(ViewModeKey, value);
+        }
+
+        private const string CodeGroupSizeKey = "pref_codeGroupSize";
+        private const int CodeGroupSizeDefault = 3;
+
+        public int CodeGroupSize
+        {
+            get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
+            set => SetPreference(CodeGroupSizeKey, value);
         }
 
         private const string AccentColourKey = "pref_accentColour";

@@ -42,6 +42,7 @@ namespace AuthenticatorPro.Droid.Adapter
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
         private readonly bool _tapToReveal;
+        private readonly int _codeGroupSize;
 
         private readonly IAuthenticatorService _authenticatorService;
         private readonly IAuthenticatorView _authenticatorView;
@@ -58,15 +59,17 @@ namespace AuthenticatorPro.Droid.Adapter
         private readonly float _animationScale;
 
         public AuthenticatorListAdapter(Context context, IAuthenticatorService authenticatorService,
-            IAuthenticatorView authenticatorView, ICustomIconRepository customIconRepository, ViewMode viewMode,
-            bool isDark, bool tapToReveal)
+            IAuthenticatorView authenticatorView, ICustomIconRepository customIconRepository, bool isDark)
         {
             _authenticatorService = authenticatorService;
             _authenticatorView = authenticatorView;
             _customIconRepository = customIconRepository;
-            _viewMode = viewMode;
+
+            var preferences = new PreferenceWrapper(context);
+            _viewMode = ViewModeSpecification.FromName(preferences.ViewMode);
+            _tapToReveal = preferences.TapToReveal;
+            _codeGroupSize = preferences.CodeGroupSize;
             _isDark = isDark;
-            _tapToReveal = tapToReveal;
 
             _customIconDecodeLock = new SemaphoreSlim(1, 1);
             _decodedCustomIcons = new Dictionary<string, Bitmap>();
@@ -157,7 +160,7 @@ namespace AuthenticatorPro.Droid.Adapter
                 {
                     if (_tapToReveal)
                     {
-                        holder.Code.Text = CodeUtil.PadCode(null, auth.Digits);
+                        holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
                     }
 
                     holder.RefreshButton.Visibility = ViewStates.Gone;
@@ -174,7 +177,7 @@ namespace AuthenticatorPro.Droid.Adapter
                     var inCooldown = _counterCooldownOffsets.ContainsKey(position);
                     var code = (_tapToReveal && inCooldown) || !_tapToReveal ? auth.GetCode() : null;
 
-                    holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
+                    holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
                     holder.RefreshButton.Visibility = inCooldown ? ViewStates.Invisible : ViewStates.Visible;
                     holder.ProgressBar.Visibility = ViewStates.Invisible;
                     break;
@@ -209,7 +212,7 @@ namespace AuthenticatorPro.Droid.Adapter
             if (payload.RequiresGeneration)
             {
                 var code = _tapToReveal ? null : auth.GetCode(offset);
-                holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
+                holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
             }
 
             UpdateProgressBar(holder.ProgressBar, auth.Period, offset, payload.CurrentOffset);
@@ -235,7 +238,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
             var offset = GetGenerationOffset(auth.Period);
             var code = _tapToReveal ? null : auth.GetCode(offset);
-            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits);
+            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
@@ -418,7 +421,7 @@ namespace AuthenticatorPro.Droid.Adapter
             {
                 var auth = _authenticatorView[holder.BindingAdapterPosition];
                 var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits);
+                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
             }
 
             ItemClicked?.Invoke(this, holder.BindingAdapterPosition);

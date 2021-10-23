@@ -94,6 +94,13 @@ namespace AuthenticatorPro.Droid.Shared.Util
             SetPreference(key, value?.ToString());
         }
 
+        protected int GetStringBackedIntPreference(string key, int defaultValue)
+        {
+            return Int32.TryParse(Preferences.GetString(key, defaultValue.ToString()), out var value)
+                ? value
+                : defaultValue;
+        }
+
         protected void SetPreference(string key, string value)
         {
             Preferences.Edit().PutString(key, value).Commit();

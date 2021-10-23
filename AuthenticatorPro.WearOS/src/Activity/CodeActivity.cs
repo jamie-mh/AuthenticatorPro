@@ -12,6 +12,7 @@ using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.WearOS.Util;
 using System;
 
 namespace AuthenticatorPro.WearOS.Activity
@@ -23,6 +24,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private int _period;
         private int _digits;
+        private int _codeGroupSize;
 
         private CircularProgressLayout _circularProgressLayout;
         private TextView _codeTextView;
@@ -31,6 +33,9 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activityCode);
+
+            var preferences = new PreferenceWrapper(this);
+            _codeGroupSize = preferences.CodeGroupSize;
 
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _codeTextView = FindViewById<TextView>(Resource.Id.textCode);
@@ -115,7 +120,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             RunOnUiThread(delegate
             {
-                _codeTextView.Text = CodeUtil.PadCode(code, _digits);
+                _codeTextView.Text = CodeUtil.PadCode(code, _digits, _codeGroupSize);
                 _circularProgressLayout.StopTimer();
                 _circularProgressLayout.TotalTime = secondsRemaining * 1000;
                 _circularProgressLayout.StartTimer();

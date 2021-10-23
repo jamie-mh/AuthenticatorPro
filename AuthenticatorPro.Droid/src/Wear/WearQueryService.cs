@@ -92,7 +92,8 @@ namespace AuthenticatorPro.Droid.Wear
             var customIconIds = (await _customIconRepository.GetAllAsync()).Select(i => i.Id).ToList();
 
             var preferenceWrapper = new PreferenceWrapper(this);
-            var preferences = new WearPreferences(preferenceWrapper.DefaultCategory, preferenceWrapper.SortMode);
+            var preferences = new WearPreferences(
+                preferenceWrapper.DefaultCategory, preferenceWrapper.SortMode, preferenceWrapper.CodeGroupSize);
 
             var bundle = new WearSyncBundle(auths, categories, customIconIds, preferences);
 

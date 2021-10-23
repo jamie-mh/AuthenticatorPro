@@ -5,6 +5,7 @@ using Android.Content;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Shared.Data;
+using System;
 
 namespace AuthenticatorPro.WearOS.Util
 {
@@ -37,12 +38,22 @@ namespace AuthenticatorPro.WearOS.Util
             set => SetEnumPreference(SortModeKey, value);
         }
 
+        private const string CodeGroupSizeKey = "codeGroupSize";
+        private const int CodeGroupSizeDefault = 3;
+
+        public int CodeGroupSize
+        {
+            get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
+            set => SetPreference(CodeGroupSizeKey, value);
+        }
+
         public PreferenceWrapper(Context context) : base(context) { }
 
         public void ApplySyncedPreferences(WearPreferences preferences)
         {
             DefaultCategory = preferences.DefaultCategory;
             SortMode = preferences.SortMode;
+            CodeGroupSize = preferences.CodeGroupSize;
         }
     }
 }

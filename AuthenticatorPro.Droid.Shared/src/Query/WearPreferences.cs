@@ -9,11 +9,13 @@ namespace AuthenticatorPro.Droid.Shared.Query
     {
         public readonly string DefaultCategory;
         public readonly SortMode SortMode;
+        public readonly int CodeGroupSize;
 
-        public WearPreferences(string defaultCategory, SortMode sortMode)
+        public WearPreferences(string defaultCategory, SortMode sortMode, int codeGroupSize)
         {
             DefaultCategory = defaultCategory;
             SortMode = sortMode;
+            CodeGroupSize = codeGroupSize;
         }
     }
 }

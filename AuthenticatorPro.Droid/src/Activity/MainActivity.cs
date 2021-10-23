@@ -804,11 +804,8 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void InitAuthenticatorList()
         {
-            var viewMode = ViewModeSpecification.FromName(_preferences.ViewMode);
             _authenticatorListAdapter =
-                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconRepository,
-                    viewMode, IsDark,
-                    _preferences.TapToReveal) { HasStableIds = true };
+                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconRepository, IsDark) { HasStableIds = true };
 
             _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
             _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
@@ -817,6 +814,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _authenticatorList.SetAdapter(_authenticatorListAdapter);
 
+            var viewMode = ViewModeSpecification.FromName(_preferences.ViewMode);
             _authenticatorLayout = new AutoGridLayoutManager(this, viewMode.GetMinColumnWidth());
             _authenticatorList.SetLayoutManager(_authenticatorLayout);
 

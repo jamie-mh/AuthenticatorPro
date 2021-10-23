@@ -86,6 +86,14 @@
             android:entryValues="@array/viewModeValues"
             android:defaultValue="default"/>
         <androidx.preference.ListPreference
+            android:key="pref_codeGroupSize"
+            android:summary="@string/prefCodeGroupSizeSummary"
+            android:title="@string/prefCodeGroupSizeTitle"
+            app:iconSpaceReserved="false"
+            android:entries="@array/codeGroupSizes"
+            android:entryValues="@array/codeGroupSizes"
+            android:defaultValue="3"/>
+        <androidx.preference.ListPreference
             android:key="pref_accentColour"
             android:summary="@string/prefAccentColourSummary"
             android:title="@string/prefAccentColourTitle"

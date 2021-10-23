@@ -92,6 +92,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 case "pref_tapToReveal":
                 case "pref_viewMode":
+                case "pref_codeGroupSize":
                 case "pref_transparentStatusBar":
                     _shouldRecreateMain = true;
                     break;

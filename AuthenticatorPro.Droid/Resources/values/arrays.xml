@@ -106,6 +106,12 @@
         <item>tile</item>
     </string-array>
 
+    <string-array name="codeGroupSizes">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <string-array name="accentColourNames">
         <item>@string/red</item>
         <item>@string/pink</item>
