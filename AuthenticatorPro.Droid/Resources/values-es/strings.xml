@@ -76,10 +76,10 @@
     <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
     <string name="backupHtml">Respaldar a un archivo local HTML</string>
     <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlWarning">Las copias de seguridad de los archivos HTML no están cifradas y pueden dejar sus claves secretas vulnerables.\n\nEste archivo no puede ser restaurado dentro de la aplicación y no contiene categorías ni iconos. Si no está seguro, opte por una copia de seguridad de archivo cifrada en su lugar.\n\n¿Continuar?</string>
     <string name="backupUriList">Hacer copia de seguridad al archivo de la lista URI</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListMessage">Guarda tus autenticadores en un archivo de lista de URI de texto plano sin cifrar. Este archivo es compatible con muchas aplicaciones y servicios alternativos. Las categorías y los iconos no se guardan.</string>
+    <string name="backupUriListWarning">Las copias de seguridad de archivos de texto plano no están cifradas y pueden dejar tus claves secretas vulnerables.\n\nEste archivo no contiene categorías ni iconos. Si no estás seguro, opta por una copia de seguridad de archivo cifrado en su lugar.\n\n¿Deseas continuar?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
     <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
@@ -92,12 +92,12 @@
     <string name="assignCategories">Asignar Categorías</string>
     <string name="more">Más</string>
     <string name="categoryAll">Todo</string>
-    <string name="editCategories">Edit categories</string>
+    <string name="editCategories">Editar categorías</string>
     <string name="categoryNameHint">Nombre de Categoría</string>
     <string name="noCategoryName">Un nombre de Categoría es requerido.</string>
     <string name="duplicateCategory">Una Categoría con este nombre ya existe.</string>
     <string name="confirmCategoryDelete">¿Está seguro que desea eliminar esta categoría?</string>
-    <string name="setAsDefault">Set as default</string>
+    <string name="setAsDefault">Establecer como predeterminado</string>
     <string name="clearDefault">Borrar predeterminado</string>
     <!-- Backups -->
     <string name="backupNow">Respaldar ahora</string>
@@ -125,22 +125,22 @@
     <!-- Errors -->
     <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un código QR.</string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
-    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
+    <string name="filePickerMissing">No se pudo abrir el selector de archivo. Un administrador de archivos debe estar instalado.</string>
     <string name="filePickError">Error al seleccionar el archivo.</string>
     <string name="invalidFileError">El archivo seleccionado no es un Respaldo de Authenticator Pro.</string>
     <string name="webBrowserMissing">Ningún navegador web instalado</string>
     <string name="emailClientMissing">Ningún cliente de correo electrónico instalado</string>
     <string name="genericError">Ocurrió un error.</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="databaseError">Un error ocurrió al abrir la base de datos. Intenta iniciando la aplicación de nuevo. Si el problema persiste, elimina los datos de la aplicación y restaura tu copia de seguridad más reciente.\n\nAdicionalmente, puedes enviar un reporte de error.</string>
     <string name="viewErrorLog">Ver registro de errores</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">Un error inesperado ha ocurrido en la aplicación. Los detalles del error están abajo:</string>
     <string name="report">Reportar</string>
     <string name="email">Email</string>
     <string name="reportVia">Reportar vía</string>
     <string name="errorCopiedToClipboard">Errores copiados al portapapeles</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Selecciona una ubicación y contraseña para la copia de seguridad automática. Las copias de seguridad son programadas cuando se realicen cambios. El almacenamiento en la nube no está soportado, usa el menú de copia de seguridad en su lugar.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Sin ubicación seleccionada</string>
     <string name="locationSetTo">Ubicación establecida en \'{0}\'</string>
@@ -149,12 +149,12 @@
     <string name="passwordSet">Contraseña establecida</string>
     <string name="notPasswordProtected">No está protegido por contraseña</string>
     <string name="enableAutoBackup">Habilitar respaldos automáticos</string>
-    <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Realizar copia de seguridad automáticamente a la ubicación seleccionada</string>
     <string name="enableAutoRestore">Habilitar restauración automatica</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
+    <string name="enableAutoRestoreMessage">Restaurar automáticamente la copia de seguridad más reciente encontrada en la ubicación seleccionada. Útil para sincronizar dispositivos.</string>
     <string name="batOptim">Optimización de batería</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="disableBatOptimMessage">En algunos dispositivos, la configuración de energía puede hacer que las copias de seguridad no se realicen correctamente. Si estás experimentando problemas, intenta desactivar la optimización de batería para Authenticator Pro.</string>
+    <string name="autoBackupFailureTitle">Falló la copia de seguridad automática</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoRestoreFailureTitle">Auto Restore failed</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
