@@ -125,8 +125,6 @@ Compose
 Con Edison
 ConnectWise Control (ScreenConnect)
 Contentful
-Cronometer
-Cryptonator
 Customer.io
 cyon
 Databox
