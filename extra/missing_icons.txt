@@ -31,7 +31,6 @@ Automater
 Avanza
 Back4App
 Balena
-Basic Attention Token
 Batch
 Best Buy
 Betfair
@@ -42,13 +41,11 @@ Bill
 Binary Lane
 BitBay
 Bitbond
-Bitcoin.de
 BitcoinTrade
 Bitflyer
 BitForex
 BitGo
 Bithumb
-Bitpanda
 Bitrise
 Bitrix24
 BitSight
