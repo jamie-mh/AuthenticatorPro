@@ -603,6 +603,11 @@ namespace AuthenticatorPro.Droid.Activity
                     StartActivity(typeof(AboutActivity));
                 };
 
+                sub.SupportClicked += delegate
+                {
+                    StartWebBrowserActivity(Constants.BuyMeACoffee);
+                };
+
                 sub.RateClicked += delegate
                 {
                     var intent = new Intent(Intent.ActionView, Uri.Parse("market://details?id=" + PackageName));
@@ -619,16 +624,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 sub.ViewGitHubClicked += delegate
                 {
-                    var intent = new Intent(Intent.ActionView, Uri.Parse(Constants.GitHubRepo));
-
-                    try
-                    {
-                        StartActivity(intent);
-                    }
-                    catch (ActivityNotFoundException)
-                    {
-                        Toast.MakeText(this, Resource.String.webBrowserMissing, ToastLength.Short).Show();
-                    }
+                    StartWebBrowserActivity(Constants.GitHubRepo);
                 };
 
                 sub.Show(SupportFragmentManager, sub.Tag);

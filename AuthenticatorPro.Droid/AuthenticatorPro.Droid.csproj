@@ -166,15 +166,25 @@
         <Compile Include="src\Worker\AutoBackupWorker.cs" />
     </ItemGroup>
     <ItemGroup>
+        <AndroidResource Include="Resources\drawable-hdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-hdpi\ic_notification.png" />
         <AndroidResource Include="Resources\drawable-hdpi\ic_qr_code.png" />
+        <AndroidResource Include="Resources\drawable-mdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-mdpi\ic_notification.png" />
         <AndroidResource Include="Resources\drawable-mdpi\ic_qr_code.png" />
+        <AndroidResource Include="Resources\drawable-night-hdpi\ic_buymeacoffee.png" />
+        <AndroidResource Include="Resources\drawable-night-mdpi\ic_buymeacoffee.png" />
+        <AndroidResource Include="Resources\drawable-night-xhdpi\ic_buymeacoffee.png" />
+        <AndroidResource Include="Resources\drawable-night-xxhdpi\ic_buymeacoffee.png" />
+        <AndroidResource Include="Resources\drawable-night-xxxhdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-night\ic_empty.xml" />
+        <AndroidResource Include="Resources\drawable-xhdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-xhdpi\ic_notification.png" />
         <AndroidResource Include="Resources\drawable-xhdpi\ic_qr_code.png" />
+        <AndroidResource Include="Resources\drawable-xxhdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-xxhdpi\ic_notification.png" />
         <AndroidResource Include="Resources\drawable-xxhdpi\ic_qr_code.png" />
+        <AndroidResource Include="Resources\drawable-xxxhdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notification.png" />
         <AndroidResource Include="Resources\drawable-xxxhdpi\ic_qr_code.png" />
         <AndroidResource Include="Resources\drawable\ic_category.xml" />
