@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">Выберите тему приложения.</string>
     <string name="prefViewModeTitle">Режим отображения</string>
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>

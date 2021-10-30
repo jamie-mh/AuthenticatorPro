@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">Escolha um tema para o aplicativo</string>
     <string name="prefViewModeTitle">Modo de exibição</string>
     <string name="prefViewModeSummary">Escolha um modo de exibição para a lista de autenticações</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
