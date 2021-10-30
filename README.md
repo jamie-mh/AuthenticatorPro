@@ -10,8 +10,20 @@
 
 ![Authenticator Pro](./doc/ic_launcher-web.png)
 
-Authenticator Pro is a free open-source two factor authentication app for Android.
+Authenticator Pro is a free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+
 It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP) and Steam are also supported.
+
+## Download
+
+[<img alt="Get it on Google Play" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
+[<img alt="Get it on F-Droid" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/fdroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
+
+Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-Droid repo (https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
+
+## Support development
+
+[<img alt="Buy Me a Coffee" height="70" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/buymeacoffee.png">](https://www.buymeacoffee.com/jamiemh)
 
 ## Quick Links
 
@@ -30,14 +42,6 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 [Steam](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Steam)
 
 [Authy](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Authy)
-
-## Download
-
-[<img alt="Get it on Google Play" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
-
-[<img alt="Get it on F-Droid" height="100" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/fdroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
-
-Please note, Authenticator Pro is currently only available on the IzzyOnDroid F-Droid repo (https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
 
 ## Features
 
