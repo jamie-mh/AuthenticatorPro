@@ -41,6 +41,7 @@
         <item>@string/spanish</item>
         <item>@string/esperanto</item>
         <item>@string/french</item>
+        <item>@string/italian</item>
         <item>@string/dutch</item>
         <item>@string/polish</item>
         <item>@string/brazilianPortuguese</item>
@@ -57,6 +58,7 @@
         <item>es</item>
         <item>eo</item>
         <item>fr</item>
+        <item>it</item>
         <item>nl</item>
         <item>pl</item>
         <item>pt-BR</item>

@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
     <string name="prefViewModeTitle">Tryb przeglądania</string>
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Kolor akcentów</string>
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>

@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
     <string name="prefViewModeTitle">Anzeigemodus</string>
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste.</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Akzentfarbe</string>
     <string name="prefAccentColourSummary">Wählen Sie eine Akzentfarbe, die in der App verwendet werden soll</string>
     <string name="prefTransparentStatusBarTitle">Transparente Statusleiste</string>

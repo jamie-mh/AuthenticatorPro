@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
     <string name="prefViewModeTitle">Mód zobrazenia</string>
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>

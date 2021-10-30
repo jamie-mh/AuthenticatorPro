@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">เลือกแอปพลิเคชันธีม</string>
     <string name="prefViewModeTitle">View Mode</string>
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>

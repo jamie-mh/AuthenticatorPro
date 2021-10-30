@@ -232,6 +232,8 @@
     <string name="prefThemeSummary">选择应用的主题。</string>
     <string name="prefViewModeTitle">视图</string>
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">主题色</string>
     <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
     <string name="prefTransparentStatusBarTitle">透明状态栏</string>
