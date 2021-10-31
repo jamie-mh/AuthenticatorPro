@@ -222,7 +222,7 @@
     <string name="prefDatabasePasswordBackupTitle">Kopia zapasowa z hasłem bazy danych</string>
     <string name="prefDatabasePasswordBackupSummary">Szyfruj wszystkie kopie zapasowe przy użyciu hasła bazy danych, aby nie trzeba było go wprowadzać za każdym razem</string>
     <string name="prefAllowBiometricsTitle">Odblokowanie biometryczne</string>
-    <string name="prefAllowBiometricsSummary">Umożliwiają odblokowanie bazy danych z uwierzytelnianiem biometrycznym</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Limit czasu</string>
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
