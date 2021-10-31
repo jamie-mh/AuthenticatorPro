@@ -34,6 +34,8 @@
     <string name="sortZA">字母顺序 (z 至 a)</string>
     <string name="sortCustom">自定义</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
+    <string name="supportDevelopment">Support development</string>
+    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">评分</string>
     <string name="rateSummary">在 Google Play 商店上为 Authenticator Pro 评分。</string>
     <string name="viewGitHub">前往 GitHub</string>
