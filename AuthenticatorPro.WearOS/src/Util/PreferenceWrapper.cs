@@ -44,7 +44,7 @@ namespace AuthenticatorPro.WearOS.Util
         public int CodeGroupSize
         {
             get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
-            set => SetPreference(CodeGroupSizeKey, value);
+            set => SetPreference(CodeGroupSizeKey, value.ToString());
         }
 
         public PreferenceWrapper(Context context) : base(context) { }

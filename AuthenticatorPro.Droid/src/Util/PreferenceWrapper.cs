@@ -101,7 +101,7 @@ namespace AuthenticatorPro.Droid.Util
         public int CodeGroupSize
         {
             get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
-            set => SetPreference(CodeGroupSizeKey, value);
+            set => SetPreference(CodeGroupSizeKey, value.ToString());
         }
 
         private const string AccentColourKey = "pref_accentColour";
