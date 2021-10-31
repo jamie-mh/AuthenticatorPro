@@ -34,6 +34,8 @@
     <string name="sortZA">Alfabetisch (z tot a)</string>
     <string name="sortCustom">Aangepast</string>
     <string name="aboutSummary">View about and licence information</string>
+    <string name="supportDevelopment">Support development</string>
+    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Beoordelen</string>
     <string name="rateSummary">Beoordeel Authenticator Pro in de Google Play Store</string>
     <string name="viewGitHub">Bekijk op GitHub</string>
