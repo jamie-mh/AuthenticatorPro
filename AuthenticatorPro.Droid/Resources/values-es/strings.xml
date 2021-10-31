@@ -34,6 +34,8 @@
     <string name="sortZA">Alfabéticamente (Z a la A)</string>
     <string name="sortCustom">Personalizado</string>
     <string name="aboutSummary">Ver información de Aplicación y Licencias.</string>
+    <string name="supportDevelopment">Support development</string>
+    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Valorar</string>
     <string name="rateSummary">Valora Authenticator Pro en la tienda Google Play.</string>
     <string name="viewGitHub">Ver en GitHub</string>
