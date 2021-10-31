@@ -222,7 +222,7 @@
     <string name="prefDatabasePasswordBackupTitle">Kopia zapasowa z hasłem bazy danych</string>
     <string name="prefDatabasePasswordBackupSummary">Szyfruj wszystkie kopie zapasowe przy użyciu hasła bazy danych, aby nie trzeba było go wprowadzać za każdym razem</string>
     <string name="prefAllowBiometricsTitle">Odblokowanie biometryczne</string>
-    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefAllowBiometricsSummary">Pozwól na odblokowanie bazy danych za pomocą uwierzytelniania biometrycznego</string>
     <string name="prefTimeoutTitle">Limit czasu</string>
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
@@ -232,8 +232,8 @@
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
     <string name="prefViewModeTitle">Tryb przeglądania</string>
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeTitle">Ilość cyfr w grupie</string>
+    <string name="prefCodeGroupSizeSummary">Zmień grupowanie cyfr w kodzie</string>
     <string name="prefAccentColourTitle">Kolor akcentów</string>
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
