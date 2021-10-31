@@ -7,13 +7,14 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AndroidX.Wear.Widget;
 using AuthenticatorPro.Droid.Shared.Data;
 using AuthenticatorPro.Shared.Data;
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.WearOS.CustomView;
 using AuthenticatorPro.WearOS.Util;
 using System;
+using System.Timers;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -26,7 +27,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private int _digits;
         private int _codeGroupSize;
 
-        private CircularProgressLayout _circularProgressLayout;
+        private AuthProgressLayout _authProgressLayout;
         private TextView _codeTextView;
 
         protected override void OnCreate(Bundle bundle)
@@ -37,7 +38,8 @@ namespace AuthenticatorPro.WearOS.Activity
             var preferences = new PreferenceWrapper(this);
             _codeGroupSize = preferences.CodeGroupSize;
 
-            _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
+            _authProgressLayout = FindViewById<AuthProgressLayout>(Resource.Id.layoutAuthProgress);
+
             _codeTextView = FindViewById<TextView>(Resource.Id.textCode);
 
             var issuerText = FindViewById<TextView>(Resource.Id.textIssuer);
@@ -93,7 +95,8 @@ namespace AuthenticatorPro.WearOS.Activity
                 _ => new Totp(secret, _period, algorithm, _digits)
             };
 
-            _circularProgressLayout.TimerFinished += Refresh;
+            _authProgressLayout.Period = _period * 1000;
+            _authProgressLayout.TimerFinished += Refresh;
         }
 
         protected override void OnResume()
@@ -105,10 +108,10 @@ namespace AuthenticatorPro.WearOS.Activity
         protected override void OnPause()
         {
             base.OnPause();
-            _circularProgressLayout.StopTimer();
+            _authProgressLayout.StopTimer();
         }
 
-        private void Refresh(object sender = null, CircularProgressLayout.TimerFinishedEventArgs args = null)
+        private void Refresh(object sender = null, ElapsedEventArgs args = null)
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             var generationOffset = now - (now % _period);
@@ -121,9 +124,7 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(delegate
             {
                 _codeTextView.Text = CodeUtil.PadCode(code, _digits, _codeGroupSize);
-                _circularProgressLayout.StopTimer();
-                _circularProgressLayout.TotalTime = secondsRemaining * 1000;
-                _circularProgressLayout.StartTimer();
+                _authProgressLayout.StartTimer((_period - secondsRemaining) * 1000);
             });
         }
     }
