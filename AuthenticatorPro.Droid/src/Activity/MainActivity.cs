@@ -1656,7 +1656,7 @@ namespace AuthenticatorPro.Droid.Activity
             void ShowPicker(string mimeType, int requestCode, string fileExtension)
             {
                 StartFileSaveActivity(mimeType, requestCode,
-                    $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{fileExtension}");
+                    FormattableString.Invariant($"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{fileExtension}"));
             }
 
             fragment.BackupFileClicked += delegate

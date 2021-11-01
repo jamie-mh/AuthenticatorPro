@@ -120,7 +120,7 @@ namespace AuthenticatorPro.Droid.Worker
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
             var file = directory.CreateFile(Backup.MimeType,
-                $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
+                FormattableString.Invariant($"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}"));
 
             if (file == null)
             {
