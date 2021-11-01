@@ -33,9 +33,9 @@
     <string name="sortAZ">Alfabetycznie (A-Z)</string>
     <string name="sortZA">Alfabetycznie (Z-A)</string>
     <string name="sortCustom">Niestandardowo</string>
-    <string name="aboutSummary">Wyświetl informacje o i licencjach</string>
-    <string name="supportDevelopment">Support development</string>
-    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
+    <string name="aboutSummary">Wyświetl informacje o aplikacji i licencjach</string>
+    <string name="supportDevelopment">Wesprzyj rozwój aplikacji</string>
+    <string name="supportDevelopmentSummary">Wesprzyj dalszy rozwój i aktualizacje dzięki Buy Me a Coffee</string>
     <string name="rate">Oceń</string>
     <string name="rateSummary">Oceń Authenticator Pro w sklepie Google Play</string>
     <string name="viewGitHub">Zobacz na GitHub</string>
