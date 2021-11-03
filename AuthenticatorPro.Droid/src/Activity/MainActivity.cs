@@ -1492,7 +1492,7 @@ namespace AuthenticatorPro.Droid.Activity
             if (Backup.IsReadableWithoutPassword(data))
             {
                 RestoreResult result;
-                RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
+                SetLoading(true);
 
                 try
                 {
@@ -1506,7 +1506,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 finally
                 {
-                    RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Invisible; });
+                    SetLoading(false);
                 }
 
                 await FinaliseRestore(result);
@@ -1588,7 +1588,7 @@ namespace AuthenticatorPro.Droid.Activity
             switch (converter.PasswordPolicy)
             {
                 case BackupConverter.BackupPasswordPolicy.Never:
-                    RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Visible; });
+                    SetLoading(true);
 
                     try
                     {
@@ -1601,7 +1601,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                     finally
                     {
-                        RunOnUiThread(delegate { _progressBar.Visibility = ViewStates.Invisible; });
+                        SetLoading(false);
                     }
 
                     break;
@@ -1946,6 +1946,8 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task SetCustomIcon(Uri source, int position)
         {
+            SetLoading(true);
+
             CustomIcon icon;
 
             try
@@ -1958,6 +1960,10 @@ namespace AuthenticatorPro.Droid.Activity
                 Logger.Error(e);
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
+            }
+            finally
+            {
+                SetLoading(false);
             }
 
             var auth = _authenticatorView[position];
@@ -2064,6 +2070,14 @@ namespace AuthenticatorPro.Droid.Activity
             var snackbar = Snackbar.Make(_coordinatorLayout, message, length);
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
+        }
+
+        private void SetLoading(bool loading)
+        {
+            RunOnUiThread(delegate
+            {
+                _progressBar.Visibility = loading ? ViewStates.Visible : ViewStates.Invisible;
+            });
         }
 
         private void StartFilePickActivity(string mimeType, int requestCode)
