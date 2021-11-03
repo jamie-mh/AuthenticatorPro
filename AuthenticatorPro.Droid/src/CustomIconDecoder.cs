@@ -43,13 +43,21 @@ namespace AuthenticatorPro.Droid
             var width = bitmap.Width;
             var height = bitmap.Height;
 
+            var pixels = new int[width * height];
+            bitmap.GetPixels(pixels, 0, width, 0, 0, width, height);
+
+            bool IsTransparent(int x, int y)
+            {
+                return (pixels[y * width + x] & 0xF000) == 0;
+            }
+
             var left = width;
 
             for (var y = 0; y < height; ++y)
             {
                 for (var x = 0; x < width; ++x)
                 {
-                    if (bitmap.GetPixel(x, y) == Color.Transparent || x > left)
+                    if (IsTransparent(x, y) || x > left)
                     {
                         continue;
                     }
@@ -64,7 +72,7 @@ namespace AuthenticatorPro.Droid
             {
                 for (var y = 0; y < height; ++y)
                 {
-                    if (bitmap.GetPixel(x, y) == Color.Transparent || y > top)
+                    if (IsTransparent(x, y) || y > top)
                     {
                         continue;
                     }
@@ -79,7 +87,7 @@ namespace AuthenticatorPro.Droid
             {
                 for (var x = width - 1; x >= 0; --x)
                 {
-                    if (bitmap.GetPixel(x, y) == Color.Transparent || x < right)
+                    if (IsTransparent(x, y) || x < right)
                     {
                         continue;
                     }
@@ -94,7 +102,7 @@ namespace AuthenticatorPro.Droid
             {
                 for (var y = height - 1; y >= 0; --y)
                 {
-                    if (bitmap.GetPixel(x, y) == Color.Transparent || y < bottom)
+                    if (IsTransparent(x, y) || y < bottom)
                     {
                         continue;
                     }
