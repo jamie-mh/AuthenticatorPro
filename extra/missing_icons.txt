@@ -32,7 +32,6 @@ Avanza
 Back4App
 Balena
 Batch
-Best Buy
 Betfair
 Betterment
 Betvictor
