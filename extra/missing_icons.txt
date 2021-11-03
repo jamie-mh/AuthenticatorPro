@@ -356,7 +356,6 @@ Phrase
 Pivotal Tracker
 PlanetHoster
 Planio
-Plex
 Plurk
 Pobox
 Pocketsmith
