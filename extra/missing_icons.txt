@@ -348,7 +348,6 @@ Paxful
 Paxos
 PayKassa
 Paysafecard
-PCloud
 Pennsylvania Dept of Revenue myPATH
 Pepipost
 Philipps-Universität Marburg
@@ -468,7 +467,6 @@ Tokopedia
 Toodledo
 Toontown Rewritten
 TransIP
-Tresorit
 Tumblr
 Twilio
 UK2
