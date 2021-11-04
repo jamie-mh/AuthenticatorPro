@@ -32,7 +32,6 @@ Avanza
 Back4App
 Balena
 Batch
-Best Buy
 Betfair
 Betterment
 Betvictor
@@ -355,7 +354,6 @@ Phrase
 Pivotal Tracker
 PlanetHoster
 Planio
-Plex
 Plurk
 Pobox
 Pocketsmith
@@ -462,7 +460,6 @@ Tilaa
 Tinfoil Security
 Ting
 Tito
-T-Mobile
 Tokopedia
 Toodledo
 Toontown Rewritten
