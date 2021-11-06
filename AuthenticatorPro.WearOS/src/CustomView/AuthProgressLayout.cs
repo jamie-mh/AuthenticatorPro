@@ -64,6 +64,14 @@ namespace AuthenticatorPro.WearOS.CustomView
             Background = _progressDrawable;
         }
 
+        private void DrawProgress()
+        {
+            var timeRemaining = Period - _timeSinceStart;
+            var progress = 1f - (float) timeRemaining / Period;
+            _progressDrawable.SetStartEndTrim(0f, progress);
+            Invalidate();
+        }
+
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
             _timeSinceStart += TimerInterval;
@@ -74,10 +82,7 @@ namespace AuthenticatorPro.WearOS.CustomView
                 TimerFinished?.Invoke(this, e);
             }
 
-            var timeRemaining = Period - _timeSinceStart;
-            var progress = 1f - (float) timeRemaining / Period;
-            _progressDrawable.SetStartEndTrim(0f, progress);
-            Invalidate();
+            DrawProgress();
         }
 
         public void StartTimer(long startingTime = 0)
@@ -89,6 +94,7 @@ namespace AuthenticatorPro.WearOS.CustomView
 
             _timeSinceStart = startingTime;
             _timer.Start();
+            DrawProgress();
         }
 
         public void StopTimer()
