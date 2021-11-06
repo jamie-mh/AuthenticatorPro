@@ -1,0 +1,4 @@
+- New feature: Change code group size
+- General: 16 new icons + existing icon updates
+- General: Bug fixes
+- General: Translation updates
