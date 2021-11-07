@@ -227,7 +227,7 @@
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
-    <string name="prefDatabasePasswordBackupTitle">Veritabanı Şifresi ile Yedekle</string>
+    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin,
         böylece her seferinde parola girmenize gerek kalmaz
     </string>
