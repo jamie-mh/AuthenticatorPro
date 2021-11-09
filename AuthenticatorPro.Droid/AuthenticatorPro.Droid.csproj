@@ -241,7 +241,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers">
-            <Version>5.0.3</Version>
+            <Version>6.0.0</Version>
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
