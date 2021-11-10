@@ -90,8 +90,8 @@
             android:summary="@string/prefCodeGroupSizeSummary"
             android:title="@string/prefCodeGroupSizeTitle"
             app:iconSpaceReserved="false"
-            android:entries="@array/codeGroupSizes"
-            android:entryValues="@array/codeGroupSizes"
+            android:entries="@array/codeGroupSizeNames"
+            android:entryValues="@array/codeGroupSizeValues"
             android:defaultValue="3"/>
         <androidx.preference.ListPreference
             android:key="pref_accentColour"

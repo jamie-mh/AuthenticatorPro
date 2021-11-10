@@ -316,6 +316,10 @@
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
 
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+
     <!-- Arrays > Languages -->
     <string name="german" translatable="false">Deutsche</string>
     <string name="english" translatable="false">English</string>

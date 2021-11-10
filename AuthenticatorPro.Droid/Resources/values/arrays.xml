@@ -108,7 +108,12 @@
         <item>tile</item>
     </string-array>
 
-    <string-array name="codeGroupSizes">
+    <string-array name="codeGroupSizeNames">
+        <item>@string/two</item>
+        <item>@string/three</item>
+        <item>@string/four</item>
+    </string-array>
+    <string-array name="codeGroupSizeValues">
         <item>2</item>
         <item>3</item>
         <item>4</item>
