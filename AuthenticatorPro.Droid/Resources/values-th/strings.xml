@@ -256,6 +256,9 @@
     <string name="defaultViewMode">ค่าเริ่มต้น</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
