@@ -260,6 +260,9 @@
     <string name="defaultViewMode">Predeterminado</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Mosaico</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
