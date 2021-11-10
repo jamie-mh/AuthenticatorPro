@@ -265,6 +265,9 @@
     <string name="defaultViewMode">Varsayılan</string>
     <string name="compactViewMode">Sıkıştırılmış</string>
     <string name="tileViewMode">Yan yana</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Kırmızı</string>
