@@ -20,7 +20,6 @@ Andrews & Arnold
 AngelList
 AppFolio
 AppSignal
-Arduino
 Asana
 Ashes of Creation
 Assembla
@@ -30,7 +29,6 @@ Automate.io
 Automater
 Avanza
 Back4App
-Balena
 Batch
 Betfair
 Betterment
@@ -195,7 +193,6 @@ Google Domains
 Google Fi
 Google Fiber
 Google Fit
-Google Pay
 Grape
 GREE
 Greenhost
