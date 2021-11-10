@@ -10,6 +10,11 @@ namespace AuthenticatorPro.Shared.Util
             code ??= new string('–', digits);
             var spacesInserted = 0;
 
+            if (groupSize <= 0)
+            {
+                groupSize = digits;
+            }
+
             for (var i = 0; i < digits; ++i)
             {
                 if (i % groupSize == 0 && i > 0)
