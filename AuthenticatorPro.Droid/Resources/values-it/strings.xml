@@ -256,6 +256,9 @@
     <string name="defaultViewMode">Predefinito</string>
     <string name="compactViewMode">Compatto</string>
     <string name="tileViewMode">Piastrelle</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Rosso</string>
