@@ -256,6 +256,9 @@
     <string name="defaultViewMode">默认</string>
     <string name="compactViewMode">紧凑</string>
     <string name="tileViewMode">平铺</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">红色</string>
