@@ -256,9 +256,9 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="two">Zwei</string>
+    <string name="three">Drei</string>
+    <string name="four">Vier</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Rot</string>
