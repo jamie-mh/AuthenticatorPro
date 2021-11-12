@@ -34,6 +34,8 @@
     <string name="sortZA">Alphabetical (z to a)</string>
     <string name="sortCustom">Custom</string>
     <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
+    <string name="supportDevelopment">Support development</string>
+    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Ohodnotiť</string>
     <string name="rateSummary">Ohodnotiť Authenticator Pro v obchode Google Play</string>
     <string name="viewGitHub">Zobraziť na stránke GitHub</string>
@@ -254,6 +256,9 @@
     <string name="defaultViewMode">Predvolený</string>
     <string name="compactViewMode">Kompaktný</string>
     <string name="tileViewMode">Dlaždice</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Red</string>

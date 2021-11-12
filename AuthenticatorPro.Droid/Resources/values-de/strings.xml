@@ -34,6 +34,8 @@
     <string name="sortZA">Alphabetisch (Z-A)</string>
     <string name="sortCustom">Benutzerdefiniert</string>
     <string name="aboutSummary">Infos über die App und Lizenzen anzeigen</string>
+    <string name="supportDevelopment">Entwicklung unterstützen</string>
+    <string name="supportDevelopmentSummary">Unterstütze die weitere Entwicklung und Updates mit \"Buy Me a Coffee\"</string>
     <string name="rate">Bewerten</string>
     <string name="rateSummary">Bewerte Authenticator Pro im Google Play Store</string>
     <string name="viewGitHub">Auf GitHub anzeigen</string>
@@ -232,8 +234,8 @@
     <string name="prefThemeSummary">Wähle ein Thema für die App</string>
     <string name="prefViewModeTitle">Anzeigemodus</string>
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste.</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeTitle">Code Gruppengrösse</string>
+    <string name="prefCodeGroupSizeSummary">Ändert die Gruppierung von Ziffern in einem Code</string>
     <string name="prefAccentColourTitle">Akzentfarbe</string>
     <string name="prefAccentColourSummary">Wählen Sie eine Akzentfarbe, die in der App verwendet werden soll</string>
     <string name="prefTransparentStatusBarTitle">Transparente Statusleiste</string>
@@ -254,6 +256,9 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
+    <string name="two">Zwei</string>
+    <string name="three">Drei</string>
+    <string name="four">Vier</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Rot</string>

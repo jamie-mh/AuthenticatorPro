@@ -34,6 +34,8 @@
     <string name="sortZA">Alfabetico (Z-A)</string>
     <string name="sortCustom">Personalizzato</string>
     <string name="aboutSummary">Visualizza informazioni sul programma e sulla licenza</string>
+    <string name="supportDevelopment">Supporta lo sviluppo</string>
+    <string name="supportDevelopmentSummary">Supporta continui sviluppi e aggiornamenti con Buy Me a Coffee</string>
     <string name="rate">Valuta</string>
     <string name="rateSummary">Valuta Authenticator Pro su Google Play Store</string>
     <string name="viewGitHub">Vedi su GitHub</string>
@@ -254,6 +256,9 @@
     <string name="defaultViewMode">Predefinito</string>
     <string name="compactViewMode">Compatto</string>
     <string name="tileViewMode">Piastrelle</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Rosso</string>

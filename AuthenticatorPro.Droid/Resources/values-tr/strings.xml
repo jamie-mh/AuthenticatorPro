@@ -34,6 +34,8 @@
     <string name="sortZA">Alfabetik (z\'den a\'ya)</string>
     <string name="sortCustom">Özel</string>
     <string name="aboutSummary">Hakkında ve lisans bilgilerini görüntüleyin.</string>
+    <string name="supportDevelopment">Geliştirmeyi destekle</string>
+    <string name="supportDevelopmentSummary">Bana bir Kahve al ile sürekli geliştirmeyi ve güncellemeleri destekleyin</string>
     <string name="rate">Değerlendir</string>
     <string name="rateSummary">Google Play mağazasında Authenticator Pro\'yu değerlendirin.</string>
     <string name="viewGitHub">GitHub\'da görüntüle</string>
@@ -157,7 +159,7 @@
         expired, try setting the backup location again in the auto backup settings.
     </string>
     <string name="autoRestoreFailureTitle">Otomatik geri yükleme başarısız oldu</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
+    <string name="autoRestoreFailureText">En son otomatik geri yükleme tamamlanamadı. Dosya izinlerinin süresi dolmuş veya parola yanlış olabilir. Otomatik yedekleme ayarlarında yedekleme konumunu ve parolayı yeniden ayarlamayı deneyin.</string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
     <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
@@ -182,7 +184,7 @@
     <string name="importError">Dosya içe aktarılamadı</string>
     <string name="authenticatorPlusImportHint">authplus.db dosyasını içe aktar</string>
     <string name="andOtp">andOTP (düz metin)</string>
-    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
+    <string name="andOtpImportHint">Düz metin otp_accounts.json dosyasını olarak içeri aktar</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
     <string name="aegis">Aegis (düz metin)</string>
     <string name="aegisImportHint">aegis-export-plain.json dosyasını içe aktar</string>
@@ -191,7 +193,7 @@
     <string name="winAuthImportHint">winauth.txt dosyasını içe aktar</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
-    <string name="uriListHint">Plain text list of otpauth URIs</string>
+    <string name="uriListHint">Otpauth bağlantılarının düz metin listesi</string>
     <string name="viewGuideImportHint">Kılavuzu wiki\'de görüntüle</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Karekodu tara</string>
@@ -225,14 +227,14 @@
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
-    <string name="prefDatabasePasswordBackupTitle">Veritabanı Şifresi ile Yedekle</string>
+    <string name="prefDatabasePasswordBackupTitle">Veritabanı Parolası ile Yedekle</string>
     <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin,
         böylece her seferinde parola girmenize gerek kalmaz
     </string>
     <string name="prefAllowBiometricsTitle">Kilidi biyometri ile aç</string>
     <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
     <string name="prefTimeoutTitle">Zaman aşımı</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
+    <string name="prefTimeoutSummary">Uygulama ekrandan çıktıktan sonra veritabanının kilitleneceği süreyi ayarlayın</string>
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
     <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
     </string>
@@ -241,12 +243,12 @@
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
     <string name="prefViewModeTitle">Görüntüleme Modu</string>
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeTitle">Kod Grup Boyutu</string>
+    <string name="prefCodeGroupSizeSummary">Bir koddaki rakam gruplamasını değiştir</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefTransparentStatusBarSummary">Listeyi kaydırırken durum çubuğunun arkasında görünür yapın</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
@@ -263,6 +265,9 @@
     <string name="defaultViewMode">Varsayılan</string>
     <string name="compactViewMode">Sıkıştırılmış</string>
     <string name="tileViewMode">Yan yana</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Kırmızı</string>

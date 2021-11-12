@@ -34,6 +34,8 @@
     <string name="sortZA">По алфавитному порядку (Я-А)</string>
     <string name="sortCustom">Пользовательский</string>
     <string name="aboutSummary">Просмотр информации о приложении и лицензии.</string>
+    <string name="supportDevelopment">Support development</string>
+    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Оценить</string>
     <string name="rateSummary">Оцените Authenticator Pro в магазине Google Play.</string>
     <string name="viewGitHub">Посмотреть на GitHub</string>
@@ -254,6 +256,9 @@
     <string name="defaultViewMode">По умолчанию</string>
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Red</string>

@@ -34,6 +34,8 @@
     <string name="sortZA">Ordre alphabétique (de Z à A)</string>
     <string name="sortCustom">Perso</string>
     <string name="aboutSummary">Lire des informations sur l\'application est les licences open-source</string>
+    <string name="supportDevelopment">Faire un don</string>
+    <string name="supportDevelopmentSummary">Soutenir le développement et les mises à jour avec Buy Me a Coffee</string>
     <string name="rate">Noter</string>
     <string name="rateSummary">Noter Authenticator Pro sur Google Play</string>
     <string name="viewGitHub">Ouvrir le dépôt GitHub</string>
@@ -254,6 +256,9 @@
     <string name="defaultViewMode">Par défaut</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">En tuile</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
     <string name="red">Rouge</string>
