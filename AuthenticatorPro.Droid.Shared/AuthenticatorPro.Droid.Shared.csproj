@@ -1725,6 +1725,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_tresorit.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_tresorit.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_tresorit.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_tumblr.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_tumblr.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_tumblr.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_tumblr.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_tumblr.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_tutanota.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_tutanota.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_tutanota.png"/>

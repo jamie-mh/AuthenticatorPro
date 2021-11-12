@@ -280,6 +280,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "torguard", Resource.Drawable.auth_torguard },
             { "trello", Resource.Drawable.auth_trello },
             { "tresorit", Resource.Drawable.auth_tresorit },
+            { "tumblr", Resource.Drawable.auth_tumblr },
             { "tutanota", Resource.Drawable.auth_tutanota },
             { "twitch", Resource.Drawable.auth_twitch },
             { "twitter", Resource.Drawable.auth_twitter },
