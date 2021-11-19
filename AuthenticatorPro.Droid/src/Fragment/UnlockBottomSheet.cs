@@ -146,8 +146,9 @@ namespace AuthenticatorPro.Droid.Fragment
                 FocusPasswordText();
             };
 
-            callback.Errored += delegate
+            callback.Errored += (_, result) =>
             {
+                Toast.MakeText(Context, result.Message, ToastLength.Short).Show();
                 FocusPasswordText();
             };
 
