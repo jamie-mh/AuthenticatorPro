@@ -19,8 +19,6 @@ Amazon Pay
 Andrews & Arnold
 AngelList
 AppFolio
-AppSignal
-Asana
 Ashes of Creation
 Assembla
 Aternos
@@ -47,7 +45,6 @@ Bitrise
 Bitrix24
 BitSight
 Bitso
-Bitwala
 Black Desert Online
 Blacknight
 Blade & Soul
@@ -64,7 +61,6 @@ Buda
 Buddy
 Buffer
 bugcrowd
-Bugsnag
 Bugzilla@Mozilla
 Buildkite
 BuiltWith
@@ -211,7 +207,6 @@ Help Scout
 Hexonet
 HEY
 Hint Health
-HitBTC
 HootSuite
 Hostens
 Hostiso
@@ -220,7 +215,6 @@ HostUS
 Hover.com
 H&R Block
 HubSpot
-Huobi
 Hurricane Electric
 Hypixel
 IBM Cloud
@@ -241,7 +235,6 @@ ISL Online
 itch.io
 IT Glue
 itslearning
-IVPN
 Jelastic
 Jitbit Helpdesk
 join.me (w/ LogMeIn account)
@@ -267,9 +260,6 @@ Liquid
 Liquid Web
 LiteBit
 Lobsters
-LocalBitcoins
-LocalCryptos
-LocalMonero
 Looker
 Luno
 MacStadium
@@ -341,7 +331,6 @@ Parimatch
 Paritex
 Passwarden
 Paxful
-Paxos
 PayKassa
 Paysafecard
 Pennsylvania Dept of Revenue myPATH
@@ -393,7 +382,6 @@ RightCapital
 Ripe NCC
 River Financial
 Roberts Space Industries
-Robinhood
 Rocket Beans TV
 Rollbar
 RubyGems.org
