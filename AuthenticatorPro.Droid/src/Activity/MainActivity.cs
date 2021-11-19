@@ -692,6 +692,7 @@ namespace AuthenticatorPro.Droid.Activity
                 var uri = Intent.Data;
                 Intent = null;
                 await ParseQrCodeScanResult(uri.ToString());
+                _preventBackupReminder = true;
             }
 
             if (!_preventBackupReminder && _preferences.ShowBackupReminders &&
