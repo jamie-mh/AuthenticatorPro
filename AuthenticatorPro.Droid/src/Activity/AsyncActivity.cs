@@ -42,33 +42,19 @@ namespace AuthenticatorPro.Droid.Activity
             await _onResumeLock.WaitAsync();
             await OnResumeAsync();
             _onResumeLock.Release();
-
-            await OnResumeDeferredAsync();
         }
 
         protected abstract Task OnResumeAsync();
-
-        protected virtual Task OnResumeDeferredAsync()
-        {
-            return Task.CompletedTask;
-        }
 
         protected override async void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode,
             Intent intent)
         {
             base.OnActivityResult(requestCode, resultCode, intent);
 
-            OnActivityResultPreResume(requestCode, resultCode, intent);
-
             await _onResumeLock.WaitAsync();
             _onResumeLock.Release();
 
             await OnActivityResultAsync(requestCode, resultCode, intent);
-        }
-
-        protected virtual void
-            OnActivityResultPreResume(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
-        {
         }
 
         protected abstract Task

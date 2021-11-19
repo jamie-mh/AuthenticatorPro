@@ -73,22 +73,21 @@ namespace AuthenticatorPro.Droid.Activity
         private const int ListPaddingBottom = 80;
 
         // Request codes
-        private const int RequestUnlock = 0;
-        private const int RequestRestore = 1;
-        private const int RequestBackupFile = 2;
-        private const int RequestBackupHtml = 3;
-        private const int RequestBackupUriList = 4;
-        private const int RequestQrCode = 5;
-        private const int RequestCustomIcon = 6;
-        private const int RequestSettingsRecreate = 7;
-        private const int RequestImportAuthenticatorPlus = 8;
-        private const int RequestImportAndOtp = 9;
-        private const int RequestImportFreeOtpPlus = 10;
-        private const int RequestImportAegis = 11;
-        private const int RequestImportBitwarden = 12;
-        private const int RequestImportWinAuth = 13;
-        private const int RequestImportTotpAuthenticator = 14;
-        private const int RequestImportUriList = 15;
+        private const int RequestRestore = 0;
+        private const int RequestBackupFile = 1;
+        private const int RequestBackupHtml = 2;
+        private const int RequestBackupUriList = 3;
+        private const int RequestQrCode = 4;
+        private const int RequestCustomIcon = 5;
+        private const int RequestSettingsRecreate = 6;
+        private const int RequestImportAuthenticatorPlus = 7;
+        private const int RequestImportAndOtp = 8;
+        private const int RequestImportFreeOtpPlus = 9;
+        private const int RequestImportAegis = 10;
+        private const int RequestImportBitwarden = 11;
+        private const int RequestImportWinAuth = 12;
+        private const int RequestImportTotpAuthenticator = 13;
+        private const int RequestImportUriList = 14;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -136,24 +135,14 @@ namespace AuthenticatorPro.Droid.Activity
         private DateTime _lastBackupReminderTime;
 
         private bool _preventBackupReminder;
-        private bool _updateOnResume;
-        private bool _hasCreated;
-        private bool _hasResumed;
-        private bool _isWaitingForUnlock;
+        private bool _shouldLoadFromPersistenceOnNextOpen;
         private int _customIconApplyPosition;
-
-        // Pause OnResume until unlock is complete
-        private readonly SemaphoreSlim _unlockDatabaseLock;
 
         public MainActivity() : base(Resource.Layout.activityMain)
         {
             _iconResolver = Dependencies.Resolve<IIconResolver>();
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
-
             _wearClient = new WearClient(this);
-
-            _unlockDatabaseLock = new SemaphoreSlim(0, 1);
-
             _database = Dependencies.Resolve<Database>();
 
             _authenticatorCategoryService = Dependencies.Resolve<IAuthenticatorCategoryService>();
@@ -175,8 +164,6 @@ namespace AuthenticatorPro.Droid.Activity
 
         protected override async Task OnCreateAsync(Bundle savedInstanceState)
         {
-            _hasCreated = true;
-
             Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
 
@@ -237,7 +224,7 @@ namespace AuthenticatorPro.Droid.Activity
                 });
             };
 
-            _updateOnResume = true;
+            _shouldLoadFromPersistenceOnNextOpen = true;
 
             if (_preferences.FirstLaunch)
             {
@@ -249,78 +236,54 @@ namespace AuthenticatorPro.Droid.Activity
 
         protected override async Task OnResumeAsync()
         {
-            // Prevent double calls to onresume when unlocking database
-            if (_hasResumed)
-            {
-                return;
-            }
-
-            _hasResumed = true;
-
             RunOnUiThread(delegate
             {
                 // Perhaps the animation in onpause was cancelled
                 _authenticatorList.Visibility = ViewStates.Invisible;
             });
 
-            try
+            switch (_database.IsOpen)
             {
-                await UnlockIfRequired();
-                _isWaitingForUnlock = false;
+                // Unlocked, no need to do anything
+                case true:
+                    await OnDatabaseOpened();
+                    return;
+
+                // Locked and has password, wait for unlock in unlockbottomsheet
+                case false when _preferences.PasswordProtected:
+                {
+                    var fragment = new UnlockBottomSheet();
+                    fragment.UnlockAttempted += OnUnlockAttempted;
+                    fragment.Dismissed += delegate
+                    {
+                        if (!_database.IsOpen)
+                        {
+                            Finish();
+                        }
+                    };
+
+                    fragment.Show(SupportFragmentManager, fragment.Tag);
+                    break;
+                }
+
+                // Locked but no password, unlock now
+                case false:
+                {
+                    try
+                    {
+                        await _database.Open(null);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.Error($"Database not usable? error: {e}");
+                        ShowDatabaseErrorDialog(e);
+                        return;
+                    }
+
+                    await OnDatabaseOpened();
+                    break;
+                }
             }
-            catch (Exception e)
-            {
-                Logger.Error($"Database not usable? error: {e}");
-                ShowDatabaseErrorDialog(e);
-                return;
-            }
-
-            // In case auto restore occurs when activity is loaded
-            var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
-            _preferences.AutoRestoreCompleted = false;
-
-            if (_updateOnResume || _hasCreated || autoRestoreCompleted)
-            {
-                _updateOnResume = false;
-                await Update(_hasCreated);
-                await CheckCategoryState();
-            }
-            else
-            {
-                _authenticatorView.Update();
-                RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
-            }
-
-            _hasCreated = false;
-        }
-
-        protected override async Task OnResumeDeferredAsync()
-        {
-            if (_isWaitingForUnlock)
-            {
-                return;
-            }
-
-            // Handle QR code scanning from intent
-            if (Intent?.Data != null)
-            {
-                var uri = Intent.Data;
-                Intent = null;
-                await ParseQrCodeScanResult(uri.ToString());
-            }
-
-            CheckEmptyState();
-
-            if (!_preventBackupReminder && _preferences.ShowBackupReminders &&
-                (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
-            {
-                RemindBackup();
-            }
-
-            _preventBackupReminder = false;
-            TriggerAutoBackupWorker();
-
-            await _wearClient.StartListening();
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
@@ -336,11 +299,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             _timer?.Stop();
             _pauseTime = DateTime.UtcNow;
-
-            if (!_isWaitingForUnlock)
-            {
-                _hasResumed = false;
-            }
 
             RunOnUiThread(delegate
             {
@@ -358,37 +316,11 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Activity Events
 
-        protected override void
-            OnActivityResultPreResume(int requestCode, [GeneratedEnum] Result resultCode, Intent intent)
-        {
-            _preventBackupReminder = true;
-
-            if (requestCode == RequestUnlock)
-            {
-                if (resultCode != Result.Ok)
-                {
-                    FinishAffinity();
-                    return;
-                }
-
-                if (_unlockDatabaseLock.CurrentCount == 0)
-                {
-                    _unlockDatabaseLock.Release();
-                }
-
-                BaseApplication.AutoLockEnabled = true;
-                return;
-            }
-
-            if (resultCode == Result.Ok && requestCode == RequestSettingsRecreate)
-            {
-                Recreate();
-            }
-        }
-
         protected override async Task OnActivityResultAsync(int requestCode, [GeneratedEnum] Result resultCode,
             Intent intent)
         {
+            _preventBackupReminder = true;
+
             if (resultCode != Result.Ok)
             {
                 return;
@@ -396,6 +328,10 @@ namespace AuthenticatorPro.Droid.Activity
 
             switch (requestCode)
             {
+                case RequestSettingsRecreate:
+                    Recreate();
+                    break;
+
                 case RequestRestore:
                     await RestoreFromUri(intent.Data);
                     break;
@@ -585,7 +521,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.EditCategoriesClicked += delegate
             {
-                _updateOnResume = true;
+                _shouldLoadFromPersistenceOnNextOpen = true;
                 StartActivity(typeof(EditCategoriesActivity));
             };
 
@@ -699,27 +635,75 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Database
 
-        private async Task UnlockIfRequired()
+        private async void OnUnlockAttempted(object sender, string password)
         {
-            switch (_database.IsOpen)
+            var fragment = (UnlockBottomSheet) sender;
+            RunOnUiThread(delegate { fragment.SetBusy(); });
+
+            try
             {
-                // Unlocked, no need to do anything
-                case true:
-                    return;
-
-                // Locked and has password, wait for unlock in unlockactivity
-                case false when _preferences.PasswordProtected:
-                    _isWaitingForUnlock = true;
-                    StartActivityForResult(typeof(UnlockActivity), RequestUnlock);
-                    await _unlockDatabaseLock.WaitAsync();
-                    break;
-
-                // Locked but no password, unlock now
-                case false:
-                    await _database.Open(null);
-                    BaseApplication.AutoLockEnabled = true;
-                    break;
+                await _database.Open(password);
             }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                RunOnUiThread(delegate { fragment.ShowError(); });
+                return;
+            }
+
+            RunOnUiThread(delegate { fragment.Dismiss(); });
+            await OnDatabaseOpened();
+        }
+
+        private async Task OnDatabaseOpened()
+        {
+            BaseApplication.AutoLockEnabled = true;
+
+            // In case auto restore occurs when activity is loaded
+            var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
+            _preferences.AutoRestoreCompleted = false;
+
+            if (_shouldLoadFromPersistenceOnNextOpen || autoRestoreCompleted)
+            {
+                _shouldLoadFromPersistenceOnNextOpen = false;
+                await _authenticatorView.LoadFromPersistenceAsync();
+
+                RunOnUiThread(delegate
+                {
+                    AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort, true);
+                    _authenticatorListAdapter.NotifyDataSetChanged();
+                    _authenticatorListAdapter.Tick();
+                    _authenticatorList.ScheduleLayoutAnimation();
+                });
+
+                await CheckCategoryState();
+            }
+            else
+            {
+                _authenticatorView.Update();
+            }
+
+            CheckEmptyState();
+            RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
+
+            // Handle QR code scanning from intent
+            if (Intent?.Data != null)
+            {
+                var uri = Intent.Data;
+                Intent = null;
+                await ParseQrCodeScanResult(uri.ToString());
+            }
+
+            if (!_preventBackupReminder && _preferences.ShowBackupReminders &&
+                (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
+            {
+                RemindBackup();
+            }
+
+            _preventBackupReminder = false;
+            TriggerAutoBackupWorker();
+
+            await _wearClient.StartListening();
         }
 
         private void ShowDatabaseErrorDialog(Exception exception)
@@ -854,69 +838,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             RunOnUiThread(_bottomAppBar.PerformShow);
             await _wearClient.NotifyChange();
-        }
-
-        private async Task Update(bool animateLayout)
-        {
-            var uiLock = new SemaphoreSlim(0, 1);
-            var showingProgress = false;
-
-            var loadTimer = new Timer(400) { Enabled = false, AutoReset = false };
-
-            loadTimer.Elapsed += delegate
-            {
-                RunOnUiThread(delegate
-                {
-                    showingProgress = true;
-
-                    AnimUtil.FadeInView(_progressBar, AnimUtil.LengthShort, false, delegate
-                    {
-                        if (uiLock.CurrentCount == 0)
-                        {
-                            uiLock.Release();
-                        }
-                    });
-                });
-            };
-
-            var alreadyLoading = _progressBar.Visibility == ViewStates.Visible;
-
-            if (!alreadyLoading)
-            {
-                loadTimer.Enabled = true;
-            }
-
-            await _authenticatorView.LoadFromPersistenceAsync();
-
-            loadTimer.Enabled = false;
-
-            if (showingProgress)
-            {
-                await uiLock.WaitAsync();
-            }
-
-            RunOnUiThread(delegate
-            {
-                _authenticatorListAdapter.NotifyDataSetChanged();
-                _authenticatorListAdapter.Tick();
-
-                if (animateLayout)
-                {
-                    _authenticatorList.ScheduleLayoutAnimation();
-                }
-
-                if (showingProgress || alreadyLoading)
-                {
-                    AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort, true);
-                }
-
-                AnimUtil.FadeInView(_authenticatorList, AnimUtil.LengthShort, true, delegate
-                {
-                    uiLock.Release();
-                });
-            });
-
-            await uiLock.WaitAsync();
         }
 
         private async Task CheckCategoryState()
@@ -2005,7 +1926,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.CategoryClicked += OnCategoriesDialogCategoryClicked;
             fragment.EditCategoriesClicked += delegate
             {
-                _updateOnResume = true;
+                _shouldLoadFromPersistenceOnNextOpen = true;
                 StartActivity(typeof(EditCategoriesActivity));
                 fragment.Dismiss();
             };

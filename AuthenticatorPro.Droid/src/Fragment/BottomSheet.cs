@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.App;
+using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
@@ -13,6 +14,7 @@ using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
 using Java.Lang;
+using System;
 using System.Collections.Generic;
 using ContextThemeWrapper = AndroidX.AppCompat.View.ContextThemeWrapper;
 using FragmentManager = AndroidX.Fragment.App.FragmentManager;
@@ -21,6 +23,8 @@ namespace AuthenticatorPro.Droid.Fragment
 {
     internal abstract class BottomSheet : BottomSheetDialogFragment
     {
+        public event EventHandler Dismissed;
+
         private const int MaxWidth = 600;
 
         private readonly int _layout;
@@ -46,6 +50,12 @@ namespace AuthenticatorPro.Droid.Fragment
             }
 
             return dialog;
+        }
+
+        public override void OnDismiss(IDialogInterface dialog)
+        {
+            base.OnDismiss(dialog);
+            Dismissed?.Invoke(this, EventArgs.Empty);
         }
 
         public override View OnCreateView(LayoutInflater contextInflater, ViewGroup container,

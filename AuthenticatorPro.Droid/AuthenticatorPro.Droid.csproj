@@ -93,7 +93,6 @@
         <Compile Include="src\Activity\IntroActivity.cs" />
         <Compile Include="src\Activity\BaseActivity.cs" />
         <Compile Include="src\Activity\SensitiveSubActivity.cs" />
-        <Compile Include="src\Activity\UnlockActivity.cs" />
         <Compile Include="src\Activity\EditCategoriesActivity.cs" />
         <Compile Include="src\Adapter\AuthenticatorListAdapter.cs" />
         <Compile Include="src\Adapter\CategoriesListAdapter.cs" />
@@ -130,6 +129,7 @@
         <Compile Include="src\Fragment\AddMenuBottomSheet.cs" />
         <Compile Include="src\Fragment\IntroPageFragment.cs" />
         <Compile Include="src\Fragment\ScanQrCodeBottomSheet.cs" />
+        <Compile Include="src\Fragment\UnlockBottomSheet.cs" />
         <Compile Include="src\GridSpacingItemDecoration.cs" />
         <Compile Include="src\LayoutManager\AutoGridLayoutManager.cs" />
         <Compile Include="src\LayoutManager\FixedGridLayoutManager.cs" />
@@ -225,6 +225,10 @@
         <AndroidResource Include="Resources\layout\sheetQrCode.axml">
             <SubType>Designer</SubType>
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\layout\sheetUnlock.axml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
         <AndroidResource Include="Resources\menu\error.xml">
             <SubType>Designer</SubType>
@@ -397,12 +401,6 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\anim\layout_animation_fade_in.xml" />
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidResource Include="Resources\layout\activityUnlock.axml">
-            <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-            <SubType>Designer</SubType>
-        </AndroidResource>
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\layout\activityIntro.axml">
