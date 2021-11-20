@@ -176,9 +176,9 @@ namespace AuthenticatorPro.Droid.Fragment
             }
         }
 
-        public override void OnPause()
+        public override void Dismiss()
         {
-            base.OnPause();
+            base.Dismiss();
             _prompt?.CancelAuthentication();
         }
     }
