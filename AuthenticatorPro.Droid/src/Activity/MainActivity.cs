@@ -683,9 +683,6 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorView.Update();
             }
 
-            CheckEmptyState();
-            RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
-
             // Handle QR code scanning from intent
             if (Intent?.Data != null)
             {
@@ -694,6 +691,9 @@ namespace AuthenticatorPro.Droid.Activity
                 await ParseQrCodeScanResult(uri.ToString());
                 _preventBackupReminder = true;
             }
+
+            CheckEmptyState();
+            RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); });
 
             if (!_preventBackupReminder && _preferences.ShowBackupReminders &&
                 (DateTime.UtcNow - _lastBackupReminderTime).TotalMinutes > BackupReminderThresholdMinutes)
