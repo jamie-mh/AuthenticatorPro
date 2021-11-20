@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.15.2"
-          package="me.jmh.authenticatorpro" android:installLocation="auto" android:versionCode="1000067">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.15.3"
+          package="me.jmh.authenticatorpro" android:installLocation="auto" android:versionCode="1000068">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
