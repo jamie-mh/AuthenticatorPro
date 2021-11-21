@@ -1,0 +1,2 @@
+- General: 12 new icons
+- General: Fixed bug where unlock screen appears more than once
