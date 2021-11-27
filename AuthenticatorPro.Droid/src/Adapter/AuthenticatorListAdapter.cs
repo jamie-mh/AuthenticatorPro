@@ -303,7 +303,11 @@ namespace AuthenticatorPro.Droid.Adapter
                     continue;
                 }
 
-                NotifyItemChanged(position);
+                if (ValidatePosition(position))
+                {
+                    NotifyItemChanged(position);
+                }
+
                 _counterCooldownOffsets.Remove(position);
             }
 
@@ -323,7 +327,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
                 if (!isExpired)
                 {
-                    if (_animationScale == 0)
+                    if (_animationScale == 0 && ValidatePosition(i))
                     {
                         NotifyItemChanged(i, timerUpdate);
                     }
@@ -348,7 +352,12 @@ namespace AuthenticatorPro.Droid.Adapter
 
             while (_positionsToUpdate.Count > 0)
             {
-                NotifyItemChanged(_positionsToUpdate.Dequeue(), timerUpdate);
+                var position = _positionsToUpdate.Dequeue();
+
+                if (ValidatePosition(position))
+                {
+                    NotifyItemChanged(position, timerUpdate);
+                }
             }
         }
 
