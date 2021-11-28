@@ -470,6 +470,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_cachet.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_cachet.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_cachet.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_cashctrl.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_cashctrl.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_cashctrl.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_cashctrl.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_cashctrl.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_celsiusnetwork.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_celsiusnetwork.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_celsiusnetwork.png"/>

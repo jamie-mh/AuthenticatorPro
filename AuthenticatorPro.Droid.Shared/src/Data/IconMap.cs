@@ -71,6 +71,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "bugsnag", Resource.Drawable.auth_bugsnag },
             { "bunnycdn", Resource.Drawable.auth_bunnycdn },
             { "cachet", Resource.Drawable.auth_cachet },
+            { "cashctrl", Resource.Drawable.auth_cashctrl },
             { "celsiusnetwork", Resource.Drawable.auth_celsiusnetwork },
             { "cexio", Resource.Drawable.auth_cexio },
             { "chargebee", Resource.Drawable.auth_chargebee },
