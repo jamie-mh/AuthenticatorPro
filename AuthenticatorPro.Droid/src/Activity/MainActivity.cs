@@ -917,11 +917,6 @@ namespace AuthenticatorPro.Droid.Activity
 
                     _authenticatorList.OverScrollMode =
                         shouldShowOverscroll ? OverScrollMode.Always : OverScrollMode.Never;
-
-                    if (!shouldShowOverscroll)
-                    {
-                        ScrollToPosition(0);
-                    }
                 });
 
                 _timer.Start();
