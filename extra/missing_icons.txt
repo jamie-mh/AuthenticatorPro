@@ -186,9 +186,6 @@ Glassdoor
 Glesys
 GoCardless
 Google Domains
-Google Fi
-Google Fiber
-Google Fit
 Grape
 GREE
 Greenhost
@@ -331,8 +328,6 @@ Parimatch
 Paritex
 Passwarden
 Paxful
-PayKassa
-Paysafecard
 Pennsylvania Dept of Revenue myPATH
 Pepipost
 Philipps-Universität Marburg
@@ -467,7 +462,6 @@ VeeroTech
 VentraIP
 Versio
 ViaBTC
-VirusTotal
 VMware
 VoIP.ms
 VPN Unlimited
