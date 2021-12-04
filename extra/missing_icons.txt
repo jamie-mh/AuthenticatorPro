@@ -60,11 +60,8 @@ BTCPOP
 Buda
 Buddy
 Buffer
-bugcrowd
 Bugzilla@Mozilla
-Buildkite
 BuiltWith
-bunny.net
 Bybit
 Call Of Duty
 Campfire
@@ -107,7 +104,6 @@ Coinify
 CoinOne
 CoinSmart
 Coins.ph
-CoinTiger
 CoinTracker
 CoinTracking
 Coinut
@@ -116,8 +112,6 @@ Con Edison
 ConnectWise Control (ScreenConnect)
 Contentful
 Customer.io
-cyon
-Databox
 Deel
 DEGIRO
 Demio
@@ -204,7 +198,6 @@ Help Scout
 Hexonet
 HEY
 Hint Health
-HootSuite
 Hostens
 Hostiso
 Hostpoint
@@ -223,16 +216,12 @@ ImprovMX
 InMotion Hosting
 Intercom
 Internet.bs
-intigriti
 Intuit TurboTax
 Invictus Capital
 IO Zoom
 (ISC)2
 ISL Online
-itch.io
-IT Glue
 itslearning
-Jelastic
 Jitbit Helpdesk
 join.me (w/ LogMeIn account)
 Joker.com
@@ -240,7 +229,6 @@ Joyent
 justhost
 Justworks
 Karlsruher Institut für Technologie
-Kaspersky
 Kayako
 KnowBe4
 KnownHost
@@ -252,19 +240,13 @@ Laravel Forge
 LATOKEN
 Launchpad
 LCN.com
-lichess.org
 Liquid
 Liquid Web
-LiteBit
 Lobsters
 Looker
 Luno
 MacStadium
-MaiCoin
-Mail.com
-Mailfence
 Mammoth Networks
-MathWorks
 MB Connect Line
 McGill University
 Mercado Bitcoin
@@ -276,13 +258,10 @@ Mint
 Mintos
 Miss Hosting
 Missive App
-mLab
-Monday.com
 Moneybird
 MongoDB Atlas
 MongoDB Cloud Manager
 Moniker
-Moqups
 NairaEx
 Namesco
 NDAX
@@ -301,11 +280,8 @@ No Starch Press
 Notejoy
 Nozbe Teams
 NS1
-NuGet
-Nulab
 Nutmeg
 O&O Syspectr
-Oculus
 Oderland
 OKEx
 Okta
@@ -335,7 +311,6 @@ Phrase
 Pivotal Tracker
 PlanetHoster
 Planio
-Plurk
 Pobox
 Pocketsmith
 Poloniex
@@ -347,7 +322,6 @@ ProfitWell
 Purse
 Pusher
 PythonAnywhere
-QNAP
 Quickbooks Online
 QuickFile
 Quidax
@@ -385,8 +359,6 @@ RuneScape
 RunSignUp
 Ryerson University
 Samsung SmartThings
-SaneBox
-SAPO Mail
 SatoshiTango
 Scalr
 Scripting Helpers
@@ -404,25 +376,19 @@ Smarkets
 Smartly.io
 SmartSimple
 smashcast
-Socialbakers
 SocketLabs
 Sonic
 Sonix
 Sophos Central
-SourceForge
 SparkPost
 Spreedly
-SproutSocial
-Squarespace
 SSLTrust
 Stackfield
 StackPath
-StartMail
 StatusCake
 STEX
 StormGain
 Sumo Logic
-Surfshark
 Swyftx
 Sync
 Synergy Wholesale
@@ -438,22 +404,17 @@ ThriveCart
 Tibia
 Tilaa
 Tinfoil Security
-Ting
 Tito
 Tokopedia
-Toodledo
 Toontown Rewritten
 TransIP
 Tumblr
-Twilio
 UK2
 UKFast
 Ukraine
-Unbounce
 Uniregistry
 University of Delaware
 UpCloud
-Upwork
 Usabilla
 US Citizenship and Immigration Services
 Userify
@@ -487,5 +448,4 @@ Yahoo Japan Mail
 Yandex.Money
 Yclas
 YourAcclaim
-YoYo Games
 Zoolz
