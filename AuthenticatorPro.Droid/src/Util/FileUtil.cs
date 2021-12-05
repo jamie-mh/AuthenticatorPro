@@ -5,7 +5,6 @@ using Android.Content;
 using Android.Database;
 using Android.Provider;
 using Java.IO;
-using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,78 +17,84 @@ namespace AuthenticatorPro.Droid.Util
     {
         public static async Task<byte[]> ReadFile(Context context, Uri uri)
         {
-            MemoryStream memoryStream = null;
-            Stream stream = null;
-            byte[] data = null;
-
-            try
+            return await Task.Run(async delegate
             {
-                await Task.Run(async delegate
+                MemoryStream memoryStream = null;
+                Stream stream = null;
+                byte[] data;
+
+                try
                 {
                     stream = context.ContentResolver.OpenInputStream(uri);
                     memoryStream = new MemoryStream();
                     await stream.CopyToAsync(memoryStream);
                     data = memoryStream.ToArray();
-                });
-            }
-            finally
-            {
-                memoryStream?.Close();
-                stream?.Close();
-            }
+                }
+                finally
+                {
+                    memoryStream?.Close();
+                    stream?.Close();
+                }
 
-            if (data == null)
-            {
-                throw new IOException("File data is null");
-            }
+                if (data == null)
+                {
+                    throw new IOException("File data is null");
+                }
 
-            return data;
+                return data;
+            });
         }
 
         public static async Task WriteFile(Context context, Uri uri, byte[] data)
         {
-            // Run backup on separate thread, file writing on the main thread fail when using Nextcloud
+            // Run backup on separate thread, file writing on the main thread fails when using Nextcloud
             await Task.Run(async delegate
             {
-                // This is the only way of reliably writing files using SAF on Xamarin.
+                // This is the only way of reliably writing binary files using SAF on Xamarin.
                 // A file output stream will usually create 0 byte files on virtual storage such as Google Drive
-                var output = context.ContentResolver.OpenOutputStream(uri, "rwt");
-                var dataStream = new DataOutputStream(output);
+                Stream output = null;
+                DataOutputStream dataStream = null;
 
                 try
                 {
+                    output = context.ContentResolver.OpenOutputStream(uri);
+                    dataStream = new DataOutputStream(output);
+
                     await dataStream.WriteAsync(data);
                     await dataStream.FlushAsync();
                 }
                 finally
                 {
-                    dataStream.Close();
-                    output.Close();
+                    dataStream?.Close();
+                    output?.Close();
                 }
             });
         }
 
         public static async Task WriteFile(Context context, Uri uri, string data)
         {
-            Stream output = null;
-            BufferedWriter writer = null;
-
-            try
+            await Task.Run(async delegate
             {
-                await Task.Run(async delegate
+                Stream output = null;
+                OutputStreamWriter outputWriter = null;
+                BufferedWriter bufferedWriter = null;
+
+                try
                 {
                     output = context.ContentResolver.OpenOutputStream(uri);
-                    writer = new BufferedWriter(new OutputStreamWriter(output));
+                    outputWriter = new OutputStreamWriter(output);
+                    bufferedWriter = new BufferedWriter(outputWriter);
 
-                    await writer.WriteAsync(data);
-                    await writer.FlushAsync();
-                });
-            }
-            finally
-            {
-                writer?.Close();
-                output?.Close();
-            }
+                    await bufferedWriter.WriteAsync(data);
+                    await bufferedWriter.FlushAsync();
+                }
+                finally
+                {
+                    bufferedWriter?.Close();
+                    outputWriter?.Close();
+                    output?.Close();
+                }
+            });
         }
 
         public static string GetDocumentName(ContentResolver resolver, Uri uri)
@@ -107,7 +112,7 @@ namespace AuthenticatorPro.Droid.Util
 
                     if (documentUri == null)
                     {
-                        throw new Exception("Cannot get document URI");
+                        throw new IOException("Cannot get document URI");
                     }
 
                     cursor = resolver.Query(documentUri, null, null, null, null);
