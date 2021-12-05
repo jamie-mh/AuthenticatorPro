@@ -22,7 +22,7 @@
             <Version>3.0.101</Version>
         </PackageReference>
         <PackageReference Include="QRCoder">
-            <Version>1.4.1</Version>
+            <Version>1.4.2</Version>
         </PackageReference>
         <PackageReference Include="SimpleBase">
             <Version>3.1.0</Version>
