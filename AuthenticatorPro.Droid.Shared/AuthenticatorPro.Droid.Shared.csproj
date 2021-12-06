@@ -17,9 +17,9 @@
         <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
         <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
         <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-        <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
         <AndroidUseAapt2>true</AndroidUseAapt2>
-        <LangVersion>8</LangVersion>
+        <LangVersion>default</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -78,7 +78,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers">
-            <Version>5.0.3</Version>
+            <Version>6.0.0</Version>
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -86,7 +86,7 @@
             <Version>13.0.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Preference">
-            <Version>1.1.1.11</Version>
+            <Version>1.1.1.12</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup Label="icons">
