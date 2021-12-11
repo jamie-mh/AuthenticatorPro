@@ -420,6 +420,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "hushmail", Resource.Drawable.auth_hushmail_dark },
             { "ifirmapl", Resource.Drawable.auth_ifirmapl_dark },
             { "ifttt", Resource.Drawable.auth_ifttt_dark },
+            { "intigrity", Resource.Drawable.auth_intigrity_dark },
             { "invoiceninja", Resource.Drawable.auth_invoiceninja_dark },
             { "itchio", Resource.Drawable.auth_itchio_dark },
             { "itglue", Resource.Drawable.auth_itglue_dark },

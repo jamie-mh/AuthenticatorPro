@@ -1095,6 +1095,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_intigrity.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_intigrity.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_intigrity.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_intigrity_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_intigrity_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_intigrity_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_intigrity_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_intigrity_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_invision.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_invision.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_invision.png"/>
