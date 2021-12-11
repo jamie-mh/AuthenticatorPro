@@ -1,0 +1,2 @@
+- General: 44 new icons
+- General: Bug fixes
