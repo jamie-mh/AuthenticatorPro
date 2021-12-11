@@ -44,7 +44,6 @@ using Java.Nio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using ZXing;
@@ -786,7 +785,8 @@ namespace AuthenticatorPro.Droid.Activity
         private void InitAuthenticatorList()
         {
             _authenticatorListAdapter =
-                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconRepository, IsDark) { HasStableIds = true };
+                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconRepository,
+                    IsDark) { HasStableIds = true };
 
             _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
             _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
