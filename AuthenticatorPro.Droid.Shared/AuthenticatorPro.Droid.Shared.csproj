@@ -1895,11 +1895,6 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_sourceforge.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_sourceforge.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_sourceforge.png"/>
-        <AndroidResource Include="Resources\drawable-mdpi\auth_splurk.png"/>
-        <AndroidResource Include="Resources\drawable-hdpi\auth_splurk.png"/>
-        <AndroidResource Include="Resources\drawable-xhdpi\auth_splurk.png"/>
-        <AndroidResource Include="Resources\drawable-xxhdpi\auth_splurk.png"/>
-        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_splurk.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_sproutsocial.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_sproutsocial.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_sproutsocial.png"/>

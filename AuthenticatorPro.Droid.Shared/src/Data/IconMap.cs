@@ -312,7 +312,6 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "sogo", Resource.Drawable.auth_sogo },
             { "solarwinds", Resource.Drawable.auth_solarwinds },
             { "sourceforge", Resource.Drawable.auth_sourceforge },
-            { "splurk", Resource.Drawable.auth_splurk },
             { "sproutsocial", Resource.Drawable.auth_sproutsocial },
             { "square", Resource.Drawable.auth_square },
             { "squarespace", Resource.Drawable.auth_squarespace },
