@@ -54,11 +54,14 @@ def adjust_version_code():
     manifest_path = f"{BUILD_DIR}/AuthenticatorPro.Droid/Properties/AndroidManifest.xml"
     manifest = ET.parse(manifest_path)
 
-    namespace = "http://schemas.android.com/apk/res/android"
-    ET.register_namespace("android", namespace)
+    android_namespace = "http://schemas.android.com/apk/res/android"
+    ET.register_namespace("android", android_namespace)
+
+    tools_namespace = "http://schemas.android.com/tools"
+    ET.register_namespace("tools", tools_namespace)
 
     # add 2 zeroes to version code when building aab
-    version_code_path = f"{{{namespace}}}versionCode"
+    version_code_path = f"{{{android_namespace}}}versionCode"
     version_code = manifest.getroot().get(version_code_path)
     manifest.getroot().set(version_code_path, "100" + version_code[1:])
 
