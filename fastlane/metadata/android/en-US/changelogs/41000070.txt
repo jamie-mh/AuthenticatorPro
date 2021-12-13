@@ -1,0 +1,1 @@
+- General: Fixed issue when installing on Android 12
