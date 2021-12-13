@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Wear
 {
-    [Service]
+    [Service(Exported = true)]
     [IntentFilter(
         new[] { MessageApi.ActionMessageReceived },
         DataScheme = "wear",
