@@ -6,12 +6,9 @@
 Above.com
 Acquia
 Action Network
-Actionstep
 ACTIVE 24
 ActiveState
 Addiko Bank
-Airbrake
-Airship
 AJ Bell Youinvest
 ALL-INKL.COM
 AltoIRA
@@ -34,10 +31,8 @@ Betvictor
 BGL Corporate Solutions
 Bill
 Binary Lane
-BitBay
 Bitbond
 BitcoinTrade
-Bitflyer
 BitForex
 BitGo
 Bithumb
@@ -81,7 +76,6 @@ CleverTap
 ClickUp
 Clio
 Close
-Cloud 66
 CloudBees
 Cloudbet
 cloud.ca
@@ -176,7 +170,6 @@ Front App
 Gaijin Entertainment
 Gatehub
 Gate.io
-Glassdoor
 Glesys
 GoCardless
 Google Domains
@@ -193,7 +186,6 @@ HashiCorp Terraform Enterprise
 HashiCorp Vagrant Cloud
 Heap
 Heap Analytics
-HelloSign
 Help Scout
 Hexonet
 HEY
@@ -359,7 +351,6 @@ RuneScape
 RunSignUp
 Ryerson University
 Samsung SmartThings
-SatoshiTango
 Scalr
 Scripting Helpers
 Scryfall
@@ -375,8 +366,6 @@ SiteGround
 Smarkets
 Smartly.io
 SmartSimple
-smashcast
-SocketLabs
 Sonic
 Sonix
 Sophos Central
@@ -387,7 +376,6 @@ Stackfield
 StackPath
 StatusCake
 STEX
-StormGain
 Sumo Logic
 Swyftx
 Sync
