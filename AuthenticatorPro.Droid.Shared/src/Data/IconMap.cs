@@ -52,7 +52,6 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "bestbuy", Resource.Drawable.auth_bestbuy },
             { "bethesda", Resource.Drawable.auth_bethesda },
             { "binance", Resource.Drawable.auth_binance },
-            { "bitbay", Resource.Drawable.auth_bitbay },
             { "bitbucket", Resource.Drawable.auth_bitbucket },
             { "bitcoin", Resource.Drawable.auth_bitcoin },
             { "bitcoinde", Resource.Drawable.auth_bitcoinde },
@@ -388,6 +387,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "zendesk", Resource.Drawable.auth_zendesk },
             { "zimbra", Resource.Drawable.auth_zimbra },
             { "zohomail", Resource.Drawable.auth_zohomail },
+            { "zonda", Resource.Drawable.auth_zonda },
             { "zoom", Resource.Drawable.auth_zoom },
             { "zyxel", Resource.Drawable.auth_zyxel },
         };
@@ -467,6 +467,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "wordpress", Resource.Drawable.auth_wordpress_dark },
             { "xbox", Resource.Drawable.auth_xbox_dark },
             { "zendesk", Resource.Drawable.auth_zendesk_dark },
+            { "zonda", Resource.Drawable.auth_zonda_dark },
             { "zyxel", Resource.Drawable.auth_zyxel_dark },
         };
     }
