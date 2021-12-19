@@ -880,6 +880,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_fmfw.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_fmfw.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_fmfw.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_foxbit.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_foxbit.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_foxbit.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_foxbit.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_foxbit.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_ftx.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_ftx.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_ftx.png"/>

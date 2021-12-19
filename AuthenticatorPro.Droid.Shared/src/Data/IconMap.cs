@@ -138,6 +138,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "firefox", Resource.Drawable.auth_firefox },
             { "floatplane", Resource.Drawable.auth_floatplane },
             { "fmfw", Resource.Drawable.auth_fmfw },
+            { "foxbit", Resource.Drawable.auth_foxbit },
             { "ftx", Resource.Drawable.auth_ftx },
             { "funio", Resource.Drawable.auth_funio },
             { "galaxus", Resource.Drawable.auth_galaxus },
