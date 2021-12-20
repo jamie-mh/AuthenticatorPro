@@ -237,7 +237,7 @@ namespace AuthenticatorPro.Droid.Worker
             {
                 var intent = new Intent(_context, typeof(MainActivity));
                 intent.SetFlags(ActivityFlags.ClearTask | ActivityFlags.NewTask);
-                var pendingIntent = PendingIntent.GetActivity(_context, 0, intent, 0);
+                var pendingIntent = PendingIntent.GetActivity(_context, 0, intent, PendingIntentFlags.Immutable);
                 builder.SetContentIntent(pendingIntent);
                 builder.SetAutoCancel(true);
             }
