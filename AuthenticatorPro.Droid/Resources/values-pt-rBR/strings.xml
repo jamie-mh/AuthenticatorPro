@@ -12,8 +12,8 @@
     <string name="close">Fechar</string>
     <string name="error">Erro</string>
     <string name="retry">Tente novamente</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="ignore">Ignorado</string>
+    <string name="disable">Desabilitado</string>
     <!-- Menu items -->
     <string name="settings">Configurações</string>
     <string name="restore">Restaurar</string>
@@ -34,8 +34,8 @@
     <string name="sortZA">Em ordem alfabética (Z a A)</string>
     <string name="sortCustom">Personalizado</string>
     <string name="aboutSummary">Ver informações sobre e licença</string>
-    <string name="supportDevelopment">Support development</string>
-    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
+    <string name="supportDevelopment">Ajude no desenvolvimento</string>
+    <string name="supportDevelopmentSummary">Apoie o desenvolvimento contínuo e atualizações com Buy Me a Coffee</string>
     <string name="rate">Avaliar</string>
     <string name="rateSummary">Avalie o Authenticator Pro na Google Play Store</string>
     <string name="viewGitHub">Ver no GitHub</string>
@@ -63,30 +63,30 @@
     <string name="secretInvalid">A senha está incorreta</string>
     <string name="pinInvalid">O pin deve ter 4 caracteres</string>
     <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
-    <string name="periodInvalid">The period is invalid</string>
-    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
-    <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
+    <string name="periodInvalid">A senha está incorreta</string>
+    <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
+    <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
     <!-- QR code dialog -->
     <string name="qrCode">Código QR</string>
-    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
-    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicativo escaneando o código QR</string>
+    <string name="qrCodeNotSupported">Códigos QR não são suportados para este tipo</string>
     <string name="copyUri">Copiar URI</string>
     <string name="uriCopiedToClipboard">URI copiada para a área de transferência</string>
     <!-- Backup menu -->
     <string name="backupToFile">Backup em um arquivo criptografado (recomendado)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupToFileMessage">Salve todos os seus autenticadores, categorias e ícones em um arquivo de backup criptografado. Este arquivo pode ser restaurado dentro do aplicativo.</string>
     <string name="backupHtml">Backup em um arquivo HTML</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
-    <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlMessage">Salve seus autenticadores em um documento HTML não criptografado com códigos QR. Para restaurar, esses códigos devem ser digitalizados individualmente. Categorias e ícones não são salvos.</string>
+    <string name="backupHtmlWarning">Os backups dos arquivos HTML não estão criptografados e podem deixar suas chaves secretas vulneráveis.\n\nEste arquivo não pode ser restaurado dentro do aplicativo e não contém categorias e ícones. Se não tiver certeza, opte por backup de arquivos encriptados em vez disso.\n\nContinuar?</string>
+    <string name="backupUriList">Backup para o arquivo de lista URI</string>
+    <string name="backupUriListMessage">Salve seus autenticadores em uma lista de URI em texto simples não criptografado. Este arquivo é compatível com muitas aplicações e serviços alternativos. Categorias e ícones não são salvos.</string>
+    <string name="backupUriListWarning">Os backups dos arquivos HTML não estão criptografados e podem deixar suas chaves secretas vulneráveis.\n\nEste arquivo não pode ser restaurado dentro do aplicativo e não contém categorias e ícones. Se não tiver certeza, opte por backup de arquivos encriptados em vez disso.\n\nContinuar?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nada aqui!</string>
     <string name="noAuthenticatorsMessage">Você não tem nenhuma autenticação aqui</string>
     <string name="gettingStartedGuide">Guia de introdução</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
+    <string name="noAuthenticatorsHelp">Se você é novo no Authenticator Pro, veja o guia para começar clicando abaixo.</string>
     <string name="noCategoriesTitle">Sem categorias</string>
     <string name="noCategoriesMessage">Você ainda não configurou nenhuma categoria</string>
     <!-- Categories -->
@@ -94,11 +94,11 @@
     <string name="assignCategories">Atribuir categorias</string>
     <string name="more">Mais</string>
     <string name="categoryAll">Tudo</string>
-    <string name="editCategories">Edit categories</string>
+    <string name="editCategories">Editar categorias</string>
     <string name="categoryNameHint">Nome da categoria</string>
     <string name="noCategoryName">É necessário um nome para a categoria</string>
-    <string name="duplicateCategory">A category with this name already exists</string>
-    <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
+    <string name="duplicateCategory">Uma categoria com esse nome já existe</string>
+    <string name="confirmCategoryDelete">Você tem certeza de que deseja excluir esta categoria?</string>
     <string name="setAsDefault">Definir como padrão</string>
     <string name="clearDefault">Limpar o padrão</string>
     <!-- Backups -->
@@ -106,7 +106,7 @@
     <string name="restoreNow">Restaurar agora</string>
     <string name="backupReminder">Houveram mudanças desde o seu último backup</string>
     <string name="backupPasswordMessage">Digite uma senha para criptografar seu arquivo de backup com segurança. Se você não quiser proteger seu backup com uma senha, deixe o campo vazio.</string>
-    <string name="restoreError">The password is incorrect or the file is corrupt</string>
+    <string name="restoreError">A senha está incorreta ou o arquivo está corrompido</string>
     <string name="password">Senha</string>
     <string name="passwordConfirm">Confirmar a senha</string>
     <string name="confirmEmptyPassword">Você não digitou uma senha, logo seu backup não será encriptado e suas autenticações podem ficar vulneráveis.\n\nContinuar?</string>
@@ -118,8 +118,8 @@
     <string name="saving">Salvando</string>
     <string name="saveSuccess">Salvo com sucesso</string>
     <string name="backupSuccess">Backup salvo como \'{0}\'</string>
-    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredFromBackup">Restaurado {0} novos autenticadores e {1} novas categorias</string>
+    <string name="restoredFromBackupUpdated">Restaurado {0} novos autenticadores e {1} novas categorias. Atualizado {2} autenticadores existentes.</string>
     <string name="restoredNothing">Nada para restaurar</string>
     <string name="restoredFromMigration">{0} novas autenticações restauradas</string>
     <!-- Errors -->
@@ -127,7 +127,7 @@
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no seu dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de arquivos. Um gerenciador de arquivos deve ser instalado.</string>
     <string name="filePickError">Erro ao abrir o arquivo</string>
-    <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
+    <string name="invalidFileError">O arquivo selecionado não é um arquivo de backup do Autenticador Pro</string>
     <string name="webBrowserMissing">Nenhum navegador instalado</string>
     <string name="emailClientMissing">Nenhum cliente de email instalado</string>
     <string name="genericError">Ocorreu um erro</string>
@@ -140,7 +140,7 @@
     <string name="reportVia">Reportar por</string>
     <string name="errorCopiedToClipboard">Erro ao copiar para a área de transferência</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Selecione um local e uma senha para backups automáticos. Os backups são agendados quando as alterações são feitas. O armazenamento em nuvem não é suportado, use o menu de backup em vez disso.</string>
     <string name="selectLocation">Selecione um local</string>
     <string name="noLocationSelected">Nenhum local foi selecionado</string>
     <string name="locationSetTo">O local foi definido para \'{0}\'</string>
@@ -152,7 +152,7 @@
     <string name="enableAutoBackupMessage">Fazer backup automático para o local de armazenamento selecionado</string>
     <string name="enableAutoRestore">Habilitar a restauração automática</string>
     <string name="enableAutoRestoreMessage">Restaura automaticamente o último backup encontrado no local de armazenamento selecionado. É útil para a sincronização entre dispositivos.</string>
-    <string name="batOptim">Battery Optimisation</string>
+    <string name="batOptim">Otimização da bateria</string>
     <string name="disableBatOptimMessage">Em alguns dispositivos, as configurações de energia podem causar alguns erros. Se você estiver tendo algum problema, tente desabilitar a otimização de bateria para o Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">O backup automático falhou</string>
     <string name="autoBackupFailureText">O backup automático mais recente falhou. As permissões de acesso ao armazenamento podem ter expirados, tente configurar novamente o local de armazenamento nas configurações de backup automático.</string>
@@ -167,7 +167,7 @@
     <string name="passwordSetupWarning">Use uma senha que você possa se lembrar, o banco de dados é irrecuperável sem ela!</string>
     <string name="clearPassword">Limpar senha</string>
     <string name="confirmPassword">Confirmar a senha</string>
-    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="setupBiometricUnlock">Configurar desbloqueio com biométrica</string>
     <string name="passwordsDoNotMatch">As passwords não coincidem</string>
     <!-- Unlock -->
     <string name="unlock">Desbloquear</string>
@@ -182,8 +182,8 @@
     <string name="importError">Não foi possível importar o arquivo</string>
     <string name="authenticatorPlusImportHint">Importar o arquivo authplus.db</string>
     <string name="andOtp">andOTP (texto simples)</string>
-    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
-    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="andOtpImportHint">Importar arquivo otp_accounts.json</string>
+    <string name="freeOtpPlusImportHint">Importar arquivo freeotp-backup.json</string>
     <string name="aegis">Aegis (texto simples)</string>
     <string name="aegisImportHint">Importar arquivo aegis-export-plain.json</string>
     <string name="bitwarden">Bitwarden (texto simples)</string>
@@ -192,19 +192,19 @@
     <string name="totpAuthenticatorImportHint">Importar arquivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URI</string>
     <string name="uriListHint">Plain text list of otpauth URIs</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="viewGuideImportHint">Veja o guia na wiki do projeto</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Escanear um código QR</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
-    <string name="guideUseCodeTitle">Use the code when logging in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
-    <string name="guideCustomiseTitle">Customise and edit</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
-    <string name="guideArrangeTitle">Arrange and sort</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    <string name="guideScanQRCodeSummary">Para adicionar um autenticador, leia o código QR fornecido pelo aplicativo ou serviço. Ele será adicionado à lista e gerará novos códigos automaticamente. Você também pode inserir os detalhes manualmente.</string>
+    <string name="guideUseCodeTitle">Use o código ao fazer login</string>
+    <string name="guideUseCodeSummary">Ao fazer o login, use o código exclusivo fornecido pelo Authenticator Pro. Ele é válido apenas por uma curta duração. Toque o autenticador na lista para copiar o código para a área de transferência.</string>
+    <string name="guideCustomiseTitle">Personalizar e editar</string>
+    <string name="guideCustomiseSummary">Renomeie e personalize seus autenticadores para encontrá-los facilmente. Simplesmente toque no ícone do menu em uma entrada e siga os passos.</string>
+    <string name="guideArrangeTitle">Organizar e ordenar</string>
+    <string name="guideArrangeSummary">Você pode organizar seus autenticadores em categorias para encontrá-los mais facilmente. Além disso, segurar e arrastar itens permitirá que você os reorganize em qualquer ordem que quiser.</string>
     <string name="guideBackupTitle">Criar um backup</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
-    <string name="guideWearOSTitle">Download the Wear OS companion</string>
+    <string name="guideBackupSummary">Não fique bloqueado se você trocar de dispositivo. Crie um arquivo de backup e armazene-o em um lugar seguro. Um backup pode ser restaurado a qualquer momento e protegido com uma senha.</string>
+    <string name="guideWearOSTitle">Baixe o companheiro Wear OS</string>
     <string name="guideWearOSSummary">Se você tem um Wear OS, você pode baixar o aplicativo acompanhante. Você pode ver os códigos diretamente do seu relógio.</string>
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Coloque o código QR no visor para escaneá-lo. O código irá escaneado automaticamente. Toque para focar.</string>
@@ -215,9 +215,9 @@
     <string name="prefShowBackupRemindersTitle">Configurar lembretes de backup</string>
     <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita</string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
-    <string name="prefLanguageTitle">Language</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefAutoBackupSummary">Fazer backup automático e resturar de um local específico quando alterações forem feitas. Desativa os lembretes de backup.</string>
+    <string name="prefLanguageTitle">Idioma</string>
+    <string name="prefLanguageSummary">Escolha um idioma para usar em todo o aplicativo</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Senha</string>
     <string name="prefPasswordSummary">Uma senha é necessária para acessar os autenticadores. O banco de dados será encriptado com sua senha.</string>
@@ -234,12 +234,12 @@
     <string name="prefThemeSummary">Escolha um tema para o aplicativo</string>
     <string name="prefViewModeTitle">Modo de exibição</string>
     <string name="prefViewModeSummary">Escolha um modo de exibição para a lista de autenticações</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeTitle">Tamanho do Grupo de Código</string>
+    <string name="prefCodeGroupSizeSummary">Altere o agrupamento de dígitos em um código</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefTransparentStatusBarTitle">Transparência da barra de status</string>
+    <string name="prefTransparentStatusBarSummary">Torne a lista atrás da barra de status visível ao rolar</string>
     <!-- Arrays -->
     <string name="authTypeTime">Baseado no horário (TOTP)</string>
     <string name="authTypeCounter">Baseado em um contador (HOTP)</string>
