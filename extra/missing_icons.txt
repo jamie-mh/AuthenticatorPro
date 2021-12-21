@@ -245,7 +245,6 @@ Mercado Bitcoin
 Mercury
 Metaname
 Metorik
-Mimecast
 Mint
 Mintos
 Miss Hosting
@@ -343,7 +342,6 @@ RightCapital
 Ripe NCC
 River Financial
 Roberts Space Industries
-Rocket Beans TV
 Rollbar
 RubyGems.org
 Runbox
@@ -360,7 +358,6 @@ Segment
 SelfWealth
 Semaphore
 Server.pro
-Short.io
 SimpleTax
 SiteGround
 Smarkets
@@ -373,7 +370,6 @@ SparkPost
 Spreedly
 SSLTrust
 Stackfield
-StackPath
 StatusCake
 STEX
 Sumo Logic
