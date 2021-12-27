@@ -1108,28 +1108,11 @@ namespace AuthenticatorPro.Droid.Activity
 
             var width = Resources.DisplayMetrics.WidthPixels;
             var height = Resources.DisplayMetrics.HeightPixels;
-            var totalPixels = width * height;
-            var aspectRatio = GetAspectRatio(width, height);
+            var displayAspectRatio = GetAspectRatio(width, height);
 
-            CameraResolution result = null;
-            var smallestPixelDelta = int.MaxValue;
-
-            foreach (var resolution in availableResolutions)
-            {
-                var foundAspectRatio = GetAspectRatio(resolution.Width, resolution.Height);
-                var aspectDelta = Math.Abs(foundAspectRatio - aspectRatio);
-                var pixelDelta = Math.Abs(totalPixels - resolution.Width * resolution.Height);
-
-                if (aspectDelta > 0.1 || pixelDelta > smallestPixelDelta)
-                {
-                    continue;
-                }
-
-                smallestPixelDelta = pixelDelta;
-                result = resolution;
-            }
-
-            return result;
+            // Resolutions are listed smallest to highest, select smallest resolution within tolerance of the aspect ratio
+            return availableResolutions
+                .FirstOrDefault(r => Math.Abs(GetAspectRatio(r.Width, r.Height) - displayAspectRatio) <= 0.1);
         }
 
         private async Task ScanQrCodeFromCamera()
