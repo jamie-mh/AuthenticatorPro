@@ -1,0 +1,2 @@
+- General: 5 new icons
+- General: Fix regression with QR code scanning
