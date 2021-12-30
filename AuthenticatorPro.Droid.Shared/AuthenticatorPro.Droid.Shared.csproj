@@ -1520,6 +1520,16 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_namesilo.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_namesilo.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_namesilo.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_nationsglory.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_nationsglory.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_nationsglory.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_nationsglory.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_nationsglory.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_nationsglory_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_nationsglory_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_nationsglory_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_nationsglory_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_nationsglory_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_netcup.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_netcup.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_netcup.png"/>
