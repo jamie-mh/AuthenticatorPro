@@ -1099,30 +1099,13 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region QR Code Scanning
 
-        private CameraResolution GetClosestResolutionToDisplay(List<CameraResolution> availableResolutions)
-        {
-            double GetAspectRatio(int w, int h)
-            {
-                return (double) Math.Max(w, h) / Math.Min(w, h);
-            }
-
-            var width = Resources.DisplayMetrics.WidthPixels;
-            var height = Resources.DisplayMetrics.HeightPixels;
-            var displayAspectRatio = GetAspectRatio(width, height);
-
-            // Resolutions are listed smallest to highest, select smallest resolution within tolerance of the aspect ratio
-            return availableResolutions
-                .FirstOrDefault(r => Math.Abs(GetAspectRatio(r.Width, r.Height) - displayAspectRatio) <= 0.1);
-        }
-
         private async Task ScanQrCodeFromCamera()
         {
             var options = new MobileBarcodeScanningOptions
             {
                 PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE },
                 TryHarder = true,
-                AutoRotate = true,
-                CameraResolutionSelector = GetClosestResolutionToDisplay
+                AutoRotate = true
             };
 
             var overlay = LayoutInflater.Inflate(Resource.Layout.scanOverlay, null);
