@@ -112,6 +112,11 @@ namespace AuthenticatorPro.Droid.Fragment
             _preferences.PasswordProtected = newPassword != null;
             _preferences.PasswordChanged = true;
 
+            if (newPassword == null && _preferences.DatabasePasswordBackup)
+            {
+                _preferences.DatabasePasswordBackup = false;
+            }
+
             try
             {
                 var manager = new PasswordStorageManager(Context);
