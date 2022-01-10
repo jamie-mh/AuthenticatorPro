@@ -108,8 +108,16 @@ namespace AuthenticatorPro.Droid.Fragment
             _restoreEnabledSwitch.CheckedChange += SwitchChecked;
 
             UpdateLocationStatusText();
-            UpdatePasswordStatusText();
             UpdateSwitchesAndTriggerButton();
+
+            if (_preferences.DatabasePasswordBackup)
+            {
+                setPasswordButton.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                UpdatePasswordStatusText();
+            }
 
             return view;
         }
@@ -245,7 +253,9 @@ namespace AuthenticatorPro.Droid.Fragment
             _backupEnabledSwitch.Checked = _preferences.AutoBackupEnabled;
             _restoreEnabledSwitch.Checked = _preferences.AutoRestoreEnabled;
 
-            var canBeChecked = _preferences.AutoBackupUri != null && _preferences.AutoBackupPasswordProtected != null;
+            var canBeChecked = _preferences.AutoBackupUri != null &&
+                (_preferences.DatabasePasswordBackup || _preferences.AutoBackupPasswordProtected != null);
+
             _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled =
                 _backupNowButton.Enabled = _restoreNowButton.Enabled = canBeChecked;
 

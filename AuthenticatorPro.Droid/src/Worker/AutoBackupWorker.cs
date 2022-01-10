@@ -88,6 +88,16 @@ namespace AuthenticatorPro.Droid.Worker
             return permission.IsReadPermission && permission.IsWritePermission;
         }
 
+        private async Task<string> GetBackupPassword()
+        {
+            if (_preferences.DatabasePasswordBackup)
+            {
+                return await SecureStorageWrapper.GetDatabasePassword();
+            }
+
+            return await SecureStorageWrapper.GetAutoBackupPassword();
+        }
+
         private async Task<BackupResult> BackupToDir(Uri destUri)
         {
             var auths = (await _authenticatorRepository.GetAllAsync()).ToImmutableArray();
@@ -99,14 +109,14 @@ namespace AuthenticatorPro.Droid.Worker
 
             if (!HasPersistablePermissionsAtUri(destUri))
             {
-                throw new Exception("No permission at URI");
+                throw new InvalidOperationException("No permission at URI");
             }
 
-            var password = await SecureStorageWrapper.GetAutoBackupPassword();
+            var password = await GetBackupPassword();
 
             if (password == null)
             {
-                throw new Exception("No password defined.");
+                throw new InvalidOperationException("No password defined");
             }
 
             var backup = new Backup(
@@ -135,7 +145,7 @@ namespace AuthenticatorPro.Droid.Worker
         {
             if (!HasPersistablePermissionsAtUri(destUri))
             {
-                throw new Exception("No permission at URI");
+                throw new InvalidOperationException("No permission at URI");
             }
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
@@ -153,11 +163,11 @@ namespace AuthenticatorPro.Droid.Worker
             }
 
             _preferences.MostRecentBackupModifiedAt = mostRecentBackup.LastModified();
-            var password = await SecureStorageWrapper.GetAutoBackupPassword();
+            var password = await GetBackupPassword();
 
             if (password == null)
             {
-                throw new Exception("No password defined.");
+                throw new InvalidOperationException("No password defined.");
             }
 
             var data = await FileUtil.ReadFile(_context, mostRecentBackup.Uri);
