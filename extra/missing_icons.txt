@@ -356,7 +356,6 @@ Segment
 SelfWealth
 Semaphore
 Server.pro
-SimpleTax
 SiteGround
 Smarkets
 Smartly.io
