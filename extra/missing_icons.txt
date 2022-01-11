@@ -2,7 +2,6 @@
 101domain
 20i
 2Checkout
-34SP.com
 Above.com
 Acquia
 Action Network
@@ -12,7 +11,6 @@ Addiko Bank
 AJ Bell Youinvest
 ALL-INKL.COM
 AltoIRA
-Amazon Pay
 Andrews & Arnold
 AngelList
 AppFolio
@@ -358,7 +356,6 @@ Segment
 SelfWealth
 Semaphore
 Server.pro
-SimpleTax
 SiteGround
 Smarkets
 Smartly.io
@@ -404,7 +401,6 @@ US Citizenship and Immigration Services
 Userify
 Valr
 VeeroTech
-VentraIP
 Versio
 ViaBTC
 VMware
