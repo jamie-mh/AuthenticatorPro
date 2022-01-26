@@ -298,7 +298,7 @@
             <Version>2.7.0.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Essentials">
-            <Version>1.7.0</Version>
+            <Version>1.7.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Google.Android.Material">
             <Version>1.4.0.5</Version>
