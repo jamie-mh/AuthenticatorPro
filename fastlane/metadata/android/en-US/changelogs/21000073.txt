@@ -1,0 +1,3 @@
+- General: Database password is now used for auto-backups if the "Backup with Database Password" option is set
+- General: 8 new icons
+- General: Translation updates
