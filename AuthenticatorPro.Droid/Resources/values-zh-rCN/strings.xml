@@ -34,8 +34,8 @@
     <string name="sortZA">字母顺序 (z 至 a)</string>
     <string name="sortCustom">自定义</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
-    <string name="supportDevelopment">Support development</string>
-    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
+    <string name="supportDevelopment">支持开发</string>
+    <string name="supportDevelopmentSummary">觉得这个应用很不错？给我买杯咖啡吧！</string>
     <string name="rate">评分</string>
     <string name="rateSummary">在 Google Play 商店上为 Authenticator Pro 评分。</string>
     <string name="viewGitHub">前往 GitHub</string>
@@ -234,8 +234,8 @@
     <string name="prefThemeSummary">选择应用的主题。</string>
     <string name="prefViewModeTitle">视图</string>
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeTitle">验证码分组</string>
+    <string name="prefCodeGroupSizeSummary">更改验证码中数字的分组</string>
     <string name="prefAccentColourTitle">主题色</string>
     <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
     <string name="prefTransparentStatusBarTitle">透明状态栏</string>
