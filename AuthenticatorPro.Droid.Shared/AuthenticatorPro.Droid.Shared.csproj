@@ -480,6 +480,16 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_borgbase_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_borgbase_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_borgbase_dark.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_box.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_box.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_box.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_box.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_box.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_box_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_box_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_box_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_box_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_box_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_boxcryptor.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_boxcryptor.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_boxcryptor.png"/>
