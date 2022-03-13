@@ -3,6 +3,7 @@
 
 using AuthenticatorPro.Shared.Entity;
 using AuthenticatorPro.Shared.Persistence;
+using AuthenticatorPro.Shared.Persistence.Exception;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,6 +22,13 @@ namespace AuthenticatorPro.Droid.Persistence
         public async Task CreateAsync(AuthenticatorCategory item)
         {
             var conn = await _database.GetConnection();
+            var id = new ValueTuple<string, string>(item.AuthenticatorSecret, item.CategoryId);
+
+            if (await GetAsync(id) != null)
+            {
+                throw new EntityDuplicateException();
+            }
+
             await conn.InsertAsync(item);
         }
 

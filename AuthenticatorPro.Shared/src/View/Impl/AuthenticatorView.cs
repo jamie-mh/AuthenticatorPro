@@ -170,7 +170,7 @@ namespace AuthenticatorPro.Shared.View.Impl
                 for (var i = 0; i < _view.Count; ++i)
                 {
                     var auth = _view[i];
-                    var binding = _authenticatorCategories.Single(
+                    var binding = _authenticatorCategories.First(
                         ac => ac.AuthenticatorSecret == auth.Secret && ac.CategoryId == _categoryId);
                     binding.Ranking = i;
                 }
