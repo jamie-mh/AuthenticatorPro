@@ -191,7 +191,7 @@
     <string name="winAuthImportHint">Importar arquivo winauth.txt</string>
     <string name="totpAuthenticatorImportHint">Importar arquivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URI</string>
-    <string name="uriListHint">Plain text list of otpauth URIs</string>
+    <string name="uriListHint">Lista de texto simples de URIs</string>
     <string name="viewGuideImportHint">Veja o guia na wiki do projeto</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Escanear um código QR</string>
