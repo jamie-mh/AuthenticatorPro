@@ -1,0 +1,3 @@
+- General: Fix issue with reordering within categories
+- General: 1 new icon
+- General: Translation updates
