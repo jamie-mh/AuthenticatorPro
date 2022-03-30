@@ -356,6 +356,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "time4vps", Resource.Drawable.auth_time4vps },
             { "ting", Resource.Drawable.auth_ting },
             { "tmobile", Resource.Drawable.auth_tmobile },
+            { "tokopedia", Resource.Drawable.auth_tokopedia },
             { "toodledo", Resource.Drawable.auth_toodledo },
             { "torguard", Resource.Drawable.auth_torguard },
             { "trello", Resource.Drawable.auth_trello },

@@ -2170,6 +2170,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_tmobile.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_tmobile.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_tmobile.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_tokopedia.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_tokopedia.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_tokopedia.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_tokopedia.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_tokopedia.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_toodledo.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_toodledo.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_toodledo.png"/>
