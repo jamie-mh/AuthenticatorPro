@@ -112,7 +112,7 @@
     <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
-    <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
+    <string name="noAuthenticators">Нет аутентификаторов для резервной копии</string>
     <string name="encrypting">Шифрование</string>
     <string name="decrypting">Дешифрование</string>
     <string name="saving">Сохранение</string>
