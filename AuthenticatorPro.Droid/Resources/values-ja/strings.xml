@@ -37,7 +37,7 @@
     <string name="supportDevelopment">開発を支援する</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffeeで継続的な開発と更新をサポートする</string>
     <string name="rate">評価する</string>
-    <string name="rateSummary">Google Playストアで Authenticato Pro を評価する</string>
+    <string name="rateSummary">Google Playストアで Authenticator Pro を評価する</string>
     <string name="viewGitHub">GitHubで表示</string>
     <string name="viewGitHubSummary">GitHub で Authenticator Pro のリポジトリを表示します。問題を報告したり、アイコンや機能をリクエストすることができます。</string>
     <!-- Authenticator -->
