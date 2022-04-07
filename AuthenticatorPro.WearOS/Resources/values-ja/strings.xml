@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="displayName">認証コード</string>
+    <string name="noAuthenticators">認証コードがありません</string>
+    <string name="noAuthenticatorsMessage">データがありません。電話上のアプリから認証コードを追加してください。</string>
+    <string name="hotpNotSupported">HOTPはサポートされていません</string>
+    <string name="categoryAll">すべて</string>
+    <string name="offline">オフライン</string>
+</resources>

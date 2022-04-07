@@ -11,9 +11,9 @@
     <string name="no">Нет</string>
     <string name="close">Закрыть</string>
     <string name="error">Ошибка</string>
-    <string name="retry">Retry</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="retry">Повторить</string>
+    <string name="ignore">Игнорировать</string>
+    <string name="disable">Отключить</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -34,8 +34,8 @@
     <string name="sortZA">По алфавитному порядку (Я-А)</string>
     <string name="sortCustom">Пользовательский</string>
     <string name="aboutSummary">Просмотр информации о приложении и лицензии.</string>
-    <string name="supportDevelopment">Support development</string>
-    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
+    <string name="supportDevelopment">Поддержать разработку</string>
+    <string name="supportDevelopmentSummary">Поддержите постоянное развитие и обновления приложения через Buy Me a Coffee</string>
     <string name="rate">Оценить</string>
     <string name="rateSummary">Оцените Authenticator Pro в магазине Google Play.</string>
     <string name="viewGitHub">Посмотреть на GitHub</string>
@@ -80,8 +80,8 @@
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
     <string name="backupHtmlWarning">Резервные копии в HTML файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и не содержит категорий и значков. Если не уверены, что вместо этого выберите зашифрованную резервную копию файла.\n\nПродолжить?</string>
     <string name="backupUriList">Резервное копирование в файл списка URI</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListMessage">Сохраните ваши аутентификаторы в незашифрованном текстовом файле списке URI. Этот файл совместим со многими альтернативными приложениями и услугами. Категории и иконки не сохраняются.</string>
+    <string name="backupUriListWarning">Резервные копии в текстовые файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и в нём не сохраняются категории и иконки. Если не уверены, то вместо этого выберите резервное копирование в зашифрованный файл.\n\nПродолжить?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
     <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
@@ -94,7 +94,7 @@
     <string name="assignCategories">Присвоить категории</string>
     <string name="more">Подробнее</string>
     <string name="categoryAll">Все</string>
-    <string name="editCategories">Edit categories</string>
+    <string name="editCategories">Изменить категории</string>
     <string name="categoryNameHint">Название категории</string>
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
@@ -112,7 +112,7 @@
     <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
-    <string name="noAuthenticators">Нема аутентификаторов для резервации.</string>
+    <string name="noAuthenticators">Нет аутентификаторов для резервной копии</string>
     <string name="encrypting">Шифрование</string>
     <string name="decrypting">Дешифрование</string>
     <string name="saving">Сохранение</string>
@@ -129,18 +129,18 @@
     <string name="filePickError">Ошибка при выборе файла.</string>
     <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
-    <string name="emailClientMissing">No email client installed</string>
+    <string name="emailClientMissing">Не установлен клиент электронной почты</string>
     <string name="genericError">Произошла ошибка.</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
-    <string name="viewErrorLog">View error log</string>
+    <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение снова. Если проблема не устранена, очистите приложение и восстановите вашу последнюю резервную копию.\n\nИли отправьте отчёт об ошибке.</string>
+    <string name="viewErrorLog">Показать журнал ошибок</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Произошла обработанная ошибка внутри приложения. Подробности об ошибке ниже:</string>
     <string name="report">Отчёт</string>
-    <string name="email">Email</string>
-    <string name="reportVia">Report via</string>
+    <string name="email">Почта</string>
+    <string name="reportVia">Сообщить через</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Выберите расположение и пароль для автоматических резервных копий. Резервные копии создаются при внесении изменений. Облачное хранилище не поддерживается, используйте меню резервного копирования.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Расположение не выбрано</string>
     <string name="locationSetTo">Расположение настроено как {0}</string>
@@ -152,7 +152,7 @@
     <string name="enableAutoBackupMessage">Автоматически создавать резервные копии в выбранное место хранения</string>
     <string name="enableAutoRestore">Включить автоматическое восстановление</string>
     <string name="enableAutoRestoreMessage">Автоматически восстанавливать последнюю резервную копию, найденную в выбранном месте хранения. Полезно для синхронизации между устройствами.</string>
-    <string name="batOptim">Battery Optimisation</string>
+    <string name="batOptim">Оптимизация работы аккумулятора</string>
     <string name="disableBatOptimMessage">На некоторых устройствах настройки питания могут предотвратить корректную работу резервных копий. Если у вас возникли проблемы, попробуйте отключить оптимизацию заряда батареи для Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
@@ -208,16 +208,16 @@
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Наведите видоискатель ка QR-код, чтобы отсканировать его. Процесс автоматичен. Нажмите для фокусировки.</string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
     <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.</string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
-    <string name="prefLanguageTitle">Language</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefAutoBackupSummary">Автоматическое резервное копирование и восстановление из выбранного места хранения при внесении изменений. Отключает напоминания о резервном копировании.</string>
+    <string name="prefLanguageTitle">Язык</string>
+    <string name="prefLanguageSummary">Выберите язык, который будет использоваться в приложении</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Запрашивать пароль для доступа к аутентификаторам. База данных будет зашифрована с помощью пароля.</string>
@@ -227,19 +227,19 @@
     <string name="prefAllowBiometricsSummary">Разрешить разблокировку базы данных с помощью биометрической аутентификации</string>
     <string name="prefTimeoutTitle">Время ожидания истекло</string>
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealTitle">Показывать при нажатии</string>
+    <string name="prefTapToRevealSummary">Коды не отображаются, пока на них не нажать. Коды исчезнут через несколько секунд.</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
     <string name="prefViewModeTitle">Режим отображения</string>
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
-    <string name="prefAccentColourTitle">Accent Colour</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefCodeGroupSizeTitle">Группировка кода</string>
+    <string name="prefCodeGroupSizeSummary">Измените группировку цифр в коде</string>
+    <string name="prefAccentColourTitle">Основной цвет</string>
+    <string name="prefAccentColourSummary">Выберите основной цвет, который будет использоваться в приложении</string>
+    <string name="prefTransparentStatusBarTitle">Прозрачная строка состояния</string>
+    <string name="prefTransparentStatusBarSummary">Сделать список видимым за строкой состояния при прокрутке</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
@@ -261,22 +261,22 @@
     <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
-    <string name="red">Red</string>
-    <string name="pink">Pink</string>
-    <string name="purple">Purple</string>
-    <string name="deepPurple">Deep purple</string>
-    <string name="indigo">Indigo</string>
-    <string name="blue">Blue</string>
-    <string name="lightBlue">Light blue</string>
-    <string name="cyan">Cyan</string>
-    <string name="teal">Teal</string>
-    <string name="green">Green</string>
-    <string name="lightGreen">Light green</string>
-    <string name="lime">Lime</string>
-    <string name="yellow">Yellow</string>
-    <string name="amber">Amber</string>
-    <string name="orange">Orange</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="red">Красный</string>
+    <string name="pink">Розовый</string>
+    <string name="purple">Фиолетовый</string>
+    <string name="deepPurple">Тёмно-фиолетовый</string>
+    <string name="indigo">Индиго</string>
+    <string name="blue">Синий</string>
+    <string name="lightBlue">Голубой</string>
+    <string name="cyan">Циан</string>
+    <string name="teal">Сине-зеленый</string>
+    <string name="green">Зелёный</string>
+    <string name="lightGreen">Светло-зелёный</string>
+    <string name="lime">Лаймовый</string>
+    <string name="yellow">Жёлтый</string>
+    <string name="amber">Янтарный</string>
+    <string name="orange">Оранжевый</string>
+    <string name="deepOrange">Тёмно-оранжевый</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Добро пожаловать в Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP аутентификация</string>
