@@ -238,6 +238,7 @@
         <AndroidResource Include="Resources\menu\sheet.xml" />
         <AndroidResource Include="Resources\values-ar\strings.xml" />
         <AndroidResource Include="Resources\values-it\strings.xml" />
+        <AndroidResource Include="Resources\values-ja\strings.xml" />
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
         <AndroidResource Include="Resources\values-ru\strings.xml" />
