@@ -140,6 +140,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_a2hosting.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_a2hosting.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_a2hosting.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_accessidentity.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_accessidentity.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_accessidentity.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_accessidentity.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_accessidentity.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_actionstep.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_actionstep.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_actionstep.png"/>
@@ -1270,6 +1275,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_ivpn.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_ivpn.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ivpn.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_jagex.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_jagex.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_jagex.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_jagex.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jagex.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_jelastic.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_jelastic.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_jelastic.png"/>
@@ -2145,6 +2155,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_stackpath.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_stackpath.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_stackpath.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_starlingbankdeveloper.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_starlingbankdeveloper.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_starlingbankdeveloper.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_starlingbankdeveloper.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_starlingbankdeveloper.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_statusmail.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_statusmail.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_statusmail.png"/>
@@ -2535,6 +2550,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_zimbra.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_zimbra.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_zimbra.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_zoho.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_zoho.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_zoho.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_zoho.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_zoho.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_zohomail.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_zohomail.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_zohomail.png"/>
