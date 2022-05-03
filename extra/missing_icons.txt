@@ -243,7 +243,6 @@ Mercury
 Metaname
 Metorik
 Mint
-Mintos
 Miss Hosting
 Missive App
 Moneybird
