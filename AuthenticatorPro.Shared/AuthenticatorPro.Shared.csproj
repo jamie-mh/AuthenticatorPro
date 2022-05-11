@@ -19,7 +19,7 @@
             <Version>2.0.147</Version>
         </PackageReference>
         <PackageReference Include="protobuf-net">
-            <Version>3.0.101</Version>
+            <Version>3.1.4</Version>
         </PackageReference>
         <PackageReference Include="QRCoder">
             <Version>1.4.3</Version>
