@@ -51,7 +51,6 @@ BTC Markets
 BTCPOP
 Buda
 Buddy
-Buffer
 Bugzilla@Mozilla
 BuiltWith
 Bybit
@@ -169,7 +168,6 @@ Gatehub
 Gate.io
 Glesys
 GoCardless
-Google Domains
 Grape
 GREE
 Greenhost
@@ -276,7 +274,6 @@ OMGServ
 Onehub
 OneLogin
 Online
-OpenDNS
 Openprovider
 Open Science Framework (OSF)
 OpenSRS
@@ -386,7 +383,6 @@ Tinfoil Security
 Tito
 Toontown Rewritten
 TransIP
-Tumblr
 UK2
 UKFast
 Ukraine
@@ -409,7 +405,6 @@ Watchman Monitoring
 Wealthfront
 Wealthsimple
 WebFaction
-Webflow
 Webroot
 Weclapp
 Wedos
@@ -419,7 +414,6 @@ Whois
 Wirex
 Woodforest National Bank
 World4You
-Wyze
 Xero
 Yahoo Japan Mail
 Yandex.Money
