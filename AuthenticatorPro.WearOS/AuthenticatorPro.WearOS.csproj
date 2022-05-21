@@ -103,6 +103,7 @@
         <AndroidResource Include="Resources\values-ja\strings.xml" />
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
+        <AndroidResource Include="Resources\values-zh-rTW\strings.xml" />
         <AndroidResource Include="Resources\values\strings.xml">
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
