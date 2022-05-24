@@ -242,6 +242,7 @@
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
         <AndroidResource Include="Resources\values-ru\strings.xml" />
+        <AndroidResource Include="Resources\values-zh-rTW\strings.xml" />
         <AndroidResource Include="Resources\values\strings.xml" />
         <AndroidResource Include="Resources\values\styles.xml" />
     </ItemGroup>
