@@ -7,7 +7,6 @@ Acquia
 Action Network
 ACTIVE 24
 ActiveState
-Addiko Bank
 AJ Bell Youinvest
 ALL-INKL.COM
 AltoIRA
@@ -18,12 +17,9 @@ Ashes of Creation
 Assembla
 Aternos
 Audiense
-Automate.io
 Automater
-Avanza
 Back4App
 Batch
-Betfair
 Betterment
 Betvictor
 BGL Corporate Solutions
@@ -32,7 +28,6 @@ Binary Lane
 Bitbond
 BitcoinTrade
 BitForex
-BitGo
 Bithumb
 Bitrise
 Bitrix24
@@ -45,16 +40,13 @@ Blur
 Bohemia Interactive
 Bonusly
 Braziliex
-Brightbox
 BTC BOX
 BTC Markets
 BTCPOP
 Buda
 Buddy
-Bugzilla@Mozilla
 BuiltWith
 Bybit
-Call Of Duty
 Campfire
 Capsule
 Carrd
@@ -67,7 +59,6 @@ Changelly
 Chartbeat
 Circle
 Cisco Meraki
-ClearScore
 CleverTap
 ClickUp
 Clio
@@ -80,7 +71,6 @@ Cloudinary
 ClouDNS
 Clover
 Cloze
-Clubhouse
 Cobalt
 Coda
 Coinapult
@@ -103,7 +93,6 @@ ConnectWise Control (ScreenConnect)
 Contentful
 Customer.io
 Deel
-DEGIRO
 Demio
 DeployHQ
 Deputy
@@ -130,7 +119,6 @@ EasyDMARC
 easyDNS
 EasySendy
 eclincher
-ecobee
 Egnyte
 elmah.io
 Eneba
@@ -150,9 +138,7 @@ FaceIT
 Falcon
 FastComet
 Fasthosts
-Fastly
 FAX.PLUS
-Files.com
 Findmyshift
 Flywheel
 FogBugz & Kiln
@@ -163,7 +149,6 @@ FreeAgent
 FreeTaxUSA
 Freewallet
 Front App
-Gaijin Entertainment
 Gatehub
 Gate.io
 Glesys
@@ -183,34 +168,28 @@ Heap
 Heap Analytics
 Help Scout
 Hexonet
-HEY
 Hint Health
 Hostens
 Hostiso
 Hostpoint
 HostUS
-Hover.com
 H&R Block
 HubSpot
 Hurricane Electric
 Hypixel
-IBM Cloud
 ICDSoft
 ICUK
-ID.me
 Imperva
 ImprovMX
 InMotion Hosting
 Intercom
 Internet.bs
-Intuit TurboTax
 Invictus Capital
 IO Zoom
 (ISC)2
 ISL Online
 itslearning
 Jitbit Helpdesk
-join.me (w/ LogMeIn account)
 Joker.com
 Joyent
 justhost
@@ -219,28 +198,22 @@ Karlsruher Institut für Technologie
 Kayako
 KnowBe4
 KnownHost
-Koofr
 Korbit
 Krystal
 Kuna
 Laravel Forge
 LATOKEN
-Launchpad
 LCN.com
 Liquid
 Liquid Web
 Lobsters
 Looker
-Luno
-MacStadium
 Mammoth Networks
 MB Connect Line
 McGill University
 Mercado Bitcoin
-Mercury
 Metaname
 Metorik
-Mint
 Miss Hosting
 Missive App
 Moneybird
@@ -259,7 +232,6 @@ Nexon
 Niconico
 Nimbox
 Noez
-NordVPN Teams
 North Carolina State University
 No Starch Press
 Notejoy
@@ -271,14 +243,10 @@ Oderland
 OKEx
 Okta
 OMGServ
-Onehub
 OneLogin
-Online
 Openprovider
 Open Science Framework (OSF)
 OpenSRS
-Optimizely
-Oracle Cloud
 ORCID
 Packagist
 pair Domains
@@ -304,9 +272,7 @@ Principal
 ProBit
 ProfitWell
 Purse
-Pusher
 PythonAnywhere
-Quickbooks Online
 QuickFile
 Quidax
 Radius Bank
@@ -325,7 +291,6 @@ Register365
 Register4Less
 Registro.br
 Remitano
-Remote Desktop Manager
 Repairshopr
 Report URI
 Republic Wireless
@@ -338,10 +303,8 @@ Roberts Space Industries
 Rollbar
 RubyGems.org
 Runbox
-RuneScape
 RunSignUp
 Ryerson University
-Samsung SmartThings
 Scalr
 Scripting Helpers
 Scryfall
@@ -366,7 +329,6 @@ StatusCake
 STEX
 Sumo Logic
 Swyftx
-Sync
 Synergy Wholesale
 Taxact
 Teamwork
@@ -385,7 +347,6 @@ Toontown Rewritten
 TransIP
 UK2
 UKFast
-Ukraine
 Uniregistry
 University of Delaware
 UpCloud
@@ -396,11 +357,9 @@ Valr
 VeeroTech
 Versio
 ViaBTC
-VMware
 VoIP.ms
 VPN Unlimited
 VPS Server
-VRChat
 Watchman Monitoring
 Wealthfront
 Wealthsimple
@@ -410,11 +369,9 @@ Weclapp
 Wedos
 WePay
 When I Work
-Whois
 Wirex
 Woodforest National Bank
 World4You
-Xero
 Yahoo Japan Mail
 Yandex.Money
 Yclas
