@@ -41,6 +41,7 @@ Authenticator Pro is currently only available on the F-Droid client through the 
 [Contribution Guide](https://github.com/jamie-mh/AuthenticatorPro/blob/master/CONTRIBUTING.md)
 
 [Backup File Format](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md)
+<br/><br/>
 
 ### Importing from other apps:
 
@@ -94,7 +95,7 @@ Authenticator Pro has a beautiful material design inspired look in either light 
 ![Screenshot 8](./doc/screenshot8.png)
 <br/><br/>
 
-## Wear OS Companion
+### Wear OS Companion
 
 ![Screenshot 1](./doc/wearos_screenshot1.png)
 ![Screenshot 2](./doc/wearos_screenshot2.png)
