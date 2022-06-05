@@ -7,7 +7,7 @@ Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin pr
 
 ## Icons ⏺️
 
-If you'd like to contribute some icons, first check if there's [any open issues from user requests](https://github.com/jamie-mh/AuthenticatorPro/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement). Alternatively take a look at the [missing_icons.txt file](./extra/missing_icons.txt). Keep in mind some the the services listed here may already have an icon or not meet the criteria to get one so make sure to check first.
+If you'd like to contribute some icons, first check if there's [any open issues from user requests](https://github.com/jamie-mh/AuthenticatorPro/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement).
 
 ### Icon criteria:
 Not every service needs an icon. To prevent the app having hundreds of icons from obscure and rarely used platforms, we limit what icons can be added. If a service doesn't meet the criteria we encourage the use of custom icons from within the app.
@@ -39,8 +39,6 @@ To add an icon to the project the procedure is as follows:
 * Place the file in the "icons" directory
 
 * If the icon requires a dark theme variant, repeat the process and append "_dark" to the name.
-
-* Remove the entry from the [missing icons list](./extra/missing_icons.txt) if it exists.
 
 * Commit your changes
 
