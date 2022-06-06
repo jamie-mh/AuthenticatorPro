@@ -19,6 +19,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "a2hosting", Resource.Drawable.auth_a2hosting },
             { "accessidentity", Resource.Drawable.auth_accessidentity },
             { "actionstep", Resource.Drawable.auth_actionstep },
+            { "activision", Resource.Drawable.auth_activision },
             { "adafruit", Resource.Drawable.auth_adafruit },
             { "addikobank", Resource.Drawable.auth_addikobank },
             { "adguard", Resource.Drawable.auth_adguard },
@@ -459,6 +460,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
         public static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>
         {
             { "500px", Resource.Drawable.auth_500px_dark },
+            { "activision", Resource.Drawable.auth_activision_dark },
             { "adafruit", Resource.Drawable.auth_adafruit_dark },
             { "advcash", Resource.Drawable.auth_advcash_dark },
             { "amazon", Resource.Drawable.auth_amazon_dark },

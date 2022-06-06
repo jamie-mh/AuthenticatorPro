@@ -140,6 +140,16 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_actionstep.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_actionstep.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_actionstep.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_activision.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_activision.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_activision.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_activision.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_activision.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_activision_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_activision_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_activision_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_activision_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_activision_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_adafruit.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_adafruit.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_adafruit.png"/>
