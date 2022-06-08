@@ -133,7 +133,7 @@
             <Version>2.4.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Wear">
-            <Version>1.2.0.5</Version>
+            <Version>1.2.0.6</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Google.Android.Material">
             <Version>1.5.0.2</Version>
