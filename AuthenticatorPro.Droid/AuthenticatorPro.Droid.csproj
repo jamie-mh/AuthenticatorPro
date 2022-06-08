@@ -291,7 +291,7 @@
             <Version>2.4.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Preference">
-            <Version>1.2.0.1</Version>
+            <Version>1.2.0.2</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.ViewPager2">
             <Version>1.0.0.15</Version>
