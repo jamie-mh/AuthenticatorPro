@@ -285,7 +285,7 @@
             <Version>2.2.0.13</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-            <Version>2.4.1.1</Version>
+            <Version>2.4.1.2</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
             <Version>2.4.1.1</Version>
