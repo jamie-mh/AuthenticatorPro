@@ -139,7 +139,7 @@
             <Version>1.5.0.2</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
-            <Version>117.1.0.3</Version>
+            <Version>117.1.0.6</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
