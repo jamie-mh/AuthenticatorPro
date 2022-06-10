@@ -181,12 +181,12 @@
     <string name="importFrom">Tuo kohteesta</string>
     <string name="importError">Tiedostoa ei voitu tuoda</string>
     <string name="authenticatorPlusImportHint">Tuo authplus.db -tiedosto</string>
-    <string name="andOtp">andOTP (pelkkä teksti)</string>
+    <string name="andOtp">andOTP (plain-text)</string>
     <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
-    <string name="aegis">Aegis (pelkkä teksti)</string>
-    <string name="aegisImportHint">Tuo aegis-export-plain.json-tiedosto</string>
-    <string name="bitwarden">Bitwarden (pelkkä teksti)</string>
+    <string name="aegis">Aegis (plain-text)</string>
+    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt-tiedosto</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
