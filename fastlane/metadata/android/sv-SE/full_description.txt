@@ -1,0 +1,56 @@
+Authenticator Pro genererar inloggningskoder för dina onlinekonton med tvåstegsverifiering (2FA). Stödjer TOTP, HOTP, mOTP (Mobile-OTP) och Steam. Engångskoderna som genereras ger ett extra lager av säkerhet till dina onlinekonton. Efter att du skannat en enkel QR-kod är ditt konto skyddat.
+
+<b>Vänligen skicka all feedback/frågor via antingen GitHub eller e-post (se utvecklarens kontaktuppgifter) istället för att skriva en recension för att lättare kunna följa upp i ditt ärende.</b>
+
+<b>Vanliga frågor:</b>
+https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+
+<b>Kompatibilitet</b>
+Authenticator Pro är kompatibel med de flesta hemsidor och konton.
+
+<b>Säkerhetskopiera och återställ</b>
+Säkerhetskopiera dina autentiserare med stark kryptering. Om du förlorar eller byter din mobil kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.
+
+<b>Importera</b>
+Flytta enkelt dina konton till Authenticator Pro från andra appar som stöds.
+
+<b>Mörkt läge</b>
+Authenticator Pro har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
+
+<b>Ikoner</b>
+Hitta enkelt dina autentiserare tack vare igenkännbara loggor och ikoner bredvid varje kod.
+
+<b>Kategorier</b>
+Organisera dina autentiserare i kategorier.
+
+<b>Offline med få behörigheter</b>
+Authenticator Pro kräver bara en enda behörighet och behöver inte tillgång till internet för att fungera.
+
+<b>Anpassning</b>
+Välj ikoner och byt namn. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
+
+<b>Wear OS</b>
+Authenticator Pro finns även på Wear OS. Ta snabbt fram dina autentiserare direkt på klockan.
+
+<b>Säkerhet</b>
+Ange ett lösenord och använd biometri för att skydda dina koder.
+
+<b>Öppen källkod</b>
+Appens källkod kan läsas av vem som helst på GitHub.
+
+
+Tvåfaktorsautentisering ger ett extra lager av säkerhet på dina konton genom att kräva en engångskod för att logga in. Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandahålls av Authenticator Pro. Så även om dina inloggningsuppgifter äventyras, förblir ditt konto säkert.
+
+
+Gratis och öppen källkod
+https://github.com/jamie-mh/AuthenticatorPro
+
+<b>Behörigheter:</b>
+
+Tillgång till kameran krävs för att lägga till konton med QR-koder.
+
+<b>Ansvarsfriskrivning:</b>
+
+Detta program är fri programvara: du kan distribuera det och/eller modifiera det enligt villkoren i GNU General Public License som publicerats av Free Software Foundation, antingen version 3 av licensen eller (efter eget val) valfri senare version.
+
+Denna mjukvara distribueras i hopp om att vara användbar, men UTAN NÅGON SOM HELST GARANTI; även utan den underförstådda garantin om SÄLJBARHET eller LÄMPLIGHET FÖR ETT SÄRSKILT SYFTE. Se GNU General Public License för mer information.

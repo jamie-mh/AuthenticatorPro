@@ -1,0 +1,56 @@
+Authenticator Pro generates Two Factor Authentication (2FA) codes for your online accounts. TOTP, HOTP, mOTP (Mobile-OTP) and Steam are supported. The generated codes are one time tokens that provide an extra layer of security to your online accounts. After scanning a simple QR code, your account is protected.
+
+<b>Please direct all feedback / issues to either GitHub or email (developer contact section) instead of writing a review to more easily follow up on your issue.</b>
+
+<b>Usein kysytyt kysymykset:</b>
+https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+
+<b>Yhteensopivuus</b>
+Authenticator Pro is compatible with most providers and accounts.
+
+<b>Varmuuskopiointi / palautus</b>
+Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
+
+<b>Tuonti</b>
+Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+
+<b>Tumma tila</b>
+Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+
+<b>Kuvakkeet</b>
+Find your authenticators easily with recognisable brand logos and icons next to each code.
+
+<b>Kategoriat</b>
+Organise your authenticators into categories.
+
+<b>Offline with few permissions</b>
+Authenticator Pro only requires a single permission and does not require Internet access to function.
+
+<b>Mukauttaminen</b>
+Aseta kuvakkeet ja uudelleennimeä. You can also arrange your authenticators in any order you like so you can find them easily.
+
+<b>Wear OS</b>
+Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch.
+
+<b>Turvallisuus</b>
+Set a password and use biometric authentification to protect your codes.
+
+<b>Avoin lähdekoodi</b>
+The application source code can be viewed by anyone on GitHub.
+
+
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+
+
+Ilmainen ja avoin lähdekoodi
+https://github.com/jamie-mh/AuthenticatorPro
+
+<b>Käyttöoikeudet:</b>
+
+Camera permission is required to add accounts through QR codes.
+
+<b>Disclaimer:</b>
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
