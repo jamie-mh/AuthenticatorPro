@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2021 jmh
+# Copyright (C) 2022 jmh
 # SPDX-License-Identifier: GPL-3.0-only
 
 import os
@@ -43,7 +43,7 @@ def build_map(files: list):
     map_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/src/Data/IconMap.cs"
     file = open(map_path, "w")
 
-    file.write("// Copyright (C) 2021 jmh\n")
+    file.write("// Copyright (C) 2022 jmh\n")
     file.write("// SPDX-License-Identifier: GPL-3.0-only\n\n")
     file.write("using System.Collections.Generic;\n\n")
     file.write("namespace AuthenticatorPro.Droid.Shared.Data\n")

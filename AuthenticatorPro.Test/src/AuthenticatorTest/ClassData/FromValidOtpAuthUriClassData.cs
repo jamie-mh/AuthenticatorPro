@@ -1,4 +1,4 @@
-// Copyright (C) 2021 jmh
+// Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Shared.Data;
@@ -136,7 +136,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Secret = "ABCDEFG",
                     Digits = 7
                 }
-            }; // Digits parameter 
+            }; // Digits parameter
             yield return new object[]
             {
                 "otpauth://totp/issuer?secret=ABCDEFG&period=60",

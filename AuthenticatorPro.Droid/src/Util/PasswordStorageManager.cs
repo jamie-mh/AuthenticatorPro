@@ -1,4 +1,4 @@
-// Copyright (C) 2021 jmh
+// Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
@@ -114,7 +114,7 @@ namespace AuthenticatorPro.Droid.Util
             }
             catch (KeyStoreException e)
             {
-                // Perhaps the key doesn't exist? 
+                // Perhaps the key doesn't exist?
                 Logger.Error(e);
             }
 

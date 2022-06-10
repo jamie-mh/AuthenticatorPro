@@ -1,4 +1,4 @@
-// Copyright (C) 2021 jmh
+// Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Shared.Data;
@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Period = AuthenticatorType.Totp.GetDefaultPeriod()
                 },
                 false
-            }; // Invalid secret 
+            }; // Invalid secret
             yield return new object[]
             {
                 new Authenticator
