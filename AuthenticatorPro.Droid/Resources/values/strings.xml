@@ -332,6 +332,8 @@
     <string name="brazilianPortuguese" translatable="false">Portugues do Brasil</string>
     <string name="russian" translatable="false">Pусский</string>
     <string name="slovak" translatable="false">Slovensky</string>
+    <string name="finnish" translatable="false">Suomi</string>
+    <string name="swedish" translatable="false">Svenska</string>
     <string name="turkish" translatable="false">Türk</string>
     <string name="thai" translatable="false">ภาษาไทย</string>
     <string name="japanese" translatable="false">日本語</string>
