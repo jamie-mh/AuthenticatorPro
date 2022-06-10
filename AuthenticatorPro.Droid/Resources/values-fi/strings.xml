@@ -37,7 +37,7 @@
     <string name="supportDevelopment">Tue kehitystä</string>
     <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Arvostele</string>
-    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="rateSummary">Arvostele Authenticator Pro Google Play kaupassa</string>
     <string name="viewGitHub">Katso GitHubissa</string>
     <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
     <!-- Authenticator -->
@@ -54,7 +54,7 @@
     <string name="usernameHint">Käyttäjänimi (esim. matti@esimerkki.fi)</string>
     <string name="typeHint">Tyyppi</string>
     <string name="algorithmHint">Algoritmi</string>
-    <string name="digitsHint">Digits</string>
+    <string name="digitsHint">Numeroiden määrä</string>
     <string name="periodHint">Aikaväli (sekuntia)</string>
     <string name="noIssuer">Myöntäjä on pakollinen</string>
     <string name="noSecret">Salainen avain on pakollinen</string>
@@ -62,33 +62,33 @@
     <string name="noFileName">Nimi on pakollinen</string>
     <string name="secretInvalid">Salaisuus on virheellinen</string>
     <string name="pinInvalid">PIN-koodin on oltava 4 merkkiä pitkä</string>
-    <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
+    <string name="digitsInvalid">Todentajan on luotava {0} - {1} numeroa</string>
     <string name="periodInvalid">Aikaväli on virheellinen</string>
-    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
+    <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
-    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="qrCodeNotSupported">QR-koodeja ei tueta tälle tyypille</string>
     <string name="copyUri">Kopioi URI</string>
     <string name="uriCopiedToClipboard">URI kopioitiin leikepöydälle</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backupToFile">Varmuuskopioi salattuun tiedostoon (suositeltu)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
     <string name="backupHtml">Varmuuskopioi HTML-tiedostoon</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
     <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
-    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriList">Varmuuskopioi URI-listatiedostoon</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Täällä ei ole mitään!</string>
-    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
+    <string name="noAuthenticatorsMessage">Sinulla ei ole yhtään todentajaa täällä</string>
     <string name="gettingStartedGuide">Aloitusopas</string>
     <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
     <string name="noCategoriesTitle">Ei kategorioita</string>
-    <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
+    <string name="noCategoriesMessage">Sinulla ei ole vielä kategorioita</string>
     <!-- Categories -->
     <string name="categories">Kategoriat</string>
     <string name="assignCategories">Aseta kategoria</string>
@@ -97,8 +97,8 @@
     <string name="editCategories">Muokkaa kategorioita</string>
     <string name="categoryNameHint">Kategorian nimi</string>
     <string name="noCategoryName">Kategorian nimi vaaditaan</string>
-    <string name="duplicateCategory">A category with this name already exists</string>
-    <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
+    <string name="duplicateCategory">Samanniminen kategoria on jo olemassa</string>
+    <string name="confirmCategoryDelete">Haluatko varmasti poistaa tämän kategorian?</string>
     <string name="setAsDefault">Aseta oletukseksi</string>
     <string name="clearDefault">Poista oletus</string>
     <!-- Backups -->
@@ -106,7 +106,7 @@
     <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
-    <string name="restoreError">The password is incorrect or the file is corrupt</string>
+    <string name="restoreError">Salasana on virheellinen tai tiedosto on vahingoittunut</string>
     <string name="password">Salasana</string>
     <string name="passwordConfirm">Vahvista salasana</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
@@ -124,12 +124,12 @@
     <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <!-- Errors -->
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
-    <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
+    <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
-    <string name="filePickError">Error picking file</string>
+    <string name="filePickError">Virhe tiedostoa valitessa</string>
     <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
     <string name="webBrowserMissing">Selainta ei ole asennettu</string>
-    <string name="emailClientMissing">No email client installed</string>
+    <string name="emailClientMissing">Sähköpostisovellusta ei ole asennettu</string>
     <string name="genericError">Tapahtui virhe</string>
     <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">Näytä virheloki</string>
@@ -143,64 +143,64 @@
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
     <string name="selectLocation">Valitse sijainti</string>
     <string name="noLocationSelected">Sijaintia ei ole valittu</string>
-    <string name="locationSetTo">Location set to \'{0}\'</string>
+    <string name="locationSetTo">Sijainniksi asetettu \'{0}\'</string>
     <string name="setPassword">Aseta salasana</string>
     <string name="passwordNotSet">Salasanaa ei ole asetettu</string>
     <string name="passwordSet">Salasana asetettu</string>
     <string name="notPasswordProtected">Ei suojattu salasanalla</string>
-    <string name="enableAutoBackup">Enable Auto Backup</string>
+    <string name="enableAutoBackup">Ota automaattinen varmuuskopiointi käyttöön</string>
     <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
-    <string name="enableAutoRestore">Enable Auto Restore</string>
+    <string name="enableAutoRestore">Ota automaattinen palautus käyttöön</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Akun Optimointi</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="autoBackupFailureTitle">Automaattinen varmuuskopiointi epäonnistui</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-    <string name="autoRestoreFailureTitle">Auto Restore failed</string>
+    <string name="autoRestoreFailureTitle">Automaattinen palautus epäonnistui</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
-    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
-    <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
-    <string name="backupScheduled">Backup scheduled</string>
-    <string name="restoreScheduled">Restore scheduled</string>
+    <string name="autoBackupSuccessTitle">Automaattinen varmuuskopiointi valmis</string>
+    <string name="autoRestoreSuccessTitle">Automaattinen palautus valmis</string>
+    <string name="backupScheduled">Varmuuskopiointi ajastettu</string>
+    <string name="restoreScheduled">Palautus ajastettu</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
     <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
     <string name="clearPassword">Tyhjennä salasana</string>
     <string name="confirmPassword">Vahvista salasana</string>
-    <string name="setupBiometricUnlock">Setup biometric unlock</string>
-    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <string name="setupBiometricUnlock">Määritä biometrinen avaus</string>
+    <string name="passwordsDoNotMatch">Salasanat eivät täsmää</string>
     <!-- Unlock -->
     <string name="unlock">Avaa</string>
     <string name="useBiometrics">Käytä biometriikkaa</string>
     <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
-    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
+    <string name="unlockBiometricsMessage">Käytä biometriikkaa päästäksesi käsiksi todentajiisi</string>
     <string name="passwordIncorrect">Salasana on virheellinen</string>
     <string name="tooManyAttempts">Liian monta yritystä</string>
     <!-- Import -->
-    <string name="importFromOtherApps">Import from other apps</string>
-    <string name="importFrom">Import from</string>
-    <string name="importError">The file could not be imported</string>
-    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtp">andOTP (plain-text)</string>
+    <string name="importFromOtherApps">Tuo muista sovelluksista</string>
+    <string name="importFrom">Tuo kohteesta</string>
+    <string name="importError">Tiedostoa ei voitu tuoda</string>
+    <string name="authenticatorPlusImportHint">Tuo authplus.db -tiedosto</string>
+    <string name="andOtp">andOTP (pelkkä teksti)</string>
     <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
-    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
     <string name="aegis">Aegis (pelkkä teksti)</string>
-    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
-    <string name="bitwarden">Bitwarden (plain-text)</string>
-    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
-    <string name="winAuthImportHint">Import winauth.txt file</string>
-    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="aegisImportHint">Tuo aegis-export-plain.json-tiedosto</string>
+    <string name="bitwarden">Bitwarden (pelkkä teksti)</string>
+    <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
+    <string name="winAuthImportHint">Tuo winauth.txt-tiedosto</string>
+    <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Plain text list of otpauth URIs</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="viewGuideImportHint">Näytä opas projektin wikissä</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Skannaa QR-koodi</string>
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
-    <string name="guideUseCodeTitle">Use the code when logging in</string>
+    <string name="guideUseCodeTitle">Käytä koodia sisäänkirjautuessa</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
-    <string name="guideCustomiseTitle">Customise and edit</string>
+    <string name="guideCustomiseTitle">Räätälöi ja muokkaa</string>
     <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
-    <string name="guideArrangeTitle">Arrange and sort</string>
+    <string name="guideArrangeTitle">Järjestä ja lajittele</string>
     <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
     <string name="guideBackupTitle">Luo varmuuskopio</string>
     <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
@@ -209,21 +209,21 @@
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">Kytke salama</string>
     <!-- Preferences -->
     <string name="prefGeneral">Yleiset</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
-    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupTitle">Automaattinen varmuuskopiointi</string>
     <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Kieli</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
-    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
+    <string name="prefDatabasePasswordBackupTitle">Varmuuskopioi tietokannan salasanalla</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
-    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
+    <string name="prefAllowBiometricsTitle">Biometrinen avaus</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Aikakatkaisu</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
@@ -235,9 +235,9 @@
     <string name="prefViewModeTitle">Näyttötila</string>
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefCodeGroupSizeTitle">Koodiryhmien koko</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeSummary">Muuta koodin numeroiden ryhmittelyä</string>
     <string name="prefAccentColourTitle">Aksenttiväri</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefAccentColourSummary">Valitse sovelluksessa käytettävä aksenttiväri</string>
     <string name="prefTransparentStatusBarTitle">Läpinäkyvä tilapalkki</string>
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <!-- Arrays -->
