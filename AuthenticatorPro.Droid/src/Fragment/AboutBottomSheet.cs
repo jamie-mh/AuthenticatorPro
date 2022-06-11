@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Droid.Fragment
                         Resource.String.aboutSummary),
                     new SheetMenuItem(Resource.Drawable.ic_buymeacoffee, Resource.String.supportDevelopment, SupportClicked,
                         Resource.String.supportDevelopmentSummary),
-                    new SheetMenuItem(IconResolver.GetService("googleplay", isDark), Resource.String.rate,
+                    new SheetMenuItem(Resource.Drawable.ic_googleplay, Resource.String.rate,
                         RateClicked, Resource.String.rateSummary),
                     new SheetMenuItem(IconResolver.GetService("github", isDark), Resource.String.viewGitHub,
                         ViewGitHubClicked, Resource.String.viewGitHubSummary)
