@@ -23,7 +23,7 @@ Löydä todentajasi jokaisen koodin vieressä olevalla helposti tunnistettavilla
 <b>Kategoriat</b>
 Järjestä todentajasi kategorioihin.
 
-<b>Offline with few permissions</b>
+<b>Ei vaadi internet-yhteyttä, eikä montaa käyttöoikeutta</b>
 Authenticator Pro vaatii vain yhden käyttöoikeuden, eikä tarvitse internet-yhteyttä toimiakseen.
 
 <b>Mukauttaminen</b>
@@ -51,6 +51,6 @@ Kameran käyttöoikeus tarvitaan tilien lisäämiseksi QR-koodilla.
 
 <b>Vastuuvapauslauseke:</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Tämä on ilmainen sovellus: voit levittää sitä edelleen ja/tai muokata sitä Free Software Foundationin "GNU General Public License" -lisenssin 3. version (tai halutessasi uudemman) mukaisesti.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Katso lisätietoja GNU General Public Licensestä.
+Tätä ohjelmaa levitetään siinä toivossa, että se olisi hyödyllinen, mutta ILMAN MITÄÄN TAKUITA; ilman edes hiljaista takuuta kaupallisesti hyväksyttävästä laadusta tai soveltuvuudesta tiettyyn tarkoitukseen. Katso lisätietoja GNU General Public Licensestä.
