@@ -203,7 +203,7 @@
     <string name="guideArrangeTitle">Järjestä ja lajittele</string>
     <string name="guideArrangeSummary">Voit järjestää todentajasi kategorioihin löytääksesi ne helpommin. Voit siirtää niitä mihin järjestykseen tahansa painamalla ja vetämällä niitä.</string>
     <string name="guideBackupTitle">Luo varmuuskopio</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
+    <string name="guideBackupSummary">Älä menetä pääsyäsi tileillisi, jos vaihdat laitetta. Luo varmuuskopiotiedosto ja tallenna se turvalliseen paikkaan. Varmuuskopion voi suojata salasanalla ja palauttaa koska tahansa.</string>
     <string name="guideWearOSTitle">Lataa Wear OS -kumppanisovellus</string>
     <string name="guideWearOSSummary">Jos sinulla on Wear OS -kello, voit ladata sille kumppanisovelluksen. Näet koodit suoraan kellossasi.</string>
     <!-- QR code scanner -->
