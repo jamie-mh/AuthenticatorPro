@@ -53,4 +53,4 @@ Karekodlarıyla hesap eklemek için kamera izni gereklidir.
 
 Bu program özgür yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı’nın sürüm 3 ya da (isteğinize bağlı olarak) daha sonraki sürümlerinin hükümleri altında yeniden dağıtabilir ve/veya değiştirebilirsiniz.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Ayrıntılar için GNU Genel Kamu Lisansı’na göz atınız.
+Bu program, yararlı olacağı umuduyla dağıtılır ancak HERHANGİ BİR GARANTİ olmadan; hatta BELİRLİ BİR AMACA UYGUNLUK VEYA SATILABİLİRLİK HAKKINDA zımni garanti olmaksızın. Ayrıntılar için GNU Genel Kamu Lisansı’na göz atınız.

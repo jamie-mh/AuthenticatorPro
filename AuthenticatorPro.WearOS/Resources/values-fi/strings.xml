@@ -2,7 +2,7 @@
 <resources>
     <string name="displayName">Todentaja</string>
     <string name="noAuthenticators">Ei todentajia</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
+    <string name="noAuthenticatorsMessage">Ei mitään. Lisää todentajia puhelimen sovelluksesta.</string>
     <string name="hotpNotSupported">HOTP ei tueta</string>
     <string name="categoryAll">Kaikki</string>
     <string name="offline">Offline</string>
