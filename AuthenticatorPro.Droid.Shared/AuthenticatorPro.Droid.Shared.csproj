@@ -1180,6 +1180,16 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_grammarly.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_grammarly.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_grammarly.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_hackerone.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_hackerone.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_hackerone.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_hackerone.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_hackerone.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_hackerone_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_hackerone_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_hackerone_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_hackerone_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_hackerone_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_hackthebox.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_hackthebox.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_hackthebox.png"/>
