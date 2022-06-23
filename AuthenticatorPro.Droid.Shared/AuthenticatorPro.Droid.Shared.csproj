@@ -1845,6 +1845,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_netcup.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_netcup.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_netcup.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_netlify.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_netlify.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_netlify.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_netlify.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_netlify.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_newegg.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_newegg.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_newegg.png"/>

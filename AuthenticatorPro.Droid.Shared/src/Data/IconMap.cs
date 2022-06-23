@@ -287,6 +287,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "namesilo", Resource.Drawable.auth_namesilo },
             { "nationsglory", Resource.Drawable.auth_nationsglory },
             { "netcup", Resource.Drawable.auth_netcup },
+            { "netlify", Resource.Drawable.auth_netlify },
             { "newegg", Resource.Drawable.auth_newegg },
             { "nexoio", Resource.Drawable.auth_nexoio },
             { "nextcloud", Resource.Drawable.auth_nextcloud },
