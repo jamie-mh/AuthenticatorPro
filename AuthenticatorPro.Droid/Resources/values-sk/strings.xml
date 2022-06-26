@@ -169,6 +169,7 @@
     <string name="confirmPassword">Potvrdiť heslo</string>
     <string name="setupBiometricUnlock">Nastaviť biometrické odomknutie</string>
     <string name="passwordsDoNotMatch">Heslá sa nezhodujú</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Odomknutie</string>
     <string name="useBiometrics">Použiť biometriu</string>
