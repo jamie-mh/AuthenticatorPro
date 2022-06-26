@@ -169,6 +169,7 @@
     <string name="confirmPassword">パスワードを確認</string>
     <string name="setupBiometricUnlock">生体認証を設定</string>
     <string name="passwordsDoNotMatch">パスワードが一致しません</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">ロックを解除</string>
     <string name="useBiometrics">生体認証を利用</string>
