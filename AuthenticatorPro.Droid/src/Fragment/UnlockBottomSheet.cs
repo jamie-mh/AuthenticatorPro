@@ -62,7 +62,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
             if (_preferences.AllowBiometrics)
             {
-                var biometricManager = BiometricManager.From(Context);
+                var biometricManager = BiometricManager.From(RequireContext());
                 _canUseBiometrics = biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
                                     BiometricManager.BiometricSuccess;
 
@@ -124,7 +124,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private void ShowBiometricPrompt()
         {
-            var executor = ContextCompat.GetMainExecutor(Context);
+            var executor = ContextCompat.GetMainExecutor(RequireContext());
             var passwordStorage = new PasswordStorageManager(Context);
             var callback = new AuthenticationCallback();
 
