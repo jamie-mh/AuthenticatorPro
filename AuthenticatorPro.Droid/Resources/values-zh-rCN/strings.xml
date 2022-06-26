@@ -169,6 +169,7 @@
     <string name="confirmPassword">确认密码</string>
     <string name="setupBiometricUnlock">设置生物识别解锁</string>
     <string name="passwordsDoNotMatch">密码不匹配</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">解锁</string>
     <string name="useBiometrics">使用生物识别</string>
