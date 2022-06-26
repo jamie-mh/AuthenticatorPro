@@ -169,6 +169,7 @@
     <string name="confirmPassword">ยืนยันรหัสผ่าน</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
     <string name="passwordsDoNotMatch">รหัสผ่านไม่ตรงกัน</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">ปลดล็อค</string>
     <string name="useBiometrics">Use biometrics</string>
