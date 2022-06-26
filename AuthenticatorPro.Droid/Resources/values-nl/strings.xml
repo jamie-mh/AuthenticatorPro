@@ -169,6 +169,7 @@
     <string name="confirmPassword">Bevestig wachtwoord</string>
     <string name="setupBiometricUnlock">Biometrische ontgrendeling instellen</string>
     <string name="passwordsDoNotMatch">Wachtwoorden komen niet overeen</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Ontgrendelen</string>
     <string name="useBiometrics">Biometrie gebruiken</string>
