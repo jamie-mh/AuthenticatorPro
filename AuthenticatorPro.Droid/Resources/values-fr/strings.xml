@@ -169,6 +169,7 @@
     <string name="confirmPassword">Confirmation du mot de passe</string>
     <string name="setupBiometricUnlock">Configurer le déverrouillage biométrique</string>
     <string name="passwordsDoNotMatch">Les mots de passe ne correspondent pas</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Déverrouiller</string>
     <string name="useBiometrics">Utiliser la biométrie</string>
