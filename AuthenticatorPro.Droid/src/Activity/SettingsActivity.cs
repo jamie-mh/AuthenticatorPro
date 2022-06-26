@@ -55,6 +55,14 @@ namespace AuthenticatorPro.Droid.Activity
                 UpdateSecuritySettingsEnabled();
             };
 
+            // If all fingerprints have been removed the biometrics setting is still checked
+            // In case of invalid biometrics, clear the key
+            if (_preferences.AllowBiometrics && !CanUseBiometrics())
+            {
+                ClearBiometrics();
+                _preferences.AllowBiometrics = false;
+            }
+
             SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.layoutFragment, _fragment)
                 .Commit();
@@ -159,12 +167,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var biometricManager = BiometricManager.From(this);
-            var biometricsAvailable =
-                biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
-                BiometricManager.BiometricSuccess;
-            _fragment.FindPreference("pref_allowBiometrics").Enabled = biometricsAvailable;
-
+            _fragment.FindPreference("pref_allowBiometrics").Enabled = CanUseBiometrics();
             _fragment.FindPreference("pref_timeout").Enabled = true;
             _fragment.FindPreference("pref_databasePasswordBackup").Enabled = true;
         }
@@ -172,6 +175,13 @@ namespace AuthenticatorPro.Droid.Activity
         #endregion
 
         #region Biometrics
+
+        private bool CanUseBiometrics()
+        {
+            var biometricManager = BiometricManager.From(this);
+            return biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
+                BiometricManager.BiometricSuccess;
+        }
 
         public void EnableBiometrics(Action<bool> callback)
         {

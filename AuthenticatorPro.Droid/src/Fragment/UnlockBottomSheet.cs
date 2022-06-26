@@ -65,6 +65,11 @@ namespace AuthenticatorPro.Droid.Fragment
                 var biometricManager = BiometricManager.From(Context);
                 _canUseBiometrics = biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
                                     BiometricManager.BiometricSuccess;
+
+                if (!_canUseBiometrics)
+                {
+                    Toast.MakeText(Context, Resource.String.biometricsChanged, ToastLength.Long).Show();
+                }
             }
 
             _useBiometricsButton = view.FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
