@@ -5,7 +5,6 @@ using Android.Content;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Shared.Data;
-using System;
 
 namespace AuthenticatorPro.WearOS.Util
 {
