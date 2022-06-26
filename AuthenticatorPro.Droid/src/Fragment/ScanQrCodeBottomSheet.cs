@@ -24,9 +24,9 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_camera_alt, Resource.String.scanQrCodeFromCamera,
+                    new(Resource.Drawable.ic_action_camera_alt, Resource.String.scanQrCodeFromCamera,
                         FromCameraClicked),
-                    new SheetMenuItem(Resource.Drawable.ic_action_image, Resource.String.scanQrCodeFromGallery,
+                    new(Resource.Drawable.ic_action_image, Resource.String.scanQrCodeFromGallery,
                         FromGalleryClicked)
                 });
 

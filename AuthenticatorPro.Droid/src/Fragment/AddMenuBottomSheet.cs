@@ -25,11 +25,11 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, QrCodeClicked),
-                    new SheetMenuItem(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, EnterKeyClicked),
-                    new SheetMenuItem(Resource.Drawable.ic_action_restore, Resource.String.restoreBackup,
+                    new(Resource.Drawable.ic_action_qr_code, Resource.String.scanQrCode, QrCodeClicked),
+                    new(Resource.Drawable.ic_action_vpn_key, Resource.String.enterKey, EnterKeyClicked),
+                    new(Resource.Drawable.ic_action_restore, Resource.String.restoreBackup,
                         RestoreClicked),
-                    new SheetMenuItem(Resource.Drawable.ic_action_import, Resource.String.importFromOtherApps,
+                    new(Resource.Drawable.ic_action_import, Resource.String.importFromOtherApps,
                         ImportClicked)
                 });
 

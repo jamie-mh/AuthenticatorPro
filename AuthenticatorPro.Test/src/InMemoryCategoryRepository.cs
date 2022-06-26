@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Test
 {
     public class InMemoryCategoryRepository : ICategoryRepository
     {
-        private readonly List<Category> _categories = new List<Category>();
+        private readonly List<Category> _categories = new();
 
         public Task CreateAsync(Category item)
         {

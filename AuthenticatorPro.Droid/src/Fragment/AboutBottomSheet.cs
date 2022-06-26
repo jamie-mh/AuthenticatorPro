@@ -29,13 +29,13 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new SheetMenuItem(Resource.Drawable.ic_action_info_outline, Resource.String.about, AboutClicked,
+                    new(Resource.Drawable.ic_action_info_outline, Resource.String.about, AboutClicked,
                         Resource.String.aboutSummary),
-                    new SheetMenuItem(Resource.Drawable.ic_buymeacoffee, Resource.String.supportDevelopment, SupportClicked,
+                    new(Resource.Drawable.ic_buymeacoffee, Resource.String.supportDevelopment, SupportClicked,
                         Resource.String.supportDevelopmentSummary),
-                    new SheetMenuItem(Resource.Drawable.ic_googleplay, Resource.String.rate,
+                    new(Resource.Drawable.ic_googleplay, Resource.String.rate,
                         RateClicked, Resource.String.rateSummary),
-                    new SheetMenuItem(IconResolver.GetService("github", isDark), Resource.String.viewGitHub,
+                    new(IconResolver.GetService("github", isDark), Resource.String.viewGitHub,
                         ViewGitHubClicked, Resource.String.viewGitHubSummary)
                 });
 

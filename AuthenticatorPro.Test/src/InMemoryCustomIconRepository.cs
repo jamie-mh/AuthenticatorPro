@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Test
 {
     public class InMemoryCustomIconRepository : ICustomIconRepository
     {
-        private readonly List<CustomIcon> _customIcons = new List<CustomIcon>();
+        private readonly List<CustomIcon> _customIcons = new();
 
         public Task CreateAsync(CustomIcon item)
         {

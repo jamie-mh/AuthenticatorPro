@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Test
 {
     public class InMemoryAuthenticatorRepository : IAuthenticatorRepository
     {
-        private readonly List<Authenticator> _authenticators = new List<Authenticator>();
+        private readonly List<Authenticator> _authenticators = new();
 
         public Task CreateAsync(Authenticator item)
         {

@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Droid
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite |
                                               SQLiteOpenFlags.FullMutex | SQLiteOpenFlags.SharedCache;
 
-        private readonly SemaphoreSlim _lock = new SemaphoreSlim(1, 1);
+        private readonly SemaphoreSlim _lock = new(1, 1);
         private SQLiteAsyncConnection _connection;
         public bool IsOpen => _connection != null;
 
