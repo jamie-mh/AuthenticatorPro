@@ -171,6 +171,7 @@
     <string name="confirmPassword">Parolayı onayla</string>
     <string name="setupBiometricUnlock">Biyometri ile kilit açma kurulumu</string>
     <string name="passwordsDoNotMatch">Parolalar uyuşmuyor</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Kilidi Aç</string>
     <string name="useBiometrics">Biyometri kullan</string>
