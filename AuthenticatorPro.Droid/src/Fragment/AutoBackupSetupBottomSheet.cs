@@ -286,7 +286,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 .SetPositiveButton(Resource.String.disable, delegate
                 {
                     var intent = new Intent(Settings.ActionRequestIgnoreBatteryOptimizations);
-                    intent.SetData(Uri.Parse($"package:{Activity.PackageName}"));
+                    intent.SetData(Uri.Parse($"package:{Context.PackageName}"));
                     StartActivity(intent);
                 });
 
