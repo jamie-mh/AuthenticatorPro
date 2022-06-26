@@ -370,6 +370,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_barmenia.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_barmenia.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_barmenia.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_barracuda.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_barracuda.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_barracuda.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_barracuda.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_barracuda.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_basecamp.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_basecamp.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_basecamp.png"/>
@@ -625,6 +630,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_cisco.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_cisco.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_cisco.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_ciscomeraki.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_ciscomeraki.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_ciscomeraki.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_ciscomeraki.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ciscomeraki.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_clearscore.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_clearscore.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_clearscore.png"/>
@@ -1620,6 +1630,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_make.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_make.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_make.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_malwarebytes.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_malwarebytes.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_malwarebytes.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_malwarebytes.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_malwarebytes.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_mapbox.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_mapbox.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_mapbox.png"/>
@@ -2630,6 +2645,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_upwork.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_upwork.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_upwork.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_veeam.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_veeam.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_veeam.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_veeam.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_veeam.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_ventraip.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_ventraip.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_ventraip.png"/>
