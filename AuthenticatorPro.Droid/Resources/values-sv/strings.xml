@@ -169,6 +169,7 @@
     <string name="confirmPassword">Bekräfta lösenord</string>
     <string name="setupBiometricUnlock">Ställ in biometrisk upplåsning</string>
     <string name="passwordsDoNotMatch">Lösenorden är inte lika</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Lås upp</string>
     <string name="useBiometrics">Använd biometri</string>
