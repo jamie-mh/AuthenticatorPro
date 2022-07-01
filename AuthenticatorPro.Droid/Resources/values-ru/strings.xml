@@ -169,7 +169,7 @@
     <string name="confirmPassword">Подтвердить пароль</string>
     <string name="setupBiometricUnlock">Установка биометрической разблокировки</string>
     <string name="passwordsDoNotMatch">Пароли не совпадают</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">Биометрические данные устройства изменились. Введите пароль для разблокировки.</string>
     <!-- Unlock -->
     <string name="unlock">Разблокировать</string>
     <string name="useBiometrics">Использовать биометрию</string>
