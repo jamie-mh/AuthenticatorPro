@@ -169,7 +169,7 @@
     <string name="confirmPassword">Vahvista salasana</string>
     <string name="setupBiometricUnlock">Määritä biometrinen avaus</string>
     <string name="passwordsDoNotMatch">Salasanat eivät täsmää</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">Laitteen biometriikka on muuttunut. Avaa lukitus käyttämällä salasanaa.</string>
     <!-- Unlock -->
     <string name="unlock">Avaa</string>
     <string name="useBiometrics">Käytä biometriikkaa</string>
