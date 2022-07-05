@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
+    <string name="displayName">Autenticación</string>
+    <string name="noAuthenticators">No hay Autenticadores</string>
+    <string name="noAuthenticatorsMessage">Nada aquí. Agrega algunos autenticadores desde la aplicación del teléfono.</string>
+    <string name="hotpNotSupported">HOTP no soportado</string>
+    <string name="categoryAll">Todo</string>
+    <string name="offline">Sin conexión</string>
 </resources>
