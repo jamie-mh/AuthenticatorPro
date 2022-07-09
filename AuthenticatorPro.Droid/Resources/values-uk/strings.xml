@@ -27,13 +27,13 @@
     <string name="changeIcon">Змінити іконку</string>
     <string name="search">Шукати</string>
     <string name="mainMenu">Головне меню</string>
-    <string name="enterKey">Enter a provided key</string>
+    <string name="enterKey">Введіть таємний ключ</string>
     <string name="restoreBackup">Відновити резервну копію</string>
     <string name="sort">Сортування</string>
     <string name="sortAZ">За алфавітом (А-Я)</string>
     <string name="sortZA">За алфавітом (Я-А)</string>
     <string name="sortCustom">Вручну</string>
-    <string name="aboutSummary">View about and licence information</string>
+    <string name="aboutSummary">Інформація про застосунок та ліцензії</string>
     <string name="supportDevelopment">Підтримати розробку</string>
     <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Оцінити</string>
@@ -75,7 +75,7 @@
     <string name="uriCopiedToClipboard">Збережено у буфері</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервне копіювання у зашифрований файл (рекомендовано)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupToFileMessage">Збережіть всі ваші автентифікатори, категорії та іконки до зашифрованого файлу резервної копії. Цей файл можна буде відновити в додатку.</string>
     <string name="backupHtml">Резервне копіювання до HTML файлу</string>
     <string name="backupHtmlMessage">Зберегти ваші автетифікатори до зашифрованого HTML документу з QR кодами. Кожен такий код має бути відсканований окремо. Категорії та іконки не збережуться.</string>
     <string name="backupHtmlWarning">Резервні копії в HTML файли зберігаються незашифровані та наражають на небезпеку ваші секретні ключі.\n\nТакий файл неможливо імпортувати до застосунку та він не містить категорій та іконок. Якщо сумніваєтесь, то оберіть зашифровану резервну копію.\n\nПродовжити?</string>
@@ -86,7 +86,7 @@
     <string name="noAuthenticatorsTitle">Nothing here!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
     <string name="gettingStartedGuide">Посібник для початківця</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
+    <string name="noAuthenticatorsHelp">Якщо ви новачок в Authenticator Pro, перегляньте інструкцію, натиснувши нижче.</string>
     <string name="noCategoriesTitle">Немає категорій</string>
     <string name="noCategoriesMessage">У вас ще немає жодної категорії</string>
     <!-- Categories -->
@@ -99,8 +99,8 @@
     <string name="noCategoryName">Потрібна назва категорії</string>
     <string name="duplicateCategory">Категорія з такою назвою вже існує</string>
     <string name="confirmCategoryDelete">Ви впевнені, що хочете видалити цю категорію?</string>
-    <string name="setAsDefault">Set as default</string>
-    <string name="clearDefault">Clear default</string>
+    <string name="setAsDefault">Встановити за замовчуванням</string>
+    <string name="clearDefault">Очистити налаштування за замовчуванням</string>
     <!-- Backups -->
     <string name="backupNow">Зробити резервну копію</string>
     <string name="restoreNow">Відновити</string>
@@ -117,21 +117,21 @@
     <string name="decrypting">Дешифрування</string>
     <string name="saving">Збереження</string>
     <string name="saveSuccess">Успішно збережено</string>
-    <string name="backupSuccess">Saved backup as \'{0}\'</string>
-    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
-    <string name="restoredNothing">Nothing to restore</string>
-    <string name="restoredFromMigration">Restored {0} new authenticators</string>
+    <string name="backupSuccess">Резервну копію збережено як \'{0}\'</string>
+    <string name="restoredFromBackup">Відновлено {0} нових автентифікаторів та {1} нових категорій</string>
+    <string name="restoredFromBackupUpdated">Відновлено {0} нових автентифікаторів та {1} нових категорій. Оновлено {2} існуючих автентифікаторів.</string>
+    <string name="restoredNothing">Немає що відновлювати</string>
+    <string name="restoredFromMigration">Відновлено {0} нових автентифікаторів</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
-    <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
-    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
-    <string name="filePickError">Error picking file</string>
+    <string name="cameraPermissionError">Для зчитування QR-коду потрібний дозвіл до камери</string>
+    <string name="googlePlayNotInstalledError">Google Play не встановлений на вашому пристрої</string>
+    <string name="filePickerMissing">Не вдалося відкрити вікно вибору файлу. Будь ласка, встановіть менеджер файлів.</string>
+    <string name="filePickError">Помилка вибору файлу</string>
     <string name="invalidFileError">Вибраний файл не є файлом резервної копії Authenticator Pro</string>
     <string name="webBrowserMissing">Браузер не встановлено</string>
     <string name="emailClientMissing">Не встановлено жодного клієнта електронної пошти</string>
     <string name="genericError">Виникла помилка</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="databaseError">Сталася помилка під час відкриття бази даних. Спробуйте перезапустити застосунок. Якщо проблема залишиться, очистіть дані застосунку та відновіть останню резервну копію.\n\nАбо ви можете відправити звіт про помилку.</string>
     <string name="viewErrorLog">Переглянути журнал помилок</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Виникла помилка в програмі. Нижче наведено деталі помилки:</string>
@@ -150,25 +150,25 @@
     <string name="notPasswordProtected">Не захищено паролем</string>
     <string name="enableAutoBackup">Увімкнути автоматичне резервне копіювання</string>
     <string name="enableAutoBackupMessage">Автоматичне резервне копіювання до вибраного місця</string>
-    <string name="enableAutoRestore">Enable Auto Restore</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
+    <string name="enableAutoRestore">Увімкнути автоматичне відновлення</string>
+    <string name="enableAutoRestoreMessage">Автоматично відновлювати останню резервну копію, що лежить у вибраній папці сховища. Корисно для синхронізації між пристроями.</string>
     <string name="batOptim">Оптимізація батареї</string>
     <string name="disableBatOptimMessage">На деяких пристроях, налаштування живлення можуть перешкоджати коректній роботі резервних копій. Якщо у вас виникли проблеми, спробуйте вимкнути оптимізацію батареї для Authenticator Pro.</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-    <string name="autoRestoreFailureTitle">Auto Restore failed</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
-    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
-    <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
-    <string name="backupScheduled">Backup scheduled</string>
-    <string name="restoreScheduled">Restore scheduled</string>
+    <string name="autoBackupFailureTitle">Помилка автоматичного резервного копіювання</string>
+    <string name="autoBackupFailureText">Останнє резервне копіювання не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища. Спробуйте встановити розташування резервної копії ще раз в налаштуваннях резервного копіювання.</string>
+    <string name="autoRestoreFailureTitle">Помилка автоматичного відновлення</string>
+    <string name="autoRestoreFailureText">Останнє автоматичне відновлення не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища або вказано невірний пароль. Спробуйте встановити розташування резервної копії та пароль ще раз в налаштуваннях резервного копіювання.</string>
+    <string name="autoBackupSuccessTitle">Авторезервування завершено</string>
+    <string name="autoRestoreSuccessTitle">Автовідновлення завершено</string>
+    <string name="backupScheduled">Резервне копіювання заплановано</string>
+    <string name="restoreScheduled">Відновлення заплановано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
     <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
-    <string name="clearPassword">Clear password</string>
-    <string name="confirmPassword">Confirm password</string>
-    <string name="setupBiometricUnlock">Setup biometric unlock</string>
-    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <string name="clearPassword">Стерти пароль</string>
+    <string name="confirmPassword">Підтвердити пароль</string>
+    <string name="setupBiometricUnlock">Налаштувати біометричне розблокування</string>
+    <string name="passwordsDoNotMatch">Паролі не збігаються</string>
     <string name="biometricsChanged">Біометрія пристрою змінилася. Введіть пароль для розблокування.</string>
     <!-- Unlock -->
     <string name="unlock">Розблокувати</string>
@@ -178,22 +178,22 @@
     <string name="passwordIncorrect">Неправильний пароль</string>
     <string name="tooManyAttempts">Зроблено забагато спроб</string>
     <!-- Import -->
-    <string name="importFromOtherApps">Import from other apps</string>
-    <string name="importFrom">Import from</string>
-    <string name="importError">The file could not be imported</string>
+    <string name="importFromOtherApps">Імпортувати з інших додатків</string>
+    <string name="importFrom">Імпортувати з</string>
+    <string name="importError">Файл не вдалося імпортувати</string>
     <string name="authenticatorPlusImportHint">Імпортувати файл authplus.db</string>
     <string name="andOtp">andOTP (простий текст)</string>
     <string name="andOtpImportHint">Імпортувати текстовий файл otp_accounts.json</string>
-    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="freeOtpPlusImportHint">Імпортувати файл freeotp-backup.json</string>
     <string name="aegis">Aegis (звичайний текст)</string>
     <string name="aegisImportHint">Імпортувати файл aegis-export-plain.json</string>
     <string name="bitwarden">Bitwarden (звичайний текст)</string>
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
     <string name="winAuthImportHint">Імпортувати файл winauth.txt</string>
     <string name="totpAuthenticatorImportHint">Імпортувати файл TOTP_backup.encrypt</string>
-    <string name="uriList">URI list</string>
+    <string name="uriList">Перелік URI</string>
     <string name="uriListHint">Простий текстовий список URI otpauth://</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="viewGuideImportHint">Переглянути керівництво на вікі проекту</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Зчитати QR код</string>
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
@@ -210,7 +210,7 @@
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">Перемкнути ліхтарик</string>
     <!-- Preferences -->
     <string name="prefGeneral">Загальні</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
@@ -239,8 +239,8 @@
     <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefAccentColourTitle">Основний колір</string>
     <string name="prefAccentColourSummary">Оберіть основний колір, який буде використано в усьому додатку</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefTransparentStatusBarTitle">Прозора панель стану</string>
+    <string name="prefTransparentStatusBarSummary">Зробити список видимим за панеллю стану при прокрутці</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основі часу (TOTP)</string>
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>
@@ -254,9 +254,9 @@
     <string name="systemDefault">Система тема</string>
     <string name="lightTheme">Світла тема</string>
     <string name="darkTheme">Темна тема</string>
-    <string name="defaultViewMode">Default</string>
-    <string name="compactViewMode">Compact</string>
-    <string name="tileViewMode">Tile</string>
+    <string name="defaultViewMode">За замовчуванням</string>
+    <string name="compactViewMode">Компактний</string>
+    <string name="tileViewMode">Плитками</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
@@ -284,9 +284,9 @@
     <string name="introBackupTitle">Резервна копія / Відновлення</string>
     <string name="introCategoriesTitle">Категорії</string>
     <string name="introThemesTitle">Темна тема</string>
-    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
+    <string name="introWelcomeSummary">Дякуємо що завантажили аутентифікації Pro.\nТримайте ваші облікові записи в Інтернеті захищеними з найкращим додатком аутентифікації з відкритим вихідним кодом.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro сумісний з більшістю сервісів та облікових записів. Він на 100% сумісний з сервісами, що підтримують Google Authenticator.</string>
+    <string name="introBackupSummary">Резервне копіювання ваших автентифікаторів з міцним шифруванням. У випадку втрати пристрою, ви не втратите доступ до облікових записів. Збережіть на хмарному сховищі або до пристрою.</string>
+    <string name="introCategoriesSummary">Організуйте ваші автентифікатори по категоріях. Змінюйте порядок за допомогою простого утримання і перетягування.</string>
+    <string name="introThemesSummary">У разі потреби, ви можете увімкнути темну тему в налаштуваннях. Усі піктограми адаптуються до нового фону.</string>
 </resources>
