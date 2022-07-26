@@ -160,8 +160,8 @@
     <string name="autoBackupFailureText">La copia de seguridad automática más reciente no se ha completado. Los permisos de archivo podrían haber expirado, intente configurar de nuevo la ubicación de la copia de seguridad en la configuración de la copia automática.</string>
     <string name="autoRestoreFailureTitle">Restauración automática falló</string>
     <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
-    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
-    <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
+    <string name="autoBackupSuccessTitle">Copia automática completada</string>
+    <string name="autoRestoreSuccessTitle">Auto restauración completada</string>
     <string name="backupScheduled">Copia de seguridad programada</string>
     <string name="restoreScheduled">Restauración programada</string>
     <!-- Password setup -->
@@ -177,11 +177,11 @@
     <string name="useBiometrics">Usar biometría</string>
     <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
     <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
-    <string name="passwordIncorrect">Password is incorrect</string>
-    <string name="tooManyAttempts">Too many attempts</string>
+    <string name="passwordIncorrect">La contraseña es incorrecta</string>
+    <string name="tooManyAttempts">Demasiados intentos</string>
     <!-- Import -->
-    <string name="importFromOtherApps">Import from other apps</string>
-    <string name="importFrom">Import from</string>
+    <string name="importFromOtherApps">Importar desde otras aplicaciones</string>
+    <string name="importFrom">Importar desde</string>
     <string name="importError">The file could not be imported</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
     <string name="andOtp">andOTP (plain-text)</string>
@@ -230,9 +230,9 @@
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
-    <string name="prefTimeoutTitle">Timeout</string>
+    <string name="prefTimeoutTitle">Tiempo agotado</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealTitle">Pulsar para revelar</string>
     <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
     <string name="prefAppearance">Apariencia</string>
     <string name="prefThemeTitle">Tema</string>
@@ -249,8 +249,8 @@
     <string name="authTypeTime">Basado en tiempo (TOTP)</string>
     <string name="authTypeCounter">Basado en Contador (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predeterminado)</string>
-    <string name="immediately">Immediately</string>
-    <string name="timeout30Sec">30 seconds</string>
+    <string name="immediately">Inmediatamente</string>
+    <string name="timeout30Sec">30 segundos</string>
     <string name="timeout1Min">1 minuto</string>
     <string name="timeout2Min">2 minutos</string>
     <string name="timeout5Min">5 minutos</string>
