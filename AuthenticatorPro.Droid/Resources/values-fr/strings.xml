@@ -46,7 +46,7 @@
     <string name="secretKey">Clé secrète</string>
     <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
-    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l’authentification à deux facteurs est désactivée.\n\nLa suppression de cet authentificateur pourrait vous empêcher d\'accéder à votre compte.\nVeillez à ce que l’authentification en 2 étapes soit désactivée ou que vous disposez des codes de récupération.\n\nContinuer?</string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée.\n\nLa suppression de cet authentificateur pourrait vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes soit désactivée ou que vous disposez des codes de récupération.\n\nContinuer?</string>
     <string name="useCustomIcon">Utiliser une icône personnalisée</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="issuerHint">Émetteur (ex: Google)</string>
@@ -123,7 +123,7 @@
     <string name="restoredNothing">Rien à restaurer</string>
     <string name="restoredFromMigration">{0} nouveaux authentificateurs ont étés restaurés</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">L’autorisation d\'accéder à la caméra doit être approuvée pour pouvoir scanner un QR code</string>
+    <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra doit être approuvée pour pouvoir scanner un QR code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
@@ -132,7 +132,7 @@
     <string name="emailClientMissing">Aucun client mail n\'est installé</string>
     <string name="genericError">Une erreur s\'est produite</string>
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application. Si le problème persiste, effacez les données de l\'application et restaurez votre dernière sauvegarde.\n\nVous pouvez également envoyer un rapport d\'erreur.</string>
-    <string name="viewErrorLog">Afficher le journal d’erreur</string>
+    <string name="viewErrorLog">Afficher le journal d\'erreur</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Une erreur s\'est produite dans l\'application. Les détails de l\'erreur se trouvent ci-dessous :</string>
     <string name="report">Signaler</string>
@@ -223,7 +223,7 @@
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
     <string name="prefDatabasePasswordBackupTitle">Sauvegarder avec le mot de passe de la base de données</string>
-    <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes en utilisant le mot de passe de la base de données, vous n’aurez donc pas à le saisir à chaque fois</string>
+    <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes en utilisant le mot de passe de la base de données, vous n\'aurez donc pas à le saisir à chaque fois</string>
     <string name="prefAllowBiometricsTitle">Déverrouillage Biométrique</string>
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
