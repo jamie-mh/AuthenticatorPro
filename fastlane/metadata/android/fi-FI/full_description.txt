@@ -33,7 +33,7 @@ Aseta kuvakkeet ja uudelleennimeä. Voit myös järjestää todentajasi haluamal
 Authenticator Pro on myös saatavilla Wear OS -kumppanisovelluksena. Näet todentajasi nopeasti suoraan kellostasi.
 
 <b>Turvallisuus</b>
-Aseta salasana ja käytä biometriikkaa koodiesi suojaamiseen.
+Set a password and use biometric authentification to protect your codes.
 
 <b>Avoin lähdekoodi</b>
 Kuka tahansa voi tarkastella sovelluksen lähdekoodia GitHubissa.
