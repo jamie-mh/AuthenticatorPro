@@ -169,12 +169,12 @@
     <string name="confirmPassword">Vahvista salasana</string>
     <string name="setupBiometricUnlock">Määritä biometrinen avaus</string>
     <string name="passwordsDoNotMatch">Salasanat eivät täsmää</string>
-    <string name="biometricsChanged">Laitteen biometriikka on muuttunut. Avaa lukitus käyttämällä salasanaa.</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Avaa</string>
-    <string name="useBiometrics">Käytä biometriikkaa</string>
-    <string name="unlockMessage">Avaa tietokanta syöttämällä salasanasi tai käyttämällä biometriikkaa</string>
-    <string name="unlockBiometricsMessage">Käytä biometriikkaa päästäksesi käsiksi todentajiisi</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
     <string name="passwordIncorrect">Salasana on virheellinen</string>
     <string name="tooManyAttempts">Liian monta yritystä</string>
     <!-- Import -->
@@ -225,7 +225,7 @@
     <string name="prefDatabasePasswordBackupTitle">Varmuuskopioi tietokannan salasanalla</string>
     <string name="prefDatabasePasswordBackupSummary">Salaa kaikki varmuuskopiot tietokannan salasanalla, jottei sinun tarvitse syöttää sitä joka kerta</string>
     <string name="prefAllowBiometricsTitle">Biometrinen avaus</string>
-    <string name="prefAllowBiometricsSummary">Salli tietokannan avaaminen biometriikalla</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Aikakatkaisu</string>
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>
