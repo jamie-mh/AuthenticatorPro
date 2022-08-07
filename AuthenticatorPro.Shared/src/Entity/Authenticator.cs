@@ -71,6 +71,7 @@ namespace AuthenticatorPro.Shared.Entity
                 AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits),
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits),
                 AuthenticatorType.SteamOtp => new SteamOtp(Secret),
+                AuthenticatorType.YandexOtp => new YandexOtp(Secret),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
 
@@ -369,7 +370,7 @@ namespace AuthenticatorPro.Shared.Entity
 
         public static string CleanSecret(string input, AuthenticatorType type)
         {
-            if (type.IsHmacBased())
+            if (type.HasBase32Secret())
             {
                 input = input.ToUpper();
             }
@@ -387,12 +388,15 @@ namespace AuthenticatorPro.Shared.Entity
                 return false;
             }
 
-            if (type.IsHmacBased())
+            if (type.HasBase32Secret())
             {
                 try
                 {
                     var output = Base32.Rfc4648.Decode(secret);
-                    return output.Length > 0;
+
+                    return type == AuthenticatorType.YandexOtp
+                        ? output.Length >= YandexOtp.SecretByteCount
+                        : output.Length > 0;
                 }
                 catch
                 {

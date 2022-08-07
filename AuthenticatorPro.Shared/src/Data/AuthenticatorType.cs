@@ -26,7 +26,7 @@ namespace AuthenticatorPro.Shared.Data
             };
         }
 
-        public static bool IsHmacBased(this AuthenticatorType type)
+        public static bool HasBase32Secret(this AuthenticatorType type)
         {
             return type switch
             {
@@ -34,6 +34,45 @@ namespace AuthenticatorPro.Shared.Data
                 AuthenticatorType.Totp => true,
                 AuthenticatorType.MobileOtp => false,
                 AuthenticatorType.SteamOtp => true,
+                AuthenticatorType.YandexOtp => true,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
+
+        public static bool HasVariableAlgorithm(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Hotp => true,
+                AuthenticatorType.Totp => true,
+                AuthenticatorType.MobileOtp => false,
+                AuthenticatorType.SteamOtp => false,
+                AuthenticatorType.YandexOtp => false,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
+
+        public static bool HasVariablePeriod(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Hotp => true,
+                AuthenticatorType.Totp => true,
+                AuthenticatorType.MobileOtp => true,
+                AuthenticatorType.SteamOtp => false,
+                AuthenticatorType.YandexOtp => false,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
+
+        public static bool HasPin(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Hotp => false,
+                AuthenticatorType.Totp => false,
+                AuthenticatorType.MobileOtp => true,
+                AuthenticatorType.SteamOtp => false,
                 AuthenticatorType.YandexOtp => true,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
@@ -71,6 +110,32 @@ namespace AuthenticatorPro.Shared.Data
                 AuthenticatorType.MobileOtp => 10,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
                 AuthenticatorType.YandexOtp => YandexOtp.Digits,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
+
+        public static int GetMinPinLength(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Totp => throw new NotSupportedException(),
+                AuthenticatorType.Hotp => throw new NotSupportedException(),
+                AuthenticatorType.MobileOtp => MobileOtp.PinLength,
+                AuthenticatorType.SteamOtp => throw new NotSupportedException(),
+                AuthenticatorType.YandexOtp => 4,
+                _ => throw new ArgumentOutOfRangeException(nameof(type))
+            };
+        }
+
+        public static int GetMaxPinLength(this AuthenticatorType type)
+        {
+            return type switch
+            {
+                AuthenticatorType.Totp => throw new NotSupportedException(),
+                AuthenticatorType.Hotp => throw new NotSupportedException(),
+                AuthenticatorType.MobileOtp => MobileOtp.PinLength,
+                AuthenticatorType.SteamOtp => throw new NotSupportedException(),
+                AuthenticatorType.YandexOtp => 16,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
             };
         }

@@ -5,6 +5,7 @@
         <item>@string/authTypeCounter</item>
         <item>@string/authTypeMobileOtp</item>
         <item>@string/authTypeSteam</item>
+        <item>@string/authTypeYandex</item>
     </string-array>
     <string-array name="authAlgorithms">
         <item>@string/authAlgorithmSHA1</item>

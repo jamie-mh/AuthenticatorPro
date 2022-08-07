@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         [InlineData("JBGSAU4G7IEZG6OY4UAXX62JU4AAAAAAHTSG4HXU3M", "5210481216086702", 1581093059, "vunyprpd")]
         public void ComputeTest(string secret, string pin, long offset, string expectedResult)
         {
-            var combinedSecret = YandexOtp.GetCombinedPinSecret(secret, pin);
+            var combinedSecret = YandexOtp.GetCombinedSecretPin(secret, pin);
             var yandexOtp = new YandexOtp(combinedSecret);
 
             Assert.Equal(expectedResult, yandexOtp.Compute(offset));

@@ -12,6 +12,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
     public class YandexOtp : IGenerator, IDisposable
     {
         public const int Digits = 8;
+        public const int SecretByteCount = 16;
         private const int Period = 30;
 
         private readonly HMAC _hmac;
@@ -31,14 +32,19 @@ namespace AuthenticatorPro.Shared.Data.Generator
             _hmac = new HMACSHA256(key);
         }
 
-        public static string GetCombinedPinSecret(string secret, string pin)
+        public static string GetCombinedSecretPin(string secret, string pin)
         {
             var pinBytes = Encoding.UTF8.GetBytes(pin);
             var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
 
-            var combined = new byte[pinBytes.Length + 16];
+            if (secretBytes.Length < SecretByteCount)
+            {
+                throw new ArgumentException("Secret too short");
+            }
+
+            var combined = new byte[pinBytes.Length + SecretByteCount];
             Buffer.BlockCopy(pinBytes, 0, combined, 0, pinBytes.Length);
-            Buffer.BlockCopy(secretBytes, secretBytes.Length - 26, combined, pinBytes.Length, 16);
+            Buffer.BlockCopy(secretBytes, 0, combined, pinBytes.Length, SecretByteCount);
 
             return Base32.Rfc4648.Encode(combined);
         }
