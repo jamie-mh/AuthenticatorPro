@@ -290,7 +290,7 @@
             <Version>2.4.1.2</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Preference">
             <Version>1.2.0.2</Version>
