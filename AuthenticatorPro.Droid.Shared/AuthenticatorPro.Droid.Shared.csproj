@@ -2585,6 +2585,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_sony_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_sony_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_sony_dark.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_sophos.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_sophos.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_sophos.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_sophos.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_sophos.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_sourceforge.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_sourceforge.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_sourceforge.png"/>

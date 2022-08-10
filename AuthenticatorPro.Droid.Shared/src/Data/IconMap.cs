@@ -416,6 +416,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "sogo", Resource.Drawable.auth_sogo },
             { "solarwinds", Resource.Drawable.auth_solarwinds },
             { "sony", Resource.Drawable.auth_sony },
+            { "sophos", Resource.Drawable.auth_sophos },
             { "sourceforge", Resource.Drawable.auth_sourceforge },
             { "sproutsocial", Resource.Drawable.auth_sproutsocial },
             { "square", Resource.Drawable.auth_square },
