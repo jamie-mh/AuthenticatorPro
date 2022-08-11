@@ -134,6 +134,7 @@ namespace AuthenticatorPro.Droid.Activity
         private DateTime _lastBackupReminderTime;
 
         private bool _preventBackupReminder;
+        private bool _unlockFragmentOpen;
         private bool _shouldLoadFromPersistenceOnNextOpen;
         private int _customIconApplyPosition;
 
@@ -251,10 +252,17 @@ namespace AuthenticatorPro.Droid.Activity
                 // Locked and has password, wait for unlock in unlockbottomsheet
                 case false when _preferences.PasswordProtected:
                 {
+                    if (_unlockFragmentOpen)
+                    {
+                        break;
+                    }
+
                     var fragment = new UnlockBottomSheet();
                     fragment.UnlockAttempted += OnUnlockAttempted;
                     fragment.Dismissed += delegate
                     {
+                        _unlockFragmentOpen = false;
+
                         if (!_database.IsOpen)
                         {
                             Finish();
@@ -262,6 +270,8 @@ namespace AuthenticatorPro.Droid.Activity
                     };
 
                     fragment.Show(SupportFragmentManager, fragment.Tag);
+                    _unlockFragmentOpen = true;
+
                     break;
                 }
 
@@ -650,6 +660,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
+            _unlockFragmentOpen = false;
             RunOnUiThread(delegate { fragment.Dismiss(); });
             await OnDatabaseOpened();
         }

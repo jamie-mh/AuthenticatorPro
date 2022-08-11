@@ -311,7 +311,8 @@ namespace AuthenticatorPro.Droid.Adapter
                 _counterCooldownOffsets.Remove(position);
             }
 
-            var timerUpdate = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = false };
+            var noAnimationProgressUpdate
+                = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = false };
 
             for (var i = 0; i < ItemCount; ++i)
             {
@@ -329,7 +330,7 @@ namespace AuthenticatorPro.Droid.Adapter
                 {
                     if (_animationScale == 0 && ValidatePosition(i))
                     {
-                        NotifyItemChanged(i, timerUpdate);
+                        NotifyItemChanged(i, noAnimationProgressUpdate);
                     }
 
                     continue;
@@ -348,7 +349,7 @@ namespace AuthenticatorPro.Droid.Adapter
                 UpdateGenerationOffset(_offsetsToUpdate.Dequeue(), now);
             }
 
-            timerUpdate.RequiresGeneration = true;
+            var expiredCodeUpdate = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = true };
 
             while (_positionsToUpdate.Count > 0)
             {
@@ -356,7 +357,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
                 if (ValidatePosition(position))
                 {
-                    NotifyItemChanged(position, timerUpdate);
+                    NotifyItemChanged(position, expiredCodeUpdate);
                 }
             }
         }
