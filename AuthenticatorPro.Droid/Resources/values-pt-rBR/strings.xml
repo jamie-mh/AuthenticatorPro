@@ -61,12 +61,14 @@
     <string name="noPin">Um pin é obrigatório</string>
     <string name="noFileName">Um nome do arquivo é obrigatório</string>
     <string name="secretInvalid">A senha está incorreta</string>
-    <string name="pinInvalid">O pin deve ter 4 caracteres</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
     <string name="periodInvalid">A senha está incorreta</string>
     <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- QR code dialog -->
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicativo escaneando o código QR</string>
