@@ -61,12 +61,14 @@
     <string name="noPin">Een pincode is verplicht</string>
     <string name="noFileName">Bestandsnaam is vereist</string>
     <string name="secretInvalid">Secret is ongeldig</string>
-    <string name="pinInvalid">De pin moet 4 tekens lang zijn</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">De authenticator moet tussen {0} en {1} cijfers genereren</string>
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Kopieer deze authenticator naar een ander apparaat of app door de QR code te scannen</string>
