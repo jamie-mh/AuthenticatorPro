@@ -93,8 +93,6 @@ namespace AuthenticatorPro.Droid.Fragment
             _usernameLayout.CounterMaxLength = Authenticator.UsernameMaxLength;
             _usernameText.SetFilters(
                 new IInputFilter[] { new InputFilterLengthFilter(Authenticator.UsernameMaxLength) });
-            _pinLayout.CounterMaxLength = MobileOtp.PinLength;
-            _pinText.SetFilters(new IInputFilter[] { new InputFilterLengthFilter(MobileOtp.PinLength) });
 
             var typeAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.authTypes,
                 Resource.Layout.listItemDropdown);
@@ -144,28 +142,38 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private void OnTypeItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            _type = e.Position switch
-            {
-                1 => AuthenticatorType.Hotp,
-                2 => AuthenticatorType.MobileOtp,
-                3 => AuthenticatorType.SteamOtp,
-                _ => AuthenticatorType.Totp
-            };
+            _type = (AuthenticatorType) e.Position + 1;
 
             _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Time
                 ? ViewStates.Visible
                 : ViewStates.Invisible;
 
-            _algorithmLayout.Visibility = _type.IsHmacBased()
+            _algorithmLayout.Visibility = _type.HasVariableAlgorithm()
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            _pinLayout.Visibility = _type == AuthenticatorType.MobileOtp
+            _pinLayout.Visibility = _type.HasPin()
                 ? ViewStates.Visible
                 : ViewStates.Gone;
+
+            if (_type.HasPin())
+            {
+                _pinLayout.CounterMaxLength = _type.GetMaxPinLength();
+                _pinText.SetFilters(new IInputFilter[] { new InputFilterLengthFilter(_type.GetMaxPinLength()) });
+            }
+
+            var hasVariableDigits = _type.GetMinDigits() != _type.GetMaxDigits();
 
             _advancedLayout.Visibility = ViewStates.Gone;
-            _advancedButton.Visibility = _type != AuthenticatorType.SteamOtp
+            _advancedButton.Visibility = hasVariableDigits || _type.HasVariablePeriod()
+                ? ViewStates.Visible
+                : ViewStates.Gone;
+
+            _digitsLayout.Visibility = hasVariableDigits
+                ? ViewStates.Visible
+                : ViewStates.Gone;
+
+            _periodLayout.Visibility = _type.HasVariablePeriod()
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
@@ -203,16 +211,23 @@ namespace AuthenticatorPro.Droid.Fragment
             var username = _usernameText.Text.Trim();
             var pin = _pinText.Text.Trim();
 
-            if (_type == AuthenticatorType.MobileOtp)
+            if (_type.HasPin())
             {
                 if (pin == "")
                 {
                     _pinLayout.Error = GetString(Resource.String.noPin);
                     isValid = false;
                 }
-                else if (pin.Length < MobileOtp.PinLength)
+                else if (pin.Length < _type.GetMinPinLength())
                 {
-                    _pinLayout.Error = GetString(Resource.String.pinInvalid);
+                    var error = String.Format(GetString(Resource.String.pinTooShort), _type.GetMinPinLength());
+                    _pinLayout.Error = error;
+                    isValid = false;
+                }
+                else if (pin.Length > _type.GetMaxPinLength())
+                {
+                    var error = String.Format(GetString(Resource.String.pinTooLong), _type.GetMaxPinLength());
+                    _pinLayout.Error = error;
                     isValid = false;
                 }
             }
@@ -223,11 +238,6 @@ namespace AuthenticatorPro.Droid.Fragment
             {
                 _secretLayout.Error = GetString(Resource.String.noSecret);
                 isValid = false;
-            }
-
-            if (_type == AuthenticatorType.MobileOtp)
-            {
-                secret += pin;
             }
 
             secret = Authenticator.CleanSecret(secret, _type);
@@ -269,7 +279,8 @@ namespace AuthenticatorPro.Droid.Fragment
                 Period = period,
                 Icon = _iconResolver.FindServiceKeyByName(issuer),
                 Ranking = 0,
-                Secret = secret
+                Secret = secret,
+                Pin = pin == "" ? null : pin
             };
 
             AddClicked?.Invoke(this, auth);

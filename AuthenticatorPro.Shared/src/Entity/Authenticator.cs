@@ -35,6 +35,8 @@ namespace AuthenticatorPro.Shared.Entity
 
         [Column("secret")] [PrimaryKey] public string Secret { get; set; }
 
+        [Column("pin")] public string Pin { get; set; }
+
         [Column("algorithm")] public HashAlgorithm Algorithm { get; set; }
 
         [Column("digits")] public int Digits { get; set; }
@@ -69,8 +71,9 @@ namespace AuthenticatorPro.Shared.Entity
             {
                 AuthenticatorType.Totp => new Totp(Secret, Period, Algorithm, Digits),
                 AuthenticatorType.Hotp => new Hotp(Secret, Algorithm, Digits),
-                AuthenticatorType.MobileOtp => new MobileOtp(Secret, Digits),
+                AuthenticatorType.MobileOtp => new MobileOtp(Secret, Pin),
                 AuthenticatorType.SteamOtp => new SteamOtp(Secret),
+                AuthenticatorType.YandexOtp => new YandexOtp(Secret, Pin),
                 _ => throw new ArgumentException("Unknown authenticator type.")
             };
 
@@ -183,18 +186,40 @@ namespace AuthenticatorPro.Shared.Entity
             return auth;
         }
 
-        public static Authenticator FromOtpAuthUri(string uri, IIconResolver iconResolver)
+        private static UriParseResult ParseMotpUri(string uri, IIconResolver iconResolver)
+        {
+            var match = Regex.Match(Uri.UnescapeDataString(uri), @"^motp:\/\/(.*?):(.*?)\?secret=([a-fA-F\d]+)$");
+
+            if (!match.Success || match.Groups.Count < 4)
+            {
+                throw new ArgumentException("URI is not a valid mOTP");
+            }
+
+            var issuer = match.Groups[1].Value;
+            var icon = iconResolver.FindServiceKeyByName(issuer);
+
+            var auth = new Authenticator
+            {
+                Type = AuthenticatorType.MobileOtp,
+                Issuer = issuer,
+                Icon = icon,
+                Username = match.Groups[2].Value,
+                Secret = match.Groups[3].Value,
+                Digits = MobileOtp.Digits,
+                Period = AuthenticatorType.MobileOtp.GetDefaultPeriod()
+            };
+
+            return new UriParseResult { Authenticator = auth, PinLength = MobileOtp.PinLength };
+        }
+
+        private static UriParseResult ParseOtpAuthUri(string uri, IIconResolver iconResolver)
         {
             var uriMatch = Regex.Match(Uri.UnescapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/([^?]*)(.*)$");
 
             if (!uriMatch.Success)
             {
-                throw new ArgumentException("URI is not valid");
+                throw new ArgumentException("URI is not a valid otpauth");
             }
-
-            // Get the issuer and username if possible
-            var issuerUsername = uriMatch.Groups[2].Value;
-            var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*?):(.*)$");
 
             var queryString = uriMatch.Groups[3].Value;
 
@@ -208,6 +233,10 @@ namespace AuthenticatorPro.Shared.Entity
                     args.Add(match.Groups[1].Value, match.Groups[3].Value);
                 }
             }
+
+            // Get the issuer and username if possible
+            var issuerUsername = uriMatch.Groups[2].Value;
+            var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*?):(.*)$");
 
             string issuer;
             string username;
@@ -247,12 +276,19 @@ namespace AuthenticatorPro.Shared.Entity
                 "totp" when issuer == "Steam" || args.ContainsKey("steam") => AuthenticatorType.SteamOtp,
                 "totp" => AuthenticatorType.Totp,
                 "hotp" => AuthenticatorType.Hotp,
+                "yaotp" => AuthenticatorType.YandexOtp,
                 _ => throw new ArgumentException("Unknown type")
             };
 
+            if (type == AuthenticatorType.YandexOtp)
+            {
+                issuer = "Yandex";
+                username = issuerUsername;
+            }
+
             var algorithm = DefaultAlgorithm;
 
-            if (args.ContainsKey("algorithm") && type != AuthenticatorType.SteamOtp)
+            if (args.ContainsKey("algorithm") && type.HasVariableAlgorithm())
             {
                 algorithm = args["algorithm"].ToUpper() switch
                 {
@@ -264,36 +300,53 @@ namespace AuthenticatorPro.Shared.Entity
             }
 
             var digits = type.GetDefaultDigits();
-            if (args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
+            var hasVariableDigits = type.GetMinDigits() != type.GetMaxDigits();
+
+            if (hasVariableDigits)
             {
-                throw new ArgumentException("Digits parameter cannot be parsed.");
+                if (args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
+                {
+                    throw new ArgumentException("Digits parameter cannot be parsed");
+                }
             }
 
             var period = type.GetDefaultPeriod();
-            if (args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
+
+            if (type.HasVariablePeriod())
             {
-                throw new ArgumentException("Period parameter cannot be parsed.");
+                if (args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
+                {
+                    throw new ArgumentException("Period parameter cannot be parsed");
+                }
             }
 
             var counter = 0;
             if (type == AuthenticatorType.Hotp && args.ContainsKey("counter") &&
                 !Int32.TryParse(args["counter"], out counter))
             {
-                throw new ArgumentException("Counter parameter cannot be parsed.");
+                throw new ArgumentException("Counter parameter cannot be parsed");
             }
 
             if (counter < 0)
             {
-                throw new ArgumentException("Counter cannot be negative.");
+                throw new ArgumentException("Counter cannot be negative");
             }
 
             if (!args.ContainsKey("secret"))
             {
-                throw new ArgumentException("Secret parameter is required.");
+                throw new ArgumentException("Secret parameter is required");
             }
 
             var icon = iconResolver.FindServiceKeyByName(args.ContainsKey("icon") ? args["icon"] : issuer);
             var secret = CleanSecret(args["secret"], type);
+
+            var pinLength = 0;
+
+            if (type == AuthenticatorType.YandexOtp && args.ContainsKey("pin_length") &&
+                !Int32.TryParse(args["pin_length"], out pinLength))
+            {
+                throw new ArgumentException("Pin length parameter cannot be parsed");
+            }
 
             var auth = new Authenticator
             {
@@ -313,17 +366,45 @@ namespace AuthenticatorPro.Shared.Entity
                 throw new ArgumentException("Authenticator is invalid");
             }
 
-            return auth;
+            return new UriParseResult { Authenticator = auth, PinLength = pinLength };
         }
 
-        public string GetOtpAuthUri()
+        public static UriParseResult ParseUri(string uri, IIconResolver iconResolver)
+        {
+            if (uri.StartsWith("otpauth"))
+            {
+                return ParseOtpAuthUri(uri, iconResolver);
+            }
+
+            if (uri.StartsWith("motp"))
+            {
+                return ParseMotpUri(uri, iconResolver);
+            }
+
+            throw new ArgumentException("Unknown URI scheme");
+        }
+
+        private string GetMotpUri()
+        {
+            var builder = new StringBuilder("motp://");
+            builder.Append(Issuer);
+            builder.Append(':');
+            builder.Append(Username);
+            builder.Append("?secret=");
+            builder.Append(Secret);
+
+            return builder.ToString();
+        }
+
+        private string GetOtpAuthUri()
         {
             var type = Type switch
             {
                 AuthenticatorType.Hotp => "hotp",
                 AuthenticatorType.Totp => "totp",
                 AuthenticatorType.SteamOtp => "totp",
-                _ => throw new NotSupportedException("Unsupported authenticator type.")
+                AuthenticatorType.YandexOtp => "yaotp",
+                _ => throw new NotSupportedException("Unsupported authenticator type")
             };
 
             var issuerUsername = String.IsNullOrEmpty(Username) ? Issuer : $"{Issuer}:{Username}";
@@ -364,12 +445,27 @@ namespace AuthenticatorPro.Shared.Entity
                 uri.Append("&steam");
             }
 
+            if (Type == AuthenticatorType.YandexOtp && Pin != null)
+            {
+                uri.Append($"&pin_length={Pin.Length}");
+            }
+
             return uri.ToString();
+        }
+
+        public string GetUri()
+        {
+            if (Type == AuthenticatorType.MobileOtp)
+            {
+                return GetMotpUri();
+            }
+
+            return GetOtpAuthUri();
         }
 
         public static string CleanSecret(string input, AuthenticatorType type)
         {
-            if (type.IsHmacBased())
+            if (type.HasBase32Secret())
             {
                 input = input.ToUpper();
             }
@@ -387,12 +483,15 @@ namespace AuthenticatorPro.Shared.Entity
                 return false;
             }
 
-            if (type.IsHmacBased())
+            if (type.HasBase32Secret())
             {
                 try
                 {
                     var output = Base32.Rfc4648.Decode(secret);
-                    return output.Length > 0;
+
+                    return type == AuthenticatorType.YandexOtp
+                        ? output.Length >= YandexOtp.SecretByteCount
+                        : output.Length > 0;
                 }
                 catch
                 {

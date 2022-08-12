@@ -297,6 +297,7 @@ namespace AuthenticatorPro.WearOS.Activity
             bundle.PutInt("period", item.Period);
             bundle.PutInt("digits", item.Digits);
             bundle.PutString("secret", item.Secret);
+            bundle.PutString("pin", item.Pin);
             bundle.PutInt("algorithm", (int) item.Algorithm);
 
             var hasCustomIcon = !String.IsNullOrEmpty(item.Icon) && item.Icon.StartsWith(CustomIconCache.Prefix);

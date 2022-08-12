@@ -19,7 +19,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new Authenticator
                 {
                     Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Username issuer pair
             yield return new object[]
             {
@@ -30,7 +31,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "Big Company",
                     Username = "username",
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Username issuer pair (encoded) 1/3
             yield return new object[]
             {
@@ -41,7 +43,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "Big Company",
                     Username = "username@test",
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Username issuer pair (encoded) 2/3
             yield return new object[]
             {
@@ -52,7 +55,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "Big Company",
                     Username = "username@test",
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Username issuer pair (encoded) 3/3
             yield return new object[]
             {
@@ -60,7 +64,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new Authenticator
                 {
                     Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Redundant issuer parameter
             yield return new object[]
             {
@@ -68,7 +73,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new Authenticator
                 {
                     Type = AuthenticatorType.Totp, Issuer = "issuer", Username = "username", Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Issuer parameter
             yield return new object[]
             {
@@ -79,7 +85,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "Big Company",
                     Username = "username",
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Issuer parameter (encoded)
             yield return new object[]
             {
@@ -87,7 +94,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new Authenticator
                 {
                     Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // No username
             yield return new object[]
             {
@@ -99,7 +107,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Counter = 0
-                }
+                },
+                0
             }; // HOTP
             yield return new object[]
             {
@@ -111,7 +120,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Counter = 10
-                }
+                },
+                0
             }; // HOTP with counter
             yield return new object[]
             {
@@ -123,7 +133,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Counter = 0
-                }
+                },
+                0
             }; // TOTP with counter
             yield return new object[]
             {
@@ -135,7 +146,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Digits = 7
-                }
+                },
+                0
             }; // Digits parameter
             yield return new object[]
             {
@@ -147,7 +159,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Period = 60
-                }
+                },
+                0
             }; // Period parameter
             yield return new object[]
             {
@@ -159,7 +172,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Algorithm = Authenticator.DefaultAlgorithm
-                }
+                },
+                0
             }; // Algorithm parameter 1/4
             yield return new object[]
             {
@@ -171,7 +185,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Algorithm = HashAlgorithm.Sha1
-                }
+                },
+                0
             }; // Algorithm parameter 2/4
             yield return new object[]
             {
@@ -183,7 +198,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Algorithm = HashAlgorithm.Sha256
-                }
+                },
+                0
             }; // Algorithm parameter 3/4
             yield return new object[]
             {
@@ -195,7 +211,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Username = null,
                     Secret = "ABCDEFG",
                     Algorithm = HashAlgorithm.Sha512
-                }
+                },
+                0
             }; // Algorithm parameter 4/4
             yield return new object[]
             {
@@ -206,7 +223,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = new string('a', Authenticator.IssuerMaxLength),
                     Username = null,
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Truncate issuer
             yield return new object[]
             {
@@ -217,7 +235,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "issuer",
                     Username = new string('a', Authenticator.UsernameMaxLength),
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Truncate username
             yield return new object[]
             {
@@ -225,7 +244,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new Authenticator
                 {
                     Type = AuthenticatorType.Totp, Issuer = "😀", Username = "username", Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Multibyte characters 1/2
             yield return new object[]
             {
@@ -233,7 +253,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new Authenticator
                 {
                     Type = AuthenticatorType.Totp, Issuer = "你好世界", Username = "username", Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Multibyte characters 2/2
             yield return new object[]
             {
@@ -245,7 +266,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "Steam",
                     Username = null,
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Steam issuer no username
             yield return new object[]
             {
@@ -257,7 +279,8 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "Steam",
                     Username = "username",
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Steam issuer and username
             yield return new object[]
             {
@@ -269,8 +292,35 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                     Issuer = "issuer",
                     Username = "username",
                     Secret = "ABCDEFG"
-                }
+                },
+                0
             }; // Steam parameter
+            yield return new object[]
+            {
+                "otpauth://yaotp/username?secret=ORSXG5DJNZTXIZLTORUW4ZZRGI&pin_length=4",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.YandexOtp,
+                    Digits = 8,
+                    Issuer = "Yandex",
+                    Username = "username",
+                    Secret = "ORSXG5DJNZTXIZLTORUW4ZZRGI"
+                },
+                4
+            }; // Yandex with pin length
+            yield return new object[]
+            {
+                "motp://motp:username?secret=30edcc8edae50a60",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.MobileOtp,
+                    Digits = 6,
+                    Issuer = "motp",
+                    Username = "username",
+                    Secret = "30edcc8edae50a60"
+                },
+                4
+            }; // mOTP
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -81,7 +81,7 @@ namespace AuthenticatorPro.Droid.Wear
                     .ToList();
 
                 var item = new WearAuthenticator(
-                    auth.Type, auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
+                    auth.Type, auth.Secret, auth.Pin, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
                     auth.Algorithm, auth.Ranking, bindings);
 
                 auths.Add(item);

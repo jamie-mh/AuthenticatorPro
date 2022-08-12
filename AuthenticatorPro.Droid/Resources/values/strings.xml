@@ -65,12 +65,14 @@
     <string name="noPin">A pin is required</string>
     <string name="noFileName">A file name is required</string>
     <string name="secretInvalid">The secret is invalid</string>
-    <string name="pinInvalid">The pin must be 4 characters long</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
 
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
@@ -298,6 +300,7 @@
     <string name="authTypeCounter">Counter based (HOTP)</string>
     <string name="authTypeMobileOtp" translatable="false">Mobile-OTP (mOTP)</string>
     <string name="authTypeSteam" translatable="false">Steam</string>
+    <string name="authTypeYandex" translatable="false">Yandex</string>
     <string name="authAlgorithmSHA1">SHA1 (default)</string>
     <string name="authAlgorithmSHA256" translatable="false">SHA256</string>
     <string name="authAlgorithmSHA512" translatable="false">SHA512</string>

@@ -125,6 +125,7 @@
         <Compile Include="src\Fragment\AuthenticatorMenuBottomSheet.cs" />
         <Compile Include="src\Fragment\AboutBottomSheet.cs" />
         <Compile Include="src\Fragment\PasswordSetupBottomSheet.cs" />
+        <Compile Include="src\Fragment\PinBottomSheet.cs" />
         <Compile Include="src\Fragment\QrCodeBottomSheet.cs" />
         <Compile Include="src\Fragment\RenameAuthenticatorBottomSheet.cs" />
         <Compile Include="src\Fragment\AddMenuBottomSheet.cs" />
@@ -222,6 +223,10 @@
         <AndroidResource Include="Resources\layout\sheetPasswordSetup.axml">
             <SubType>Designer</SubType>
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\layout\sheetPin.axml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
         <AndroidResource Include="Resources\layout\sheetQrCode.axml">
             <SubType>Designer</SubType>
