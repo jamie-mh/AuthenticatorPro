@@ -61,12 +61,14 @@
     <string name="noPin">PINコードが必要です</string>
     <string name="noFileName">ファイル名が必要です</string>
     <string name="secretInvalid">シークレットキーが無効です</string>
-    <string name="pinInvalid">ピンは4文字以上でなければなりません</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">認証コードは {0} 桁から {1} 桁の間で生成する必要があります</string>
     <string name="periodInvalid">期間が無効です</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- QR code dialog -->
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
