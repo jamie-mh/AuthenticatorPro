@@ -92,6 +92,7 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits),
                 AuthenticatorType.SteamOtp => new SteamOtp(secret),
+                AuthenticatorType.YandexOtp => new YandexOtp(secret),
                 _ => new Totp(secret, _period, algorithm, _digits)
             };
 
