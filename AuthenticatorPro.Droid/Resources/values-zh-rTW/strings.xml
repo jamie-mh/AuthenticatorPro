@@ -61,12 +61,14 @@
     <string name="noPin">請輸入識別碼（PIN）</string>
     <string name="noFileName">請輸入檔案名稱</string>
     <string name="secretInvalid">輸入的密鑰無效</string>
-    <string name="pinInvalid">識別碼長度必須爲 4 位</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">驗證器只能生成 {0} 到 {1} 位的驗證碼</string>
     <string name="periodInvalid">輸入的週期無效</string>
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- QR code dialog -->
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
