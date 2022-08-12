@@ -1021,7 +1021,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                uri = auth.GetOtpAuthUri();
+                uri = auth.GetUri();
             }
             catch (NotSupportedException)
             {
@@ -1212,9 +1212,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await OnOtpAuthMigrationScan(uri);
             }
-            else if (uri.StartsWith("otpauth"))
+            else if (uri.StartsWith("otpauth") || uri.StartsWith("motp"))
             {
-                await OnOtpAuthScan(uri);
+                await OnUriScan(uri);
             }
             else
             {
@@ -1226,7 +1226,7 @@ namespace AuthenticatorPro.Droid.Activity
             await _wearClient.NotifyChange();
         }
 
-        private async Task OnOtpAuthScan(string uri)
+        private async Task OnUriScan(string uri)
         {
             Authenticator auth;
 

@@ -17,9 +17,9 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
         private readonly HMAC _hmac;
 
-        public YandexOtp(string secret)
+        public YandexOtp(string secret, string pin)
         {
-            var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
+            var secretBytes = GetSecretBytes(secret, pin);
 
             using var sha256 = new SHA256Managed();
             var key = sha256.ComputeHash(secretBytes);
@@ -32,7 +32,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
             _hmac = new HMACSHA256(key);
         }
 
-        public static string GetCombinedSecretPin(string secret, string pin)
+        private static byte[] GetSecretBytes(string secret, string pin)
         {
             var pinBytes = Encoding.UTF8.GetBytes(pin);
             var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
             Buffer.BlockCopy(pinBytes, 0, combined, 0, pinBytes.Length);
             Buffer.BlockCopy(secretBytes, 0, combined, pinBytes.Length, SecretByteCount);
 
-            return Base32.Rfc4648.Encode(combined);
+            return combined;
         }
 
         private static long ComputeMaterial(byte[] hash)

@@ -58,7 +58,7 @@ namespace AuthenticatorPro.Shared.Data
             {
                 AuthenticatorType.Hotp => true,
                 AuthenticatorType.Totp => true,
-                AuthenticatorType.MobileOtp => true,
+                AuthenticatorType.MobileOtp => false,
                 AuthenticatorType.SteamOtp => false,
                 AuthenticatorType.YandexOtp => false,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
@@ -94,7 +94,7 @@ namespace AuthenticatorPro.Shared.Data
             {
                 AuthenticatorType.Hotp => 6,
                 AuthenticatorType.Totp => 6,
-                AuthenticatorType.MobileOtp => 6,
+                AuthenticatorType.MobileOtp => MobileOtp.Digits,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
                 AuthenticatorType.YandexOtp => YandexOtp.Digits,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))
@@ -107,7 +107,7 @@ namespace AuthenticatorPro.Shared.Data
             {
                 AuthenticatorType.Hotp => 8,
                 AuthenticatorType.Totp => 10,
-                AuthenticatorType.MobileOtp => 10,
+                AuthenticatorType.MobileOtp => MobileOtp.Digits,
                 AuthenticatorType.SteamOtp => SteamOtp.Digits,
                 AuthenticatorType.YandexOtp => YandexOtp.Digits,
                 _ => throw new ArgumentOutOfRangeException(nameof(type))

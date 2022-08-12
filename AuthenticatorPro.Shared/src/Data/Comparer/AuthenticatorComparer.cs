@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Shared.Data.Comparer
             return x.Algorithm == y.Algorithm && x.Counter == y.Counter && x.Digits == y.Digits && x.Icon == y.Icon &&
                    x.Issuer == y.Issuer &&
                    x.Period == y.Period && x.Ranking == y.Ranking && x.Secret == y.Secret && x.Type == y.Type &&
-                   x.Username == y.Username;
+                   x.Username == y.Username && x.Pin == y.Pin;
         }
 
         public int GetHashCode(Authenticator auth)
@@ -50,6 +50,7 @@ namespace AuthenticatorPro.Shared.Data.Comparer
             code.Add(auth.Secret);
             code.Add(auth.Type);
             code.Add(auth.Username);
+            code.Add(auth.Pin);
             return code.ToHashCode();
         }
     }

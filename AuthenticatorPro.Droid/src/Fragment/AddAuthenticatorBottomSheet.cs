@@ -268,15 +268,6 @@ namespace AuthenticatorPro.Droid.Fragment
                 return;
             }
 
-            if (_type == AuthenticatorType.MobileOtp)
-            {
-                secret += pin;
-            }
-            else if (_type == AuthenticatorType.YandexOtp)
-            {
-                secret = YandexOtp.GetCombinedSecretPin(secret, pin);
-            }
-
             var auth = new Authenticator
             {
                 Type = _type,
@@ -288,7 +279,8 @@ namespace AuthenticatorPro.Droid.Fragment
                 Period = period,
                 Icon = _iconResolver.FindServiceKeyByName(issuer),
                 Ranking = 0,
-                Secret = secret
+                Secret = secret,
+                Pin = pin == "" ? null : pin
             };
 
             AddClicked?.Invoke(this, auth);

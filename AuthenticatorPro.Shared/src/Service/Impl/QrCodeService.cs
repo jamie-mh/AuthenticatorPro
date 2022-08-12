@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
 
         public async Task<Authenticator> ParseOtpAuthUri(string uri)
         {
-            var auth = Authenticator.FromOtpAuthUri(uri, _iconResolver);
+            var auth = Authenticator.ParseUri(uri, _iconResolver).Authenticator;
             await _authenticatorService.AddAsync(auth);
             return auth;
         }

@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Shared.Data.Backup
 
                 try
                 {
-                    uri = auth.GetOtpAuthUri();
+                    uri = auth.GetUri();
                 }
                 catch (NotSupportedException)
                 {

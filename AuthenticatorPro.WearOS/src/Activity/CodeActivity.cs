@@ -86,13 +86,15 @@ namespace AuthenticatorPro.WearOS.Activity
             var algorithm = (HashAlgorithm) Intent.Extras.GetInt("algorithm");
 
             var secret = Intent.Extras.GetString("secret");
+            var pin = Intent.Extras.GetString("pin");
+
             var type = (AuthenticatorType) Intent.Extras.GetInt("type");
 
             _generator = type switch
             {
-                AuthenticatorType.MobileOtp => new MobileOtp(secret, _digits),
+                AuthenticatorType.MobileOtp => new MobileOtp(secret, pin),
                 AuthenticatorType.SteamOtp => new SteamOtp(secret),
-                AuthenticatorType.YandexOtp => new YandexOtp(secret),
+                AuthenticatorType.YandexOtp => new YandexOtp(secret, pin),
                 _ => new Totp(secret, _period, algorithm, _digits)
             };
 
