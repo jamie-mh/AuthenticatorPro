@@ -11,6 +11,7 @@ If you are migrating your authenticators from another app, you can create your o
             "Issuer": "Google",
             "Username": "google@gmail.com",
             "Secret": "SECRETKEY123ABCD",
+            "Pin": null,
             "Algorithm": 0,
             "Digits": 6,
             "Period": 30,
@@ -43,19 +44,21 @@ If you are migrating your authenticators from another app, you can create your o
 
 #### Authenticator
 
-* For HOTP and TOTP, the authenticator secret key must be an **uppercase base-32 string with no spaces** and secret may also contain '=' as a padding character. Mobile-Otp secrets have the 4 character pin appended to the end.
+* For HOTP and TOTP, the authenticator secret key must be an **uppercase base-32 string with no spaces**. It can also contain '=' as a padding character.
 
-* Type: 1 = HOTP, 2 = TOTP, 3 = Mobile-Otp, 4 = Steam
+* In the case of Mobile-OTP and Yandex codes, the pin field must be set. Otherwise, it can be null.
+
+* Type: 1 = HOTP, 2 = TOTP, 3 = Mobile-Otp, 4 = Steam, 5 = Yandex
 
 * Algorithm (applies to HOTP and TOTP): 0 = SHA-1, 1 = SHA-256, 2 = SHA-512
 
 * Authenticators are ordered by their ranking, unless they're placed into categories where they will be ordered by the AuthenticatorCategory ranking instead.
 
-* Digits must be between 6 and 10 for HOTP, TOTP and Mobile-Otp. Ignored for Steam as it's fixed at 5 digits.
+* Digits must be between 6 and 8 for HOTP, between 6 and 10 for TOTP. This parameter is ignored for Steam, Mobile-Otp and Yandex.
 
-* Period must be >= 0
+* Period must be > 0
 
-* The issuer must not be null or blank.
+* The issuer must not be null or blank. The username can be null.
 
 #### Category
 
@@ -67,9 +70,9 @@ If you are migrating your authenticators from another app, you can create your o
 
 #### CustomIcon
 
-* If the icon field of an authenticator starts with '@' then it is an id of a custom icon.
+* If the icon field of an authenticator starts with '@' then it is an ID of a custom icon.
 
-* Custom icons have an id (8 characters of SHA1 hash) and some data (bitmap encoded in base64).
+* Custom icons have an ID (8 characters of SHA1 hash) and some data (bitmap encoded in base64).
 
 ### Encrypted Backups
 
@@ -87,7 +90,7 @@ A Python tool can be used to decrypt your backups.
 
 [Backup Decryption Tool](https://github.com/jamie-mh/AuthenticatorPro/blob/master/extra/decrypt_backup.py)
 
-First install the required package with ``pip``.
+First, install the required package with ``pip``.
 
 ```
 pip install pycryptodome
@@ -100,28 +103,3 @@ python decrypt_backup.py backup.authpro > backup_decrypted.json
 ```
 
 You will be prompted for the password, and once decrypted the output will be sent to the ``backup_decrypted.json`` file.
-
-### Encrypted Backups (pre 1.13)
-
-If your backup file is encrypted. The JSON data is encrypted with the AES_CBC_PKCS7 algorithm. You can decrypt a backup file using OpenSSL like this:
-
-First generate a key pair using your backup passphrase:
-
-```
-openssl enc -nosalt -aes-256-cbc -k [PASSPHRASE] -P
-```
-
-This command will generate a pair like this:
-
-```
-key=0682EC6F5B7CB1E5F5BCCBBF83C551F9FDDE85BD012BB0583C27E2A0A53BB245
-iv =15C782384C896CBCFC78333B5ADAC16F
-```
-
-Use the following command to decrypt your backup file using the key pair generated previously:
-
-```
-openssl enc -nosalt -d -aes-256-cbc -in backup.authpro -K [KEY] -iv [IV] -out backup_decrypted.json
-```
-
-This will output the JSON content of your backup file (`backup.authpro`) to `backup_decrypted.json`.
