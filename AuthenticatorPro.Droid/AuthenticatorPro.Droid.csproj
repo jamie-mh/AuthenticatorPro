@@ -286,16 +286,16 @@
             <Version>1.0.0.14</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions">
             <Version>2.2.0.14</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Preference">
             <Version>1.2.0.2</Version>
@@ -313,7 +313,7 @@
             <Version>1.6.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
-            <Version>117.1.0.6</Version>
+            <Version>117.1.0.7</Version>
         </PackageReference>
         <PackageReference Include="ZXing.Net.Mobile">
             <Version>3.1.0-beta2</Version>
