@@ -71,11 +71,34 @@ namespace AuthenticatorPro.WearOS.Activity
         private readonly SemaphoreSlim _onCreateLock;
         private readonly SemaphoreSlim _responseLock;
 
+        private bool _isDisposed;
+
         public MainActivity()
         {
             _justLaunched = true;
             _onCreateLock = new SemaphoreSlim(1, 1);
             _responseLock = new SemaphoreSlim(0, 1);
+        }
+
+        ~MainActivity()
+        {
+            Dispose(false);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!_isDisposed)
+            {
+                if (disposing)
+                {
+                    _onCreateLock.Dispose();
+                    _responseLock.Dispose();
+                }
+
+                _isDisposed = true;
+            }
+
+            base.Dispose(disposing);
         }
 
         #region Activity Lifecycle

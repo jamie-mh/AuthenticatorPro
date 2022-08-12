@@ -5,20 +5,49 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal abstract class AsyncActivity : BaseActivity
+    internal abstract class AsyncActivity : BaseActivity, IDisposable
     {
         private readonly SemaphoreSlim _onCreateLock;
         private readonly SemaphoreSlim _onResumeLock;
+        private bool _isDisposed;
 
         protected AsyncActivity(int layout) : base(layout)
         {
             _onCreateLock = new SemaphoreSlim(1, 1);
             _onResumeLock = new SemaphoreSlim(1, 1);
+        }
+
+        ~AsyncActivity()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!_isDisposed)
+            {
+                if (disposing)
+                {
+                    _onCreateLock.Dispose();
+                    _onResumeLock.Dispose();
+                }
+
+                _isDisposed = true;
+            }
+
+            base.Dispose(disposing);
         }
 
         protected override async void OnCreate(Bundle savedInstanceState)

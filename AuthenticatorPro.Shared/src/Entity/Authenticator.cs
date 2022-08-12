@@ -430,24 +430,23 @@ namespace AuthenticatorPro.Shared.Entity
                 uri.Append($"&digits={Digits}");
             }
 
-            if (Type == AuthenticatorType.Totp && Period != Type.GetDefaultPeriod())
+            switch (Type)
             {
-                uri.Append($"&period={Period}");
-            }
+                case AuthenticatorType.Totp when Period != Type.GetDefaultPeriod():
+                    uri.Append($"&period={Period}");
+                    break;
 
-            if (Type == AuthenticatorType.Hotp)
-            {
-                uri.Append($"&counter={Counter}");
-            }
+                case AuthenticatorType.Hotp:
+                    uri.Append($"&counter={Counter}");
+                    break;
 
-            if (Type == AuthenticatorType.SteamOtp && Issuer != "Steam")
-            {
-                uri.Append("&steam");
-            }
+                case AuthenticatorType.SteamOtp when Issuer != "Steam":
+                    uri.Append("&steam");
+                    break;
 
-            if (Type == AuthenticatorType.YandexOtp && Pin != null)
-            {
-                uri.Append($"&pin_length={Pin.Length}");
+                case AuthenticatorType.YandexOtp when Pin != null:
+                    uri.Append($"&pin_length={Pin.Length}");
+                    break;
             }
 
             return uri.ToString();
@@ -455,12 +454,7 @@ namespace AuthenticatorPro.Shared.Entity
 
         public string GetUri()
         {
-            if (Type == AuthenticatorType.MobileOtp)
-            {
-                return GetMotpUri();
-            }
-
-            return GetOtpAuthUri();
+            return Type == AuthenticatorType.MobileOtp ? GetMotpUri() : GetOtpAuthUri();
         }
 
         public static string CleanSecret(string input, AuthenticatorType type)

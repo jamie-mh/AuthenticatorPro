@@ -13,12 +13,13 @@ using System.Threading.Tasks;
 
 namespace AuthenticatorPro.WearOS.Cache
 {
-    internal class ListCache<T> : IEnumerable
+    internal class ListCache<T> : IEnumerable, IDisposable
     {
         private readonly string _name;
         private readonly Context _context;
         private readonly SemaphoreSlim _flushLock;
         private List<T> _items;
+        private bool _isDisposed;
 
         public int Count => _items.Count;
 
@@ -28,6 +29,32 @@ namespace AuthenticatorPro.WearOS.Cache
             _context = context;
             _items = new List<T>();
             _flushLock = new SemaphoreSlim(1, 1);
+        }
+
+        ~ListCache()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (_isDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                _flushLock.Dispose();
+            }
+
+            _isDisposed = true;
         }
 
         private string GetFilePath()

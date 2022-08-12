@@ -25,11 +25,6 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private int _length;
 
-        public string Error
-        {
-            set => _pinTextLayout.Error = value;
-        }
-
         public PinBottomSheet() : base(Resource.Layout.sheetPin) { }
 
         public override void OnCreate(Bundle savedInstanceState)

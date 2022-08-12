@@ -28,7 +28,7 @@ using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.Adapter
 {
-    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter, IDisposable
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
@@ -58,6 +58,8 @@ namespace AuthenticatorPro.Droid.Adapter
 
         private readonly float _animationScale;
 
+        private bool _isDisposed;
+
         public AuthenticatorListAdapter(Context context, IAuthenticatorService authenticatorService,
             IAuthenticatorView authenticatorView, ICustomIconRepository customIconRepository, bool isDark)
         {
@@ -81,6 +83,32 @@ namespace AuthenticatorPro.Droid.Adapter
 
             _animationScale =
                 Settings.Global.GetFloat(context.ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
+        }
+
+        ~AuthenticatorListAdapter()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!_isDisposed)
+            {
+                if (disposing)
+                {
+                    _customIconDecodeLock.Dispose();
+                }
+
+                _isDisposed = true;
+            }
+
+            base.Dispose(disposing);
         }
 
         public override int ItemCount => _authenticatorView.Count;
@@ -328,7 +356,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
                 if (!isExpired)
                 {
-                    if (_animationScale == 0 && ValidatePosition(i))
+                    if (_animationScale.Equals(0f) && ValidatePosition(i))
                     {
                         NotifyItemChanged(i, noAnimationProgressUpdate);
                     }
@@ -388,7 +416,7 @@ namespace AuthenticatorPro.Droid.Adapter
 
             progressBar.Progress = progress;
 
-            if (_animationScale == 0)
+            if (_animationScale.Equals(0f))
             {
                 return;
             }
