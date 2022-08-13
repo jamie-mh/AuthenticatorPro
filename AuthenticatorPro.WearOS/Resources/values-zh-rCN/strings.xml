@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">身份验证器</string>
     <string name="noAuthenticators">没有身份验证器</string>
     <string name="noAuthenticatorsMessage">这里没有任何内容。请从手机应用中添加一些身份验证器。</string>
     <string name="hotpNotSupported">不支持HOTP</string>

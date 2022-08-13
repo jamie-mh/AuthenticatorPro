@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Немає автентифікаторів</string>
+    <string name="noAuthenticatorsMessage">Тут нічого немає. Додайте автентифікатори через застосунок з телефону.</string>
+    <string name="hotpNotSupported">HOTP не підтримується</string>
+    <string name="categoryAll">Всі</string>
+    <string name="offline">Поза мережею</string>
+</resources>

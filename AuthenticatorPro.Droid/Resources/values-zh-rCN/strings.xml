@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">身份验证器</string>
     <!-- Non specific strings -->
     <string name="warning">警告</string>
     <string name="delete">删除</string>
@@ -61,12 +60,14 @@
     <string name="noPin">需要设置一个PIN码</string>
     <string name="noFileName">请输入文件名。</string>
     <string name="secretInvalid">输入的密钥无效。</string>
-    <string name="pinInvalid">Pin长度必须大于4个字符</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">验证器只能生成 {0} 到 {1} 位的验证码。</string>
     <string name="periodInvalid">时间段无效</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">二维码</string>
     <string name="qrCodeHelp">通过扫描二维码将此验证器复制到另一个设备或应用程序</string>
@@ -169,6 +170,7 @@
     <string name="confirmPassword">确认密码</string>
     <string name="setupBiometricUnlock">设置生物识别解锁</string>
     <string name="passwordsDoNotMatch">密码不匹配</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">解锁</string>
     <string name="useBiometrics">使用生物识别</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Todentaja</string>
     <string name="noAuthenticators">Ei todentajia</string>
     <string name="noAuthenticatorsMessage">Ei mitään. Lisää todentajia puhelimen sovelluksesta.</string>
     <string name="hotpNotSupported">HOTP ei tueta</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">No Authenticators</string>
     <string name="noAuthenticatorsMessage">Burada hiçbir şey yok. Telefonunuzdan bazı doğrulama kodları ekleyin.</string>
     <string name="hotpNotSupported">HOTP desteklenmiyor</string>

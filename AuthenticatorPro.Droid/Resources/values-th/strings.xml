@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">ตัวรับรองความถูกต้องของ</string>
     <!-- Non specific strings -->
     <string name="warning">คำเตือน</string>
     <string name="delete">ลบ</string>
@@ -61,12 +60,14 @@
     <string name="noPin">ต้องระบุ PIN</string>
     <string name="noFileName">ต้องระบุชื่อไฟล์</string>
     <string name="secretInvalid">คีย์ลับไม่ถูกต้อง</string>
-    <string name="pinInvalid">The pin must be 4 characters long</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
@@ -169,6 +170,7 @@
     <string name="confirmPassword">ยืนยันรหัสผ่าน</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
     <string name="passwordsDoNotMatch">รหัสผ่านไม่ตรงกัน</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">ปลดล็อค</string>
     <string name="useBiometrics">Use biometrics</string>

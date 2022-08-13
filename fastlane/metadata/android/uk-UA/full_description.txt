@@ -9,48 +9,48 @@ https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 Authenticator Pro is compatible with most providers and accounts.
 
 <b>Backup / Restore</b>
-Backup your authenticators with strong encryption. En caso de que pierda o cambie de teléfono, siempre podrá acceder a sus cuentas. Guardar en la nube o en su dispositivo.
+Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
 
-<b>Importar</b>
-Migre fácilmente sus cuentas a Authenticator Pro desde aplicaciones alternativas compatibles.
+<b>Import</b>
+Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-<b>Modo oscuro</b>
-Authenticator Pro tiene un hermoso diseño Android Material inspirado en temas claros u oscuros.
+<b>Dark Mode</b>
+Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-<b>Iconos</b>
-Encuentre fácilmente sus autenticadores con logotipos de marca e iconos reconocidos junto a cada código.
+<b>Icons</b>
+Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-<b>Categorías:</b>
-Organice sus autenticadores en categorías.
+<b>Categories</b>
+Organise your authenticators into categories.
 
-<b>Desconectado con pocos permisos</b>
-Authenticator Pro solo requiere un permiso único y no requiere acceso a Internet para funcionar
+<b>Offline with few permissions</b>
+Authenticator Pro only requires a single permission and does not require Internet access to function.
 
-<b>Personalización</b>
-Establecer iconos y renombrar. You can also arrange your authenticators in any order you like so you can find them easily.
+<b>Customisation</b>
+Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
 
 <b>Wear OS</b>
 Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch.
 
-<b>Seguridad</b>
+<b>Security</b>
 Set a password and use biometric authentification to protect your codes.
 
-<b>Código abierto.</b>
-El código fuente de la aplicación puede ser visto por cualquiera en GitHub.
+<b>Open-Source</b>
+The application source code can be viewed by anyone on GitHub.
 
 
 2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
 
 
-Gratuito y de código abierto.
+Free and Open-Source
 https://github.com/jamie-mh/AuthenticatorPro
 
-<b>Permisos</b>
+<b>Permissions:</b>
 
-Se requiere permiso a la cámara para adicionar cuentas mediante el escaneo de códigos QR.
+Camera permission is required to add accounts through QR codes.
 
-<b>Descargo de responsabilidad:</b>
+<b>Disclaimer:</b>
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Ver la Licencia Pública General de GNU para más detalles.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

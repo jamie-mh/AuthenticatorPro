@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <!-- Non specific strings -->
     <string name="warning">Ostrzeżenie</string>
     <string name="delete">Usuń</string>
@@ -61,12 +60,14 @@
     <string name="noPin">Pin jest wymagany</string>
     <string name="noFileName">Nazwa pliku jest wymagana</string>
     <string name="secretInvalid">Sekret jest nieprawidłowy</string>
-    <string name="pinInvalid">Pin musi mieć 4 znaki</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">Pole musi mieć między {0} a {1} cyfr</string>
     <string name="periodInvalid">Okres jest nieprawidłowy</string>
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Kod QR</string>
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
@@ -169,6 +170,7 @@
     <string name="confirmPassword">Potwierdź hasło</string>
     <string name="setupBiometricUnlock">Skonfiguruj odblokowanie biometryczne</string>
     <string name="passwordsDoNotMatch">Hasła nie pasują do siebie</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!-- Unlock -->
     <string name="unlock">Odblokuj</string>
     <string name="useBiometrics">Użyj biometrii</string>

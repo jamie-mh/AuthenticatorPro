@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <!-- Non specific strings -->
     <string name="warning">Warnung</string>
     <string name="delete">Löschen</string>
@@ -61,12 +60,14 @@
     <string name="noPin">Du musst einen PIN eingeben</string>
     <string name="noFileName">Du musst einen Dateinamen eingeben.</string>
     <string name="secretInvalid">Der Schlüssel ist ungültig.</string>
-    <string name="pinInvalid">Der PIN muss genau 4 Stellen haben</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">Es müssen zwischen {0} und {1} Stellen generiert werden</string>
     <string name="periodInvalid">Ungültige Dauer</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-Code</string>
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
@@ -169,6 +170,7 @@
     <string name="confirmPassword">Passwort bestätigen</string>
     <string name="setupBiometricUnlock">Biometrisches Entsperren einrichten</string>
     <string name="passwordsDoNotMatch">Passwörter stimmen nicht überein</string>
+    <string name="biometricsChanged">Die Biometriedaten des Geräts haben sich verändert. Bitte benutze das Passwort zum Entsperren.</string>
     <!-- Unlock -->
     <string name="unlock">Entsperren</string>
     <string name="useBiometrics">Biometrie verwenden</string>
