@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">ตัวรับรองความถูกต้องของ</string>
     <!-- Non specific strings -->
     <string name="warning">คำเตือน</string>
     <string name="delete">ลบ</string>
