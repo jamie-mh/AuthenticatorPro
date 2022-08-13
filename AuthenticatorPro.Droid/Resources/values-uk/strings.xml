@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Авторизація</string>
     <!-- Non specific strings -->
     <string name="warning">Увага</string>
     <string name="delete">Видалити</string>
