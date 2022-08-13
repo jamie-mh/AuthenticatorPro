@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">身份验证器</string>
     <!-- Non specific strings -->
     <string name="warning">警告</string>
     <string name="delete">删除</string>
