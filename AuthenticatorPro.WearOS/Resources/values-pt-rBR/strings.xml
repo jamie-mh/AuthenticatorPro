@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Autenticador</string>
     <string name="noAuthenticators">Sem autenticadores</string>
     <string name="noAuthenticatorsMessage">Nada aqui. Adicione alguns autenticadores do app.</string>
     <string name="hotpNotSupported">HOTP não suportado</string>
