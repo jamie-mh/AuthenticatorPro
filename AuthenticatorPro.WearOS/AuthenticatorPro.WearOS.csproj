@@ -78,6 +78,7 @@
         <Compile Include="src\Cache\ListCache.cs" />
         <Compile Include="src\Cache\CustomIconCache.cs" />
         <Compile Include="src\Data\AuthenticatorView.cs" />
+        <Compile Include="src\Data\CategoryView.cs" />
         <Compile Include="src\Data\WearAuthenticatorCategoryComparer.cs" />
         <Compile Include="src\Data\WearAuthenticatorComparer.cs" />
         <Compile Include="src\Data\WearCategoryComparer.cs" />

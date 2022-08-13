@@ -5,8 +5,7 @@ using Android.Content;
 using Android.Graphics.Drawables;
 using AndroidX.Core.Content;
 using AndroidX.Wear.Widget.Drawer;
-using AuthenticatorPro.Droid.Shared.Query;
-using AuthenticatorPro.WearOS.Cache;
+using AuthenticatorPro.WearOS.Data;
 using Java.Lang;
 
 namespace AuthenticatorPro.WearOS.List
@@ -14,12 +13,12 @@ namespace AuthenticatorPro.WearOS.List
     internal class CategoryListAdapter : WearableNavigationDrawerView.WearableNavigationDrawerAdapter
     {
         private readonly Context _context;
-        private readonly ListCache<WearCategory> _cache;
+        private readonly CategoryView _categoryView;
 
-        public CategoryListAdapter(Context context, ListCache<WearCategory> cache)
+        public CategoryListAdapter(Context context, CategoryView categoryView)
         {
             _context = context;
-            _cache = cache;
+            _categoryView = categoryView;
         }
 
         public override Drawable GetItemDrawable(int pos)
@@ -34,13 +33,13 @@ namespace AuthenticatorPro.WearOS.List
                 return new String(_context.GetString(Resource.String.categoryAll));
             }
 
-            var item = _cache[pos - 1];
+            var item = _categoryView[pos - 1];
 
             return item == null
                 ? new String()
                 : new String(item.Name);
         }
 
-        public override int Count => _cache.Count + 1;
+        public override int Count => _categoryView.Count + 1;
     }
 }
