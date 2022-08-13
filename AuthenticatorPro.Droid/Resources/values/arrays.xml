@@ -51,9 +51,11 @@
         <item>@string/finnish</item>
         <item>@string/swedish</item>
         <item>@string/turkish</item>
+        <item>@string/ukrainian</item>
         <item>@string/thai</item>
         <item>@string/japanese</item>
         <item>@string/chineseSimplified</item>
+        <item>@string/korean</item>
     </string-array>
     <string-array name="languageValues">
         <item>system</item>
@@ -71,9 +73,11 @@
         <item>fi</item>
         <item>sv</item>
         <item>tr</item>
+        <item>uk</item>
         <item>th</item>
         <item>ja</item>
         <item>zh-CN</item>
+        <item>ko</item>
     </string-array>
 
     <string-array name="timeoutNames">

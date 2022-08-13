@@ -245,10 +245,12 @@
         <AndroidResource Include="Resources\values-fi\strings.xml" />
         <AndroidResource Include="Resources\values-it\strings.xml" />
         <AndroidResource Include="Resources\values-ja\strings.xml" />
+        <AndroidResource Include="Resources\values-ko\strings.xml" />
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
         <AndroidResource Include="Resources\values-ru\strings.xml" />
         <AndroidResource Include="Resources\values-sv\strings.xml" />
+        <AndroidResource Include="Resources\values-uk\strings.xml" />
         <AndroidResource Include="Resources\values-zh-rTW\strings.xml" />
         <AndroidResource Include="Resources\values\strings.xml" />
         <AndroidResource Include="Resources\values\styles.xml" />

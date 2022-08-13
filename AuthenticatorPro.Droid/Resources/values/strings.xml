@@ -339,9 +339,11 @@
     <string name="finnish" translatable="false">Suomi</string>
     <string name="swedish" translatable="false">Svenska</string>
     <string name="turkish" translatable="false">Türk</string>
+    <string name="ukrainian" translatable="false">Українська мова</string>
     <string name="thai" translatable="false">ภาษาไทย</string>
     <string name="japanese" translatable="false">日本語</string>
     <string name="chineseSimplified" translatable="false">简体中文</string>
+    <string name="korean" translatable="false">한국어</string>
 
     <!-- Arrays > Accent colours -->
     <string name="red">Red</string>
