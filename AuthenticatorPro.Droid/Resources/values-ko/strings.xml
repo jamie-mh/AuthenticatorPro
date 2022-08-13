@@ -68,7 +68,7 @@
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR코드</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
