@@ -1248,21 +1248,24 @@ namespace AuthenticatorPro.Droid.Activity
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
             }
-            catch (EntityDuplicateException)
-            {
-                ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
-                return;
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
-                return;
-            }
 
             async Task Finalise()
             {
-                await _authenticatorService.AddAsync(result.Authenticator);
+                try
+                {
+                    await _authenticatorService.AddAsync(result.Authenticator);
+                }
+                catch (EntityDuplicateException)
+                {
+                    ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
+                    return;
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e);
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
+                }
 
                 if (_authenticatorView.CategoryId != null)
                 {
