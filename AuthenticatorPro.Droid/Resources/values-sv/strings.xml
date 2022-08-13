@@ -68,7 +68,7 @@
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
     <string name="duplicateAuthenticator">Det finns redan en autentiserare med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-kod</string>
     <string name="qrCodeHelp">Kopiera denna autentiserare till en annan enhet eller app genom att skanna QR-koden</string>
