@@ -53,17 +53,28 @@ namespace AuthenticatorPro.WearOS.Data
                     y.Categories.Except(x.Categories, categoryComparer).Any();
             }
 
-            var isEqual = !differentCategories && x.Secret == y.Secret && x.Icon == y.Icon && x.Issuer == y.Issuer &&
-                          x.Username == y.Username && x.Period == y.Period && x.Digits == y.Digits &&
-                          x.Algorithm == y.Algorithm;
+            var isEqual = !differentCategories && x.Type == y.Type && x.Secret == y.Secret && x.Icon == y.Icon &&
+                          x.Issuer == y.Issuer && x.Username == y.Username && x.Period == y.Period &&
+                          x.Digits == y.Digits && x.Algorithm == y.Algorithm && x.Pin == y.Pin;
 
             return isEqual;
         }
 
         public int GetHashCode(WearAuthenticator obj)
         {
-            return HashCode.Combine(obj.Secret, obj.Icon, obj.Issuer, obj.Username, obj.Period, obj.Digits,
-                (int) obj.Algorithm, obj.Categories);
+            var hash = new HashCode();
+            hash.Add(obj.Type);
+            hash.Add(obj.Secret);
+            hash.Add(obj.Pin);
+            hash.Add(obj.Icon);
+            hash.Add(obj.Issuer);
+            hash.Add(obj.Username);
+            hash.Add(obj.Period);
+            hash.Add(obj.Digits);
+            hash.Add(obj.Algorithm);
+            hash.Add(obj.Categories);
+
+            return hash.ToHashCode();
         }
     }
 }
