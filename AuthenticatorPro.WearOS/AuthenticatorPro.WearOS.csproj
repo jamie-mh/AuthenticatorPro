@@ -54,7 +54,7 @@
         <ConsolePause>False</ConsolePause>
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <AotAssemblies>true</AotAssemblies>
-        <EnableLLVM>true</EnableLLVM>
+        <EnableLLVM>false</EnableLLVM>
         <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
         <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
         <BundleAssemblies>false</BundleAssemblies>
