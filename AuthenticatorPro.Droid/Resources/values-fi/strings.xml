@@ -68,7 +68,7 @@
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Kopioi tämä todentaja toiseen laitteeseen tai sovellukseen skannaamalla QR-koodi</string>
