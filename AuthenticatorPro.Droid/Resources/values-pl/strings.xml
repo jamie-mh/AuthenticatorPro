@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <!-- Non specific strings -->
     <string name="warning">Ostrzeżenie</string>
     <string name="delete">Usuń</string>
