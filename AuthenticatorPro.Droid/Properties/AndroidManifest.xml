@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
     <!-- Disable unused Network State permission from AndroidX Work Manager -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <application android:allowBackup="false" android:label="@string/appName" android:icon="@mipmap/ic_launcher"
                  android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true"
                  android:theme="@style/AppTheme"></application>

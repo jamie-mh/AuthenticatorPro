@@ -1086,10 +1086,19 @@ namespace AuthenticatorPro.Droid.Activity
             var fragment = new AddMenuBottomSheet();
             fragment.QrCodeClicked += delegate
             {
-                var subFragment = new ScanQrCodeBottomSheet();
-                subFragment.FromCameraClicked += async delegate { await RequestPermissionThenScanQrCode(); };
-                subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCode); };
-                subFragment.Show(SupportFragmentManager, subFragment.Tag);
+                var hasCamera = PackageManager.HasSystemFeature(PackageManager.FeatureCamera);
+
+                if (hasCamera)
+                {
+                    var subFragment = new ScanQrCodeBottomSheet();
+                    subFragment.FromCameraClicked += async delegate { await RequestPermissionThenScanQrCode(); };
+                    subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCode); };
+                    subFragment.Show(SupportFragmentManager, subFragment.Tag);
+                }
+                else
+                {
+                    StartFilePickActivity("image/*", RequestQrCode);
+                }
             };
 
             fragment.EnterKeyClicked += OpenAddDialog;
