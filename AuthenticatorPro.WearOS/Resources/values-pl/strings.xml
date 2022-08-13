@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">Brak wpisów</string>
     <string name="noAuthenticatorsMessage">Nic tu nie ma, dodaj kilka wpisów na telefonie.</string>
     <string name="hotpNotSupported">HOTP nie jest obsługiwane</string>
