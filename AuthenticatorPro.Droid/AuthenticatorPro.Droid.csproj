@@ -41,7 +41,7 @@
         <EnableLLVM>false</EnableLLVM>
         <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
         <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
-        <AndroidSupportedAbis>x86</AndroidSupportedAbis>
+        <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
         <AndroidHttpClientHandlerType>
         </AndroidHttpClientHandlerType>
         <Debugger>Xamarin</Debugger>
