@@ -1,6 +1,6 @@
 <resources>
     <string name="appName" translatable="false">Authenticator Pro</string>
-    <string name="displayName">Authenticator</string>
+    <string name="displayName" translatable="false">Authenticator</string>
 
     <!-- Non specific strings -->
     <string name="warning">Warning</string>
