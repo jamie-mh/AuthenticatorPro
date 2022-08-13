@@ -1,0 +1,7 @@
+- New feature: Support for Yandex.Key codes
+- New feature: Support for mOTP QR codes
+- General: Many new icons and improvements to existing icons
+- General: Fixed issue with tap to reveal with animations disabled
+- General: Fixed unlock screen appearing more than once
+- General: Miscellaneous bug fixes
+- General: Translation updates
