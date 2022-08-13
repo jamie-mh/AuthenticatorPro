@@ -28,13 +28,13 @@ namespace AuthenticatorPro.Droid.Activity
             Dispose(false);
         }
 
-        public void Dispose()
+        public new void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        private void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (!_isDisposed)
             {
