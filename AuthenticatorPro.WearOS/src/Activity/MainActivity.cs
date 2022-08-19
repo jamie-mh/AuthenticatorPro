@@ -253,7 +253,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (e.Pos > 0)
             {
-                var category = _categoryView[e.Pos - 1];
+                var category = _categoryView.ElementAtOrDefault(e.Pos - 1);
 
                 if (category == null)
                 {
@@ -301,7 +301,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private async void OnItemClicked(object sender, int position)
         {
-            var item = _authView[position];
+            var item = _authView.ElementAtOrDefault(position);
 
             if (item == null)
             {
@@ -347,7 +347,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void OnItemLongClicked(object sender, int position)
         {
-            var item = _authView[position];
+            var item = _authView.ElementAtOrDefault(position);
 
             if (item == null)
             {
