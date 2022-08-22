@@ -127,12 +127,12 @@
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
-    <string name="filePickError">Error picking file</string>
-    <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
+    <string name="filePickError">파일 선택 오류</string>
+    <string name="invalidFileError">선택한 파일은 Authenticator Pro 백업 파일이 아닙니다</string>
     <string name="webBrowserMissing">설치한 웹 브라우저가 없습니다</string>
     <string name="emailClientMissing">설치한 이메일 앱이 없습니다</string>
     <string name="genericError">오류가 발생했습니다</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
+    <string name="databaseError">데이터베이스를 여는 중 오류가 발생했습니다. 앱을 다시 시작해보세요. 문제가 계속되면 앱 데이터를 지우고 최근 백업을 복원하세요.\n\n혹은 오류 보고서를 제출할 수도 있습니다.</string>
     <string name="viewErrorLog">오류 기록 보기</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
@@ -176,7 +176,7 @@
     <string name="useBiometrics">생체 인식 사용</string>
     <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
     <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
-    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="passwordIncorrect">비밀번호가 올바르지 않습니다</string>
     <string name="tooManyAttempts">너무 많이 시도했습니다</string>
     <!-- Import -->
     <string name="importFromOtherApps">다른 앱에서 가져오기</string>
@@ -211,7 +211,7 @@
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">플래시 전환</string>
     <!-- Preferences -->
     <string name="prefGeneral">일반</string>
     <string name="prefShowBackupRemindersTitle">백업 알림</string>
