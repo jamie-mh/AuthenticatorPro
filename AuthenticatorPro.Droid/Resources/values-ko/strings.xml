@@ -45,7 +45,7 @@
     <string name="secretKey">암호</string>
     <string name="pin">PIN</string>
     <string name="showAdvancedOptions">고급 설정 표시</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">인증기를 제거하면 계정의 코드를 생성하지 못하게 됩니다. 하지만 2단계 인증이 꺼진다는 것은 아닙니다.\n\n인증기를 제거하는 경우 계정에 접근하지 못하게 될 수 있습니다.\n2단계 인증을 먼저 끄거나 계정 복구 코드를 마련해두시기 바랍니다.\n\n계속 진행하시겠습니까?</string>
     <string name="useCustomIcon">사용자 지정 아이콘 사용</string>
     <string name="copiedToClipboard">코드를 클립보드에 복사했습니다</string>
     <string name="issuerHint">발급처 (예: Google)</string>
@@ -60,29 +60,29 @@
     <string name="noPin">PIN을 입력해야 합니다</string>
     <string name="noFileName">파일 이름을 입력해야 합니다</string>
     <string name="secretInvalid">암호가 잘못되었습니다</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">PIN은 {0}자리 이상이어야 합니다</string>
+    <string name="pinTooLong">PIN은 {0}자리 이하여야 합니다</string>
     <string name="digitsInvalid">인증기가 {0}~{1}자 코드를 생성해야 합니다</string>
     <string name="periodInvalid">유효 기간이 잘못되었습니다</string>
-    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
-    <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
+    <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
+    <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">이 QR코드에 할당된 PIN을 입력하세요. 계정을 설정할 때 PIN을 설정하셨을 겁니다.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR코드</string>
-    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
-    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="qrCodeHelp">QR코드를 스캔하여 인증기를 다른 기기나 앱으로 복사하세요</string>
+    <string name="qrCodeNotSupported">이 유형은 QR코드를 지원하지 않습니다</string>
     <string name="copyUri">URL 복사</string>
     <string name="uriCopiedToClipboard">URL을 클립보드에 복사했습니다</string>
     <!-- Backup menu -->
     <string name="backupToFile">암호화된 파일로 백업 (권장)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupToFileMessage">모든 인증기, 분류, 아이콘 암호화된 백업 파일 하나에 저장합니다. 백업 파일은 앱을 통해 복원할 수 있습니다.</string>
     <string name="backupHtml">HTML 파일로 백업</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlMessage">암호화되지 않은 HTML 파일의 QR코드에 인증기를 저장합니다. 복원하려면 코드를 개별적으로 스캔해야 합니다. 분류와 아이콘은 저장되지 않습니다.</string>
+    <string name="backupHtmlWarning">HTML 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n이 파일을 통해서는 앱 내에서 복원을 진행할 수 없으며 파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
     <string name="backupUriList">URL 목록 파일로 백업</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListMessage">인증기를 암호화되지 않은 평문 URL 목록 파일에 저장합니다. 이 파일은 대부분의 다른 인증기 앱이나 서비스와 호환됩니다. 분류와 아이콘은 저장되지 않습니다.</string>
+    <string name="backupUriListWarning">평문 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">아무것도 없습니다!</string>
     <string name="noAuthenticatorsMessage">등록한 인증기가 없습니다</string>
@@ -105,12 +105,12 @@
     <!-- Backups -->
     <string name="backupNow">지금 백업</string>
     <string name="restoreNow">지금 복원</string>
-    <string name="backupReminder">There have been changes made since your last backup</string>
+    <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
     <string name="restoreError">비밀번호가 잘못되었거나 파일이 손상되었습니다</string>
     <string name="password">비밀번호</string>
     <string name="passwordConfirm">비밀번호 확인</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">비밀번호를 고르지 않았습니다. 백업 파일이 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n계속 진행하시겠습니까?</string>
     <string name="passwordHint">백업 비밀번호</string>
     <string name="fileNameHint">백업 파일 이름</string>
     <string name="noAuthenticators">백업할 인증기가 없습니다</string>
@@ -119,14 +119,14 @@
     <string name="saving">저장 중</string>
     <string name="saveSuccess">성공적으로 저장했습니다</string>
     <string name="backupSuccess">\'{0}\' 파일로 백업을 저장했습니다</string>
-    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredFromBackup">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다</string>
+    <string name="restoredFromBackupUpdated">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다. 기존의 인증기 {2}개를 갱신했습니다.</string>
     <string name="restoredNothing">복원할 것이 없습니다</string>
-    <string name="restoredFromMigration">Restored {0} new authenticators</string>
+    <string name="restoredFromMigration">새 인증기 {0}개를 복원했습니다</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
-    <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
-    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
+    <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
+    <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
+    <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
     <string name="filePickError">파일 선택 오류</string>
     <string name="invalidFileError">선택한 파일은 Authenticator Pro 백업 파일이 아닙니다</string>
     <string name="webBrowserMissing">설치한 웹 브라우저가 없습니다</string>
@@ -135,13 +135,13 @@
     <string name="databaseError">데이터베이스를 여는 중 오류가 발생했습니다. 앱을 다시 시작해보세요. 문제가 계속되면 앱 데이터를 지우고 최근 백업을 복원하세요.\n\n혹은 오류 보고서를 제출할 수도 있습니다.</string>
     <string name="viewErrorLog">오류 기록 보기</string>
     <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="unhandledErrorMessage">앱 내에서 처리하지 못한 오류가 발생했습니다. 오류 세부 사항:</string>
     <string name="report">보고</string>
     <string name="email">이메일</string>
     <string name="reportVia">보고 방법</string>
     <string name="errorCopiedToClipboard">오류 사항을 클립보드에 복사했습니다</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">자동 백업을 진행할 경로와 비밀번호를 선택하세요. 백업은 변경 사항이 생길 때 진행됩니다. 클라우드 저장소는 지원하지 않습니다. 대신 백업 메뉴를 이용해보세요.</string>
     <string name="selectLocation">위치 선택</string>
     <string name="noLocationSelected">위치를 선택하지 않았습니다</string>
     <string name="locationSetTo">\'{0}\' 위치로 설정했습니다</string>
@@ -164,8 +164,8 @@
     <string name="backupScheduled">백업 예약됨</string>
     <string name="restoreScheduled">복원 예약됨</string>
     <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="passwordSetupHelp">데이터베이스를 비밀번호로 암호화합니다. 앱을 열 때 비밀번호 입력을 요청받게 됩니다. 비밀번호를 설정하지 않으려면 입력란을 비워 두세요.</string>
+    <string name="passwordSetupWarning">기억할 수 있는 비밀번호를 사용하세요. 비밀번호가 없다면 데이터베이스를 복원할 수 없습니다!</string>
     <string name="clearPassword">비밀번호 지우기</string>
     <string name="confirmPassword">비밀번호 확인</string>
     <string name="setupBiometricUnlock">생체 인식 잠금 해제 설정</string>
@@ -174,8 +174,8 @@
     <!-- Unlock -->
     <string name="unlock">잠금 해제</string>
     <string name="useBiometrics">생체 인식 사용</string>
-    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
-    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
+    <string name="unlockMessage">비밀번호를 입력하거나 생체 인식으로 데이터베이스를 잠금 해제하세요</string>
+    <string name="unlockBiometricsMessage">인증기에 접근하려면 생체 인증을 통과하세요</string>
     <string name="passwordIncorrect">비밀번호가 올바르지 않습니다</string>
     <string name="tooManyAttempts">너무 많이 시도했습니다</string>
     <!-- Import -->
@@ -199,17 +199,17 @@
     <string name="guideScanQRCodeTitle">QR코드 스캔</string>
     <string name="guideScanQRCodeSummary">인증기를 추가하려면 앱이나 서비스에서 제공하는 QR코드를 스캔하세요. 스캔하면 인증기가 자동으로 목록에 추가되고 새로운 코드를 생성합니다. 수동으로 세부 정보를 입력할 수도 있습니다.</string>
     <string name="guideUseCodeTitle">로그인 시 코드 사용</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+    <string name="guideUseCodeSummary">로그인할 때 Authenticator Pro에서 제공하는 특수 코드를 이용하세요. 코드는 짧은 시간 동안만 유효합니다. 목록에 있는 인증기를 눌러 코드를 클립보드에 복사하세요.</string>
     <string name="guideCustomiseTitle">사용자 지정 및 수정</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
+    <string name="guideCustomiseSummary">인증기 이름을 변경하거나 사용자 지정하여 쉽게 찾을 수 있도록 하세요. 간단히 메뉴 아이콘을 누르고 절차를 따르시면 됩니다.</string>
     <string name="guideArrangeTitle">배열 및 정렬</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    <string name="guideArrangeSummary">인증기를 분류로 묶어 체계화하면 쉽게 찾을 수 있습니다. 더 나아가 인증기를 꾹 눌러 드래그하면 원하는 순서대로 재배열할 수 있습니다.</string>
     <string name="guideBackupTitle">백업 생성</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
+    <string name="guideBackupSummary">기기를 변경할 때 계정이 잠기지 않도록 하세요. 백업 파일을 만든 뒤 안전한 장소에 저장하세요. 백업은 언제든지 복원할 수 있고 비밀번호로 보호할 수 있습니다.</string>
     <string name="guideWearOSTitle">Wear OS 전용 앱 다운로드</string>
     <string name="guideWearOSSummary">Wear OS 시계가 있다면 전용 앱을 다운로드 할 수 있습니다. 시계로 코드를 바로 볼 수 있습니다.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpPrimary">QR코드를 사각형에 맞추어 스캔하세요. 코드는 자동으로 스캔됩니다. 화면을 눌러 초점을 맞출 수 있습니다.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!-- Preferences -->
@@ -222,9 +222,9 @@
     <string name="prefLanguageSummary">앱에서 쓸 언어를 선택하세요</string>
     <string name="prefSecurity">보안</string>
     <string name="prefPasswordTitle">비밀번호</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
-    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
+    <string name="prefPasswordSummary">인증기에 접근할 때 비밀번호를 요구합니다. 데이터베이스가 비밀번호로 암호화됩니다.</string>
+    <string name="prefDatabasePasswordBackupTitle">데이터베이스 비밀번호로 백업</string>
+    <string name="prefDatabasePasswordBackupSummary">모든 백업을 데이터베이스 비밀번호로 암호화하여 매번 입력하지 않아도 되도록 합니다</string>
     <string name="prefAllowBiometricsTitle">생체 인식 잠금 해제</string>
     <string name="prefAllowBiometricsSummary">생체 인식으로 데이터베이스에 접근할 수 있도록 합니다</string>
     <string name="prefTimeoutTitle">유효 기간</string>
@@ -236,12 +236,12 @@
     <string name="prefThemeSummary">앱 테마를 선택하세요</string>
     <string name="prefViewModeTitle">보기 모드</string>
     <string name="prefViewModeSummary">인증기 목록을 어떻게 표시할지 고릅니다</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefCodeGroupSizeTitle">코드 자릿수 단위</string>
+    <string name="prefCodeGroupSizeSummary">몇 자리마다 코드를 묶을지 설정합니다</string>
     <string name="prefAccentColourTitle">강조 색상</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefAccentColourSummary">전체적인 앱의 강조 색상을 선택하세요</string>
     <string name="prefTransparentStatusBarTitle">투명 상태표시줄</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefTransparentStatusBarSummary">스크롤할 때 상태 표시줄 뒤에 있는 목록을 보이도록 합니다</string>
     <!-- Arrays -->
     <string name="authTypeTime">시간 기반 (TOTP)</string>
     <string name="authTypeCounter">계수기 기반 (HOTP)</string>
@@ -287,7 +287,7 @@
     <string name="introThemesTitle">어두운 테마</string>
     <string name="introWelcomeSummary">Authenticator Pro를 다운로드해주셔서 감사드립니다.\n최고의 오픈 소스 인증 앱으로 온라인 계정을 보호하세요.</string>
     <string name="introCompatibilitySummary">Authenticator Pro는 가장 많은 공급처 및 계정과 호환됩니다. Google 인증기를 쓸 수 있는 서비스와는 100% 호환됩니다.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introBackupSummary">강력한 암호화를 통해 인증기를 백업하세요. 기기를 분실한 경우에도 계정에 접근할 수 있습니다. 클라우드 저장소나 기기에 저장해두세요.</string>
+    <string name="introCategoriesSummary">인증기를 분류로 묶어 체계화하고 꾹 눌러 드래그해 순서를 간단히 바꾸세요.</string>
     <string name="introThemesSummary">원한다면 설정에서 어두운 테마를 켤 수 있습니다. 모든 아이콘이 새 배경색에 맞추어 바뀝니다.</string>
 </resources>
