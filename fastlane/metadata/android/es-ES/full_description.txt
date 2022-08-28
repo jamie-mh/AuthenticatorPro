@@ -1,15 +1,15 @@
-Authenticator Pro generates Two Factor Authentication (2FA) codes for your online accounts. TOTP, HOTP, mOTP (Mobile-OTP) and Steam are supported. The generated codes are one time tokens that provide an extra layer of security to your online accounts. After scanning a simple QR code, your account is protected.
+Authenticator Pro genera códigos de autentificación de dos factores (2FA) para sus cuentas en línea. Soporta TOTP, HOTP, mOTP (Mobile-OTP) y Steam. Los códigos generados son tokens de un solo uso que proporcionan una capa extra de seguridad a sus cuentas online. Tras escanear un simple código QR, tu cuenta queda protegida.
 
-<b>Please direct all feedback / issues to either GitHub or email (developer contact section) instead of writing a review to more easily follow up on your issue.</b>
+<b>Por favor, envíe todos los comentarios/problemas a GitHub o al correo electrónico (sección de contacto con el desarrollador) en lugar de escribir una reseña para facilitar el seguimiento de su problema.</b>
 
-<b>Frequently Asked Questions:</b>
+<b>Preguntas frecuentes:</b>
 https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>Compatibility</b>
-Authenticator Pro is compatible with most providers and accounts.
+<b>Compatibilidad</b>
+Authenticator Pro es compatible con la mayoría de los proveedores y cuentas.
 
-<b>Backup / Restore</b>
-Backup your authenticators with strong encryption. En caso de que pierda o cambie de teléfono, siempre podrá acceder a sus cuentas. Guardar en la nube o en su dispositivo.
+<b>Copia de seguridad / Restauración</b>
+Haga una copia de seguridad de sus autentificadores con una encriptación fuerte. En caso de que pierda o cambie de teléfono, siempre podrá acceder a sus cuentas. Guardar en la nube o en su dispositivo.
 
 <b>Importar</b>
 Migre fácilmente sus cuentas a Authenticator Pro desde aplicaciones alternativas compatibles.
@@ -27,19 +27,19 @@ Organice sus autenticadores en categorías.
 Authenticator Pro solo requiere un permiso único y no requiere acceso a Internet para funcionar
 
 <b>Personalización</b>
-Establecer iconos y renombrar. You can also arrange your authenticators in any order you like so you can find them easily.
+Establecer iconos y renombrar. También puedes organizar tus autentificadores en el orden que quieras para encontrarlos fácilmente.
 
 <b>Wear OS</b>
-Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch.
+Authenticator Pro también está disponible como aplicación complementaria de Wear OS.
 
 <b>Seguridad</b>
-Set a password and use biometric authentification to protect your codes.
+Establezca una contraseña y utilice la autentificación biométrica para proteger sus códigos.
 
 <b>Código abierto.</b>
 El código fuente de la aplicación puede ser visto por cualquiera en GitHub.
 
 
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+La autentificación de 2 factores proporciona una capa adicional de seguridad a sus cuentas al requerir el uso de un código único para iniciar sesión. Además de su nombre de usuario y contraseña, necesitará un código proporcionado por Authenticator Pro. Así, incluso si sus datos de acceso se ven comprometidos, su cuenta permanece segura.
 
 
 Gratuito y de código abierto.
@@ -51,6 +51,6 @@ Se requiere permiso a la cámara para adicionar cuentas mediante el escaneo de c
 
 <b>Descargo de responsabilidad:</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Este programa es software libre: puede redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública General GNU publicada por la Fundación para el Software Libre, ya sea la versión 3 de la Licencia, o (a su elección) cualquier versión posterior.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. Ver la Licencia Pública General de GNU para más detalles.
+Este programa se distribuye con la intención de que sea útil, pero SIN NINGUNA GARANTÍA; ni siquiera la garantía implícita de COMERCIALIZACIÓN o ADECUACIÓN A UN PROPÓSITO PARTICULAR. Ver la Licencia Pública General de GNU para más detalles.
