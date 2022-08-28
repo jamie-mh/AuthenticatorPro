@@ -1,56 +1,56 @@
-Authenticator Pro generates Two Factor Authentication (2FA) codes for your online accounts. TOTP, HOTP, mOTP (Mobile-OTP) and Steam are supported. The generated codes are one time tokens that provide an extra layer of security to your online accounts. After scanning a simple QR code, your account is protected.
+Authenticator Pro는 온라인 계정용 2단계 인증(2FA) 코드를 제공합니다. TOTP, HOTP, mOTP (Mobile-OTP), Steam을 지원합니다. 생성된 코드는 일회용 열쇠이며 온라인 계정 보안을 한층 더 강화해줍니다. QR코드를 간단히 스캔하여 계정을 보호할 수 있습니다.
 
-<b>Please direct all feedback / issues to either GitHub or email (developer contact section) instead of writing a review to more easily follow up on your issue.</b>
+<b>리뷰를 쓰는 대신 모든 피드백/오류 보고를 GitHub이나 이메일(개발자 연락처 세션 참고)로 해주시면 문제를 쉽게 파악할 수 있습니다.</b>
 
-<b>Frequently Asked Questions:</b>
+<b>자주 묻는 질문:</b>
 https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>Compatibility</b>
-Authenticator Pro is compatible with most providers and accounts.
+<b>호환성</b>
+Authenticator Pro는 가장 많은 공급처 및 계정과 호환됩니다.
 
-<b>Backup / Restore</b>
-Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
+<b>백업 / 복원</b>
+강력한 암호화를 기반으로 인증기를 백업하세요. 휴대전화를 잃어버리거나 바꾸더라도, 계정에 접근할 수 있습니다. 클라우드 저장소나 기기에 저장하세요.
 
-<b>Import</b>
-Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+<b>가져오기</b>
+다른 인증기 앱에서 Authenticator Pro로 계정을 쉽게 이전하세요.
 
-<b>Dark Mode</b>
-Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+<b>다크 모드</b>
+Authenticator Pro에는 미려한 머티리얼 디자인이 적용되었으며 밝은 테마와 어두운 테마에서의 사용성을 모두 고려했습니다.
 
-<b>Icons</b>
-Find your authenticators easily with recognisable brand logos and icons next to each code.
+<b>아이콘</b>
+코드 옆의 브랜드 로고나 아이콘으로 쉽게 인증기를 찾으세요.
 
-<b>Categories</b>
-Organise your authenticators into categories.
+<b>분류</b>
+인증기를 분류로 묶어 체계화하세요.
 
-<b>Offline with few permissions</b>
-Authenticator Pro only requires a single permission and does not require Internet access to function.
+<b>오프라인에서 작동하고 적은 권한 요구</b>
+Authenticator Pro는 권한 단 하나만을 요구하고 작동할 때 인터넷 연결을 필요로 하지 않습니다.
 
-<b>Customisation</b>
-Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+<b>사용자 지정</b>
+아이콘을 설정하고 이름을 변경하세요. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
 
 <b>Wear OS</b>
-Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch.
+Authenticator Pro는 Wear OS 전용 앱 또한 지원합니다. 시계로 인증기를 빠르게 확인할 수 있습니다.
 
-<b>Security</b>
-Set a password and use biometric authentification to protect your codes.
+<b>보안</b>
+비밀번호나 생체 인증으로 코드를 보호할 수 있습니다.
 
-<b>Open-Source</b>
-The application source code can be viewed by anyone on GitHub.
-
-
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+<b>오픈소스</b>
+앱 소스 코드는 GitHub에서 누구나 열람할 수 있습니다.
 
 
-Free and Open-Source
+2단계 인증은 로그인 시 일회용 코드를 요구함으로써 계정 보안을 한층 더 강화해줍니다. 사용자 이름과 비밀번호에 더하여, Authenticator Pro에서 제공되는 코드가 필요할 겁니다. 따라서 로그인 정보가 유출되더라도 계정은 안전합니다.
+
+
+무료, 오픈소스
 https://github.com/jamie-mh/AuthenticatorPro
 
-<b>Permissions:</b>
+<b>권한:</b>
 
-Camera permission is required to add accounts through QR codes.
+QR코드로 계정을 추가하는 경우 카메라 권한이 필요합니다.
 
-<b>Disclaimer:</b>
+<b>면책 조항:</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+본 프로그램은 자유 소프트웨어입니다. 본 프로그램은 자유 소프트웨어 재단에서 발행한 GNU 일반 공중 사용 허가서의 버전 3 혹은 (귀하의 선택에 따라) 이후 버전에서 제시된 조건에 따라 재배포 혹은 수정할 수 있습니다.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+본 프로그램은 유용할 것이라는 기대를 바탕으로 배포되었으나, 어떠한 보증 의무도 없습니다. 상업적 또는 특정 목적에 대하여 적합할 것이라는 묵시적인 보증조차 없습니다. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조하십시오.

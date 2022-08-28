@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
+    <string name="noAuthenticators">인증기 없음</string>
+    <string name="noAuthenticatorsMessage">아무것도 없습니다. 휴대전화에서 인증기를 추가하세요.</string>
+    <string name="hotpNotSupported">HOTP 미지원</string>
+    <string name="categoryAll">모두</string>
+    <string name="offline">오프라인</string>
 </resources>
