@@ -100,6 +100,7 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\values-ar\strings.xml" />
+        <AndroidResource Include="Resources\values-cs\strings.xml" />
         <AndroidResource Include="Resources\values-fi\strings.xml" />
         <AndroidResource Include="Resources\values-it\strings.xml" />
         <AndroidResource Include="Resources\values-ja\strings.xml" />
