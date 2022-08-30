@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
+    <string name="noAuthenticators">Žádné autentifikátory</string>
+    <string name="noAuthenticatorsMessage">Nic zde není. Přidejte nějaké autentifikátory z aplikace telefonu.</string>
+    <string name="hotpNotSupported">HOTP není podporováno</string>
+    <string name="categoryAll">Vše</string>
     <string name="offline">Offline</string>
 </resources>
