@@ -60,14 +60,14 @@
     <string name="noPin">Требуется PIN-код.</string>
     <string name="noFileName">Необходимо указать имя файла.</string>
     <string name="secretInvalid">Ключ недействителен.</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">PIN-код не может быть короче {0} цифр</string>
+    <string name="pinTooLong">PIN-код не может быть длиннее {0} цифр</string>
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
     <string name="periodInvalid">Период является недопустимым</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом. PIN-код будет запрошен при настройке этой учетной записи.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, просканировав QR-код</string>
