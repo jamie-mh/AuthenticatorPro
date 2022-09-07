@@ -40,7 +40,7 @@ def build_map(files: list):
         else:
             standard.append(filename)
 
-    map_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/src/Data/IconMap.cs"
+    map_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "src", "Data", "IconMap.cs")
     file = open(map_path, "w")
 
     file.write("// Copyright (C) 2022 jmh\n")
@@ -82,8 +82,7 @@ def write_element_tree(tree: ET.ElementTree, output_path: str):
 
 
 def build_csproj(icons: list):
-
-    csproj_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/AuthenticatorPro.Droid.Shared.csproj"
+    csproj_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "AuthenticatorPro.Droid.Shared.csproj")
     csproj = ET.parse(csproj_path)
 
     namespace = "http://schemas.microsoft.com/developer/msbuild/2003"
@@ -105,8 +104,7 @@ def build_csproj(icons: list):
 
 
 def generate_for_dpi(dpi: str, filename: str, icon: Image):
-
-    output_path = f"{MAIN_DIR}/AuthenticatorPro.Droid.Shared/Resources/drawable-{dpi}/{RES_PREFIX}{filename}"
+    output_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "Resources", f"drawable-{dpi}", f"{RES_PREFIX}{filename}")
 
     if os.path.isfile(output_path):
         return
@@ -117,7 +115,6 @@ def generate_for_dpi(dpi: str, filename: str, icon: Image):
 
 
 def main():
-
     icons_dir = os.path.join(MAIN_DIR, "icons")
 
     files = os.listdir(icons_dir)
@@ -127,7 +124,7 @@ def main():
 
     for filename in files:
         print(f"Processing {filename}")
-        path = f"{icons_dir}/{filename}"
+        path = os.path.join(icons_dir, filename)
 
         with Image.open(path) as icon:
             for dpi in DPI_SIZES.keys():

@@ -142,6 +142,32 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 },
                 "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&steam"
             }; // Steam parameter
+            yield return new object[]
+            {
+                new Authenticator
+                {
+                    Type = AuthenticatorType.YandexOtp,
+                    Issuer = "Yandex",
+                    Username = "username",
+                    Secret = "ORSXG5DJNZTXIZLTORUW4ZZRGI",
+                    Pin = "1234",
+                    Digits = 8
+                },
+                "otpauth://yaotp/Yandex%3Ausername?secret=ORSXG5DJNZTXIZLTORUW4ZZRGI&issuer=Yandex&pin_length=4"
+            }; // Yandex
+            yield return new object[]
+            {
+                new Authenticator
+                {
+                    Type = AuthenticatorType.MobileOtp,
+                    Issuer = "motp",
+                    Username = "username",
+                    Secret = "30edcc8edae50a60",
+                    Pin = "1234",
+                    Digits = 6
+                },
+                "motp://motp:username?secret=30edcc8edae50a60"
+            }; // mOTP
         }
 
         IEnumerator IEnumerable.GetEnumerator()

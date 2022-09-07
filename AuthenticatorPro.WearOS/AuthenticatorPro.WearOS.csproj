@@ -54,7 +54,7 @@
         <ConsolePause>False</ConsolePause>
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <AotAssemblies>true</AotAssemblies>
-        <EnableLLVM>true</EnableLLVM>
+        <EnableLLVM>false</EnableLLVM>
         <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
         <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
         <BundleAssemblies>false</BundleAssemblies>
@@ -78,6 +78,7 @@
         <Compile Include="src\Cache\ListCache.cs" />
         <Compile Include="src\Cache\CustomIconCache.cs" />
         <Compile Include="src\Data\AuthenticatorView.cs" />
+        <Compile Include="src\Data\CategoryView.cs" />
         <Compile Include="src\Data\WearAuthenticatorCategoryComparer.cs" />
         <Compile Include="src\Data\WearAuthenticatorComparer.cs" />
         <Compile Include="src\Data\WearCategoryComparer.cs" />
@@ -99,12 +100,15 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\values-ar\strings.xml" />
+        <AndroidResource Include="Resources\values-cs\strings.xml" />
         <AndroidResource Include="Resources\values-fi\strings.xml" />
         <AndroidResource Include="Resources\values-it\strings.xml" />
         <AndroidResource Include="Resources\values-ja\strings.xml" />
+        <AndroidResource Include="Resources\values-ko\strings.xml" />
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
         <AndroidResource Include="Resources\values-sv\strings.xml" />
+        <AndroidResource Include="Resources\values-uk\strings.xml" />
         <AndroidResource Include="Resources\values-zh-rTW\strings.xml" />
         <AndroidResource Include="Resources\values\strings.xml">
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
@@ -132,7 +136,7 @@
             <Version>13.0.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Wear">
             <Version>1.2.0.6</Version>
@@ -141,7 +145,7 @@
             <Version>1.6.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
-            <Version>117.1.0.6</Version>
+            <Version>117.1.0.7</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>

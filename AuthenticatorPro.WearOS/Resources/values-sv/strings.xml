@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <string name="noAuthenticators">Inga autentiserare</string>
     <string name="noAuthenticatorsMessage">Ingenting här. Lägg till några autentiserare i mobilappen.</string>
     <string name="hotpNotSupported">HOTP stöds inte</string>

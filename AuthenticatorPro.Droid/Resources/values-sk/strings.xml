@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
     <!-- Non specific strings -->
     <string name="warning">Upozornenie</string>
     <string name="delete">Odstrániť</string>
@@ -11,9 +10,9 @@
     <string name="no">Nie</string>
     <string name="close">Zatvoriť</string>
     <string name="error">Chyba</string>
-    <string name="retry">Retry</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="retry">Skúsiť znova</string>
+    <string name="ignore">Ignorovať</string>
+    <string name="disable">Zakázať</string>
     <!-- Menu items -->
     <string name="settings">Nastavenia</string>
     <string name="restore">Obnoviť</string>
@@ -29,13 +28,13 @@
     <string name="mainMenu">Hlavné menu</string>
     <string name="enterKey">Zadajte poskytnutý kľúč</string>
     <string name="restoreBackup">Obnoviť zálohu</string>
-    <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
-    <string name="sortCustom">Custom</string>
+    <string name="sort">Zoradiť</string>
+    <string name="sortAZ">Abecedné (A-Z)</string>
+    <string name="sortZA">Abecedné (Z-A)</string>
+    <string name="sortCustom">Vlastné</string>
     <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
-    <string name="supportDevelopment">Support development</string>
-    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
+    <string name="supportDevelopment">Podporiť vývoj</string>
+    <string name="supportDevelopmentSummary">Podporte ďalší vývoj a aktualizácie aplikácií Buy Me a Coffee</string>
     <string name="rate">Ohodnotiť</string>
     <string name="rateSummary">Ohodnotiť Authenticator Pro v obchode Google Play</string>
     <string name="viewGitHub">Zobraziť na stránke GitHub</string>
@@ -61,12 +60,14 @@
     <string name="noPin">Pin je povinný</string>
     <string name="noFileName">Názov súboru je povinný</string>
     <string name="secretInvalid">Tajný kľúč je neplatný</string>
-    <string name="pinInvalid">Pin musí mať 4 znaky</string>
+    <string name="pinTooShort">Pin musí obsahovať najmenej {0} číslic</string>
+    <string name="pinTooLong">Pin nemôže obsahovať viac ako {0} číslic</string>
     <string name="digitsInvalid">Autentikátor musí generovať {0} až {1} číslic</string>
     <string name="periodInvalid">Perióda je neplatná</string>
     <string name="qrCodeFormatError">QR kód nie je v správnom formáte alebo nemôže byť prečítaný</string>
     <string name="duplicateAuthenticator">Autentifikátor s týmto tajným kľúčom už existuje</string>
     <string name="scanSuccessful">QR kód úspešne naskenovaný</string>
+    <string name="pinMessage">Zadajte pin priradený k tomuto kódu QR. Pri nastavovaní tohto účtu by ste boli vyzvaní na zadanie PIN kódu.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Kopírovať autentifikátor do iného zariadenia alebo aplikácie naskenovaním QR kódu</string>
@@ -79,9 +80,9 @@
     <string name="backupHtml">Zálohovať do HTML súboru</string>
     <string name="backupHtmlMessage">Uložiť vaše autentifikátory do nezašifrovaného HTML dokumentu s QR kódmi. Pre obnovenie musia byť tieto kódy naskenované individuálne.</string>
     <string name="backupHtmlWarning">Zálohy do HTML súborov sú nezašifrované a môžu viesť k zneužitiu vašich tajných kľúčov.\n\nTento súbor nemôže byť obnovený v rámci aplikácie a neobsahuje kategórie a ikony. Ak si nie ste istí, rozhodnite sa radšej pre zálohu do šifrovaného súboru.\n\nPokračovať?</string>
-    <string name="backupUriList">Backup to URI list file</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriList">Zálohovanie do súboru zoznamu URI</string>
+    <string name="backupUriListMessage">Uložte svoje autentifikátory do nešifrovaného textového súboru zoznamu URI. Tento súbor je kompatibilný s mnohými alternatívnymi aplikáciami a službami. Kategórie a ikony sa neukladajú.</string>
+    <string name="backupUriListWarning">Zálohovanie do textových súborov je nešifrované a môže spôsobiť, že vaše tajné kľúče budú zraniteľné.\n\nTento súbor neobsahuje kategórie a ikony. Ak si nie ste istí, vyberte si radšej zálohovanie šifrovaných súborov.\n\nPokračovať?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nič tu nie je!</string>
     <string name="noAuthenticatorsMessage">Zatiaľ nemáte žiadne autentifikátory</string>
@@ -94,7 +95,7 @@
     <string name="assignCategories">Priradiť kategórie</string>
     <string name="more">Viac</string>
     <string name="categoryAll">Všetko</string>
-    <string name="editCategories">Edit categories</string>
+    <string name="editCategories">Upraviť kategórie</string>
     <string name="categoryNameHint">Názov kategórie</string>
     <string name="noCategoryName">Názov kategórie je povinný</string>
     <string name="duplicateCategory">Kategória z takýmto názvom už existuje</string>
@@ -129,18 +130,18 @@
     <string name="filePickError">Chyba pri výbere súboru</string>
     <string name="invalidFileError">Vybraný súbor nie je súbor zálohy z aplikácie Authenticator Pro</string>
     <string name="webBrowserMissing">Nie je nainštalovaný žiadny webový prehliadač</string>
-    <string name="emailClientMissing">No email client installed</string>
+    <string name="emailClientMissing">Nie je nainštalovaný žiadny e-mailový klient</string>
     <string name="genericError">Vyskytla sa chyba</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
-    <string name="viewErrorLog">View error log</string>
+    <string name="databaseError">Pri otváraní databázy došlo k chybe. Skúste aplikáciu spustiť znova. Ak problém pretrváva, vymažte údaje aplikácie a obnovte poslednú zálohu.\n\nPrípadne môžete odoslať chybové hlásenie.</string>
+    <string name="viewErrorLog">Zobraziť protokol chýb</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
     <string name="report">Nahlásiť</string>
     <string name="email">Email</string>
-    <string name="reportVia">Report via</string>
+    <string name="reportVia">Správa cez</string>
     <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Vyberte umiestnenie a heslo pre automatické zálohovanie. Zálohovanie sa naplánuje po vykonaní zmien. Cloudové úložisko nie je podporované, namiesto toho použite ponuku zálohovania.</string>
     <string name="selectLocation">Vybrať umiestnenie</string>
     <string name="noLocationSelected">Umiestnenie nebolo vybraté</string>
     <string name="locationSetTo">Umiestnenie nastavené na \'{0}\'</string>
@@ -152,7 +153,7 @@
     <string name="enableAutoBackupMessage">Automaticky zálohovať na vybrané miesto v úložisku</string>
     <string name="enableAutoRestore">Povoliť automatické obnovenie</string>
     <string name="enableAutoRestoreMessage">Automaticky obnovovať poslednú zálohu nájdenú vo vybranom miesto v úložisku. Užitočné na synchronizáciu medzi zariadeniami.</string>
-    <string name="batOptim">Battery Optimisation</string>
+    <string name="batOptim">Optimalizácia batérie</string>
     <string name="disableBatOptimMessage">Na niektorých zariadeniach môže nastavenie napájania zabrániť správnemu fungovaniu záloh. Ak máte problémy, skúste vypnúť optimalizáciu batérie pre aplikáciu Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
     <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
@@ -169,6 +170,7 @@
     <string name="confirmPassword">Potvrdiť heslo</string>
     <string name="setupBiometricUnlock">Nastaviť biometrické odomknutie</string>
     <string name="passwordsDoNotMatch">Heslá sa nezhodujú</string>
+    <string name="biometricsChanged">Biometria zariadenia sa zmenila. Na odomknutie použite heslo.</string>
     <!-- Unlock -->
     <string name="unlock">Odomknutie</string>
     <string name="useBiometrics">Použiť biometriu</string>
@@ -215,9 +217,9 @@
     <string name="prefShowBackupRemindersTitle">Pripomienky zálohovania</string>
     <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory</string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
-    <string name="prefLanguageTitle">Language</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefAutoBackupSummary">Automatické zálohovanie a obnovenie z konkrétneho umiestnenia po vykonaní zmien. Zakáže pripomenutie zálohovania.</string>
+    <string name="prefLanguageTitle">Jazyk</string>
+    <string name="prefLanguageSummary">Výber jazyka, ktorý chcete používať v celej aplikácii</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
@@ -227,19 +229,19 @@
     <string name="prefAllowBiometricsSummary">Povoliť odomknutie databázy použitím biometrickej autentifikácie</string>
     <string name="prefTimeoutTitle">Časový limit</string>
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealTitle">Zobraziť ťuknutím</string>
+    <string name="prefTapToRevealSummary">Skrýva kódy, kým sa ich nedotknete. Po niekoľkých sekundách zmiznú.</string>
     <string name="prefAppearance">Vzhľad</string>
     <string name="prefThemeTitle">Téma</string>
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
     <string name="prefViewModeTitle">Mód zobrazenia</string>
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
-    <string name="prefAccentColourTitle">Accent Colour</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefCodeGroupSizeTitle">Veľkosť skupiny kódov</string>
+    <string name="prefCodeGroupSizeSummary">Zmena zoskupenia číslic v kóde</string>
+    <string name="prefAccentColourTitle">Farba akcentu</string>
+    <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
+    <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
+    <string name="prefTransparentStatusBarSummary">Zviditeľnenie zoznamu za stavovým riadkom pri posúvaní</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
@@ -261,22 +263,22 @@
     <string name="four">4</string>
     <!-- Arrays > Languages -->
     <!-- Arrays > Accent colours -->
-    <string name="red">Red</string>
-    <string name="pink">Pink</string>
-    <string name="purple">Purple</string>
-    <string name="deepPurple">Deep purple</string>
-    <string name="indigo">Indigo</string>
-    <string name="blue">Blue</string>
-    <string name="lightBlue">Light blue</string>
-    <string name="cyan">Cyan</string>
-    <string name="teal">Teal</string>
-    <string name="green">Green</string>
-    <string name="lightGreen">Light green</string>
-    <string name="lime">Lime</string>
-    <string name="yellow">Yellow</string>
-    <string name="amber">Amber</string>
-    <string name="orange">Orange</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="red">Červená</string>
+    <string name="pink">Ružová</string>
+    <string name="purple">Fialová</string>
+    <string name="deepPurple">Tmavofialová</string>
+    <string name="indigo">Indigová</string>
+    <string name="blue">Modrá</string>
+    <string name="lightBlue">Svetlomodrá</string>
+    <string name="cyan">Azúrová</string>
+    <string name="teal">Modrozelená</string>
+    <string name="green">Zelená</string>
+    <string name="lightGreen">Svetlozelená</string>
+    <string name="lime">Limetková</string>
+    <string name="yellow">Žltá</string>
+    <string name="amber">Jantárová</string>
+    <string name="orange">Oranžová</string>
+    <string name="deepOrange">Tmavooranžová</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Vitajte v Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP autentifikácia</string>

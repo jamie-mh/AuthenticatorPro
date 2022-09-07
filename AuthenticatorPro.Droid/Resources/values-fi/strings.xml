@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Todentaja</string>
     <!-- Non specific strings -->
     <string name="warning">Varoitus</string>
     <string name="delete">Poista</string>
@@ -61,12 +60,14 @@
     <string name="noPin">PIN-koodi on pakollinen</string>
     <string name="noFileName">Nimi on pakollinen</string>
     <string name="secretInvalid">Salaisuus on virheellinen</string>
-    <string name="pinInvalid">PIN-koodin on oltava 4 merkkiä pitkä</string>
+    <string name="pinTooShort">PIN-koodin tulee sisältää ainakin {0} numeroa</string>
+    <string name="pinTooLong">PIN-koodi ei voi sisältää enemmän kuin {0} numeroa</string>
     <string name="digitsInvalid">Todentajan on luotava {0} - {1} numeroa</string>
     <string name="periodInvalid">Aikaväli on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
+    <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Kopioi tämä todentaja toiseen laitteeseen tai sovellukseen skannaamalla QR-koodi</string>
@@ -169,11 +170,12 @@
     <string name="confirmPassword">Vahvista salasana</string>
     <string name="setupBiometricUnlock">Määritä biometrinen avaus</string>
     <string name="passwordsDoNotMatch">Salasanat eivät täsmää</string>
+    <string name="biometricsChanged">Laitteen biometria on muuttunut. Avaa lukitus käyttämällä salasanaa.</string>
     <!-- Unlock -->
     <string name="unlock">Avaa</string>
-    <string name="useBiometrics">Käytä biometriikkaa</string>
-    <string name="unlockMessage">Avaa tietokanta syöttämällä salasanasi tai käyttämällä biometriikkaa</string>
-    <string name="unlockBiometricsMessage">Käytä biometriikkaa päästäksesi käsiksi todentajiisi</string>
+    <string name="useBiometrics">Käytä biometriaa</string>
+    <string name="unlockMessage">Avaa tietokanta syöttämällä salasanasi tai käyttämällä biometriaa</string>
+    <string name="unlockBiometricsMessage">Käytä biometriaa päästäksesi käsiksi todentajiisi</string>
     <string name="passwordIncorrect">Salasana on virheellinen</string>
     <string name="tooManyAttempts">Liian monta yritystä</string>
     <!-- Import -->
@@ -224,7 +226,7 @@
     <string name="prefDatabasePasswordBackupTitle">Varmuuskopioi tietokannan salasanalla</string>
     <string name="prefDatabasePasswordBackupSummary">Salaa kaikki varmuuskopiot tietokannan salasanalla, jottei sinun tarvitse syöttää sitä joka kerta</string>
     <string name="prefAllowBiometricsTitle">Biometrinen avaus</string>
-    <string name="prefAllowBiometricsSummary">Salli tietokannan avaaminen biometriikalla</string>
+    <string name="prefAllowBiometricsSummary">Salli tietokannan avaaminen biometrialla</string>
     <string name="prefTimeoutTitle">Aikakatkaisu</string>
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>

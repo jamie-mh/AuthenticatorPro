@@ -11,6 +11,7 @@ namespace AuthenticatorPro.Droid.Shared.Query
     {
         public readonly AuthenticatorType Type;
         public readonly string Secret;
+        public readonly string Pin;
         public readonly string Icon;
         public readonly string Issuer;
         public readonly string Username;
@@ -20,11 +21,12 @@ namespace AuthenticatorPro.Droid.Shared.Query
         public readonly int Ranking;
         public readonly List<WearAuthenticatorCategory> Categories;
 
-        public WearAuthenticator(AuthenticatorType type, string secret, string icon, string issuer, string username,
+        public WearAuthenticator(AuthenticatorType type, string secret, string pin, string icon, string issuer, string username,
             int period, int digits, HashAlgorithm algorithm, int ranking, List<WearAuthenticatorCategory> categories)
         {
             Type = type;
             Secret = secret;
+            Pin = pin;
             Icon = icon;
             Issuer = issuer;
             Username = username;

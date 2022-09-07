@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authentifikator</string>
     <string name="noAuthenticators">Keine Schlüssel</string>
     <string name="noAuthenticatorsMessage">Hier ist nichts. Füge auf der Telefonapp einen Schlüssel hinzu.</string>
     <string name="hotpNotSupported">HOTP nicht unterstützt</string>

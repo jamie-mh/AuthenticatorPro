@@ -52,9 +52,12 @@ namespace AuthenticatorPro.WearOS.Activity
 
         // Data
         private AuthenticatorView _authView;
+        private CategoryView _categoryView;
+
         private ListCache<WearAuthenticator> _authCache;
         private ListCache<WearCategory> _categoryCache;
         private CustomIconCache _customIconCache;
+
         private PreferenceWrapper _preferences;
         private bool _justLaunched;
         private bool _preventCategorySelectEvent;
@@ -71,11 +74,34 @@ namespace AuthenticatorPro.WearOS.Activity
         private readonly SemaphoreSlim _onCreateLock;
         private readonly SemaphoreSlim _responseLock;
 
+        private bool _isDisposed;
+
         public MainActivity()
         {
             _justLaunched = true;
             _onCreateLock = new SemaphoreSlim(1, 1);
             _responseLock = new SemaphoreSlim(0, 1);
+        }
+
+        ~MainActivity()
+        {
+            Dispose(false);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (!_isDisposed)
+            {
+                if (disposing)
+                {
+                    _onCreateLock.Dispose();
+                    _responseLock.Dispose();
+                }
+
+                _isDisposed = true;
+            }
+
+            base.Dispose(disposing);
         }
 
         #region Activity Lifecycle
@@ -97,6 +123,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             var defaultCategory = _preferences.DefaultCategory;
             _authView = new AuthenticatorView(_authCache, defaultCategory, _preferences.SortMode);
+            _categoryView = new CategoryView(_categoryCache);
 
             RunOnUiThread(delegate
             {
@@ -196,7 +223,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _authList.SetAdapter(_authListAdapter);
 
             _categoryList = FindViewById<WearableNavigationDrawerView>(Resource.Id.drawerCategories);
-            _categoryListAdapter = new CategoryListAdapter(this, _categoryCache);
+            _categoryListAdapter = new CategoryListAdapter(this, _categoryView);
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.ItemSelected += OnCategorySelected;
 
@@ -205,7 +232,7 @@ namespace AuthenticatorPro.WearOS.Activity
                 return;
             }
 
-            var categoryPosition = _categoryCache.FindIndex(c => c.Id == _authView.CategoryId) + 1;
+            var categoryPosition = _categoryView.FindIndex(c => c.Id == _authView.CategoryId) + 1;
 
             if (categoryPosition <= -1)
             {
@@ -226,7 +253,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (e.Pos > 0)
             {
-                var category = _categoryCache[e.Pos - 1];
+                var category = _categoryView.ElementAtOrDefault(e.Pos - 1);
 
                 if (category == null)
                 {
@@ -274,7 +301,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private async void OnItemClicked(object sender, int position)
         {
-            var item = _authView[position];
+            var item = _authView.ElementAtOrDefault(position);
 
             if (item == null)
             {
@@ -297,6 +324,7 @@ namespace AuthenticatorPro.WearOS.Activity
             bundle.PutInt("period", item.Period);
             bundle.PutInt("digits", item.Digits);
             bundle.PutString("secret", item.Secret);
+            bundle.PutString("pin", item.Pin);
             bundle.PutInt("algorithm", (int) item.Algorithm);
 
             var hasCustomIcon = !String.IsNullOrEmpty(item.Icon) && item.Icon.StartsWith(CustomIconCache.Prefix);
@@ -319,7 +347,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void OnItemLongClicked(object sender, int position)
         {
-            var item = _authView[position];
+            var item = _authView.ElementAtOrDefault(position);
 
             if (item == null)
             {
@@ -423,6 +451,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if (_categoryCache.Dirty(bundle.Categories, new WearCategoryComparer()))
             {
                 await _categoryCache.Replace(bundle.Categories);
+                _categoryView.Update();
                 RunOnUiThread(_categoryListAdapter.NotifyDataSetChanged);
             }
 

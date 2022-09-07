@@ -96,7 +96,7 @@ namespace AuthenticatorPro.Droid.Util
             if (iv == null || payload == null)
             {
                 Clear();
-                throw new Exception("Encryption failed, no result");
+                throw new InvalidOperationException("Encryption failed, no result");
             }
 
             SetByteArrayPreference(IvPrefKey, iv);

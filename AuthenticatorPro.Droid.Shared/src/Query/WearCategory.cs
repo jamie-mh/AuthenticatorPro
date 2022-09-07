@@ -7,11 +7,13 @@ namespace AuthenticatorPro.Droid.Shared.Query
     {
         public readonly string Id;
         public readonly string Name;
+        public readonly int Ranking;
 
-        public WearCategory(string id, string name)
+        public WearCategory(string id, string name, int ranking)
         {
             Id = id;
             Name = name;
+            Ranking = ranking;
         }
     }
 }

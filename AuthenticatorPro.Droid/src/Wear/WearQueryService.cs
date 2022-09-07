@@ -81,15 +81,19 @@ namespace AuthenticatorPro.Droid.Wear
                     .ToList();
 
                 var item = new WearAuthenticator(
-                    auth.Type, auth.Secret, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
+                    auth.Type, auth.Secret, auth.Pin, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
                     auth.Algorithm, auth.Ranking, bindings);
 
                 auths.Add(item);
             }
 
-            var categories = (await _categoryRepository.GetAllAsync()).Select(c => new WearCategory(c.Id, c.Name))
+            var categories = (await _categoryRepository.GetAllAsync())
+                .Select(c => new WearCategory(c.Id, c.Name, c.Ranking))
                 .ToList();
-            var customIconIds = (await _customIconRepository.GetAllAsync()).Select(i => i.Id).ToList();
+
+            var customIconIds = (await _customIconRepository.GetAllAsync())
+                .Select(i => i.Id)
+                .ToList();
 
             var preferenceWrapper = new PreferenceWrapper(this);
             var preferences = new WearPreferences(

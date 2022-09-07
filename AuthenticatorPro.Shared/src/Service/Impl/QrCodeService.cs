@@ -20,13 +20,6 @@ namespace AuthenticatorPro.Shared.Service.Impl
             _iconResolver = iconResolver;
         }
 
-        public async Task<Authenticator> ParseOtpAuthUri(string uri)
-        {
-            var auth = Authenticator.FromOtpAuthUri(uri, _iconResolver);
-            await _authenticatorService.AddAsync(auth);
-            return auth;
-        }
-
         public Task<int> ParseOtpMigrationUri(string uri)
         {
             var migration = OtpAuthMigration.FromOtpAuthMigrationUri(uri);

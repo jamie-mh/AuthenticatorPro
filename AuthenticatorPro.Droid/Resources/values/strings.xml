@@ -1,6 +1,6 @@
 <resources>
     <string name="appName" translatable="false">Authenticator Pro</string>
-    <string name="displayName">Authenticator</string>
+    <string name="displayName" translatable="false">Authenticator</string>
 
     <!-- Non specific strings -->
     <string name="warning">Warning</string>
@@ -65,12 +65,14 @@
     <string name="noPin">A pin is required</string>
     <string name="noFileName">A file name is required</string>
     <string name="secretInvalid">The secret is invalid</string>
-    <string name="pinInvalid">The pin must be 4 characters long</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
+    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
 
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
@@ -298,6 +300,7 @@
     <string name="authTypeCounter">Counter based (HOTP)</string>
     <string name="authTypeMobileOtp" translatable="false">Mobile-OTP (mOTP)</string>
     <string name="authTypeSteam" translatable="false">Steam</string>
+    <string name="authTypeYandex" translatable="false">Yandex</string>
     <string name="authAlgorithmSHA1">SHA1 (default)</string>
     <string name="authAlgorithmSHA256" translatable="false">SHA256</string>
     <string name="authAlgorithmSHA512" translatable="false">SHA512</string>
@@ -336,9 +339,11 @@
     <string name="finnish" translatable="false">Suomi</string>
     <string name="swedish" translatable="false">Svenska</string>
     <string name="turkish" translatable="false">Türk</string>
+    <string name="ukrainian" translatable="false">Українська мова</string>
     <string name="thai" translatable="false">ภาษาไทย</string>
     <string name="japanese" translatable="false">日本語</string>
     <string name="chineseSimplified" translatable="false">简体中文</string>
+    <string name="korean" translatable="false">한국어</string>
 
     <!-- Arrays > Accent colours -->
     <string name="red">Red</string>

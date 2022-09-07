@@ -14,9 +14,9 @@ namespace AuthenticatorPro.Shared.Data.Generator
             _period = period;
         }
 
-        private byte[] GetCounterBytes(long counter)
+        public static byte[] GetCounterBytes(long counter, int period)
         {
-            var window = counter / _period;
+            var window = counter / period;
             return ByteUtil.GetBigEndianBytes(window);
         }
 
@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
 
         public string Compute(long counter)
         {
-            var material = base.Compute(GetCounterBytes(counter));
+            var material = base.Compute(GetCounterBytes(counter, _period));
             return Finalise(material);
         }
     }

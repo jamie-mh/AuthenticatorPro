@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             var authenticators = new List<Authenticator>();
-            authenticators.AddRange(lines.Select(u => Authenticator.FromOtpAuthUri(u, IconResolver)));
+            authenticators.AddRange(lines.Select(u => Authenticator.ParseUri(u, IconResolver).Authenticator));
 
             return Task.FromResult(new Backup(authenticators));
         }

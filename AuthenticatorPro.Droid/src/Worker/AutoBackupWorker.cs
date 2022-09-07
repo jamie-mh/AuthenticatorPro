@@ -134,7 +134,7 @@ namespace AuthenticatorPro.Droid.Worker
 
             if (file == null)
             {
-                throw new Exception("File creation failed, got null.");
+                throw new InvalidOperationException("File creation failed, got null");
             }
 
             await FileUtil.WriteFile(_context, file.Uri, dataToWrite);

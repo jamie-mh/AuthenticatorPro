@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Droid
             }
         }
 
-        public async Task<SQLiteAsyncConnection> Open(string password)
+        public async Task Open(string password)
         {
             if (_connection != null)
             {
@@ -112,7 +112,6 @@ namespace AuthenticatorPro.Droid
 #endif
 
             _lock.Release();
-            return _connection;
         }
 
         private static string GetPath()
@@ -125,6 +124,11 @@ namespace AuthenticatorPro.Droid
 
         public async Task SetPassword(string currentPassword, string newPassword)
         {
+            if (currentPassword == newPassword)
+            {
+                return;
+            }
+
             var dbPath = GetPath();
             var backupPath = dbPath + ".backup";
 

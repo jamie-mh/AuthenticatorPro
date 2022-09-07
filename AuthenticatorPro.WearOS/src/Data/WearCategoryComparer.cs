@@ -31,12 +31,12 @@ namespace AuthenticatorPro.WearOS.Data
                 return false;
             }
 
-            return x.Id == y.Id && x.Name == y.Name;
+            return x.Id == y.Id && x.Name == y.Name && x.Ranking == y.Ranking;
         }
 
         public int GetHashCode(WearCategory obj)
         {
-            return HashCode.Combine(obj.Id, obj.Name);
+            return HashCode.Combine(obj.Id, obj.Name, obj.Ranking);
         }
     }
 }

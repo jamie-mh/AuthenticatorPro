@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="displayName">Authenticator</string>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
+    <string name="noAuthenticators">沒有兩步驟驗證 (2FA)</string>
+    <string name="noAuthenticatorsMessage">這裡沒有任何內容。請從手機應用中新增兩步驟驗證 (2FA)。</string>
+    <string name="hotpNotSupported">不支援 HOTP</string>
+    <string name="categoryAll">全部</string>
+    <string name="offline">離線</string>
 </resources>

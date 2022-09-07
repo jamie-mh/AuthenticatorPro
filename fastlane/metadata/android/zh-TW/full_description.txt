@@ -1,56 +1,56 @@
-Authenticator Pro generates Two Factor Authentication (2FA) codes for your online accounts. TOTP, HOTP, mOTP (Mobile-OTP) and Steam are supported. The generated codes are one time tokens that provide an extra layer of security to your online accounts. After scanning a simple QR code, your account is protected.
+Authenticator Pro 為您的線上帳號生成兩步驟驗證 (2FA) 程式碼。 支援TOTP、HOTP、mOTP (Mobile-OTP) 和 Steam。 生成的程式碼是為您的線上帳號提供額外一層安全的一次性令牌。 在掃描簡單的 QR Code 後，您的帳號將得到保護。
 
-<b>Please direct all feedback / issues to either GitHub or email (developer contact section) instead of writing a review to more easily follow up on your issue.</b>
+<b>請不要透過評論進行反饋。將所有反饋/問題直接傳送至 GitHub 或 email (詳見開發者聯絡部分) 會讓我們更容易地跟蹤您的問題。</b>
 
-<b>Frequently Asked Questions:</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+<b>常見問題</b>
+https://github.com/jamie-mh/AuthicatorPro/wiki#frequently-questions
 
-<b>Compatibility</b>
-Authenticator Pro is compatible with most providers and accounts.
+<b>相容性</b>
+Authenticator Pro 相容大多數提供商和帳號。
 
-<b>Backup / Restore</b>
-Backup your authenticators with strong encryption. In case you lose your or change phone, you can always gain access to your accounts. Save to cloud storage or to your device.
+<b>備份 / 還原</b>
+用強加密來備份您的身份驗證器。 如果您不小心丟失或更換了你的手機，您還是可以隨時訪問您的帳號。 您可以將備份儲存到雲端儲存或裝置中。
 
-<b>Import</b>
-Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+<b>匯入</b>
+輕鬆地將您的帳號從支援的其他應用程式遷移到 Authenticator Pro。
 
-<b>Dark Mode</b>
-Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+<b>黑暗模式</b>
+Authenticator Pro 有美麗的符合 Material Desgi 的亮色或黑暗主題。
 
-<b>Icons</b>
-Find your authenticators easily with recognisable brand logos and icons next to each code.
+<b>圖示</b>
+為每個程式碼旁邊新增方便識別的品牌標誌和圖示來方便您尋找您的身份驗證器。
 
-<b>Categories</b>
-Organise your authenticators into categories.
+<b>分類</b>
+使用分類對您的身份驗證器進行整理。
 
-<b>Offline with few permissions</b>
-Authenticator Pro only requires a single permission and does not require Internet access to function.
+<b>只需要極少權限離線使用</b>
+Authenticator Pro 只需要一個應用程式使用權，並且完全不需要網路使用權。
 
-<b>Customisation</b>
-Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+<b>自定義</b>
+您可以對其自定義圖示和重新命名。 您也可以按照您喜歡的任何順序調整您的身份驗證器，以便於您可以輕鬆地找到它們。
 
 <b>Wear OS</b>
-Authenticator Pro is also available as a Wear OS companion app. Quickly view your authenticators directly from your watch.
+Authenticator Pro 也有 Wear OS 的配套應用程式。讓您可以從您的手錶中快速檢視您的身份驗證器。
 
-<b>Security</b>
-Set a password and use biometric authentification to protect your codes.
+<b>安全</b>
+您可以設定密碼並使用生物識別來保護您的程式碼。
 
-<b>Open-Source</b>
-The application source code can be viewed by anyone on GitHub.
-
-
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in. In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+<b>開源</b>
+任何人都可以在 GitHub 審查程式原始碼。
 
 
-Free and Open-Source
-https://github.com/jamie-mh/AuthenticatorPro
+二步驗證要求使用一次性程式碼登入，從而為您的帳號提供額外的一層安全保護。 除了您的使用者名稱和密碼，您還需要 Authenticator Pro 提供的程式碼。 因此，即使您的登入資訊被洩露，您的帳號仍然是安全的。
 
-<b>Permissions:</b>
 
-Camera permission is required to add accounts through QR codes.
+免費且開源
+https://github.com/jamie-mh/authenticatorPro
 
-<b>Disclaimer:</b>
+<b>許可權</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+透過 QR code 新增帳號需要相機使用權。
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+<b>免責宣告：</b>
+
+這個軟體是一個免費且自由軟體：您可以根據自由軟體基金會發布的 GNU 通用公共許可證 (許可證的第 3 版或 (由您選擇) 任何更高版本) 的條款重新分發和/或修改它。
+
+這個軟體被設計出來的目的是方便大家, 但是 *沒有任何擔保* ! 包括但不限於對特定用途的商品性和適用性的暗示性擔保。 檢視 GNU 通用公共許可協議 (GNU General Public License) 來獲取更多資訊。 瞭解更多詳情，請參閱 GNU 通用公共許可協議。

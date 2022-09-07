@@ -100,7 +100,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                 if (Login.Totp.StartsWith("otpauth"))
                 {
-                    return Authenticator.FromOtpAuthUri(Login.Totp, iconResolver);
+                    return Authenticator.ParseUri(Login.Totp, iconResolver).Authenticator;
                 }
 
                 if (Login.Totp.StartsWith("steam"))

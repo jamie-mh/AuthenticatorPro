@@ -1021,7 +1021,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                uri = auth.GetOtpAuthUri();
+                uri = auth.GetUri();
             }
             catch (NotSupportedException)
             {
@@ -1086,10 +1086,19 @@ namespace AuthenticatorPro.Droid.Activity
             var fragment = new AddMenuBottomSheet();
             fragment.QrCodeClicked += delegate
             {
-                var subFragment = new ScanQrCodeBottomSheet();
-                subFragment.FromCameraClicked += async delegate { await RequestPermissionThenScanQrCode(); };
-                subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCode); };
-                subFragment.Show(SupportFragmentManager, subFragment.Tag);
+                var hasCamera = PackageManager.HasSystemFeature(PackageManager.FeatureCamera);
+
+                if (hasCamera)
+                {
+                    var subFragment = new ScanQrCodeBottomSheet();
+                    subFragment.FromCameraClicked += async delegate { await RequestPermissionThenScanQrCode(); };
+                    subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCode); };
+                    subFragment.Show(SupportFragmentManager, subFragment.Tag);
+                }
+                else
+                {
+                    StartFilePickActivity("image/*", RequestQrCode);
+                }
             };
 
             fragment.EnterKeyClicked += OpenAddDialog;
@@ -1212,9 +1221,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await OnOtpAuthMigrationScan(uri);
             }
-            else if (uri.StartsWith("otpauth"))
+            else if (uri.StartsWith("otpauth") || uri.StartsWith("motp"))
             {
-                await OnOtpAuthScan(uri);
+                await OnUriScan(uri);
             }
             else
             {
@@ -1226,49 +1235,78 @@ namespace AuthenticatorPro.Droid.Activity
             await _wearClient.NotifyChange();
         }
 
-        private async Task OnOtpAuthScan(string uri)
+        private async Task OnUriScan(string uri)
         {
-            Authenticator auth;
+            UriParseResult result;
 
             try
             {
-                auth = await _qrCodeService.ParseOtpAuthUri(uri);
+                result = Authenticator.ParseUri(uri, _iconResolver);
             }
             catch (ArgumentException)
             {
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
             }
-            catch (EntityDuplicateException)
+
+            async Task Finalise()
             {
-                ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
+                try
+                {
+                    await _authenticatorService.AddAsync(result.Authenticator);
+                }
+                catch (EntityDuplicateException)
+                {
+                    ShowSnackbar(Resource.String.duplicateAuthenticator, Snackbar.LengthShort);
+                    return;
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e);
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
+                }
+
+                if (_authenticatorView.CategoryId != null)
+                {
+                    var category = await _categoryRepository.GetAsync(_authenticatorView.CategoryId);
+                    await _authenticatorCategoryService.AddAsync(result.Authenticator, category);
+                }
+
+                await _authenticatorView.LoadFromPersistenceAsync();
+                CheckEmptyState();
+
+                var position = _authenticatorView.IndexOf(result.Authenticator);
+
+                RunOnUiThread(delegate
+                {
+                    _authenticatorListAdapter.NotifyItemInserted(position);
+                    ScrollToPosition(position);
+                });
+
+                ShowSnackbar(Resource.String.scanSuccessful, Snackbar.LengthShort);
+            }
+
+            if (result.PinLength == 0)
+            {
+                await Finalise();
                 return;
             }
-            catch (Exception e)
+
+            var bundle = new Bundle();
+            bundle.PutInt("length", result.PinLength);
+
+            var fragment = new PinBottomSheet { Arguments = bundle };
+
+            fragment.PinEntered += async (_, pin) =>
             {
-                Logger.Error(e);
-                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
-                return;
-            }
+                result.Authenticator.Pin = pin;
+                fragment.Dismiss();
+                await Finalise();
+            };
 
-            if (_authenticatorView.CategoryId != null)
-            {
-                var category = await _categoryRepository.GetAsync(_authenticatorView.CategoryId);
-                await _authenticatorCategoryService.AddAsync(auth, category);
-            }
-
-            await _authenticatorView.LoadFromPersistenceAsync();
-            CheckEmptyState();
-
-            var position = _authenticatorView.IndexOf(auth);
-
-            RunOnUiThread(delegate
-            {
-                _authenticatorListAdapter.NotifyItemInserted(position);
-                ScrollToPosition(position);
-            });
-
-            ShowSnackbar(Resource.String.scanSuccessful, Snackbar.LengthShort);
+            fragment.CancelClicked += delegate { };
+            fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
         private async Task OnOtpAuthMigrationScan(string uri)

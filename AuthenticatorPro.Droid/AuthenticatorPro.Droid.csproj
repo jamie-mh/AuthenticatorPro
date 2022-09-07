@@ -41,7 +41,7 @@
         <EnableLLVM>false</EnableLLVM>
         <AndroidEnableSGenConcurrent>false</AndroidEnableSGenConcurrent>
         <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
-        <AndroidSupportedAbis>x86</AndroidSupportedAbis>
+        <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
         <AndroidHttpClientHandlerType>
         </AndroidHttpClientHandlerType>
         <Debugger>Xamarin</Debugger>
@@ -65,7 +65,7 @@
         <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
         <AotAssemblies>true</AotAssemblies>
-        <EnableLLVM>true</EnableLLVM>
+        <EnableLLVM>false</EnableLLVM>
         <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
         <BundleAssemblies>false</BundleAssemblies>
         <AndroidEnableAssemblyCompression>true</AndroidEnableAssemblyCompression>
@@ -125,6 +125,7 @@
         <Compile Include="src\Fragment\AuthenticatorMenuBottomSheet.cs" />
         <Compile Include="src\Fragment\AboutBottomSheet.cs" />
         <Compile Include="src\Fragment\PasswordSetupBottomSheet.cs" />
+        <Compile Include="src\Fragment\PinBottomSheet.cs" />
         <Compile Include="src\Fragment\QrCodeBottomSheet.cs" />
         <Compile Include="src\Fragment\RenameAuthenticatorBottomSheet.cs" />
         <Compile Include="src\Fragment\AddMenuBottomSheet.cs" />
@@ -223,6 +224,10 @@
             <SubType>Designer</SubType>
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
+        <AndroidResource Include="Resources\layout\sheetPin.axml">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
         <AndroidResource Include="Resources\layout\sheetQrCode.axml">
             <SubType>Designer</SubType>
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
@@ -237,13 +242,16 @@
         </AndroidResource>
         <AndroidResource Include="Resources\menu\sheet.xml" />
         <AndroidResource Include="Resources\values-ar\strings.xml" />
+        <AndroidResource Include="Resources\values-cs\strings.xml" />
         <AndroidResource Include="Resources\values-fi\strings.xml" />
         <AndroidResource Include="Resources\values-it\strings.xml" />
         <AndroidResource Include="Resources\values-ja\strings.xml" />
+        <AndroidResource Include="Resources\values-ko\strings.xml" />
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
         <AndroidResource Include="Resources\values-ru\strings.xml" />
         <AndroidResource Include="Resources\values-sv\strings.xml" />
+        <AndroidResource Include="Resources\values-uk\strings.xml" />
         <AndroidResource Include="Resources\values-zh-rTW\strings.xml" />
         <AndroidResource Include="Resources\values\strings.xml" />
         <AndroidResource Include="Resources\values\styles.xml" />
@@ -281,16 +289,16 @@
             <Version>1.0.0.14</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions">
             <Version>2.2.0.14</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime">
-            <Version>2.4.1.2</Version>
+            <Version>2.5.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Preference">
             <Version>1.2.0.2</Version>
@@ -308,7 +316,7 @@
             <Version>1.6.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
-            <Version>117.1.0.6</Version>
+            <Version>117.1.0.7</Version>
         </PackageReference>
         <PackageReference Include="ZXing.Net.Mobile">
             <Version>3.1.0-beta2</Version>
