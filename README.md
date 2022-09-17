@@ -16,9 +16,9 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 <br/><br/>
 
 ## Download ⬇️
-
-[<img alt="Get it on Google Play" height="60" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
-[<img alt="Get it on F-Droid" height="60" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/izzyondroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
+ 
+[<img alt="Get it on Google Play" height="100" src="./doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
+[<img alt="Get it on F-Droid" height="100" src="./doc/izzyondroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
 
 Authenticator Pro is currently only available on the F-Droid client through the [IzzyOnDroid repo](https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
 <br/><br/>
@@ -29,7 +29,7 @@ Authenticator Pro is currently only available on the F-Droid client through the 
 
 ## Support development ❤️
 
-[<img alt="Buy Me a Coffee" height="70" src="https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/doc/buymeacoffee.png">](https://www.buymeacoffee.com/jamiemh)
+[<img alt="Buy Me a Coffee" height="67" src="./doc/buymeacoffee.png">](https://www.buymeacoffee.com/jamiemh)
 <br/><br/>
 
 ## Quick Links 🔗
