@@ -8,7 +8,7 @@
 [![Build Status](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_apis/build/status/jamie-mh.AuthenticatorPro?branchName=master)](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_build/latest?definitionId=1&branchName=master)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b43c6acd26db4beea256d94544ad63e9)](https://www.codacy.com/gh/jamie-mh/AuthenticatorPro/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jamie-mh/AuthenticatorPro&amp;utm_campaign=Badge_Grade)
 
-![Authenticator Pro](./doc/ic_launcher-web.png)
+![Authenticator Pro](./doc/Rebranding/Wordmark.png)
 
 ### Authenticator Pro is a free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
