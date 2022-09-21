@@ -60,14 +60,14 @@
     <string name="noPin">Pin jest wymagany</string>
     <string name="noFileName">Nazwa pliku jest wymagana</string>
     <string name="secretInvalid">Sekret jest nieprawidłowy</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">Pin musi zawierać co najmniej {0} cyfr</string>
+    <string name="pinTooLong">Pin nie może zawierać więcej niż {0} cyfr</string>
     <string name="digitsInvalid">Pole musi mieć między {0} a {1} cyfr</string>
     <string name="periodInvalid">Okres jest nieprawidłowy</string>
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Wprowadź pin skojarzony z tym kodem QR. Zostałeś/aś poproszony o pin podczas konfiguracji tego konta.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Kod QR</string>
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Kopiuj URI</string>
     <string name="uriCopiedToClipboard">URI skopiowane do schowka</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
-    <string name="backupHtml">Backup to HTML file</string>
+    <string name="backupHtml">Kopia zapasowa do pliku HTML</string>
     <string name="backupHtmlMessage">Zapisz swoje wpisy w niezaszyfrowanym dokumencie HTML z kodami QR. Aby przywrócić, kody te należy zeskanować indywidualnie. Kategorie i ikony nie są zapisywane.</string>
     <string name="backupHtmlWarning">Kopie zapasowe plików HTML są niezaszyfrowane i mogą narażać Twoje tajne klucze.\n\nTego pliku nie można przywrócić w aplikacji i nie zawiera on kategorii ani ikon. Jeśli nie masz pewności, wybierz zamiast tego kopię zapasową do zaszyfrowanego pliku.\n\nKontynuować?</string>
-    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriList">Kopia zapasowa do pliku jak lista adresów URL</string>
     <string name="backupUriListMessage">Zapisz swoje wpisy w niezaszyfrowanym pliku tekstowym w postaci listy adresów URL. Ten plik jest kompatybilny z wieloma alternatywnymi aplikacjami i usługami. Kategorie i ikony nie są zapisywane.</string>
     <string name="backupUriListWarning">Kopie zapasowe do plików tekstowych nie są szyfrowane i mogą narazić twoje tajne klucze na ujawnienie.\n\nTen plik nie zawiera kategorii i ikon. Jeśli nie jesteś pewien, wybierz zaszyfrowaną kopię zapasową.\n\nKontynuować?</string>
     <!-- Empty states -->
@@ -159,7 +159,7 @@
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
     <string name="autoRestoreFailureTitle">Automatyczne przywracanie nie powiodło się</string>
     <string name="autoRestoreFailureText">Nie udało się ukończyć ostatniego automatycznego przywracania. Uprawnienia do plików mogły wygasnąć lub hasło jest nieprawidłowe. Spróbuj ponownie ustawić lokalizację kopii zapasowej i hasło w ustawieniach automatycznej kopii zapasowej.</string>
-    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
+    <string name="autoBackupSuccessTitle">Automatyczna kopia zapasowa wykonana</string>
     <string name="autoRestoreSuccessTitle">Automatyczne przywracanie zakończone</string>
     <string name="backupScheduled">Zaplanowano tworzenie kopii zapasowych</string>
     <string name="restoreScheduled">Zaplanowano przywracanie kopii zapasowych</string>
@@ -170,7 +170,7 @@
     <string name="confirmPassword">Potwierdź hasło</string>
     <string name="setupBiometricUnlock">Skonfiguruj odblokowanie biometryczne</string>
     <string name="passwordsDoNotMatch">Hasła nie pasują do siebie</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">Dane biometryczne urządzenia uległy zmianie. Użyj hasła do odblokowania.</string>
     <!-- Unlock -->
     <string name="unlock">Odblokuj</string>
     <string name="useBiometrics">Użyj biometrii</string>
@@ -282,7 +282,7 @@
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Witaj w Authenticator Pro</string>
     <string name="introCompatibilityTitle">Autoryzacja TOTP / HOTP / mOTP</string>
-    <string name="introBackupTitle">Backup / Restore</string>
+    <string name="introBackupTitle">Kopia zapasowa / przywracanie</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Ciemny motyw</string>
     <string name="introWelcomeSummary">Dziękujemy za pobranie Authenticator Pro.\n\nDbaj o bezpieczeństwo swoich kont online dzięki najlepszej aplikacji do uwierzytelniania typu open source.</string>
