@@ -60,14 +60,14 @@
     <string name="noPin">Bir pin gereklidir.</string>
     <string name="noFileName">Dosya adı gerekli.</string>
     <string name="secretInvalid">Gizli anahtar geçersiz.</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">Pin en az {0} basamak içermelidir</string>
+    <string name="pinTooLong">Pin, {0} rakamdan fazlasını içeremez</string>
     <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
     <string name="periodInvalid">Geçersiz süre</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Bu QR koduyla ilişkili pini girin. Bu hesabı kurarken sizden bir pin istenmişti.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Karekod</string>
     <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
