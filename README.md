@@ -7,22 +7,20 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b43c6acd26db4beea256d94544ad63e9)](https://www.codacy.com/gh/jamie-mh/AuthenticatorPro/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jamie-mh/AuthenticatorPro&amp;utm_campaign=Badge_Grade)
 
 ![Authenticator Pro](./doc/Rebranding/Wordmark.png)
-<br/><br/>
 ### A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
 ### It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
-<br/><br/>
+
 ## Download ⬇️
 [<img alt="Get it on Google Play" height="100" src="./doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
 [<img alt="Get it on F-Droid" height="100" src="./doc/izzyondroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
-
 > Authenticator Pro is currently only available on the F-Droid client through the [IzzyOnDroid repo](https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
 
-<br/><br/>
+
 ## Support development ❤️
 [<img alt="Buy Me a Coffee" height="100" src="./doc/buymeacoffee.png">](https://www.buymeacoffee.com/jamiemh)
 
-<br/><br/>
+
 ## Quick Links 🔗
 
  [Request Icons](https://github.com/jamie-mh/AuthenticatorPro/issues/new?assignees=&labels=enhancement&template=icon_request.md&title=)
@@ -47,7 +45,7 @@
 
 <i class="ri-admin-line"></i>
 
-<br/><br/>
+
 ## Features 🪄
 
  ⚙️ **Compatibility:** Authenticator Pro is compatible with most providers and accounts.
@@ -65,7 +63,7 @@
  🎨 **Customisation:** Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
 
  ⌚ **Wear OS:** Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
- <br/><br/>
+
 
 ## Screenshots 📱
 
@@ -77,7 +75,7 @@
 ![Screenshot 6](./doc/screenshot6.png)
 ![Screenshot 7](./doc/screenshot7.png)
 ![Screenshot 8](./doc/screenshot8.png)
-<br/><br/>
+
 
 ### Wear OS Companion
 
@@ -90,4 +88,3 @@
 ## Permissions 🔒
 
 * Camera permission is required to add accounts through QR codes.
-<br/><br/>
