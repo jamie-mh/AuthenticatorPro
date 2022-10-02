@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Impostazioni</string>
     <string name="restore">Ripristina</string>
-    <string name="backup">Backup</string>
+    <string name="backup">Back up</string>
     <string name="about">Informazioni</string>
     <string name="scanQrCode">Scansiona un codice QR</string>
     <string name="showQrCode">Mostra codice QR</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Copia URI</string>
     <string name="uriCopiedToClipboard">URI copiato negli appunti</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Backup in file cifrato (raccomandato)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Salva tutti gli autenticatori, le categorie e le icone in un file di backup crittografato. Questo file può essere ripristinato all\'interno dell\'app.</string>
-    <string name="backupHtml">Backup in file HTML</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Salva i tuoi autenticatori in un documento HTML non cifrato con codici QR. Per effettuare il ripristino questi codici devono essere scansionati singolarmente. Categorie e icone non vengono salvate.</string>
     <string name="backupHtmlWarning">I backup in file HTML non sono crittografati e possono lasciare le chiavi segrete vulnerabili.\n\nQuesto file non può essere ripristinato all\'interno dell\'app e non contiene categorie e icone. Se non sei sicuro, scegli invece il backup in file crittografato.\n\nContinuare?</string>
-    <string name="backupUriList">Backup in file di lista URI</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Salva i tuoi autenticatori in un file non cifrato in testo semplice contenente la lista degli URI. Questo file è compatibile con molte applicazioni e servizi alternativi. Le categorie e le icone non vengono salvate.</string>
     <string name="backupUriListWarning">I backup in file di testo semplice non sono crittografati e possono lasciare le chiavi segrete vulnerabili.\n\nQuesto file non contiene categorie e icone. Se non sei sicuro, scegli invece il backup in file crittografato.\n\nContinuare?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Imposta come predefinita</string>
     <string name="clearDefault">Rimuovi impostazione predefinita</string>
     <!-- Backups -->
-    <string name="backupNow">Esegui backup ora</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Ripristina ora</string>
     <string name="backupReminder">Sono state apportate modifiche dall\'ultimo backup</string>
     <string name="backupPasswordMessage">Inserisci una password per cifrare in modo sicuro il file di backup. Se non si desideri proteggere il file con la password, lasciare vuoto il campo.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Non hai scelto una password, il backup non sarà crittografato e le chiavi segrete potrebbero essere vulnerabili.\n\nContinuare?</string>
     <string name="passwordHint">Password di backup</string>
     <string name="fileNameHint">Nome del file di backup</string>
-    <string name="noAuthenticators">Non hai alcun autenticatore di cui effettuare il backup</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Cifrando</string>
     <string name="decrypting">Decifrando</string>
     <string name="saving">Salvataggio in corso</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Segnala tramite</string>
     <string name="errorCopiedToClipboard">Errore copiato negli appunti</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Seleziona una posizione e una password per i backup automatici. I backup sono pianificati quando vengono apportate modifiche. L\'archiviazione cloud non è supportata, utilizza invece il menu di backup.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Seleziona posizione</string>
     <string name="noLocationSelected">Nessuna posizione selezionata</string>
     <string name="locationSetTo">Posizione impostata a \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Password impostata</string>
     <string name="notPasswordProtected">Non protetto con password</string>
     <string name="enableAutoBackup">Attiva Backup Automatico</string>
-    <string name="enableAutoBackupMessage">Backup automatico alla posizione di archiviazione selezionata</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Attiva Ripristino Automatico</string>
     <string name="enableAutoRestoreMessage">Ripristina automaticamente l\'ultimo backup trovato nella posizione di archiviazione selezionata. Utile per la sincronizzazione tra i dispositivi.</string>
     <string name="batOptim">Ottimizzazione Batteria</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Generale</string>
     <string name="prefShowBackupRemindersTitle">Promemoria Backup</string>
-    <string name="prefShowBackupRemindersSummary">Ti ricorda di eseguire il backup degli autenticatori se vengono apportate modifiche importanti</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Backup automatico</string>
-    <string name="prefAutoBackupSummary">Salva automaticamente e ripristina da una posizione specifica quando vengono apportate modifiche. Disabilita i promemoria di backup.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Lingua</string>
     <string name="prefLanguageSummary">Scegli una lingua da usare nell\'app</string>
     <string name="prefSecurity">Sicurezza</string>
