@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Paramètres</string>
     <string name="restore">Restaurer</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Sauvegarder</string>
     <string name="about">À Propos</string>
     <string name="scanQrCode">Scanner un QR code</string>
     <string name="showQrCode">Afficher le QR code</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Copier l\'URI</string>
     <string name="uriCopiedToClipboard">URI copiée dans le presse-papiers</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Sauvegarder vers un fichier chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Sauvegarder vers un fichier HTML</string>
     <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
     <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. En cas de doute, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">Sauvegarder vers un fichier de liste URI</string>
     <string name="backupUriListMessage">Sauvegarder ses authentificateurs dans un fichier texte non chiffré contenant une liste d\'URI. Ce fichier est compatible avec de nombreuses applications et services alternatifs. Les catégories et icônes ne sont pas sauvegardées.</string>
     <string name="backupUriListWarning">Les sauvegardes en fichier texte ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne contient pas de catégories ni d\'icônes. En cas de doute, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Définir comme categorie par défault</string>
     <string name="clearDefault">Effacer comme catégorie par défaut</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Sauvegarder maintenant</string>
     <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous souhaitez mettre de mot de passe, laissez le champ vide.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffrée et ne sera pas sécurisé.\n\nContinuer ?</string>
     <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
     <string name="encrypting">Chiffrement en cours</string>
     <string name="decrypting">Déchiffrement en cours</string>
     <string name="saving">Enregistrement en cours</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Signaler via</string>
     <string name="errorCopiedToClipboard">Erreur copiée dans le presse-papiers</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">Sélectionnez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications sont faites. Les stockages en ligne ne sont pas pris en charge, utilisez le menu de sauvegarde à la place.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <string name="locationSetTo">\'{0}\' a été choisi comme emplacement</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Mot de passe renseigné</string>
     <string name="notPasswordProtected">Non protégé par mot de passe</string>
     <string name="enableAutoBackup">Activer les sauvegardes automatiques</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
     <string name="enableAutoRestore">Activer la restauration automatique</string>
     <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.</string>
     <string name="batOptim">Optimisation de la batterie</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Paramètres généraux</string>
     <string name="prefShowBackupRemindersTitle">Rappels de Sauvegarde</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
     <string name="prefLanguageTitle">Langue</string>
     <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
     <string name="prefSecurity">Sécurité</string>
