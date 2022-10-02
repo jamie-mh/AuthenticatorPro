@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Nastavení</string>
     <string name="restore">Obnovit</string>
-    <string name="backup">Záloha</string>
+    <string name="backup">Back up</string>
     <string name="about">O Aplikaci</string>
     <string name="scanQrCode">Naskenovat QR kód</string>
     <string name="showQrCode">Zobrazit QR kód</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Kopírovat URI</string>
     <string name="uriCopiedToClipboard">URI zkopírováno do schránky</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Zálohovat do šifrovaného souboru (doporučeno)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Uložte všechny vaše autentifikátory, kategorie a ikony do zašifrovaného záložního souboru. Tento soubor lze obnovit v aplikaci.</string>
-    <string name="backupHtml">Zálohovat do HTML souboru</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Uložte své autentifikátory do nešifrovaného HTML dokumentu s QR kódem. Pro obnovení musí být tyto kódy individuálně naskenovány. Kategorie a ikony nejsou uloženy.</string>
     <string name="backupHtmlWarning">Zálohy do HTML souborů jsou nešifrované a mohou způsobit zranitelnost vašich tajných klíčů.\n\nTento soubor nemůže být obnoven v rámci aplikace a neobsahuje kategorie a ikony. Pokud si nejste jisti, zvolte místo toho šifrovanou zálohu.\n\nPokračovat?</string>
-    <string name="backupUriList">Zálohovat do souboru seznamu URI</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Uložte své autentifikátory do nešifrovaného souboru s prostým textem URI seznamu. Tento soubor je kompatibilní s mnoha alternativními aplikacemi a službami. Kategorie a ikony nejsou uloženy.</string>
     <string name="backupUriListWarning">Zálohy do nešifrovaných souborů s prostým textem jsou nešifrované a mohou způsobit zranitelnost vašich tajných klíčů.\n\nTento soubor nemůže být obnoven v rámci aplikace a neobsahuje kategorie a ikony. Pokud si nejste jisti, zvolte místo toho šifrovanou zálohu.\n\nPokračovat?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Nastavit jako výchozí</string>
     <string name="clearDefault">Vymazat výchozí</string>
     <!-- Backups -->
-    <string name="backupNow">Zálohovat nyní</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Obnovit nyní</string>
     <string name="backupReminder">Od vaší poslední zálohy došlo ke změnám</string>
     <string name="backupPasswordMessage">Zadejte heslo pro bezpečné zašifrování záložního souboru. Pokud nechcete soubor chránit heslem, nechte pole prázdné.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Nevybrali jste heslo, vaše záloha nebude šifrována a vaše tajné klíče mohou být zranitelné.\n\nPokračovat?</string>
     <string name="passwordHint">Záložní heslo</string>
     <string name="fileNameHint">Název záložního souboru</string>
-    <string name="noAuthenticators">Nemáte žádné autentifikátory k zálohování</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Šifrování</string>
     <string name="decrypting">Dešifrování</string>
     <string name="saving">Ukládání</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Nahlásit pomocí</string>
     <string name="errorCopiedToClipboard">Chyba zkopírována do schránky</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Vyberte umístění a heslo pro automatické zálohy. Zálohy jsou naplánovány po provedení změn. Zálohování do Cloudu není podporováno, použijte místo toho menu se zálohován.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Zvolte umístění</string>
     <string name="noLocationSelected">Nebyla zvolena žádná poloha</string>
     <string name="locationSetTo">Poloha nastavena na \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Heslo nastaveno</string>
     <string name="notPasswordProtected">Není uzamčen heslem</string>
     <string name="enableAutoBackup">Povolit automatické zálohování</string>
-    <string name="enableAutoBackupMessage">Automaticky zálohovat do vybraného úložiště</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Povolit automatické obnovení</string>
     <string name="enableAutoRestoreMessage">Automaticky obnovit nejnovější zálohu nalezenou ve vybraném úložišti. Užitečné pro synchronizaci mezi zařízeními.</string>
     <string name="batOptim">Optimalizace baterie</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Obecné</string>
     <string name="prefShowBackupRemindersTitle">Připomenutí zálohování</string>
-    <string name="prefShowBackupRemindersSummary">Připomíná vám zálohu vašich autentifikátorů, pokud jsou provedeny důležité změny</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Automatické zálohování</string>
-    <string name="prefAutoBackupSummary">Automaticky zálohovat a obnovit z konkrétního umístění, když jsou provedeny změny. Zakáže připomenutí zálohování.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Jazyk</string>
     <string name="prefLanguageSummary">Vyberte jazyk, který chcete použít v celé aplikaci</string>
     <string name="prefSecurity">Zabezpečení</string>
