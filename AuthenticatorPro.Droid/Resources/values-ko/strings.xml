@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">설정</string>
     <string name="restore">복원</string>
-    <string name="backup">백업</string>
+    <string name="backup">Back up</string>
     <string name="about">정보</string>
     <string name="scanQrCode">QR코드 스캔</string>
     <string name="showQrCode">QR코드 표시</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">URL 복사</string>
     <string name="uriCopiedToClipboard">URL을 클립보드에 복사했습니다</string>
     <!-- Backup menu -->
-    <string name="backupToFile">암호화된 파일로 백업 (권장)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">모든 인증기, 분류, 아이콘 암호화된 백업 파일 하나에 저장합니다. 백업 파일은 앱을 통해 복원할 수 있습니다.</string>
-    <string name="backupHtml">HTML 파일로 백업</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">암호화되지 않은 HTML 파일의 QR코드에 인증기를 저장합니다. 복원하려면 코드를 개별적으로 스캔해야 합니다. 분류와 아이콘은 저장되지 않습니다.</string>
     <string name="backupHtmlWarning">HTML 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n이 파일을 통해서는 앱 내에서 복원을 진행할 수 없으며 파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
-    <string name="backupUriList">URL 목록 파일로 백업</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">인증기를 암호화되지 않은 평문 URL 목록 파일에 저장합니다. 이 파일은 대부분의 다른 인증기 앱이나 서비스와 호환됩니다. 분류와 아이콘은 저장되지 않습니다.</string>
     <string name="backupUriListWarning">평문 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">기본값으로 설정</string>
     <string name="clearDefault">기본값 지우기</string>
     <!-- Backups -->
-    <string name="backupNow">지금 백업</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">지금 복원</string>
     <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">비밀번호를 고르지 않았습니다. 백업 파일이 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n계속 진행하시겠습니까?</string>
     <string name="passwordHint">백업 비밀번호</string>
     <string name="fileNameHint">백업 파일 이름</string>
-    <string name="noAuthenticators">백업할 인증기가 없습니다</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">암호화 중</string>
     <string name="decrypting">복호화 중</string>
     <string name="saving">저장 중</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">보고 방법</string>
     <string name="errorCopiedToClipboard">오류 사항을 클립보드에 복사했습니다</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">자동 백업을 진행할 경로와 비밀번호를 선택하세요. 백업은 변경 사항이 생길 때 진행됩니다. 클라우드 저장소는 지원하지 않습니다. 대신 백업 메뉴를 이용해보세요.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">위치 선택</string>
     <string name="noLocationSelected">위치를 선택하지 않았습니다</string>
     <string name="locationSetTo">\'{0}\' 위치로 설정했습니다</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">비밀번호를 설정했습니다</string>
     <string name="notPasswordProtected">암호로 보호되지 않음</string>
     <string name="enableAutoBackup">자동 백업 켜기</string>
-    <string name="enableAutoBackupMessage">선택한 저장 경로에 자동으로 백업</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">자동 복원 켜기</string>
     <string name="enableAutoRestoreMessage">선택한 저장 경로의 최신 백업을 자동으로 복원합니다. 기기 간 동기화에 유용합니다.</string>
     <string name="batOptim">배터리 최적화</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">일반</string>
     <string name="prefShowBackupRemindersTitle">백업 알림</string>
-    <string name="prefShowBackupRemindersSummary">중요한 변경 사항이 생겼을 때 인증기를 백업하라고 알려줍니다</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">자동 백업</string>
-    <string name="prefAutoBackupSummary">변경 사항이 생길 때마다 자동으로 특정 위치에 백업 및 복원합니다. 백업 알림을 끕니다.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">언어</string>
     <string name="prefLanguageSummary">앱에서 쓸 언어를 선택하세요</string>
     <string name="prefSecurity">보안</string>
