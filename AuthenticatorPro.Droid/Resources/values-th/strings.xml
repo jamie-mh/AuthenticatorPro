@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">การตั้งค่า</string>
     <string name="restore"> กู้คืน</string>
-    <string name="backup">การสำรองข้อมูล</string>
+    <string name="backup">Back up</string>
     <string name="about">เกี่ยวกับ</string>
     <string name="scanQrCode">สแกนรหัส QR</string>
     <string name="showQrCode">แสดง QR code</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Copy URI</string>
     <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
-    <string name="backupHtml">Backup to HTML file</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
     <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
-    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Set as default</string>
     <string name="clearDefault">Clear default</string>
     <!-- Backups -->
-    <string name="backupNow">Backup now</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">คืนค่าทันที</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">Backup password</string>
     <string name="fileNameHint">Backup file name</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">กำลังเข้ารหัส</string>
     <string name="decrypting">กำลังถอดรหัส</string>
     <string name="saving">กำลังบันทึก</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Report via</string>
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">ไม่ได้ระบุตำแหน่ง</string>
     <string name="locationSetTo">Location set to \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">ตั้งรหัสผ่าน</string>
     <string name="notPasswordProtected">ไม่ได้ป้องกันด้วยรหัสผ่าน</string>
     <string name="enableAutoBackup">เปิดใช้งานสำรองข้อมูลอัตโนมัติ</string>
-    <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">เปิดใช้งานคืนค่าอัตโนมัติ</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Battery Optimisation</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">ทั่วไป</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">สำรองอัตโนมัติ</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">ความปลอดภัย</string>
