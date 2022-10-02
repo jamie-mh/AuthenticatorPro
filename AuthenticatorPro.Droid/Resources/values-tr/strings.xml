@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
-    <string name="backup">Yedek</string>
+    <string name="backup">Back up</string>
     <string name="about">Hakkında</string>
     <string name="scanQrCode">Karekodu tara</string>
     <string name="showQrCode">Karekodu göster</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">URI\'yi kopyala</string>
     <string name="uriCopiedToClipboard">URI panoya kopyalandı</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
-    <string name="backupHtml">HTML dosyasına yedekle</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin. Geri yüklemek için bu kodların ayrı ayrı taranması gerekir. Kategoriler ve simgeler kaydedilmez.</string>
     <string name="backupHtmlWarning">HTML dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya uygulama içinde geri yüklenemez ve kategoriler ve simgeler içermez. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
-    <string name="backupUriList">URI liste dosyasına yedekle</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Kimlik doğrulama kodlarınızı şifrelenmemiş düz metin URI listesi dosyasına kaydedin. Bu dosya çoğu alternatif uygulama ve hizmetle uyumludur. Kategoriler ve simgeler kaydedilmez.</string>
     <string name="backupUriListWarning">Düz metin dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya kategoriler ve simgeler içermiyor. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Varsayılan olarak ayarla</string>
     <string name="clearDefault">Varsayılanları temizle</string>
     <!-- Backups -->
-    <string name="backupNow">Şimdi Yedekle</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Şimdi geri yükle</string>
     <string name="backupReminder">There have been changes made since your last backup.</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
     <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
-    <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Şifreleniyor</string>
     <string name="decrypting">Şifre çözülüyor</string>
     <string name="saving">Kaydediliyor</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">aracılığıyla rapor</string>
     <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Otomatik yedeklemeler için bir konum ve şifre seçin. Değişiklikler yapıldığında yedeklemeler belirlenir. Bulut depolama desteklenmez, bunun yerine yedekleme menüsünü kullanın.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Konum seçin</string>
     <string name="noLocationSelected">Konum seçilmedi</string>
     <string name="locationSetTo">Konum \'{0}\' olarak ayarlandı</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Parola ayarlandı</string>
     <string name="notPasswordProtected">Parola korumalı değil</string>
     <string name="enableAutoBackup">Otomatik yedeklemeyi etkinleştir</string>
-    <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Otomatik geri yüklemeyi etkinleştir</string>
     <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
@@ -219,11 +219,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Genel</string>
     <string name="prefShowBackupRemindersTitle">Yedekleme Hatırlatıcılarını Göster</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are
-        made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Dil</string>
     <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
     <string name="prefSecurity">Güvenlik</string>
