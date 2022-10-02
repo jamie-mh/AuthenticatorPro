@@ -19,7 +19,7 @@
     <!-- Menu items -->
     <string name="settings">Settings</string>
     <string name="restore">Restore</string>
-    <string name="backup">Backup</string>
+    <string name="backup">Back up</string>
     <string name="about">About</string>
     <string name="scanQrCode">Scan a QR code</string>
     <string name="showQrCode">Show QR code</string>
@@ -82,14 +82,14 @@
     <string name="uriCopiedToClipboard">URI copied to clipboard</string>
 
     <!-- Backup menu -->
-    <string name="backupToFile">Backup to encrypted file (recommended)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
 
-    <string name="backupHtml">Backup to HTML file</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
     <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
 
-    <string name="backupUriList">Backup to URI list file</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
 
@@ -115,7 +115,7 @@
     <string name="clearDefault">Clear default</string>
 
     <!-- Backups -->
-    <string name="backupNow">Backup now</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Restore now</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
 
@@ -128,7 +128,7 @@
 
     <string name="passwordHint">Backup password</string>
     <string name="fileNameHint">Backup file name</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to backup</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
 
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
@@ -161,7 +161,7 @@
     <string name="errorCopiedToClipboard">Error copied to clipboard</string>
 
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the backup menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
 
     <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">No location selected</string>
@@ -173,7 +173,7 @@
     <string name="notPasswordProtected">Not password protected</string>
 
     <string name="enableAutoBackup">Enable Auto Backup</string>
-    <string name="enableAutoBackupMessage">Automatically backup to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Enable Auto Restore</string>
     <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
 
@@ -263,10 +263,10 @@
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
 
     <string name="prefAutoBackupTitle">Auto Backup</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
 
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
