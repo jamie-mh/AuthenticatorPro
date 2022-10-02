@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Configurações</string>
     <string name="restore">Restaurar</string>
-    <string name="backup">Backup</string>
+    <string name="backup">Back up</string>
     <string name="about">Sobre</string>
     <string name="scanQrCode">Ler um código QR</string>
     <string name="showQrCode">Mostrar código QR</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Copiar URI</string>
     <string name="uriCopiedToClipboard">URI copiada para a área de transferência</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Backup em um arquivo criptografado (recomendado)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Salve todos os seus autenticadores, categorias e ícones em um arquivo de backup criptografado. Este arquivo pode ser restaurado dentro do aplicativo.</string>
-    <string name="backupHtml">Backup em um arquivo HTML</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Salve seus autenticadores em um documento HTML não criptografado com códigos QR. Para restaurar, esses códigos devem ser digitalizados individualmente. Categorias e ícones não são salvos.</string>
     <string name="backupHtmlWarning">Os backups dos arquivos HTML não estão criptografados e podem deixar suas chaves secretas vulneráveis.\n\nEste arquivo não pode ser restaurado dentro do aplicativo e não contém categorias e ícones. Se não tiver certeza, opte por backup de arquivos encriptados em vez disso.\n\nContinuar?</string>
-    <string name="backupUriList">Backup para o arquivo de lista URI</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Salve seus autenticadores em uma lista de URI em texto simples não criptografado. Este arquivo é compatível com muitas aplicações e serviços alternativos. Categorias e ícones não são salvos.</string>
     <string name="backupUriListWarning">Os backups dos arquivos HTML não estão criptografados e podem deixar suas chaves secretas vulneráveis.\n\nEste arquivo não pode ser restaurado dentro do aplicativo e não contém categorias e ícones. Se não tiver certeza, opte por backup de arquivos encriptados em vez disso.\n\nContinuar?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Definir como padrão</string>
     <string name="clearDefault">Limpar o padrão</string>
     <!-- Backups -->
-    <string name="backupNow">Fazer um backup agora</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Restaurar agora</string>
     <string name="backupReminder">Houveram mudanças desde o seu último backup</string>
     <string name="backupPasswordMessage">Digite uma senha para criptografar seu arquivo de backup com segurança. Se você não quiser proteger seu backup com uma senha, deixe o campo vazio.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Você não digitou uma senha, logo seu backup não será encriptado e suas autenticações podem ficar vulneráveis.\n\nContinuar?</string>
     <string name="passwordHint">Senha de backup</string>
     <string name="fileNameHint">Nome do arquivo de backup</string>
-    <string name="noAuthenticators">Você não tem nenhum autenticador para fazer backup</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Criptografando</string>
     <string name="decrypting">Descriptografando</string>
     <string name="saving">Salvando</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Reportar por</string>
     <string name="errorCopiedToClipboard">Erro ao copiar para a área de transferência</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Selecione um local e uma senha para backups automáticos. Os backups são agendados quando as alterações são feitas. O armazenamento em nuvem não é suportado, use o menu de backup em vez disso.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Selecione um local</string>
     <string name="noLocationSelected">Nenhum local foi selecionado</string>
     <string name="locationSetTo">O local foi definido para \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">A senha foi definida</string>
     <string name="notPasswordProtected">Sem proteção por senha</string>
     <string name="enableAutoBackup">Ativar o backup automático</string>
-    <string name="enableAutoBackupMessage">Fazer backup automático para o local de armazenamento selecionado</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Habilitar a restauração automática</string>
     <string name="enableAutoRestoreMessage">Restaura automaticamente o último backup encontrado no local de armazenamento selecionado. É útil para a sincronização entre dispositivos.</string>
     <string name="batOptim">Otimização da bateria</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Geral</string>
     <string name="prefShowBackupRemindersTitle">Configurar lembretes de backup</string>
-    <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
-    <string name="prefAutoBackupSummary">Fazer backup automático e resturar de um local específico quando alterações forem feitas. Desativa os lembretes de backup.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Escolha um idioma para usar em todo o aplicativo</string>
     <string name="prefSecurity">Segurança</string>
