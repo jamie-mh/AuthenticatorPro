@@ -45,7 +45,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
             };
 
             var totp = new Totp(secret, 30, algorithm, 8);
-            Assert.Equal(totp.Compute(offset), expectedResult);
+            Assert.Equal(expectedResult, totp.Compute(offset));
         }
     }
 }

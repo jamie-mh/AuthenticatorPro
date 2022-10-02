@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Test.BackupTest
         public void ToBytesFromBytesTest(string password)
         {
             var transformed = Backup.FromBytes(_testBackup.ToBytes(password), password);
-            Assert.Equal(transformed, _testBackup, _backupComparer);
+            Assert.Equal(_testBackup, transformed, _backupComparer);
         }
     }
 }
