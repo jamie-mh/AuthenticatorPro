@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Configuración</string>
     <string name="restore">Restaurar</string>
-    <string name="backup">Respaldo</string>
+    <string name="backup">Back up</string>
     <string name="about">Información del programa</string>
     <string name="scanQrCode">Escanear un código QR</string>
     <string name="showQrCode">Mostrar código QR</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Copiar URI</string>
     <string name="uriCopiedToClipboard">URI copiado al portapapeles</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
-    <string name="backupHtml">Respaldar a un archivo local HTML</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
     <string name="backupHtmlWarning">Las copias de seguridad de los archivos HTML no están cifradas y pueden dejar sus claves secretas vulnerables.\n\nEste archivo no puede ser restaurado dentro de la aplicación y no contiene categorías ni iconos. Si no está seguro, opte por una copia de seguridad de archivo cifrada en su lugar.\n\n¿Continuar?</string>
-    <string name="backupUriList">Hacer copia de seguridad al archivo de la lista URI</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Guarda tus autenticadores en un archivo de lista de URI de texto plano sin cifrar. Este archivo es compatible con muchas aplicaciones y servicios alternativos. Las categorías y los iconos no se guardan.</string>
     <string name="backupUriListWarning">Las copias de seguridad de archivos de texto plano no están cifradas y pueden dejar tus claves secretas vulnerables.\n\nEste archivo no contiene categorías ni iconos. Si no estás seguro, opta por una copia de seguridad de archivo cifrado en su lugar.\n\n¿Deseas continuar?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Establecer como predeterminado</string>
     <string name="clearDefault">Borrar predeterminado</string>
     <!-- Backups -->
-    <string name="backupNow">Respaldar ahora</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Restaurar ahora</string>
     <string name="backupReminder">Se han hecho cambios desde su último respaldo.</string>
     <string name="backupPasswordMessage">Introduzca una contraseña para encriptar de forma segura su archivo de respaldo. Si no desea proteger el archivo, deje la contraseña vacía.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus llaves secretas serán vulnerables. ¿Desea continuar?</string>
     <string name="passwordHint">Respaldar contraseña</string>
     <string name="fileNameHint">Nombre del archivo de Respaldo</string>
-    <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Encriptando</string>
     <string name="decrypting">Desencriptando</string>
     <string name="saving">Guardando</string>
@@ -143,7 +143,7 @@
     <string name="reportVia">Reportar vía</string>
     <string name="errorCopiedToClipboard">Errores copiados al portapapeles</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Selecciona una ubicación y contraseña para la copia de seguridad automática. Las copias de seguridad son programadas cuando se realicen cambios. El almacenamiento en la nube no está soportado, usa el menú de copia de seguridad en su lugar.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Sin ubicación seleccionada</string>
     <string name="locationSetTo">Ubicación establecida en \'{0}\'</string>
@@ -152,7 +152,7 @@
     <string name="passwordSet">Contraseña establecida</string>
     <string name="notPasswordProtected">No está protegido por contraseña</string>
     <string name="enableAutoBackup">Habilitar respaldos automáticos</string>
-    <string name="enableAutoBackupMessage">Realizar copia de seguridad automáticamente a la ubicación seleccionada</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Habilitar restauración automatica</string>
     <string name="enableAutoRestoreMessage">Restaurar automáticamente la copia de seguridad más reciente encontrada en la ubicación seleccionada. Útil para sincronizar dispositivos.</string>
     <string name="batOptim">Optimización de batería</string>
@@ -219,9 +219,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
-    <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Copia de seguridad automática</string>
-    <string name="prefAutoBackupSummary">Realizar copias de seguridad y restauraciones automáticas desde una ubicación específica cuando se realicen cambios. Desactiva los recordatorios de copia de seguridad.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Elige un idioma para usar en la aplicación</string>
     <string name="prefSecurity">Seguridad</string>
