@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
-    <string name="backup">Sicherung</string>
+    <string name="backup">Back up</string>
     <string name="about">Über</string>
     <string name="scanQrCode">Einen QR-Code scannen</string>
     <string name="showQrCode">QR-Code anzeigen</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">URI kopieren</string>
     <string name="uriCopiedToClipboard">URI wurde in die Zwischenablage kopiert</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Speichern Sie alle Ihre Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
-    <string name="backupHtml">Als HTML-Datei sichern</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Speichern Sie Ihre Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="backupHtmlWarning">Sicherungen in HTML-Dokumente sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir nicht sicher bist, was du tust, verwende eine verschlüsselte Sicherung.\n\nFortfahren?</string>
-    <string name="backupUriList">Sicherung als URI-Listen-Datei</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Speichern Sie Ihre Authentifikatoren in einer unverschlüsselten Klartext-URI-Listendatei. Diese Datei ist mit vielen alternativen Anwendungen und Diensten kompatibel. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="backupUriListWarning">Sicherungen in Klartext-Dateien sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir unsicher bist, verwende stattdessen eine verschlüsselte Sicherung.\n\nFortfahren?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Als Standard setzen</string>
     <string name="clearDefault">Als Standard entfernen</string>
     <!-- Backups -->
-    <string name="backupNow">Jetzt sichern</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Jetzt wiederherstellen</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen.</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
     <string name="passwordHint">Sicherungspasswort</string>
     <string name="fileNameHint">Sicherungsdateiname</string>
-    <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Verschlüsseln</string>
     <string name="decrypting">Entschlüsseln</string>
     <string name="saving">Speichert</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Bericht über</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Wähle einen Pfad und ein Passwort für automatische Sicherungen. Sicherungen werden ausgeführt, wenn Änderungen gemacht werden. Cloud Speicherorte sind nicht unterstützt, verwende stattdessen das Sicherungsmenu.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Ort auswählen</string>
     <string name="noLocationSelected">Keinen Ort ausgewählt</string>
     <string name="locationSetTo">Ort gesetzt zu: \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Passwort wurde gesetzt</string>
     <string name="notPasswordProtected">Nicht passwortgeschützt</string>
     <string name="enableAutoBackup">Automatische Sicherung</string>
-    <string name="enableAutoBackupMessage">Automatisch Sicherungen am gewählten Ort erstellen</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Aktiviere automatische Wiederherstellung</string>
     <string name="enableAutoRestoreMessage">Automatisch die letzte Sicherung wiederherstellen. Nützlich für die Synchronisation zwischen Geräten.</string>
     <string name="batOptim">Batterieoptimierung</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Allgemein</string>
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
-    <string name="prefShowBackupRemindersSummary">Erinnert dich daran, eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden.</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Automatische Sicherung</string>
-    <string name="prefAutoBackupSummary">Automatische Sicherung und Wiederherstellung von einem bestimmten Pfad, falls Änderungen gemacht wurden. Deaktiviert die Erinnerung für Sicherungen.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Sprache</string>
     <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
     <string name="prefSecurity">Sicherheit</string>
