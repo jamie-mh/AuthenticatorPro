@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">設定</string>
     <string name="restore">復元</string>
-    <string name="backup">バックアップ</string>
+    <string name="backup">Back up</string>
     <string name="about">このアプリについて</string>
     <string name="scanQrCode">QRコードをスキャン</string>
     <string name="showQrCode">QRコードを表示</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">URIをコピー</string>
     <string name="uriCopiedToClipboard">URI をクリップボードにコピーしました</string>
     <!-- Backup menu -->
-    <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
-    <string name="backupHtml">HTMLファイルでバックアップ</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">暗号化されていないHTMLファイルにQRコードで認証コードを保存します。復元するには、これらのコードを個別にスキャンする必要があります。カテゴリとアイコンは保存されません。</string>
     <string name="backupHtmlWarning">HTMLファイルへのバックアップはあなたの秘密鍵を危険にさらします。\n\nこのファイルはアプリでは復元できず、カテゴリやアイコンは保存されません。不安でしたら、暗号化されたファイルにバックアップすることができます。\n\n続行しますか？</string>
-    <string name="backupUriList">URI リスト形式でバックアップ</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">暗号化されていないテキストファイルに URI リストとして認証コードを保存します。 このファイルは、多くの代替アプリケーションやサービスと互換性があります。カテゴリとアイコンは保存されません。</string>
     <string name="backupUriListWarning">テキスト形式のバックアップは暗号化されておらず、はあなたの秘密鍵を危険にさらします。\n\nこのファイルはアプリでは復元できず、カテゴリやアイコンは保存されません。不安でしたら、暗号化されたファイルにバックアップすることができます。\n\n続行しますか？</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">デフォルトとして設定</string>
     <string name="clearDefault">デフォルトを解除</string>
     <!-- Backups -->
-    <string name="backupNow">今すぐバックアップ</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">今すぐ復元</string>
     <string name="backupReminder">前回のバックアップから変更がありました</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">パスワードが選択されていないため、バックアップは暗号化されず、秘密鍵が危険にさらされる可能性があります。\n\n続けますか？</string>
     <string name="passwordHint">バックアップ パスワード</string>
     <string name="fileNameHint">バックアップ ファイル名</string>
-    <string name="noAuthenticators">バックアップする認証コードがありません</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">暗号化しています</string>
     <string name="decrypting">復号しています</string>
     <string name="saving">保存しています</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">報告方法</string>
     <string name="errorCopiedToClipboard">エラーをクリップボードにコピーしました</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">自動バックアップの場所とパスワードを選択します。変更が行われるとバックアップがスケジュールされます。クラウドストレージはサポートされていないため、代わりにバックアップメニューを使用してください。</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">場所を選択</string>
     <string name="noLocationSelected">場所が選択されていません</string>
     <string name="locationSetTo">バックアップ先を \'{0}\' に設定しました</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">パスワードを設定</string>
     <string name="notPasswordProtected">パスワードで保護されていません</string>
     <string name="enableAutoBackup">自動バックアップを有効にする</string>
-    <string name="enableAutoBackupMessage">選択した保存場所に自動的にバックアップします</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">自動復元を有効にする</string>
     <string name="enableAutoRestoreMessage">選択した保存場所にある最新のバックアップを自動的に復元します。デバイス間の同期に便利です。</string>
     <string name="batOptim">バッテリーの最適化</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">一般</string>
     <string name="prefShowBackupRemindersTitle">バックアップリマインダ</string>
-    <string name="prefShowBackupRemindersSummary">重要な変更が行われたとき、認証コードをバックアップするよう通知します</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">自動バックアップ</string>
-    <string name="prefAutoBackupSummary">変更が行われたときに、選択した場所から自動的にバックアップと復元を行うことができます。バックアップのリマインダーを無効にします</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">言語設定</string>
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
     <string name="prefSecurity">セキュリティ</string>
