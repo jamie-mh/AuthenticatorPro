@@ -93,19 +93,21 @@ namespace AuthenticatorPro.Droid.Fragment
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
-            void SwitchChecked(object sender, CompoundButton.CheckedChangeEventArgs args)
+            void SwitchClicked(object sender, EventArgs args)
             {
-                if (args.IsChecked)
+                var materialSwitch = (SwitchMaterial) sender;
+
+                if (materialSwitch.Checked)
                 {
                     ShowBatteryOptimisationDialog();
                 }
             }
 
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
-            _backupEnabledSwitch.CheckedChange += SwitchChecked;
+            _backupEnabledSwitch.Click += SwitchClicked;
 
             _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
-            _restoreEnabledSwitch.CheckedChange += SwitchChecked;
+            _restoreEnabledSwitch.Click += SwitchClicked;
 
             UpdateLocationStatusText();
             UpdateSwitchesAndTriggerButton();
