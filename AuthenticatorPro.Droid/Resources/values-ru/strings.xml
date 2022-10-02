@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
-    <string name="backup">Резервное копирование</string>
+    <string name="backup">Back up</string>
     <string name="about">О приложении</string>
     <string name="scanQrCode">Сканировать QR-код</string>
     <string name="showQrCode">Показать QR-код</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Скопировать URI</string>
     <string name="uriCopiedToClipboard">Ссылка скопирована в буфер обмена</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
-    <string name="backupHtml">Резервное копирование в HTML файл</string>
+    <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
     <string name="backupHtmlWarning">Резервные копии в HTML файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и не содержит категорий и значков. Если не уверены, что вместо этого выберите зашифрованную резервную копию файла.\n\nПродолжить?</string>
-    <string name="backupUriList">Резервное копирование в файл списка URI</string>
+    <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Сохраните ваши аутентификаторы в незашифрованном текстовом файле списке URI. Этот файл совместим со многими альтернативными приложениями и услугами. Категории и иконки не сохраняются.</string>
     <string name="backupUriListWarning">Резервные копии в текстовые файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и в нём не сохраняются категории и иконки. Если не уверены, то вместо этого выберите резервное копирование в зашифрованный файл.\n\nПродолжить?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Установить по умолчанию</string>
     <string name="clearDefault">Удалить настройки по умолчанию</string>
     <!-- Backups -->
-    <string name="backupNow">Создать резервную копию</string>
+    <string name="backupNow">Back up now</string>
     <string name="restoreNow">Восстановить</string>
     <string name="backupReminder">С момента вашего последнего резервного копирования были внесены изменения.</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
-    <string name="noAuthenticators">Нет аутентификаторов для резервной копии</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
     <string name="encrypting">Шифрование</string>
     <string name="decrypting">Дешифрование</string>
     <string name="saving">Сохранение</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Сообщить через</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Выберите расположение и пароль для автоматических резервных копий. Резервные копии создаются при внесении изменений. Облачное хранилище не поддерживается, используйте меню резервного копирования.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">Расположение не выбрано</string>
     <string name="locationSetTo">Расположение настроено как {0}</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Пароль задан</string>
     <string name="notPasswordProtected">Не защищено паролем</string>
     <string name="enableAutoBackup">Включить автоматическое резервное копирование</string>
-    <string name="enableAutoBackupMessage">Автоматически создавать резервные копии в выбранное место хранения</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
     <string name="enableAutoRestore">Включить автоматическое восстановление</string>
     <string name="enableAutoRestoreMessage">Автоматически восстанавливать последнюю резервную копию, найденную в выбранном месте хранения. Полезно для синхронизации между устройствами.</string>
     <string name="batOptim">Оптимизация работы аккумулятора</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
-    <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
-    <string name="prefAutoBackupSummary">Автоматическое резервное копирование и восстановление из выбранного места хранения при внесении изменений. Отключает напоминания о резервном копировании.</string>
+    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Язык</string>
     <string name="prefLanguageSummary">Выберите язык, который будет использоваться в приложении</string>
     <string name="prefSecurity">Безопасность</string>
