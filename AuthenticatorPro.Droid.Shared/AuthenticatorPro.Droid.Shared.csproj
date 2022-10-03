@@ -500,6 +500,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_bittrex.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_bittrex.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_bittrex.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_bitvavo.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_bitvavo.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_bitvavo.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_bitvavo.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_bitvavo.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_bitwarden.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_bitwarden.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_bitwarden.png"/>

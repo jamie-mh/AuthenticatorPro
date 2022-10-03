@@ -77,6 +77,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "bitpay", Resource.Drawable.auth_bitpay },
             { "bitstamp", Resource.Drawable.auth_bitstamp },
             { "bittrex", Resource.Drawable.auth_bittrex },
+            { "bitvavo", Resource.Drawable.auth_bitvavo },
             { "bitwarden", Resource.Drawable.auth_bitwarden },
             { "blizzard", Resource.Drawable.auth_blizzard },
             { "blockchain", Resource.Drawable.auth_blockchain },
