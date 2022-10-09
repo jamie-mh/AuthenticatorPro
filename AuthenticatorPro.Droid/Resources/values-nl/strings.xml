@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Instellingen</string>
     <string name="restore">Herstellen</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Back-up</string>
     <string name="about">Over</string>
     <string name="scanQrCode">QR-code scannen</string>
     <string name="showQrCode">QR-code tonen</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">URI kopiëren</string>
     <string name="uriCopiedToClipboard">URI naar het klembord gekopieerd</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Back-up naar versleuteld bestand (aanbevolen)</string>
     <string name="backupToFileMessage">Sla al uw authenticators, categorieën en iconen op in een versleuteld back-upbestand. Dit bestand kan worden hersteld in de app.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Back-up maken naar HTML bestand</string>
     <string name="backupHtmlMessage">Sla uw authenticators op in een niet versleuteld HTML-document met QR-codes. Om deze te herstellen, moeten de codes individueel gescand worden. Categorieën en pictogrammen worden niet opgeslagen.</string>
     <string name="backupHtmlWarning">Back-ups naar HTML-bestanden zijn niet versleuteld en kunnen uw geheime sleutels kwetsbaar maken.\n\nDeze back-up kan niet hersteld worden in de app en bevat geen categorieën en pictogrammen. Indien onzeker, kies dan voor versleutelde bestandsreservekopie.\n\nDoorgaan?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">Back-up maken naar URI lijstbestand</string>
     <string name="backupUriListMessage">Sla uw authenticatoren op in een niet versleutelde platte-tekst URI lijstbestand. Dit bestand is compatibel met veel andere applicaties en diensten. Categorieën en iconen worden niet opgeslagen.</string>
     <string name="backupUriListWarning">Back-ups naar platte-tekst bestanden zijn niet versleuteld en kunnen uw geheime sleutels kwetsbaar maken.\n\nDeze back-up bevat geen categorieën en pictogrammen. Indien onzeker, kies dan voor versleutelde bestandsreservekopie.\n\nDoorgaan?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Instellen als standaard</string>
     <string name="clearDefault">Standaardwaarden wissen</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Nu een back-up maken</string>
     <string name="restoreNow">Nu herstellen</string>
     <string name="backupReminder">Er zijn wijzigingen aangebracht sinds je laatste back-up</string>
     <string name="backupPasswordMessage">Voer een wachtwoord in om uw back-upbestand veilig te versleutelen. Laat het wachtwoord leeg als u het bestand niet wilt beveiligen.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">U heeft geen wachtwoord gekozen, uw back-up zal niet worden versleuteld en uw geheime sleutels kunnen kwetsbaar zijn.\n\nDoorgaan?</string>
     <string name="passwordHint">Wachtwoord voor back-up</string>
     <string name="fileNameHint">Naam voor back-up bestand</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">Je hebt geen authenticators om een back-up van te maken</string>
     <string name="encrypting">Versleutelen</string>
     <string name="decrypting">Ontsleutelen</string>
     <string name="saving">Bezig met opslaan</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Rapporteren via</string>
     <string name="errorCopiedToClipboard">Fouten zijn gekopieerd naar klembord</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">Selecteer een locatie en wachtwoord voor automatische back-ups. Back-ups worden gepland wanneer wijzigingen zijn aangebracht. Cloud opslag wordt niet ondersteund, gebruik in plaats daarvan het back-upmenu.</string>
     <string name="selectLocation">Kies een locatie</string>
     <string name="noLocationSelected">Geen locatie geselecteerd</string>
     <string name="locationSetTo">Locatie ingesteld op \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Wachtwoord is ingesteld</string>
     <string name="notPasswordProtected">Niet beveiligd met een wachtwoord</string>
     <string name="enableAutoBackup">Automatische back-up inschakelen</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Automatisch back-up maken naar de geselecteerde opslaglocatie</string>
     <string name="enableAutoRestore">Automatisch herstellen inschakelen</string>
     <string name="enableAutoRestoreMessage">Herstel automatisch de nieuwste back-up van de geselecteerde opslaglocatie. Handig voor het synchroniseren tussen apparaten.</string>
     <string name="batOptim">Batterijoptimalisatie</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Algemeen</string>
     <string name="prefShowBackupRemindersTitle">Back-up Herinneringen</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Herinnert je om een back-up van je authenticators te maken als er belangrijke wijzigingen worden aangebracht</string>
     <string name="prefAutoBackupTitle">Automatische Back-ups</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Back-up en herstel automatisch vanaf een specifieke locatie wanneer er wijzigingen worden aangebracht. Dit schakelt backup herinneringen uit.</string>
     <string name="prefLanguageTitle">Taal</string>
     <string name="prefLanguageSummary">Kies een taal om te gebruiken in de app</string>
     <string name="prefSecurity">Veiligheid</string>
