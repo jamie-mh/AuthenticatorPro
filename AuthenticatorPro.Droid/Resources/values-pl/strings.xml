@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Ustawienia</string>
     <string name="restore">Przywróć</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Kopia zapasowa</string>
     <string name="about">O aplikacji</string>
     <string name="scanQrCode">Skanuj kod QR</string>
     <string name="showQrCode">Pokaż kod QR</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Kopiuj URI</string>
     <string name="uriCopiedToClipboard">URI skopiowane do schowka</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Kopia zapasowa do pliku HTML</string>
     <string name="backupHtmlMessage">Zapisz swoje wpisy w niezaszyfrowanym dokumencie HTML z kodami QR. Aby przywrócić, kody te należy zeskanować indywidualnie. Kategorie i ikony nie są zapisywane.</string>
     <string name="backupHtmlWarning">Kopie zapasowe plików HTML są niezaszyfrowane i mogą narażać Twoje tajne klucze.\n\nTego pliku nie można przywrócić w aplikacji i nie zawiera on kategorii ani ikon. Jeśli nie masz pewności, wybierz zamiast tego kopię zapasową do zaszyfrowanego pliku.\n\nKontynuować?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">Kopia zapasowa do pliku jak lista adresów URL</string>
     <string name="backupUriListMessage">Zapisz swoje wpisy w niezaszyfrowanym pliku tekstowym w postaci listy adresów URL. Ten plik jest kompatybilny z wieloma alternatywnymi aplikacjami i usługami. Kategorie i ikony nie są zapisywane.</string>
     <string name="backupUriListWarning">Kopie zapasowe do plików tekstowych nie są szyfrowane i mogą narazić twoje tajne klucze na ujawnienie.\n\nTen plik nie zawiera kategorii i ikon. Jeśli nie jesteś pewien, wybierz zaszyfrowaną kopię zapasową.\n\nKontynuować?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Ustaw jako domyślną</string>
     <string name="clearDefault">Wyczyść domyślną</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Wykonaj kopię</string>
     <string name="restoreNow">Przywróć kopię</string>
     <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
     <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie chcesz, aby plik był chroniony hasłem, pozostaw je puste.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Nie wybrałeś hasła, kopia zapasowa nie będzie szyfrowana, a Twoje tajne klucze mogą być podatne na ataki.\n\nKontynuować?</string>
     <string name="passwordHint">Hasło kopii</string>
     <string name="fileNameHint">Nazwa pliku kopii</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">Nie masz nic do zapisania w kopii</string>
     <string name="encrypting">Szyfrowanie</string>
     <string name="decrypting">Odszyfrowywanie</string>
     <string name="saving">Zapisywanie</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Zgłoś przez</string>
     <string name="errorCopiedToClipboard">Błąd skopiowany do schowka</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">Wybierz lokalizację i hasło dla automatycznej kopii zapasowej. Kopie zapasowe są zaplanowane po dokonaniu zmian. Zapis w chmurze nie jest obsługiwany, zamiast tego użyj opcji kopii zapasowej w menu.</string>
     <string name="selectLocation">Wybierz lokalizację</string>
     <string name="noLocationSelected">Nie wybrano lokalizacji</string>
     <string name="locationSetTo">Lokalizacja: \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Hasło zostało ustawione</string>
     <string name="notPasswordProtected">Nie chronione hasłem</string>
     <string name="enableAutoBackup">Włącz automatyczne kopie</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Automatyczne tworzenie kopii zapasowych w wybranej lokalizacji</string>
     <string name="enableAutoRestore">Włącz automatyczne przywracanie</string>
     <string name="enableAutoRestoreMessage">Automatycznie przywróć najnowszą kopię zapasową znalezioną w wybranej lokalizacji. Przydatne do synchronizacji między urządzeniami.</string>
     <string name="batOptim">Optymalizacja baterii</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Ogólne</string>
     <string name="prefShowBackupRemindersTitle">Przypomnienia o kopii zapasowej</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia ważnych zmian</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
     <string name="prefLanguageTitle">Język</string>
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
