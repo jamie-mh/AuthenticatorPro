@@ -242,7 +242,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorList.Visibility = ViewStates.Invisible;
             });
 
-            switch (await _database.IsOpen())
+            switch (await _database.IsOpen(Database.Origin.Activity))
             {
                 // Unlocked, no need to do anything
                 case true:
@@ -263,7 +263,7 @@ namespace AuthenticatorPro.Droid.Activity
                     {
                         _unlockFragmentOpen = false;
 
-                        if (!await _database.IsOpen())
+                        if (!await _database.IsOpen(Database.Origin.Activity))
                         {
                             Finish();
                         }
@@ -280,7 +280,7 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     try
                     {
-                        await _database.Open(null);
+                        await _database.Open(null, Database.Origin.Activity);
                     }
                     catch (Exception e)
                     {
@@ -651,7 +651,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                await _database.Open(password);
+                await _database.Open(password, Database.Origin.Activity);
             }
             catch (Exception e)
             {
@@ -732,7 +732,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             builder.SetPositiveButton(Resource.String.retry, async delegate
             {
-                await _database.Close();
+                await _database.Close(Database.Origin.Activity);
                 Recreate();
             });
 

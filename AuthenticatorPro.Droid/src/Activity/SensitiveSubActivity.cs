@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnResume();
             var database = Dependencies.Resolve<Database>();
 
-            if (!await database.IsOpen())
+            if (!await database.IsOpen(Database.Origin.Activity))
             {
                 Finish();
             }

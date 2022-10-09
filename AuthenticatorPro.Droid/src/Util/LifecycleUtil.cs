@@ -11,7 +11,7 @@ namespace AuthenticatorPro.Droid.Util
         {
             var processInfo = new ActivityManager.RunningAppProcessInfo();
             ActivityManager.GetMyMemoryState(processInfo);
-            return (processInfo.Importance == Importance.Foreground || processInfo.Importance == Importance.Visible);
+            return processInfo.Importance is Importance.Foreground or Importance.Visible;
         }
     }
 }

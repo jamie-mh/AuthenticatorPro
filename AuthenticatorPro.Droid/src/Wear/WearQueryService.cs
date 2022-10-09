@@ -3,6 +3,7 @@
 
 using Android.App;
 using Android.Gms.Wearable;
+using Android.Util;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Persistence;
@@ -12,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Wear
@@ -28,6 +30,7 @@ namespace AuthenticatorPro.Droid.Wear
         private const string GetCustomIconCapability = "get_custom_icon";
 
         private readonly Database _database;
+        private readonly SemaphoreSlim _lock = new SemaphoreSlim(1, 1);
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
@@ -45,18 +48,27 @@ namespace AuthenticatorPro.Droid.Wear
 
         private async Task OpenDatabase()
         {
-            if (!await _database.IsOpen())
+            if (!await _database.IsOpen(Database.Origin.Wear))
             {
                 var password = await SecureStorageWrapper.GetDatabasePassword();
-                await _database.Open(password);
+                await _database.Open(password, Database.Origin.Wear);
             }
         }
 
         private async Task CloseDatabase()
         {
-            if (await _database.IsOpen() && !LifecycleUtil.IsApplicationInForeground())
+            if (await _database.IsOpen(Database.Origin.Wear))
             {
-                await _database.Close();
+                var isApplicationInForeground = LifecycleUtil.IsApplicationInForeground();
+
+#if DEBUG
+                Logger.Info($"Is application in foreground? {isApplicationInForeground}");
+#endif
+
+                if (!isApplicationInForeground)
+                {
+                    await _database.Close(Database.Origin.Wear);
+                }
             }
         }
 
@@ -119,7 +131,17 @@ namespace AuthenticatorPro.Droid.Wear
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            await OpenDatabase();
+            var requiresDatabase = messageEvent.Path is GetSyncBundleCapability or GetCustomIconCapability;
+
+            if (requiresDatabase)
+            {
+                await _lock.WaitAsync();
+                await OpenDatabase();
+            }
+
+#if DEBUG
+            Logger.Info($"Wear message received: {messageEvent.Path}");
+#endif
 
             switch (messageEvent.Path)
             {
@@ -135,7 +157,11 @@ namespace AuthenticatorPro.Droid.Wear
                 }
             }
 
-            await CloseDatabase();
+            if (requiresDatabase)
+            {
+                await CloseDatabase();
+                _lock.Release();
+            }
         }
     }
 }
