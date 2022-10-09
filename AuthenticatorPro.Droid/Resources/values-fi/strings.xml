@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Asetukset</string>
     <string name="restore">Palauta</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Varmuuskopioi</string>
     <string name="about">Tietoja</string>
     <string name="scanQrCode">Skannaa QR-koodi</string>
     <string name="showQrCode">Näytä QR-koodi</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Kopioi URI</string>
     <string name="uriCopiedToClipboard">URI kopioitiin leikepöydälle</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Varmuuskopioi salattuun tiedostoon (suositeltu)</string>
     <string name="backupToFileMessage">Tallenna kaikki todentajasi, kategoriasi ja kuvakkeesi salattuun varmuuskopiotiedostoon. Tämä tiedosto voidaan palauttaa sovellukseen.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Varmuuskopioi HTML-tiedostoon</string>
     <string name="backupHtmlMessage">Tallenna todentajasi salaamattomaan HTML-asiakirjaan QR-koodeilla. Voit palauttaa koodit skannaamalla ne yksitellen. Kategorioita ja kuvakkeita ei tallenneta.</string>
     <string name="backupHtmlWarning">HTML-tiedostoja käyttävät varmuuskopiot ovat salaamattomia ja saattavat jättää salatut avaimesi haavoittuviksi.\n\nTätä tiedostoa ei voi palauttaa sovellukseen, eikä se sisällä kategorioita tai kuvakkeita. Jos olet epävarma, käytä sen sijaan salattua varmuuskopiointia.\n\nJatketaanko?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">Varmuuskopioi URI-listatiedostoon</string>
     <string name="backupUriListMessage">Tallenna todentajasi salaamattomaan raakatekstiseen URI-luettelotiedostoon. Tämä tiedosto on yhteensopiva monien vaihtoehtoisten sovellusten ja palveluiden kanssa. Kategorioita ja kuvakkeita ei tallenneta.</string>
     <string name="backupUriListWarning">Raakatekstitiedostoja käyttävät varmuuskopiot ovat salaamattomia ja saattavat jättää salatut avaimesi haavoittuviksi.\n\nTämä tiedosto ei sisällä kategorioita tai kuvakkeita. Jos olet epävarma, käytä sen sijaan salattua varmuuskopiointia.\n\nJatketaanko?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Aseta oletukseksi</string>
     <string name="clearDefault">Poista oletus</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Varmuuskopioi nyt</string>
     <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Et ole valinnut salasanaa, varmuuskopiosi ei ole salattu, ja salaiset avaimesi voivat olla haavoittuvia.\n\nJatketaanko?</string>
     <string name="passwordHint">Varmuuskopion salasana</string>
     <string name="fileNameHint">Varmuuskopion tiedostonimi</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">Sinulla ei ole todentajia varmuuskopioitavaksi</string>
     <string name="encrypting">Salataan</string>
     <string name="decrypting">Puretaan salausta</string>
     <string name="saving">Tallennetaan</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Raportoi käyttäen</string>
     <string name="errorCopiedToClipboard">Virhe kopioitu leikepöydälle</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">Valitse automaattisten varmuuskopioiden sijainti ja salasana. Varmuuskopiot ajoitetaan muutoksia tehdessä. Pilvipalveluita ei tueta, käytä varmuuskopiointivalikkoa sen sijaan.</string>
     <string name="selectLocation">Valitse sijainti</string>
     <string name="noLocationSelected">Sijaintia ei ole valittu</string>
     <string name="locationSetTo">Sijainniksi asetettu \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Salasana asetettu</string>
     <string name="notPasswordProtected">Ei suojattu salasanalla</string>
     <string name="enableAutoBackup">Ota automaattinen varmuuskopiointi käyttöön</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Varmuuskopioi automaattisesti valittuun sijaintiin</string>
     <string name="enableAutoRestore">Ota automaattinen palautus käyttöön</string>
     <string name="enableAutoRestoreMessage">Palauta uusin valitusta sijainnista löytyvä varmuuskopio automaattisesti. Kätevä laitteiden väliseen synkronointiin.</string>
     <string name="batOptim">Akun Optimointi</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Yleiset</string>
     <string name="prefShowBackupRemindersTitle">Varmuuskopiomuistutukset</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Muistuttaa sinua varmuuskopioimaan todentajasi, jos tärkeitä muutoksia tehdään</string>
     <string name="prefAutoBackupTitle">Automaattinen varmuuskopiointi</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Varmuuskopioi ja palauta automaattisesti tietystä sijainnista muutoksia tehdessä. Poistaa varmuuskopiointimuistutukset käytöstä.</string>
     <string name="prefLanguageTitle">Kieli</string>
     <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
     <string name="prefSecurity">Turvallisuus</string>
