@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Inställningar</string>
     <string name="restore">Återställ</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Säkerhetskopiera</string>
     <string name="about">Om</string>
     <string name="scanQrCode">Skanna en QR-kod</string>
     <string name="showQrCode">Visa QR-kod</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">Kopiera URI</string>
     <string name="uriCopiedToClipboard">URI har kopierats till urklipp</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
     <string name="backupToFileMessage">Säkerhetskopiera alla dina autentiserare, kategorier och ikoner till en krypterad fil. Filen kan återställas i appen.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Säkerhetskopiera till HTML-fil</string>
     <string name="backupHtmlMessage">Spara dina autentiserare till ett okrypterat HTML-dokument med QR-koder. För att återställa måste dessa koder skannas individuellt. Kategorier och ikoner sparas inte.</string>
     <string name="backupHtmlWarning">Säkerhetskopior till HTML-filer är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil kan inte återställas i appen och innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">Säkerhetskopiera till fil som URI-lista</string>
     <string name="backupUriListMessage">Spara dina autentiserare till en okrypterad, oformatterad textfil i form av en URI-lista. En sådan fil är kompatibel med många andra appar och tjänster. Kategorier och ikoner sparas inte.</string>
     <string name="backupUriListWarning">Säkerhetskopior till oformaterade textfiler är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Ange som standard</string>
     <string name="clearDefault">Rensa standard</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Säkerhetshopiera nu</string>
     <string name="restoreNow">Återställ nu</string>
     <string name="backupReminder">Det har gjorts ändringar sedan din senaste säkerhetskopia</string>
     <string name="backupPasswordMessage">Ange ett lösenord för att kryptera din säkerhetskopia. Om du inte vill lösenordsskydda filen, lämna lösenordet tomt.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Du har inte valt något lösenord. Din säkerhetskopia kommer inte krypteras och dina hemliga nycklar kan bli sårbara.\n\nVill du fortsätta?</string>
     <string name="passwordHint">Lösenord för säkerhetskopia</string>
     <string name="fileNameHint">Namn på säkerhetskopia</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">Du har inga autentiserare att säkerhetskopiera</string>
     <string name="encrypting">Krypterar</string>
     <string name="decrypting">Dekrypterar</string>
     <string name="saving">Sparar</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">Rapportera via</string>
     <string name="errorCopiedToClipboard">Felet har kopierats till urklipp</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">Välj plats och lösenord för automatisk säkerhetskopiering. Säkerhetskopior schemaläggs när ändringar görs. Molnlagring stöds inte – använd säkerhetskopieringsmenyn istället.</string>
     <string name="selectLocation">Välj plats</string>
     <string name="noLocationSelected">Ingen plats vald</string>
     <string name="locationSetTo">Vald plats: \"{0}\"</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Lösenord inställt</string>
     <string name="notPasswordProtected">Inte lösenordsskyddad</string>
     <string name="enableAutoBackup">Aktivera automatisk säkerhetskopiering</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Säkerhetskopiera automatiskt till den valda lagringsplatsen</string>
     <string name="enableAutoRestore">Aktivera automatisk återställning</string>
     <string name="enableAutoRestoreMessage">Återställ automatiskt den senaste säkerhetskopian som finns på den valda lagringsplatsen. Användbart för synkronisering mellan enheter.</string>
     <string name="batOptim">Batterioptimering</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">Allmänt</string>
     <string name="prefShowBackupRemindersTitle">Påminnelser om säkerhetskopiering</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">Påminner dig att säkerhetskopiera dina autentiserare när viktiga ändringar görs</string>
     <string name="prefAutoBackupTitle">Automatisk säkerhetskopiering</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Säkerhetskopiera och återställ automatiskt från en specifik plats när ändringar görs. Inaktiverar säkerhetskopieringspåminnelser.</string>
     <string name="prefLanguageTitle">Språk</string>
     <string name="prefLanguageSummary">Välj vilket språk som ska visas i appen</string>
     <string name="prefSecurity">Säkerhet</string>
