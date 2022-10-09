@@ -27,9 +27,7 @@ namespace AuthenticatorPro.Droid.Wear
         private const string GetSyncBundleCapability = "get_sync_bundle";
         private const string GetCustomIconCapability = "get_custom_icon";
 
-        private bool _shouldCloseDatabase;
         private readonly Database _database;
-        private readonly Lazy<Task> _initTask;
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
@@ -38,29 +36,25 @@ namespace AuthenticatorPro.Droid.Wear
 
         public WearQueryService()
         {
-            _shouldCloseDatabase = false;
             _database = Dependencies.Resolve<Database>();
             _authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
             _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
             _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
             _customIconRepository = Dependencies.Resolve<ICustomIconRepository>();
-
-            _initTask = new Lazy<Task>(async delegate
-            {
-                if (!_database.IsOpen)
-                {
-                    var password = await SecureStorageWrapper.GetDatabasePassword();
-                    await _database.Open(password);
-                    _shouldCloseDatabase = true;
-                }
-            });
         }
 
-        public override async void OnDestroy()
+        private async Task OpenDatabase()
         {
-            base.OnDestroy();
+            if (!await _database.IsOpen())
+            {
+                var password = await SecureStorageWrapper.GetDatabasePassword();
+                await _database.Open(password);
+            }
+        }
 
-            if (_shouldCloseDatabase)
+        private async Task CloseDatabase()
+        {
+            if (await _database.IsOpen() && !LifecycleUtil.IsApplicationInForeground())
             {
                 await _database.Close();
             }
@@ -125,7 +119,7 @@ namespace AuthenticatorPro.Droid.Wear
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            await _initTask.Value;
+            await OpenDatabase();
 
             switch (messageEvent.Path)
             {
@@ -140,6 +134,8 @@ namespace AuthenticatorPro.Droid.Wear
                     break;
                 }
             }
+
+            await CloseDatabase();
         }
     }
 }

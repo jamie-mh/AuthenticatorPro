@@ -20,7 +20,6 @@ namespace AuthenticatorPro.Droid
 
         private readonly SemaphoreSlim _lock = new(1, 1);
         private SQLiteAsyncConnection _connection;
-        public bool IsOpen => _connection != null;
 
         public async Task<SQLiteAsyncConnection> GetConnection()
         {
@@ -36,15 +35,33 @@ namespace AuthenticatorPro.Droid
             return _connection;
         }
 
+        public async Task<bool> IsOpen()
+        {
+            await _lock.WaitAsync();
+            var isOpen = _connection != null;
+#if DEBUG
+            Logger.Info("Is database open? " + isOpen);
+#endif
+            _lock.Release();
+            return isOpen;
+        }
+
         public async Task Close()
         {
             await _lock.WaitAsync();
 
             if (_connection == null)
             {
+#if DEBUG
+                Logger.Info("Database already closed");
+#endif
                 _lock.Release();
                 return;
             }
+
+#if DEBUG
+            Logger.Info("Closing database");
+#endif
 
             try
             {
@@ -59,12 +76,11 @@ namespace AuthenticatorPro.Droid
 
         public async Task Open(string password)
         {
-            if (_connection != null)
-            {
-                await Close();
-            }
+            await Close();
 
-            await _lock.WaitAsync();
+#if DEBUG
+            Logger.Info("Opening database");
+#endif
 
             var path = GetPath();
             var firstLaunch = !File.Exists(path);
@@ -84,6 +100,7 @@ namespace AuthenticatorPro.Droid
                 }
             });
 
+            await _lock.WaitAsync();
             _connection = new SQLiteAsyncConnection(connStr);
 
             try

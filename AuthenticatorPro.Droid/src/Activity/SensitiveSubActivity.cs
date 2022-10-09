@@ -7,12 +7,12 @@ namespace AuthenticatorPro.Droid.Activity
     {
         protected SensitiveSubActivity(int layout) : base(layout) { }
 
-        protected override void OnResume()
+        protected override async void OnResume()
         {
             base.OnResume();
             var database = Dependencies.Resolve<Database>();
 
-            if (!database.IsOpen)
+            if (!await database.IsOpen())
             {
                 Finish();
             }

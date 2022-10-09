@@ -29,8 +29,6 @@ namespace AuthenticatorPro.Droid.Worker
         private readonly Context _context;
         private readonly PreferenceWrapper _preferences;
         private readonly Database _database;
-        private readonly Lazy<Task> _initTask;
-        private bool _shouldCloseDatabase;
 
         private readonly IRestoreService _restoreService;
 
@@ -39,11 +37,16 @@ namespace AuthenticatorPro.Droid.Worker
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
         private readonly ICustomIconRepository _customIconRepository;
 
+
+        private enum NotificationContext
+        {
+            BackupFailure, RestoreFailure, RestoreSuccess, BackupSuccess
+        }
+
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
             _context = context;
             _preferences = new PreferenceWrapper(context);
-            _shouldCloseDatabase = false;
 
             _database = Dependencies.Resolve<Database>();
             _restoreService = Dependencies.Resolve<IRestoreService>();
@@ -51,21 +54,23 @@ namespace AuthenticatorPro.Droid.Worker
             _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
             _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
             _customIconRepository = Dependencies.Resolve<ICustomIconRepository>();
-
-            _initTask = new Lazy<Task>(async delegate
-            {
-                if (!_database.IsOpen)
-                {
-                    var password = await SecureStorageWrapper.GetDatabasePassword();
-                    await _database.Open(password);
-                    _shouldCloseDatabase = true;
-                }
-            });
         }
 
-        private enum NotificationContext
+        private async Task OpenDatabase()
         {
-            BackupFailure, RestoreFailure, RestoreSuccess, BackupSuccess
+            if (!await _database.IsOpen())
+            {
+                var password = await SecureStorageWrapper.GetDatabasePassword();
+                await _database.Open(password);
+            }
+        }
+
+        private async Task CloseDatabase()
+        {
+            if (await _database.IsOpen() && !LifecycleUtil.IsApplicationInForeground())
+            {
+                await _database.Close();
+            }
         }
 
         private bool HasPersistablePermissionsAtUri(Uri uri)
@@ -273,7 +278,7 @@ namespace AuthenticatorPro.Droid.Worker
             {
                 try
                 {
-                    await _initTask.Value;
+                    await OpenDatabase();
                     var result = await RestoreFromDir(destination);
 
                     if (!result.IsVoid() || restoreTriggered)
@@ -302,7 +307,7 @@ namespace AuthenticatorPro.Droid.Worker
             {
                 try
                 {
-                    await _initTask.Value;
+                    await OpenDatabase();
                     var result = await BackupToDir(destination);
                     ShowNotification(NotificationContext.BackupSuccess, false, result);
                     _preferences.BackupRequired = BackupRequirement.NotRequired;
@@ -321,10 +326,7 @@ namespace AuthenticatorPro.Droid.Worker
                 }
             }
 
-            if (_shouldCloseDatabase)
-            {
-                await _database.Close();
-            }
+            await CloseDatabase();
 
             return backupSucceeded && restoreSucceeded
                 ? Result.InvokeSuccess()

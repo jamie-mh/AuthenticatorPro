@@ -242,7 +242,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorList.Visibility = ViewStates.Invisible;
             });
 
-            switch (_database.IsOpen)
+            switch (await _database.IsOpen())
             {
                 // Unlocked, no need to do anything
                 case true:
@@ -259,11 +259,11 @@ namespace AuthenticatorPro.Droid.Activity
 
                     var fragment = new UnlockBottomSheet();
                     fragment.UnlockAttempted += OnUnlockAttempted;
-                    fragment.Dismissed += delegate
+                    fragment.Dismissed += async delegate
                     {
                         _unlockFragmentOpen = false;
 
-                        if (!_database.IsOpen)
+                        if (!await _database.IsOpen())
                         {
                             Finish();
                         }
