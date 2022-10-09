@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
-    <string name="backup">Back up</string>
+    <string name="backup">备份</string>
     <string name="about">关于</string>
     <string name="scanQrCode">扫描二维码</string>
     <string name="showQrCode">显示二维码</string>
@@ -75,12 +75,12 @@
     <string name="copyUri">复制 URI</string>
     <string name="uriCopiedToClipboard">URI 已被复制到剪贴板</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">保存为 HTML 文件</string>
     <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
     <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">备份至 URI 列表文件</string>
     <string name="backupUriListMessage">将您的身份验证器保存到一个未加密纯文本的 URI 列表文件。此文件与许多其他应用程序和服务兼容。分类和图标将不会被保存.</string>
     <string name="backupUriListWarning">保存为纯文本文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
     <!-- Empty states -->
@@ -103,7 +103,7 @@
     <string name="setAsDefault">设为默认</string>
     <string name="clearDefault">清除默认设置</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">立即备份</string>
     <string name="restoreNow">立即恢复</string>
     <string name="backupReminder">自上次备份后已出现新的更改。</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">您没有输入密码，这将导致您的备份处于未加密状态，且您的密钥将会被明文暴露。您确定要继续吗？</string>
     <string name="passwordHint">备份密码</string>
     <string name="fileNameHint">备份文件名</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">您没有可备份的验证器。</string>
     <string name="encrypting">加密中</string>
     <string name="decrypting">解密中</string>
     <string name="saving">保存中</string>
@@ -141,7 +141,7 @@
     <string name="reportVia">反馈方式</string>
     <string name="errorCopiedToClipboard">错误已复制到剪贴板</string>
     <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">选择自动备份的位置和密码。当发生更改时将自动进行备份。不支持云存储，请使用备份菜单。</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">未选择位置</string>
     <string name="locationSetTo">位置被设置为 \'{0}\'</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">密码已设置</string>
     <string name="notPasswordProtected">未受密码保护</string>
     <string name="enableAutoBackup">启用自动备份</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">自动备份至选定的存储位置</string>
     <string name="enableAutoRestore">启用自动恢复</string>
     <string name="enableAutoRestoreMessage">从指定的存储位置中使用最新的备份文件进行自动恢复。可以用于在设备间同步。</string>
     <string name="batOptim">电池优化</string>
@@ -215,9 +215,9 @@
     <!-- Preferences -->
     <string name="prefGeneral">常规​​​​​</string>
     <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
     <string name="prefAutoBackupTitle">自动备份</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">当发生更改时自动从指定位置备份及还原。禁用备份提醒。</string>
     <string name="prefLanguageTitle">语言</string>
     <string name="prefLanguageSummary">选择要在应用程序中使用的语言</string>
     <string name="prefSecurity">安全</string>
