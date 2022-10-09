@@ -219,7 +219,8 @@
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
-    <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.</string>
+    <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.
+    </string>
     <string name="prefAutoBackupTitle">Copia de seguridad automática</string>
     <string name="prefAutoBackupSummary">Realizar copias de seguridad y restauraciones automáticas desde una ubicación específica cuando se realicen cambios. Desactiva los recordatorios de copia de seguridad.</string>
     <string name="prefLanguageTitle">Idioma</string>

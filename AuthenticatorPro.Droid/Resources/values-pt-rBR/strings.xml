@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Configurações</string>
     <string name="restore">Restaurar</string>
-    <string name="backup">Backup</string>
+    <string name="backup">Back up</string>
     <string name="about">Sobre</string>
     <string name="scanQrCode">Ler um código QR</string>
     <string name="showQrCode">Mostrar código QR</string>
@@ -215,7 +215,8 @@
     <!-- Preferences -->
     <string name="prefGeneral">Geral</string>
     <string name="prefShowBackupRemindersTitle">Configurar lembretes de backup</string>
-    <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita</string>
+    <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita
+    </string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
     <string name="prefAutoBackupSummary">Fazer backup automático e resturar de um local específico quando alterações forem feitas. Desativa os lembretes de backup.</string>
     <string name="prefLanguageTitle">Idioma</string>
