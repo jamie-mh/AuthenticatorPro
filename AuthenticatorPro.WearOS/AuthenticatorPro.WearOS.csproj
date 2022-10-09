@@ -107,6 +107,7 @@
         <AndroidResource Include="Resources\values-ko\strings.xml" />
         <AndroidResource Include="Resources\values-nl\strings.xml" />
         <AndroidResource Include="Resources\values-pt-rBR\strings.xml" />
+        <AndroidResource Include="Resources\values-pt\strings.xml" />
         <AndroidResource Include="Resources\values-sv\strings.xml" />
         <AndroidResource Include="Resources\values-uk\strings.xml" />
         <AndroidResource Include="Resources\values-zh-rTW\strings.xml" />
