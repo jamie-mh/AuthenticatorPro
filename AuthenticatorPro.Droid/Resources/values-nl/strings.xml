@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Instellingen</string>
     <string name="restore">Herstellen</string>
-    <string name="backup">Back-up</string>
+    <string name="backup">Back-up maken</string>
     <string name="about">Over</string>
     <string name="scanQrCode">QR-code scannen</string>
     <string name="showQrCode">QR-code tonen</string>
