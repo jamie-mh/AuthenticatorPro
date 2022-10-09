@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Nastavení</string>
     <string name="restore">Obnovit</string>
-    <string name="backup">Zálohovat</string>
+    <string name="backup">Záloha</string>
     <string name="about">O Aplikaci</string>
     <string name="scanQrCode">Naskenovat QR kód</string>
     <string name="showQrCode">Zobrazit QR kód</string>
