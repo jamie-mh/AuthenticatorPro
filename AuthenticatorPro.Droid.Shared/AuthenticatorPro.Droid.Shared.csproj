@@ -2440,6 +2440,16 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_rewind.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_rewind.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_rewind.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_ring.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_ring.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_ring.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_ring.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ring.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_ring_dark.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_ring_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_ring_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_ring_dark.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_ring_dark.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_robinhood.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_robinhood.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_robinhood.png"/>
