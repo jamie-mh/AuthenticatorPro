@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">Налаштування</string>
     <string name="restore">Відновити</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Резервна копія</string>
     <string name="about">Про застосунок</string>
     <string name="scanQrCode">Сканування QR-коду</string>
     <string name="showQrCode">Показати QR-код</string>
@@ -75,14 +75,14 @@
     <string name="copyUri">Копіювати URI</string>
     <string name="uriCopiedToClipboard">Збережено у буфері</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Резервне копіювання у зашифрований файл (рекомендовано)</string>
     <string name="backupToFileMessage">Збережіть всі ваші автентифікатори, категорії та іконки до зашифрованого файлу резервної копії. Цей файл можна буде відновити в додатку.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Резервне копіювання до HTML файлу</string>
     <string name="backupHtmlMessage">Зберегти ваші автетифікатори до зашифрованого HTML документу з QR кодами. Кожен такий код має бути відсканований окремо. Категорії та іконки не збережуться.</string>
     <string name="backupHtmlWarning">Резервні копії в HTML файли зберігаються незашифровані та наражають на небезпеку ваші секретні ключі.\n\nТакий файл неможливо імпортувати до застосунку та він не містить категорій та іконок. Якщо сумніваєтесь, то оберіть зашифровану резервну копію.\n\nПродовжити?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriList">Резервне копіювання у файл зі списком URI</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListWarning">Резервні копії в HTML файли зберігаються незашифровані та наражають на небезпеку ваші секретні ключі.\n\nТакий файл неможливо імпортувати до застосунку та він не містить категорій та іконок. Якщо сумніваєтесь, то оберіть зашифровану резервну копію.\n\nПродовжити?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Nothing here!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
@@ -103,7 +103,7 @@
     <string name="setAsDefault">Встановити за замовчуванням</string>
     <string name="clearDefault">Очистити налаштування за замовчуванням</string>
     <!-- Backups -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Зробити резервну копію</string>
     <string name="restoreNow">Відновити</string>
     <string name="backupReminder">Після останньої резервної копії відбулись зміни</string>
     <string name="backupPasswordMessage">Введіть пароль для безпечного шифрування файлу резервної копії. Якщо ви не хочете захистити файл, залиште поле порожнім.</string>
@@ -113,7 +113,7 @@
     <string name="confirmEmptyPassword">Ви не вказали пароль, тому резервна копія буде не захищена, а ваші секретні ключі можуть бути вразливими.\n\nПродовжити?</string>
     <string name="passwordHint">Пароль резервної копії</string>
     <string name="fileNameHint">Ім\'я файлу резервної копії</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">У вас немає автентифікаторів для резервного копіювання</string>
     <string name="encrypting">Шифрування</string>
     <string name="decrypting">Дешифрування</string>
     <string name="saving">Збереження</string>
@@ -150,7 +150,7 @@
     <string name="passwordSet">Пароль встановлено</string>
     <string name="notPasswordProtected">Не захищено паролем</string>
     <string name="enableAutoBackup">Увімкнути автоматичне резервне копіювання</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">Автоматичне резервне копіювання до вибраного місця</string>
     <string name="enableAutoRestore">Увімкнути автоматичне відновлення</string>
     <string name="enableAutoRestoreMessage">Автоматично відновлювати останню резервну копію, що лежить у вибраній папці сховища. Корисно для синхронізації між пристроями.</string>
     <string name="batOptim">Оптимізація батареї</string>
