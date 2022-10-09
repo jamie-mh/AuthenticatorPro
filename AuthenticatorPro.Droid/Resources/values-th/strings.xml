@@ -16,7 +16,7 @@
     <!-- Menu items -->
     <string name="settings">การตั้งค่า</string>
     <string name="restore"> กู้คืน</string>
-    <string name="backup">Back up</string>
+    <string name="backup">การสำรองข้อมูล</string>
     <string name="about">เกี่ยวกับ</string>
     <string name="scanQrCode">สแกนรหัส QR</string>
     <string name="showQrCode">แสดง QR code</string>
