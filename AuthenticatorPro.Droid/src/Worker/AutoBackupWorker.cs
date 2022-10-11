@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Droid.Worker
             _context = context;
             _preferences = new PreferenceWrapper(context);
 
-            _database = Dependencies.Resolve<Database>();
+            _database = Dependencies.Resolve<Database>("autoBackupDatabase");
             _restoreService = Dependencies.Resolve<IRestoreService>();
             _authenticatorRepository = Dependencies.Resolve<IAuthenticatorRepository>();
             _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
@@ -58,28 +58,13 @@ namespace AuthenticatorPro.Droid.Worker
 
         private async Task OpenDatabase()
         {
-            if (!await _database.IsOpen(Database.Origin.AutoBackup))
-            {
-                var password = await SecureStorageWrapper.GetDatabasePassword();
-                await _database.Open(password, Database.Origin.AutoBackup);
-            }
+            var password = await SecureStorageWrapper.GetDatabasePassword();
+            await _database.Open(password, Database.Origin.AutoBackup);
         }
 
         private async Task CloseDatabase()
         {
-            if (await _database.IsOpen(Database.Origin.AutoBackup))
-            {
-                var isApplicationInForeground = LifecycleUtil.IsApplicationInForeground();
-
-#if DEBUG
-                Logger.Info($"Is application in foreground? {isApplicationInForeground}");
-#endif
-
-                if (!isApplicationInForeground)
-                {
-                    await _database.Close(Database.Origin.AutoBackup);
-                }
-            }
+            await _database.Close(Database.Origin.AutoBackup);
         }
 
         private bool HasPersistablePermissionsAtUri(Uri uri)

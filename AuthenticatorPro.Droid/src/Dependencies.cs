@@ -23,6 +23,10 @@ namespace AuthenticatorPro.Droid
         public static void Register()
         {
             Container.Register<Database>().AsSingleton();
+
+            Container.Register<Database>("wearDatabase").AsMultiInstance();
+            Container.Register<Database>("autoBackupDatabase").AsMultiInstance();
+
             Container.Register<IAssetProvider, AssetProvider>();
             Container.Register<ICustomIconDecoder, CustomIconDecoder>();
             Container.Register<IIconResolver, IconResolver>();
@@ -67,6 +71,11 @@ namespace AuthenticatorPro.Droid
         public static T Resolve<T>() where T : class
         {
             return Container.Resolve<T>();
+        }
+
+        public static T Resolve<T>(string name) where T : class
+        {
+            return Container.Resolve<T>(name);
         }
     }
 }

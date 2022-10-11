@@ -3,7 +3,6 @@
 
 using Android.App;
 using Android.Gms.Wearable;
-using Android.Util;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Persistence;
@@ -39,7 +38,7 @@ namespace AuthenticatorPro.Droid.Wear
 
         public WearQueryService()
         {
-            _database = Dependencies.Resolve<Database>();
+            _database = Dependencies.Resolve<Database>("wearDatabase");
             _authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
             _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
             _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
@@ -48,28 +47,13 @@ namespace AuthenticatorPro.Droid.Wear
 
         private async Task OpenDatabase()
         {
-            if (!await _database.IsOpen(Database.Origin.Wear))
-            {
-                var password = await SecureStorageWrapper.GetDatabasePassword();
-                await _database.Open(password, Database.Origin.Wear);
-            }
+            var password = await SecureStorageWrapper.GetDatabasePassword();
+            await _database.Open(password, Database.Origin.Wear);
         }
 
         private async Task CloseDatabase()
         {
-            if (await _database.IsOpen(Database.Origin.Wear))
-            {
-                var isApplicationInForeground = LifecycleUtil.IsApplicationInForeground();
-
-#if DEBUG
-                Logger.Info($"Is application in foreground? {isApplicationInForeground}");
-#endif
-
-                if (!isApplicationInForeground)
-                {
-                    await _database.Close(Database.Origin.Wear);
-                }
-            }
+            await _database.Close(Database.Origin.Wear);
         }
 
         private async Task GetSyncBundle(string nodeId)

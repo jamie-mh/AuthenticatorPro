@@ -152,7 +152,6 @@
         <Compile Include="src\ResultExt.cs" />
         <Compile Include="src\SheetMenuItem.cs" />
         <Compile Include="src\Util\FileUtil.cs" />
-        <Compile Include="src\Util\LifecycleUtil.cs" />
         <Compile Include="src\Util\Logger.cs" />
         <Compile Include="src\Util\PasswordStorageManager.cs" />
         <Compile Include="src\Util\PreferenceWrapper.cs" />
