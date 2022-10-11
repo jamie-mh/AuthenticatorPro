@@ -2165,6 +2165,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_obsidian_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_obsidian_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_obsidian_dark.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_odoo.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_odoo.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_odoo.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_odoo.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_odoo.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_okta.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_okta.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_okta.png"/>
@@ -2660,6 +2665,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_snapchat.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_snapchat.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_snapchat.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_snelstart.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_snelstart.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_snelstart.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_snelstart.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_snelstart.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_socialbakers.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_socialbakers.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_socialbakers.png"/>
