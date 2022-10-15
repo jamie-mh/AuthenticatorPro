@@ -47,13 +47,19 @@ namespace AuthenticatorPro.Droid.Worker
         {
             _context = context;
             _preferences = new PreferenceWrapper(context);
+            _database = new Database();
 
-            _database = Dependencies.Resolve<Database>("autoBackupDatabase");
-            _restoreService = Dependencies.Resolve<IRestoreService>();
-            _authenticatorRepository = Dependencies.Resolve<IAuthenticatorRepository>();
-            _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
-            _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
-            _customIconRepository = Dependencies.Resolve<ICustomIconRepository>();
+            using var container = Dependencies.GetChildContainer();
+            container.Register(_database);
+            Dependencies.RegisterRepositories(container);
+            Dependencies.RegisterServices(container);
+
+            _authenticatorRepository = container.Resolve<IAuthenticatorRepository>();
+            _categoryRepository = container.Resolve<ICategoryRepository>();
+            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
+            _customIconRepository = container.Resolve<ICustomIconRepository>();
+
+            _restoreService = container.Resolve<IRestoreService>();
         }
 
         private async Task OpenDatabase()

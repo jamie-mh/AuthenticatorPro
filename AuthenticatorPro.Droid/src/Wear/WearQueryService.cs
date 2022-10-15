@@ -29,7 +29,7 @@ namespace AuthenticatorPro.Droid.Wear
         private const string GetCustomIconCapability = "get_custom_icon";
 
         private readonly Database _database;
-        private readonly SemaphoreSlim _lock = new SemaphoreSlim(1, 1);
+        private readonly SemaphoreSlim _lock = new(1, 1);
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
@@ -38,11 +38,18 @@ namespace AuthenticatorPro.Droid.Wear
 
         public WearQueryService()
         {
-            _database = Dependencies.Resolve<Database>("wearDatabase");
-            _authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
-            _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
-            _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
-            _customIconRepository = Dependencies.Resolve<ICustomIconRepository>();
+            _database = new Database();
+
+            using var container = Dependencies.GetChildContainer();
+            container.Register(_database);
+            Dependencies.RegisterRepositories(container);
+            Dependencies.RegisterServices(container);
+            Dependencies.RegisterViews(container);
+
+            _authenticatorView = container.Resolve<IAuthenticatorView>();
+            _categoryRepository = container.Resolve<ICategoryRepository>();
+            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
+            _customIconRepository = container.Resolve<ICustomIconRepository>();
         }
 
         private async Task OpenDatabase()
