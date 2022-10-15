@@ -1595,6 +1595,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_jetbrains_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_jetbrains_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jetbrains_dark.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_jianguoyun.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_jianguoyun.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_jianguoyun.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_jianguoyun.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_jianguoyun.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_jottacloud.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_jottacloud.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_jottacloud.png"/>
@@ -1695,6 +1700,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_linode.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_linode.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_linode.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_linustechtips.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_linustechtips.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_linustechtips.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_linustechtips.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_linustechtips.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_litebit.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_litebit.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_litebit.png"/>
@@ -2290,6 +2300,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_pcloud.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_pcloud.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_pcloud.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_pixelfed.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_pixelfed.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_pixelfed.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_pixelfed.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_pixelfed.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_pixieset.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_pixieset.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_pixieset.png"/>
