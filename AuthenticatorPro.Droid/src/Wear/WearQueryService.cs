@@ -63,6 +63,22 @@ namespace AuthenticatorPro.Droid.Wear
             await _database.Close(Database.Origin.Wear);
         }
 
+        private async Task UseDatabase(Func<Task> action)
+        {
+            await _lock.WaitAsync();
+
+            try
+            {
+                await OpenDatabase();
+                await action();
+                await CloseDatabase();
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
         private async Task GetSyncBundle(string nodeId)
         {
             await _authenticatorView.LoadFromPersistenceAsync();
@@ -122,14 +138,6 @@ namespace AuthenticatorPro.Droid.Wear
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            var requiresDatabase = messageEvent.Path is GetSyncBundleCapability or GetCustomIconCapability;
-
-            if (requiresDatabase)
-            {
-                await _lock.WaitAsync();
-                await OpenDatabase();
-            }
-
 #if DEBUG
             Logger.Info($"Wear message received: {messageEvent.Path}");
 #endif
@@ -137,21 +145,15 @@ namespace AuthenticatorPro.Droid.Wear
             switch (messageEvent.Path)
             {
                 case GetSyncBundleCapability:
-                    await GetSyncBundle(messageEvent.SourceNodeId);
+                    await UseDatabase(() => GetSyncBundle(messageEvent.SourceNodeId));
                     break;
 
                 case GetCustomIconCapability:
                 {
                     var id = Encoding.UTF8.GetString(messageEvent.GetData());
-                    await GetCustomIcon(id, messageEvent.SourceNodeId);
+                    await UseDatabase(() => GetCustomIcon(id, messageEvent.SourceNodeId));
                     break;
                 }
-            }
-
-            if (requiresDatabase)
-            {
-                await CloseDatabase();
-                _lock.Release();
             }
         }
     }
