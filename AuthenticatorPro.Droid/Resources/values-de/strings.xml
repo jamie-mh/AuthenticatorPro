@@ -60,14 +60,14 @@
     <string name="noPin">Du musst einen PIN eingeben</string>
     <string name="noFileName">Du musst einen Dateinamen eingeben.</string>
     <string name="secretInvalid">Der Schlüssel ist ungültig.</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">Der PIN muss aus mindestens {0} Zahle(n) bestehen</string>
+    <string name="pinTooLong">Der PIN darf nicht mehr als {0} Zahlen enthalten.</string>
     <string name="digitsInvalid">Es müssen zwischen {0} und {1} Stellen generiert werden</string>
     <string name="periodInvalid">Ungültige Dauer</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Geben Sie den PIN ein, der diesem QR-Code zugeordnet ist. Sie wären bei der Einrichtung dieses Kontos nach einem PIN gefragt worden.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-Code</string>
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
