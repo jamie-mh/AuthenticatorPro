@@ -75,12 +75,12 @@
     <string name="copyUri">Copier l\'URI</string>
     <string name="uriCopiedToClipboard">URI copiée dans le presse-papiers</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Fichier de sauvegarde chiffré (conseillé)</string>
+    <string name="backupToFile">Sauvegarder vers un fichier chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
-    <string name="backupHtml">Sauvegarder dans un fichier HTML</string>
+    <string name="backupHtml">Sauvegarder vers un fichier HTML</string>
     <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
     <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. En cas de doute, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
-    <string name="backupUriList">Sauvegarder dans un fichier de liste URI</string>
+    <string name="backupUriList">Sauvegarder vers un fichier de liste URI</string>
     <string name="backupUriListMessage">Sauvegarder ses authentificateurs dans un fichier texte non chiffré contenant une liste d\'URI. Ce fichier est compatible avec de nombreuses applications et services alternatifs. Les catégories et icônes ne sont pas sauvegardées.</string>
     <string name="backupUriListWarning">Les sauvegardes en fichier texte ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne contient pas de catégories ni d\'icônes. En cas de doute, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <!-- Empty states -->

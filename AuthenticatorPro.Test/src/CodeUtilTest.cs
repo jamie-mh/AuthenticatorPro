@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Test
         public void PadCodeTest(string input, string expected, int digits, int groupSize)
         {
             var padded = CodeUtil.PadCode(input, digits, groupSize);
-            Assert.Equal(padded, expected);
+            Assert.Equal(expected, padded);
         }
     }
 }

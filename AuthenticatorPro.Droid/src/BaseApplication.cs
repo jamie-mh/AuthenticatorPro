@@ -95,7 +95,7 @@ namespace AuthenticatorPro.Droid
 
             if (!_preferences.PasswordProtected || _preferences.Timeout == 0)
             {
-                await _database.Close();
+                await _database.Close(Database.Origin.Application);
             }
             else
             {
@@ -103,7 +103,7 @@ namespace AuthenticatorPro.Droid
 
                 _timeoutTimer.Elapsed += async delegate
                 {
-                    await _database.Close();
+                    await _database.Close(Database.Origin.Application);
                 };
 
                 _timeoutTimer.Start();
@@ -121,7 +121,7 @@ namespace AuthenticatorPro.Droid
         [Export]
         public async void OnDestroyed()
         {
-            await _database.Close();
+            await _database.Close(Database.Origin.Application);
         }
     }
 }

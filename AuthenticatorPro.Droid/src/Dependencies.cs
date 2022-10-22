@@ -12,6 +12,7 @@ using AuthenticatorPro.Shared.Service;
 using AuthenticatorPro.Shared.Service.Impl;
 using AuthenticatorPro.Shared.View;
 using AuthenticatorPro.Shared.View.Impl;
+using System.Collections.Generic;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid
@@ -27,9 +28,9 @@ namespace AuthenticatorPro.Droid
             Container.Register<ICustomIconDecoder, CustomIconDecoder>();
             Container.Register<IIconResolver, IconResolver>();
 
-            RegisterRepositories();
-            RegisterServices();
-            RegisterViews();
+            RegisterRepositories(Container);
+            RegisterServices(Container);
+            RegisterViews(Container);
         }
 
         public static void RegisterApplicationContext(Context context)
@@ -37,36 +38,51 @@ namespace AuthenticatorPro.Droid
             Container.Register(context);
         }
 
-        private static void RegisterRepositories()
+        public static TinyIoCContainer GetChildContainer()
         {
-            Container.Register<IAuthenticatorRepository, AuthenticatorRepository>();
-            Container.Register<ICategoryRepository, CategoryRepository>();
-            Container.Register<IAuthenticatorCategoryRepository, AuthenticatorCategoryRepository>();
-            Container.Register<ICustomIconRepository, CustomIconRepository>();
+            return Container.GetChildContainer();
         }
 
-        private static void RegisterServices()
+        public static void RegisterRepositories(TinyIoCContainer container)
         {
-            Container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
-            Container.Register<IAuthenticatorService, AuthenticatorService>();
-            Container.Register<IBackupService, BackupService>();
-            Container.Register<ICategoryService, CategoryService>();
-            Container.Register<ICustomIconService, CustomIconService>();
-            Container.Register<IImportService, ImportService>();
-            Container.Register<IQrCodeService, QrCodeService>();
-            Container.Register<IRestoreService, RestoreService>();
+            container.Register<IAuthenticatorRepository, AuthenticatorRepository>();
+            container.Register<ICategoryRepository, CategoryRepository>();
+            container.Register<IAuthenticatorCategoryRepository, AuthenticatorCategoryRepository>();
+            container.Register<ICustomIconRepository, CustomIconRepository>();
         }
 
-        private static void RegisterViews()
+        public static void RegisterServices(TinyIoCContainer container)
         {
-            Container.Register<IAuthenticatorView, AuthenticatorView>().AsMultiInstance();
-            Container.Register<ICategoryView, CategoryView>().AsMultiInstance();
-            Container.Register<IIconView, IconView>().AsMultiInstance();
+            container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
+            container.Register<IAuthenticatorService, AuthenticatorService>();
+            container.Register<IBackupService, BackupService>();
+            container.Register<ICategoryService, CategoryService>();
+            container.Register<ICustomIconService, CustomIconService>();
+            container.Register<IImportService, ImportService>();
+            container.Register<IQrCodeService, QrCodeService>();
+            container.Register<IRestoreService, RestoreService>();
+        }
+
+        public static void RegisterViews(TinyIoCContainer container)
+        {
+            container.Register<IAuthenticatorView, AuthenticatorView>().AsMultiInstance();
+            container.Register<ICategoryView, CategoryView>().AsMultiInstance();
+            container.Register<IIconView, IconView>().AsMultiInstance();
         }
 
         public static T Resolve<T>() where T : class
         {
             return Container.Resolve<T>();
+        }
+
+        public static T Resolve<T>(string name) where T : class
+        {
+            return Container.Resolve<T>(name);
+        }
+
+        public static T Resolve<T>(Dictionary<string, object> arguments) where T : class
+        {
+            return Container.Resolve<T>(NamedParameterOverloads.FromIDictionary(arguments));
         }
     }
 }

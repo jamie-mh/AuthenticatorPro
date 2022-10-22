@@ -215,7 +215,8 @@
     <!-- Preferences -->
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
-    <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.</string>
+    <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.
+    </string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
     <string name="prefAutoBackupSummary">Автоматическое резервное копирование и восстановление из выбранного места хранения при внесении изменений. Отключает напоминания о резервном копировании.</string>
     <string name="prefLanguageTitle">Язык</string>

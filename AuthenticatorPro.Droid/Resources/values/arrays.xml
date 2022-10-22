@@ -45,6 +45,7 @@
         <item>@string/italian</item>
         <item>@string/dutch</item>
         <item>@string/polish</item>
+        <item>@string/portuguese</item>
         <item>@string/brazilianPortuguese</item>
         <item>@string/russian</item>
         <item>@string/slovak</item>
@@ -67,6 +68,7 @@
         <item>it</item>
         <item>nl</item>
         <item>pl</item>
+        <item>pt</item>
         <item>pt-BR</item>
         <item>ru</item>
         <item>sk</item>

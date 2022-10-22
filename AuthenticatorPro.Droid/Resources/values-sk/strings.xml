@@ -215,7 +215,8 @@
     <!-- Preferences -->
     <string name="prefGeneral">Všeobecné</string>
     <string name="prefShowBackupRemindersTitle">Pripomienky zálohovania</string>
-    <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory</string>
+    <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory
+    </string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
     <string name="prefAutoBackupSummary">Automatické zálohovanie a obnovenie z konkrétneho umiestnenia po vykonaní zmien. Zakáže pripomenutie zálohovania.</string>
     <string name="prefLanguageTitle">Jazyk</string>
