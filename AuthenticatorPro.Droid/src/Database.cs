@@ -20,7 +20,11 @@ namespace AuthenticatorPro.Droid
 
         private readonly SemaphoreSlim _lock = new(1, 1);
         private SQLiteAsyncConnection _connection;
-        public bool IsOpen => _connection != null;
+
+        public enum Origin
+        {
+            Application, Activity, Wear, AutoBackup, Gc, Other
+        }
 
         public async Task<SQLiteAsyncConnection> GetConnection()
         {
@@ -36,7 +40,18 @@ namespace AuthenticatorPro.Droid
             return _connection;
         }
 
-        public async Task Close()
+        public async Task<bool> IsOpen(Origin origin)
+        {
+            await _lock.WaitAsync();
+            var isOpen = _connection != null;
+#if DEBUG
+            Logger.Info($"Is database open from {origin}? {isOpen}");
+#endif
+            _lock.Release();
+            return isOpen;
+        }
+
+        public async Task Close(Origin origin)
         {
             await _lock.WaitAsync();
 
@@ -45,6 +60,10 @@ namespace AuthenticatorPro.Droid
                 _lock.Release();
                 return;
             }
+
+#if DEBUG
+            Logger.Info($"Closing database from {origin}");
+#endif
 
             try
             {
@@ -57,14 +76,13 @@ namespace AuthenticatorPro.Droid
             }
         }
 
-        public async Task Open(string password)
+        public async Task Open(string password, Origin origin)
         {
-            if (_connection != null)
-            {
-                await Close();
-            }
+            await Close(origin);
 
-            await _lock.WaitAsync();
+#if DEBUG
+            Logger.Info($"Opening database from {origin}");
+#endif
 
             var path = GetPath();
             var firstLaunch = !File.Exists(path);
@@ -84,6 +102,7 @@ namespace AuthenticatorPro.Droid
                 }
             });
 
+            await _lock.WaitAsync();
             _connection = new SQLiteAsyncConnection(connStr);
 
             try
@@ -101,7 +120,7 @@ namespace AuthenticatorPro.Droid
             catch
             {
                 _lock.Release();
-                await Close();
+                await Close(origin);
                 throw;
             }
 
@@ -191,17 +210,17 @@ namespace AuthenticatorPro.Droid
 
                 try
                 {
-                    await Close();
+                    await Close(Origin.Other);
                     DeleteDatabase();
                     File.Move(tempPath, dbPath);
-                    await Open(newPassword);
+                    await Open(newPassword, Origin.Other);
                 }
                 catch
                 {
                     // Perhaps it wasn't moved correctly
                     File.Delete(tempPath);
                     RestoreBackup();
-                    await Open(currentPassword);
+                    await Open(currentPassword, Origin.Other);
                     throw;
                 }
                 finally
@@ -219,13 +238,13 @@ namespace AuthenticatorPro.Droid
                 {
                     await conn.ExecuteAsync($"PRAGMA rekey = {quoted}");
 
-                    await Close();
-                    await Open(newPassword);
+                    await Close(Origin.Other);
+                    await Open(newPassword, Origin.Other);
                 }
                 catch
                 {
                     RestoreBackup();
-                    await Open(currentPassword);
+                    await Open(currentPassword, Origin.Other);
                     throw;
                 }
                 finally
@@ -237,7 +256,7 @@ namespace AuthenticatorPro.Droid
 
         public async ValueTask DisposeAsync()
         {
-            await Close();
+            await Close(Origin.Gc);
         }
     }
 }

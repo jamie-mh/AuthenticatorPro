@@ -1,0 +1,1 @@
+Autenticador 2FA livre e de código aberto, com cópias de segurança e suporte para Wear OS

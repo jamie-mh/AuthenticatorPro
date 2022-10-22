@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Wear
@@ -27,9 +28,8 @@ namespace AuthenticatorPro.Droid.Wear
         private const string GetSyncBundleCapability = "get_sync_bundle";
         private const string GetCustomIconCapability = "get_custom_icon";
 
-        private bool _shouldCloseDatabase;
         private readonly Database _database;
-        private readonly Lazy<Task> _initTask;
+        private readonly SemaphoreSlim _lock = new(1, 1);
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
@@ -38,32 +38,29 @@ namespace AuthenticatorPro.Droid.Wear
 
         public WearQueryService()
         {
-            _shouldCloseDatabase = false;
-            _database = Dependencies.Resolve<Database>();
-            _authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
-            _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
-            _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
-            _customIconRepository = Dependencies.Resolve<ICustomIconRepository>();
+            _database = new Database();
 
-            _initTask = new Lazy<Task>(async delegate
-            {
-                if (!_database.IsOpen)
-                {
-                    var password = await SecureStorageWrapper.GetDatabasePassword();
-                    await _database.Open(password);
-                    _shouldCloseDatabase = true;
-                }
-            });
+            using var container = Dependencies.GetChildContainer();
+            container.Register(_database);
+            Dependencies.RegisterRepositories(container);
+            Dependencies.RegisterServices(container);
+            Dependencies.RegisterViews(container);
+
+            _authenticatorView = container.Resolve<IAuthenticatorView>();
+            _categoryRepository = container.Resolve<ICategoryRepository>();
+            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
+            _customIconRepository = container.Resolve<ICustomIconRepository>();
         }
 
-        public override async void OnDestroy()
+        private async Task OpenDatabase()
         {
-            base.OnDestroy();
+            var password = await SecureStorageWrapper.GetDatabasePassword();
+            await _database.Open(password, Database.Origin.Wear);
+        }
 
-            if (_shouldCloseDatabase)
-            {
-                await _database.Close();
-            }
+        private async Task CloseDatabase()
+        {
+            await _database.Close(Database.Origin.Wear);
         }
 
         private async Task GetSyncBundle(string nodeId)
@@ -125,7 +122,17 @@ namespace AuthenticatorPro.Droid.Wear
 
         public override async void OnMessageReceived(IMessageEvent messageEvent)
         {
-            await _initTask.Value;
+            var requiresDatabase = messageEvent.Path is GetSyncBundleCapability or GetCustomIconCapability;
+
+            if (requiresDatabase)
+            {
+                await _lock.WaitAsync();
+                await OpenDatabase();
+            }
+
+#if DEBUG
+            Logger.Info($"Wear message received: {messageEvent.Path}");
+#endif
 
             switch (messageEvent.Path)
             {
@@ -139,6 +146,12 @@ namespace AuthenticatorPro.Droid.Wear
                     await GetCustomIcon(id, messageEvent.SourceNodeId);
                     break;
                 }
+            }
+
+            if (requiresDatabase)
+            {
+                await CloseDatabase();
+                _lock.Release();
             }
         }
     }

@@ -28,7 +28,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         [InlineData(9, "520489")]
         public void ComputeTest(long counter, string expected)
         {
-            Assert.Equal(_computeTestHotp.Compute(counter), expected);
+            Assert.Equal(expected, _computeTestHotp.Compute(counter));
         }
     }
 }

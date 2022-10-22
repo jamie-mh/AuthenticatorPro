@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Sem autenticadores</string>
+    <string name="noAuthenticatorsMessage">Nada aqui. Adicione alguns autenticadores da aplicação do smartphone.</string>
+    <string name="hotpNotSupported">HOTP não é suportado</string>
+    <string name="categoryAll">Todos</string>
+    <string name="offline">Offline</string>
+</resources>

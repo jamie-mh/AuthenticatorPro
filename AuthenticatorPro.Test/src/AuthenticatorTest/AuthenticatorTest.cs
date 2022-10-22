@@ -48,14 +48,14 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
             var result = Authenticator.ParseUri(uri, _iconResolver);
 
             var a = result.Authenticator;
-            Assert.Equal(a.Type, b.Type);
-            Assert.Equal(a.Algorithm, b.Algorithm);
-            Assert.Equal(a.Counter, b.Counter);
-            Assert.Equal(a.Digits, b.Digits);
-            Assert.Equal(a.Period, b.Period);
-            Assert.Equal(a.Issuer, b.Issuer);
-            Assert.Equal(a.Username, b.Username);
-            Assert.Equal(a.Secret, b.Secret);
+            Assert.Equal(b.Type, a.Type);
+            Assert.Equal(b.Algorithm, a.Algorithm);
+            Assert.Equal(b.Counter, a.Counter);
+            Assert.Equal(b.Digits, a.Digits);
+            Assert.Equal(b.Period, a.Period);
+            Assert.Equal(b.Issuer, a.Issuer);
+            Assert.Equal(b.Username, a.Username);
+            Assert.Equal(b.Secret, a.Secret);
 
             Assert.Equal(pinLength, result.PinLength);
         }
@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         public void FromOtpAuthUriToOtpAuthUriTest(string uri)
         {
             var auth = Authenticator.ParseUri(uri, _iconResolver).Authenticator;
-            Assert.Equal(auth.GetUri(), uri);
+            Assert.Equal(uri, auth.GetUri());
         }
 
         [Theory]
@@ -81,21 +81,21 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         {
             var a = Authenticator.FromOtpAuthMigrationAuthenticator(migration, _iconResolver);
 
-            Assert.Equal(a.Type, b.Type);
-            Assert.Equal(a.Algorithm, b.Algorithm);
-            Assert.Equal(a.Counter, b.Counter);
-            Assert.Equal(a.Digits, b.Digits);
-            Assert.Equal(a.Period, b.Period);
-            Assert.Equal(a.Issuer, b.Issuer);
-            Assert.Equal(a.Username, b.Username);
-            Assert.True(Base32.Rfc4648.Decode(a.Secret).SequenceEqual(Base32.Rfc4648.Decode(b.Secret)));
+            Assert.Equal(b.Type, a.Type);
+            Assert.Equal(b.Algorithm, a.Algorithm);
+            Assert.Equal(b.Counter, a.Counter);
+            Assert.Equal(b.Digits, a.Digits);
+            Assert.Equal(b.Period, a.Period);
+            Assert.Equal(b.Issuer, a.Issuer);
+            Assert.Equal(b.Username, a.Username);
+            Assert.True(Base32.Rfc4648.Decode(b.Secret).SequenceEqual(Base32.Rfc4648.Decode(a.Secret)));
         }
 
         [Theory]
         [ClassData(typeof(GetOtpAuthUriClassData))]
         public void GetOtpAuthUriTest(Authenticator auth, string uri)
         {
-            Assert.Equal(auth.GetUri(), uri);
+            Assert.Equal(uri, auth.GetUri());
         }
 
         [Theory]
@@ -111,7 +111,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         {
             foreach (var type in types)
             {
-                Assert.Equal(Authenticator.CleanSecret(input, type), output);
+                Assert.Equal(output, Authenticator.CleanSecret(input, type));
             }
         }
 
@@ -135,7 +135,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         {
             foreach (var type in types)
             {
-                Assert.Equal(Authenticator.IsValidSecret(secret, type), expectedResult);
+                Assert.Equal(expectedResult, Authenticator.IsValidSecret(secret, type));
             }
         }
 
@@ -143,7 +143,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         [ClassData(typeof(IsValidClassData))]
         public void IsValidTest(Authenticator auth, bool expectedResult)
         {
-            Assert.Equal(auth.IsValid(), expectedResult);
+            Assert.Equal(expectedResult, auth.IsValid());
         }
     }
 }
