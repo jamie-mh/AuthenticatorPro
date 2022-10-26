@@ -287,7 +287,7 @@
             <Version>2.1.4.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
-            <Version>1.0.0.14</Version>
+            <Version>1.0.0.15</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common">
             <Version>2.5.1</Version>
