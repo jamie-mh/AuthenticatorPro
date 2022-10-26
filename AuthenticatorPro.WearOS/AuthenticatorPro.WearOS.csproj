@@ -137,7 +137,7 @@
             <Version>13.0.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
-            <Version>2.5.1</Version>
+            <Version>2.5.1.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Wear">
             <Version>1.2.0.6</Version>
