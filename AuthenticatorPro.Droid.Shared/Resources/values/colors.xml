@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <resources>
 
@@ -27,7 +27,7 @@
     <color name="colorBlueSecondary">#2962FF</color>
     <color name="colorBlueTint">#1E448AFF</color>
 
-    <color name="colorLightBluePrimary">#40C4FF</color>
+    <color name="colorLightBluePrimary">#2CB1EC</color>
     <color name="colorLightBlueSecondary">#0091EA</color>
     <color name="colorLightBlueTint">#1E40C4FF</color>
 
