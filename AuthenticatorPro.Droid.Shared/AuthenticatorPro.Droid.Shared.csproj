@@ -86,7 +86,7 @@
             <Version>13.0.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Preference">
-            <Version>1.2.0.2</Version>
+            <Version>1.2.0.3</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup Label="icons">
