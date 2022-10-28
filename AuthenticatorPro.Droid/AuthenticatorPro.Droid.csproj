@@ -241,6 +241,11 @@
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
         </AndroidResource>
         <AndroidResource Include="Resources\menu\sheet.xml" />
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_monochrome.png" />
         <AndroidResource Include="Resources\values-ar\strings.xml" />
         <AndroidResource Include="Resources\values-cs\strings.xml" />
         <AndroidResource Include="Resources\values-fi\strings.xml" />
@@ -376,9 +381,6 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\values\attrs.xml" />
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidResource Include="Resources\drawable-v24\ic_launcher_foreground.xml" />
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\anim\item_animation_fall_down.xml" />
@@ -1214,12 +1216,6 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png">
-            <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-            <SubType>Designer</SubType>
-        </AndroidResource>
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidResource Include="Resources\drawable\ic_launcher_background.xml">
             <Generator>MSBuild:UpdateGeneratedFiles</Generator>
             <SubType>Designer</SubType>
         </AndroidResource>

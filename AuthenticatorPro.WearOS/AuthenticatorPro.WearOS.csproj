@@ -99,6 +99,11 @@
         <None Include="Properties\AndroidManifest.xml" />
     </ItemGroup>
     <ItemGroup>
+        <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_monochrome.png" />
+        <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_monochrome.png" />
         <AndroidResource Include="Resources\values-ar\strings.xml" />
         <AndroidResource Include="Resources\values-cs\strings.xml" />
         <AndroidResource Include="Resources\values-fi\strings.xml" />
@@ -296,12 +301,6 @@
         </AndroidResource>
     </ItemGroup>
     <ItemGroup>
-        <AndroidResource Include="Resources\drawable\ic_launcher_background.xml">
-            <Generator>MSBuild:UpdateGeneratedFiles</Generator>
-            <SubType>Designer</SubType>
-        </AndroidResource>
-    </ItemGroup>
-    <ItemGroup>
         <AndroidResource Include="Resources\drawable-hdpi\ic_menu.png" />
     </ItemGroup>
     <ItemGroup>
@@ -325,9 +324,6 @@
             <Project>{f532841a-17dc-4d56-9d43-1040efcd9019}</Project>
             <Name>AuthenticatorPro.Shared</Name>
         </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidResource Include="Resources\drawable-v24\ic_launcher_foreground.xml" />
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\values-de\strings.xml" />
@@ -376,6 +372,9 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidAotProfile Include="custom.aprof" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Resources\drawable" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
