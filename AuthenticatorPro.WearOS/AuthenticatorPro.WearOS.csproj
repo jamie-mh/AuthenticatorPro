@@ -143,7 +143,7 @@
             <Version>1.2.0.7</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Google.Android.Material">
-            <Version>1.6.1.1</Version>
+            <Version>1.7.0.1</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
             <Version>118.0.0</Version>
