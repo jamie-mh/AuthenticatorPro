@@ -1,0 +1,4 @@
+- General: App icon design change + themed icon
+- General: New icons
+- General: Bug fixes
+- General: Translation updates
