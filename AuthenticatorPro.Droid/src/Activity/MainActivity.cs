@@ -2048,7 +2048,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void StartFilePickActivity(string mimeType, int requestCode)
         {
-            var intent = new Intent(Intent.ActionOpenDocument);
+            var intent = new Intent(Intent.ActionGetContent);
             intent.AddCategory(Intent.CategoryOpenable);
             intent.SetType(mimeType);
 
