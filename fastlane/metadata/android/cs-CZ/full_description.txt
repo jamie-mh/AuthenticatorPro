@@ -1,55 +1,40 @@
-Authenticator Pro generuje kódy dvoufaktorového ověřování (2FA) pro vaše online účty. Podporovány jsou TOTP, HOTP, mOTP (Mobile-OTP) a Steam kódy. Vygenerované kódy jsou jednorázové tokeny, které poskytují další úroveň zabezpečení vašich online účtů. Po naskenování jednoduchého QR kódu je váš účet chráněn.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-<b>Místo psaní recenze prosím směřujte veškerou zpětnou vazbu / problémy buď na GitHub, nebo na e-mail (sekce Kontakt pro vývojáře) pro snadnější pomoc s vaším problémem.</b>
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-<b>Často kladené dotazy</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+2 faktorové ověření poskytuje Vašim účtům další vrstvu bezpečnosti tím, že k přihlášení vyžaduje použití jednorázového kódu.
+Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnutý aplikací Authenticator Pro. Takže i když dojde ke kompromitaci vašich přihlašovacích údajů, váš účet zůstane v bezpečí.
 
-<b>Kompatibilita</b>
-Authenticator Pro je kompatibilní s většinou poskytovatelů a účtů.
+### Features
 
-<b>Zálohování / Obnovení</b>
-Zálohujte své autentifikátory silným šifrováním. V případě, že ztratíte nebo změníte telefon, můžete vždy získat přístup k vašim účtům. Uložit do cloudového úložiště nebo do vašeho zařízení.
+- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
 
-<b>Importování</b>
-Jednoduše přeneste své účty do Authenticator Pro z podporovaných alternativních aplikací.
+- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-<b>Tmavý režim</b>
-Authenticator Pro má krásný materiálový design inspirovaný vzhledem ve světlé, nebo tmavé.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. V případě, že ztratíte nebo změníte telefon, můžete vždy získat přístup k vašim účtům. Uložit do cloudového úložiště nebo do vašeho zařízení.
 
-<b>Ikony</b>
-Najděte své autentifikátory snadno s rozeznatelnými značkami a ikonami vedle každého kódu.
+- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-<b>Kategorie</b>
-Uspořádejte své autentifikátory do kategorií.
+- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-<b>Offline s několika oprávněními</b>
-Authenticator Pro vyžaduje pouze jedno oprávnění a nevyžaduje přístup k Internetu pro funkčnost.
+- 📂 **Categories**: Organise your authenticators into categories.
 
-<b>Přizpůsobení</b>
-Nastavte ikony a přejmenujte. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
+- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
 
-<b>Wear OS</b>
-Authenticator Pro je také k dispozici jako doprovodná aplikace Wear OS. Rychle zobrazte autentifikátory přímo z vašich hodinek.
+- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
 
-<b>Zabezpečení</b>
-Nastavte heslo a použijte biometrickou autentizaci pro ochranu vašich kódů.
+- 🎨 **Customisation**: Set icons and rename. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
 
-<b>Otevřený zdrojový kód</b>
-Zdrojový kód aplikace může být zobrazen kýmkoli na GitHubu.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 
-2 faktorové ověření poskytuje Vašim účtům další vrstvu bezpečnosti tím, že k přihlášení vyžaduje použití jednorázového kódu. Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnutý aplikací Authenticator Pro. Takže i když dojde ke kompromitaci vašich přihlašovacích údajů, váš účet zůstane v bezpečí.
+(*) *To scan QR-Codes, the app requires the camera permission.*
 
 
-Zdarma a s otevřeným zdrojovým kódem
-https://github.com/jamie-mh/AuthenticatorPro
+**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>Oprávnění</b>
 
-Oprávnění kamery je vyžadováno pro přidání účtů pomocí QR kódů.
-
-<b>Upozornění</b>
+#### Disclaimer:
 
 Tento program je svobodný software: můžete jej šířit a/nebo modifikovat podle podmínek GNU General Public License, vydávané Free Software Foundation, a to buď verze 3 této licence, nebo (podle vlastního uvážení) kterékoli pozdější verze.
 
