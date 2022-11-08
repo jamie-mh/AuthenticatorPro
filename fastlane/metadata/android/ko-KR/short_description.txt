@@ -1,1 +1,1 @@
-백업 및 WearOS를 지원하는 무료/오픈소스 2단계 인증 OTP 생성기
+Free and open-source 2FA app with encrypted backups and Wear OS support
