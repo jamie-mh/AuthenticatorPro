@@ -1,55 +1,40 @@
-Authenticator Pro erzeugt Zwei-Faktor-Authentisierung (2FA) Codes für Ihre Online-Konten. TOTP, HOTP, mOTP (Mobile-OTP) und Steam werden unterstützt. Die generierten Codes sind Einmal-Token, die eine zusätzliche Sicherheitsstufe für Ihre Online-Konten bieten. Nach dem Scannen eines einfachen QR-Codes, ist Ihr Konto geschützt.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-<b>Bitte richten Sie alle Feedback/Probleme entweder an GitHub oder E-Mail (Entwicklerkontaktsektion), anstatt eine Bewertung zu schreiben, um Ihr Problem leichter verfolgen zu können.</b>
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-<b>Häufig gestellte Fragen:</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+Die Zwei-Faktor-Authentisierung stellt eine zusätzliche Sicherheitsstufe für Ihre Konten dar, indem sie die Verwendung eines einmaligen Codes zum Anmelden erfordert.
+Zusätzlich zu Ihrem Benutzernamen und Passwort benötigen Sie einen Code von der Authenticator-Pro-App. Auch wenn Ihre Login-Daten gefährdet sind, bleibt Ihr Konto sicher.
 
-<b>Kompatibilität</b>
-Authenticator Pro ist kompatibel mit den meisten Anbietern und Konten.
+### Features
 
-<b>Sichern / Wiederherstellen</b>
-Sichern Sie Ihre Authentifikatoren mit starker Verschlüsselung. Falls Sie Ihr Telefon verlieren oder wechseln, können Sie jederzeit Zugang zu Ihren Konten erhalten. In der Cloud oder auf Ihrem Gerät speichern.
+- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
 
-<b>Importieren</b>
-Migrieren Sie ganz einfach Ihre Konten von unterstützten alternativen Apps zu Authenticator Pro.
+- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-<b>Dunkelmodus</b>
-Authenticator Pro hat ein schönes Material-Design, inspiriert in hellen oder dunklen Themen.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. Falls Sie Ihr Telefon verlieren oder wechseln, können Sie jederzeit Zugang zu Ihren Konten erhalten. In der Cloud oder auf Ihrem Gerät speichern.
 
-<b>Logos</b>
-Finden Sie Ihre Authentifikatoren ganz einfach mit erkennbaren Markenlogos und Symbolen neben jedem Code.
+- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-<b>Kategorien</b>
-Organisieren Sie Ihre Authentifikatoren in Kategorien.
+- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-<b>Offline mit wenigen Berechtigungen</b>
-Authenticator Pro benötigt nur eine einzige Berechtigung und keinen Internet-Zugriff um zu funktionieren.
+- 📂 **Categories**: Organise your authenticators into categories.
 
-<b>Personalisierung</b>
-Setze Symbole und benenne um. Sie können Ihre Authentifikatoren auch in beliebiger Reihenfolge sortieren, sodass Sie sie leicht finden können.
+- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
 
-<b>Wear OS</b>
-Authenticator Pro ist auch als Wear-OS-Begleiter-App verfügbar. Zeigen Sie sich schnell Ihre Authentifikatoren direkt von Ihrer Uhr an.
+- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
 
-<b>Sicherheit</b>
-Legen Sie ein Passwort fest und verwenden Sie biometrische Authentifizierung, um Ihre Codes zu schützen.
+- 🎨 **Customisation**: Set icons and rename. Sie können Ihre Authentifikatoren auch in beliebiger Reihenfolge sortieren, sodass Sie sie leicht finden können.
 
-<b>Open-Source</b>
-Der Quellcode der Anwendung kann von jedem auf GitHub eingesehen werden.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 
-Die Zwei-Faktor-Authentisierung stellt eine zusätzliche Sicherheitsstufe für Ihre Konten dar, indem sie die Verwendung eines einmaligen Codes zum Anmelden erfordert. Zusätzlich zu Ihrem Benutzernamen und Passwort benötigen Sie einen Code von der Authenticator-Pro-App. Auch wenn Ihre Login-Daten gefährdet sind, bleibt Ihr Konto sicher.
+(*) *To scan QR-Codes, the app requires the camera permission.*
 
 
-Kostenlos und Open-Source
-https://github.com/jamie-mh/AuthenticatorPro
+**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>Berechtigungen:</b>
 
-Kamera-Berechtigung wird benötigt, um Konten durch QR-Codes hinzuzufügen.
-
-<b>Disclaimer:</b>
+#### Disclaimer:
 
 Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren Version.
 
