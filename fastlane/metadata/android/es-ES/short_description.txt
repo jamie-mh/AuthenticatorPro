@@ -1,1 +1,1 @@
-Generador libre y de código abierto de código OTP 2FA con copias de seguridad y soporte para Wear OS
+Free and open-source 2FA app with encrypted backups and Wear OS support
