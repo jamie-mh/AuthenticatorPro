@@ -1,55 +1,40 @@
-Authenticator Pro genererar inloggningskoder för dina onlinekonton med tvåstegsverifiering (2FA). Stödjer TOTP, HOTP, mOTP (Mobile-OTP) och Steam. Engångskoderna som genereras ger ett extra lager av säkerhet till dina onlinekonton. Efter att du skannat en enkel QR-kod är ditt konto skyddat.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-<b>Vänligen skicka all feedback/frågor via antingen GitHub eller e-post (se utvecklarens kontaktuppgifter) istället för att skriva en recension för att lättare kunna följa upp i ditt ärende.</b>
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-<b>Vanliga frågor:</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+Tvåfaktorsautentisering ger ett extra lager av säkerhet på dina konton genom att kräva en engångskod för att logga in.
+Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandahålls av Authenticator Pro. Så även om dina inloggningsuppgifter äventyras, förblir ditt konto säkert.
 
-<b>Kompatibilitet</b>
-Authenticator Pro är kompatibel med de flesta hemsidor och konton.
+### Features
 
-<b>Säkerhetskopiera och återställ</b>
-Säkerhetskopiera dina autentiserare med stark kryptering. Om du förlorar eller byter din mobil kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.
+- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
 
-<b>Importera</b>
-Flytta enkelt dina konton till Authenticator Pro från andra appar som stöds.
+- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-<b>Mörkt läge</b>
-Authenticator Pro har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. Om du förlorar eller byter din mobil kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.
 
-<b>Ikoner</b>
-Hitta enkelt dina autentiserare tack vare igenkännbara loggor och ikoner bredvid varje kod.
+- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-<b>Kategorier</b>
-Organisera dina autentiserare i kategorier.
+- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-<b>Offline med få behörigheter</b>
-Authenticator Pro kräver bara en enda behörighet och behöver inte tillgång till internet för att fungera.
+- 📂 **Categories**: Organise your authenticators into categories.
 
-<b>Anpassning</b>
-Välj ikoner och byt namn. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
+- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
 
-<b>Wear OS</b>
-Authenticator Pro finns även på Wear OS. Ta snabbt fram dina autentiserare direkt på klockan.
+- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
 
-<b>Säkerhet</b>
-Ange ett lösenord och använd biometri för att skydda dina koder.
+- 🎨 **Customisation**: Set icons and rename. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
 
-<b>Öppen källkod</b>
-Appens källkod kan läsas av vem som helst på GitHub.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 
-Tvåfaktorsautentisering ger ett extra lager av säkerhet på dina konton genom att kräva en engångskod för att logga in. Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandahålls av Authenticator Pro. Så även om dina inloggningsuppgifter äventyras, förblir ditt konto säkert.
+(*) *To scan QR-Codes, the app requires the camera permission.*
 
 
-Gratis och öppen källkod
-https://github.com/jamie-mh/AuthenticatorPro
+**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>Behörigheter:</b>
 
-Tillgång till kameran krävs för att lägga till konton med QR-koder.
-
-<b>Ansvarsfriskrivning:</b>
+#### Disclaimer:
 
 Detta program är fri programvara: du kan distribuera det och/eller modifiera det enligt villkoren i GNU General Public License som publicerats av Free Software Foundation, antingen version 3 av licensen eller (efter eget val) valfri senare version.
 
