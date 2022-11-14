@@ -45,7 +45,7 @@
     <string name="secretKey">Hemlig nyckel</string>
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
-    <string name="confirmAuthenticatorDelete">Om du tar bort den här autentiseraren kommer du inte längre få koder för det här kontot. Detta betyder inte att tvåfaktorsautentisering stängs av för kontot.\n\nGenom att radera denna autentiserare kan du bli utlåst från ditt konto.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
