@@ -1,40 +1,40 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+En gratis tvåfaktorsautentiseringsapp med öppen källkod för Android. Den har krypterad säkerhetskopiering, ikoner, kategorier och en hög grad av anpassningsbarhet. Den har också en tillhörande app för Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Den stöder konton med TOTP (tillfälliga koder) och HOTP (räknarbaserade koder) samt hash-algoritmerna SHA1, SHA256 och SHA512. Mobile-OTP (mOTP), Steam och Yandex stöds också.
 
 Tvåfaktorsautentisering ger ett extra lager av säkerhet på dina konton genom att kräva en engångskod för att logga in.
 Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandahålls av Authenticator Pro. Så även om dina inloggningsuppgifter äventyras, förblir ditt konto säkert.
 
-### Features
+### Funktioner
 
-- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
+- ⚙️ **Kompatibilitet**: Authenticator Pro är kompatibel med de flesta tjänster och konton.
 
-- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 📲 **Import**: Flytta enkelt dina konton till Authenticator Pro från andra appar som stöds.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. Om du förlorar eller byter din mobil kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.
+- 💾 **Säkerhetskopiering**: Säkerhetskopiera dina konton med stark kryptering. Om du förlorar eller byter din mobil kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.
 
-- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- 🌙 **Dark Mode**: Authenticator Pro har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
 
-- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- ⏺️ **Icons**: Hitta enkelt dina konton tack vare igenkännbara loggor och ikoner bredvid varje kod.
 
-- 📂 **Categories**: Organise your authenticators into categories.
+- 📂 **Kategorier**: Organisera dina konton i olika kategorier.
 
-- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
+- 🔒 **Offline med få behörigheter**: Authenticator Pro kräver bara en enda behörighet (*) och fungerar utan åtkomst till internet.
 
-- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
+- 🔑 **Säkerhet**: Välj ett lösenord och skydda dina koder med biometri.
 
-- 🎨 **Customisation**: Set icons and rename. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
+- 🎨 **Anpassning**: Välj ikoner och byt namn på konton. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
-
-
-(*) *To scan QR-Codes, the app requires the camera permission.*
+- ⌚ **Wear OS**: Ta snabbt fram dina koder direkt på klockan. Observera att klockan behöver vara ansluten till din Android-enhet.
 
 
-**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+(*) *För att skanna QR-koder behövs åtkomst till kameran.*
 
 
-#### Disclaimer:
+**Vanliga frågor:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+
+
+#### Ansvarsfriskrivning:
 
 Detta program är fri programvara: du kan distribuera det och/eller modifiera det enligt villkoren i GNU General Public License som publicerats av Free Software Foundation, antingen version 3 av licensen eller (efter eget val) valfri senare version.
 
