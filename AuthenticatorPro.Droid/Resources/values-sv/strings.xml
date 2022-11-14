@@ -45,7 +45,7 @@
     <string name="secretKey">Hemlig nyckel</string>
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Om du tar bort den här autentiseraren kommer du inte längre få koder för det här kontot. Detta betyder inte att tvåfaktorsautentisering stängs av.\n\nGenom att radera denna autentiserare kan du bli utelåst från ditt konto.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
@@ -60,8 +60,8 @@
     <string name="noPin">PIN-kod måste anges</string>
     <string name="noFileName">Filnamn måste anges</string>
     <string name="secretInvalid">Den hemliga nyckeln är ogiltig</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">PIN-koden måste innehålla minst {0} siffror</string>
+    <string name="pinTooLong">PIN-koden får inte innehålla fler än {0} siffror</string>
     <string name="digitsInvalid">Autentiseraren måste generera mellan {0} och {1} siffror</string>
     <string name="periodInvalid">Tidsperioden är ogiltig</string>
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
@@ -170,7 +170,7 @@
     <string name="confirmPassword">Bekräfta lösenord</string>
     <string name="setupBiometricUnlock">Ställ in biometrisk upplåsning</string>
     <string name="passwordsDoNotMatch">Lösenorden är inte lika</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">Enhetens biometri har ändrats. Använd lösenordet för att låsa upp.</string>
     <!-- Unlock -->
     <string name="unlock">Lås upp</string>
     <string name="useBiometrics">Använd biometri</string>
