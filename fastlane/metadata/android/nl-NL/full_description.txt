@@ -11,7 +11,7 @@ Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegev
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In het geval dat je je telefoon verliest of verandert, kun je altijd toegang krijgen tot je accounts. Opslaan in de cloud of op je apparaat.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
