@@ -11,7 +11,7 @@ Zusätzlich zu Ihrem Benutzernamen und Passwort benötigen Sie einen Code von de
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. Falls Sie Ihr Telefon verlieren oder wechseln, können Sie jederzeit Zugang zu Ihren Konten erhalten. In der Cloud oder auf Ihrem Gerät speichern.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
