@@ -11,7 +11,7 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 
 - 📲 **Import**: Flytta enkelt dina konton till Authenticator Pro från andra appar som stöds.
 
-- 💾 **Säkerhetskopiering**: Säkerhetskopiera dina konton med stark kryptering. Om du förlorar eller byter din mobil kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.
+- 💾 **Säkerhetskopiering**: Säkerhetskopiera dina konton med stark kryptering. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
 
