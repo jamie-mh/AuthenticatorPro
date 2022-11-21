@@ -11,7 +11,7 @@ Em adição ao nome de usuário e senha, você vai precisar de um código fornec
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. No caso de perder o seu dispositivo, você sempre pode ganhar acesso às suas contas. Salve na nuvem ou no seu dispositivo.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
