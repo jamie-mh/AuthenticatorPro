@@ -11,7 +11,7 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. Если Вы потеряете или поменяете телефон, Вы всегда сможете получить доступ к своим учётным записям. Сохранение в облачное хранилище или на устройство.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
