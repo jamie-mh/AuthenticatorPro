@@ -11,7 +11,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. Pääset aina käsiksi tileihisi, vaikka kadottaisit tai muuttaisit puhelintasi. Tallenna pilvipalveluun tai laitteellesi.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
