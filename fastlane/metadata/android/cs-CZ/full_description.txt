@@ -11,7 +11,7 @@ Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnut�
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. V případě, že ztratíte nebo změníte telefon, můžete vždy získat přístup k vašim účtům. Uložit do cloudového úložiště nebo do vašeho zařízení.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
 - 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
