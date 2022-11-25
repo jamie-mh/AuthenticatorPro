@@ -139,7 +139,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json">
-            <Version>13.0.1</Version>
+            <Version>13.0.2</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData">
             <Version>2.5.1.1</Version>

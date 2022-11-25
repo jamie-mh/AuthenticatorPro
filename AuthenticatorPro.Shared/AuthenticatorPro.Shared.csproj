@@ -13,7 +13,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json">
-            <Version>13.0.1</Version>
+            <Version>13.0.2</Version>
         </PackageReference>
         <PackageReference Include="PCLCrypto">
             <Version>2.0.147</Version>
