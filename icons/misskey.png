@@ -1,0 +1,11 @@
+--2022-12-04 17:05:15--  https://raw.githubusercontent.com/misskey-dev/assets/main/favicon.png
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9348 (9.1K) [image/png]
+Saving to: 'favicon.png'
+
+     0K .........                                             100% 3.90M=0.002s
+
+2022-12-04 17:05:17 (3.90 MB/s) - 'favicon.png' saved [9348/9348]
+
