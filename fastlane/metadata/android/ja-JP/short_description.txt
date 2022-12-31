@@ -1,1 +1,1 @@
-Free and open-source 2FA app with encrypted backups and Wear OS support
+暗号化バックアップとWear OSをサポートする，無料かつオープンソースの2要素認証アプリ
