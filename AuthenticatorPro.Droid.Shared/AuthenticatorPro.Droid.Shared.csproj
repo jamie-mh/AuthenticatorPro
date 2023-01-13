@@ -965,6 +965,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_drupal.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_drupal.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_drupal.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_dslogon.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_dslogon.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_dslogon.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_dslogon.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_dslogon.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_eclipso.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_eclipso.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_eclipso.png"/>
@@ -2500,6 +2505,11 @@
         <AndroidResource Include="Resources\drawable-xhdpi\auth_schibsted_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxhdpi\auth_schibsted_dark.png"/>
         <AndroidResource Include="Resources\drawable-xxxhdpi\auth_schibsted_dark.png"/>
+        <AndroidResource Include="Resources\drawable-mdpi\auth_screenconnect.png"/>
+        <AndroidResource Include="Resources\drawable-hdpi\auth_screenconnect.png"/>
+        <AndroidResource Include="Resources\drawable-xhdpi\auth_screenconnect.png"/>
+        <AndroidResource Include="Resources\drawable-xxhdpi\auth_screenconnect.png"/>
+        <AndroidResource Include="Resources\drawable-xxxhdpi\auth_screenconnect.png"/>
         <AndroidResource Include="Resources\drawable-mdpi\auth_seatgeek.png"/>
         <AndroidResource Include="Resources\drawable-hdpi\auth_seatgeek.png"/>
         <AndroidResource Include="Resources\drawable-xhdpi\auth_seatgeek.png"/>
