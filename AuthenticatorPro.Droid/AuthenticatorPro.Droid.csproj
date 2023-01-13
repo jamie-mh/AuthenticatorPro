@@ -18,7 +18,7 @@
         <AndroidResgenClass>Resource</AndroidResgenClass>
         <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
         <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-        <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
         <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
         <AndroidManifestMerger>manifestmerger.jar</AndroidManifestMerger>
         <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>

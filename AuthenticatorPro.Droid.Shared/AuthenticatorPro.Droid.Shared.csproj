@@ -17,7 +17,7 @@
         <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
         <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
         <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-        <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
         <AndroidUseAapt2>true</AndroidUseAapt2>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
