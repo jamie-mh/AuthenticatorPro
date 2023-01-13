@@ -1,1 +1,1 @@
-Free and open-source 2FA app with encrypted backups and Wear OS support
+免费开源的两步验证应用程序，具有加密备份和 Wear OS 支持功能
