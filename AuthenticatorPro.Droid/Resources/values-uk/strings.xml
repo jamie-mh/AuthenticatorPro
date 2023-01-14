@@ -72,8 +72,6 @@
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Перенесіть автентифікатор на інший пристрій зчитав QR-код</string>
     <string name="qrCodeNotSupported">QR-код для цього типу не підтримується</string>
-    <string name="copyUri">Копіювати URI</string>
-    <string name="uriCopiedToClipboard">Збережено у буфері</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервне копіювання у зашифрований файл (рекомендовано)</string>
     <string name="backupToFileMessage">Збережіть всі ваші автентифікатори, категорії та іконки до зашифрованого файлу резервної копії. Цей файл можна буде відновити в додатку.</string>
