@@ -72,8 +72,6 @@
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Kopírovať autentifikátor do iného zariadenia alebo aplikácie naskenovaním QR kódu</string>
     <string name="qrCodeNotSupported">QR kódy tohto typu nie sú podporované</string>
-    <string name="copyUri">Kopírovať URI</string>
-    <string name="uriCopiedToClipboard">URI skopírovaný do schránky</string>
     <!-- Backup menu -->
     <string name="backupToFile">Zálohovať do zašifrovaného súboru (odporúčané)</string>
     <string name="backupToFileMessage">Uložiť všetky vaše autentifikátory, kategórie a ikony do zašifrovaného súboru. Tento súbor môže byť obnovený v rámci aplikácie.</string>
