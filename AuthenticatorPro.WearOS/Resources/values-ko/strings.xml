@@ -5,4 +5,5 @@
     <string name="hotpNotSupported">HOTP 미지원</string>
     <string name="categoryAll">모두</string>
     <string name="offline">오프라인</string>
+    <string name="syncTimeout">Sync timeout</string>
 </resources>
