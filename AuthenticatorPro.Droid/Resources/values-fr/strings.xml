@@ -72,8 +72,6 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copiez cet authentificateur vers un autre appareil ou une autre application en scannant le QR code</string>
     <string name="qrCodeNotSupported">Les QR codes ne sont pas pris en charge pour ce type</string>
-    <string name="copyUri">Copier l\'URI</string>
-    <string name="uriCopiedToClipboard">URI copiée dans le presse-papiers</string>
     <!-- Backup menu -->
     <string name="backupToFile">Sauvegarder vers un fichier chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
