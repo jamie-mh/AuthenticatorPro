@@ -5,4 +5,5 @@
     <string name="hotpNotSupported">HOTP nie jest obsługiwane</string>
     <string name="categoryAll">Wszystko</string>
     <string name="offline">Offline</string>
+    <string name="syncTimeout">Sync timeout</string>
 </resources>
