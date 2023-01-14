@@ -4,6 +4,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Security.Keystore;
 using Android.Views;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Biometric;
@@ -57,7 +58,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             // If all fingerprints have been removed the biometrics setting is still checked
             // In case of invalid biometrics, clear the key
-            if (_preferences.AllowBiometrics && !CanUseBiometrics())
+            if (_preferences.AllowBiometrics && (!CanUseBiometrics() || IsBiometricsInvalidated()))
             {
                 ClearBiometrics();
                 _preferences.AllowBiometrics = false;
@@ -181,6 +182,22 @@ namespace AuthenticatorPro.Droid.Activity
             var biometricManager = BiometricManager.From(this);
             return biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
                 BiometricManager.BiometricSuccess;
+        }
+
+        private bool IsBiometricsInvalidated()
+        {
+            var passwordStorage = new PasswordStorageManager(this);
+
+            try
+            {
+                _ = passwordStorage.GetDecryptionCipher();
+            }
+            catch (KeyPermanentlyInvalidatedException)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void EnableBiometrics(Action<bool> callback)
