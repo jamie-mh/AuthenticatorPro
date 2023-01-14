@@ -72,8 +72,6 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
     <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
-    <string name="copyUri">Copy URI</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
