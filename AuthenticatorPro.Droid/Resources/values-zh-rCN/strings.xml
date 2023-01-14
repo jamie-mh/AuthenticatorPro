@@ -72,8 +72,6 @@
     <string name="qrCode">二维码</string>
     <string name="qrCodeHelp">通过扫描二维码将此验证器复制到另一个设备或应用程序</string>
     <string name="qrCodeNotSupported">不支持此类型的二维码</string>
-    <string name="copyUri">复制 URI</string>
-    <string name="uriCopiedToClipboard">URI 已被复制到剪贴板</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
