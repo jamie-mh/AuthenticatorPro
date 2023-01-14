@@ -72,8 +72,6 @@
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
     <string name="qrCodeNotSupported">このタイプのQRコードはサポートされていません</string>
-    <string name="copyUri">URIをコピー</string>
-    <string name="uriCopiedToClipboard">URI をクリップボードにコピーしました</string>
     <!-- Backup menu -->
     <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
