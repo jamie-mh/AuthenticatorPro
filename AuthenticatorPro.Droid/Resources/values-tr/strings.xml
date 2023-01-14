@@ -72,8 +72,6 @@
     <string name="qrCode">Karekod</string>
     <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
     <string name="qrCodeNotSupported">Karekodları bu tür için desteklenmez</string>
-    <string name="copyUri">URI\'yi kopyala</string>
-    <string name="uriCopiedToClipboard">URI panoya kopyalandı</string>
     <!-- Backup menu -->
     <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
     <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
