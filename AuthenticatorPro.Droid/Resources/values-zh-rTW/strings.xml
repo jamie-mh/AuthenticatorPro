@@ -72,8 +72,6 @@
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
     <string name="qrCodeNotSupported">此類型的二維碼尚未被支持</string>
-    <string name="copyUri">複製 URI</string>
-    <string name="uriCopiedToClipboard">URI 已複製至剪貼簿</string>
     <!-- Backup menu -->
     <string name="backupToFile">備份至加密檔案（推薦）</string>
     <string name="backupToFileMessage">這將會把所有的驗證器、分類及圖示保存至一個加密的備份檔案中。你可以通過該文件恢復備份。</string>
