@@ -420,7 +420,11 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             _timeoutTimer.Stop();
             _responseLock.Release();
-            Toast.MakeText(this, Resource.String.syncTimeout, ToastLength.Short).Show();
+
+            RunOnUiThread(delegate
+            {
+                Toast.MakeText(this, Resource.String.syncTimeout, ToastLength.Short).Show();
+            });
         }
 
         private async Task Refresh()
@@ -549,6 +553,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if (received == required)
             {
                 _responseLock.Release();
+                _timeoutTimer.Stop();
             }
         }
 
