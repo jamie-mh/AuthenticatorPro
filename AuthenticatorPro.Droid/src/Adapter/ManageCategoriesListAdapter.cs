@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Droid.Adapter
     internal class ManageCategoriesListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         public event EventHandler<int> MenuClicked;
-        public event EventHandler MovementFinished;
+        public event EventHandler<bool> MovementFinished;
         public string DefaultId { get; set; }
 
         private readonly ICategoryView _categoryView;
@@ -29,9 +29,9 @@ namespace AuthenticatorPro.Droid.Adapter
             NotifyItemMoved(oldPosition, newPosition);
         }
 
-        public void OnMovementFinished()
+        public void OnMovementFinished(bool orderChanged)
         {
-            MovementFinished?.Invoke(this, EventArgs.Empty);
+            MovementFinished?.Invoke(this, orderChanged);
         }
 
         public void OnMovementStarted() { }

@@ -828,8 +828,14 @@ namespace AuthenticatorPro.Droid.Activity
             _bottomAppBar.PerformHide();
         }
 
-        private async void OnAuthenticatorListMovementFinished(object sender, EventArgs e)
+        private async void OnAuthenticatorListMovementFinished(object sender, bool orderChanged)
         {
+            if (!orderChanged)
+            {
+                RunOnUiThread(_bottomAppBar.PerformShow);
+                return;
+            }
+
             _authenticatorView.CommitRanking();
 
             if (_authenticatorView.CategoryId == null)

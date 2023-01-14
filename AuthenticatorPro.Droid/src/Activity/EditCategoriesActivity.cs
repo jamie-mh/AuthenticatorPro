@@ -96,8 +96,13 @@ namespace AuthenticatorPro.Droid.Activity
             await Refresh();
         }
 
-        private async void OnMovementFinished(object sender, EventArgs e)
+        private async void OnMovementFinished(object sender, bool orderChanged)
         {
+            if (!orderChanged)
+            {
+                return;
+            }
+
             for (var i = 0; i < _categoryView.Count; ++i)
             {
                 _categoryView[i].Ranking = i;

@@ -37,7 +37,7 @@ namespace AuthenticatorPro.Droid.Adapter
         public event EventHandler<int> MenuClicked;
 
         public event EventHandler MovementStarted;
-        public event EventHandler MovementFinished;
+        public event EventHandler<bool> MovementFinished;
 
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
@@ -124,9 +124,9 @@ namespace AuthenticatorPro.Droid.Adapter
             NotifyItemMoved(oldPosition, newPosition);
         }
 
-        public void OnMovementFinished()
+        public void OnMovementFinished(bool orderChanged)
         {
-            MovementFinished?.Invoke(this, EventArgs.Empty);
+            MovementFinished?.Invoke(this, orderChanged);
         }
 
         public void OnMovementStarted()

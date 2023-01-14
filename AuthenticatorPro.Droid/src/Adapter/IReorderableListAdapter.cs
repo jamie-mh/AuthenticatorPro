@@ -7,6 +7,6 @@ namespace AuthenticatorPro.Droid.Adapter
     {
         public void MoveItemView(int oldPosition, int newPosition);
         public void OnMovementStarted();
-        public void OnMovementFinished();
+        public void OnMovementFinished(bool orderChanged);
     }
 }

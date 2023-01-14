@@ -93,10 +93,9 @@ namespace AuthenticatorPro.Droid
 
                 case ItemTouchHelper.ActionStateIdle:
                 {
-                    if (viewHolder == null && _movementStartPosition > -1 && _movementEndPosition > -1 &&
-                        _movementStartPosition != _movementEndPosition)
+                    if (viewHolder == null && _movementStartPosition > -1 && _movementEndPosition > -1)
                     {
-                        _adapter.OnMovementFinished();
+                        _adapter.OnMovementFinished(_movementStartPosition != _movementEndPosition);
                         _movementStartPosition = -1;
                         _movementEndPosition = -1;
                     }
