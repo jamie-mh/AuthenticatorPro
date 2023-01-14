@@ -72,8 +72,6 @@
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copiar este autenticador a otro dispositivo o aplicación escaneando el código QR</string>
     <string name="qrCodeNotSupported">Codigo QR no es compatible con este dispositivo</string>
-    <string name="copyUri">Copiar URI</string>
-    <string name="uriCopiedToClipboard">URI copiado al portapapeles</string>
     <!-- Backup menu -->
     <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
     <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
