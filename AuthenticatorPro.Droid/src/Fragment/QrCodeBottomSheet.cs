@@ -42,15 +42,6 @@ namespace AuthenticatorPro.Droid.Fragment
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             okButton.Click += delegate { Dismiss(); };
 
-            var copyButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCopyUri);
-            copyButton.Click += delegate
-            {
-                var clipboard = (ClipboardManager) Context.GetSystemService(Context.ClipboardService);
-                var clip = ClipData.NewPlainText("uri", _uri);
-                clipboard.PrimaryClip = clip;
-                Toast.MakeText(Context, Resource.String.uriCopiedToClipboard, ToastLength.Short).Show();
-            };
-
             return view;
         }
 
