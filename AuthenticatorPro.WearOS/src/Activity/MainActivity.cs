@@ -192,15 +192,14 @@ namespace AuthenticatorPro.WearOS.Activity
             });
         }
 
-        protected override async void OnPause()
+        protected override void OnPause()
         {
             base.OnPause();
 
-            try
+            Task.Run(async delegate
             {
                 await WearableClass.GetMessageClient(this).RemoveListenerAsync(this);
-            }
-            catch (ApiException) { }
+            });
         }
 
         #endregion
