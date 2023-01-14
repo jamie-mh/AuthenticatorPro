@@ -1632,7 +1632,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.BackupFileClicked += delegate
             {
-                ShowPicker(Backup.MimeType, RequestBackupFile, Backup.FileExtension);
+                ShowPicker("*/*", RequestBackupFile, Backup.FileExtension);
             };
 
             fragment.BackupHtmlFileClicked += delegate
