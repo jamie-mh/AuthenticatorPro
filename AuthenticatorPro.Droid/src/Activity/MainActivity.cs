@@ -317,7 +317,6 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             });
 
-            _authenticatorView.Clear();
             await _wearClient.StopListening();
         }
 
