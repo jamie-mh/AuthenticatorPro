@@ -8,4 +8,5 @@
 
     <string name="categoryAll">All</string>
     <string name="offline">Offline</string>
+    <string name="syncTimeout">Sync timeout</string>
 </resources>

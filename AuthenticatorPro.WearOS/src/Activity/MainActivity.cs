@@ -26,6 +26,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -73,14 +75,19 @@ namespace AuthenticatorPro.WearOS.Activity
         // Lifecycle Synchronisation
         private readonly SemaphoreSlim _onCreateLock;
         private readonly SemaphoreSlim _responseLock;
+        private readonly Timer _timeoutTimer;
 
         private bool _isDisposed;
 
         public MainActivity()
         {
             _justLaunched = true;
+
             _onCreateLock = new SemaphoreSlim(1, 1);
             _responseLock = new SemaphoreSlim(0, 1);
+
+            _timeoutTimer = new Timer(8000);
+            _timeoutTimer.Elapsed += OnTimeout;
         }
 
         ~MainActivity()
@@ -410,6 +417,13 @@ namespace AuthenticatorPro.WearOS.Activity
             }
         }
 
+        private void OnTimeout(object sender, ElapsedEventArgs e)
+        {
+            _timeoutTimer.Stop();
+            _responseLock.Release();
+            Toast.MakeText(this, Resource.String.syncTimeout, ToastLength.Short).Show();
+        }
+
         private async Task Refresh()
         {
             if (_serverNode == null)
@@ -423,6 +437,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var client = WearableClass.GetMessageClient(this);
             await client.SendMessageAsync(_serverNode.Id, GetSyncBundleCapability, Array.Empty<byte>());
 
+            _timeoutTimer.Start();
             await _responseLock.WaitAsync();
         }
 
@@ -501,7 +516,7 @@ namespace AuthenticatorPro.WearOS.Activity
             });
         }
 
-        private async Task OnRefreshRecieved()
+        private async Task OnRefreshReceived()
         {
             await Refresh();
             RunOnUiThread(CheckEmptyState);
@@ -509,6 +524,9 @@ namespace AuthenticatorPro.WearOS.Activity
 
         public async void OnMessageReceived(IMessageEvent messageEvent)
         {
+            _timeoutTimer.Stop();
+            _timeoutTimer.Start();
+
             switch (messageEvent.Path)
             {
                 case GetSyncBundleCapability:
@@ -520,7 +538,7 @@ namespace AuthenticatorPro.WearOS.Activity
                     break;
 
                 case RefreshCapability:
-                    await OnRefreshRecieved();
+                    await OnRefreshReceived();
                     break;
             }
 
