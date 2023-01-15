@@ -1,14 +1,18 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using Android;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Provider;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Activity.Result;
 using AndroidX.Activity.Result.Contract;
+using AndroidX.Core.App;
+using AndroidX.Core.Content;
 using AndroidX.Work;
 using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Callback;
@@ -93,21 +97,11 @@ namespace AuthenticatorPro.Droid.Fragment
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
-            void SwitchClicked(object sender, EventArgs args)
-            {
-                var materialSwitch = (SwitchMaterial) sender;
-
-                if (materialSwitch.Checked)
-                {
-                    ShowBatteryOptimisationDialog();
-                }
-            }
-
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
-            _backupEnabledSwitch.Click += SwitchClicked;
+            _backupEnabledSwitch.Click += OnSwitchClicked;
 
             _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
-            _restoreEnabledSwitch.Click += SwitchClicked;
+            _restoreEnabledSwitch.Click += OnSwitchClicked;
 
             UpdateLocationStatusText();
             UpdateSwitchesAndTriggerButton();
@@ -144,6 +138,21 @@ namespace AuthenticatorPro.Droid.Fragment
             else
             {
                 workManager.CancelUniqueWork(AutoBackupWorker.Name);
+            }
+        }
+
+        private void OnSwitchClicked(object sender, EventArgs e)
+        {
+            var materialSwitch = (SwitchMaterial) sender;
+
+            if (materialSwitch.Checked)
+            {
+                ShowBatteryOptimisationDialog();
+            }
+
+            if (ContextCompat.CheckSelfPermission(Context, Manifest.Permission.PostNotifications) != Permission.Granted)
+            {
+                ActivityCompat.RequestPermissions(Activity, new[] { Manifest.Permission.PostNotifications }, 0);
             }
         }
 
