@@ -99,7 +99,7 @@ namespace AuthenticatorPro.Droid
 
                 var item = new WearAuthenticator(
                     auth.Type, auth.Secret, auth.Pin, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
-                    auth.Algorithm, auth.Ranking, bindings);
+                    auth.Algorithm, auth.Ranking, auth.CopyCount, bindings);
 
                 auths.Add(item);
             }
