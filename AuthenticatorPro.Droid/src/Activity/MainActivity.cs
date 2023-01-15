@@ -749,7 +749,7 @@ namespace AuthenticatorPro.Droid.Activity
         private void InitViews()
         {
             _coordinatorLayout = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
-            ViewCompat.SetOnApplyWindowInsetsListener(_coordinatorLayout, this);
+            ViewCompat.SetOnApplyWindowInsetsListener(_coordinatorLayout!, this);
 
             _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
             SetSupportActionBar(_toolbar);
@@ -2114,7 +2114,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
             var manager = WorkManager.GetInstance(this);
-            manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace, request);
+            manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace!, request);
         }
 
         #endregion

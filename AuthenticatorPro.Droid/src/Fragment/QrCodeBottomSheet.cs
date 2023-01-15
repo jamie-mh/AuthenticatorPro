@@ -1,7 +1,6 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;

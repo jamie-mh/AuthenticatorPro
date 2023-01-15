@@ -117,7 +117,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
 
-        private string GetDeviceName()
+        private static string GetDeviceName()
         {
             if (Build.Manufacturer != null && Build.Model.StartsWith(Build.Manufacturer))
             {
@@ -127,7 +127,7 @@ namespace AuthenticatorPro.Droid.Activity
             return $"{Build.Manufacturer} {Build.Model}";
         }
 
-        private string GetAndroidVersion()
+        private static string GetAndroidVersion()
         {
             return Build.VERSION.Release == null
                 ? null

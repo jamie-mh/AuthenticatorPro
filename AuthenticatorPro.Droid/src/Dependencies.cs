@@ -74,15 +74,5 @@ namespace AuthenticatorPro.Droid
         {
             return Container.Resolve<T>();
         }
-
-        public static T Resolve<T>(string name) where T : class
-        {
-            return Container.Resolve<T>(name);
-        }
-
-        public static T Resolve<T>(Dictionary<string, object> arguments) where T : class
-        {
-            return Container.Resolve<T>(NamedParameterOverloads.FromIDictionary(arguments));
-        }
     }
 }

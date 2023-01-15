@@ -126,13 +126,13 @@ namespace AuthenticatorPro.Droid.Fragment
             _preferences.AutoRestoreEnabled = _restoreEnabledSwitch.Checked;
 
             var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
-            var workManager = WorkManager.GetInstance(Context);
+            var workManager = WorkManager.GetInstance(RequireContext());
 
             if (shouldBeEnabled)
             {
                 var workRequest =
-                    new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 15, TimeUnit.Minutes).Build();
-                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep,
+                    new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 15, TimeUnit.Minutes!).Build();
+                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep!,
                     workRequest);
             }
             else
@@ -150,9 +150,9 @@ namespace AuthenticatorPro.Droid.Fragment
                 ShowBatteryOptimisationDialog();
             }
 
-            if (ContextCompat.CheckSelfPermission(Context, Manifest.Permission.PostNotifications) != Permission.Granted)
+            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
             {
-                ActivityCompat.RequestPermissions(Activity, new[] { Manifest.Permission.PostNotifications }, 0);
+                ActivityCompat.RequestPermissions(RequireActivity(), new[] { Manifest.Permission.PostNotifications }, 0);
             }
         }
 
@@ -173,8 +173,8 @@ namespace AuthenticatorPro.Droid.Fragment
         private void TriggerWork()
         {
             var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
-            var manager = WorkManager.GetInstance(Context);
-            manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace, request);
+            var manager = WorkManager.GetInstance(RequireContext());
+            manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace!, request);
         }
 
         private void OnSelectLocationClick(object sender, EventArgs args)
