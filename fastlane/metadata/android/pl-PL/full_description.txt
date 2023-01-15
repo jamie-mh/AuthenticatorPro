@@ -1,13 +1,13 @@
 A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Wspiera uwierzytelnianie TOTP (zależny od czasu) i HOTP (oparty na odliczaniu) za pomocą algorytmów SHA1, SHA256 lub SHA512. Wspierane są również Mobile-Otp (mOTP), Steam i Yandex.
 
 Uwierzytelnianie dwuskładnikowe zapewnia dodatkową warstwę bezpieczeństwa na Twoich kontach wymagając użycia jednorazowego kodu do zalogowania.
 Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego przez Authenticator Pro. Więc nawet jeśli Twoje dane logowania zostaną ujawnione, Twoje konto pozostaje bezpieczne.
 
-### Features
+### Funkcje
 
-- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
+- ⚙️ **Kompatybilność**: Authenticator Pro jest kompatybilny z większością dostawców i kont.
 
 - 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
@@ -17,24 +17,24 @@ Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego p
 
 - ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-- 📂 **Categories**: Organise your authenticators into categories.
+- 📂 **Kategorie**: Zorganizuj swoje tokeny uwierzytelniające w kategorie.
 
 - 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
 
-- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
+- 🔑 **Bezpieczeństwo**: Ustaw hasło i użyj uwierzytelniania biometrycznego, aby chronić swoje kody.
 
 - 🎨 **Customisation**: Set icons and rename. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
 
 - ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 
-(*) *To scan QR-Codes, the app requires the camera permission.*
+(*) *Aby zeskanować kody QR, aplikacja wymaga uprawnienia do aparatu.*
 
 
-**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+**Najczęściej zadawane pytania:** https://github.com/jamie-mh/AuthenticatorPro/wiki#często zadawane pytania
 
 
-#### Disclaimer:
+#### Zastrzeżenie:
 
 Niniejszy program jest wolnym oprogramowaniem: możesz go rozprowadzać dalej i/lub modyfikować na warunkach GNU General Public License wydanej przez Free Software Foundation - według wersji 3-ciej tej Licencji lub którejś (według uznania) z późniejszych wersji.
 
