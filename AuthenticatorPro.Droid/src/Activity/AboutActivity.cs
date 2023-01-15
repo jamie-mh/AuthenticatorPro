@@ -32,8 +32,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
-                version = packageInfo.VersionName;
+                version = PackageUtil.GetVersionName(PackageManager, PackageName);
             }
             catch (Exception e)
             {
@@ -62,12 +61,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             return base.OnOptionsItemSelected(item);
-        }
-
-        public override void OnBackPressed()
-        {
-            Finish();
-            base.OnBackPressed();
         }
     }
 }

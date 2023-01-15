@@ -105,6 +105,7 @@
         <Compile Include="src\BaseApplication.cs" />
         <Compile Include="src\Callback\ActivityResultCallback.cs" />
         <Compile Include="src\Callback\AuthenticationCallback.cs" />
+        <Compile Include="src\Callback\BackPressCallback.cs" />
         <Compile Include="src\Callback\PageChangeCallback.cs" />
         <Compile Include="src\Callback\SnackbarCallback.cs" />
         <Compile Include="src\Constants.cs" />
@@ -153,6 +154,7 @@
         <Compile Include="src\SheetMenuItem.cs" />
         <Compile Include="src\Util\FileUtil.cs" />
         <Compile Include="src\Util\Logger.cs" />
+        <Compile Include="src\Util\PackageUtil.cs" />
         <Compile Include="src\Util\PasswordStorageManager.cs" />
         <Compile Include="src\Util\PreferenceWrapper.cs" />
         <Compile Include="src\Util\SecureStorageWrapper.cs" />

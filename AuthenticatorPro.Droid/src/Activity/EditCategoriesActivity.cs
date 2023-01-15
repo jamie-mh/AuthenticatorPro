@@ -363,12 +363,6 @@ namespace AuthenticatorPro.Droid.Activity
             return base.OnOptionsItemSelected(item);
         }
 
-        public override void OnBackPressed()
-        {
-            Finish();
-            base.OnBackPressed();
-        }
-
         private void ShowSnackbar(int textRes, int length)
         {
             var snackbar = Snackbar.Make(_rootLayout, textRes, length);

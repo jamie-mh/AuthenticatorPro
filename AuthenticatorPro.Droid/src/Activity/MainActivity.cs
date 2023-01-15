@@ -214,8 +214,11 @@ namespace AuthenticatorPro.Droid.Activity
 
             RunOnUiThread(InitAuthenticatorList);
 
-            _timer = new Timer { Interval = 1000, AutoReset = true };
+            var backPressCallback = new BackPressCallback(true);
+            backPressCallback.BackPressed += OnBackButtonPressed;
+            OnBackPressedDispatcher.AddCallback(backPressCallback);
 
+            _timer = new Timer { Interval = 1000, AutoReset = true };
             _timer.Elapsed += delegate
             {
                 RunOnUiThread(delegate
@@ -577,7 +580,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        public override async void OnBackPressed()
+        private async void OnBackButtonPressed(object sender, EventArgs args)
         {
             var searchBarWasClosed = false;
 

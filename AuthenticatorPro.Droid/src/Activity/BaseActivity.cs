@@ -130,16 +130,34 @@ namespace AuthenticatorPro.Droid.Activity
             var colourInt = ContextCompat.GetColor(this, AccentColourMap.GetColourId(_preferences.AccentColour));
             var colour = new Color(colourInt);
 
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
+            switch (Build.VERSION.SdkInt)
             {
-                SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
-            }
-            else
-            {
-                var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
+                case >= BuildVersionCodes.Tiramisu:
+                {
+                    var description = new ActivityManager.TaskDescription.Builder()
+                        .SetLabel(label)
+                        .SetIcon(Resource.Mipmap.ic_launcher)
+                        .SetPrimaryColor(colour)
+                        .Build();
+
+                    SetTaskDescription(description);
+                    break;
+                }
+
+                case >= BuildVersionCodes.P:
 #pragma warning disable 618
-                SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
+                    SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
 #pragma warning restore 618
+                    break;
+
+                default:
+                {
+                    var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
+#pragma warning disable 618
+                    SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
+#pragma warning restore 618
+                    break;
+                }
             }
 
             if (_updatedThemeOnCreate)

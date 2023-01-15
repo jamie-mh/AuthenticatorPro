@@ -64,7 +64,10 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (hasCustomIcon)
             {
+#pragma warning disable 618
+                // TODO: Use SDK 33 method
                 var bitmap = (Bitmap) Intent.Extras.GetParcelable("icon");
+#pragma warning restore 618
 
                 if (bitmap != null)
                 {

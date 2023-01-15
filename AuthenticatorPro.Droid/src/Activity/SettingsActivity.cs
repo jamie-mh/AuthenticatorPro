@@ -144,12 +144,6 @@ namespace AuthenticatorPro.Droid.Activity
             outState.PutBoolean("shouldRecreateMain", _shouldRecreateMain);
         }
 
-        public override void OnBackPressed()
-        {
-            Finish();
-            base.OnBackPressed();
-        }
-
         #region Preference states
 
         private void UpdateBackupRemindersEnabled(ISharedPreferences sharedPreferences)

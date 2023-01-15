@@ -43,11 +43,5 @@ namespace AuthenticatorPro.Droid.Activity
 
             return base.OnOptionsItemSelected(item);
         }
-
-        public override void OnBackPressed()
-        {
-            Finish();
-            base.OnBackPressed();
-        }
     }
 }

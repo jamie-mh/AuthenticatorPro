@@ -7,6 +7,7 @@ using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.Dialog;
 using System.Text;
@@ -108,8 +109,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             try
             {
-                var packageInfo = PackageManager.GetPackageInfo(PackageName!, 0);
-                return packageInfo.VersionName;
+                return PackageUtil.GetVersionName(PackageManager, PackageName);
             }
             catch
             {

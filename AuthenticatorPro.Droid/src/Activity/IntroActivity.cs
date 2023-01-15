@@ -34,13 +34,18 @@ namespace AuthenticatorPro.Droid.Activity
 
             _nav.ItemSelected += OnItemSelected;
 
-            var callback = new PageChangeCallback();
-            callback.PageSelected += delegate { OnPageSelected(); };
+            var pageChangeCallback = new PageChangeCallback();
+            pageChangeCallback.PageSelected += delegate { OnPageSelected(); };
 
-            _pager.RegisterOnPageChangeCallback(callback);
+            _pager.RegisterOnPageChangeCallback(pageChangeCallback);
 
             _adapter = new IntroPagerAdapter(this, _pageCount);
             _pager.Adapter = _adapter;
+
+            var backPressCallback = new BackPressCallback(true);
+            backPressCallback.BackPressed += delegate { _pager.CurrentItem--; };
+
+            OnBackPressedDispatcher.AddCallback(backPressCallback);
 
             OnPageSelected();
         }
@@ -73,11 +78,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             OnPageSelected();
-        }
-
-        public override void OnBackPressed()
-        {
-            _pager.CurrentItem--;
         }
     }
 }
