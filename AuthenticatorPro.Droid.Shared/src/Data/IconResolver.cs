@@ -19,12 +19,14 @@ namespace AuthenticatorPro.Droid.Shared.Data
                     return IconMap.ServiceDark[Default];
                 }
 
-                if (IconMap.ServiceDark.ContainsKey(key))
+                if (IconMap.ServiceDark.TryGetValue(key, out var darkIcon))
                 {
-                    return IconMap.ServiceDark[key];
+                    return darkIcon;
                 }
 
-                return IconMap.Service.ContainsKey(key) ? IconMap.Service[key] : IconMap.ServiceDark[Default];
+                return IconMap.Service.TryGetValue(key, out var fallbackLightIcon)
+                    ? fallbackLightIcon
+                    : IconMap.ServiceDark[Default];
             }
 
             if (key == null)
@@ -32,7 +34,9 @@ namespace AuthenticatorPro.Droid.Shared.Data
                 return IconMap.Service[Default];
             }
 
-            return IconMap.Service.ContainsKey(key) ? IconMap.Service[key] : IconMap.Service[Default];
+            return IconMap.Service.TryGetValue(key, out var lightIcon)
+                ? lightIcon
+                : IconMap.Service[Default];
         }
 
         public string FindServiceKeyByName(string name)
