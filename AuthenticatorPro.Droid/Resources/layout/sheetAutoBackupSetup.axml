@@ -24,14 +24,14 @@
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:clipToPadding="false"
             android:clipChildren="false">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/autoBackupHelp"
                 android:textColor="?attr/primaryTextColor"
@@ -42,7 +42,7 @@
                 android:id="@+id/buttonSelectLocation"
                 android:orientation="horizontal"
                 android:foreground="?attr/selectableItemBackground"
-                android:background="@drawable/listitemborder"
+                android:background="@drawable/detailbutton"
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                         android:id="@+id/textLocationStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="4dp"
                         android:textColor="?attr/secondaryTextColor"
                         android:lineSpacingExtra="4sp"
                         android:textSize="14sp"/>
@@ -91,7 +91,7 @@
                 android:id="@+id/buttonSetPassword"
                 android:orientation="horizontal"
                 android:foreground="?attr/selectableItemBackground"
-                android:background="@drawable/listitemborder"
+                android:background="@drawable/detailbutton"
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -129,91 +129,71 @@
                         android:id="@+id/textPasswordStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="4dp"
                         android:textColor="?attr/secondaryTextColor"
                         android:lineSpacingExtra="4sp"
                         android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="vertical"
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchBackupEnabled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:clipToPadding="false"
-                android:clipChildren="false">
+                android:layout_marginBottom="2dp"
+                android:checked="false"
+                android:textSize="16sp"
+                android:text="@string/enableAutoBackup"/>
 
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switchBackupEnabled"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:checked="false"
-                    android:textSize="16sp"
-                    android:text="@string/enableAutoBackup"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/enableAutoBackupMessage"
-                    android:textColor="?attr/secondaryTextColor"
-                    android:textSize="14sp"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonBackupNow"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_marginBottom="10dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/backupNow"/>
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switchRestoreEnabled"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:checked="false"
-                    android:textSize="16sp"
-                    android:text="@string/enableAutoRestore"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:lineSpacingExtra="4sp"
-                    android:text="@string/enableAutoRestoreMessage"
-                    android:textColor="?attr/secondaryTextColor"
-                    android:textSize="14sp"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonRestoreNow"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/restoreNow"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:clipToPadding="false"
-                android:clipChildren="false">
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/enableAutoBackupMessage"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="14sp"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonOk"
-                    style="@style/Widget.MaterialComponents.Button"
-                    android:layout_gravity="end"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/ok"/>
-            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonBackupNow"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/backupNow"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchRestoreEnabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:checked="false"
+                android:textSize="16sp"
+                android:text="@string/enableAutoRestore"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/enableAutoRestoreMessage"
+                android:textColor="?attr/secondaryTextColor"
+                android:textSize="14sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonRestoreNow"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/restoreNow"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonOk"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/ok"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

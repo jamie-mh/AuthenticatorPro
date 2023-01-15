@@ -191,6 +191,7 @@
         <AndroidResource Include="Resources\drawable-xxxhdpi\ic_buymeacoffee.png" />
         <AndroidResource Include="Resources\drawable-xxxhdpi\ic_notification.png" />
         <AndroidResource Include="Resources\drawable-xxxhdpi\ic_qr_code.png" />
+        <AndroidResource Include="Resources\drawable\detailButton.xml" />
         <AndroidResource Include="Resources\drawable\ic_category.xml" />
         <AndroidResource Include="Resources\drawable\ic_cloud.xml" />
         <AndroidResource Include="Resources\drawable\ic_empty.xml" />
