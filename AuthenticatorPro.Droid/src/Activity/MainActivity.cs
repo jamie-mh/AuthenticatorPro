@@ -5,6 +5,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Extensions;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -46,9 +47,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
-using ZXing;
-using ZXing.Common;
-using ZXing.Mobile;
+using Xamarin.Google.MLKit.Vision.BarCode;
+using Xamarin.Google.MLKit.Vision.Barcode.Common;
+using Xamarin.Google.MLKit.Vision.Common;
 using Configuration = Android.Content.Res.Configuration;
 using Logger = AuthenticatorPro.Droid.Util.Logger;
 using Result = Android.App.Result;
@@ -1129,45 +1130,16 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task ScanQrCodeFromCamera()
         {
-            var options = new MobileBarcodeScanningOptions
-            {
-                PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE },
-                TryHarder = true,
-                AutoRotate = true
-            };
 
-            var overlay = LayoutInflater.Inflate(Resource.Layout.scanOverlay, null);
-
-            var scanner = new MobileBarcodeScanner { UseCustomOverlay = true, CustomOverlay = overlay };
-
-            var flashButton = overlay.FindViewById<MaterialButton>(Resource.Id.buttonFlash);
-            flashButton.Click += delegate
-            {
-                scanner.ToggleTorch();
-            };
-
-            var hasFlashlight = PackageManager.HasSystemFeature(PackageManager.FeatureCameraFlash);
-            flashButton.Visibility = hasFlashlight ? ViewStates.Visible : ViewStates.Gone;
-
-            _preventBackupReminder = true;
-            var result = await scanner.Scan(options);
-
-            if (result == null)
-            {
-                return;
-            }
-
-            await ParseQrCodeScanResult(result.Text);
         }
 
         private async Task ScanQrCodeFromImage(Uri uri)
         {
-            Bitmap bitmap;
+            InputImage image;
 
             try
             {
-                var data = await FileUtil.ReadFile(this, uri);
-                bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
+                image = InputImage.FromFilePath(this, uri);
             }
             catch (Exception e)
             {
@@ -1176,36 +1148,16 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if (bitmap == null)
-            {
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-                return;
-            }
+            var options = new BarcodeScannerOptions.Builder()
+                .SetBarcodeFormats(Barcode.FormatQrCode)
+                .Build();
 
-            var reader = new BarcodeReader<Bitmap>(null, null, ls => new GlobalHistogramBinarizer(ls))
-            {
-                AutoRotate = true,
-                TryInverted = true,
-                Options = new DecodingOptions
-                {
-                    PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE }, TryHarder = true
-                }
-            };
-
-            ZXing.Result result;
+            var scanner = BarcodeScanning.GetClient(options);
+            JavaList<Barcode> barcodes;
 
             try
             {
-                var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
-                await bitmap.CopyPixelsToBufferAsync(buffer);
-                buffer.Rewind();
-
-                var bytes = new byte[buffer.Remaining()];
-                buffer.Get(bytes);
-
-                var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height,
-                    RGBLuminanceSource.BitmapFormat.RGBA32);
-                result = reader.Decode(source);
+                barcodes = await scanner.Process(image).AsAsync<JavaList<Barcode>>();
             }
             catch (Exception e)
             {
@@ -1214,13 +1166,16 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if (result == null)
+            if (!barcodes.Any())
             {
-                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
+                ShowSnackbar(Resource.String.qrCodeNotFound, Snackbar.LengthShort);
                 return;
             }
 
-            await ParseQrCodeScanResult(result.Text);
+            foreach (var barcode in barcodes)
+            {
+                await ParseQrCodeScanResult(barcode.RawValue);
+            }
         }
 
         private async Task ParseQrCodeScanResult(string uri)

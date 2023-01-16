@@ -22,6 +22,7 @@
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.11" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0.2" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.0" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.2" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.15" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.5.1.1" />
@@ -33,8 +34,8 @@
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.1.5" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.7.0.1" />
+    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.0.3" />
     <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0" />
-    <PackageReference Include="ZXing.Net.Mobile" Version="3.1.0-beta2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj" />
