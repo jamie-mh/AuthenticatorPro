@@ -9,6 +9,7 @@ using AndroidX.Camera.Core;
 using AndroidX.Camera.Lifecycle;
 using AndroidX.Camera.View;
 using AndroidX.Core.Content;
+using Google.Android.Material.Button;
 using Java.Util.Concurrent;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
 
@@ -26,7 +27,9 @@ namespace AuthenticatorPro.Droid.Activity
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
             _previewView = FindViewById<PreviewView>(Resource.Id.previewView);
+            var flashButton = FindViewById<MaterialButton>(Resource.Id.buttonFlash);
 
             var provider = (ProcessCameraProvider) await ProcessCameraProvider.GetInstance(this).GetAsync();
 
@@ -47,6 +50,14 @@ namespace AuthenticatorPro.Droid.Activity
 
             analysis.SetAnalyzer(ContextCompat.GetMainExecutor(this), analyser);
             var camera = provider.BindToLifecycle(this, selector, analysis, preview);
+
+            var isFlashOn = false;
+
+            flashButton.Click += (_, _) =>
+            {
+                isFlashOn = !isFlashOn;
+                camera.CameraControl.EnableTorch(isFlashOn);
+            };
         }
 
         private void OnQrCodeScanned(object sender, Barcode qrCode)
