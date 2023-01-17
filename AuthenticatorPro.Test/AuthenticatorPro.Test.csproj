@@ -20,4 +20,9 @@
   <ItemGroup>
     <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="test.authpro">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
