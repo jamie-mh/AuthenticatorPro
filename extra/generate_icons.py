@@ -81,28 +81,6 @@ def write_element_tree(tree: ET.ElementTree, output_path: str):
         file.write(formatted)
 
 
-def build_csproj(icons: list):
-    csproj_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "AuthenticatorPro.Droid.Shared.csproj")
-    csproj = ET.parse(csproj_path)
-
-    namespace = "http://schemas.microsoft.com/developer/msbuild/2003"
-    ET.register_namespace("", namespace)
-
-    icons_group = csproj.find(f'{{{namespace}}}ItemGroup[@Label = "icons"]')
-    resources = icons_group.findall(f"{{{namespace}}}AndroidResource")
-
-    for resource in resources:
-        icons_group.remove(resource)
-
-    for icon in icons:
-        for dpi in DPI_SIZES.keys():
-            resource = ET.Element("AndroidResource")
-            resource.set("Include", f"Resources\\drawable-{dpi}\\{RES_PREFIX}{icon}")
-            icons_group.append(resource)
-
-    write_element_tree(csproj, csproj_path)
-
-
 def generate_for_dpi(dpi: str, filename: str, icon: Image):
     output_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "Resources", f"drawable-{dpi}", f"{RES_PREFIX}{filename}")
 
@@ -130,8 +108,6 @@ def main():
             for dpi in DPI_SIZES.keys():
                 generate_for_dpi(dpi, filename, icon)
 
-    print("Building csproj")
-    build_csproj(files)
     print("Building map")
     build_map(files)
 
