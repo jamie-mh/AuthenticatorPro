@@ -8,6 +8,7 @@ using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities.Encoders;
+using SimpleBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -272,6 +273,17 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             [JsonProperty(PropertyName = "info")] public EntryInfo Info { get; set; }
 
+            private static string ConvertSecret(string secret, AuthenticatorType type)
+            {
+                if (type == AuthenticatorType.MobileOtp)
+                {
+                    var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
+                    secret = Hex.ToHexString(secretBytes);
+                }
+
+                return Authenticator.CleanSecret(secret, type);
+            }
+
             public Authenticator Convert(IIconResolver iconResolver)
             {
                 var type = Type switch
@@ -279,6 +291,8 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "totp" => AuthenticatorType.Totp,
                     "hotp" => AuthenticatorType.Hotp,
                     "steam" => AuthenticatorType.SteamOtp,
+                    "motp" => AuthenticatorType.MobileOtp,
+                    "yandex" => AuthenticatorType.YandexOtp,
                     _ => throw new ArgumentOutOfRangeException(nameof(Type))
                 };
 
@@ -287,6 +301,8 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
+                    // Unused field for this type
+                    "MD5" when type == AuthenticatorType.MobileOtp => Authenticator.DefaultAlgorithm,
                     _ => throw new ArgumentOutOfRangeException(nameof(Info.Algorithm))
                 };
 
@@ -308,13 +324,14 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 {
                     Type = type,
                     Algorithm = algorithm,
-                    Secret = Authenticator.CleanSecret(Info.Secret, type),
+                    Secret = ConvertSecret(Info.Secret, type),
                     Digits = Info.Digits,
                     Period = Info.Period,
                     Issuer = issuer,
                     Username = username,
                     Counter = Info.Counter,
-                    Icon = iconResolver.FindServiceKeyByName(issuer)
+                    Icon = iconResolver.FindServiceKeyByName(issuer),
+                    Pin = Info.Pin
                 };
             }
         }
@@ -334,6 +351,9 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             [JsonProperty(PropertyName = "counter")]
             public int Counter { get; set; }
+
+            [JsonProperty(PropertyName = "pin")]
+            public string Pin { get; set; }
         }
     }
 }
