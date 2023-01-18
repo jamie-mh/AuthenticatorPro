@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public override async Task<Backup> ConvertAsync(byte[] data, string password = null)
         {
-            string json = null;
+            string json;
 
             if (String.IsNullOrEmpty(password))
             {
@@ -43,7 +43,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             }
             else
             {
-                await Task.Run(delegate { json = Decrypt(data, password); });
+                json = await Task.Run(() => Decrypt(data, password));
             }
 
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);

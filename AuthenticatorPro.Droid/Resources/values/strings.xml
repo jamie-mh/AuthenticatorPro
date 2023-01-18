@@ -217,11 +217,11 @@
     <string name="authenticatorPlus" translatable="false">Authenticator Plus</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
     <string name="andOtp">andOTP</string>
-    <string name="andOtpImportHint">Import otp_accounts file</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegis">Aegis (plain-text)</string>
-    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuth" translatable="false">WinAuth</string>

@@ -4,6 +4,10 @@
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Entity;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities.Encoders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +18,14 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class AegisBackupConverter : BackupConverter
     {
-        // Encrypted backups not yet supported, see andOTP converter
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
+
+        private const string BaseAlgorithm = "AES";
+        private const string Mode = "GCM";
+        private const string Padding = "NoPadding";
+        private const string Algorithm = BaseAlgorithm + "/" + Mode + "/" + Padding;
+
+        private const int KeyLength = 32;
 
         private readonly ICustomIconDecoder _customIconDecoder;
 
@@ -28,21 +38,110 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         public override async Task<Backup> ConvertAsync(byte[] data, string password = null)
         {
             var json = Encoding.UTF8.GetString(data);
-            var backup = JsonConvert.DeserializeObject<AegisBackup>(json);
+            AegisBackup<DecryptedDatabase> backup;
+
+            if (String.IsNullOrEmpty(password))
+            {
+                backup = JsonConvert.DeserializeObject<AegisBackup<DecryptedDatabase>>(json);
+            }
+            else
+            {
+                var encryptedBackup = JsonConvert.DeserializeObject<AegisBackup<string>>(json);
+                backup = await Task.Run(() => DecryptBackup(encryptedBackup, password));
+            }
 
             if (backup.Version != 1)
             {
                 throw new NotSupportedException("Unsupported backup version");
             }
 
-            var authenticators = backup.Database.Entries.Select(entry => entry.Convert(IconResolver)).ToList();
+            return await ConvertDatabaseAsync(backup.Database);
+        }
+
+        private static byte[] GetAuthenticatedBytes(byte[] payload, byte[] mac)
+        {
+            var result = new byte[payload.Length + mac.Length];
+            Buffer.BlockCopy(payload, 0, result, 0, payload.Length);
+            Buffer.BlockCopy(mac, 0, result, payload.Length, mac.Length);
+            return result;
+        }
+
+        private static byte[] DecryptAesGcm(byte[] key, byte[] iv, byte[] data, byte[] mac)
+        {
+            var keyParameter = new ParametersWithIV(new KeyParameter(key), iv);
+            var cipher = CipherUtilities.GetCipher(Algorithm);
+            cipher.Init(false, keyParameter);
+
+            var authenticatedBytes = GetAuthenticatedBytes(data, mac);
+            return cipher.DoFinal(authenticatedBytes);
+        }
+
+        private static AegisBackup<DecryptedDatabase> DecryptBackup(AegisBackup<string> backup, string password)
+        {
+            var masterKey = GetMasterKeyFromSlots(backup.Header.Slots, password);
+
+            if (masterKey == null)
+            {
+                throw new ArgumentException("Master key cannot be decrypted");
+            }
+
+            var databaseBytes = Convert.FromBase64String(backup.Database);
+            var ivBytes = Hex.Decode(backup.Header.Params.Nonce);
+            var macBytes = Hex.Decode(backup.Header.Params.Tag);
+
+            var decryptedBytes = DecryptAesGcm(masterKey, ivBytes, databaseBytes, macBytes);
+            var json = Encoding.UTF8.GetString(decryptedBytes);
+            var database = JsonConvert.DeserializeObject<DecryptedDatabase>(json);
+
+            return new AegisBackup<DecryptedDatabase>
+            {
+                Version = backup.Version,
+                Header = backup.Header,
+                Database = database
+            };
+        }
+
+        private static byte[] GetMasterKeyFromSlots(IEnumerable<Slot> slots, string password)
+        {
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+
+            foreach (var slot in slots.Where(slot => slot.Type == SlotType.Password))
+            {
+                try
+                {
+                    return DecryptSlot(slot, passwordBytes);
+                }
+                catch
+                {
+                    // Cannot be decrypted with the provided password
+                }
+            }
+
+            return null;
+        }
+
+        private static byte[] DecryptSlot(Slot slot, byte[] password)
+        {
+            var saltBytes = Hex.Decode(slot.Salt);
+            var derivedKey = SCrypt.Generate(password, saltBytes, slot.N, slot.R, slot.P, KeyLength);
+
+            var ivBytes = Hex.Decode(slot.KeyParams.Nonce);
+            var keyBytes = Hex.Decode(slot.Key);
+            var macBytes = Hex.Decode(slot.KeyParams.Tag);
+
+            return DecryptAesGcm(derivedKey, ivBytes, keyBytes, macBytes);
+        }
+
+        private async Task<Backup> ConvertDatabaseAsync(DecryptedDatabase database)
+        {
+            var authenticators = database.Entries.Select(entry => entry.Convert(IconResolver)).ToList();
             var categories = new List<Category>();
             var bindings = new List<AuthenticatorCategory>();
             var icons = new List<CustomIcon>();
 
-            for (var i = 0; i < backup.Database.Entries.Count; i++)
+            for (var i = 0; i < database.Entries.Count; i++)
             {
-                var entry = backup.Database.Entries[i];
+                var entry = database.Entries[i];
                 var auth = authenticators[i];
 
                 if (!String.IsNullOrEmpty(entry.Group))
@@ -92,15 +191,65 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             return new Backup(authenticators, categories, bindings, icons);
         }
 
-        private class AegisBackup
+        private class AegisBackup<T>
         {
             [JsonProperty(PropertyName = "version")]
             public int Version { get; set; }
 
-            [JsonProperty(PropertyName = "db")] public Database Database { get; set; }
+            [JsonProperty(PropertyName = "header")]
+            public Header Header { get; set; }
+
+            [JsonProperty(PropertyName = "db")] public T Database { get; set; }
         }
 
-        private class Database
+        private class KeyParams
+        {
+            [JsonProperty(PropertyName = "nonce")]
+            public string Nonce { get; set; }
+
+            [JsonProperty(PropertyName = "tag")]
+            public string Tag { get; set; }
+        }
+
+        private class Header
+        {
+            [JsonProperty(PropertyName = "slots")]
+            public List<Slot> Slots { get; set; }
+
+            [JsonProperty(PropertyName = "params")]
+            public KeyParams Params { get; set; }
+        }
+
+        private enum SlotType
+        {
+            Raw = 0, Password = 1, Biometric = 2
+        }
+
+        private class Slot
+        {
+            [JsonProperty(PropertyName = "type")]
+            public SlotType Type { get; set; }
+
+            [JsonProperty(PropertyName = "key")]
+            public string Key { get; set; }
+
+            [JsonProperty(PropertyName = "key_params")]
+            public KeyParams KeyParams { get; set; }
+
+            [JsonProperty(PropertyName = "salt")]
+            public string Salt { get; set; }
+
+            [JsonProperty(PropertyName = "n")]
+            public int N { get; set; }
+
+            [JsonProperty(PropertyName = "r")]
+            public int R { get; set; }
+
+            [JsonProperty(PropertyName = "p")]
+            public int P { get; set; }
+        }
+
+        private class DecryptedDatabase
         {
             [JsonProperty(PropertyName = "entries")]
             public List<Entry> Entries { get; set; }
