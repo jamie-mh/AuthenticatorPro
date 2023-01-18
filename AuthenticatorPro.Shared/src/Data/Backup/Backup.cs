@@ -4,7 +4,10 @@
 using AuthenticatorPro.Shared.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using PCLCrypto;
+using Org.BouncyCastle.Crypto.Digests;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +20,16 @@ namespace AuthenticatorPro.Shared.Data.Backup
         public const string FileExtension = "authpro";
         public const string MimeType = "application/octet-stream";
 
-        // PCLCrypto does not support anything other than SHA1 on Android unfortunately
-        private const KeyDerivationAlgorithm KeyDerivationAlgorithm = PCLCrypto.KeyDerivationAlgorithm.Pbkdf2Sha1;
-        private const SymmetricAlgorithm KeyAlgorithm = SymmetricAlgorithm.AesCbcPkcs7;
         private const string Header = "AuthenticatorPro";
+
+        private const string BaseAlgorithm = "AES";
+        private const string Mode = "CBC";
+        private const string Padding = "PKCS7";
+        private const string Algorithm = BaseAlgorithm + "/" + Mode + "/" + Padding;
+
         private const int Iterations = 64000;
-        private const int KeySize = 32;
+        private const int KeyLength = 32;
+        private const int IvLength = 16;
         private const int SaltLength = 20;
 
         public IEnumerable<Authenticator> Authenticators { get; }
@@ -42,18 +49,12 @@ namespace AuthenticatorPro.Shared.Data.Backup
             CustomIcons = customIcons;
         }
 
-        private static Tuple<ICryptographicKey, int> GetKeyAndBlockLength(byte[] salt, string password)
+        private static KeyParameter DerivePassword(string password, byte[] salt)
         {
-            var keyDerivationProvider =
-                WinRTCrypto.KeyDerivationAlgorithmProvider.OpenAlgorithm(KeyDerivationAlgorithm);
             var passwordBytes = Encoding.UTF8.GetBytes(password);
-            var initialKey = keyDerivationProvider.CreateKey(passwordBytes);
-
-            var parameters = WinRTCrypto.KeyDerivationParameters.BuildForPbkdf2(salt, Iterations);
-            var material = WinRTCrypto.CryptographicEngine.DeriveKeyMaterial(initialKey, parameters, KeySize);
-
-            var provider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(KeyAlgorithm);
-            return new Tuple<ICryptographicKey, int>(provider.CreateSymmetricKey(material), provider.BlockLength);
+            var generator = new Pkcs5S2ParametersGenerator(new Sha1Digest());
+            generator.Init(passwordBytes, salt, Iterations);
+            return (KeyParameter) generator.GenerateDerivedParameters(BaseAlgorithm, KeyLength * 8);
         }
 
         public byte[] ToBytes(string password)
@@ -65,20 +66,26 @@ namespace AuthenticatorPro.Shared.Data.Backup
                 return Encoding.UTF8.GetBytes(json);
             }
 
-            var salt = WinRTCrypto.CryptographicBuffer.GenerateRandom(SaltLength);
-            var (key, blockLength) = GetKeyAndBlockLength(salt, password);
-            var iv = WinRTCrypto.CryptographicBuffer.GenerateRandom(blockLength);
+            var random = new SecureRandom();
+            var iv = random.GenerateSeed(IvLength);
+            var salt = random.GenerateSeed(SaltLength);
+
+            var key = DerivePassword(password, salt);
+
+            var keyParameter = new ParametersWithIV(key, iv);
+            var cipher = CipherUtilities.GetCipher(Algorithm);
+            cipher.Init(true, keyParameter);
 
             var unencryptedData = Encoding.UTF8.GetBytes(json);
-            var encryptedData = WinRTCrypto.CryptographicEngine.Encrypt(key, unencryptedData, iv);
+            var encryptedData = cipher.DoFinal(unencryptedData);
 
             var headerBytes = Encoding.UTF8.GetBytes(Header);
-            var output = new byte[Header.Length + SaltLength + blockLength + encryptedData.Length];
+            var output = new byte[Header.Length + SaltLength + IvLength + encryptedData.Length];
 
             Buffer.BlockCopy(headerBytes, 0, output, 0, headerBytes.Length);
             Buffer.BlockCopy(salt, 0, output, headerBytes.Length, SaltLength);
-            Buffer.BlockCopy(iv, 0, output, headerBytes.Length + SaltLength, blockLength);
-            Buffer.BlockCopy(encryptedData, 0, output, headerBytes.Length + SaltLength + blockLength,
+            Buffer.BlockCopy(iv, 0, output, headerBytes.Length + SaltLength, IvLength);
+            Buffer.BlockCopy(encryptedData, 0, output, headerBytes.Length + SaltLength + IvLength,
                 encryptedData.Length);
 
             return output;
@@ -99,17 +106,22 @@ namespace AuthenticatorPro.Shared.Data.Backup
 
                 if (!headerBytes.SequenceEqual(foundHeader))
                 {
-                    throw new ArgumentException("Header does not match.");
+                    throw new ArgumentException("Header does not match");
                 }
 
                 var salt = data.Skip(Header.Length).Take(SaltLength).ToArray();
-                var (key, blockLength) = GetKeyAndBlockLength(salt, password);
-                var iv = data.Skip(Header.Length).Skip(SaltLength).Take(blockLength).ToArray();
-                var payload = data.Skip(Header.Length + SaltLength + blockLength)
-                    .Take(data.Length - Header.Length - SaltLength - blockLength).ToArray();
+                var key = DerivePassword(password, salt);
 
-                var raw = WinRTCrypto.CryptographicEngine.Decrypt(key, payload, iv);
-                json = Encoding.UTF8.GetString(raw);
+                var iv = data.Skip(Header.Length).Skip(SaltLength).Take(IvLength).ToArray();
+                var encryptedData = data.Skip(Header.Length + SaltLength + IvLength)
+                    .Take(data.Length - Header.Length - SaltLength - IvLength).ToArray();
+
+                var keyParameter = new ParametersWithIV(key, iv);
+                var cipher = CipherUtilities.GetCipher(Algorithm);
+                cipher.Init(false, keyParameter);
+
+                var unencryptedData = cipher.DoFinal(encryptedData);
+                json = Encoding.UTF8.GetString(unencryptedData);
             }
 
             try
