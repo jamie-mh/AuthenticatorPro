@@ -216,8 +216,8 @@
     <string name="googleAuthenticator" translatable="false">Google Authenticator</string>
     <string name="authenticatorPlus" translatable="false">Authenticator Plus</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtp">andOTP (plain-text)</string>
-    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts file</string>
     <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegis">Aegis (plain-text)</string>
