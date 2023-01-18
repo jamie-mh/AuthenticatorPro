@@ -20,9 +20,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
         public YandexOtp(string secret, string pin)
         {
             var secretBytes = GetSecretBytes(secret, pin);
-
-            using var sha256 = new SHA256Managed();
-            var key = sha256.ComputeHash(secretBytes);
+            var key = SHA256.HashData(secretBytes);
 
             if (key[0] == 0)
             {
