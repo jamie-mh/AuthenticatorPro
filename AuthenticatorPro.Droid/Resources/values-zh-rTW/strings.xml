@@ -65,6 +65,7 @@
     <string name="digitsInvalid">驗證器只能生成 {0} 到 {1} 位的驗證碼</string>
     <string name="periodInvalid">輸入的週期無效</string>
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
     <string name="pinMessage">輸入該 QR Code 的密碼。在設定此帳號時，會提示您輸入密碼。</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">匯入自</string>
     <string name="importError">無法匯入這個檔案。</string>
     <string name="authenticatorPlusImportHint">匯入 authplus.db 檔案</string>
-    <string name="andOtp">andOTP (純文字)</string>
-    <string name="andOtpImportHint">匯入純文字 otp_accounts.json 檔案</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
-    <string name="aegis">Aegis (純文字)</string>
-    <string name="aegisImportHint">匯入 aegis-export-plain.json 檔案</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 檔案</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">下載配套的 Wear OS 應用</string>
     <string name="guideWearOSSummary">如果您有執行 Wear OS 的手錶，您可以下載配套的應用。您可以直接在您的手錶上檢視驗證碼。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">將 QR Code 放置在掃描器中以掃描它。該程式碼將自動掃描 QR Code。點選以對焦。</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">為了避免陰影和玻璃效果。按住裝置將其移到距離程式碼大約15釐米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切換閃光燈</string>
     <!-- Preferences -->
