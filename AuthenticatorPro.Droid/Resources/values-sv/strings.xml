@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Autentiseraren måste generera mellan {0} och {1} siffror</string>
     <string name="periodInvalid">Tidsperioden är ogiltig</string>
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Det finns redan en autentiserare med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">Importera från</string>
     <string name="importError">Filen kunde inte importeras</string>
     <string name="authenticatorPlusImportHint">Importera \"authplus.db\"-fil</string>
-    <string name="andOtp">andOTP (oformaterad text)</string>
-    <string name="andOtpImportHint">Importera \"otp_accounts.json\"-fil (oformaterad text)</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importera \"freeotp-backup.json\"-fil</string>
-    <string name="aegis">Aegis (oformaterad text)</string>
-    <string name="aegisImportHint">Importera \"aegis-export-plain.json\"-fil</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (oformaterad text)</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"-fil</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
     <string name="guideWearOSSummary">Om du har en Wear OS-klocka kan du ladda ner appen och få dina koder direkt på klockan.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Rikta kameran mot QR-koden för att skanna den. Koden skannas automatiskt. Tryck för att fokusera.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
     <!-- Preferences -->
