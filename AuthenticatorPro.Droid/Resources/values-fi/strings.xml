@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Todentajan on luotava {0} - {1} numeroa</string>
     <string name="periodInvalid">Aikaväli on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">Tuo kohteesta</string>
     <string name="importError">Tiedostoa ei voitu tuoda</string>
     <string name="authenticatorPlusImportHint">Tuo authplus.db -tiedosto</string>
-    <string name="andOtp">andOTP (raakateksti)</string>
-    <string name="andOtpImportHint">Tuo raakatekstinen otp_accounts.json -tiedosto</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
-    <string name="aegis">Aegis (raakateksti)</string>
-    <string name="aegisImportHint">Tuo aegis-export-plain.json -tiedosto</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (raakateksti)</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt-tiedosto</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Lataa Wear OS -kumppanisovellus</string>
     <string name="guideWearOSSummary">Jos sinulla on Wear OS -kello, voit ladata sille kumppanisovelluksen. Näet koodit suoraan kellossasi.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi sen. Koodi skannataan automaattisesti. Tarkenna napauttamalla.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
     <!-- Preferences -->
