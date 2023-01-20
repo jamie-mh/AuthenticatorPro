@@ -1,68 +1,70 @@
-# Xamarin.Android
-# Build a Xamarin.Android project.
-# Add steps that test, sign, and distribute an app, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
-
 trigger:
 - master
 
 pool:
-  vmImage: 'windows-2022'
+  vmImage: ubuntu-latest
 
 variables:
+  framework: 'net7.0-android'
   configuration: 'Debug'
 
 steps:
-- task: NuGetToolInstaller@1
-  displayName: 'Install NuGet'
+  - task: UseDotNet@2
+    displayName: 'Use .NET 7 SDK'
+    inputs:
+      packageType: 'sdk'
+      version: 7.x
+      
+  - task: CmdLine@2
+    displayName: 'Install Android workload'
+    inputs:
+      script: 'dotnet workload install android'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'Run tests'
+    inputs:
+      command: 'test'
+      arguments: '--configuration $(configuration)'
+      projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
+      
+  - task: CmdLine@2
+    displayName: 'Publish Android'
+    inputs:
+      script: 'dotnet publish -f:$(framework) -c:$(configuration) AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj'
+      
+  - task: CmdLine@2
+    displayName: 'Publish WearOS'
+    inputs:
+      script: 'dotnet publish -f:$(framework) -c:$(configuration) AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj'
 
-- task: NuGetCommand@2
-  displayName: 'Restore packages'
-  inputs:
-    restoreSolution: '**/*.sln'
+  - task: CopyFiles@2
+    displayName: 'Copy Android APK'
+    condition: succeeded()
+    inputs:
+      contents: 'AuthenticatorPro.Droid/bin/$(configuration)/$(framework)/publish/me.jmh.authenticatorpro-Signed.apk'
+      targetFolder: $(Build.ArtifactStagingDirectory)
+      flattenFolders: true
+      
+  - task: CmdLine@2
+    displayName: "Rename Android APK"
+    inputs:
+      script: 'mv $(Build.ArtifactStagingDirectory)/me.jmh.authenticatorpro-Signed.apk $(Build.ArtifactStagingDirectory)/me.jmh.authenticatorpro.apk'
+      
+  - task: CopyFiles@2
+    displayName: 'Copy WearOS APK'
+    condition: succeeded()
+    inputs:
+      contents: 'AuthenticatorPro.WearOS/bin/$(configuration)/$(framework)/publish/me.jmh.authenticatorpro-Signed.apk'
+      targetFolder: $(Build.ArtifactStagingDirectory)
+      flattenFolders: true
+      
+  - task: CmdLine@2
+    displayName: "Rename WearOS APK"
+    inputs:
+      script: 'mv $(Build.ArtifactStagingDirectory)/me.jmh.authenticatorpro-Signed.apk $(Build.ArtifactStagingDirectory)/me.jmh.authenticatorpro.wearos.apk'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Run tests'
-  inputs:
-    command: 'test'
-    arguments: '--configuration $(configuration)'
-    publishTestResults: true
-    projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
-
-- task: XamarinAndroid@1
-  displayName: 'Build Android'
-  inputs:
-    projectFile: 'AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj'
-    outputDirectory: '$(Build.BinariesDirectory)/android'
-    configuration: '$(configuration)'
-
-- task: XamarinAndroid@1
-  displayName: 'Build Wear OS'
-  inputs:
-    projectFile: 'AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj'
-    outputDirectory: '$(Build.BinariesDirectory)/wearos'
-    configuration: '$(configuration)'
-
-- task: AndroidSigning@3
-  displayName: 'Sign APKs'
-  inputs:
-    apkFiles: '**/*.apk'
-    apksign: true
-    zipalign: true
-    apksignerKeystoreFile: 'debug.keystore'
-    apksignerKeystorePassword: android
-    apksignerKeystoreAlias: androiddebugkey
-    apksignerKeyPassword: android
-
-- task: CopyFiles@2
-  displayName: 'Copy APKs to staging dir'
-  condition: succeeded()
-  inputs:
-    contents: '**/*.apk'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish artifacts'
-  condition: succeeded()
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish artifacts'
+    condition: succeeded()
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
