@@ -4,6 +4,10 @@
 using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.Shared.Entity;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto.Digests;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +18,34 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
     public class AndOtpBackupConverter : BackupConverter
     {
-        // Encrypted backups aren't possible just yet. Wait for AesGcm support in Mono
-        // https://github.com/mono/mono/issues/19285
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
+
+        private const string BaseAlgorithm = "AES";
+        private const string Mode = "GCM";
+        private const string Padding = "NoPadding";
+        private const string Algorithm = BaseAlgorithm + "/" + Mode + "/" + Padding;
+
+        private const int IterationsLength = 4;
+        private const int SaltLength = 12;
+        private const int IvLength = 12;
+        private const int KeyLength = 32;
+
 
         public AndOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override async Task<Backup> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
+            string json;
+
+            if (String.IsNullOrEmpty(password))
+            {
+                json = Encoding.UTF8.GetString(data);
+            }
+            else
+            {
+                json = await Task.Run(() => Decrypt(data, password));
+            }
+
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
 
             var authenticators = sourceAccounts.Select(account => account.Convert(IconResolver)).ToList();
@@ -50,7 +73,40 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 }
             }
 
-            return Task.FromResult(new Backup(authenticators, categories, bindings));
+            return new Backup(authenticators, categories, bindings);
+        }
+
+        private static KeyParameter DerivePassword(string password, byte[] salt, int iterations)
+        {
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+            var generator = new Pkcs5S2ParametersGenerator(new Sha1Digest());
+            generator.Init(passwordBytes, salt, iterations);
+            return (KeyParameter) generator.GenerateDerivedParameters(BaseAlgorithm, KeyLength * 8);
+        }
+
+        private static string Decrypt(byte[] data, string password)
+        {
+            var iterationsBytes = data.Take(IterationsLength);
+
+            if (BitConverter.IsLittleEndian)
+            {
+                iterationsBytes = iterationsBytes.Reverse();
+            }
+
+            var iterations = (int) BitConverter.ToUInt32(iterationsBytes.ToArray());
+
+            var salt = data.Skip(IterationsLength).Take(SaltLength).ToArray();
+            var iv = data.Skip(IterationsLength + SaltLength).Take(IvLength).ToArray();
+            var payload = data.Skip(IterationsLength + SaltLength + IvLength).ToArray();
+
+            var key = DerivePassword(password, salt, iterations);
+
+            var keyParameter = new ParametersWithIV(key, iv);
+            var cipher = CipherUtilities.GetCipher(Algorithm);
+            cipher.Init(false, keyParameter);
+
+            var decrypted = cipher.DoFinal(payload);
+            return Encoding.UTF8.GetString(decrypted);
         }
 
         private class Account

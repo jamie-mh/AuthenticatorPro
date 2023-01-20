@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -10,24 +11,21 @@ namespace AuthenticatorPro.Shared.Util
 {
     public static class HashUtil
     {
+        private static string BytesToHex(IEnumerable<byte> data)
+        {
+            return String.Join("", data.Select(b => b.ToString("x2")).ToArray());
+        }
+
         public static string Sha1(string input)
         {
-            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(input));
-            return String.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+            var hash = SHA1.HashData(Encoding.UTF8.GetBytes(input));
+            return BytesToHex(hash);
         }
 
         public static string Md5(string input)
         {
-            using var md5 = MD5.Create();
-            var hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
-
-            var builder = new StringBuilder();
-            foreach (var b in hashBytes)
-            {
-                builder.Append(b.ToString("x2"));
-            }
-
-            return builder.ToString();
+            var hash = MD5.HashData(Encoding.UTF8.GetBytes(input));
+            return BytesToHex(hash);
         }
     }
 }

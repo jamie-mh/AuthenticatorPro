@@ -3,7 +3,8 @@
 
 using AuthenticatorPro.Shared.Entity;
 using Newtonsoft.Json;
-using PCLCrypto;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
 using SimpleBase;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using SymmetricAlgorithm = PCLCrypto.SymmetricAlgorithm;
 
 namespace AuthenticatorPro.Shared.Data.Backup.Converter
 {
@@ -19,22 +19,23 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
     {
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
         private const AuthenticatorType Type = AuthenticatorType.Totp;
+        private const string Algorithm = "AES/CBC/PKCS7";
 
         public TotpAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
         public override Task<Backup> ConvertAsync(byte[] data, string password = null)
         {
-            var sha256 = SHA256.Create();
             var passwordBytes = Encoding.UTF8.GetBytes(password ?? throw new ArgumentNullException(nameof(password)));
-            var keyMaterial = sha256.ComputeHash(passwordBytes);
-
-            var provider = WinRTCrypto.SymmetricKeyAlgorithmProvider.OpenAlgorithm(SymmetricAlgorithm.AesCbc);
-            var key = provider.CreateSymmetricKey(keyMaterial);
+            var key = SHA256.HashData(passwordBytes);
 
             var stringData = Encoding.UTF8.GetString(data);
             var actualBytes = Convert.FromBase64String(stringData);
 
-            var raw = WinRTCrypto.CryptographicEngine.Decrypt(key, actualBytes);
+            var keyParameter = new KeyParameter(key);
+            var cipher = CipherUtilities.GetCipher(Algorithm);
+            cipher.Init(false, keyParameter);
+
+            var raw = cipher.DoFinal(actualBytes);
             var json = Encoding.UTF8.GetString(raw);
 
             // Deal with strange json

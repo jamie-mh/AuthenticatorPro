@@ -11,6 +11,7 @@ using AndroidX.Core.Content;
 using AndroidX.SwipeRefreshLayout.Widget;
 using System;
 using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace AuthenticatorPro.WearOS.CustomView
 {

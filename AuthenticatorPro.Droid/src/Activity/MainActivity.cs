@@ -5,6 +5,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Extensions;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -40,15 +41,13 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
-using Java.Nio;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
-using ZXing;
-using ZXing.Common;
-using ZXing.Mobile;
+using Xamarin.Google.MLKit.Vision.BarCode;
+using Xamarin.Google.MLKit.Vision.Barcode.Common;
+using Xamarin.Google.MLKit.Vision.Common;
 using Configuration = Android.Content.Res.Configuration;
 using Logger = AuthenticatorPro.Droid.Util.Logger;
 using Result = Android.App.Result;
@@ -76,17 +75,18 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestBackupFile = 1;
         private const int RequestBackupHtml = 2;
         private const int RequestBackupUriList = 3;
-        private const int RequestQrCode = 4;
-        private const int RequestCustomIcon = 5;
-        private const int RequestSettingsRecreate = 6;
-        private const int RequestImportAuthenticatorPlus = 7;
-        private const int RequestImportAndOtp = 8;
-        private const int RequestImportFreeOtpPlus = 9;
-        private const int RequestImportAegis = 10;
-        private const int RequestImportBitwarden = 11;
-        private const int RequestImportWinAuth = 12;
-        private const int RequestImportTotpAuthenticator = 13;
-        private const int RequestImportUriList = 14;
+        private const int RequestQrCodeFromCamera = 4;
+        private const int RequestQrCodeFromImage = 5;
+        private const int RequestCustomIcon = 6;
+        private const int RequestSettingsRecreate = 7;
+        private const int RequestImportAuthenticatorPlus = 8;
+        private const int RequestImportAndOtp = 9;
+        private const int RequestImportFreeOtpPlus = 10;
+        private const int RequestImportAegis = 11;
+        private const int RequestImportBitwarden = 12;
+        private const int RequestImportWinAuth = 13;
+        private const int RequestImportTotpAuthenticator = 14;
+        private const int RequestImportUriList = 15;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -363,7 +363,11 @@ namespace AuthenticatorPro.Droid.Activity
                     await SetCustomIcon(intent.Data, _customIconApplyPosition);
                     break;
 
-                case RequestQrCode:
+                case RequestQrCodeFromCamera:
+                    await ParseQrCodeScanResult(intent.GetStringExtra("text"));
+                    break;
+
+                case RequestQrCodeFromImage:
                     await ScanQrCodeFromImage(intent.Data);
                     break;
 
@@ -624,14 +628,14 @@ namespace AuthenticatorPro.Droid.Activity
             Finish();
         }
 
-        public override async void OnRequestPermissionsResult(int requestCode, string[] permissions,
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions,
             [GeneratedEnum] Permission[] grantResults)
         {
             if (requestCode == PermissionCameraCode)
             {
                 if (grantResults.Length > 0 && grantResults[0] == Permission.Granted)
                 {
-                    await ScanQrCodeFromCamera();
+                    StartActivityForResult(typeof(ScanActivity), RequestQrCodeFromCamera);
                 }
                 else
                 {
@@ -1099,13 +1103,13 @@ namespace AuthenticatorPro.Droid.Activity
                 if (hasCamera)
                 {
                     var subFragment = new ScanQrCodeBottomSheet();
-                    subFragment.FromCameraClicked += async delegate { await RequestPermissionThenScanQrCode(); };
-                    subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCode); };
+                    subFragment.FromCameraClicked += delegate { RequestPermissionThenScanQrCode(); };
+                    subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCodeFromImage); };
                     subFragment.Show(SupportFragmentManager, subFragment.Tag);
                 }
                 else
                 {
-                    StartFilePickActivity("image/*", RequestQrCode);
+                    StartFilePickActivity("image/*", RequestQrCodeFromImage);
                 }
             };
 
@@ -1127,47 +1131,13 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region QR Code Scanning
 
-        private async Task ScanQrCodeFromCamera()
-        {
-            var options = new MobileBarcodeScanningOptions
-            {
-                PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE },
-                TryHarder = true,
-                AutoRotate = true
-            };
-
-            var overlay = LayoutInflater.Inflate(Resource.Layout.scanOverlay, null);
-
-            var scanner = new MobileBarcodeScanner { UseCustomOverlay = true, CustomOverlay = overlay };
-
-            var flashButton = overlay.FindViewById<MaterialButton>(Resource.Id.buttonFlash);
-            flashButton.Click += delegate
-            {
-                scanner.ToggleTorch();
-            };
-
-            var hasFlashlight = PackageManager.HasSystemFeature(PackageManager.FeatureCameraFlash);
-            flashButton.Visibility = hasFlashlight ? ViewStates.Visible : ViewStates.Gone;
-
-            _preventBackupReminder = true;
-            var result = await scanner.Scan(options);
-
-            if (result == null)
-            {
-                return;
-            }
-
-            await ParseQrCodeScanResult(result.Text);
-        }
-
         private async Task ScanQrCodeFromImage(Uri uri)
         {
-            Bitmap bitmap;
+            InputImage image;
 
             try
             {
-                var data = await FileUtil.ReadFile(this, uri);
-                bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
+                image = InputImage.FromFilePath(this, uri);
             }
             catch (Exception e)
             {
@@ -1176,36 +1146,16 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if (bitmap == null)
-            {
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-                return;
-            }
+            var options = new BarcodeScannerOptions.Builder()
+                .SetBarcodeFormats(Barcode.FormatQrCode)
+                .Build();
 
-            var reader = new BarcodeReader<Bitmap>(null, null, ls => new GlobalHistogramBinarizer(ls))
-            {
-                AutoRotate = true,
-                TryInverted = true,
-                Options = new DecodingOptions
-                {
-                    PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE }, TryHarder = true
-                }
-            };
-
-            ZXing.Result result;
+            var scanner = BarcodeScanning.GetClient(options);
+            JavaList<Barcode> barcodes;
 
             try
             {
-                var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
-                await bitmap.CopyPixelsToBufferAsync(buffer);
-                buffer.Rewind();
-
-                var bytes = new byte[buffer.Remaining()];
-                buffer.Get(bytes);
-
-                var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height,
-                    RGBLuminanceSource.BitmapFormat.RGBA32);
-                result = reader.Decode(source);
+                barcodes = await scanner.Process(image).AsAsync<JavaList<Barcode>>();
             }
             catch (Exception e)
             {
@@ -1214,13 +1164,16 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if (result == null)
+            if (!barcodes.Any())
             {
-                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
+                ShowSnackbar(Resource.String.qrCodeNotFound, Snackbar.LengthShort);
                 return;
             }
 
-            await ParseQrCodeScanResult(result.Text);
+            foreach (var barcode in barcodes)
+            {
+                await ParseQrCodeScanResult(barcode.RawValue);
+            }
         }
 
         private async Task ParseQrCodeScanResult(string uri)
@@ -1345,7 +1298,7 @@ namespace AuthenticatorPro.Droid.Activity
             ShowSnackbar(message, Snackbar.LengthLong);
         }
 
-        private async Task RequestPermissionThenScanQrCode()
+        private void RequestPermissionThenScanQrCode()
         {
             if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.Camera) != Permission.Granted)
             {
@@ -1353,7 +1306,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             else
             {
-                await ScanQrCodeFromCamera();
+                StartActivityForResult(typeof(ScanActivity), RequestQrCodeFromCamera);
             }
         }
 
