@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Autentikátor musí generovať {0} až {1} číslic</string>
     <string name="periodInvalid">Perióda je neplatná</string>
     <string name="qrCodeFormatError">QR kód nie je v správnom formáte alebo nemôže byť prečítaný</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Autentifikátor s týmto tajným kľúčom už existuje</string>
     <string name="scanSuccessful">QR kód úspešne naskenovaný</string>
     <string name="pinMessage">Zadajte pin priradený k tomuto kódu QR. Pri nastavovaní tohto účtu by ste boli vyzvaní na zadanie PIN kódu.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">Importovať z</string>
     <string name="importError">Súbor sa nepodarilo importovať</string>
     <string name="authenticatorPlusImportHint">Importovať súbor authplus.db</string>
-    <string name="andOtp">andOTP (vo formáte čistého textu)</string>
-    <string name="andOtpImportHint">Importovať súbor otp_accounts.json (vo formáte čistého textu)</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importovať súbor freeotp-backup.json</string>
-    <string name="aegis">Aegis (vo formáte čistého textu)</string>
-    <string name="aegisImportHint">Importovať súbor aegis-export-plain.json</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (vo formáte čistého textu)</string>
     <string name="bitwardenImportHint">Importovať súbor bitwarden_export.json</string>
     <string name="winAuthImportHint">Importovať súbor winauth.txt</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Prevziať sprievodnú aplikáciu pre Wear OS</string>
     <string name="guideWearOSSummary">Ak máte hodinky Wear OS, môžete si prevziať sprievodnú aplikáciu. Kódy si môžete pozrieť priamo na hodinkách.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Vložte QR kód do hľadáčika a naskenujte ho. Kód sa naskenuje automaticky. Ťuknutím zaostrite.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Snažte sa vyhýbať tieňom a odleskom. Držte zariadenie približne 15 cm od kódu.</string>
     <string name="toggleFlash">Prepnúť blesk</string>
     <!-- Preferences -->
