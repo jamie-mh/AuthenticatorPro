@@ -65,6 +65,7 @@
     <string name="digitsInvalid">De authenticator moet tussen {0} en {1} cijfers genereren</string>
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">Importeren uit</string>
     <string name="importError">Het bestand kon niet worden geïmporteerd</string>
     <string name="authenticatorPlusImportHint">Importeer authplus.db bestand</string>
-    <string name="andOtp">andOTP (platte tekst)</string>
-    <string name="andOtpImportHint">Importeer platte tekst otp_accounts.json bestand</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importeer freeotp-backup.json bestand</string>
-    <string name="aegis">Aegis (platte tekst)</string>
-    <string name="aegisImportHint">Importeer aegis-export-plain.json bestand</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (platte tekst)</string>
     <string name="bitwardenImportHint">Importeer bitwarden_export.json bestand</string>
     <string name="winAuthImportHint">Importeer winauth.txt bestand</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Download de bijbehorende Wear OS app</string>
     <string name="guideWearOSSummary">Als je een Wear OS horloge hebt, kun je de bijbehorende app downloaden. Je kunt de codes dan direct op je horloge bekijken.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Plaats de QR-code in de viewfinder om deze te scannen. De code zal automatisch worden gescand. Tik om de camera te focussen.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Probeer schaduwen en verblindingen te vermijden. Houd het apparaat ongeveer 15 cm van de code af.</string>
     <string name="toggleFlash">Flitslicht aan/uit</string>
     <!-- Preferences -->
