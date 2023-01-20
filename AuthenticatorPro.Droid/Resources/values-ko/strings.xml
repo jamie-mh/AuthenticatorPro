@@ -65,6 +65,7 @@
     <string name="digitsInvalid">인증기가 {0}~{1}자 코드를 생성해야 합니다</string>
     <string name="periodInvalid">유효 기간이 잘못되었습니다</string>
     <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
     <string name="pinMessage">이 QR코드에 할당된 PIN을 입력하세요. 계정을 설정할 때 PIN을 설정하셨을 겁니다.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">가져오기</string>
     <string name="importError">파일을 가져올 수 없습니다</string>
     <string name="authenticatorPlusImportHint">authplus.db 파일 가져오기</string>
-    <string name="andOtp">andOTP (평문)</string>
-    <string name="andOtpImportHint">평문 otp_accounts.json 파일 가져오기</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
-    <string name="aegis">Aegis (평문)</string>
-    <string name="aegisImportHint">aegis-export-plain.json 파일 가져오기</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (평문)</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
     <string name="winAuthImportHint">winauth.txt 파일 가져오기</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Wear OS 전용 앱 다운로드</string>
     <string name="guideWearOSSummary">Wear OS 시계가 있다면 전용 앱을 다운로드 할 수 있습니다. 시계로 코드를 바로 볼 수 있습니다.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QR코드를 사각형에 맞추어 스캔하세요. 코드는 자동으로 스캔됩니다. 화면을 눌러 초점을 맞출 수 있습니다.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!-- Preferences -->
