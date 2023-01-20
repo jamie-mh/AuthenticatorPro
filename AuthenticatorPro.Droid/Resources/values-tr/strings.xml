@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
     <string name="periodInvalid">Geçersiz süre</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
     <string name="pinMessage">Bu QR koduyla ilişkili pini girin. Bu hesabı kurarken sizden bir pin istenmişti.</string>
@@ -183,11 +184,11 @@
     <string name="importFrom">Buradan içer aktar</string>
     <string name="importError">Dosya içe aktarılamadı</string>
     <string name="authenticatorPlusImportHint">authplus.db dosyasını içe aktar</string>
-    <string name="andOtp">andOTP (düz metin)</string>
-    <string name="andOtpImportHint">Düz metin otp_accounts.json dosyasını olarak içeri aktar</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
-    <string name="aegis">Aegis (düz metin)</string>
-    <string name="aegisImportHint">aegis-export-plain.json dosyasını içe aktar</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt dosyasını içe aktar</string>
@@ -209,9 +210,7 @@
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
     <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Karekodunu taramak için vizöre yerleştirin. Kod otomatik taranacaktır. Odaklanmak
-        için dokunun.
-    </string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
     <string name="toggleFlash">Flaşı aç/kapat</string>
     <!-- Preferences -->
