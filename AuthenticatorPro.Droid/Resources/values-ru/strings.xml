@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
     <string name="periodInvalid">Период является недопустимым</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом. PIN-код будет запрошен при настройке этой учетной записи.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">Импортировать из</string>
     <string name="importError">Файл не может быть импортирован</string>
     <string name="authenticatorPlusImportHint">Импортировать файл authplus.db</string>
-    <string name="andOtp">andOTP (простой текст)</string>
-    <string name="andOtpImportHint">Импортировать текстовый файл otp_accounts.json</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
-    <string name="aegis">Aegis (простой текст)</string>
-    <string name="aegisImportHint">Импортировать файл aegis-export-plain.json</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (простой текст)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
     <string name="winAuthImportHint">Импорт файла winauth.txt</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Наведите видоискатель ка QR-код, чтобы отсканировать его. Процесс автоматичен. Нажмите для фокусировки.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
