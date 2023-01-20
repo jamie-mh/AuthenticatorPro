@@ -18,8 +18,6 @@ namespace AuthenticatorPro.Droid.Activity
     [Activity]
     internal class ScanActivity : BaseActivity
     {
-        private PreviewView _previewView;
-
         public ScanActivity() : base(Resource.Layout.activityScan)
         {
         }
@@ -28,7 +26,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnCreate(savedInstanceState);
 
-            _previewView = FindViewById<PreviewView>(Resource.Id.previewView);
+            var previewView = FindViewById<PreviewView>(Resource.Id.previewView);
             var flashButton = FindViewById<MaterialButton>(Resource.Id.buttonFlash);
 
             var provider = (ProcessCameraProvider) await ProcessCameraProvider.GetInstance(this).GetAsync();
@@ -38,7 +36,7 @@ namespace AuthenticatorPro.Droid.Activity
                 .RequireLensFacing(CameraSelector.LensFacingBack)
                 .Build();
 
-            preview.SetSurfaceProvider(_previewView.SurfaceProvider);
+            preview.SetSurfaceProvider(previewView.SurfaceProvider);
 
             var analysis = new ImageAnalysis.Builder()
                 .SetTargetResolution(new Size(1920, 1080))
