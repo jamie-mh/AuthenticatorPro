@@ -202,6 +202,14 @@ namespace AuthenticatorPro.WearOS.Activity
             });
         }
 
+        protected override void OnStop()
+        {
+            base.OnStop();
+
+            _onCreateLock.Release();
+            _responseLock.Release();
+        }
+
         #endregion
 
         #region Authenticators and Categories
