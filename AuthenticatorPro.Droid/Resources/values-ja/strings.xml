@@ -65,6 +65,7 @@
     <string name="digitsInvalid">認証コードは {0} 桁から {1} 桁の間で生成する必要があります</string>
     <string name="periodInvalid">期間が無効です</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
     <string name="pinMessage">このQRコードに関連付けられているピンを入力してください。このアカウントを設定する際にピンが必要になります。</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">インポート元</string>
     <string name="importError">ファイルをインポートできませんでした</string>
     <string name="authenticatorPlusImportHint">authplus.dbファイルをインポート</string>
-    <string name="andOtp">andOTP（プレーンテキスト）</string>
-    <string name="andOtpImportHint">プレーンテキストの otp_accounts.json ファイルをインポート</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
-    <string name="aegis">Aegis（プレーンテキスト）</string>
-    <string name="aegisImportHint">aegis-export-plain.json ファイルをインポート</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (プレーンテキスト)</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
     <string name="winAuthImportHint">winauth.txt ファイルをインポート</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Wear OS コンパニオンアプリをダウンロード</string>
     <string name="guideWearOSSummary">Wear OS ウォッチをお持ちの場合は、コンパニオンアプリをダウンロードできます。ウォッチでコードを直接確認できます。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QRコードを画面に入れてスキャンします。コードは自動的にスキャンされます。タップするとフォーカスします。</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!-- Preferences -->
