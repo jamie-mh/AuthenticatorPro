@@ -65,6 +65,7 @@
     <string name="digitsInvalid">El autenticador debe generar entre {0} y {1} dígitos.</string>
     <string name="periodInvalid">El periodo es invalido</string>
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Ya existe un autenticador con esta clave secreta.</string>
     <string name="scanSuccessful">Código QR escaneado exitosamente</string>
     <string name="pinMessage">Introduzca el pin asociado con este código QR. Se le habría solicitado un pin al configurar esta cuenta.</string>
@@ -183,11 +184,11 @@
     <string name="importFrom">Importar desde</string>
     <string name="importError">No se ha podido importar el archivo</string>
     <string name="authenticatorPlusImportHint">Importar el archivo authplus.db</string>
-    <string name="andOtp">andOTP (texto sin formato)</string>
-    <string name="andOtpImportHint">Importar archivo sin formato otp_accounts.json</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importar archivo freeotp-backup.json</string>
-    <string name="aegis">Aegis (texto sin formato)</string>
-    <string name="aegisImportHint">Importar archivo aegis-export-plain.json</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (texto sin formato)</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
     <string name="winAuthImportHint">Importar archivo winauth.txt</string>
@@ -209,9 +210,7 @@
     <string name="guideWearOSTitle">Descargar el anexo para Wear OS</string>
     <string name="guideWearOSSummary">Si tiene un reloj Wear OS, puede descargar la aplicación anexa. Puede ver los códigos directamente en su reloj!</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap
-        to focus.
-    </string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Intente evitar las sombras y los reflejos. Sostenga el dispositivo a unos 15 cm del código.</string>
     <string name="toggleFlash">Activar/desactivar flash</string>
     <!-- Preferences -->
