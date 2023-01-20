@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Pole musi mieć między {0} a {1} cyfr</string>
     <string name="periodInvalid">Okres jest nieprawidłowy</string>
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
     <string name="pinMessage">Wprowadź pin skojarzony z tym kodem QR. Zostałeś/aś poproszony o pin podczas konfiguracji tego konta.</string>
@@ -181,11 +182,11 @@
     <string name="importFrom">Importuj z</string>
     <string name="importError">Nie można zaimportować pliku</string>
     <string name="authenticatorPlusImportHint">Importuj plik authplus.db</string>
-    <string name="andOtp">andOTP (czysty tekst)</string>
-    <string name="andOtpImportHint">Importuj plik tekstowy otp_accounts.json</string>
+    <string name="andOtp">andOTP</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importuj plik freeotp-backup.json</string>
-    <string name="aegis">Aegis (czysty tekst)</string>
-    <string name="aegisImportHint">Importuj plik aegis-export-plain.json</string>
+    <string name="aegis">Aegis</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (czysty tekst)</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt</string>
@@ -207,7 +208,7 @@
     <string name="guideWearOSTitle">Pobierz aplikację towarzyszącą Wear OS</string>
     <string name="guideWearOSSummary">Jeśli masz zegarek z Wear OS, możesz pobrać aplikację towarzyszącą. Możesz przeglądać kody bezpośrednio na zegarku.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Umieść kod QR w wizjerze, aby go zeskanować. Kod zostanie zeskanowany automatycznie. Dotknij, aby wyostrzyć.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!-- Preferences -->
