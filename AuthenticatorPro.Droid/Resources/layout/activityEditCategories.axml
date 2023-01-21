@@ -48,8 +48,8 @@
             android:paddingEnd="32dp"
             android:paddingStart="32dp"
             android:textSize="24dp"
-            android:textColor="?attr/primaryTextColor"
             android:layout_marginTop="22dp"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             android:text="@string/noCategoriesTitle"/>
 
         <TextView
@@ -60,8 +60,7 @@
             android:paddingEnd="32dp"
             android:paddingStart="32dp"
             android:layout_marginTop="12dp"
-            android:textSize="14dp"
-            android:textColor="?attr/secondaryTextColor"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
             android:text="@string/noCategoriesMessage"/>
     </LinearLayout>
 

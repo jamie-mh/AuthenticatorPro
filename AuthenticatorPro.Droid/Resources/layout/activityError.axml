@@ -32,9 +32,7 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/unhandledErrorMessage"
-                android:textColor="?attr/primaryTextColor"
-                android:lineSpacingExtra="6sp"
-                android:textSize="16sp"/>
+                android:textAppearance="?attr/textAppearanceSubtitle1"/>
 
             <TextView
                 android:layout_width="match_parent"

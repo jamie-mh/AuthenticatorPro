@@ -71,20 +71,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textAppearance="?attr/textAppearanceHeadline5"
             android:layout_marginTop="22dp"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             android:text="@string/noAuthenticatorsTitle"/>
 
         <TextView
             android:id="@+id/textEmptyMessage"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
-            android:lineSpacingExtra="6sp"
             android:gravity="center_horizontal"
-            android:textSize="14dp"
-            android:textColor="?attr/secondaryTextColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
             android:text="@string/noAuthenticatorsMessage"/>
 
         <LinearLayout

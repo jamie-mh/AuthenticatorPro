@@ -30,11 +30,10 @@
 
         <TextView
             android:id="@+id/textCounter"
-            android:textColor="?attr/secondaryTextColor"
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"/>
+            android:textAppearance="?attr/textAppearanceSubtitle1"/>
 
     </LinearLayout>
 

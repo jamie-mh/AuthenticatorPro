@@ -50,9 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideScanQRCodeSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -86,9 +84,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideUseCodeSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -122,9 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideCustomiseSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -158,9 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideArrangeSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -194,9 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideBackupSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -230,9 +220,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideWearOSSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
