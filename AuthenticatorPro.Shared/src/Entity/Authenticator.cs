@@ -178,11 +178,7 @@ namespace AuthenticatorPro.Shared.Entity
                 Icon = iconResolver.FindServiceKeyByName(issuer)
             };
 
-            if (!auth.IsValid())
-            {
-                throw new ArgumentException("Authenticator is invalid");
-            }
-
+            auth.Validate();
             return auth;
         }
 
@@ -361,11 +357,7 @@ namespace AuthenticatorPro.Shared.Entity
                 Counter = counter
             };
 
-            if (!auth.IsValid())
-            {
-                throw new ArgumentException("Authenticator is invalid");
-            }
-
+            auth.Validate();
             return new UriParseResult { Authenticator = auth, PinLength = pinLength };
         }
 
@@ -470,48 +462,66 @@ namespace AuthenticatorPro.Shared.Entity
             return input;
         }
 
-        public static bool IsValidSecret(string secret, AuthenticatorType type)
+        public static void ValidateSecret(string secret, AuthenticatorType type)
         {
             if (String.IsNullOrEmpty(secret))
             {
-                return false;
+                throw new ArgumentException("Secret cannot be null or empty");
             }
 
             if (type.HasBase32Secret())
             {
+                byte[] bytes;
+
                 try
                 {
-                    var output = Base32.Rfc4648.Decode(secret);
-
-                    return type == AuthenticatorType.YandexOtp
-                        ? output.Length >= YandexOtp.SecretByteCount
-                        : output.Length > 0;
+                    bytes = Base32.Rfc4648.Decode(secret);
                 }
-                catch
+                catch (Exception e)
                 {
-                    return false;
+                    throw new ArgumentException("Error decoding secret", e);
+                }
+
+                if (bytes.Length == 0)
+                {
+                    throw new ArgumentException("Error decoding secret, output length 0");
+                }
+
+                if (type == AuthenticatorType.YandexOtp && bytes.Length < YandexOtp.SecretByteCount)
+                {
+                    throw new ArgumentException("Secret is too short for Yandex OTP");
                 }
             }
 
-            if (type == AuthenticatorType.MobileOtp)
+            if (type == AuthenticatorType.MobileOtp && secret.Length < MobileOtp.SecretMinLength)
             {
-                return secret.Length >= MobileOtp.SecretMinLength;
+                throw new ArgumentException("Too few characters in secret for mOTP");
             }
-
-            throw new ArgumentOutOfRangeException(nameof(type));
         }
 
-        public bool IsValid()
+        public void Validate()
         {
-            var isValid = !String.IsNullOrEmpty(Issuer) && IsValidSecret(Secret, Type) &&
-                          Digits >= Type.GetMinDigits() && Digits <= Type.GetMaxDigits();
-
-            if (Type.GetGenerationMethod() == GenerationMethod.Time)
+            if (String.IsNullOrEmpty(Issuer))
             {
-                isValid = isValid && Period > 0;
+                throw new ArgumentException("Issuer cannot be null or empty");
             }
 
-            return isValid;
+            if (Digits < Type.GetMinDigits())
+            {
+                throw new ArgumentException($"Too few digits, expected at least {Type.GetMinDigits()}");
+            }
+
+            if (Digits > Type.GetMaxDigits())
+            {
+                throw new ArgumentException($"Too many digits, expected fewer than {Type.GetMaxDigits()}");
+            }
+
+            if (Type.GetGenerationMethod() == GenerationMethod.Time && Period <= 0)
+            {
+                throw new ArgumentException("Period cannot be negative or zero");
+            }
+
+            ValidateSecret(Secret, Type);
         }
     }
 }

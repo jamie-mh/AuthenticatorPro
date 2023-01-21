@@ -16,6 +16,7 @@ using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
 using System;
+using Exception = System.Exception;
 using String = System.String;
 
 namespace AuthenticatorPro.Droid.Fragment
@@ -197,7 +198,7 @@ namespace AuthenticatorPro.Droid.Fragment
             };
         }
 
-        private void OnAddButtonClicked(object sender, EventArgs e)
+        private void OnAddButtonClicked(object sender, EventArgs args)
         {
             var isValid = true;
 
@@ -242,8 +243,13 @@ namespace AuthenticatorPro.Droid.Fragment
 
             secret = Authenticator.CleanSecret(secret, _type);
 
-            if (!Authenticator.IsValidSecret(secret, _type))
+            try
             {
+                Authenticator.ValidateSecret(secret, _type);
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
                 _secretLayout.Error = GetString(Resource.String.secretInvalid);
                 isValid = false;
             }

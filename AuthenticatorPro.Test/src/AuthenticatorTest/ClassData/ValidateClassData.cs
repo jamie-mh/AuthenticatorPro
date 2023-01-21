@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
 {
-    internal class IsValidClassData : IEnumerable<object[]>
+    internal class ValidateClassData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {

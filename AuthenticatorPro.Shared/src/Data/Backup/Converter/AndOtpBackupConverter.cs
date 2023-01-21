@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         private const string BaseAlgorithm = "AES";
         private const string Mode = "GCM";
         private const string Padding = "NoPadding";
-        private const string Algorithm = BaseAlgorithm + "/" + Mode + "/" + Padding;
+        private const string AlgorithmDescription = BaseAlgorithm + "/" + Mode + "/" + Padding;
 
         private const int IterationsLength = 4;
         private const int SaltLength = 12;
@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public AndOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override async Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             string json;
 
@@ -48,17 +48,34 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
 
-            var authenticators = sourceAccounts.Select(account => account.Convert(IconResolver)).ToList();
+            var authenticators = new List<Authenticator>();
             var categories = new List<Category>();
             var bindings = new List<AuthenticatorCategory>();
+            var failures = new List<ConversionFailure>();
 
-            // Convoluted loop because Authenticator.CleanSecret might have changed the secret somehow
-            for (var i = 0; i < sourceAccounts.Count; i++)
+            foreach (var account in sourceAccounts)
             {
-                var sourceAccount = sourceAccounts[i];
-                var auth = authenticators[i];
+                Authenticator auth;
 
-                foreach (var tag in sourceAccount.Tags)
+                try
+                {
+                    auth = account.Convert(IconResolver);
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = account.Issuer,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
+
+                authenticators.Add(auth);
+
+                foreach (var tag in account.Tags)
                 {
                     var category = categories.FirstOrDefault(c => c.Name == tag);
 
@@ -73,7 +90,8 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 }
             }
 
-            return new Backup(authenticators, categories, bindings);
+            var backup = new Backup(authenticators, categories, bindings);
+            return new ConversionResult { Failures = failures, Backup = backup };
         }
 
         private static KeyParameter DerivePassword(string password, byte[] salt, int iterations)
@@ -102,7 +120,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             var key = DerivePassword(password, salt, iterations);
 
             var keyParameter = new ParametersWithIV(key, iv);
-            var cipher = CipherUtilities.GetCipher(Algorithm);
+            var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(false, keyParameter);
 
             var decrypted = cipher.DoFinal(payload);
@@ -138,7 +156,6 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             [JsonProperty(PropertyName = "tags")] public List<string> Tags { get; set; }
 
-
             public Authenticator Convert(IIconResolver iconResolver)
             {
                 var type = Type switch
@@ -146,7 +163,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "TOTP" => AuthenticatorType.Totp,
                     "HOTP" => AuthenticatorType.Hotp,
                     "STEAM" => AuthenticatorType.SteamOtp,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Type))
+                    _ => throw new ArgumentException($"Type '{Type}' not supported")
                 };
 
                 var algorithm = Algorithm switch
@@ -154,7 +171,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Algorithm))
+                    _ => throw new ArgumentException($"Algorithm '{Algorithm}' not supported")
                 };
 
                 string issuer;

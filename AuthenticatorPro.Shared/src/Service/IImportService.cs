@@ -3,12 +3,13 @@
 
 using AuthenticatorPro.Shared.Data.Backup;
 using AuthenticatorPro.Shared.Data.Backup.Converter;
+using System;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Shared.Service
 {
     public interface IImportService
     {
-        public Task<RestoreResult> ImportAsync(BackupConverter converter, byte[] data, string password);
+        public Task<ValueTuple<ConversionResult, RestoreResult>> ImportAsync(BackupConverter converter, byte[] data, string password);
     }
 }

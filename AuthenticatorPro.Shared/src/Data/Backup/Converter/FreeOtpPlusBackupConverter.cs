@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using SimpleBase;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,13 +18,40 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public FreeOtpPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var json = Encoding.UTF8.GetString(data);
             var sourceTokens = JsonConvert.DeserializeObject<FreeOtpPlusBackup>(json).Tokens;
-            var authenticators = sourceTokens.Select(account => account.Convert(IconResolver)).ToList();
+            var authenticators = new List<Authenticator>();
+            var failures = new List<ConversionFailure>();
 
-            return Task.FromResult(new Backup(authenticators));
+            foreach (var token in sourceTokens)
+            {
+                Authenticator auth;
+
+                try
+                {
+                    auth = token.Convert(IconResolver);
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = token.Issuer,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
+
+                authenticators.Add(auth);
+            }
+
+            var backup = new Backup(authenticators);
+            var result = new ConversionResult { Failures = failures, Backup = backup };
+
+            return Task.FromResult(result);
         }
 
         private class FreeOtpPlusBackup
@@ -63,7 +89,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 {
                     "TOTP" => AuthenticatorType.Totp,
                     "HOTP" => AuthenticatorType.Hotp,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Type))
+                    _ => throw new ArgumentException($"Type '{Type}' not supported")
                 };
 
                 var algorithm = Algorithm switch
@@ -71,7 +97,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Algorithm))
+                    _ => throw new ArgumentException($"Algorithm '{Algorithm}' not supported")
                 };
 
                 string issuer;

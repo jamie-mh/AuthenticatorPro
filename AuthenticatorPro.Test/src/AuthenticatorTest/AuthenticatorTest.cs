@@ -132,19 +132,28 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         [InlineData("AAAAAAAAAAAAAAAA", true, AuthenticatorType.MobileOtp)] // Valid (uppercase)
         [InlineData("aaaaaaaaaaaaaaaa", true, AuthenticatorType.MobileOtp)] // Valid (lowercase)
         [InlineData("aaaaaaaaaaaaaaa", false, AuthenticatorType.MobileOtp)] // Too few characters
-        public void IsValidSecretTest(string secret, bool expectedResult, params AuthenticatorType[] types)
+        public void ValidateSecretTest(string secret, bool isValid, params AuthenticatorType[] types)
         {
             foreach (var type in types)
             {
-                Assert.Equal(expectedResult, Authenticator.IsValidSecret(secret, type));
+                if (!isValid)
+                {
+                    Assert.Throws<ArgumentException>(delegate
+                    {
+                        Authenticator.ValidateSecret(secret, type);
+                    });
+                }
             }
         }
 
         [Theory]
-        [ClassData(typeof(IsValidClassData))]
-        public void IsValidTest(Authenticator auth, bool expectedResult)
+        [ClassData(typeof(ValidateClassData))]
+        public void ValidateTest(Authenticator auth, bool isValid)
         {
-            Assert.Equal(expectedResult, auth.IsValid());
+            if (!isValid)
+            {
+                Assert.Throws<ArgumentException>(auth.Validate);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public AuthenticatorPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override async Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var path = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.Personal),
@@ -38,43 +38,9 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             var connection = new SQLiteAsyncConnection(connStr);
 
-            Backup backup;
-
             try
             {
-                var sourceAccounts = await connection.QueryAsync<Account>("SELECT * FROM accounts");
-                var sourceCategories = await connection.QueryAsync<Category>("SELECT * FROM category");
-
-                var authenticators = sourceAccounts.Select(account => account.Convert(IconResolver)).ToList();
-                var categories = sourceCategories.Select(category => category.Convert()).ToList();
-                var bindings = new List<AuthenticatorCategory>();
-
-                for (var i = 0; i < sourceAccounts.Count; ++i)
-                {
-                    var sourceAccount = sourceAccounts[i];
-
-                    if (sourceAccount.CategoryName == "All Accounts")
-                    {
-                        continue;
-                    }
-
-                    var category = categories.FirstOrDefault(c => c.Name == sourceAccount.CategoryName);
-
-                    if (category == null)
-                    {
-                        continue;
-                    }
-
-                    var auth = authenticators[i];
-                    var binding = new AuthenticatorCategory
-                    {
-                        AuthenticatorSecret = auth.Secret, CategoryId = category.Id
-                    };
-
-                    bindings.Add(binding);
-                }
-
-                backup = new Backup(authenticators, categories, bindings);
+                return await ConvertFromConnectionAsync(connection);
             }
             catch (SQLiteException e)
             {
@@ -85,8 +51,60 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 await connection.CloseAsync();
                 File.Delete(path);
             }
+        }
 
-            return backup;
+        private async Task<ConversionResult> ConvertFromConnectionAsync(SQLiteAsyncConnection connection)
+        {
+            var sourceAccounts = await connection.QueryAsync<Account>("SELECT * FROM accounts");
+            var sourceCategories = await connection.QueryAsync<Category>("SELECT * FROM category");
+
+            var authenticators = new List<Authenticator>();
+            var categories = sourceCategories.Select(category => category.Convert()).ToList();
+            var bindings = new List<AuthenticatorCategory>();
+            var failures = new List<ConversionFailure>();
+
+            foreach (var account in sourceAccounts)
+            {
+                Authenticator auth;
+
+                try
+                {
+                    auth = account.Convert(IconResolver);
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = account.Issuer,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
+
+                authenticators.Add(auth);
+
+                if (account.CategoryName != "All Accounts")
+                {
+                    var category = categories.FirstOrDefault(c => c.Name == account.CategoryName);
+
+                    if (category == null)
+                    {
+                        continue;
+                    }
+
+                    var binding = new AuthenticatorCategory
+                    {
+                        AuthenticatorSecret = auth.Secret, CategoryId = category.Id
+                    };
+
+                    bindings.Add(binding);
+                }
+            }
+
+            var backup = new Backup(authenticators, categories, bindings);
+            return new ConversionResult { Failures = failures, Backup = backup };
         }
 
         private enum Type
@@ -110,6 +128,18 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             [Column("category")] public string CategoryName { get; set; }
 
+            private string ConvertSecret(AuthenticatorType type)
+            {
+                if (Type == Type.Blizzard)
+                {
+                    var bytes = Base16.Decode(Secret);
+                    var base32Secret = Base32.Rfc4648.Encode(bytes);
+                    return Authenticator.CleanSecret(base32Secret, type);
+                }
+
+                return Authenticator.CleanSecret(Secret, type);
+            }
+
             public Authenticator Convert(IIconResolver iconResolver)
             {
                 var type = Type switch
@@ -117,7 +147,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     Type.Totp => AuthenticatorType.Totp,
                     Type.Hotp => AuthenticatorType.Hotp,
                     Type.Blizzard => AuthenticatorType.Totp,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Type))
+                    _ => throw new ArgumentException($"Type '{Type}' not supported")
                 };
 
                 string issuer;
@@ -156,19 +186,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 }
 
                 var digits = Type == Type.Blizzard ? BlizzardDigits : type.GetDefaultDigits();
-
-                string secret;
-
-                if (Type == Type.Blizzard)
-                {
-                    var bytes = Base16.Decode(Secret);
-                    var base32Secret = Base32.Rfc4648.Encode(bytes);
-                    secret = Authenticator.CleanSecret(base32Secret, type);
-                }
-                else
-                {
-                    secret = Authenticator.CleanSecret(Secret, type);
-                }
+                var secret = ConvertSecret(type);
 
                 return new Authenticator
                 {

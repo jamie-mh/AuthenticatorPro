@@ -8,7 +8,6 @@ using Org.BouncyCastle.Security;
 using SimpleBase;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +22,40 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public TotpAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
+        {
+            var accounts = await Task.Run(() => Decrypt(data, password));
+            var authenticators = new List<Authenticator>();
+            var failures = new List<ConversionFailure>();
+
+            foreach (var account in accounts)
+            {
+                Authenticator auth;
+
+                try
+                {
+                    auth = account.Convert(IconResolver);
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = account.Issuer,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
+
+                authenticators.Add(auth);
+            }
+
+            var backup = new Backup(authenticators);
+            return new ConversionResult { Failures = failures, Backup = backup };
+        }
+
+        private static List<Account> Decrypt(byte[] data, string password)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password ?? throw new ArgumentNullException(nameof(password)));
             var key = SHA256.HashData(passwordBytes);
@@ -43,10 +75,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             json = json[..(json.LastIndexOf(']') + 1)];
             json = json.Replace(@"\""", @"""");
 
-            var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
-            var authenticators = sourceAccounts.Select(entry => entry.Convert(IconResolver)).ToList();
-
-            return Task.FromResult(new Backup(authenticators));
+            return JsonConvert.DeserializeObject<List<Account>>(json);
         }
 
         private class Account
@@ -93,7 +122,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 // TODO: figure out if this value ever changes
                 if (Base != 16)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(Base), "Cannot parse base other than 16");
+                    throw new ArgumentException("Cannot parse base other than 16, given {Base}");
                 }
 
                 var secretBytes = Base16.Decode(Key);

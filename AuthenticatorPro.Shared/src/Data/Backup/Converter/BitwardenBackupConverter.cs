@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public BitwardenBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var json = Encoding.UTF8.GetString(data);
             var export = JsonConvert.DeserializeObject<Export>(json);
@@ -26,9 +26,41 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             var convertableItems = export.Items.Where(item =>
                 item.Type == LoginType && item.Login != null && !String.IsNullOrEmpty(item.Login.Totp)).ToList();
 
-            var authenticators = convertableItems.Select(item => item.Convert(IconResolver)).ToList();
+            var authenticators = new List<Authenticator>();
             var categories = export.Folders.Select(f => f.Convert()).ToList();
             var bindings = new List<AuthenticatorCategory>();
+            var failures = new List<ConversionFailure>();
+
+            foreach (var item in convertableItems)
+            {
+                Authenticator auth;
+
+                try
+                {
+                    auth = item.Convert(IconResolver);
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = item.Name,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
+
+                authenticators.Add(auth);
+
+                if (item.FolderId != null)
+                {
+                    var folderName = export.Folders.First(f => f.Id == item.FolderId).Name;
+                    var category = categories.First(c => c.Name == folderName);
+
+                    bindings.Add(new AuthenticatorCategory(auth.Secret, category.Id));
+                }
+            }
 
             for (var i = 0; i < convertableItems.Count; ++i)
             {
@@ -46,7 +78,10 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 bindings.Add(new AuthenticatorCategory(auth.Secret, category.Id));
             }
 
-            return Task.FromResult(new Backup(authenticators, categories, bindings));
+            var backup = new Backup(authenticators, categories, bindings);
+            var result = new ConversionResult { Failures = failures, Backup = backup };
+
+            return Task.FromResult(result);
         }
 
         private class Export
@@ -79,7 +114,6 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             [JsonProperty(PropertyName = "type")] public int Type { get; set; }
 
             [JsonProperty(PropertyName = "login")] public Login Login { get; set; }
-
 
             public Authenticator Convert(IIconResolver iconResolver)
             {

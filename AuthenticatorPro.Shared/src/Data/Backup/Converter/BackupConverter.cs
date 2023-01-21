@@ -20,6 +20,6 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         }
 
         public abstract BackupPasswordPolicy PasswordPolicy { get; }
-        public abstract Task<Backup> ConvertAsync(byte[] data, string password = null);
+        public abstract Task<ConversionResult> ConvertAsync(byte[] data, string password = null);
     }
 }

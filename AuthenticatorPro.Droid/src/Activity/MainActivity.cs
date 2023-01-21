@@ -1482,8 +1482,21 @@ namespace AuthenticatorPro.Droid.Activity
 
             async Task ConvertAndRestore(string password)
             {
-                var result = await _importService.ImportAsync(converter, data, password);
-                await FinaliseRestore(result);
+                var (conversionResult, restoreResult) = await _importService.ImportAsync(converter, data, password);
+
+                foreach (var failure in conversionResult.Failures)
+                {
+                    var message = String.Format(
+                        GetString(Resource.String.importConversionError), failure.Description, failure.Error);
+
+                    new MaterialAlertDialogBuilder(this)
+                        .SetTitle(Resource.String.importIncomplete)
+                        .SetMessage(message)
+                        .SetPositiveButton(Resource.String.ok, delegate { })
+                        .Show();
+                }
+
+                await FinaliseRestore(restoreResult);
                 _preferences.BackupRequired = BackupRequirement.Urgent;
             }
 

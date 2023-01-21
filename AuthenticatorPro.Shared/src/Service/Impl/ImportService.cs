@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
             _restoreService = restoreService;
         }
 
-        public async Task<RestoreResult> ImportAsync(BackupConverter converter, byte[] data, string password)
+        public async Task<ValueTuple<ConversionResult, RestoreResult>> ImportAsync(BackupConverter converter, byte[] data, string password)
         {
             if (converter == null)
             {
@@ -29,8 +29,10 @@ namespace AuthenticatorPro.Shared.Service.Impl
                 throw new ArgumentNullException(nameof(data));
             }
 
-            var backup = await converter.ConvertAsync(data, password);
-            return await _restoreService.RestoreAsync(backup);
+            var conversionResult = await converter.ConvertAsync(data, password);
+            var restoreResult = await _restoreService.RestoreAsync(conversionResult.Backup);
+
+            return new ValueTuple<ConversionResult, RestoreResult>(conversionResult, restoreResult);
         }
     }
 }

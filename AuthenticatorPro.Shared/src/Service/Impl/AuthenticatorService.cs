@@ -36,11 +36,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
 
         public async Task AddAsync(Authenticator auth)
         {
-            if (!auth.IsValid())
-            {
-                throw new ArgumentException("Authenticator is invalid");
-            }
-
+            auth.Validate();
             await _authenticatorRepository.CreateAsync(auth);
         }
 
@@ -56,11 +52,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
 
             foreach (var auth in auths)
             {
-                if (!auth.IsValid())
-                {
-                    continue;
-                }
-
+                auth.Validate();
                 var original = await _authenticatorRepository.GetAsync(auth.Secret);
 
                 if (original == null || comparer.Equals(original, auth))
@@ -142,10 +134,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
 
             foreach (var auth in auths)
             {
-                if (!auth.IsValid())
-                {
-                    continue;
-                }
+                auth.Validate();
 
                 try
                 {

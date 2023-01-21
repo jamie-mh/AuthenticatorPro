@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         private const string BaseAlgorithm = "AES";
         private const string Mode = "GCM";
         private const string Padding = "NoPadding";
-        private const string Algorithm = BaseAlgorithm + "/" + Mode + "/" + Padding;
+        private const string AlgorithmDescription = BaseAlgorithm + "/" + Mode + "/" + Padding;
 
         private const int KeyLength = 32;
 
@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             _customIconDecoder = customIconDecoder;
         }
 
-        public override async Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var json = Encoding.UTF8.GetString(data);
             AegisBackup<DecryptedDatabase> backup;
@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
         private static byte[] DecryptAesGcm(byte[] key, byte[] iv, byte[] data, byte[] mac)
         {
             var keyParameter = new ParametersWithIV(new KeyParameter(key), iv);
-            var cipher = CipherUtilities.GetCipher(Algorithm);
+            var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(false, keyParameter);
 
             var authenticatedBytes = GetAuthenticatedBytes(data, mac);
@@ -133,17 +133,33 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             return DecryptAesGcm(derivedKey, ivBytes, keyBytes, macBytes);
         }
 
-        private async Task<Backup> ConvertDatabaseAsync(DecryptedDatabase database)
+        private async Task<ConversionResult> ConvertDatabaseAsync(DecryptedDatabase database)
         {
-            var authenticators = database.Entries.Select(entry => entry.Convert(IconResolver)).ToList();
+            var authenticators = new List<Authenticator>();
             var categories = new List<Category>();
             var bindings = new List<AuthenticatorCategory>();
             var icons = new List<CustomIcon>();
+            var failures = new List<ConversionFailure>();
 
-            for (var i = 0; i < database.Entries.Count; i++)
+            foreach (var entry in database.Entries)
             {
-                var entry = database.Entries[i];
-                var auth = authenticators[i];
+                Authenticator auth;
+
+                try
+                {
+                    auth = entry.Convert(IconResolver);
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = entry.Issuer,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
 
                 if (!String.IsNullOrEmpty(entry.Group))
                 {
@@ -187,9 +203,12 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
                     auth.Icon = CustomIcon.Prefix + icon.Id;
                 }
+
+                authenticators.Add(auth);
             }
 
-            return new Backup(authenticators, categories, bindings, icons);
+            var backup = new Backup(authenticators, categories, bindings, icons);
+            return new ConversionResult { Failures = failures, Backup = backup };
         }
 
         private class AegisBackup<T>
@@ -273,8 +292,10 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
             [JsonProperty(PropertyName = "info")] public EntryInfo Info { get; set; }
 
-            private static string ConvertSecret(string secret, AuthenticatorType type)
+            private string ConvertSecret(AuthenticatorType type)
             {
+                var secret = Info.Secret;
+
                 if (type == AuthenticatorType.MobileOtp)
                 {
                     var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
@@ -293,7 +314,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "steam" => AuthenticatorType.SteamOtp,
                     "motp" => AuthenticatorType.MobileOtp,
                     "yandex" => AuthenticatorType.YandexOtp,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Type))
+                    _ => throw new ArgumentException($"Type '{Type}' not supported")
                 };
 
                 var algorithm = Info.Algorithm switch
@@ -303,7 +324,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                     "SHA512" => HashAlgorithm.Sha512,
                     // Unused field for this type
                     "MD5" when type == AuthenticatorType.MobileOtp => Authenticator.DefaultAlgorithm,
-                    _ => throw new ArgumentOutOfRangeException(nameof(Info.Algorithm))
+                    _ => throw new ArgumentException($"Algorithm '{Info.Algorithm}")
                 };
 
                 string issuer;
@@ -324,7 +345,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
                 {
                     Type = type,
                     Algorithm = algorithm,
-                    Secret = ConvertSecret(Info.Secret, type),
+                    Secret = ConvertSecret(type),
                     Digits = Info.Digits,
                     Period = Info.Period,
                     Issuer = issuer,

@@ -4,7 +4,6 @@
 using AuthenticatorPro.Shared.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,15 +15,41 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
 
         public UriListBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
-        public override Task<Backup> ConvertAsync(byte[] data, string password = null)
+        public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var text = Encoding.UTF8.GetString(data);
             var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
             var authenticators = new List<Authenticator>();
-            authenticators.AddRange(lines.Select(u => Authenticator.ParseUri(u, IconResolver).Authenticator));
+            var failures = new List<ConversionFailure>();
 
-            return Task.FromResult(new Backup(authenticators));
+            foreach (var line in lines)
+            {
+                Authenticator auth;
+
+                try
+                {
+                    auth = Authenticator.ParseUri(line, IconResolver).Authenticator;
+                    auth.Validate();
+                }
+                catch (Exception e)
+                {
+                    failures.Add(new ConversionFailure
+                    {
+                        Description = line,
+                        Error = e.Message
+                    });
+
+                    continue;
+                }
+
+                authenticators.Add(auth);
+            }
+
+            var backup = new Backup(authenticators);
+            var result = new ConversionResult { Failures = failures, Backup = backup };
+
+            return Task.FromResult(result);
         }
     }
 }
