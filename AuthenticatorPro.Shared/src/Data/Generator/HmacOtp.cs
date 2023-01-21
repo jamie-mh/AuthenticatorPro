@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Shared.Data.Generator
         {
             _digits = digits;
 
-            var secretBytes = Base32.Rfc4648.Decode(secret).ToArray();
+            var secretBytes = Base32.Rfc4648.Decode(secret);
             _hmac = algorithm switch
             {
                 HashAlgorithm.Sha1 => new HMACSHA1(secretBytes),

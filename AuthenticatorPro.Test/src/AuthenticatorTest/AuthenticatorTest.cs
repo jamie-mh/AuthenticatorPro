@@ -6,6 +6,7 @@ using AuthenticatorPro.Shared.Entity;
 using AuthenticatorPro.Test.AuthenticatorTest.ClassData;
 using SimpleBase;
 using System;
+using System.Linq;
 using Xunit;
 
 namespace AuthenticatorPro.Test.AuthenticatorTest

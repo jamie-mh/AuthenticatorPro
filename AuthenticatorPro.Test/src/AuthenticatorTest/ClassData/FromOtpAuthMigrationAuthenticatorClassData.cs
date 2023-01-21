@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new OtpAuthMigration.Authenticator
                 {
                     Type = OtpAuthMigration.Type.Totp,
-                    Secret = Base32.Rfc4648.Decode("ABCDEFG").ToArray(),
+                    Secret = Base32.Rfc4648.Decode("ABCDEFG"),
                     Issuer = "issuer",
                     Username = "username",
                     Algorithm = OtpAuthMigration.Algorithm.Sha1
@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new OtpAuthMigration.Authenticator
                 {
                     Type = OtpAuthMigration.Type.Hotp,
-                    Secret = Base32.Rfc4648.Decode("ABCDEFG").ToArray(),
+                    Secret = Base32.Rfc4648.Decode("ABCDEFG"),
                     Issuer = "issuer",
                     Username = "username",
                     Algorithm = OtpAuthMigration.Algorithm.Sha1,
@@ -64,7 +64,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new OtpAuthMigration.Authenticator
                 {
                     Type = OtpAuthMigration.Type.Totp,
-                    Secret = Base32.Rfc4648.Decode("ABCDEFG").ToArray(),
+                    Secret = Base32.Rfc4648.Decode("ABCDEFG"),
                     Issuer = "",
                     Username = "username",
                     Algorithm = OtpAuthMigration.Algorithm.Sha1
@@ -85,7 +85,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest.ClassData
                 new OtpAuthMigration.Authenticator
                 {
                     Type = OtpAuthMigration.Type.Totp,
-                    Secret = Base32.Rfc4648.Decode("ABCDEFG").ToArray(),
+                    Secret = Base32.Rfc4648.Decode("ABCDEFG"),
                     Issuer = "issuer",
                     Username = "issuer: username",
                     Algorithm = OtpAuthMigration.Algorithm.Sha1
