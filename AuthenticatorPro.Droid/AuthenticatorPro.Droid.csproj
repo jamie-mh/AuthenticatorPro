@@ -31,7 +31,7 @@
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.15" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.5.1.1" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.5.1.1" />
-    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.4" />
     <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.17" />
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.1.5" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
