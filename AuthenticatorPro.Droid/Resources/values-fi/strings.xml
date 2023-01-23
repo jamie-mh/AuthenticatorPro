@@ -181,6 +181,8 @@
     <string name="importFromOtherApps">Tuo muista sovelluksista</string>
     <string name="importFrom">Tuo kohteesta</string>
     <string name="importError">Tiedostoa ei voitu tuoda</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Tuo authplus.db -tiedosto</string>
     <string name="andOtp">andOTP</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
