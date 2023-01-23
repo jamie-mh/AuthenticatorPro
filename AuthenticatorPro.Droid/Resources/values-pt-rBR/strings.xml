@@ -181,6 +181,8 @@
     <string name="importFromOtherApps">Importar de outros aplicativos</string>
     <string name="importFrom">Importar de</string>
     <string name="importError">Não foi possível importar o arquivo</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importar o arquivo authplus.db</string>
     <string name="andOtp">andOTP</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
