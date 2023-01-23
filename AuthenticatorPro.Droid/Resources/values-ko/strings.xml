@@ -181,6 +181,8 @@
     <string name="importFromOtherApps">다른 앱에서 가져오기</string>
     <string name="importFrom">가져오기</string>
     <string name="importError">파일을 가져올 수 없습니다</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db 파일 가져오기</string>
     <string name="andOtp">andOTP</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
