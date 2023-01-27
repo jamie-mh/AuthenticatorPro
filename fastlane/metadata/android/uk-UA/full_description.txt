@@ -1,41 +1,41 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+Безкоштовний застосунок двофакторної автентифікації із відкритим вихідним кодом для Android. Серед основних можливостей: створення зашифрованих резервних копій, іконки, категорії та високий рівень кастомізації. Також є компанійський застосунок для Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Підтримується генерація токенів TOTP (на основі часу) та HOTP (на основі лічильника) із використанням алгоритмів хешування SHA1, SHA256 або SHA512. Також є підтримка алгоритмів Mobile-Otp (mOTP), Steam та Yandex.
 
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
-In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+Двофакторна автентифікація — це ще один рівень безпеки для облікових записів через введення додаткового одноразового коду при авторизації на ресурсі.
+До імені користувача та пароля, що зазвичай вводяться при вході на сайт або сервіс, додатково вводиться одноразовий код, що генерується сторонніми застосунками типу Authenticator Pro. Навіть якщо хтось скомпрометує пару логін і пароль, то обліковий запис залишиться в безпеці.
 
-### Features
+### Можливості
 
-- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
+- ⚙️ **Сумісність**: Authenticator Pro сумісний із більшістю провайдерів та облікових записів.
 
-- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 📲 **Імпорт**: Легко і просто мігруйте свої облікові записи до Authenticator Pro з інших альтернативних застосунків, що підтримуються.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 💾 **Резервне копіювання / відновлення**: Створюйте надійно зашифровані резервні копії ваших автентифікаторів. У випадку, якщо ви втратите або зміните телефон, ви завжди зможете відновити доступ до ваших облікових записів. Ви завжди можете зберігати резервні копії як у хмарне сховище, так і у файл на пристрої.
 
-- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- 🌙 **Темний режим**: Графічний інтерфейс Authenticator Pro створений із використанням підходу Material Design, тож має однаково добрий вигляд як при використанні світлої, так і темної теми.
 
-- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- ⏺️ **Іконки**: Знаходьте ваші автентифікатори легше і простіше, використовуючи брендові логотипи та іконки біля з кожним кодом.
 
-- 📂 **Categories**: Organise your authenticators into categories.
+- 📂 **Категорії**: Організуйте ваші автентифікатори в категорії.
 
-- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
+- 🔒 **Робота без мережі із мінімальними дозволами**: Authenticator Pro потребує один системний дозвіл (*) та не залежить від доступу до мережі Інтернет для роботи.
 
-- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
+- 🔑 **Безпека**: Встановіть пароль та використовуйте біометричну автентифікацію пристрою для додаткового захисту кодів в застосунку.
 
-- 🎨 **Customisation**: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+- 🎨 **Персоналізація**: Задавайте графічні іконки та зручні імена автентифікаторам. Також можна змінювати порядок автентифікаторів як завгодно, щоби потім було легко їх знайти.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
-
-
-(*) *To scan QR-Codes, the app requires the camera permission.*
+- ⌚ **Wear OS**: Швидкий перегляд автентифікаторів безпосередньо із вашого годинника. Зверніть увагу, що для роботи цієї функції потрібне підключення до вашого пристрою Android.
 
 
-**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+(*) *Для того щоби сканувати QR-коди, застосунку потрібен дозвіл на доступ до камери.*
 
 
-#### Disclaimer:
+**Часті Питання:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#### Відмова від відповідальності:
+
+Ця програма є вільним програмним забезпеченням: ви можете поширювати її та/або змінювати згідно з умовами GNU General Public License, опублікованої Free Software Foundation, версії 3 Ліцензії або (на ваш вибір) будь-якої пізнішої версії.
+
+Ця програма поширюється з надією, що вона буде корисною, але БЕЗ БУДЬ-ЯКИХ ГАРАНТІЙ; навіть без неявної гарантії КОМЕРЦІЙНОЇ ЦІННОСТІ чи ПРИДАТНОСТІ ДЛЯ КОНКРЕТНОЇ МЕТИ. Більше інформації міститься в документі GNU General Public License.
