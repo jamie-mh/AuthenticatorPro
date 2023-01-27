@@ -1,40 +1,40 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+Android용 무료, 오픈소스 2단계 인증 앱입니다. 암호화된 백업, 아이콘, 분류 체계, 폭넓은 사용자 지정 등의 기능을 지원합니다. Wear OS 전용 앱도 이용할 수 있습니다.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP (횟수 기반) 인증기를 지원합니다. 모바일 OTP (mOTP), Steam 및 Yandex 인증기도 지원합니다.
 
 2단계 인증은 로그인 시 일회용 코드를 요구함으로써 계정 보안을 한층 더 강화해줍니다.
 사용자 이름과 비밀번호에 더하여, Authenticator Pro에서 제공되는 코드가 필요할 겁니다. 따라서 로그인 정보가 유출되더라도 계정은 안전합니다.
 
-### Features
+### 기능
 
-- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
+- ⚙️ **호환성**: Authenticator Pro는 가장 많은 공급처 및 계정과 호환됩니다.
 
-- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 📲 **가져오기**: 다른 인증기 앱에서 Authenticator Pro로 계정을 쉽게 이전하세요.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 💾 **백업 / 복원**: 강력한 암호화를 기반으로 인증기를 백업하세요. 휴대전화를 잃어버리거나 바꾸더라도, 계정에 접근할 수 있습니다. 백업본을 클라우드 저장소나 기기에 저장할 수도 있습니다.
 
-- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- 🌙 **다크 모드**: Authenticator Pro에는 미려한 머티리얼 디자인이 적용되었으며 밝은 테마와 어두운 테마에서의 사용성을 모두 고려했습니다.
 
-- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- ⏺️ **아이콘**: 코드 옆의 브랜드 로고나 아이콘으로 쉽게 인증기를 찾으세요.
 
-- 📂 **Categories**: Organise your authenticators into categories.
+- 📂 **분류**: 인증기를 분류로 묶어 체계화하세요.
 
-- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
+- 🔒 **오프라인, 적은 권한 요구**: Authenticator Pro는 권한 단 하나(*)만을 요구하고 작동할 때 인터넷 연결을 필요로 하지 않습니다.
 
-- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
+- 🔑 **보안**: 비밀번호나 생체 인증으로 코드를 보호할 수 있습니다.
 
-- 🎨 **Customisation**: Set icons and rename. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
+- 🎨 **사용자 지정**: 아이콘을 설정하고 이름을 변경하세요. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
-
-
-(*) *To scan QR-Codes, the app requires the camera permission.*
+- ⌚ **Wear OS**: 시계에서 인증기를 빠르게 확인할 수 있습니다. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다.
 
 
-**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+(*) *QR코드를 스캔할 때 카메라 권한을 요구합니다.*
 
 
-#### Disclaimer:
+**자주 묻는 질문:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+
+
+#### 면책 조항:
 
 본 프로그램은 자유 소프트웨어입니다. 본 프로그램은 자유 소프트웨어 재단에서 발행한 GNU 일반 공중 사용 허가서의 버전 3 혹은 (귀하의 선택에 따라) 이후 버전에서 제시된 조건에 따라 재배포 혹은 수정할 수 있습니다.
 
