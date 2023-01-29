@@ -152,18 +152,13 @@
     <string name="notPasswordProtected">No está protegido por contraseña</string>
     <string name="enableAutoBackup">Habilitar respaldos automáticos</string>
     <string name="enableAutoBackupMessage">Realizar copia de seguridad automáticamente a la ubicación seleccionada</string>
-    <string name="enableAutoRestore">Habilitar restauración automatica</string>
-    <string name="enableAutoRestoreMessage">Restaurar automáticamente la copia de seguridad más reciente encontrada en la ubicación seleccionada. Útil para sincronizar dispositivos.</string>
     <string name="batOptim">Optimización de batería</string>
     <string name="disableBatOptimMessage">En algunos dispositivos, la configuración de energía puede hacer que las copias de seguridad no se realicen correctamente. Si estás experimentando problemas, intenta desactivar la optimización de batería para Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Falló la copia de seguridad automática</string>
     <string name="autoBackupFailureText">La copia de seguridad automática más reciente no se ha completado. Los permisos de archivo podrían haber expirado, intente configurar de nuevo la ubicación de la copia de seguridad en la configuración de la copia automática.</string>
-    <string name="autoRestoreFailureTitle">Restauración automática falló</string>
-    <string name="autoRestoreFailureText">La copia de seguridad automática más reciente fallo al completarse. Los permisos de archivo podrían haber expirado o la contraseña es incorrecta, intenta configurar de nuevo la ubicación de la copia de seguridad y la contraseña en la configuración de la copia automática.</string>
     <string name="autoBackupSuccessTitle">Copia automática completada</string>
     <string name="autoRestoreSuccessTitle">Auto restauración completada</string>
     <string name="backupScheduled">Copia de seguridad programada</string>
-    <string name="restoreScheduled">Restauración programada</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Cifrar la base de datos con una contraseña. Se te pedirá la contraseña cuando abras la aplicación. Deja el campo en blanco para borrar la contraseña.</string>
     <string name="passwordSetupWarning">¡Use una contraseña que pueda recordar, la base de datos es irrecuperable sin ella!</string>
@@ -221,7 +216,7 @@
     <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.
     </string>
     <string name="prefAutoBackupTitle">Copia de seguridad automática</string>
-    <string name="prefAutoBackupSummary">Realizar copias de seguridad y restauraciones automáticas desde una ubicación específica cuando se realicen cambios. Desactiva los recordatorios de copia de seguridad.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Elige un idioma para usar en la aplicación</string>
     <string name="prefSecurity">Seguridad</string>
