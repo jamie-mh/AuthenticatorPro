@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Niet beveiligd met een wachtwoord</string>
     <string name="enableAutoBackup">Automatische back-up inschakelen</string>
     <string name="enableAutoBackupMessage">Automatisch back-up maken naar de geselecteerde opslaglocatie</string>
-    <string name="enableAutoRestore">Automatisch herstellen inschakelen</string>
-    <string name="enableAutoRestoreMessage">Herstel automatisch de nieuwste back-up van de geselecteerde opslaglocatie. Handig voor het synchroniseren tussen apparaten.</string>
     <string name="batOptim">Batterijoptimalisatie</string>
     <string name="disableBatOptimMessage">Op sommige apparaten kunnen de stroominstellingen back-ups niet goed laten werken. Probeer de accuoptimalisatie voor Authenticator Pro uit te schakelen als u problemen ondervindt.</string>
     <string name="autoBackupFailureTitle">Automatische back-up maken mislukt</string>
     <string name="autoBackupFailureText">De meest recente automatische back-up kon niet worden voltooid. Bestandsmachtigingen zijn mogelijk verlopen, probeer de back-up locatie opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
-    <string name="autoRestoreFailureTitle">Automatisch herstellen mislukt</string>
-    <string name="autoRestoreFailureText">De meest recente automatische herstel is niet voltooid. De bestandsrechten zijn mogelijk verlopen of het wachtwoord is onjuist. Probeer de back-up locatie en wachtwoord opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
     <string name="autoBackupSuccessTitle">Automatische back-up maken voltooid</string>
     <string name="autoRestoreSuccessTitle">Automatisch herstellen voltooid</string>
     <string name="backupScheduled">Back-up ingepland</string>
-    <string name="restoreScheduled">Herstel ingepland</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Versleutel de database met een wachtwoord. Bij het openen van de app wordt om het wachtwoord gevraagd. Laat het veld leeg om het wachtwoord te wissen.</string>
     <string name="passwordSetupWarning">Gebruik een wachtwoord dat je kunt onthouden, de database is onherstelbaar zonder het wachtwoord!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Back-up Herinneringen</string>
     <string name="prefShowBackupRemindersSummary">Herinnert je om een back-up van je authenticators te maken als er belangrijke wijzigingen worden aangebracht</string>
     <string name="prefAutoBackupTitle">Automatische Back-ups</string>
-    <string name="prefAutoBackupSummary">Back-up en herstel automatisch vanaf een specifieke locatie wanneer er wijzigingen worden aangebracht. Dit schakelt backup herinneringen uit.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Taal</string>
     <string name="prefLanguageSummary">Kies een taal om te gebruiken in de app</string>
     <string name="prefSecurity">Veiligheid</string>
