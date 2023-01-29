@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Non protetto con password</string>
     <string name="enableAutoBackup">Attiva Backup Automatico</string>
     <string name="enableAutoBackupMessage">Backup automatico alla posizione di archiviazione selezionata</string>
-    <string name="enableAutoRestore">Attiva Ripristino Automatico</string>
-    <string name="enableAutoRestoreMessage">Ripristina automaticamente l\'ultimo backup trovato nella posizione di archiviazione selezionata. Utile per la sincronizzazione tra i dispositivi.</string>
     <string name="batOptim">Ottimizzazione Batteria</string>
     <string name="disableBatOptimMessage">Su alcuni dispositivi, le impostazioni di alimentazione potrebbero impedire il corretto funzionamento dei backup. Se si verificano problemi, provare a disabilitare l\'ottimizzazione della batteria per Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Backup automatico non riuscito</string>
     <string name="autoBackupFailureText">Il backup automatico più recente non è stato completato. I permessi dei file potrebbero essere scaduti, prova a impostare nuovamente la posizione di backup nelle impostazioni di backup automatico.</string>
-    <string name="autoRestoreFailureTitle">Ripristino automatico non riuscito</string>
-    <string name="autoRestoreFailureText">Il ripristino automatico più recente non è stato completato. I permessi dei file potrebbero essere scaduti o la password non è corretta. Prova a impostare nuovamente la posizione di backup e la password nelle impostazioni di backup automatico.</string>
     <string name="autoBackupSuccessTitle">Backup automatico completato</string>
     <string name="autoRestoreSuccessTitle">Ripristino automatico completato</string>
     <string name="backupScheduled">Backup pianificato</string>
-    <string name="restoreScheduled">Ripristino pianificato</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Cifra il database con una password. Ti verrà richiesta la password quando apri l\'app. Lascia vuoto il campo per cancellare la password.</string>
     <string name="passwordSetupWarning">Usa una password che puoi ricordare, il database non è recuperabile senza di essa!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Promemoria Backup</string>
     <string name="prefShowBackupRemindersSummary">Ti ricorda di eseguire il backup degli autenticatori se vengono apportate modifiche importanti</string>
     <string name="prefAutoBackupTitle">Backup automatico</string>
-    <string name="prefAutoBackupSummary">Salva automaticamente e ripristina da una posizione specifica quando vengono apportate modifiche. Disabilita i promemoria di backup.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Lingua</string>
     <string name="prefLanguageSummary">Scegli una lingua da usare nell\'app</string>
     <string name="prefSecurity">Sicurezza</string>
