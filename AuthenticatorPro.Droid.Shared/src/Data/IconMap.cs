@@ -300,6 +300,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "migros", Resource.Drawable.auth_migros },
             { "mimecast", Resource.Drawable.auth_mimecast },
             { "mintos", Resource.Drawable.auth_mintos },
+            { "misskey", Resource.Drawable.auth_misskey },
             { "mlab", Resource.Drawable.auth_mlab },
             { "mondaycom", Resource.Drawable.auth_mondaycom },
             { "moneyforward", Resource.Drawable.auth_moneyforward },
