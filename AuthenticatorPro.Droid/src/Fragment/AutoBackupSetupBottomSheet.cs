@@ -32,6 +32,7 @@ namespace AuthenticatorPro.Droid.Fragment
     {
         private PreferenceWrapper _preferences;
         private ActivityResultLauncher _locationSelectResultLauncher;
+        private ActivityResultLauncher _showNotificationsResultLauncher;
 
         private TextView _locationStatusText;
         private TextView _passwordStatusText;
@@ -46,28 +47,17 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             base.OnCreate(savedInstanceState);
 
-            var callback = new ActivityResultCallback();
-            callback.Result += (_, result) =>
-            {
-                var intent = result.Data;
-
-                if ((Result) result.ResultCode != Result.Ok || intent.Data == null)
-                {
-                    return;
-                }
-
-                _preferences.AutoBackupUri = intent.Data;
-
-                var flags = intent.Flags &
-                            (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
-                Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
-
-                UpdateLocationStatusText();
-                UpdateSwitchAndTriggerButton();
-            };
+            var locationSelectCallback = new ActivityResultCallback();
+            locationSelectCallback.Result += OnLocationSelectResult;
 
             _locationSelectResultLauncher =
-                RegisterForActivityResult(new ActivityResultContracts.StartActivityForResult(), callback);
+                RegisterForActivityResult(new ActivityResultContracts.StartActivityForResult(), locationSelectCallback);
+
+            var showNotificationsPermissionCallback = new ActivityResultCallback();
+            showNotificationsPermissionCallback.Result += OnShowNotificationsPermissionResult;
+
+            _showNotificationsResultLauncher =
+                RegisterForActivityResult(new ActivityResultContracts.RequestPermission(), showNotificationsPermissionCallback);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -130,18 +120,45 @@ namespace AuthenticatorPro.Droid.Fragment
             }
         }
 
+        private void OnLocationSelectResult(object sender, Object obj)
+        {
+            var result = (ActivityResult) obj;
+            var intent = result.Data;
+
+            if ((Result) result.ResultCode != Result.Ok || intent.Data == null)
+            {
+                return;
+            }
+
+            _preferences.AutoBackupUri = intent.Data;
+
+            var flags = intent.Flags &
+                        (ActivityFlags.GrantReadUriPermission | ActivityFlags.GrantWriteUriPermission);
+            Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
+
+            UpdateLocationStatusText();
+            UpdateSwitchAndTriggerButton();
+        }
+
+        private void OnShowNotificationsPermissionResult(object sender, Object obj)
+        {
+            ShowBatteryOptimisationDialog();
+        }
+
         private void OnSwitchClicked(object sender, EventArgs e)
         {
-            var materialSwitch = (SwitchMaterial) sender;
-
-            if (materialSwitch.Checked)
+            if (!_backupEnabledSwitch.Checked)
             {
-                ShowBatteryOptimisationDialog();
+                return;
             }
 
             if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
             {
-                ActivityCompat.RequestPermissions(RequireActivity(), new[] { Manifest.Permission.PostNotifications }, 0);
+                _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
+            }
+            else
+            {
+                ShowBatteryOptimisationDialog();
             }
         }
 
