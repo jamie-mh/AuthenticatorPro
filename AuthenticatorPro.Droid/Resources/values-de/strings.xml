@@ -65,7 +65,7 @@
     <string name="digitsInvalid">Es müssen zwischen {0} und {1} Stellen generiert werden</string>
     <string name="periodInvalid">Ungültige Dauer</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
+    <string name="qrCodeNotFound">Es wurde kein QR-Code im Bild gefunden</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
     <string name="pinMessage">Gebe die PIN ein, die diesem QR-Code zugeordnet ist. Bei der Einrichtung dieses Kontos bist du nach einer PIN gefragt worden.</string>
@@ -181,14 +181,14 @@
     <string name="importFromOtherApps">Aus anderer App importieren</string>
     <string name="importFrom">Importieren aus</string>
     <string name="importError">Die Datei konnte nicht importiert werden</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importIncomplete">Import unvollständig</string>
+    <string name="importConversionError">Das Element \"{0}\" konnte aufgrund des folgenden Fehlers nicht importiert werden: {1}</string>
     <string name="authenticatorPlusImportHint">Importieren einer authplus.db Datei</string>
     <string name="andOtp">andOTP</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="andOtpImportHint">Importieren einer otp_accounts.json Datei</string>
     <string name="freeOtpPlusImportHint">Importieren einer freeotp-backup.json Datei</string>
     <string name="aegis">Aegis</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">Importieren einer aegis-export-plain.json Datei</string>
     <string name="bitwarden">Bitwarden (reiner Text)</string>
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
     <string name="winAuthImportHint">Importieren einer winauth.txt Datei</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleit-App herunterladen. Du bekommst die Codes dann auf deiner Uhr angezeigt.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Platziere den QR-Code in den Sucher, um ihn zu scannen. Der Code wird automatisch gescannt.</string>
     <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den Code.</string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
     <!-- Preferences -->
