@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Inte lösenordsskyddad</string>
     <string name="enableAutoBackup">Aktivera automatisk säkerhetskopiering</string>
     <string name="enableAutoBackupMessage">Säkerhetskopiera automatiskt till den valda lagringsplatsen</string>
-    <string name="enableAutoRestore">Aktivera automatisk återställning</string>
-    <string name="enableAutoRestoreMessage">Återställ automatiskt den senaste säkerhetskopian som finns på den valda lagringsplatsen. Användbart för synkronisering mellan enheter.</string>
     <string name="batOptim">Batterioptimering</string>
     <string name="disableBatOptimMessage">På vissa enheter kan batteriinställningar hindra säkerhetskopior från att fungera korrekt. Om du upplever problem kan du prova att inaktivera batterioptimering för Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatisk säkerhetskopiering misslyckades</string>
     <string name="autoBackupFailureText">Den senaste automatiska säkerhetskopieringen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer. Prova att ställa in säkerhetskopieringsplatsen på nytt i inställningarna för automatisk säkerhetskopiering.</string>
-    <string name="autoRestoreFailureTitle">Automatisk återställning misslyckades</string>
-    <string name="autoRestoreFailureText">Den senaste automatiska återställningen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer eller så var lösenordet felaktigt. Prova att ställa in platsen och lösenordet på nytt i inställningarna för automatisk säkerhetskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk säkerhetskopiering slutförd</string>
     <string name="autoRestoreSuccessTitle">Automatisk återställning slutförd</string>
     <string name="backupScheduled">Säkerhetskopiering schemalagd</string>
-    <string name="restoreScheduled">Återställning schemalagd</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Kryptera databasen med ett lösenord. Du kommer behöva ange lösenordet när du öppnar appen. Lämna fältet tomt för att ta bort lösenordet.</string>
     <string name="passwordSetupWarning">Använd ett lösenord som du kommer ihåg – databasen kan inte återställas utan det!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Påminnelser om säkerhetskopiering</string>
     <string name="prefShowBackupRemindersSummary">Påminner dig att säkerhetskopiera dina autentiserare när viktiga ändringar görs</string>
     <string name="prefAutoBackupTitle">Automatisk säkerhetskopiering</string>
-    <string name="prefAutoBackupSummary">Säkerhetskopiera och återställ automatiskt från en specifik plats när ändringar görs. Inaktiverar säkerhetskopieringspåminnelser.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Språk</string>
     <string name="prefLanguageSummary">Välj vilket språk som ska visas i appen</string>
     <string name="prefSecurity">Säkerhet</string>
