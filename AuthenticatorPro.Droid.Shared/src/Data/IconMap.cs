@@ -394,6 +394,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "redhat", Resource.Drawable.auth_redhat },
             { "republic", Resource.Drawable.auth_republic },
             { "restream", Resource.Drawable.auth_restream },
+            { "retrospring", Resource.Drawable.auth_retrospring },
             { "rewind", Resource.Drawable.auth_rewind },
             { "ring", Resource.Drawable.auth_ring },
             { "robinhood", Resource.Drawable.auth_robinhood },
