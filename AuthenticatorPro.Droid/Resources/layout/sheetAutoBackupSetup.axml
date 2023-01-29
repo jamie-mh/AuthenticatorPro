@@ -152,29 +152,6 @@
                 android:layout_width="wrap_content"
                 android:text="@string/backupNow"/>
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchRestoreEnabled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:checked="false"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:text="@string/enableAutoRestore"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:text="@string/enableAutoRestoreMessage"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonRestoreNow"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/restoreNow"/>
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonOk"
                 style="@style/Widget.MaterialComponents.Button"

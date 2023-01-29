@@ -173,8 +173,6 @@
 
     <string name="enableAutoBackup">Enable Auto Backup</string>
     <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
-    <string name="enableAutoRestore">Enable Auto Restore</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
 
     <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
@@ -182,14 +180,9 @@
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
 
-    <string name="autoRestoreFailureTitle">Auto Restore failed</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
-
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
-
     <string name="backupScheduled">Backup scheduled</string>
-    <string name="restoreScheduled">Restore scheduled</string>
 
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
@@ -267,7 +260,7 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
 
     <string name="prefAutoBackupTitle">Auto Backup</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
 
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>

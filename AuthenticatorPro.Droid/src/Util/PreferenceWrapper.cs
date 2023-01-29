@@ -197,15 +197,6 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(PasswordChangedKey, value);
         }
 
-        private const string AutoRestoreCompletedKey = "autoRestoreCompleted";
-        private const bool AutoRestoreCompletedDefault = false;
-
-        public bool AutoRestoreCompleted
-        {
-            get => Preferences.GetBoolean(AutoRestoreCompletedKey, AutoRestoreCompletedDefault);
-            set => SetPreference(AutoRestoreCompletedKey, value);
-        }
-
         private const string BackupRequirementKey = "backupRequirement";
         private const BackupRequirement BackupRequirementDefault = BackupRequirement.NotRequired;
 
@@ -222,24 +213,6 @@ namespace AuthenticatorPro.Droid.Util
         {
             get => Preferences.GetBoolean(AutoBackupTriggerKey, AutoBackupTriggerDefault);
             set => SetPreference(AutoBackupTriggerKey, value);
-        }
-
-        private const string AutoRestoreTriggerKey = "autoRestoreTrigger";
-        private const bool AutoRestoreTriggerDefault = false;
-
-        public bool AutoRestoreTrigger
-        {
-            get => Preferences.GetBoolean(AutoRestoreTriggerKey, AutoRestoreTriggerDefault);
-            set => SetPreference(AutoRestoreTriggerKey, value);
-        }
-
-        private const string MostRecentBackupModifiedAtKey = "mostRecentBackupModifiedAt";
-        private const long MostRecentBackupModifiedAtDefault = 0;
-
-        public long MostRecentBackupModifiedAt
-        {
-            get => Preferences.GetLong(MostRecentBackupModifiedAtKey, MostRecentBackupModifiedAtDefault);
-            set => SetPreference(MostRecentBackupModifiedAtKey, value);
         }
 
         #endregion

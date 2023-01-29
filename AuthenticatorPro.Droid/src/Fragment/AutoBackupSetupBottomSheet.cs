@@ -37,9 +37,7 @@ namespace AuthenticatorPro.Droid.Fragment
         private TextView _passwordStatusText;
 
         private SwitchMaterial _backupEnabledSwitch;
-        private SwitchMaterial _restoreEnabledSwitch;
         private MaterialButton _backupNowButton;
-        private MaterialButton _restoreNowButton;
         private MaterialButton _okButton;
 
         public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup) { }
@@ -65,7 +63,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 Context.ContentResolver.TakePersistableUriPermission(intent.Data, flags);
 
                 UpdateLocationStatusText();
-                UpdateSwitchesAndTriggerButton();
+                UpdateSwitchAndTriggerButton();
             };
 
             _locationSelectResultLauncher =
@@ -91,20 +89,14 @@ namespace AuthenticatorPro.Droid.Fragment
             _backupNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonBackupNow);
             _backupNowButton.Click += OnBackupNowButtonClick;
 
-            _restoreNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonRestoreNow);
-            _restoreNowButton.Click += OnRestoreNowButtonClick;
-
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
             _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
             _backupEnabledSwitch.Click += OnSwitchClicked;
 
-            _restoreEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchRestoreEnabled);
-            _restoreEnabledSwitch.Click += OnSwitchClicked;
-
             UpdateLocationStatusText();
-            UpdateSwitchesAndTriggerButton();
+            UpdateSwitchAndTriggerButton();
 
             if (_preferences.DatabasePasswordBackup)
             {
@@ -123,12 +115,9 @@ namespace AuthenticatorPro.Droid.Fragment
             base.OnDismiss(dialog);
 
             _preferences.AutoBackupEnabled = _backupEnabledSwitch.Checked;
-            _preferences.AutoRestoreEnabled = _restoreEnabledSwitch.Checked;
-
-            var shouldBeEnabled = _backupEnabledSwitch.Checked || _restoreEnabledSwitch.Checked;
             var workManager = WorkManager.GetInstance(RequireContext());
 
-            if (shouldBeEnabled)
+            if (_backupEnabledSwitch.Checked)
             {
                 var workRequest =
                     new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 15, TimeUnit.Minutes!).Build();
@@ -161,13 +150,6 @@ namespace AuthenticatorPro.Droid.Fragment
             _preferences.AutoBackupTrigger = true;
             TriggerWork();
             Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
-        }
-
-        private void OnRestoreNowButtonClick(object sender, EventArgs e)
-        {
-            _preferences.AutoRestoreTrigger = true;
-            TriggerWork();
-            Toast.MakeText(Context, Resource.String.restoreScheduled, ToastLength.Short).Show();
         }
 
         private void TriggerWork()
@@ -220,7 +202,7 @@ namespace AuthenticatorPro.Droid.Fragment
             _preferences.AutoBackupPasswordProtected = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
-            UpdateSwitchesAndTriggerButton();
+            UpdateSwitchAndTriggerButton();
             await SecureStorageWrapper.SetAutoBackupPassword(password);
         }
 
@@ -259,20 +241,18 @@ namespace AuthenticatorPro.Droid.Fragment
             });
         }
 
-        private void UpdateSwitchesAndTriggerButton()
+        private void UpdateSwitchAndTriggerButton()
         {
             _backupEnabledSwitch.Checked = _preferences.AutoBackupEnabled;
-            _restoreEnabledSwitch.Checked = _preferences.AutoRestoreEnabled;
 
             var canBeChecked = _preferences.AutoBackupUri != null &&
                 (_preferences.DatabasePasswordBackup || _preferences.AutoBackupPasswordProtected != null);
 
-            _backupEnabledSwitch.Enabled = _restoreEnabledSwitch.Enabled =
-                _backupNowButton.Enabled = _restoreNowButton.Enabled = canBeChecked;
+            _backupEnabledSwitch.Enabled = _backupNowButton.Enabled = canBeChecked;
 
             if (!canBeChecked)
             {
-                _backupEnabledSwitch.Checked = _restoreEnabledSwitch.Checked = false;
+                _backupEnabledSwitch.Checked = false;
             }
         }
 

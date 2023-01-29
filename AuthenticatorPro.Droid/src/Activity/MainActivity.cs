@@ -675,11 +675,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             BaseApplication.AutoLockEnabled = true;
 
-            // In case auto restore occurs when activity is loaded
-            var autoRestoreCompleted = _preferences.AutoRestoreCompleted;
-            _preferences.AutoRestoreCompleted = false;
-
-            if (_shouldLoadFromPersistenceOnNextOpen || autoRestoreCompleted)
+            if (_shouldLoadFromPersistenceOnNextOpen)
             {
                 _shouldLoadFromPersistenceOnNextOpen = false;
                 await _authenticatorView.LoadFromPersistenceAsync();

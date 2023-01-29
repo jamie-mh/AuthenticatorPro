@@ -12,9 +12,7 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Data.Backup;
 using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Service;
 using System;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using Logger = AuthenticatorPro.Droid.Util.Logger;
@@ -30,8 +28,6 @@ namespace AuthenticatorPro.Droid.Worker
         private readonly PreferenceWrapper _preferences;
         private readonly Database _database;
 
-        private readonly IRestoreService _restoreService;
-
         private readonly IAuthenticatorRepository _authenticatorRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
@@ -40,7 +36,7 @@ namespace AuthenticatorPro.Droid.Worker
 
         private enum NotificationContext
         {
-            BackupFailure, RestoreFailure, RestoreSuccess, BackupSuccess
+            BackupFailure, BackupSuccess
         }
 
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
@@ -58,8 +54,6 @@ namespace AuthenticatorPro.Droid.Worker
             _categoryRepository = container.Resolve<ICategoryRepository>();
             _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
             _customIconRepository = container.Resolve<ICustomIconRepository>();
-
-            _restoreService = container.Resolve<IRestoreService>();
         }
 
         private async Task OpenDatabase()
@@ -73,7 +67,7 @@ namespace AuthenticatorPro.Droid.Worker
             await _database.Close(Database.Origin.AutoBackup);
         }
 
-        private bool HasPersistablePermissionsAtUri(Uri uri)
+        private bool HasPersistentPermissionsAtUri(Uri uri)
         {
             if (uri == null)
             {
@@ -105,14 +99,14 @@ namespace AuthenticatorPro.Droid.Worker
 
         private async Task<BackupResult> BackupToDir(Uri destUri)
         {
-            var auths = (await _authenticatorRepository.GetAllAsync()).ToImmutableArray();
+            var auths = await _authenticatorRepository.GetAllAsync();
 
             if (!auths.Any())
             {
                 return new BackupResult();
             }
 
-            if (!HasPersistablePermissionsAtUri(destUri))
+            if (!HasPersistentPermissionsAtUri(destUri))
             {
                 throw new InvalidOperationException("No permission at URI");
             }
@@ -146,54 +140,13 @@ namespace AuthenticatorPro.Droid.Worker
             return new BackupResult(file.Name);
         }
 
-        private async Task<RestoreResult> RestoreFromDir(Uri destUri)
-        {
-            if (!HasPersistablePermissionsAtUri(destUri))
-            {
-                throw new InvalidOperationException("No permission at URI");
-            }
-
-            var directory = DocumentFile.FromTreeUri(_context, destUri);
-            var files = directory.ListFiles();
-
-            var mostRecentBackup = files
-                .Where(f => f.IsFile && f.Type == Backup.MimeType && f.Name.EndsWith(Backup.FileExtension) &&
-                            f.Length() > 0 && f.CanRead())
-                .OrderByDescending(f => f.LastModified())
-                .FirstOrDefault();
-
-            if (mostRecentBackup == null || mostRecentBackup.LastModified() <= _preferences.MostRecentBackupModifiedAt)
-            {
-                return new RestoreResult();
-            }
-
-            _preferences.MostRecentBackupModifiedAt = mostRecentBackup.LastModified();
-            var password = await GetBackupPassword();
-
-            if (password == null)
-            {
-                throw new InvalidOperationException("No password defined.");
-            }
-
-            var data = await FileUtil.ReadFile(_context, mostRecentBackup.Uri);
-            var backup = Backup.FromBytes(data, password);
-            return await _restoreService.RestoreAndUpdateAsync(backup);
-        }
-
         private void CreateNotificationChannel(NotificationContext context)
         {
-            if (Build.VERSION.SdkInt < BuildVersionCodes.O)
-            {
-                return;
-            }
-
             var idString = ((int) context).ToString();
 
             var name = context switch
             {
                 NotificationContext.BackupFailure => _context.GetString(Resource.String.autoBackupFailureTitle),
-                NotificationContext.RestoreFailure => _context.GetString(Resource.String.autoRestoreFailureTitle),
-                NotificationContext.RestoreSuccess => _context.GetString(Resource.String.autoRestoreSuccessTitle),
                 NotificationContext.BackupSuccess => _context.GetString(Resource.String.autoBackupSuccessTitle),
                 _ => throw new ArgumentOutOfRangeException(nameof(context))
             };
@@ -221,21 +174,6 @@ namespace AuthenticatorPro.Droid.Worker
                             _context.GetString(Resource.String.autoBackupFailureText)));
                     break;
 
-                case NotificationContext.RestoreFailure:
-                    builder.SetContentTitle(_context.GetString(Resource.String.autoRestoreFailureTitle));
-                    builder.SetStyle(
-                        new NotificationCompat.BigTextStyle().BigText(
-                            _context.GetString(Resource.String.autoRestoreFailureText)));
-                    break;
-
-                case NotificationContext.RestoreSuccess:
-                {
-                    var restoreResult = (RestoreResult) result;
-                    builder.SetContentTitle(_context.GetString(Resource.String.autoRestoreSuccessTitle));
-                    builder.SetContentText(restoreResult.ToString(_context));
-                    break;
-                }
-
                 case NotificationContext.BackupSuccess:
                 {
                     var backupResult = (BackupResult) result;
@@ -257,7 +195,11 @@ namespace AuthenticatorPro.Droid.Worker
                 builder.SetAutoCancel(true);
             }
 
-            CreateNotificationChannel(context);
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+            {
+                CreateNotificationChannel(context);
+            }
+
             var manager = NotificationManagerCompat.From(_context);
             manager.Notify((int) context, builder.Build());
         }
@@ -266,44 +208,11 @@ namespace AuthenticatorPro.Droid.Worker
         {
             var destination = _preferences.AutoBackupUri;
 
-            var restoreTriggered = _preferences.AutoRestoreTrigger;
-            _preferences.AutoRestoreTrigger = false;
-
             var backupTriggered = _preferences.AutoBackupTrigger;
             _preferences.AutoBackupTrigger = false;
 
-            var restoreSucceeded = true;
-
-            if (!backupTriggered && (restoreTriggered || _preferences.AutoRestoreEnabled))
-            {
-                try
-                {
-                    await OpenDatabase();
-                    var result = await RestoreFromDir(destination);
-
-                    if (!result.IsVoid() || restoreTriggered)
-                    {
-                        ShowNotification(NotificationContext.RestoreSuccess, true, result);
-                    }
-
-                    if (!result.IsVoid())
-                    {
-                        _preferences.AutoRestoreCompleted = true;
-                    }
-                }
-                catch (Exception e)
-                {
-                    restoreSucceeded = false;
-                    ShowNotification(NotificationContext.RestoreFailure, true);
-                    Logger.Error(e);
-                }
-            }
-
-            var backupSucceeded = true;
-
-            if (!restoreTriggered && (backupTriggered || (_preferences.AutoBackupEnabled && restoreSucceeded &&
-                                                          _preferences.BackupRequired !=
-                                                          BackupRequirement.NotRequired)))
+            if (backupTriggered ||
+                (_preferences.AutoBackupEnabled && _preferences.BackupRequired != BackupRequirement.NotRequired))
             {
                 try
                 {
@@ -311,26 +220,20 @@ namespace AuthenticatorPro.Droid.Worker
                     var result = await BackupToDir(destination);
                     ShowNotification(NotificationContext.BackupSuccess, false, result);
                     _preferences.BackupRequired = BackupRequirement.NotRequired;
-
-                    // Don't update value if backup triggered, won't combine with restore
-                    if (!result.IsVoid() && !backupTriggered)
-                    {
-                        _preferences.MostRecentBackupModifiedAt = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-                    }
                 }
                 catch (Exception e)
                 {
-                    backupSucceeded = false;
                     ShowNotification(NotificationContext.BackupFailure, true);
                     Logger.Error(e);
+                    return Result.InvokeFailure();
+                }
+                finally
+                {
+                    await CloseDatabase();
                 }
             }
 
-            await CloseDatabase();
-
-            return backupSucceeded && restoreSucceeded
-                ? Result.InvokeSuccess()
-                : Result.InvokeFailure();
+            return Result.InvokeSuccess();
         }
 
         public override Result DoWork()
