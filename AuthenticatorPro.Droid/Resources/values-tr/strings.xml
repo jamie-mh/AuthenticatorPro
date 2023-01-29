@@ -150,20 +150,15 @@
     <string name="notPasswordProtected">Parola korumalı değil</string>
     <string name="enableAutoBackup">Otomatik yedeklemeyi etkinleştir</string>
     <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
-    <string name="enableAutoRestore">Otomatik geri yüklemeyi etkinleştir</string>
-    <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
     <string name="autoBackupFailureTitle">Otomatik Yedekleme başarısız</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
         expired, try setting the backup location again in the auto backup settings.
     </string>
-    <string name="autoRestoreFailureTitle">Otomatik geri yükleme başarısız oldu</string>
-    <string name="autoRestoreFailureText">En son otomatik geri yükleme tamamlanamadı. Dosya izinlerinin süresi dolmuş veya parola yanlış olabilir. Otomatik yedekleme ayarlarında yedekleme konumunu ve parolayı yeniden ayarlamayı deneyin.</string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
     <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
-    <string name="restoreScheduled">Geri yükleme planlandı</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
     <string name="passwordSetupWarning">Hatırlayabileceğiniz bir parola kullanın, veri tabanı parola olmadan kurtarılamaz.</string>
@@ -221,8 +216,7 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.
     </string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Dil</string>
     <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
     <string name="prefSecurity">Güvenlik</string>
