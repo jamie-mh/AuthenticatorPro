@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Nicht passwortgeschützt</string>
     <string name="enableAutoBackup">Automatische Sicherung</string>
     <string name="enableAutoBackupMessage">Automatische Sicherungen am gewählten Ort erstellen</string>
-    <string name="enableAutoRestore">Aktiviere automatische Wiederherstellung</string>
-    <string name="enableAutoRestoreMessage">Automatisch die letzte Sicherung wiederherstellen. Nützlich für die Synchronisation zwischen Geräten.</string>
     <string name="batOptim">Batterieoptimierung</string>
     <string name="disableBatOptimMessage">Auf manchen Geräten verhindern die Energieeinstellungen das automatische Sichern. Falls du Probleme hast, kann es helfen, eine Ausnahme für Authenticator Pro zu erstellen.</string>
     <string name="autoBackupFailureTitle">Automatische Sicherung fehlgeschlagen</string>
     <string name="autoBackupFailureText">Die letzte automatische Sicherung ist fehlgeschlagen. Berechtigungen sind möglicherweise abgelaufen, versuche den Sicherungsort neu einzugeben.</string>
-    <string name="autoRestoreFailureTitle">Automatische Wiederherstellung fehlgeschlagen</string>
-    <string name="autoRestoreFailureText">Die letzte Wiederherstellung ist fehlgeschlagen. Berechtigungen sind möglicherweise abgelaufen oder das Passwort ist falsch. Versuche den Sicherungsort und das Passwort neu einzugeben.</string>
     <string name="autoBackupSuccessTitle">Automatische Sicherung abgeschlossen</string>
     <string name="autoRestoreSuccessTitle">Automatische Wiederherstellung abgeschlossen</string>
     <string name="backupScheduled">Sicherung geplant</string>
-    <string name="restoreScheduled">Wiederherstellung geplant</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Verschlüssele die Datenbank mit einem Passwort. Du musst das Passwort eingeben, wenn du die App öffnest. Lasse das Feld leer, um kein Passwort zu setzen.</string>
     <string name="passwordSetupWarning">Verwende ein Passwort, das du dir merken kannst. Ohne das Passwort kannst du nicht mehr auf die Schlüssel zugreifen!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden</string>
     <string name="prefAutoBackupTitle">Automatische Sicherung</string>
-    <string name="prefAutoBackupSummary">Automatische Sicherung und Wiederherstellung von einem bestimmten Pfad, falls Änderungen gemacht wurden. Deaktiviert die Erinnerung für Sicherungen.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Sprache</string>
     <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
     <string name="prefSecurity">Sicherheit</string>
