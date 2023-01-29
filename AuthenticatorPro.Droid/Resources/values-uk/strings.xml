@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Не захищено паролем</string>
     <string name="enableAutoBackup">Увімкнути автоматичне резервне копіювання</string>
     <string name="enableAutoBackupMessage">Автоматичне резервне копіювання до вибраного місця</string>
-    <string name="enableAutoRestore">Увімкнути автоматичне відновлення</string>
-    <string name="enableAutoRestoreMessage">Автоматично відновлювати останню резервну копію, що лежить у вибраній папці сховища. Корисно для синхронізації між пристроями.</string>
     <string name="batOptim">Оптимізація батареї</string>
     <string name="disableBatOptimMessage">На деяких пристроях, налаштування живлення можуть перешкоджати коректній роботі резервних копій. Якщо у вас виникли проблеми, спробуйте вимкнути оптимізацію батареї для Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Помилка автоматичного резервного копіювання</string>
     <string name="autoBackupFailureText">Останнє резервне копіювання не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища. Спробуйте встановити розташування резервної копії ще раз в налаштуваннях резервного копіювання.</string>
-    <string name="autoRestoreFailureTitle">Помилка автоматичного відновлення</string>
-    <string name="autoRestoreFailureText">Останнє автоматичне відновлення не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища або вказано невірний пароль. Спробуйте встановити розташування резервної копії та пароль ще раз в налаштуваннях резервного копіювання.</string>
     <string name="autoBackupSuccessTitle">Авторезервування завершено</string>
     <string name="autoRestoreSuccessTitle">Автовідновлення завершено</string>
     <string name="backupScheduled">Резервне копіювання заплановано</string>
-    <string name="restoreScheduled">Відновлення заплановано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Зашифруйте базу даних за допомогою пароля. Вам буде запропоновано ввести пароль при відкритті застосунку. Залиште це поле порожнім, щоб очистити пароль.</string>
     <string name="passwordSetupWarning">Використовуйте пароль, який ви можете запам\'ятати, база даних не може бути відновлена без нього!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Нагадування про резервне копіювання</string>
     <string name="prefShowBackupRemindersSummary">Нагадування, що треба робити резервні копії автентифікаторів, якщо відбулися важливі зміни</string>
     <string name="prefAutoBackupTitle">Автоматичне резервне копіювання</string>
-    <string name="prefAutoBackupSummary">Автоматично створювати резервні копії та відновлювати з певного місця після внесення змін. Відключає нагадування про необхідність резервного копіювання.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Мова</string>
     <string name="prefLanguageSummary">Оберіть мову для використання у застосунку</string>
     <string name="prefSecurity">Безпека</string>
