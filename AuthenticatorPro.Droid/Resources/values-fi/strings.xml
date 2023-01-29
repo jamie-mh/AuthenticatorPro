@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Ei suojattu salasanalla</string>
     <string name="enableAutoBackup">Ota automaattinen varmuuskopiointi käyttöön</string>
     <string name="enableAutoBackupMessage">Varmuuskopioi automaattisesti valittuun sijaintiin</string>
-    <string name="enableAutoRestore">Ota automaattinen palautus käyttöön</string>
-    <string name="enableAutoRestoreMessage">Palauta uusin valitusta sijainnista löytyvä varmuuskopio automaattisesti. Kätevä laitteiden väliseen synkronointiin.</string>
     <string name="batOptim">Akun Optimointi</string>
     <string name="disableBatOptimMessage">Joissakin laitteissa virta-asetukset saattavat estää varmuuskopioita toimimasta oikein. Jos sinulla on ongelmia, kokeile poistaa Authenticator Pron akun optimointi käytöstä.</string>
     <string name="autoBackupFailureTitle">Automaattinen varmuuskopiointi epäonnistui</string>
     <string name="autoBackupFailureText">Viimeisin automaattinen varmuuskopiointi epäonnistui. Tiedoston käyttöoikeudet saattavat olla vanhentuneet, kokeile määrittää varmuuskopioinnin sijaintia uudelleen automaattisen varmuuskopioinnin asetuksissa.</string>
-    <string name="autoRestoreFailureTitle">Automaattinen palautus epäonnistui</string>
-    <string name="autoRestoreFailureText">Viimeisin automaattinen palautus epäonnistui. Tiedoston käyttöoikeudet saattavat olla vanhentuneet tai salasana on virheellinen. Kokeile määrittää varmuuskopion sijainti ja salasana uudelleen automaattisen varmuuskopioinnin asetuksissa.</string>
     <string name="autoBackupSuccessTitle">Automaattinen varmuuskopiointi valmis</string>
     <string name="autoRestoreSuccessTitle">Automaattinen palautus valmis</string>
     <string name="backupScheduled">Varmuuskopiointi ajastettu</string>
-    <string name="restoreScheduled">Palautus ajastettu</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Salaa tietokanta salasanalla. Salasanaa kysytään sovellusta avatessa. Poista salasana jättämällä kenttä tyhjäksi.</string>
     <string name="passwordSetupWarning">Käytä salasanaa, jonka muistat, tietokantaa ei voi palauttaa ilman sitä!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Varmuuskopiomuistutukset</string>
     <string name="prefShowBackupRemindersSummary">Muistuttaa sinua varmuuskopioimaan todentajasi, jos tärkeitä muutoksia tehdään</string>
     <string name="prefAutoBackupTitle">Automaattinen varmuuskopiointi</string>
-    <string name="prefAutoBackupSummary">Varmuuskopioi ja palauta automaattisesti tietystä sijainnista muutoksia tehdessä. Poistaa varmuuskopiointimuistutukset käytöstä.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Kieli</string>
     <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
     <string name="prefSecurity">Turvallisuus</string>
