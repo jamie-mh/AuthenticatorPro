@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Nechránené heslom</string>
     <string name="enableAutoBackup">Zapnúť automatické zálohovanie</string>
     <string name="enableAutoBackupMessage">Automaticky zálohovať na vybrané miesto v úložisku</string>
-    <string name="enableAutoRestore">Povoliť automatické obnovenie</string>
-    <string name="enableAutoRestoreMessage">Automaticky obnovovať poslednú zálohu nájdenú vo vybranom miesto v úložisku. Užitočné na synchronizáciu medzi zariadeniami.</string>
     <string name="batOptim">Optimalizácia batérie</string>
     <string name="disableBatOptimMessage">Na niektorých zariadeniach môže nastavenie napájania zabrániť správnemu fungovaniu záloh. Ak máte problémy, skúste vypnúť optimalizáciu batérie pre aplikáciu Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
     <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
-    <string name="autoRestoreFailureTitle">Automatické obnovenie zlyhalo</string>
-    <string name="autoRestoreFailureText">Posledné automatické obnovenie sa nepodarilo dokončiť. Je možné, že platnosť povolení súboru vypršala alebo je heslo nesprávne. Skúste znova nastaviť umiestnenie a heslo v nastaveniach automatického zálohovania.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohovanie dokončené</string>
     <string name="autoRestoreSuccessTitle">Automatické obnovenie dokončené</string>
     <string name="backupScheduled">Zálohovanie naplánované</string>
-    <string name="restoreScheduled">Obnovenie naplánované</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zašifrujte databázu pomocou hesla. Po otvorení aplikácie sa zobrazí výzva na zadanie hesla. Ak chcete heslo vymazať, nechajte pole prázdne.</string>
     <string name="passwordSetupWarning">Použite heslo, ktoré si zapamätáte, bez neho je databáza neobnoviteľná!</string>
@@ -219,7 +214,7 @@
     <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory
     </string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Automatické zálohovanie a obnovenie z konkrétneho umiestnenia po vykonaní zmien. Zakáže pripomenutie zálohovania.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Jazyk</string>
     <string name="prefLanguageSummary">Výber jazyka, ktorý chcete používať v celej aplikácii</string>
     <string name="prefSecurity">Bezpečnosť</string>
