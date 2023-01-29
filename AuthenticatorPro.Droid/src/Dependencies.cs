@@ -12,7 +12,6 @@ using AuthenticatorPro.Shared.Service;
 using AuthenticatorPro.Shared.Service.Impl;
 using AuthenticatorPro.Shared.View;
 using AuthenticatorPro.Shared.View.Impl;
-using System.Collections.Generic;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid

@@ -18,6 +18,5 @@ namespace AuthenticatorPro.Shared.View
         public int IndexOf(Authenticator auth);
         public IEnumerable<AuthenticatorCategory> GetCurrentBindings();
         public void CommitRanking();
-        public void Clear();
     }
 }

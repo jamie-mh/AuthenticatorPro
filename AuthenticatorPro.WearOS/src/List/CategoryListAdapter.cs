@@ -30,14 +30,14 @@ namespace AuthenticatorPro.WearOS.List
         {
             if (pos == 0)
             {
-                return new Java.Lang.String(_context.GetString(Resource.String.categoryAll));
+                return new String(_context.GetString(Resource.String.categoryAll));
             }
 
             var item = _categoryView[pos - 1];
 
             return item == null
-                ? new Java.Lang.String()
-                : new Java.Lang.String(item.Name);
+                ? new String()
+                : new String(item.Name);
         }
 
         public override int Count => _categoryView.Count + 1;

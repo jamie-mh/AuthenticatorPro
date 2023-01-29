@@ -144,13 +144,13 @@ namespace AuthenticatorPro.Shared.Entity
             {
                 OtpAuthMigration.Type.Totp => AuthenticatorType.Totp,
                 OtpAuthMigration.Type.Hotp => AuthenticatorType.Hotp,
-                _ => throw new ArgumentOutOfRangeException(nameof(input.Type), "Unknown type")
+                _ => throw new ArgumentException($"Unknown type '{input.Type}")
             };
 
             var algorithm = input.Algorithm switch
             {
                 OtpAuthMigration.Algorithm.Sha1 => HashAlgorithm.Sha1,
-                _ => throw new ArgumentOutOfRangeException(nameof(input.Algorithm), "Unknown algorithm")
+                _ => throw new ArgumentException($"Unknown algorithm '{input.Algorithm}")
             };
 
             string secret;
@@ -298,22 +298,16 @@ namespace AuthenticatorPro.Shared.Entity
             var digits = type.GetDefaultDigits();
             var hasVariableDigits = type.GetMinDigits() != type.GetMaxDigits();
 
-            if (hasVariableDigits)
+            if (hasVariableDigits && args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
             {
-                if (args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
-                {
-                    throw new ArgumentException("Digits parameter cannot be parsed");
-                }
+                throw new ArgumentException("Digits parameter cannot be parsed");
             }
 
             var period = type.GetDefaultPeriod();
 
-            if (type.HasVariablePeriod())
+            if (type.HasVariablePeriod() && args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
             {
-                if (args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
-                {
-                    throw new ArgumentException("Period parameter cannot be parsed");
-                }
+                throw new ArgumentException("Period parameter cannot be parsed");
             }
 
             var counter = 0;
@@ -411,7 +405,7 @@ namespace AuthenticatorPro.Shared.Entity
                     HashAlgorithm.Sha1 => "SHA1",
                     HashAlgorithm.Sha256 => "SHA256",
                     HashAlgorithm.Sha512 => "SHA512",
-                    _ => throw new ArgumentOutOfRangeException(nameof(Algorithm))
+                    _ => throw new NotSupportedException("Unsupported algorithm")
                 };
 
                 uri.Append($"&algorithm={algorithmName}");
