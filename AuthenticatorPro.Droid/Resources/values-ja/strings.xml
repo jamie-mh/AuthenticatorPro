@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">パスワードで保護されていません</string>
     <string name="enableAutoBackup">自動バックアップを有効にする</string>
     <string name="enableAutoBackupMessage">選択した保存場所に自動的にバックアップします</string>
-    <string name="enableAutoRestore">自動復元を有効にする</string>
-    <string name="enableAutoRestoreMessage">選択した保存場所にある最新のバックアップを自動的に復元します。デバイス間の同期に便利です。</string>
     <string name="batOptim">バッテリーの最適化</string>
     <string name="disableBatOptimMessage">一部のデバイスでは、電源設定によってバックアップが正常に動作しなくなる可能性があります。問題が発生した場合は、Authenticator Pro のバッテリー最適化を無効にしてみてください。</string>
     <string name="autoBackupFailureTitle">自動バックアップに失敗しました</string>
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
-    <string name="autoRestoreFailureTitle">自動復元に失敗しました</string>
-    <string name="autoRestoreFailureText">直近の自動復元が完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
     <string name="autoRestoreSuccessTitle">自動復元完了</string>
     <string name="backupScheduled">バックアップがスケジュールされました</string>
-    <string name="restoreScheduled">復元がスケジュールされました</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">データベースをパスワードで暗号化します。アプリを開くとパスワードの入力が求められます。 パスワードを消去するには、フィールドを空白のままにしてください。</string>
     <string name="passwordSetupWarning">覚えておくことができるパスワードを使用してください。パスワードを失うとデータベースは復元できません！</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">バックアップリマインダ</string>
     <string name="prefShowBackupRemindersSummary">重要な変更が行われたとき、認証コードをバックアップするよう通知します</string>
     <string name="prefAutoBackupTitle">自動バックアップ</string>
-    <string name="prefAutoBackupSummary">変更が行われたときに、選択した場所から自動的にバックアップと復元を行うことができます。バックアップのリマインダーを無効にします</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">言語設定</string>
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
     <string name="prefSecurity">セキュリティ</string>
