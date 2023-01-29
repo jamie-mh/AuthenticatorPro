@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">未受密碼保護</string>
     <string name="enableAutoBackup">啟用自動備份</string>
     <string name="enableAutoBackupMessage">自動備份至選定的儲存位置</string>
-    <string name="enableAutoRestore">啟用自動還原</string>
-    <string name="enableAutoRestoreMessage">從指定的儲存位置中使用最新的備份檔案進行自動還原。可以用於在裝置間同步。</string>
     <string name="batOptim">電池最佳化</string>
     <string name="disableBatOptimMessage">在某些裝置上，電源設定可能會導致備份工作不正常。如果您遇到問題，請嘗試禁用Authenticator Pro的電池最佳化。</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">最近的自動備份未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
-    <string name="autoRestoreFailureTitle">自動還原失敗</string>
-    <string name="autoRestoreFailureText">最近的自動還原未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
     <string name="autoBackupSuccessTitle">自動備份完成</string>
     <string name="autoRestoreSuccessTitle">自動還原完成</string>
     <string name="backupScheduled">已觸發自動備份</string>
-    <string name="restoreScheduled">已觸發自動還原</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">使用密碼對資料庫進行加密。當您開啟應用程式時，應用將提示您輸入密碼。 將該欄位留空以清除密碼。</string>
     <string name="passwordSetupWarning">使用您可以記住的密碼，沒有它，資料庫將無法還原！</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">顯示備份提醒</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改後，自動提醒您備份驗證器。</string>
     <string name="prefAutoBackupTitle">自動備份</string>
-    <string name="prefAutoBackupSummary">當發生更改時自動從指定位置備份及還原。禁用備份提醒。</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">語言</string>
     <string name="prefLanguageSummary">選擇要在應用程式中使用的語言</string>
     <string name="prefSecurity">安全</string>
