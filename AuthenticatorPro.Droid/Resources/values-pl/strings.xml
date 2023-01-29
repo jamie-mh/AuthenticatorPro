@@ -150,18 +150,13 @@
     <string name="notPasswordProtected">Nie chronione hasłem</string>
     <string name="enableAutoBackup">Włącz automatyczne kopie</string>
     <string name="enableAutoBackupMessage">Automatyczne tworzenie kopii zapasowych w wybranej lokalizacji</string>
-    <string name="enableAutoRestore">Włącz automatyczne przywracanie</string>
-    <string name="enableAutoRestoreMessage">Automatycznie przywróć najnowszą kopię zapasową znalezioną w wybranej lokalizacji. Przydatne do synchronizacji między urządzeniami.</string>
     <string name="batOptim">Optymalizacja baterii</string>
     <string name="disableBatOptimMessage">Na niektórych urządzeniach ustawienia zasilania mogą uniemożliwić prawidłowe działanie kopii zapasowych. Jeśli masz problemy, spróbuj wyłączyć optymalizację baterii dla Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
-    <string name="autoRestoreFailureTitle">Automatyczne przywracanie nie powiodło się</string>
-    <string name="autoRestoreFailureText">Nie udało się ukończyć ostatniego automatycznego przywracania. Uprawnienia do plików mogły wygasnąć lub hasło jest nieprawidłowe. Spróbuj ponownie ustawić lokalizację kopii zapasowej i hasło w ustawieniach automatycznej kopii zapasowej.</string>
     <string name="autoBackupSuccessTitle">Automatyczna kopia zapasowa wykonana</string>
     <string name="autoRestoreSuccessTitle">Automatyczne przywracanie zakończone</string>
     <string name="backupScheduled">Zaplanowano tworzenie kopii zapasowych</string>
-    <string name="restoreScheduled">Zaplanowano przywracanie kopii zapasowych</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zaszyfruj bazę danych hasłem. Po otwarciu aplikacji zostaniesz poproszony o podanie hasła. Pozostaw to pole puste, aby usunąć hasło.</string>
     <string name="passwordSetupWarning">Użyj hasła, które pamiętasz, bez niego baza danych jest nie do odzyskania!</string>
@@ -218,7 +213,7 @@
     <string name="prefShowBackupRemindersTitle">Przypomnienia o kopii zapasowej</string>
     <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia ważnych zmian</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
-    <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Język</string>
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
