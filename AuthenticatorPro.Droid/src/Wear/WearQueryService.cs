@@ -7,6 +7,7 @@ using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Shared.Persistence;
 using AuthenticatorPro.Shared.View;
+using Java.IO;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,13 @@ namespace AuthenticatorPro.Droid.Wear
 {
     [Service(Exported = true)]
     [IntentFilter(
-        new[] { MessageApi.ActionMessageReceived },
+        new[] { ChannelApi.ActionChannelEvent },
         DataScheme = "wear",
         DataHost = "*"
     )]
     internal class WearQueryService : WearableListenerService
     {
         private const string GetSyncBundleCapability = "get_sync_bundle";
-        private const string GetCustomIconCapability = "get_custom_icon";
 
         private readonly Database _database;
         private readonly SemaphoreSlim _lock = new(1, 1);
@@ -52,34 +52,37 @@ namespace AuthenticatorPro.Droid.Wear
             _customIconRepository = container.Resolve<ICustomIconRepository>();
         }
 
-        private async Task OpenDatabase()
+        private async Task OpenDatabaseAsync()
         {
             var password = await SecureStorageWrapper.GetDatabasePassword();
             await _database.Open(password, Database.Origin.Wear);
         }
 
-        private async Task CloseDatabase()
+        private async Task CloseDatabaseAsync()
         {
             await _database.Close(Database.Origin.Wear);
         }
 
-        private async Task UseDatabase(Func<Task> action)
+        private async Task<T> UseDatabaseAsync<T>(Func<Task<T>> action)
         {
             await _lock.WaitAsync();
+            T result;
 
             try
             {
-                await OpenDatabase();
-                await action();
-                await CloseDatabase();
+                await OpenDatabaseAsync();
+                result = await action();
+                await CloseDatabaseAsync();
             }
             finally
             {
                 _lock.Release();
             }
+
+            return result;
         }
 
-        private async Task GetSyncBundle(string nodeId)
+        private async Task<byte[]> GetSyncBundleAsync()
         {
             await _authenticatorView.LoadFromPersistenceAsync();
             var auths = new List<WearAuthenticator>();
@@ -104,56 +107,56 @@ namespace AuthenticatorPro.Droid.Wear
                 .Select(c => new WearCategory(c.Id, c.Name, c.Ranking))
                 .ToList();
 
-            var customIconIds = (await _customIconRepository.GetAllAsync())
-                .Select(i => i.Id)
+            var customIcons = (await _customIconRepository.GetAllAsync())
+                .Select(i => new WearCustomIcon(i.Id, i.Data))
                 .ToList();
 
             var preferenceWrapper = new PreferenceWrapper(this);
             var preferences = new WearPreferences(
                 preferenceWrapper.DefaultCategory, preferenceWrapper.SortMode, preferenceWrapper.CodeGroupSize);
 
-            var bundle = new WearSyncBundle(auths, categories, customIconIds, preferences);
+            var bundle = new WearSyncBundle(auths, categories, customIcons, preferences);
 
             var json = JsonConvert.SerializeObject(bundle);
-            var data = Encoding.UTF8.GetBytes(json);
-
-            await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId, GetSyncBundleCapability, data);
+            return Encoding.UTF8.GetBytes(json);
         }
 
-        private async Task GetCustomIcon(string customIconId, string nodeId)
+        private async Task SendSyncBundleAsync(ChannelClient.IChannel channel)
         {
-            var icon = await _customIconRepository.GetAsync(customIconId);
+            var client = WearableClass.GetChannelClient(this);
+            var bundle = await UseDatabaseAsync(GetSyncBundleAsync);
 
-            var data = Array.Empty<byte>();
+            OutputStream stream = null;
 
-            if (icon != null)
+            try
             {
-                var response = new WearCustomIcon(icon.Id, icon.Data);
-                var json = JsonConvert.SerializeObject(response);
-                data = Encoding.UTF8.GetBytes(json);
+                stream = await client.GetOutputStreamAsync(channel);
+                await stream.WriteAsync(bundle);
             }
-
-            await WearableClass.GetMessageClient(this).SendMessageAsync(nodeId, GetCustomIconCapability, data);
+            finally
+            {
+                stream?.Close();
+            }
         }
 
-        public override async void OnMessageReceived(IMessageEvent messageEvent)
+        public override async void OnChannelOpened(ChannelClient.IChannel channel)
         {
 #if DEBUG
-            Logger.Info($"Wear message received: {messageEvent.Path}");
+            Logger.Info($"Wear channel opened: {channel.Path}");
 #endif
 
-            switch (messageEvent.Path)
+            if (channel.Path != GetSyncBundleCapability)
             {
-                case GetSyncBundleCapability:
-                    await UseDatabase(() => GetSyncBundle(messageEvent.SourceNodeId));
-                    break;
+                return;
+            }
 
-                case GetCustomIconCapability:
-                {
-                    var id = Encoding.UTF8.GetString(messageEvent.GetData());
-                    await UseDatabase(() => GetCustomIcon(id, messageEvent.SourceNodeId));
-                    break;
-                }
+            try
+            {
+                await SendSyncBundleAsync(channel);
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
             }
         }
     }
