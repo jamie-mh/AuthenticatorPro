@@ -1,4 +1,4 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+Darmowa otwartoźródłowa aplikacja do dwuskładnikowego uwierzytelniania dla systemu Android. Zawiera zaszyfrowane kopie zapasowe, ikony, kategorie i wysoki poziom personalizacji. Ma również aplikacje dla Wear OS.
 
 Wspiera uwierzytelnianie TOTP (zależny od czasu) i HOTP (oparty na odliczaniu) za pomocą algorytmów SHA1, SHA256 lub SHA512. Wspierane są również Mobile-Otp (mOTP), Steam i Yandex.
 
@@ -9,23 +9,23 @@ Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego p
 
 - ⚙️ **Kompatybilność**: Authenticator Pro jest kompatybilny z większością dostawców i kont.
 
-- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 📲 **Importuj**: Łatwo migruj swoje konta do Authenticator Pro z obsługiwanych alternatywnych aplikacji.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 💾 **Kopia zapasowa / przywracanie**: Zrób kopię zapasową swoich kodów z pomocą silnego szyfrowania. W przypadku zgubienia lub zmiany telefonu, zawsze możesz uzyskać dostęp do swoich kont. Możesz zapisać kopie zapasowe w chmurze lub na urządzeniu.
 
-- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- 🌙 **Tryb ciemny**: Authenticator Pro ma piękny wygląd inspirowany material design dopasowany do jasnych i ciemnych motywów.
 
-- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- ⏺️ **Ikony**: Znajdź wpisy dzięki loginom marek i ikonkom obok każdego kodu.
 
 - 📂 **Kategorie**: Zorganizuj swoje tokeny uwierzytelniające w kategorie.
 
-- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
+- 🔒 **Offline z kilkoma uprawnieniami**: Authenticator Pro wymaga tylko jednego uprawnienia (*) i nie wymaga dostępu Internetu żeby działać.
 
 - 🔑 **Bezpieczeństwo**: Ustaw hasło i użyj uwierzytelniania biometrycznego, aby chronić swoje kody.
 
 - 🎨 **Customisation**: Set icons and rename. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
+- ⌚ **Wear OS**: Szybko pokaż kody bezpośrednio na zegarku. Pamiętaj, że wymagane jest połączenie z Twoim urządzeniem z systemem Android.
 
 
 (*) *Aby zeskanować kody QR, aplikacja wymaga uprawnienia do aparatu.*
