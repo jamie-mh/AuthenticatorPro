@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
+    <string name="noAuthenticators">Žiadne autentifikátory</string>
+    <string name="noAuthenticatorsMessage">Nie je tu nič. Pridajte autentifikátory z mobilnej aplikácie. </string>
+    <string name="hotpNotSupported">HOTP nie je podporované</string>
+    <string name="categoryAll">Všetko</string>
+    <string name="offline">Odpojené</string>
+    <string name="syncFailed">Sync failed</string>
 </resources>

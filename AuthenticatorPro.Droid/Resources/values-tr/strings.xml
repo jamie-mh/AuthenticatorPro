@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
     <string name="periodInvalid">Geçersiz süre</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
     <string name="pinMessage">Bu QR koduyla ilişkili pini girin. Bu hesabı kurarken sizden bir pin istenmişti.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">Karekod</string>
     <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
     <string name="qrCodeNotSupported">Karekodları bu tür için desteklenmez</string>
-    <string name="copyUri">URI\'yi kopyala</string>
-    <string name="uriCopiedToClipboard">URI panoya kopyalandı</string>
     <!-- Backup menu -->
     <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
     <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
@@ -151,20 +150,15 @@
     <string name="notPasswordProtected">Parola korumalı değil</string>
     <string name="enableAutoBackup">Otomatik yedeklemeyi etkinleştir</string>
     <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
-    <string name="enableAutoRestore">Otomatik geri yüklemeyi etkinleştir</string>
-    <string name="enableAutoRestoreMessage">Seçili depolama konumunda bulunan en son yedeklemeyi otomatik olarak geri yükleyin. Cihazlar arasında eşitleme için kullanışlıdır.</string>
     <string name="batOptim">Pil Optimizasyonu</string>
     <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
     <string name="autoBackupFailureTitle">Otomatik Yedekleme başarısız</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
         expired, try setting the backup location again in the auto backup settings.
     </string>
-    <string name="autoRestoreFailureTitle">Otomatik geri yükleme başarısız oldu</string>
-    <string name="autoRestoreFailureText">En son otomatik geri yükleme tamamlanamadı. Dosya izinlerinin süresi dolmuş veya parola yanlış olabilir. Otomatik yedekleme ayarlarında yedekleme konumunu ve parolayı yeniden ayarlamayı deneyin.</string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
     <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
-    <string name="restoreScheduled">Geri yükleme planlandı</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
     <string name="passwordSetupWarning">Hatırlayabileceğiniz bir parola kullanın, veri tabanı parola olmadan kurtarılamaz.</string>
@@ -184,12 +178,12 @@
     <string name="importFromOtherApps">Diğer uygulamalardan içe aktar</string>
     <string name="importFrom">Buradan içer aktar</string>
     <string name="importError">Dosya içe aktarılamadı</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db dosyasını içe aktar</string>
-    <string name="andOtp">andOTP (düz metin)</string>
-    <string name="andOtpImportHint">Düz metin otp_accounts.json dosyasını olarak içeri aktar</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
-    <string name="aegis">Aegis (düz metin)</string>
-    <string name="aegisImportHint">aegis-export-plain.json dosyasını içe aktar</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt dosyasını içe aktar</string>
@@ -211,9 +205,7 @@
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
     <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Karekodunu taramak için vizöre yerleştirin. Kod otomatik taranacaktır. Odaklanmak
-        için dokunun.
-    </string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
     <string name="toggleFlash">Flaşı aç/kapat</string>
     <!-- Preferences -->
@@ -222,8 +214,7 @@
     <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.
     </string>
     <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
-    <string name="prefAutoBackupSummary">Automatically backup and restore from a specific location when changes are made. Disables backup reminders.
-    </string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Dil</string>
     <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
     <string name="prefSecurity">Güvenlik</string>

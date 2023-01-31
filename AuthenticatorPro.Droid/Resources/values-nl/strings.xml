@@ -65,6 +65,7 @@
     <string name="digitsInvalid">De authenticator moet tussen {0} en {1} cijfers genereren</string>
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Kopieer deze authenticator naar een ander apparaat of app door de QR code te scannen</string>
     <string name="qrCodeNotSupported">QR codes worden niet ondersteund voor dit type</string>
-    <string name="copyUri">URI kopiëren</string>
-    <string name="uriCopiedToClipboard">URI naar het klembord gekopieerd</string>
     <!-- Backup menu -->
     <string name="backupToFile">Back-up naar versleuteld bestand (aanbevolen)</string>
     <string name="backupToFileMessage">Sla al uw authenticators, categorieën en iconen op in een versleuteld back-upbestand. Dit bestand kan worden hersteld in de app.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Niet beveiligd met een wachtwoord</string>
     <string name="enableAutoBackup">Automatische back-up inschakelen</string>
     <string name="enableAutoBackupMessage">Automatisch back-up maken naar de geselecteerde opslaglocatie</string>
-    <string name="enableAutoRestore">Automatisch herstellen inschakelen</string>
-    <string name="enableAutoRestoreMessage">Herstel automatisch de nieuwste back-up van de geselecteerde opslaglocatie. Handig voor het synchroniseren tussen apparaten.</string>
     <string name="batOptim">Batterijoptimalisatie</string>
     <string name="disableBatOptimMessage">Op sommige apparaten kunnen de stroominstellingen back-ups niet goed laten werken. Probeer de accuoptimalisatie voor Authenticator Pro uit te schakelen als u problemen ondervindt.</string>
     <string name="autoBackupFailureTitle">Automatische back-up maken mislukt</string>
     <string name="autoBackupFailureText">De meest recente automatische back-up kon niet worden voltooid. Bestandsmachtigingen zijn mogelijk verlopen, probeer de back-up locatie opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
-    <string name="autoRestoreFailureTitle">Automatisch herstellen mislukt</string>
-    <string name="autoRestoreFailureText">De meest recente automatische herstel is niet voltooid. De bestandsrechten zijn mogelijk verlopen of het wachtwoord is onjuist. Probeer de back-up locatie en wachtwoord opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
     <string name="autoBackupSuccessTitle">Automatische back-up maken voltooid</string>
     <string name="autoRestoreSuccessTitle">Automatisch herstellen voltooid</string>
     <string name="backupScheduled">Back-up ingepland</string>
-    <string name="restoreScheduled">Herstel ingepland</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Versleutel de database met een wachtwoord. Bij het openen van de app wordt om het wachtwoord gevraagd. Laat het veld leeg om het wachtwoord te wissen.</string>
     <string name="passwordSetupWarning">Gebruik een wachtwoord dat je kunt onthouden, de database is onherstelbaar zonder het wachtwoord!</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Importeren uit andere apps</string>
     <string name="importFrom">Importeren uit</string>
     <string name="importError">Het bestand kon niet worden geïmporteerd</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importeer authplus.db bestand</string>
-    <string name="andOtp">andOTP (platte tekst)</string>
-    <string name="andOtpImportHint">Importeer platte tekst otp_accounts.json bestand</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importeer freeotp-backup.json bestand</string>
-    <string name="aegis">Aegis (platte tekst)</string>
-    <string name="aegisImportHint">Importeer aegis-export-plain.json bestand</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (platte tekst)</string>
     <string name="bitwardenImportHint">Importeer bitwarden_export.json bestand</string>
     <string name="winAuthImportHint">Importeer winauth.txt bestand</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Download de bijbehorende Wear OS app</string>
     <string name="guideWearOSSummary">Als je een Wear OS horloge hebt, kun je de bijbehorende app downloaden. Je kunt de codes dan direct op je horloge bekijken.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Plaats de QR-code in de viewfinder om deze te scannen. De code zal automatisch worden gescand. Tik om de camera te focussen.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Probeer schaduwen en verblindingen te vermijden. Houd het apparaat ongeveer 15 cm van de code af.</string>
     <string name="toggleFlash">Flitslicht aan/uit</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Back-up Herinneringen</string>
     <string name="prefShowBackupRemindersSummary">Herinnert je om een back-up van je authenticators te maken als er belangrijke wijzigingen worden aangebracht</string>
     <string name="prefAutoBackupTitle">Automatische Back-ups</string>
-    <string name="prefAutoBackupSummary">Back-up en herstel automatisch vanaf een specifieke locatie wanneer er wijzigingen worden aangebracht. Dit schakelt backup herinneringen uit.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Taal</string>
     <string name="prefLanguageSummary">Kies een taal om te gebruiken in de app</string>
     <string name="prefSecurity">Veiligheid</string>

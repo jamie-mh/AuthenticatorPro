@@ -1,1 +1,1 @@
-Yedekleme ve Wear OS desteği sağlayan ücretsiz ve açık kaynaklı 2FA OTP kod oluşturucu
+Free and open-source 2FA app with encrypted backups and Wear OS support

@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Pole musi mieć między {0} a {1} cyfr</string>
     <string name="periodInvalid">Okres jest nieprawidłowy</string>
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
+    <string name="qrCodeNotFound">Nie znaleziono kodu QR na obrazku</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
     <string name="pinMessage">Wprowadź pin skojarzony z tym kodem QR. Zostałeś/aś poproszony o pin podczas konfiguracji tego konta.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">Kod QR</string>
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
     <string name="qrCodeNotSupported">Kody QR nie są obsługiwane w przypadku tego typu</string>
-    <string name="copyUri">Kopiuj URI</string>
-    <string name="uriCopiedToClipboard">URI skopiowane do schowka</string>
     <!-- Backup menu -->
     <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Nie chronione hasłem</string>
     <string name="enableAutoBackup">Włącz automatyczne kopie</string>
     <string name="enableAutoBackupMessage">Automatyczne tworzenie kopii zapasowych w wybranej lokalizacji</string>
-    <string name="enableAutoRestore">Włącz automatyczne przywracanie</string>
-    <string name="enableAutoRestoreMessage">Automatycznie przywróć najnowszą kopię zapasową znalezioną w wybranej lokalizacji. Przydatne do synchronizacji między urządzeniami.</string>
     <string name="batOptim">Optymalizacja baterii</string>
     <string name="disableBatOptimMessage">Na niektórych urządzeniach ustawienia zasilania mogą uniemożliwić prawidłowe działanie kopii zapasowych. Jeśli masz problemy, spróbuj wyłączyć optymalizację baterii dla Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
-    <string name="autoRestoreFailureTitle">Automatyczne przywracanie nie powiodło się</string>
-    <string name="autoRestoreFailureText">Nie udało się ukończyć ostatniego automatycznego przywracania. Uprawnienia do plików mogły wygasnąć lub hasło jest nieprawidłowe. Spróbuj ponownie ustawić lokalizację kopii zapasowej i hasło w ustawieniach automatycznej kopii zapasowej.</string>
     <string name="autoBackupSuccessTitle">Automatyczna kopia zapasowa wykonana</string>
     <string name="autoRestoreSuccessTitle">Automatyczne przywracanie zakończone</string>
     <string name="backupScheduled">Zaplanowano tworzenie kopii zapasowych</string>
-    <string name="restoreScheduled">Zaplanowano przywracanie kopii zapasowych</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zaszyfruj bazę danych hasłem. Po otwarciu aplikacji zostaniesz poproszony o podanie hasła. Pozostaw to pole puste, aby usunąć hasło.</string>
     <string name="passwordSetupWarning">Użyj hasła, które pamiętasz, bez niego baza danych jest nie do odzyskania!</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Importuj z innych aplikacji</string>
     <string name="importFrom">Importuj z</string>
     <string name="importError">Nie można zaimportować pliku</string>
+    <string name="importIncomplete">Import niekompletny</string>
+    <string name="importConversionError">Nie udało się zaimportować elementu \"{0}\" z powodu następującego błędu: {1}</string>
     <string name="authenticatorPlusImportHint">Importuj plik authplus.db</string>
-    <string name="andOtp">andOTP (czysty tekst)</string>
-    <string name="andOtpImportHint">Importuj plik tekstowy otp_accounts.json</string>
+    <string name="andOtpImportHint">Importuj plik otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Importuj plik freeotp-backup.json</string>
-    <string name="aegis">Aegis (czysty tekst)</string>
-    <string name="aegisImportHint">Importuj plik aegis-export-plain.json</string>
+    <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwarden">Bitwarden (czysty tekst)</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Pobierz aplikację towarzyszącą Wear OS</string>
     <string name="guideWearOSSummary">Jeśli masz zegarek z Wear OS, możesz pobrać aplikację towarzyszącą. Możesz przeglądać kody bezpośrednio na zegarku.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Umieść kod QR w wizjerze, aby go zeskanować. Kod zostanie zeskanowany automatycznie. Dotknij, aby wyostrzyć.</string>
+    <string name="scanHelpPrimary">Umieść kod QR w wizjerze, aby go zeskanować. Kod zostanie zeskanowany automatycznie.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Przypomnienia o kopii zapasowej</string>
     <string name="prefShowBackupRemindersSummary">Przypomina o tworzeniu kopii zapasowych w przypadku wprowadzenia ważnych zmian</string>
     <string name="prefAutoBackupTitle">Automatyczna kopia zapasowa</string>
-    <string name="prefAutoBackupSummary">Automatycznie tworzy i odtwarza kopię zapasową z określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
+    <string name="prefAutoBackupSummary">Automatycznie tworzy kopię zapasową w określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
     <string name="prefLanguageTitle">Język</string>
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefSecurity">Bezpieczeństwo</string>

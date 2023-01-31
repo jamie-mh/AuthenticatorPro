@@ -1,55 +1,40 @@
-Authenticator Pro genereert tweestapsverificatie (2FA) codes voor uw online accounts. TOTP, HOTP, mOTP (Mobile-OTP) en Steam worden ondersteund. De gegenereerde codes zijn eenmalige tokens die een extra beveiligingslaag toevoegen aan je online accounts. Na het scannen van een eenvoudige QR-code wordt uw account beschermd.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-<b>Stuur alle feedback / problemen door naar GitHub of e-mail (contactgedeelte van de ontwikkelaar) in plaats van een beoordeling te schrijven om uw probleem gemakkelijker op te lossen.</b>
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-<b>Veel gestelde vragen</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+Authenticatie in 2 stappen biedt een extra beveiligingslaag voor je accounts door het vereisen van een eenmalige code om in te loggen.
+Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegeven code nodig. Dus zelfs als je inloggegevens gelekt zijn, blijft je account veilig.
 
-<b>Compatibiliteit</b>
-Authenticator Pro is compatibel met de meeste aanbieders en accounts.
+### Features
 
-<b>Backup / Herstellen</b>
-Maak een back-up van uw authenticators met sterke encryptie. In het geval dat je je telefoon verliest of verandert, kun je altijd toegang krijgen tot je accounts. Opslaan in de cloud of op je apparaat.
+- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
 
-<b>Importeren</b>
-Migreer uw accounts eenvoudig naar Authenticator Pro vanuit ondersteunde alternatieve apps.
+- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-<b>Donkere Modus</b>
-Authenticator Pro maakt gebruik van het mooie material design dat er goed uitziet in zowel lichte als donkere thema's.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
-<b>Pictogrammen</b>
-Vind uw authenticators gemakkelijk met herkenbare merklogo's en pictogrammen naast elke code.
+- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-<b>Categorieën</b>
-Organiseer uw authenticators in categorieën.
+- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-<b>Offline met weinig machtigingen</b>
-Authenticator Pro vereist slechts één enkele toestemming en heeft geen internetverbinding nodig om te werken.
+- 📂 **Categories**: Organise your authenticators into categories.
 
-<b>Personalisatie</b>
-Stel pictogrammen in en hernoem je authenticators. Je kunt je authenticatoren ordenen in elke gewenste volgorde, zodat je ze gemakkelijk kunt vinden.
+- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
 
-<b>Wear OS</b>
-Authenticator Pro is ook beschikbaar voor Wear OS. Bekijk uw authenticators direct vanaf uw horloge.
+- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
 
-<b>Beveiliging</b>
-Stel een wachtwoord in en gebruik biometrische authenticatie om uw codes te beschermen.
+- 🎨 **Customisation**: Set icons and rename. Je kunt je authenticatoren ordenen in elke gewenste volgorde, zodat je ze gemakkelijk kunt vinden.
 
-<b>Open-Source</b>
-De broncode van deze applicatie kan door iedereen op GitHub worden bekeken.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 
-Authenticatie in 2 stappen biedt een extra beveiligingslaag voor je accounts door het vereisen van een eenmalige code om in te loggen. Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegeven code nodig. Dus zelfs als je inloggegevens gelekt zijn, blijft je account veilig.
+(*) *To scan QR-Codes, the app requires the camera permission.*
 
 
-Gratis en Open-Source
-https://github.com/jamie-mh/AuthenticatorPro
+**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>Machtigingen:</b>
 
-Camera machtiging is vereist om accounts toe te voegen via QR-codes.
-
-<b>Disclaimer:</b>
+#### Disclaimer:
 
 Deze applicatie is vrije software: je mag deze herdistribueren en/of aanpassen volgens de voorwaarden van de GNU General Public License die door de Free Software Foundation is gepubliceerd, ofwel versie 3 van de licentie, of (als eigen keuze) elke latere versie.
 

@@ -65,6 +65,7 @@
     <string name="digitsInvalid">驗證器只能生成 {0} 到 {1} 位的驗證碼</string>
     <string name="periodInvalid">輸入的週期無效</string>
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
     <string name="pinMessage">輸入該 QR Code 的密碼。在設定此帳號時，會提示您輸入密碼。</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
     <string name="qrCodeNotSupported">此類型的二維碼尚未被支持</string>
-    <string name="copyUri">複製 URI</string>
-    <string name="uriCopiedToClipboard">URI 已複製至剪貼簿</string>
     <!-- Backup menu -->
     <string name="backupToFile">備份至加密檔案（推薦）</string>
     <string name="backupToFileMessage">這將會把所有的驗證器、分類及圖示保存至一個加密的備份檔案中。你可以通過該文件恢復備份。</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">未受密碼保護</string>
     <string name="enableAutoBackup">啟用自動備份</string>
     <string name="enableAutoBackupMessage">自動備份至選定的儲存位置</string>
-    <string name="enableAutoRestore">啟用自動還原</string>
-    <string name="enableAutoRestoreMessage">從指定的儲存位置中使用最新的備份檔案進行自動還原。可以用於在裝置間同步。</string>
     <string name="batOptim">電池最佳化</string>
     <string name="disableBatOptimMessage">在某些裝置上，電源設定可能會導致備份工作不正常。如果您遇到問題，請嘗試禁用Authenticator Pro的電池最佳化。</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">最近的自動備份未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
-    <string name="autoRestoreFailureTitle">自動還原失敗</string>
-    <string name="autoRestoreFailureText">最近的自動還原未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
     <string name="autoBackupSuccessTitle">自動備份完成</string>
     <string name="autoRestoreSuccessTitle">自動還原完成</string>
     <string name="backupScheduled">已觸發自動備份</string>
-    <string name="restoreScheduled">已觸發自動還原</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">使用密碼對資料庫進行加密。當您開啟應用程式時，應用將提示您輸入密碼。 將該欄位留空以清除密碼。</string>
     <string name="passwordSetupWarning">使用您可以記住的密碼，沒有它，資料庫將無法還原！</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">從其他應用匯入</string>
     <string name="importFrom">匯入自</string>
     <string name="importError">無法匯入這個檔案。</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">匯入 authplus.db 檔案</string>
-    <string name="andOtp">andOTP (純文字)</string>
-    <string name="andOtpImportHint">匯入純文字 otp_accounts.json 檔案</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
-    <string name="aegis">Aegis (純文字)</string>
-    <string name="aegisImportHint">匯入 aegis-export-plain.json 檔案</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 檔案</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">下載配套的 Wear OS 應用</string>
     <string name="guideWearOSSummary">如果您有執行 Wear OS 的手錶，您可以下載配套的應用。您可以直接在您的手錶上檢視驗證碼。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">將 QR Code 放置在掃描器中以掃描它。該程式碼將自動掃描 QR Code。點選以對焦。</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">為了避免陰影和玻璃效果。按住裝置將其移到距離程式碼大約15釐米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切換閃光燈</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">顯示備份提醒</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改後，自動提醒您備份驗證器。</string>
     <string name="prefAutoBackupTitle">自動備份</string>
-    <string name="prefAutoBackupSummary">當發生更改時自動從指定位置備份及還原。禁用備份提醒。</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">語言</string>
     <string name="prefLanguageSummary">選擇要在應用程式中使用的語言</string>
     <string name="prefSecurity">安全</string>

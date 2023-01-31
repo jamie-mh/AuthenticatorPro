@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="noAuthenticators">Keine Schlüssel</string>
-    <string name="noAuthenticatorsMessage">Hier ist nichts. Füge auf der Telefonapp einen Schlüssel hinzu.</string>
-    <string name="hotpNotSupported">HOTP nicht unterstützt</string>
+    <string name="noAuthenticatorsMessage">Hier ist nichts. Füge in der Handyapp einen Schlüssel hinzu.</string>
+    <string name="hotpNotSupported">HOTP wird nicht unterstützt</string>
     <string name="categoryAll">Alle</string>
     <string name="offline">Offline</string>
+    <string name="syncFailed">Sync failed</string>
 </resources>

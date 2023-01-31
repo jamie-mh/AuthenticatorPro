@@ -65,6 +65,7 @@
     <string name="digitsInvalid">L\'authentificateur doit générer entre {0} et {1} chiffres</string>
     <string name="periodInvalid">La période est invalide</string>
     <string name="qrCodeFormatError">Le QR code n\'est pas au bon format ou n\'est pas lisible</string>
+    <string name="qrCodeNotFound">Impossible de trouver un QR code dans l\'image</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="scanSuccessful">QR code scanné avec succès</string>
     <string name="pinMessage">Entrez le code pin associé à ce QR code. Il vous aurait été demandé de le saisir lors de la configuration de ce compte.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copiez cet authentificateur vers un autre appareil ou une autre application en scannant le QR code</string>
     <string name="qrCodeNotSupported">Les QR codes ne sont pas pris en charge pour ce type</string>
-    <string name="copyUri">Copier l\'URI</string>
-    <string name="uriCopiedToClipboard">URI copiée dans le presse-papiers</string>
     <!-- Backup menu -->
     <string name="backupToFile">Sauvegarder vers un fichier chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Non protégé par mot de passe</string>
     <string name="enableAutoBackup">Activer les sauvegardes automatiques</string>
     <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
-    <string name="enableAutoRestore">Activer la restauration automatique</string>
-    <string name="enableAutoRestoreMessage">Restaurer automatiquement la dernière sauvegarde trouvée dans l\'emplacement de stockage choisi. Utile pour effectuer une synchronisation entre les appareils.</string>
     <string name="batOptim">Optimisation de la batterie</string>
     <string name="disableBatOptimMessage">Sur certains appareils, les paramètres d\'alimentation peuvent empêcher les sauvegardes de fonctionner correctement. Si vous rencontrez des problèmes, tentez de désactiver l\'optimisation de batterie pour Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir de nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
-    <string name="autoRestoreFailureTitle">Échec lors de la restauration automatique</string>
-    <string name="autoRestoreFailureText">La sauvegarde automatique la plus récente a échoué. Les droits de fichier sont potentiellement expirés ou le mot de passe est erroné. Tentez de définir de nouveau l\'emplacement et le mot de passe de la sauvegarde dans les paramètres.</string>
     <string name="autoBackupSuccessTitle">Sauvegarde effectuée avec succès</string>
     <string name="autoRestoreSuccessTitle">Restauration effectuée avec succès</string>
     <string name="backupScheduled">Sauvegarde programmée</string>
-    <string name="restoreScheduled">Restauration programmée</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Chiffrez la base de données avec un mot de passe. Le mot de passe vous sera demandé lorsque vous ouvrirez l\'application. Laissez le champ vide pour effacer le mot de passe.</string>
     <string name="passwordSetupWarning">Utilisez un mot de passe que vous pouvez mémoriser, la base de données sera irrécupérable sans cela !</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Importer depuis une autre application</string>
     <string name="importFrom">Importer depuis</string>
     <string name="importError">Le fichier n\'a pas pu être importé</string>
+    <string name="importIncomplete">Import incomplet</string>
+    <string name="importConversionError">L\'élément \"{0}\" n\'a pas pu être importé à cause de l\'erreur suivante : {1}</string>
     <string name="authenticatorPlusImportHint">Importer un fichier authplus.db</string>
-    <string name="andOtp">andOTP (texte clair)</string>
-    <string name="andOtpImportHint">Importer un fichier texte clair otp_accounts.json</string>
+    <string name="andOtpImportHint">Importer un fichier otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Importer un fichier freeotp-backup.json</string>
-    <string name="aegis">Aegis (texte clair)</string>
-    <string name="aegisImportHint">Importer un fichier aegis-export-plain.json</string>
+    <string name="aegisImportHint">Importer un fichier aegis-export.json</string>
     <string name="bitwarden">Bitwarden (texte clair)</string>
     <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
     <string name="winAuthImportHint">Importer un fichier winauth.txt</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
     <string name="guideWearOSSummary">Si vous portez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Le code sera scanné automatiquement. Tapez pour focaliser.</string>
+    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Le code sera scanné automatiquement.</string>
     <string name="scanHelpSecondary">Évitez les ombres et les éclats de lumière. Maintenez l\'appareil à environ 15 cm (6 pouces) du code.</string>
     <string name="toggleFlash">Activer/désactiver le flash</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Rappels de Sauvegarde</string>
     <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
-    <string name="prefAutoBackupSummary">Sauvegarde et restauration automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
+    <string name="prefAutoBackupSummary">Sauvegarde automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
     <string name="prefLanguageTitle">Langue</string>
     <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
     <string name="prefSecurity">Sécurité</string>

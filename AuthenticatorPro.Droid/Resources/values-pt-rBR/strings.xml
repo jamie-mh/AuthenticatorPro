@@ -65,6 +65,7 @@
     <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
     <string name="periodInvalid">A senha está incorreta</string>
     <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicativo escaneando o código QR</string>
     <string name="qrCodeNotSupported">Códigos QR não são suportados para este tipo</string>
-    <string name="copyUri">Copiar URI</string>
-    <string name="uriCopiedToClipboard">URI copiada para a área de transferência</string>
     <!-- Backup menu -->
     <string name="backupToFile">Backup em um arquivo criptografado (recomendado)</string>
     <string name="backupToFileMessage">Salve todos os seus autenticadores, categorias e ícones em um arquivo de backup criptografado. Este arquivo pode ser restaurado dentro do aplicativo.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Sem proteção por senha</string>
     <string name="enableAutoBackup">Ativar o backup automático</string>
     <string name="enableAutoBackupMessage">Fazer backup automático para o local de armazenamento selecionado</string>
-    <string name="enableAutoRestore">Habilitar a restauração automática</string>
-    <string name="enableAutoRestoreMessage">Restaura automaticamente o último backup encontrado no local de armazenamento selecionado. É útil para a sincronização entre dispositivos.</string>
     <string name="batOptim">Otimização da bateria</string>
     <string name="disableBatOptimMessage">Em alguns dispositivos, as configurações de energia podem causar alguns erros. Se você estiver tendo algum problema, tente desabilitar a otimização de bateria para o Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">O backup automático falhou</string>
     <string name="autoBackupFailureText">O backup automático mais recente falhou. As permissões de acesso ao armazenamento podem ter expirados, tente configurar novamente o local de armazenamento nas configurações de backup automático.</string>
-    <string name="autoRestoreFailureTitle">Houve um erro na restauração automática</string>
-    <string name="autoRestoreFailureText">A última restauração automática teve um erro e não foi possível completá-la. As permissões de acesso aos arquivos podem ter expirados ou a senha pode estar incorreta. Tente configurar um local de backup e uma senha nas configurações de backup automático.</string>
     <string name="autoBackupSuccessTitle">Backup automático finalizado</string>
     <string name="autoRestoreSuccessTitle">Restauração automática finalizada</string>
     <string name="backupScheduled">Backup agendado</string>
-    <string name="restoreScheduled">Restauração agendada</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Criptografa o banco de dados com uma senha. A senha será solicitada quando você abrir o aplicativo. Deixe em branco para tirar a senha.</string>
     <string name="passwordSetupWarning">Use uma senha que você possa se lembrar, o banco de dados é irrecuperável sem ela!</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Importar de outros aplicativos</string>
     <string name="importFrom">Importar de</string>
     <string name="importError">Não foi possível importar o arquivo</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importar o arquivo authplus.db</string>
-    <string name="andOtp">andOTP (texto simples)</string>
-    <string name="andOtpImportHint">Importar arquivo otp_accounts.json</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importar arquivo freeotp-backup.json</string>
-    <string name="aegis">Aegis (texto simples)</string>
-    <string name="aegisImportHint">Importar arquivo aegis-export-plain.json</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (texto simples)</string>
     <string name="bitwardenImportHint">Importar arquivo bitwarden_export.json</string>
     <string name="winAuthImportHint">Importar arquivo winauth.txt</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Baixe o companheiro Wear OS</string>
     <string name="guideWearOSSummary">Se você tem um Wear OS, você pode baixar o aplicativo acompanhante. Você pode ver os códigos diretamente do seu relógio.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Coloque o código QR no visor para escaneá-lo. O código irá escaneado automaticamente. Toque para focar.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Tente evitar sombras e vidros. Mantenha o dispositivo aproximadamente 6 polegadas (15 cm) de distância do código.</string>
     <string name="toggleFlash">Ligar/desligar o flash</string>
     <!-- Preferences -->
@@ -218,7 +212,7 @@
     <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita
     </string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
-    <string name="prefAutoBackupSummary">Fazer backup automático e resturar de um local específico quando alterações forem feitas. Desativa os lembretes de backup.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Escolha um idioma para usar em todo o aplicativo</string>
     <string name="prefSecurity">Segurança</string>

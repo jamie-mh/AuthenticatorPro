@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
     <string name="periodInvalid">Период является недопустимым</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
+    <string name="qrCodeNotFound">QR-код не найден на изображении</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом. PIN-код будет запрошен при настройке этой учетной записи.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, просканировав QR-код</string>
     <string name="qrCodeNotSupported">QR-коды не поддерживаются для данного типа</string>
-    <string name="copyUri">Скопировать URI</string>
-    <string name="uriCopiedToClipboard">Ссылка скопирована в буфер обмена</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Не защищено паролем</string>
     <string name="enableAutoBackup">Включить автоматическое резервное копирование</string>
     <string name="enableAutoBackupMessage">Автоматически создавать резервные копии в выбранное место хранения</string>
-    <string name="enableAutoRestore">Включить автоматическое восстановление</string>
-    <string name="enableAutoRestoreMessage">Автоматически восстанавливать последнюю резервную копию, найденную в выбранном месте хранения. Полезно для синхронизации между устройствами.</string>
     <string name="batOptim">Оптимизация работы аккумулятора</string>
     <string name="disableBatOptimMessage">На некоторых устройствах настройки питания могут предотвратить корректную работу резервных копий. Если у вас возникли проблемы, попробуйте отключить оптимизацию заряда батареи для Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
-    <string name="autoRestoreFailureTitle">Автоматическое восстановление не удалось</string>
-    <string name="autoRestoreFailureText">Последнее автоматическое восстановление не выполнено. Возможно, права доступа к файлу истекли или пароль неверен. Попробуйте (пере)установить место для резервноого копирования в настройках автоматического резервного копирования.</string>
     <string name="autoBackupSuccessTitle">Автоматическое резервное копирование завершено</string>
     <string name="autoRestoreSuccessTitle">Автоматическое восстановление завершено</string>
     <string name="backupScheduled">Резервное копирование запланировано</string>
-    <string name="restoreScheduled">Восстановление запланировано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Зашифруйте базу данных с помощью пароля. При открытии приложения вам будет предложено ввести пароль. Оставьте поле пустым, чтобы очистить пароль.</string>
     <string name="passwordSetupWarning">Используйте пароль, который вы можете запомнить, база данных не восстанавливается без него!</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Импортировать из других приложений</string>
     <string name="importFrom">Импортировать из</string>
     <string name="importError">Файл не может быть импортирован</string>
+    <string name="importIncomplete">Импорт не завершен</string>
+    <string name="importConversionError">Не удалось импортировать \"{0}\" из-за следующей ошибки: {1}</string>
     <string name="authenticatorPlusImportHint">Импортировать файл authplus.db</string>
-    <string name="andOtp">andOTP (простой текст)</string>
-    <string name="andOtpImportHint">Импортировать текстовый файл otp_accounts.json</string>
+    <string name="andOtpImportHint">Импортировать файл otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
-    <string name="aegis">Aegis (простой текст)</string>
-    <string name="aegisImportHint">Импортировать файл aegis-export-plain.json</string>
+    <string name="aegisImportHint">Импортировать файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (простой текст)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
     <string name="winAuthImportHint">Импорт файла winauth.txt</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Наведите видоискатель ка QR-код, чтобы отсканировать его. Процесс автоматичен. Нажмите для фокусировки.</string>
+    <string name="scanHelpPrimary">Наведите видоискатель на QR-код, чтобы отсканировать его. Сканирование произойдет автоматически.</string>
     <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
@@ -218,7 +212,7 @@
     <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.
     </string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
-    <string name="prefAutoBackupSummary">Автоматическое резервное копирование и восстановление из выбранного места хранения при внесении изменений. Отключает напоминания о резервном копировании.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Язык</string>
     <string name="prefLanguageSummary">Выберите язык, который будет использоваться в приложении</string>
     <string name="prefSecurity">Безопасность</string>

@@ -1,55 +1,40 @@
-Authenticator Pro hesaplarınız için İki Faktörlü Kimlik Doğrulama (2FA) kodları oluşturur. TOTP, HOTP, mOTP (Mobile-OTP) ve Steam desteklenmekte. Oluşturulan kodlar, hesaplarınız için ekstra bir güvenlik katmanı sağlayan tek seferlik parolalardır. Basit bir QR kodunu taradıktan sonra hesabınız korunur.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-<b>Sorununuzu daha kolay takip etmek için bir değerlendirme yazmak yerine lütfen tüm sorunları/geri bildirimleri GitHub'a veya e-postaya (geliştirici iletişim bölümü) yönlendirin.</b>
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-<b>Sıkça Sorulan Sorular:</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+2 Faktörlü kimlik doğrulaması oturum açmak için tek seferlik bir kod kullanılmasını gerektirerek hesaplarınıza ek bir güvenlik katmanı sağlar.
+Kullanıcı adınız ve parolanız yanında Authenticator Pro tarafından sağlanan bir koda ihtiyacınız olacaktır. Böylece, bilgileriniz ele geçirilse bile hesabınız güvende kalır.
 
-<b>Uyumluluk</b>
-Authenticator Pro birçok sağlayıcı ve hesapla uyumludur.
+### Features
 
-<b>Yedekleme / Geri Yükleme</b>
-Kimlik doğrulama kodlarınızı güçlü şifreleme ile yedekleyin. Telefonunuzu kaybettiğinizde veya değiştirdiğinizde hesaplarınıza her zaman erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.
+- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
 
-<b>İçe aktar</b>
-Desteklenen alternatif uygulamalardan hesaplarınızı Authenticator Pro'ya kolayca aktarın.
+- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 
-<b>Karanlık Mod</b>
-Authenticator Pro, material design'dan ilham alan açık ve koyu temalar ile güzel bir görünüme sahiptir.
+- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 
-<b>Simgeler</b>
-Her kodun yanındaki marka logoları ve simgelerle kimlik doğrulama kodlarını kolayca bulun.
+- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 
-<b>Kategoriler</b>
-Kimlik doğrulama kodlarınızı kategoriler halinde düzenleyin.
+- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
 
-<b>Birkaç izinle çevrimdışı</b>
-Authenticator Pro yalnızca tek bir izin gerektirir ve çalışması için İnternet erişimi gerektirmez.
+- 📂 **Categories**: Organise your authenticators into categories.
 
-<b>Kişiselleştirme</b>
-Simgeleri ayarlayın ve yeniden adlandırın. Ayrıca kimlik doğrulama kodlarınızı istediğiniz sırayla düzenleyerek kolayca bulabilirsiniz.
+- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
 
-<b>Wear OS</b>
-Authenticator Pro, Wear OS yardımcı uygulaması olarak da mevcuttur. Kimlik doğrulama kodlarınızı doğrudan saatinizden hızlıca görüntüleyin.
+- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
 
-<b>Güvenlik</b>
-Kodlarınızı korumak için bir parola belirleyin ve biyometri kimlik doğrulama kullanın.
+- 🎨 **Customisation**: Set icons and rename. Ayrıca kimlik doğrulama kodlarınızı istediğiniz sırayla düzenleyerek kolayca bulabilirsiniz.
 
-<b>Açık Kaynak</b>
-Uygulama açık kaynak kodu GitHub'daki herkes tarafından görüntülenebilir.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
 
 
-2 Faktörlü kimlik doğrulaması oturum açmak için tek seferlik bir kod kullanılmasını gerektirerek hesaplarınıza ek bir güvenlik katmanı sağlar. Kullanıcı adınız ve parolanız yanında Authenticator Pro tarafından sağlanan bir koda ihtiyacınız olacaktır. Böylece, bilgileriniz ele geçirilse bile hesabınız güvende kalır.
+(*) *To scan QR-Codes, the app requires the camera permission.*
 
 
-Ücretsiz ve Açık Kaynak
-https://github.com/jamie-mh/AuthenticatorPro
+**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
-<b>İzinler:</b>
 
-Karekodlarıyla hesap eklemek için kamera izni gereklidir.
-
-<b>Yasal Uyarı:</b>
+#### Disclaimer:
 
 Bu program özgür yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı’nın sürüm 3 ya da (isteğinize bağlı olarak) daha sonraki sürümlerinin hükümleri altında yeniden dağıtabilir ve/veya değiştirebilirsiniz.
 

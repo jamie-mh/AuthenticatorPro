@@ -5,4 +5,5 @@
     <string name="hotpNotSupported">HOTP wordt niet ondersteund</string>
     <string name="categoryAll">Alles</string>
     <string name="offline">Offline</string>
+    <string name="syncFailed">Sync failed</string>
 </resources>

@@ -65,6 +65,7 @@
     <string name="digitsInvalid">Autentifikátor musí generovat mezi {0} a {1} číslicemi</string>
     <string name="periodInvalid">Doba je neplatná</string>
     <string name="qrCodeFormatError">QR kód není ve správném formátu nebo jej nelze přčíst</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Autentifikátor s tímto tajným klíčem již existuje</string>
     <string name="scanSuccessful">QR kód úspěšně naskenován</string>
     <string name="pinMessage">Zadejte pin spojený s tímto QR kódem. Při nastavování tohoto účtu jste byli vyzváni k zadání pinu.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Zkopírujte tento autentifikátor do jiného zařízení nebo aplikace naskenováním QR kódu</string>
     <string name="qrCodeNotSupported">QR kódy nejsou pro tento typ podporovány</string>
-    <string name="copyUri">Kopírovat URI</string>
-    <string name="uriCopiedToClipboard">URI zkopírováno do schránky</string>
     <!-- Backup menu -->
     <string name="backupToFile">Zálohovat do šifrovaného souboru (doporučeno)</string>
     <string name="backupToFileMessage">Uložte všechny vaše autentifikátory, kategorie a ikony do zašifrovaného záložního souboru. Tento soubor lze obnovit v aplikaci.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Není uzamčen heslem</string>
     <string name="enableAutoBackup">Povolit automatické zálohování</string>
     <string name="enableAutoBackupMessage">Automaticky zálohovat do vybraného úložiště</string>
-    <string name="enableAutoRestore">Povolit automatické obnovení</string>
-    <string name="enableAutoRestoreMessage">Automaticky obnovit nejnovější zálohu nalezenou ve vybraném úložišti. Užitečné pro synchronizaci mezi zařízeními.</string>
     <string name="batOptim">Optimalizace baterie</string>
     <string name="disableBatOptimMessage">Na některých zařízeních může nastavení napájení zabránit správnému fungování záloh. Pokud máte problémy, zkuste pro Authenticator Pro zakázat optimalizaci baterie.</string>
     <string name="autoBackupFailureTitle">Automatické zálohování se nezdařilo</string>
     <string name="autoBackupFailureText">Nejnovější automatické zálohování se nepodařilo dokončit. Pravděpodobně vypršela platnost oprávnění k úložišti, zkuste znovu nastavit umístění zálohy v nastavení automatického zálohování.</string>
-    <string name="autoRestoreFailureTitle">Automatické obnovení se nezdařilo</string>
-    <string name="autoRestoreFailureText">Nejnovější automatické obnovení se nepodařilo dokončit. Pravděpodobně vypršela platnost oprávnění k úložišti, zkuste znovu nastavit umístění zálohy v nastavení automatického zálohování.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohování dokončeno</string>
     <string name="autoRestoreSuccessTitle">Automatické obnovení dokončeno</string>
     <string name="backupScheduled">Záloha naplánována</string>
-    <string name="restoreScheduled">Obnovení naplánováno</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zašifrujte databázi pomocí hesla. Při otevření aplikace budete vyzváni k heslu. Pro vymazání hesla ponechte pole prázdné.</string>
     <string name="passwordSetupWarning">Použijte heslo, které si budete pamatovat, databáze je bez ní neobnovitelná!</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Importovat z jiných aplikací</string>
     <string name="importFrom">Importovat z</string>
     <string name="importError">Soubor nemohl být importován</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importovat soubor authplus.db</string>
-    <string name="andOtp">andOTP (prostý text)</string>
-    <string name="andOtpImportHint">Importovat soubor otp_accounts.json</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importovat soubor freeotp-backup.json</string>
-    <string name="aegis">Aegis (prostý text)</string>
-    <string name="aegisImportHint">Importovat soubor aegis-export-plain.json</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (prostý text)</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Stáhnout doplněk Wear OS</string>
     <string name="guideWearOSSummary">Pokud máte hodinky s Wear OS, můžete si stáhnout doprovodnou aplikaci. Kódy můžete zobrazit přímo ve svých hodinkách.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Umístěte QR kód do hledáčku pro jeho naskenování. Kód se naskenuje automaticky. Klepnutím zaostříte.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Pokuste se vyhnout stínům a odleskům. Držte zařízení přibližně 6 palců (15 cm) od kódu.</string>
     <string name="toggleFlash">Přepnout blesk</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Připomenutí zálohování</string>
     <string name="prefShowBackupRemindersSummary">Připomíná vám zálohu vašich autentifikátorů, pokud jsou provedeny důležité změny</string>
     <string name="prefAutoBackupTitle">Automatické zálohování</string>
-    <string name="prefAutoBackupSummary">Automaticky zálohovat a obnovit z konkrétního umístění, když jsou provedeny změny. Zakáže připomenutí zálohování.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Jazyk</string>
     <string name="prefLanguageSummary">Vyberte jazyk, který chcete použít v celé aplikaci</string>
     <string name="prefSecurity">Zabezpečení</string>

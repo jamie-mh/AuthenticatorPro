@@ -1,55 +1,40 @@
-Authenticator Pro generuje kody uwierzytelniania dwuetapowego (2FA) dla Twoich kont online. Obsługiwane są TOTP, HOTP, mOTP (Mobile-OTP) i Steam. Wygenerowane kody to jednorazowe tokeny, które zapewniają dodatkową warstwę bezpieczeństwa na Twoich kontach online. Po skanowaniu prostego kodu QR Twoje konto jest chronione.
+Darmowa otwartoźródłowa aplikacja do dwuskładnikowego uwierzytelniania dla systemu Android. Zawiera zaszyfrowane kopie zapasowe, ikony, kategorie i wysoki poziom personalizacji. Ma również aplikacje dla Wear OS.
 
-<b>Prosimy kierować wszystkie opinie / problemy na GitHub lub e-mail (sekcja Kontakt z deweloperem) zamiast pisać opinię, aby łatwiej śledzić problem.</b>
+Wspiera uwierzytelnianie TOTP (zależny od czasu) i HOTP (oparty na odliczaniu) za pomocą algorytmów SHA1, SHA256 lub SHA512. Wspierane są również Mobile-Otp (mOTP), Steam i Yandex.
 
-<b>Często zadawane pytania</b>
-https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
+Uwierzytelnianie dwuskładnikowe zapewnia dodatkową warstwę bezpieczeństwa na Twoich kontach wymagając użycia jednorazowego kodu do zalogowania.
+Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego przez Authenticator Pro. Więc nawet jeśli Twoje dane logowania zostaną ujawnione, Twoje konto pozostaje bezpieczne.
 
-<b>Kompatybilność</b>
-Authenticator Pro jest kompatybilny z większością dostawców i kont.
+### Funkcje
 
-<b>Kopia zapasowa / przywracanie</b>
-Utwórz kopię zapasową swoich kodów z użyciem silnego szyfrowania. W przypadku zgubienia lub zmiany telefonu, zawsze możesz uzyskać dostęp do swoich kont. Zapisz w chmurze lub na urządzeniu.
+- ⚙️ **Kompatybilność**: Authenticator Pro jest kompatybilny z większością dostawców i kont.
 
-<b>Import</b>
-Łatwo migruj swoje konta do Authenticator Pro z obsługiwanych aplikacji.
+- 📲 **Importuj**: Łatwo migruj swoje konta do Authenticator Pro z obsługiwanych alternatywnych aplikacji.
 
-<b>Tryb ciemny</b>
-Authenticator Pro ma piękny wygląd inspirowany Material designem dla jasnego jak i ciemnego motywu.
+- 💾 **Kopia zapasowa / przywracanie**: Zrób kopię zapasową swoich kodów z pomocą silnego szyfrowania. W przypadku zgubienia lub zmiany telefonu, zawsze możesz uzyskać dostęp do swoich kont. Możesz zapisać kopie zapasowe w chmurze lub na urządzeniu.
 
-<b>Ikony</b>
-Znajdź łatwo swoje kody dzięki rozpoznawalnym ikonom marek i ikonom obok każdego kodu.
+- 🌙 **Tryb ciemny**: Authenticator Pro ma piękny wygląd inspirowany material design dopasowany do jasnych i ciemnych motywów.
 
-<b>Kategorie</b>
-Organizuj swoje usługi w kategorie.
+- ⏺️ **Ikony**: Znajdź wpisy dzięki loginom marek i ikonkom obok każdego kodu.
 
-<b>Offline z nielicznymi uprawnieniami</b>
-Authenticator Pro wymaga tylko jednego uprawnienia i nie wymaga dostępu do Internetu.
+- 📂 **Kategorie**: Zorganizuj swoje tokeny uwierzytelniające w kategorie.
 
-<b>Dostosowanie</b>
-Ustaw ikony i nazwę. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
+- 🔒 **Offline z kilkoma uprawnieniami**: Authenticator Pro wymaga tylko jednego uprawnienia (*) i nie wymaga dostępu Internetu żeby działać.
 
-<b>Wear OS</b>
-Authenticator Pro jest również dostępny jako aplikacja wear OS. Szybko przejrzyj swoje usługi bezpośrednio z zegarka.
+- 🔑 **Bezpieczeństwo**: Ustaw hasło i użyj uwierzytelniania biometrycznego, aby chronić swoje kody.
 
-<b>Bezpieczeństwo</b>
-Ustaw hasło i użyj uwierzytelniania biometrycznego, aby chronić swoje kody.
+- 🎨 **Customisation**: Set icons and rename. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
 
-<b>Open Source</b>
-Kod źródłowy aplikacji może być oglądany przez każdego na GitHubie.
+- ⌚ **Wear OS**: Szybko pokaż kody bezpośrednio na zegarku. Pamiętaj, że wymagane jest połączenie z Twoim urządzeniem z systemem Android.
 
 
-Uwierzytelnianie dwuskładnikowe zapewnia dodatkową warstwę bezpieczeństwa na Twoich kontach wymagając użycia jednorazowego kodu do zalogowania. Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego przez Authenticator Pro. Więc nawet jeśli Twoje dane logowania zostaną ujawnione, Twoje konto pozostaje bezpieczne.
+(*) *Aby zeskanować kody QR, aplikacja wymaga uprawnienia do aparatu.*
 
 
-Darmowe i Open Source
-https://github.com/jamie-mh/AuthenticatorPro
+**Najczęściej zadawane pytania:** https://github.com/jamie-mh/AuthenticatorPro/wiki#często zadawane pytania
 
-<b>Uprawnienia</b>
 
-Wymagane jest uprawnienie aparatu do dodawania kont za pomocą kodów QR.
-
-<b>Zastrzeżenie:</b>
+#### Zastrzeżenie:
 
 Niniejszy program jest wolnym oprogramowaniem: możesz go rozprowadzać dalej i/lub modyfikować na warunkach GNU General Public License wydanej przez Free Software Foundation - według wersji 3-ciej tej Licencji lub którejś (według uznania) z późniejszych wersji.
 

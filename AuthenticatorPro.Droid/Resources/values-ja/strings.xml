@@ -60,20 +60,19 @@
     <string name="noPin">PINコードが必要です</string>
     <string name="noFileName">ファイル名が必要です</string>
     <string name="secretInvalid">シークレットキーが無効です</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">ピンには少なくとも {0} 桁の数字が必要です</string>
+    <string name="pinTooLong">ピンには数字を {0} 桁以上を含めることはできません</string>
     <string name="digitsInvalid">認証コードは {0} 桁から {1} 桁の間で生成する必要があります</string>
     <string name="periodInvalid">期間が無効です</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
+    <string name="qrCodeNotFound">QRコードが画像に見つかりません</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">このQRコードに関連付けられているピンを入力してください。このアカウントを設定する際にピンが必要になります。</string>
     <!-- QR code dialog -->
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
     <string name="qrCodeNotSupported">このタイプのQRコードはサポートされていません</string>
-    <string name="copyUri">URIをコピー</string>
-    <string name="uriCopiedToClipboard">URI をクリップボードにコピーしました</string>
     <!-- Backup menu -->
     <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">パスワードで保護されていません</string>
     <string name="enableAutoBackup">自動バックアップを有効にする</string>
     <string name="enableAutoBackupMessage">選択した保存場所に自動的にバックアップします</string>
-    <string name="enableAutoRestore">自動復元を有効にする</string>
-    <string name="enableAutoRestoreMessage">選択した保存場所にある最新のバックアップを自動的に復元します。デバイス間の同期に便利です。</string>
     <string name="batOptim">バッテリーの最適化</string>
     <string name="disableBatOptimMessage">一部のデバイスでは、電源設定によってバックアップが正常に動作しなくなる可能性があります。問題が発生した場合は、Authenticator Pro のバッテリー最適化を無効にしてみてください。</string>
     <string name="autoBackupFailureTitle">自動バックアップに失敗しました</string>
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
-    <string name="autoRestoreFailureTitle">自動復元に失敗しました</string>
-    <string name="autoRestoreFailureText">直近の自動復元が完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
     <string name="autoRestoreSuccessTitle">自動復元完了</string>
     <string name="backupScheduled">バックアップがスケジュールされました</string>
-    <string name="restoreScheduled">復元がスケジュールされました</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">データベースをパスワードで暗号化します。アプリを開くとパスワードの入力が求められます。 パスワードを消去するには、フィールドを空白のままにしてください。</string>
     <string name="passwordSetupWarning">覚えておくことができるパスワードを使用してください。パスワードを失うとデータベースは復元できません！</string>
@@ -170,7 +164,7 @@
     <string name="confirmPassword">パスワードを確認</string>
     <string name="setupBiometricUnlock">生体認証を設定</string>
     <string name="passwordsDoNotMatch">パスワードが一致しません</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">端末の生体認証が変更されました。パスワードを使用してロックを解除してください。</string>
     <!-- Unlock -->
     <string name="unlock">ロックを解除</string>
     <string name="useBiometrics">生体認証を利用</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">別のアプリからインポート</string>
     <string name="importFrom">インポート元</string>
     <string name="importError">ファイルをインポートできませんでした</string>
+    <string name="importIncomplete">インポートが未完了です</string>
+    <string name="importConversionError">\"{0}\" は以下のエラーによりインポートできませんでした: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.dbファイルをインポート</string>
-    <string name="andOtp">andOTP（プレーンテキスト）</string>
-    <string name="andOtpImportHint">プレーンテキストの otp_accounts.json ファイルをインポート</string>
+    <string name="andOtpImportHint">otp_accounts.json ファイルをインポートします</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
-    <string name="aegis">Aegis（プレーンテキスト）</string>
-    <string name="aegisImportHint">aegis-export-plain.json ファイルをインポート</string>
+    <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwarden">Bitwarden (プレーンテキスト)</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
     <string name="winAuthImportHint">winauth.txt ファイルをインポート</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Wear OS コンパニオンアプリをダウンロード</string>
     <string name="guideWearOSSummary">Wear OS ウォッチをお持ちの場合は、コンパニオンアプリをダウンロードできます。ウォッチでコードを直接確認できます。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QRコードを画面に入れてスキャンします。コードは自動的にスキャンされます。タップするとフォーカスします。</string>
+    <string name="scanHelpPrimary">QRコードをファインダーに入れてスキャンしてください。コードは自動的にスキャンされます。</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">バックアップリマインダ</string>
     <string name="prefShowBackupRemindersSummary">重要な変更が行われたとき、認証コードをバックアップするよう通知します</string>
     <string name="prefAutoBackupTitle">自動バックアップ</string>
-    <string name="prefAutoBackupSummary">変更が行われたときに、選択した場所から自動的にバックアップと復元を行うことができます。バックアップのリマインダーを無効にします</string>
+    <string name="prefAutoBackupSummary">変更すると、指定した場所へ自動的にバックアップします。バックアップのリマインダーを無効にします。</string>
     <string name="prefLanguageTitle">言語設定</string>
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
     <string name="prefSecurity">セキュリティ</string>

@@ -65,6 +65,7 @@
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR Code scanned successfully</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
     <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
-    <string name="copyUri">Copy URI</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">ไม่ได้ป้องกันด้วยรหัสผ่าน</string>
     <string name="enableAutoBackup">เปิดใช้งานสำรองข้อมูลอัตโนมัติ</string>
     <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
-    <string name="enableAutoRestore">เปิดใช้งานคืนค่าอัตโนมัติ</string>
-    <string name="enableAutoRestoreMessage">Automatically restore the latest backup found in the selected storage location. Useful for syncing between devices.</string>
     <string name="batOptim">Battery Optimisation</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-    <string name="autoRestoreFailureTitle">Auto Restore failed</string>
-    <string name="autoRestoreFailureText">The most recent auto restore failed to complete. File permissions might have expired or the password is incorrect. Try setting the backup location and password again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">สำรองข้อมูลอัตโนมัติเสร็จสมบูรณ์</string>
     <string name="autoRestoreSuccessTitle">คืนค่าอัตโนมัติเสร็จสมบูรณ์</string>
     <string name="backupScheduled">Backup scheduled</string>
-    <string name="restoreScheduled">Restore scheduled</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
     <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Import from other apps</string>
     <string name="importFrom">นำเข้าจาก</string>
     <string name="importError">The file could not be imported</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtp">andOTP (plain-text)</string>
-    <string name="andOtpImportHint">Import plain-text otp_accounts.json file</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegis">Aegis (plain-text)</string>
-    <string name="aegisImportHint">Import aegis-export-plain.json file</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuthImportHint">Import winauth.txt file</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Download the Wear OS companion</string>
     <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically. Tap to focus.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Show Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
     <string name="prefAutoBackupTitle">สำรองอัตโนมัติ</string>
-    <string name="prefAutoBackupSummary">Automatically back up and restore from a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
     <string name="prefSecurity">ความปลอดภัย</string>

@@ -5,4 +5,5 @@
     <string name="hotpNotSupported">HOTP desteklenmiyor</string>
     <string name="categoryAll">Tümü</string>
     <string name="offline">Çevrimdışı</string>
+    <string name="syncFailed">Sync failed</string>
 </resources>

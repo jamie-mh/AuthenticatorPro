@@ -5,4 +5,5 @@
     <string name="hotpNotSupported">HOTP stöds inte</string>
     <string name="categoryAll">Alla</string>
     <string name="offline">Offline</string>
+    <string name="syncFailed">Sync failed</string>
 </resources>

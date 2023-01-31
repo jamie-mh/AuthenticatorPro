@@ -5,4 +5,5 @@
     <string name="hotpNotSupported">HOTP non pris en charge</string>
     <string name="categoryAll">Tout</string>
     <string name="offline">Déconnecté</string>
+    <string name="syncFailed">Synchro échouée</string>
 </resources>

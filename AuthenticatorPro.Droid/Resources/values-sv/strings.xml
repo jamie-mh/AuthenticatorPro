@@ -45,7 +45,7 @@
     <string name="secretKey">Hemlig nyckel</string>
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
-    <string name="confirmAuthenticatorDelete">Om du tar bort den här autentiseraren kommer du inte längre få koder för det här kontot. Detta betyder inte att tvåfaktorsautentisering stängs av för kontot.\n\nGenom att radera denna autentiserare kan du bli utlåst från ditt konto.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
+    <string name="confirmAuthenticatorDelete">Om du tar bort den här autentiseraren kommer du inte längre få koder för det här kontot. Detta betyder inte att tvåfaktorsautentisering stängs av.\n\nGenom att radera denna autentiserare kan du bli utelåst från ditt konto.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
@@ -60,11 +60,12 @@
     <string name="noPin">PIN-kod måste anges</string>
     <string name="noFileName">Filnamn måste anges</string>
     <string name="secretInvalid">Den hemliga nyckeln är ogiltig</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">PIN-koden måste innehålla minst {0} siffror</string>
+    <string name="pinTooLong">PIN-koden får inte innehålla fler än {0} siffror</string>
     <string name="digitsInvalid">Autentiseraren måste generera mellan {0} och {1} siffror</string>
     <string name="periodInvalid">Tidsperioden är ogiltig</string>
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
+    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Det finns redan en autentiserare med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -72,8 +73,6 @@
     <string name="qrCode">QR-kod</string>
     <string name="qrCodeHelp">Kopiera denna autentiserare till en annan enhet eller app genom att skanna QR-koden</string>
     <string name="qrCodeNotSupported">QR-koder stöds inte för denna typ</string>
-    <string name="copyUri">Kopiera URI</string>
-    <string name="uriCopiedToClipboard">URI har kopierats till urklipp</string>
     <!-- Backup menu -->
     <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
     <string name="backupToFileMessage">Säkerhetskopiera alla dina autentiserare, kategorier och ikoner till en krypterad fil. Filen kan återställas i appen.</string>
@@ -151,18 +150,13 @@
     <string name="notPasswordProtected">Inte lösenordsskyddad</string>
     <string name="enableAutoBackup">Aktivera automatisk säkerhetskopiering</string>
     <string name="enableAutoBackupMessage">Säkerhetskopiera automatiskt till den valda lagringsplatsen</string>
-    <string name="enableAutoRestore">Aktivera automatisk återställning</string>
-    <string name="enableAutoRestoreMessage">Återställ automatiskt den senaste säkerhetskopian som finns på den valda lagringsplatsen. Användbart för synkronisering mellan enheter.</string>
     <string name="batOptim">Batterioptimering</string>
     <string name="disableBatOptimMessage">På vissa enheter kan batteriinställningar hindra säkerhetskopior från att fungera korrekt. Om du upplever problem kan du prova att inaktivera batterioptimering för Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatisk säkerhetskopiering misslyckades</string>
     <string name="autoBackupFailureText">Den senaste automatiska säkerhetskopieringen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer. Prova att ställa in säkerhetskopieringsplatsen på nytt i inställningarna för automatisk säkerhetskopiering.</string>
-    <string name="autoRestoreFailureTitle">Automatisk återställning misslyckades</string>
-    <string name="autoRestoreFailureText">Den senaste automatiska återställningen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer eller så var lösenordet felaktigt. Prova att ställa in platsen och lösenordet på nytt i inställningarna för automatisk säkerhetskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk säkerhetskopiering slutförd</string>
     <string name="autoRestoreSuccessTitle">Automatisk återställning slutförd</string>
     <string name="backupScheduled">Säkerhetskopiering schemalagd</string>
-    <string name="restoreScheduled">Återställning schemalagd</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Kryptera databasen med ett lösenord. Du kommer behöva ange lösenordet när du öppnar appen. Lämna fältet tomt för att ta bort lösenordet.</string>
     <string name="passwordSetupWarning">Använd ett lösenord som du kommer ihåg – databasen kan inte återställas utan det!</string>
@@ -170,7 +164,7 @@
     <string name="confirmPassword">Bekräfta lösenord</string>
     <string name="setupBiometricUnlock">Ställ in biometrisk upplåsning</string>
     <string name="passwordsDoNotMatch">Lösenorden är inte lika</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">Enhetens biometri har ändrats. Använd lösenordet för att låsa upp.</string>
     <!-- Unlock -->
     <string name="unlock">Lås upp</string>
     <string name="useBiometrics">Använd biometri</string>
@@ -182,12 +176,12 @@
     <string name="importFromOtherApps">Importera från andra appar</string>
     <string name="importFrom">Importera från</string>
     <string name="importError">Filen kunde inte importeras</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importera \"authplus.db\"-fil</string>
-    <string name="andOtp">andOTP (oformaterad text)</string>
-    <string name="andOtpImportHint">Importera \"otp_accounts.json\"-fil (oformaterad text)</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importera \"freeotp-backup.json\"-fil</string>
-    <string name="aegis">Aegis (oformaterad text)</string>
-    <string name="aegisImportHint">Importera \"aegis-export-plain.json\"-fil</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (oformaterad text)</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"-fil</string>
@@ -209,7 +203,7 @@
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
     <string name="guideWearOSSummary">Om du har en Wear OS-klocka kan du ladda ner appen och få dina koder direkt på klockan.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Rikta kameran mot QR-koden för att skanna den. Koden skannas automatiskt. Tryck för att fokusera.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
     <!-- Preferences -->
@@ -217,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Påminnelser om säkerhetskopiering</string>
     <string name="prefShowBackupRemindersSummary">Påminner dig att säkerhetskopiera dina autentiserare när viktiga ändringar görs</string>
     <string name="prefAutoBackupTitle">Automatisk säkerhetskopiering</string>
-    <string name="prefAutoBackupSummary">Säkerhetskopiera och återställ automatiskt från en specifik plats när ändringar görs. Inaktiverar säkerhetskopieringspåminnelser.</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Språk</string>
     <string name="prefLanguageSummary">Välj vilket språk som ska visas i appen</string>
     <string name="prefSecurity">Säkerhet</string>
