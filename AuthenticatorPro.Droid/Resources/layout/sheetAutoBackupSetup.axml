@@ -140,26 +140,32 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="12dp"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:text="@string/enableAutoBackupMessage"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonBackupNow"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_marginBottom="10dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/backupNow"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonOk"
-                style="@style/Widget.MaterialComponents.Button"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_gravity="end"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/ok"/>
+                android:layout_height="wrap_content">
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonBackupNow"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/backupNow"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonOk"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/ok"/>
+
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
