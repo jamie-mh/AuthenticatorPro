@@ -179,10 +179,8 @@
     <string name="importIncomplete">Import unvollständig</string>
     <string name="importConversionError">Das Element \"{0}\" konnte aufgrund des folgenden Fehlers nicht importiert werden: {1}</string>
     <string name="authenticatorPlusImportHint">Importieren einer authplus.db Datei</string>
-    <string name="andOtp">andOTP</string>
     <string name="andOtpImportHint">Importieren einer otp_accounts.json Datei</string>
     <string name="freeOtpPlusImportHint">Importieren einer freeotp-backup.json Datei</string>
-    <string name="aegis">Aegis</string>
     <string name="aegisImportHint">Importieren einer aegis-export-plain.json Datei</string>
     <string name="bitwarden">Bitwarden (reiner Text)</string>
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
