@@ -179,10 +179,8 @@
     <string name="importIncomplete">Импорт не завершен</string>
     <string name="importConversionError">Не удалось импортировать \"{0}\" из-за следующей ошибки: {1}</string>
     <string name="authenticatorPlusImportHint">Импортировать файл authplus.db</string>
-    <string name="andOtp">andOTP</string>
     <string name="andOtpImportHint">Импортировать файл otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
-    <string name="aegis">Aegis</string>
     <string name="aegisImportHint">Импортировать файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (простой текст)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
