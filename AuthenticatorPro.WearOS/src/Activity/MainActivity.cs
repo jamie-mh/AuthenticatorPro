@@ -384,7 +384,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var capabilityInfo = await WearableClass.GetCapabilityClient(this)
                 .GetCapabilityAsync(ProtocolVersion, CapabilityClient.FilterReachable);
 
-            _serverNode = capabilityInfo.Nodes.FirstOrDefault(n => n.IsNearby);
+            _serverNode = capabilityInfo.Nodes.MaxBy(n => n.IsNearby);
         }
 
         private async Task Refresh()
