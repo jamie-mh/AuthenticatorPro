@@ -179,10 +179,8 @@
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">匯入 authplus.db 檔案</string>
-    <string name="andOtp">andOTP</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
-    <string name="aegis">Aegis</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
