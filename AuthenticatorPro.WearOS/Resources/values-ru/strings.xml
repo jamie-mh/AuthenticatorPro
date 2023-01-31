@@ -5,5 +5,5 @@
     <string name="hotpNotSupported">HOTP не поддерживается</string>
     <string name="categoryAll">Все</string>
     <string name="offline">Оффлайн</string>
-    <string name="syncTimeout">Время синхронизации истекло</string>
+    <string name="syncFailed">Sync failed</string>
 </resources>
