@@ -65,7 +65,7 @@
     <string name="digitsInvalid">認証コードは {0} 桁から {1} 桁の間で生成する必要があります</string>
     <string name="periodInvalid">期間が無効です</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
+    <string name="qrCodeNotFound">QRコードが画像に見つかりません</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
     <string name="pinMessage">このQRコードに関連付けられているピンを入力してください。このアカウントを設定する際にピンが必要になります。</string>
@@ -176,14 +176,12 @@
     <string name="importFromOtherApps">別のアプリからインポート</string>
     <string name="importFrom">インポート元</string>
     <string name="importError">ファイルをインポートできませんでした</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importIncomplete">インポートが未完了です</string>
+    <string name="importConversionError">\"{0}\" は以下のエラーによりインポートできませんでした: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.dbファイルをインポート</string>
-    <string name="andOtp">andOTP</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="andOtpImportHint">otp_accounts.json ファイルをインポートします</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
-    <string name="aegis">Aegis</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwarden">Bitwarden (プレーンテキスト)</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
     <string name="winAuthImportHint">winauth.txt ファイルをインポート</string>
@@ -205,7 +203,7 @@
     <string name="guideWearOSTitle">Wear OS コンパニオンアプリをダウンロード</string>
     <string name="guideWearOSSummary">Wear OS ウォッチをお持ちの場合は、コンパニオンアプリをダウンロードできます。ウォッチでコードを直接確認できます。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">QRコードをファインダーに入れてスキャンしてください。コードは自動的にスキャンされます。</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!-- Preferences -->
@@ -213,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">バックアップリマインダ</string>
     <string name="prefShowBackupRemindersSummary">重要な変更が行われたとき、認証コードをバックアップするよう通知します</string>
     <string name="prefAutoBackupTitle">自動バックアップ</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">変更すると、指定した場所へ自動的にバックアップします。バックアップのリマインダーを無効にします。</string>
     <string name="prefLanguageTitle">言語設定</string>
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
     <string name="prefSecurity">セキュリティ</string>
