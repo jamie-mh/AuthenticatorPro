@@ -211,11 +211,11 @@
     <string name="googleAuthenticator" translatable="false">Google Authenticator</string>
     <string name="authenticatorPlus" translatable="false">Authenticator Plus</string>
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtp">andOTP</string>
+    <string name="andOtp" translatable="false">andOTP</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegis">Aegis</string>
+    <string name="aegis" translatable="false">Aegis</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
