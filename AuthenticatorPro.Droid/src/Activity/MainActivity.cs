@@ -1124,7 +1124,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                image = InputImage.FromFilePath(this, uri);
+                image = await Task.Run(() => InputImage.FromFilePath(this, uri));
             }
             catch (Exception e)
             {
