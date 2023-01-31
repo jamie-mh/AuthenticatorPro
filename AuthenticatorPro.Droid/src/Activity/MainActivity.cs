@@ -125,8 +125,6 @@ namespace AuthenticatorPro.Droid.Activity
         // State
         private readonly IIconResolver _iconResolver;
         private readonly ICustomIconDecoder _customIconDecoder;
-
-        private readonly WearClient _wearClient;
         private PreferenceWrapper _preferences;
 
         private Timer _timer;
@@ -142,7 +140,6 @@ namespace AuthenticatorPro.Droid.Activity
         {
             _iconResolver = Dependencies.Resolve<IIconResolver>();
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
-            _wearClient = new WearClient(this);
             _database = Dependencies.Resolve<Database>();
 
             _authenticatorCategoryService = Dependencies.Resolve<IAuthenticatorCategoryService>();
@@ -162,8 +159,10 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Activity Lifecycle
 
-        protected override async Task OnCreateAsync(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
+            base.OnCreate(savedInstanceState);
+
             Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
 
@@ -233,8 +232,6 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 StartActivity(typeof(IntroActivity));
             }
-
-            await _wearClient.DetectCapability();
         }
 
         protected override async Task OnResumeAsync()
@@ -305,7 +302,7 @@ namespace AuthenticatorPro.Droid.Activity
             outState.PutLong("lastBackupReminderTime", _lastBackupReminderTime.Ticks);
         }
 
-        protected override async void OnPause()
+        protected override void OnPause()
         {
             base.OnPause();
 
@@ -319,8 +316,6 @@ namespace AuthenticatorPro.Droid.Activity
                     AnimUtil.FadeOutView(_authenticatorList, AnimUtil.LengthLong);
                 }
             });
-
-            await _wearClient.StopListening();
         }
 
         #endregion
@@ -715,8 +710,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preventBackupReminder = false;
             TriggerAutoBackupWorker();
-
-            await _wearClient.StartListening();
         }
 
         private void ShowDatabaseErrorDialog(Exception exception)
@@ -857,7 +850,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             RunOnUiThread(_bottomAppBar.PerformShow);
-            await _wearClient.NotifyChange();
         }
 
         private async Task CheckCategoryState()
@@ -1079,7 +1071,6 @@ namespace AuthenticatorPro.Droid.Activity
                 CheckEmptyState();
 
                 _preferences.BackupRequired = BackupRequirement.WhenPossible;
-                await _wearClient.NotifyChange();
             });
 
             builder.SetNegativeButton(Resource.String.cancel, delegate { });
@@ -1189,7 +1180,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             _preferences.BackupRequired = BackupRequirement.Urgent;
-            await _wearClient.NotifyChange();
         }
 
         private async Task OnUriScan(string uri)
@@ -1577,8 +1567,6 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorListAdapter.NotifyDataSetChanged();
                 _authenticatorList.ScheduleLayoutAnimation();
             });
-
-            await _wearClient.NotifyChange();
         }
 
         #endregion
@@ -1791,8 +1779,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             dialog.Dismiss();
             _preferences.BackupRequired = BackupRequirement.Urgent;
-
-            await _wearClient.NotifyChange();
         }
 
         #endregion
@@ -1830,7 +1816,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(args.ItemPosition); });
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
-            await _wearClient.NotifyChange();
         }
 
         #endregion
@@ -1871,7 +1856,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(args.ItemPosition); });
-            await _wearClient.NotifyChange();
 
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
@@ -1920,7 +1904,6 @@ namespace AuthenticatorPro.Droid.Activity
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
 
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
-            await _wearClient.NotifyChange();
         }
 
         #endregion
