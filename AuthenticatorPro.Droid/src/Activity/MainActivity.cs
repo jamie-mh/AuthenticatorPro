@@ -1392,13 +1392,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             async Task<RestoreResult> DecryptAndRestore(string password)
             {
-                Backup backup = null;
-
-                await Task.Run(delegate
-                {
-                    backup = Backup.FromBytes(data, password);
-                });
-
+                var backup = await Task.Run(() => Backup.FromBytes(data, password));
                 return await _restoreService.RestoreAndUpdateAsync(backup);
             }
 
@@ -1609,8 +1603,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 try
                 {
-                    byte[] data = null;
-                    await Task.Run(delegate { data = backup.ToBytes(password); });
+                    var data = await Task.Run(() => backup.ToBytes(password));
                     await FileUtil.WriteFile(this, destination, data);
                 }
                 catch (Exception e)
