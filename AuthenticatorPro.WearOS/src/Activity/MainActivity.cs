@@ -408,9 +408,8 @@ namespace AuthenticatorPro.WearOS.Activity
             finally
             {
                 stream.Close();
+                await client.CloseAsync(channel);
             }
-
-            await client.CloseAsync(channel);
 
             var json = Encoding.UTF8.GetString(data);
             var bundle = JsonConvert.DeserializeObject<WearSyncBundle>(json);
