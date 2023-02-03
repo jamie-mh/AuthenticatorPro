@@ -112,7 +112,7 @@
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">كلمة مرور النسخة الاحتياطية</string>
     <string name="fileNameHint">اسم ملف النسخ الاحتياطي</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">ليس لديك أي مُصادقات لإجراء نسخ احتياطية لها</string>
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
     <string name="saving">جاري الحفظ</string>
@@ -149,14 +149,14 @@
     <string name="passwordSet">تعيين كلمة المرور</string>
     <string name="notPasswordProtected">غير مَحْمي بكلمة مرور</string>
     <string name="enableAutoBackup">تفعيل النسخ الاحتياطي التلقائي</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">النسخ الاحتياطي بشكل تلقائي في موقع التخزين الذي تم تحديده</string>
     <string name="batOptim">تحسين البطارية</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">قد تمنع إعدادات الطاقة أو البطارية النسخ الاحتياطي من العمل بالشكل الصحيح في بعض الأجهزة. إذا كنت تواجه مشكلات بهذا الخصوص فحاول تعطيل مِيزة تحسين البطارية لتطبيقAuthenticator Pro.</string>
     <string name="autoBackupFailureTitle">فشل النسخ الاحتياطي التلقائي</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">اكتمل النسخ الاحتياطي التلقائي</string>
     <string name="autoRestoreSuccessTitle">اكتملت الاستعادة التلقائية</string>
-    <string name="backupScheduled">Backup scheduled</string>
+    <string name="backupScheduled">تمت جدولة النسخ الاحتياطي</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
     <string name="passwordSetupWarning">استعمل كلمة مرور يمكنك تذكرها لأنه لا يمكن استرداد قاعدة البيانات بدونها!</string>
