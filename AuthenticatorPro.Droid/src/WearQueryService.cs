@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+#if !FDROID
+
 using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Droid.Shared.Query;
@@ -16,7 +18,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Droid.Wear
+namespace AuthenticatorPro.Droid
 {
     [Service(Exported = true)]
     [IntentFilter(
@@ -161,3 +163,5 @@ namespace AuthenticatorPro.Droid.Wear
         }
     }
 }
+
+#endif

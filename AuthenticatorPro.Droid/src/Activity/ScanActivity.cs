@@ -11,7 +11,6 @@ using AndroidX.Camera.View;
 using AndroidX.Core.Content;
 using Google.Android.Material.Button;
 using Java.Util.Concurrent;
-using Xamarin.Google.MLKit.Vision.Barcode.Common;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -41,6 +40,9 @@ namespace AuthenticatorPro.Droid.Activity
             var analysis = new ImageAnalysis.Builder()
                 .SetTargetResolution(new Size(1920, 1080))
                 .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
+#if FDROID
+                .SetOutputImageFormat(ImageAnalysis.OutputImageFormatRgba8888)
+#endif
                 .Build();
 
             var analyser = new QrCodeImageAnalyser();
@@ -58,10 +60,10 @@ namespace AuthenticatorPro.Droid.Activity
             };
         }
 
-        private void OnQrCodeScanned(object sender, Barcode qrCode)
+        private void OnQrCodeScanned(object sender, string qrCode)
         {
             var intent = new Intent();
-            intent.PutExtra("text", qrCode.RawValue);
+            intent.PutExtra("text", qrCode);
             SetResult(Result.Ok, intent);
             Finish();
         }
