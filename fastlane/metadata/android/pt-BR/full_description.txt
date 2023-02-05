@@ -25,7 +25,7 @@ Em adição ao nome de usuário e senha, você vai precisar de um código fornec
 
 - 🎨 **Customisation**: Set icons and rename. Você também pode ordenar suas autenticações na ordem que preferir, assim fica fácil achá-las facilmente.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *To scan QR-Codes, the app requires the camera permission.*
@@ -34,7 +34,7 @@ Em adição ao nome de usuário e senha, você vai precisar de um código fornec
 **Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Disclaimer:
+#### Disclaimer
 
 Este é um programa livre: você pode distribuí-lo e/ou modificar sob os termos da licença GNU, como o publicado pela Free Software Foundation, na versão 3 da licença, ou (a seu critério) qualquer versão posterior.
 
