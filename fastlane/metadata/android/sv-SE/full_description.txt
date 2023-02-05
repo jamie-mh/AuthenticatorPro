@@ -25,7 +25,7 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 
 - 🎨 **Anpassning**: Välj ikoner och byt namn på konton. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
 
-- ⌚ **Wear OS**: Ta snabbt fram dina koder direkt på klockan. Observera att klockan behöver vara ansluten till din Android-enhet.
+- ⌚ **Wear OS**: Ta snabbt fram dina koder direkt på klockan. Observera att klockan behöver vara ansluten till din Android-enhet. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *För att skanna QR-koder behövs åtkomst till kameran.*
@@ -34,7 +34,7 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 **Vanliga frågor:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Ansvarsfriskrivning:
+#### Disclaimer
 
 Detta program är fri programvara: du kan distribuera det och/eller modifiera det enligt villkoren i GNU General Public License som publicerats av Free Software Foundation, antingen version 3 av licensen eller (efter eget val) valfri senare version.
 
