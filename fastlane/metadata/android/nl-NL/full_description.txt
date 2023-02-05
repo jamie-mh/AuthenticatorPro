@@ -25,7 +25,7 @@ Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegev
 
 - 🎨 **Customisation**: Set icons and rename. Je kunt je authenticatoren ordenen in elke gewenste volgorde, zodat je ze gemakkelijk kunt vinden.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *To scan QR-Codes, the app requires the camera permission.*
@@ -34,7 +34,7 @@ Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegev
 **Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Disclaimer:
+#### Disclaimer
 
 Deze applicatie is vrije software: je mag deze herdistribueren en/of aanpassen volgens de voorwaarden van de GNU General Public License die door de Free Software Foundation is gepubliceerd, ofwel versie 3 van de licentie, of (als eigen keuze) elke latere versie.
 
