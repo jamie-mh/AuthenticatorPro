@@ -146,8 +146,9 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 await FindServerNode();
             }
-            catch (ApiException)
+            catch (ApiException e)
             {
+                Logger.Error(e);
                 RunOnUiThread(CheckOfflineState);
                 return;
             }
@@ -168,8 +169,9 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 await Refresh();
             }
-            catch
+            catch (Exception e)
             {
+                Logger.Error(e);
                 Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show();
             }
 
