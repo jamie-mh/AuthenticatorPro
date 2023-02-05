@@ -241,20 +241,20 @@ namespace AuthenticatorPro.WearOS.Activity
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.ItemSelected += OnCategorySelected;
 
-            if (_authView.CategoryId == null)
+            if (_authView.CategoryId != null)
             {
-                return;
+                var categoryPosition = _categoryView.FindIndex(c => c.Id == _authView.CategoryId);
+
+                if (categoryPosition > -1)
+                {
+                    _preventCategorySelectEvent = true;
+                    _categoryList.SetCurrentItem(categoryPosition + 1, false);
+                }
             }
-
-            var categoryPosition = _categoryView.FindIndex(c => c.Id == _authView.CategoryId) + 1;
-
-            if (categoryPosition <= -1)
+            else
             {
-                return;
+                _categoryList.SetCurrentItem(0, false);
             }
-
-            _preventCategorySelectEvent = true;
-            _categoryList.SetCurrentItem(categoryPosition, false);
         }
 
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
