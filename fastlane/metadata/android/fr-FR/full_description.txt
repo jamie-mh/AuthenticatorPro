@@ -25,7 +25,7 @@ En plus de votre nom d'utilisateur et de votre mot de passe, vous aurez besoin d
 
 - 🎨 **Customisation**: Set icons and rename. Vous pouvez également organiser vos authentificateurs dans l'ordre que vous voulez, afin que vous puissiez les trouver facilement.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *To scan QR-Codes, the app requires the camera permission.*
@@ -34,7 +34,7 @@ En plus de votre nom d'utilisateur et de votre mot de passe, vous aurez besoin d
 **Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Disclaimer:
+#### Disclaimer
 
 Ce programme est un logiciel libre : vous pouvez le partager et/ou le modifier selon les termes de la licence publique générale GNU publiée par la Free Software Foundation, soit la version 3 de cette licence soit (à votre convenance) toute version ultérieure.
 
