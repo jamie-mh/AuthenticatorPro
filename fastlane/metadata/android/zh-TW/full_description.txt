@@ -25,7 +25,7 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 
 - 🎨 **Customisation**: Set icons and rename. 您也可以按照您喜歡的任何順序調整您的身份驗證器，以便於您可以輕鬆地找到它們。
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *To scan QR-Codes, the app requires the camera permission.*
@@ -34,7 +34,7 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 **Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Disclaimer:
+#### Disclaimer
 
 這個軟體是一個免費且自由軟體：您可以根據自由軟體基金會發布的 GNU 通用公共許可證 (許可證的第 3 版或 (由您選擇) 任何更高版本) 的條款重新分發和/或修改它。
 
