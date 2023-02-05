@@ -25,7 +25,7 @@ Okrem používateľského mena a hesla budete potrebovať kód poskytnutý aplik
 
 - 🎨 **Prisposobiteľnosť**: Nastavte ikony a premenujte. Svoje autentifikátory si tiež môžete usporiadať v ľubovoľnom poradí, aby ste ich mohli ľahko nájsť.
 
-- ⌚ **Wear OS**: Rýchlo zobrazte svoje autentifikátory priamo na svojich hodinkách. Upozorňujeme, že je potrebné pripojenie k vášmu zariadeniu Android.
+- ⌚ **Wear OS**: Rýchlo zobrazte svoje autentifikátory priamo na svojich hodinkách. Upozorňujeme, že je potrebné pripojenie k vášmu zariadeniu Android. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *Pre skenovanie QR kódov aplikácia vyžaduje oprávnenie používať fotoaparát.*
@@ -34,7 +34,7 @@ Okrem používateľského mena a hesla budete potrebovať kód poskytnutý aplik
 **Často kladené otázky:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Vylúčenie zodpovednosti:
+#### Disclaimer
 
 Tento program je slobodný softvér: môžete ho šíriť a upravovať podľa ustanovení Všeobecnej verejnej licencie GNU (GNU General Public Licence), vydávanej nadáciou Free Software Foundation a to buď podľa 3. verzie tejto Licencie, alebo (podľa vášho uváženia) ktorejkoľvek neskoršej verzie.
 
