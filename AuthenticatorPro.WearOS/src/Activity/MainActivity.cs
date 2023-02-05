@@ -70,10 +70,13 @@ namespace AuthenticatorPro.WearOS.Activity
         private readonly SemaphoreSlim _onCreateLock;
         private bool _isDisposed;
 
+        private readonly ScreenBroadcastReceiver _screenBroadcastReceiver;
+
         public MainActivity()
         {
             _justLaunched = true;
             _onCreateLock = new SemaphoreSlim(1, 1);
+            _screenBroadcastReceiver = new ScreenBroadcastReceiver();
         }
 
         ~MainActivity()
@@ -133,6 +136,12 @@ namespace AuthenticatorPro.WearOS.Activity
                     ReleaseOnCreateLock();
                 });
             });
+
+            var filter = new IntentFilter();
+            filter.AddAction(Intent.ActionScreenOff);
+            filter.AddAction(Intent.ActionScreenOn);
+
+            RegisterReceiver(_screenBroadcastReceiver, filter);
         }
 
         protected override async void OnResume()
@@ -185,10 +194,11 @@ namespace AuthenticatorPro.WearOS.Activity
             });
         }
 
-        protected override void OnStop()
+        protected override void OnDestroy()
         {
-            base.OnStop();
+            base.OnDestroy();
             ReleaseOnCreateLock();
+            UnregisterReceiver(_screenBroadcastReceiver);
         }
 
         private void ReleaseOnCreateLock()
