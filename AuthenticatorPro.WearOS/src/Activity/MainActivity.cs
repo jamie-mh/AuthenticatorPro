@@ -123,14 +123,14 @@ namespace AuthenticatorPro.WearOS.Activity
 
                 if (!_authCache.GetItems().Any())
                 {
-                    _onCreateLock.Release();
+                    ReleaseOnCreateLock();
                     return;
                 }
 
                 AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, delegate
                 {
                     CheckEmptyState();
-                    _onCreateLock.Release();
+                    ReleaseOnCreateLock();
                 });
             });
         }
@@ -186,7 +186,11 @@ namespace AuthenticatorPro.WearOS.Activity
         protected override void OnStop()
         {
             base.OnStop();
+            ReleaseOnCreateLock();
+        }
 
+        private void ReleaseOnCreateLock()
+        {
             if (_onCreateLock.CurrentCount == 0)
             {
                 _onCreateLock.Release();
