@@ -25,7 +25,7 @@ Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego p
 
 - 🎨 **Customisation**: Set icons and rename. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
 
-- ⌚ **Wear OS**: Szybko pokaż kody bezpośrednio na zegarku. Pamiętaj, że wymagane jest połączenie z Twoim urządzeniem z systemem Android.
+- ⌚ **Wear OS**: Szybko pokaż kody bezpośrednio na zegarku. Pamiętaj, że wymagane jest połączenie z Twoim urządzeniem z systemem Android. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *Aby zeskanować kody QR, aplikacja wymaga uprawnienia do aparatu.*
@@ -34,7 +34,7 @@ Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego p
 **Najczęściej zadawane pytania:** https://github.com/jamie-mh/AuthenticatorPro/wiki#często zadawane pytania
 
 
-#### Zastrzeżenie:
+#### Disclaimer
 
 Niniejszy program jest wolnym oprogramowaniem: możesz go rozprowadzać dalej i/lub modyfikować na warunkach GNU General Public License wydanej przez Free Software Foundation - według wersji 3-ciej tej Licencji lub którejś (według uznania) z późniejszych wersji.
 
