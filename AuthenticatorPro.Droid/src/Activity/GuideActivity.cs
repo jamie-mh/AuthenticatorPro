@@ -6,6 +6,10 @@ using Android.OS;
 using Android.Views;
 using Google.Android.Material.AppBar;
 
+#if FDROID
+using Google.Android.Material.Card;
+#endif
+
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
@@ -24,6 +28,11 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+
+#if FDROID
+            var wearOsCard = FindViewById<MaterialCardView>(Resource.Id.cardWearOS);
+            wearOsCard.Visibility = ViewStates.Gone;
+#endif
         }
 
         public override bool OnSupportNavigateUp()
