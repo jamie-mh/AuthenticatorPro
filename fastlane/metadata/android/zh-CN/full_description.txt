@@ -25,7 +25,7 @@
 
 - 🎨 **自定义**: 设置图标和重命名 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
 
-- ⌚ **Wear OS**: 直接从你的手表上快速查看你的认证器 请注意，需要与你的安卓设备连接
+- ⌚ **Wear OS**: 直接从你的手表上快速查看你的认证器 请注意，需要与你的安卓设备连接 Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *要扫描二维码，此应用需要相机权限*
@@ -34,7 +34,7 @@
 **FAQ:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### 免责声明: 
+#### Disclaimer
 
 这个软件是一个免费且自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证（许可证的第 3 版或（由您选择）任何更高版本）的条款重新分发和/或修改它。
 
