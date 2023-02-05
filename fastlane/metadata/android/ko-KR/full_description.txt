@@ -25,7 +25,7 @@ SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP
 
 - 🎨 **사용자 지정**: 아이콘을 설정하고 이름을 변경하세요. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
 
-- ⌚ **Wear OS**: 시계에서 인증기를 빠르게 확인할 수 있습니다. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다.
+- ⌚ **Wear OS**: 시계에서 인증기를 빠르게 확인할 수 있습니다. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *QR코드를 스캔할 때 카메라 권한을 요구합니다.*
@@ -34,7 +34,7 @@ SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP
 **자주 묻는 질문:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### 면책 조항:
+#### Disclaimer
 
 본 프로그램은 자유 소프트웨어입니다. 본 프로그램은 자유 소프트웨어 재단에서 발행한 GNU 일반 공중 사용 허가서의 버전 3 혹은 (귀하의 선택에 따라) 이후 버전에서 제시된 조건에 따라 재배포 혹은 수정할 수 있습니다.
 
