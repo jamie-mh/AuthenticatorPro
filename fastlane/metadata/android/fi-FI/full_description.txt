@@ -25,7 +25,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 
 - 🎨 **Customisation**: Set icons and rename. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
 
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
+- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 
 (*) *To scan QR-Codes, the app requires the camera permission.*
@@ -34,7 +34,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 **Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
 
 
-#### Disclaimer:
+#### Disclaimer
 
 Tämä on ilmainen sovellus: voit levittää sitä edelleen ja/tai muokata sitä Free Software Foundationin "GNU General Public License" -lisenssin 3. version (tai halutessasi uudemman) mukaisesti.
 
