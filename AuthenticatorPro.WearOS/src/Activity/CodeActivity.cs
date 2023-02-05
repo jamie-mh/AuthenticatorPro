@@ -18,7 +18,7 @@ using System.Timers;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
-    [Activity]
+    [Activity(Theme = "@style/AppTheme")]
     internal class CodeActivity : AppCompatActivity
     {
         private IGenerator _generator;

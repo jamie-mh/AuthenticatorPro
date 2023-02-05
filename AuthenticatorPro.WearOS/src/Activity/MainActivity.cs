@@ -29,8 +29,7 @@ using System.Threading.Tasks;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
-    [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher",
-        Theme = "@style/AppTheme")]
+    [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     internal class MainActivity : AppCompatActivity
     {
         // Query Paths
@@ -106,7 +105,9 @@ namespace AuthenticatorPro.WearOS.Activity
             base.OnCreate(bundle);
             await _onCreateLock.WaitAsync();
 
+            SetTheme(Resource.Style.AppTheme);
             SetContentView(Resource.Layout.activityMain);
+
             _preferences = new PreferenceWrapper(this);
 
             _authCache = new ListCache<WearAuthenticator>(AuthenticatorCacheName, this);

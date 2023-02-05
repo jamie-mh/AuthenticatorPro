@@ -1,4 +1,7 @@
 <resources>
+    <style name="SplashTheme" parent="@android:style/Theme.DeviceDefault">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
 
     <style name="AppTheme" parent="Theme.MaterialComponents">
         <item name="windowActionBar">false</item>
