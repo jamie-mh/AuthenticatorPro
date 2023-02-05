@@ -32,7 +32,12 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
+#if FDROID
+                var versionName = PackageUtil.GetVersionName(PackageManager, PackageName);
+                version = $"{versionName} F-Droid";
+#else
                 version = PackageUtil.GetVersionName(PackageManager, PackageName);
+#endif
             }
             catch (Exception e)
             {

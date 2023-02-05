@@ -94,7 +94,7 @@
     <a href="https://github.com/ssg/SimpleBase">https://github.com/ssg/SimpleBase</a>
 
     <script>
-        var options = location.hash.substring(1).split('|');
+        var options = decodeURIComponent(location.hash.substring(1)).split('|');
         
         var $version = document.getElementById('version');
         $version.innerHTML = options[0];
