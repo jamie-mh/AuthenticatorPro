@@ -57,6 +57,7 @@ namespace AuthenticatorPro.Droid.Shared.Data
             { "backblaze", Resource.Drawable.auth_backblaze },
             { "bahamut", Resource.Drawable.auth_bahamut },
             { "balena", Resource.Drawable.auth_balena },
+            { "bamboohr", Resource.Drawable.auth_bamboohr },
             { "barmenia", Resource.Drawable.auth_barmenia },
             { "barracuda", Resource.Drawable.auth_barracuda },
             { "basecamp", Resource.Drawable.auth_basecamp },
