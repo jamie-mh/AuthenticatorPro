@@ -211,7 +211,7 @@
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden</string>
     <string name="prefAutoBackupTitle">Automatische Sicherung</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Sichere automatisch an einen bestimmten Ort, wenn Änderungen vorgenommen werden. Deaktiviert Backup-Erinnerungen.</string>
     <string name="prefLanguageTitle">Sprache</string>
     <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
     <string name="prefSecurity">Sicherheit</string>
