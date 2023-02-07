@@ -60,12 +60,12 @@
     <string name="noPin">Um pin é obrigatório</string>
     <string name="noFileName">Um nome do arquivo é obrigatório</string>
     <string name="secretInvalid">A senha está incorreta</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">O pin deve conter pelo menos {0} dígitos</string>
+    <string name="pinTooLong">O pin não pode conter mais de {0} dígitos</string>
     <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
     <string name="periodInvalid">A senha está incorreta</string>
     <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
+    <string name="qrCodeNotFound">Código QR não encontrado na imagem</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -164,7 +164,7 @@
     <string name="confirmPassword">Confirmar a senha</string>
     <string name="setupBiometricUnlock">Configurar desbloqueio com biométrica</string>
     <string name="passwordsDoNotMatch">As passwords não coincidem</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
+    <string name="biometricsChanged">A biometria do dispositivo foi alterada. Use a senha para desbloquear.</string>
     <!-- Unlock -->
     <string name="unlock">Desbloquear</string>
     <string name="useBiometrics">Usar biometria</string>
@@ -176,8 +176,8 @@
     <string name="importFromOtherApps">Importar de outros aplicativos</string>
     <string name="importFrom">Importar de</string>
     <string name="importError">Não foi possível importar o arquivo</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importIncomplete">Importação incompleta</string>
+    <string name="importConversionError">O item \"{0}\" falhou ao ser importado devido ao seguinte erro: {1}</string>
     <string name="authenticatorPlusImportHint">Importar o arquivo authplus.db</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
     <string name="freeOtpPlusImportHint">Importar arquivo freeotp-backup.json</string>
