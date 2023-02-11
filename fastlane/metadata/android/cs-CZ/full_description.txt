@@ -5,36 +5,28 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 2 faktorové ověření poskytuje Vašim účtům další vrstvu bezpečnosti tím, že k přihlášení vyžaduje použití jednorázového kódu.
 Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnutý aplikací Authenticator Pro. Takže i když dojde ke kompromitaci vašich přihlašovacích údajů, váš účet zůstane v bezpečí.
 
-### Features
+<hr>
 
-- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
+<b>Features</b>
 
-- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- ⚙️ <b>Compatibility:</b> Authenticator Pro is compatible with most providers and accounts.
+- 📲 <b>Import:</b> Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 💾 <b>Backup / Restore:</b> Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 🌙 <b>Dark Mode:</b> Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons:</b> Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories:</b> Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions:</b> Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security:</b> Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation:</b> Set icons and rename. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
+- ⌚ <b>Wear OS:</b> Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+(¹) *To scan QR-Codes, the app requires the camera permission.*
 
-- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
 
-- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
+<hr>
 
-- 📂 **Categories**: Organise your authenticators into categories.
-
-- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
-
-- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
-
-- 🎨 **Customisation**: Set icons and rename. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
-
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
-
-
-(*) *To scan QR-Codes, the app requires the camera permission.*
-
-
-**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
-
-
-#### Disclaimer
+<b>Disclaimer</b>
 
 Tento program je svobodný software: můžete jej šířit a/nebo modifikovat podle podmínek GNU General Public License, vydávané Free Software Foundation, a to buď verze 3 této licence, nebo (podle vlastního uvážení) kterékoli pozdější verze.
 
