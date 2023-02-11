@@ -12,11 +12,11 @@
     <string name="error">Erro</string>
     <string name="retry">Tente novamente</string>
     <string name="ignore">Ignorado</string>
-    <string name="disable">Desabilitado</string>
+    <string name="disable">Desativar</string>
     <!-- Menu items -->
     <string name="settings">Configurações</string>
     <string name="restore">Restaurar</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Backup</string>
     <string name="about">Sobre</string>
     <string name="scanQrCode">Ler um código QR</string>
     <string name="showQrCode">Mostrar código QR</string>
@@ -68,7 +68,7 @@
     <string name="qrCodeNotFound">Código QR não encontrado na imagem</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Digite o pin associado a este código QR. Você teria sido solicitado a inserir um PIN ao configurar esta conta.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicativo escaneando o código QR</string>
@@ -179,9 +179,9 @@
     <string name="importIncomplete">Importação incompleta</string>
     <string name="importConversionError">O item \"{0}\" falhou ao ser importado devido ao seguinte erro: {1}</string>
     <string name="authenticatorPlusImportHint">Importar o arquivo authplus.db</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="andOtpImportHint">Importar arquivo otp_accounts.json</string>
     <string name="freeOtpPlusImportHint">Importar arquivo freeotp-backup.json</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">Importar arquivo aegis-export.json</string>
     <string name="bitwarden">Bitwarden (texto simples)</string>
     <string name="bitwardenImportHint">Importar arquivo bitwarden_export.json</string>
     <string name="winAuthImportHint">Importar arquivo winauth.txt</string>
@@ -203,7 +203,7 @@
     <string name="guideWearOSTitle">Baixe o companheiro Wear OS</string>
     <string name="guideWearOSSummary">Se você tem um Wear OS, você pode baixar o aplicativo acompanhante. Você pode ver os códigos diretamente do seu relógio.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Coloque o código QR no visor para escanear. O código será escaneado automaticamente.</string>
     <string name="scanHelpSecondary">Tente evitar sombras e vidros. Mantenha o dispositivo aproximadamente 6 polegadas (15 cm) de distância do código.</string>
     <string name="toggleFlash">Ligar/desligar o flash</string>
     <!-- Preferences -->
@@ -212,7 +212,7 @@
     <string name="prefShowBackupRemindersSummary">Lembra você de fazer backup dos seus autenticadores caso alguma alteração importante tenha sido feita
     </string>
     <string name="prefAutoBackupTitle">Backup Automático</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Faça o backup automaticamente em um local específico quando as alterações forem feitas. Desabilita os lembretes de backup.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Escolha um idioma para usar em todo o aplicativo</string>
     <string name="prefSecurity">Segurança</string>
