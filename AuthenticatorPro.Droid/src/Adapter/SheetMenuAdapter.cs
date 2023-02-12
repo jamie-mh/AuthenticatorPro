@@ -52,6 +52,11 @@ namespace AuthenticatorPro.Droid.Adapter
                 holder.Description.SetText(item.Description.Value);
             }
 
+            if (item.NoTint)
+            {
+                holder.Icon.ImageTintList = null;
+            }
+
             if (item.IsSensitive)
             {
                 var colourValue = ContextCompat.GetColor(_context, Shared.Resource.Color.colorError);

@@ -32,11 +32,11 @@ namespace AuthenticatorPro.Droid.Fragment
                     new(Resource.Drawable.ic_info, Resource.String.about, AboutClicked,
                         Resource.String.aboutSummary),
                     new(Resource.Drawable.ic_buymeacoffee, Resource.String.supportDevelopment, SupportClicked,
-                        Resource.String.supportDevelopmentSummary),
+                        Resource.String.supportDevelopmentSummary, true),
                     new(Resource.Drawable.ic_googleplay, Resource.String.rate,
-                        RateClicked, Resource.String.rateSummary),
+                        RateClicked, Resource.String.rateSummary, true),
                     new(IconResolver.GetService("github", isDark), Resource.String.viewGitHub,
-                        ViewGitHubClicked, Resource.String.viewGitHubSummary)
+                        ViewGitHubClicked, Resource.String.viewGitHubSummary, true)
                 });
 
             return view;

@@ -11,15 +11,17 @@ namespace AuthenticatorPro.Droid
         public readonly int Title;
         public readonly EventHandler Handler;
         public readonly int? Description;
+        public readonly bool NoTint;
         public readonly bool IsSensitive;
 
         public SheetMenuItem(int icon, int title, EventHandler handler, int? description = null,
-            bool isSensitive = false)
+            bool noTint = false, bool isSensitive = false)
         {
             Icon = icon;
             Title = title;
             Handler = handler;
             Description = description;
+            NoTint = noTint;
             IsSensitive = isSensitive;
         }
     }

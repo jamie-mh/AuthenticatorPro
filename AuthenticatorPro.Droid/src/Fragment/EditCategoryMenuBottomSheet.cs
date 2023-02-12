@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Droid.Fragment
                 new(Resource.Drawable.ic_delete, Resource.String.delete, delegate
                 {
                     DeleteClicked(this, _position);
-                }, null, true)
+                }, null, false, true)
             });
 
             return view;

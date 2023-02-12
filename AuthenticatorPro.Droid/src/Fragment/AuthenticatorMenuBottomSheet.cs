@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Droid.Fragment
                     new(Resource.Drawable.ic_qr_code, Resource.String.showQrCode,
                         ShowQrCodeClicked),
                     new(Resource.Drawable.ic_delete, Resource.String.delete, DeleteClicked, null,
-                        true)
+                        false, true)
                 });
 
             return view;
