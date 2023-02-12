@@ -125,7 +125,8 @@
         app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:paddingBottomSystemWindowInsets="true"
-        app:navigationIcon="@drawable/ic_menu"/>
+        app:navigationIcon="@drawable/ic_menu"
+        app:navigationIconTint="?attr/colorOnSurface"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAdd"

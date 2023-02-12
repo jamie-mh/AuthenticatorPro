@@ -34,12 +34,14 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@drawable/ic_star"
+            android:tint="?attr/colorSecondary"
             android:visibility="gone"
             android:layout_marginEnd="12dp"/>
 
         <ImageButton
             android:id="@+id/buttonMenu"
             android:src="@drawable/ic_more_vert"
+            android:tint="?attr/colorOnSurface"
             android:scaleType="centerInside"
             android:background="?selectableItemBackgroundBorderless"
             android:layout_width="22dp"

@@ -95,6 +95,7 @@
                         <ImageButton
                             android:id="@+id/buttonRefresh"
                             android:src="@drawable/ic_refresh"
+                            android:tint="?attr/colorOnSurface"
                             android:scaleType="centerInside"
                             android:textSize="14dp"
                             android:background="?selectableItemBackgroundBorderless"
@@ -105,6 +106,7 @@
                         <ImageButton
                             android:id="@+id/buttonMenu"
                             android:src="@drawable/ic_expand_more"
+                            android:tint="?attr/colorOnSurface"
                             android:scaleType="centerInside"
                             android:textSize="14dp"
                             android:background="?selectableItemBackgroundBorderless"

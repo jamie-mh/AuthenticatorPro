@@ -23,6 +23,7 @@
 
         <ImageView
             android:src="@drawable/ic_refresh"
+            android:tint="?attr/colorOnSurface"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="32dp"
             android:layout_width="24dp"
