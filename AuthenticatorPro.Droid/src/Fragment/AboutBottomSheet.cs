@@ -29,7 +29,7 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.ic_action_info_outline, Resource.String.about, AboutClicked,
+                    new(Resource.Drawable.ic_info, Resource.String.about, AboutClicked,
                         Resource.String.aboutSummary),
                     new(Resource.Drawable.ic_buymeacoffee, Resource.String.supportDevelopment, SupportClicked,
                         Resource.String.supportDevelopmentSummary),

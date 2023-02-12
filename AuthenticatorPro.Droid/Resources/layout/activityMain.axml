@@ -65,7 +65,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_empty"/>
+            android:src="@drawable/big_ic_empty"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,13 +125,13 @@
         app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:paddingBottomSystemWindowInsets="true"
-        app:navigationIcon="@drawable/ic_action_menu"/>
+        app:navigationIcon="@drawable/ic_menu"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_action_add"
+        android:src="@drawable/ic_add"
         app:tint="@color/colorDark"
         app:layout_anchor="@id/bottomAppBar"
         app:backgroundTint="?attr/colorAccent"/>

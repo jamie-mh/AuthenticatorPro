@@ -1,47 +1,11 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="64dp"
-        android:viewportHeight="32" android:viewportWidth="32" android:width="64dp">
-    <path android:fillColor="#00000000"
-          android:pathData="M5,27v1.5A1.5,1.5 0,0 0,6.5 30H8"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000"
-          android:pathData="M5,5V3.5A1.5,1.5 0,0 1,6.5 2H8"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M5,9L5,11"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M5,15L5,17"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M5,21L5,23"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000"
-          android:pathData="M27,27v1.5A1.5,1.5 0,0 1,25.5 30H24"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M27,15L27,17"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M27,21L27,23"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M12,30L14,30"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M18,30L20,30"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000" android:pathData="M12,2L14,2"
-          android:strokeColor="#505050" android:strokeLineCap="round"
-          android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000"
-          android:pathData="M18,2l3,0l6,6l0,3" android:strokeColor="#505050"
-          android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="#00000000"
-          android:pathData="M27,8l-6,0l0,-6" android:strokeColor="#505050"
-          android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="?attr/colorSecondary" android:pathData="M18.75,17l-3.75,0l0,4l-6,0l6,-10.67l3.75,6.67z"/>
-    <path android:fillColor="?attr/colorSecondary" android:pathData="M16,18h7v7h-7z"/>
+<vector android:height="24dp" android:tint="#000000"
+    android:viewportHeight="24" android:viewportWidth="24"
+    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillAlpha="0.3"
+        android:fillColor="@android:color/white"
+        android:pathData="M17.5,17.5m-2.5,0a2.5,2.5 0,1 1,5 0a2.5,2.5 0,1 1,-5 0" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.3"
+        android:fillColor="@android:color/white"
+        android:pathData="M5,15.5h4v4L5,19.5zM12,5.84L10.07,9h3.86z" android:strokeAlpha="0.3"/>
+    <path android:fillColor="@android:color/white" android:pathData="M12,2l-5.5,9h11L12,2zM12,5.84L13.93,9h-3.87L12,5.84zM17.5,13c-2.49,0 -4.5,2.01 -4.5,4.5s2.01,4.5 4.5,4.5 4.5,-2.01 4.5,-4.5 -2.01,-4.5 -4.5,-4.5zM17.5,20c-1.38,0 -2.5,-1.12 -2.5,-2.5s1.12,-2.5 2.5,-2.5 2.5,1.12 2.5,2.5 -1.12,2.5 -2.5,2.5zM11,13.5L3,13.5v8h8v-8zM9,19.5L5,19.5v-4h4v4z"/>
 </vector>

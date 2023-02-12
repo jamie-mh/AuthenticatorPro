@@ -62,12 +62,12 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.ic_action_backup, Resource.String.backup, BackupClicked),
-                    new(Resource.Drawable.ic_action_category, Resource.String.editCategories,
+                    new(Resource.Drawable.ic_save, Resource.String.backup, BackupClicked),
+                    new(Resource.Drawable.ic_category, Resource.String.editCategories,
                         EditCategoriesClicked),
-                    new(Resource.Drawable.ic_action_settings, Resource.String.settings,
+                    new(Resource.Drawable.ic_settings, Resource.String.settings,
                         SettingsClicked),
-                    new(Resource.Drawable.ic_action_info_outline, Resource.String.about, AboutClicked)
+                    new(Resource.Drawable.ic_info, Resource.String.about, AboutClicked)
                 });
 
             return view;

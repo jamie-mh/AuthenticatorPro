@@ -34,9 +34,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_qr_code"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
                     <TextView
@@ -68,9 +69,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_timer"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
                     <TextView
@@ -102,9 +104,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_edit"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
                     <TextView
@@ -136,9 +139,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_sort"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
                     <TextView
@@ -170,9 +174,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_backup"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_save"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
                     <TextView
@@ -205,9 +210,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:src="@drawable/ic_watch"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
                     <TextView

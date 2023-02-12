@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetTitle(Resource.String.settings);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_arrow_back);
 
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             prefs.RegisterOnSharedPreferenceChangeListener(this);

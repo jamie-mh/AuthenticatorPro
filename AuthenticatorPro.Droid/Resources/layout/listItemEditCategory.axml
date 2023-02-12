@@ -33,13 +33,13 @@
             android:id="@+id/imageDefault"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:src="@drawable/ic_action_star"
+            android:src="@drawable/ic_star"
             android:visibility="gone"
             android:layout_marginEnd="12dp"/>
 
         <ImageButton
             android:id="@+id/buttonMenu"
-            android:src="@drawable/ic_action_more_vert"
+            android:src="@drawable/ic_more_vert"
             android:scaleType="centerInside"
             android:background="?selectableItemBackgroundBorderless"
             android:layout_width="22dp"

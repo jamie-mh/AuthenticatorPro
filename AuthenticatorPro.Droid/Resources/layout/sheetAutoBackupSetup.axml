@@ -53,7 +53,7 @@
 
                 <ImageView
                     android:id="@+id/imageIcon"
-                    android:src="@drawable/ic_action_folder"
+                    android:src="@drawable/ic_folder"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
@@ -99,7 +99,7 @@
 
                 <ImageView
                     android:id="@+id/imageIcon"
-                    android:src="@drawable/ic_action_vpn_key"
+                    android:src="@drawable/ic_key"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
