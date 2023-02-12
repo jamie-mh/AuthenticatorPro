@@ -185,6 +185,7 @@
     <string name="bitwarden">Bitwarden (простой текст)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
     <string name="winAuthImportHint">Импорт файла winauth.txt</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
     <string name="uriList">Список URl</string>
     <string name="uriListHint">Простой текстовый список отрывных URI</string>
