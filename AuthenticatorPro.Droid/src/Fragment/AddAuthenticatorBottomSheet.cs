@@ -143,7 +143,14 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private void OnTypeItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            _type = (AuthenticatorType) e.Position + 1;
+            _type = e.Position switch
+            {
+                1 => AuthenticatorType.Hotp,
+                2 => AuthenticatorType.MobileOtp,
+                3 => AuthenticatorType.SteamOtp,
+                4 => AuthenticatorType.YandexOtp,
+                _ => AuthenticatorType.Totp
+            };
 
             _periodLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Time
                 ? ViewStates.Visible
