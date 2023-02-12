@@ -185,6 +185,7 @@
     <string name="bitwarden">Bitwarden (raakateksti)</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt-tiedosto</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Raakatekstinen luettelo otpauth URI -osoitteista</string>
