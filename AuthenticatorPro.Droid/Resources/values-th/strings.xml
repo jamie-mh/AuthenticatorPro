@@ -185,6 +185,7 @@
     <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
     <string name="uriList">URI list</string>
     <string name="uriListHint">Plain text list of otpauth URIs</string>
