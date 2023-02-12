@@ -187,6 +187,7 @@
     <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt dosyasını içe aktar</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
     <string name="uriListHint">Otpauth bağlantılarının düz metin listesi</string>
