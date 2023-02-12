@@ -18,6 +18,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler AegisClicked;
         public event EventHandler BitwardenClicked;
         public event EventHandler WinAuthClicked;
+        public event EventHandler TwoFasClicked;
         public event EventHandler AuthyClicked;
         public event EventHandler TotpAuthenticatorClicked;
         public event EventHandler SteamClicked;
@@ -49,6 +50,8 @@ namespace AuthenticatorPro.Droid.Fragment
                         BitwardenClicked, Resource.String.bitwardenImportHint),
                     new(Resource.Drawable.ic_winauth, Resource.String.winAuth, WinAuthClicked,
                         Resource.String.winAuthImportHint),
+                    new(Resource.Drawable.ic_twofas, Resource.String.twoFas, TwoFasClicked,
+                        Resource.String.twoFasImportHint),
                     new(Resource.Drawable.ic_authy, Resource.String.authy, AuthyClicked,
                         Resource.String.viewGuideImportHint),
                     new(Resource.Drawable.ic_totpauthenticator, Resource.String.totpAuthenticator,

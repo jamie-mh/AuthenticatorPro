@@ -221,6 +221,8 @@
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuth" translatable="false">WinAuth</string>
     <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="twoFas" translatable="false">2FAS</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="authy" translatable="false">Authy</string>
     <string name="totpAuthenticator" translatable="false">TOTP Authenticator</string>
     <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>

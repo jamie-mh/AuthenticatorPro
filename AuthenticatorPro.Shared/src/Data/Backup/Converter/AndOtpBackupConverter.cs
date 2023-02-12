@@ -94,7 +94,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
-        private static KeyParameter DerivePassword(string password, byte[] salt, int iterations)
+        private static KeyParameter DeriveKey(string password, byte[] salt, int iterations)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);
             var generator = new Pkcs5S2ParametersGenerator(new Sha1Digest());
@@ -117,7 +117,7 @@ namespace AuthenticatorPro.Shared.Data.Backup.Converter
             var iv = data.Skip(IterationsLength + SaltLength).Take(IvLength).ToArray();
             var payload = data.Skip(IterationsLength + SaltLength + IvLength).ToArray();
 
-            var key = DerivePassword(password, salt, iterations);
+            var key = DeriveKey(password, salt, iterations);
 
             var keyParameter = new ParametersWithIV(key, iv);
             var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
