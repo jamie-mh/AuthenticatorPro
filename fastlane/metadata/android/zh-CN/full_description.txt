@@ -5,36 +5,28 @@
 二步验证要求使用一次性代码登录，从而为您的帐户提供额外的一层安全保护。
 除了您的用户名和密码，您还需要 Authenticator Pro 提供的代码。 因此，即使您的登录信息被泄露，您的账户仍然是安全的。
 
-### 功能
+<hr>
 
-- ⚙️ **兼容性**: Authenticator Pro 与大多数供应商和账户兼容
+<b>Features</b>
 
-- 📲 **导入**: 轻松的将您的账户从支持的应用程序迁移到 Authenticator Pro
+- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. 如果你丢失或更换手机，你可以随时访问你的账户 你可以将备份保存到云存储或你的设备上
+- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation</b>: Set icons and rename. 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. 请注意，需要与你的安卓设备连接 Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-- 💾 **备份/恢复**: 用强大的加密技术备份你的认证器 如果你丢失或更换手机，你可以随时访问你的账户 你可以将备份保存到云存储或你的设备上
+(¹) *To scan QR-Codes, the app requires the camera permission.*
 
-- 🌙 **深色模式**: Authenticator Pro 具有来源于 Material Design 灵感的美丽外观，可以选择浅色或深色主题
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
 
-- ⏺️ **图标**: 每个验证器旁边都具有一个厂商图标，使你很容易找到所需验证器
+<hr>
 
-- 📂 **分类**: 分类你的验证器
-
-- 🔒 **离线**: Authenticator Pro 仅需一个权限(*)，并且不需要联网就可以运行
-
-- 🔑 **安全**: 设置密码或使用指纹认证来保护你的密码
-
-- 🎨 **自定义**: 设置图标和重命名 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
-
-- ⌚ **Wear OS**: 直接从你的手表上快速查看你的认证器 请注意，需要与你的安卓设备连接
-
-
-(*) *要扫描二维码，此应用需要相机权限*
-
-
-**FAQ:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
-
-
-#### 免责声明: 
+<b>Disclaimer</b>
 
 这个软件是一个免费且自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证（许可证的第 3 版或（由您选择）任何更高版本）的条款重新分发和/或修改它。
 

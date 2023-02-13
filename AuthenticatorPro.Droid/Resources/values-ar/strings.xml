@@ -55,24 +55,24 @@
     <string name="algorithmHint">الخوارزمية</string>
     <string name="digitsHint">الأرقام</string>
     <string name="periodHint">الفترة (بالثواني)</string>
-    <string name="noIssuer">An issuer is required</string>
-    <string name="noSecret">A secret key is required</string>
+    <string name="noIssuer">المُصدر مطلوب</string>
+    <string name="noSecret">المفتاح السري مطلوب</string>
     <string name="noPin">A pin is required</string>
-    <string name="noFileName">A file name is required</string>
+    <string name="noFileName">اسم الملف مطلوب</string>
     <string name="secretInvalid">The secret is invalid</string>
     <string name="pinTooShort">The pin must contain at least {0} digits</string>
     <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
-    <string name="periodInvalid">The period is invalid</string>
-    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
+    <string name="periodInvalid">الفترة غير صالحة</string>
+    <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
     <string name="qrCodeNotFound">رمز QR غير موجود في الصورة</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
-    <string name="scanSuccessful">QR code scanned successfully</string>
+    <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
     <!-- QR code dialog -->
     <string name="qrCode">رمز QR</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
-    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="qrCodeNotSupported">رموز QR غير مدعومة لهذا النوع</string>
     <!-- Backup menu -->
     <string name="backupToFile">Back up to encrypted file (recommended)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
@@ -83,16 +83,16 @@
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
-    <string name="noAuthenticatorsTitle">Nothing here!</string>
+    <string name="noAuthenticatorsTitle">لا شيء هنا!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
-    <string name="gettingStartedGuide">Getting started guide</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
+    <string name="gettingStartedGuide">دليل بداية الاستخدام</string>
+    <string name="noAuthenticatorsHelp">إن كنت مستخدما جديدًا لتطبيق Authenticator Pro فراجع دليل بداية الاستخدام بالنقر أدناه.</string>
     <string name="noCategoriesTitle">لا توجد تصنيفات</string>
     <string name="noCategoriesMessage">ليس لديك أي تصنيفات مُعدة حتى الآن</string>
     <!-- Categories -->
     <string name="categories">التصنيفات</string>
     <string name="assignCategories">تعيين التصنيفات</string>
-    <string name="more">More</string>
+    <string name="more">المزيد</string>
     <string name="categoryAll">الكل</string>
     <string name="editCategories">تعديل التصنيفات</string>
     <string name="categoryNameHint">اسم التصنيف</string>
@@ -106,13 +106,13 @@
     <string name="restoreNow">عمل استعادة الآن</string>
     <string name="backupReminder">تم إجراء تغييرات منذ آخر نسخة احتياطية قمت بها</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
-    <string name="restoreError">The password is incorrect or the file is corrupt</string>
+    <string name="restoreError">كلمة المرور غير صحيحة أو أن الملف تالف</string>
     <string name="password">كلمة المرور</string>
     <string name="passwordConfirm">تأكيد كلمة المرور</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
     <string name="passwordHint">كلمة مرور النسخة الاحتياطية</string>
     <string name="fileNameHint">اسم ملف النسخ الاحتياطي</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="noAuthenticators">ليس لديك أي مُصادقات لإجراء نسخ احتياطية لها</string>
     <string name="encrypting">Encrypting</string>
     <string name="decrypting">Decrypting</string>
     <string name="saving">جاري الحفظ</string>
@@ -123,7 +123,7 @@
     <string name="restoredNothing">لاشيء لاستعادته</string>
     <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
+    <string name="cameraPermissionError">يجب منح إذن الكاميرا كي يتم مسح رمز QR</string>
     <string name="googlePlayNotInstalledError">متجر play غير مثَبت على جهازك</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error picking file</string>
@@ -143,23 +143,23 @@
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
     <string name="selectLocation">حدد موقعًا</string>
     <string name="noLocationSelected">لم يتم تحديد أي موقع</string>
-    <string name="locationSetTo">Location set to \'{0}\'</string>
+    <string name="locationSetTo">تم تعيين الموقع على \'{0}\'</string>
     <string name="setPassword">تعيين كلمة المرور</string>
     <string name="passwordNotSet">لم يتم تعيين كلمة المرور</string>
     <string name="passwordSet">تعيين كلمة المرور</string>
     <string name="notPasswordProtected">غير مَحْمي بكلمة مرور</string>
     <string name="enableAutoBackup">تفعيل النسخ الاحتياطي التلقائي</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackupMessage">النسخ الاحتياطي بشكل تلقائي في موقع التخزين الذي تم تحديده</string>
     <string name="batOptim">تحسين البطارية</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">قد تمنع إعدادات الطاقة أو البطارية النسخ الاحتياطي من العمل بالشكل الصحيح في بعض الأجهزة. إذا كنت تواجه مشكلات بهذا الخصوص فحاول تعطيل مِيزة تحسين البطارية لتطبيقAuthenticator Pro.</string>
     <string name="autoBackupFailureTitle">فشل النسخ الاحتياطي التلقائي</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">اكتمل النسخ الاحتياطي التلقائي</string>
     <string name="autoRestoreSuccessTitle">اكتملت الاستعادة التلقائية</string>
-    <string name="backupScheduled">Backup scheduled</string>
+    <string name="backupScheduled">تمت جدولة النسخ الاحتياطي</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="passwordSetupWarning">استعمل كلمة مرور يمكنك تذكرها لأنه لا يمكن استرداد قاعدة البيانات بدونها!</string>
     <string name="clearPassword">مسح كلمة المرور</string>
     <string name="confirmPassword">تأكيد كلمة المرور</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
@@ -185,8 +185,9 @@
     <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
-    <string name="uriList">URI list</string>
+    <string name="uriList">قائمة URl</string>
     <string name="uriListHint">Plain text list of otpauth URIs</string>
     <string name="viewGuideImportHint">View guide on project wiki</string>
     <!-- Getting Started Guide -->
@@ -194,7 +195,7 @@
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">استخدم الرمز عن تسجيل الدخول</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
-    <string name="guideCustomiseTitle">Customise and edit</string>
+    <string name="guideCustomiseTitle">التخصيص والتعديل</string>
     <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">الترتيب والفرز</string>
     <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
@@ -217,7 +218,7 @@
     <string name="prefSecurity">الحماية</string>
     <string name="prefPasswordTitle">كلمة المرور</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
-    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
+    <string name="prefDatabasePasswordBackupTitle">النسخ الاحتياطي بكلمة مرور قاعدة البيانات</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
@@ -249,7 +250,7 @@
     <string name="systemDefault">النظام الافتراضي</string>
     <string name="lightTheme">Light theme</string>
     <string name="darkTheme">Dark theme</string>
-    <string name="defaultViewMode">Default</string>
+    <string name="defaultViewMode">افتراضي</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
     <string name="two">2</string>
@@ -276,7 +277,7 @@
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">مرحبا بك في Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentication</string>
-    <string name="introBackupTitle">Backup / Restore</string>
+    <string name="introBackupTitle">النسخ الاحتياطي/ الاسترجاع</string>
     <string name="introCategoriesTitle">التصنيفات</string>
     <string name="introThemesTitle">Dark theme</string>
     <string name="introWelcomeSummary">شكرا لك على تحميل Authenticator Pro. \n حافظ على أمان حساباتك وحمايتها على الأنترنيت باستخدام أفضل تطبيق مصادقة مفتوح المصدر.</string>

@@ -1,40 +1,32 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+Um aplicativo gratuito de autenticação de dois fatores de código aberto para Android. Possui backups criptografados, ícones, categorias e um alto nível de personalização. Ele também possui um aplicativo complementar do Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Ele suporta autenticadores TOTP (baseado em tempo) e HOTP (baseado em contador) usando algoritmos de hash SHA1, SHA256 ou SHA512. Mobile-Otp (mOTP), Steam e Yandex também são suportados.
 
 A autenticação de 2 fatores fornece uma camada extra de segurança para suas contas, exigindo o uso de um código único para fazer login.
 Em adição ao nome de usuário e senha, você vai precisar de um código fornecido pelo Authenticator Pro. Então mesmo que os dados de login estejam comprometidos, suas contas estarão seguras.
 
-### Features
+<hr>
 
-- ⚙️ **Compatibility**: Authenticator Pro is compatible with most providers and accounts.
+<b>Características</b>
 
-- 📲 **Import**: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. Caso você perca ou troque seu telefone, sempre poderá acessar suas contas. Você pode salvar backups no armazenamento em nuvem ou no seu dispositivo.
+- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation</b>: Set icons and rename. Você também pode ordenar suas autenticações na ordem que preferir, assim fica fácil achá-las facilmente.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Por favor, note que é necessária uma conexão com seu dispositivo Android. Além disso, as distribuições do F-Droid do aplicativo não são compatíveis com o Wear OS, pois são necessárias dependências não livres.
 
-- 💾 **Backup / Restore**: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+(¹) *Para escanear códigos QR, o aplicativo requer a permissão da câmera.*
 
-- 🌙 **Dark Mode**: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
 
-- ⏺️ **Icons**: Find your authenticators easily with recognisable brand logos and icons next to each code.
+<hr>
 
-- 📂 **Categories**: Organise your authenticators into categories.
-
-- 🔒 **Offline with few permissions**: Authenticator Pro only requires a single permission (*) and does not require Internet access to function.
-
-- 🔑 **Security**: Set a password and use biometric authentification to protect your codes.
-
-- 🎨 **Customisation**: Set icons and rename. Você também pode ordenar suas autenticações na ordem que preferir, assim fica fácil achá-las facilmente.
-
-- ⌚ **Wear OS**: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required.
-
-
-(*) *To scan QR-Codes, the app requires the camera permission.*
-
-
-**Frequently Asked Questions:** https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions
-
-
-#### Disclaimer:
+<b>Aviso legal</b>
 
 Este é um programa livre: você pode distribuí-lo e/ou modificar sob os termos da licença GNU, como o publicado pela Free Software Foundation, na versão 3 da licença, ou (a seu critério) qualquer versão posterior.
 
