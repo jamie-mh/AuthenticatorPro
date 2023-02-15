@@ -35,7 +35,7 @@
     <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.4" />
     <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.18" />
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.1.6" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.7.0.2" />
   </ItemGroup>
   <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
