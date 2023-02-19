@@ -173,7 +173,10 @@ namespace AuthenticatorPro.WearOS.Activity
             catch (Exception e)
             {
                 Logger.Error(e);
-                Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show();
+                RunOnUiThread(delegate
+                {
+                    Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show();
+                });
             }
 
             RunOnUiThread(delegate
