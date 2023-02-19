@@ -45,6 +45,9 @@
     <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.0.3.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.1" />
   </ItemGroup>
+  <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
+    <AndroidResource Remove="Resources\values\wear.xml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj" />
     <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj" />
