@@ -1115,7 +1115,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.EnterKeyClicked += OpenAddDialog;
             fragment.RestoreClicked += delegate
             {
-                StartFilePickActivity(Backup.MimeType, RequestRestore);
+                StartFilePickActivity("*/*", RequestRestore);
             };
 
             fragment.ImportClicked += delegate
@@ -1499,32 +1499,37 @@ namespace AuthenticatorPro.Droid.Activity
                 }
 
                 await FinaliseRestore(result);
-                return;
             }
-
-            var bundle = new Bundle();
-            bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
-            var sheet = new BackupPasswordBottomSheet { Arguments = bundle };
-
-            sheet.PasswordEntered += async (_, password) =>
+            else if (!Backup.HasValidEncryptionHeader(data))
             {
-                sheet.SetBusyText(Resource.String.decrypting);
+                ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
+            }
+            else
+            {
+                var bundle = new Bundle();
+                bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
+                var sheet = new BackupPasswordBottomSheet { Arguments = bundle };
 
-                try
+                sheet.PasswordEntered += async (_, password) =>
                 {
-                    var result = await DecryptAndRestore(password);
-                    sheet.Dismiss();
-                    await FinaliseRestore(result);
-                }
-                catch (Exception e)
-                {
-                    Logger.Error(e);
-                    sheet.Error = GetString(Resource.String.restoreError);
-                    sheet.SetBusyText(null);
-                }
-            };
+                    sheet.SetBusyText(Resource.String.decrypting);
 
-            sheet.Show(SupportFragmentManager, sheet.Tag);
+                    try
+                    {
+                        var result = await DecryptAndRestore(password);
+                        sheet.Dismiss();
+                        await FinaliseRestore(result);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.Error(e);
+                        sheet.Error = GetString(Resource.String.restoreError);
+                        sheet.SetBusyText(null);
+                    }
+                };
+
+                sheet.Show(SupportFragmentManager, sheet.Tag);
+            }
         }
 
         private async Task ImportFromUri(BackupConverter converter, Uri uri)

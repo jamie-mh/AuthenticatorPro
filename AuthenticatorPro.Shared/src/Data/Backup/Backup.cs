@@ -101,10 +101,7 @@ namespace AuthenticatorPro.Shared.Data.Backup
             }
             else
             {
-                var foundHeader = data.Take(Header.Length).ToArray();
-                var headerBytes = Encoding.UTF8.GetBytes(Header);
-
-                if (!headerBytes.SequenceEqual(foundHeader))
+                if (!HasValidEncryptionHeader(data))
                 {
                     throw new ArgumentException("Header does not match");
                 }
@@ -151,6 +148,13 @@ namespace AuthenticatorPro.Shared.Data.Backup
             {
                 return false;
             }
+        }
+
+        public static bool HasValidEncryptionHeader(byte[] data)
+        {
+            var foundHeader = data.Take(Header.Length).ToArray();
+            var headerBytes = Encoding.UTF8.GetBytes(Header);
+            return headerBytes.SequenceEqual(foundHeader);
         }
     }
 }
