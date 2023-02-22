@@ -1500,11 +1500,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 await FinaliseRestore(result);
             }
-            else if (!Backup.HasValidEncryptionHeader(data))
-            {
-                ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
-            }
-            else
+            else if (Backup.HasValidEncryptionHeader(data))
             {
                 var bundle = new Bundle();
                 bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
@@ -1529,6 +1525,10 @@ namespace AuthenticatorPro.Droid.Activity
                 };
 
                 sheet.Show(SupportFragmentManager, sheet.Tag);
+            }
+            else
+            {
+                ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
             }
         }
 
