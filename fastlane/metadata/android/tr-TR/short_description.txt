@@ -1,1 +1,1 @@
-Free and open-source 2FA app with encrypted backups and Wear OS support
+Şifreli yedekleme ve Wear OS desteğine sahip ücretsiz ve açık kaynaklı 2FA uygulaması

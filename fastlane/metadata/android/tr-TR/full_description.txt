@@ -7,26 +7,26 @@ Kullanıcı adınız ve parolanız yanında Authenticator Pro tarafından sağla
 
 <hr>
 
-<b>Features</b>
+<b>Özellikler</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. Telefonunuzu kaybettiğiniz veya değiştirdiğiniz durumda, hesaplarınıza her zaman erişebilirsiniz. Yedeklemeleri bulut depolama alanına veya cihazınıza kaydedebilirsiniz.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. Ayrıca kimlik doğrulama kodlarınızı istediğiniz sırayla düzenleyerek kolayca bulabilirsiniz.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Android cihazınızla bağlantı kurulması gerektiğini lütfen unutmayın. Ayrıca, uygulamanın F-Droid dağıtımları Wear OS ile uyumlu değildir, çünkü özgür olmayan bağımlılıklar gereklidir.
+- ⚙️ <b>Uyumluluk</b>: Authenticator Pro çoğu sağlayıcı ve hesapla uyumludur.
+- 📲 <b>Aktarma</b>: Hesaplarınızı desteklenen alternatif uygulamalardan Authenticator Pro'ya kolayca aktarın.
+- 💾 <b>Yedekleme / Geri Yükleme</b>: Kimlik doğrulayıcılarınızı güçlü şifreleme ile yedekleyin. Telefonunuzu kaybettiğiniz veya değiştirdiğiniz durumda, hesaplarınıza her zaman erişebilirsiniz. Yedeklemeleri bulut depolama alanına veya cihazınıza kaydedebilirsiniz.
+- 🌙 <b>Karanlık Mod</b>: Authenticator Pro, açık veya koyu temalarda materyal tasarımdan ilham alan güzel bir görünüme sahiptir.
+- ⏺️ <b>Simgeler</b>: Her kodun yanındaki tanınabilir marka logoları ve simgelerle kimlik doğrulayıcılarınızı kolayca bulun.
+- 📂 <b>Kategoriler</b>: Kimlik doğrulayıcılarınızı kategoriler halinde düzenleyin.
+- 🔒 <b>Çok az izinle çevrimdışı</b>: Authenticator Pro yalnızca tek bir izin gerektirir ve çalışması için internet erişimi gerektirmez.
+- 🔑 <b>Güvenlik</b>: Kodlarınızı korumak için bir şifre belirleyin ve biyometrik kimlik doğrulamayı kullanın.
+- 🎨 <b>Özelleştirme</b>: Simgeleri ayarlayın ve yeniden adlandırın. Ayrıca kimlik doğrulama kodlarınızı istediğiniz sırayla düzenleyerek kolayca bulabilirsiniz.
+- ⌚ <b>Wear OS</b>: Kimlik doğrulayıcılarınızı doğrudan saatinizden hızlıca görüntüleyin. Android cihazınızla bağlantı kurulması gerektiğini lütfen unutmayın. Ayrıca, uygulamanın F-Droid dağıtımları Wear OS ile uyumlu değildir, çünkü özgür olmayan bağımlılıklar gereklidir.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(¹) * QR-Kodlarını taramak için uygulama kamera izni gerektirir.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> SSS</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Yasal Uyarı</b>
 
 Bu program özgür yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı’nın sürüm 3 ya da (isteğinize bağlı olarak) daha sonraki sürümlerinin hükümleri altında yeniden dağıtabilir ve/veya değiştirebilirsiniz.
 
