@@ -36,7 +36,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_qr_code"
+                        android:src="@drawable/twotone_qr_code_24"
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
@@ -71,7 +71,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_timer"
+                        android:src="@drawable/twotone_timer_24"
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
@@ -106,7 +106,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_edit"
+                        android:src="@drawable/twotone_edit_24"
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
@@ -141,7 +141,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_sort"
+                        android:src="@drawable/baseline_sort_24"
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
@@ -176,7 +176,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_save"
+                        android:src="@drawable/twotone_save_24"
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
@@ -212,7 +212,7 @@
                     <ImageView
                         android:layout_width="32dp"
                         android:layout_height="32dp"
-                        android:src="@drawable/ic_watch"
+                        android:src="@drawable/twotone_watch_24"
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 

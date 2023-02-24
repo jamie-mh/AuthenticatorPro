@@ -14,7 +14,6 @@
 
     <ImageView
         android:id="@+id/imageIcon"
-        android:tint="?attr/colorSecondary"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"

@@ -94,7 +94,7 @@
 
                         <ImageButton
                             android:id="@+id/buttonRefresh"
-                            android:src="@drawable/ic_refresh"
+                            android:src="@drawable/baseline_refresh_24"
                             android:tint="?attr/colorOnSurface"
                             android:scaleType="centerInside"
                             android:textSize="14dp"
@@ -105,7 +105,7 @@
 
                         <ImageButton
                             android:id="@+id/buttonMenu"
-                            android:src="@drawable/ic_expand_more"
+                            android:src="@drawable/baseline_more_horiz_24"
                             android:tint="?attr/colorOnSurface"
                             android:scaleType="centerInside"
                             android:textSize="14dp"

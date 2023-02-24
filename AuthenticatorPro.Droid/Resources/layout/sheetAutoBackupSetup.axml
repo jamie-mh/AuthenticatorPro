@@ -53,8 +53,7 @@
 
                 <ImageView
                     android:id="@+id/imageIcon"
-                    android:src="@drawable/ic_folder"
-                    android:tint="?attr/colorSecondary"
+                    android:src="@drawable/baseline_folder_24"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
@@ -100,8 +99,7 @@
 
                 <ImageView
                     android:id="@+id/imageIcon"
-                    android:src="@drawable/ic_key"
-                    android:tint="?attr/colorSecondary"
+                    android:src="@drawable/baseline_vpn_key_24"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"

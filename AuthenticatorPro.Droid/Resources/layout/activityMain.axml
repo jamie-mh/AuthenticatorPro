@@ -125,14 +125,14 @@
         app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:paddingBottomSystemWindowInsets="true"
-        app:navigationIcon="@drawable/ic_menu"
+        app:navigationIcon="@drawable/baseline_menu_24"
         app:navigationIconTint="?attr/colorOnSurface"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/baseline_add_24"
         app:tint="@color/colorDark"
         app:layout_anchor="@id/bottomAppBar"
         app:backgroundTint="?attr/colorAccent"/>

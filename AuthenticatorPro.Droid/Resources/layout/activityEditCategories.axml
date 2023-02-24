@@ -68,7 +68,7 @@
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/baseline_add_24"
         app:useCompatPadding="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
