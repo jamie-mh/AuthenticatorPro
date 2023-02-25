@@ -49,14 +49,14 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.ic_action_edit, Resource.String.rename, RenameClicked),
-                    new(Resource.Drawable.ic_action_image, Resource.String.changeIcon,
+                    new(Resource.Drawable.baseline_edit_24, Resource.String.rename, RenameClicked),
+                    new(Resource.Drawable.baseline_image_24, Resource.String.changeIcon,
                         ChangeIconClicked),
-                    new(Resource.Drawable.ic_action_category, Resource.String.assignCategories,
+                    new(Resource.Drawable.baseline_category_24, Resource.String.assignCategories,
                         AssignCategoriesClicked),
-                    new(Resource.Drawable.ic_action_qr_code, Resource.String.showQrCode,
+                    new(Resource.Drawable.baseline_qr_code_24, Resource.String.showQrCode,
                         ShowQrCodeClicked),
-                    new(Resource.Drawable.ic_action_delete, Resource.String.delete, DeleteClicked, null,
+                    new(Resource.Drawable.baseline_delete_24, Resource.String.delete, DeleteClicked, null,
                         true)
                 });
 

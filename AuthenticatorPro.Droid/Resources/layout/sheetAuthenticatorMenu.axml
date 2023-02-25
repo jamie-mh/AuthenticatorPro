@@ -22,7 +22,8 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:src="@drawable/ic_action_refresh"
+            android:src="@drawable/baseline_refresh_24"
+            android:tint="?attr/colorOnSurface"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="32dp"
             android:layout_width="24dp"

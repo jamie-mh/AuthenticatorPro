@@ -23,7 +23,7 @@ namespace AuthenticatorPro.WearOS.List
 
         public override Drawable GetItemDrawable(int pos)
         {
-            return ContextCompat.GetDrawable(_context, Resource.Drawable.ic_menu);
+            return ContextCompat.GetDrawable(_context, Resource.Drawable.baseline_menu_24);
         }
 
         public override ICharSequence GetItemTextFormatted(int pos)

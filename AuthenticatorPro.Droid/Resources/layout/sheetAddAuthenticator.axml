@@ -97,7 +97,7 @@
                 android:id="@+id/editSecretLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
-                app:endIconDrawable="@drawable/ic_action_vpn_key"
+                app:endIconDrawable="@drawable/baseline_vpn_key_24"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -121,7 +121,7 @@
                 android:visibility="gone"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
-                app:endIconDrawable="@drawable/ic_action_lock"
+                app:endIconDrawable="@drawable/baseline_lock_24"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

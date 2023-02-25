@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorLighter</item>"
 
         <item name="colorSurface">@color/colorLightest</item>
-        <item name="colorOnSurface">#292929</item>
+        <item name="colorOnSurface">#575757</item>
 
         <item name="colorError">@color/colorError</item>
 

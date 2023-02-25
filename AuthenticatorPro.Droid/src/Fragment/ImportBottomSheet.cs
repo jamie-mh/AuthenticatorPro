@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Droid.Fragment
                         FreeOtpPlusClicked, Resource.String.freeOtpPlusImportHint),
                     new(Resource.Drawable.ic_aegis, Resource.String.aegis, AegisClicked,
                         Resource.String.aegisImportHint),
-                    new(Shared.Resource.Drawable.auth_bitwarden, Resource.String.bitwarden,
+                    new(Resource.Drawable.ic_bitwarden, Resource.String.bitwarden,
                         BitwardenClicked, Resource.String.bitwardenImportHint),
                     new(Resource.Drawable.ic_winauth, Resource.String.winAuth, WinAuthClicked,
                         Resource.String.winAuthImportHint),
@@ -56,11 +56,11 @@ namespace AuthenticatorPro.Droid.Fragment
                         Resource.String.viewGuideImportHint),
                     new(Resource.Drawable.ic_totpauthenticator, Resource.String.totpAuthenticator,
                         TotpAuthenticatorClicked, Resource.String.totpAuthenticatorImportHint),
-                    new(Shared.Resource.Drawable.auth_steam, Resource.String.steam, SteamClicked,
+                    new(Resource.Drawable.ic_steam, Resource.String.steam, SteamClicked,
                         Resource.String.viewGuideImportHint),
-                    new(Shared.Resource.Drawable.auth_blizzard, Resource.String.blizzardAuthenticator,
+                    new(Resource.Drawable.ic_blizzard, Resource.String.blizzardAuthenticator,
                         BlizzardAuthenticatorClicked, Resource.String.viewGuideImportHint),
-                    new(Resource.Drawable.ic_list, Resource.String.uriList, UriListClicked,
+                    new(Resource.Drawable.baseline_list_24, Resource.String.uriList, UriListClicked,
                         Resource.String.uriListHint)
                 });
 

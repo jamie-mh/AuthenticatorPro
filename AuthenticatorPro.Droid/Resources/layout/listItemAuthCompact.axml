@@ -94,7 +94,8 @@
 
                 <ImageButton
                     android:id="@+id/buttonMenu"
-                    android:src="@drawable/ic_action_more_vert"
+                    android:src="@drawable/baseline_more_vert_24"
+                    android:tint="?attr/colorOnSurface"
                     android:scaleType="centerInside"
                     android:textSize="12dp"
                     android:background="?selectableItemBackgroundBorderless"
@@ -103,7 +104,8 @@
 
                 <ImageButton
                     android:id="@+id/buttonRefresh"
-                    android:src="@drawable/ic_action_refresh"
+                    android:src="@drawable/baseline_refresh_24"
+                    android:tint="?attr/colorOnSurface"
                     android:layout_marginTop="2dp"
                     android:scaleType="centerInside"
                     android:textSize="12dp"

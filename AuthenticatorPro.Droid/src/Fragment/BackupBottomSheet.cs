@@ -27,12 +27,12 @@ namespace AuthenticatorPro.Droid.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.ic_action_file_lock, Resource.String.backupToFile,
+                    new(Resource.Drawable.baseline_lock_24, Resource.String.backupToFile,
                         BackupFileClicked, Resource.String.backupToFileMessage),
-                    new(Resource.Drawable.ic_action_code, Resource.String.backupHtml,
+                    new(Resource.Drawable.baseline_html_24, Resource.String.backupHtml,
                         delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, BackupHtmlFileClicked); },
                         Resource.String.backupHtmlMessage),
-                    new(Resource.Drawable.ic_list, Resource.String.backupUriList,
+                    new(Resource.Drawable.baseline_list_24, Resource.String.backupUriList,
                         delegate { ShowUnencryptedWarning(Resource.String.backupUriListWarning, BackupUriListClicked); },
                         Resource.String.backupUriListMessage)
                 });
