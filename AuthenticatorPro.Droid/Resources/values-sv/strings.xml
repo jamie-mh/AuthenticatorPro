@@ -215,6 +215,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Språk</string>
     <string name="prefLanguageSummary">Välj vilket språk som ska visas i appen</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
     <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina autentiserare. Databasen kommer att krypteras med ditt lösenord.</string>
