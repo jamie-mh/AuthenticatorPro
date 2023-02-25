@@ -215,6 +215,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Taal</string>
     <string name="prefLanguageSummary">Kies een taal om te gebruiken in de app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Veiligheid</string>
     <string name="prefPasswordTitle">Wachtwoord</string>
     <string name="prefPasswordSummary">Wachtwoord is vereist om toegang te krijgen tot de authenticators. De database zal versleuteld worden met uw wachtwoord.</string>
