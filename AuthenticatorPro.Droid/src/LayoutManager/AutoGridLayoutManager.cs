@@ -42,7 +42,7 @@ namespace AuthenticatorPro.Droid.LayoutManager
 
         public override bool SupportsPredictiveItemAnimations()
         {
-            return false;
+            return true;
         }
     }
 }
