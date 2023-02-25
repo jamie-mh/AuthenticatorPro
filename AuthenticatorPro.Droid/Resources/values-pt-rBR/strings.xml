@@ -216,6 +216,8 @@
     <string name="prefAutoBackupSummary">Faça o backup automaticamente em um local específico quando as alterações forem feitas. Desabilita os lembretes de backup.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Escolha um idioma para usar em todo o aplicativo</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Senha</string>
     <string name="prefPasswordSummary">Uma senha é necessária para acessar os autenticadores. O banco de dados será encriptado com sua senha.</string>
