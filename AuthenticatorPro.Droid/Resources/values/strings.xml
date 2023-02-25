@@ -260,12 +260,12 @@
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
-
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
-
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
 
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Password</string>

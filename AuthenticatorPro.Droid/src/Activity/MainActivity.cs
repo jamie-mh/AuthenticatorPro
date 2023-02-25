@@ -1000,6 +1000,11 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void OnAuthenticatorClicked(object sender, int position)
         {
+            if (!_preferences.TapToCopy)
+            {
+                return;
+            }
+
             var auth = _authenticatorView[position];
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
             var clip = ClipData.NewPlainText("code", auth.GetCode());

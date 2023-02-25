@@ -31,6 +31,15 @@ namespace AuthenticatorPro.Droid.Util
             set => SetPreference(LanguageKey, value);
         }
 
+        private const string TapToCopyKey = "pref_tapToCopy";
+        private const bool TapToCopyDefault = true;
+
+        public bool TapToCopy
+        {
+            get => Preferences.GetBoolean(TapToCopyKey, TapToCopyDefault);
+            set => SetPreference(TapToCopyKey, value);
+        }
+
         private const string PasswordProtectedKey = "pref_passwordProtected";
         private const bool PasswordProtectedDefault = false;
 
