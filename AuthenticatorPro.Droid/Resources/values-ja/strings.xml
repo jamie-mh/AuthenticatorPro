@@ -215,6 +215,8 @@
     <string name="prefAutoBackupSummary">変更すると、指定した場所へ自動的にバックアップします。バックアップのリマインダーを無効にします。</string>
     <string name="prefLanguageTitle">言語設定</string>
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">セキュリティ</string>
     <string name="prefPasswordTitle">パスワード</string>
     <string name="prefPasswordSummary">認証コードへのアクセスにはパスワードが必要です。データベースはパスワードで暗号化されます。</string>
