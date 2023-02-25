@@ -37,6 +37,7 @@
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
                         android:layout_toStartOf="@id/imageIcon"
                         android:layout_marginEnd="12dp"
                         android:layout_width="wrap_content"
