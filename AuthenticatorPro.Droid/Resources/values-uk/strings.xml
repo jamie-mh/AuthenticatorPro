@@ -215,6 +215,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Мова</string>
     <string name="prefLanguageSummary">Оберіть мову для використання у застосунку</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Безпека</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Вимагати пароль для доступу до автентифікаторів. База даних буде зашифрована вашим паролем.</string>
