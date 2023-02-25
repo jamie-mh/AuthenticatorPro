@@ -218,6 +218,8 @@
     <string name="prefAutoBackupSummary">Değişiklikler yapıldığında otomatik olarak belirli bir konuma yedekleyin. Yedekleme hatırlatıcılarını devre dışı bırakır.</string>
     <string name="prefLanguageTitle">Dil</string>
     <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
