@@ -215,6 +215,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">ความปลอดภัย</string>
     <string name="prefPasswordTitle">รหัสผ่าน</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
