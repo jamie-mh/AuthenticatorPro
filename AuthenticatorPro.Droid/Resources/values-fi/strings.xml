@@ -215,6 +215,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Kieli</string>
     <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>
