@@ -12,14 +12,14 @@ namespace AuthenticatorPro.Test.Entity
     {
         [Theory]
         [ClassData(typeof(GetOtpAuthUriClassData))]
-        public void GetOtpAuthUriTest(Authenticator auth, string uri)
+        public void GetOtpAuthUri(Authenticator auth, string uri)
         {
             Assert.Equal(uri, auth.GetUri());
         }
 
         [Theory]
         [ClassData(typeof(ValidateClassData))]
-        public void ValidateTest(Authenticator auth, bool isValid)
+        public void Validate(Authenticator auth, bool isValid)
         {
             if (!isValid)
             {

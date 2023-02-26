@@ -26,7 +26,7 @@ namespace AuthenticatorPro.Test.Generator
         [InlineData(7, "162583")]
         [InlineData(8, "399871")]
         [InlineData(9, "520489")]
-        public void ComputeTest(long counter, string expected)
+        public void Compute(long counter, string expected)
         {
             Assert.Equal(expected, _computeTestHotp.Compute(counter));
         }

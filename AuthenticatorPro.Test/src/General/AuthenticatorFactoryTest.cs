@@ -38,7 +38,7 @@ namespace AuthenticatorPro.Test.General
         [InlineData("otpauth://hotp/issuer:username?secret=ABCDEFG&counter=-1")] // Invalid counter 2/2
         [InlineData("motp://fail")] // Invalid mOTP
         [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=test")] // Invalid Yandex pin length
-        public void FromInvalidOtpAuthUriTest(string uri)
+        public void FromInvalidOtpAuthUri(string uri)
         {
             Assert.Throws<ArgumentException>(delegate
             {
@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Test.General
 
         [Theory]
         [ClassData(typeof(FromValidOtpAuthUriClassData))]
-        public void FromValidOtpAuthUriTest(string uri, Authenticator b, int pinLength)
+        public void FromValidOtpAuthUri(string uri, Authenticator b, int pinLength)
         {
             var result = AuthenticatorFactory.ParseUri(uri, _iconResolver.Object);
 
@@ -74,7 +74,7 @@ namespace AuthenticatorPro.Test.General
         [InlineData("otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&period=60")] // Period parameter
         [InlineData(
             "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512")] // Algorithm parameter
-        public void FromOtpAuthUriToOtpAuthUriTest(string uri)
+        public void FromOtpAuthUriToOtpAuthUri(string uri)
         {
             var auth = AuthenticatorFactory.ParseUri(uri, _iconResolver.Object).Authenticator;
             Assert.Equal(uri, auth.GetUri());
@@ -82,7 +82,7 @@ namespace AuthenticatorPro.Test.General
 
         [Theory]
         [ClassData(typeof(FromOtpAuthMigrationAuthenticatorClassData))]
-        public void FromOtpAuthMigrationAuthenticatorTest(OtpAuthMigration.Authenticator migration, Authenticator b)
+        public void FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator migration, Authenticator b)
         {
             var a = AuthenticatorFactory.FromOtpAuthMigrationAuthenticator(migration, _iconResolver.Object);
 

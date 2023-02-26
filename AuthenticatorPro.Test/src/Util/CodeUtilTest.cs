@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Test.Util
         [InlineData("123456789", "123 456 789", 9, 3)]
         [InlineData("123456", "12 34 56", 6, 2)]
         [InlineData("123456", "1234 56", 6, 4)]
-        public void PadCodeTest(string input, string expected, int digits, int groupSize)
+        public void PadCode(string input, string expected, int digits, int groupSize)
         {
             var padded = CodeUtil.PadCode(input, digits, groupSize);
             Assert.Equal(expected, padded);

@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Test.Util
             AuthenticatorType.MobileOtp)] // Remove hyphens
         [InlineData("abcdefg", "abcdefg", AuthenticatorType.MobileOtp)] // Preserve case 1/2
         [InlineData("ABCDEFG", "ABCDEFG", AuthenticatorType.MobileOtp)] // Preserve case 2/2
-        public void CleanSecretTest(string input, string output, params AuthenticatorType[] types)
+        public void Clean(string input, string output, params AuthenticatorType[] types)
         {
             foreach (var type in types)
             {
@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Test.Util
         [InlineData("aaaaaaaaaaaaaaaa", true, AuthenticatorType.MobileOtp)] // Valid (lowercase)
         [InlineData("aaaaaaaaaaaaaaa", false, AuthenticatorType.MobileOtp)] // Too few characters
         [InlineData("aaaaaaaaaaaaaaa", false, AuthenticatorType.YandexOtp)] // Too few Yandex bytes
-        public void ValidateSecretTest(string secret, bool isValid, params AuthenticatorType[] types)
+        public void Validate(string secret, bool isValid, params AuthenticatorType[] types)
         {
             foreach (var type in types)
             {

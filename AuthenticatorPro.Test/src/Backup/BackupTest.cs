@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Test.Backup
             @"#n*rF;y3zVPr,B3*qP""C,S[NFk""qswBC;k2*E_gQ&)4Rh.h[f;WG)5w3uY7MGvM/wngR]72BP9;{)_~+Vd""ukx'S]Zt[!cE='43f}J:J_TR<\:`w""{\+`dgdy%vD]Ts:xKAXzgRW!_7vWF]zg*u.)F#ZzzY&[LEHFXH(D@M7Y""'6.e7n~u""[4kyc'TGF28Q""xgNg.!5=;Hfx'e)fx,:#mLmkA(*ty]4]7#;^?*QF4xDK&Fx-)f}(ph=PL*N'#w9`")]
         [InlineData("你好世界")]
         [InlineData("😀 😃 😄 😁 😆 😅 😂 🤣")]
-        public void ToBytesFromBytesTest(string password)
+        public void ToBytesFromBytes(string password)
         {
             var transformed = Core.Backup.Backup.FromBytes(_backupFixture.Backup.ToBytes(password), password);
             Assert.Equal(_backupFixture.Backup, transformed, _backupComparer);

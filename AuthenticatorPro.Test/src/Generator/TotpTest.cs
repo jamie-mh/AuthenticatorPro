@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Test.Generator
         [InlineData(20000000000, "65353130", HashAlgorithm.Sha1)]
         [InlineData(20000000000, "77737706", HashAlgorithm.Sha256)]
         [InlineData(20000000000, "47863826", HashAlgorithm.Sha512)]
-        public void ComputeTest(long offset, string expectedResult, HashAlgorithm algorithm)
+        public void Compute(long offset, string expectedResult, HashAlgorithm algorithm)
         {
             var secret = algorithm switch
             {
