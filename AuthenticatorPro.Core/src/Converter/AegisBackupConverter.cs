@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using Newtonsoft.Json;
@@ -15,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Core.Backup.Converter
+namespace AuthenticatorPro.Core.Converter
 {
     public class AegisBackupConverter : BackupConverter
     {
@@ -207,7 +208,7 @@ namespace AuthenticatorPro.Core.Backup.Converter
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup(authenticators, categories, bindings, icons);
+            var backup = new Backup.Backup(authenticators, categories, bindings, icons);
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 

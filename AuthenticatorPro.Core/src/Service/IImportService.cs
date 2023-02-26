@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Core.Backup;
-using AuthenticatorPro.Core.Backup.Converter;
+using AuthenticatorPro.Core.Converter;
 using System;
 using System.Threading.Tasks;
 

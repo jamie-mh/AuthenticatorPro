@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using Newtonsoft.Json;
 using System;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Core.Backup.Converter
+namespace AuthenticatorPro.Core.Converter
 {
     public class BitwardenBackupConverter : BackupConverter
     {
@@ -78,7 +79,7 @@ namespace AuthenticatorPro.Core.Backup.Converter
                 bindings.Add(new AuthenticatorCategory(auth.Secret, category.Id));
             }
 
-            var backup = new Backup(authenticators, categories, bindings);
+            var backup = new Backup.Backup(authenticators, categories, bindings);
             var result = new ConversionResult { Failures = failures, Backup = backup };
 
             return Task.FromResult(result);

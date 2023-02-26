@@ -1,9 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Core.Backup.Converter
+namespace AuthenticatorPro.Core.Converter
 {
     public abstract class BackupConverter
     {

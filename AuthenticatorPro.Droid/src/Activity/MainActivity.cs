@@ -28,7 +28,7 @@ using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup;
-using AuthenticatorPro.Core.Backup.Converter;
+using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;

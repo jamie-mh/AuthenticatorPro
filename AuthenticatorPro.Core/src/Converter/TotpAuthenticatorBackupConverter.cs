@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -12,7 +13,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Core.Backup.Converter
+namespace AuthenticatorPro.Core.Converter
 {
     public class TotpAuthenticatorBackupConverter : BackupConverter
     {
@@ -51,7 +52,7 @@ namespace AuthenticatorPro.Core.Backup.Converter
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup(authenticators);
+            var backup = new Backup.Backup(authenticators);
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 

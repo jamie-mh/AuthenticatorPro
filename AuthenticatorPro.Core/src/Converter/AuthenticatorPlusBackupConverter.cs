@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using SimpleBase;
 using SQLite;
@@ -10,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Core.Backup.Converter
+namespace AuthenticatorPro.Core.Converter
 {
     public class AuthenticatorPlusBackupConverter : BackupConverter
     {
@@ -103,7 +104,7 @@ namespace AuthenticatorPro.Core.Backup.Converter
                 }
             }
 
-            var backup = new Backup(authenticators, categories, bindings);
+            var backup = new Backup.Backup(authenticators, categories, bindings);
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 

@@ -1,13 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthenticatorPro.Core.Backup.Converter
+namespace AuthenticatorPro.Core.Converter
 {
     public class UriListBackupConverter : BackupConverter
     {
@@ -46,7 +47,7 @@ namespace AuthenticatorPro.Core.Backup.Converter
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup(authenticators);
+            var backup = new Backup.Backup(authenticators);
             var result = new ConversionResult { Failures = failures, Backup = backup };
 
             return Task.FromResult(result);

@@ -4,7 +4,7 @@
 using AuthenticatorPro.Core.Util;
 using Xunit;
 
-namespace AuthenticatorPro.Test
+namespace AuthenticatorPro.Test.Util
 {
     public class CodeUtilTest
     {
