@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Core.Entity
                 AuthenticatorType.MobileOtp => new MobileOtp(Secret, Pin),
                 AuthenticatorType.SteamOtp => new SteamOtp(Secret),
                 AuthenticatorType.YandexOtp => new YandexOtp(Secret, Pin),
-                _ => throw new ArgumentException("Unknown authenticator type.")
+                _ => throw new ArgumentException("Unknown authenticator type")
             };
 
             switch (Type.GetGenerationMethod())
@@ -401,7 +401,6 @@ namespace AuthenticatorPro.Core.Entity
             {
                 var algorithmName = Algorithm switch
                 {
-                    HashAlgorithm.Sha1 => "SHA1",
                     HashAlgorithm.Sha256 => "SHA256",
                     HashAlgorithm.Sha512 => "SHA512",
                     _ => throw new NotSupportedException("Unsupported algorithm")

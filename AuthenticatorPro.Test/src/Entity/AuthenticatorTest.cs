@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Test.Entity
         [InlineData("otpauth://totp/?secret=ABCDEFG")] // No issuer username
         [InlineData("otpauth://totp")] // No parameters
         [InlineData("otpauth://fail")] // Invalid scheme
-        [InlineData("otpauth://totp?issuer=test")] // No secret
+        [InlineData("otpauth://totp/test:username?issuer=test")] // No secret
         [InlineData("otpauth://test/issuer:username?secret=ABCDEFG")] // Invalid type
         [InlineData("otpauth://totp/issuer:username?secret=ABCDEFG&algorithm=something")] // Invalid algorithm
         [InlineData("otpauth://totp/issuer:username?secret=ABCDEFG&digits=0")] // Invalid digits 1/2
@@ -36,6 +36,8 @@ namespace AuthenticatorPro.Test.Entity
         [InlineData("otpauth://totp/issuer:username?secret=ABCDEFG&period=test")] // Invalid period 2/2
         [InlineData("otpauth://hotp/issuer:username?secret=ABCDEFG&counter=test")] // Invalid counter 1/2
         [InlineData("otpauth://hotp/issuer:username?secret=ABCDEFG&counter=-1")] // Invalid counter 2/2
+        [InlineData("motp://fail")] // Invalid mOTP
+        [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=test")] // Invalid Yandex pin length
         public void FromInvalidOtpAuthUriTest(string uri)
         {
             Assert.Throws<ArgumentException>(delegate
@@ -134,6 +136,7 @@ namespace AuthenticatorPro.Test.Entity
         [InlineData("AAAAAAAAAAAAAAAA", true, AuthenticatorType.MobileOtp)] // Valid (uppercase)
         [InlineData("aaaaaaaaaaaaaaaa", true, AuthenticatorType.MobileOtp)] // Valid (lowercase)
         [InlineData("aaaaaaaaaaaaaaa", false, AuthenticatorType.MobileOtp)] // Too few characters
+        [InlineData("aaaaaaaaaaaaaaa", false, AuthenticatorType.YandexOtp)] // Too few Yandex bytes
         public void ValidateSecretTest(string secret, bool isValid, params AuthenticatorType[] types)
         {
             foreach (var type in types)

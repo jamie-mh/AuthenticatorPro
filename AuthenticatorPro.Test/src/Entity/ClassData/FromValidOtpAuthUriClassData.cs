@@ -240,6 +240,18 @@ namespace AuthenticatorPro.Test.Entity.ClassData
             }; // Truncate username
             yield return new object[]
             {
+                $"otpauth://totp/:username?secret=ABCDEFG",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp,
+                    Issuer = "username",
+                    Username = null,
+                    Secret = "ABCDEFG"
+                },
+                0
+            }; // Blank issuer
+            yield return new object[]
+            {
                 "otpauth://totp/%F0%9F%98%80%3Ausername?secret=ABCDEFG",
                 new Authenticator
                 {

@@ -112,11 +112,23 @@ namespace AuthenticatorPro.Test.Entity.ClassData
                     Issuer = "issuer",
                     Username = "username",
                     Secret = "ABCDEFG",
+                    Algorithm = HashAlgorithm.Sha1
+                },
+                "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer"
+            }; // Algorithm parameter default
+            yield return new object[]
+            {
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp,
+                    Issuer = "issuer",
+                    Username = "username",
+                    Secret = "ABCDEFG",
                     Digits = 7,
                     Period = 60,
-                    Algorithm = HashAlgorithm.Sha512
+                    Algorithm = HashAlgorithm.Sha256
                 },
-                "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512&digits=7&period=60"
+                "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA256&digits=7&period=60"
             }; // All parameters
             yield return new object[]
             {
