@@ -1,20 +1,20 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Test.Backup.Comparer;
 using Xunit;
 
-namespace AuthenticatorPro.Test.BackupTest
+namespace AuthenticatorPro.Test.Backup
 {
-    public class BackupTest
+    public class BackupTest : IClassFixture<BackupFixture>
     {
         private readonly BackupComparer _backupComparer;
-        private readonly Backup _testBackup;
+        private readonly BackupFixture _backupFixture;
 
-        public BackupTest(Backup testBackup)
+        public BackupTest(BackupFixture backupFixture)
         {
             _backupComparer = new BackupComparer();
-            _testBackup = testBackup;
+            _backupFixture = backupFixture;
         }
 
         [Theory]
@@ -35,8 +35,8 @@ namespace AuthenticatorPro.Test.BackupTest
         [InlineData("😀 😃 😄 😁 😆 😅 😂 🤣")]
         public void ToBytesFromBytesTest(string password)
         {
-            var transformed = Backup.FromBytes(_testBackup.ToBytes(password), password);
-            Assert.Equal(_testBackup, transformed, _backupComparer);
+            var transformed = Core.Backup.Backup.FromBytes(_backupFixture.Backup.ToBytes(password), password);
+            Assert.Equal(_backupFixture.Backup, transformed, _backupComparer);
         }
     }
 }

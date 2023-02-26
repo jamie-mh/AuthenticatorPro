@@ -1,34 +1,16 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core;
-using AuthenticatorPro.Core.Backup;
-using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using System.IO;
 
 namespace AuthenticatorPro.Test
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
+        public static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IIconResolver, MockIconResolver>();
-
-            services.AddTransient(provider =>
-            {
-                var contents = File.ReadAllText("test.authpro");
-                return JsonConvert.DeserializeObject<Backup>(contents);
-            });
-
-            services.AddSingleton<IAuthenticatorRepository, InMemoryAuthenticatorRepository>();
-            services.AddSingleton<IAuthenticatorCategoryRepository, InMemoryAuthenticatorCategoryRepository>();
-            services.AddSingleton<ICategoryRepository, InMemoryCategoryRepository>();
-            services.AddSingleton<ICustomIconRepository, InMemoryCustomIconRepository>();
-
             services.AddScoped<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
             services.AddScoped<IAuthenticatorService, AuthenticatorService>();
             services.AddScoped<IBackupService, BackupService>();

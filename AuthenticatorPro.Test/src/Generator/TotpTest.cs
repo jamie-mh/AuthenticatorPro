@@ -5,7 +5,7 @@ using AuthenticatorPro.Core.Generator;
 using System;
 using Xunit;
 
-namespace AuthenticatorPro.Test.AuthenticatorTest
+namespace AuthenticatorPro.Test.Generator
 {
     public class TotpTest
     {

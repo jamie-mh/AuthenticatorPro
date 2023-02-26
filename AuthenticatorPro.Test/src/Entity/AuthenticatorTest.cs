@@ -3,21 +3,23 @@
 
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Test.AuthenticatorTest.ClassData;
+using AuthenticatorPro.Test.Entity.ClassData;
+using Moq;
 using SimpleBase;
 using System;
 using System.Linq;
 using Xunit;
 
-namespace AuthenticatorPro.Test.AuthenticatorTest
+namespace AuthenticatorPro.Test.Entity
 {
     public class AuthenticatorTest
     {
-        private readonly IIconResolver _iconResolver;
+        private readonly Mock<IIconResolver> _iconResolver;
 
-        public AuthenticatorTest(IIconResolver iconResolver)
+        public AuthenticatorTest()
         {
-            _iconResolver = iconResolver;
+            _iconResolver = new Mock<IIconResolver>();
+            _iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns("default");
         }
 
         [Theory]
@@ -38,7 +40,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         {
             Assert.Throws<ArgumentException>(delegate
             {
-                _ = Authenticator.ParseUri(uri, _iconResolver);
+                _ = Authenticator.ParseUri(uri, _iconResolver.Object);
             });
         }
 
@@ -46,7 +48,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         [ClassData(typeof(FromValidOtpAuthUriClassData))]
         public void FromValidOtpAuthUriTest(string uri, Authenticator b, int pinLength)
         {
-            var result = Authenticator.ParseUri(uri, _iconResolver);
+            var result = Authenticator.ParseUri(uri, _iconResolver.Object);
 
             var a = result.Authenticator;
             Assert.Equal(b.Type, a.Type);
@@ -72,7 +74,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
             "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512")] // Algorithm parameter
         public void FromOtpAuthUriToOtpAuthUriTest(string uri)
         {
-            var auth = Authenticator.ParseUri(uri, _iconResolver).Authenticator;
+            var auth = Authenticator.ParseUri(uri, _iconResolver.Object).Authenticator;
             Assert.Equal(uri, auth.GetUri());
         }
 
@@ -80,7 +82,7 @@ namespace AuthenticatorPro.Test.AuthenticatorTest
         [ClassData(typeof(FromOtpAuthMigrationAuthenticatorClassData))]
         public void FromOtpAuthMigrationAuthenticatorTest(OtpAuthMigration.Authenticator migration, Authenticator b)
         {
-            var a = Authenticator.FromOtpAuthMigrationAuthenticator(migration, _iconResolver);
+            var a = Authenticator.FromOtpAuthMigrationAuthenticator(migration, _iconResolver.Object);
 
             Assert.Equal(b.Type, a.Type);
             Assert.Equal(b.Algorithm, a.Algorithm);

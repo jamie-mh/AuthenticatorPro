@@ -1,17 +1,16 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Comparer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AuthenticatorPro.Test.BackupTest
+namespace AuthenticatorPro.Test.Backup.Comparer
 {
-    public class BackupComparer : IEqualityComparer<Backup>
+    public class BackupComparer : IEqualityComparer<Core.Backup.Backup>
     {
-        public bool Equals(Backup x, Backup y)
+        public bool Equals(Core.Backup.Backup x, Core.Backup.Backup y)
         {
             if (ReferenceEquals(x, y))
             {
@@ -40,7 +39,7 @@ namespace AuthenticatorPro.Test.BackupTest
                    x.CustomIcons.SequenceEqual(y.CustomIcons, new CustomIconComparer());
         }
 
-        public int GetHashCode(Backup obj)
+        public int GetHashCode(Core.Backup.Backup obj)
         {
             return HashCode.Combine(obj.Authenticators, obj.Categories, obj.AuthenticatorCategories, obj.CustomIcons);
         }

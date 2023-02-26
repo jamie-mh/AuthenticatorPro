@@ -7,7 +7,7 @@
 using AuthenticatorPro.Core.Generator;
 using Xunit;
 
-namespace AuthenticatorPro.Test.AuthenticatorTest
+namespace AuthenticatorPro.Test.Generator
 {
     public class YandexOtpTest
     {
