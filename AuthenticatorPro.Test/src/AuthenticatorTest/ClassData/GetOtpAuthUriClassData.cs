@@ -1,9 +1,9 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Entity;
-using AuthenticatorPro.Shared.Generator;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Generator;
 using System.Collections;
 using System.Collections.Generic;
 

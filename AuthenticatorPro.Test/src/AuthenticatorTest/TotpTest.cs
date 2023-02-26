@@ -1,7 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Generator;
+using AuthenticatorPro.Core.Generator;
 using System;
 using Xunit;
 

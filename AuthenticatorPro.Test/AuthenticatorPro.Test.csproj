@@ -18,7 +18,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj" />
+    <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="test.authpro">

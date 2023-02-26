@@ -1,11 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Backup;
-using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Service;
-using AuthenticatorPro.Shared.Service.Impl;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Core.Service.Impl;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System.IO;

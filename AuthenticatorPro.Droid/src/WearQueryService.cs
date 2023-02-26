@@ -8,7 +8,7 @@ using Android.Gms.Wearable;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Wear;
 using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Persistence;
+using AuthenticatorPro.Core.Persistence;
 using Java.IO;
 using Newtonsoft.Json;
 using System;

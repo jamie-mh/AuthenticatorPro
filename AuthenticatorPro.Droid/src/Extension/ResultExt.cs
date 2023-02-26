@@ -1,5 +1,5 @@
 using Android.Content;
-using AuthenticatorPro.Shared.Backup;
+using AuthenticatorPro.Core.Backup;
 using System;
 
 namespace AuthenticatorPro.Droid.Extension

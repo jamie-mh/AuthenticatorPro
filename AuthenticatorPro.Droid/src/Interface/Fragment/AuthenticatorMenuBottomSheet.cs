@@ -5,8 +5,8 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Generator;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Generator;
 using System;
 using System.Collections.Generic;
 

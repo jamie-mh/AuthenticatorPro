@@ -3,8 +3,8 @@
 
 using Android.Content;
 using AuthenticatorPro.Droid.Shared;
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Backup;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Backup;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid

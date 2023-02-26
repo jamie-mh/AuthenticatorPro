@@ -4,7 +4,7 @@
 // Test data from https://github.com/norblik/KeeYaOtp
 // Licensed under GPL 3.0
 
-using AuthenticatorPro.Shared.Generator;
+using AuthenticatorPro.Core.Generator;
 using Xunit;
 
 namespace AuthenticatorPro.Test.AuthenticatorTest

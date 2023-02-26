@@ -4,7 +4,7 @@
 using Android.Content;
 using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Shared;
+using AuthenticatorPro.Core;
 
 namespace AuthenticatorPro.WearOS
 {

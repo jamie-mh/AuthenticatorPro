@@ -7,10 +7,10 @@ using AuthenticatorPro.Droid.Persistence;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Persistence.View.Impl;
 using AuthenticatorPro.Droid.Shared;
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Service;
-using AuthenticatorPro.Shared.Service.Impl;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Core.Service.Impl;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid

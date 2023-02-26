@@ -1,10 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Backup;
-using AuthenticatorPro.Shared.Comparer;
-using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Service;
+using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Core.Comparer;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;

@@ -6,7 +6,7 @@ using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
 using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Entity;
+using AuthenticatorPro.Core.Entity;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using System;

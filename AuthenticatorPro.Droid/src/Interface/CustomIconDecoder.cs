@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Graphics;
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Entity;
-using AuthenticatorPro.Shared.Util;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
 using System;
 using System.IO;
 using System.Threading.Tasks;

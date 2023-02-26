@@ -1,8 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared;
-using AuthenticatorPro.Shared.Entity;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Test.AuthenticatorTest.ClassData;
 using SimpleBase;
 using System;
