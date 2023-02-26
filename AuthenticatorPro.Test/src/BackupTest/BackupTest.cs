@@ -1,7 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Data.Backup;
+using AuthenticatorPro.Shared.Backup;
 using Xunit;
 
 namespace AuthenticatorPro.Test.BackupTest

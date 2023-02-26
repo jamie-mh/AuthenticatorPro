@@ -2,16 +2,15 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
+using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Persistence;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.View;
-using AuthenticatorPro.Droid.Shared.View.Impl;
-using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Persistence.View.Impl;
+using AuthenticatorPro.Droid.Shared;
+using AuthenticatorPro.Shared;
 using AuthenticatorPro.Shared.Persistence;
 using AuthenticatorPro.Shared.Service;
 using AuthenticatorPro.Shared.Service.Impl;
-using AuthenticatorPro.Shared.View;
-using AuthenticatorPro.Shared.View.Impl;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid

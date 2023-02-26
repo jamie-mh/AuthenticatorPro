@@ -11,7 +11,7 @@ using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Callback;
-using AuthenticatorPro.Droid.Fragment;
+using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Preference;
 using AuthenticatorPro.Droid.Util;
 using Javax.Crypto;
@@ -180,7 +180,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private bool IsBiometricsInvalidated()
         {
-            var passwordStorage = new PasswordStorageManager(this);
+            var passwordStorage = new BiometricStorage(this);
 
             try
             {
@@ -196,7 +196,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         public void EnableBiometrics(Action<bool> callback)
         {
-            var passwordStorage = new PasswordStorageManager(this);
+            var passwordStorage = new BiometricStorage(this);
             var executor = ContextCompat.GetMainExecutor(this);
             var authCallback = new AuthenticationCallback();
 
@@ -256,7 +256,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         public void ClearBiometrics()
         {
-            var storage = new PasswordStorageManager(this);
+            var storage = new BiometricStorage(this);
             storage.Clear();
         }
 

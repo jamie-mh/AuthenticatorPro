@@ -93,7 +93,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             Toast.MakeText(this, Resource.String.errorCopiedToClipboard, ToastLength.Short).Show();
 
-            var intent = new Intent(Intent.ActionView, Uri.Parse($"{Constants.GitHubRepo}/issues"));
+            var intent = new Intent(Intent.ActionView, Uri.Parse($"{GetString(Resource.String.githubRepo)}/issues"));
 
             try
             {
@@ -138,7 +138,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var intent = new Intent(Intent.ActionSendto);
             intent.SetData(Uri.Parse("mailto:"));
-            intent.PutExtra(Intent.ExtraEmail, new[] { Constants.ContactEmail });
+            intent.PutExtra(Intent.ExtraEmail, new[] { GetString(Resource.String.contactEmail) });
             intent.PutExtra(Intent.ExtraSubject, "Bug report");
 
             var body = new StringBuilder();

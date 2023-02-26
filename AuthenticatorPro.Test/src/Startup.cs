@@ -1,8 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Backup;
+using AuthenticatorPro.Shared;
+using AuthenticatorPro.Shared.Backup;
 using AuthenticatorPro.Shared.Persistence;
 using AuthenticatorPro.Shared.Service;
 using AuthenticatorPro.Shared.Service.Impl;

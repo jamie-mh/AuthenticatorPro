@@ -1,7 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Data.Backup;
+using AuthenticatorPro.Shared.Backup;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Shared.Service.Impl
@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
             _customIconService = customIconService;
         }
 
-        public async Task<RestoreResult> RestoreAsync(Backup backup)
+        public async Task<RestoreResult> RestoreAsync(Backup.Backup backup)
         {
             return new RestoreResult
             {
@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Shared.Service.Impl
             };
         }
 
-        public async Task<RestoreResult> RestoreAndUpdateAsync(Backup backup)
+        public async Task<RestoreResult> RestoreAndUpdateAsync(Backup.Backup backup)
         {
             var (authsAdded, authsUpdated) = await _authenticatorService.AddOrUpdateManyAsync(backup.Authenticators);
             var result = new RestoreResult

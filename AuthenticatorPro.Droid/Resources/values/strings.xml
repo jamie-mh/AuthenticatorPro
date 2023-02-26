@@ -2,6 +2,10 @@
     <string name="appName" translatable="false">Authenticator Pro</string>
     <string name="displayName" translatable="false">Authenticator</string>
 
+    <string name="githubRepo" translatable="false">https://github.com/jamie-mh/AuthenticatorPro</string>
+    <string name="buyMeACoffee" translatable="false">https://www.buymeacoffee.com/jamiemh</string>
+    <string name="contactEmail" translatable="false">contact@jmh.me</string>
+
     <!-- Non specific strings -->
     <string name="warning">Warning</string>
     <string name="delete">Delete</string>
