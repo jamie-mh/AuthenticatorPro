@@ -1270,7 +1270,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                result = Authenticator.ParseUri(uri, _iconResolver);
+                result = AuthenticatorFactory.ParseUri(uri, _iconResolver);
             }
             catch (ArgumentException)
             {

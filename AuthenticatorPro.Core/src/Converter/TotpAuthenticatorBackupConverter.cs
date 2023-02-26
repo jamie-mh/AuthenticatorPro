@@ -3,6 +3,7 @@
 
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
@@ -137,7 +138,7 @@ namespace AuthenticatorPro.Core.Converter
                     Period = period,
                     Digits = digits,
                     Algorithm = Authenticator.DefaultAlgorithm,
-                    Secret = Authenticator.CleanSecret(secret, Type),
+                    Secret = SecretUtil.Clean(secret, Type),
                     Icon = iconResolver.FindServiceKeyByName(issuer)
                 };
             }

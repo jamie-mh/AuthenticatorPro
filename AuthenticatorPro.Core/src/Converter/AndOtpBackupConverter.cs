@@ -4,6 +4,7 @@
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
@@ -191,7 +192,7 @@ namespace AuthenticatorPro.Core.Converter
 
                 return new Authenticator
                 {
-                    Secret = Authenticator.CleanSecret(Secret, type),
+                    Secret = SecretUtil.Clean(Secret, type),
                     Issuer = issuer,
                     Username = username,
                     Digits = Digits,

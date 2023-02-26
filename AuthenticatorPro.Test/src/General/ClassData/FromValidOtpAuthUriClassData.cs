@@ -7,9 +7,9 @@ using AuthenticatorPro.Core.Generator;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AuthenticatorPro.Test.Entity.ClassData
+namespace AuthenticatorPro.Test.General.ClassData
 {
-    internal class FromValidOtpAuthUriClassData : IEnumerable<object[]>
+    public class FromValidOtpAuthUriClassData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {

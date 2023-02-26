@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
                 try
                 {
-                    auth = Authenticator.FromOtpAuthMigrationAuthenticator(item, _iconResolver);
+                    auth = AuthenticatorFactory.FromOtpAuthMigrationAuthenticator(item, _iconResolver);
                 }
                 catch (ArgumentException)
                 {

@@ -3,6 +3,7 @@
 
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
 using SimpleBase;
 using SQLite;
 using System;
@@ -135,10 +136,10 @@ namespace AuthenticatorPro.Core.Converter
                 {
                     var bytes = Base16.Decode(Secret);
                     var base32Secret = Base32.Rfc4648.Encode(bytes);
-                    return Authenticator.CleanSecret(base32Secret, type);
+                    return SecretUtil.Clean(base32Secret, type);
                 }
 
-                return Authenticator.CleanSecret(Secret, type);
+                return SecretUtil.Clean(Secret, type);
             }
 
             public Authenticator Convert(IIconResolver iconResolver)

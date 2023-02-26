@@ -3,6 +3,7 @@
 
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -129,13 +130,13 @@ namespace AuthenticatorPro.Core.Converter
                         Digits = type.GetDefaultDigits(),
                         Period = type.GetDefaultPeriod(),
                         Icon = iconResolver.FindServiceKeyByName(Name),
-                        Secret = Authenticator.CleanSecret(secret, type)
+                        Secret = SecretUtil.Clean(secret, type)
                     };
                 }
 
                 if (Login.Totp.StartsWith("otpauth"))
                 {
-                    return Authenticator.ParseUri(Login.Totp, iconResolver).Authenticator;
+                    return AuthenticatorFactory.ParseUri(Login.Totp, iconResolver).Authenticator;
                 }
 
                 if (Login.Totp.StartsWith("steam"))

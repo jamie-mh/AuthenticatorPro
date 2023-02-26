@@ -12,6 +12,7 @@ using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
 using Java.Lang;
@@ -248,11 +249,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 isValid = false;
             }
 
-            secret = Authenticator.CleanSecret(secret, _type);
+            secret = SecretUtil.Clean(secret, _type);
 
             try
             {
-                Authenticator.ValidateSecret(secret, _type);
+                SecretUtil.Validate(secret, _type);
             }
             catch (Exception e)
             {

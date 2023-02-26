@@ -4,6 +4,7 @@
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -303,7 +304,7 @@ namespace AuthenticatorPro.Core.Converter
                     secret = Hex.ToHexString(secretBytes);
                 }
 
-                return Authenticator.CleanSecret(secret, type);
+                return SecretUtil.Clean(secret, type);
             }
 
             public Authenticator Convert(IIconResolver iconResolver)
