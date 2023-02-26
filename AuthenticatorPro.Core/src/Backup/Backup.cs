@@ -4,6 +4,7 @@
 using AuthenticatorPro.Core.Entity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -117,7 +118,17 @@ namespace AuthenticatorPro.Core.Backup
                 var cipher = CipherUtilities.GetCipher(Algorithm);
                 cipher.Init(false, keyParameter);
 
-                var unencryptedData = cipher.DoFinal(encryptedData);
+                byte[] unencryptedData;
+
+                try
+                {
+                    unencryptedData = cipher.DoFinal(encryptedData);
+                }
+                catch (InvalidCipherTextException e)
+                {
+                    throw new ArgumentException("Invalid password", e);
+                }
+
                 json = Encoding.UTF8.GetString(unencryptedData);
             }
 

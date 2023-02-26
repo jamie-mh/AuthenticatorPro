@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Test.Backup.Comparer;
+using System;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Backup
@@ -37,6 +38,73 @@ namespace AuthenticatorPro.Test.Backup
         {
             var transformed = Core.Backup.Backup.FromBytes(_backupFixture.Backup.ToBytes(password), password);
             Assert.Equal(_backupFixture.Backup, transformed, _backupComparer);
+        }
+
+        [Fact]
+        public void FromBytes_invalidHeader()
+        {
+            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes("invalid"u8.ToArray(), "test"); });
+        }
+
+        [Fact]
+        public void FromBytes_invalidPassword()
+        {
+            var header = "AuthenticatorPro"u8.ToArray();
+            var data = Convert.FromBase64String("BzfknHVfDhfn/crd9hT/jdYfuBn0jiBr1xgikqPRaHrStn8GMnsVL5uZFGfWKIqmfNf3HEXgSUqqiTUiBdnDkPtPDWDF2V3wJKEBy1tCcnJXsPxMEPUS5eSjUWXzbj1i5YeVuKD+QztgkQ3wbxl7MFsb9cOK2yyRK3yQxbLzRAXWDt1N");
+
+            var bytes = new byte[header.Length + data.Length];
+            Buffer.BlockCopy(header, 0, bytes, 0, header.Length);
+            Buffer.BlockCopy(data, 0, bytes, header.Length, data.Length);
+
+            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes(bytes, "testing1"); });
+        }
+
+        [Fact]
+        public void FromBytes_invalidJson()
+        {
+            var bytes = "abcdef"u8.ToArray();
+            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes(bytes, null); });
+        }
+
+        [Fact]
+        public void IsReadableWithoutPassword_ok()
+        {
+            var bytes = "{\"field\": 1}"u8.ToArray();
+            Assert.True(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+        }
+
+        [Fact]
+        public void IsReadableWithoutPassword_invalidString()
+        {
+            var bytes = "testing"u8.ToArray();
+            Assert.False(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+        }
+
+        [Fact]
+        public void IsReadableWithoutPassword_invalidJson()
+        {
+            var bytes = "{!!!}"u8.ToArray();
+            Assert.False(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+        }
+
+        [Fact]
+        public void HasValidEncryptionHeader_ok()
+        {
+            var bytes = "AuthenticatorPro"u8.ToArray();
+            Assert.True(Core.Backup.Backup.HasValidEncryptionHeader(bytes));
+        }
+
+        [Fact]
+        public void HasValidEncryptionHeader_notOk()
+        {
+            var bytes = "SomethingElse123"u8.ToArray();
+            Assert.False(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+        }
+
+        [Fact]
+        public void HasValidEncryptionHeader_empty()
+        {
+            Assert.False(Core.Backup.Backup.HasValidEncryptionHeader(Array.Empty<byte>()));
         }
     }
 }
