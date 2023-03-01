@@ -23,9 +23,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.12" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0.2" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.0.1" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.0.1" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.1" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.3" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.16" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.5.1.2" />
@@ -35,8 +35,8 @@
     <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.4" />
     <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.18" />
     <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.1.6" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.7.0.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.8.0" />
   </ItemGroup>
   <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
     <PackageReference Include="ZXing.Net" Version="0.16.8" />
