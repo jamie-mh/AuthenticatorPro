@@ -142,7 +142,7 @@ namespace AuthenticatorPro.Droid.Activity
         private bool _preventBackupReminder;
         private bool _unlockFragmentOpen;
         private bool _shouldLoadFromPersistenceOnNextOpen;
-        private int _customIconApplyPosition;
+        private string _customIconApplySecret;
 
         public MainActivity() : base(Resource.Layout.activityMain)
         {
@@ -363,7 +363,8 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case RequestCustomIcon:
-                    await SetCustomIcon(intent.Data, _customIconApplyPosition);
+                    await SetCustomIcon(intent.Data, _customIconApplySecret);
+                    _customIconApplySecret = null;
                     break;
 
                 case RequestQrCodeFromCamera:
@@ -1022,18 +1023,17 @@ namespace AuthenticatorPro.Droid.Activity
 
             var fragment = new AuthenticatorMenuBottomSheet { Arguments = bundle };
 
-            fragment.RenameClicked += delegate { OpenRenameDialog(position); };
-            fragment.ChangeIconClicked += delegate { OpenIconDialog(position); };
-            fragment.AssignCategoriesClicked += async delegate { await OpenCategoriesDialog(position); };
-            fragment.ShowQrCodeClicked += delegate { OpenQrCodeDialog(position); };
-            fragment.DeleteClicked += delegate { OpenDeleteDialog(position); };
+            fragment.RenameClicked += delegate { OpenRenameDialog(auth); };
+            fragment.ChangeIconClicked += delegate { OpenIconDialog(auth); };
+            fragment.AssignCategoriesClicked += async delegate { await OpenCategoriesDialog(auth); };
+            fragment.ShowQrCodeClicked += delegate { OpenQrCodeDialog(auth); };
+            fragment.DeleteClicked += delegate { OpenDeleteDialog(auth); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private void OpenQrCodeDialog(int position)
+        private void OpenQrCodeDialog(Authenticator auth)
         {
-            var auth = _authenticatorView[position];
             string uri;
 
             try
@@ -1053,10 +1053,8 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private void OpenDeleteDialog(int position)
+        private void OpenDeleteDialog(Authenticator auth)
         {
-            var auth = _authenticatorView[position];
-
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmAuthenticatorDelete);
             builder.SetTitle(Resource.String.warning);
@@ -1084,6 +1082,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
 
                 await _authenticatorView.LoadFromPersistenceAsync();
+                var position = _authenticatorView.IndexOf(auth);
                 RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemRemoved(position); });
                 CheckEmptyState();
 
@@ -1870,12 +1869,10 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Rename Dialog
 
-        private void OpenRenameDialog(int position)
+        private void OpenRenameDialog(Authenticator auth)
         {
-            var auth = _authenticatorView[position];
-
             var bundle = new Bundle();
-            bundle.PutInt("position", position);
+            bundle.PutString("secret", auth.Secret);
             bundle.PutString("issuer", auth.Issuer);
             bundle.PutString("username", auth.Username);
 
@@ -1886,7 +1883,12 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs args)
         {
-            var auth = _authenticatorView[args.ItemPosition];
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
+
+            if (auth == null)
+            {
+                return;
+            }
 
             try
             {
@@ -1899,7 +1901,8 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(args.ItemPosition); });
+            var position = _authenticatorView.IndexOf(auth);
+            RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
         }
 
@@ -1907,16 +1910,16 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Icon Dialog
 
-        private void OpenIconDialog(int position)
+        private void OpenIconDialog(Authenticator auth)
         {
             var bundle = new Bundle();
-            bundle.PutInt("position", position);
+            bundle.PutString("secret", auth.Secret);
 
             var fragment = new ChangeIconBottomSheet { Arguments = bundle };
             fragment.IconSelected += OnIconDialogIconSelected;
             fragment.UseCustomIconClick += delegate
             {
-                _customIconApplyPosition = position;
+                _customIconApplySecret = auth.Secret;
                 StartFilePickActivity("image/*", RequestCustomIcon);
             };
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1924,7 +1927,13 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs args)
         {
-            var auth = _authenticatorView[args.ItemPosition];
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
+
+            if (auth == null)
+            {
+                return;
+            }
+
             var oldIcon = auth.Icon;
 
             try
@@ -1940,7 +1949,8 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
-            RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(args.ItemPosition); });
+            var position = _authenticatorView.IndexOf(auth);
+            RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
 
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
@@ -1949,10 +1959,16 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Custom Icons
 
-        private async Task SetCustomIcon(Uri source, int position)
+        private async Task SetCustomIcon(Uri source, string secret)
         {
-            SetLoading(true);
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
 
+            if (auth == null)
+            {
+                return;
+            }
+
+            SetLoading(true);
             CustomIcon icon;
 
             try
@@ -1971,7 +1987,6 @@ namespace AuthenticatorPro.Droid.Activity
                 SetLoading(false);
             }
 
-            var auth = _authenticatorView[position];
             var oldIcon = auth.Icon;
 
             try
@@ -1988,6 +2003,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
 
+            var position = _authenticatorView.IndexOf(auth);
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
         }
 
@@ -1995,14 +2011,13 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Categories
 
-        private async Task OpenCategoriesDialog(int position)
+        private async Task OpenCategoriesDialog(Authenticator auth)
         {
-            var auth = _authenticatorView[position];
             var authenticatorCategories = await _authenticatorCategoryRepository.GetAllForAuthenticatorAsync(auth);
             var categoryIds = authenticatorCategories.Select(ac => ac.CategoryId).ToArray();
 
             var bundle = new Bundle();
-            bundle.PutInt("position", position);
+            bundle.PutString("secret", auth.Secret);
             bundle.PutStringArray("assignedCategoryIds", categoryIds);
 
             var fragment = new AssignCategoriesBottomSheet { Arguments = bundle };
@@ -2037,7 +2052,13 @@ namespace AuthenticatorPro.Droid.Activity
         private async void OnCategoriesDialogCategoryClicked(object sender,
             AssignCategoriesBottomSheet.CategoryClickedEventArgs args)
         {
-            var auth = _authenticatorView[args.ItemPosition];
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
+
+            if (auth == null)
+            {
+                return;
+            }
+
             var category = await _categoryRepository.GetAsync(args.CategoryId);
 
             try

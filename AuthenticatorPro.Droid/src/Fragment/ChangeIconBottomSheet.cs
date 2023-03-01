@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler UseCustomIconClick;
 
         private readonly IIconView _iconView;
-        private int _position;
+        private string _secret;
 
         private IconListAdapter _iconListAdapter;
         private RecyclerView _iconList;
@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _position = Arguments.GetInt("position", 0);
+            _secret = Arguments.GetString("secret");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -82,18 +82,18 @@ namespace AuthenticatorPro.Droid.Fragment
 
         private void OnItemClicked(object sender, int iconPosition)
         {
-            var eventArgs = new IconSelectedEventArgs(_position, _iconView[iconPosition].Key);
+            var eventArgs = new IconSelectedEventArgs(_secret, _iconView[iconPosition].Key);
             IconSelected?.Invoke(this, eventArgs);
         }
 
         public class IconSelectedEventArgs : EventArgs
         {
-            public readonly int ItemPosition;
+            public readonly string Secret;
             public readonly string Icon;
 
-            public IconSelectedEventArgs(int itemPosition, string icon)
+            public IconSelectedEventArgs(string secret, string icon)
             {
-                ItemPosition = itemPosition;
+                Secret = secret;
                 Icon = icon;
             }
         }

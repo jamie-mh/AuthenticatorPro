@@ -19,7 +19,8 @@ namespace AuthenticatorPro.Droid.Fragment
         public event EventHandler Closed;
 
         private readonly ICategoryView _categoryView;
-        private int _position;
+
+        private string _secret;
         private string[] _assignedCategoryIds;
 
         public AssignCategoriesBottomSheet() : base(Resource.Layout.sheetAssignCategories)
@@ -30,7 +31,7 @@ namespace AuthenticatorPro.Droid.Fragment
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _position = Arguments.GetInt("position", -1);
+            _secret = Arguments.GetString("secret");
             _assignedCategoryIds = Arguments.GetStringArray("assignedCategoryIds");
         }
 
@@ -84,7 +85,7 @@ namespace AuthenticatorPro.Droid.Fragment
 
                 chip.Click += (sender, _) =>
                 {
-                    CategoryClicked?.Invoke(sender, new CategoryClickedEventArgs(_position, category.Id, chip.Checked));
+                    CategoryClicked?.Invoke(sender, new CategoryClickedEventArgs(_secret, category.Id, chip.Checked));
                 };
 
                 chipGroup.AddView(chip);
@@ -93,13 +94,13 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public class CategoryClickedEventArgs : EventArgs
         {
-            public readonly int ItemPosition;
+            public readonly string Secret;
             public readonly string CategoryId;
             public readonly bool IsChecked;
 
-            public CategoryClickedEventArgs(int itemPosition, string categoryId, bool isChecked)
+            public CategoryClickedEventArgs(string secret, string categoryId, bool isChecked)
             {
-                ItemPosition = itemPosition;
+                Secret = secret;
                 CategoryId = categoryId;
                 IsChecked = isChecked;
             }

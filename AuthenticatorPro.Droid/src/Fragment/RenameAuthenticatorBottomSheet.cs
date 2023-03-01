@@ -17,7 +17,7 @@ namespace AuthenticatorPro.Droid.Fragment
     {
         public event EventHandler<RenameEventArgs> RenameClicked;
 
-        private int _position;
+        private string _secret;
         private string _issuer;
         private string _username;
 
@@ -33,7 +33,7 @@ namespace AuthenticatorPro.Droid.Fragment
         {
             base.OnCreate(savedInstanceState);
 
-            _position = Arguments.GetInt("position", -1);
+            _secret = Arguments.GetString("secret");
             _issuer = Arguments.GetString("issuer");
             _username = Arguments.GetString("username");
         }
@@ -79,7 +79,7 @@ namespace AuthenticatorPro.Droid.Fragment
                     return;
                 }
 
-                var args = new RenameEventArgs(_position, issuer, _usernameText.Text);
+                var args = new RenameEventArgs(_secret, issuer, _usernameText.Text);
                 RenameClicked?.Invoke(this, args);
                 Dismiss();
             };
@@ -97,13 +97,13 @@ namespace AuthenticatorPro.Droid.Fragment
 
         public class RenameEventArgs : EventArgs
         {
-            public readonly int ItemPosition;
+            public readonly string Secret;
             public readonly string Issuer;
             public readonly string Username;
 
-            public RenameEventArgs(int itemPosition, string issuer, string username)
+            public RenameEventArgs(string secret, string issuer, string username)
             {
-                ItemPosition = itemPosition;
+                Secret = secret;
                 Issuer = issuer;
                 Username = username;
             }
