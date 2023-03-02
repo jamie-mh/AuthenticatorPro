@@ -4,6 +4,7 @@
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using HtmlAgilityPack;
 using Moq;
@@ -26,7 +27,7 @@ namespace AuthenticatorPro.Test.Service
         private readonly Mock<ICustomIconRepository> _customIconRepository;
         private readonly Mock<IAssetProvider> _assetProvider;
 
-        private readonly BackupService _backupService;
+        private readonly IBackupService _backupService;
 
         public BackupServiceTest()
         {
