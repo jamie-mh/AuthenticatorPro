@@ -184,7 +184,7 @@ namespace AuthenticatorPro.Core.Entity
             return uri.ToString();
         }
 
-        public string GetUri()
+        public virtual string GetUri()
         {
             return Type == AuthenticatorType.MobileOtp ? GetMotpUri() : GetOtpAuthUri();
         }
