@@ -55,6 +55,8 @@ namespace AuthenticatorPro.Droid
         public static void RegisterServices(TinyIoCContainer container)
         {
             container.Register<IEqualityComparer<Authenticator>, AuthenticatorComparer>();
+            container.Register<IEqualityComparer<Category>, CategoryComparer>();
+            container.Register<IEqualityComparer<AuthenticatorCategory>, AuthenticatorCategoryComparer>();
 
             container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
             container.Register<IAuthenticatorService, AuthenticatorService>();

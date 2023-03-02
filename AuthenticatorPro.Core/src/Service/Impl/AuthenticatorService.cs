@@ -34,6 +34,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task AddAsync(Authenticator auth)
         {
+            if (auth == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
             auth.Validate();
             await _authenticatorRepository.CreateAsync(auth);
         }

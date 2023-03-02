@@ -1,7 +1,6 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Comparer;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
@@ -15,17 +14,21 @@ namespace AuthenticatorPro.Core.Service.Impl
     public class AuthenticatorCategoryService : IAuthenticatorCategoryService
     {
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
+        private readonly IEqualityComparer<AuthenticatorCategory> _equalityComparer;
 
-        public AuthenticatorCategoryService(IAuthenticatorCategoryRepository authenticatorCategoryRepository)
+        public AuthenticatorCategoryService(
+            IAuthenticatorCategoryRepository authenticatorCategoryRepository,
+            IEqualityComparer<AuthenticatorCategory> equalityComparer)
         {
             _authenticatorCategoryRepository = authenticatorCategoryRepository;
+            _equalityComparer = equalityComparer;
         }
 
         public async Task<int> AddManyAsync(IEnumerable<AuthenticatorCategory> acs)
         {
             if (acs == null)
             {
-                return 0;
+                throw new ArgumentException("Authenticator categories cannot be null");
             }
 
             var added = 0;
@@ -49,6 +52,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<ValueTuple<int, int>> AddOrUpdateManyAsync(IEnumerable<AuthenticatorCategory> acs)
         {
+            if (acs == null)
+            {
+                throw new ArgumentException("Authenticator categories cannot be null");
+            }
+
             var list = acs.ToList();
             var added = await AddManyAsync(list);
             var updated = await UpdateManyAsync(list);
@@ -60,18 +68,17 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (acs == null)
             {
-                return 0;
+                throw new ArgumentException("Authenticator categories cannot be null");
             }
 
             var updated = 0;
-            var comparer = new AuthenticatorCategoryComparer();
 
             foreach (var ac in acs)
             {
                 var original = await _authenticatorCategoryRepository.GetAsync(
                     new ValueTuple<string, string>(ac.AuthenticatorSecret, ac.CategoryId));
 
-                if (original == null || comparer.Equals(original, ac))
+                if (original == null || _equalityComparer.Equals(original, ac))
                 {
                     continue;
                 }
@@ -85,6 +92,16 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task AddAsync(Authenticator authenticator, Category category)
         {
+            if (authenticator == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
+            if (category == null)
+            {
+                throw new ArgumentException("Category cannot be null");
+            }
+
             await _authenticatorCategoryRepository.CreateAsync(new AuthenticatorCategory
             {
                 AuthenticatorSecret = authenticator.Secret, CategoryId = category.Id
@@ -93,6 +110,16 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task RemoveAsync(Authenticator authenticator, Category category)
         {
+            if (authenticator == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
+            if (category == null)
+            {
+                throw new ArgumentException("Category cannot be null");
+            }
+
             await _authenticatorCategoryRepository.DeleteAsync(new AuthenticatorCategory
             {
                 AuthenticatorSecret = authenticator.Secret, CategoryId = category.Id

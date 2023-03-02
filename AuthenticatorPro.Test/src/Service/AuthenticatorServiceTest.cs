@@ -42,7 +42,13 @@ namespace AuthenticatorPro.Test.Service
         }
 
         [Fact]
-        public async Task AddAsync()
+        public async Task AddAsync_null()
+        {
+            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.AddAsync(null));
+        }
+
+        [Fact]
+        public async Task AddAsync_ok()
         {
             var auth = new Mock<Authenticator>();
             auth.Setup(a => a.Validate()).Verifiable();
@@ -252,6 +258,7 @@ namespace AuthenticatorPro.Test.Service
 
             Assert.Equal(1, added);
             auth.Verify(a => a.Validate());
+            _authenticatorRepository.Verify(r => r.CreateAsync(auth.Object));
         }
 
         [Fact]
