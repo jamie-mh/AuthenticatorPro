@@ -36,7 +36,32 @@ namespace AuthenticatorPro.Test.Service
         }
 
         [Fact]
-        public async Task RestoreAsync()
+        public async Task RestoreAsync_nulls()
+        {
+            var backup = new Core.Backup.Backup(new List<Authenticator>());
+
+            _authenticatorService.Setup(s => s.AddManyAsync(backup.Authenticators)).ReturnsAsync(1);
+
+            var result = await _restoreService.RestoreAsync(backup);
+
+            Assert.Equal(1, result.AddedAuthenticatorCount);
+            Assert.Equal(0, result.UpdatedAuthenticatorCount);
+
+            Assert.Equal(0, result.AddedCategoryCount);
+            Assert.Equal(0, result.UpdatedCategoryCount);
+
+            Assert.Equal(0, result.AddedAuthenticatorCategoryCount);
+            Assert.Equal(0, result.UpdatedAuthenticatorCategoryCount);
+
+            Assert.Equal(0, result.AddedCustomIconCount);
+
+            _categoryService.Verify(s => s.AddManyAsync(It.IsAny<List<Category>>()), Times.Never());
+            _authenticatorCategoryService.Verify(s => s.AddManyAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
+            _customIconService.Verify(s => s.AddManyAsync(It.IsAny<List<CustomIcon>>()), Times.Never());
+        }
+
+        [Fact]
+        public async Task RestoreAsync_full()
         {
             var backup = new Core.Backup.Backup(new List<Authenticator>(), new List<Category>(), new List<AuthenticatorCategory>(), new List<CustomIcon>());
 
@@ -60,7 +85,33 @@ namespace AuthenticatorPro.Test.Service
         }
 
         [Fact]
-        public async Task RestoreAndUpdateAsync()
+        public async Task RestoreAndUpdateAsync_nulls()
+        {
+            var backup = new Core.Backup.Backup(new List<Authenticator>());
+
+            _authenticatorService.Setup(s => s.AddOrUpdateManyAsync(backup.Authenticators))
+                .ReturnsAsync(new ValueTuple<int, int>(1, 2));
+
+            var result = await _restoreService.RestoreAndUpdateAsync(backup);
+
+            Assert.Equal(1, result.AddedAuthenticatorCount);
+            Assert.Equal(2, result.UpdatedAuthenticatorCount);
+
+            Assert.Equal(0, result.AddedCategoryCount);
+            Assert.Equal(0, result.UpdatedCategoryCount);
+
+            Assert.Equal(0, result.AddedAuthenticatorCategoryCount);
+            Assert.Equal(0, result.UpdatedAuthenticatorCategoryCount);
+
+            Assert.Equal(0, result.AddedCustomIconCount);
+
+            _categoryService.Verify(s => s.AddOrUpdateManyAsync(It.IsAny<List<Category>>()), Times.Never());
+            _authenticatorCategoryService.Verify(s => s.AddOrUpdateManyAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
+            _customIconService.Verify(s => s.AddManyAsync(It.IsAny<List<CustomIcon>>()), Times.Never());
+        }
+
+        [Fact]
+        public async Task RestoreAndUpdateAsync_full()
         {
             var backup = new Core.Backup.Backup(new List<Authenticator>(), new List<Category>(), new List<AuthenticatorCategory>(), new List<CustomIcon>());
 

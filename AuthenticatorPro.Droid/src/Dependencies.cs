@@ -8,9 +8,12 @@ using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Persistence.View.Impl;
 using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Comparer;
+using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
+using System.Collections.Generic;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid
@@ -51,6 +54,8 @@ namespace AuthenticatorPro.Droid
 
         public static void RegisterServices(TinyIoCContainer container)
         {
+            container.Register<IEqualityComparer<Authenticator>, AuthenticatorComparer>();
+
             container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
             container.Register<IAuthenticatorService, AuthenticatorService>();
             container.Register<IBackupService, BackupService>();

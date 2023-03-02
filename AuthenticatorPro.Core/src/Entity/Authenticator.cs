@@ -189,7 +189,7 @@ namespace AuthenticatorPro.Core.Entity
             return Type == AuthenticatorType.MobileOtp ? GetMotpUri() : GetOtpAuthUri();
         }
 
-        public void Validate()
+        public virtual void Validate()
         {
             if (String.IsNullOrEmpty(Issuer))
             {

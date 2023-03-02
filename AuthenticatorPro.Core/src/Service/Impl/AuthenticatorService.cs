@@ -1,7 +1,6 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Comparer;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Persistence;
@@ -19,18 +18,18 @@ namespace AuthenticatorPro.Core.Service.Impl
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
         private readonly IIconResolver _iconResolver;
         private readonly ICustomIconService _customIconService;
-        private readonly ICustomIconRepository _customIconRepository;
+        private readonly IEqualityComparer<Authenticator> _equalityComparer;
 
         public AuthenticatorService(IAuthenticatorRepository authenticatorRepository,
             IAuthenticatorCategoryRepository authenticatorCategoryRepository,
             IIconResolver iconResolver, ICustomIconService customIconService,
-            ICustomIconRepository customIconRepository)
+            IEqualityComparer<Authenticator> equalityComparer)
         {
             _authenticatorRepository = authenticatorRepository;
             _authenticatorCategoryRepository = authenticatorCategoryRepository;
             _iconResolver = iconResolver;
             _customIconService = customIconService;
-            _customIconRepository = customIconRepository;
+            _equalityComparer = equalityComparer;
         }
 
         public async Task AddAsync(Authenticator auth)
@@ -43,18 +42,17 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auths == null)
             {
-                return 0;
+                throw new ArgumentException("Authenticators cannot be null");
             }
 
             var updated = 0;
-            var comparer = new AuthenticatorComparer();
 
             foreach (var auth in auths)
             {
                 auth.Validate();
                 var original = await _authenticatorRepository.GetAsync(auth.Secret);
 
-                if (original == null || comparer.Equals(original, auth))
+                if (original == null || _equalityComparer.Equals(original, auth))
                 {
                     continue;
                 }
@@ -68,6 +66,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task RenameAsync(Authenticator auth, string issuer, string username)
         {
+            if (auth == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
             if (String.IsNullOrEmpty(issuer))
             {
                 throw new ArgumentException("Issuer cannot be null or empty");
@@ -82,6 +85,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task SetIconAsync(Authenticator auth, string icon)
         {
+            if (auth == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
             if (String.IsNullOrEmpty(icon))
             {
                 throw new ArgumentException("Invalid icon");
@@ -94,6 +102,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task SetCustomIconAsync(Authenticator auth, CustomIcon icon)
         {
+            if (auth == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
             if (icon == null)
             {
                 throw new ArgumentException("Icon cannot be null");
@@ -113,20 +126,17 @@ namespace AuthenticatorPro.Core.Service.Impl
             {
                 await _authenticatorRepository.UpdateAsync(auth);
             }
-            catch
+            finally
             {
-                await _customIconRepository.DeleteAsync(icon);
-                throw;
+                await _customIconService.CullUnused();
             }
-
-            await _customIconService.CullUnused();
         }
 
         public async Task<int> AddManyAsync(IEnumerable<Authenticator> auths)
         {
             if (auths == null)
             {
-                return 0;
+                throw new ArgumentException("Authenticators cannot be null");
             }
 
             var added = 0;
@@ -152,6 +162,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<ValueTuple<int, int>> AddOrUpdateManyAsync(IEnumerable<Authenticator> auths)
         {
+            if (auths == null)
+            {
+                throw new ArgumentException("Authenticators cannot be null");
+            }
+
             var list = auths.ToList();
             var added = await AddManyAsync(list);
             var updated = await UpdateManyAsync(list);
@@ -161,12 +176,22 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task DeleteWithCategoryBindingsAsync(Authenticator auth)
         {
+            if (auth == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
             await _authenticatorRepository.DeleteAsync(auth);
             await _authenticatorCategoryRepository.DeleteAllForAuthenticatorAsync(auth);
         }
 
         public async Task IncrementCounterAsync(Authenticator auth)
         {
+            if (auth == null)
+            {
+                throw new ArgumentException("Authenticator cannot be null");
+            }
+
             if (auth.Type.GetGenerationMethod() != GenerationMethod.Counter)
             {
                 throw new ArgumentException("Not a counter based authenticator");

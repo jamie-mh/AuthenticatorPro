@@ -25,14 +25,28 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<RestoreResult> RestoreAsync(Backup.Backup backup)
         {
-            return new RestoreResult
+            var result = new RestoreResult
             {
                 AddedAuthenticatorCount = await _authenticatorService.AddManyAsync(backup.Authenticators),
-                AddedCategoryCount = await _categoryService.AddManyAsync(backup.Categories),
-                AddedAuthenticatorCategoryCount =
-                    await _authenticatorCategoryService.AddManyAsync(backup.AuthenticatorCategories),
-                AddedCustomIconCount = await _customIconService.AddManyAsync(backup.CustomIcons)
             };
+
+            if (backup.Categories != null)
+            {
+                result.AddedCategoryCount = await _categoryService.AddManyAsync(backup.Categories);
+            }
+
+            if (backup.AuthenticatorCategories != null)
+            {
+                result.AddedAuthenticatorCategoryCount =
+                    await _authenticatorCategoryService.AddManyAsync(backup.AuthenticatorCategories);
+            }
+
+            if (backup.CustomIcons != null)
+            {
+                result.AddedCustomIconCount = await _customIconService.AddManyAsync(backup.CustomIcons);
+            }
+
+            return result;
         }
 
         public async Task<RestoreResult> RestoreAndUpdateAsync(Backup.Backup backup)
