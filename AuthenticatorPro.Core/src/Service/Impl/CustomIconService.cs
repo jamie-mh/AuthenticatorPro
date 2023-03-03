@@ -3,6 +3,8 @@
 
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,6 +25,11 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task AddIfNotExists(CustomIcon icon)
         {
+            if (icon == null)
+            {
+                throw new ArgumentException("Icon cannot be null");
+            }
+
             var existing = await _customIconRepository.GetAsync(icon.Id);
 
             if (existing == null)
@@ -35,21 +42,22 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (icons == null)
             {
-                return 0;
+                throw new ArgumentException("Icons cannot be null");
             }
 
             var added = 0;
 
             foreach (var icon in icons)
             {
-                var existing = await _customIconRepository.GetAsync(icon.Id);
-
-                if (existing != null)
+                try
+                {
+                    await _customIconRepository.CreateAsync(icon);
+                }
+                catch (EntityDuplicateException)
                 {
                     continue;
                 }
 
-                await _customIconRepository.CreateAsync(icon);
                 added++;
             }
 
