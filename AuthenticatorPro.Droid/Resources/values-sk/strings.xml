@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Obnovené {0} nové autentifikátory a {1} nové kategórie</string>
     <string name="restoredFromBackupUpdated">Obnovené {0} nové autentifikátory a {1} nové kategórie. Aktualizované {2} existujúce autentifikátory.</string>
     <string name="restoredNothing">Nič na obnovenie</string>
-    <string name="restoredFromMigration">Obnovené {0} nové autentifikátory</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Pre naskenovanie QR kódu je potrebné udeliť oprávnenie pre prístup k fotoaparátu</string>
     <string name="googlePlayNotInstalledError">Google Play nie je nainštalovaný na vašom zariadení</string>
