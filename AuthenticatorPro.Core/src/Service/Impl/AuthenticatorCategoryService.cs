@@ -28,7 +28,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (acs == null)
             {
-                throw new ArgumentException("Authenticator categories cannot be null");
+                throw new ArgumentNullException(nameof(acs));
             }
 
             var added = 0;
@@ -54,7 +54,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (acs == null)
             {
-                throw new ArgumentException("Authenticator categories cannot be null");
+                throw new ArgumentNullException(nameof(acs));
             }
 
             var list = acs.ToList();
@@ -68,7 +68,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (acs == null)
             {
-                throw new ArgumentException("Authenticator categories cannot be null");
+                throw new ArgumentNullException(nameof(acs));
             }
 
             var updated = 0;
@@ -94,12 +94,12 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (authenticator == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(authenticator));
             }
 
             if (category == null)
             {
-                throw new ArgumentException("Category cannot be null");
+                throw new ArgumentNullException(nameof(category));
             }
 
             await _authenticatorCategoryRepository.CreateAsync(new AuthenticatorCategory
@@ -112,12 +112,12 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (authenticator == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(authenticator));
             }
 
             if (category == null)
             {
-                throw new ArgumentException("Category cannot be null");
+                throw new ArgumentNullException(nameof(category));
             }
 
             await _authenticatorCategoryRepository.DeleteAsync(new AuthenticatorCategory

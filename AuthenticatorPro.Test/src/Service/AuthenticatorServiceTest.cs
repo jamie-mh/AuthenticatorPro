@@ -44,7 +44,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.AddAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.AddAsync(null));
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task UpdateManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.UpdateManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.UpdateManyAsync(null));
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RenameAsync_nullAuth()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
                 _authenticatorService.RenameAsync(null, "issuer", "username"));
         }
 
@@ -151,7 +151,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task SetIconAsync_nullAuth()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.SetIconAsync(null, "icon"));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.SetIconAsync(null, "icon"));
         }
 
         [Fact]
@@ -180,16 +180,11 @@ namespace AuthenticatorPro.Test.Service
         }
 
         [Fact]
-        public async Task SetCustomIconAsync_nullAuth()
+        public async Task SetCustomIconAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
                 _authenticatorService.SetCustomIconAsync(null, new CustomIcon()));
-        }
-
-        [Fact]
-        public async Task SetCustomIconAsync_nullCustomIcon()
-        {
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
                 _authenticatorService.SetCustomIconAsync(new Authenticator(), null));
         }
 
@@ -229,7 +224,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.AddManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.AddManyAsync(null));
         }
 
         [Fact]
@@ -264,7 +259,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddOrUpdateManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.AddOrUpdateManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.AddOrUpdateManyAsync(null));
         }
 
         [Fact]
@@ -286,7 +281,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task DeleteWithCategoryBindingsAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.DeleteWithCategoryBindingsAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.DeleteWithCategoryBindingsAsync(null));
         }
 
         [Fact]
@@ -302,7 +297,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task IncrementCounterAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.IncrementCounterAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.IncrementCounterAsync(null));
         }
 
         [Fact]

@@ -30,12 +30,12 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (initial == null)
             {
-                throw new ArgumentException("Initial category cannot be null");
+                throw new ArgumentNullException(nameof(initial));
             }
 
             if (next == null)
             {
-                throw new ArgumentException("Next category cannot be null");
+                throw new ArgumentNullException(nameof(next));
             }
 
             await _categoryRepository.CreateAsync(next);
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (categories == null)
             {
-                throw new ArgumentException("Categories cannot be null");
+                throw new ArgumentNullException(nameof(categories));
             }
 
             var added = 0;
@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (categories == null)
             {
-                throw new ArgumentException("Categories cannot be null");
+                throw new ArgumentNullException(nameof(categories));
             }
 
             var list = categories.ToList();
@@ -87,7 +87,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (categories == null)
             {
-                throw new ArgumentException("Categories cannot be null");
+                throw new ArgumentNullException(nameof(categories));
             }
 
             var updated = 0;
@@ -112,7 +112,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (category == null)
             {
-                throw new ArgumentException("Category cannot be null");
+                throw new ArgumentNullException(nameof(category));
             }
 
             await _categoryRepository.DeleteAsync(category);

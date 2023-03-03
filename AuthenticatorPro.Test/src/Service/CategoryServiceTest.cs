@@ -37,8 +37,8 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task TransferAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _categoryService.TransferAsync(null, new Category()));
-            await Assert.ThrowsAsync<ArgumentException>(() => _categoryService.TransferAsync(new Category(), null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.TransferAsync(null, new Category()));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.TransferAsync(new Category(), null));
         }
 
         [Fact]
@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _categoryService.AddManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.AddManyAsync(null));
         }
 
         [Fact]
@@ -90,7 +90,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task UpdateManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _categoryService.UpdateManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.UpdateManyAsync(null));
         }
 
         [Fact]
@@ -136,7 +136,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddOrUpdateManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _categoryService.AddOrUpdateManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.AddOrUpdateManyAsync(null));
         }
 
         [Fact]
@@ -157,7 +157,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task DeleteWithCategoryBindingsAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _categoryService.DeleteWithCategoryBindingsASync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.DeleteWithCategoryBindingsASync(null));
         }
 
         [Fact]

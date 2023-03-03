@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auth == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(auth));
             }
 
             auth.Validate();
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auths == null)
             {
-                throw new ArgumentException("Authenticators cannot be null");
+                throw new ArgumentNullException(nameof(auths));
             }
 
             var updated = 0;
@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auth == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(auth));
             }
 
             if (String.IsNullOrEmpty(issuer))
@@ -92,7 +92,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auth == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(auth));
             }
 
             if (String.IsNullOrEmpty(icon))
@@ -109,12 +109,12 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auth == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(auth));
             }
 
             if (icon == null)
             {
-                throw new ArgumentException("Icon cannot be null");
+                throw new ArgumentNullException(nameof(icon));
             }
 
             var iconId = CustomIcon.Prefix + icon.Id;
@@ -141,7 +141,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auths == null)
             {
-                throw new ArgumentException("Authenticators cannot be null");
+                throw new ArgumentNullException(nameof(auths));
             }
 
             var added = 0;
@@ -169,7 +169,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auths == null)
             {
-                throw new ArgumentException("Authenticators cannot be null");
+                throw new ArgumentNullException(nameof(auths));
             }
 
             var list = auths.ToList();
@@ -183,7 +183,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auth == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(auth));
             }
 
             await _authenticatorRepository.DeleteAsync(auth);
@@ -194,7 +194,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (auth == null)
             {
-                throw new ArgumentException("Authenticator cannot be null");
+                throw new ArgumentNullException(nameof(auth));
             }
 
             if (auth.Type.GetGenerationMethod() != GenerationMethod.Counter)

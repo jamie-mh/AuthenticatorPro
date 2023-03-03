@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.AddManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.AddManyAsync(null));
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task UpdateManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.UpdateManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.UpdateManyAsync(null));
         }
 
         [Fact]
@@ -114,7 +114,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddOrUpdateManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.AddOrUpdateManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.AddOrUpdateManyAsync(null));
         }
 
         [Fact]
@@ -136,8 +136,8 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.AddAsync(null, new Category()));
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.AddAsync(new Authenticator(), null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.AddAsync(null, new Category()));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.AddAsync(new Authenticator(), null));
         }
 
         [Fact]
@@ -162,8 +162,8 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RemoveAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.RemoveAsync(null, new Category()));
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorCategoryService.RemoveAsync(new Authenticator(), null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.RemoveAsync(null, new Category()));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorCategoryService.RemoveAsync(new Authenticator(), null));
         }
 
         [Fact]

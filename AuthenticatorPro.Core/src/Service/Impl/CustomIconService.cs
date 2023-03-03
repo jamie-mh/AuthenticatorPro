@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (icon == null)
             {
-                throw new ArgumentException("Icon cannot be null");
+                throw new ArgumentNullException(nameof(icon));
             }
 
             var existing = await _customIconRepository.GetAsync(icon.Id);
@@ -42,7 +42,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             if (icons == null)
             {
-                throw new ArgumentException("Icons cannot be null");
+                throw new ArgumentNullException(nameof(icons));
             }
 
             var added = 0;

@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddIfNotExistsAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _customIconService.AddIfNotExists(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _customIconService.AddIfNotExists(null));
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddManyAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() => _customIconService.AddManyAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _customIconService.AddManyAsync(null));
         }
 
         [Fact]
