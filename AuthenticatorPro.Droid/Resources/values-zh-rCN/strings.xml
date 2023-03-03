@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 个新分类。</string>
     <string name="restoredFromBackupUpdated">已恢复 {0} 个新验证器和 {1} 个新分类。更新了 {2} 个已有的验证器。</string>
     <string name="restoredNothing">没有可以恢复的内容。</string>
-    <string name="restoredFromMigration">已恢复 {0} 个新验证器。</string>
     <!-- Errors -->
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
