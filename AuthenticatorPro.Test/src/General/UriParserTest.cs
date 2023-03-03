@@ -5,18 +5,17 @@ using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Test.General.ClassData;
 using Moq;
-using SimpleBase;
 using System;
-using System.Linq;
 using Xunit;
+using UriParser = AuthenticatorPro.Core.UriParser;
 
 namespace AuthenticatorPro.Test.General
 {
-    public class AuthenticatorFactoryTest
+    public class UriParserTest
     {
         private readonly Mock<IIconResolver> _iconResolver;
 
-        public AuthenticatorFactoryTest()
+        public UriParserTest()
         {
             _iconResolver = new Mock<IIconResolver>();
             _iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns("default");
@@ -38,19 +37,19 @@ namespace AuthenticatorPro.Test.General
         [InlineData("otpauth://hotp/issuer:username?secret=ABCDEFG&counter=-1")] // Invalid counter 2/2
         [InlineData("motp://fail")] // Invalid mOTP
         [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=test")] // Invalid Yandex pin length
-        public void FromInvalidOtpAuthUri(string uri)
+        public void ParseStandardUri_invalid(string uri)
         {
             Assert.Throws<ArgumentException>(delegate
             {
-                _ = AuthenticatorFactory.ParseUri(uri, _iconResolver.Object);
+                _ = UriParser.ParseStandardUri(uri, _iconResolver.Object);
             });
         }
 
         [Theory]
-        [ClassData(typeof(FromValidOtpAuthUriClassData))]
-        public void FromValidOtpAuthUri(string uri, Authenticator b, int pinLength)
+        [ClassData(typeof(ValidStandardUriClassData))]
+        public void ParseStandardUri_valid(string uri, Authenticator b, int pinLength)
         {
-            var result = AuthenticatorFactory.ParseUri(uri, _iconResolver.Object);
+            var result = UriParser.ParseStandardUri(uri, _iconResolver.Object);
 
             var a = result.Authenticator;
             Assert.Equal(b.Type, a.Type);
@@ -65,6 +64,18 @@ namespace AuthenticatorPro.Test.General
             Assert.Equal(pinLength, result.PinLength);
         }
 
+        [Fact]
+        public void ParseOtpAuthMigrationUri_null()
+        {
+            Assert.Throws<ArgumentNullException>(() => UriParser.ParseOtpAuthMigrationUri(null));
+        }
+
+        [Fact]
+        public void ParseOtpAuthMigrationUri_invalidUri()
+        {
+            Assert.Throws<ArgumentException>(() => UriParser.ParseOtpAuthMigrationUri("abcdef"));
+        }
+
         [Theory]
         [InlineData("otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer")] // Standard TOTP
         [InlineData(
@@ -74,26 +85,10 @@ namespace AuthenticatorPro.Test.General
         [InlineData("otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&period=60")] // Period parameter
         [InlineData(
             "otpauth://totp/issuer%3Ausername?secret=ABCDEFG&issuer=issuer&algorithm=SHA512")] // Algorithm parameter
-        public void FromOtpAuthUriToOtpAuthUri(string uri)
+        public void FromStandardUriToUri(string uri)
         {
-            var auth = AuthenticatorFactory.ParseUri(uri, _iconResolver.Object).Authenticator;
+            var auth = UriParser.ParseStandardUri(uri, _iconResolver.Object).Authenticator;
             Assert.Equal(uri, auth.GetUri());
-        }
-
-        [Theory]
-        [ClassData(typeof(FromOtpAuthMigrationAuthenticatorClassData))]
-        public void FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator migration, Authenticator b)
-        {
-            var a = AuthenticatorFactory.FromOtpAuthMigrationAuthenticator(migration, _iconResolver.Object);
-
-            Assert.Equal(b.Type, a.Type);
-            Assert.Equal(b.Algorithm, a.Algorithm);
-            Assert.Equal(b.Counter, a.Counter);
-            Assert.Equal(b.Digits, a.Digits);
-            Assert.Equal(b.Period, a.Period);
-            Assert.Equal(b.Issuer, a.Issuer);
-            Assert.Equal(b.Username, a.Username);
-            Assert.True(Base32.Rfc4648.Decode(b.Secret).SequenceEqual(Base32.Rfc4648.Decode(a.Secret)));
         }
     }
 }

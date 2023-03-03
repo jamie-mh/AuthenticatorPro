@@ -42,6 +42,7 @@ using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using System;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Configuration = Android.Content.Res.Configuration;
@@ -51,6 +52,7 @@ using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using Timer = System.Timers.Timer;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using Uri = Android.Net.Uri;
+using UriParser = AuthenticatorPro.Core.UriParser;
 
 #if FDROID
 using ZXing;
@@ -127,7 +129,6 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly ICustomIconService _customIconService;
         private readonly IImportService _importService;
         private readonly IRestoreService _restoreService;
-        private readonly IQrCodeService _qrCodeService;
 
         private readonly IAuthenticatorView _authenticatorView;
 
@@ -161,7 +162,6 @@ namespace AuthenticatorPro.Droid.Activity
             _customIconService = Dependencies.Resolve<ICustomIconService>();
             _importService = Dependencies.Resolve<IImportService>();
             _restoreService = Dependencies.Resolve<IRestoreService>();
-            _qrCodeService = Dependencies.Resolve<IQrCodeService>();
 
             _authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
         }
@@ -1270,7 +1270,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                result = AuthenticatorFactory.ParseUri(uri, _iconResolver);
+                result = UriParser.ParseStandardUri(uri, _iconResolver);
             }
             catch (ArgumentException)
             {
@@ -1340,30 +1340,9 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task OnOtpAuthMigrationScan(string uri)
         {
-            int added;
-
-            try
-            {
-                added = await _qrCodeService.ParseOtpMigrationUri(uri);
-            }
-            catch (ArgumentException)
-            {
-                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
-                return;
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
-                return;
-            }
-
-            await _authenticatorView.LoadFromPersistenceAsync();
-            await SwitchCategory(null);
-            RunOnUiThread(_authenticatorListAdapter.NotifyDataSetChanged);
-
-            var message = String.Format(GetString(Resource.String.restoredFromMigration), added);
-            ShowSnackbar(message, Snackbar.LengthLong);
+            var converter = new GoogleAuthenticatorBackupConverter(_iconResolver);
+            var data = Encoding.UTF8.GetBytes(uri);
+            await ImportFromData(converter, data);
         }
 
         private void RequestPermissionThenScanQrCode()
@@ -1537,21 +1516,8 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
 
-        private async Task ImportFromUri(BackupConverter converter, Uri uri)
+        private async Task ImportFromData(BackupConverter converter, byte[] data)
         {
-            byte[] data;
-
-            try
-            {
-                data = await FileUtil.ReadFile(this, uri);
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-                return;
-            }
-
             async Task ConvertAndRestore(string password)
             {
                 var (conversionResult, restoreResult) = await _importService.ImportAsync(converter, data, password);
@@ -1634,6 +1600,24 @@ namespace AuthenticatorPro.Droid.Activity
 
                     break;
             }
+        }
+
+        private async Task ImportFromUri(BackupConverter converter, Uri uri)
+        {
+            byte[] data;
+
+            try
+            {
+                data = await FileUtil.ReadFile(this, uri);
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                return;
+            }
+
+            await ImportFromData(converter, data);
         }
 
         private async Task FinaliseRestore(RestoreResult result)

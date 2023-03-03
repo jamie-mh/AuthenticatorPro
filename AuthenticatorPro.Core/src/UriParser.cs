@@ -4,76 +4,15 @@
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
-using SimpleBase;
+using ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace AuthenticatorPro.Core
 {
-    public static class AuthenticatorFactory
+    public static class UriParser
     {
-        public static Authenticator FromOtpAuthMigrationAuthenticator(OtpAuthMigration.Authenticator input,
-            IIconResolver iconResolver)
-        {
-            string issuer;
-            string username;
-
-            // Google Auth may not have an issuer, just use the username instead
-            if (String.IsNullOrEmpty(input.Issuer))
-            {
-                issuer = input.Username.Trim().Truncate(Authenticator.IssuerMaxLength);
-                username = null;
-            }
-            else
-            {
-                issuer = input.Issuer.Trim().Truncate(Authenticator.IssuerMaxLength);
-                // For some odd reason the username field always follows a '[issuer]: [username]' format
-                username = input.Username.Replace($"{input.Issuer}: ", "").Trim().Truncate(Authenticator.UsernameMaxLength);
-            }
-
-            var type = input.Type switch
-            {
-                OtpAuthMigration.Type.Totp => AuthenticatorType.Totp,
-                OtpAuthMigration.Type.Hotp => AuthenticatorType.Hotp,
-                _ => throw new ArgumentException($"Unknown type '{input.Type}")
-            };
-
-            var algorithm = input.Algorithm switch
-            {
-                OtpAuthMigration.Algorithm.Sha1 => HashAlgorithm.Sha1,
-                _ => throw new ArgumentException($"Unknown algorithm '{input.Algorithm}")
-            };
-
-            string secret;
-
-            try
-            {
-                secret = Base32.Rfc4648.Encode(input.Secret);
-                secret = SecretUtil.Clean(secret, type);
-            }
-            catch (Exception e)
-            {
-                throw new ArgumentException("Failed to parse secret", e);
-            }
-
-            var auth = new Authenticator
-            {
-                Issuer = issuer,
-                Username = username,
-                Algorithm = algorithm,
-                Type = type,
-                Secret = secret,
-                Counter = input.Counter,
-                Digits = type.GetDefaultDigits(),
-                Period = type.GetDefaultPeriod(),
-                Icon = iconResolver.FindServiceKeyByName(issuer)
-            };
-
-            auth.Validate();
-            return auth;
-        }
-
         private static UriParseResult ParseMotpUri(string uri, IIconResolver iconResolver)
         {
             var match = Regex.Match(Uri.UnescapeDataString(uri), @"^motp:\/\/(.*?):(.*?)\?secret=([a-fA-F\d]+)$");
@@ -247,7 +186,7 @@ namespace AuthenticatorPro.Core
             return new UriParseResult { Authenticator = auth, PinLength = pinLength };
         }
 
-        public static UriParseResult ParseUri(string uri, IIconResolver iconResolver)
+        public static UriParseResult ParseStandardUri(string uri, IIconResolver iconResolver)
         {
             if (uri.StartsWith("otpauth"))
             {
@@ -260,6 +199,35 @@ namespace AuthenticatorPro.Core
             }
 
             throw new ArgumentException("Unknown URI scheme");
+        }
+
+        public static OtpAuthMigration ParseOtpAuthMigrationUri(string uri)
+        {
+            if (uri == null)
+            {
+                throw new ArgumentNullException(nameof(uri));
+            }
+
+            var real = Uri.UnescapeDataString(uri);
+            var match = Regex.Match(real, @"^otpauth-migration:\/\/offline\?data=(.*)$");
+
+            if (!match.Success)
+            {
+                throw new ArgumentException("Invalid URI");
+            }
+
+            var rawData = match.Groups[1].Value;
+
+            if (rawData.Length % 4 != 0)
+            {
+                var nextFactor = (rawData.Length + 4 - 1) / 4 * 4;
+                rawData = rawData.PadRight(nextFactor, '=');
+            }
+
+            ReadOnlySpan<byte> protoMessage = Convert.FromBase64String(rawData);
+            var migration = Serializer.Deserialize<OtpAuthMigration>(protoMessage);
+
+            return migration;
         }
     }
 }

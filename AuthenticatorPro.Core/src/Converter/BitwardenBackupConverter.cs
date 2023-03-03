@@ -136,7 +136,7 @@ namespace AuthenticatorPro.Core.Converter
 
                 if (Login.Totp.StartsWith("otpauth"))
                 {
-                    return AuthenticatorFactory.ParseUri(Login.Totp, iconResolver).Authenticator;
+                    return UriParser.ParseStandardUri(Login.Totp, iconResolver).Authenticator;
                 }
 
                 if (Login.Totp.StartsWith("steam"))

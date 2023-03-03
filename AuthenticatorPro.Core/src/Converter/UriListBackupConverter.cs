@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Core.Converter
 
                 try
                 {
-                    auth = AuthenticatorFactory.ParseUri(line, IconResolver).Authenticator;
+                    auth = UriParser.ParseStandardUri(line, IconResolver).Authenticator;
                     auth.Validate();
                 }
                 catch (Exception e)

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace AuthenticatorPro.Test.General.ClassData
 {
-    public class FromValidOtpAuthUriClassData : IEnumerable<object[]>
+    public class ValidStandardUriClassData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {

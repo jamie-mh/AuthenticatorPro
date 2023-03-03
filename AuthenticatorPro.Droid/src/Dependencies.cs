@@ -64,7 +64,6 @@ namespace AuthenticatorPro.Droid
             container.Register<ICategoryService, CategoryService>();
             container.Register<ICustomIconService, CustomIconService>();
             container.Register<IImportService, ImportService>();
-            container.Register<IQrCodeService, QrCodeService>();
             container.Register<IRestoreService, RestoreService>();
         }
 

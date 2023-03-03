@@ -142,7 +142,6 @@
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nothing to restore</string>
-    <string name="restoredFromMigration">Restored {0} new authenticators</string>
 
     <!-- Errors -->
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
