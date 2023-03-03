@@ -9,6 +9,7 @@ using AndroidX.Camera.Core;
 using AndroidX.Camera.Lifecycle;
 using AndroidX.Camera.View;
 using AndroidX.Core.Content;
+using AuthenticatorPro.Droid.Interface;
 using Google.Android.Material.Button;
 using Java.Util.Concurrent;
 

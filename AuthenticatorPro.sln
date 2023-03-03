@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticatorPro.Droid", "AuthenticatorPro.Droid\AuthenticatorPro.Droid.csproj", "{53A476E3-2831-4A43-B0E7-349EF15A45FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Shared", "AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj", "{B9214A83-03DC-4963-B355-1BB34B03DC00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Core", "AuthenticatorPro.Core\AuthenticatorPro.Core.csproj", "{B9214A83-03DC-4963-B355-1BB34B03DC00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticatorPro.Droid.Shared", "AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj", "{A13F5591-E77B-41E0-A96F-7D4DE9F91FE8}"
 EndProject

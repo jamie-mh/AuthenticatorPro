@@ -1,8 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Entity;
-using AuthenticatorPro.Shared.Persistence;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,7 +23,15 @@ namespace AuthenticatorPro.Droid.Persistence
         public async Task CreateAsync(CustomIcon item)
         {
             var conn = await _database.GetConnection();
-            await conn.InsertAsync(item);
+
+            try
+            {
+                await conn.InsertAsync(item);
+            }
+            catch (SQLiteException e)
+            {
+                throw new EntityDuplicateException(e);
+            }
         }
 
         public async Task<CustomIcon> GetAsync(string id)

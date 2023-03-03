@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj" />
-    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj" />
+    <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAotProfile Include="custom.aprof" />
