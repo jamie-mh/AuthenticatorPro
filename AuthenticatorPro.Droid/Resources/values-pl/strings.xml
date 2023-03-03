@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Przywrócono {0} nowych wpisów i {1} nowych kategorii</string>
     <string name="restoredFromBackupUpdated">Przywrócono {0} nowych wpisów i {1} nowych kategorii. Zaktualizowano {2} istniejący(ch) wpisów.</string>
     <string name="restoredNothing">Brak rzeczy do przywrócenia</string>
-    <string name="restoredFromMigration">Przywrócono {0} nowych wpisów</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Aby zeskanować kod QR, należy nadać uprawnieni do aparatu</string>
     <string name="googlePlayNotInstalledError">Google Play nie jest zainstalowany na Twoim urządzeniu</string>
