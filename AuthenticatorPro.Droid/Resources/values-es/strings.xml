@@ -123,7 +123,6 @@
         existing authenticators.
     </string>
     <string name="restoredNothing">Nada para restaurar</string>
-    <string name="restoredFromMigration">Restauró {0} nuevos autenticadores.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un código QR.</string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
