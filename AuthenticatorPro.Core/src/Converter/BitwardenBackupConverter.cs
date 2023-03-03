@@ -64,22 +64,6 @@ namespace AuthenticatorPro.Core.Converter
                 }
             }
 
-            for (var i = 0; i < convertableItems.Count; ++i)
-            {
-                var folderId = convertableItems[i].FolderId;
-
-                if (folderId == null)
-                {
-                    continue;
-                }
-
-                var folderName = export.Folders.First(f => f.Id == folderId).Name;
-                var category = categories.First(c => c.Name == folderName);
-                var auth = authenticators[i];
-
-                bindings.Add(new AuthenticatorCategory(auth.Secret, category.Id));
-            }
-
             var backup = new Backup.Backup(authenticators, categories, bindings);
             var result = new ConversionResult { Failures = failures, Backup = backup };
 

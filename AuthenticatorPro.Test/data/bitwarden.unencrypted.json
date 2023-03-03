@@ -1,0 +1,99 @@
+{
+  "encrypted": false,
+  "folders": [
+    {
+      "id": "1954c098-86a2-4d5f-a075-afba015cf052",
+      "name": "Test"
+    }
+  ],
+  "items": [
+    {
+      "id": "ddab8cf4-452c-4577-8907-7edcf74a56ad",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Entry A",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.example.com"
+          }
+        ],
+        "username": "username",
+        "password": "password",
+        "totp": ""
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "dc24d542-925e-4e76-ac3c-874f53bd9b55",
+      "organizationId": null,
+      "folderId": "1954c098-86a2-4d5f-a075-afba015cf052",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Entry B",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.example.com"
+          }
+        ],
+        "username": "username",
+        "password": "password",
+        "totp": "otpauth://totp/Standard%3ATotp?secret=54VEGZFJHM3BGDONFERMPUOKNGDJETGM&issuer=Standard"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "ddab8cf4-452c-4577-8907-7edcf74a56ad",
+      "organizationId": null,
+      "folderId": "1954c098-86a2-4d5f-a075-afba015cf052",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Entry C",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.example.com"
+          }
+        ],
+        "username": "username",
+        "password": "password",
+        "totp": "steam://2NREZAL2WYZVYCEOTKBADVRDDTRQSOPQ"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "ddab8cf4-452c-4577-8907-7edcf74a56ad",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Entry D",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://www.example.com"
+          }
+        ],
+        "username": "username",
+        "password": "password",
+        "totp": "UTJVWG6PAC4GYNRPHJ3FTRWRJIAWVWBD"
+      },
+      "collectionIds": null
+    }
+  ]
+}
