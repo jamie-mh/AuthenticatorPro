@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">لاشيء لاستعادته</string>
-    <string name="restoredFromMigration">Restored {0} new authenticators</string>
     <!-- Errors -->
     <string name="cameraPermissionError">يجب منح إذن الكاميرا كي يتم مسح رمز QR</string>
     <string name="googlePlayNotInstalledError">متجر play غير مثَبت على جهازك</string>
