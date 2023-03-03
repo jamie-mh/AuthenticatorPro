@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Restaurados {0} novos autenticadores e {1} novas categorias</string>
     <string name="restoredFromBackupUpdated">Restaurados {0} novos autenticadores e {1} novas categorias. Atualização de {2} autenticadores existentes.</string>
     <string name="restoredNothing">Nada a restaurar</string>
-    <string name="restoredFromMigration">Restaurados {0} novos autenticadores</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Deve conceder permissão de acesso à câmara para digitalizar um código QR</string>
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no dispositivo</string>
