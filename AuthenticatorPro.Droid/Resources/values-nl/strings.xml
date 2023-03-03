@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} authenticators en {1} categorieën hersteld</string>
     <string name="restoredFromBackupUpdated">{0} nieuwe authenticators en {1} nieuwe categorieën hersteld. {2} bestaande authenticators bijgewerkt.</string>
     <string name="restoredNothing">Niets om te herstellen</string>
-    <string name="restoredFromMigration">{0} nieuwe authenticators hersteld</string>
     <!-- Errors -->
     <string name="cameraPermissionError">De camera permissie moet verleend worden om een QR-code te kunnen scannen</string>
     <string name="googlePlayNotInstalledError">Google Play is niet geïnstalleerd op uw apparaat</string>
