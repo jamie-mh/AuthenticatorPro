@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
     <string name="restoredFromBackupUpdated">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi. Mevcut {2} kimlik doğrulayıcı güncellendi.</string>
     <string name="restoredNothing">Geri yüklenecek bir şey yok</string>
-    <string name="restoredFromMigration">{0} yeni kimlik doğrulayıcı geri yüklendi.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
