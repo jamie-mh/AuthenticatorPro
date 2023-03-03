@@ -1,1 +1,1 @@
-Aplicativo 2FA gratuito e de código aberto, com backups criptografados e suporte para Wear OS
+Free and open-source 2FA app with encrypted backups
