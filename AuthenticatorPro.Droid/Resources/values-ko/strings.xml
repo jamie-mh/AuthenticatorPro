@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다</string>
     <string name="restoredFromBackupUpdated">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다. 기존의 인증기 {2}개를 갱신했습니다.</string>
     <string name="restoredNothing">복원할 것이 없습니다</string>
-    <string name="restoredFromMigration">새 인증기 {0}개를 복원했습니다</string>
     <!-- Errors -->
     <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
