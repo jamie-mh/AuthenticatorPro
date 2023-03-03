@@ -27,7 +27,25 @@
     <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="test.authpro">
+    <None Update="data\aegis.encrypted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\aegis.unencrypted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\andotp.encrypted.aes">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\andotp.unencrypted.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\authplus.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\backup.encrypted.authpro">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\backup.unencrypted.authpro">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

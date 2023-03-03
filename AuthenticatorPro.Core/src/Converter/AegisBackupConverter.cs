@@ -83,11 +83,6 @@ namespace AuthenticatorPro.Core.Converter
         {
             var masterKey = GetMasterKeyFromSlots(backup.Header.Slots, password);
 
-            if (masterKey == null)
-            {
-                throw new ArgumentException("Master key cannot be decrypted");
-            }
-
             var databaseBytes = Convert.FromBase64String(backup.Database);
             var ivBytes = Hex.Decode(backup.Header.Params.Nonce);
             var macBytes = Hex.Decode(backup.Header.Params.Tag);
@@ -120,7 +115,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
             }
 
-            return null;
+            throw new ArgumentException("Master key cannot be decrypted");
         }
 
         private static byte[] DecryptSlot(Slot slot, byte[] password)
@@ -186,11 +181,6 @@ namespace AuthenticatorPro.Core.Converter
                         newIcon = await _customIconDecoder.Decode(entry.Icon);
                     }
                     catch (ArgumentException)
-                    {
-                        continue;
-                    }
-
-                    if (newIcon == null)
                     {
                         continue;
                     }

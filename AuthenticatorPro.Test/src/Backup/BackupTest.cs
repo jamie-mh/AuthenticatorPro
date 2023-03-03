@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Test.Backup.Comparer;
+using AuthenticatorPro.Test.Backup.Fixture;
 using System;
 using Xunit;
 
@@ -49,14 +50,7 @@ namespace AuthenticatorPro.Test.Backup
         [Fact]
         public void FromBytes_invalidPassword()
         {
-            var header = "AuthenticatorPro"u8.ToArray();
-            var data = Convert.FromBase64String("BzfknHVfDhfn/crd9hT/jdYfuBn0jiBr1xgikqPRaHrStn8GMnsVL5uZFGfWKIqmfNf3HEXgSUqqiTUiBdnDkPtPDWDF2V3wJKEBy1tCcnJXsPxMEPUS5eSjUWXzbj1i5YeVuKD+QztgkQ3wbxl7MFsb9cOK2yyRK3yQxbLzRAXWDt1N");
-
-            var bytes = new byte[header.Length + data.Length];
-            Buffer.BlockCopy(header, 0, bytes, 0, header.Length);
-            Buffer.BlockCopy(data, 0, bytes, header.Length, data.Length);
-
-            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes(bytes, "testing1"); });
+            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes(_backupFixture.EncryptedData, "testing1"); });
         }
 
         [Fact]
