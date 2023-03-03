@@ -46,7 +46,7 @@ def build_map(files: list):
     file.write("// Copyright (C) 2022 jmh\n")
     file.write("// SPDX-License-Identifier: GPL-3.0-only\n\n")
     file.write("using System.Collections.Generic;\n\n")
-    file.write("namespace AuthenticatorPro.Droid.Shared.Data\n")
+    file.write("namespace AuthenticatorPro.Droid.Shared\n")
     file.write("{\n")
     file.write("    // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY\n")
     file.write("    public static class IconMap\n")
