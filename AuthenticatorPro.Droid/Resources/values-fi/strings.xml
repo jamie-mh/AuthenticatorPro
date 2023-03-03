@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu</string>
     <string name="restoredFromBackupUpdated">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu. {2} olemassa olevaa todentajaa päivitetty.</string>
     <string name="restoredNothing">Ei palautettavaa</string>
-    <string name="restoredFromMigration">Palautettu {0} uutta todentajaa</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Kameran käyttöoikeus on myönnettävä, jotta QR-koodi voidaan skannata</string>
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
