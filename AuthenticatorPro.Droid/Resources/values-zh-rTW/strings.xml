@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">已還原 {0} 個新驗證器和 {1} 個新分類。</string>
     <string name="restoredFromBackupUpdated">已還原 {0} 個新驗證器和 {1} 個新分類。更新了 {2} 個已有的驗證器。</string>
     <string name="restoredNothing">沒有可以還原的內容。</string>
-    <string name="restoredFromMigration">已還原 {0} 個新驗證器。</string>
     <!-- Errors -->
     <string name="cameraPermissionError">必須授予相機使用權才能掃描 QR Code。</string>
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
