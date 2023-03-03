@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromBackupUpdated">{0} Schlüssel und {1} Kategorien wiederhergestellt. {2} bereits vorhandene Schlüssel wurden aktualisiert.</string>
     <string name="restoredNothing">Es gibt nichts wiederherzustellen</string>
-    <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
