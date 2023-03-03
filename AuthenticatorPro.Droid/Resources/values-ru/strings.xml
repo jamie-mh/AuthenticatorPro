@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
     <string name="restoredFromBackupUpdated">Восстановлено {0} новых аутентификаторов и {1} новых категорий. Обновлено {2} существующих аутентификаторов.</string>
     <string name="restoredNothing">Нет данных для восстановления</string>
-    <string name="restoredFromMigration">Восстановлено {0} новых аутентификаторов.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
