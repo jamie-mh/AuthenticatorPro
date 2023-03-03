@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Återställde {0} nya autentiserare och {1} nya kategorier</string>
     <string name="restoredFromBackupUpdated">Återställde {0} nya autentiserare och {1} nya kategorier. Uppdaterade {2} befintliga autentiserare.</string>
     <string name="restoredNothing">Inget att återställa</string>
-    <string name="restoredFromMigration">Återställde {0} nya autentiserare</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Behörighet till kameran behövs för att skanna QR-koder</string>
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
