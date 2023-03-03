@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} 個の新しい認証コードと {1} 個の新しいカテゴリを復元しました</string>
     <string name="restoredFromBackupUpdated">{0} 件の新しい認証コードと {1} 件の新しいカテゴリを復元しました。既存の認証コードを {2} 件更新しました。</string>
     <string name="restoredNothing">復元するものがありません</string>
-    <string name="restoredFromMigration">{0} の新しい認証コードを復元しました</string>
     <!-- Errors -->
     <string name="cameraPermissionError">QRコードをスキャンするにはカメラの許可が必要です</string>
     <string name="googlePlayNotInstalledError">Google Playがデバイスにインストールされていません</string>
