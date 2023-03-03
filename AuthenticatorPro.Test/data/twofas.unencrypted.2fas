@@ -1,0 +1,163 @@
+{
+  "services": [
+    {
+      "name": "Standard",
+      "secret": "54VEGZFJHM3BGDONFERMPUOKNGDJETGM",
+      "updatedAt": 1677870774538,
+      "otp": {
+        "label": "Standard:Totp",
+        "account": "Totp",
+        "issuer": "Standard",
+        "digits": 6,
+        "period": 30,
+        "algorithm": "SHA1",
+        "tokenType": "TOTP",
+        "source": "Link"
+      },
+      "order": {
+        "position": 0
+      },
+      "icon": {
+        "selected": "IconCollection",
+        "iconCollection": {
+          "id": "a5b3fb65-4ec5-43e6-8ec1-49e24ca9e7ad"
+        }
+      }
+    },
+    {
+      "name": "NoIssuer",
+      "secret": "KY2QJPMNQLSGSZE2C5F7AYBLBVEEDHFX",
+      "updatedAt": 1677870902004,
+      "otp": {
+        "label": "NoIssuer",
+        "account": "",
+        "digits": 6,
+        "period": 30,
+        "algorithm": "SHA1",
+        "tokenType": "TOTP",
+        "source": "Link"
+      },
+      "order": {
+        "position": 1
+      },
+      "icon": {
+        "selected": "IconCollection",
+        "iconCollection": {
+          "id": "a5b3fb65-4ec5-43e6-8ec1-49e24ca9e7ad"
+        }
+      },
+      "groupId": "bf659268-d707-4f62-a0f0-67bbf5432b6a"
+    },
+    {
+      "name": "Sha",
+      "secret": "RJNZJM7PAGJUBG32XHQWHFZVLYOMGIUQ",
+      "updatedAt": 1677870819502,
+      "otp": {
+        "label": "Sha:256",
+        "account": "256",
+        "issuer": "Sha",
+        "digits": 6,
+        "period": 30,
+        "algorithm": "SHA256",
+        "tokenType": "TOTP",
+        "source": "Link"
+      },
+      "order": {
+        "position": 2
+      },
+      "icon": {
+        "selected": "IconCollection",
+        "iconCollection": {
+          "id": "a5b3fb65-4ec5-43e6-8ec1-49e24ca9e7ad"
+        }
+      }
+    },
+    {
+      "name": "Sha",
+      "secret": "UW33SR5O4EKTDXNCBBS5FSPUKAYXIWOH",
+      "updatedAt": 1677870826507,
+      "otp": {
+        "label": "Sha:512",
+        "account": "512",
+        "issuer": "Sha",
+        "digits": 6,
+        "period": 30,
+        "algorithm": "SHA512",
+        "tokenType": "TOTP",
+        "source": "Link"
+      },
+      "order": {
+        "position": 3
+      },
+      "icon": {
+        "selected": "IconCollection",
+        "iconCollection": {
+          "id": "a5b3fb65-4ec5-43e6-8ec1-49e24ca9e7ad"
+        }
+      }
+    },
+    {
+      "name": "Long",
+      "secret": "JGRMXBLPPYQIFMRBFQDHNP3MPPYQYNUN",
+      "updatedAt": 1677870906117,
+      "otp": {
+        "label": "Long:Period",
+        "account": "Period",
+        "issuer": "Long",
+        "digits": 6,
+        "period": 60,
+        "algorithm": "SHA1",
+        "tokenType": "TOTP",
+        "source": "Link"
+      },
+      "order": {
+        "position": 4
+      },
+      "icon": {
+        "selected": "IconCollection",
+        "iconCollection": {
+          "id": "a5b3fb65-4ec5-43e6-8ec1-49e24ca9e7ad"
+        }
+      },
+      "groupId": "bf659268-d707-4f62-a0f0-67bbf5432b6a"
+    },
+    {
+      "name": "Standard",
+      "secret": "JOR2VZXMNHACFNLRAOACFFRDRYAOFMLB",
+      "updatedAt": 1677870841609,
+      "otp": {
+        "label": "Standard:Hotp",
+        "account": "Hotp",
+        "issuer": "Standard",
+        "digits": 6,
+        "period": 30,
+        "algorithm": "SHA1",
+        "counter": 10,
+        "tokenType": "HOTP",
+        "source": "Link"
+      },
+      "order": {
+        "position": 5
+      },
+      "icon": {
+        "selected": "IconCollection",
+        "iconCollection": {
+          "id": "a5b3fb65-4ec5-43e6-8ec1-49e24ca9e7ad"
+        }
+      }
+    }
+  ],
+  "updatedAt": 1677871119498,
+  "schemaVersion": 3,
+  "appVersionCode": 4020200,
+  "appVersionName": "4.2.2",
+  "appOrigin": "android",
+  "groups": [
+    {
+      "id": "bf659268-d707-4f62-a0f0-67bbf5432b6a",
+      "name": "Group",
+      "isExpanded": true,
+      "updatedAt": 1677870897388
+    }
+  ]
+}
