@@ -12,7 +12,6 @@ using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared;
-using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
@@ -33,8 +32,8 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
 
-        public event EventHandler<int> ItemClicked;
-        public event EventHandler<int> MenuClicked;
+        public event EventHandler<string> ItemClicked;
+        public event EventHandler<string> MenuClicked;
 
         public event EventHandler MovementStarted;
         public event EventHandler<bool> MovementFinished;
@@ -442,7 +441,11 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             var holder = new AuthenticatorListHolder(itemView);
             holder.ItemView.Click += delegate { OnItemClick(holder); };
-            holder.MenuButton.Click += delegate { MenuClicked.Invoke(this, holder.BindingAdapterPosition); };
+            holder.MenuButton.Click += delegate
+            {
+                var auth = _authenticatorView[holder.BindingAdapterPosition];
+                MenuClicked.Invoke(this, auth.Secret);
+            };
             holder.RefreshButton.Click += delegate { OnRefreshClick(holder.BindingAdapterPosition); };
 
             return holder;
@@ -455,14 +458,15 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 return;
             }
 
+            var auth = _authenticatorView[holder.BindingAdapterPosition];
+
             if (_tapToReveal)
             {
-                var auth = _authenticatorView[holder.BindingAdapterPosition];
                 var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
             }
 
-            ItemClicked?.Invoke(this, holder.BindingAdapterPosition);
+            ItemClicked?.Invoke(this, auth.Secret);
         }
 
         private async void OnRefreshClick(int position)

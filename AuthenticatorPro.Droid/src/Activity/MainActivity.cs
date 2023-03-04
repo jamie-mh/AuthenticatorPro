@@ -1000,14 +1000,15 @@ namespace AuthenticatorPro.Droid.Activity
             _appBarLayout.SetExpanded(true);
         }
 
-        private void OnAuthenticatorClicked(object sender, int position)
+        private void OnAuthenticatorClicked(object sender, string secret)
         {
-            if (!_preferences.TapToCopy)
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
+
+            if (auth == null || !_preferences.TapToCopy)
             {
                 return;
             }
 
-            var auth = _authenticatorView[position];
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
             var clip = ClipData.NewPlainText("code", auth.GetCode());
             clipboard.PrimaryClip = clip;
@@ -1015,9 +1016,15 @@ namespace AuthenticatorPro.Droid.Activity
             ShowSnackbar(Resource.String.copiedToClipboard, Snackbar.LengthShort);
         }
 
-        private void OnAuthenticatorMenuClicked(object sender, int position)
+        private void OnAuthenticatorMenuClicked(object sender, string secret)
         {
-            var auth = _authenticatorView[position];
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
+
+            if (auth == null)
+            {
+                return;
+            }
+
             var bundle = new Bundle();
             bundle.PutInt("type", (int) auth.Type);
             bundle.PutLong("counter", auth.Counter);
@@ -1083,8 +1090,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
 
                 await _authenticatorView.LoadFromPersistenceAsync();
-                var position = _authenticatorView.IndexOf(auth);
-                RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemRemoved(position); });
+                RunOnUiThread(delegate { _authenticatorListAdapter.NotifyDataSetChanged(); });
                 CheckEmptyState();
 
                 _preferences.BackupRequired = BackupRequirement.WhenPossible;
@@ -1309,7 +1315,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 RunOnUiThread(delegate
                 {
-                    _authenticatorListAdapter.NotifyItemInserted(position);
+                    _authenticatorListAdapter.NotifyDataSetChanged();
                     ScrollToPosition(position);
                 });
 
@@ -1842,7 +1848,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             RunOnUiThread(delegate
             {
-                _authenticatorListAdapter.NotifyItemInserted(position);
+                _authenticatorListAdapter.NotifyDataSetChanged();
                 ScrollToPosition(position);
             });
 
