@@ -4,7 +4,6 @@
 using Android.Content;
 using Android.Security.Keystore;
 using AndroidX.Preference;
-using AuthenticatorPro.Droid.Util;
 using Java.Security;
 using Javax.Crypto;
 using Javax.Crypto.Spec;

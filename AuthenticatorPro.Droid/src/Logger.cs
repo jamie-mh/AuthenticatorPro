@@ -20,6 +20,11 @@ namespace AuthenticatorPro.Droid
             Log.Error(Tag, e.ToString());
         }
 
+        public static void Error(string message, Exception e)
+        {
+            Log.Error(Tag, message + Environment.NewLine + e);
+        }
+
         public static void Info(string message)
         {
             Log.Info(Tag, message);

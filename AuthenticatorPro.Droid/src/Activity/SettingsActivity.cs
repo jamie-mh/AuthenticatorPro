@@ -14,6 +14,7 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Preference;
 using AuthenticatorPro.Droid.Util;
+using Java.Security;
 using Javax.Crypto;
 using System;
 
@@ -58,7 +59,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             // If all fingerprints have been removed the biometrics setting is still checked
             // In case of invalid biometrics, clear the key
-            if (_preferences.AllowBiometrics && (!CanUseBiometrics() || IsBiometricsInvalidated()))
+            if (_preferences.AllowBiometrics && (!CanUseBiometrics() || IsBiometricsInvalidatedOrUnrecoverable()))
             {
                 ClearBiometrics();
                 _preferences.AllowBiometrics = false;
@@ -178,7 +179,7 @@ namespace AuthenticatorPro.Droid.Activity
                 BiometricManager.BiometricSuccess;
         }
 
-        private bool IsBiometricsInvalidated()
+        private bool IsBiometricsInvalidatedOrUnrecoverable()
         {
             var passwordStorage = new BiometricStorage(this);
 
@@ -186,8 +187,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 _ = passwordStorage.GetDecryptionCipher();
             }
-            catch (KeyPermanentlyInvalidatedException)
+            catch (Exception e)
             {
+                Logger.Error("Key invalidated or unrecoverable", e);
                 return true;
             }
 
