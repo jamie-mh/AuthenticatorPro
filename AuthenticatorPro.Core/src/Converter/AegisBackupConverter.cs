@@ -182,18 +182,21 @@ namespace AuthenticatorPro.Core.Converter
                     }
                     catch (ArgumentException)
                     {
-                        continue;
+                        newIcon = null;
                     }
 
-                    var icon = icons.FirstOrDefault(ic => ic.Id == newIcon.Id);
-
-                    if (icon == null)
+                    if (newIcon != null)
                     {
-                        icon = newIcon;
-                        icons.Add(newIcon);
-                    }
+                        var icon = icons.FirstOrDefault(ic => ic.Id == newIcon.Id);
 
-                    auth.Icon = CustomIcon.Prefix + icon.Id;
+                        if (icon == null)
+                        {
+                            icon = newIcon;
+                            icons.Add(newIcon);
+                        }
+
+                        auth.Icon = CustomIcon.Prefix + icon.Id;
+                    }
                 }
 
                 authenticators.Add(auth);
