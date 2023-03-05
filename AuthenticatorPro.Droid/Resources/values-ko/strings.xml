@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다</string>
     <string name="restoredFromBackupUpdated">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다. 기존의 인증기 {2}개를 갱신했습니다.</string>
     <string name="restoredNothing">복원할 것이 없습니다</string>
-    <string name="restoredFromMigration">새 인증기 {0}개를 복원했습니다</string>
     <!-- Errors -->
     <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">언어</string>
     <string name="prefLanguageSummary">앱에서 쓸 언어를 선택하세요</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">보안</string>
     <string name="prefPasswordTitle">비밀번호</string>
     <string name="prefPasswordSummary">인증기에 접근할 때 비밀번호를 요구합니다. 데이터베이스가 비밀번호로 암호화됩니다.</string>

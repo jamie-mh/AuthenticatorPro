@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Przywrócono {0} nowych wpisów i {1} nowych kategorii</string>
     <string name="restoredFromBackupUpdated">Przywrócono {0} nowych wpisów i {1} nowych kategorii. Zaktualizowano {2} istniejący(ch) wpisów.</string>
     <string name="restoredNothing">Brak rzeczy do przywrócenia</string>
-    <string name="restoredFromMigration">Przywrócono {0} nowych wpisów</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Aby zeskanować kod QR, należy nadać uprawnieni do aparatu</string>
     <string name="googlePlayNotInstalledError">Google Play nie jest zainstalowany na Twoim urządzeniu</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Automatycznie tworzy kopię zapasową w określonej lokalizacji kiedy pojawią się zmiany. Wyłącza przypomnienia o tworzeniu kopii zapasowej.</string>
     <string name="prefLanguageTitle">Język</string>
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
+    <string name="prefTapToCopyTitle">Dotknij, aby skopiować</string>
+    <string name="prefTapToCopySummary">Skopiuj kod do schowka po dotknięciu</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>

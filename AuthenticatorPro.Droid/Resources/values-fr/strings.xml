@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} nouveaux authentificateurs et {1} nouvelles catégories ont été restaurés</string>
     <string name="restoredFromBackupUpdated">{0} nouveaux authentificateurs et {1} nouvelles catégories ont été restaurés. {2} authenticateurs existants ont été actualisés.</string>
     <string name="restoredNothing">Rien à restaurer</string>
-    <string name="restoredFromMigration">{0} nouveaux authentificateurs ont été restaurés</string>
     <!-- Errors -->
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra doit être approuvée pour pouvoir scanner un QR code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Sauvegarde automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
     <string name="prefLanguageTitle">Langue</string>
     <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
+    <string name="prefTapToCopyTitle">Taper pour copier</string>
+    <string name="prefTapToCopySummary">Copier le code dans le presse-papiers lorsqu\'il est tapé</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>

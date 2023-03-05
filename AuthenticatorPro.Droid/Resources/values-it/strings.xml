@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">Ripristinato {0} nuovi autenticatori e {1} nuove categorie</string>
     <string name="restoredFromBackupUpdated">Ripristinato {0} nuovi autenticatori e {1} nuove categorie. Aggiornato {2} autenticatori esistenti.</string>
     <string name="restoredNothing">Nulla da ripristinare</string>
-    <string name="restoredFromMigration">Ripristinato {0} nuovi autenticatori</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Per scansionare un codice QR è necessario concedere l\'accesso alla fotocamera</string>
     <string name="googlePlayNotInstalledError">Google Play non è installato sul tuo dispositivo</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Lingua</string>
     <string name="prefLanguageSummary">Scegli una lingua da usare nell\'app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Sicurezza</string>
     <string name="prefPasswordTitle">Password</string>
     <string name="prefPasswordSummary">Richiede una password per accedere agli autenticatori. Il database verrà crittografato con la tua password.</string>
