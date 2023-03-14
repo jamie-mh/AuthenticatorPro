@@ -5,5 +5,5 @@
     <string name="hotpNotSupported">HOTP не підтримується</string>
     <string name="categoryAll">Всі</string>
     <string name="offline">Поза мережею</string>
-    <string name="syncFailed">Sync failed</string>
+    <string name="syncFailed">Помилка синхронізації</string>
 </resources>
