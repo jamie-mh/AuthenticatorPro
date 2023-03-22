@@ -79,6 +79,7 @@
                     android:textSize="22dp"
                     android:textColor="?attr/authListItem_code"
                     android:gravity="start"
+                    android:textDirection="ltr"
                     android:layout_below="@id/layoutIcon"
                     android:layout_marginTop="2dp"
                     android:layout_marginStart="38dp"
