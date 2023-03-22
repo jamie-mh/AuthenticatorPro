@@ -65,7 +65,6 @@
     <string name="digitsInvalid">Es müssen zwischen {0} und {1} Stellen generiert werden</string>
     <string name="periodInvalid">Ungültige Dauer</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
-    <string name="qrCodeNotFound">Es wurde kein QR-Code im Bild gefunden</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
     <string name="pinMessage">Gebe die PIN ein, die diesem QR-Code zugeordnet ist. Bei der Einrichtung dieses Kontos bist du nach einer PIN gefragt worden.</string>
