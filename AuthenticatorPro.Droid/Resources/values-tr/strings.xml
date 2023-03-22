@@ -65,7 +65,6 @@
     <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
     <string name="periodInvalid">Geçersiz süre</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
-    <string name="qrCodeNotFound">Görselde QR kod bulunamadı</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
     <string name="pinMessage">Bu QR koduyla ilişkili pini girin. Bu hesabı kurarken sizden bir pin istenmişti.</string>
