@@ -65,7 +65,6 @@
     <string name="digitsInvalid">驗證器只能生成 {0} 到 {1} 位的驗證碼</string>
     <string name="periodInvalid">輸入的週期無效</string>
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
     <string name="pinMessage">輸入該 QR Code 的密碼。在設定此帳號時，會提示您輸入密碼。</string>
