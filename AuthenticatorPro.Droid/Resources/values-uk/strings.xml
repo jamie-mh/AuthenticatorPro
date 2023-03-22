@@ -65,7 +65,6 @@
     <string name="digitsInvalid">Автентифікатор має генерувати від {0} до {1} цифр</string>
     <string name="periodInvalid">Неправильний період</string>
     <string name="qrCodeFormatError">Неправильний формат QR-коду або неможливо зчитати</string>
-    <string name="qrCodeNotFound">QR-код не знайдено на зображенні</string>
     <string name="duplicateAuthenticator">Автентифікатор з цим секретним ключем вже існує</string>
     <string name="scanSuccessful">QR-код успішно відскановано</string>
     <string name="pinMessage">Введіть PIN-код, що пов\'язаний із цим QR-кодом. PIN необхідно буде вводити під час налаштування цього облікового запису.</string>
