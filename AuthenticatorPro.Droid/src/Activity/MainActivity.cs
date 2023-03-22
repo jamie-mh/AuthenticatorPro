@@ -1240,7 +1240,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             if (!barcodes.Any())
             {
-                ShowSnackbar(Resource.String.qrCodeNotFound, Snackbar.LengthShort);
+                ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
                 return;
             }
 
