@@ -65,7 +65,6 @@
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">الفترة غير صالحة</string>
     <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
-    <string name="qrCodeNotFound">رمز QR غير موجود في الصورة</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
