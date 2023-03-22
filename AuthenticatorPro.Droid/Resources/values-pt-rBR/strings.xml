@@ -65,7 +65,6 @@
     <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
     <string name="periodInvalid">A senha está incorreta</string>
     <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
-    <string name="qrCodeNotFound">Código QR não encontrado na imagem</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
     <string name="pinMessage">Digite o pin associado a este código QR. Você teria sido solicitado a inserir um PIN ao configurar esta conta.</string>
