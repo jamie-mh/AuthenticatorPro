@@ -12,6 +12,7 @@ namespace AuthenticatorPro.Core.Generator
     {
         private readonly HMAC _hmac;
         private readonly int _digits;
+        private bool _isDisposed;
 
         protected HmacOtp(string secret, HashAlgorithm algorithm, int digits)
         {
@@ -46,9 +47,24 @@ namespace AuthenticatorPro.Core.Generator
             return code;
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_isDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                _hmac?.Dispose();
+            }
+
+            _isDisposed = true;
+        }
+
         public void Dispose()
         {
-            _hmac?.Dispose();
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
     }

@@ -11,11 +11,23 @@ using System.Text.RegularExpressions;
 
 namespace AuthenticatorPro.Core
 {
-    public static class UriParser
+    public static partial class UriParser
     {
+        [GeneratedRegex("^otpauth-migration:\\/\\/offline\\?data=(.*)$")]
+        private static partial Regex OtpAuthMigrationRegex();
+
+        [GeneratedRegex("([^?=&]+)(=([^&]*))?")]
+        private static partial Regex QueryStringRegex();
+
+        [GeneratedRegex("^otpauth:\\/\\/([a-z]+)\\/([^?]*)(.*)$")]
+        private static partial Regex OtpAuthUriRegex();
+
+        [GeneratedRegex("^motp:\\/\\/(.*?):(.*?)\\?secret=([a-fA-F\\d]+)$")]
+        private static partial Regex MotpRegex();
+
         private static UriParseResult ParseMotpUri(string uri, IIconResolver iconResolver)
         {
-            var match = Regex.Match(Uri.UnescapeDataString(uri), @"^motp:\/\/(.*?):(.*?)\?secret=([a-fA-F\d]+)$");
+            var match = MotpRegex().Match(Uri.UnescapeDataString(uri));
 
             if (!match.Success || match.Groups.Count < 4)
             {
@@ -41,7 +53,7 @@ namespace AuthenticatorPro.Core
 
         private static UriParseResult ParseOtpAuthUri(string uri, IIconResolver iconResolver)
         {
-            var uriMatch = Regex.Match(Uri.UnescapeDataString(uri), @"^otpauth:\/\/([a-z]+)\/([^?]*)(.*)$");
+            var uriMatch = OtpAuthUriRegex().Match(Uri.UnescapeDataString(uri));
 
             if (!uriMatch.Success)
             {
@@ -50,7 +62,7 @@ namespace AuthenticatorPro.Core
 
             var queryString = uriMatch.Groups[3].Value;
 
-            var argMatches = Regex.Matches(queryString, "([^?=&]+)(=([^&]*))?");
+            var argMatches = QueryStringRegex().Matches(queryString);
             var args = new Dictionary<string, string>();
 
             foreach (Match match in argMatches)
@@ -129,21 +141,21 @@ namespace AuthenticatorPro.Core
             var digits = type.GetDefaultDigits();
             var hasVariableDigits = type.GetMinDigits() != type.GetMaxDigits();
 
-            if (hasVariableDigits && args.ContainsKey("digits") && !Int32.TryParse(args["digits"], out digits))
+            if (hasVariableDigits && args.ContainsKey("digits") && !int.TryParse(args["digits"], out digits))
             {
                 throw new ArgumentException("Digits parameter cannot be parsed");
             }
 
             var period = type.GetDefaultPeriod();
 
-            if (type.HasVariablePeriod() && args.ContainsKey("period") && !Int32.TryParse(args["period"], out period))
+            if (type.HasVariablePeriod() && args.ContainsKey("period") && !int.TryParse(args["period"], out period))
             {
                 throw new ArgumentException("Period parameter cannot be parsed");
             }
 
             var counter = 0;
             if (type == AuthenticatorType.Hotp && args.ContainsKey("counter") &&
-                !Int32.TryParse(args["counter"], out counter))
+                !int.TryParse(args["counter"], out counter))
             {
                 throw new ArgumentException("Counter parameter cannot be parsed");
             }
@@ -164,7 +176,7 @@ namespace AuthenticatorPro.Core
             var pinLength = 0;
 
             if (type == AuthenticatorType.YandexOtp && args.ContainsKey("pin_length") &&
-                !Int32.TryParse(args["pin_length"], out pinLength))
+                !int.TryParse(args["pin_length"], out pinLength))
             {
                 throw new ArgumentException("Pin length parameter cannot be parsed");
             }
@@ -209,7 +221,7 @@ namespace AuthenticatorPro.Core
             }
 
             var real = Uri.UnescapeDataString(uri);
-            var match = Regex.Match(real, @"^otpauth-migration:\/\/offline\?data=(.*)$");
+            var match = OtpAuthMigrationRegex().Match(real);
 
             if (!match.Success)
             {
