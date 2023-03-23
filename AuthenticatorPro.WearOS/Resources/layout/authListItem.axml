@@ -46,6 +46,7 @@
                 android:textSize="14dp"
                 android:gravity="start"
                 android:textColor="?attr/primaryTextColor"
+                android:textDirection="locale"
                 android:singleLine="true"
                 android:id="@+id/textIssuer"/>
 
