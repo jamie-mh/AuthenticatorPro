@@ -16,6 +16,7 @@ namespace AuthenticatorPro.Core.Generator
         private const int Period = 30;
 
         private readonly HMAC _hmac;
+        private bool _isDisposed;
 
         public YandexOtp(string secret, string pin)
         {
@@ -79,9 +80,24 @@ namespace AuthenticatorPro.Core.Generator
             return new String(result);
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_isDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                _hmac?.Dispose();
+            }
+
+            _isDisposed = true;
+        }
+
         public void Dispose()
         {
-            _hmac?.Dispose();
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
     }

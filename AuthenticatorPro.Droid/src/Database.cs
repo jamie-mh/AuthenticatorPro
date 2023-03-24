@@ -178,7 +178,7 @@ namespace AuthenticatorPro.Droid
             }
 
             // Change encryption mode
-            if ((currentPassword == null && newPassword != null) || (currentPassword != null && newPassword == null))
+            if (currentPassword == null || newPassword == null)
             {
                 var tempPath = dbPath + ".temp";
 

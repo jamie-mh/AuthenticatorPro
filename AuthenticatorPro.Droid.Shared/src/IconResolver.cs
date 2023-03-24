@@ -6,9 +6,12 @@ using System.Text.RegularExpressions;
 
 namespace AuthenticatorPro.Droid.Shared
 {
-    public class IconResolver : IIconResolver
+    public partial class IconResolver : IIconResolver
     {
         public const string Default = "default";
+
+        [GeneratedRegex("[^a-z0-9]")]
+        private static partial Regex SimplifyRegex();
 
         public static int GetService(string key, bool isDark)
         {
@@ -44,7 +47,7 @@ namespace AuthenticatorPro.Droid.Shared
             static string Simplify(string input)
             {
                 input = input.ToLower();
-                input = Regex.Replace(input, @"[^a-z0-9]", "");
+                input = SimplifyRegex().Replace(input, "");
                 return input.Trim();
             }
 

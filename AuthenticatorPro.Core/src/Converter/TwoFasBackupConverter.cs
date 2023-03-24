@@ -130,7 +130,7 @@ namespace AuthenticatorPro.Core.Converter
             return (KeyParameter) generator.GenerateDerivedParameters(BaseAlgorithm, KeyLength * 8);
         }
 
-        private class TwoFasBackup
+        private sealed class TwoFasBackup
         {
             [JsonProperty(PropertyName = "services")]
             public List<Service> Services { get; set; }
@@ -142,7 +142,7 @@ namespace AuthenticatorPro.Core.Converter
             public string ServicesEncrypted { get; set; }
         }
 
-        private class Service
+        private sealed class Service
         {
             [JsonProperty(PropertyName = "name")]
             public string Name { get; set; }
@@ -202,7 +202,7 @@ namespace AuthenticatorPro.Core.Converter
             }
         }
 
-        private class Otp
+        private sealed class Otp
         {
             [JsonProperty(PropertyName = "account")]
             public string Account { get; set; }
@@ -226,7 +226,7 @@ namespace AuthenticatorPro.Core.Converter
             public string TokenType { get; set; }
         }
 
-        private class Group
+        private sealed class Group
         {
             [JsonProperty(PropertyName = "id")]
             public string Id { get; set; }

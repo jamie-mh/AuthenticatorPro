@@ -55,13 +55,13 @@ namespace AuthenticatorPro.Core.Converter
             return Task.FromResult(result);
         }
 
-        private class FreeOtpPlusBackup
+        private sealed class FreeOtpPlusBackup
         {
             [JsonProperty(PropertyName = "tokens")]
             public List<Token> Tokens { get; set; }
         }
 
-        private class Token
+        private sealed class Token
         {
             [JsonProperty(PropertyName = "algo")] public string Algorithm { get; set; }
 

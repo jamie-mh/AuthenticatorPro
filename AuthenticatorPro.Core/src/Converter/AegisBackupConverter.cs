@@ -206,7 +206,7 @@ namespace AuthenticatorPro.Core.Converter
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
-        private class AegisBackup<T>
+        private sealed class AegisBackup<T>
         {
             [JsonProperty(PropertyName = "version")]
             public int Version { get; set; }
@@ -217,7 +217,7 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "db")] public T Database { get; set; }
         }
 
-        private class KeyParams
+        private sealed class KeyParams
         {
             [JsonProperty(PropertyName = "nonce")]
             public string Nonce { get; set; }
@@ -226,7 +226,7 @@ namespace AuthenticatorPro.Core.Converter
             public string Tag { get; set; }
         }
 
-        private class Header
+        private sealed class Header
         {
             [JsonProperty(PropertyName = "slots")]
             public List<Slot> Slots { get; set; }
@@ -240,7 +240,7 @@ namespace AuthenticatorPro.Core.Converter
             Raw = 0, Password = 1, Biometric = 2
         }
 
-        private class Slot
+        private sealed class Slot
         {
             [JsonProperty(PropertyName = "type")]
             public SlotType Type { get; set; }
@@ -264,13 +264,13 @@ namespace AuthenticatorPro.Core.Converter
             public int P { get; set; }
         }
 
-        private class DecryptedDatabase
+        private sealed class DecryptedDatabase
         {
             [JsonProperty(PropertyName = "entries")]
             public List<Entry> Entries { get; set; }
         }
 
-        private class Entry
+        private sealed class Entry
         {
             [JsonProperty(PropertyName = "type")] public string Type { get; set; }
 
@@ -352,7 +352,7 @@ namespace AuthenticatorPro.Core.Converter
             }
         }
 
-        private class EntryInfo
+        private sealed class EntryInfo
         {
             [JsonProperty(PropertyName = "secret")]
             public string Secret { get; set; }

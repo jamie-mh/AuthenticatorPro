@@ -140,7 +140,7 @@ namespace AuthenticatorPro.Core.Converter
             return Encoding.UTF8.GetString(decrypted);
         }
 
-        private class Account
+        private sealed class Account
         {
             [JsonProperty(PropertyName = "secret")]
             public string Secret { get; set; }

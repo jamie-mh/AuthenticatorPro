@@ -91,7 +91,7 @@ namespace AuthenticatorPro.Core.Converter
             return JsonConvert.DeserializeObject<List<Account>>(json);
         }
 
-        private class Account
+        private sealed class Account
         {
             [JsonProperty(PropertyName = "issuer")]
             public string Issuer { get; set; }
@@ -132,7 +132,6 @@ namespace AuthenticatorPro.Core.Converter
                     ? Type.GetDefaultDigits()
                     : Int32.Parse(Digits);
 
-                // TODO: figure out if this value ever changes
                 if (Base != 16)
                 {
                     throw new ArgumentException("Cannot parse base other than 16, given {Base}");

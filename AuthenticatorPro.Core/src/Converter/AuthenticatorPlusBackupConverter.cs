@@ -114,7 +114,7 @@ namespace AuthenticatorPro.Core.Converter
             Totp = 0, Hotp = 1, Blizzard = 2
         }
 
-        private class Account
+        private sealed class Account
         {
             [Column("email")] public string Email { get; set; }
 
@@ -203,7 +203,7 @@ namespace AuthenticatorPro.Core.Converter
             }
         }
 
-        private class Category
+        private sealed class Category
         {
             [Column("name")] public string Name { get; set; }
 

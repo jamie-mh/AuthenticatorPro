@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Core.Service.Impl
         {
             var result = new RestoreResult
             {
-                AddedAuthenticatorCount = await _authenticatorService.AddManyAsync(backup.Authenticators),
+                AddedAuthenticatorCount = await _authenticatorService.AddManyAsync(backup.Authenticators)
             };
 
             if (backup.Categories != null)

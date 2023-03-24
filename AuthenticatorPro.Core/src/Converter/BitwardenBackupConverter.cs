@@ -70,7 +70,7 @@ namespace AuthenticatorPro.Core.Converter
             return Task.FromResult(result);
         }
 
-        private class Export
+        private sealed class Export
         {
             [JsonProperty(PropertyName = "folders")]
             public List<Folder> Folders { get; set; }
@@ -78,7 +78,7 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "items")] public List<Item> Items { get; set; }
         }
 
-        private class Folder
+        private sealed class Folder
         {
             [JsonProperty(PropertyName = "id")] public string Id { get; set; }
 
@@ -90,7 +90,7 @@ namespace AuthenticatorPro.Core.Converter
             }
         }
 
-        private class Item
+        private sealed class Item
         {
             [JsonProperty(PropertyName = "name")] public string Name { get; set; }
 
@@ -133,7 +133,7 @@ namespace AuthenticatorPro.Core.Converter
             }
         }
 
-        private class Login
+        private sealed class Login
         {
             [JsonProperty(PropertyName = "username")]
             public string Username { get; set; }

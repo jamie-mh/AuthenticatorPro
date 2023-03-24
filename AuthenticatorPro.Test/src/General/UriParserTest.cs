@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Test.General
         public UriParserTest()
         {
             _iconResolver = new Mock<IIconResolver>();
-            _iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns("default");
+            _iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns<string>(i => i);
         }
 
         [Theory]

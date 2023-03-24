@@ -216,6 +216,19 @@ namespace AuthenticatorPro.Test.General.ClassData
             }; // Algorithm parameter 4/4
             yield return new object[]
             {
+                "otpauth://totp/issuer:username?secret=ABCDEFG&icon=myicon",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp,
+                    Issuer = "issuer",
+                    Username = "username",
+                    Secret = "ABCDEFG",
+                    Icon = "myicon"
+                },
+                0
+            }; // Icon parameter
+            yield return new object[]
+            {
                 $"otpauth://totp/{new string('a', Authenticator.IssuerMaxLength + 1)}?secret=ABCDEFG",
                 new Authenticator
                 {

@@ -7,6 +7,7 @@ using AuthenticatorPro.Core.Util;
 using ProtoBuf;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace AuthenticatorPro.Core
@@ -21,6 +22,9 @@ namespace AuthenticatorPro.Core
 
         [GeneratedRegex("^otpauth:\\/\\/([a-z]+)\\/([^?]*)(.*)$")]
         private static partial Regex OtpAuthUriRegex();
+
+        [GeneratedRegex("^(.*?):(.*)$")]
+        private static partial Regex UsernameIssuerRegex();
 
         [GeneratedRegex("^motp:\\/\\/(.*?):(.*?)\\?secret=([a-fA-F\\d]+)$")]
         private static partial Regex MotpRegex();
@@ -65,17 +69,17 @@ namespace AuthenticatorPro.Core
             var argMatches = QueryStringRegex().Matches(queryString);
             var args = new Dictionary<string, string>();
 
-            foreach (Match match in argMatches)
+            foreach (var groups in argMatches.Select(m => m.Groups))
             {
-                if (!args.ContainsKey(match.Groups[1].Value))
+                if (!args.ContainsKey(groups[1].Value))
                 {
-                    args.Add(match.Groups[1].Value, match.Groups[3].Value);
+                    args.Add(groups[1].Value, groups[3].Value);
                 }
             }
 
             // Get the issuer and username if possible
             var issuerUsername = uriMatch.Groups[2].Value;
-            var issuerUsernameMatch = Regex.Match(issuerUsername, @"^(.*?):(.*)$");
+            var issuerUsernameMatch = UsernameIssuerRegex().Match(issuerUsername);
 
             string issuer;
             string username;
@@ -127,9 +131,9 @@ namespace AuthenticatorPro.Core
 
             var algorithm = Authenticator.DefaultAlgorithm;
 
-            if (args.ContainsKey("algorithm") && type.HasVariableAlgorithm())
+            if (args.TryGetValue("algorithm", out var algorithmParam) && type.HasVariableAlgorithm())
             {
-                algorithm = args["algorithm"].ToUpper() switch
+                algorithm = algorithmParam.ToUpper() switch
                 {
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
@@ -141,21 +145,23 @@ namespace AuthenticatorPro.Core
             var digits = type.GetDefaultDigits();
             var hasVariableDigits = type.GetMinDigits() != type.GetMaxDigits();
 
-            if (hasVariableDigits && args.ContainsKey("digits") && !int.TryParse(args["digits"], out digits))
+            if (hasVariableDigits && args.TryGetValue("digits", out var digitsParam) &&
+                !int.TryParse(digitsParam, out digits))
             {
                 throw new ArgumentException("Digits parameter cannot be parsed");
             }
 
             var period = type.GetDefaultPeriod();
 
-            if (type.HasVariablePeriod() && args.ContainsKey("period") && !int.TryParse(args["period"], out period))
+            if (type.HasVariablePeriod() && args.TryGetValue("period", out var periodParam) &&
+                !int.TryParse(periodParam, out period))
             {
                 throw new ArgumentException("Period parameter cannot be parsed");
             }
 
             var counter = 0;
-            if (type == AuthenticatorType.Hotp && args.ContainsKey("counter") &&
-                !int.TryParse(args["counter"], out counter))
+            if (type == AuthenticatorType.Hotp && args.TryGetValue("counter", out var counterParam) &&
+                !int.TryParse(counterParam, out counter))
             {
                 throw new ArgumentException("Counter parameter cannot be parsed");
             }
@@ -170,13 +176,13 @@ namespace AuthenticatorPro.Core
                 throw new ArgumentException("Secret parameter is required");
             }
 
-            var icon = iconResolver.FindServiceKeyByName(args.ContainsKey("icon") ? args["icon"] : issuer);
+            var icon = iconResolver.FindServiceKeyByName(args.TryGetValue("icon", out var iconParam) ? iconParam : issuer);
             var secret = SecretUtil.Clean(args["secret"], type);
 
             var pinLength = 0;
 
-            if (type == AuthenticatorType.YandexOtp && args.ContainsKey("pin_length") &&
-                !int.TryParse(args["pin_length"], out pinLength))
+            if (type == AuthenticatorType.YandexOtp && args.TryGetValue("pin_length", out var pinLengthParam) &&
+                !int.TryParse(pinLengthParam, out pinLength))
             {
                 throw new ArgumentException("Pin length parameter cannot be parsed");
             }
