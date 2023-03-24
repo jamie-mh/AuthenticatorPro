@@ -184,7 +184,7 @@
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
-    <string name="winAuthImportHint">winauth.txt dosyasını içe aktar</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
