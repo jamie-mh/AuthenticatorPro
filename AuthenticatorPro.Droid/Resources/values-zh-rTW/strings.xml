@@ -182,7 +182,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
-    <string name="winAuthImportHint">匯入 winauth.txt 檔案</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">匯入 TOTP_Backup.encrypt 檔案</string>
     <string name="uriList">URI 列表</string>
