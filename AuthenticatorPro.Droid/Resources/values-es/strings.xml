@@ -184,7 +184,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (texto sin formato)</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importar archivo winauth.txt</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Importar archivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URIs</string>
