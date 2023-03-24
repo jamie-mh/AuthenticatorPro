@@ -46,7 +46,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Configuration = Android.Content.Res.Configuration;
-using Logger = AuthenticatorPro.Droid.Logger;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
 using Timer = System.Timers.Timer;

@@ -4,7 +4,6 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Security.Keystore;
 using Android.Views;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Biometric;
@@ -13,8 +12,6 @@ using AndroidX.Preference;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Preference;
-using AuthenticatorPro.Droid.Util;
-using Java.Security;
 using Javax.Crypto;
 using System;
 

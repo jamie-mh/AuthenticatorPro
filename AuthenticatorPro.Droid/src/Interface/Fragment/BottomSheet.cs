@@ -9,7 +9,6 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.Adapter;
-using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;

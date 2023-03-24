@@ -7,7 +7,6 @@ using AndroidX.ViewPager2.Adapter;
 using AndroidX.ViewPager2.Widget;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Adapter;
-using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.BottomNavigation;
 using Google.Android.Material.Navigation;
 

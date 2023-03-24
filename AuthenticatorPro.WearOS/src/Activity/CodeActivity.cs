@@ -12,7 +12,6 @@ using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
 using AuthenticatorPro.WearOS.Interface;
-using AuthenticatorPro.WearOS.Util;
 using System;
 using System.Timers;
 

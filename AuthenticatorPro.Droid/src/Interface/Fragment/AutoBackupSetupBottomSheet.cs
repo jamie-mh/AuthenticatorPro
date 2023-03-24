@@ -21,7 +21,6 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.SwitchMaterial;
 using Java.Util.Concurrent;
 using System;
-using Logger = AuthenticatorPro.Droid.Logger;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment

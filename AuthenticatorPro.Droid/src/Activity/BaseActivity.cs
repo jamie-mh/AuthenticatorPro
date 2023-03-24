@@ -9,7 +9,6 @@ using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Interface;
-using AuthenticatorPro.Droid.Util;
 using Java.Util;
 
 namespace AuthenticatorPro.Droid.Activity
