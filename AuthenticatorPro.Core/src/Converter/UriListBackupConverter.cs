@@ -5,6 +5,7 @@ using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +21,11 @@ namespace AuthenticatorPro.Core.Converter
         {
             var text = Encoding.UTF8.GetString(data);
             var lines = text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (!lines.Any(l => l.StartsWith("otpauth")))
+            {
+                throw new ArgumentException("Invalid file");
+            }
 
             var authenticators = new List<Authenticator>();
             var failures = new List<ConversionFailure>();

@@ -1404,7 +1404,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.WinAuthClicked += delegate
             {
-                StartFilePickActivity("text/plain", RequestImportWinAuth);
+                StartFilePickActivity("*/*", RequestImportWinAuth);
             };
 
             fragment.TwoFasClicked += delegate
