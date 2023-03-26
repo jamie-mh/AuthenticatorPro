@@ -109,6 +109,8 @@ The file is structured as follows:
 | IV      | 16   | .                |
 | Payload | .    | .                |
 
+#### Decryption without the app
+
 A Python tool can be used to decrypt your backups.
 
 [Backup Decryption Tool](https://github.com/jamie-mh/AuthenticatorPro/blob/master/extra/decrypt_backup.py)
@@ -116,7 +118,7 @@ A Python tool can be used to decrypt your backups.
 First, install the required package with ``pip``.
 
 ```
-pip install pycryptodome
+pip install cryptography
 ```
 
 Run the Python script with your backup as a parameter. Optionally direct the output to a file.
