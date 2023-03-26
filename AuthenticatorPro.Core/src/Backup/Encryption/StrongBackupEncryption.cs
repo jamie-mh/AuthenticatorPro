@@ -8,6 +8,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
         private const string Padding = "NoPadding";
         private const string AlgorithmDescription = BaseAlgorithm + "/" + Mode + "/" + Padding;
         private const int IvLength = 12;
-        private const int TagLength = 32;
+        private const int TagLength = 16;
 
         private static async Task<byte[]> DeriveKeyAsync(string password, byte[] salt)
         {
@@ -47,6 +48,19 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             return await argon2.GetBytesAsync(KeyLength);
         }
 
+        private static async Task<byte[]> ProcessCipherAsync(IBufferedCipher cipher, byte[] input)
+        {
+            var output = new byte[cipher.GetOutputSize(input.Length)];
+
+            await Task.Run(delegate
+            {
+                var length = cipher.ProcessBytes(input, 0, input.Length, output, 0);
+                cipher.DoFinal(output, length);
+            });
+
+            return output;
+        }
+
         public async Task<byte[]> EncryptAsync(Backup backup, string password)
         {
             if (string.IsNullOrEmpty(password))
@@ -57,26 +71,24 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             var random = new SecureRandom();
             var salt = random.GenerateSeed(SaltLength);
             var iv = random.GenerateSeed(IvLength);
-            var tag = random.GenerateSeed(TagLength);
 
             var key = await DeriveKeyAsync(password, salt);
-            var parameters = new AeadParameters(new KeyParameter(key), TagLength, tag, iv);
+            var parameters = new AeadParameters(new KeyParameter(key), TagLength * 8, iv);
 
             var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(true, parameters);
 
             var json = JsonConvert.SerializeObject(backup);
             var unencryptedData = Encoding.UTF8.GetBytes(json);
-            var encryptedData = await Task.Run(() => cipher.DoFinal(unencryptedData));
+            var encryptedData = await ProcessCipherAsync(cipher, unencryptedData);
 
             var headerBytes = Encoding.UTF8.GetBytes(Header);
-            var output = new byte[Header.Length + SaltLength + IvLength + encryptedData.Length + TagLength];
+            var output = new byte[Header.Length + SaltLength + IvLength + encryptedData.Length];
 
             Buffer.BlockCopy(headerBytes, 0, output, 0, headerBytes.Length);
             Buffer.BlockCopy(salt, 0, output, headerBytes.Length, SaltLength);
             Buffer.BlockCopy(iv, 0, output, headerBytes.Length + SaltLength, IvLength);
             Buffer.BlockCopy(encryptedData, 0, output, headerBytes.Length + SaltLength + IvLength, encryptedData.Length);
-            Buffer.BlockCopy(tag, 0, output, headerBytes.Length + SaltLength + IvLength + encryptedData.Length, TagLength);
 
             return output;
         }
@@ -93,17 +105,17 @@ namespace AuthenticatorPro.Core.Backup.Encryption
                 throw new ArgumentException("Header does not match");
             }
 
-            var salt = data.Skip(Header.Length).Take(SaltLength).ToArray();
+            await using var stream = new MemoryStream(data);
+            using var reader = new BinaryReader(stream);
+
+            reader.ReadBytes(Header.Length);
+
+            var salt = reader.ReadBytes(SaltLength);
+            var iv = reader.ReadBytes(IvLength);
+            var encryptedData = reader.ReadBytes(data.Length - Header.Length - SaltLength - IvLength);
+
             var key = await DeriveKeyAsync(password, salt);
-            var iv = data.Skip(Header.Length).Skip(SaltLength).Take(IvLength).ToArray();
-
-            var authenticatedData = data.Skip(Header.Length + SaltLength + IvLength)
-                .Take(data.Length - Header.Length - SaltLength - IvLength).ToArray();
-
-            var encryptedData = authenticatedData[..^TagLength];
-            var tag = authenticatedData[^TagLength..authenticatedData.Length];
-
-            var parameters = new AeadParameters(new KeyParameter(key), TagLength, tag, iv);
+            var parameters = new AeadParameters(new KeyParameter(key), TagLength * 8, iv);
 
             var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(false, parameters);
@@ -112,7 +124,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
 
             try
             {
-                unencryptedData = await Task.Run(() => cipher.DoFinal(encryptedData));
+                unencryptedData = await ProcessCipherAsync(cipher, encryptedData);
             }
             catch (InvalidCipherTextException e)
             {

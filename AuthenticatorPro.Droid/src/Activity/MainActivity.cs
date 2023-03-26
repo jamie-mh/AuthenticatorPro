@@ -1474,7 +1474,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return await _restoreService.RestoreAndUpdateAsync(backup);
             }
 
-            return null;
+            throw new ArgumentException("Decryption failed");
         }
 
         private void PromptForRestorePassword(byte[] data)

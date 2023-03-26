@@ -95,7 +95,7 @@ The file is structured as follows:
 | Salt    | 16   | .                |
 | IV      | 12   | .                |
 | Payload | .    | .                |
-| Tag     | 32   | .                |
+| Tag     | 16   | .                |
 
 #### Legacy
 

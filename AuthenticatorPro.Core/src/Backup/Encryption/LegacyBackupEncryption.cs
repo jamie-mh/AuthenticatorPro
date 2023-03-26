@@ -9,6 +9,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,14 +87,18 @@ namespace AuthenticatorPro.Core.Backup.Encryption
                 throw new ArgumentException("Header does not match");
             }
 
-            var salt = data.Skip(Header.Length).Take(SaltLength).ToArray();
+            await using var stream = new MemoryStream(data);
+            using var reader = new BinaryReader(stream);
+
+            reader.ReadBytes(Header.Length);
+
+            var salt = reader.ReadBytes(SaltLength);
+            var iv = reader.ReadBytes(IvLength);
+            var encryptedData = reader.ReadBytes(data.Length - Header.Length - SaltLength - IvLength);
+
             var key = await DeriveKeyAsync(password, salt);
-
-            var iv = data.Skip(Header.Length).Skip(SaltLength).Take(IvLength).ToArray();
-            var encryptedData = data.Skip(Header.Length + SaltLength + IvLength)
-                .Take(data.Length - Header.Length - SaltLength - IvLength).ToArray();
-
             var keyParameter = new ParametersWithIV(key, iv);
+
             var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(false, keyParameter);
 
