@@ -9,16 +9,20 @@ namespace AuthenticatorPro.Test.Backup.Fixture
     public class BackupFixture
     {
         public Core.Backup.Backup Backup { get; }
-        public byte[] EncryptedData { get; }
+        public byte[] LegacyData { get; }
+        public byte[] StrongData { get; }
 
         public BackupFixture()
         {
-            var path = Path.Join("data", "backup.unencrypted.authpro");
-            var contents = File.ReadAllText(path);
+            var unencryptedPath = Path.Join("data", "backup.unencrypted.authpro");
+            var contents = File.ReadAllText(unencryptedPath);
             Backup = JsonConvert.DeserializeObject<Core.Backup.Backup>(contents);
 
-            var encryptedPath = Path.Join("data", "backup.encrypted.authpro");
-            EncryptedData = File.ReadAllBytes(encryptedPath);
+            var legacyPath = Path.Join("data", "backup.legacy.authpro");
+            LegacyData = File.ReadAllBytes(legacyPath);
+
+            var strongPath = Path.Join("data", "backup.strong.authpro");
+            StrongData = File.ReadAllBytes(strongPath);
         }
     }
 }
