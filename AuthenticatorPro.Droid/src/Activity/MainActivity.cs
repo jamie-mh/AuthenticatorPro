@@ -1009,7 +1009,7 @@ namespace AuthenticatorPro.Droid.Activity
             _appBarLayout.SetExpanded(true);
         }
 
-        private void OnAuthenticatorClicked(object sender, string secret)
+        private async void OnAuthenticatorClicked(object sender, string secret)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
 

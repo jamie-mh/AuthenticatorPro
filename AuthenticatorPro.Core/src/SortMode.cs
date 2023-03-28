@@ -5,6 +5,6 @@ namespace AuthenticatorPro.Core
 {
     public enum SortMode
     {
-        AlphabeticalAscending, AlphabeticalDescending, Custom
+        AlphabeticalAscending, AlphabeticalDescending, CopyCountAscending, CopyCountDescending, Custom
     }
 }

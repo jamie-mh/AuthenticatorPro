@@ -322,5 +322,27 @@ namespace AuthenticatorPro.Test.Service
 
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
         }
+
+        [Fact]
+        public async Task IncrementCopyCountAsync_null()
+        {
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.IncrementCopyCountAsync(null));
+        }
+
+        [Fact]
+        public async Task IncrementCopyCount_ok()
+        {
+            var match = new CaptureMatch<Authenticator>(a =>
+            {
+                Assert.Equal(2, a.CopyCount);
+            });
+
+            _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
+
+            var auth = new Authenticator { CopyCount = 1 };
+            await _authenticatorService.IncrementCopyCountAsync(auth);
+
+            _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
+        }
     }
 }
