@@ -28,7 +28,7 @@
     <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.1" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.3" />
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.16" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.5.1.2" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.6.1" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.16" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.5.1.2" />
     <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.5.1.2" />
