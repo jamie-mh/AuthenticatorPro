@@ -182,7 +182,7 @@
     <string name="aegisImportHint">Імпортувати файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (звичайний текст)</string>
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
+    <string name="winAuthImportHint">Імпорт файлу winauth.txt або winauth.zip</string>
     <string name="twoFasImportHint">Імпортувати файл 2fas-backup.2fas</string>
     <string name="totpAuthenticatorImportHint">Імпортувати файл TOTP_backup.encrypt</string>
     <string name="uriList">Перелік URI</string>
