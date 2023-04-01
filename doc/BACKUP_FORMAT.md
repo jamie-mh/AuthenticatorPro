@@ -115,10 +115,10 @@ A Python tool can be used to decrypt your backups.
 
 [Backup Decryption Tool](https://github.com/jamie-mh/AuthenticatorPro/blob/master/extra/decrypt_backup.py)
 
-First, install the required package with ``pip``.
+First, install the required packages with `pip`.
 
 ```
-pip install cryptography
+pip install cryptography argon2-cffi
 ```
 
 Run the Python script with your backup as a parameter. Optionally direct the output to a file.
@@ -127,4 +127,4 @@ Run the Python script with your backup as a parameter. Optionally direct the out
 python decrypt_backup.py backup.authpro > backup_decrypted.json
 ```
 
-You will be prompted for the password, and once decrypted the output will be sent to the ``backup_decrypted.json`` file.
+You will be prompted for the password, and once decrypted the output will be sent to the `backup_decrypted.json` file.
