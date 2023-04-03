@@ -2,6 +2,10 @@
     <string name="appName" translatable="false">Authenticator Pro</string>
     <string name="displayName" translatable="false">Authenticator</string>
 
+    <string name="githubRepo" translatable="false">https://github.com/jamie-mh/AuthenticatorPro</string>
+    <string name="buyMeACoffee" translatable="false">https://www.buymeacoffee.com/jamiemh</string>
+    <string name="contactEmail" translatable="false">contact@jmh.me</string>
+
     <!-- Non specific strings -->
     <string name="warning">Warning</string>
     <string name="delete">Delete</string>
@@ -70,7 +74,6 @@
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -138,7 +141,6 @@
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nothing to restore</string>
-    <string name="restoredFromMigration">Restored {0} new authenticators</string>
 
     <!-- Errors -->
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
@@ -220,7 +222,7 @@
     <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuth" translatable="false">WinAuth</string>
-    <string name="winAuthImportHint">Import winauth.txt file</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFas" translatable="false">2FAS</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="authy" translatable="false">Authy</string>
@@ -260,12 +262,12 @@
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
     <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
-
     <string name="prefAutoBackupTitle">Auto Backup</string>
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
-
     <string name="prefLanguageTitle">Language</string>
     <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
 
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Password</string>

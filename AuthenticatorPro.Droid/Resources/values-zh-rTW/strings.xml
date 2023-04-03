@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">已還原 {0} 個新驗證器和 {1} 個新分類。</string>
     <string name="restoredFromBackupUpdated">已還原 {0} 個新驗證器和 {1} 個新分類。更新了 {2} 個已有的驗證器。</string>
     <string name="restoredNothing">沒有可以還原的內容。</string>
-    <string name="restoredFromMigration">已還原 {0} 個新驗證器。</string>
     <!-- Errors -->
     <string name="cameraPermissionError">必須授予相機使用權才能掃描 QR Code。</string>
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">語言</string>
     <string name="prefLanguageSummary">選擇要在應用程式中使用的語言</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密碼</string>
     <string name="prefPasswordSummary">使用驗證器前要求驗證密碼。資料庫將會使用這個密碼進行加密。</string>

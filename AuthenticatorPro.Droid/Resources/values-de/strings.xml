@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromBackupUpdated">{0} Schlüssel und {1} Kategorien wiederhergestellt. {2} bereits vorhandene Schlüssel wurden aktualisiert.</string>
     <string name="restoredNothing">Es gibt nichts wiederherzustellen</string>
-    <string name="restoredFromMigration">{0} Schlüssel wiederhergestellt.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
@@ -185,7 +184,7 @@
     <string name="bitwarden">Bitwarden (reiner Text)</string>
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
     <string name="winAuthImportHint">Importieren einer winauth.txt Datei</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
     <string name="totpAuthenticatorImportHint">Importieren einer TOTP_Backup.encrypt Datei</string>
     <string name="uriList">URI-Liste</string>
     <string name="uriListHint">Reine Liste mit otpauth-URIs</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Sichere automatisch an einen bestimmten Ort, wenn Änderungen vorgenommen werden. Deaktiviert Backup-Erinnerungen.</string>
     <string name="prefLanguageTitle">Sprache</string>
     <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
+    <string name="prefTapToCopyTitle">Zum Kopieren tippen</string>
+    <string name="prefTapToCopySummary">Den Code in die Zwischenablage kopieren, wenn angetippt</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
     <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit dem Passwort verschlüsselt.</string>

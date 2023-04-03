@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
     <string name="restoredFromBackupUpdated">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi. Mevcut {2} kimlik doğrulayıcı güncellendi.</string>
     <string name="restoredNothing">Geri yüklenecek bir şey yok</string>
-    <string name="restoredFromMigration">{0} yeni kimlik doğrulayıcı geri yüklendi.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
@@ -187,7 +186,7 @@
     <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt dosyasını içe aktar</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
     <string name="uriListHint">Otpauth bağlantılarının düz metin listesi</string>
@@ -218,6 +217,8 @@
     <string name="prefAutoBackupSummary">Değişiklikler yapıldığında otomatik olarak belirli bir konuma yedekleyin. Yedekleme hatırlatıcılarını devre dışı bırakır.</string>
     <string name="prefLanguageTitle">Dil</string>
     <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>

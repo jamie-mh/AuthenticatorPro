@@ -7,16 +7,16 @@ using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Droid.Adapter;
-using AuthenticatorPro.Droid.Fragment;
-using AuthenticatorPro.Droid.LayoutManager;
+using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Interface.Adapter;
+using AuthenticatorPro.Droid.Interface.Fragment;
+using AuthenticatorPro.Droid.Interface.LayoutManager;
+using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
-using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Entity;
-using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Persistence.Exception;
-using AuthenticatorPro.Shared.Service;
-using AuthenticatorPro.Shared.View;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
+using AuthenticatorPro.Core.Service;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
@@ -61,7 +61,7 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetTitle(Resource.String.categories);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
             _rootLayout = FindViewById<RelativeLayout>(Resource.Id.layoutRoot);
 

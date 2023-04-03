@@ -5,7 +5,7 @@
         <item name="windowNoTitle">true</item>
 
         <item name="colorSurface">@color/colorDarker</item>
-        <item name="colorOnSurface">@color/colorLightest</item>
+        <item name="colorOnSurface">@color/colorLighter</item>
 
         <item name="colorError">@color/colorError</item>
 

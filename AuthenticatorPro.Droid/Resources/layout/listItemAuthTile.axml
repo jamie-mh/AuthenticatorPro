@@ -37,6 +37,7 @@
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
                         android:layout_toStartOf="@id/imageIcon"
                         android:layout_marginEnd="12dp"
                         android:layout_width="wrap_content"
@@ -82,6 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:textSize="24dp"
+                        android:textDirection="ltr"
                         android:textColor="?attr/authListItem_code"
                         android:layout_marginTop="2dp"
                         android:id="@+id/textCode"/>
@@ -94,7 +96,8 @@
 
                         <ImageButton
                             android:id="@+id/buttonRefresh"
-                            android:src="@drawable/ic_action_refresh"
+                            android:src="@drawable/baseline_refresh_24"
+                            android:tint="?attr/colorOnSurface"
                             android:scaleType="centerInside"
                             android:textSize="14dp"
                             android:background="?selectableItemBackgroundBorderless"
@@ -104,7 +107,8 @@
 
                         <ImageButton
                             android:id="@+id/buttonMenu"
-                            android:src="@drawable/ic_action_expand_more"
+                            android:src="@drawable/baseline_more_horiz_24"
+                            android:tint="?attr/colorOnSurface"
                             android:scaleType="centerInside"
                             android:textSize="14dp"
                             android:background="?selectableItemBackgroundBorderless"

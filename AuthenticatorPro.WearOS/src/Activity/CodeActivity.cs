@@ -7,12 +7,11 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Data.Generator;
-using AuthenticatorPro.Shared.Util;
-using AuthenticatorPro.WearOS.CustomView;
-using AuthenticatorPro.WearOS.Util;
+using AuthenticatorPro.Droid.Shared;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
+using AuthenticatorPro.WearOS.Interface;
 using System;
 using System.Timers;
 

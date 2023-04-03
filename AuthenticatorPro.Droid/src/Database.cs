@@ -1,8 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Entity;
+using AuthenticatorPro.Core.Entity;
 using SQLite;
 using System;
 using System.IO;
@@ -179,7 +178,7 @@ namespace AuthenticatorPro.Droid
             }
 
             // Change encryption mode
-            if ((currentPassword == null && newPassword != null) || (currentPassword != null && newPassword == null))
+            if (currentPassword == null || newPassword == null)
             {
                 var tempPath = dbPath + ".temp";
 

@@ -6,7 +6,6 @@ using Android.Content;
 using Android.Runtime;
 using AndroidX.Lifecycle;
 using AuthenticatorPro.Droid.Activity;
-using AuthenticatorPro.Droid.Util;
 using Java.Interop;
 using System;
 using System.Threading.Tasks;

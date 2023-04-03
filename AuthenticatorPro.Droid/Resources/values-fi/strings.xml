@@ -65,7 +65,7 @@
     <string name="digitsInvalid">Todentajan on luotava {0} - {1} numeroa</string>
     <string name="periodInvalid">Aikaväli on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
+    <string name="qrCodeNotFound">QR-koodia ei löydy kuvasta</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
@@ -121,7 +121,6 @@
     <string name="restoredFromBackup">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu</string>
     <string name="restoredFromBackupUpdated">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu. {2} olemassa olevaa todentajaa päivitetty.</string>
     <string name="restoredNothing">Ei palautettavaa</string>
-    <string name="restoredFromMigration">Palautettu {0} uutta todentajaa</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Kameran käyttöoikeus on myönnettävä, jotta QR-koodi voidaan skannata</string>
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
@@ -215,6 +214,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Kieli</string>
     <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>

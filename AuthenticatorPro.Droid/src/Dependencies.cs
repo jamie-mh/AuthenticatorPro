@@ -2,16 +2,18 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
+using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Persistence;
-using AuthenticatorPro.Droid.Shared.Data;
-using AuthenticatorPro.Droid.Shared.View;
-using AuthenticatorPro.Droid.Shared.View.Impl;
-using AuthenticatorPro.Shared.Data;
-using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Service;
-using AuthenticatorPro.Shared.Service.Impl;
-using AuthenticatorPro.Shared.View;
-using AuthenticatorPro.Shared.View.Impl;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Persistence.View.Impl;
+using AuthenticatorPro.Droid.Shared;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Comparer;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Core.Service.Impl;
+using System.Collections.Generic;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid
@@ -52,13 +54,16 @@ namespace AuthenticatorPro.Droid
 
         public static void RegisterServices(TinyIoCContainer container)
         {
+            container.Register<IEqualityComparer<Authenticator>, AuthenticatorComparer>();
+            container.Register<IEqualityComparer<Category>, CategoryComparer>();
+            container.Register<IEqualityComparer<AuthenticatorCategory>, AuthenticatorCategoryComparer>();
+
             container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
             container.Register<IAuthenticatorService, AuthenticatorService>();
             container.Register<IBackupService, BackupService>();
             container.Register<ICategoryService, CategoryService>();
             container.Register<ICustomIconService, CustomIconService>();
             container.Register<IImportService, ImportService>();
-            container.Register<IQrCodeService, QrCodeService>();
             container.Register<IRestoreService, RestoreService>();
         }
 

@@ -1,9 +1,9 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Shared.Entity;
-using AuthenticatorPro.Shared.Persistence;
-using AuthenticatorPro.Shared.Persistence.Exception;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

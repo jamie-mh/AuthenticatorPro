@@ -4,16 +4,14 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Security.Keystore;
 using Android.Views;
 using AndroidX.AppCompat.Widget;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Droid.Callback;
-using AuthenticatorPro.Droid.Fragment;
+using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Preference;
-using AuthenticatorPro.Droid.Util;
 using Javax.Crypto;
 using System;
 
@@ -44,7 +42,7 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetTitle(Resource.String.settings);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_action_arrow_back);
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             prefs.RegisterOnSharedPreferenceChangeListener(this);
@@ -58,7 +56,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             // If all fingerprints have been removed the biometrics setting is still checked
             // In case of invalid biometrics, clear the key
-            if (_preferences.AllowBiometrics && (!CanUseBiometrics() || IsBiometricsInvalidated()))
+            if (_preferences.AllowBiometrics && (!CanUseBiometrics() || IsBiometricsInvalidatedOrUnrecoverable()))
             {
                 ClearBiometrics();
                 _preferences.AllowBiometrics = false;
@@ -178,16 +176,17 @@ namespace AuthenticatorPro.Droid.Activity
                 BiometricManager.BiometricSuccess;
         }
 
-        private bool IsBiometricsInvalidated()
+        private bool IsBiometricsInvalidatedOrUnrecoverable()
         {
-            var passwordStorage = new PasswordStorageManager(this);
+            var passwordStorage = new BiometricStorage(this);
 
             try
             {
                 _ = passwordStorage.GetDecryptionCipher();
             }
-            catch (KeyPermanentlyInvalidatedException)
+            catch (Exception e)
             {
+                Logger.Error("Key invalidated or unrecoverable", e);
                 return true;
             }
 
@@ -196,7 +195,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         public void EnableBiometrics(Action<bool> callback)
         {
-            var passwordStorage = new PasswordStorageManager(this);
+            var passwordStorage = new BiometricStorage(this);
             var executor = ContextCompat.GetMainExecutor(this);
             var authCallback = new AuthenticationCallback();
 
@@ -256,7 +255,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         public void ClearBiometrics()
         {
-            var storage = new PasswordStorageManager(this);
+            var storage = new BiometricStorage(this);
             storage.Clear();
         }
 

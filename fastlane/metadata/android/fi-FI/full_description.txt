@@ -7,7 +7,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 
 <hr>
 
-<b>Features</b>
+<b>Ominaisuudet</b>
 
 - ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
 - 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
@@ -26,7 +26,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Vastuuvapauslauseke</b>
 
 Tämä on ilmainen sovellus: voit levittää sitä edelleen ja/tai muokata sitä Free Software Foundationin "GNU General Public License" -lisenssin 3. version (tai halutessasi uudemman) mukaisesti.
 

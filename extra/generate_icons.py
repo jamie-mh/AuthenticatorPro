@@ -40,13 +40,13 @@ def build_map(files: list):
         else:
             standard.append(filename)
 
-    map_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "src", "Data", "IconMap.cs")
+    map_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "src", "IconMap.cs")
     file = open(map_path, "w")
 
     file.write("// Copyright (C) 2022 jmh\n")
     file.write("// SPDX-License-Identifier: GPL-3.0-only\n\n")
     file.write("using System.Collections.Generic;\n\n")
-    file.write("namespace AuthenticatorPro.Droid.Shared.Data\n")
+    file.write("namespace AuthenticatorPro.Droid.Shared\n")
     file.write("{\n")
     file.write("    // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY\n")
     file.write("    public static class IconMap\n")

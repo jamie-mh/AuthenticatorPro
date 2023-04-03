@@ -123,7 +123,6 @@
         existing authenticators.
     </string>
     <string name="restoredNothing">Nada para restaurar</string>
-    <string name="restoredFromMigration">Restauró {0} nuevos autenticadores.</string>
     <!-- Errors -->
     <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un código QR.</string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
@@ -218,6 +217,8 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Idioma</string>
     <string name="prefLanguageSummary">Elige un idioma para usar en la aplicación</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Contraseña</string>
     <string name="prefPasswordSummary">Requiere contraseña para acceder a los autentificadores. La base de datos será cifrada con su contraseña.</string>

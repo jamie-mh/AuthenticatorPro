@@ -27,6 +27,12 @@
             android:entries="@array/languageNames"
             android:entryValues="@array/languageValues"
             android:defaultValue="system"/>
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="pref_tapToCopy"
+            android:summary="@string/prefTapToCopySummary"
+            android:title="@string/prefTapToCopyTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"/>
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

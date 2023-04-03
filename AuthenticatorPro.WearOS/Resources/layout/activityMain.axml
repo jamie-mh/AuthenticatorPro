@@ -75,7 +75,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:contentDescription="@string/offline"
-                android:src="@drawable/ic_action_cloud_off"/>
+                android:src="@drawable/baseline_cloud_off_24"/>
 
         </LinearLayout>
 
