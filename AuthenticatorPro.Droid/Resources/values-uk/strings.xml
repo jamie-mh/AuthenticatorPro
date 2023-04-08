@@ -31,6 +31,8 @@
     <string name="sort">Сортування</string>
     <string name="sortAZ">За алфавітом (А-Я)</string>
     <string name="sortZA">За алфавітом (Я-А)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Вручну</string>
     <string name="aboutSummary">Інформація про застосунок та ліцензії</string>
     <string name="supportDevelopment">Підтримати розробку</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">Оберіть мову для використання у застосунку</string>
     <string name="prefTapToCopyTitle">Натиснути для копіювання</string>
     <string name="prefTapToCopySummary">Копіювати код в буфер обміну при натисканні на нього</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Безпека</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Вимагати пароль для доступу до автентифікаторів. База даних буде зашифрована вашим паролем.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">Оберіть основний колір, який буде використано в усьому додатку</string>
     <string name="prefTransparentStatusBarTitle">Прозора панель стану</string>
     <string name="prefTransparentStatusBarSummary">Зробити список видимим за панеллю стану при прокрутці</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основі часу (TOTP)</string>
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>
