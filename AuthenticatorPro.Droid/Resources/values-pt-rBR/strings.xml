@@ -31,6 +31,8 @@
     <string name="sort">Ordenar</string>
     <string name="sortAZ">Em ordem alfabética (A a Z)</string>
     <string name="sortZA">Em ordem alfabética (Z a A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Personalizado</string>
     <string name="aboutSummary">Ver informações sobre e licença</string>
     <string name="supportDevelopment">Ajude no desenvolvimento</string>
@@ -216,6 +218,8 @@
     <string name="prefLanguageSummary">Escolha um idioma para usar em todo o aplicativo</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Senha</string>
     <string name="prefPasswordSummary">Uma senha é necessária para acessar os autenticadores. O banco de dados será encriptado com sua senha.</string>
@@ -238,6 +242,7 @@
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
     <string name="prefTransparentStatusBarTitle">Transparência da barra de status</string>
     <string name="prefTransparentStatusBarSummary">Torne a lista atrás da barra de status visível ao rolar</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Baseado no horário (TOTP)</string>
     <string name="authTypeCounter">Baseado em um contador (HOTP)</string>
