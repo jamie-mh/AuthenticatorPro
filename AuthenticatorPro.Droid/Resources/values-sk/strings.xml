@@ -31,6 +31,8 @@
     <string name="sort">Zoradiť</string>
     <string name="sortAZ">Abecedné (A-Z)</string>
     <string name="sortZA">Abecedné (Z-A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Vlastné</string>
     <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
     <string name="supportDevelopment">Podporiť vývoj</string>
@@ -216,6 +218,8 @@
     <string name="prefLanguageSummary">Výber jazyka, ktorý chcete používať v celej aplikácii</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
@@ -238,6 +242,7 @@
     <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
     <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
     <string name="prefTransparentStatusBarSummary">Zviditeľnenie zoznamu za stavovým riadkom pri posúvaní</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
