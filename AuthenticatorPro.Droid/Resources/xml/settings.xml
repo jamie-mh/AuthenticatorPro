@@ -33,6 +33,12 @@
             android:title="@string/prefTapToCopyTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
+        <authenticatorpro.droid.preference.ResetCopyCountPreference
+            android:key="pref_resetCopyCount"
+            android:summary="@string/prefResetCopyCountSummary"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"
+            android:title="@string/prefResetCopyCountTitle"/>
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

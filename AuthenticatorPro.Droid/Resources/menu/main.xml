@@ -24,6 +24,12 @@
                 <item android:id="@+id/actionSortZA"
                       android:title="@string/sortZA"/>
 
+                <item android:id="@+id/actionSortMostCopied"
+                      android:title="@string/sortMostCopied"/>
+
+                <item android:id="@+id/actionSortLeastCopied"
+                      android:title="@string/sortLeastCopied"/>
+
                 <item android:id="@+id/actionSortCustom"
                       android:title="@string/sortCustom"/>
             </group>

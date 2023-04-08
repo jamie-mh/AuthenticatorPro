@@ -19,10 +19,11 @@ namespace AuthenticatorPro.Droid.Shared.Wear
         public readonly int Digits;
         public readonly HashAlgorithm Algorithm;
         public readonly int Ranking;
+        public readonly int CopyCount;
         public readonly List<WearAuthenticatorCategory> Categories;
 
         public WearAuthenticator(AuthenticatorType type, string secret, string pin, string icon, string issuer, string username,
-            int period, int digits, HashAlgorithm algorithm, int ranking, List<WearAuthenticatorCategory> categories)
+            int period, int digits, HashAlgorithm algorithm, int ranking, int copyCount, List<WearAuthenticatorCategory> categories)
         {
             Type = type;
             Secret = secret;
@@ -34,6 +35,7 @@ namespace AuthenticatorPro.Droid.Shared.Wear
             Digits = digits;
             Algorithm = algorithm;
             Ranking = ranking;
+            CopyCount = copyCount;
             Categories = categories;
         }
     }

@@ -16,7 +16,8 @@ If you are migrating your authenticators from another app, you can create your o
             "Digits": 6,
             "Period": 30,
             "Counter": 0,
-            "Ranking": 0
+            "Ranking": 0,
+            "CopyCount": 10
         }
     ],
     "Categories": [

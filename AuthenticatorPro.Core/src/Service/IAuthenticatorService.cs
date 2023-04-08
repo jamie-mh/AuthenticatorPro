@@ -19,5 +19,7 @@ namespace AuthenticatorPro.Core.Service
         public Task<ValueTuple<int, int>> AddOrUpdateManyAsync(IEnumerable<Authenticator> auths);
         public Task DeleteWithCategoryBindingsAsync(Authenticator auth);
         public Task IncrementCounterAsync(Authenticator auth);
+        public Task IncrementCopyCountAsync(Authenticator auth);
+        public Task ResetCopyCountsAsync();
     }
 }

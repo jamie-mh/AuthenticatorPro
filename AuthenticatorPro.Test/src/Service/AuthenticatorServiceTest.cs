@@ -322,5 +322,47 @@ namespace AuthenticatorPro.Test.Service
 
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
         }
+
+        [Fact]
+        public async Task IncrementCopyCountAsync_null()
+        {
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.IncrementCopyCountAsync(null));
+        }
+
+        [Fact]
+        public async Task IncrementCopyCountAsync_ok()
+        {
+            var match = new CaptureMatch<Authenticator>(a =>
+            {
+                Assert.Equal(2, a.CopyCount);
+            });
+
+            _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
+
+            var auth = new Authenticator { CopyCount = 1 };
+            await _authenticatorService.IncrementCopyCountAsync(auth);
+
+            _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
+        }
+
+        [Fact]
+        public async Task ResetCopyCountsAsync()
+        {
+            var authA = new Authenticator { CopyCount = 10 };
+            var authB = new Authenticator { CopyCount = 100 };
+
+            _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<Authenticator> { authA, authB });
+
+            var match = new CaptureMatch<Authenticator>(a =>
+            {
+                Assert.Equal(0, a.CopyCount);
+            });
+
+            _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
+            await _authenticatorService.ResetCopyCountsAsync();
+
+            _authenticatorRepository.Verify(r => r.UpdateAsync(authA));
+            _authenticatorRepository.Verify(r => r.UpdateAsync(authB));
+        }
     }
 }

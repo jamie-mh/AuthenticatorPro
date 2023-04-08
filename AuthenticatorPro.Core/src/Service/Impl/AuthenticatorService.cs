@@ -205,5 +205,27 @@ namespace AuthenticatorPro.Core.Service.Impl
             auth.Counter++;
             await _authenticatorRepository.UpdateAsync(auth);
         }
+
+        public async Task IncrementCopyCountAsync(Authenticator auth)
+        {
+            if (auth == null)
+            {
+                throw new ArgumentNullException(nameof(auth));
+            }
+
+            auth.CopyCount++;
+            await _authenticatorRepository.UpdateAsync(auth);
+        }
+
+        public async Task ResetCopyCountsAsync()
+        {
+            var auths = await _authenticatorRepository.GetAllAsync();
+
+            foreach (var auth in auths)
+            {
+                auth.CopyCount = 0;
+                await _authenticatorRepository.UpdateAsync(auth);
+            }
+        }
     }
 }
