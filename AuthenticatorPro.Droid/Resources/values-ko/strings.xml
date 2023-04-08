@@ -31,6 +31,8 @@
     <string name="sort">정렬</string>
     <string name="sortAZ">가나다순</string>
     <string name="sortZA">가나다 역순</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">사용자 지정</string>
     <string name="aboutSummary">앱 및 라이선스 정보 보기</string>
     <string name="supportDevelopment">개발 지원</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">앱에서 쓸 언어를 선택하세요</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">보안</string>
     <string name="prefPasswordTitle">비밀번호</string>
     <string name="prefPasswordSummary">인증기에 접근할 때 비밀번호를 요구합니다. 데이터베이스가 비밀번호로 암호화됩니다.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">전체적인 앱의 강조 색상을 선택하세요</string>
     <string name="prefTransparentStatusBarTitle">투명 상태표시줄</string>
     <string name="prefTransparentStatusBarSummary">스크롤할 때 상태 표시줄 뒤에 있는 목록을 보이도록 합니다</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">시간 기반 (TOTP)</string>
     <string name="authTypeCounter">계수기 기반 (HOTP)</string>
