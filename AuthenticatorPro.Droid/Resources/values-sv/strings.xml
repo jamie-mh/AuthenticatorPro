@@ -31,6 +31,8 @@
     <string name="sort">Sortera</string>
     <string name="sortAZ">Alfabetisk (A–Ö)</string>
     <string name="sortZA">Alfabetisk (Ö–A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Anpassad</string>
     <string name="aboutSummary">Visa information om appen och licenser</string>
     <string name="supportDevelopment">Stöd utvecklingen</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">Välj vilket språk som ska visas i appen</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
     <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina autentiserare. Databasen kommer att krypteras med ditt lösenord.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">Välj en accentfärg som ska synas i appen</string>
     <string name="prefTransparentStatusBarTitle">Genomskinligt statusfält</string>
     <string name="prefTransparentStatusBarSummary">Gör listan synlig bakom statusfältet när du bläddrar</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Tidsbaserad (TOTP)</string>
     <string name="authTypeCounter">Räknarbaserad (HOTP)</string>
