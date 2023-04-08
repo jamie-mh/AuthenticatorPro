@@ -31,6 +31,8 @@
     <string name="sort">Sortowanie</string>
     <string name="sortAZ">Alfabetycznie (A-Z)</string>
     <string name="sortZA">Alfabetycznie (Z-A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Niestandardowo</string>
     <string name="aboutSummary">Wyświetl informacje o aplikacji i licencjach</string>
     <string name="supportDevelopment">Wesprzyj rozwój aplikacji</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefTapToCopyTitle">Dotknij, aby skopiować</string>
     <string name="prefTapToCopySummary">Skopiuj kod do schowka po dotknięciu</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
     <string name="prefTransparentStatusBarSummary">Lista będzie widoczna za paskiem statusu podczas przewijania</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
