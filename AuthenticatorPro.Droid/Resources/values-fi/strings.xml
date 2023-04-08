@@ -31,6 +31,8 @@
     <string name="sort">Järjestä</string>
     <string name="sortAZ">Aakkosellinen (a - ö)</string>
     <string name="sortZA">Aakkosellinen (ö - a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Mukautettu</string>
     <string name="aboutSummary">Näytä sovellus- ja lisenssitiedot</string>
     <string name="supportDevelopment">Tue kehitystä</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
     <string name="prefTapToCopyTitle">Kopioi napauttamalla</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">Valitse sovelluksessa käytettävä aksenttiväri</string>
     <string name="prefTransparentStatusBarTitle">Läpinäkyvä tilapalkki</string>
     <string name="prefTransparentStatusBarSummary">Anna luettelon näkyä tilarivin alla vieritettäessä</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Aikaperusteinen (TOTP)</string>
     <string name="authTypeCounter">Laskuripohjainen (HOTP)</string>
