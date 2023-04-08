@@ -31,6 +31,8 @@
     <string name="sort">排序</string>
     <string name="sortAZ">字母順序（A-Z）</string>
     <string name="sortZA">字母順序（Z 至 A）</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">自訂</string>
     <string name="aboutSummary">查看關於和許可證信息</string>
     <string name="supportDevelopment">支持開發</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">選擇要在應用程式中使用的語言</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密碼</string>
     <string name="prefPasswordSummary">使用驗證器前要求驗證密碼。資料庫將會使用這個密碼進行加密。</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">選擇要在應用中使用的主題色</string>
     <string name="prefTransparentStatusBarTitle">透明狀態列</string>
     <string name="prefTransparentStatusBarSummary">滾動時在狀態列後面顯示列表</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">基於時間 (TOTP)</string>
     <string name="authTypeCounter">基於計數器 (HOTP)</string>
