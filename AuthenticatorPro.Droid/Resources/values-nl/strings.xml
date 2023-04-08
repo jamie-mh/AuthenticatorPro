@@ -31,6 +31,8 @@
     <string name="sort">Sorteren</string>
     <string name="sortAZ">Alfabetisch (a tot z)</string>
     <string name="sortZA">Alfabetisch (z tot a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Aangepast</string>
     <string name="aboutSummary">Bekijk over en licentie informatie</string>
     <string name="supportDevelopment">Ondersteun de ontwikkeling</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">Kies een taal om te gebruiken in de app</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Veiligheid</string>
     <string name="prefPasswordTitle">Wachtwoord</string>
     <string name="prefPasswordSummary">Wachtwoord is vereist om toegang te krijgen tot de authenticators. De database zal versleuteld worden met uw wachtwoord.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">Kies een accentkleur die je in de app wilt gebruiken</string>
     <string name="prefTransparentStatusBarTitle">Transparante Status Balk</string>
     <string name="prefTransparentStatusBarSummary">Maak de lijst zichtbaar achter de statusbalk tijdens het scrollen</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Tijd gebaseerd (TOTP)</string>
     <string name="authTypeCounter">Teller gebaseerd (HOTP)</string>
