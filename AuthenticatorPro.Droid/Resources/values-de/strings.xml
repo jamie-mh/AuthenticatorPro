@@ -31,8 +31,8 @@
     <string name="sort">Sortieren</string>
     <string name="sortAZ">Alphabetisch (A-Z)</string>
     <string name="sortZA">Alphabetisch (Z-A)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">Am meisten kopiert</string>
+    <string name="sortLeastCopied">Am wenigsten kopiert</string>
     <string name="sortCustom">Benutzerdefiniert</string>
     <string name="aboutSummary">Infos über die App und Lizenzen anzeigen</string>
     <string name="supportDevelopment">Entwicklung unterstützen</string>
@@ -217,8 +217,8 @@
     <string name="prefLanguageSummary">Wählen Sie eine Sprache, die in der App verwendet werden soll</string>
     <string name="prefTapToCopyTitle">Zum Kopieren tippen</string>
     <string name="prefTapToCopySummary">Den Code in die Zwischenablage kopieren, wenn angetippt</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefResetCopyCountTitle">Kopierzähler zurücksetzen</string>
+    <string name="prefResetCopyCountSummary">Lösche die Anzahl der Kopien jedes Authentifikators, der kopiert wurde</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
     <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit dem Passwort verschlüsselt.</string>
@@ -241,7 +241,7 @@
     <string name="prefAccentColourSummary">Wählen Sie eine Akzentfarbe, die in der App verwendet werden soll</string>
     <string name="prefTransparentStatusBarTitle">Transparente Statusleiste</string>
     <string name="prefTransparentStatusBarSummary">Beim Scrollen die Liste hinter der Statusleiste sichtbar machen</string>
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Kopierzähler zurücksetzen</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
