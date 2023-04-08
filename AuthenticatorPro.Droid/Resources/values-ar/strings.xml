@@ -31,6 +31,8 @@
     <string name="sort">فرز حسب</string>
     <string name="sortAZ">أبجدي (من a إلى z)</string>
     <string name="sortZA">أبجدي (من z إلى a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">مُخصص</string>
     <string name="aboutSummary">عرض \"حول\" ومعلومات الترخيص</string>
     <string name="supportDevelopment">دعم التطوير</string>
@@ -215,6 +217,8 @@
     <string name="prefLanguageSummary">اختر لغة لاستخدامها في التطبيق</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">الحماية</string>
     <string name="prefPasswordTitle">كلمة المرور</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -237,6 +241,7 @@
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>
     <string name="authTypeCounter">Counter based (HOTP)</string>
