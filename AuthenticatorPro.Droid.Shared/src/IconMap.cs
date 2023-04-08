@@ -471,6 +471,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "tildes", Resource.Drawable.auth_tildes },
             { "time4vps", Resource.Drawable.auth_time4vps },
             { "ting", Resource.Drawable.auth_ting },
+            { "tinyurl", Resource.Drawable.auth_tinyurl },
             { "titanemail", Resource.Drawable.auth_titanemail },
             { "tmobile", Resource.Drawable.auth_tmobile },
             { "todoist", Resource.Drawable.auth_todoist },
