@@ -31,6 +31,8 @@
     <string name="sort">Sıralama</string>
     <string name="sortAZ">Alfabetik (a\'dan z\'ye)</string>
     <string name="sortZA">Alfabetik (z\'den a\'ya)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Özel</string>
     <string name="aboutSummary">Hakkında ve lisans bilgilerini görüntüleyin.</string>
     <string name="supportDevelopment">Geliştirmeyi destekle</string>
@@ -184,7 +186,7 @@
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
+    <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
@@ -216,8 +218,10 @@
     <string name="prefAutoBackupSummary">Değişiklikler yapıldığında otomatik olarak belirli bir konuma yedekleyin. Yedekleme hatırlatıcılarını devre dışı bırakır.</string>
     <string name="prefLanguageTitle">Dil</string>
     <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefTapToCopyTitle">Kopyalamak için dokun</string>
+    <string name="prefTapToCopySummary">Dokunulduğunda kodu panoya kopyalayın</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
@@ -243,6 +247,7 @@
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
     <string name="prefTransparentStatusBarSummary">Listeyi kaydırırken durum çubuğunun arkasında görünür yapın</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
