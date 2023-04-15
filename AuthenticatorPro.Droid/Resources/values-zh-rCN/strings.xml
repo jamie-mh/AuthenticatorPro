@@ -31,6 +31,8 @@
     <string name="sort">排序</string>
     <string name="sortAZ">字母顺序 (a 至 z)</string>
     <string name="sortZA">字母顺序 (z 至 a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">自定义</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="supportDevelopment">支持开发</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">验证器只能生成 {0} 到 {1} 位的验证码。</string>
     <string name="periodInvalid">时间段无效</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
     <string name="pinMessage">输入该二维码的密码。在设置此账户时，会提示您输入密码。</string>
@@ -183,7 +184,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (纯文本)</string>
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
-    <string name="winAuthImportHint">导入 winauth.txt 文件</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
     <string name="uriList">URI 列表</string>
@@ -216,6 +217,8 @@
     <string name="prefLanguageSummary">选择要在应用程序中使用的语言</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
     <string name="prefTransparentStatusBarTitle">透明状态栏</string>
     <string name="prefTransparentStatusBarSummary">滚动时在状态栏后面显示列表</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>

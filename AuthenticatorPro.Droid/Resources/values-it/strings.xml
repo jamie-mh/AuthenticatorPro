@@ -31,6 +31,8 @@
     <string name="sort">Ordina</string>
     <string name="sortAZ">Alfabetico (A-Z)</string>
     <string name="sortZA">Alfabetico (Z-A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Personalizzato</string>
     <string name="aboutSummary">Visualizza informazioni sul programma e sulla licenza</string>
     <string name="supportDevelopment">Supporta lo sviluppo</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">L\'autenticatore deve generare fra {0} e {1} cifre</string>
     <string name="periodInvalid">Il periodo non è valido</string>
     <string name="qrCodeFormatError">Il codice QR non è nel formato corretto oppure non può essere letto</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Esiste già un autenticatore con questa chiave segreta</string>
     <string name="scanSuccessful">Codice QR scansionato con successo</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -183,7 +184,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (testo semplice)</string>
     <string name="bitwardenImportHint">Importa file bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importa file winauth.txt</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Importa file TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
@@ -216,6 +217,8 @@
     <string name="prefLanguageSummary">Scegli una lingua da usare nell\'app</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Sicurezza</string>
     <string name="prefPasswordTitle">Password</string>
     <string name="prefPasswordSummary">Richiede una password per accedere agli autenticatori. Il database verrà crittografato con la tua password.</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">Scegli un colore di accento da usare nell\'app</string>
     <string name="prefTransparentStatusBarTitle">Barra Di Stato Trasparente</string>
     <string name="prefTransparentStatusBarSummary">Rende la lista visibile dietro la barra di stato durante lo scorrimento</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Basato sul tempo (TOTP)</string>
     <string name="authTypeCounter">Basato su contatore (HOTP)</string>

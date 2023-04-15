@@ -31,6 +31,8 @@
     <string name="sort">Сортування</string>
     <string name="sortAZ">За алфавітом (А-Я)</string>
     <string name="sortZA">За алфавітом (Я-А)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Вручну</string>
     <string name="aboutSummary">Інформація про застосунок та ліцензії</string>
     <string name="supportDevelopment">Підтримати розробку</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">Автентифікатор має генерувати від {0} до {1} цифр</string>
     <string name="periodInvalid">Неправильний період</string>
     <string name="qrCodeFormatError">Неправильний формат QR-коду або неможливо зчитати</string>
-    <string name="qrCodeNotFound">QR-код не знайдено на зображенні</string>
     <string name="duplicateAuthenticator">Автентифікатор з цим секретним ключем вже існує</string>
     <string name="scanSuccessful">QR-код успішно відскановано</string>
     <string name="pinMessage">Введіть PIN-код, що пов\'язаний із цим QR-кодом. PIN необхідно буде вводити під час налаштування цього облікового запису.</string>
@@ -183,8 +184,8 @@
     <string name="aegisImportHint">Імпортувати файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (звичайний текст)</string>
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
-    <string name="winAuthImportHint">Імпортувати файл winauth.txt</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="winAuthImportHint">Імпорт файлу winauth.txt або winauth.zip</string>
+    <string name="twoFasImportHint">Імпортувати файл 2fas-backup.2fas</string>
     <string name="totpAuthenticatorImportHint">Імпортувати файл TOTP_backup.encrypt</string>
     <string name="uriList">Перелік URI</string>
     <string name="uriListHint">Простий текстовий список URI otpauth://</string>
@@ -211,11 +212,13 @@
     <string name="prefShowBackupRemindersTitle">Нагадування про резервне копіювання</string>
     <string name="prefShowBackupRemindersSummary">Нагадування, що треба робити резервні копії автентифікаторів, якщо відбулися важливі зміни</string>
     <string name="prefAutoBackupTitle">Автоматичне резервне копіювання</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Автоматично створювати резервні копії після внесення змін. Відключає нагадування про необхідність резервного копіювання.</string>
     <string name="prefLanguageTitle">Мова</string>
     <string name="prefLanguageSummary">Оберіть мову для використання у застосунку</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefTapToCopyTitle">Натиснути для копіювання</string>
+    <string name="prefTapToCopySummary">Копіювати код в буфер обміну при натисканні на нього</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Безпека</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Вимагати пароль для доступу до автентифікаторів. База даних буде зашифрована вашим паролем.</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">Оберіть основний колір, який буде використано в усьому додатку</string>
     <string name="prefTransparentStatusBarTitle">Прозора панель стану</string>
     <string name="prefTransparentStatusBarSummary">Зробити список видимим за панеллю стану при прокрутці</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основі часу (TOTP)</string>
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>

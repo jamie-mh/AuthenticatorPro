@@ -31,6 +31,8 @@
     <string name="sort">Trier</string>
     <string name="sortAZ">Ordre alphabétique (de A à Z)</string>
     <string name="sortZA">Ordre alphabétique (de Z à A)</string>
+    <string name="sortMostCopied">Plus copié</string>
+    <string name="sortLeastCopied">Moins copié</string>
     <string name="sortCustom">Personnalisé</string>
     <string name="aboutSummary">Lire des informations sur l\'application est les licences open-source</string>
     <string name="supportDevelopment">Soutenir le développement</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">L\'authentificateur doit générer entre {0} et {1} chiffres</string>
     <string name="periodInvalid">La période est invalide</string>
     <string name="qrCodeFormatError">Le QR code n\'est pas au bon format ou n\'est pas lisible</string>
-    <string name="qrCodeNotFound">Impossible de trouver un QR code dans l\'image</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="scanSuccessful">QR code scanné avec succès</string>
     <string name="pinMessage">Entrez le code pin associé à ce QR code. Il vous aurait été demandé de le saisir lors de la configuration de ce compte.</string>
@@ -183,7 +184,7 @@
     <string name="aegisImportHint">Importer un fichier aegis-export.json</string>
     <string name="bitwarden">Bitwarden (texte clair)</string>
     <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importer un fichier winauth.txt</string>
+    <string name="winAuthImportHint">Importer un fichier winauth.txt ou winauth.zip</string>
     <string name="twoFasImportHint">Importer un fichier 2fas-backup.2fas</string>
     <string name="totpAuthenticatorImportHint">Importer un fichier TOTP_Backup.encrypt</string>
     <string name="uriList">Liste d\'URIs</string>
@@ -216,6 +217,8 @@
     <string name="prefLanguageSummary">Choisir une langue à utiliser dans l\'application</string>
     <string name="prefTapToCopyTitle">Taper pour copier</string>
     <string name="prefTapToCopySummary">Copier le code dans le presse-papiers lorsqu\'il est tapé</string>
+    <string name="prefResetCopyCountTitle">Réinitialiser le nombre de fois copié</string>
+    <string name="prefResetCopyCountSummary">Effacer le nombre de fois où chaque authentificateur a été copié</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">Choisir une couleur d\'accentuation à utiliser dans l\'application</string>
     <string name="prefTransparentStatusBarTitle">Barre d\'état transparente</string>
     <string name="prefTransparentStatusBarSummary">Rendre la liste visible derrière la barre d\'état lors du défilement</string>
+    <string name="copyCountReset">Nombre de fois copiés réinitialisé</string>
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>

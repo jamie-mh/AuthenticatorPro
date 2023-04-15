@@ -31,6 +31,8 @@
     <string name="sort">Sortowanie</string>
     <string name="sortAZ">Alfabetycznie (A-Z)</string>
     <string name="sortZA">Alfabetycznie (Z-A)</string>
+    <string name="sortMostCopied">Najczęściej kopiowane</string>
+    <string name="sortLeastCopied">Najrzadziej kopiowane</string>
     <string name="sortCustom">Niestandardowo</string>
     <string name="aboutSummary">Wyświetl informacje o aplikacji i licencjach</string>
     <string name="supportDevelopment">Wesprzyj rozwój aplikacji</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">Pole musi mieć między {0} a {1} cyfr</string>
     <string name="periodInvalid">Okres jest nieprawidłowy</string>
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
-    <string name="qrCodeNotFound">Nie znaleziono kodu QR na obrazku</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
     <string name="pinMessage">Wprowadź pin skojarzony z tym kodem QR. Zostałeś/aś poproszony o pin podczas konfiguracji tego konta.</string>
@@ -183,7 +184,7 @@
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwarden">Bitwarden (czysty tekst)</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importuj plik winauth.txt</string>
+    <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
     <string name="totpAuthenticatorImportHint">Importuj plik TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
@@ -216,6 +217,8 @@
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefTapToCopyTitle">Dotknij, aby skopiować</string>
     <string name="prefTapToCopySummary">Skopiuj kod do schowka po dotknięciu</string>
+    <string name="prefResetCopyCountTitle">Resetuj licznik kopiowań</string>
+    <string name="prefResetCopyCountSummary">Zresetuj licznik ile razy każdy wpis był kopiowany</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
     <string name="prefTransparentStatusBarSummary">Lista będzie widoczna za paskiem statusu podczas przewijania</string>
+    <string name="copyCountReset">Reset licznika kopiowań</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>

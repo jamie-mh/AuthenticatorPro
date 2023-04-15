@@ -7,26 +7,26 @@
 
 <hr>
 
-<b>Features</b>
+<b>Можливості</b>
 
 - ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
 - 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 - 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. У випадку, якщо ви втратите або зміните телефон, ви завжди зможете відновити доступ до ваших облікових записів. Ви завжди можете зберігати резервні копії як у хмарне сховище, так і у файл на пристрої.
 - 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 - ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 📂 <b>Категорії</b>: Організуйте ваші автентифікатори у категорії.
 - 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. Також можна змінювати порядок автентифікаторів як завгодно, щоби потім було легко їх знайти.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Зверніть увагу, що для роботи цієї функції потрібне підключення до вашого пристрою Android. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- 🔑 <b>Безпека</b>: Встановіть пароль та використовуйте біометричну автентифікацію пристрою для додаткового захисту кодів в застосунку.
+- 🎨 <b>Персоналізація</b>: Встановлення іконок та перейменування. Також можна змінювати порядок автентифікаторів як завгодно, щоби потім було легко їх знайти.
+- ⌚ <b>Wear OS</b>: Швидкий перегляд своїх автентифікаторів безпосередньо з годинника. Зверніть увагу, що для роботи цієї функції потрібне підключення до вашого пристрою Android. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(¹) *Для того щоби сканувати QR-коди, застосунку потрібен дозвіл на доступ до камери.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> ЧаПи</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Застереження</b>
 
 Ця програма є вільним програмним забезпеченням: ви можете поширювати її та/або змінювати згідно з умовами GNU General Public License, опублікованої Free Software Foundation, версії 3 Ліцензії або (на ваш вибір) будь-якої пізнішої версії.
 

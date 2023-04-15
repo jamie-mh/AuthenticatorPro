@@ -31,6 +31,8 @@
     <string name="sort">Sorteren</string>
     <string name="sortAZ">Alfabetisch (a tot z)</string>
     <string name="sortZA">Alfabetisch (z tot a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Aangepast</string>
     <string name="aboutSummary">Bekijk over en licentie informatie</string>
     <string name="supportDevelopment">Ondersteun de ontwikkeling</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">De authenticator moet tussen {0} en {1} cijfers genereren</string>
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
@@ -183,7 +184,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (platte tekst)</string>
     <string name="bitwardenImportHint">Importeer bitwarden_export.json bestand</string>
-    <string name="winAuthImportHint">Importeer winauth.txt bestand</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Importeer TOTP_Backup.encrypt bestand</string>
     <string name="uriList">URI lijst</string>
@@ -216,6 +217,8 @@
     <string name="prefLanguageSummary">Kies een taal om te gebruiken in de app</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Veiligheid</string>
     <string name="prefPasswordTitle">Wachtwoord</string>
     <string name="prefPasswordSummary">Wachtwoord is vereist om toegang te krijgen tot de authenticators. De database zal versleuteld worden met uw wachtwoord.</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">Kies een accentkleur die je in de app wilt gebruiken</string>
     <string name="prefTransparentStatusBarTitle">Transparante Status Balk</string>
     <string name="prefTransparentStatusBarSummary">Maak de lijst zichtbaar achter de statusbalk tijdens het scrollen</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Tijd gebaseerd (TOTP)</string>
     <string name="authTypeCounter">Teller gebaseerd (HOTP)</string>

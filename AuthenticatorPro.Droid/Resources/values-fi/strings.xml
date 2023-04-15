@@ -31,6 +31,8 @@
     <string name="sort">Järjestä</string>
     <string name="sortAZ">Aakkosellinen (a - ö)</string>
     <string name="sortZA">Aakkosellinen (ö - a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Mukautettu</string>
     <string name="aboutSummary">Näytä sovellus- ja lisenssitiedot</string>
     <string name="supportDevelopment">Tue kehitystä</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">Todentajan on luotava {0} - {1} numeroa</string>
     <string name="periodInvalid">Aikaväli on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
-    <string name="qrCodeNotFound">QR-koodia ei löydy kuvasta</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
@@ -175,16 +176,16 @@
     <string name="importFromOtherApps">Tuo muista sovelluksista</string>
     <string name="importFrom">Tuo kohteesta</string>
     <string name="importError">Tiedostoa ei voitu tuoda</string>
-    <string name="importIncomplete">Import incomplete</string>
+    <string name="importIncomplete">Tuonti on kesken</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Tuo authplus.db -tiedosto</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="andOtpImportHint">Tuo otp_accounts.json -tiedosto</string>
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
     <string name="bitwarden">Bitwarden (raakateksti)</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
-    <string name="winAuthImportHint">Tuo winauth.txt-tiedosto</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
+    <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Raakatekstinen luettelo otpauth URI -osoitteista</string>
@@ -214,8 +215,10 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Kieli</string>
     <string name="prefLanguageSummary">Valitse sovelluksessa käytettävä kieli</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopyTitle">Kopioi napauttamalla</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>
@@ -238,6 +241,7 @@
     <string name="prefAccentColourSummary">Valitse sovelluksessa käytettävä aksenttiväri</string>
     <string name="prefTransparentStatusBarTitle">Läpinäkyvä tilapalkki</string>
     <string name="prefTransparentStatusBarSummary">Anna luettelon näkyä tilarivin alla vieritettäessä</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Aikaperusteinen (TOTP)</string>
     <string name="authTypeCounter">Laskuripohjainen (HOTP)</string>

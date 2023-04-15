@@ -31,6 +31,8 @@
     <string name="sort">Ordenar por</string>
     <string name="sortAZ">Alfabéticamente (A a la Z)</string>
     <string name="sortZA">Alfabéticamente (Z a la A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Personalizado</string>
     <string name="aboutSummary">Ver información de Aplicación y Licencias.</string>
     <string name="supportDevelopment">Apoyar el desarrollo</string>
@@ -65,7 +67,6 @@
     <string name="digitsInvalid">El autenticador debe generar entre {0} y {1} dígitos.</string>
     <string name="periodInvalid">El periodo es invalido</string>
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Ya existe un autenticador con esta clave secreta.</string>
     <string name="scanSuccessful">Código QR escaneado exitosamente</string>
     <string name="pinMessage">Introduzca el pin asociado con este código QR. Se le habría solicitado un pin al configurar esta cuenta.</string>
@@ -185,7 +186,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (texto sin formato)</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importar archivo winauth.txt</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="totpAuthenticatorImportHint">Importar archivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URIs</string>
@@ -219,6 +220,8 @@
     <string name="prefLanguageSummary">Elige un idioma para usar en la aplicación</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Contraseña</string>
     <string name="prefPasswordSummary">Requiere contraseña para acceder a los autentificadores. La base de datos será cifrada con su contraseña.</string>
@@ -241,6 +244,7 @@
     <string name="prefAccentColourSummary">Elige un idioma para usar en la aplicación</string>
     <string name="prefTransparentStatusBarTitle">Barra de estado transparente</string>
     <string name="prefTransparentStatusBarSummary">Hacer visible la lista detrás de la barra de estado al desplazarse</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Basado en tiempo (TOTP)</string>
     <string name="authTypeCounter">Basado en Contador (HOTP)</string>
