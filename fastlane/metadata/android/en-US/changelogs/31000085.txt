@@ -1,0 +1,5 @@
+- New feature: Sort by copy count
+- New feature: Import from encrypted WinAuth zip
+- General: 8 new icons
+- General: Fix layout of code in RTL languages
+- General: Translation updates
