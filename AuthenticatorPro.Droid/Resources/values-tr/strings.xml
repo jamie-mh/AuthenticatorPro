@@ -182,6 +182,7 @@
     <string name="importConversionError">\"{0}\" öğesi aşağıdaki hata nedeniyle içe aktarılamadı: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db dosyasını içe aktar</string>
     <string name="andOtpImportHint">otp_accounts.json dosyasını içe aktar</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwarden">Bitwarden (düz-metin)</string>
