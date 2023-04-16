@@ -28,6 +28,7 @@ using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
@@ -41,6 +42,7 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,6 +119,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         // Data
         private readonly Database _database;
+        private readonly IEnumerable<IBackupEncryption> _backupEncryptions;
 
         private readonly ICategoryRepository _categoryRepository;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
@@ -150,6 +153,7 @@ namespace AuthenticatorPro.Droid.Activity
             _iconResolver = Dependencies.Resolve<IIconResolver>();
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
             _database = Dependencies.Resolve<Database>();
+            _backupEncryptions = Dependencies.ResolveAll<IBackupEncryption>();
 
             _authenticatorCategoryService = Dependencies.Resolve<IAuthenticatorCategoryService>();
             _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
@@ -1451,8 +1455,61 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
+        private async Task<RestoreResult> DecryptAndRestore(byte[] data, string password)
+        {
+            foreach (var encryption in _backupEncryptions)
+            {
+                Backup backup;
+
+                try
+                {
+                    backup = await encryption.DecryptAsync(data, password);
+                }
+                catch (Exception e)
+                {
+                    Logger.Warn(e);
+                    continue;
+                }
+
+                return await _restoreService.RestoreAndUpdateAsync(backup);
+            }
+
+            throw new ArgumentException("Decryption failed");
+        }
+
+        private void PromptForRestorePassword(byte[] data)
+        {
+            var bundle = new Bundle();
+            bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
+            var sheet = new BackupPasswordBottomSheet { Arguments = bundle };
+
+            sheet.PasswordEntered += async (_, password) =>
+            {
+                sheet.SetBusyText(Resource.String.decrypting);
+
+                try
+                {
+                    var result = await DecryptAndRestore(data, password);
+                    await FinaliseRestore(result);
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e);
+                    sheet.Error = GetString(Resource.String.restoreError);
+                    sheet.SetBusyText(null);
+                    return;
+                }
+
+                sheet.Dismiss();
+            };
+
+            sheet.Show(SupportFragmentManager, sheet.Tag);
+        }
+
         private async Task RestoreFromUri(Uri uri)
         {
+            SetLoading(true);
+
             byte[] data;
 
             try
@@ -1463,72 +1520,30 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 Logger.Error(e);
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                SetLoading(false);
                 return;
             }
 
             if (data.Length == 0)
             {
                 ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
+                SetLoading(false);
                 return;
             }
 
-            async Task<RestoreResult> DecryptAndRestore(string password)
+            try
             {
-                var backup = await Task.Run(() => Backup.FromBytes(data, password));
-                return await _restoreService.RestoreAndUpdateAsync(backup);
-            }
-
-            if (Backup.IsReadableWithoutPassword(data))
-            {
-                RestoreResult result;
-                SetLoading(true);
-
-                try
-                {
-                    result = await DecryptAndRestore(null);
-                }
-                catch (Exception e)
-                {
-                    Logger.Error(e);
-                    ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
-                    return;
-                }
-                finally
-                {
-                    SetLoading(false);
-                }
-
+                var result = await DecryptAndRestore(data, null);
                 await FinaliseRestore(result);
             }
-            else if (Backup.HasValidEncryptionHeader(data))
+            catch (Exception e)
             {
-                var bundle = new Bundle();
-                bundle.PutInt("mode", (int) BackupPasswordBottomSheet.Mode.Enter);
-                var sheet = new BackupPasswordBottomSheet { Arguments = bundle };
-
-                sheet.PasswordEntered += async (_, password) =>
-                {
-                    sheet.SetBusyText(Resource.String.decrypting);
-
-                    try
-                    {
-                        var result = await DecryptAndRestore(password);
-                        sheet.Dismiss();
-                        await FinaliseRestore(result);
-                    }
-                    catch (Exception e)
-                    {
-                        Logger.Error(e);
-                        sheet.Error = GetString(Resource.String.restoreError);
-                        sheet.SetBusyText(null);
-                    }
-                };
-
-                sheet.Show(SupportFragmentManager, sheet.Tag);
+                Logger.Error(e);
+                PromptForRestorePassword(data);
             }
-            else
+            finally
             {
-                ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
+                SetLoading(false);
             }
         }
 
@@ -1692,10 +1707,11 @@ namespace AuthenticatorPro.Droid.Activity
             async Task DoBackup(string password)
             {
                 var backup = await _backupService.CreateBackupAsync();
+                var encryption = new StrongBackupEncryption();
 
                 try
                 {
-                    var data = await Task.Run(() => backup.ToBytes(password));
+                    var data = await encryption.EncryptAsync(backup, password);
                     await FileUtil.WriteFile(this, destination, data);
                 }
                 catch (Exception e)

@@ -12,6 +12,7 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Extension;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Persistence;
 using System;
 using System.Linq;
@@ -125,7 +126,8 @@ namespace AuthenticatorPro.Droid
                 await _customIconRepository.GetAllAsync()
             );
 
-            var dataToWrite = backup.ToBytes(password);
+            var encryption = new StrongBackupEncryption();
+            var dataToWrite = await encryption.EncryptAsync(backup, password);
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
             var file = directory.CreateFile(Backup.MimeType,

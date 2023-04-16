@@ -77,6 +77,28 @@ If you are migrating your authenticators from another app, you can create your o
 
 ### Encrypted Backups
 
+#### Strong
+
+Authenticator Pro backups are encrypted using AES_GCM with no padding. The key is derived using Argon2id with the following parameters:
+
+| Parameter   | Value  |
+|-------------|--------|
+| Parallelism | 4      |
+| Memory Size | 64 MiB |
+| Iterations  | 3      |
+
+The file is structured as follows:
+
+| Section | Size | Value            |
+|---------|------|------------------|
+| Header  | 16   | AUTHENTICATORPRO |
+| Salt    | 16   | .                |
+| IV      | 12   | .                |
+| Payload | .    | .                |
+| Tag     | 16   | .                |
+
+#### Legacy
+
 Authenticator Pro backups are encrypted using AES_CBC_PKCS7. The key is derived using PBKDF2 with SHA1 over 64000 iterations.
 The file is structured as follows:
 
@@ -87,14 +109,16 @@ The file is structured as follows:
 | IV      | 16   | .                |
 | Payload | .    | .                |
 
+#### Decryption without the app
+
 A Python tool can be used to decrypt your backups.
 
 [Backup Decryption Tool](https://github.com/jamie-mh/AuthenticatorPro/blob/master/extra/decrypt_backup.py)
 
-First, install the required package with ``pip``.
+First, install the required packages with `pip`.
 
 ```
-pip install pycryptodome
+pip install cryptography argon2-cffi
 ```
 
 Run the Python script with your backup as a parameter. Optionally direct the output to a file.
@@ -103,4 +127,4 @@ Run the Python script with your backup as a parameter. Optionally direct the out
 python decrypt_backup.py backup.authpro > backup_decrypted.json
 ```
 
-You will be prompted for the password, and once decrypted the output will be sent to the ``backup_decrypted.json`` file.
+You will be prompted for the password, and once decrypted the output will be sent to the `backup_decrypted.json` file.

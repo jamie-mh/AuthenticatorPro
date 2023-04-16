@@ -1,9 +1,13 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Test.Backup.Comparer;
 using AuthenticatorPro.Test.Backup.Fixture;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Backup
@@ -12,16 +16,19 @@ namespace AuthenticatorPro.Test.Backup
     {
         private readonly BackupComparer _backupComparer;
         private readonly BackupFixture _backupFixture;
+        private readonly List<IBackupEncryption> _backupEncryptions;
 
         public BackupTest(BackupFixture backupFixture)
         {
             _backupComparer = new BackupComparer();
             _backupFixture = backupFixture;
+            _backupEncryptions = new List<IBackupEncryption>
+            {
+                new StrongBackupEncryption(), new LegacyBackupEncryption(), new NoBackupEncryption()
+            };
         }
 
         [Theory]
-        [InlineData(null)]
-        [InlineData("")]
         [InlineData("t")]
         [InlineData("test")]
         [InlineData("test123")]
@@ -29,76 +36,94 @@ namespace AuthenticatorPro.Test.Backup
         [InlineData("PZqE=_L]Ra;ZD8N&")]
         [InlineData("tUT.3raAGQ[f]]Q@Ft=S}.r(Vk&CM9#`")]
         [InlineData(@"MS^NqdNp&y]tLz_5:P;UU/2LDd_uF7a""x@*a't/Da]'y&b~.=&z3x'r^u{X.@?vv")]
-        [InlineData(
-            @"p[{(]2QFSYWcaYdz=;eMtrnZ<bvh8QfW;8v""4HBTtW5H!xMGQKt^\\)f]7.fJ*9dcs@pq(9GKF?7FJ3Qtj$].V!U;:N^/eUj(zG;yC9/pPRGT'DHLR>S5h$}L\\AL~X,pA")]
-        [InlineData(
-            @"#n*rF;y3zVPr,B3*qP""C,S[NFk""qswBC;k2*E_gQ&)4Rh.h[f;WG)5w3uY7MGvM/wngR]72BP9;{)_~+Vd""ukx'S]Zt[!cE='43f}J:J_TR<\:`w""{\+`dgdy%vD]Ts:xKAXzgRW!_7vWF]zg*u.)F#ZzzY&[LEHFXH(D@M7Y""'6.e7n~u""[4kyc'TGF28Q""xgNg.!5=;Hfx'e)fx,:#mLmkA(*ty]4]7#;^?*QF4xDK&Fx-)f}(ph=PL*N'#w9`")]
+        [InlineData(@"p[{(]2QFSYWcaYdz=;eMtrnZ<bvh8QfW;8v""4HBTtW5H!xMGQKt^\\)f]7.fJ*9dcs@pq(9GKF?7FJ3Qtj$].V!U;:N^/eUj(zG;yC9/pPRGT'DHLR>S5h$}L\\AL~X,pA")]
+        [InlineData(@"#n*rF;y3zVPr,B3*qP""C,S[NFk""qswBC;k2*E_gQ&)4Rh.h[f;WG)5w3uY7MGvM/wngR]72BP9;{)_~+Vd""ukx'S]Zt[!cE='43f}J:J_TR<\:`w""{\+`dgdy%vD]Ts:xKAXzgRW!_7vWF]zg*u.)F#ZzzY&[LEHFXH(D@M7Y""'6.e7n~u""[4kyc'TGF28Q""xgNg.!5=;Hfx'e)fx,:#mLmkA(*ty]4]7#;^?*QF4xDK&Fx-)f}(ph=PL*N'#w9`")]
         [InlineData("你好世界")]
         [InlineData("😀 😃 😄 😁 😆 😅 😂 🤣")]
-        public void ToBytesFromBytes(string password)
+        public async Task EncryptDecrypt(string password)
         {
-            var transformed = Core.Backup.Backup.FromBytes(_backupFixture.Backup.ToBytes(password), password);
-            Assert.Equal(_backupFixture.Backup, transformed, _backupComparer);
+            foreach (var encryption in _backupEncryptions)
+            {
+                var encrypted = await encryption.EncryptAsync(_backupFixture.Backup, password);
+                var decrypted = await encryption.DecryptAsync(encrypted, password);
+                Assert.Equal(_backupFixture.Backup, decrypted, _backupComparer);
+            }
         }
 
         [Fact]
-        public void FromBytes_invalidHeader()
+        public async Task LegacyDecrypt_noPassword()
         {
-            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes("invalid"u8.ToArray(), "test"); });
+            var encryption = new LegacyBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(Array.Empty<byte>(), null));
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(Array.Empty<byte>(), ""));
         }
 
         [Fact]
-        public void FromBytes_invalidPassword()
+        public async Task LegacyEncrypt_noPassword()
         {
-            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes(_backupFixture.EncryptedData, "testing1"); });
+            var encryption = new LegacyBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.EncryptAsync(_backupFixture.Backup, null));
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.EncryptAsync(_backupFixture.Backup, ""));
         }
 
         [Fact]
-        public void FromBytes_invalidJson()
+        public async Task LegacyDecrypt_invalidHeader()
         {
-            var bytes = "abcdef"u8.ToArray();
-            Assert.Throws<ArgumentException>(delegate { Core.Backup.Backup.FromBytes(bytes, null); });
+            var encryption = new LegacyBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync("invalid"u8.ToArray(), "test"));
         }
 
         [Fact]
-        public void IsReadableWithoutPassword_ok()
+        public async Task LegacyDecrypt_invalidPassword()
         {
-            var bytes = "{\"field\": 1}"u8.ToArray();
-            Assert.True(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+            var encryption = new LegacyBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(_backupFixture.LegacyData, "testing1"));
         }
 
         [Fact]
-        public void IsReadableWithoutPassword_invalidString()
+        public async Task LegacyDecrypt_ok()
         {
-            var bytes = "testing"u8.ToArray();
-            Assert.False(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+            var encryption = new LegacyBackupEncryption();
+            var backup = await encryption.DecryptAsync(_backupFixture.LegacyData, "test");
+            Assert.True(backup.Authenticators.Any());
         }
 
         [Fact]
-        public void IsReadableWithoutPassword_invalidJson()
+        public async Task StrongDecrypt_noPassword()
         {
-            var bytes = "{!!!}"u8.ToArray();
-            Assert.False(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+            var encryption = new StrongBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(Array.Empty<byte>(), null));
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(Array.Empty<byte>(), ""));
         }
 
         [Fact]
-        public void HasValidEncryptionHeader_ok()
+        public async Task StrongEncrypt_noPassword()
         {
-            var bytes = "AuthenticatorPro"u8.ToArray();
-            Assert.True(Core.Backup.Backup.HasValidEncryptionHeader(bytes));
+            var encryption = new StrongBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.EncryptAsync(_backupFixture.Backup, null));
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.EncryptAsync(_backupFixture.Backup, ""));
         }
 
         [Fact]
-        public void HasValidEncryptionHeader_notOk()
+        public async Task StrongDecrypt_invalidHeader()
         {
-            var bytes = "SomethingElse123"u8.ToArray();
-            Assert.False(Core.Backup.Backup.IsReadableWithoutPassword(bytes));
+            var encryption = new StrongBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync("invalid"u8.ToArray(), "test"));
         }
 
         [Fact]
-        public void HasValidEncryptionHeader_empty()
+        public async Task StrongDecrypt_invalidPassword()
         {
-            Assert.False(Core.Backup.Backup.HasValidEncryptionHeader(Array.Empty<byte>()));
+            var encryption = new StrongBackupEncryption();
+            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(_backupFixture.StrongData, "testing1"));
+        }
+
+        [Fact]
+        public async Task StrongDecrypt_ok()
+        {
+            var encryption = new StrongBackupEncryption();
+            var backup = await encryption.DecryptAsync(_backupFixture.StrongData, "test");
+            Assert.True(backup.Authenticators.Any());
         }
     }
 }
