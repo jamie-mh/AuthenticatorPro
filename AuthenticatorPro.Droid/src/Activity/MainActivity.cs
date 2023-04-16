@@ -92,13 +92,14 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestSettingsRecreate = 7;
         private const int RequestImportAuthenticatorPlus = 8;
         private const int RequestImportAndOtp = 9;
-        private const int RequestImportFreeOtpPlus = 10;
-        private const int RequestImportAegis = 11;
-        private const int RequestImportBitwarden = 12;
-        private const int RequestImportTwoFas = 13;
-        private const int RequestImportWinAuth = 14;
-        private const int RequestImportTotpAuthenticator = 15;
-        private const int RequestImportUriList = 16;
+        private const int RequestImportFreeOtp = 10;
+        private const int RequestImportFreeOtpPlus = 11;
+        private const int RequestImportAegis = 12;
+        private const int RequestImportBitwarden = 13;
+        private const int RequestImportTwoFas = 14;
+        private const int RequestImportWinAuth = 15;
+        private const int RequestImportTotpAuthenticator = 16;
+        private const int RequestImportUriList = 17;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -385,6 +386,10 @@ namespace AuthenticatorPro.Droid.Activity
 
                 case RequestImportAndOtp:
                     await ImportFromUri(new AndOtpBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportFreeOtp:
+                    await ImportFromUri(new FreeOtpBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportFreeOtpPlus:
@@ -1400,6 +1405,11 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.AndOtpClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportAndOtp);
+            };
+            
+            fragment.FreeOtpClicked += delegate
+            {
+                StartFilePickActivity("*/*", RequestImportFreeOtp);
             };
 
             fragment.FreeOtpPlusClicked += delegate

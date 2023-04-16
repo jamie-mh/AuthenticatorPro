@@ -217,6 +217,8 @@
     <string name="authenticatorPlusImportHint">Import authplus.db file</string>
     <string name="andOtp" translatable="false">andOTP</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="freeOtp" translatable="false">FreeOTP</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlus" translatable="false">FreeOTP+</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegis" translatable="false">Aegis</string>
