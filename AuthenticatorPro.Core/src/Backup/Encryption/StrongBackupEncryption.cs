@@ -48,19 +48,6 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             return await argon2.GetBytesAsync(KeyLength);
         }
 
-        private static async Task<byte[]> ProcessCipherAsync(IBufferedCipher cipher, byte[] input)
-        {
-            var output = new byte[cipher.GetOutputSize(input.Length)];
-
-            await Task.Run(delegate
-            {
-                var length = cipher.ProcessBytes(input, 0, input.Length, output, 0);
-                cipher.DoFinal(output, length);
-            });
-
-            return output;
-        }
-
         public async Task<byte[]> EncryptAsync(Backup backup, string password)
         {
             if (string.IsNullOrEmpty(password))
@@ -80,7 +67,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
 
             var json = JsonConvert.SerializeObject(backup);
             var unencryptedData = Encoding.UTF8.GetBytes(json);
-            var encryptedData = await ProcessCipherAsync(cipher, unencryptedData);
+            var encryptedData = await Task.Run(() => cipher.DoFinal(unencryptedData));
 
             var headerBytes = Encoding.UTF8.GetBytes(Header);
             var output = new byte[Header.Length + SaltLength + IvLength + encryptedData.Length];
@@ -124,7 +111,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
 
             try
             {
-                unencryptedData = await ProcessCipherAsync(cipher, encryptedData);
+                unencryptedData = await Task.Run(() => cipher.DoFinal(encryptedData));
             }
             catch (InvalidCipherTextException e)
             {
