@@ -14,6 +14,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler GoogleAuthenticatorClicked;
         public event EventHandler AuthenticatorPlusClicked;
         public event EventHandler AndOtpClicked;
+        public event EventHandler FreeOtpClicked;
         public event EventHandler FreeOtpPlusClicked;
         public event EventHandler AegisClicked;
         public event EventHandler BitwardenClicked;
@@ -42,6 +43,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                         AuthenticatorPlusClicked, Resource.String.authenticatorPlusImportHint),
                     new(Resource.Drawable.ic_andotp, Resource.String.andOtp, AndOtpClicked,
                         Resource.String.andOtpImportHint),
+                    new(Resource.Drawable.ic_freeotp, Resource.String.freeOtp,
+                        FreeOtpClicked, Resource.String.freeOtpImportHint),
                     new(Resource.Drawable.ic_freeotpplus, Resource.String.freeOtpPlus,
                         FreeOtpPlusClicked, Resource.String.freeOtpPlusImportHint),
                     new(Resource.Drawable.ic_aegis, Resource.String.aegis, AegisClicked,
