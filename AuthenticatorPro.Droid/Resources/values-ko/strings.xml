@@ -180,6 +180,7 @@
     <string name="importConversionError">\"{0}\" 항목은 다음 오류로 인해 가져올 수 없었습니다: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db 파일 가져오기</string>
     <string name="andOtpImportHint">otp_accounts.json 파일 가져오기</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwarden">Bitwarden (평문)</string>
