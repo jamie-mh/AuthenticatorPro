@@ -31,14 +31,10 @@ namespace AuthenticatorPro.Droid.Interface
 
 #if FDROID
         private readonly BarcodeReader<Bitmap> _barcodeReader;
-#else
-        private readonly IBarcodeScanner _barcodeScanner;
-#endif
 
         public QrCodeImageAnalyser()
         {
-#if FDROID
-            _barcodeReader = new BarcodeReader<Bitmap>(null, null, ls => new GlobalHistogramBinarizer(ls))
+            _barcodeReader = new BarcodeReader<Bitmap>(null, null, ls => new HybridBinarizer(ls))
             {
                 AutoRotate = true,
                 Options = new DecodingOptions
@@ -47,14 +43,19 @@ namespace AuthenticatorPro.Droid.Interface
                     TryInverted = true
                 }
             };
+        }
 #else
+        private readonly IBarcodeScanner _barcodeScanner;
+
+        public QrCodeImageAnalyser()
+        {
             var options = new BarcodeScannerOptions.Builder()
                 .SetBarcodeFormats(Barcode.FormatQrCode)
                 .Build();
 
             _barcodeScanner = BarcodeScanning.GetClient(options);
-#endif
         }
+#endif
 
         public async void Analyze(IImageProxy imageProxy)
         {

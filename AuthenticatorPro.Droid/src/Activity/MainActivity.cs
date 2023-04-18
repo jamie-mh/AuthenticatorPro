@@ -59,7 +59,6 @@ using UriParser = AuthenticatorPro.Core.UriParser;
 using ZXing;
 using ZXing.Common;
 using Java.Nio;
-using System.Collections.Generic;
 #else
 using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
@@ -1183,7 +1182,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var reader = new BarcodeReader<Bitmap>(null, null, ls => new GlobalHistogramBinarizer(ls))
+            var reader = new BarcodeReader<Bitmap>(null, null, ls => new HybridBinarizer(ls))
             {
                 AutoRotate = true,
                 Options = new DecodingOptions
