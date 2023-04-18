@@ -180,6 +180,7 @@
     <string name="importConversionError">Не вдалося імпортувати \"{0}\" через помилку, що виникла в процесі: {1}</string>
     <string name="authenticatorPlusImportHint">Імпортувати файл authplus.db</string>
     <string name="andOtpImportHint">Імпортувати файл otp_accounts.json</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">Імпортувати файл freeotp-backup.json</string>
     <string name="aegisImportHint">Імпортувати файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (звичайний текст)</string>

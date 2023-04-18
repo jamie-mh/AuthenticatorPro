@@ -180,6 +180,7 @@
     <string name="importConversionError">O item \"{0}\" falhou ao ser importado devido ao seguinte erro: {1}</string>
     <string name="authenticatorPlusImportHint">Importar o arquivo authplus.db</string>
     <string name="andOtpImportHint">Importar arquivo otp_accounts.json</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">Importar arquivo freeotp-backup.json</string>
     <string name="aegisImportHint">Importar arquivo aegis-export.json</string>
     <string name="bitwarden">Bitwarden (texto simples)</string>

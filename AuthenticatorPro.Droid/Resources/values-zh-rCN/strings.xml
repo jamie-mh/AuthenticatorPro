@@ -180,6 +180,7 @@
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">导入 authplus.db 文件</string>
     <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">导入 freeotp-backup.json 文件</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden">Bitwarden (纯文本)</string>
