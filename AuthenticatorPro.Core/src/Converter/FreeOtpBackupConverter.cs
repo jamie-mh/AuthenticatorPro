@@ -245,14 +245,14 @@ namespace AuthenticatorPro.Core.Converter
                 string issuer;
                 string username;
 
-                if (IssuerInt == null)
+                if (IssuerExt == null)
                 {
                     issuer = Label;
                     username = null;
                 }
                 else
                 {
-                    issuer = IssuerInt;
+                    issuer = IssuerExt;
                     username = Label;
                 }
                 
