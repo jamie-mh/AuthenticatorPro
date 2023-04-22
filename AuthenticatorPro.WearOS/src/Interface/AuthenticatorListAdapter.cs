@@ -3,6 +3,7 @@
 
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Core.Util;
 using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
@@ -15,7 +16,7 @@ namespace AuthenticatorPro.WearOS.Interface
         private readonly AuthenticatorView _authView;
         private readonly CustomIconCache _customIconCache;
 
-        public int? DefaultAuth { get; set; }
+        public string DefaultAuth { get; set; }
 
         public event EventHandler<int> ItemClicked;
         public event EventHandler<int> ItemLongClicked;
@@ -43,7 +44,7 @@ namespace AuthenticatorPro.WearOS.Interface
             var holder = (AuthenticatorListHolder) viewHolder;
             holder.Issuer.Text = auth.Issuer;
 
-            holder.DefaultImage.Visibility = DefaultAuth != null && auth.Secret.GetHashCode() == DefaultAuth
+            holder.DefaultImage.Visibility = DefaultAuth != null && HashUtil.Sha1(auth.Secret) == DefaultAuth
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
@@ -62,7 +63,7 @@ namespace AuthenticatorPro.WearOS.Interface
                 if (auth.Icon.StartsWith(CustomIconCache.Prefix))
                 {
                     var id = auth.Icon[1..];
-                    var customIcon = await _customIconCache.GetBitmap(id);
+                    var customIcon = await _customIconCache.GetBitmapAsync(id);
 
                     if (customIcon != null)
                     {
