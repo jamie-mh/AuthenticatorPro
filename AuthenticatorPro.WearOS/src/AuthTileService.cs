@@ -22,6 +22,7 @@ namespace AuthenticatorPro.WearOS
 {
     [Service(Exported = true, Permission = "com.google.android.wearable.permission.BIND_TILE_PROVIDER", Label = "@string/displayName")]
     [IntentFilter(new []{ ActionBindTileProvider })]
+    [MetaData(MetadataPreviewKey, Resource = "@drawable/tile_preview")]
     public class AuthTileService : TileService
     {
         private const string AuthenticatorCacheName = "authenticators";
