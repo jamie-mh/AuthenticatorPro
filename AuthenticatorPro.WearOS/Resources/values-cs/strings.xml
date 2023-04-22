@@ -5,5 +5,5 @@
     <string name="hotpNotSupported">HOTP není podporováno</string>
     <string name="categoryAll">Vše</string>
     <string name="offline">Offline</string>
-    <string name="syncFailed">Sync failed</string>
+    <string name="syncFailed">Synchronizace selhala</string>
 </resources>
