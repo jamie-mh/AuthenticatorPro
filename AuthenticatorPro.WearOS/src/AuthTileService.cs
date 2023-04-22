@@ -16,9 +16,7 @@ using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Util;
 using Google.Common.Util.Concurrent;
 using Java.Nio;
-using System;
 using System.Threading.Tasks;
-using Math = System.Math;
 
 namespace AuthenticatorPro.WearOS
 {
@@ -27,7 +25,7 @@ namespace AuthenticatorPro.WearOS
     public class AuthTileService : TileService
     {
         private const string AuthenticatorCacheName = "authenticators";
-        private const String EmptyVersion = "EMPTY";
+        private const string EmptyResourcesVersion = "EMPTY";
         
         private PreferenceWrapper _preferences;
         private ListCache<WearAuthenticator> _authenticatorCache;
@@ -91,10 +89,10 @@ namespace AuthenticatorPro.WearOS
             {
                 var builder = new ResourceBuilders.Resources.Builder();
 
-                if (request.Version == EmptyVersion)
+                if (request.Version == EmptyResourcesVersion)
                 {
                     return builder
-                        .SetVersion(EmptyVersion)
+                        .SetVersion(EmptyResourcesVersion)
                         .Build();
                 }
 
@@ -219,7 +217,7 @@ namespace AuthenticatorPro.WearOS
                 .Build();
 
             return new TileBuilders.Tile.Builder()
-                .SetResourcesVersion(EmptyVersion)
+                .SetResourcesVersion(EmptyResourcesVersion)
                 .SetTimeline(timeline)
                 .Build();
         }
@@ -275,7 +273,7 @@ namespace AuthenticatorPro.WearOS
                 .Build();
 
             return new TileBuilders.Tile.Builder()
-                .SetResourcesVersion(_authenticator.Icon)
+                .SetResourcesVersion(_authenticator.Icon ?? IconResolver.Default)
                 .SetTimeline(timeline)
                 .SetFreshnessIntervalMillis(secondsRemaining * 1000)
                 .Build();
