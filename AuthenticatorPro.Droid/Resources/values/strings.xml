@@ -84,6 +84,9 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
     <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
 
     <!-- Backup menu -->
     <string name="backupToFile">Back up to encrypted file (recommended)</string>

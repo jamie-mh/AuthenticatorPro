@@ -71,13 +71,28 @@
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:text="@string/qrCodeHelp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonOk"
-                style="@style/Widget.MaterialComponents.Button"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_gravity="end"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/ok"/>
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonCopyUri"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_marginEnd="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/copyUri"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonOk"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/ok"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -1,12 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.Dialog;
 using QRCoder;
 using System;
 using System.Threading.Tasks;
@@ -40,6 +42,27 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             okButton.Click += delegate { Dismiss(); };
+            
+            var copyButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCopyUri);
+            copyButton.Click += delegate
+            {
+                var builder = new MaterialAlertDialogBuilder(RequireContext());
+                builder.SetMessage(Resource.String.copyUriWarning);
+                builder.SetTitle(Resource.String.warning);
+                builder.SetPositiveButton(Resource.String.copyUri, delegate
+                {
+                    var clipboard = (ClipboardManager) Context.GetSystemService(Context.ClipboardService);
+                    var clip = ClipData.NewPlainText("uri", _uri);
+                    clipboard.PrimaryClip = clip;
+                    Toast.MakeText(Context, Resource.String.uriCopiedToClipboard, ToastLength.Short).Show();
+                });
+    
+                builder.SetNegativeButton(Resource.String.cancel, delegate { });
+                builder.SetCancelable(true);
+    
+                var dialog = builder.Create();
+                dialog.Show();
+            };
 
             return view;
         }
