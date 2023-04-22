@@ -8,15 +8,9 @@ namespace AuthenticatorPro.Droid.Shared.Wear
 {
     public class WearCustomIcon
     {
-        public readonly string Id;
+        public string Id { get; set; }
 
         [JsonConverter(typeof(ByteArrayConverter))]
-        public readonly byte[] Data;
-
-        public WearCustomIcon(string id, byte[] data)
-        {
-            Id = id;
-            Data = data;
-        }
+        public byte[] Data { get; set; }
     }
 }

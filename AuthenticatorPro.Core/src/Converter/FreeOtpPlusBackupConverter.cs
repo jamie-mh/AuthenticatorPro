@@ -49,7 +49,7 @@ namespace AuthenticatorPro.Core.Converter
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup.Backup(authenticators);
+            var backup = new Backup.Backup { Authenticators = authenticators };
             var result = new ConversionResult { Failures = failures, Backup = backup };
 
             return Task.FromResult(result);

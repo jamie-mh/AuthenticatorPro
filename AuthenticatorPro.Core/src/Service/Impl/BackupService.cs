@@ -28,12 +28,13 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<Backup.Backup> CreateBackupAsync()
         {
-            return new Backup.Backup(
-                await _authenticatorRepository.GetAllAsync(),
-                await _categoryRepository.GetAllAsync(),
-                await _authenticatorCategoryRepository.GetAllAsync(),
-                await _customIconRepository.GetAllAsync()
-            );
+            return new Backup.Backup
+            {
+                Authenticators = await _authenticatorRepository.GetAllAsync(),
+                Categories = await _categoryRepository.GetAllAsync(),
+                AuthenticatorCategories = await _authenticatorCategoryRepository.GetAllAsync(),
+                CustomIcons = await _customIconRepository.GetAllAsync()
+            };
         }
 
         public async Task<HtmlBackup> CreateHtmlBackupAsync()

@@ -7,15 +7,8 @@ namespace AuthenticatorPro.Droid.Shared.Wear
 {
     public class WearPreferences
     {
-        public readonly string DefaultCategory;
-        public readonly SortMode SortMode;
-        public readonly int CodeGroupSize;
-
-        public WearPreferences(string defaultCategory, SortMode sortMode, int codeGroupSize)
-        {
-            DefaultCategory = defaultCategory;
-            SortMode = sortMode;
-            CodeGroupSize = codeGroupSize;
-        }
+        public string DefaultCategory { get; set; }
+        public SortMode SortMode { get; set; }
+        public int CodeGroupSize { get; set; }
     }
 }

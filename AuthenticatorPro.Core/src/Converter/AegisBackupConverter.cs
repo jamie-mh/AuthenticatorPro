@@ -202,7 +202,14 @@ namespace AuthenticatorPro.Core.Converter
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup.Backup(authenticators, categories, bindings, icons);
+            var backup = new Backup.Backup
+            {
+                Authenticators = authenticators,
+                Categories = categories,
+                AuthenticatorCategories = bindings,
+                CustomIcons = icons
+            };
+
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 

@@ -38,7 +38,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RestoreAsync_nulls()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>());
+            var backup = new Core.Backup.Backup();
 
             _authenticatorService.Setup(s => s.AddManyAsync(backup.Authenticators)).ReturnsAsync(1);
 
@@ -63,7 +63,13 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RestoreAsync_full()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>(), new List<Category>(), new List<AuthenticatorCategory>(), new List<CustomIcon>());
+            var backup = new Core.Backup.Backup
+            {
+                Authenticators = new List<Authenticator>(), 
+                Categories = new List<Category>(),
+                AuthenticatorCategories = new List<AuthenticatorCategory>(),
+                CustomIcons = new List<CustomIcon>()
+            };
 
             _authenticatorService.Setup(s => s.AddManyAsync(backup.Authenticators)).ReturnsAsync(1);
             _categoryService.Setup(s => s.AddManyAsync(backup.Categories)).ReturnsAsync(1);
@@ -87,7 +93,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RestoreAndUpdateAsync_nulls()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>());
+            var backup = new Core.Backup.Backup();
 
             _authenticatorService.Setup(s => s.AddOrUpdateManyAsync(backup.Authenticators))
                 .ReturnsAsync(new ValueTuple<int, int>(1, 2));
@@ -113,7 +119,13 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RestoreAndUpdateAsync_full()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>(), new List<Category>(), new List<AuthenticatorCategory>(), new List<CustomIcon>());
+            var backup = new Core.Backup.Backup
+            {
+                Authenticators = new List<Authenticator>(), 
+                Categories = new List<Category>(),
+                AuthenticatorCategories = new List<AuthenticatorCategory>(),
+                CustomIcons = new List<CustomIcon>()
+            };
 
             _authenticatorService.Setup(s => s.AddOrUpdateManyAsync(backup.Authenticators))
                 .ReturnsAsync(new ValueTuple<int, int>(1, 2));

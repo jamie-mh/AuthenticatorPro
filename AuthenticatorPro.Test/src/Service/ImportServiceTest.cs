@@ -43,7 +43,7 @@ namespace AuthenticatorPro.Test.Service
 
             var conversionResult = new ConversionResult
             {
-                Backup = new Core.Backup.Backup(new List<Authenticator>()),
+                Backup = new Core.Backup.Backup { Authenticators = new List<Authenticator>() },
                 Failures = new List<ConversionFailure>()
             };
 

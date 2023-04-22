@@ -54,7 +54,7 @@ namespace AuthenticatorPro.Core.Converter
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup.Backup(authenticators);
+            var backup = new Backup.Backup { Authenticators = authenticators };
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
