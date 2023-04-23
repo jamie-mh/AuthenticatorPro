@@ -25,7 +25,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private string _currentCategoryId;
 
-        public MainMenuBottomSheet() : base(Resource.Layout.sheetMainMenu)
+        public MainMenuBottomSheet() : base(Resource.Layout.sheetMainMenu, Resource.String.mainMenu)
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
         }
@@ -43,7 +43,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.mainMenu, true);
 
             _categoryList = view.FindViewById<RecyclerView>(Resource.Id.listCategories);
             _categoryList.SetAdapter(_categoryListAdapter);

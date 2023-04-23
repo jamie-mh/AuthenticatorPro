@@ -9,9 +9,9 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.Adapter;
-using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
+using Google.Android.Material.TextView;
 using Java.Lang;
 using System;
 using System.Collections.Generic;
@@ -26,11 +26,14 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private const int MaxWidth = 600;
 
         private readonly int _layout;
+        private readonly int _title;
+        
         protected LayoutInflater StyledInflater;
 
-        protected BottomSheet(int layout)
+        protected BottomSheet(int layout, int title)
         {
             _layout = layout;
+            _title = title;
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -65,7 +68,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             // contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlayId(prefs.AccentColour), true);
             // StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
 
-            return contextInflater.Inflate(_layout, container, false);
+            var view = contextInflater.Inflate(_layout, container, false);
+
+            var title = view.FindViewById<MaterialTextView>(Resource.Id.textTitle);
+            title.SetText(_title); 
+
+            return view;
         }
 
         public override void Show(FragmentManager manager, string tag)
@@ -91,27 +99,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             {
                 Dialog.Window.SetLayout((int) ViewUtils.DpToPx(Activity, MaxWidth), -1);
             }
-        }
-
-        protected void SetupToolbar(View view, int titleRes, bool showCloseButton = false)
-        {
-            var toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            toolbar.SetTitle(titleRes);
-            toolbar.Visibility = ViewStates.Visible;
-
-            if (!showCloseButton)
-            {
-                return;
-            }
-
-            toolbar.InflateMenu(Resource.Menu.sheet);
-            toolbar.MenuItemClick += (_, args) =>
-            {
-                if (args.Item.ItemId == Resource.Id.actionClose)
-                {
-                    Dismiss();
-                }
-            };
         }
 
         protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)

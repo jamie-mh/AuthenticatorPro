@@ -25,23 +25,20 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private BiometricPrompt _prompt;
         private bool _canUseBiometrics;
 
-        private ProgressBar _progressBar;
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
 
-        public UnlockBottomSheet() : base(Resource.Layout.sheetUnlock)
+        public UnlockBottomSheet() : base(Resource.Layout.sheetUnlock, Resource.String.unlock)
         {
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.unlock);
 
             _preferences = new PreferenceWrapper(Context);
-            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
             _passwordLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
@@ -95,14 +92,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public void SetBusy()
         {
             _unlockButton.Enabled = _useBiometricsButton.Enabled = false;
-            _progressBar.Visibility = ViewStates.Visible;
         }
 
         private void ClearBusy()
         {
             _unlockButton.Enabled = true;
             _useBiometricsButton.Enabled = _canUseBiometrics;
-            _progressBar.Visibility = ViewStates.Invisible;
         }
 
         public void ShowError()

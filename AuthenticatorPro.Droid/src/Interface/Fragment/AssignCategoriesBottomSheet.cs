@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private string _secret;
         private string[] _assignedCategoryIds;
 
-        public AssignCategoriesBottomSheet() : base(Resource.Layout.sheetAssignCategories)
+        public AssignCategoriesBottomSheet() : base(Resource.Layout.sheetAssignCategories, Resource.String.assignCategories)
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
         }
@@ -38,7 +38,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.assignCategories);
 
             var editCategoriesButton = view.FindViewById<MaterialButton>(Resource.Id.buttonEditCategories);
 
@@ -73,11 +72,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             foreach (var category in _categoryView)
             {
-                var chip = (Chip) StyledInflater.Inflate(Resource.Layout.chipChoice, chipGroup, false);
+                var chip = (Chip) LayoutInflater.Inflate(Resource.Layout.chipChoice, chipGroup, false);
                 chip.Text = category.Name;
                 chip.Checkable = true;
                 chip.Clickable = true;
-
+                
                 if (_assignedCategoryIds.Contains(category.Id))
                 {
                     chip.Checked = true;

@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private AuthenticatorType _type;
         private long _counter;
 
-        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu) { }
+        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu, Resource.String.edit) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {

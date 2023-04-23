@@ -16,12 +16,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler BackupHtmlFileClicked;
         public event EventHandler BackupUriListClicked;
 
-        public BackupBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public BackupBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.backup) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.backup);
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,
@@ -42,7 +41,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private void ShowUnencryptedWarning(int warningRes, EventHandler onContinue)
         {
-            var builder = new MaterialAlertDialogBuilder(Activity);
+            var builder = new MaterialAlertDialogBuilder(RequireContext());
             builder.SetTitle(Resource.String.warning);
             builder.SetMessage(warningRes);
             builder.SetCancelable(true);

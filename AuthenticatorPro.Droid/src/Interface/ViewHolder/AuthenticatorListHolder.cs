@@ -4,6 +4,7 @@
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
@@ -13,7 +14,7 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
         public MaterialTextView Issuer { get; }
         public MaterialTextView Username { get; }
         public MaterialTextView Code { get; }
-        public ProgressBar ProgressBar { get; }
+        public LinearProgressIndicator ProgressIndicator { get; }
         public ImageButton MenuButton { get; }
         public ImageButton RefreshButton { get; }
         public ImageView Icon { get; }
@@ -23,7 +24,7 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
             Issuer = view.FindViewById<MaterialTextView>(Resource.Id.textIssuer);
             Username = view.FindViewById<MaterialTextView>(Resource.Id.textUsername);
             Code = view.FindViewById<MaterialTextView>(Resource.Id.textCode);
-            ProgressBar = view.FindViewById<ProgressBar>(Resource.Id.progressBar);
+            ProgressIndicator = view.FindViewById<LinearProgressIndicator>(Resource.Id.progressIndicator);
             MenuButton = view.FindViewById<ImageButton>(Resource.Id.buttonMenu);
             RefreshButton = view.FindViewById<ImageButton>(Resource.Id.buttonRefresh);
             Icon = view.FindViewById<ImageView>(Resource.Id.imageIcon);

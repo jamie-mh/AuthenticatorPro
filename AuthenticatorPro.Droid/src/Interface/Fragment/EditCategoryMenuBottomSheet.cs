@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private int _position;
         private bool _isDefault;
 
-        public EditCategoryMenuBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public EditCategoryMenuBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.edit) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {

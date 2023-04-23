@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private MaterialButton _backupNowButton;
         private MaterialButton _okButton;
 
-        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup) { }
+        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup, Resource.String.prefAutoBackupTitle) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -66,7 +66,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
             var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
             selectLocationButton.Click += OnSelectLocationClick;

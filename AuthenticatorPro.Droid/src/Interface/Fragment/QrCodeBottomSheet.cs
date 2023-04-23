@@ -9,6 +9,7 @@ using Android.Widget;
 using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
+using Google.Android.Material.ProgressIndicator;
 using QRCoder;
 using System;
 using System.Threading.Tasks;
@@ -20,11 +21,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private const int PixelsPerModule = 4;
 
         private ImageView _image;
-        private ProgressBar _progressBar;
+        private CircularProgressIndicator _progressIndicator;
 
         private string _uri;
 
-        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode) { }
+        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode, Resource.String.qrCode) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,9 +36,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.qrCode, true);
 
-            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
+            _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
             _image = view.FindViewById<ImageView>(Resource.Id.imageQrCode);
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
@@ -82,7 +82,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var bitmap = await BitmapFactory.DecodeByteArrayAsync(bytes, 0, bytes.Length);
 
-            AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort);
+            _progressIndicator.Visibility = ViewStates.Gone;
             AnimUtil.FadeInView(_image, AnimUtil.LengthLong);
             _image.SetImageBitmap(bitmap);
         }

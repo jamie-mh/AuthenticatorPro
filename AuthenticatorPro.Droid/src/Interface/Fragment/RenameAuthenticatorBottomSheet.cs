@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
 
-        public RenameAuthenticatorBottomSheet() : base(Resource.Layout.sheetRenameAuthenticator) { }
+        public RenameAuthenticatorBottomSheet() : base(Resource.Layout.sheetRenameAuthenticator, Resource.String.rename) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,7 +41,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.rename);
 
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);
             _issuerText = view.FindViewById<TextInputEditText>(Resource.Id.editIssuer);

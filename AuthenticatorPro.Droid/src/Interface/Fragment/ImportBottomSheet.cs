@@ -26,12 +26,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler BlizzardAuthenticatorClicked;
         public event EventHandler UriListClicked;
 
-        public ImportBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public ImportBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.importFromOtherApps) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.importFrom);
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,
