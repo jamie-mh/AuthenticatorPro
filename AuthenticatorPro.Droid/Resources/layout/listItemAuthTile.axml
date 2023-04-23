@@ -79,6 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:textAppearance="?attr/textAppearanceTitleLarge"
+                        android:textColor="?attr/colorOnSecondaryContainer"
                         android:textDirection="ltr"
                         android:layout_marginTop="2dp"
                         android:id="@+id/textCode"/>

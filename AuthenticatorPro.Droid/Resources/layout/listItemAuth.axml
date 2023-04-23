@@ -74,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceDisplaySmall"
+                    android:textColor="?attr/colorOnSecondaryContainer"
                     android:gravity="start"
                     android:textDirection="ltr"
                     android:layout_below="@id/layoutIcon"
