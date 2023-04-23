@@ -74,9 +74,9 @@
     <string name="qrCode">QR-kod</string>
     <string name="qrCodeHelp">Kopiera denna autentiserare till en annan enhet eller app genom att skanna QR-koden</string>
     <string name="qrCodeNotSupported">QR-koder stöds inte för denna typ</string>
-    <string name="copyUri">Copy URI</string>
+    <string name="copyUri">Kopiera URI</string>
     <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
+    <string name="uriCopiedToClipboard">URI har kopierats till urklipp</string>
     <!-- Backup menu -->
     <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
     <string name="backupToFileMessage">Säkerhetskopiera alla dina autentiserare, kategorier och ikoner till en krypterad fil. Filen kan återställas i appen.</string>
