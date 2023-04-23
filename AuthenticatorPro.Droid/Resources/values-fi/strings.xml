@@ -74,6 +74,9 @@
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Kopioi tämä todentaja toiseen laitteeseen tai sovellukseen skannaamalla QR-koodi</string>
     <string name="qrCodeNotSupported">QR-koodeja ei tueta tälle tyypille</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Varmuuskopioi salattuun tiedostoon (suositeltu)</string>
     <string name="backupToFileMessage">Tallenna kaikki todentajasi, kategoriasi ja kuvakkeesi salattuun varmuuskopiotiedostoon. Tämä tiedosto voidaan palauttaa sovellukseen.</string>
