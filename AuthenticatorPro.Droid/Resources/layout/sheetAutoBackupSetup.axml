@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -150,7 +150,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonBackupNow"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_marginRight="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -158,7 +158,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonOk"
-                    style="@style/Widget.MaterialComponents.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/ok"/>

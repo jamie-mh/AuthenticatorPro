@@ -15,7 +15,6 @@ using Google.Android.Material.Internal;
 using Java.Lang;
 using System;
 using System.Collections.Generic;
-using ContextThemeWrapper = AndroidX.AppCompat.View.ContextThemeWrapper;
 using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment

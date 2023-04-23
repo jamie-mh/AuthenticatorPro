@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -22,14 +22,14 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonUseCustomIcon"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_marginBottom="6dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/useCustomIcon"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

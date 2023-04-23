@@ -20,7 +20,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
-                style="Widget.MaterialComponents.Toolbar"
+                style="Widget.Material3.Toolbar"
                 android:minHeight="?android:attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -91,7 +91,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonViewGuide"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_marginBottom="4dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -100,7 +100,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonImport"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
@@ -110,11 +110,11 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
+        style="@style/Widget.Material3.BottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:fabAlignmentMode="center"
+        app:fabAlignmentMode="end"
         app:fabCradleMargin="0dp"
         app:fabCradleRoundedCornerRadius="0dp"
         app:hideOnScroll="true"

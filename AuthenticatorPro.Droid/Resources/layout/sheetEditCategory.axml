@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:paddingEnd="16dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:id="@+id/editNameLayout"
             app:counterEnabled="true"
             android:layout_marginBottom="10dp"
@@ -52,7 +52,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonCancel"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSubmit"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Widget.Material3.Button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text=""/>

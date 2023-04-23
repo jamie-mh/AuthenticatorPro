@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Views;
-using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using Google.Android.Material.TextView;
 using System;

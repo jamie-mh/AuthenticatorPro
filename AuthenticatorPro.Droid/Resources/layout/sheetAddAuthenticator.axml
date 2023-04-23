@@ -8,7 +8,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 app:hintEnabled="true"
                 android:hint="@string/typeHint"
                 android:id="@+id/editTypeLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_marginBottom="22dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -51,7 +51,7 @@
                 app:hintEnabled="true"
                 app:counterEnabled="true"
                 android:id="@+id/editIssuerLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 app:counterEnabled="true"
                 android:hint="@string/usernameHint"
                 android:id="@+id/editUsernameLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -93,7 +93,7 @@
                 app:hintEnabled="true"
                 android:hint="@string/secretKey"
                 android:id="@+id/editSecretLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/baseline_vpn_key_24"
                 android:layout_marginBottom="10dp"
@@ -117,7 +117,7 @@
                 android:hint="@string/pin"
                 android:id="@+id/editPinLayout"
                 android:visibility="gone"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/baseline_lock_24"
                 android:layout_marginBottom="10dp"
@@ -136,7 +136,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonShowAdvanced"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                     app:hintEnabled="true"
                     android:hint="@string/algorithmHint"
                     android:id="@+id/editAlgorithmLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_marginBottom="22dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -176,7 +176,7 @@
                         app:errorEnabled="true"
                         app:hintEnabled="true"
                         android:id="@+id/editDigitsLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:paddingEnd="10dp"
                         android:layout_weight=".5"
                         android:layout_width="0dp"
@@ -197,7 +197,7 @@
                         app:hintEnabled="true"
                         android:hint="@string/periodHint"
                         android:id="@+id/editPeriodLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:paddingStart="10dp"
                         android:layout_weight=".5"
                         android:layout_width="0dp"
@@ -223,7 +223,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonCancel"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_marginEnd="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonAdd"
-                    style="@style/Widget.MaterialComponents.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/add"/>

@@ -3,7 +3,6 @@
 
 using Android.OS;
 using Android.Views;
-using Android.Widget;
 using AuthenticatorPro.Droid.Persistence.View;
 using Google.Android.Material.Button;
 using Google.Android.Material.Chip;

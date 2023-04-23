@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             app:hintEnabled="true"
             app:counterEnabled="true"
             android:id="@+id/editIssuerLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:counterEnabled="true"
             android:hint="@string/usernameHint"
             android:id="@+id/editUsernameLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -76,7 +76,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonCancel"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonRename"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Widget.Material3.Button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/rename"/>
