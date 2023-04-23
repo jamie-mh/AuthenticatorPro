@@ -9,6 +9,9 @@
         <item name="listBorderColor">@color/colorDark</item>
 
         <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
+        
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">
