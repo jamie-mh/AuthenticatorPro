@@ -41,6 +41,7 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
+using Google.Android.Material.TextView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,7 +110,7 @@ namespace AuthenticatorPro.Droid.Activity
         private BottomAppBar _bottomAppBar;
 
         private LinearLayout _emptyStateLayout;
-        private TextView _emptyMessageText;
+        private MaterialTextView _emptyMessageText;
         private LinearLayout _startLayout;
 
         private AuthenticatorListAdapter _authenticatorListAdapter;
@@ -810,7 +811,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _authenticatorList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
-            _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
+            _emptyMessageText = FindViewById<MaterialTextView>(Resource.Id.textEmptyMessage);
 
             _startLayout = FindViewById<LinearLayout>(Resource.Id.layoutStart);
 

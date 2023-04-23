@@ -10,6 +10,7 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
+using Google.Android.Material.TextView;
 using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
@@ -64,7 +65,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (_mode == Mode.Set)
             {
-                var message = view.FindViewById<TextView>(Resource.Id.textMessage);
+                var message = view.FindViewById<MaterialTextView>(Resource.Id.textMessage);
                 message.Visibility = ViewStates.Visible;
             }
 

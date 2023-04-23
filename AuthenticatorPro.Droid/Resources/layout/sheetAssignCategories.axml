@@ -27,7 +27,7 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textEmpty"
             android:visibility="gone"
             android:layout_marginBottom="30dp"

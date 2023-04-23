@@ -4,20 +4,21 @@
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
     internal class SheetMenuItemViewHolder : RecyclerView.ViewHolder
     {
         public ImageView Icon { get; }
-        public TextView Title { get; }
-        public TextView Description { get; }
+        public MaterialTextView Title { get; }
+        public MaterialTextView Description { get; }
 
         public SheetMenuItemViewHolder(View itemView) : base(itemView)
         {
             Icon = itemView.FindViewById<ImageView>(Resource.Id.imageIcon);
-            Title = itemView.FindViewById<TextView>(Resource.Id.textTitle);
-            Description = itemView.FindViewById<TextView>(Resource.Id.textDescription);
+            Title = itemView.FindViewById<MaterialTextView>(Resource.Id.textTitle);
+            Description = itemView.FindViewById<MaterialTextView>(Resource.Id.textDescription);
         }
     }
 }

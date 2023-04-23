@@ -40,13 +40,13 @@
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideScanQRCodeTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -75,13 +75,13 @@
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideUseCodeTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -110,13 +110,13 @@
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideCustomiseTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -145,13 +145,13 @@
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideArrangeTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -180,13 +180,13 @@
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideBackupTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -216,13 +216,13 @@
                         android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideWearOSTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"

@@ -39,7 +39,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private ArrayAdapter _algorithmAdapter;
         private TextInputLayout _algorithmLayout;
-        private AutoCompleteTextView _algorithmText;
+        private MaterialAutoCompleteTextView _algorithmText;
 
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
@@ -105,7 +105,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _algorithmAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.authAlgorithms,
                 Resource.Layout.listItemDropdown);
-            _algorithmText = (AutoCompleteTextView) _algorithmLayout.EditText;
+            _algorithmText = (MaterialAutoCompleteTextView) _algorithmLayout.EditText;
             _algorithmText.Adapter = _algorithmAdapter;
             _algorithmText.ItemClick += OnAlgorithmItemClick;
 

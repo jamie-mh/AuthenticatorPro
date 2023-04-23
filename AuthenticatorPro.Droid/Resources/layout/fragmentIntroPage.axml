@@ -25,7 +25,7 @@
             android:id="@+id/image"
             android:src="@mipmap/ic_launcher"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -35,7 +35,7 @@
             android:id="@+id/textTitle"
             android:text="title"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textSummary"
             android:layout_gravity="center"
             android:gravity="center"

@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:text="GitHub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                             android:singleLine="true"
                             android:id="@+id/textIssuer"/>
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:text="johnsmith@example.com"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:text="000 000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

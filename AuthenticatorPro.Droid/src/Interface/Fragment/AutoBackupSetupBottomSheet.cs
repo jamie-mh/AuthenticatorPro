@@ -19,6 +19,7 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.SwitchMaterial;
+using Google.Android.Material.TextView;
 using Java.Util.Concurrent;
 using System;
 using Uri = Android.Net.Uri;
@@ -33,8 +34,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private ActivityResultLauncher _locationSelectResultLauncher;
         private ActivityResultLauncher _showNotificationsResultLauncher;
 
-        private TextView _locationStatusText;
-        private TextView _passwordStatusText;
+        private MaterialTextView _locationStatusText;
+        private MaterialTextView _passwordStatusText;
 
         private SwitchMaterial _backupEnabledSwitch;
         private MaterialButton _backupNowButton;
@@ -73,8 +74,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var setPasswordButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSetPassword);
             setPasswordButton.Click += OnSetPasswordButtonClick;
 
-            _locationStatusText = view.FindViewById<TextView>(Resource.Id.textLocationStatus);
-            _passwordStatusText = view.FindViewById<TextView>(Resource.Id.textPasswordStatus);
+            _locationStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textLocationStatus);
+            _passwordStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textPasswordStatus);
 
             _backupNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonBackupNow);
             _backupNowButton.Click += OnBackupNowButtonClick;

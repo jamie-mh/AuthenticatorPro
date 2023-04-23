@@ -7,6 +7,7 @@ using Android.Widget;
 using AuthenticatorPro.Droid.Persistence.View;
 using Google.Android.Material.Button;
 using Google.Android.Material.Chip;
+using Google.Android.Material.TextView;
 using System;
 using System.Linq;
 
@@ -62,7 +63,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             base.OnViewCreated(view, savedInstanceState);
             await _categoryView.LoadFromPersistence();
 
-            var emptyText = View.FindViewById<TextView>(Resource.Id.textEmpty);
+            var emptyText = View.FindViewById<MaterialTextView>(Resource.Id.textEmpty);
             var chipGroup = View.FindViewById<ChipGroup>(Resource.Id.chipGroup);
 
             if (!_categoryView.Any())

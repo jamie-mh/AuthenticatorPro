@@ -19,7 +19,7 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/auth_google"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="28dp"

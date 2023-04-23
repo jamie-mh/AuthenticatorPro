@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:src="@drawable/big_ic_category"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -52,7 +52,7 @@
             android:textAppearance="?attr/textAppearanceHeadline5"
             android:text="@string/noCategoriesTitle"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

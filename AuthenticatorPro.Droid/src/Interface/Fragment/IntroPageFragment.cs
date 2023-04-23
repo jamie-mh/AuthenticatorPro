@@ -4,6 +4,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
@@ -21,8 +22,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             var view = inflater.Inflate(Resource.Layout.fragmentIntroPage, container, false);
 
-            var summary = view.FindViewById<TextView>(Resource.Id.textSummary);
-            var title = view.FindViewById<TextView>(Resource.Id.textTitle);
+            var summary = view.FindViewById<MaterialTextView>(Resource.Id.textSummary);
+            var title = view.FindViewById<MaterialTextView>(Resource.Id.textTitle);
             var image = view.FindViewById<ImageView>(Resource.Id.image);
 
             title.Text = Resources.GetStringArray(Resource.Array.introTitle)[_position];
