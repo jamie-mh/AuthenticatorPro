@@ -31,8 +31,8 @@
     <string name="sort">Seřadit</string>
     <string name="sortAZ">Abecedně (A-Z)</string>
     <string name="sortZA">Abecedně (Z-A)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">Nejvíce kopírované</string>
+    <string name="sortLeastCopied">Nejméně kopírované</string>
     <string name="sortCustom">Vlastní</string>
     <string name="aboutSummary">Zobrazit informace o licenci</string>
     <string name="supportDevelopment">Podpořte vývoj</string>
@@ -74,9 +74,9 @@
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Zkopírujte tento autentifikátor do jiného zařízení nebo aplikace naskenováním QR kódu</string>
     <string name="qrCodeNotSupported">QR kódy nejsou pro tento typ podporovány</string>
-    <string name="copyUri">Copy URI</string>
+    <string name="copyUri">Kopírovat URI</string>
     <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
+    <string name="uriCopiedToClipboard">URI zkopírováno do schránky</string>
     <!-- Backup menu -->
     <string name="backupToFile">Zálohovat do šifrovaného souboru (doporučeno)</string>
     <string name="backupToFileMessage">Uložte všechny vaše autentifikátory, kategorie a ikony do zašifrovaného záložního souboru. Tento soubor lze obnovit v aplikaci.</string>
