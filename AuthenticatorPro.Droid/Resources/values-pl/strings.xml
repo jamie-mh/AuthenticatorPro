@@ -74,6 +74,9 @@
     <string name="qrCode">Kod QR</string>
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
     <string name="qrCodeNotSupported">Kody QR nie są obsługiwane w przypadku tego typu</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
