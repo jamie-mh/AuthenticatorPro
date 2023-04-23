@@ -119,6 +119,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "cloudbet", Resource.Drawable.auth_cloudbet },
             { "cloudflare", Resource.Drawable.auth_cloudflare },
             { "cloudhq", Resource.Drawable.auth_cloudhq },
+            { "cloudinary", Resource.Drawable.auth_cloudinary },
             { "cloudways", Resource.Drawable.auth_cloudways },
             { "clubhouse", Resource.Drawable.auth_clubhouse },
             { "codeberg", Resource.Drawable.auth_codeberg },
