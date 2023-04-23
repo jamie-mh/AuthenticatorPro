@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:clipChildren="false"
-            android:paddingBottom="10dp"
+            android:paddingBottom="20dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="20dp"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
                 android:textAlignment="center"
                 android:id="@+id/textTitle"/>
@@ -37,7 +37,7 @@
                 android:hint="@string/typeHint"
                 android:id="@+id/editTypeLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_marginBottom="22dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -55,7 +55,7 @@
                 app:counterEnabled="true"
                 android:id="@+id/editIssuerLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/issuerHint">
@@ -78,7 +78,7 @@
                 android:hint="@string/usernameHint"
                 android:id="@+id/editUsernameLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -99,7 +99,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/baseline_vpn_key_24"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
