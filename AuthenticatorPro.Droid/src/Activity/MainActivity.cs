@@ -752,6 +752,7 @@ namespace AuthenticatorPro.Droid.Activity
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.databaseError);
             builder.SetTitle(Resource.String.error);
+            builder.SetIcon(Resource.Drawable.baseline_warning_24);
 
             builder.SetNeutralButton(Resource.String.viewErrorLog, delegate
             {
@@ -1088,6 +1089,7 @@ namespace AuthenticatorPro.Droid.Activity
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmAuthenticatorDelete);
             builder.SetTitle(Resource.String.warning);
+            builder.SetIcon(Resource.Drawable.baseline_warning_24);
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 try
@@ -1574,6 +1576,7 @@ namespace AuthenticatorPro.Droid.Activity
                     new MaterialAlertDialogBuilder(this)
                         .SetTitle(Resource.String.importIncomplete)
                         .SetMessage(message)
+                        .SetIcon(Resource.Drawable.baseline_warning_24)
                         .SetPositiveButton(Resource.String.ok, delegate { })
                         .Show();
                 }

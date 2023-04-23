@@ -85,6 +85,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 var builder = new MaterialAlertDialogBuilder(RequireContext());
                 builder.SetTitle(Resource.String.warning);
                 builder.SetMessage(Resource.String.confirmEmptyPassword);
+                builder.SetIcon(Resource.Drawable.baseline_warning_24);
                 builder.SetCancelable(true);
 
                 builder.SetNegativeButton(Resource.String.cancel, delegate { });

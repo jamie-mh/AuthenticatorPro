@@ -303,7 +303,8 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmCategoryDelete);
-            builder.SetTitle(Resource.String.warning);
+            builder.SetTitle(Resource.String.delete);
+            builder.SetIcon(Resource.Drawable.baseline_delete_24);
             builder.SetCancelable(true);
 
             builder.SetPositiveButton(Resource.String.delete, async delegate

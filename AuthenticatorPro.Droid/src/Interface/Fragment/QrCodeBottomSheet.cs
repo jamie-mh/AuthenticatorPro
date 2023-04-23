@@ -49,6 +49,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 var builder = new MaterialAlertDialogBuilder(RequireContext());
                 builder.SetMessage(Resource.String.copyUriWarning);
                 builder.SetTitle(Resource.String.warning);
+                builder.SetIcon(Resource.Drawable.baseline_warning_24);
                 builder.SetPositiveButton(Resource.String.copyUri, delegate
                 {
                     var clipboard = (ClipboardManager) Context.GetSystemService(Context.ClipboardService);
