@@ -4,13 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layoutRoot"
->
+    android:id="@+id/layoutRoot">
 
     <com.google.android.material.appbar.MaterialToolbar
         style="Widget.MaterialComponents.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"/>
@@ -72,8 +70,6 @@
         app:useCompatPadding="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        app:tint="@color/colorDark"
-        app:backgroundTint="?attr/colorAccent"
         app:elevation="4dp"/>
 
 </RelativeLayout>

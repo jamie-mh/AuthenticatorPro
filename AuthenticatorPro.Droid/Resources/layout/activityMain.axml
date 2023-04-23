@@ -3,14 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout"
-    android:background="?attr/colorBase"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         app:elevation="0dp"
-        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -23,7 +21,6 @@
 
             <com.google.android.material.appbar.MaterialToolbar
                 style="Widget.MaterialComponents.Toolbar"
-                android:background="?attr/colorBase"
                 android:minHeight="?android:attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -45,7 +42,6 @@
         android:id="@+id/list"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:clipToPadding="false"
-        android:background="?attr/colorBase"
         android:visibility="invisible"
         android:paddingBottom="80dp"
         android:layout_width="match_parent"
@@ -122,7 +118,6 @@
         app:fabCradleMargin="0dp"
         app:fabCradleRoundedCornerRadius="0dp"
         app:hideOnScroll="true"
-        app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:paddingBottomSystemWindowInsets="true"
         app:navigationIcon="@drawable/baseline_menu_24"
@@ -134,7 +129,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_add_24"
         app:tint="@color/colorDark"
-        app:layout_anchor="@id/bottomAppBar"
-        app:backgroundTint="?attr/colorAccent"/>
+        app:layout_anchor="@id/bottomAppBar"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

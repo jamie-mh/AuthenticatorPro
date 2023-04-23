@@ -60,12 +60,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater contextInflater, ViewGroup container,
             Bundle savedInstanceState)
         {
-            var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
-            var prefs = new PreferenceWrapper(Context);
-            contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlayId(prefs.AccentColour), true);
-            StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
+            // TODO: adapt to material3
+            // var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
+            // var prefs = new PreferenceWrapper(Context);
+            // contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlayId(prefs.AccentColour), true);
+            // StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
 
-            return StyledInflater.Inflate(_layout, container, false);
+            return contextInflater.Inflate(_layout, container, false);
         }
 
         public override void Show(FragmentManager manager, string tag)

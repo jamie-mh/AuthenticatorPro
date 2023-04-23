@@ -2,7 +2,6 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="?attr/authListItem_background"
     app:cardCornerRadius="6dp"
     app:cardElevation="0dp"
     android:focusable="true"
@@ -57,7 +56,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="16dp"
-                            android:textColor="?attr/primaryTextColor"
                             android:singleLine="true"
                             android:id="@+id/textIssuer"/>
 
@@ -66,7 +64,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12dp"
-                            android:textColor="?attr/secondaryTextColor"
                             android:layout_below="@id/textIssuer"
                             android:singleLine="true"
                             android:id="@+id/textUsername"/>
@@ -78,7 +75,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="38dp"
-                    android:textColor="?attr/authListItem_code"
                     android:gravity="start"
                     android:textDirection="ltr"
                     android:layout_below="@id/layoutIcon"
@@ -122,7 +118,6 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:progressBackgroundTint="?attr/authListItem_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="-8dp"

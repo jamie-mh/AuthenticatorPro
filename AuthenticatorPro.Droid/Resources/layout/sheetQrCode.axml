@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorBackgroundFloating">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -15,13 +14,11 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:background="?attr/colorBase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
                 style="Widget.MaterialComponents.Toolbar"
-                android:background="?attr/colorBase"
                 android:minHeight="?android:attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"

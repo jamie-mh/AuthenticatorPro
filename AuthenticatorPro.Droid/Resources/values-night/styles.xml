@@ -1,48 +1,17 @@
 <resources>
-
     <style name="AppTheme" parent="Theme.Material3.Dark">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="colorSurface">@color/colorDarker</item>
-        <item name="colorOnSurface">@color/colorLighter</item>
-
-        <item name="colorError">@color/colorError</item>
-
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
 
-        <item name="primaryTextColor">@color/colorLighter</item>
-        <item name="secondaryTextColor">@color/colorLight</item>
         <item name="listBorderColor">@color/colorDark</item>
 
-        <item name="colorBase">@color/colorDarkest</item>
-
-        <item name="authList_background">@color/colorDarkest</item>
-        <item name="authListItem_background">@color/colorDark</item>
-        <item name="authListItem_code">@color/colorLightest</item>
-
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-        <item name="android:windowBackground">@color/colorDarkest</item>
-        <item name="colorBackgroundFloating">@color/colorDark</item>
-
-        <item name="android:navigationBarColor">@color/colorDarkest</item>
-        <item name="bottomAppBarBackground">@color/colorDarkest</item>
-        <item name="bottomSheetDialogTheme">@style/BottomSheetStyle</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">
         <item name="android:windowLightStatusBar">false</item>
-    </style>
-
-    <style name="BottomSheetStyle" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
-        <item name="colorError">@color/colorError</item>
-        <item name="listBorderColor">#1e1e1e</item>
-
-        <item name="android:windowIsFloating">false</item>
-        <item name="colorBackgroundFloating">@color/colorDark</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/colorDark</item>
     </style>
 </resources>

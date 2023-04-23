@@ -9,6 +9,7 @@ using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Interface;
+using Google.Android.Material.Color;
 using Java.Util;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -43,8 +44,11 @@ namespace AuthenticatorPro.Droid.Activity
                 Window.SetStatusBarColor(Color.Black);
             }
 
-            var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
-            Theme.ApplyStyle(overlay, true);
+            // TODO: adapt to material3
+            // var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
+            // Theme.ApplyStyle(overlay, true);
+            
+            DynamicColors.ApplyToActivityIfAvailable(this);
 
             SetContentView(_layout);
         }
