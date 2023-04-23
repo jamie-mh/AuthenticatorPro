@@ -12,9 +12,6 @@
     <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
   </PropertyGroup> 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <RunAOTCompilation>true</RunAOTCompilation>
-    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
