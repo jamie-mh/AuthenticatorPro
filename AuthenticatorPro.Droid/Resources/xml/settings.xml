@@ -7,7 +7,7 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefGeneral"
         android:key="pref_key_general">
-        <androidx.preference.SwitchPreferenceCompat
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_showBackupReminders"
             android:summary="@string/prefShowBackupRemindersSummary"
             android:title="@string/prefShowBackupRemindersTitle"
@@ -27,7 +27,7 @@
             android:entries="@array/languageNames"
             android:entryValues="@array/languageValues"
             android:defaultValue="system"/>
-        <androidx.preference.SwitchPreferenceCompat
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_tapToCopy"
             android:summary="@string/prefTapToCopySummary"
             android:title="@string/prefTapToCopyTitle"
@@ -50,7 +50,7 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefPasswordTitle"/>
-        <androidx.preference.SwitchPreference
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_databasePasswordBackup"
             android:summary="@string/prefDatabasePasswordBackupSummary"
             android:title="@string/prefDatabasePasswordBackupTitle"
@@ -70,7 +70,7 @@
             android:entries="@array/timeoutNames"
             android:entryValues="@array/timeoutValues"
             android:defaultValue="0"/>
-        <androidx.preference.SwitchPreference
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_tapToReveal"
             android:summary="@string/prefTapToRevealSummary"
             android:title="@string/prefTapToRevealTitle"
@@ -113,7 +113,7 @@
             android:entries="@array/accentColourNames"
             android:entryValues="@array/accentColourValues"
             android:defaultValue="lightBlue"/>
-        <androidx.preference.SwitchPreference
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_transparentStatusBar"
             android:summary="@string/prefTransparentStatusBarSummary"
             android:title="@string/prefTransparentStatusBarTitle"

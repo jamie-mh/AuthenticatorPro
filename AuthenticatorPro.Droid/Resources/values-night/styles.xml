@@ -8,7 +8,7 @@
 
         <item name="listBorderColor">@color/colorDark</item>
 
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">

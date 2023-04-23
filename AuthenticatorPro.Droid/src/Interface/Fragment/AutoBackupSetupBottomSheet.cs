@@ -18,7 +18,7 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.SwitchMaterial;
+using Google.Android.Material.MaterialSwitch;
 using Google.Android.Material.TextView;
 using Java.Util.Concurrent;
 using System;
@@ -37,7 +37,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private MaterialTextView _locationStatusText;
         private MaterialTextView _passwordStatusText;
 
-        private SwitchMaterial _backupEnabledSwitch;
+        private MaterialSwitch _backupEnabledSwitch;
         private MaterialButton _backupNowButton;
         private MaterialButton _okButton;
 
@@ -82,7 +82,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
-            _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
+            _backupEnabledSwitch = view.FindViewById<MaterialSwitch>(Resource.Id.switchBackupEnabled);
             _backupEnabledSwitch.Click += OnSwitchClicked;
 
             UpdateLocationStatusText();

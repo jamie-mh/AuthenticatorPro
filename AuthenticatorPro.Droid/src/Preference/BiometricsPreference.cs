@@ -11,7 +11,7 @@ using System;
 
 namespace AuthenticatorPro.Droid.Preference
 {
-    internal class BiometricsPreference : SwitchPreference
+    internal class BiometricsPreference : MaterialSwitchPreference
     {
         public BiometricsPreference(Context context) : base(context) { }
 
