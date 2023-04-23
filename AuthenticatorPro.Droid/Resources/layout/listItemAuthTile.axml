@@ -120,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:trackThickness="2dp"
+            app:trackColor="@android:color/transparent"
             android:min="0"
             android:max="10000"
             android:progress="10000"/>
