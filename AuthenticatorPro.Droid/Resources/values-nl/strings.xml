@@ -74,9 +74,9 @@
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Kopieer deze authenticator naar een ander apparaat of app door de QR code te scannen</string>
     <string name="qrCodeNotSupported">QR codes worden niet ondersteund voor dit type</string>
-    <string name="copyUri">Copy URI</string>
+    <string name="copyUri">URI kopiëren</string>
     <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
+    <string name="uriCopiedToClipboard">URI naar het klembord gekopieerd</string>
     <!-- Backup menu -->
     <string name="backupToFile">Back-up naar versleuteld bestand (aanbevolen)</string>
     <string name="backupToFileMessage">Sla al uw authenticators, categorieën en iconen op in een versleuteld back-upbestand. Dit bestand kan worden hersteld in de app.</string>
