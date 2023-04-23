@@ -74,6 +74,9 @@
     <string name="qrCode">QR-Code</string>
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
     <string name="qrCodeNotSupported">QR-Codes werden für diesen Typ nicht unterstützt</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!-- Backup menu -->
     <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
     <string name="backupToFileMessage">Speichere alle deine Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
