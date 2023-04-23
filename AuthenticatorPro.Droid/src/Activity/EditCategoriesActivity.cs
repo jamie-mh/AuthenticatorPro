@@ -17,6 +17,7 @@ using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Droid.Interface;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
@@ -87,9 +88,8 @@ namespace AuthenticatorPro.Droid.Activity
             var touchHelper = new ItemTouchHelper(callback);
             touchHelper.AttachToRecyclerView(_categoryList);
 
-            var decoration = new DividerItemDecoration(this, layout.Orientation);
-            _categoryList.AddItemDecoration(decoration);
-
+            _categoryList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 12, true));
+            
             var layoutAnimation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);
             _categoryList.LayoutAnimation = layoutAnimation;
 

@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="?android:attr/windowBackground"
-    android:foreground="?selectableItemBackground"
-    android:layout_width="match_parent"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:layout_height="52dp"
+    style="?attr/materialCardViewElevatedStyle"
+    android:focusable="true"
     android:clickable="true"
-    android:focusable="true">
-
-    <com.google.android.material.textview.MaterialTextView
-        android:text="Category"
-        android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:layout_centerVertical="true"
-        android:singleLine="true"
-        android:ellipsize="start"
-        android:scrollHorizontally="true"
-        android:id="@+id/textName"/>
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+            android:text="Category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:scrollHorizontally="true"
+            android:id="@+id/textName"/>
 
-        <ImageView
-            android:id="@+id/imageDefault"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:src="@drawable/baseline_star_24"
-            android:tint="?attr/colorSecondary"
-            android:visibility="gone"
-            android:layout_marginEnd="12dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/buttonMenu"
-            android:src="@drawable/baseline_more_vert_24"
-            android:tint="?attr/colorOnSurface"
-            android:scaleType="centerInside"
-            android:background="?selectableItemBackgroundBorderless"
-            android:layout_width="22dp"
-            android:layout_height="22dp"/>
+            <ImageView
+                android:id="@+id/imageDefault"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/baseline_star_24"
+                android:tint="?attr/colorSecondary"
+                android:visibility="gone"
+                android:layout_marginEnd="12dp"/>
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/buttonMenu"
+                android:src="@drawable/baseline_more_vert_24"
+                android:tint="?attr/colorOnSurface"
+                android:scaleType="centerInside"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
 
-</RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
