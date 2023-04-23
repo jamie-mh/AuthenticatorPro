@@ -135,6 +135,7 @@
     </string-array>
 
     <string-array name="accentColourNames">
+        <item>@string/dynamic</item>
         <item>@string/red</item>
         <item>@string/pink</item>
         <item>@string/purple</item>
@@ -153,6 +154,7 @@
         <item>@string/deepOrange</item>
     </string-array>
     <string-array name="accentColourValues">
+        <item>dynamic</item>
         <item>red</item>
         <item>pink</item>
         <item>purple</item>

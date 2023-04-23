@@ -358,6 +358,7 @@
     <string name="korean" translatable="false">한국어</string>
 
     <!-- Arrays > Accent colours -->
+    <string name="dynamic">Dynamic (Android 12+)</string>
     <string name="red">Red</string>
     <string name="pink">Pink</string>
     <string name="purple">Purple</string>

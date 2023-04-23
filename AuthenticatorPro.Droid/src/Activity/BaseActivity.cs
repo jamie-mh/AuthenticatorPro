@@ -44,11 +44,23 @@ namespace AuthenticatorPro.Droid.Activity
                 Window.SetStatusBarColor(Color.Black);
             }
 
-            // TODO: adapt to material3
-            // var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
-            // Theme.ApplyStyle(overlay, true);
+            var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
             
-            DynamicColors.ApplyToActivityIfAvailable(this);
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            {
+                var dynamicColorOptions = new DynamicColorsOptions.Builder();
+
+                if (overlay != null)
+                {
+                    dynamicColorOptions.SetThemeOverlay(overlay.Value);
+                }
+
+                DynamicColors.ApplyToActivityIfAvailable(this, dynamicColorOptions.Build());
+            }
+            else if (overlay != null)
+            {
+                Theme.ApplyStyle(overlay.Value, true);
+            }
 
             SetContentView(_layout);
         }
@@ -131,36 +143,40 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnResume();
 
             var label = GetString(Resource.String.appName);
-            var colourInt = ContextCompat.GetColor(this, AccentColourMap.GetColourId(_preferences.AccentColour));
-            var colour = new Color(colourInt);
+            var colourId = AccentColourMap.GetColourId(_preferences.AccentColour);
 
-            switch (Build.VERSION.SdkInt)
+            if (colourId != null)
             {
-                case >= BuildVersionCodes.Tiramisu:
+                var colour = new Color(ContextCompat.GetColor(this, colourId.Value));
+
+                switch (Build.VERSION.SdkInt)
                 {
-                    var description = new ActivityManager.TaskDescription.Builder()
-                        .SetLabel(label)
-                        .SetIcon(Resource.Mipmap.ic_launcher)
-                        .SetPrimaryColor(colour)
-                        .Build();
+                    case >= BuildVersionCodes.Tiramisu:
+                    {
+                        var description = new ActivityManager.TaskDescription.Builder()
+                            .SetLabel(label)
+                            .SetIcon(Resource.Mipmap.ic_launcher)
+                            .SetPrimaryColor(colour)
+                            .Build();
 
-                    SetTaskDescription(description);
-                    break;
-                }
+                        SetTaskDescription(description);
+                        break;
+                    }
 
-                case >= BuildVersionCodes.P:
-#pragma warning disable 618
-                    SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
-#pragma warning restore 618
-                    break;
+                    case >= BuildVersionCodes.P:
+    #pragma warning disable 618
+                        SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
+    #pragma warning restore 618
+                        break;
 
-                default:
-                {
-                    var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
-#pragma warning disable 618
-                    SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
-#pragma warning restore 618
-                    break;
+                    default:
+                    {
+                        var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
+    #pragma warning disable 618
+                        SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
+    #pragma warning restore 618
+                        break;
+                    }
                 }
             }
 
