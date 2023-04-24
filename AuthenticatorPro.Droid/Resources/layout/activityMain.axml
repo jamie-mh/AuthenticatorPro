@@ -29,6 +29,8 @@
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/appBarProgressIndicator"
                 android:indeterminate="true"
+                app:trackThickness="2dp"
+                app:trackColor="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
