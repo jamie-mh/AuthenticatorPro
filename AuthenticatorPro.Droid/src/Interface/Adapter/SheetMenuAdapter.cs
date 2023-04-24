@@ -7,6 +7,7 @@ using Android.Views;
 using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
+using Google.Android.Material.Color;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             if (item.IsSensitive)
             {
-                var colourValue = ContextCompat.GetColor(_context, Shared.Resource.Color.colorError);
+                var colourValue = MaterialColors.GetColor(viewHolder.ItemView, Resource.Attribute.colorError);
                 var colour = Color.Rgb(Color.GetRedComponent(colourValue), Color.GetBlueComponent(colourValue),
                     Color.GetGreenComponent(colourValue));
 
