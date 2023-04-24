@@ -1,0 +1,23 @@
+<!-- https://stackoverflow.com/a/73659711 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="?attr/colorSurface"/>
+            <corners
+                    android:bottomLeftRadius="28dp"
+                    android:bottomRightRadius="28dp"
+                    android:topLeftRadius="28dp"
+                    android:topRightRadius="28dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/m3_popupmenu_overlay_color"/>
+            <corners
+                    android:bottomLeftRadius="28dp"
+                    android:bottomRightRadius="28dp"
+                    android:topLeftRadius="28dp"
+                    android:topRightRadius="28dp"/>
+        </shape>
+    </item>
+</layer-list>
