@@ -220,6 +220,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "heroku", Resource.Drawable.auth_heroku },
             { "hetzner", Resource.Drawable.auth_hetzner },
             { "hey", Resource.Drawable.auth_hey },
+            { "heylinkme", Resource.Drawable.auth_heylinkme },
             { "hideme", Resource.Drawable.auth_hideme },
             { "hinthealth", Resource.Drawable.auth_hinthealth },
             { "hitbtc", Resource.Drawable.auth_hitbtc },
