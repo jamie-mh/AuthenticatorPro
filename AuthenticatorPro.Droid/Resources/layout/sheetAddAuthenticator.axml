@@ -55,6 +55,8 @@
                 app:counterEnabled="true"
                 android:id="@+id/editIssuerLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/baseline_business_24"
                 android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,6 +80,8 @@
                 android:hint="@string/usernameHint"
                 android:id="@+id/editUsernameLayout"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/baseline_person_24"
                 android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -171,7 +175,6 @@
 
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -180,6 +183,8 @@
                         app:hintEnabled="true"
                         android:id="@+id/editDigitsLayout"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/baseline_123_24"
                         android:paddingEnd="10dp"
                         android:layout_weight=".5"
                         android:layout_width="0dp"
@@ -201,6 +206,8 @@
                         android:hint="@string/periodHint"
                         android:id="@+id/editPeriodLayout"
                         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/outline_timer_24"
                         android:paddingStart="10dp"
                         android:layout_weight=".5"
                         android:layout_width="0dp"
