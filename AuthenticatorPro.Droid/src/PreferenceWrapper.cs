@@ -111,6 +111,15 @@ namespace AuthenticatorPro.Droid
             get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
             set => SetPreference(CodeGroupSizeKey, value.ToString());
         }
+        
+        private const string DynamicColourKey = "pref_dynamicColour";
+        private const bool DynamicColourDefault = false;
+
+        public bool DynamicColour
+        {
+            get => Preferences.GetBoolean(DynamicColourKey, DynamicColourDefault);
+            set => SetPreference(DynamicColourKey, value);
+        }
 
         private const string AccentColourKey = "pref_accentColour";
         private const string AccentColourDefault = "lightBlue";

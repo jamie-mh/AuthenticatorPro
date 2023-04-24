@@ -4,11 +4,10 @@ namespace AuthenticatorPro.Droid.Interface
 {
     internal static class AccentColourMap
     {
-        public static int? GetOverlayId(string name)
+        public static int GetOverlayId(string name)
         {
             return name switch
             {
-                "dynamic" => null,
                 "red" => Resource.Style.OverlayAccentRed,
                 "pink" => Resource.Style.OverlayAccentPink,
                 "purple" => Resource.Style.OverlayAccentPurple,
@@ -29,11 +28,10 @@ namespace AuthenticatorPro.Droid.Interface
             };
         }
 
-        public static int? GetColourId(string name)
+        public static int GetColourId(string name)
         {
             return name switch
             {
-                "dynamic" => null,
                 "red" => Resource.Color.md_theme_light_red_primary,
                 "pink" => Resource.Color.md_theme_light_pink_primary,
                 "purple" => Resource.Color.md_theme_light_purple_primary,

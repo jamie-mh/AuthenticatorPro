@@ -55,8 +55,9 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment = new SettingsFragment();
             _fragment.PreferencesCreated += delegate
             {
-                UpdateBackupRemindersEnabled(prefs);
+                UpdateBackupRemindersEnabled();
                 UpdateSecuritySettingsEnabled();
+                UpdateDynamicColourEnabled();
             };
 
             // If all fingerprints have been removed the biometrics setting is still checked
@@ -97,6 +98,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "pref_language":
+                case "pref_dynamicColour":
                 case "pref_accentColour":
                     _shouldRecreateMain = true;
                     Recreate();
@@ -110,7 +112,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "pref_autoBackupEnabled":
-                    UpdateBackupRemindersEnabled(sharedPreferences);
+                    UpdateBackupRemindersEnabled();
                     break;
 
                 case "pref_allowBiometrics":
@@ -149,10 +151,9 @@ namespace AuthenticatorPro.Droid.Activity
 
         #region Preference states
 
-        private void UpdateBackupRemindersEnabled(ISharedPreferences sharedPreferences)
+        private void UpdateBackupRemindersEnabled()
         {
-            var autoBackupEnabled = sharedPreferences.GetBoolean("pref_autoBackupEnabled", false);
-            _fragment.FindPreference("pref_showBackupReminders").Enabled = !autoBackupEnabled;
+            _fragment.FindPreference("pref_showBackupReminders").Enabled = !_preferences.AutoBackupEnabled;
         }
 
         private void UpdateSecuritySettingsEnabled()
@@ -168,6 +169,21 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment.FindPreference("pref_allowBiometrics").Enabled = CanUseBiometrics();
             _fragment.FindPreference("pref_timeout").Enabled = true;
             _fragment.FindPreference("pref_databasePasswordBackup").Enabled = true;
+        }
+        
+        private void UpdateDynamicColourEnabled()
+        {
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            {
+                _fragment.FindPreference("pref_dynamicColour").Enabled = true;
+                _fragment.FindPreference("pref_accentColour").Enabled = !_preferences.DynamicColour;
+            }
+            else
+            {
+                _fragment.FindPreference("pref_dynamicColour").Enabled = false;
+                _fragment.FindPreference("pref_accentColour").Enabled = true;
+                _preferences.DynamicColour = false;
+            }
         }
 
         #endregion

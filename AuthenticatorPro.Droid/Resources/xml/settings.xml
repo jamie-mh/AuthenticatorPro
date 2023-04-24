@@ -105,6 +105,12 @@
             android:entries="@array/codeGroupSizeNames"
             android:entryValues="@array/codeGroupSizeValues"
             android:defaultValue="3"/>
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
+            android:key="pref_dynamicColour"
+            android:summary="@string/prefDynamicColourSummary"
+            android:title="@string/prefDynamicColourTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"/>
         <androidx.preference.ListPreference
             android:key="pref_accentColour"
             android:summary="@string/prefAccentColourSummary"

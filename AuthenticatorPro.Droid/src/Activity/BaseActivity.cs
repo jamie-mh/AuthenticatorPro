@@ -50,16 +50,16 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 var dynamicColorOptions = new DynamicColorsOptions.Builder();
 
-                if (overlay != null)
+                if (!_preferences.DynamicColour)
                 {
-                    dynamicColorOptions.SetThemeOverlay(overlay.Value);
+                    dynamicColorOptions.SetThemeOverlay(overlay);
                 }
 
                 DynamicColors.ApplyToActivityIfAvailable(this, dynamicColorOptions.Build());
             }
-            else if (overlay != null)
+            else
             {
-                Theme.ApplyStyle(overlay.Value, true);
+                Theme.ApplyStyle(overlay, true);
             }
 
             SetContentView(_layout);
@@ -99,11 +99,11 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
             else
-#pragma warning disable 618
             {
+#pragma warning disable CA1422
                 resources?.UpdateConfiguration(config, resources.DisplayMetrics);
+#pragma warning restore CA1422
             }
-#pragma warning restore 618
 
             base.AttachBaseContext(context);
         }
@@ -144,39 +144,42 @@ namespace AuthenticatorPro.Droid.Activity
 
             var label = GetString(Resource.String.appName);
             var colourId = AccentColourMap.GetColourId(_preferences.AccentColour);
+            var colour = new Color(ContextCompat.GetColor(this, colourId));
 
-            if (colourId != null)
+            switch (Build.VERSION.SdkInt)
             {
-                var colour = new Color(ContextCompat.GetColor(this, colourId.Value));
-
-                switch (Build.VERSION.SdkInt)
+                case >= BuildVersionCodes.Tiramisu:
                 {
-                    case >= BuildVersionCodes.Tiramisu:
-                    {
-                        var description = new ActivityManager.TaskDescription.Builder()
-                            .SetLabel(label)
-                            .SetIcon(Resource.Mipmap.ic_launcher)
-                            .SetPrimaryColor(colour)
-                            .Build();
+#pragma warning disable CA1416
+                    var description = new ActivityManager.TaskDescription.Builder()
+                        .SetLabel(label)
+                        .SetIcon(Resource.Mipmap.ic_launcher);
 
-                        SetTaskDescription(description);
-                        break;
+                    if (!_preferences.DynamicColour)
+                    {
+                        description = description.SetPrimaryColor(colour);
                     }
 
-                    case >= BuildVersionCodes.P:
-    #pragma warning disable 618
-                        SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
-    #pragma warning restore 618
-                        break;
+                    SetTaskDescription(description.Build());
+                    break;
+#pragma warning restore CA1416
+                }
 
-                    default:
-                    {
-                        var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
-    #pragma warning disable 618
-                        SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
-    #pragma warning restore 618
-                        break;
-                    }
+                case >= BuildVersionCodes.P:
+#pragma warning disable CS0618
+#pragma warning disable CA1416
+                    SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
+#pragma warning restore CA1416
+#pragma warning restore CS0618
+                    break;
+
+                default:
+                {
+                    var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
+#pragma warning disable CS0618
+                    SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
+#pragma warning restore CS0618
+                    break;
                 }
             }
 
