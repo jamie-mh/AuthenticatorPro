@@ -110,7 +110,7 @@
             android:summary="@string/prefDynamicColourSummary"
             android:title="@string/prefDynamicColourTitle"
             app:iconSpaceReserved="false"
-            android:defaultValue="true"/>
+            android:defaultValue="false"/>
         <androidx.preference.ListPreference
             android:key="pref_accentColour"
             android:summary="@string/prefAccentColourSummary"
