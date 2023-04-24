@@ -62,12 +62,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater contextInflater, ViewGroup container,
             Bundle savedInstanceState)
         {
-            // TODO: adapt to material3
-            // var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
-            // var prefs = new PreferenceWrapper(Context);
-            // contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlayId(prefs.AccentColour), true);
-            // StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
-
             var view = contextInflater.Inflate(_layout, container, false);
 
             var title = view.FindViewById<MaterialTextView>(Resource.Id.textTitle);
