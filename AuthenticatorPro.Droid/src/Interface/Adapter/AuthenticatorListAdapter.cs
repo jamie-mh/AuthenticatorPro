@@ -413,7 +413,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             var secondsRemaining = Math.Max(renewTime - now, 0);
             var progress = (int) Math.Round((double) MaxProgress * secondsRemaining / period);
 
-            progressIndicator.Progress = progress;
+            progressIndicator.SetProgressCompat(progress, true);
 
             if (_animationScale.Equals(0f))
             {
