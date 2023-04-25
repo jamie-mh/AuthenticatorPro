@@ -5,7 +5,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
-using AndroidX.AppCompat.Widget;
+using Android.Widget;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
@@ -15,6 +15,7 @@ using AuthenticatorPro.Droid.Preference;
 using AuthenticatorPro.Droid.Storage;
 using Javax.Crypto;
 using System;
+using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -26,6 +27,7 @@ namespace AuthenticatorPro.Droid.Activity
         
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
+        private bool _ignoreBiometricsChange;
 
         public SettingsActivity() : base(Resource.Layout.activitySettings) { }
 
@@ -116,12 +118,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "pref_allowBiometrics":
-                    var pref = _fragment.FindPreference(key);
-                    if (pref != null)
-                    {
-                        ((BiometricsPreference) pref).Checked = _preferences.AllowBiometrics;
-                    }
-
+                    HandleBiometricsChange();
                     break;
             }
         }
@@ -213,8 +210,37 @@ namespace AuthenticatorPro.Droid.Activity
 
             return false;
         }
+        
+        private void HandleBiometricsChange()
+        {
+            if (_ignoreBiometricsChange)
+            {
+                _ignoreBiometricsChange = false;
+                return;
+            }
+            
+            var preference = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
+            
+            if (!preference.Checked)
+            {
+                ClearBiometrics();
+            }
+            else
+            {
+                EnableBiometrics(success =>
+                {
+                    if (!success)
+                    {
+                        _ignoreBiometricsChange = true;
+                        _preferences.AllowBiometrics = false;
+                        preference.Checked = false;
+                        ClearBiometrics();
+                    }
+                });
+            }
+        }
 
-        public void EnableBiometrics(Action<bool> callback)
+        private void EnableBiometrics(Action<bool> callback)
         {
             var passwordStorage = new BiometricStorage(this);
             var executor = ContextCompat.GetMainExecutor(this);
@@ -239,12 +265,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             authCallback.Failed += delegate
             {
+                Toast.MakeText(this, Resource.String.genericError, ToastLength.Long).Show();
                 callback(false);
             };
 
-            authCallback.Errored += delegate
+            authCallback.Errored += (_, args) =>
             {
-                // Do something, probably
+                Toast.MakeText(this, args.Message, ToastLength.Long).Show();
                 callback(false);
             };
 
@@ -274,7 +301,7 @@ namespace AuthenticatorPro.Droid.Activity
             prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
         }
 
-        public void ClearBiometrics()
+        private void ClearBiometrics()
         {
             var storage = new BiometricStorage(this);
             storage.Clear();

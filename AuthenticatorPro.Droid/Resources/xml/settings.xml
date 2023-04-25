@@ -56,7 +56,7 @@
             android:title="@string/prefDatabasePasswordBackupTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
-        <authenticatorpro.droid.preference.BiometricsPreference
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_allowBiometrics"
             android:summary="@string/prefAllowBiometricsSummary"
             app:iconSpaceReserved="false"
