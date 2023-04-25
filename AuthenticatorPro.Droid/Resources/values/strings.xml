@@ -20,6 +20,7 @@
     <string name="retry">Retry</string>
     <string name="ignore">Ignore</string>
     <string name="disable">Disable</string>
+    <string name="name">Name</string>
 
     <!-- Menu items -->
     <string name="settings">Settings</string>
@@ -116,7 +117,6 @@
     <string name="more">More</string>
     <string name="categoryAll">All</string>
     <string name="editCategories">Edit categories</string>
-    <string name="categoryNameHint">Name</string>
     <string name="noCategoryName">A category name is required</string>
     <string name="duplicateCategory">A category with this name already exists</string>
     <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>

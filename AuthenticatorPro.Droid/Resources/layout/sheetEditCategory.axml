@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionDone"
-                android:hint="@string/categoryNameHint">
+                android:hint="@string/name">
                 <requestFocus/>
             </com.google.android.material.textfield.TextInputEditText>
 
