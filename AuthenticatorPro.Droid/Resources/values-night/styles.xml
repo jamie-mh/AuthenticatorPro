@@ -36,7 +36,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_red_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_red_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_red_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_red_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_red_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_red_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_red_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_red_inverseOnSurface</item>
@@ -65,7 +65,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_pink_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_pink_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_pink_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_pink_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_pink_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_pink_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_pink_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_pink_inverseOnSurface</item>
@@ -94,7 +94,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_purple_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_purple_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_purple_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_purple_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_purple_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_purple_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_purple_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_purple_inverseOnSurface</item>
@@ -104,6 +104,35 @@
         <item name="colorSurfaceVariant">@color/md_theme_dark_purple_surfaceVariant</item>
         <item name="colorOnSurfaceVariant">@color/md_theme_dark_purple_onSurfaceVariant</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_purple_inversePrimary</item>
+    </style>
+
+    <style name="OverlayAccentDeepPurple">
+        <item name="colorPrimary">@color/md_theme_dark_deepPurple_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_deepPurple_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_dark_deepPurple_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_dark_deepPurple_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_dark_deepPurple_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_dark_deepPurple_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_dark_deepPurple_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_dark_deepPurple_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_dark_deepPurple_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_dark_deepPurple_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_dark_deepPurple_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_dark_deepPurple_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_dark_deepPurple_error</item>
+        <item name="colorErrorContainer">@color/md_theme_dark_deepPurple_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_dark_deepPurple_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_dark_deepPurple_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_dark_deepPurple_surface</item>
+        <item name="colorOnBackground">@color/md_theme_dark_deepPurple_onBackground</item>
+        <item name="colorOutline">@color/md_theme_dark_deepPurple_outline</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_dark_deepPurple_inverseOnSurface</item>
+        <item name="colorSurfaceInverse">@color/md_theme_dark_deepPurple_inverseSurface</item>
+        <item name="colorSurface">@color/md_theme_dark_deepPurple_surface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_deepPurple_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_deepPurple_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_dark_deepPurple_onSurfaceVariant</item>
+        <item name="colorPrimaryInverse">@color/md_theme_dark_deepPurple_inversePrimary</item>
     </style>
 
     <style name="OverlayAccentIndigo">
@@ -123,7 +152,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_indigo_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_indigo_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_indigo_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_indigo_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_indigo_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_indigo_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_indigo_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_indigo_inverseOnSurface</item>
@@ -152,7 +181,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_blue_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_blue_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_blue_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_blue_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_blue_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_blue_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_blue_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_blue_inverseOnSurface</item>
@@ -181,7 +210,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_lightBlue_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_lightBlue_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_lightBlue_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_lightBlue_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_lightBlue_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_lightBlue_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_lightBlue_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_lightBlue_inverseOnSurface</item>
@@ -210,7 +239,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_cyan_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_cyan_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_cyan_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_cyan_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_cyan_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_cyan_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_cyan_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_cyan_inverseOnSurface</item>
@@ -239,7 +268,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_teal_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_teal_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_teal_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_teal_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_teal_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_teal_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_teal_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_teal_inverseOnSurface</item>
@@ -268,7 +297,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_green_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_green_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_green_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_green_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_green_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_green_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_green_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_green_inverseOnSurface</item>
@@ -297,7 +326,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_lightGreen_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_lightGreen_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_lightGreen_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_lightGreen_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_lightGreen_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_lightGreen_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_lightGreen_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_lightGreen_inverseOnSurface</item>
@@ -326,7 +355,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_lime_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_lime_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_lime_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_lime_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_lime_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_lime_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_lime_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_lime_inverseOnSurface</item>
@@ -355,7 +384,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_yellow_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_yellow_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_yellow_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_yellow_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_yellow_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_yellow_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_yellow_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_yellow_inverseOnSurface</item>
@@ -384,7 +413,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_amber_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_amber_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_amber_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_amber_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_amber_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_amber_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_amber_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_amber_inverseOnSurface</item>
@@ -413,7 +442,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_orange_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_orange_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_orange_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_orange_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_orange_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_orange_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_orange_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_orange_inverseOnSurface</item>
@@ -442,7 +471,7 @@
         <item name="colorErrorContainer">@color/md_theme_dark_deepOrange_errorContainer</item>
         <item name="colorOnError">@color/md_theme_dark_deepOrange_onError</item>
         <item name="colorOnErrorContainer">@color/md_theme_dark_deepOrange_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_dark_deepOrange_background</item>
+        <item name="android:colorBackground">@color/md_theme_dark_deepOrange_surface</item>
         <item name="colorOnBackground">@color/md_theme_dark_deepOrange_onBackground</item>
         <item name="colorOutline">@color/md_theme_dark_deepOrange_outline</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_deepOrange_inverseOnSurface</item>
