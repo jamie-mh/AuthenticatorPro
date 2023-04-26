@@ -41,7 +41,6 @@
             <LinearLayout
                 android:id="@+id/buttonSelectLocation"
                 android:orientation="horizontal"
-                android:foreground="?attr/selectableItemBackground"
                 android:background="@drawable/detailbutton"
                 android:clickable="true"
                 android:layout_width="match_parent"
@@ -87,7 +86,6 @@
             <LinearLayout
                 android:id="@+id/buttonSetPassword"
                 android:orientation="horizontal"
-                android:foreground="?attr/selectableItemBackground"
                 android:background="@drawable/detailbutton"
                 android:clickable="true"
                 android:layout_width="match_parent"
