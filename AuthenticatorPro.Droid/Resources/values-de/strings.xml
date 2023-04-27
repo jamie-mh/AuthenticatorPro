@@ -75,7 +75,7 @@
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
     <string name="qrCodeNotSupported">QR-Codes werden für diesen Typ nicht unterstützt</string>
     <string name="copyUri">URI kopieren</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">Diese URI enthält einen geheimen Schlüssel im Klartext. Sei vorsichtig, wo du diese Informationen einfügst.\n\nFortfahren?</string>
     <string name="uriCopiedToClipboard">URI wurde in die Zwischenablage kopiert</string>
     <!-- Backup menu -->
     <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
@@ -183,7 +183,7 @@
     <string name="importConversionError">Das Element \"{0}\" konnte aufgrund des folgenden Fehlers nicht importiert werden: {1}</string>
     <string name="authenticatorPlusImportHint">Importieren einer authplus.db Datei</string>
     <string name="andOtpImportHint">Importieren einer otp_accounts.json Datei</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="freeOtpImportHint">externalBackup.xml Datei importieren</string>
     <string name="freeOtpPlusImportHint">Importieren einer freeotp-backup.json Datei</string>
     <string name="aegisImportHint">Importieren einer aegis-export-plain.json Datei</string>
     <string name="bitwarden">Bitwarden (reiner Text)</string>
