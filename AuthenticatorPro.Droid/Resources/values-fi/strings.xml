@@ -4,6 +4,7 @@
     <string name="warning">Varoitus</string>
     <string name="delete">Poista</string>
     <string name="add">Lisää</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Peruuta</string>
     <string name="ok">OK</string>
     <string name="yes">Kyllä</string>
@@ -13,6 +14,7 @@
     <string name="retry">Yritä uudelleen</string>
     <string name="ignore">Ohita</string>
     <string name="disable">Poista käytöstä</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Asetukset</string>
     <string name="restore">Palauta</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">Ei kategorioita</string>
     <string name="noCategoriesMessage">Sinulla ei ole vielä kategorioita</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Kategoriat</string>
     <string name="assignCategories">Aseta kategoria</string>
     <string name="more">Lisää</string>
     <string name="categoryAll">Kaikki</string>
     <string name="editCategories">Muokkaa kategorioita</string>
-    <string name="categoryNameHint">Kategorian nimi</string>
     <string name="noCategoryName">Kategorian nimi vaaditaan</string>
     <string name="duplicateCategory">Samanniminen kategoria on jo olemassa</string>
     <string name="confirmCategoryDelete">Haluatko varmasti poistaa tämän kategorian?</string>
@@ -177,7 +179,6 @@
     <string name="tooManyAttempts">Liian monta yritystä</string>
     <!-- Import -->
     <string name="importFromOtherApps">Tuo muista sovelluksista</string>
-    <string name="importFrom">Tuo kohteesta</string>
     <string name="importError">Tiedostoa ei voitu tuoda</string>
     <string name="importIncomplete">Tuonti on kesken</string>
     <string name="importConversionError">Kohteen \"{0}\" tuonti epäonnistui seuraavan virheen vuoksi: {1}</string>
@@ -241,6 +242,8 @@
     <string name="prefViewModeSummary">Valitse todentajaluettelon näkymätila</string>
     <string name="prefCodeGroupSizeTitle">Koodiryhmien koko</string>
     <string name="prefCodeGroupSizeSummary">Muuta koodin numeroiden ryhmittelyä</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Aksenttiväri</string>
     <string name="prefAccentColourSummary">Valitse sovelluksessa käytettävä aksenttiväri</string>
     <string name="prefTransparentStatusBarTitle">Läpinäkyvä tilapalkki</string>
