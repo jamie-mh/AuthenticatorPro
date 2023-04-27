@@ -4,6 +4,7 @@
     <string name="warning">Aviso</string>
     <string name="delete">Deletar</string>
     <string name="add">Adicionar</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Cancelar</string>
     <string name="ok">OK</string>
     <string name="yes">Sim</string>
@@ -13,6 +14,7 @@
     <string name="retry">Tente novamente</string>
     <string name="ignore">Ignorado</string>
     <string name="disable">Desativar</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Configurações</string>
     <string name="restore">Restaurar</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">Sem categorias</string>
     <string name="noCategoriesMessage">Você ainda não configurou nenhuma categoria</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Categorias</string>
     <string name="assignCategories">Atribuir categorias</string>
     <string name="more">Mais</string>
     <string name="categoryAll">Tudo</string>
     <string name="editCategories">Editar categorias</string>
-    <string name="categoryNameHint">Nome da categoria</string>
     <string name="noCategoryName">É necessário um nome para a categoria</string>
     <string name="duplicateCategory">Uma categoria com esse nome já existe</string>
     <string name="confirmCategoryDelete">Você tem certeza de que deseja excluir esta categoria?</string>
@@ -177,7 +179,6 @@
     <string name="tooManyAttempts">Muitas tentativas</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importar de outros aplicativos</string>
-    <string name="importFrom">Importar de</string>
     <string name="importError">Não foi possível importar o arquivo</string>
     <string name="importIncomplete">Importação incompleta</string>
     <string name="importConversionError">O item \"{0}\" falhou ao ser importado devido ao seguinte erro: {1}</string>
@@ -242,6 +243,8 @@
     <string name="prefViewModeSummary">Escolha um modo de exibição para a lista de autenticações</string>
     <string name="prefCodeGroupSizeTitle">Tamanho do Grupo de Código</string>
     <string name="prefCodeGroupSizeSummary">Altere o agrupamento de dígitos em um código</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
     <string name="prefTransparentStatusBarTitle">Transparência da barra de status</string>
