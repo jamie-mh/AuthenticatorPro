@@ -30,6 +30,7 @@ namespace AuthenticatorPro.Droid
         private const string GetSyncBundleCapability = "get_sync_bundle";
 
         private readonly Database _database;
+        private readonly SecureStorageWrapper _secureStorageWrapper;
         private readonly SemaphoreSlim _lock = new(1, 1);
 
         private readonly IAuthenticatorView _authenticatorView;
@@ -40,6 +41,7 @@ namespace AuthenticatorPro.Droid
         public WearQueryService()
         {
             _database = new Database();
+            _secureStorageWrapper = new SecureStorageWrapper(this);
 
             using var container = Dependencies.GetChildContainer();
             container.Register(_database);
@@ -55,7 +57,7 @@ namespace AuthenticatorPro.Droid
 
         private async Task OpenDatabaseAsync()
         {
-            var password = await SecureStorageWrapper.GetDatabasePassword();
+            var password = _secureStorageWrapper.GetDatabasePassword();
             await _database.Open(password, Database.Origin.Wear);
         }
 

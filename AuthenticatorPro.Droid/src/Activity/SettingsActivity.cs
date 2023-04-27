@@ -12,6 +12,7 @@ using AndroidX.Preference;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Preference;
+using AuthenticatorPro.Droid.Storage;
 using Javax.Crypto;
 using System;
 
@@ -21,6 +22,8 @@ namespace AuthenticatorPro.Droid.Activity
     internal class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
         private PreferenceWrapper _preferences;
+        private SecureStorageWrapper _secureStorageWrapper;
+        
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
 
@@ -34,7 +37,9 @@ namespace AuthenticatorPro.Droid.Activity
             // return a result telling it to recreate.
             _shouldRecreateMain =
                 savedInstanceState != null && savedInstanceState.GetBoolean("shouldRecreateMain", false);
+            
             _preferences = new PreferenceWrapper(this);
+            _secureStorageWrapper = new SecureStorageWrapper(this);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -203,7 +208,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 try
                 {
-                    var password = await SecureStorageWrapper.GetDatabasePassword();
+                    var password = _secureStorageWrapper.GetDatabasePassword();
                     passwordStorage.Store(password, result.CryptoObject.Cipher);
                 }
                 catch (Exception e)

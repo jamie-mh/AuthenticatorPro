@@ -10,7 +10,7 @@ using Javax.Crypto.Spec;
 using System;
 using System.Text;
 
-namespace AuthenticatorPro.Droid
+namespace AuthenticatorPro.Droid.Storage
 {
     internal class BiometricStorage
     {
@@ -20,36 +20,45 @@ namespace AuthenticatorPro.Droid
         private const string PasswordPrefKey = "databasePassphrase";
         private const string IvPrefKey = "databasePassphraseIv";
 
+#pragma warning disable CA1416
         private const string Algorithm = KeyProperties.KeyAlgorithmAes;
         private const string BlockMode = KeyProperties.BlockModeCbc;
         private const string Padding = KeyProperties.EncryptionPaddingPkcs7;
         private const string Transformation = Algorithm + "/" + BlockMode + "/" + Padding;
+#pragma warning restore CA1416
 
         private readonly ISharedPreferences _preferences;
+        private readonly object _lock;
 
         public BiometricStorage(Context context)
         {
             _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
+            _lock = new object();
         }
 
         private static void GenerateKey()
         {
+#pragma warning disable CA1416
             var spec = new KeyGenParameterSpec.Builder(KeyAlias, KeyStorePurpose.Encrypt | KeyStorePurpose.Decrypt)
                 .SetBlockModes(BlockMode)
                 .SetEncryptionPaddings(Padding)
                 .SetUserAuthenticationRequired(true)
                 .Build();
+#pragma warning restore CA1416
 
             var generator = KeyGenerator.GetInstance(Algorithm, KeyStoreName);
             generator.Init(spec);
             generator.GenerateKey();
         }
 
-        private static IKey GetKeyFromKeyStore()
+        private IKey GetKeyFromKeyStore()
         {
-            var ks = KeyStore.GetInstance(KeyStoreName);
-            ks.Load(null);
-            return ks.GetKey(KeyAlias, null);
+            lock (_lock)
+            {
+                var ks = KeyStore.GetInstance(KeyStoreName);
+                ks.Load(null);
+                return ks.GetKey(KeyAlias, null);
+            }
         }
 
         public Cipher GetEncryptionCipher()
@@ -105,17 +114,20 @@ namespace AuthenticatorPro.Droid
 
         public void Clear()
         {
-            var ks = KeyStore.GetInstance(KeyStoreName);
-            ks.Load(null);
+            lock (_lock)
+            {
+                var ks = KeyStore.GetInstance(KeyStoreName);
+                ks.Load(null);
 
-            try
-            {
-                ks.DeleteEntry(KeyAlias);
-            }
-            catch (KeyStoreException e)
-            {
-                // Perhaps the key doesn't exist?
-                Logger.Error(e);
+                try
+                {
+                    ks.DeleteEntry(KeyAlias);
+                }
+                catch (KeyStoreException e)
+                {
+                    // Perhaps the key doesn't exist?
+                    Logger.Error(e);
+                }
             }
 
             SetByteArrayPreference(PasswordPrefKey, null);

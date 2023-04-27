@@ -27,6 +27,7 @@ namespace AuthenticatorPro.Droid
 
         private readonly Context _context;
         private readonly PreferenceWrapper _preferences;
+        private readonly SecureStorageWrapper _secureStorageWrapper;
         private readonly Database _database;
 
         private readonly IAuthenticatorRepository _authenticatorRepository;
@@ -44,6 +45,7 @@ namespace AuthenticatorPro.Droid
         {
             _context = context;
             _preferences = new PreferenceWrapper(context);
+            _secureStorageWrapper = new SecureStorageWrapper(context);
             _database = new Database();
 
             using var container = Dependencies.GetChildContainer();
@@ -59,7 +61,7 @@ namespace AuthenticatorPro.Droid
 
         private async Task OpenDatabase()
         {
-            var password = await SecureStorageWrapper.GetDatabasePassword();
+            var password = _secureStorageWrapper.GetDatabasePassword();
             await _database.Open(password, Database.Origin.AutoBackup);
         }
 
@@ -88,14 +90,11 @@ namespace AuthenticatorPro.Droid
             return permission.IsReadPermission && permission.IsWritePermission;
         }
 
-        private async Task<string> GetBackupPassword()
+        private string GetBackupPassword()
         {
-            if (_preferences.DatabasePasswordBackup)
-            {
-                return await SecureStorageWrapper.GetDatabasePassword();
-            }
-
-            return await SecureStorageWrapper.GetAutoBackupPassword();
+            return _preferences.DatabasePasswordBackup
+                ? _secureStorageWrapper.GetDatabasePassword()
+                : _secureStorageWrapper.GetAutoBackupPassword();
         }
 
         private async Task<BackupResult> BackupToDir(Uri destUri)
@@ -112,7 +111,7 @@ namespace AuthenticatorPro.Droid
                 throw new InvalidOperationException("No permission at URI");
             }
 
-            var password = await GetBackupPassword();
+            var password = GetBackupPassword();
 
             if (password == null)
             {

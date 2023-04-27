@@ -1,56 +1,42 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using System.Threading.Tasks;
-using Xamarin.Essentials;
+using Android.Content;
+using AuthenticatorPro.Droid.Storage;
 
 namespace AuthenticatorPro.Droid
 {
-    internal static class SecureStorageWrapper
+    internal class SecureStorageWrapper
     {
+        private readonly SecureStorage _secureStorage;
+
+        public SecureStorageWrapper(Context context)
+        {
+            _secureStorage = new SecureStorage(context);
+        }
+        
         private const string AutoBackupPasswordKey = "autoBackupPassword";
 
-        public static Task<string> GetAutoBackupPassword()
+        public string GetAutoBackupPassword()
         {
-            return Get(AutoBackupPasswordKey);
+            return _secureStorage.Get(AutoBackupPasswordKey);
         }
 
-        public static Task SetAutoBackupPassword(string value)
+        public void SetAutoBackupPassword(string value)
         {
-            return Set(AutoBackupPasswordKey, value);
+            _secureStorage.Set(AutoBackupPasswordKey, value);
         }
 
         private const string DatabasePasswordKey = "databasePassword";
 
-        public static Task<string> GetDatabasePassword()
+        public string GetDatabasePassword()
         {
-            return Get(DatabasePasswordKey);
+            return _secureStorage.Get(DatabasePasswordKey);
         }
 
-        public static Task SetDatabasePassword(string value)
+        public void SetDatabasePassword(string value)
         {
-            return Set(DatabasePasswordKey, value);
-        }
-
-        private static async Task Set(string key, string value)
-        {
-            await Task.Run(async delegate
-            {
-                if (value == null)
-                {
-                    SecureStorage.Remove(key);
-                }
-                else
-                {
-                    await SecureStorage.SetAsync(key, value);
-                }
-            });
-        }
-
-        private static Task<string> Get(string key)
-        {
-            // Don't call secure storage on the ui thread
-            return Task.Run(() => SecureStorage.GetAsync(key));
+            _secureStorage.Set(DatabasePasswordKey, value);
         }
     }
 }
