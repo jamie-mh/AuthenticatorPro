@@ -75,7 +75,7 @@
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
     <string name="qrCodeNotSupported">Kody QR nie są obsługiwane w przypadku tego typu</string>
     <string name="copyUri">Kopiuj URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">Ten URI zawiera tajny klucz zapisany czystym tekstem. Zachowaj ostrożność w miejscu wklejania tych informacji.\n\nKontynuować?</string>
     <string name="uriCopiedToClipboard">URI skopiowane do schowka</string>
     <!-- Backup menu -->
     <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
