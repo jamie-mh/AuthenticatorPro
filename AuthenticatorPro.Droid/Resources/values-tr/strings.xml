@@ -4,6 +4,7 @@
     <string name="warning">Uyarı</string>
     <string name="delete">Sil</string>
     <string name="add">Ekle</string>
+    <string name="edit">Edit</string>
     <string name="cancel">İptal</string>
     <string name="ok">TAMAM</string>
     <string name="yes">Evet</string>
@@ -13,6 +14,7 @@
     <string name="retry">Tekrar dene</string>
     <string name="ignore">Yoksay</string>
     <string name="disable">Devre dışı bırak</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">Kategori yok</string>
     <string name="noCategoriesMessage">Henüz herhangi bir kategori oluşturmadınız.</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Kategoriler</string>
     <string name="assignCategories">Kategori ata</string>
     <string name="more">Daha Fazla</string>
     <string name="categoryAll">Tümü</string>
     <string name="editCategories">Kategorileri düzenle</string>
-    <string name="categoryNameHint">Kategori Adı</string>
     <string name="noCategoryName">Kategori adı gerekli.</string>
     <string name="duplicateCategory">Bu isimde bir kategori zaten var.</string>
     <string name="confirmCategoryDelete">Bu kategoriyi silmek istediğinize emin misiniz?</string>
@@ -179,7 +181,6 @@
     <string name="tooManyAttempts">Çok fazla deneme</string>
     <!-- Import -->
     <string name="importFromOtherApps">Diğer uygulamalardan içe aktar</string>
-    <string name="importFrom">Buradan içer aktar</string>
     <string name="importError">Dosya içe aktarılamadı</string>
     <string name="importIncomplete">İçe aktarma tamamlanmadı</string>
     <string name="importConversionError">\"{0}\" öğesi aşağıdaki hata nedeniyle içe aktarılamadı: {1}</string>
@@ -247,6 +248,8 @@
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
     <string name="prefCodeGroupSizeTitle">Kod Grup Boyutu</string>
     <string name="prefCodeGroupSizeSummary">Bir koddaki rakam gruplamasını değiştir</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
