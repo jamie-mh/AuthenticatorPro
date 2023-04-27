@@ -220,6 +220,11 @@ namespace AuthenticatorPro.Droid.Activity
             }
             
             var preference = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
+
+            if (preference == null)
+            {
+                return;
+            }
             
             if (!preference.Checked)
             {
