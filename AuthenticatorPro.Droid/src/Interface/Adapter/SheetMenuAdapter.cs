@@ -66,7 +66,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.sheetMenuItem, parent, false);
+            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemMenu, parent, false);
             return new SheetMenuItemViewHolder(itemView);
         }
     }
