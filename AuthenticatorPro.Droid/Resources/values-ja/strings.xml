@@ -4,6 +4,7 @@
     <string name="warning">警告</string>
     <string name="delete">削除</string>
     <string name="add">追加</string>
+    <string name="edit">Edit</string>
     <string name="cancel">キャンセル</string>
     <string name="ok">OK</string>
     <string name="yes">はい</string>
@@ -13,6 +14,7 @@
     <string name="retry">リトライ</string>
     <string name="ignore">無視</string>
     <string name="disable">無効化</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">設定</string>
     <string name="restore">復元</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">カテゴリがありません</string>
     <string name="noCategoriesMessage">まだカテゴリが設定されていません</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">カテゴリ</string>
     <string name="assignCategories">カテゴリを割り当て</string>
     <string name="more">さらに表示</string>
     <string name="categoryAll">すべて</string>
     <string name="editCategories">カテゴリを編集</string>
-    <string name="categoryNameHint">カテゴリ名</string>
     <string name="noCategoryName">カテゴリ名が必要です</string>
     <string name="duplicateCategory">この名前のカテゴリはすでに存在します</string>
     <string name="confirmCategoryDelete">このカテゴリを削除してもよろしいですか？</string>
@@ -177,7 +179,6 @@
     <string name="tooManyAttempts">試行回数が多すぎます</string>
     <!-- Import -->
     <string name="importFromOtherApps">別のアプリからインポート</string>
-    <string name="importFrom">インポート元</string>
     <string name="importError">ファイルをインポートできませんでした</string>
     <string name="importIncomplete">インポートが未完了です</string>
     <string name="importConversionError">\"{0}\" は以下のエラーによりインポートできませんでした: {1}</string>
@@ -241,6 +242,8 @@
     <string name="prefViewModeSummary">認証コードの表示モードを選択</string>
     <string name="prefCodeGroupSizeTitle">コードグループのサイズ</string>
     <string name="prefCodeGroupSizeSummary">コードの区切りを変更します</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">アクセントカラー</string>
     <string name="prefAccentColourSummary">アプリ全体で使用するアクセントカラーを選択します</string>
     <string name="prefTransparentStatusBarTitle">ステータスバーの透過</string>
