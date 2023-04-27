@@ -4,6 +4,7 @@
     <string name="warning">Upozornenie</string>
     <string name="delete">Odstrániť</string>
     <string name="add">Pridať</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Zrušiť</string>
     <string name="ok">OK</string>
     <string name="yes">Áno</string>
@@ -13,6 +14,7 @@
     <string name="retry">Skúsiť znova</string>
     <string name="ignore">Ignorovať</string>
     <string name="disable">Zakázať</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Nastavenia</string>
     <string name="restore">Obnoviť</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">Žiadne kategórie</string>
     <string name="noCategoriesMessage">Zatiaľ nemáte nastavené žiadne kategórie</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Kategórie</string>
     <string name="assignCategories">Priradiť kategórie</string>
     <string name="more">Viac</string>
     <string name="categoryAll">Všetko</string>
     <string name="editCategories">Upraviť kategórie</string>
-    <string name="categoryNameHint">Názov kategórie</string>
     <string name="noCategoryName">Názov kategórie je povinný</string>
     <string name="duplicateCategory">Kategória z takýmto názvom už existuje</string>
     <string name="confirmCategoryDelete">Ste si istý, že chcete odstrániť túto kategóriu?</string>
@@ -177,7 +179,6 @@
     <string name="tooManyAttempts">Príliš veľa pokusov</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importovať z iných aplikácií</string>
-    <string name="importFrom">Importovať z</string>
     <string name="importError">Súbor sa nepodarilo importovať</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
@@ -242,6 +243,8 @@
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
     <string name="prefCodeGroupSizeTitle">Veľkosť skupiny kódov</string>
     <string name="prefCodeGroupSizeSummary">Zmena zoskupenia číslic v kóde</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Farba akcentu</string>
     <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
     <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
