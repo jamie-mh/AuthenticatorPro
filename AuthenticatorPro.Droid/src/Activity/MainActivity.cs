@@ -105,7 +105,7 @@ namespace AuthenticatorPro.Droid.Activity
         private CoordinatorLayout _coordinatorLayout;
         private AppBarLayout _appBarLayout;
         private MaterialToolbar _toolbar;
-        private ProgressBar _progressIndicator;
+        private LinearProgressIndicator _progressIndicator;
         private RecyclerView _authenticatorList;
         private FloatingActionButton _addButton;
         private BottomAppBar _bottomAppBar;
