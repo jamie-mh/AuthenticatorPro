@@ -44,7 +44,11 @@ namespace AuthenticatorPro.Core.Converter
                 authenticators.Add(auth);
             }
 
-            var result = new ConversionResult { Failures = failures, Backup = new Backup.Backup(authenticators) };
+            var result = new ConversionResult
+            {
+                Failures = failures, Backup = new Backup.Backup { Authenticators = authenticators }
+            };
+            
             return Task.FromResult(result);
         }
 

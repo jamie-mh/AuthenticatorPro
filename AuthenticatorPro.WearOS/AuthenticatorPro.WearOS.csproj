@@ -10,6 +10,12 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);XA4218</MSBuildWarningsAsMessages>
     <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
+  </PropertyGroup> 
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>full</TrimMode>
+    <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
@@ -30,5 +36,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAotProfile Include="custom.aprof" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProguardConfiguration Include="proguard.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <LinkDescription Include="trim.xml" />
   </ItemGroup>
 </Project>

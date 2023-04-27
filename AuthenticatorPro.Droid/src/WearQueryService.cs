@@ -94,29 +94,51 @@ namespace AuthenticatorPro.Droid
             {
                 var bindings = authCategories
                     .Where(c => c.AuthenticatorSecret == auth.Secret)
-                    .Select(c => new WearAuthenticatorCategory(c.CategoryId, c.Ranking))
+                    .Select(c => new WearAuthenticatorCategory { CategoryId = c.CategoryId, Ranking = c.Ranking })
                     .ToList();
 
-                var item = new WearAuthenticator(
-                    auth.Type, auth.Secret, auth.Pin, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
-                    auth.Algorithm, auth.Ranking, auth.CopyCount, bindings);
+                var item = new WearAuthenticator
+                {
+                    Type = auth.Type,
+                    Secret = auth.Secret,
+                    Pin = auth.Pin,
+                    Icon = auth.Icon,
+                    Issuer = auth.Issuer,
+                    Username = auth.Username,
+                    Period = auth.Period,
+                    Digits = auth.Digits,
+                    Algorithm = auth.Algorithm,
+                    Ranking = auth.Ranking,
+                    CopyCount = auth.CopyCount,
+                    Categories = bindings
+                };
 
                 auths.Add(item);
             }
 
             var categories = (await _categoryRepository.GetAllAsync())
-                .Select(c => new WearCategory(c.Id, c.Name, c.Ranking))
+                .Select(c => new WearCategory { Id = c.Id, Name = c.Name, Ranking = c.Ranking })
                 .ToList();
 
             var customIcons = (await _customIconRepository.GetAllAsync())
-                .Select(i => new WearCustomIcon(i.Id, i.Data))
+                .Select(i => new WearCustomIcon { Id = i.Id, Data = i.Data })
                 .ToList();
 
             var preferenceWrapper = new PreferenceWrapper(this);
-            var preferences = new WearPreferences(
-                preferenceWrapper.DefaultCategory, preferenceWrapper.SortMode, preferenceWrapper.CodeGroupSize);
+            var preferences = new WearPreferences
+            {
+                DefaultCategory = preferenceWrapper.DefaultCategory,
+                SortMode = preferenceWrapper.SortMode,
+                CodeGroupSize = preferenceWrapper.CodeGroupSize
+            };
 
-            var bundle = new WearSyncBundle(auths, categories, customIcons, preferences);
+            var bundle = new WearSyncBundle
+            {
+                Authenticators = auths,
+                Categories = categories,
+                CustomIcons = customIcons,
+                Preferences = preferences
+            };
 
             var json = JsonConvert.SerializeObject(bundle);
             return Encoding.UTF8.GetBytes(json);

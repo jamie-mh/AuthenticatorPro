@@ -14,6 +14,7 @@ using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,12 +29,7 @@ namespace AuthenticatorPro.Droid
         private readonly Context _context;
         private readonly PreferenceWrapper _preferences;
         private readonly Database _database;
-
-        private readonly IAuthenticatorRepository _authenticatorRepository;
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-        private readonly ICustomIconRepository _customIconRepository;
-
+        private readonly IBackupService _backupService;
 
         private enum NotificationContext
         {
@@ -51,10 +47,7 @@ namespace AuthenticatorPro.Droid
             Dependencies.RegisterRepositories(container);
             Dependencies.RegisterServices(container);
 
-            _authenticatorRepository = container.Resolve<IAuthenticatorRepository>();
-            _categoryRepository = container.Resolve<ICategoryRepository>();
-            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
-            _customIconRepository = container.Resolve<ICustomIconRepository>();
+            _backupService = container.Resolve<IBackupService>();
         }
 
         private async Task OpenDatabase()
@@ -100,9 +93,9 @@ namespace AuthenticatorPro.Droid
 
         private async Task<BackupResult> BackupToDir(Uri destUri)
         {
-            var auths = await _authenticatorRepository.GetAllAsync();
+            var backup = await _backupService.CreateBackupAsync();
 
-            if (!auths.Any())
+            if (!backup.Authenticators.Any())
             {
                 return new BackupResult();
             }
@@ -118,13 +111,6 @@ namespace AuthenticatorPro.Droid
             {
                 throw new InvalidOperationException("No password defined");
             }
-
-            var backup = new Backup(
-                auths,
-                await _categoryRepository.GetAllAsync(),
-                await _authenticatorCategoryRepository.GetAllAsync(),
-                await _customIconRepository.GetAllAsync()
-            );
 
             var encryption = new StrongBackupEncryption();
             var dataToWrite = await encryption.EncryptAsync(backup, password);

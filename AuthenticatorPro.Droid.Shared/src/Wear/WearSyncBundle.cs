@@ -7,18 +7,9 @@ namespace AuthenticatorPro.Droid.Shared.Wear
 {
     public class WearSyncBundle
     {
-        public readonly List<WearAuthenticator> Authenticators;
-        public readonly List<WearCategory> Categories;
-        public readonly List<WearCustomIcon> CustomIcons;
-        public readonly WearPreferences Preferences;
-
-        public WearSyncBundle(List<WearAuthenticator> authenticators, List<WearCategory> categories,
-            List<WearCustomIcon> customIcons, WearPreferences preferences)
-        {
-            Authenticators = authenticators;
-            Categories = categories;
-            CustomIcons = customIcons;
-            Preferences = preferences;
-        }
+        public List<WearAuthenticator> Authenticators { get; set; }
+        public List<WearCategory> Categories { get; set; }
+        public List<WearCustomIcon> CustomIcons { get; set; }
+        public WearPreferences Preferences { get; set; }
     }
 }
