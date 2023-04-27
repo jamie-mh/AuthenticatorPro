@@ -4,7 +4,7 @@
     <string name="warning">Avertissement</string>
     <string name="delete">Supprimer</string>
     <string name="add">Ajouter</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Modifier</string>
     <string name="cancel">Annuler</string>
     <string name="ok">OK</string>
     <string name="yes">Oui</string>
@@ -14,7 +14,7 @@
     <string name="retry">Réessayer</string>
     <string name="ignore">Ignorer</string>
     <string name="disable">Désactiver</string>
-    <string name="name">Name</string>
+    <string name="name">Nom</string>
     <!-- Menu items -->
     <string name="settings">Paramètres</string>
     <string name="restore">Restaurer</string>
@@ -96,7 +96,7 @@
     <string name="noCategoriesTitle">Aucune catégorie</string>
     <string name="noCategoriesMessage">Vous n\'avez aucune catégorie pour l\'instant</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Catégorie</string>
     <string name="categories">Catégories</string>
     <string name="assignCategories">Affecter des catégories</string>
     <string name="more">Plus</string>
@@ -242,8 +242,8 @@
     <string name="prefViewModeSummary">Changer le mode d\'affichage de la liste</string>
     <string name="prefCodeGroupSizeTitle">Taille du groupe de codes</string>
     <string name="prefCodeGroupSizeSummary">Changer le groupement de chiffres dans un code</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefDynamicColourTitle">Couleur dynamique</string>
+    <string name="prefDynamicColourSummary">Utiliser une couleur d\'accentuation dynamique basée sur votre fond d\'écran</string>
     <string name="prefAccentColourTitle">Couleur d\'accentuation</string>
     <string name="prefAccentColourSummary">Choisir une couleur d\'accentuation à utiliser dans l\'application</string>
     <string name="prefTransparentStatusBarTitle">Barre d\'état transparente</string>
