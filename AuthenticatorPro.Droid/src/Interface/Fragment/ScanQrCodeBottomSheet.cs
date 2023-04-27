@@ -14,7 +14,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler FromCameraClicked;
         public event EventHandler FromGalleryClicked;
 
-        public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.scanQrCode) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

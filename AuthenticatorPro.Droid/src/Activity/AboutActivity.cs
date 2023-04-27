@@ -2,11 +2,13 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.App;
+using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
+using Google.Android.Material.Color;
 using System;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -16,7 +18,7 @@ namespace AuthenticatorPro.Droid.Activity
     {
         public AboutActivity() : base(Resource.Layout.activityAbout) { }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -44,10 +46,28 @@ namespace AuthenticatorPro.Droid.Activity
                 Logger.Error(e);
                 version = "unknown";
             }
+            
+            var surface = MaterialColors.GetColor(this, Resource.Attribute.colorSurface, 0);
+            var onSurface = MaterialColors.GetColor(this, Resource.Attribute.colorOnSurface, 0);
+            var primary = MaterialColors.GetColor(this, Resource.Attribute.colorPrimary, 0);
 
+            var icon = await AssetUtil.ReadAllBytes(Assets, "icon.png");
+            
+            var html = (await AssetUtil.ReadAllTextAsync(Assets, "about.html"))
+                .Replace("%ICON", $"data:image/png;base64,{Convert.ToBase64String(icon)}")
+                .Replace("%VERSION", version)
+                .Replace("%SURFACE", ColourToHexString(surface))
+                .Replace("%ON_SURFACE", ColourToHexString(onSurface))
+                .Replace("%PRIMARY", ColourToHexString(primary));
+            
             var webView = FindViewById<WebView>(Resource.Id.webView);
-            webView.Settings.JavaScriptEnabled = true;
-            webView.LoadUrl($"file:///android_asset/about.html#{version}|{(IsDark ? "dark" : "light")}");
+            webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
+        }
+
+        private static string ColourToHexString(int colour)
+        {
+            var parsed = new Color(colour);
+            return "#" + parsed.R.ToString("X2") + parsed.G.ToString("X2") + parsed.B.ToString("X2");
         }
 
         public override bool OnSupportNavigateUp()

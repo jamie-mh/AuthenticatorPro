@@ -9,6 +9,7 @@ using Android.OS;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Interface;
+using Google.Android.Material.Color;
 using Java.Util;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -44,7 +45,22 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
-            Theme.ApplyStyle(overlay, true);
+            
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            {
+                var dynamicColorOptions = new DynamicColorsOptions.Builder();
+
+                if (!_preferences.DynamicColour)
+                {
+                    dynamicColorOptions.SetThemeOverlay(overlay);
+                }
+
+                DynamicColors.ApplyToActivityIfAvailable(this, dynamicColorOptions.Build());
+            }
+            else
+            {
+                Theme.ApplyStyle(overlay, true);
+            }
 
             SetContentView(_layout);
         }
@@ -83,11 +99,11 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
             else
-#pragma warning disable 618
             {
+#pragma warning disable CA1422
                 resources?.UpdateConfiguration(config, resources.DisplayMetrics);
+#pragma warning restore CA1422
             }
-#pragma warning restore 618
 
             base.AttachBaseContext(context);
         }
@@ -127,35 +143,42 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnResume();
 
             var label = GetString(Resource.String.appName);
-            var colourInt = ContextCompat.GetColor(this, AccentColourMap.GetColourId(_preferences.AccentColour));
-            var colour = new Color(colourInt);
+            var colourId = AccentColourMap.GetColourId(_preferences.AccentColour);
+            var colour = new Color(ContextCompat.GetColor(this, colourId));
 
             switch (Build.VERSION.SdkInt)
             {
                 case >= BuildVersionCodes.Tiramisu:
                 {
+#pragma warning disable CA1416
                     var description = new ActivityManager.TaskDescription.Builder()
                         .SetLabel(label)
-                        .SetIcon(Resource.Mipmap.ic_launcher)
-                        .SetPrimaryColor(colour)
-                        .Build();
+                        .SetIcon(Resource.Mipmap.ic_launcher);
 
-                    SetTaskDescription(description);
+                    if (!_preferences.DynamicColour)
+                    {
+                        description = description.SetPrimaryColor(colour);
+                    }
+
+                    SetTaskDescription(description.Build());
                     break;
+#pragma warning restore CA1416
                 }
 
                 case >= BuildVersionCodes.P:
-#pragma warning disable 618
+#pragma warning disable CS0618
+#pragma warning disable CA1416
                     SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
-#pragma warning restore 618
+#pragma warning restore CA1416
+#pragma warning restore CS0618
                     break;
 
                 default:
                 {
                     var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
-#pragma warning disable 618
+#pragma warning disable CS0618
                     SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
-#pragma warning restore 618
+#pragma warning restore CS0618
                     break;
                 }
             }

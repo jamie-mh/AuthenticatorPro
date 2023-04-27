@@ -4,12 +4,12 @@
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
-using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
+using Google.Android.Material.TextView;
 using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
@@ -27,7 +27,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler CancelClicked;
         public event EventHandler<string> PasswordEntered;
 
-        private ProgressBar _progressBar;
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordTextLayout;
 
@@ -39,7 +38,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             set => _passwordTextLayout.Error = value;
         }
 
-        public BackupPasswordBottomSheet() : base(Resource.Layout.sheetBackupPassword) { }
+        public BackupPasswordBottomSheet() : base(Resource.Layout.sheetBackupPassword, Resource.String.password) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,9 +49,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.password);
 
-            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             _passwordTextLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
 
@@ -64,7 +61,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (_mode == Mode.Set)
             {
-                var message = view.FindViewById<TextView>(Resource.Id.textMessage);
+                var message = view.FindViewById<MaterialTextView>(Resource.Id.textMessage);
                 message.Visibility = ViewStates.Visible;
             }
 
@@ -85,9 +82,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             if (_mode == Mode.Set && _passwordText.Text == "")
             {
-                var builder = new MaterialAlertDialogBuilder(Activity);
+                var builder = new MaterialAlertDialogBuilder(RequireContext());
                 builder.SetTitle(Resource.String.warning);
                 builder.SetMessage(Resource.String.confirmEmptyPassword);
+                builder.SetIcon(Resource.Drawable.baseline_warning_24);
                 builder.SetCancelable(true);
 
                 builder.SetNegativeButton(Resource.String.cancel, delegate { });
@@ -108,7 +106,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             var busy = busyRes != null;
             SetCancelable(!busy);
-            _progressBar.Visibility = busy ? ViewStates.Visible : ViewStates.Invisible;
             _okButton.Enabled = _cancelButton.Enabled = !busy;
             _okButton.SetText(busyRes ?? Resource.String.ok);
         }
@@ -116,7 +113,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private void OnCancelButtonClick(object sender, EventArgs e)
         {
             Dismiss();
-            CancelClicked?.Invoke(this, null);
+            CancelClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

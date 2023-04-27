@@ -2,9 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="?attr/authListItem_background"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="0dp"
+    style="?attr/materialCardViewElevatedStyle"
     android:focusable="true"
     android:clickable="true"
     android:layout_width="match_parent"
@@ -51,33 +49,31 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:text="GitHub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14dp"
-                            android:textColor="?attr/primaryTextColor"
                             android:singleLine="true"
+                            android:textAppearance="?attr/textAppearanceTitleSmall"
                             android:id="@+id/textIssuer"/>
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:text="johnsmith@example.com"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="12dp"
-                            android:textColor="?attr/secondaryTextColor"
+                            android:textAppearance="?attr/textAppearanceLabelSmall"
                             android:layout_below="@id/textIssuer"
                             android:singleLine="true"
                             android:id="@+id/textUsername"/>
                     </LinearLayout>
                 </LinearLayout>
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:text="000 000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="22dp"
-                    android:textColor="?attr/authListItem_code"
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
+                    android:textColor="?attr/colorOnSecondaryContainer"
                     android:gravity="start"
                     android:textDirection="ltr"
                     android:layout_below="@id/layoutIcon"
@@ -118,17 +114,16 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:progressBackgroundTint="?attr/authListItem_background"
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-8dp"
-            android:layout_marginTop="-7dp"
+            app:trackThickness="2dp"
+            app:trackColor="@android:color/transparent"
+            app:showAnimationBehavior="outward"
             android:min="0"
             android:max="10000"
-            android:progress="10000"
-            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
+            android:progress="10000"/>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

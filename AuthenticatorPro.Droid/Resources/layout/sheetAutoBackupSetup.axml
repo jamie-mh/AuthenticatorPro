@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="?attr/colorBackgroundFloating"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
-        android:background="?attr/colorBase"
-        android:minHeight="?android:attr/actionBarSize"
-        android:layout_height="wrap_content"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -22,14 +17,21 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:clipToPadding="false"
             android:clipChildren="false">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textAlignment="center"
+                android:id="@+id/textTitle"/>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -39,7 +41,6 @@
             <LinearLayout
                 android:id="@+id/buttonSelectLocation"
                 android:orientation="horizontal"
-                android:foreground="?attr/selectableItemBackground"
                 android:background="@drawable/detailbutton"
                 android:clickable="true"
                 android:layout_width="match_parent"
@@ -65,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -73,7 +74,7 @@
                         android:textAppearance="?attr/textAppearanceSubtitle1"
                         android:text="@string/selectLocation"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textLocationStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -85,7 +86,6 @@
             <LinearLayout
                 android:id="@+id/buttonSetPassword"
                 android:orientation="horizontal"
-                android:foreground="?attr/selectableItemBackground"
                 android:background="@drawable/detailbutton"
                 android:clickable="true"
                 android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -119,7 +119,7 @@
                         android:textAppearance="?attr/textAppearanceSubtitle1"
                         android:text="@string/setPassword"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textPasswordStatus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/switchBackupEnabled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonBackupNow"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_marginRight="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonOk"
-                    style="@style/Widget.MaterialComponents.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/ok"/>

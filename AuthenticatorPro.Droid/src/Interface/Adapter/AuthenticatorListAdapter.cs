@@ -7,7 +7,6 @@ using Android.Graphics;
 using Android.Provider;
 using Android.Views;
 using Android.Views.Animations;
-using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using AuthenticatorPro.Droid.Persistence.View;
@@ -18,6 +17,7 @@ using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Util;
+using Google.Android.Material.ProgressIndicator;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -191,11 +191,11 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                     }
 
                     holder.RefreshButton.Visibility = ViewStates.Gone;
-                    holder.ProgressBar.Visibility = ViewStates.Visible;
+                    holder.ProgressIndicator.Visibility = ViewStates.Visible;
 
                     var offset = GetGenerationOffset(auth.Period);
                     var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                    UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
+                    UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
                     break;
                 }
 
@@ -206,7 +206,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
                     holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
                     holder.RefreshButton.Visibility = inCooldown ? ViewStates.Invisible : ViewStates.Visible;
-                    holder.ProgressBar.Visibility = ViewStates.Invisible;
+                    holder.ProgressIndicator.Visibility = ViewStates.Invisible;
                     break;
                 }
             }
@@ -242,7 +242,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
             }
 
-            UpdateProgressBar(holder.ProgressBar, auth.Period, offset, payload.CurrentOffset);
+            UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
         }
 
         public override void OnViewAttachedToWindow(Object holderObj)
@@ -268,7 +268,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
+            UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
         }
 
         private async Task<Bitmap> DecodeCustomIcon(string id)
@@ -407,20 +407,20 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             _generationOffsets[period] = offset;
         }
 
-        private void UpdateProgressBar(ProgressBar progressBar, int period, long generationOffset, long now)
+        private void UpdateProgressIndicator(LinearProgressIndicator progressIndicator, int period, long generationOffset, long now)
         {
             var renewTime = generationOffset + period;
             var secondsRemaining = Math.Max(renewTime - now, 0);
             var progress = (int) Math.Round((double) MaxProgress * secondsRemaining / period);
 
-            progressBar.Progress = progress;
+            progressIndicator.SetProgressCompat(progress, true);
 
             if (_animationScale.Equals(0f))
             {
                 return;
             }
 
-            var animator = ObjectAnimator.OfInt(progressBar, "progress", 0);
+            var animator = ObjectAnimator.OfInt(progressIndicator, "progress", 0);
             var duration = (int) (secondsRemaining * 1000 / _animationScale);
 
             animator.SetDuration(duration);

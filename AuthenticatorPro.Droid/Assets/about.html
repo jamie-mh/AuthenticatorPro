@@ -6,16 +6,8 @@
         body { 
             font-family: sans-serif;
             padding: 10px;
-        }
-        
-        body.light { 
-            color: #111;
-            background: #fff;
-        }
-        
-        body.dark { 
-            color: #eee;
-            background: #000;
+            background: %SURFACE;
+            color: %ON_SURFACE;
         }
         
         #icon {
@@ -25,20 +17,20 @@
         }
         
         a { 
-            color: #2cb1ec;
             overflow-wrap: break-word;
             word-wrap: break-word;
+            color: %PRIMARY;
         }
     </style>
 </head>
 <body>
 
-    <img id="icon" src="icon.png">
+    <img id="icon" src="%ICON">
 
     <p><b>Authenticator Pro - jmh</b></p>
     <p>Two-Factor Authentication (2FA) client for Android</p>
     <p><a href="https://github.com/jamie-mh/AuthenticatorPro">https://github.com/jamie-mh/AuthenticatorPro</a></p>
-    <p>Version <span id="version"></span></p>
+    <p>Version <span id="version">%VERSION</span></p>
 
     <p><small>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</small></p>
     <p><small>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</small></p>
@@ -97,16 +89,6 @@
     <p>Copyright &copy; 2017 Keef Aragon</p>
     <p>MIT Licence</p>
     <a href="https://github.com/kmaragon/Konscious.Security.Cryptography">https://github.com/kmaragon/Konscious.Security.Cryptography</a>
-
-    <script>
-        var options = decodeURIComponent(location.hash.substring(1)).split('|');
-        
-        var $version = document.getElementById('version');
-        $version.innerHTML = options[0];
-
-        $body = document.getElementsByTagName('body')[0];
-        $body.classList.add(options[1]);
-    </script>
 
 </body>
 </html>

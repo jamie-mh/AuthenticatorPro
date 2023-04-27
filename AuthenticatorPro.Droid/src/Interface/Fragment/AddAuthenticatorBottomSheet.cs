@@ -39,7 +39,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private ArrayAdapter _algorithmAdapter;
         private TextInputLayout _algorithmLayout;
-        private AutoCompleteTextView _algorithmText;
+        private MaterialAutoCompleteTextView _algorithmText;
 
         private TextInputEditText _issuerText;
         private TextInputEditText _usernameText;
@@ -57,7 +57,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             set => _secretLayout.Error = value;
         }
 
-        public AddAuthenticatorBottomSheet() : base(Resource.Layout.sheetAddAuthenticator)
+        public AddAuthenticatorBottomSheet() : base(Resource.Layout.sheetAddAuthenticator, Resource.String.enterKey)
         {
             _iconResolver = new IconResolver();
             _type = AuthenticatorType.Totp;
@@ -67,7 +67,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.add);
 
             _issuerLayout = view.FindViewById<TextInputLayout>(Resource.Id.editIssuerLayout);
             _usernameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editUsernameLayout);
@@ -105,7 +104,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _algorithmAdapter = ArrayAdapter.CreateFromResource(view.Context, Resource.Array.authAlgorithms,
                 Resource.Layout.listItemDropdown);
-            _algorithmText = (AutoCompleteTextView) _algorithmLayout.EditText;
+            _algorithmText = (MaterialAutoCompleteTextView) _algorithmLayout.EditText;
             _algorithmText.Adapter = _algorithmAdapter;
             _algorithmText.ItemClick += OnAlgorithmItemClick;
 

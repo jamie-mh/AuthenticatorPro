@@ -2,18 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="?attr/colorBackgroundFloating"
     android:paddingBottom="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
-        android:background="?attr/colorBase"
-        android:minHeight="?android:attr/actionBarSize"
-        android:layout_height="wrap_content"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -21,13 +16,21 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:paddingTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textAlignment="center"
+                android:id="@+id/textTitle"/>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:text="@string/categories"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?attr/colorOnSecondaryContainer"
                 android:layout_marginBottom="18dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
@@ -43,9 +46,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:text="@string/more"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?attr/colorOnSecondaryContainer"
                 android:layout_marginBottom="12dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"

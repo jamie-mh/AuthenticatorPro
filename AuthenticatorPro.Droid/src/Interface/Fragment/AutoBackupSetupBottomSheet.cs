@@ -18,7 +18,8 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.SwitchMaterial;
+using Google.Android.Material.MaterialSwitch;
+using Google.Android.Material.TextView;
 using Java.Util.Concurrent;
 using System;
 using Uri = Android.Net.Uri;
@@ -33,14 +34,14 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private ActivityResultLauncher _locationSelectResultLauncher;
         private ActivityResultLauncher _showNotificationsResultLauncher;
 
-        private TextView _locationStatusText;
-        private TextView _passwordStatusText;
+        private MaterialTextView _locationStatusText;
+        private MaterialTextView _passwordStatusText;
 
-        private SwitchMaterial _backupEnabledSwitch;
+        private MaterialSwitch _backupEnabledSwitch;
         private MaterialButton _backupNowButton;
         private MaterialButton _okButton;
 
-        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup) { }
+        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup, Resource.String.prefAutoBackupTitle) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,7 +66,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
             var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
             selectLocationButton.Click += OnSelectLocationClick;
@@ -73,8 +73,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var setPasswordButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSetPassword);
             setPasswordButton.Click += OnSetPasswordButtonClick;
 
-            _locationStatusText = view.FindViewById<TextView>(Resource.Id.textLocationStatus);
-            _passwordStatusText = view.FindViewById<TextView>(Resource.Id.textPasswordStatus);
+            _locationStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textLocationStatus);
+            _passwordStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textPasswordStatus);
 
             _backupNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonBackupNow);
             _backupNowButton.Click += OnBackupNowButtonClick;
@@ -82,7 +82,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
-            _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
+            _backupEnabledSwitch = view.FindViewById<MaterialSwitch>(Resource.Id.switchBackupEnabled);
             _backupEnabledSwitch.Click += OnSwitchClicked;
 
             UpdateLocationStatusText();

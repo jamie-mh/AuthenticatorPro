@@ -16,7 +16,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler RestoreClicked;
         public event EventHandler ImportClicked;
 
-        public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.add) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

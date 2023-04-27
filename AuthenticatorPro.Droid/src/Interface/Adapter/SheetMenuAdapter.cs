@@ -7,6 +7,7 @@ using Android.Views;
 using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
+using Google.Android.Material.Color;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             if (item.IsSensitive)
             {
-                var colourValue = ContextCompat.GetColor(_context, Shared.Resource.Color.colorError);
+                var colourValue = MaterialColors.GetColor(viewHolder.ItemView, Resource.Attribute.colorError);
                 var colour = Color.Rgb(Color.GetRedComponent(colourValue), Color.GetBlueComponent(colourValue),
                     Color.GetGreenComponent(colourValue));
 
@@ -65,7 +66,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.sheetMenuItem, parent, false);
+            var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemMenu, parent, false);
             return new SheetMenuItemViewHolder(itemView);
         }
     }

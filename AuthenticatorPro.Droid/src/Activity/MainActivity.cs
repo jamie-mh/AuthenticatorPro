@@ -40,7 +40,9 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Internal;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Snackbar;
+using Google.Android.Material.TextView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,13 +105,13 @@ namespace AuthenticatorPro.Droid.Activity
         private CoordinatorLayout _coordinatorLayout;
         private AppBarLayout _appBarLayout;
         private MaterialToolbar _toolbar;
-        private ProgressBar _progressBar;
+        private ProgressBar _progressIndicator;
         private RecyclerView _authenticatorList;
         private FloatingActionButton _addButton;
         private BottomAppBar _bottomAppBar;
 
         private LinearLayout _emptyStateLayout;
-        private TextView _emptyMessageText;
+        private MaterialTextView _emptyMessageText;
         private LinearLayout _startLayout;
 
         private AuthenticatorListAdapter _authenticatorListAdapter;
@@ -710,7 +712,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 RunOnUiThread(delegate
                 {
-                    AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort, true);
+                    AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
                     _authenticatorListAdapter.NotifyDataSetChanged();
                     _authenticatorListAdapter.Tick();
                     _authenticatorList.ScheduleLayoutAnimation();
@@ -750,6 +752,7 @@ namespace AuthenticatorPro.Droid.Activity
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.databaseError);
             builder.SetTitle(Resource.String.error);
+            builder.SetIcon(Resource.Drawable.baseline_warning_24);
 
             builder.SetNeutralButton(Resource.String.viewErrorLog, delegate
             {
@@ -803,14 +806,14 @@ namespace AuthenticatorPro.Droid.Activity
                 ScrollToPosition(0);
             };
 
-            _progressBar = FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
+            _progressIndicator = FindViewById<LinearProgressIndicator>(Resource.Id.appBarProgressIndicator);
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddButtonClick;
 
             _authenticatorList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
-            _emptyMessageText = FindViewById<TextView>(Resource.Id.textEmptyMessage);
+            _emptyMessageText = FindViewById<MaterialTextView>(Resource.Id.textEmptyMessage);
 
             _startLayout = FindViewById<LinearLayout>(Resource.Id.layoutStart);
 
@@ -1086,6 +1089,7 @@ namespace AuthenticatorPro.Droid.Activity
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmAuthenticatorDelete);
             builder.SetTitle(Resource.String.warning);
+            builder.SetIcon(Resource.Drawable.baseline_warning_24);
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 try
@@ -1572,6 +1576,7 @@ namespace AuthenticatorPro.Droid.Activity
                     new MaterialAlertDialogBuilder(this)
                         .SetTitle(Resource.String.importIncomplete)
                         .SetMessage(message)
+                        .SetIcon(Resource.Drawable.baseline_warning_24)
                         .SetPositiveButton(Resource.String.ok, delegate { })
                         .Show();
                 }
@@ -2129,7 +2134,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             RunOnUiThread(delegate
             {
-                _progressBar.Visibility = loading ? ViewStates.Visible : ViewStates.Invisible;
+                _progressIndicator.Visibility = loading ? ViewStates.Visible : ViewStates.Invisible;
             });
         }
 

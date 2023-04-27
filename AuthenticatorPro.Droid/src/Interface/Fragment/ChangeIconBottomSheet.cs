@@ -27,7 +27,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private RecyclerView _iconList;
         private EditText _searchText;
 
-        public ChangeIconBottomSheet() : base(Resource.Layout.sheetChangeIcon)
+        public ChangeIconBottomSheet() : base(Resource.Layout.sheetChangeIcon, Resource.String.changeIcon)
         {
             _iconView = Dependencies.Resolve<IIconView>();
         }
@@ -41,7 +41,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.changeIcon, true);
 
             _searchText = view.FindViewById<EditText>(Resource.Id.editSearch);
             _iconList = view.FindViewById<RecyclerView>(Resource.Id.list);

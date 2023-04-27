@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             set => _textNameLayout.Error = value;
         }
 
-        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory) { }
+        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory, Resource.String.category) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -54,7 +54,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             };
 
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, titleRes);
 
             _textName = view.FindViewById<TextInputEditText>(Resource.Id.editName);
             _textNameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editNameLayout);

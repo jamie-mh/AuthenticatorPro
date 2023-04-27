@@ -21,14 +21,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         
         private bool _hasPassword;
 
-        private ProgressBar _progressBar;
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordConfirmLayout;
         private TextInputEditText _passwordConfirmText;
         private MaterialButton _cancelButton;
         private MaterialButton _setPasswordButton;
 
-        public PasswordSetupBottomSheet() : base(Resource.Layout.sheetPasswordSetup)
+        public PasswordSetupBottomSheet() : base(Resource.Layout.sheetPasswordSetup, Resource.String.prefPasswordTitle)
         {
             _database = Dependencies.Resolve<Database>();
         }
@@ -46,9 +45,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.prefPasswordTitle);
-
-            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
             _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
             _setPasswordButton.Click += OnSetPasswordButtonClick;
@@ -87,7 +83,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _setPasswordButton.Enabled = _cancelButton.Enabled = false;
             _setPasswordButton.SetText(newPassword != null ? Resource.String.encrypting : Resource.String.decrypting);
-            _progressBar.Visibility = ViewStates.Visible;
             SetCancelable(false);
 
             try
@@ -111,7 +106,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 Logger.Error(e);
 
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
-                _progressBar.Visibility = ViewStates.Invisible;
                 SetCancelable(true);
                 UpdateSetPasswordButton();
                 _cancelButton.Enabled = true;

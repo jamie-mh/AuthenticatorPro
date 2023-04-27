@@ -2,45 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?attr/colorBackgroundFloating"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        app:elevation="0dp"
-        android:layout_marginBottom="20dp"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="?attr/colorBase"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                style="Widget.MaterialComponents.Toolbar"
-                android:background="?attr/colorBase"
-                android:minHeight="?android:attr/actionBarSize"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/toolbar"/>
-
-            <ProgressBar
-                android:id="@+id/appBarProgressBar"
-                android:layout_marginTop="-7dp"
-                android:layout_marginBottom="-7dp"
-                android:indeterminate="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
-
-        </LinearLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="wrap_content"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -56,7 +24,15 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textAlignment="center"
+                android:id="@+id/textTitle"/>
+
+            <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="22dp"
@@ -69,7 +45,7 @@
                 app:errorIconDrawable="@null"
                 app:passwordToggleEnabled="true"
                 android:id="@+id/editPasswordLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
@@ -89,7 +65,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonUseBiometrics"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_marginEnd="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -97,7 +73,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonUnlock"
-                    style="@style/Widget.MaterialComponents.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/unlock"/>

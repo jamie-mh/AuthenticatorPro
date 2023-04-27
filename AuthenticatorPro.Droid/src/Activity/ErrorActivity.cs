@@ -10,6 +10,7 @@ using Android.Widget;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.Dialog;
+using Google.Android.Material.TextView;
 using System.Text;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -33,7 +34,7 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
             _exception = Intent.GetStringExtra("exception");
-            var textError = FindViewById<TextView>(Resource.Id.errorText);
+            var textError = FindViewById<MaterialTextView>(Resource.Id.errorText);
             textError.Text = _exception;
         }
 
