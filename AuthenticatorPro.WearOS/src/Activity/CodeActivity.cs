@@ -12,6 +12,7 @@ using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
 using AuthenticatorPro.WearOS.Interface;
+using AuthenticatorPro.WearOS.Util;
 using System;
 using System.Timers;
 
@@ -92,13 +93,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             var type = (AuthenticatorType) Intent.Extras.GetInt("type");
 
-            _generator = type switch
-            {
-                AuthenticatorType.MobileOtp => new MobileOtp(secret, pin),
-                AuthenticatorType.SteamOtp => new SteamOtp(secret),
-                AuthenticatorType.YandexOtp => new YandexOtp(secret, pin),
-                _ => new Totp(secret, _period, algorithm, _digits)
-            };
+            _generator = AuthenticatorUtil.GetGenerator(type, secret, pin, _period, algorithm, _digits);
 
             _authProgressLayout.Period = _period * 1000;
             _authProgressLayout.TimerFinished += Refresh;
@@ -118,13 +113,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private void Refresh(object sender = null, ElapsedEventArgs args = null)
         {
-            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            var generationOffset = now - (now % _period);
-
-            var code = _generator.Compute(generationOffset);
-            var renewTime = generationOffset + _period;
-
-            var secondsRemaining = Math.Max(renewTime - now, 0);
+            var (code, secondsRemaining) = AuthenticatorUtil.GetCodeAndRemainingSeconds(_generator, _period);
 
             RunOnUiThread(delegate
             {

@@ -20,12 +20,12 @@ namespace AuthenticatorPro.WearOS
         }
 
         private const string DefaultAuthKey = "defaultAuth";
-        private static readonly int? DefaultAuthDefault = null;
+        private static readonly string DefaultAuthDefault = null;
 
-        public int? DefaultAuth
+        public string DefaultAuth
         {
-            get => GetNullableIntPreference(DefaultAuthKey, DefaultAuthDefault);
-            set => SetNullableIntPreference(DefaultAuthKey, value);
+            get => Preferences.GetString(DefaultAuthKey, DefaultAuthDefault);
+            set => SetPreference(DefaultAuthKey, value);
         }
 
         private const string SortModeKey = "sortMode";

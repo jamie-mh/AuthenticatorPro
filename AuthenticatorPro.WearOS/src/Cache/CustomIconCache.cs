@@ -76,7 +76,7 @@ namespace AuthenticatorPro.WearOS.Cache
             return ids;
         }
 
-        public async Task<Bitmap> GetBitmap(string id)
+        public async Task<Bitmap> GetBitmapAsync(string id)
         {
             if (_bitmaps.TryGetValue(id, out var bitmap))
             {

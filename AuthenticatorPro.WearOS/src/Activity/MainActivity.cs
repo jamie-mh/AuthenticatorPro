@@ -9,12 +9,14 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.Wear.Tiles;
 using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Shared.Wear;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
 using AuthenticatorPro.WearOS.Comparer;
@@ -57,7 +59,6 @@ namespace AuthenticatorPro.WearOS.Activity
         private CustomIconCache _customIconCache;
 
         private PreferenceWrapper _preferences;
-        private bool _justLaunched;
         private bool _preventCategorySelectEvent;
 
         private AuthenticatorListAdapter _authListAdapter;
@@ -72,7 +73,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
         public MainActivity()
         {
-            _justLaunched = true;
             _onCreateLock = new SemaphoreSlim(1, 1);
         }
 
@@ -112,8 +112,8 @@ namespace AuthenticatorPro.WearOS.Activity
             _categoryCache = new ListCache<WearCategory>(CategoryCacheName, this);
             _customIconCache = new CustomIconCache(this);
 
-            await _authCache.Init();
-            await _categoryCache.Init();
+            await _authCache.InitAsync();
+            await _categoryCache.InitAsync();
 
             var defaultCategory = _preferences.DefaultCategory;
             _authView = new AuthenticatorView(_authCache, defaultCategory, _preferences.SortMode);
@@ -153,18 +153,6 @@ namespace AuthenticatorPro.WearOS.Activity
                 Logger.Error(e);
                 RunOnUiThread(CheckOfflineState);
                 return;
-            }
-
-            if (_justLaunched)
-            {
-                _justLaunched = false;
-                var defaultAuth = _preferences.DefaultAuth;
-
-                if (defaultAuth != null)
-                {
-                    var authPosition = _authView.FindIndex(a => a.Secret.GetHashCode() == defaultAuth);
-                    OnItemClicked(null, authPosition);
-                }
             }
 
             try
@@ -341,7 +329,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if (hasCustomIcon)
             {
                 var id = item.Icon[1..];
-                var bitmap = await _customIconCache.GetBitmap(id);
+                var bitmap = await _customIconCache.GetBitmapAsync(id);
                 bundle.PutParcelable("icon", bitmap);
             }
             else
@@ -363,7 +351,7 @@ namespace AuthenticatorPro.WearOS.Activity
             }
 
             var oldDefault = _preferences.DefaultAuth;
-            var newDefault = item.Secret.GetHashCode();
+            var newDefault = HashUtil.Sha1(item.Secret);
 
             if (oldDefault == newDefault)
             {
@@ -377,13 +365,16 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (oldDefault != null)
             {
-                var oldPosition = _authView.FindIndex(a => a.Secret.GetHashCode() == oldDefault);
+                var oldPosition = _authView.FindIndex(a => HashUtil.Sha1(a.Secret) == oldDefault);
 
                 if (oldPosition > -1)
                 {
                     _authListAdapter.NotifyItemChanged(oldPosition);
                 }
             }
+
+            var clazz = Java.Lang.Class.FromType(typeof(AuthTileService));
+            TileService.GetUpdater(this).RequestUpdate(clazz);
         }
 
         #endregion
@@ -442,14 +433,14 @@ namespace AuthenticatorPro.WearOS.Activity
 
             if (_authCache.Dirty(bundle.Authenticators, new WearAuthenticatorComparer()))
             {
-                await _authCache.Replace(bundle.Authenticators);
+                await _authCache.ReplaceAsync(bundle.Authenticators);
                 _authView.Update();
                 RunOnUiThread(_authListAdapter.NotifyDataSetChanged);
             }
 
             if (_categoryCache.Dirty(bundle.Categories, new WearCategoryComparer()))
             {
-                await _categoryCache.Replace(bundle.Categories);
+                await _categoryCache.ReplaceAsync(bundle.Categories);
                 _categoryView.Update();
                 RunOnUiThread(_categoryListAdapter.NotifyDataSetChanged);
             }
