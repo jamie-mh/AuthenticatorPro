@@ -4,6 +4,7 @@
     <string name="warning">Waarschuwing</string>
     <string name="delete">Verwijderen</string>
     <string name="add">Toevoegen</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Annuleren</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
@@ -13,6 +14,7 @@
     <string name="retry">Probeer opnieuw</string>
     <string name="ignore">Negeren</string>
     <string name="disable">Uitschakelen</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Instellingen</string>
     <string name="restore">Herstellen</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">Geen categorieën</string>
     <string name="noCategoriesMessage">U heeft nog geen categorieën ingesteld</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Categorieën</string>
     <string name="assignCategories">Categorie toewijzen</string>
     <string name="more">Meer</string>
     <string name="categoryAll">Alles</string>
     <string name="editCategories">Categorieën bewerken</string>
-    <string name="categoryNameHint">Categorienaam</string>
     <string name="noCategoryName">Categorienaam is vereist</string>
     <string name="duplicateCategory">Er bestaat al een categorie met deze naam</string>
     <string name="confirmCategoryDelete">Weet u zeker dat u deze categorie wil verwijderen?</string>
@@ -177,7 +179,6 @@
     <string name="tooManyAttempts">Te veel mislukte pogingen</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importeren uit andere apps</string>
-    <string name="importFrom">Importeren uit</string>
     <string name="importError">Het bestand kon niet worden geïmporteerd</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
@@ -241,6 +242,8 @@
     <string name="prefViewModeSummary">Kies een weergavemodus voor de authenticatorlijst</string>
     <string name="prefCodeGroupSizeTitle">Groepsgrootte voor codes</string>
     <string name="prefCodeGroupSizeSummary">Verander de groepering van cijfers in een code</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Accentkleur</string>
     <string name="prefAccentColourSummary">Kies een accentkleur die je in de app wilt gebruiken</string>
     <string name="prefTransparentStatusBarTitle">Transparante Status Balk</string>
