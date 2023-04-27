@@ -28,6 +28,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     internal class AutoBackupSetupBottomSheet : BottomSheet
     {
         private PreferenceWrapper _preferences;
+        private SecureStorageWrapper _secureStorageWrapper;
+        
         private ActivityResultLauncher _locationSelectResultLauncher;
         private ActivityResultLauncher _showNotificationsResultLauncher;
 
@@ -43,6 +45,9 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
+            _preferences = new PreferenceWrapper(RequireContext());
+            _secureStorageWrapper = new SecureStorageWrapper(RequireContext());
 
             var locationSelectCallback = new ActivityResultCallback();
             locationSelectCallback.Result += OnLocationSelectResult;
@@ -61,8 +66,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
-
-            _preferences = new PreferenceWrapper(Context);
 
             var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
             selectLocationButton.Click += OnSelectLocationClick;
@@ -211,13 +214,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             fragment.Show(activity.SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnPasswordEntered(object sender, string password)
+        private void OnPasswordEntered(object sender, string password)
         {
             _preferences.AutoBackupPasswordProtected = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchAndTriggerButton();
-            await SecureStorageWrapper.SetAutoBackupPassword(password);
+            _secureStorageWrapper.SetAutoBackupPassword(password);
         }
 
         private void UpdateLocationStatusText()

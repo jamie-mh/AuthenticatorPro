@@ -9,6 +9,7 @@ using Android.Widget;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;

@@ -46,7 +46,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Configuration = Android.Content.Res.Configuration;
 using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
@@ -135,9 +134,11 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly IAuthenticatorView _authenticatorView;
 
         // State
+        private SecureStorageWrapper _secureStorageWrapper;
+        private PreferenceWrapper _preferences;
+        
         private readonly IIconResolver _iconResolver;
         private readonly ICustomIconDecoder _customIconDecoder;
-        private PreferenceWrapper _preferences;
 
         private Timer _timer;
         private DateTime _pauseTime;
@@ -150,9 +151,10 @@ namespace AuthenticatorPro.Droid.Activity
 
         public MainActivity() : base(Resource.Layout.activityMain)
         {
+            _database = Dependencies.Resolve<Database>();
+            
             _iconResolver = Dependencies.Resolve<IIconResolver>();
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
-            _database = Dependencies.Resolve<Database>();
             _backupEncryptions = Dependencies.ResolveAll<IBackupEncryption>();
 
             _authenticatorCategoryService = Dependencies.Resolve<IAuthenticatorCategoryService>();
@@ -175,8 +177,8 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnCreate(savedInstanceState);
 
-            Platform.Init(this, savedInstanceState);
             _preferences = new PreferenceWrapper(this);
+            _secureStorageWrapper = new SecureStorageWrapper(this);
 
             var windowFlags = WindowManagerFlags.Secure;
 
@@ -1735,7 +1737,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             if (_preferences.PasswordProtected && _preferences.DatabasePasswordBackup)
             {
-                var password = await SecureStorageWrapper.GetDatabasePassword();
+                var password = _secureStorageWrapper.GetDatabasePassword();
                 await DoBackup(password);
                 return;
             }

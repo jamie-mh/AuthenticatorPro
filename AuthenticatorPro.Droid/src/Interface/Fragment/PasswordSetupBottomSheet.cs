@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
+using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
@@ -16,6 +17,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     {
         private readonly Database _database;
         private PreferenceWrapper _preferences;
+        private SecureStorageWrapper _secureStorageWrapper;
+        
         private bool _hasPassword;
 
         private ProgressBar _progressBar;
@@ -30,13 +33,20 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _database = Dependencies.Resolve<Database>();
         }
 
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            
+            _preferences = new PreferenceWrapper(RequireContext());
+            _hasPassword = _preferences.PasswordProtected;
+
+            _secureStorageWrapper = new SecureStorageWrapper(RequireContext());
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
             SetupToolbar(view, Resource.String.prefPasswordTitle);
-
-            _preferences = new PreferenceWrapper(Context);
-            _hasPassword = _preferences.PasswordProtected;
 
             _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
@@ -82,12 +92,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             try
             {
-                var currentPassword = await SecureStorageWrapper.GetDatabasePassword();
+                var currentPassword = _secureStorageWrapper.GetDatabasePassword();
                 await _database.SetPassword(currentPassword, newPassword);
 
                 try
                 {
-                    await SecureStorageWrapper.SetDatabasePassword(newPassword);
+                    _secureStorageWrapper.SetDatabasePassword(newPassword);
                 }
                 catch
                 {
