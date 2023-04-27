@@ -4,6 +4,7 @@
     <string name="warning">Внимание</string>
     <string name="delete">Удалить</string>
     <string name="add">Добавить</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Отменить</string>
     <string name="ok">Ок</string>
     <string name="yes">Да</string>
@@ -13,6 +14,7 @@
     <string name="retry">Повторить</string>
     <string name="ignore">Игнорировать</string>
     <string name="disable">Отключить</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -94,12 +96,12 @@
     <string name="noCategoriesTitle">Категории отсутствуют</string>
     <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
     <string name="more">Подробнее</string>
     <string name="categoryAll">Все</string>
     <string name="editCategories">Изменить категории</string>
-    <string name="categoryNameHint">Название категории</string>
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
     <string name="confirmCategoryDelete">Вы уверены в том, что хотите удалить эту категорию?</string>
@@ -177,7 +179,6 @@
     <string name="tooManyAttempts">Слишком много попыток</string>
     <!-- Import -->
     <string name="importFromOtherApps">Импорт из других приложений</string>
-    <string name="importFrom">Импортировать из</string>
     <string name="importError">Файл не может быть импортирован</string>
     <string name="importIncomplete">Импорт не завершен</string>
     <string name="importConversionError">Не удалось импортировать \"{0}\" из-за следующей ошибки: {1}</string>
@@ -241,6 +242,8 @@
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
     <string name="prefCodeGroupSizeTitle">Группировка кода</string>
     <string name="prefCodeGroupSizeSummary">Измените группировку цифр в коде</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Основной цвет</string>
     <string name="prefAccentColourSummary">Выберите основной цвет, который будет использоваться в приложении</string>
     <string name="prefTransparentStatusBarTitle">Прозрачная строка состояния</string>
