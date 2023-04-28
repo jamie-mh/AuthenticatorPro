@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Nejvíce kopírované</string>
     <string name="sortLeastCopied">Nejméně kopírované</string>
     <string name="sortCustom">Vlastní</string>
-    <string name="aboutSummary">Zobrazit informace o licenci</string>
+    <string name="aboutSummary">View about and license information</string>
     <string name="supportDevelopment">Podpořte vývoj</string>
     <string name="supportDevelopmentSummary">Podpořte další vývoj a aktualizace nákupem pomocí Buy Me a Coffee</string>
     <string name="rate">Ohodnotit</string>
