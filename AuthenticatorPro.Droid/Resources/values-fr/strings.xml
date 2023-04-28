@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Plus copié</string>
     <string name="sortLeastCopied">Moins copié</string>
     <string name="sortCustom">Personnalisé</string>
-    <string name="aboutSummary">Lire des informations sur l\'application est les licences open-source</string>
+    <string name="aboutSummary">View about and license information</string>
     <string name="supportDevelopment">Soutenir le développement</string>
     <string name="supportDevelopmentSummary">Soutenir le développement continu et les mises à jour avec Buy Me a Coffee</string>
     <string name="rate">Noter</string>
