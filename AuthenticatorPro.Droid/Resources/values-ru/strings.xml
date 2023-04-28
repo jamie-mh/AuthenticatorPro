@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Наиболее копируемое</string>
     <string name="sortLeastCopied">Наименее копируемое</string>
     <string name="sortCustom">Своя</string>
-    <string name="aboutSummary">Просмотр информации о приложении и лицензии.</string>
+    <string name="aboutSummary">View about and license information</string>
     <string name="supportDevelopment">Поддержать разработку</string>
     <string name="supportDevelopmentSummary">Поддержите постоянное развитие и обновления приложения через Buy Me a Coffee</string>
     <string name="rate">Оценить</string>
