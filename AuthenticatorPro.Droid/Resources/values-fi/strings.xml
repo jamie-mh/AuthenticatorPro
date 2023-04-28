@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Eniten kopioitu</string>
     <string name="sortLeastCopied">Eniten kopioitu</string>
     <string name="sortCustom">Mukautettu</string>
-    <string name="aboutSummary">Näytä sovellus- ja lisenssitiedot</string>
+    <string name="aboutSummary">View about and license information</string>
     <string name="supportDevelopment">Tue kehitystä</string>
     <string name="supportDevelopmentSummary">Tue jatkuvaa kehitystä ja päivityksiä \"Buy Me a Coffee\" -palvelulla</string>
     <string name="rate">Arvostele</string>
