@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Most copied</string>
     <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">사용자 지정</string>
-    <string name="aboutSummary">View about and license information</string>
+    <string name="aboutSummary">앱 및 라이선스 정보 보기</string>
     <string name="supportDevelopment">개발 지원</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffee로 지속적인 개발과 업데이트를 지원해주세요</string>
     <string name="rate">평가</string>
