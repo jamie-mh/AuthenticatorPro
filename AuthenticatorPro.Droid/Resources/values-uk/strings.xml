@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Most copied</string>
     <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Вручну</string>
-    <string name="aboutSummary">Інформація про застосунок та ліцензії</string>
+    <string name="aboutSummary">View about and license information</string>
     <string name="supportDevelopment">Підтримати розробку</string>
     <string name="supportDevelopmentSummary">Підтримайте сталу розробку та оновлення цього застосунку через Buy Me Coffee</string>
     <string name="rate">Оцінити</string>
