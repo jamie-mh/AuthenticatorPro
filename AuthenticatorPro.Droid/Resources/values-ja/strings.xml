@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Most copied</string>
     <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">カスタム</string>
-    <string name="aboutSummary">View about and license information</string>
+    <string name="aboutSummary">詳細とライセンス情報を表示する</string>
     <string name="supportDevelopment">開発を支援する</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffeeで継続的な開発と更新をサポートする</string>
     <string name="rate">評価する</string>
