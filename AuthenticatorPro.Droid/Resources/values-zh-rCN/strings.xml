@@ -36,7 +36,7 @@
     <string name="sortMostCopied">Most copied</string>
     <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">自定义</string>
-    <string name="aboutSummary">View about and license information</string>
+    <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="supportDevelopment">支持开发</string>
     <string name="supportDevelopmentSummary">觉得这个应用很不错？给我买杯咖啡吧！</string>
     <string name="rate">评分</string>
