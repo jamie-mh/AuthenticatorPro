@@ -235,7 +235,7 @@ namespace AuthenticatorPro.Droid
 
                 try
                 {
-                    await conn.ExecuteAsync($"PRAGMA rekey = {quoted}");
+                    await conn.ExecuteScalarAsync<string>($"PRAGMA rekey = {quoted}");
 
                     await Close(Origin.Other);
                     await Open(newPassword, Origin.Other);
