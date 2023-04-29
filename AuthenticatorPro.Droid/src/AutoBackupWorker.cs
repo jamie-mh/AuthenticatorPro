@@ -13,7 +13,6 @@ using AuthenticatorPro.Droid.Extension;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
-using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using System;
 using System.Linq;

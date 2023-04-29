@@ -71,10 +71,7 @@ namespace AuthenticatorPro.Core
 
             foreach (var groups in argMatches.Select(m => m.Groups))
             {
-                if (!args.ContainsKey(groups[1].Value))
-                {
-                    args.Add(groups[1].Value, groups[3].Value);
-                }
+                args.TryAdd(groups[1].Value, groups[3].Value);
             }
 
             // Get the issuer and username if possible
@@ -102,9 +99,9 @@ namespace AuthenticatorPro.Core
             }
             else
             {
-                if (args.ContainsKey("issuer"))
+                if (args.TryGetValue("issuer", out var issuerParam))
                 {
-                    issuer = args["issuer"];
+                    issuer = issuerParam;
                     username = issuerUsername;
                 }
                 else

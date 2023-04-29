@@ -28,8 +28,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private readonly int _layout;
         private readonly int _title;
         
-        protected LayoutInflater StyledInflater;
-
         protected BottomSheet(int layout, int title)
         {
             _layout = layout;
@@ -97,7 +95,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)
         {
-            var adapter = new SheetMenuAdapter(Context, items);
+            var adapter = new SheetMenuAdapter(items);
             adapter.ItemClicked += delegate
             {
                 Dismiss();

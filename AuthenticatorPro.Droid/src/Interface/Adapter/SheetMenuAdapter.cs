@@ -16,15 +16,13 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 {
     internal class SheetMenuAdapter : RecyclerView.Adapter
     {
-        private readonly Context _context;
         private readonly List<SheetMenuItem> _items;
 
         public event EventHandler ItemClicked;
         public override int ItemCount => _items.Count;
 
-        public SheetMenuAdapter(Context context, List<SheetMenuItem> items)
+        public SheetMenuAdapter(List<SheetMenuItem> items)
         {
-            _context = context;
             _items = items;
         }
 

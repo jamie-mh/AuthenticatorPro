@@ -39,7 +39,7 @@ namespace AuthenticatorPro.Test.Service
         public async Task ImportAsync_ok()
         {
             var data = new byte[] { 1, 2, 3 };
-            var password = "password";
+            const string password = "password";
 
             var conversionResult = new ConversionResult
             {

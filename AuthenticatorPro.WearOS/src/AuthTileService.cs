@@ -125,7 +125,7 @@ namespace AuthenticatorPro.WearOS
         protected override void OnTileEnterEvent(EventBuilders.TileEnterEvent requestParams)
         {
 #if DEBUG
-            Logger.Info($"Tile entered view");
+            Logger.Info("Tile entered view");
 #endif
 
             var clazz = Java.Lang.Class.FromType(typeof(AuthTileService));
@@ -314,7 +314,7 @@ namespace AuthenticatorPro.WearOS
         protected override IListenableFuture OnTileRequest(RequestBuilders.TileRequest request)
         {
 #if DEBUG
-            Logger.Info($"Tile requested");
+            Logger.Info("Tile requested");
 #endif
             
             var adapter = new TaskFutureAdapter<TileBuilders.Tile>(async delegate
