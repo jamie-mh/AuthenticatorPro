@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
+using Android.OS;
 using Android.Security.Keystore;
 using AndroidX.Preference;
 using Java.Security;
@@ -39,11 +40,30 @@ namespace AuthenticatorPro.Droid.Storage
         private static void GenerateKey()
         {
 #pragma warning disable CA1416
-            var spec = new KeyGenParameterSpec.Builder(KeyAlias, KeyStorePurpose.Encrypt | KeyStorePurpose.Decrypt)
-                .SetBlockModes(BlockMode)
-                .SetEncryptionPaddings(Padding)
-                .SetUserAuthenticationRequired(true)
-                .Build();
+            var specBuilder =
+                new KeyGenParameterSpec.Builder(KeyAlias, KeyStorePurpose.Encrypt | KeyStorePurpose.Decrypt)
+                    .SetBlockModes(BlockMode)
+                    .SetEncryptionPaddings(Padding)
+                    .SetUserAuthenticationRequired(true);
+
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
+            {
+                specBuilder = specBuilder.SetInvalidatedByBiometricEnrollment(true);
+            }
+
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.R)
+            {
+                specBuilder =
+                    specBuilder.SetUserAuthenticationParameters(0, (int) KeyPropertiesAuthType.BiometricStrong);
+            }
+            else
+            {
+#pragma warning disable CA1422
+                specBuilder = specBuilder.SetUserAuthenticationValidityDurationSeconds(-1);
+#pragma warning restore CA1422
+            }
+            
+            var spec = specBuilder.Build();
 #pragma warning restore CA1416
 
             var generator = KeyGenerator.GetInstance(Algorithm, KeyStoreName);
