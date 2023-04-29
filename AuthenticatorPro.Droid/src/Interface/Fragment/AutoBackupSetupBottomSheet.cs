@@ -33,6 +33,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         
         private ActivityResultLauncher _locationSelectResultLauncher;
         private ActivityResultLauncher _showNotificationsResultLauncher;
+        private Action _showNotificationsPromptCallback;
 
         private MaterialTextView _locationStatusText;
         private MaterialTextView _passwordStatusText;
@@ -57,7 +58,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 RegisterForActivityResult(new ActivityResultContracts.StartActivityForResult(), locationSelectCallback);
 
             var showNotificationsPermissionCallback = new ActivityResultCallback();
-            showNotificationsPermissionCallback.Result += OnShowNotificationsPermissionResult;
+            showNotificationsPermissionCallback.Result += delegate { _showNotificationsPromptCallback(); };
 
             _showNotificationsResultLauncher =
                 RegisterForActivityResult(new ActivityResultContracts.RequestPermission(), showNotificationsPermissionCallback);
@@ -140,11 +141,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             UpdateSwitchAndTriggerButton();
         }
 
-        private void OnShowNotificationsPermissionResult(object sender, Object obj)
-        {
-            ShowBatteryOptimisationDialog();
-        }
-
         private void OnSwitchClicked(object sender, EventArgs e)
         {
             if (!_backupEnabledSwitch.Checked)
@@ -154,6 +150,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
             {
+                _showNotificationsPromptCallback = ShowBatteryOptimisationDialog;
                 _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
             }
             else
@@ -164,13 +161,22 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private void OnBackupNowButtonClick(object sender, EventArgs e)
         {
-            _preferences.AutoBackupTrigger = true;
-            TriggerWork();
-            Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
+            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
+            {
+                _showNotificationsPromptCallback = BackupNow;
+                _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
+            }
+            else
+            {
+                BackupNow();
+            }
         }
 
-        private void TriggerWork()
+        private void BackupNow()
         {
+            _preferences.AutoBackupTrigger = true;
+            Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
+            
             var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
             var manager = WorkManager.GetInstance(RequireContext());
             manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace!, request);
