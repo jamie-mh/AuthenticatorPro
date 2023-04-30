@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importovať súbor bitwarden_export.json</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Importovať súbor TOTP_Backup.encrypt</string>
     <string name="uriList">Zoznam URI</string>
     <string name="uriListHint">Zoznam otpauth URI identifikátorov vo formáte čistého textu</string>
