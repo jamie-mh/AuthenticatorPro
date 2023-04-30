@@ -130,7 +130,7 @@ namespace AuthenticatorPro.Core.Converter
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
-                    _ => throw new ArgumentException($"Algorithm '{Algorithm}")
+                    _ => throw new ArgumentException($"Algorithm '{Algorithm}' not supported")
                 };
                 
                 string issuer;
