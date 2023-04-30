@@ -4,6 +4,7 @@
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1;
 using Org.BouncyCastle.Crypto;
@@ -258,8 +259,8 @@ namespace AuthenticatorPro.Core.Converter
                 
                 return new Authenticator
                 {
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Algorithm = algorithm,
                     Type = type,
                     Counter = Counter,

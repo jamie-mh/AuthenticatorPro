@@ -97,8 +97,8 @@ namespace AuthenticatorPro.Core.Converter
 
             var result = new Authenticator
             {
-                Issuer = issuer,
-                Username = username,
+                Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                Username = username.Truncate(Authenticator.UsernameMaxLength),
                 Algorithm = algorithm,
                 Type = type,
                 Secret = secret,

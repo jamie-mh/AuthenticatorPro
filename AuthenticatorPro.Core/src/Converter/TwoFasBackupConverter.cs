@@ -194,8 +194,8 @@ namespace AuthenticatorPro.Core.Converter
                 return new Authenticator
                 {
                     Secret = SecretUtil.Clean(Secret, type),
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Digits = Otp.Digits,
                     Period = Otp.Period,
                     Counter = Otp.Counter,

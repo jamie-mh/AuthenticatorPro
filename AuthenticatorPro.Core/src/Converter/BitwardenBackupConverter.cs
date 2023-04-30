@@ -110,8 +110,8 @@ namespace AuthenticatorPro.Core.Converter
                 {
                     return new Authenticator
                     {
-                        Issuer = Name,
-                        Username = Login.Username,
+                        Issuer = Name.Truncate(Authenticator.IssuerMaxLength),
+                        Username = Login.Username.Truncate(Authenticator.UsernameMaxLength),
                         Type = type,
                         Algorithm = Authenticator.DefaultAlgorithm,
                         Digits = type.GetDefaultDigits(),

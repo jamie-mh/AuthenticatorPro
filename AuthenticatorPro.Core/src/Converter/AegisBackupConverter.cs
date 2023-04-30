@@ -350,8 +350,8 @@ namespace AuthenticatorPro.Core.Converter
                     Secret = ConvertSecret(type),
                     Digits = Info.Digits,
                     Period = Info.Period,
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Counter = Info.Counter,
                     Icon = iconResolver.FindServiceKeyByName(issuer),
                     Pin = Info.Pin

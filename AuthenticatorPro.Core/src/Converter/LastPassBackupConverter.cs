@@ -154,8 +154,8 @@ namespace AuthenticatorPro.Core.Converter
                     Secret = SecretUtil.Clean(Secret, AuthenticatorType.Totp),
                     Digits = Digits,
                     Period = TimeStep,
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Icon = iconResolver.FindServiceKeyByName(issuer)
                 };
             }
