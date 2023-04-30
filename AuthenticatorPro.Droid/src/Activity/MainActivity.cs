@@ -97,9 +97,10 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestImportAegis = 12;
         private const int RequestImportBitwarden = 13;
         private const int RequestImportTwoFas = 14;
-        private const int RequestImportWinAuth = 15;
-        private const int RequestImportTotpAuthenticator = 16;
-        private const int RequestImportUriList = 17;
+        private const int RequestImportLastPass = 15;
+        private const int RequestImportWinAuth = 16;
+        private const int RequestImportTotpAuthenticator = 17;
+        private const int RequestImportUriList = 18;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -409,6 +410,10 @@ namespace AuthenticatorPro.Droid.Activity
 
                 case RequestImportTwoFas:
                     await ImportFromUri(new TwoFasBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportLastPass:
+                    await ImportFromUri(new LastPassBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportWinAuth:
@@ -1440,6 +1445,11 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.TwoFasClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportTwoFas);
+            };
+            
+            fragment.LastPassClicked += delegate
+            {
+                StartFilePickActivity("*/*", RequestImportLastPass);
             };
 
             fragment.AuthyClicked += delegate
