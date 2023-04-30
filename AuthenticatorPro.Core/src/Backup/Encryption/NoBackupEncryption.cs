@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Newtonsoft.Json;
+using System;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,23 @@ namespace AuthenticatorPro.Core.Backup.Encryption
         {
             var json = Encoding.UTF8.GetString(data);
             return Task.FromResult(JsonConvert.DeserializeObject<Backup>(json));
+        }
+
+        public bool CanBeDecrypted(byte[] data)
+        {
+            Backup backup;
+
+            try
+            {
+                var json = Encoding.UTF8.GetString(data);
+                backup = JsonConvert.DeserializeObject<Backup>(json);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return backup.Authenticators != null;
         }
     }
 }

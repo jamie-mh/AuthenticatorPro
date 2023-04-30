@@ -1482,7 +1482,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task<RestoreResult> DecryptAndRestore(byte[] data, string password)
         {
-            foreach (var encryption in _backupEncryptions)
+            foreach (var encryption in _backupEncryptions.Where(e => e.CanBeDecrypted(data)))
             {
                 Backup backup;
 
@@ -1492,7 +1492,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Warn(e);
+                    Logger.Warn($"Unable to decrypt with {encryption}", e);
                     continue;
                 }
 
@@ -1549,7 +1549,9 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if (data.Length == 0)
+            var supportedEncryptions = _backupEncryptions.Where(e => e.CanBeDecrypted(data));
+
+            if (!supportedEncryptions.Any())
             {
                 ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                 SetLoading(false);

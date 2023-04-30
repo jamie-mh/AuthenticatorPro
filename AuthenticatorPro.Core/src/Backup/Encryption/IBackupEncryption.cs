@@ -9,5 +9,6 @@ namespace AuthenticatorPro.Core.Backup.Encryption
     {
         public Task<byte[]> EncryptAsync(Backup backup, string password);
         public Task<Backup> DecryptAsync(byte[] data, string password);
+        public bool CanBeDecrypted(byte[] data);
     }
 }
