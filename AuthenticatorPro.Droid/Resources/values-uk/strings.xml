@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
     <string name="winAuthImportHint">Імпорт файлу winauth.txt або winauth.zip</string>
     <string name="twoFasImportHint">Імпортувати файл 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Імпортувати файл TOTP_backup.encrypt</string>
     <string name="uriList">Перелік URI</string>
     <string name="uriListHint">Простий текстовий список URI otpauth://</string>
