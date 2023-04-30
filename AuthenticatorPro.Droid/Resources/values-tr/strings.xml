@@ -193,6 +193,7 @@
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
     <string name="uriListHint">Otpauth bağlantılarının düz metin listesi</string>
