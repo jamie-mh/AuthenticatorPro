@@ -16,7 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:labelVisibilityMode="unlabeled"
-        app:itemIconTint="@drawable/intronavcolours"
         app:elevation="30dp"
         app:menu="@menu/intro"/>
 

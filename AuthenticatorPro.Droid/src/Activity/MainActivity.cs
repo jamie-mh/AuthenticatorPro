@@ -97,9 +97,10 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestImportAegis = 12;
         private const int RequestImportBitwarden = 13;
         private const int RequestImportTwoFas = 14;
-        private const int RequestImportWinAuth = 15;
-        private const int RequestImportTotpAuthenticator = 16;
-        private const int RequestImportUriList = 17;
+        private const int RequestImportLastPass = 15;
+        private const int RequestImportWinAuth = 16;
+        private const int RequestImportTotpAuthenticator = 17;
+        private const int RequestImportUriList = 18;
 
         // Views
         private CoordinatorLayout _coordinatorLayout;
@@ -409,6 +410,10 @@ namespace AuthenticatorPro.Droid.Activity
 
                 case RequestImportTwoFas:
                     await ImportFromUri(new TwoFasBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportLastPass:
+                    await ImportFromUri(new LastPassBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportWinAuth:
@@ -1441,6 +1446,11 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 StartFilePickActivity("*/*", RequestImportTwoFas);
             };
+            
+            fragment.LastPassClicked += delegate
+            {
+                StartFilePickActivity("*/*", RequestImportLastPass);
+            };
 
             fragment.AuthyClicked += delegate
             {
@@ -1472,7 +1482,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task<RestoreResult> DecryptAndRestore(byte[] data, string password)
         {
-            foreach (var encryption in _backupEncryptions)
+            foreach (var encryption in _backupEncryptions.Where(e => e.CanBeDecrypted(data)))
             {
                 Backup backup;
 
@@ -1482,7 +1492,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Warn(e);
+                    Logger.Warn($"Unable to decrypt with {encryption}", e);
                     continue;
                 }
 
@@ -1539,7 +1549,9 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            if (data.Length == 0)
+            var supportedEncryptions = _backupEncryptions.Where(e => e.CanBeDecrypted(data));
+
+            if (!supportedEncryptions.Any())
             {
                 ShowSnackbar(Resource.String.invalidFileError, Snackbar.LengthShort);
                 SetLoading(false);

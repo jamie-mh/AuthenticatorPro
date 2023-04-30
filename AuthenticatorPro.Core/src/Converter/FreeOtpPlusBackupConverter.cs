@@ -4,6 +4,7 @@
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using SimpleBase;
 using System;
@@ -117,8 +118,8 @@ namespace AuthenticatorPro.Core.Converter
 
                 return new Authenticator
                 {
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Algorithm = algorithm,
                     Type = type,
                     Counter = Counter,

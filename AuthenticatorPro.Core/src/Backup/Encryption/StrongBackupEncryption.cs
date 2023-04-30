@@ -7,7 +7,6 @@ using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -87,7 +86,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
                 throw new ArgumentException("Cannot decrypt without a password");
             }
 
-            if (!HasValidEncryptionHeader(data))
+            if (!CanBeDecrypted(data))
             {
                 throw new ArgumentException("Header does not match");
             }
@@ -122,7 +121,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             return JsonConvert.DeserializeObject<Backup>(json);
         }
 
-        private static bool HasValidEncryptionHeader(IEnumerable<byte> data)
+        public bool CanBeDecrypted(byte[] data)
         {
             var foundHeader = data.Take(Header.Length).ToArray();
             var headerBytes = Encoding.UTF8.GetBytes(Header);

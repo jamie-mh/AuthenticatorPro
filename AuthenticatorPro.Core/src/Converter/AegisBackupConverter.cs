@@ -326,7 +326,7 @@ namespace AuthenticatorPro.Core.Converter
                     "SHA512" => HashAlgorithm.Sha512,
                     // Unused field for this type
                     "MD5" when type == AuthenticatorType.MobileOtp => Authenticator.DefaultAlgorithm,
-                    _ => throw new ArgumentException($"Algorithm '{Info.Algorithm}")
+                    _ => throw new ArgumentException($"Algorithm '{Info.Algorithm}' not supported")
                 };
 
                 string issuer;
@@ -350,8 +350,8 @@ namespace AuthenticatorPro.Core.Converter
                     Secret = ConvertSecret(type),
                     Digits = Info.Digits,
                     Period = Info.Period,
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Counter = Info.Counter,
                     Icon = iconResolver.FindServiceKeyByName(issuer),
                     Pin = Info.Pin

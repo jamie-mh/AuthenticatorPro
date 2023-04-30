@@ -22,7 +22,7 @@
             android:layout_height="64dp"
             android:layout_gravity="center"
             android:id="@+id/image"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/big_ic_logo"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"

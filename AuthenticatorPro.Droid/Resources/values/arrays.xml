@@ -28,7 +28,7 @@
         <item>@string/introThemesSummary</item>
     </string-array>
     <integer-array name="introImage">
-        <item>@mipmap/ic_launcher</item>
+        <item>@drawable/big_ic_logo</item>
         <item>@drawable/big_ic_lock</item>
         <item>@drawable/big_ic_cloud</item>
         <item>@drawable/big_ic_category</item>
