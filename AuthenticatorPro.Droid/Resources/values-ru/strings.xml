@@ -4,6 +4,7 @@
     <string name="warning">Внимание</string>
     <string name="delete">Удалить</string>
     <string name="add">Добавить</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Отменить</string>
     <string name="ok">Ок</string>
     <string name="yes">Да</string>
@@ -13,6 +14,7 @@
     <string name="retry">Повторить</string>
     <string name="ignore">Игнорировать</string>
     <string name="disable">Отключить</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -20,21 +22,21 @@
     <string name="about">О приложении</string>
     <string name="scanQrCode">Сканировать QR-код</string>
     <string name="showQrCode">Показать QR-код</string>
-    <string name="scanQrCodeFromCamera">Сканировать с камеры</string>
-    <string name="scanQrCodeFromGallery">Сканировать из галереи</string>
+    <string name="scanQrCodeFromCamera">С помощью камеры</string>
+    <string name="scanQrCodeFromGallery">Из галереи</string>
     <string name="rename">Переименовать</string>
     <string name="changeIcon">Изменить иконку</string>
     <string name="search">Поиск</string>
     <string name="mainMenu">Главное меню</string>
-    <string name="enterKey">Введите предоставленный ключ</string>
-    <string name="restoreBackup">Восстановление резервной копии</string>
+    <string name="enterKey">Ввести указанный ключ</string>
+    <string name="restoreBackup">Восстановить из резервной копии</string>
     <string name="sort">Сортировка</string>
-    <string name="sortAZ">По алфавитному порядку (А-Я)</string>
-    <string name="sortZA">По алфавитному порядку (Я-А)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
-    <string name="sortCustom">Пользовательский</string>
-    <string name="aboutSummary">Просмотр информации о приложении и лицензии.</string>
+    <string name="sortAZ">По названию (А-Я)</string>
+    <string name="sortZA">По названию (Я-А)</string>
+    <string name="sortMostCopied">Наиболее копируемое</string>
+    <string name="sortLeastCopied">Наименее копируемое</string>
+    <string name="sortCustom">Своя</string>
+    <string name="aboutSummary">Просмотр информации о приложении и лицензии</string>
     <string name="supportDevelopment">Поддержать разработку</string>
     <string name="supportDevelopmentSummary">Поддержите постоянное развитие и обновления приложения через Buy Me a Coffee</string>
     <string name="rate">Оценить</string>
@@ -74,6 +76,9 @@
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, просканировав QR-код</string>
     <string name="qrCodeNotSupported">QR-коды не поддерживаются для данного типа</string>
+    <string name="copyUri">Скопировать URI</string>
+    <string name="copyUriWarning">Этот URI содержит секретный ключ в открытом виде. Будьте осторожны, вставляя эту информацию.\n\nПродолжить?</string>
+    <string name="uriCopiedToClipboard">Ссылка скопирована в буфер обмена</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл может быть восстановлен внутри приложения.</string>
@@ -84,19 +89,19 @@
     <string name="backupUriListMessage">Сохраните ваши аутентификаторы в незашифрованном текстовом файле списке URI. Этот файл совместим со многими альтернативными приложениями и услугами. Категории и иконки не сохраняются.</string>
     <string name="backupUriListWarning">Резервные копии в текстовые файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и в нём не сохраняются категории и иконки. Если не уверены, то вместо этого выберите резервное копирование в зашифрованный файл.\n\nПродолжить?</string>
     <!-- Empty states -->
-    <string name="noAuthenticatorsTitle">Пустовато у вас тут, однако...</string>
+    <string name="noAuthenticatorsTitle">Пусто!</string>
     <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
     <string name="gettingStartedGuide">Руководство по началу работы</string>
-    <string name="noAuthenticatorsHelp">Если вы новичок в Authenticator Pro, просмотрите начальное руководство, нажав ниже.</string>
+    <string name="noAuthenticatorsHelp">Если вы впервые используете Authenticator Pro, ознакомьтесь с руководством по началу работы, нажав на кнопку ниже.</string>
     <string name="noCategoriesTitle">Категории отсутствуют</string>
     <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
     <string name="more">Подробнее</string>
     <string name="categoryAll">Все</string>
     <string name="editCategories">Изменить категории</string>
-    <string name="categoryNameHint">Название категории</string>
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
     <string name="confirmCategoryDelete">Вы уверены в том, что хотите удалить эту категорию?</string>
@@ -173,20 +178,19 @@
     <string name="passwordIncorrect">Неверный пароль</string>
     <string name="tooManyAttempts">Слишком много попыток</string>
     <!-- Import -->
-    <string name="importFromOtherApps">Импортировать из других приложений</string>
-    <string name="importFrom">Импортировать из</string>
+    <string name="importFromOtherApps">Импорт из других приложений</string>
     <string name="importError">Файл не может быть импортирован</string>
     <string name="importIncomplete">Импорт не завершен</string>
     <string name="importConversionError">Не удалось импортировать \"{0}\" из-за следующей ошибки: {1}</string>
     <string name="authenticatorPlusImportHint">Импортировать файл authplus.db</string>
     <string name="andOtpImportHint">Импортировать файл otp_accounts.json</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="freeOtpImportHint">Импорт файла externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
     <string name="aegisImportHint">Импортировать файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (простой текст)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="winAuthImportHint">Импорт файла winauth.txt или winauth.zip</string>
+    <string name="twoFasImportHint">Импорт файла 2fas-backup.2fas</string>
     <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
     <string name="uriList">Список URl</string>
     <string name="uriListHint">Простой текстовый список отрывных URI</string>
@@ -210,17 +214,16 @@
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
     <string name="prefGeneral">Основные</string>
-    <string name="prefShowBackupRemindersTitle">Показывать напоминания о резервных копиях</string>
-    <string name="prefShowBackupRemindersSummary">Напоминает вам о резервном копировании ваших аутентификаторов при внесении важных изменений.
-    </string>
+    <string name="prefShowBackupRemindersTitle">Напоминания о резервном копировании</string>
+    <string name="prefShowBackupRemindersSummary">Напоминание о необходимости создания резервной копии аутентификаторов в случае внесения важных изменений</string>
     <string name="prefAutoBackupTitle">Автоматическое резервное копирование</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Автоматическое резервное копирование в определённое место при внесении изменений. Отключает напоминания о резервном копировании.</string>
     <string name="prefLanguageTitle">Язык</string>
     <string name="prefLanguageSummary">Выберите язык, который будет использоваться в приложении</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefTapToCopyTitle">Копировать нажатием</string>
+    <string name="prefTapToCopySummary">Копируйте код в буфер обмена при нажатии</string>
+    <string name="prefResetCopyCountTitle">Сбросить счётчик копирований</string>
+    <string name="prefResetCopyCountSummary">Очистить количество раз, когда каждый аутентификатор был скопирован</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Запрашивать пароль для доступа к аутентификаторам. База данных будет зашифрована с помощью пароля.</string>
@@ -228,10 +231,10 @@
     <string name="prefDatabasePasswordBackupSummary">Шифровать все резервные копии, используя пароль базы данных, чтобы не вводить его каждый раз</string>
     <string name="prefAllowBiometricsTitle">Биометрическая разблокировка</string>
     <string name="prefAllowBiometricsSummary">Разрешить разблокировку базы данных с помощью биометрической аутентификации</string>
-    <string name="prefTimeoutTitle">Время ожидания истекло</string>
+    <string name="prefTimeoutTitle">Окончание времени ожидания</string>
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
-    <string name="prefTapToRevealTitle">Показывать при нажатии</string>
-    <string name="prefTapToRevealSummary">Коды не отображаются, пока на них не нажать. Коды исчезнут через несколько секунд.</string>
+    <string name="prefTapToRevealTitle">Отображать коды нажатием</string>
+    <string name="prefTapToRevealSummary">Коды будут скрыты, пока на них не нажмёшь. Через несколько секунд после нажатия, они снова скроются.</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
@@ -239,11 +242,13 @@
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
     <string name="prefCodeGroupSizeTitle">Группировка кода</string>
     <string name="prefCodeGroupSizeSummary">Измените группировку цифр в коде</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Основной цвет</string>
     <string name="prefAccentColourSummary">Выберите основной цвет, который будет использоваться в приложении</string>
     <string name="prefTransparentStatusBarTitle">Прозрачная строка состояния</string>
     <string name="prefTransparentStatusBarSummary">Сделать список видимым за строкой состояния при прокрутке</string>
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Сбросить счётчик копирований</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
@@ -284,12 +289,12 @@
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Добро пожаловать в Authenticator Pro</string>
     <string name="introCompatibilityTitle">TOTP / HOTP / mOTP аутентификация</string>
-    <string name="introBackupTitle">Резервная копия / восстановление</string>
+    <string name="introBackupTitle">Резервное копирование / восстановление</string>
     <string name="introCategoriesTitle">Категории</string>
     <string name="introThemesTitle">Тёмная тема</string>
-    <string name="introWelcomeSummary">Спасибо за загрузку Authenticator Pro.\nСохраните ваши онлайн аккаунты в безопасности с помощью лучшего приложения для аутентификации с открытым исходным кодом.</string>
+    <string name="introWelcomeSummary">Благодарим за скачивание Authenticator Pro.\nСохраняйте безопасность и защиту своих аккаунтов в сети с помощью лучшего приложения для аутентификации с открытым исходным кодом.</string>
     <string name="introCompatibilitySummary">Authenticator Pro совместим с большинством провайдеров и аккаунтов. Он на 100% совместим с сервисами Google Authenticator.</string>
-    <string name="introBackupSummary">Сделайте резервную копию ваших аутентификаторов с надежным шифрованием. В случае, если вы потеряете устройство, вы всегда можете получить доступ к вашим аккаунтам. Сохраните их в облачное хранилище или на устройство.</string>
-    <string name="introCategoriesSummary">Разместите ваши аутентификаторы по категориям и даже измените их порядок простым удерживанием и перетаскиванием.</string>
-    <string name="introThemesSummary">При желании можно включить темную тему в настройках. Все иконки будут адаптироваться к их новому фону.</string>
+    <string name="introBackupSummary">Делайте резервное копирование ваших аутентификаторов с надёжным шифрованием. В случае потери устройства вы всегда сможете получить доступ к своим аккаунтам. Сохраняйте их в облачном хранилище или на своём устройстве.</string>
+    <string name="introCategoriesSummary">Организовывайте свои аутентификаторы по категориям и даже изменяйте их порядок простым удержанием и перетаскиванием.</string>
+    <string name="introThemesSummary">В любое время в настройках можно включить тёмную тему. Все значки будут адаптированы под новый фон.</string>
 </resources>

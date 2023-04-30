@@ -4,6 +4,7 @@
     <string name="warning">Advertencia</string>
     <string name="delete">Eliminar</string>
     <string name="add">Añadir</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Cancelar</string>
     <string name="ok">ok</string>
     <string name="yes">Sí</string>
@@ -13,6 +14,7 @@
     <string name="retry">Reintentar</string>
     <string name="ignore">Ignorar</string>
     <string name="disable">Deshabilitar</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Configuración</string>
     <string name="restore">Restaurar</string>
@@ -34,7 +36,7 @@
     <string name="sortMostCopied">Most copied</string>
     <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">Personalizado</string>
-    <string name="aboutSummary">Ver información de Aplicación y Licencias.</string>
+    <string name="aboutSummary">Ver información de Aplicación y Licencias</string>
     <string name="supportDevelopment">Apoyar el desarrollo</string>
     <string name="supportDevelopmentSummary">Apoya el desarrollo continuo y las actualizaciones comprándome una taza de café</string>
     <string name="rate">Valorar</string>
@@ -74,6 +76,9 @@
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copiar este autenticador a otro dispositivo o aplicación escaneando el código QR</string>
     <string name="qrCodeNotSupported">Codigo QR no es compatible con este dispositivo</string>
+    <string name="copyUri">Copiar URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copiado al portapapeles</string>
     <!-- Backup menu -->
     <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
     <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
@@ -91,12 +96,12 @@
     <string name="noCategoriesTitle">Sin categorías</string>
     <string name="noCategoriesMessage">Aún no tiene ninguna Categoría configurada.</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Categorías</string>
     <string name="assignCategories">Asignar Categorías</string>
     <string name="more">Más</string>
     <string name="categoryAll">Todo</string>
     <string name="editCategories">Editar categorías</string>
-    <string name="categoryNameHint">Nombre de Categoría</string>
     <string name="noCategoryName">Un nombre de Categoría es requerido.</string>
     <string name="duplicateCategory">Una Categoría con este nombre ya existe.</string>
     <string name="confirmCategoryDelete">¿Está seguro que desea eliminar esta categoría?</string>
@@ -176,7 +181,6 @@
     <string name="tooManyAttempts">Demasiados intentos</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importar desde otras aplicaciones</string>
-    <string name="importFrom">Importar desde</string>
     <string name="importError">No se ha podido importar el archivo</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
@@ -241,6 +245,8 @@
     <string name="prefViewModeSummary">Elija un modo de vista para la lista de autenticadores.</string>
     <string name="prefCodeGroupSizeTitle">Tamaño de Código del grupo</string>
     <string name="prefCodeGroupSizeSummary">Cambiar la agrupación de dígitos en un código</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Color de acento</string>
     <string name="prefAccentColourSummary">Elige un idioma para usar en la aplicación</string>
     <string name="prefTransparentStatusBarTitle">Barra de estado transparente</string>

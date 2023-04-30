@@ -4,6 +4,7 @@
     <string name="warning">Увага</string>
     <string name="delete">Видалити</string>
     <string name="add">Додати</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Скасувати</string>
     <string name="ok">OK</string>
     <string name="yes">Так</string>
@@ -13,6 +14,7 @@
     <string name="retry">Повторити</string>
     <string name="ignore">Ігнорувати</string>
     <string name="disable">Вимкнути</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Налаштування</string>
     <string name="restore">Відновити</string>
@@ -74,6 +76,9 @@
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Перенесіть автентифікатор на інший пристрій зчитав QR-код</string>
     <string name="qrCodeNotSupported">QR-код для цього типу не підтримується</string>
+    <string name="copyUri">Копіювати URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">Збережено у буфері</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервне копіювання у зашифрований файл (рекомендовано)</string>
     <string name="backupToFileMessage">Збережіть всі ваші автентифікатори, категорії та іконки до зашифрованого файлу резервної копії. Цей файл можна буде відновити в додатку.</string>
@@ -91,12 +96,12 @@
     <string name="noCategoriesTitle">Немає категорій</string>
     <string name="noCategoriesMessage">У вас ще немає жодної категорії</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Категорії</string>
     <string name="assignCategories">Призначити категорії</string>
     <string name="more">Більше</string>
     <string name="categoryAll">Всі</string>
     <string name="editCategories">Змінити категорії</string>
-    <string name="categoryNameHint">Назва категорії</string>
     <string name="noCategoryName">Потрібна назва категорії</string>
     <string name="duplicateCategory">Категорія з такою назвою вже існує</string>
     <string name="confirmCategoryDelete">Ви впевнені, що хочете видалити цю категорію?</string>
@@ -174,7 +179,6 @@
     <string name="tooManyAttempts">Зроблено забагато спроб</string>
     <!-- Import -->
     <string name="importFromOtherApps">Імпортувати з інших додатків</string>
-    <string name="importFrom">Імпортувати з</string>
     <string name="importError">Файл не вдалося імпортувати</string>
     <string name="importIncomplete">Імпортування не завершене</string>
     <string name="importConversionError">Не вдалося імпортувати \"{0}\" через помилку, що виникла в процесі: {1}</string>
@@ -238,6 +242,8 @@
     <string name="prefViewModeSummary">Виберіть режим перегляду списку автентифікаторів</string>
     <string name="prefCodeGroupSizeTitle">Розмір групи кодів</string>
     <string name="prefCodeGroupSizeSummary">Змініть групування цифр у коді</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Основний колір</string>
     <string name="prefAccentColourSummary">Оберіть основний колір, який буде використано в усьому додатку</string>
     <string name="prefTransparentStatusBarTitle">Прозора панель стану</string>

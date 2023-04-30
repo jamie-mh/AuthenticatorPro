@@ -4,6 +4,7 @@
     <string name="warning">警告</string>
     <string name="delete">删除</string>
     <string name="add">添加</string>
+    <string name="edit">Edit</string>
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
     <string name="yes">是</string>
@@ -13,6 +14,7 @@
     <string name="retry">重试</string>
     <string name="ignore">忽略</string>
     <string name="disable">禁用</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
@@ -74,6 +76,9 @@
     <string name="qrCode">二维码</string>
     <string name="qrCodeHelp">通过扫描二维码将此验证器复制到另一个设备或应用程序</string>
     <string name="qrCodeNotSupported">不支持此类型的二维码</string>
+    <string name="copyUri">复制 URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI 已被复制到剪贴板</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
@@ -91,12 +96,12 @@
     <string name="noCategoriesTitle">暂无分类</string>
     <string name="noCategoriesMessage">您还没有设置分类。</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">分类</string>
     <string name="assignCategories">指定分类</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
     <string name="editCategories">编辑分类</string>
-    <string name="categoryNameHint">分类名</string>
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
     <string name="confirmCategoryDelete">您确定要删除这个分类吗？</string>
@@ -174,7 +179,6 @@
     <string name="tooManyAttempts">尝试次数过多</string>
     <!-- Import -->
     <string name="importFromOtherApps">从其他应用导入</string>
-    <string name="importFrom">导入自</string>
     <string name="importError">无法导入这个文件。</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
@@ -238,6 +242,8 @@
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
     <string name="prefCodeGroupSizeTitle">验证码分组</string>
     <string name="prefCodeGroupSizeSummary">更改验证码中数字的分组</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">主题色</string>
     <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
     <string name="prefTransparentStatusBarTitle">透明状态栏</string>

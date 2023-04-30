@@ -4,6 +4,7 @@
     <string name="warning">Atenção</string>
     <string name="delete">Apagar</string>
     <string name="add">Adicionar</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Cancelar</string>
     <string name="ok">OK</string>
     <string name="yes">Sim</string>
@@ -13,6 +14,7 @@
     <string name="retry">Repetir</string>
     <string name="ignore">Ignorar</string>
     <string name="disable">Desativar</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Definições</string>
     <string name="restore">Restaurar</string>
@@ -74,6 +76,9 @@
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicação, digitalizando o código QR</string>
     <string name="qrCodeNotSupported">Não são suportados códigos QR para este tipo</string>
+    <string name="copyUri">Copiar URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copiado para a área de transferência</string>
     <!-- Backup menu -->
     <string name="backupToFile">Cópia de segurança para ficheiro encriptado (recomendado)</string>
     <string name="backupToFileMessage">Faça cópia de segurança de todos os seus autenticadores, categorias e ícones num ficheiro encriptado. Ele pode ser restaurado dentro da aplicação.</string>
@@ -91,12 +96,12 @@
     <string name="noCategoriesTitle">Sem categorias</string>
     <string name="noCategoriesMessage">Ainda não criou nenhuma categoria</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Categorias</string>
     <string name="assignCategories">Atribuir categorias</string>
     <string name="more">Mais</string>
     <string name="categoryAll">Todos</string>
     <string name="editCategories">Editar categorias</string>
-    <string name="categoryNameHint">Nome da categoria</string>
     <string name="noCategoryName">É necessário dar um nome à categoria</string>
     <string name="duplicateCategory">Já existe uma categoria com este nome</string>
     <string name="confirmCategoryDelete">Tem a certeza de que quer eliminar esta categoria?</string>
@@ -174,7 +179,6 @@
     <string name="tooManyAttempts">Demasiadas tentativas</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importar a partir de outras aplicações</string>
-    <string name="importFrom">Importar de</string>
     <string name="importError">O ficheiro não pôde ser importado</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
@@ -238,6 +242,8 @@
     <string name="prefViewModeSummary">Escolha um modo de visualização para a lista de autenticadores</string>
     <string name="prefCodeGroupSizeTitle">Tamanho do grupo de códigos</string>
     <string name="prefCodeGroupSizeSummary">Alterar o agrupamento de dígitos de um código</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para utilizar em toda a aplicação</string>
     <string name="prefTransparentStatusBarTitle">Transparência da barra de estado</string>

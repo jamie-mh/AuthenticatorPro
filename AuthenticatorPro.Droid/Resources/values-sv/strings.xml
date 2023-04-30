@@ -4,6 +4,7 @@
     <string name="warning">Varning</string>
     <string name="delete">Radera</string>
     <string name="add">Lägg till</string>
+    <string name="edit">Edit</string>
     <string name="cancel">Avbryt</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
@@ -13,6 +14,7 @@
     <string name="retry">Försök igen</string>
     <string name="ignore">Ignorera</string>
     <string name="disable">Inaktivera</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">Inställningar</string>
     <string name="restore">Återställ</string>
@@ -74,6 +76,9 @@
     <string name="qrCode">QR-kod</string>
     <string name="qrCodeHelp">Kopiera denna autentiserare till en annan enhet eller app genom att skanna QR-koden</string>
     <string name="qrCodeNotSupported">QR-koder stöds inte för denna typ</string>
+    <string name="copyUri">Kopiera URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI har kopierats till urklipp</string>
     <!-- Backup menu -->
     <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
     <string name="backupToFileMessage">Säkerhetskopiera alla dina autentiserare, kategorier och ikoner till en krypterad fil. Filen kan återställas i appen.</string>
@@ -91,12 +96,12 @@
     <string name="noCategoriesTitle">Inga kategorier</string>
     <string name="noCategoriesMessage">Du har inte skapat några kategorier än</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">Kategorier</string>
     <string name="assignCategories">Ange kategorier</string>
     <string name="more">Mer</string>
     <string name="categoryAll">Alla</string>
     <string name="editCategories">Redigera kategorier</string>
-    <string name="categoryNameHint">Kategorinamn</string>
     <string name="noCategoryName">Kategorinamn måste anges</string>
     <string name="duplicateCategory">Det finns redan en kategori med detta namn</string>
     <string name="confirmCategoryDelete">Är du säker på att du vill ta bort denna kategori?</string>
@@ -174,7 +179,6 @@
     <string name="tooManyAttempts">För många försök</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importera från andra appar</string>
-    <string name="importFrom">Importera från</string>
     <string name="importError">Filen kunde inte importeras</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
@@ -238,6 +242,8 @@
     <string name="prefViewModeSummary">Välj visningsläge för listan över autentiserare</string>
     <string name="prefCodeGroupSizeTitle">Gruppering av kodsiffror</string>
     <string name="prefCodeGroupSizeSummary">Ändra hur siffrorna i koder grupperas</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Accentfärg</string>
     <string name="prefAccentColourSummary">Välj en accentfärg som ska synas i appen</string>
     <string name="prefTransparentStatusBarTitle">Genomskinligt statusfält</string>
