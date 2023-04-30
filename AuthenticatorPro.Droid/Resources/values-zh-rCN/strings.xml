@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
     <string name="uriList">URI 列表</string>
     <string name="uriListHint">纯文本的 otpauth URI列表</string>
