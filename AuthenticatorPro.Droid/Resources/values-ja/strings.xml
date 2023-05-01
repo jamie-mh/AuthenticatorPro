@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Playがデバイスにインストールされていません</string>
     <string name="filePickerMissing">ファイルピッカーを開けません。ファイルマネージャーがインストールされている必要があります。</string>
     <string name="filePickError">ファイルの読み込みエラー</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">選択されたファイルはAuthenticator Proのバックアップファイルではありません</string>
     <string name="webBrowserMissing">ウェブブラウザがインストールされていません</string>
     <string name="emailClientMissing">メールアプリがインストールされていません</string>
     <string name="genericError">エラーが発生しました</string>
