@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Tiedostoja ei voida valita. Tiedostonhallintasovellus on asennettava.</string>
     <string name="filePickError">Virhe tiedostoa valitessa</string>
-    <string name="invalidFileError">Valittu tiedosto ei ole Authenticator Pro -varmuuskopiotiedosto</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Selainta ei ole asennettu</string>
     <string name="emailClientMissing">Sähköpostisovellusta ei ole asennettu</string>
     <string name="genericError">Tapahtui virhe</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Lataa Wear OS -kumppanisovellus</string>
     <string name="guideWearOSSummary">Jos sinulla on Wear OS -kello, voit ladata sille kumppanisovelluksen. Näet koodit suoraan kellossasi.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi se. Koodi skannataan automaattisesti.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
     <!-- Preferences -->
