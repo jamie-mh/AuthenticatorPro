@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
     <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
     <string name="filePickError">파일 선택 오류</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">선택한 파일은 Authenticator Pro 백업 파일이 아닙니다</string>
     <string name="webBrowserMissing">설치한 웹 브라우저가 없습니다</string>
     <string name="emailClientMissing">설치한 이메일 앱이 없습니다</string>
     <string name="genericError">오류가 발생했습니다</string>
