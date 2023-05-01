@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Tiedostoja ei voida valita. Tiedostonhallintasovellus on asennettava.</string>
     <string name="filePickError">Virhe tiedostoa valitessa</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">Valittu tiedosto ei ole Authenticator Pro -varmuuskopiotiedosto</string>
     <string name="webBrowserMissing">Selainta ei ole asennettu</string>
     <string name="emailClientMissing">Sähköpostisovellusta ei ole asennettu</string>
     <string name="genericError">Tapahtui virhe</string>
