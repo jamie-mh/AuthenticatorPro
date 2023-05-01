@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
     <string name="filePickError">选择文件时出错。</string>
-    <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
     <string name="emailClientMissing">未安装电子邮件客户端</string>
     <string name="genericError">出现错误。</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">为了避免阴影和玻璃效果。按住设备将其移到距离代码大约15厘米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切换闪光灯</string>
     <!-- Preferences -->
