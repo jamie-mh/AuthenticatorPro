@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">متجر play غير مثَبت على جهازك</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error picking file</string>
-    <string name="invalidFileError">The selected file is not a Authenticator Pro backup file</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">لا يوجد أي متصفح ويب مُثبت</string>
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">حذث خطأ</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Download the Wear OS companion</string>
     <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Toggle flash</string>
     <!-- Preferences -->
