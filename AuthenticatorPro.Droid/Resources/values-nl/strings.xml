@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play is niet geïnstalleerd op uw apparaat</string>
     <string name="filePickerMissing">Kan de bestandskiezer niet openen. Een bestandsbeheerder moet worden geïnstalleerd.</string>
     <string name="filePickError">Fout bij het kiezen van bestand</string>
-    <string name="invalidFileError">Het geselecteerde bestand is geen Authenticator Pro back-up bestand</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Geen webbrowser geïnstalleerd</string>
     <string name="emailClientMissing">Geen e-mailclient geïnstalleerd</string>
     <string name="genericError">Er is een fout opgetreden</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Download de bijbehorende Wear OS app</string>
     <string name="guideWearOSSummary">Als je een Wear OS horloge hebt, kun je de bijbehorende app downloaden. Je kunt de codes dan direct op je horloge bekijken.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Probeer schaduwen en verblindingen te vermijden. Houd het apparaat ongeveer 15 cm van de code af.</string>
     <string name="toggleFlash">Flitslicht aan/uit</string>
     <!-- Preferences -->
