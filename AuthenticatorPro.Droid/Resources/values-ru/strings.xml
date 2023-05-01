@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
     <string name="filePickError">Ошибка при выборе файла.</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro</string>
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
     <string name="emailClientMissing">Не установлен клиент электронной почты</string>
     <string name="genericError">Произошла ошибка.</string>
