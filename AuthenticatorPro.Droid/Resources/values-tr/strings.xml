@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
     <string name="filePickError">Dosya seçilirken hata oluştu.</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil</string>
     <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
     <string name="emailClientMissing">Kurulu e-posta istemcisi yok</string>
     <string name="genericError">Bir hata meydana geldi.</string>
