@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play není v zařízení nainstalován</string>
     <string name="filePickerMissing">Nelze otevřít správce souborů. Správce souborů musí být nainstalován.</string>
     <string name="filePickError">Chyba při výběru souboru</string>
-    <string name="invalidFileError">Vybraný soubor není záložní soubor pro Authenticator Pro</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Není nainstalován žádný prohlížeč</string>
     <string name="emailClientMissing">Není nainstalován žádný emailový klient</string>
     <string name="genericError">Došlo k chybě</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Stáhnout doplněk Wear OS</string>
     <string name="guideWearOSSummary">Pokud máte hodinky s Wear OS, můžete si stáhnout doprovodnou aplikaci. Kódy můžete zobrazit přímo ve svých hodinkách.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Pokuste se vyhnout stínům a odleskům. Držte zařízení přibližně 6 palců (15 cm) od kódu.</string>
     <string name="toggleFlash">Přepnout blesk</string>
     <!-- Preferences -->
