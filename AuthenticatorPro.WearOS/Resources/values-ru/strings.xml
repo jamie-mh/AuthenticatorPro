@@ -6,7 +6,7 @@
     <string name="categoryAll">Все</string>
     <string name="offline">Оффлайн</string>
     <string name="syncFailed">Сбой синхронизации</string>
-    <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="noFavourite">Нет избранных</string>
+    <string name="noFavouriteMessage">Нажмите на аутентификатор в приложении для установки</string>
+    <string name="open">Открыть</string>
 </resources>
