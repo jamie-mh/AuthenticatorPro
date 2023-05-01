@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play není v zařízení nainstalován</string>
     <string name="filePickerMissing">Nelze otevřít správce souborů. Správce souborů musí být nainstalován.</string>
     <string name="filePickError">Chyba při výběru souboru</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">Vybraný soubor není záložní soubor pro Authenticator Pro</string>
     <string name="webBrowserMissing">Není nainstalován žádný prohlížeč</string>
     <string name="emailClientMissing">Není nainstalován žádný emailový klient</string>
     <string name="genericError">Došlo k chybě</string>
