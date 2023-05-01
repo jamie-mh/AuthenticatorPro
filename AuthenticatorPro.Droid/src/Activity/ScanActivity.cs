@@ -5,30 +5,36 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Util;
+using Android.Views;
 using AndroidX.Camera.Core;
 using AndroidX.Camera.Lifecycle;
 using AndroidX.Camera.View;
 using AndroidX.Core.Content;
-using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Interface.Analyser;
 using Google.Android.Material.Button;
 using Java.Util.Concurrent;
+using System;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     internal class ScanActivity : BaseActivity
     {
-        public ScanActivity() : base(Resource.Layout.activityScan)
-        {
-        }
+        private PreviewView _previewView;
+        private ICamera _camera;
+        private bool _isFlashOn;
+        
+        public ScanActivity() : base(Resource.Layout.activityScan) { }
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            var previewView = FindViewById<PreviewView>(Resource.Id.previewView);
+            _previewView = FindViewById<PreviewView>(Resource.Id.previewView);
+            _previewView.Touch += OnPreviewViewTouch;
+            
             var flashButton = FindViewById<MaterialButton>(Resource.Id.buttonFlash);
+            flashButton.Click += OnFlashButtonClick;
 
             var provider = (ProcessCameraProvider) await ProcessCameraProvider.GetInstance(this).GetAsync();
 
@@ -37,7 +43,7 @@ namespace AuthenticatorPro.Droid.Activity
                 .RequireLensFacing(CameraSelector.LensFacingBack)
                 .Build();
 
-            preview.SetSurfaceProvider(previewView.SurfaceProvider);
+            preview.SetSurfaceProvider(_previewView.SurfaceProvider);
 
 #if FDROID
             var analysis = new ImageAnalysis.Builder()
@@ -60,14 +66,30 @@ namespace AuthenticatorPro.Droid.Activity
             analysis.SetAnalyzer(ContextCompat.GetMainExecutor(this), analyser);
 #endif
             
-            var camera = provider.BindToLifecycle(this, selector, analysis, preview);
-            var isFlashOn = false;
+            _camera = provider.BindToLifecycle(this, selector, analysis, preview);
+        }
 
-            flashButton.Click += (_, _) =>
+        private void OnPreviewViewTouch(object sender, View.TouchEventArgs args)
+        {
+            if (args.Event?.Action != MotionEventActions.Up)
             {
-                isFlashOn = !isFlashOn;
-                camera.CameraControl.EnableTorch(isFlashOn);
-            };
+                return;
+            }
+
+            var factory = new SurfaceOrientedMeteringPointFactory(_previewView.Width, _previewView.Height);
+            var point = factory.CreatePoint(args.Event.GetX(), args.Event.GetY());
+            
+            var action = new FocusMeteringAction.Builder(point, FocusMeteringAction.FlagAf)
+                .DisableAutoCancel()
+                .Build();
+            
+            _camera.CameraControl.StartFocusAndMetering(action);
+        }
+
+        private void OnFlashButtonClick(object sender, EventArgs e)
+        {
+            _isFlashOn = !_isFlashOn;
+            _camera.CameraControl.EnableTorch(_isFlashOn);
         }
 
         private void OnQrCodeScanned(object sender, string qrCode)
