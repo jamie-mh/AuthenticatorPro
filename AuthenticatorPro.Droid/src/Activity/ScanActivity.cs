@@ -47,9 +47,7 @@ namespace AuthenticatorPro.Droid.Activity
 
 #if FDROID
             var analysis = new ImageAnalysis.Builder()
-                .SetTargetResolution(new Size(1280, 720))
                 .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
-                .SetOutputImageFormat(ImageAnalysis.OutputImageFormatRgba8888)
                 .Build();
             
             var analyser = new ZxingQrCodeImageAnalyser();
