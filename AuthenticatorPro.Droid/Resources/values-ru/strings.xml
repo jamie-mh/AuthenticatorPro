@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
     <string name="filePickError">Ошибка при выборе файла.</string>
-    <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
     <string name="emailClientMissing">Не установлен клиент электронной почты</string>
     <string name="genericError">Произошла ошибка.</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Наведите видоискатель на QR-код, чтобы отсканировать его. Сканирование произойдет автоматически.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
