@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
     <string name="filePickError">Ett fel uppstod när filen öppnades</string>
-    <string name="invalidFileError">Den valda filen är inte en Authenticator Pro-säkerhetskopia</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Ingen webbläsare installerad</string>
     <string name="emailClientMissing">Ingen e-postapp installerad</string>
     <string name="genericError">Ett fel uppstod</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
     <string name="guideWearOSSummary">Om du har en Wear OS-klocka kan du ladda ner appen och få dina koder direkt på klockan.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
     <!-- Preferences -->
