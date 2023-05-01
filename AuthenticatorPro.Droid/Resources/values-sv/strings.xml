@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
     <string name="filePickError">Ett fel uppstod när filen öppnades</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">Den valda filen är inte en Authenticator Pro-säkerhetskopia</string>
     <string name="webBrowserMissing">Ingen webbläsare installerad</string>
     <string name="emailClientMissing">Ingen e-postapp installerad</string>
     <string name="genericError">Ett fel uppstod</string>
