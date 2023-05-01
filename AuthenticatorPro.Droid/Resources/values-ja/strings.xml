@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Playがデバイスにインストールされていません</string>
     <string name="filePickerMissing">ファイルピッカーを開けません。ファイルマネージャーがインストールされている必要があります。</string>
     <string name="filePickError">ファイルの読み込みエラー</string>
-    <string name="invalidFileError">選択されたファイルはAuthenticator Proのバックアップファイルではありません</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">ウェブブラウザがインストールされていません</string>
     <string name="emailClientMissing">メールアプリがインストールされていません</string>
     <string name="genericError">エラーが発生しました</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Wear OS コンパニオンアプリをダウンロード</string>
     <string name="guideWearOSSummary">Wear OS ウォッチをお持ちの場合は、コンパニオンアプリをダウンロードできます。ウォッチでコードを直接確認できます。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QRコードをファインダーに入れてスキャンしてください。コードは自動的にスキャンされます。</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!-- Preferences -->
