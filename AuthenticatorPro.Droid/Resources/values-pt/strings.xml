@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de ficheiros. Deve ter um gestor de ficheiros instalado.</string>
     <string name="filePickError">Erro ao selecionar o ficheiro</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">O ficheiro seleccionado não é um ficheiro de cópia de segurança do Authenticator Pro</string>
     <string name="webBrowserMissing">Nenhum navegador instalado</string>
     <string name="emailClientMissing">Nenhum cliente de email instalado</string>
     <string name="genericError">Ocorreu um erro</string>
