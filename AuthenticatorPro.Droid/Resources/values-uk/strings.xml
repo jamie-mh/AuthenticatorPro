@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play не встановлений на вашому пристрої</string>
     <string name="filePickerMissing">Не вдалося відкрити вікно вибору файлу. Будь ласка, встановіть менеджер файлів.</string>
     <string name="filePickError">Помилка вибору файлу</string>
-    <string name="invalidFileError">Вибраний файл не є файлом резервної копії Authenticator Pro</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Браузер не встановлено</string>
     <string name="emailClientMissing">Не встановлено жодного клієнта електронної пошти</string>
     <string name="genericError">Виникла помилка</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Завантажити компанійський застосунок для Wear OS</string>
     <string name="guideWearOSSummary">Якщо у вас є годинник із Wear OS, ви можете завантажити компанійський застосунок. За його допомогою можна дивитися коди прямо на пристрої.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Розмістіть QR-код у віконці, щоб його сканувати. Код буде сканований автоматично.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Спробуйте уникнути тіней та відблисків. Тримайте пристрій на відстані близько 15 см (6 дюймів) від коду.</string>
     <string name="toggleFlash">Перемкнути ліхтарик</string>
     <!-- Preferences -->
