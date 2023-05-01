@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play nie jest zainstalowany na Twoim urządzeniu</string>
     <string name="filePickerMissing">Nie można otworzyć okna wybierania plików. Musi być zainstalowany menedżer plików.</string>
     <string name="filePickError">Błąd podczas wybierania pliku</string>
-    <string name="invalidFileError">Wybrany plik nie jest plikiem kopii zapasowej Authenticator Pro</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">Brak zainstalowanej przeglądarki</string>
     <string name="emailClientMissing">Nie zainstalowano klienta poczty</string>
     <string name="genericError">Wystąpił nieoczekiwany błąd</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Pobierz aplikację towarzyszącą Wear OS</string>
     <string name="guideWearOSSummary">Jeśli masz zegarek z Wear OS, możesz pobrać aplikację towarzyszącą. Możesz przeglądać kody bezpośrednio na zegarku.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Umieść kod QR w wizjerze, aby go zeskanować. Kod zostanie zeskanowany automatycznie.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!-- Preferences -->
