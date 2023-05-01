@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
     <string name="filePickerMissing">無法顯示檔案選擇介面。請安裝檔案管理器。</string>
     <string name="filePickError">選擇檔案時出錯。</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">選擇的檔案不是 Authenticator Pro 備份檔案。</string>
     <string name="webBrowserMissing">沒有檢測到已安裝的瀏覽器。</string>
     <string name="emailClientMissing">未安裝電子郵件客戶端</string>
     <string name="genericError">出現錯誤。</string>
