@@ -50,12 +50,14 @@ namespace AuthenticatorPro.Droid.Interface.Analyser
 
         private void Analyse(IImageProxy imageProxy)
         {
-            var rgbaPlane = imageProxy.Image.GetPlanes()[0];
+            var plane = imageProxy.Image.GetPlanes()[0];
 
-            var bytes = new byte[rgbaPlane.Buffer.Remaining()];
-            rgbaPlane.Buffer.Get(bytes);
+            var bytes = new byte[plane.Buffer.Capacity()];
+            plane.Buffer.Get(bytes);
 
-            var source = new RGBLuminanceSource(bytes, imageProxy.Width, imageProxy.Height, RGBLuminanceSource.BitmapFormat.RGBA32);
+            var source = new PlanarYUVLuminanceSource(
+                bytes, imageProxy.Width, imageProxy.Height, 0, 0, imageProxy.Width, imageProxy.Height, false);
+
             var result = _barcodeReader.Decode(source);
 
             if (result != null)
