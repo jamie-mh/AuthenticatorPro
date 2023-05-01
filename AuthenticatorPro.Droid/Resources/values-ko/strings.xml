@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
     <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
     <string name="filePickError">파일 선택 오류</string>
-    <string name="invalidFileError">선택한 파일은 Authenticator Pro 백업 파일이 아닙니다</string>
+    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
     <string name="webBrowserMissing">설치한 웹 브라우저가 없습니다</string>
     <string name="emailClientMissing">설치한 이메일 앱이 없습니다</string>
     <string name="genericError">오류가 발생했습니다</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Wear OS 전용 앱 다운로드</string>
     <string name="guideWearOSSummary">Wear OS 시계가 있다면 전용 앱을 다운로드 할 수 있습니다. 시계로 코드를 바로 볼 수 있습니다.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QR코드를 사각형에 맞추어 스캔하세요. 코드는 자동으로 스캔됩니다.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!-- Preferences -->
