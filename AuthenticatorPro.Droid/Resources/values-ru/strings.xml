@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Чтобы отсканировать QR-код, разместите его в сканере. Коснитесь экрана для фокусировки.</string>
     <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
