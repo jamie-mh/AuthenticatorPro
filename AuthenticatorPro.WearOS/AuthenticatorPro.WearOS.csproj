@@ -23,7 +23,7 @@
     </PackageReference>
     <PackageReference Include="Mono.AotProfiler.Android" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.5.1.2" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.6.1.1" />
     <PackageReference Include="Xamarin.AndroidX.Wear" Version="1.2.0.8" />
     <PackageReference Include="Xamarin.AndroidX.Wear.Tiles" Version="1.1.0" />
     <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.1.0" />
