@@ -1,0 +1,7 @@
+- Visual: Material You design with dynamic colour
+- New feature: Wear OS tile (replaces favourite system)
+- New feature: Import from FreeOTP
+- New feature: Import from LastPass Authenticator
+- General: Stronger backup encryption
+- General: 3 new icons
+- General: Translation updates
