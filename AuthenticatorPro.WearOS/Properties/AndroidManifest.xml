@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="44"
-          android:versionName="2.8.0" package="me.jmh.authenticatorpro" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="45"
+          android:versionName="2.9.0" package="me.jmh.authenticatorpro" android:installLocation="auto">
     <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33"/>
     <uses-feature android:name="android.hardware.type.watch"/>
     <application android:allowBackup="true" android:label="@string/appName" android:icon="@mipmap/ic_launcher"
