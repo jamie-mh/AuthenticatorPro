@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt 파일 가져오기</string>
     <string name="uriList">URL 목록</string>
     <string name="uriListHint">평문 otpauth URL 목록</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Wear OS 전용 앱 다운로드</string>
     <string name="guideWearOSSummary">Wear OS 시계가 있다면 전용 앱을 다운로드 할 수 있습니다. 시계로 코드를 바로 볼 수 있습니다.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QR코드를 사각형에 맞추어 스캔하세요. 코드는 자동으로 스캔됩니다.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!-- Preferences -->

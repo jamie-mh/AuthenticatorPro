@@ -1,32 +1,32 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+Svobodná aplikace pro dvoufaktorové ověřování s otevřeným kódem pro Android. Obsahuje šifrované zálohy, ikony, kategorie a velkou možnost přizpůsobení. Také má doprovodnou aplikaci pro Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Podporuje TOTP (časově založené) a HOTP (čítačově založené) autentifikátory používající algoritmy SHA1, SHA256 nebo SHA512. Mobile-Otp (mOTP), Steam a Yandex jsou též podporovány.
 
 2 faktorové ověření poskytuje Vašim účtům další vrstvu bezpečnosti tím, že k přihlášení vyžaduje použití jednorázového kódu.
 Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnutý aplikací Authenticator Pro. Takže i když dojde ke kompromitaci vašich přihlašovacích údajů, váš účet zůstane v bezpečí.
 
 <hr>
 
-<b>Features</b>
+<b>Funkce</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⚙️ <b>Kompabilita</b>: Authenticator Pro je kompatibilní s většinou poskytovatelů a účtů.
+- 📲 <b>Import</b>: Jednoduše přesuňte Vaše účty do Authenticator Pro z ostatních podporovaných aplikací.
+- 💾 <b>Zálohy/Obnovení</b>: Zálohujete vaše autentifikátory silným šifrováním. V případě ztráty telefonu můžete vždy získat zpět přístup k Vašim účtům. Můžete uložit zálohy na online úložiště nebo do vašeho zařízení.
+- 🌙 <b>Tmavý režim</b>: Authenticator Pro má překrásný vzhled inspirovaný material design ve světlém i tmavém režimu.
+- ⏺️ <b>Ikony</b>: Najděte své autentifikátory snadno s rozpoznatelnými logy značek a ikonami vedle každého kódu.
+- 📂 <b>Kategorie</b>: Organizujte své autentifikátory do kategorií.
+- 🔒 <b>Offline s málo oprávněními</b>: Authenticator Pro vyžaduje pouze jedno oprávnění¹ a nepotřebuje přístup k internetu pro fungování.
+- 🔑 <b>Zabezpečení</b>: Nastavte si heslo a používejte biometrické ověření pro ochranu vašich kódů.
+- 🎨 <b>Přizpůsobení</b>: Nastavte si ikony a přejmenovávejte. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
+- ⌚ <b>Wear OS</b>: Rychle zobrazte vaše autentifikátory přímo z Vašich hodinek. Berte na vědomí, že připojení k Vašemu zařízení s Android je nezbytné. Kromě toho, F-Droid distribuce této aplikace nejsou kompatibilní s Wear OS, protože jsou použity nesvobodné závislosti.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(¹) *Pro čtení QR kódů aplikace vyžaduje oprávnění kamery*
 
 <a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Odmítnutí odpovědnosti</b>
 
 Tento program je svobodný software: můžete jej šířit a/nebo modifikovat podle podmínek GNU General Public License, vydávané Free Software Foundation, a to buď verze 3 této licence, nebo (podle vlastního uvážení) kterékoli pozdější verze.
 

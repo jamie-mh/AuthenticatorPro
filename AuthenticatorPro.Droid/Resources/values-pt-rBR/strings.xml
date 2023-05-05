@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importar arquivo bitwarden_export.json</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Importar arquivo 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Importar arquivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URI</string>
     <string name="uriListHint">Lista de texto simples de URIs</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Baixe o companheiro Wear OS</string>
     <string name="guideWearOSSummary">Se você tem um Wear OS, você pode baixar o aplicativo acompanhante. Você pode ver os códigos diretamente do seu relógio.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Coloque o código QR no visor para escanear. O código será escaneado automaticamente.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Tente evitar sombras e vidros. Mantenha o dispositivo aproximadamente 6 polegadas (15 cm) de distância do código.</string>
     <string name="toggleFlash">Ligar/desligar o flash</string>
     <!-- Preferences -->

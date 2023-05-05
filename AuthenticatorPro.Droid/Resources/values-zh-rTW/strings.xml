@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
     <string name="filePickerMissing">無法顯示檔案選擇介面。請安裝檔案管理器。</string>
     <string name="filePickError">選擇檔案時出錯。</string>
-    <string name="invalidFileError">選擇的檔案不是 Authenticatior Pro 備份檔案。</string>
+    <string name="invalidFileError">選擇的檔案不是 Authenticator Pro 備份檔案。</string>
     <string name="webBrowserMissing">沒有檢測到已安裝的瀏覽器。</string>
     <string name="emailClientMissing">未安裝電子郵件客戶端</string>
     <string name="genericError">出現錯誤。</string>
@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">匯入 TOTP_Backup.encrypt 檔案</string>
     <string name="uriList">URI 列表</string>
     <string name="uriListHint">純文字的 otpauth URI列表</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">下載配套的 Wear OS 應用</string>
     <string name="guideWearOSSummary">如果您有執行 Wear OS 的手錶，您可以下載配套的應用。您可以直接在您的手錶上檢視驗證碼。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">為了避免陰影和玻璃效果。按住裝置將其移到距離程式碼大約15釐米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切換閃光燈</string>
     <!-- Preferences -->

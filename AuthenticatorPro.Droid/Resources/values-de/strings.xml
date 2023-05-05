@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
     <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert sein.</string>
     <string name="filePickError">Fehler beim Auswählen der Datei</string>
-    <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei.</string>
+    <string name="invalidFileError">Die ausgewählte Datei ist keine Sicherungsdatei</string>
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
     <string name="emailClientMissing">Keine E-Mail-Anwendung installiert</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
     <string name="winAuthImportHint">winauth.txt oder winauth.zip Datei importieren</string>
     <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Importieren einer TOTP_Backup.encrypt Datei</string>
     <string name="uriList">URI-Liste</string>
     <string name="uriListHint">Reine Liste mit otpauth-URIs</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleit-App herunterladen. Du bekommst die Codes dann auf deiner Uhr angezeigt.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Platziere den QR-Code in den Sucher, um ihn zu scannen. Der Code wird automatisch gescannt.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den Code.</string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
     <!-- Preferences -->

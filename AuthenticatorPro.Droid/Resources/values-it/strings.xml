@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importa file bitwarden_export.json</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Importa file TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
     <string name="uriListHint">Elenco in testo semplice degli URI di otpauth</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Scarica il compagno Wear OS</string>
     <string name="guideWearOSSummary">Se si dispone di un orologio Wear OS, è possibile scaricare l\'app compagna. È possibile visualizzare i codici direttamente sul vostro orologio.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Cerca di evitare ombre e riflessi. Tieni il dispositivo circa 15 cm dal codice.</string>
     <string name="toggleFlash">Attiva/Disattiva flash</string>
     <!-- Preferences -->

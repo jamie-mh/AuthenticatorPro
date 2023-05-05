@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importeer bitwarden_export.json bestand</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Importeer TOTP_Backup.encrypt bestand</string>
     <string name="uriList">URI lijst</string>
     <string name="uriListHint">Platte tekst lijst met otpauth URI\'s</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Download de bijbehorende Wear OS app</string>
     <string name="guideWearOSSummary">Als je een Wear OS horloge hebt, kun je de bijbehorende app downloaden. Je kunt de codes dan direct op je horloge bekijken.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Probeer schaduwen en verblindingen te vermijden. Houd het apparaat ongeveer 15 cm van de code af.</string>
     <string name="toggleFlash">Flitslicht aan/uit</string>
     <!-- Preferences -->

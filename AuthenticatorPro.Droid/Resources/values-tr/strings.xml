@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
     <string name="filePickError">Dosya seçilirken hata oluştu.</string>
-    <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil.</string>
+    <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil</string>
     <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
     <string name="emailClientMissing">Kurulu e-posta istemcisi yok</string>
     <string name="genericError">Bir hata meydana geldi.</string>
@@ -193,6 +193,7 @@
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
     <string name="uriListHint">Otpauth bağlantılarının düz metin listesi</string>
@@ -211,7 +212,7 @@
     <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
     <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QR kodunu taramak için kadraja yerleştirin. Kod otomatik olarak taranacaktır.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
     <string name="toggleFlash">Flaşı aç/kapat</string>
     <!-- Preferences -->

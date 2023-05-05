@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
     <string name="winAuthImportHint">Importer un fichier winauth.txt ou winauth.zip</string>
     <string name="twoFasImportHint">Importer un fichier 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Importer un fichier LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importer un fichier TOTP_Backup.encrypt</string>
     <string name="uriList">Liste d\'URI</string>
     <string name="uriListHint">Liste en texte claire d\'URI otpauth</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
     <string name="guideWearOSSummary">Si vous portez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Le code sera scanné automatiquement.</string>
+    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Tapez pour mettre au point.</string>
     <string name="scanHelpSecondary">Évitez les ombres et les éclats de lumière. Maintenez l\'appareil à environ 15 cm (6 pouces) du code.</string>
     <string name="toggleFlash">Activer/désactiver le flash</string>
     <!-- Preferences -->

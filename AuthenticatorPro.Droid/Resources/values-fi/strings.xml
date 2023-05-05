@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Raakatekstinen luettelo otpauth URI -osoitteista</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Lataa Wear OS -kumppanisovellus</string>
     <string name="guideWearOSSummary">Jos sinulla on Wear OS -kello, voit ladata sille kumppanisovelluksen. Näet koodit suoraan kellossasi.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi se. Koodi skannataan automaattisesti.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
     <!-- Preferences -->

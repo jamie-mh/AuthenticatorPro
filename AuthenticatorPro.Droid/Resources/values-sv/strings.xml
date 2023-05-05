@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Importera \"TOTP_Backup.encrypt\"-fil</string>
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Oformaterad textlista med otpauth-URI:er</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
     <string name="guideWearOSSummary">Om du har en Wear OS-klocka kan du ladda ner appen och få dina koder direkt på klockan.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
     <!-- Preferences -->

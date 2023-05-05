@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
     <string name="uriList">URI 列表</string>
     <string name="uriListHint">纯文本的 otpauth URI列表</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">为了避免阴影和玻璃效果。按住设备将其移到距离代码大约15厘米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切换闪光灯</string>
     <!-- Preferences -->

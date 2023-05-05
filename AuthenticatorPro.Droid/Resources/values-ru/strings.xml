@@ -4,7 +4,7 @@
     <string name="warning">Внимание</string>
     <string name="delete">Удалить</string>
     <string name="add">Добавить</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Редактировать</string>
     <string name="cancel">Отменить</string>
     <string name="ok">Ок</string>
     <string name="yes">Да</string>
@@ -14,7 +14,7 @@
     <string name="retry">Повторить</string>
     <string name="ignore">Игнорировать</string>
     <string name="disable">Отключить</string>
-    <string name="name">Name</string>
+    <string name="name">Имя</string>
     <!-- Menu items -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
@@ -96,7 +96,7 @@
     <string name="noCategoriesTitle">Категории отсутствуют</string>
     <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Категория</string>
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
     <string name="more">Подробнее</string>
@@ -132,7 +132,7 @@
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
     <string name="filePickError">Ошибка при выборе файла.</string>
-    <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro.</string>
+    <string name="invalidFileError">Выбранный файл не является резервной копией Authenticator Pro</string>
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
     <string name="emailClientMissing">Не установлен клиент электронной почты</string>
     <string name="genericError">Произошла ошибка.</string>
@@ -191,6 +191,7 @@
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
     <string name="winAuthImportHint">Импорт файла winauth.txt или winauth.zip</string>
     <string name="twoFasImportHint">Импорт файла 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Импортировать файл LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
     <string name="uriList">Список URl</string>
     <string name="uriListHint">Простой текстовый список отрывных URI</string>
@@ -209,7 +210,7 @@
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Наведите видоискатель на QR-код, чтобы отсканировать его. Сканирование произойдет автоматически.</string>
+    <string name="scanHelpPrimary">Чтобы отсканировать QR-код, разместите его в сканере. Коснитесь экрана для фокусировки.</string>
     <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
     <!-- Preferences -->
@@ -242,8 +243,8 @@
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
     <string name="prefCodeGroupSizeTitle">Группировка кода</string>
     <string name="prefCodeGroupSizeSummary">Измените группировку цифр в коде</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefDynamicColourTitle">Динамический цвет</string>
+    <string name="prefDynamicColourSummary">Динамически задать цвет акцента на основе ваших обоев</string>
     <string name="prefAccentColourTitle">Основной цвет</string>
     <string name="prefAccentColourSummary">Выберите основной цвет, который будет использоваться в приложении</string>
     <string name="prefTransparentStatusBarTitle">Прозрачная строка состояния</string>
