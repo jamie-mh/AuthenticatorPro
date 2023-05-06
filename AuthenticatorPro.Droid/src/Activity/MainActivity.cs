@@ -126,7 +126,6 @@ namespace AuthenticatorPro.Droid.Activity
 
         private readonly ICategoryRepository _categoryRepository;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-        private readonly ICustomIconRepository _customIconRepository;
 
         private readonly IAuthenticatorCategoryService _authenticatorCategoryService;
         private readonly IAuthenticatorService _authenticatorService;
@@ -136,6 +135,7 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly IRestoreService _restoreService;
 
         private readonly IAuthenticatorView _authenticatorView;
+        private readonly ICustomIconView _customIconView;
 
         // State
         private SecureStorageWrapper _secureStorageWrapper;
@@ -164,7 +164,6 @@ namespace AuthenticatorPro.Droid.Activity
             _authenticatorCategoryService = Dependencies.Resolve<IAuthenticatorCategoryService>();
             _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
             _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
-            _customIconRepository = Dependencies.Resolve<ICustomIconRepository>();
 
             _authenticatorService = Dependencies.Resolve<IAuthenticatorService>();
             _backupService = Dependencies.Resolve<IBackupService>();
@@ -173,6 +172,7 @@ namespace AuthenticatorPro.Droid.Activity
             _restoreService = Dependencies.Resolve<IRestoreService>();
 
             _authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
+            _customIconView = Dependencies.Resolve<ICustomIconView>();
         }
 
         #region Activity Lifecycle
@@ -714,7 +714,9 @@ namespace AuthenticatorPro.Droid.Activity
             if (_shouldLoadFromPersistenceOnNextOpen)
             {
                 _shouldLoadFromPersistenceOnNextOpen = false;
+                
                 await _authenticatorView.LoadFromPersistenceAsync();
+                await _customIconView.LoadFromPersistenceAsync();
 
                 RunOnUiThread(delegate
                 {
@@ -833,7 +835,7 @@ namespace AuthenticatorPro.Droid.Activity
         private void InitAuthenticatorList()
         {
             _authenticatorListAdapter =
-                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconRepository,
+                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconView,
                     IsDark) { HasStableIds = true };
 
             _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
@@ -2082,6 +2084,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
+            await _customIconView.LoadFromPersistenceAsync();
             _preferences.BackupRequired = BackupRequirement.WhenPossible;
 
             var position = _authenticatorView.IndexOf(auth);
