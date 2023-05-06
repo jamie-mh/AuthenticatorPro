@@ -106,15 +106,7 @@ namespace AuthenticatorPro.Droid
 
             try
             {
-                if (firstLaunch)
-                {
-                    await _connection.EnableWriteAheadLoggingAsync();
-                }
-
-                await _connection.CreateTableAsync<Authenticator>();
-                await _connection.CreateTableAsync<Category>();
-                await _connection.CreateTableAsync<AuthenticatorCategory>();
-                await _connection.CreateTableAsync<CustomIcon>();
+                await MigrateAsync(firstLaunch);
             }
             catch
             {
@@ -130,6 +122,21 @@ namespace AuthenticatorPro.Droid
 #endif
 
             _lock.Release();
+        }
+
+        private async Task MigrateAsync(bool firstLaunch)
+        {
+            if (firstLaunch)
+            {
+                await _connection.EnableWriteAheadLoggingAsync();
+            }
+
+            await _connection.CreateTableAsync<Authenticator>();
+            await _connection.CreateTableAsync<Category>();
+            await _connection.CreateTableAsync<AuthenticatorCategory>();
+            await _connection.CreateTableAsync<CustomIcon>();
+            await _connection.CreateTableAsync<IconPack>();
+            await _connection.CreateTableAsync<IconPackEntry>();
         }
 
         private static string GetPath()

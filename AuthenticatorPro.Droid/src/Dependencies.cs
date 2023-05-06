@@ -56,6 +56,8 @@ namespace AuthenticatorPro.Droid
             container.Register<ICategoryRepository, CategoryRepository>();
             container.Register<IAuthenticatorCategoryRepository, AuthenticatorCategoryRepository>();
             container.Register<ICustomIconRepository, CustomIconRepository>();
+            container.Register<IIconPackRepository, IconPackRepository>();
+            container.Register<IIconPackEntryRepository, IconPackEntryRepository>();
         }
 
         public static void RegisterServices(TinyIoCContainer container)
@@ -69,6 +71,7 @@ namespace AuthenticatorPro.Droid
             container.Register<IBackupService, BackupService>();
             container.Register<ICategoryService, CategoryService>();
             container.Register<ICustomIconService, CustomIconService>();
+            container.Register<IIconPackService, IconPackService>();
             container.Register<IImportService, ImportService>();
             container.Register<IRestoreService, RestoreService>();
         }

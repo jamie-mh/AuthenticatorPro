@@ -1,4 +1,4 @@
-// Copyright (C) 2022 jmh
+// Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
 using AuthenticatorPro.Core.Entity;
@@ -6,9 +6,9 @@ using AuthenticatorPro.Core.Persistence;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
-    internal class CategoryRepository : AsyncRepository<Category, string>, ICategoryRepository
+    internal class IconPackRepository : AsyncRepository<IconPack, string>, IIconPackRepository
     {
-        public CategoryRepository(Database database) : base(database)
+        public IconPackRepository(Database database) : base(database)
         {
         }
     }
