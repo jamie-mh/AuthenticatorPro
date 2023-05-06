@@ -28,8 +28,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private readonly int _layout;
         private readonly int _title;
         
-        protected LayoutInflater StyledInflater;
-        
         protected BottomSheet(int layout, int title)
         {
             _layout = layout;
@@ -50,6 +48,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 dialog.Window.SetNavigationBarColor(Color.Black);
             }
 
+            dialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+
             return dialog;
         }
 
@@ -62,11 +62,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater contextInflater, ViewGroup container,
             Bundle savedInstanceState)
         {
-            var contextThemeWrapper = new ContextThemeWrapper(RequireContext(), RequireActivity().Theme);
-            contextThemeWrapper.Theme.ApplyStyle(Resource.Style.BottomSheetStyle, false); 
-            StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
-            
-            var view = StyledInflater.Inflate(_layout, container, false);
+            var view = contextInflater.Inflate(_layout, container, false);
 
             var title = view.FindViewById<MaterialTextView>(Resource.Id.textTitle);
             title.SetText(_title); 
