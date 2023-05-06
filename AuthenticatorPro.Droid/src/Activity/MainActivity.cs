@@ -45,6 +45,7 @@ using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -372,7 +373,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case RequestCustomIcon:
-                    await SetCustomIcon(intent.Data, _customIconApplySecret);
+                    await SetCustomIconFromUri(intent.Data, _customIconApplySecret);
                     _customIconApplySecret = null;
                     break;
 
@@ -1961,7 +1962,8 @@ namespace AuthenticatorPro.Droid.Activity
             bundle.PutString("secret", auth.Secret);
 
             var fragment = new ChangeIconBottomSheet { Arguments = bundle };
-            fragment.IconSelected += OnIconDialogIconSelected;
+            fragment.DefaultIconSelected += OnDefaultIconSelected;
+            fragment.PackIconSelected += OnPackIconSelected;
             fragment.UseCustomIconClick += delegate
             {
                 _customIconApplySecret = auth.Secret;
@@ -1970,7 +1972,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnIconDialogIconSelected(object sender, ChangeIconBottomSheet.IconSelectedEventArgs args)
+        private async void OnDefaultIconSelected(object sender, ChangeIconBottomSheet.DefaultIconSelectedEventArgs args)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
 
@@ -2000,11 +2002,43 @@ namespace AuthenticatorPro.Droid.Activity
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
 
+        private async void OnPackIconSelected(object sender, ChangeIconBottomSheet.PackIconSelectedEventArgs args)
+        {
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
+
+            if (auth == null)
+            {
+                return;
+            }
+
+            SetLoading(true);
+            var stream = new MemoryStream();
+            
+            try
+            {
+                await args.Icon.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
+                var icon = await _customIconDecoder.DecodeAsync(stream.ToArray());
+                await SetCustomIcon(auth, icon);
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+            }
+            finally
+            {
+                stream.Close();
+                SetLoading(false);
+            }
+            
+            ((ChangeIconBottomSheet) sender).Dismiss();
+        }
+
         #endregion
 
         #region Custom Icons
 
-        private async Task SetCustomIcon(Uri source, string secret)
+        private async Task SetCustomIconFromUri(Uri source, string secret)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
 
@@ -2014,24 +2048,26 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             SetLoading(true);
-            CustomIcon icon;
 
             try
             {
                 var data = await FileUtil.ReadFile(this, source);
-                icon = await _customIconDecoder.Decode(data);
+                var icon = await _customIconDecoder.DecodeAsync(data);
+                await SetCustomIcon(auth, icon);
             }
             catch (Exception e)
             {
                 Logger.Error(e);
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-                return;
             }
             finally
             {
                 SetLoading(false);
             }
+        }
 
+        private async Task SetCustomIcon(Authenticator auth, CustomIcon icon)
+        {
             var oldIcon = auth.Icon;
 
             try

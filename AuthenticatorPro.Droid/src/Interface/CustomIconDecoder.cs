@@ -114,7 +114,7 @@ namespace AuthenticatorPro.Droid.Interface
             return Bitmap.CreateBitmap(bitmap, left, top, right - left, bottom - top);
         }
 
-        public async Task<CustomIcon> Decode(byte[] rawData)
+        public async Task<CustomIcon> DecodeAsync(byte[] rawData)
         {
             var bitmap = await BitmapFactory.DecodeByteArrayAsync(rawData, 0, rawData.Length);
 

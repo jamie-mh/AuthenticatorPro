@@ -21,6 +21,7 @@
     <string name="ignore">Ignore</string>
     <string name="disable">Disable</string>
     <string name="name">Name</string>
+    <string name="default_">Default</string>
 
     <!-- Menu items -->
     <string name="settings">Settings</string>

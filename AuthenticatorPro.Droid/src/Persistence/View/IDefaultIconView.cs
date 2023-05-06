@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Persistence.View
 {
-    public interface IIconView : IView<KeyValuePair<string, int>>
+    public interface IDefaultIconView : IView<KeyValuePair<string, int>>
     {
         public string Search { get; set; }
         public bool UseDarkTheme { get; set; }

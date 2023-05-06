@@ -12,23 +12,23 @@ using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class IconListAdapter : RecyclerView.Adapter
+    internal class DefaultIconListAdapter : RecyclerView.Adapter
     {
         public event EventHandler<int> ItemClicked;
-        public override int ItemCount => _iconView.Count;
+        public override int ItemCount => _defaultIconView.Count;
 
         private readonly Context _context;
-        private readonly IIconView _iconView;
+        private readonly IDefaultIconView _defaultIconView;
 
-        public IconListAdapter(Context context, IIconView iconView)
+        public DefaultIconListAdapter(Context context, IDefaultIconView defaultIconView)
         {
             _context = context;
-            _iconView = iconView;
+            _defaultIconView = defaultIconView;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var (key, value) = _iconView[position];
+            var (key, value) = _defaultIconView[position];
             var holder = (IconListHolder) viewHolder;
 
             var drawable = ContextCompat.GetDrawable(_context, value);
@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public override long GetItemId(int position)
         {
-            return _iconView[position].Key.GetHashCode();
+            return _defaultIconView[position].Key.GetHashCode();
         }
     }
 }

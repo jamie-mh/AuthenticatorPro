@@ -80,7 +80,8 @@ namespace AuthenticatorPro.Droid
         {
             container.Register<IAuthenticatorView, AuthenticatorView>().AsMultiInstance();
             container.Register<ICategoryView, CategoryView>().AsMultiInstance();
-            container.Register<IIconView, IconView>().AsMultiInstance();
+            container.Register<IDefaultIconView, DefaultIconView>().AsMultiInstance();
+            container.Register<IPackIconView, PackIconView>().AsMultiInstance();
         }
 
         public static T Resolve<T>() where T : class

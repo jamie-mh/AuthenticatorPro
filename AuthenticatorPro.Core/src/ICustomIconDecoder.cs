@@ -8,6 +8,6 @@ namespace AuthenticatorPro.Core
 {
     public interface ICustomIconDecoder
     {
-        public Task<CustomIcon> Decode(byte[] data);
+        public Task<CustomIcon> DecodeAsync(byte[] data);
     }
 }
