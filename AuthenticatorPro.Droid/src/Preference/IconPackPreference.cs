@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Droid.Preference
         protected override void OnClick()
         {
             var activity = (SettingsActivity) Context;
-            var fragment = new IconPackBottomSheet();
+            var fragment = new IconPackSetupBottomSheet();
             fragment.Show(activity.SupportFragmentManager, fragment.Tag);
         }
     }

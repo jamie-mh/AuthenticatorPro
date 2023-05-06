@@ -49,5 +49,16 @@ namespace AuthenticatorPro.Core.Service.Impl
                 await _iconPackEntryRepository.CreateAsync(entry);
             }
         }
+
+        public async Task DeletePackAsync(IconPack pack)
+        {
+            if (pack == null)
+            {
+                throw new ArgumentNullException(nameof(pack));
+            }
+
+            await _iconPackEntryRepository.DeleteAllForPackAsync(pack);
+            await _iconPackRepository.DeleteAsync(pack);
+        }
     }
 }

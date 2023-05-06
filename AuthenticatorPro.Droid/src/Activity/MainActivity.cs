@@ -1963,7 +1963,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             var fragment = new ChangeIconBottomSheet { Arguments = bundle };
             fragment.DefaultIconSelected += OnDefaultIconSelected;
-            fragment.PackIconSelected += OnPackIconSelected;
+            fragment.IconPackEntrySelected += OnIconPackEntrySelected;
             fragment.UseCustomIconClick += delegate
             {
                 _customIconApplySecret = auth.Secret;
@@ -2002,7 +2002,7 @@ namespace AuthenticatorPro.Droid.Activity
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
 
-        private async void OnPackIconSelected(object sender, ChangeIconBottomSheet.PackIconSelectedEventArgs args)
+        private async void OnIconPackEntrySelected(object sender, ChangeIconBottomSheet.IconPackEntrySelectedEventArgs args)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
 

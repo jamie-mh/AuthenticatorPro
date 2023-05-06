@@ -73,7 +73,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override async void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
             _categoryListAdapter.NotifyDataSetChanged();
 
             var selectedCategoryPosition =

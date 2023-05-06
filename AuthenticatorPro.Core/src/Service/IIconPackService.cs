@@ -9,5 +9,6 @@ namespace AuthenticatorPro.Core.Service
     public interface IIconPackService
     {
         public Task ImportPackAsync(IconPack pack);
+        public Task DeletePackAsync(IconPack pack);
     }
 }

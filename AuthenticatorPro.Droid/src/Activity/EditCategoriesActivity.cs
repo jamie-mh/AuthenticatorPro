@@ -113,7 +113,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task Refresh()
         {
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             RunOnUiThread(delegate
             {
@@ -194,7 +194,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             RunOnUiThread(delegate
             {
@@ -269,7 +269,7 @@ namespace AuthenticatorPro.Droid.Activity
                 SetDefaultCategory(next.Id);
             }
 
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             RunOnUiThread(delegate
             {
@@ -327,7 +327,7 @@ namespace AuthenticatorPro.Droid.Activity
                     return;
                 }
 
-                await _categoryView.LoadFromPersistence();
+                await _categoryView.LoadFromPersistenceAsync();
 
                 RunOnUiThread(delegate
                 {

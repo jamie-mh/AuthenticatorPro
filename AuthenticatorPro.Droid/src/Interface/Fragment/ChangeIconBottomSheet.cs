@@ -7,7 +7,6 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
@@ -18,27 +17,25 @@ using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Tabs;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class ChangeIconBottomSheet : BottomSheet
     {
         public event EventHandler<DefaultIconSelectedEventArgs> DefaultIconSelected;
-        public event EventHandler<PackIconSelectedEventArgs> PackIconSelected;
+        public event EventHandler<IconPackEntrySelectedEventArgs> IconPackEntrySelected;
         public event EventHandler UseCustomIconClick;
 
         private readonly IDefaultIconView _defaultIconView;
-        private readonly IPackIconView _packIconView;
+        private readonly IIconPackView _iconPackView;
+        private readonly IIconPackEntryView _iconPackEntryView;
         private readonly IIconPackRepository _iconPackRepository;
         
         private string _secret;
-        private List<IconPack> _iconPacks;
 
         private DefaultIconListAdapter _defaultIconListAdapter;
-        private PackIconListAdapter _packIconListAdapter;
+        private IconPackEntryListAdapter _iconPackEntryListAdapter;
 
         private TabLayout _tabLayout;
         private EditText _searchText;
@@ -48,7 +45,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public ChangeIconBottomSheet() : base(Resource.Layout.sheetChangeIcon, Resource.String.changeIcon)
         {
             _defaultIconView = Dependencies.Resolve<IDefaultIconView>();
-            _packIconView = Dependencies.Resolve<IPackIconView>();
+            _iconPackView = Dependencies.Resolve<IIconPackView>();
+            _iconPackEntryView = Dependencies.Resolve<IIconPackEntryView>();
             _iconPackRepository = Dependencies.Resolve<IIconPackRepository>();
         }
 
@@ -62,16 +60,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _defaultIconView.UseDarkTheme = baseActivity.IsDark;
             _defaultIconView.Update();
             
-            // Run sync so that view doesn't appear before it's finished
-            _iconPacks = Task.Run(() => _iconPackRepository.GetAllAsync()).Result;
-            
             _defaultIconListAdapter = new DefaultIconListAdapter(RequireContext(), _defaultIconView);
             _defaultIconListAdapter.ItemClicked += OnDefaultItemClicked;
             _defaultIconListAdapter.HasStableIds = true;
             
-            _packIconListAdapter = new PackIconListAdapter(_packIconView);
-            _packIconListAdapter.ItemClicked += OnPackItemClicked;
-            _packIconListAdapter.HasStableIds = true;
+            _iconPackEntryListAdapter = new IconPackEntryListAdapter(_iconPackEntryView);
+            _iconPackEntryListAdapter.ItemClicked += OnIconPackEntryClicked;
+            _iconPackEntryListAdapter.HasStableIds = true;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -97,17 +92,26 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 UseCustomIconClick?.Invoke(s, e);
                 Dismiss();
             };
+            
+            return view;
+        }
+        
+        public override async void OnViewCreated(View view, Bundle savedInstanceState)
+        {
+            base.OnViewCreated(view, savedInstanceState);
 
+            await _iconPackView.LoadFromPersistenceAsync();
+            
             _tabLayout = view.FindViewById<TabLayout>(Resource.Id.tabLayoutPack);
             _tabLayout.TabSelected += OnPackSelected;
 
-            if (_iconPacks.Any())
+            if (_iconPackView.Any())
             {
                 var defaultTab = _tabLayout.NewTab();
-                defaultTab.SetText(Resource.String.default_);
+                defaultTab.SetText(Resource.String.defaultIcons);
                 _tabLayout.AddTab(defaultTab, true);
 
-                foreach (var pack in _iconPacks)
+                foreach (var pack in _iconPackView)
                 {
                     var tab = _tabLayout.NewTab();
                     tab.SetText(pack.Name);
@@ -121,8 +125,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 _progressIndicator.Visibility = ViewStates.Gone;
                 _iconList.SetAdapter(_defaultIconListAdapter);
             }
-            
-            return view;
         }
 
         private async void OnPackSelected(object sender, TabLayout.TabSelectedEventArgs e)
@@ -138,10 +140,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
             else
             {
-                var pack = _iconPacks[e.Tab.Position - 1];
-                await _packIconView.LoadFromPersistenceAsync(pack);
-                _iconList.SetAdapter(_packIconListAdapter);
-                _packIconListAdapter.NotifyDataSetChanged();
+                var pack = _iconPackView[e.Tab.Position - 1];
+                await _iconPackEntryView.LoadFromPersistenceAsync(pack);
+                _iconList.SetAdapter(_iconPackEntryListAdapter);
+                _iconPackEntryListAdapter.NotifyDataSetChanged();
             }
             
             _progressIndicator.Visibility = ViewStates.Gone;
@@ -157,8 +159,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
             else
             {
-                _packIconView.Search = e.Text.ToString();
-                _packIconListAdapter.NotifyDataSetChanged();
+                _iconPackEntryView.Search = e.Text.ToString();
+                _iconPackEntryListAdapter.NotifyDataSetChanged();
             }
         }
 
@@ -168,10 +170,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             DefaultIconSelected?.Invoke(this, eventArgs);
         }
         
-        private void OnPackItemClicked(object sender, Bitmap bitmap)
+        private void OnIconPackEntryClicked(object sender, Bitmap bitmap)
         {
-            var eventArgs = new PackIconSelectedEventArgs(_secret, bitmap);
-            PackIconSelected?.Invoke(this, eventArgs);
+            var eventArgs = new IconPackEntrySelectedEventArgs(_secret, bitmap);
+            IconPackEntrySelected?.Invoke(this, eventArgs);
         }
 
         public class DefaultIconSelectedEventArgs : EventArgs
@@ -186,12 +188,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
         }
         
-        public class PackIconSelectedEventArgs : EventArgs
+        public class IconPackEntrySelectedEventArgs : EventArgs
         {
             public readonly string Secret;
             public readonly Bitmap Icon;
 
-            public PackIconSelectedEventArgs(string secret, Bitmap icon)
+            public IconPackEntrySelectedEventArgs(string secret, Bitmap icon)
             {
                 Secret = secret;
                 Icon = icon;

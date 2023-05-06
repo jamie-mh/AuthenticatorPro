@@ -11,21 +11,21 @@ using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class PackIconListAdapter : RecyclerView.Adapter
+    internal class IconPackEntryListAdapter : RecyclerView.Adapter
     {
         public event EventHandler<Bitmap> ItemClicked;
-        public override int ItemCount => _packIconView.Count;
+        public override int ItemCount => _iconPackEntryView.Count;
 
-        private readonly IPackIconView _packIconView;
+        private readonly IIconPackEntryView _iconPackEntryView;
         
-        public PackIconListAdapter(IPackIconView packIconView)
+        public IconPackEntryListAdapter(IIconPackEntryView iconPackEntryView)
         {
-            _packIconView = packIconView;
+            _iconPackEntryView = iconPackEntryView;
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
-            var (id, bitmap) = _packIconView[position];
+            var (id, bitmap) = _iconPackEntryView[position];
             var holder = (IconListHolder) viewHolder;
 
             TooltipCompat.SetTooltipText(holder.ItemView, id);
@@ -36,20 +36,18 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemIcon, parent, false);
-            var holder = new IconListHolder(itemView, OnItemClick);
-
-            return holder;
+            return new IconListHolder(itemView, OnItemClick);
         }
 
         private void OnItemClick(int position)
         {
-            var (_, bitmap) = _packIconView[position];
+            var (_, bitmap) = _iconPackEntryView[position];
             ItemClicked?.Invoke(this, bitmap);
         }
 
         public override long GetItemId(int position)
         {
-            return _packIconView[position].Key.GetHashCode();
+            return _iconPackEntryView[position].Key.GetHashCode();
         }
     }
 }

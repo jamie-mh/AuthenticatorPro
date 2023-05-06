@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Persistence.View.Impl
 {
-    public class PackIconView : IPackIconView
+    public class IconPackEntryView : IIconPackEntryView
     {
         private readonly IIconPackEntryRepository _iconPackEntryRepository;
         
@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
             }
         }
 
-        public PackIconView(IIconPackEntryRepository iconPackEntryRepository)
+        public IconPackEntryView(IIconPackEntryRepository iconPackEntryRepository)
         {
             _iconPackEntryRepository = iconPackEntryRepository;
             _all = new Dictionary<string, Bitmap>();
@@ -46,11 +46,12 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
                 
                 _view = _all
                     .Where(e => e.Key.Contains(query))
+                    .OrderBy(e => e.Key)
                     .ToDictionary(k => k.Key, v => v.Value);
             }
             else
             {
-                _view = new Dictionary<string, Bitmap>(_all);
+                _view = new Dictionary<string, Bitmap>(_all.OrderBy(e => e.Key));
             }
         }
 

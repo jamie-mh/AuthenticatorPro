@@ -59,7 +59,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override async void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             var emptyText = View.FindViewById<MaterialTextView>(Resource.Id.textEmpty);
             var chipGroup = View.FindViewById<ChipGroup>(Resource.Id.chipGroup);

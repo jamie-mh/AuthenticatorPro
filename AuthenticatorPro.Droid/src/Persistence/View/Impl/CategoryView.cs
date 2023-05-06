@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
 
         public Category this[int index] => _view[index];
 
-        public async Task LoadFromPersistence()
+        public async Task LoadFromPersistenceAsync()
         {
             _view = await _categoryRepository.GetAllAsync();
             Update();

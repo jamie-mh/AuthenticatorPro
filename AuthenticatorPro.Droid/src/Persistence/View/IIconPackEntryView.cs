@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Persistence.View
 {
-    public interface IPackIconView : IView<KeyValuePair<string, Bitmap>>
+    public interface IIconPackEntryView : IView<KeyValuePair<string, Bitmap>>
     {
         public Task LoadFromPersistenceAsync(IconPack pack);
         public string Search { get; set; }
