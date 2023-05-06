@@ -66,7 +66,6 @@ namespace AuthenticatorPro.Droid
             container.Register<IEqualityComparer<Category>, CategoryComparer>();
             container.Register<IEqualityComparer<AuthenticatorCategory>, AuthenticatorCategoryComparer>();
 
-            container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
             container.Register<IAuthenticatorService, AuthenticatorService>();
             container.Register<IBackupService, BackupService>();
             container.Register<ICategoryService, CategoryService>();

@@ -102,7 +102,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
             auth.Icon = icon;
             await _authenticatorRepository.UpdateAsync(auth);
-            await _customIconService.CullUnused();
+            await _customIconService.CullUnusedAsync();
         }
 
         public async Task SetCustomIconAsync(Authenticator auth, CustomIcon icon)
@@ -124,7 +124,7 @@ namespace AuthenticatorPro.Core.Service.Impl
                 return;
             }
 
-            await _customIconService.AddIfNotExists(icon);
+            await _customIconService.AddIfNotExistsAsync(icon);
             auth.Icon = iconId;
 
             try
@@ -133,7 +133,7 @@ namespace AuthenticatorPro.Core.Service.Impl
             }
             finally
             {
-                await _customIconService.CullUnused();
+                await _customIconService.CullUnusedAsync();
             }
         }
 

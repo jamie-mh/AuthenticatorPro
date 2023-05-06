@@ -7,7 +7,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Interface.LayoutManager;
@@ -30,7 +30,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private readonly IDefaultIconView _defaultIconView;
         private readonly IIconPackView _iconPackView;
         private readonly IIconPackEntryView _iconPackEntryView;
-        private readonly IIconPackRepository _iconPackRepository;
         
         private string _secret;
 
@@ -47,7 +46,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _defaultIconView = Dependencies.Resolve<IDefaultIconView>();
             _iconPackView = Dependencies.Resolve<IIconPackView>();
             _iconPackEntryView = Dependencies.Resolve<IIconPackEntryView>();
-            _iconPackRepository = Dependencies.Resolve<IIconPackRepository>();
         }
 
         public override void OnCreate(Bundle savedInstanceState)

@@ -124,12 +124,9 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly Database _database;
         private readonly IEnumerable<IBackupEncryption> _backupEncryptions;
 
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-
-        private readonly IAuthenticatorCategoryService _authenticatorCategoryService;
         private readonly IAuthenticatorService _authenticatorService;
         private readonly IBackupService _backupService;
+        private readonly ICategoryService _categoryService;
         private readonly ICustomIconService _customIconService;
         private readonly IImportService _importService;
         private readonly IRestoreService _restoreService;
@@ -161,10 +158,7 @@ namespace AuthenticatorPro.Droid.Activity
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
             _backupEncryptions = Dependencies.ResolveAll<IBackupEncryption>();
 
-            _authenticatorCategoryService = Dependencies.Resolve<IAuthenticatorCategoryService>();
-            _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
-            _authenticatorCategoryRepository = Dependencies.Resolve<IAuthenticatorCategoryRepository>();
-
+            _categoryService = Dependencies.Resolve<ICategoryService>();
             _authenticatorService = Dependencies.Resolve<IAuthenticatorService>();
             _backupService = Dependencies.Resolve<IBackupService>();
             _customIconService = Dependencies.Resolve<ICustomIconService>();
@@ -884,7 +878,7 @@ namespace AuthenticatorPro.Droid.Activity
             else
             {
                 var authenticatorCategories = _authenticatorView.GetCurrentBindings();
-                await _authenticatorCategoryService.UpdateManyAsync(authenticatorCategories);
+                await _categoryService.UpdateManyBindingsAsync(authenticatorCategories);
             }
 
             if (_preferences.SortMode != SortMode.Custom)
@@ -903,7 +897,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var category = await _categoryRepository.GetAsync(_authenticatorView.CategoryId);
+            var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
 
             if (category == null)
             {
@@ -995,7 +989,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             else
             {
-                var category = await _categoryRepository.GetAsync(id);
+                var category = await _categoryService.GetCategoryByIdAsync(id);
                 _authenticatorView.CategoryId = id;
                 categoryName = category.Name;
             }
@@ -1113,7 +1107,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 try
                 {
-                    await _customIconService.CullUnused();
+                    await _customIconService.CullUnusedAsync();
                 }
                 catch (Exception e)
                 {
@@ -1336,8 +1330,8 @@ namespace AuthenticatorPro.Droid.Activity
 
                 if (_authenticatorView.CategoryId != null)
                 {
-                    var category = await _categoryRepository.GetAsync(_authenticatorView.CategoryId);
-                    await _authenticatorCategoryService.AddAsync(result.Authenticator, category);
+                    var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
+                    await _categoryService.AddBindingAsync(result.Authenticator, category);
                 }
 
                 await _authenticatorView.LoadFromPersistenceAsync();
@@ -1882,8 +1876,8 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     await _authenticatorService.AddAsync(auth);
 
-                    var category = await _categoryRepository.GetAsync(_authenticatorView.CategoryId);
-                    await _authenticatorCategoryService.AddAsync(auth, category);
+                    var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
+                    await _categoryService.AddBindingAsync(auth, category);
                 }
             }
             catch (EntityDuplicateException)
@@ -2097,7 +2091,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task OpenCategoriesDialog(Authenticator auth)
         {
-            var authenticatorCategories = await _authenticatorCategoryRepository.GetAllForAuthenticatorAsync(auth);
+            var authenticatorCategories = await _categoryService.GetBindingsForAuthenticatorAsync(auth);
             var categoryIds = authenticatorCategories.Select(ac => ac.CategoryId).ToArray();
 
             var bundle = new Bundle();
@@ -2143,17 +2137,17 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var category = await _categoryRepository.GetAsync(args.CategoryId);
+            var category = await _categoryService.GetCategoryByIdAsync(args.CategoryId);
 
             try
             {
                 if (args.IsChecked)
                 {
-                    await _authenticatorCategoryService.AddAsync(auth, category);
+                    await _categoryService.AddBindingAsync(auth, category);
                 }
                 else
                 {
-                    await _authenticatorCategoryService.RemoveAsync(auth, category);
+                    await _categoryService.RemoveBindingAsync(auth, category);
                 }
             }
             catch (Exception e)

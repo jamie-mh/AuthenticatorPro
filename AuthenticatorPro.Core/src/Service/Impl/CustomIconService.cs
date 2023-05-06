@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Core.Service.Impl
             _authenticatorRepository = authenticatorRepository;
         }
 
-        public async Task AddIfNotExists(CustomIcon icon)
+        public async Task AddIfNotExistsAsync(CustomIcon icon)
         {
             if (icon == null)
             {
@@ -64,7 +64,12 @@ namespace AuthenticatorPro.Core.Service.Impl
             return added;
         }
 
-        public async Task CullUnused()
+        public Task<List<CustomIcon>> GetAllAsync()
+        {
+            return _customIconRepository.GetAllAsync();
+        }
+
+        public async Task CullUnusedAsync()
         {
             var authenticators = await _authenticatorRepository.GetAllAsync();
             var icons = await _customIconRepository.GetAllAsync();

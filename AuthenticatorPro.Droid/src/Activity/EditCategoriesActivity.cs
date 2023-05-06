@@ -40,13 +40,11 @@ namespace AuthenticatorPro.Droid.Activity
         private PreferenceWrapper _preferences;
 
         private readonly ICategoryView _categoryView;
-        private readonly ICategoryRepository _categoryRepository;
         private readonly ICategoryService _categoryService;
 
         public EditCategoriesActivity() : base(Resource.Layout.activityEditCategories)
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
-            _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
             _categoryService = Dependencies.Resolve<ICategoryService>();
         }
 
@@ -108,7 +106,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _categoryView[i].Ranking = i;
             }
 
-            await _categoryService.UpdateManyAsync(_categoryView);
+            await _categoryService.UpdateManyCategoriesAsync(_categoryView);
         }
 
         private async Task Refresh()
@@ -179,7 +177,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                await _categoryRepository.CreateAsync(category);
+                await _categoryService.AddCategoryAsync(category);
             }
             catch (EntityDuplicateException)
             {
