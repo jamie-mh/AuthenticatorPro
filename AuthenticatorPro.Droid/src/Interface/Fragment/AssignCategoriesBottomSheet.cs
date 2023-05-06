@@ -72,7 +72,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             foreach (var category in _categoryView)
             {
-                var chip = (Chip) LayoutInflater.Inflate(Resource.Layout.chipChoice, chipGroup, false);
+                var chip = (Chip) StyledInflater.Inflate(Resource.Layout.chipChoice, chipGroup, false);
                 chip.Text = category.Name;
                 chip.Checkable = true;
                 chip.Clickable = true;

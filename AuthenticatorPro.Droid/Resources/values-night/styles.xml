@@ -18,6 +18,11 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
+    <style name="BottomSheetStyle" parent="Theme.Material3.Dark.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
     <!-- Accent colours -->
     <style name="OverlayAccentRed">
         <item name="colorPrimary">@color/md_theme_dark_red_primary</item>
