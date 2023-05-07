@@ -31,22 +31,26 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             var holder = (IconPackListHolder) viewHolder;
             holder.Name.Text = pack.Name;
             holder.Description.Text = pack.Description;
-            
-            holder.Delete.Click += delegate
-            {
-                DeleteClicked?.Invoke(this, pack);
-            };
-
-            holder.OpenUrl.Click += delegate
-            {
-                OpenUrlClicked?.Invoke(this, pack);
-            };
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.listItemIconPack, parent, false);
-            return new IconPackListHolder(itemView);
+            var holder = new IconPackListHolder(itemView);
+            
+            holder.Delete.Click += delegate
+            {
+                var pack = _iconPackView[holder.BindingAdapterPosition];
+                DeleteClicked?.Invoke(this, pack);
+            };
+
+            holder.OpenUrl.Click += delegate
+            {
+                var pack = _iconPackView[holder.BindingAdapterPosition];
+                OpenUrlClicked?.Invoke(this, pack);
+            };
+
+            return holder;
         }
         
         public override long GetItemId(int position)
