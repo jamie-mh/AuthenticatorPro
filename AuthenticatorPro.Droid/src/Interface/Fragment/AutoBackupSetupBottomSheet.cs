@@ -17,6 +17,7 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.Card;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.MaterialSwitch;
 using Google.Android.Material.TextView;
@@ -68,11 +69,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
 
-            var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
-            selectLocationButton.Click += OnSelectLocationClick;
+            var selectLocationCard = view.FindViewById<MaterialCardView>(Resource.Id.cardSelectLocation);
+            selectLocationCard.Click += OnSelectLocationClick;
 
-            var setPasswordButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSetPassword);
-            setPasswordButton.Click += OnSetPasswordButtonClick;
+            var setPasswordCard = view.FindViewById<MaterialCardView>(Resource.Id.cardSetPassword);
+            setPasswordCard.Click += OnSetPasswordButtonClick;
 
             _locationStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textLocationStatus);
             _passwordStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textPasswordStatus);
@@ -91,7 +92,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (_preferences.DatabasePasswordBackup)
             {
-                setPasswordButton.Visibility = ViewStates.Gone;
+                setPasswordCard.Visibility = ViewStates.Gone;
             }
             else
             {
