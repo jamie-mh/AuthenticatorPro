@@ -4,7 +4,7 @@
     <string name="warning">Ostrzeżenie</string>
     <string name="delete">Usuń</string>
     <string name="add">Dodaj</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Edytuj</string>
     <string name="cancel">Anuluj</string>
     <string name="ok">Ok</string>
     <string name="yes">Tak</string>
@@ -14,7 +14,7 @@
     <string name="retry">Powtórz</string>
     <string name="ignore">Ignoruj</string>
     <string name="disable">Wyłącz</string>
-    <string name="name">Name</string>
+    <string name="name">Nazwa</string>
     <!-- Menu items -->
     <string name="settings">Ustawienia</string>
     <string name="restore">Przywróć</string>
@@ -96,7 +96,7 @@
     <string name="noCategoriesTitle">Brak kategorii</string>
     <string name="noCategoriesMessage">Nie masz jeszcze ustawionych kategorii</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Kategoria</string>
     <string name="categories">Kategorie</string>
     <string name="assignCategories">Przypisz kategorię</string>
     <string name="more">Więcej</string>
@@ -191,7 +191,7 @@
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="lastPassAuthenticatorImportHint">Importuj plik LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importuj plik TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
     <string name="uriListHint">Lista URI otpauth w postaci zwykłego tekstu</string>
@@ -210,7 +210,7 @@
     <string name="guideWearOSTitle">Pobierz aplikację towarzyszącą Wear OS</string>
     <string name="guideWearOSSummary">Jeśli masz zegarek z Wear OS, możesz pobrać aplikację towarzyszącą. Możesz przeglądać kody bezpośrednio na zegarku.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Umieść kod QR w okienku aby go zeskanować. Dotknij, aby wyostrzyć.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!-- Preferences -->
@@ -243,8 +243,8 @@
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
     <string name="prefCodeGroupSizeTitle">Ilość cyfr w grupie</string>
     <string name="prefCodeGroupSizeSummary">Zmień grupowanie cyfr w kodzie</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefDynamicColourTitle">Dynamiczny kolor</string>
+    <string name="prefDynamicColourSummary">Dynamicznie ustaw kolor akcentu na podstawie tapety</string>
     <string name="prefAccentColourTitle">Kolor akcentów</string>
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
