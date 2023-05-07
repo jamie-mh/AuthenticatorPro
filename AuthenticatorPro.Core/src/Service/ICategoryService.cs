@@ -23,6 +23,7 @@ namespace AuthenticatorPro.Core.Service
         public Task RemoveBindingAsync(Authenticator authenticator, Category category);
         public Task DeleteWithCategoryBindingsASync(Category category);
         public Task<List<AuthenticatorCategory>> GetBindingsForAuthenticatorAsync(Authenticator authenticator);
+        public Task<List<AuthenticatorCategory>> GetBindingsForCategoryAsync(Category category);
         public Task<List<Category>> GetAllCategoriesAsync();
         public Task<List<AuthenticatorCategory>> GetAllBindingsAsync();
     }

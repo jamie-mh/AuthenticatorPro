@@ -2011,8 +2011,8 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task OpenCategoriesDialog(Authenticator auth)
         {
-            var authenticatorCategories = await _categoryService.GetBindingsForAuthenticatorAsync(auth);
-            var categoryIds = authenticatorCategories.Select(ac => ac.CategoryId).ToArray();
+            var bindings = await _categoryService.GetBindingsForAuthenticatorAsync(auth);
+            var categoryIds = bindings.Select(ac => ac.CategoryId).ToArray();
 
             var bundle = new Bundle();
             bundle.PutString("secret", auth.Secret);

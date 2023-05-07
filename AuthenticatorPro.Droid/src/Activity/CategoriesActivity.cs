@@ -186,46 +186,99 @@ namespace AuthenticatorPro.Droid.Activity
             });
         }
 
-        private void OnMenuClicked(object sender, int position)
+        private void OnMenuClicked(object sender, string id)
         {
-            var category = _categoryView.ElementAt(position);
-
             var bundle = new Bundle();
-            bundle.PutInt("position", position);
-            bundle.PutBoolean("isDefault", _preferences.DefaultCategory == category.Id);
+            bundle.PutString("id", id);
+            bundle.PutBoolean("isDefault", _preferences.DefaultCategory == id);
 
             var fragment = new EditCategoryMenuBottomSheet { Arguments = bundle };
-            fragment.RenameClicked += OnRenameClickedClick;
-            fragment.SetDefaultClicked += OnSetDefaultClickedClick;
-            fragment.DeleteClicked += OnDeleteClickedClick;
+            fragment.RenameClicked += OnRenameClicked;
+            fragment.AssignEntriesClicked += OnAssignEntriesClick;
+            fragment.SetDefaultClicked += OnSetDefaultClick;
+            fragment.DeleteClicked += OnDeleteClick;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private void OnRenameClickedClick(object item, int position)
+        private void OnRenameClicked(object item, string id)
         {
-            var category = _categoryView.ElementAt(position);
+            var category = _categoryView.FirstOrDefault(c => c.Id == id);
+
+            if (category == null)
+            {
+                return;
+            }
 
             var bundle = new Bundle();
             bundle.PutInt("mode", (int) EditCategoryBottomSheet.Mode.Edit);
-            bundle.PutInt("position", position);
+            bundle.PutString("id", id);
             bundle.PutString("initialValue", category.Name);
 
             var fragment = new EditCategoryBottomSheet { Arguments = bundle };
             fragment.Submitted += OnRenameDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
+        
+        private async void OnAssignEntriesClick(object item, string id)
+        {
+            var category = _categoryView.FirstOrDefault(c => c.Id == id);
+
+            if (category == null)
+            {
+                return;
+            }
+
+            var bindings = await _categoryService.GetBindingsForCategoryAsync(category);
+            var authenticatorSecrets = bindings.Select(ac => ac.AuthenticatorSecret).ToArray();
+
+            var bundle = new Bundle();
+            bundle.PutString("id", id);
+            bundle.PutStringArray("assignedAuthenticatorSecrets", authenticatorSecrets);
+
+            var fragment = new AssignCategoryEntriesBottomSheet { Arguments = bundle };
+            fragment.AuthenticatorClicked += OnAssignEntriesAuthenticatorClicked;
+            fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+        
+        private async void OnAssignEntriesAuthenticatorClicked(object sender,
+            AssignCategoryEntriesBottomSheet.AuthenticatorClickedEventArgs args)
+        {
+            var category = _categoryView.FirstOrDefault(c => c.Id == args.CategoryId);
+
+            if (category == null)
+            {
+                return;
+            }
+            
+            try
+            {
+                if (args.IsChecked)
+                {
+                    await _categoryService.AddBindingAsync(args.Authenticator, category);
+                }
+                else
+                {
+                    await _categoryService.RemoveBindingAsync(args.Authenticator, category);
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+            }
+        }
 
         private async void OnRenameDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs args)
         {
             var dialog = (EditCategoryBottomSheet) sender;
+            var initial = _categoryView.FirstOrDefault(c => c.Id == args.Id);
 
-            if (args.Name == args.InitialName || args.Position == -1)
+            if (initial == null || args.Name == args.InitialName)
             {
                 dialog.Dismiss();
                 return;
             }
 
-            var initial = _categoryView.ElementAt(args.Position);
             var isDefault = _preferences.DefaultCategory == initial.Id;
             var next = new Category(args.Name) { Ranking = initial.Ranking };
 
@@ -251,18 +304,25 @@ namespace AuthenticatorPro.Droid.Activity
                 SetDefaultCategory(next.Id);
             }
 
+            var position = _categoryView.IndexOf(args.Id);
             await _categoryView.LoadFromPersistenceAsync();
             
             RunOnUiThread(delegate
             {
-                CheckEmptyState();
-                _categoryListAdapter.NotifyDataSetChanged();
+                _categoryListAdapter.NotifyItemChanged(position);
+                dialog.Dismiss();
             });
         }
 
-        private void OnSetDefaultClickedClick(object item, int position)
+        private void OnSetDefaultClick(object item, string id)
         {
-            var category = _categoryView.ElementAt(position);
+            var category = _categoryView.FirstOrDefault(c => c.Id == id);
+
+            if (category == null)
+            {
+                return;
+            }
+
             var oldDefault = _preferences.DefaultCategory;
             var isDefault = oldDefault == category.Id;
 
@@ -278,11 +338,19 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
 
+            var position = _categoryView.IndexOf(id);
             _categoryListAdapter.NotifyItemChanged(position);
         }
 
-        private void OnDeleteClickedClick(object item, int position)
+        private void OnDeleteClick(object item, string id)
         {
+            var category = _categoryView.FirstOrDefault(c => c.Id == id);
+
+            if (category == null)
+            {
+                return;
+            }
+            
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmCategoryDelete);
             builder.SetTitle(Resource.String.delete);
@@ -291,8 +359,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
-                var category = _categoryView.ElementAt(position);
-
                 if (_preferences.DefaultCategory == category.Id)
                 {
                     SetDefaultCategory(null);
@@ -309,6 +375,7 @@ namespace AuthenticatorPro.Droid.Activity
                     return;
                 }
 
+                var position = _categoryView.IndexOf(id);
                 await _categoryView.LoadFromPersistenceAsync();
 
                 RunOnUiThread(delegate

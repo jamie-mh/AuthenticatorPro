@@ -378,6 +378,21 @@ namespace AuthenticatorPro.Test.Service
         }
 
         [Fact]
+        public async Task GetBindingsForCategoryAsync_null()
+        {
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.GetBindingsForCategoryAsync(null));
+        }
+        
+        [Fact]
+        public async Task GetBindingsForCategoryAsync_ok()
+        {
+            var bindings = new List<AuthenticatorCategory> { new() };
+            var category = new Category();
+            _authenticatorCategoryRepository.Setup(r => r.GetAllForCategoryAsync(category)).ReturnsAsync(bindings);
+            Assert.Equal(bindings, await _categoryService.GetBindingsForCategoryAsync(category));
+        }
+
+        [Fact]
         public async Task GetAllCategoriesAsync()
         {
             var categories = new List<Category> { new() };
