@@ -105,11 +105,13 @@
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
         <item>@string/darkTheme</item>
+        <item>@string/blackTheme</item>
     </string-array>
     <string-array name="themeValues">
         <item>system</item>
         <item>light</item>
         <item>dark</item>
+        <item>black</item>
     </string-array>
 
     <string-array name="viewModeNames">

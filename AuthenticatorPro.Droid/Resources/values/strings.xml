@@ -329,6 +329,7 @@
     <string name="systemDefault">System default</string>
     <string name="lightTheme">Light theme</string>
     <string name="darkTheme">Dark theme</string>
+    <string name="blackTheme">Black theme</string>
 
     <string name="defaultViewMode">Default</string>
     <string name="compactViewMode">Compact</string>

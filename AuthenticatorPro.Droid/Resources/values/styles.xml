@@ -1,33 +1,11 @@
 <resources>
-    <style name="AppTheme" parent="Theme.Material3.DynamicColors.Light">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
-        <item name="fontFamily">@font/rubik</item>
-        <item name="android:fontFamily">@font/rubik</item>
-
-        <item name="listBorderColor">@color/colorLighter</item>
-
-        <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
-        
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">?attr/colorSurface</item>
-    </style>
-
-    <style name="MainActivityTheme" parent="AppTheme">
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
-
-    <style name="AppTheme.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+    <style name="AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="dialogCornerRadius">28dp</item>
         <item name="cornerFamily">rounded</item>
         <item name="android:background">@drawable/alertDialogBackground</item>
     </style>
-
-    <style name="BottomSheetStyle" parent="Theme.Material3.Light.BottomSheetDialog">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
-    </style>
+    
+    <style name="AuthenticatorCardStyle" parent="Widget.Material3.CardView.Elevated" />
 
     <!-- Accent colours -->
     <style name="OverlayAccentRed">

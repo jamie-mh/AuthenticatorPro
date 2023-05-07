@@ -36,30 +36,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             _updatedThemeOnCreate = true;
             UpdateTheme();
+            UpdateOverlay();
 
             BaseApplication = (BaseApplication) Application;
 
             if (Build.VERSION.SdkInt < BuildVersionCodes.M)
             {
                 Window.SetStatusBarColor(Color.Black);
-            }
-
-            var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
-            
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
-            {
-                var dynamicColorOptions = new DynamicColorsOptions.Builder();
-
-                if (!_preferences.DynamicColour)
-                {
-                    dynamicColorOptions.SetThemeOverlay(overlay);
-                }
-
-                DynamicColors.ApplyToActivityIfAvailable(this, dynamicColorOptions.Build());
-            }
-            else
-            {
-                Theme.ApplyStyle(overlay, true);
             }
 
             SetContentView(_layout);
@@ -108,7 +91,7 @@ namespace AuthenticatorPro.Droid.Activity
             base.AttachBaseContext(context);
         }
 
-        protected void UpdateTheme()
+        private void UpdateTheme()
         {
             var theme = _preferences.Theme;
 
@@ -130,12 +113,39 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "dark":
+                case "black":
                     IsDark = true;
                     AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightYes;
                     break;
             }
 
             _lastTheme = theme;
+        }
+
+        private void UpdateOverlay()
+        {
+            var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
+            
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            {
+                var dynamicColorOptions = new DynamicColorsOptions.Builder();
+
+                if (!_preferences.DynamicColour)
+                {
+                    dynamicColorOptions.SetThemeOverlay(overlay);
+                }
+
+                DynamicColors.ApplyToActivityIfAvailable(this, dynamicColorOptions.Build());
+            }
+            else
+            {
+                Theme.ApplyStyle(overlay, true);
+            }
+
+            if (_preferences.Theme == "black")
+            {
+                Theme.ApplyStyle(Resource.Style.OverlayBlack, true);
+            }
         }
 
         protected override void OnResume()
