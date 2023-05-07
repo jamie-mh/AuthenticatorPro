@@ -79,7 +79,8 @@ namespace AuthenticatorPro.Test.Service
                 Name = "test",
                 Icons = new List<IconPackEntry>
                 {
-                    new() { Name = "icon" }
+                    new() { Name = "icon1" },
+                    new() { Name = "icon2" }
                 }
             };
                 
@@ -99,7 +100,7 @@ namespace AuthenticatorPro.Test.Service
             
             _iconPackRepository.Verify(r => r.UpdateAsync(pack), Times.Once());
             _iconPackEntryRepository.Verify(r => r.DeleteAllForPackAsync(pack), Times.Once());
-            _iconPackEntryRepository.Verify(r => r.CreateAsync(It.IsAny<IconPackEntry>()), Times.Once());
+            _iconPackEntryRepository.Verify(r => r.CreateAsync(It.IsAny<IconPackEntry>()), Times.Exactly(2));
         }
         
         [Fact]

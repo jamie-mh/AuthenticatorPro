@@ -42,12 +42,12 @@ namespace AuthenticatorPro.Core.Service.Impl
                 await _iconPackRepository.UpdateAsync(pack);
                 await _iconPackEntryRepository.DeleteAllForPackAsync(pack);
             }
-            
-            foreach (var entry in pack.Icons)
+
+            await Parallel.ForEachAsync(pack.Icons, async (entry, _) =>
             {
                 entry.IconPackName = pack.Name;
                 await _iconPackEntryRepository.CreateAsync(entry);
-            }
+            });
         }
 
         public async Task DeletePackAsync(IconPack pack)
