@@ -563,10 +563,15 @@ namespace AuthenticatorPro.Droid.Activity
                 OpenBackupMenu();
             };
 
-            fragment.EditCategoriesClicked += delegate
+            fragment.CategoriesClicked += delegate
             {
                 _shouldLoadFromPersistenceOnNextOpen = true;
-                StartActivity(typeof(EditCategoriesActivity));
+                StartActivity(typeof(CategoriesActivity));
+            };
+            
+            fragment.IconPacksClicked += delegate
+            {
+                StartActivity(typeof(IconPacksActivity));
             };
 
             fragment.SettingsClicked += delegate
@@ -2102,7 +2107,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.EditCategoriesClicked += delegate
             {
                 _shouldLoadFromPersistenceOnNextOpen = true;
-                StartActivity(typeof(EditCategoriesActivity));
+                StartActivity(typeof(CategoriesActivity));
                 fragment.Dismiss();
             };
             fragment.Closed += OnCategoriesDialogClosed;

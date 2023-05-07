@@ -32,6 +32,11 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
             Update();
         }
 
+        public int IndexOf(string name)
+        {
+            return _all.FindIndex(c => c.Name == name);
+        }
+
         public IEnumerator<IconPack> GetEnumerator()
         {
             return _all.GetEnumerator();

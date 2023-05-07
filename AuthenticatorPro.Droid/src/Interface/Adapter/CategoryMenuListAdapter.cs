@@ -10,7 +10,7 @@ using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class CategoriesListAdapter : RecyclerView.Adapter
+    internal class CategoryMenuListAdapter : RecyclerView.Adapter
     {
         public event EventHandler<string> CategorySelected;
         public int SelectedPosition { get; set; }
@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public override int ItemCount => _categoryView.Count + 1;
 
-        public CategoriesListAdapter(Context context, ICategoryView categoryView)
+        public CategoryMenuListAdapter(Context context, ICategoryView categoryView)
         {
             _context = context;
             _categoryView = categoryView;

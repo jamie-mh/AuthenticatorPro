@@ -9,7 +9,7 @@ using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class ManageCategoriesListAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    internal class CategoryListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         public event EventHandler<int> MenuClicked;
         public event EventHandler<bool> MovementFinished;
@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
         private readonly ICategoryView _categoryView;
         public override int ItemCount => _categoryView.Count;
 
-        public ManageCategoriesListAdapter(ICategoryView categoryView)
+        public CategoryListAdapter(ICategoryView categoryView)
         {
             _categoryView = categoryView;
         }

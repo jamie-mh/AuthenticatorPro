@@ -89,12 +89,6 @@
             android:entries="@array/themeNames"
             android:entryValues="@array/themeValues"
             android:defaultValue="system"/>
-        <authenticatorpro.droid.preference.IconPackPreference
-            android:key="pref_iconPack"
-            android:summary="@string/prefIconPacksSummary"
-            android:title="@string/prefIconPacksTitle"
-            app:iconSpaceReserved="false"
-            android:defaultValue="true"/>
         <androidx.preference.ListPreference
             android:key="pref_viewMode"
             android:summary="@string/prefViewModeSummary"

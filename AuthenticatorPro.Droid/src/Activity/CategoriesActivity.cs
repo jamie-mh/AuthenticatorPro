@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
+using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Adapter;
@@ -22,18 +23,17 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class EditCategoriesActivity : SensitiveSubActivity
+    internal class CategoriesActivity : SensitiveSubActivity
     {
-        private RelativeLayout _rootLayout;
+        private CoordinatorLayout _rootLayout;
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
-        private ManageCategoriesListAdapter _categoryListAdapter;
+        private CategoryListAdapter _categoryListAdapter;
         private RecyclerView _categoryList;
 
         private PreferenceWrapper _preferences;
@@ -41,7 +41,7 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly ICategoryView _categoryView;
         private readonly ICategoryService _categoryService;
 
-        public EditCategoriesActivity() : base(Resource.Layout.activityEditCategories)
+        public CategoriesActivity() : base(Resource.Layout.activityCategories)
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
             _categoryService = Dependencies.Resolve<ICategoryService>();
@@ -61,12 +61,12 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
-            _rootLayout = FindViewById<RelativeLayout>(Resource.Id.layoutRoot);
+            _rootLayout = FindViewById<CoordinatorLayout>(Resource.Id.layoutRoot);
 
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddClick;
 
-            _categoryListAdapter = new ManageCategoriesListAdapter(_categoryView);
+            _categoryListAdapter = new CategoryListAdapter(_categoryView);
             _categoryListAdapter.MenuClicked += OnMenuClicked;
             _categoryListAdapter.MovementFinished += OnMovementFinished;
             _categoryListAdapter.HasStableIds = true;
@@ -90,7 +90,15 @@ namespace AuthenticatorPro.Droid.Activity
             var layoutAnimation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);
             _categoryList.LayoutAnimation = layoutAnimation;
 
-            await Refresh();
+            await _categoryView.LoadFromPersistenceAsync();
+
+            RunOnUiThread(delegate
+            {
+                CheckEmptyState();
+
+                _categoryListAdapter.NotifyDataSetChanged();
+                _categoryList.ScheduleLayoutAnimation();
+            });
         }
 
         private async void OnMovementFinished(object sender, bool orderChanged)
@@ -106,19 +114,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await _categoryService.UpdateManyCategoriesAsync(_categoryView);
-        }
-
-        private async Task Refresh()
-        {
-            await _categoryView.LoadFromPersistenceAsync();
-
-            RunOnUiThread(delegate
-            {
-                CheckEmptyState();
-
-                _categoryListAdapter.NotifyDataSetChanged();
-                _categoryList.ScheduleLayoutAnimation();
-            });
         }
 
         private void CheckEmptyState()
@@ -151,22 +146,12 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void OnAddClick(object sender, EventArgs e)
         {
-            var transaction = SupportFragmentManager.BeginTransaction();
-            var old = SupportFragmentManager.FindFragmentByTag("add_dialog");
-
-            if (old != null)
-            {
-                transaction.Remove(old);
-            }
-
-            transaction.AddToBackStack(null);
-
             var bundle = new Bundle();
             bundle.PutInt("mode", (int) EditCategoryBottomSheet.Mode.New);
 
-            var dialog = new EditCategoryBottomSheet { Arguments = bundle };
-            dialog.Submitted += OnAddDialogSubmit;
-            dialog.Show(transaction, "add_dialog");
+            var fragment = new EditCategoryBottomSheet { Arguments = bundle };
+            fragment.Submitted += OnAddDialogSubmit;
+            fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
         private async void OnAddDialogSubmit(object sender, EditCategoryBottomSheet.EditCategoryEventArgs args)
@@ -267,11 +252,11 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await _categoryView.LoadFromPersistenceAsync();
-
+            
             RunOnUiThread(delegate
             {
-                _categoryListAdapter.NotifyItemChanged(args.Position);
-                dialog.Dismiss();
+                CheckEmptyState();
+                _categoryListAdapter.NotifyDataSetChanged();
             });
         }
 

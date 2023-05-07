@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRoot"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/layoutRoot">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.Material3.Toolbar"
-        android:minHeight="?android:attr/actionBarSize"
+    <com.google.android.material.appbar.AppBarLayout
+        app:elevation="0dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                style="Widget.Material3.Toolbar"
+                android:minHeight="?android:attr/actionBarSize"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/toolbar"/>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressIndicator"
+                android:indeterminate="true"
+                android:visibility="invisible"
+                app:trackThickness="2dp"
+                app:trackColor="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        android:layout_below="@id/toolbar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:visibility="invisible"
         android:scrollbars="vertical"
         android:clipToPadding="false"
         android:paddingTop="10dp"
         android:paddingBottom="80dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:id="@+id/layoutEmptyState"
@@ -37,7 +59,7 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
-            android:src="@drawable/big_ic_category"/>
+            android:src="@drawable/big_ic_box"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -49,7 +71,7 @@
             android:textSize="24dp"
             android:layout_marginTop="22dp"
             android:textAppearance="?attr/textAppearanceHeadline5"
-            android:text="@string/noCategoriesTitle"/>
+            android:text="@string/noIconPacksTitle"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
@@ -60,16 +82,15 @@
             android:paddingStart="32dp"
             android:layout_marginTop="12dp"
             android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:text="@string/noCategoriesMessage"/>
+            android:text="@string/noIconPacksMessage"/>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_add_24"
-        app:useCompatPadding="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/baseline_add_24"/>
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
