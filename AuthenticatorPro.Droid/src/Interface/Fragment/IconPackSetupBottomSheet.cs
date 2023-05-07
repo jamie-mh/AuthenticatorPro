@@ -74,6 +74,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _packList = view.FindViewById<RecyclerView>(Resource.Id.listPack);
             _packList.SetAdapter(_iconPackListAdapter);
             _packList.HasFixedSize = true;
+            _packList.SetItemAnimator(null);
             
             var layout = new FixedGridLayoutManager(RequireContext(), 1);
             _packList.SetLayoutManager(layout);
