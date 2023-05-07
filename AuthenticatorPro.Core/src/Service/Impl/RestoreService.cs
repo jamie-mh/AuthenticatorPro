@@ -10,16 +10,13 @@ namespace AuthenticatorPro.Core.Service.Impl
     {
         private readonly IAuthenticatorService _authenticatorService;
         private readonly ICategoryService _categoryService;
-        private readonly IAuthenticatorCategoryService _authenticatorCategoryService;
         private readonly ICustomIconService _customIconService;
 
         public RestoreService(IAuthenticatorService authenticatorService, ICategoryService categoryService,
-            IAuthenticatorCategoryService authenticatorCategoryService,
             ICustomIconService customIconService)
         {
             _authenticatorService = authenticatorService;
             _categoryService = categoryService;
-            _authenticatorCategoryService = authenticatorCategoryService;
             _customIconService = customIconService;
         }
 
@@ -32,13 +29,13 @@ namespace AuthenticatorPro.Core.Service.Impl
 
             if (backup.Categories != null)
             {
-                result.AddedCategoryCount = await _categoryService.AddManyAsync(backup.Categories);
+                result.AddedCategoryCount = await _categoryService.AddManyCategoriesAsync(backup.Categories);
             }
 
             if (backup.AuthenticatorCategories != null)
             {
                 result.AddedAuthenticatorCategoryCount =
-                    await _authenticatorCategoryService.AddManyAsync(backup.AuthenticatorCategories);
+                    await _categoryService.AddManyBindingsAsync(backup.AuthenticatorCategories);
             }
 
             if (backup.CustomIcons != null)
@@ -59,15 +56,14 @@ namespace AuthenticatorPro.Core.Service.Impl
 
             if (backup.Categories != null)
             {
-                var (added, updated) = await _categoryService.AddOrUpdateManyAsync(backup.Categories);
+                var (added, updated) = await _categoryService.AddOrUpdateManyCategoriesAsync(backup.Categories);
                 result.AddedCategoryCount = added;
                 result.UpdatedCategoryCount = updated;
             }
 
             if (backup.AuthenticatorCategories != null)
             {
-                var (added, updated) =
-                    await _authenticatorCategoryService.AddOrUpdateManyAsync(backup.AuthenticatorCategories);
+                var (added, updated) = await _categoryService.AddOrUpdateManyBindingsAsync(backup.AuthenticatorCategories);
                 result.AddedAuthenticatorCategoryCount = added;
                 result.UpdatedAuthenticatorCategoryCount = updated;
             }

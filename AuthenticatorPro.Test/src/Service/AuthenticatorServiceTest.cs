@@ -176,7 +176,7 @@ namespace AuthenticatorPro.Test.Service
             await _authenticatorService.SetIconAsync(auth, "icon");
 
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
-            _customIconService.Verify(s => s.CullUnused());
+            _customIconService.Verify(s => s.CullUnusedAsync());
         }
 
         [Fact]
@@ -196,8 +196,8 @@ namespace AuthenticatorPro.Test.Service
 
             await _authenticatorService.SetCustomIconAsync(auth, icon);
 
-            _customIconService.Verify(c => c.AddIfNotExists(icon), Times.Never());
-            _customIconService.Verify(c => c.CullUnused(), Times.Never());
+            _customIconService.Verify(c => c.AddIfNotExistsAsync(icon), Times.Never());
+            _customIconService.Verify(c => c.CullUnusedAsync(), Times.Never());
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth), Times.Never());
         }
 
@@ -216,8 +216,8 @@ namespace AuthenticatorPro.Test.Service
 
             await _authenticatorService.SetCustomIconAsync(auth, icon);
 
-            _customIconService.Verify(s => s.AddIfNotExists(icon));
-            _customIconService.Verify(s => s.CullUnused());
+            _customIconService.Verify(s => s.AddIfNotExistsAsync(icon));
+            _customIconService.Verify(s => s.CullUnusedAsync());
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
         }
 

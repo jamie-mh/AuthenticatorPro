@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace AuthenticatorPro.Droid.Persistence.View.Impl
 {
-    public class IconView : IIconView
+    public class DefaultIconView : IDefaultIconView
     {
         private Dictionary<string, int> _view;
 

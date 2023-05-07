@@ -81,6 +81,15 @@
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacksHelp">Icon packs are additional sets of icons that can be used in conjunction with the default icons</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="importPack">Import pack</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="importIconPackFailure">Failed to import icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
 
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
@@ -296,6 +305,8 @@
     <string name="prefAppearance">Appearance</string>
     <string name="prefThemeTitle">Theme</string>
     <string name="prefThemeSummary">Choose an application theme</string>
+    <string name="prefIconPacksTitle">Icon Packs</string>
+    <string name="prefIconPacksSummary">Import and manage sets of custom icons for authenticators</string>
     <string name="prefViewModeTitle">View Mode</string>
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefCodeGroupSizeTitle">Code Group Size</string>

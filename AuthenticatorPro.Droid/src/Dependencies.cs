@@ -56,6 +56,8 @@ namespace AuthenticatorPro.Droid
             container.Register<ICategoryRepository, CategoryRepository>();
             container.Register<IAuthenticatorCategoryRepository, AuthenticatorCategoryRepository>();
             container.Register<ICustomIconRepository, CustomIconRepository>();
+            container.Register<IIconPackRepository, IconPackRepository>();
+            container.Register<IIconPackEntryRepository, IconPackEntryRepository>();
         }
 
         public static void RegisterServices(TinyIoCContainer container)
@@ -64,11 +66,11 @@ namespace AuthenticatorPro.Droid
             container.Register<IEqualityComparer<Category>, CategoryComparer>();
             container.Register<IEqualityComparer<AuthenticatorCategory>, AuthenticatorCategoryComparer>();
 
-            container.Register<IAuthenticatorCategoryService, AuthenticatorCategoryService>();
             container.Register<IAuthenticatorService, AuthenticatorService>();
             container.Register<IBackupService, BackupService>();
             container.Register<ICategoryService, CategoryService>();
             container.Register<ICustomIconService, CustomIconService>();
+            container.Register<IIconPackService, IconPackService>();
             container.Register<IImportService, ImportService>();
             container.Register<IRestoreService, RestoreService>();
         }
@@ -77,7 +79,10 @@ namespace AuthenticatorPro.Droid
         {
             container.Register<IAuthenticatorView, AuthenticatorView>().AsMultiInstance();
             container.Register<ICategoryView, CategoryView>().AsMultiInstance();
-            container.Register<IIconView, IconView>().AsMultiInstance();
+            container.Register<ICustomIconView, CustomIconView>().AsMultiInstance();
+            container.Register<IDefaultIconView, DefaultIconView>().AsMultiInstance();
+            container.Register<IIconPackEntryView, IconPackEntryView>().AsMultiInstance();
+            container.Register<IIconPackView, IconPackView>().AsMultiInstance();
         }
 
         public static T Resolve<T>() where T : class

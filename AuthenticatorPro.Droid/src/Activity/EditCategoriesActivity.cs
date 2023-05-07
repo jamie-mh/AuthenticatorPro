@@ -14,7 +14,6 @@ using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Interface;
@@ -40,13 +39,11 @@ namespace AuthenticatorPro.Droid.Activity
         private PreferenceWrapper _preferences;
 
         private readonly ICategoryView _categoryView;
-        private readonly ICategoryRepository _categoryRepository;
         private readonly ICategoryService _categoryService;
 
         public EditCategoriesActivity() : base(Resource.Layout.activityEditCategories)
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
-            _categoryRepository = Dependencies.Resolve<ICategoryRepository>();
             _categoryService = Dependencies.Resolve<ICategoryService>();
         }
 
@@ -108,12 +105,12 @@ namespace AuthenticatorPro.Droid.Activity
                 _categoryView[i].Ranking = i;
             }
 
-            await _categoryService.UpdateManyAsync(_categoryView);
+            await _categoryService.UpdateManyCategoriesAsync(_categoryView);
         }
 
         private async Task Refresh()
         {
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             RunOnUiThread(delegate
             {
@@ -179,7 +176,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                await _categoryRepository.CreateAsync(category);
+                await _categoryService.AddCategoryAsync(category);
             }
             catch (EntityDuplicateException)
             {
@@ -194,7 +191,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             RunOnUiThread(delegate
             {
@@ -269,7 +266,7 @@ namespace AuthenticatorPro.Droid.Activity
                 SetDefaultCategory(next.Id);
             }
 
-            await _categoryView.LoadFromPersistence();
+            await _categoryView.LoadFromPersistenceAsync();
 
             RunOnUiThread(delegate
             {
@@ -327,7 +324,7 @@ namespace AuthenticatorPro.Droid.Activity
                     return;
                 }
 
-                await _categoryView.LoadFromPersistence();
+                await _categoryView.LoadFromPersistenceAsync();
 
                 RunOnUiThread(delegate
                 {
