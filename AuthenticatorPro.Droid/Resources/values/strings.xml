@@ -123,6 +123,7 @@
     <string name="category">Category</string>
     <string name="categories">Categories</string>
     <string name="assignCategories">Assign categories</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">More</string>
     <string name="categoryAll">All</string>
     <string name="editCategories">Edit categories</string>

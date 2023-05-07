@@ -254,6 +254,16 @@ namespace AuthenticatorPro.Core.Service.Impl
             return _authenticatorCategoryRepository.GetAllForAuthenticatorAsync(authenticator);
         }
 
+        public Task<List<AuthenticatorCategory>> GetBindingsForCategoryAsync(Category category)
+        {
+            if (category == null)
+            {
+                throw new ArgumentNullException(nameof(category));
+            }
+            
+            return _authenticatorCategoryRepository.GetAllForCategoryAsync(category);
+        }
+
         public Task<List<Category>> GetAllCategoriesAsync()
         {
             return _categoryRepository.GetAllAsync();
