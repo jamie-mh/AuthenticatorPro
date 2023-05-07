@@ -178,7 +178,7 @@ namespace AuthenticatorPro.Core.Converter
 
                     try
                     {
-                        newIcon = await _customIconDecoder.DecodeAsync(entry.Icon);
+                        newIcon = await _customIconDecoder.DecodeAsync(entry.Icon, true);
                     }
                     catch (ArgumentException)
                     {

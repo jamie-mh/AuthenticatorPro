@@ -7,7 +7,6 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Interface.LayoutManager;

@@ -114,7 +114,7 @@ namespace AuthenticatorPro.Droid.Interface
             return Bitmap.CreateBitmap(bitmap, left, top, right - left, bottom - top);
         }
 
-        public async Task<CustomIcon> DecodeAsync(byte[] rawData)
+        public async Task<CustomIcon> DecodeAsync(byte[] rawData, bool shouldPreProcess)
         {
             var bitmap = await BitmapFactory.DecodeByteArrayAsync(rawData, 0, rawData.Length);
 
@@ -123,15 +123,18 @@ namespace AuthenticatorPro.Droid.Interface
                 throw new ArgumentException("Image could not be loaded.");
             }
 
-            await Task.Run(delegate
+            if (shouldPreProcess)
             {
-                if (bitmap.HasAlpha)
+                await Task.Run(delegate
                 {
-                    bitmap = Trim(bitmap);
-                }
+                    if (bitmap.HasAlpha)
+                    {
+                        bitmap = Trim(bitmap);
+                    }
 
-                bitmap = ToSquare(bitmap);
-            });
+                    bitmap = ToSquare(bitmap);
+                });
+            }
 
             var size = Math.Min(CustomIcon.MaxSize, bitmap.Width); // width or height, doesn't matter as it's square
             var stream = new MemoryStream();

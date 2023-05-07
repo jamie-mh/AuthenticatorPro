@@ -31,7 +31,6 @@ using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using Google.Android.Material.AppBar;
@@ -2013,7 +2012,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 await args.Icon.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
-                var icon = await _customIconDecoder.DecodeAsync(stream.ToArray());
+                var icon = await _customIconDecoder.DecodeAsync(stream.ToArray(), false);
                 await SetCustomIcon(auth, icon);
             }
             catch (Exception e)
@@ -2048,7 +2047,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 var data = await FileUtil.ReadFile(this, source);
-                var icon = await _customIconDecoder.DecodeAsync(data);
+                var icon = await _customIconDecoder.DecodeAsync(data, true);
                 await SetCustomIcon(auth, icon);
             }
             catch (Exception e)

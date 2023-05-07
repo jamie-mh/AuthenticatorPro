@@ -14,7 +14,6 @@ using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Interface;
