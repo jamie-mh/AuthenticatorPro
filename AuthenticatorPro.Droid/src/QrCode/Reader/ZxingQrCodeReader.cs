@@ -15,7 +15,7 @@ using ZXing;
 using ZXing.Common;
 using Uri = Android.Net.Uri;
 
-namespace AuthenticatorPro.Droid.Interface.QrCode.Reader
+namespace AuthenticatorPro.Droid.QrCode.Reader
 {
     public class ZxingQrCodeReader : IQrCodeReader
     {

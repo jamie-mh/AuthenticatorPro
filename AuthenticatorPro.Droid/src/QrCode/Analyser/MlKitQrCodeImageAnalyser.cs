@@ -13,7 +13,7 @@ using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
 using Xamarin.Google.MLKit.Vision.Common;
 
-namespace AuthenticatorPro.Droid.Interface.QrCode.Analyser
+namespace AuthenticatorPro.Droid.QrCode.Analyser
 {
     public class MlKitQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {

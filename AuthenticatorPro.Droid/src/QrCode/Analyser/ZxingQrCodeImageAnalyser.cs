@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using ZXing;
 using ZXing.Common;
 
-namespace AuthenticatorPro.Droid.Interface.QrCode.Analyser
+namespace AuthenticatorPro.Droid.QrCode.Analyser
 {
     public class ZxingQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {

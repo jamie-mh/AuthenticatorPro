@@ -33,7 +33,7 @@ using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
-using AuthenticatorPro.Droid.Interface.QrCode.Reader;
+using AuthenticatorPro.Droid.QrCode.Reader;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;

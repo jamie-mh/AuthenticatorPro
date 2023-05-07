@@ -5,7 +5,7 @@ using Android.Content;
 using System.Threading.Tasks;
 using Uri = Android.Net.Uri;
 
-namespace AuthenticatorPro.Droid.Interface.QrCode.Reader
+namespace AuthenticatorPro.Droid.QrCode.Reader
 {
     public interface IQrCodeReader
     {

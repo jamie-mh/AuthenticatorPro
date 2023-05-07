@@ -6,6 +6,7 @@
 using Android.Content;
 using Android.Gms.Extensions;
 using Android.Runtime;
+using AuthenticatorPro.Droid.QrCode.Reader;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ using Xamarin.Google.MLKit.Vision.Barcode.Common;
 using Xamarin.Google.MLKit.Vision.Common;
 using Uri = Android.Net.Uri;
 
-namespace AuthenticatorPro.Droid.Interface.QrCode.Reader
+namespace AuthenticatorPro.Droid.QrCode.Reader
 {
     public class MlKitQrCodeReader : IQrCodeReader
     {
