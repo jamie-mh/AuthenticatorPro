@@ -3,17 +3,17 @@
 
 #if !FDROID
 
+using Android.Gms.Extensions;
+using Android.Runtime;
 using AndroidX.Camera.Core;
 using System;
-using System.Threading.Tasks;
 using System.Linq;
-using Android.Runtime;
-using Android.Gms.Extensions;
+using System.Threading.Tasks;
 using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
 using Xamarin.Google.MLKit.Vision.Common;
 
-namespace AuthenticatorPro.Droid.Interface.Analyser
+namespace AuthenticatorPro.Droid.Interface.QrCode.Analyser
 {
     public class MlKitQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {
