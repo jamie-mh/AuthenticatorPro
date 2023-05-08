@@ -96,11 +96,18 @@ namespace AuthenticatorPro.Droid.Persistence
             await conn.ExecuteAsync("DELETE FROM authenticatorcategory WHERE categoryId = ?", category.Id);
         }
 
-        public async Task TransferAsync(Category initial, Category next)
+        public async Task TransferCategoryAsync(Category initial, Category next)
         {
             var conn = await _database.GetConnection();
             await conn.ExecuteAsync(
                 "UPDATE authenticatorcategory SET categoryId = ? WHERE categoryId = ?", next.Id, initial.Id);
+        }
+
+        public async Task TransferAuthenticatorAsync(Authenticator initial, Authenticator next)
+        {
+            var conn = await _database.GetConnection();
+            await conn.ExecuteAsync(
+                "UPDATE authenticatorcategory SET authenticatorSecret = ? WHERE authenticatorSecret = ?", next.Secret, initial.Secret);
         }
     }
 }

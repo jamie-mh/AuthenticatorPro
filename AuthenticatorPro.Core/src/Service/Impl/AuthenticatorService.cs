@@ -16,18 +16,15 @@ namespace AuthenticatorPro.Core.Service.Impl
     {
         private readonly IAuthenticatorRepository _authenticatorRepository;
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-        private readonly IIconResolver _iconResolver;
         private readonly ICustomIconService _customIconService;
         private readonly IEqualityComparer<Authenticator> _equalityComparer;
 
         public AuthenticatorService(IAuthenticatorRepository authenticatorRepository,
             IAuthenticatorCategoryRepository authenticatorCategoryRepository,
-            IIconResolver iconResolver, ICustomIconService customIconService,
-            IEqualityComparer<Authenticator> equalityComparer)
+            ICustomIconService customIconService, IEqualityComparer<Authenticator> equalityComparer)
         {
             _authenticatorRepository = authenticatorRepository;
             _authenticatorCategoryRepository = authenticatorCategoryRepository;
-            _iconResolver = iconResolver;
             _customIconService = customIconService;
             _equalityComparer = equalityComparer;
         }
@@ -41,6 +38,17 @@ namespace AuthenticatorPro.Core.Service.Impl
 
             auth.Validate();
             await _authenticatorRepository.CreateAsync(auth);
+        }
+
+        public async Task UpdateAsync(Authenticator auth)
+        {
+            if (auth == null)
+            {
+                throw new ArgumentNullException(nameof(auth));
+            }
+
+            auth.Validate();
+            await _authenticatorRepository.UpdateAsync(auth);
         }
 
         public async Task<int> UpdateManyAsync(IEnumerable<Authenticator> auths)
@@ -69,23 +77,22 @@ namespace AuthenticatorPro.Core.Service.Impl
             return updated;
         }
 
-        public async Task RenameAsync(Authenticator auth, string issuer, string username)
+        public async Task ChangeSecretAsync(Authenticator auth, string newSecret)
         {
             if (auth == null)
             {
                 throw new ArgumentNullException(nameof(auth));
             }
 
-            if (String.IsNullOrEmpty(issuer))
+            if (String.IsNullOrEmpty(newSecret))
             {
-                throw new ArgumentException("Issuer cannot be null or empty");
+                throw new ArgumentException("Old secret cannot be null or empty");
             }
 
-            auth.Issuer = issuer;
-            auth.Username = username;
-            auth.Icon ??= _iconResolver.FindServiceKeyByName(issuer);
+            await _authenticatorRepository.ChangeSecretAsync(auth.Secret, newSecret);
 
-            await _authenticatorRepository.UpdateAsync(auth);
+            var next = new Authenticator { Secret = newSecret };
+            await _authenticatorCategoryRepository.TransferAuthenticatorAsync(auth, next);
         }
 
         public async Task SetIconAsync(Authenticator auth, string icon)

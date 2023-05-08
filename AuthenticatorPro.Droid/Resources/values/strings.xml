@@ -29,6 +29,7 @@
     <string name="about">About</string>
     <string name="scanQrCode">Scan a QR code</string>
     <string name="showQrCode">Show QR code</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">Scan from camera</string>
     <string name="scanQrCodeFromGallery">Scan from gallery</string>
     <string name="rename">Rename</string>
@@ -57,6 +58,7 @@
     <string name="secretKey">Secret key</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Show advanced options</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Use custom icon</string>
     <string name="copiedToClipboard">Code copied to clipboard</string>
@@ -67,6 +69,7 @@
     <string name="algorithmHint">Algorithm</string>
     <string name="digitsHint">Digits</string>
     <string name="periodHint">Period (seconds)</string>
+    <string name="counterHint">Counter</string>
 
     <string name="noIssuer">An issuer is required</string>
     <string name="noSecret">A secret key is required</string>
@@ -77,6 +80,7 @@
     <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>

@@ -1050,7 +1050,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             var fragment = new AuthenticatorMenuBottomSheet { Arguments = bundle };
 
-            fragment.RenameClicked += delegate { OpenRenameDialog(auth); };
+            fragment.EditClicked += delegate { OpenEditDialog(auth); };
             fragment.ChangeIconClicked += delegate { OpenIconDialog(auth); };
             fragment.AssignCategoriesClicked += async delegate { await OpenCategoriesDialog(auth); };
             fragment.ShowQrCodeClicked += delegate { OpenQrCodeDialog(auth); };
@@ -1780,11 +1780,11 @@ namespace AuthenticatorPro.Droid.Activity
         private void OpenAddDialog(object sender, EventArgs e)
         {
             var fragment = new AddAuthenticatorBottomSheet();
-            fragment.AddClicked += OnAddDialogSubmit;
+            fragment.SubmitClicked += OnAddDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnAddDialogSubmit(object sender, Authenticator auth)
+        private async void OnAddDialogSubmit(object sender, InputAuthenticatorBottomSheet.InputAuthenticatorEventArgs args)
         {
             var dialog = (AddAuthenticatorBottomSheet) sender;
 
@@ -1792,14 +1792,14 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 if (_authenticatorView.CategoryId == null)
                 {
-                    await _authenticatorService.AddAsync(auth);
+                    await _authenticatorService.AddAsync(args.Authenticator);
                 }
                 else
                 {
-                    await _authenticatorService.AddAsync(auth);
+                    await _authenticatorService.AddAsync(args.Authenticator);
 
                     var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
-                    await _categoryService.AddBindingAsync(auth, category);
+                    await _categoryService.AddBindingAsync(args.Authenticator, category);
                 }
             }
             catch (EntityDuplicateException)
@@ -1817,7 +1817,7 @@ namespace AuthenticatorPro.Droid.Activity
             await _authenticatorView.LoadFromPersistenceAsync();
             CheckEmptyState();
 
-            var position = _authenticatorView.IndexOf(auth);
+            var position = _authenticatorView.IndexOf(args.Authenticator);
 
             RunOnUiThread(delegate
             {
@@ -1831,32 +1831,62 @@ namespace AuthenticatorPro.Droid.Activity
 
         #endregion
 
-        #region Rename Dialog
+        #region Edit Dialog
 
-        private void OpenRenameDialog(Authenticator auth)
+        private void OpenEditDialog(Authenticator auth)
         {
             var bundle = new Bundle();
-            bundle.PutString("secret", auth.Secret);
+            bundle.PutInt("type", (int) auth.Type);
             bundle.PutString("issuer", auth.Issuer);
             bundle.PutString("username", auth.Username);
+            bundle.PutString("secret", auth.Secret);
+            bundle.PutString("pin", auth.Pin);
+            bundle.PutInt("algorithm", (int) auth.Algorithm);
+            bundle.PutInt("digits", auth.Digits);
+            bundle.PutInt("period", auth.Period);
+            bundle.PutLong("counter", auth.Counter);
 
-            var fragment = new RenameAuthenticatorBottomSheet { Arguments = bundle };
-            fragment.RenameClicked += OnRenameDialogSubmit;
+            var fragment = new EditAuthenticatorBottomSheet { Arguments = bundle };
+            fragment.SubmitClicked += OnEditDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnRenameDialogSubmit(object sender, RenameAuthenticatorBottomSheet.RenameEventArgs args)
+        private async void OnEditDialogSubmit(object sender, InputAuthenticatorBottomSheet.InputAuthenticatorEventArgs args)
         {
-            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
-
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.InitialSecret);
+            
             if (auth == null)
             {
                 return;
             }
+            
+            var dialog = (EditAuthenticatorBottomSheet) sender;
+            var position = _authenticatorView.IndexOf(auth);
 
+            auth.Type = args.Authenticator.Type;
+            auth.Issuer = args.Authenticator.Issuer;
+            auth.Username = args.Authenticator.Username;
+            auth.Pin = args.Authenticator.Pin;
+            auth.Algorithm = args.Authenticator.Algorithm;
+            auth.Digits = args.Authenticator.Digits;
+            auth.Period = args.Authenticator.Period;
+            auth.Counter = args.Authenticator.Counter;
+            
             try
             {
-                await _authenticatorService.RenameAsync(auth, args.Issuer, args.Username);
+                if (args.InitialSecret != args.Authenticator.Secret)
+                {
+                    auth.Secret = args.InitialSecret;
+                    await _authenticatorService.ChangeSecretAsync(auth, args.Authenticator.Secret);
+                    auth.Secret = args.Authenticator.Secret;
+                }
+                
+                await _authenticatorService.UpdateAsync(auth);
+            }
+            catch (EntityDuplicateException)
+            {
+                dialog.SecretError = GetString(Resource.String.duplicateAuthenticator);
+                return;
             }
             catch (Exception e)
             {
@@ -1864,10 +1894,13 @@ namespace AuthenticatorPro.Droid.Activity
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
-
-            var position = _authenticatorView.IndexOf(auth);
+            
+            await _authenticatorView.LoadFromPersistenceAsync();
+            
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
-            _preferences.BackupRequired = BackupRequirement.WhenPossible;
+            _preferences.BackupRequired = BackupRequirement.Urgent;
+            
+            dialog.Dismiss();
         }
 
         #endregion

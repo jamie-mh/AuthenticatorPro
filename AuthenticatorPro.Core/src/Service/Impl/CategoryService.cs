@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Core.Service.Impl
             }
 
             await _categoryRepository.CreateAsync(next);
-            await _authenticatorCategoryRepository.TransferAsync(initial, next);
+            await _authenticatorCategoryRepository.TransferCategoryAsync(initial, next);
             await _categoryRepository.DeleteAsync(initial);
         }
 
