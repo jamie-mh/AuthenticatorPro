@@ -107,7 +107,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             return position >= 0 && position < _authenticatorView.Count;
         }
 
-        public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             if (!ValidatePosition(position))
             {
@@ -150,6 +150,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                     if (_tapToReveal)
                     {
                         holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+                        holder.IsRevealed = false;
                     }
 
                     holder.RefreshButton.Visibility = ViewStates.Gone;
@@ -202,6 +203,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             {
                 var code = _tapToReveal ? null : auth.GetCode(offset);
                 holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+                holder.IsRevealed = false;
             }
 
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
@@ -228,6 +230,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             var offset = GetGenerationOffset(auth.Period);
             var code = _tapToReveal ? null : auth.GetCode(offset);
             holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+            holder.IsRevealed = false;
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
@@ -376,8 +379,18 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             if (_tapToReveal)
             {
-                var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                holder.IsRevealed = !holder.IsRevealed;
+                
+                if (holder.IsRevealed)
+                {
+                    var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                }
+                else
+                {
+                    holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+                    return;
+                }
             }
 
             ItemClicked?.Invoke(this, auth.Secret);
