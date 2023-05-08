@@ -15,6 +15,7 @@ namespace AuthenticatorPro.Core.Persistence
         public Task<List<AuthenticatorCategory>> GetAllForCategoryAsync(Category category);
         public Task DeleteAllForAuthenticatorAsync(Authenticator authenticator);
         public Task DeleteAllForCategoryAsync(Category category);
-        public Task TransferAsync(Category initial, Category next);
+        public Task TransferCategoryAsync(Category initial, Category next);
+        public Task TransferAuthenticatorAsync(Authenticator initial, Authenticator next);
     }
 }

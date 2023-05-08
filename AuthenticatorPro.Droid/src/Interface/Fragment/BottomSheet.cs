@@ -3,11 +3,13 @@
 
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
@@ -22,6 +24,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     internal abstract class BottomSheet : BottomSheetDialogFragment
     {
         public event EventHandler Dismissed;
+        public bool IsDark { get; private set; }
 
         private const int MaxWidth = 600;
 
@@ -50,6 +53,9 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             dialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
 
+            var baseActivity = (BaseActivity) RequireActivity();
+            IsDark = baseActivity.IsDark;
+            
             return dialog;
         }
 

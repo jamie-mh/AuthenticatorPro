@@ -26,7 +26,7 @@ namespace AuthenticatorPro.Test.Converter
             iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns("icon");
 
             var customIconDecoder = new Mock<ICustomIconDecoder>();
-            customIconDecoder.Setup(d => d.Decode(It.IsAny<byte[]>())).ReturnsAsync(new CustomIcon());
+            customIconDecoder.Setup(d => d.DecodeAsync(It.IsAny<byte[]>(), It.IsAny<bool>())).ReturnsAsync(new CustomIcon());
 
             _aegisBackupConverter = new AegisBackupConverter(iconResolver.Object, customIconDecoder.Object);
         }

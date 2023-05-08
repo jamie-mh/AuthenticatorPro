@@ -7,7 +7,7 @@ using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
 using Java.IO;
 using Newtonsoft.Json;
 using System;
@@ -34,9 +34,8 @@ namespace AuthenticatorPro.Droid
         private SecureStorageWrapper _secureStorageWrapper;
 
         private readonly IAuthenticatorView _authenticatorView;
-        private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly ICustomIconRepository _customIconRepository;
+        private readonly ICategoryService _categoryService;
+        private readonly ICustomIconService _customIconService;
 
         public WearQueryService()
         {
@@ -50,9 +49,8 @@ namespace AuthenticatorPro.Droid
             Dependencies.RegisterViews(container);
 
             _authenticatorView = container.Resolve<IAuthenticatorView>();
-            _categoryRepository = container.Resolve<ICategoryRepository>();
-            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
-            _customIconRepository = container.Resolve<ICustomIconRepository>();
+            _categoryService = container.Resolve<ICategoryService>();
+            _customIconService = container.Resolve<ICustomIconService>();
         }
         
         public override void OnCreate()
@@ -96,7 +94,7 @@ namespace AuthenticatorPro.Droid
             await _authenticatorView.LoadFromPersistenceAsync();
             var auths = new List<WearAuthenticator>();
 
-            var authCategories = await _authenticatorCategoryRepository.GetAllAsync();
+            var authCategories = await _categoryService.GetAllBindingsAsync();
 
             foreach (var auth in _authenticatorView)
             {
@@ -124,11 +122,11 @@ namespace AuthenticatorPro.Droid
                 auths.Add(item);
             }
 
-            var categories = (await _categoryRepository.GetAllAsync())
+            var categories = (await _categoryService.GetAllCategoriesAsync())
                 .Select(c => new WearCategory { Id = c.Id, Name = c.Name, Ranking = c.Ranking })
                 .ToList();
 
-            var customIcons = (await _customIconRepository.GetAllAsync())
+            var customIcons = (await _customIconService.GetAllAsync())
                 .Select(i => new WearCustomIcon { Id = i.Id, Data = i.Data })
                 .ToList();
 

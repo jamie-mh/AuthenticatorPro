@@ -38,95 +38,105 @@
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:text="@string/autoBackupHelp"/>
 
-            <LinearLayout
-                android:id="@+id/buttonSelectLocation"
-                android:orientation="horizontal"
-                android:background="@drawable/detailbutton"
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:id="@+id/cardSelectLocation"
+                android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:minHeight="56dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp">
-
-                <ImageView
-                    android:id="@+id/imageIcon"
-                    android:src="@drawable/baseline_folder_24"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="32dp"/>
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/imageIcon"
+                        android:src="@drawable/baseline_folder_24"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_gravity="center_vertical"
-                        android:textAppearance="?attr/textAppearanceSubtitle1"
-                        android:text="@string/selectLocation"/>
+                        android:layout_marginEnd="32dp"/>
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textLocationStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textAppearance="?attr/textAppearanceSubtitle2"/>
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:textAppearance="?attr/textAppearanceSubtitle1"
+                            android:text="@string/selectLocation"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textLocationStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <LinearLayout
-                android:id="@+id/buttonSetPassword"
-                android:orientation="horizontal"
-                android:background="@drawable/detailbutton"
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:id="@+id/cardSetPassword"
+                android:focusable="true"
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:minHeight="56dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp">
-
-                <ImageView
-                    android:id="@+id/imageIcon"
-                    android:src="@drawable/baseline_vpn_key_24"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="32dp"/>
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/imageIcon"
+                        android:src="@drawable/baseline_vpn_key_24"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_gravity="center_vertical"
-                        android:textAppearance="?attr/textAppearanceSubtitle1"
-                        android:text="@string/setPassword"/>
+                        android:layout_marginEnd="32dp"/>
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textPasswordStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textAppearance="?attr/textAppearanceSubtitle2"/>
+                    <LinearLayout
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:textAppearance="?attr/textAppearanceSubtitle1"
+                            android:text="@string/setPassword"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/textPasswordStatus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textAppearance="?attr/textAppearanceSubtitle2"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/switchBackupEnabled"

@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <resources>
     <declare-styleable name="AppTheme">
         <attr name="colorPrimary" format="color"/>
         <attr name="colorPrimaryDark" format="color"/>
 
         <attr name="listBorderColor" format="color"/>
+        
+        <attr name="cardStyle" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CardStyle"/>
 </resources>

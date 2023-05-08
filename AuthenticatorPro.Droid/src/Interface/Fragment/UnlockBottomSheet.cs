@@ -9,9 +9,11 @@ using Android.Widget;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 using System;
 
@@ -29,6 +31,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
+        private CircularProgressIndicator _progressIndicator;
 
         public UnlockBottomSheet() : base(Resource.Layout.sheetUnlock, Resource.String.unlock)
         {
@@ -40,6 +43,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _preferences = new PreferenceWrapper(Context);
 
+            _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
             _passwordLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             TextInputUtil.EnableAutoErrorClear(_passwordLayout);
@@ -89,20 +93,24 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             return view;
         }
 
-        public void SetBusy()
+        public void SetLoading(bool loading)
         {
-            _unlockButton.Enabled = _useBiometricsButton.Enabled = false;
-        }
-
-        private void ClearBusy()
-        {
-            _unlockButton.Enabled = true;
-            _useBiometricsButton.Enabled = _canUseBiometrics;
+            if (loading)
+            {
+                AnimUtil.FadeOutView(_unlockButton, AnimUtil.LengthShort, true);
+                AnimUtil.FadeInView(_progressIndicator, AnimUtil.LengthShort, true);
+                _useBiometricsButton.Enabled = false;
+            }
+            else
+            {
+                AnimUtil.FadeInView(_unlockButton, AnimUtil.LengthShort, true);
+                AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
+                _useBiometricsButton.Enabled = _canUseBiometrics;
+            }
         }
 
         public void ShowError()
         {
-            ClearBusy();
             FocusPasswordText();
             _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
         }

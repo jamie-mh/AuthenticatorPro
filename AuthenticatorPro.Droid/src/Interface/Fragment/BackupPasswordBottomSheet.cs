@@ -5,9 +5,11 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using AndroidX.AppCompat.App;
+using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 using Google.Android.Material.TextView;
 using System;
@@ -32,6 +34,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private MaterialButton _cancelButton;
         private MaterialButton _okButton;
+        private CircularProgressIndicator _progressIndicator;
 
         public string Error
         {
@@ -52,6 +55,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             _passwordTextLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
+
+            _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
 
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOK);
             _okButton.Click += OnOkButtonClick;
@@ -102,12 +107,20 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             PasswordEntered?.Invoke(this, _passwordText.Text);
         }
 
-        public void SetBusyText(int? busyRes)
+        public void SetLoading(bool loading)
         {
-            var busy = busyRes != null;
-            SetCancelable(!busy);
-            _okButton.Enabled = _cancelButton.Enabled = !busy;
-            _okButton.SetText(busyRes ?? Resource.String.ok);
+            SetCancelable(!loading);
+
+            if (loading)
+            {
+                AnimUtil.FadeOutView(_okButton, AnimUtil.LengthShort, true);
+                AnimUtil.FadeInView(_progressIndicator, AnimUtil.LengthShort, true);
+            }
+            else
+            {
+                AnimUtil.FadeInView(_okButton, AnimUtil.LengthShort, true);
+                AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
+            }
         }
 
         private void OnCancelButtonClick(object sender, EventArgs e)

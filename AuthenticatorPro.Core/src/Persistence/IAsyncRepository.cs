@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Persistence
 {
-    public interface IAsyncRepository<T, in TU> where T : class
+    public interface IAsyncRepository<T, in TU> where T : new()
     {
         public Task CreateAsync(T item);
         public Task<T> GetAsync(TU id);

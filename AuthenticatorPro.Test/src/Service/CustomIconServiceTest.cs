@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddIfNotExistsAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _customIconService.AddIfNotExists(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _customIconService.AddIfNotExistsAsync(null));
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace AuthenticatorPro.Test.Service
             _customIconRepository.Setup(r => r.GetAsync("id")).ReturnsAsync(icon);
             _customIconRepository.Setup(r => r.CreateAsync(icon)).Verifiable();
 
-            await _customIconService.AddIfNotExists(icon);
+            await _customIconService.AddIfNotExistsAsync(icon);
 
             _customIconRepository.Verify(r => r.CreateAsync(icon), Times.Never());
         }
@@ -55,7 +55,7 @@ namespace AuthenticatorPro.Test.Service
             _customIconRepository.Setup(r => r.GetAsync("id")).ReturnsAsync((CustomIcon) null);
             _customIconRepository.Setup(r => r.CreateAsync(icon)).Verifiable();
 
-            await _customIconService.AddIfNotExists(icon);
+            await _customIconService.AddIfNotExistsAsync(icon);
 
             _customIconRepository.Verify(r => r.CreateAsync(icon));
         }
@@ -88,9 +88,17 @@ namespace AuthenticatorPro.Test.Service
             Assert.Equal(1, added);
             _customIconRepository.Verify(r => r.CreateAsync(icon));
         }
+        
+        [Fact]
+        public async Task GetAllAsync()
+        {
+            var icons = new List<CustomIcon> { new() };
+            _customIconRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(icons);
+            Assert.Equal(icons, await _customIconService.GetAllAsync());
+        }
 
         [Fact]
-        public async Task CullUnused()
+        public async Task CullUnusedAsync()
         {
             var authA = new Authenticator { Icon = $"{CustomIcon.Prefix}id" };
             var authB = new Authenticator { Icon = $"{CustomIcon.Prefix}id" };
@@ -106,7 +114,7 @@ namespace AuthenticatorPro.Test.Service
             _customIconRepository.Setup(r => r.DeleteAsync(iconUsed)).Verifiable();
             _customIconRepository.Setup(r => r.DeleteAsync(iconUnused)).Verifiable();
 
-            await _customIconService.CullUnused();
+            await _customIconService.CullUnusedAsync();
 
             _customIconRepository.Verify(r => r.DeleteAsync(iconUsed), Times.Never());
             _customIconRepository.Verify(r => r.DeleteAsync(iconUnused), Times.Once());

@@ -71,17 +71,32 @@
                     android:layout_width="wrap_content"
                     android:text="@string/useBiometrics"/>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonUnlock"
-                    style="@style/Widget.Material3.Button"
-                    android:layout_height="wrap_content"
+                <FrameLayout
+                    android:id="@+id/layoutUnlockProgress"
                     android:layout_width="wrap_content"
-                    android:text="@string/unlock"/>
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progressIndicator"
+                        style="@style/Widget.Material3.CircularProgressIndicator.Small"
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="true"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonUnlock"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/unlock"/>
+                </FrameLayout>
 
                 <androidx.constraintlayout.helper.widget.Flow
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:constraint_referenced_ids="buttonUseBiometrics,buttonUnlock"
+                    app:constraint_referenced_ids="buttonUseBiometrics,layoutUnlockProgress"
                     app:flow_horizontalGap="10dp"
                     app:flow_horizontalBias="1.0"
                     app:flow_wrapMode="chain"

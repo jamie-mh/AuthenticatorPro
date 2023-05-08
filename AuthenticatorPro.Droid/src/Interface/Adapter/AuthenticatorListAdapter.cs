@@ -3,7 +3,6 @@
 
 using Android.Animation;
 using Android.Content;
-using Android.Graphics;
 using Android.Provider;
 using Android.Views;
 using Android.Views.Animations;
@@ -14,20 +13,18 @@ using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
-using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Util;
 using Google.Android.Material.ProgressIndicator;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter, IDisposable
+    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
@@ -42,13 +39,11 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
         private readonly bool _isDark;
         private readonly bool _tapToReveal;
         private readonly int _codeGroupSize;
+        private readonly bool _showUsernames;
 
         private readonly IAuthenticatorService _authenticatorService;
         private readonly IAuthenticatorView _authenticatorView;
-        private readonly ICustomIconRepository _customIconRepository;
-
-        private readonly SemaphoreSlim _customIconDecodeLock;
-        private readonly Dictionary<string, Bitmap> _decodedCustomIcons;
+        private readonly ICustomIconView _customIconView;
 
         private readonly Dictionary<int, long> _generationOffsets;
         private readonly Dictionary<int, long> _counterCooldownOffsets;
@@ -57,23 +52,19 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         private readonly float _animationScale;
 
-        private bool _isDisposed;
-
         public AuthenticatorListAdapter(Context context, IAuthenticatorService authenticatorService,
-            IAuthenticatorView authenticatorView, ICustomIconRepository customIconRepository, bool isDark)
+            IAuthenticatorView authenticatorView, ICustomIconView customIconView, bool isDark)
         {
             _authenticatorService = authenticatorService;
             _authenticatorView = authenticatorView;
-            _customIconRepository = customIconRepository;
+            _customIconView = customIconView;
 
             var preferences = new PreferenceWrapper(context);
             _viewMode = ViewModeSpecification.FromName(preferences.ViewMode);
             _tapToReveal = preferences.TapToReveal;
             _codeGroupSize = preferences.CodeGroupSize;
+            _showUsernames = preferences.ShowUsernames;
             _isDark = isDark;
-
-            _customIconDecodeLock = new SemaphoreSlim(1, 1);
-            _decodedCustomIcons = new Dictionary<string, Bitmap>();
 
             _generationOffsets = new Dictionary<int, long>();
             _counterCooldownOffsets = new Dictionary<int, long>();
@@ -82,32 +73,6 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             _animationScale =
                 Settings.Global.GetFloat(context.ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
-        }
-
-        ~AuthenticatorListAdapter()
-        {
-            Dispose(false);
-        }
-
-        public new void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (!_isDisposed)
-            {
-                if (disposing)
-                {
-                    _customIconDecodeLock.Dispose();
-                }
-
-                _isDisposed = true;
-            }
-
-            base.Dispose(disposing);
         }
 
         public override int ItemCount => _authenticatorView.Count;
@@ -130,7 +95,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public void OnMovementStarted()
         {
-            MovementStarted?.Invoke(this, null);
+            MovementStarted?.Invoke(this, EventArgs.Empty);
         }
 
         public override long GetItemId(int position)
@@ -145,7 +110,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             return position >= 0 && position < _authenticatorView.Count;
         }
 
-        public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             if (!ValidatePosition(position))
             {
@@ -158,18 +123,28 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             holder.Issuer.Text = auth.Issuer;
             holder.Username.Text = auth.Username;
 
-            holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
-                ? ViewStates.Gone
-                : ViewStates.Visible;
+            if (!_showUsernames)
+            {
+                var uniqueIssuer = _authenticatorView.Count(a => a.Issuer == auth.Issuer) == 1;
+                holder.Username.Visibility = uniqueIssuer
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
+            }
+            else
+            {
+                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
+            }
 
             if (auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
                 var id = auth.Icon[1..];
-                Bitmap decoded;
+                var customIconBitmap = _customIconView.GetOrDefault(id);
 
-                if ((decoded = await DecodeCustomIcon(id)) != null)
+                if (customIconBitmap != null)
                 {
-                    holder.Icon.SetImageBitmap(decoded);
+                    holder.Icon.SetImageBitmap(customIconBitmap);
                 }
                 else
                 {
@@ -188,6 +163,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                     if (_tapToReveal)
                     {
                         holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+                        holder.IsRevealed = false;
                     }
 
                     holder.RefreshButton.Visibility = ViewStates.Gone;
@@ -240,6 +216,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             {
                 var code = _tapToReveal ? null : auth.GetCode(offset);
                 holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+                holder.IsRevealed = false;
             }
 
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
@@ -266,57 +243,10 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             var offset = GetGenerationOffset(auth.Period);
             var code = _tapToReveal ? null : auth.GetCode(offset);
             holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+            holder.IsRevealed = false;
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
-        }
-
-        private async Task<Bitmap> DecodeCustomIcon(string id)
-        {
-            if (_decodedCustomIcons.TryGetValue(id, out var bitmap))
-            {
-                return bitmap;
-            }
-
-            CustomIcon icon;
-
-            try
-            {
-                icon = await _customIconRepository.GetAsync(id);
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                return null;
-            }
-
-            if (icon == null)
-            {
-                return null;
-            }
-
-            await _customIconDecodeLock.WaitAsync();
-
-            try
-            {
-                if (_decodedCustomIcons.TryGetValue(id, out bitmap))
-                {
-                    return bitmap;
-                }
-
-                bitmap = await BitmapFactory.DecodeByteArrayAsync(icon.Data, 0, icon.Data.Length);
-                _decodedCustomIcons.Add(icon.Id, bitmap);
-                return bitmap;
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                return null;
-            }
-            finally
-            {
-                _customIconDecodeLock.Release();
-            }
         }
 
         public void Tick()
@@ -462,8 +392,18 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             if (_tapToReveal)
             {
-                var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                holder.IsRevealed = !holder.IsRevealed;
+                
+                if (holder.IsRevealed)
+                {
+                    var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                    holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                }
+                else
+                {
+                    holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+                    return;
+                }
             }
 
             ItemClicked?.Invoke(this, auth.Secret);

@@ -8,7 +8,7 @@ namespace AuthenticatorPro.Droid.Persistence.View
 {
     public interface ICategoryView : IReorderableView<Category>
     {
-        public Task LoadFromPersistence();
+        public Task LoadFromPersistenceAsync();
         public int IndexOf(string id);
     }
 }

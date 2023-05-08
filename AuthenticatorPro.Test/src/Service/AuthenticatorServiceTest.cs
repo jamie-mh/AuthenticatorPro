@@ -19,7 +19,6 @@ namespace AuthenticatorPro.Test.Service
     {
         private readonly Mock<IAuthenticatorRepository> _authenticatorRepository;
         private readonly Mock<IAuthenticatorCategoryRepository> _authenticatorCategoryRepository;
-        private readonly Mock<IIconResolver> _iconResolver;
         private readonly Mock<ICustomIconService> _customIconService;
         private readonly Mock<IEqualityComparer<Authenticator>> _equalityComparer;
 
@@ -29,14 +28,12 @@ namespace AuthenticatorPro.Test.Service
         {
             _authenticatorRepository = new Mock<IAuthenticatorRepository>();
             _authenticatorCategoryRepository = new Mock<IAuthenticatorCategoryRepository>();
-            _iconResolver = new Mock<IIconResolver>();
             _customIconService = new Mock<ICustomIconService>();
             _equalityComparer = new Mock<IEqualityComparer<Authenticator>>();
 
             _authenticatorService = new AuthenticatorService(
                 _authenticatorRepository.Object,
                 _authenticatorCategoryRepository.Object,
-                _iconResolver.Object,
                 _customIconService.Object,
                 _equalityComparer.Object);
         }
@@ -57,6 +54,24 @@ namespace AuthenticatorPro.Test.Service
 
             auth.Verify(a => a.Validate());
             _authenticatorRepository.Verify(r => r.CreateAsync(auth.Object));
+        }
+
+        [Fact]
+        public async Task UpdateAsync_null()
+        {
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.UpdateAsync(null));
+        }
+
+        [Fact]
+        public async Task UpdateAsync_ok()
+        {
+            var auth = new Mock<Authenticator>();
+            auth.Setup(a => a.Validate()).Verifiable();
+
+            await _authenticatorService.UpdateAsync(auth.Object);
+
+            auth.Verify(a => a.Validate());
+            _authenticatorRepository.Verify(r => r.UpdateAsync(auth.Object));
         }
 
         [Fact]
@@ -116,36 +131,48 @@ namespace AuthenticatorPro.Test.Service
         }
 
         [Fact]
-        public async Task RenameAsync_nullAuth()
+        public async Task ChangeSecretAsync_nullAuth()
         {
             await Assert.ThrowsAsync<ArgumentNullException>(() =>
-                _authenticatorService.RenameAsync(null, "issuer", "username"));
+                _authenticatorService.ChangeSecretAsync(null, "secret"));
         }
 
         [Fact]
-        public async Task RenameAsync_nullEmptyIssuer()
+        public async Task ChangeSecretAsync_nullOrEmptyNewSecret()
         {
             var auth = new Authenticator();
             await Assert.ThrowsAsync<ArgumentException>(() =>
-                _authenticatorService.RenameAsync(auth, null, "username"));
-            await Assert.ThrowsAsync<ArgumentException>(() => _authenticatorService.RenameAsync(auth, "", "username"));
+                _authenticatorService.ChangeSecretAsync(auth, null));
+            await Assert.ThrowsAsync<ArgumentException>(() =>
+                _authenticatorService.ChangeSecretAsync(auth, ""));
         }
 
         [Fact]
-        public async Task RenameAsync_ok()
+        public async Task ChangeSecretAsync_ok()
         {
-            var match = new CaptureMatch<Authenticator>(a =>
-            {
-                Assert.Equal("issuer", a.Issuer);
-                Assert.Equal("username", a.Username);
-                Assert.Equal("icon", a.Icon);
-            });
+            var transferInitial = new CaptureMatch<Authenticator>(a => { Assert.Equal("old", a.Secret); });
+            var transferNext = new CaptureMatch<Authenticator>(a => { Assert.Equal("new", a.Secret); });
+            
+            _authenticatorCategoryRepository
+                .Setup(r => r.TransferAuthenticatorAsync(Capture.With(transferInitial), Capture.With(transferNext)))
+                .Verifiable();
+            
+            var oldSecretMatch = new CaptureMatch<string>(s => { Assert.Equal("old", s); });
+            var newSecretMatch = new CaptureMatch<string>(s => { Assert.Equal("new", s); });
 
-            _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
-            _iconResolver.Setup(r => r.FindServiceKeyByName("issuer")).Returns("icon");
+            _authenticatorRepository
+                .Setup(r => r.ChangeSecretAsync(Capture.With(oldSecretMatch), Capture.With(newSecretMatch)))
+                .Verifiable();
+            
+            var auth = new Authenticator { Secret = "old" };
 
-            var auth = new Authenticator();
-            await _authenticatorService.RenameAsync(auth, "issuer", "username");
+            await _authenticatorService.ChangeSecretAsync(auth, "new");
+            
+            _authenticatorCategoryRepository
+                .Verify(r => r.TransferAuthenticatorAsync(It.IsAny<Authenticator>(), It.IsAny<Authenticator>()), Times.Once());
+            
+            _authenticatorRepository
+                .Verify(r => r.ChangeSecretAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Once());
         }
 
         [Fact]
@@ -176,7 +203,7 @@ namespace AuthenticatorPro.Test.Service
             await _authenticatorService.SetIconAsync(auth, "icon");
 
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
-            _customIconService.Verify(s => s.CullUnused());
+            _customIconService.Verify(s => s.CullUnusedAsync());
         }
 
         [Fact]
@@ -196,8 +223,8 @@ namespace AuthenticatorPro.Test.Service
 
             await _authenticatorService.SetCustomIconAsync(auth, icon);
 
-            _customIconService.Verify(c => c.AddIfNotExists(icon), Times.Never());
-            _customIconService.Verify(c => c.CullUnused(), Times.Never());
+            _customIconService.Verify(c => c.AddIfNotExistsAsync(icon), Times.Never());
+            _customIconService.Verify(c => c.CullUnusedAsync(), Times.Never());
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth), Times.Never());
         }
 
@@ -216,8 +243,8 @@ namespace AuthenticatorPro.Test.Service
 
             await _authenticatorService.SetCustomIconAsync(auth, icon);
 
-            _customIconService.Verify(s => s.AddIfNotExists(icon));
-            _customIconService.Verify(s => s.CullUnused());
+            _customIconService.Verify(s => s.AddIfNotExistsAsync(icon));
+            _customIconService.Verify(s => s.CullUnusedAsync());
             _authenticatorRepository.Verify(r => r.UpdateAsync(auth));
         }
 

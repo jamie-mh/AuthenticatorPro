@@ -30,7 +30,7 @@
     <integer-array name="introImage">
         <item>@drawable/big_ic_logo</item>
         <item>@drawable/big_ic_lock</item>
-        <item>@drawable/big_ic_cloud</item>
+        <item>@drawable/big_ic_save</item>
         <item>@drawable/big_ic_category</item>
         <item>@drawable/big_ic_theme</item>
     </integer-array>
@@ -105,11 +105,13 @@
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
         <item>@string/darkTheme</item>
+        <item>@string/blackTheme</item>
     </string-array>
     <string-array name="themeValues">
         <item>system</item>
         <item>light</item>
         <item>dark</item>
+        <item>black</item>
     </string-array>
 
     <string-array name="viewModeNames">

@@ -228,20 +228,7 @@ namespace AuthenticatorPro.WearOS
             var (code, secondsRemaining) =
                 AuthenticatorUtil.GetCodeAndRemainingSeconds(_generator, _authenticator.Period);
             
-            var issuerText = new LayoutElementBuilders.Text.Builder()
-                .SetText(_authenticator.Issuer)
-                .SetFontStyle(BuildFontStyle(14f, GetColor(Resource.Color.colorLighter)))
-                .Build();
-            
-            var usernameText = new LayoutElementBuilders.Text.Builder()
-                .SetText(_authenticator.Username)
-                .SetFontStyle(BuildFontStyle(12f, GetColor(Resource.Color.colorLight)))
-                .Build();
-            
-            var codeText = new LayoutElementBuilders.Text.Builder()
-                .SetText(CodeUtil.PadCode(code, _authenticator.Digits, _preferences.CodeGroupSize))
-                .SetFontStyle(BuildFontStyle(28f, GetColor(Resource.Color.colorLightest)))
-                .Build();
+            var column = new LayoutElementBuilders.Column.Builder();
 
             var iconSize = BuildDpProp(24f);
 
@@ -251,18 +238,37 @@ namespace AuthenticatorPro.WearOS
                 .SetHeight(iconSize)
                 .Build();
 
-            var column = new LayoutElementBuilders.Column.Builder()
-                .AddContent(icon)
-                .AddContent(BuildSpacer(0, 8f))
-                .AddContent(issuerText)
-                .AddContent(BuildSpacer(0, 2f))
-                .AddContent(usernameText)
-                .AddContent(BuildSpacer(0, 4f))
-                .AddContent(codeText)
+            column.AddContent(icon);
+            column.AddContent(BuildSpacer(0, 8f));
+            
+            var issuerText = new LayoutElementBuilders.Text.Builder()
+                .SetText(_authenticator.Issuer)
+                .SetFontStyle(BuildFontStyle(14f, GetColor(Resource.Color.colorLighter)))
                 .Build();
 
+            column.AddContent(issuerText);
+            column.AddContent(BuildSpacer(0, 2f));
+
+            if (!string.IsNullOrEmpty(_authenticator.Username))
+            {
+                var usernameText = new LayoutElementBuilders.Text.Builder()
+                    .SetText(_authenticator.Username)
+                    .SetFontStyle(BuildFontStyle(12f, GetColor(Resource.Color.colorLight)))
+                    .Build();
+
+                column.AddContent(usernameText);
+                column.AddContent(BuildSpacer(0, 4f));
+            }
+            
+            var codeText = new LayoutElementBuilders.Text.Builder()
+                .SetText(CodeUtil.PadCode(code, _authenticator.Digits, _preferences.CodeGroupSize))
+                .SetFontStyle(BuildFontStyle(28f, GetColor(Resource.Color.colorLightest)))
+                .Build();
+            
+            column.AddContent(codeText);
+
             var layout = new LayoutElementBuilders.Layout.Builder()
-                .SetRoot(column)
+                .SetRoot(column.Build())
                 .Build();
 
             var entry = new TimelineBuilders.TimelineEntry.Builder()
