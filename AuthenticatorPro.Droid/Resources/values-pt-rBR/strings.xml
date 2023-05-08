@@ -22,6 +22,7 @@
     <string name="about">Sobre</string>
     <string name="scanQrCode">Ler um código QR</string>
     <string name="showQrCode">Mostrar código QR</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">Escanear da câmera</string>
     <string name="scanQrCodeFromGallery">Escanear de uma imagem da galeria</string>
     <string name="rename">Renomear</string>
@@ -49,6 +50,7 @@
     <string name="secretKey">Chave secreta</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Mostrar opções avançadas</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Remover este autenticador impedirá que você gere códigos para esta conta. Isso não significa que a autenticação de dois fatores está desativada.\n\nExcluir este autenticador pode impedir que você acesse sua conta.\nPor favor, certifique-se de que a autenticação de dois fatores está desativada ou que você tem os códigos de recuperação.\n\nContinuar?</string>
     <string name="useCustomIcon">Usar ícone personalizado</string>
     <string name="copiedToClipboard">Copiado para a área de transferência</string>
@@ -59,6 +61,7 @@
     <string name="algorithmHint">Algoritmo</string>
     <string name="digitsHint">Dígitos</string>
     <string name="periodHint">Período (segundos)</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">Um emissor é obrigatório</string>
     <string name="noSecret">Uma chave secreta é necessária</string>
     <string name="noPin">Um pin é obrigatório</string>
@@ -68,10 +71,17 @@
     <string name="pinTooLong">O pin não pode conter mais de {0} dígitos</string>
     <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
     <string name="periodInvalid">A senha está incorreta</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR escaneado com sucesso</string>
     <string name="pinMessage">Digite o pin associado a este código QR. Você teria sido solicitado a inserir um PIN ao configurar esta conta.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicativo escaneando o código QR</string>
@@ -95,10 +105,13 @@
     <string name="noAuthenticatorsHelp">Se você é novo no Authenticator Pro, veja o guia para começar clicando abaixo.</string>
     <string name="noCategoriesTitle">Sem categorias</string>
     <string name="noCategoriesMessage">Você ainda não configurou nenhuma categoria</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
     <string name="category">Category</string>
     <string name="categories">Categorias</string>
     <string name="assignCategories">Atribuir categorias</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">Mais</string>
     <string name="categoryAll">Tudo</string>
     <string name="editCategories">Editar categorias</string>
@@ -119,9 +132,6 @@
     <string name="passwordHint">Senha de backup</string>
     <string name="fileNameHint">Nome do arquivo de backup</string>
     <string name="noAuthenticators">Você não tem nenhum autenticador para fazer backup</string>
-    <string name="encrypting">Criptografando</string>
-    <string name="decrypting">Descriptografando</string>
-    <string name="saving">Salvando</string>
     <string name="saveSuccess">Salvo com sucesso</string>
     <string name="backupSuccess">Backup salvo como \'{0}\'</string>
     <string name="restoredFromBackup">Restaurado {0} novos autenticadores e {1} novas categorias</string>
@@ -244,6 +254,8 @@
     <string name="prefViewModeSummary">Escolha um modo de exibição para a lista de autenticações</string>
     <string name="prefCodeGroupSizeTitle">Tamanho do Grupo de Código</string>
     <string name="prefCodeGroupSizeSummary">Altere o agrupamento de dígitos em um código</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Dynamic Colour</string>
     <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Cor de destaque</string>
@@ -264,6 +276,7 @@
     <string name="systemDefault">Padrão do sistema</string>
     <string name="lightTheme">Tema claro</string>
     <string name="darkTheme">Tema escuro</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">Padrão</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Lista</string>
