@@ -26,7 +26,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Exception = Java.Lang.Exception;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using Uri = Android.Net.Uri;
 
@@ -117,17 +116,17 @@ namespace AuthenticatorPro.Droid.Activity
                 stream = new MemoryStream(data);
                 pack = await Task.Run(() => Serializer.Deserialize<IconPack>(stream));
             }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-                SetLoading(false);
-                return;
-            }
             catch (ProtoException e)
             {
                 Logger.Error(e);
                 ShowSnackbar(Resource.String.invalidIconPackError, Snackbar.LengthShort);
+                SetLoading(false);
+                return;
+            }
+            catch (Exception e)
+            {
+                Logger.Error(e);
+                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 SetLoading(false);
                 return;
             }
