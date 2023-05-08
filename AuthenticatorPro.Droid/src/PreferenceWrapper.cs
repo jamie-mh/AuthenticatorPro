@@ -112,6 +112,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(CodeGroupSizeKey, value.ToString());
         }
         
+        private const string ShowUsernamesKey = "pref_showUsernames";
+        private const bool ShowUsernamesDefault = true;
+
+        public bool ShowUsernames
+        {
+            get => Preferences.GetBoolean(ShowUsernamesKey, ShowUsernamesDefault);
+            set => SetPreference(ShowUsernamesKey, value);
+        }
+        
         private const string DynamicColourKey = "pref_dynamicColour";
         private const bool DynamicColourDefault = false;
 

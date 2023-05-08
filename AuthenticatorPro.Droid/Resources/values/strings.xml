@@ -310,6 +310,8 @@
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefCodeGroupSizeTitle">Code Group Size</string>
     <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Dynamic Colour</string>
     <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Accent Colour</string>

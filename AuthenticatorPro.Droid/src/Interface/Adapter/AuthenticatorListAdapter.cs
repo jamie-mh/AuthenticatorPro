@@ -19,6 +19,7 @@ using Google.Android.Material.ProgressIndicator;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
@@ -38,6 +39,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
         private readonly bool _isDark;
         private readonly bool _tapToReveal;
         private readonly int _codeGroupSize;
+        private readonly bool _showUsernames;
 
         private readonly IAuthenticatorService _authenticatorService;
         private readonly IAuthenticatorView _authenticatorView;
@@ -61,6 +63,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             _viewMode = ViewModeSpecification.FromName(preferences.ViewMode);
             _tapToReveal = preferences.TapToReveal;
             _codeGroupSize = preferences.CodeGroupSize;
+            _showUsernames = preferences.ShowUsernames;
             _isDark = isDark;
 
             _generationOffsets = new Dictionary<int, long>();
@@ -120,9 +123,19 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             holder.Issuer.Text = auth.Issuer;
             holder.Username.Text = auth.Username;
 
-            holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
-                ? ViewStates.Gone
-                : ViewStates.Visible;
+            if (!_showUsernames)
+            {
+                var uniqueIssuer = _authenticatorView.Count(a => a.Issuer == auth.Issuer) == 1;
+                holder.Username.Visibility = uniqueIssuer
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
+            }
+            else
+            {
+                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
+            }
 
             if (auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {

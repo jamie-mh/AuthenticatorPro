@@ -106,6 +106,12 @@
             android:entryValues="@array/codeGroupSizeValues"
             android:defaultValue="3"/>
         <authenticatorpro.droid.preference.MaterialSwitchPreference
+            android:key="pref_showUsernames"
+            android:summary="@string/prefShowUsernamesSummary"
+            android:title="@string/prefShowUsernamesTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"/>
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
             android:key="pref_dynamicColour"
             android:summary="@string/prefDynamicColourSummary"
             android:title="@string/prefDynamicColourTitle"
