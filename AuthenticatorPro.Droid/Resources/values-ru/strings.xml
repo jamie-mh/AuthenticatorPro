@@ -22,6 +22,7 @@
     <string name="about">О приложении</string>
     <string name="scanQrCode">Сканировать QR-код</string>
     <string name="showQrCode">Показать QR-код</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">С помощью камеры</string>
     <string name="scanQrCodeFromGallery">Из галереи</string>
     <string name="rename">Переименовать</string>
@@ -49,6 +50,7 @@
     <string name="secretKey">Секретный ключ</string>
     <string name="pin">PIN-код</string>
     <string name="showAdvancedOptions">Дополнительные параметры</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Удаление этого аутентификатора не позволит вам генерировать коды для этой учетной записи.\nЭто не означает, что для вашей учетной записи отключена двухфакторная аутентификация.\n\nУдаление этого аутентификатора может помешать вам получить доступ к вашей учетной записи.\nПожалуйста, убедитесь, что либо двухфакторная аутентификация отключена, либо у вас есть коды восстановления.\n\nВы уверены, что хотите продолжить?</string>
     <string name="useCustomIcon">Использовать пользовательскую иконку</string>
     <string name="copiedToClipboard">Код скопирован в буфер обмена</string>
@@ -59,6 +61,7 @@
     <string name="algorithmHint">Метод генерирования</string>
     <string name="digitsHint">Кол-во цифр</string>
     <string name="periodHint">Период (сек.)</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">Обязательно укажите издателя.</string>
     <string name="noSecret">Требуется секретный ключ.</string>
     <string name="noPin">Требуется PIN-код.</string>
@@ -68,10 +71,17 @@
     <string name="pinTooLong">PIN-код не может быть длиннее {0} цифр</string>
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
     <string name="periodInvalid">Период является недопустимым</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом. PIN-код будет запрошен при настройке этой учетной записи.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, просканировав QR-код</string>
@@ -95,10 +105,13 @@
     <string name="noAuthenticatorsHelp">Если вы впервые используете Authenticator Pro, ознакомьтесь с руководством по началу работы, нажав на кнопку ниже.</string>
     <string name="noCategoriesTitle">Категории отсутствуют</string>
     <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
     <string name="category">Категория</string>
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">Подробнее</string>
     <string name="categoryAll">Все</string>
     <string name="editCategories">Изменить категории</string>
@@ -119,9 +132,6 @@
     <string name="passwordHint">Пароль для резервной копии</string>
     <string name="fileNameHint">Имя файла резервной копии</string>
     <string name="noAuthenticators">Нет аутентификаторов для резервной копии</string>
-    <string name="encrypting">Шифрование</string>
-    <string name="decrypting">Дешифрование</string>
-    <string name="saving">Сохранение</string>
     <string name="saveSuccess">Успешно сохранено</string>
     <string name="backupSuccess">Резервная копия сохранена как \'{0}\'</string>
     <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
@@ -243,6 +253,8 @@
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
     <string name="prefCodeGroupSizeTitle">Группировка кода</string>
     <string name="prefCodeGroupSizeSummary">Измените группировку цифр в коде</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Динамический цвет</string>
     <string name="prefDynamicColourSummary">Динамически задать цвет акцента на основе ваших обоев</string>
     <string name="prefAccentColourTitle">Основной цвет</string>
@@ -263,6 +275,7 @@
     <string name="systemDefault">По умолчанию в системе</string>
     <string name="lightTheme">Светлая тема</string>
     <string name="darkTheme">Тёмная тема</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">По умолчанию</string>
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>
