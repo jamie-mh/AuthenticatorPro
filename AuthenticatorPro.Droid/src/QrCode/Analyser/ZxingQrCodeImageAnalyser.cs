@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
 
             try
             {
-                Analyse(imageProxy);
+                AnalyseInternal(imageProxy);
             }
             finally
             {
@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
             }
         }
 
-        private void Analyse(IImageProxy imageProxy)
+        private void AnalyseInternal(IImageProxy imageProxy)
         {
             var plane = imageProxy.Image.GetPlanes()[0];
 
