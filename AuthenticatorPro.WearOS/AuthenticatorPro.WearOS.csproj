@@ -11,6 +11,11 @@
     <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);XA4218</MSBuildWarningsAsMessages>
     <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
   </PropertyGroup> 
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <RuntimeIdentifiers>android.32-x64</RuntimeIdentifiers>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
     <PublishTrimmed>true</PublishTrimmed>

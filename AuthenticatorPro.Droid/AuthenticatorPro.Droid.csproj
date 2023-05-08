@@ -9,6 +9,11 @@
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <RuntimeIdentifiers>android.32-x64</RuntimeIdentifiers>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
     <PublishTrimmed>true</PublishTrimmed>
