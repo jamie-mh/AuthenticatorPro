@@ -116,17 +116,13 @@ namespace AuthenticatorPro.Droid.Activity
                 stream = new MemoryStream(data);
                 pack = await Task.Run(() => Serializer.Deserialize<IconPack>(stream));
             }
-            catch (ProtoException e)
-            {
-                Logger.Error(e);
-                ShowSnackbar(Resource.String.invalidIconPackError, Snackbar.LengthShort);
-                SetLoading(false);
-                return;
-            }
             catch (Exception e)
             {
+                ShowSnackbar(e is ProtoException
+                        ? Resource.String.invalidIconPackError
+                        : Resource.String.filePickError, Snackbar.LengthShort);
+
                 Logger.Error(e);
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 SetLoading(false);
                 return;
             }
