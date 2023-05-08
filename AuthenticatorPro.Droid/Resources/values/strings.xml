@@ -153,10 +153,6 @@
     <string name="fileNameHint">Backup file name</string>
     <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
 
-    <string name="encrypting">Encrypting</string>
-    <string name="decrypting">Decrypting</string>
-    <string name="saving">Saving</string>
-
     <string name="saveSuccess">Saved successfully</string>
     <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>

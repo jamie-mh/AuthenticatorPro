@@ -5,9 +5,11 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
+using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 using System;
 
@@ -26,6 +28,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private TextInputEditText _passwordConfirmText;
         private MaterialButton _cancelButton;
         private MaterialButton _setPasswordButton;
+        private CircularProgressIndicator _progressIndicator;
 
         public PasswordSetupBottomSheet() : base(Resource.Layout.sheetPasswordSetup, Resource.String.prefPasswordTitle)
         {
@@ -45,6 +48,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
+            
+            _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
 
             _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
             _setPasswordButton.Click += OnSetPasswordButtonClick;
@@ -70,6 +75,24 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             UpdateSetPasswordButton();
             return view;
         }
+        
+        private void SetLoading(bool loading)
+        {
+            SetCancelable(!loading);
+
+            if (loading)
+            {
+                AnimUtil.FadeOutView(_setPasswordButton, AnimUtil.LengthShort, true);
+                AnimUtil.FadeInView(_progressIndicator, AnimUtil.LengthShort, true);
+                _cancelButton.Enabled = false;
+            }
+            else
+            {
+                AnimUtil.FadeInView(_setPasswordButton, AnimUtil.LengthShort, true);
+                AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
+                _cancelButton.Enabled = true;
+            }
+        }
 
         private async void OnSetPasswordButtonClick(object sender, EventArgs args)
         {
@@ -80,10 +103,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
 
             var newPassword = _passwordText.Text == "" ? null : _passwordText.Text;
-
-            _setPasswordButton.Enabled = _cancelButton.Enabled = false;
-            _setPasswordButton.SetText(newPassword != null ? Resource.String.encrypting : Resource.String.decrypting);
-            SetCancelable(false);
+            SetLoading(true);
 
             try
             {
@@ -104,12 +124,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             catch (Exception e)
             {
                 Logger.Error(e);
-
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
-                SetCancelable(true);
                 UpdateSetPasswordButton();
-                _cancelButton.Enabled = true;
                 return;
+            }
+            finally
+            {
+                SetLoading(false);
             }
 
             _preferences.AllowBiometrics = false;

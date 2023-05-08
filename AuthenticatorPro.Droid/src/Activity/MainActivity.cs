@@ -677,7 +677,7 @@ namespace AuthenticatorPro.Droid.Activity
         private async void OnUnlockAttempted(object sender, string password)
         {
             var fragment = (UnlockBottomSheet) sender;
-            RunOnUiThread(delegate { fragment.SetBusy(); });
+            RunOnUiThread(delegate { fragment.SetLoading(true); });
 
             try
             {
@@ -688,6 +688,10 @@ namespace AuthenticatorPro.Droid.Activity
                 Logger.Error(e);
                 RunOnUiThread(delegate { fragment.ShowError(); });
                 return;
+            }
+            finally
+            {
+                RunOnUiThread(delegate { fragment.SetLoading(false); });
             }
 
             _unlockFragmentOpen = false;
@@ -1427,7 +1431,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             sheet.PasswordEntered += async (_, password) =>
             {
-                sheet.SetBusyText(Resource.String.decrypting);
+                sheet.SetLoading(true);
 
                 try
                 {
@@ -1438,7 +1442,7 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     Logger.Error(e);
                     sheet.Error = GetString(Resource.String.restoreError);
-                    sheet.SetBusyText(null);
+                    sheet.SetLoading(false);
                     return;
                 }
 
@@ -1522,7 +1526,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 sheet.PasswordEntered += async (_, password) =>
                 {
-                    sheet.SetBusyText(Resource.String.decrypting);
+                    sheet.SetLoading(true);
 
                     try
                     {
@@ -1533,7 +1537,7 @@ namespace AuthenticatorPro.Droid.Activity
                     {
                         Logger.Error(e);
                         sheet.Error = GetString(Resource.String.restoreError);
-                        sheet.SetBusyText(null);
+                        sheet.SetLoading(false);
                     }
                 };
                 sheet.Show(SupportFragmentManager, sheet.Tag);
@@ -1684,8 +1688,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.PasswordEntered += async (sender, password) =>
             {
-                var busyText = !String.IsNullOrEmpty(password) ? Resource.String.encrypting : Resource.String.saving;
-                fragment.SetBusyText(busyText);
+                fragment.SetLoading(true);
                 await DoBackup(password);
                 ((BackupPasswordBottomSheet) sender).Dismiss();
             };
