@@ -22,6 +22,7 @@
     <string name="about">حول</string>
     <string name="scanQrCode">مسح رمز QR</string>
     <string name="showQrCode">إظهار رمز QR</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">المسح من خلال الكاميرا</string>
     <string name="scanQrCodeFromGallery">النسخ من خلال استوديو الصور</string>
     <string name="rename">إعادة التسمية</string>
@@ -49,6 +50,7 @@
     <string name="secretKey">مفتاح سري</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">إظهار إعدادات متقدمة</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">استخدام أيقونة مخصصة</string>
     <string name="copiedToClipboard">تم نسخ الرمز إلى الحافظة</string>
@@ -59,6 +61,7 @@
     <string name="algorithmHint">الخوارزمية</string>
     <string name="digitsHint">الأرقام</string>
     <string name="periodHint">الفترة (بالثواني)</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">المُصدر مطلوب</string>
     <string name="noSecret">المفتاح السري مطلوب</string>
     <string name="noPin">A pin is required</string>
@@ -68,10 +71,17 @@
     <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">الفترة غير صالحة</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
     <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">رمز QR</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
@@ -95,10 +105,13 @@
     <string name="noAuthenticatorsHelp">إن كنت مستخدما جديدًا لتطبيق Authenticator Pro فراجع دليل بداية الاستخدام بالنقر أدناه.</string>
     <string name="noCategoriesTitle">لا توجد تصنيفات</string>
     <string name="noCategoriesMessage">ليس لديك أي تصنيفات مُعدة حتى الآن</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
     <string name="category">Category</string>
     <string name="categories">التصنيفات</string>
     <string name="assignCategories">تعيين التصنيفات</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">المزيد</string>
     <string name="categoryAll">الكل</string>
     <string name="editCategories">تعديل التصنيفات</string>
@@ -119,9 +132,6 @@
     <string name="passwordHint">كلمة مرور النسخة الاحتياطية</string>
     <string name="fileNameHint">اسم ملف النسخ الاحتياطي</string>
     <string name="noAuthenticators">ليس لديك أي مُصادقات لإجراء نسخ احتياطية لها</string>
-    <string name="encrypting">Encrypting</string>
-    <string name="decrypting">Decrypting</string>
-    <string name="saving">جاري الحفظ</string>
     <string name="saveSuccess">تم الحفظ بنجاح</string>
     <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
@@ -243,6 +253,8 @@
     <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefCodeGroupSizeTitle">Code Group Size</string>
     <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Dynamic Colour</string>
     <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Accent Colour</string>
@@ -263,6 +275,7 @@
     <string name="systemDefault">النظام الافتراضي</string>
     <string name="lightTheme">Light theme</string>
     <string name="darkTheme">Dark theme</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">افتراضي</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tile</string>
