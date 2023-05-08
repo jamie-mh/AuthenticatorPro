@@ -6,8 +6,8 @@
 
         <attr name="listBorderColor" format="color"/>
         
-        <attr name="authenticatorCardStyle" format="reference"/>
+        <attr name="cardStyle" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="AuthenticatorCardStyle"/>
+    <declare-styleable name="CardStyle"/>
 </resources>

@@ -9,7 +9,7 @@
         <item name="listBorderColor">@color/colorLighter</item>
 
         <item name="alertDialogTheme">@style/AlertDialog</item>
-        <item name="authenticatorCardStyle">@style/AuthenticatorCardStyle</item>
+        <item name="cardStyle">@style/CardStyle</item>
 
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">?attr/colorSurface</item>

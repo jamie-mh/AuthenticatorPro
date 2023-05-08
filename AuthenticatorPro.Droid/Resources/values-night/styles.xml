@@ -1,12 +1,13 @@
 <resources>
     <style name="OverlayBlack">
         <item name="android:colorBackground">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
         <item name="colorSurface">@android:color/black</item>
         <item name="colorSurfaceVariant">@android:color/black</item>
-        <item name="authenticatorCardStyle">@style/AuthenticatorCardStyle.Black</item>
+        <item name="cardStyle">@style/CardStyle.Black</item>
     </style>
 
-    <style name="AuthenticatorCardStyle.Black" parent="Widget.Material3.CardView.Filled" />
+    <style name="CardStyle.Black" parent="Widget.Material3.CardView.Outlined"/>
 
     <!-- Accent colours -->
     <style name="OverlayAccentRed">
