@@ -29,6 +29,7 @@
     <string name="about">About</string>
     <string name="scanQrCode">Scan a QR code</string>
     <string name="showQrCode">Show QR code</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">Scan from camera</string>
     <string name="scanQrCodeFromGallery">Scan from gallery</string>
     <string name="rename">Rename</string>

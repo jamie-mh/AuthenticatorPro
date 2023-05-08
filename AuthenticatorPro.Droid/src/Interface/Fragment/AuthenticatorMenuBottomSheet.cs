@@ -50,7 +50,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.baseline_edit_24, Resource.String.edit, EditClicked),
+                    new(Resource.Drawable.baseline_edit_24, Resource.String.editDetails, EditClicked),
                     new(Resource.Drawable.baseline_image_24, Resource.String.changeIcon,
                         ChangeIconClicked),
                     new(Resource.Drawable.baseline_category_24, Resource.String.assignCategories,

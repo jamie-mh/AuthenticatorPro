@@ -10,7 +10,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class EditAuthenticatorBottomSheet : InputAuthenticatorBottomSheet
     {
-        public EditAuthenticatorBottomSheet() : base(Resource.Layout.sheetEditAuthenticator, Resource.String.edit) { }
+        public EditAuthenticatorBottomSheet() : base(Resource.Layout.sheetEditAuthenticator, Resource.String.editDetails) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
