@@ -66,13 +66,13 @@ namespace AuthenticatorPro.Test.Service
 
             _categoryRepository.Setup(r => r.CreateAsync(next)).Verifiable();
             _categoryRepository.Setup(r => r.DeleteAsync(initial)).Verifiable();
-            _authenticatorCategoryRepository.Setup(r => r.TransferAsync(initial, next)).Verifiable();
+            _authenticatorCategoryRepository.Setup(r => r.TransferCategoryAsync(initial, next)).Verifiable();
 
             await _categoryService.TransferAsync(initial, next);
 
             _categoryRepository.Verify(r => r.CreateAsync(next));
             _categoryRepository.Verify(r => r.DeleteAsync(initial));
-            _authenticatorCategoryRepository.Verify(r => r.TransferAsync(initial, next));
+            _authenticatorCategoryRepository.Verify(r => r.TransferCategoryAsync(initial, next));
         }
         
         [Fact]

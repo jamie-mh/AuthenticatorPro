@@ -15,7 +15,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class AuthenticatorMenuBottomSheet : BottomSheet
     {
-        public event EventHandler RenameClicked;
+        public event EventHandler EditClicked;
         public event EventHandler ChangeIconClicked;
         public event EventHandler AssignCategoriesClicked;
         public event EventHandler ShowQrCodeClicked;
@@ -50,7 +50,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.baseline_edit_24, Resource.String.rename, RenameClicked),
+                    new(Resource.Drawable.baseline_edit_24, Resource.String.edit, EditClicked),
                     new(Resource.Drawable.baseline_image_24, Resource.String.changeIcon,
                         ChangeIconClicked),
                     new(Resource.Drawable.baseline_category_24, Resource.String.assignCategories,
