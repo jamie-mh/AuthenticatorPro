@@ -1461,6 +1461,11 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 data = await FileUtil.ReadFile(this, uri);
+
+                if (data.Length == 0)
+                {
+                    throw new IOException("The file is empty");
+                }
             }
             catch (Exception e)
             {
