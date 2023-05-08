@@ -58,7 +58,7 @@
     <string name="secretKey">Secret key</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Show advanced options</string>
-    <string name="advancedOptionsWarning">Be careful when changing these options, you could be locked out of your account</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Use custom icon</string>
     <string name="copiedToClipboard">Code copied to clipboard</string>
