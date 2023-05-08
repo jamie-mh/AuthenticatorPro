@@ -3,6 +3,8 @@
 
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
+using SQLite;
 using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Persistence
@@ -19,8 +21,16 @@ namespace AuthenticatorPro.Droid.Persistence
         public async Task ChangeSecretAsync(string oldSecret, string newSecret)
         {
             var conn = await _database.GetConnection();
-            await conn.ExecuteAsync(
-                "UPDATE authenticator SET secret = ? WHERE secret = ?", newSecret, oldSecret);
+
+            try
+            {
+                await conn.ExecuteAsync(
+                    "UPDATE authenticator SET secret = ? WHERE secret = ?", newSecret, oldSecret);
+            }
+            catch (SQLiteException e)
+            {
+                throw new EntityDuplicateException(e);
+            }
         }
     }
 }
