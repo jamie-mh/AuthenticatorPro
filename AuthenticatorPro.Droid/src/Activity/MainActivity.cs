@@ -1606,6 +1606,8 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await _authenticatorView.LoadFromPersistenceAsync();
+            await _customIconView.LoadFromPersistenceAsync();
+            
             await SwitchCategory(null);
 
             RunOnUiThread(delegate
