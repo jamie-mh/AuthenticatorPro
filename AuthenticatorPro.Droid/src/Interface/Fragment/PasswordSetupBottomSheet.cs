@@ -5,7 +5,6 @@ using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
-using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
@@ -82,14 +81,14 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (loading)
             {
-                AnimUtil.FadeOutView(_setPasswordButton, AnimUtil.LengthShort, true);
-                AnimUtil.FadeInView(_progressIndicator, AnimUtil.LengthShort, true);
+                _setPasswordButton.Visibility = ViewStates.Invisible;
+                _progressIndicator.Visibility = ViewStates.Visible;
                 _cancelButton.Enabled = false;
             }
             else
             {
-                AnimUtil.FadeInView(_setPasswordButton, AnimUtil.LengthShort, true);
-                AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
+                _setPasswordButton.Visibility = ViewStates.Visible;
+                _progressIndicator.Visibility = ViewStates.Invisible;
                 _cancelButton.Enabled = true;
             }
         }

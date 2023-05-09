@@ -1,11 +1,12 @@
 <resources>
-    <style name="AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+    <style name="AlertDialogStyle" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="dialogCornerRadius">28dp</item>
         <item name="cornerFamily">rounded</item>
         <item name="android:background">@drawable/alertDialogBackground</item>
     </style>
     
     <style name="CardStyle" parent="Widget.Material3.CardView.Elevated" />
+    <style name="BottomAppBarStyle" parent="Widget.Material3.BottomAppBar"/>
 
     <!-- Accent colours -->
     <style name="OverlayAccentRed">

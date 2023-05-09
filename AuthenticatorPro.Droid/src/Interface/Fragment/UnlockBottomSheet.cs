@@ -9,7 +9,6 @@ using Android.Widget;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
-using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
@@ -97,14 +96,14 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             if (loading)
             {
-                AnimUtil.FadeOutView(_unlockButton, AnimUtil.LengthShort, true);
-                AnimUtil.FadeInView(_progressIndicator, AnimUtil.LengthShort, true);
+                _unlockButton.Visibility = ViewStates.Invisible;
+                _progressIndicator.Visibility = ViewStates.Visible;
                 _useBiometricsButton.Enabled = false;
             }
             else
             {
-                AnimUtil.FadeInView(_unlockButton, AnimUtil.LengthShort, true);
-                AnimUtil.FadeOutView(_progressIndicator, AnimUtil.LengthShort, true);
+                _unlockButton.Visibility = ViewStates.Visible;
+                _progressIndicator.Visibility = ViewStates.Invisible;
                 _useBiometricsButton.Enabled = _canUseBiometrics;
             }
         }

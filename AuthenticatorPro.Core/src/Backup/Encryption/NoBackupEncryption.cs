@@ -36,7 +36,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
                 return false;
             }
 
-            return backup.Authenticators != null;
+            return backup?.Authenticators != null;
         }
     }
 }
