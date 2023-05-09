@@ -8,7 +8,7 @@
 
         <item name="listBorderColor">@color/colorDark</item>
 
-        <item name="alertDialogTheme">@style/AlertDialog</item>
+        <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="cardStyle">@style/CardStyle</item>
 
         <item name="android:windowLightStatusBar">false</item>
