@@ -22,6 +22,7 @@
     <string name="about">Hakkında</string>
     <string name="scanQrCode">Karekodu tara</string>
     <string name="showQrCode">Karekodu göster</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">Kameradan tara</string>
     <string name="scanQrCodeFromGallery">Galeriden tara</string>
     <string name="rename">Yeniden adlandır</string>
@@ -49,6 +50,7 @@
     <string name="secretKey">Gizli anahtar</string>
     <string name="pin">Pin kodu</string>
     <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin misin?</string>
     <string name="useCustomIcon">Özel simge kullan</string>
     <string name="copiedToClipboard">Kod panoya kopyalandı</string>
@@ -59,6 +61,7 @@
     <string name="algorithmHint">Algoritma</string>
     <string name="digitsHint">Basamak</string>
     <string name="periodHint">Süre (Saniye)</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">Bir kuruluş gerekli.</string>
     <string name="noSecret">Gizli anahtar gerekli.</string>
     <string name="noPin">Bir pin gereklidir.</string>
@@ -68,10 +71,17 @@
     <string name="pinTooLong">Pin, {0} rakamdan fazlasını içeremez</string>
     <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
     <string name="periodInvalid">Geçersiz süre</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
     <string name="pinMessage">Bu QR koduyla ilişkili pini girin. Bu hesabı kurarken sizden bir pin istenmişti.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Karekod</string>
     <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
@@ -95,10 +105,13 @@
     <string name="noAuthenticatorsHelp">Authenticator Pro\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
     <string name="noCategoriesTitle">Kategori yok</string>
     <string name="noCategoriesMessage">Henüz herhangi bir kategori oluşturmadınız.</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
     <string name="category">Category</string>
     <string name="categories">Kategoriler</string>
     <string name="assignCategories">Kategori ata</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">Daha Fazla</string>
     <string name="categoryAll">Tümü</string>
     <string name="editCategories">Kategorileri düzenle</string>
@@ -119,9 +132,6 @@
     <string name="passwordHint">Yedekleme Parolası</string>
     <string name="fileNameHint">Yedekleme Dosya Adı</string>
     <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
-    <string name="encrypting">Şifreleniyor</string>
-    <string name="decrypting">Şifre çözülüyor</string>
-    <string name="saving">Kaydediliyor</string>
     <string name="saveSuccess">Başarıyla kaydedildi</string>
     <string name="backupSuccess">Yedekleme \'{0}\' olarak kaydedildi</string>
     <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
@@ -249,6 +259,8 @@
     <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
     <string name="prefCodeGroupSizeTitle">Kod Grup Boyutu</string>
     <string name="prefCodeGroupSizeSummary">Bir koddaki rakam gruplamasını değiştir</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Dynamic Colour</string>
     <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
@@ -269,6 +281,7 @@
     <string name="systemDefault">Sistem Varsayılanı</string>
     <string name="lightTheme">Açık Tema</string>
     <string name="darkTheme">Koyu Tema</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">Varsayılan</string>
     <string name="compactViewMode">Sıkıştırılmış</string>
     <string name="tileViewMode">Yan yana</string>

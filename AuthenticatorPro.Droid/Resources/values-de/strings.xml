@@ -4,7 +4,7 @@
     <string name="warning">Warnung</string>
     <string name="delete">Löschen</string>
     <string name="add">Hinzufügen</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Bearbeiten</string>
     <string name="cancel">Abbrechen</string>
     <string name="ok">Ok</string>
     <string name="yes">Ja</string>
@@ -22,6 +22,7 @@
     <string name="about">Über</string>
     <string name="scanQrCode">Einen QR-Code scannen</string>
     <string name="showQrCode">QR-Code anzeigen</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">Mit Kamera aufnehmen</string>
     <string name="scanQrCodeFromGallery">Bild aus Galerie scannen</string>
     <string name="rename">Umbenennen</string>
@@ -49,6 +50,7 @@
     <string name="secretKey">Geheimer Schlüssel</string>
     <string name="pin">Anheften</string>
     <string name="showAdvancedOptions">Erweiterte Optionen anzeigen</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">Wenn du diesen Schlüssel löschst, kannst du für dieses Konto keine Codes mehr generieren.\nDadurch wird die Zwei-Faktor-Authentisierung in diesem Konto nicht deaktiviert.\n\nWenn du den Schlüssel löschst, könntest du also den Zugriff auf dein Konto verlieren.\nStelle sicher, dass du die Zwei-Faktor-Authentisierung in deinem Konto deaktiviert hast oder du über gültige Wiederherstellungscodes verfügst.\n\nMöchtest du fortfahren?</string>
     <string name="useCustomIcon">Eigenes Icon verwenden</string>
     <string name="copiedToClipboard">In Zwischenablage kopiert</string>
@@ -59,6 +61,7 @@
     <string name="algorithmHint">Algorithmus</string>
     <string name="digitsHint">Stellen</string>
     <string name="periodHint">Gültigkeit (Sekunden)</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
     <string name="noPin">Du musst eine PIN eingeben</string>
@@ -68,10 +71,17 @@
     <string name="pinTooLong">Die PIN darf nicht mehr als {0} Zahlen enthalten.</string>
     <string name="digitsInvalid">Es müssen zwischen {0} und {1} Stellen generiert werden</string>
     <string name="periodInvalid">Ungültige Dauer</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
     <string name="pinMessage">Gebe die PIN ein, die diesem QR-Code zugeordnet ist. Bei der Einrichtung dieses Kontos bist du nach einer PIN gefragt worden.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-Code</string>
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
@@ -95,10 +105,13 @@
     <string name="noAuthenticatorsHelp">Wenn du neu bei Authenticator Pro bist, tippe unten auf Anleitung.</string>
     <string name="noCategoriesTitle">Keine Kategorien</string>
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt.</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Kategorie</string>
     <string name="categories">Kategorien</string>
     <string name="assignCategories">Kategorien zuweisen</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">Mehr</string>
     <string name="categoryAll">Alle</string>
     <string name="editCategories">Kategorien bearbeiten</string>
@@ -119,9 +132,6 @@
     <string name="passwordHint">Sicherungspasswort</string>
     <string name="fileNameHint">Sicherungsdateiname</string>
     <string name="noAuthenticators">Du hast keine Schlüssel zum Sichern.</string>
-    <string name="encrypting">Verschlüsseln</string>
-    <string name="decrypting">Entschlüsseln</string>
-    <string name="saving">Speichern</string>
     <string name="saveSuccess">Erfolgreich gespeichert</string>
     <string name="backupSuccess">Sicherung gespeichert als \'{0}\'</string>
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
@@ -191,7 +201,7 @@
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
     <string name="winAuthImportHint">winauth.txt oder winauth.zip Datei importieren</string>
     <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json Datei importieren</string>
     <string name="totpAuthenticatorImportHint">Importieren einer TOTP_Backup.encrypt Datei</string>
     <string name="uriList">URI-Liste</string>
     <string name="uriListHint">Reine Liste mit otpauth-URIs</string>
@@ -210,7 +220,7 @@
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleit-App herunterladen. Du bekommst die Codes dann auf deiner Uhr angezeigt.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Platziere den QR-Code in den Sucher, um diesen zu scannen. Zum Fokussieren tippen.</string>
     <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den Code.</string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
     <!-- Preferences -->
@@ -243,8 +253,10 @@
     <string name="prefViewModeSummary">Wähle einen Anzeigemodus für die Schlüsselliste aus</string>
     <string name="prefCodeGroupSizeTitle">Code Gruppengrösse</string>
     <string name="prefCodeGroupSizeSummary">Ändert die Gruppierung von Ziffern in einem Code</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefDynamicColourTitle">Dynamische Farbe</string>
+    <string name="prefDynamicColourSummary">Akzentfarbe dynamisch basierend auf dem Hintergrundbild festlegen</string>
     <string name="prefAccentColourTitle">Akzentfarbe</string>
     <string name="prefAccentColourSummary">Wählen Sie eine Akzentfarbe, die in der App verwendet werden soll</string>
     <string name="prefTransparentStatusBarTitle">Transparente Statusleiste</string>
@@ -263,6 +275,7 @@
     <string name="systemDefault">Systemstandard</string>
     <string name="lightTheme">Helles Thema</string>
     <string name="darkTheme">Dunkles Thema</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
