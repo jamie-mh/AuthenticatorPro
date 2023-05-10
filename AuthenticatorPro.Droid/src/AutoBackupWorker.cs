@@ -110,7 +110,10 @@ namespace AuthenticatorPro.Droid
                 throw new InvalidOperationException("No password defined");
             }
 
-            var encryption = new StrongBackupEncryption();
+            IBackupEncryption encryption = !string.IsNullOrEmpty(password)
+                ? new StrongBackupEncryption()
+                : new NoBackupEncryption();
+            
             var dataToWrite = await encryption.EncryptAsync(backup, password);
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
