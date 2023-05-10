@@ -147,7 +147,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             UpdateLayoutForType();
             UpdateAlgorithm();
             
-            _issuerText.Text = InitialAuthenticator.Issuer;
+            // Force text cursor to end
+            if (InitialAuthenticator.Issuer != null)
+            {
+                _issuerText.Append(InitialAuthenticator.Issuer);
+            }
+            
             _usernameText.Text = InitialAuthenticator.Username;
             _secretText.Text = InitialAuthenticator.Secret;
             _pinText.Text = InitialAuthenticator.Pin;
