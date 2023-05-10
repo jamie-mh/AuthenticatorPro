@@ -6,8 +6,10 @@
 
         <attr name="cardStyle" format="reference"/>
         <attr name="bottomAppBarStyle" format="reference"/>
+        <attr name="progressIndicatorStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="CardStyle"/>
     <declare-styleable name="BottomAppBarStyle"/>
+    <declare-styleable name="ProgressIndicatorStyle"/>
 </resources>

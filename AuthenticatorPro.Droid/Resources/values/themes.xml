@@ -9,6 +9,7 @@
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="cardStyle">@style/CardStyle</item>
         <item name="bottomAppBarStyle">@style/BottomAppBarStyle</item>
+        <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle</item>
 
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">?attr/colorSurface</item>
