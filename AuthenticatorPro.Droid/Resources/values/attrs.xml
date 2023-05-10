@@ -4,8 +4,6 @@
         <attr name="colorPrimary" format="color"/>
         <attr name="colorPrimaryDark" format="color"/>
 
-        <attr name="listBorderColor" format="color"/>
-        
         <attr name="cardStyle" format="reference"/>
         <attr name="bottomAppBarStyle" format="reference"/>
     </declare-styleable>

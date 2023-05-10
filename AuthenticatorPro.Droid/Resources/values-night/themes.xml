@@ -6,8 +6,6 @@
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
 
-        <item name="listBorderColor">@color/colorDark</item>
-
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="cardStyle">@style/CardStyle</item>
 
