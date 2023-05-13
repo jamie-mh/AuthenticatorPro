@@ -87,7 +87,7 @@
     <string name="qrCodeHelp">Kopírovať autentifikátor do iného zariadenia alebo aplikácie naskenovaním QR kódu</string>
     <string name="qrCodeNotSupported">QR kódy tohto typu nie sú podporované</string>
     <string name="copyUri">Kopírovať URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">Táto URI obsahuje tajný kľúč v textovej podobe. Buď opatrný kam ho vkladáš.\n\nPokračovať?</string>
     <string name="uriCopiedToClipboard">URI skopírovaný do schránky</string>
     <!-- Backup menu -->
     <string name="backupToFile">Zálohovať do zašifrovaného súboru (odporúčané)</string>
@@ -105,10 +105,10 @@
     <string name="noAuthenticatorsHelp">Ak ste nový používateľ aplikácie Authenticator Pro môžete zobraziť príručku pre začiatočníkov kliknutím nižšie.</string>
     <string name="noCategoriesTitle">Žiadne kategórie</string>
     <string name="noCategoriesMessage">Zatiaľ nemáte nastavené žiadne kategórie</string>
-    <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksTitle">Žiadne balíčky ikon</string>
+    <string name="noIconPacksMessage">Zatiaľ nemáš nastavené žiadne balíčky ikon</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Kategória</string>
     <string name="categories">Kategórie</string>
     <string name="assignCategories">Priradiť kategórie</string>
     <string name="assignEntries">Assign entries</string>
