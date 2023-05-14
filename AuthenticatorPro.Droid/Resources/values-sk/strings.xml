@@ -233,9 +233,9 @@
     <string name="prefLanguageTitle">Jazyk</string>
     <string name="prefLanguageSummary">Výber jazyka, ktorý chcete používať v celej aplikácii</string>
     <string name="prefTapToCopyTitle">Ťuknutím skopíruješ</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefTapToCopySummary">Skopíruje kód do schránky ťuknutím</string>
+    <string name="prefResetCopyCountTitle">Obnovenie počítadla kopírovania</string>
+    <string name="prefResetCopyCountSummary">Vymazať počet skopírovaní každého autentifikátora</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
@@ -254,15 +254,15 @@
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
     <string name="prefCodeGroupSizeTitle">Veľkosť skupiny kódov</string>
     <string name="prefCodeGroupSizeSummary">Zmena zoskupenia číslic v kóde</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefShowUsernamesTitle">Zobraziť užívateľské mená</string>
+    <string name="prefShowUsernamesSummary">Zobraziť užívateľské meno pod vydavateľom</string>
+    <string name="prefDynamicColourTitle">Dynamické farby</string>
+    <string name="prefDynamicColourSummary">Dynamické nastavenie farby motívu na základe tapety</string>
     <string name="prefAccentColourTitle">Farba akcentu</string>
     <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
     <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
     <string name="prefTransparentStatusBarSummary">Zviditeľnenie zoznamu za stavovým riadkom pri posúvaní</string>
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Obnovenie počtu kopírovaní</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
