@@ -113,11 +113,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             if (loading)
             {
                 _okButton.Visibility = ViewStates.Invisible;
+                _cancelButton.Enabled = false;
                 _progressIndicator.Visibility = ViewStates.Visible;
             }
             else
             {
                 _okButton.Visibility = ViewStates.Visible;
+                _cancelButton.Enabled = true;
                 _progressIndicator.Visibility = ViewStates.Invisible;
             }
         }
