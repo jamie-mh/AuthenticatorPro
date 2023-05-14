@@ -6,7 +6,6 @@
 using Android.Content;
 using Android.Gms.Extensions;
 using Android.Runtime;
-using AuthenticatorPro.Droid.QrCode.Reader;
 using System;
 using System.IO;
 using System.Linq;

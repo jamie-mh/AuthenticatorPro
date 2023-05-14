@@ -1663,7 +1663,9 @@ namespace AuthenticatorPro.Droid.Activity
             async Task DoBackup(string password)
             {
                 var backup = await _backupService.CreateBackupAsync();
-                var encryption = new StrongBackupEncryption();
+                IBackupEncryption encryption = !string.IsNullOrEmpty(password)
+                    ? new StrongBackupEncryption()
+                    : new NoBackupEncryption();
 
                 try
                 {

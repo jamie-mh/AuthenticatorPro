@@ -116,9 +116,9 @@
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progressIndicator"
+            style="?attr/progressIndicatorStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:trackThickness="2dp"
             app:trackColor="@android:color/transparent"
             app:showAnimationBehavior="outward"
             android:min="0"

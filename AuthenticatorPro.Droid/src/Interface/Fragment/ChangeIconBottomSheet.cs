@@ -132,13 +132,14 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             if (e.Tab.Position == 0)
             {
                 _iconList.SetAdapter(_defaultIconListAdapter);
-                _defaultIconView.Update();
+                _defaultIconView.Search = _searchText.Text;
                 _defaultIconListAdapter.NotifyDataSetChanged();
             }
             else
             {
                 var pack = _iconPackView[e.Tab.Position - 1];
                 await _iconPackEntryView.LoadFromPersistenceAsync(pack);
+                _iconPackEntryView.Search = _searchText.Text;
                 _iconList.SetAdapter(_iconPackEntryListAdapter);
                 _iconPackEntryListAdapter.NotifyDataSetChanged();
             }

@@ -6,10 +6,9 @@
         <item name="fontFamily">@font/rubik</item>
         <item name="android:fontFamily">@font/rubik</item>
 
-        <item name="listBorderColor">@color/colorDark</item>
-
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="cardStyle">@style/CardStyle</item>
+        <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle</item>
 
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">?attr/colorSurface</item>

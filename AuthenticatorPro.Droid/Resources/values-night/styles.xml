@@ -7,6 +7,7 @@
         <item name="cardStyle">@style/CardStyle.Black</item>
         <item name="bottomAppBarStyle">@style/BottomAppBarStyle.Black</item>
         <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog.Black</item>
+        <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle.Black</item>
     </style>
 
     <style name="CardStyle.Black" parent="Widget.Material3.CardView.Outlined"/>
@@ -21,6 +22,10 @@
 
     <style name="ModalBottomSheet.Black" parent="Widget.Material3.BottomSheet.Modal">
         <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="ProgressIndicatorStyle.Black" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="trackThickness">3dp</item>
     </style>
     
     <!-- Accent colours -->
