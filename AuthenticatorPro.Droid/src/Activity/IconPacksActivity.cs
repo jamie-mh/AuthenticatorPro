@@ -17,6 +17,7 @@ using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Util;
+using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.ProgressIndicator;
@@ -70,6 +71,9 @@ namespace AuthenticatorPro.Droid.Activity
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += OnAddClick;
 
+            var downloadButton = FindViewById<MaterialButton>(Resource.Id.buttonDownloadPacks);
+            downloadButton.Click += OnDownloadButtonClick;
+
             _iconPackListAdapter = new IconPackListAdapter(_iconPackView);
             _iconPackListAdapter.HasStableIds = true;
             _iconPackListAdapter.DeleteClicked += OnDeleteClicked;
@@ -98,7 +102,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _packList.ScheduleLayoutAnimation();
             });
         }
-        
+
         protected override async void OnActivityResult(int requestCode, Result resultCode, Intent intent)
         {
             if (requestCode != RequestAdd || resultCode != Result.Ok)
@@ -184,6 +188,12 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
 
+        private void OnDownloadButtonClick(object sender, EventArgs e)
+        {
+            var url = GetString(Resource.String.latestIconPacks);
+            StartWebBrowserActivity(url);
+        }
+
         private void OnAddClick(object sender, EventArgs args)
         {
             var intent = new Intent(Intent.ActionGetContent);
@@ -241,16 +251,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void OnOpenUrlClicked(object sender, IconPack pack)
         {
-            var intent = new Intent(Intent.ActionView, Uri.Parse(pack.Url));
-
-            try
-            {
-                StartActivity(intent);
-            }
-            catch (ActivityNotFoundException)
-            {
-                ShowSnackbar(Resource.String.webBrowserMissing, Snackbar.LengthLong);
-            }
+            StartWebBrowserActivity(pack.Url);
         }
 
         public override bool OnSupportNavigateUp()
@@ -290,6 +291,20 @@ namespace AuthenticatorPro.Droid.Activity
             var snackbar = Snackbar.Make(_rootLayout, message, length);
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
+        }
+        
+        private void StartWebBrowserActivity(string url)
+        {
+            var intent = new Intent(Intent.ActionView, Uri.Parse(url));
+
+            try
+            {
+                StartActivity(intent);
+            }
+            catch (ActivityNotFoundException)
+            {
+                ShowSnackbar(Resource.String.webBrowserMissing, Snackbar.LengthLong);
+            }
         }
     }
 }
