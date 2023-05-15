@@ -4,17 +4,17 @@
     <string name="warning">Averto</string>
     <string name="delete">Forigi</string>
     <string name="add">Aldoni</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Redakti</string>
     <string name="cancel">Rezigni</string>
     <string name="ok">Bone</string>
     <string name="yes">Jes</string>
     <string name="no">Ne</string>
     <string name="close">Fermi</string>
     <string name="error">Eraro</string>
-    <string name="retry">Retry</string>
-    <string name="ignore">Ignore</string>
+    <string name="retry">Reprovi</string>
+    <string name="ignore">Ignori</string>
     <string name="disable">Disable</string>
-    <string name="name">Name</string>
+    <string name="name">Nomo</string>
     <!-- Menu items -->
     <string name="settings">Agordoj</string>
     <string name="restore">Restaŭri</string>
