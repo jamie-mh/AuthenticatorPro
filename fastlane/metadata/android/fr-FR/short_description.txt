@@ -1,1 +1,1 @@
-Générateur de codes 2FA OTP gratuit open-source avec sauvegardes et Wear OS
+Application 2FA gratuite et open-source avec sauvegardes chiffrées

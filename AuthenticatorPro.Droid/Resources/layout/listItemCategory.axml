@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/listitemcategorybackground"
@@ -11,11 +10,11 @@
     android:clickable="true"
     android:focusable="true">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:text="Category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         android:textColor="@color/listItemCategoryText"
         android:layout_centerVertical="true"
         android:singleLine="true"

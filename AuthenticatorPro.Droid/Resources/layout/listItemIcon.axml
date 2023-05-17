@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
@@ -16,15 +15,14 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_weight="0"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/auth_google"/>
+        android:layout_marginEnd="16dp"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="28dp"
         android:singleLine="true"
-        android:textAppearance="?attr/textAppearanceBody2"
+        android:textAppearance="?attr/textAppearanceSubtitle2"
         android:gravity="center_vertical"
         android:layout_weight="1"/>
 

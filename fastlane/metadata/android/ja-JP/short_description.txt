@@ -1,1 +1,1 @@
-バックアップとWear OSのサポートを備えた、無料かつオープンソースの2FA OTPコードジェネレータ
+Free and open-source 2FA app with encrypted backups

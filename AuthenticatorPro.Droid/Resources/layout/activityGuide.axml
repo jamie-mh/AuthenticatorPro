@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -7,9 +6,8 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"/>
@@ -34,25 +32,24 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_qr_code"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/twotone_qr_code_24"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideScanQRCodeTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideScanQRCodeSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -70,25 +67,24 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_timer"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/twotone_timer_24"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideUseCodeTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideUseCodeSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -106,25 +102,24 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_edit"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/twotone_edit_24"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideCustomiseTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideCustomiseSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -142,25 +137,24 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_sort"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/baseline_sort_24"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideArrangeTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideArrangeSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
@@ -178,31 +172,31 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_backup"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/twotone_save_24"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideBackupTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideBackupSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWearOS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp">
@@ -214,25 +208,24 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_watch"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/twotone_watch_24"
+                        android:tint="?attr/colorSecondary"
                         android:layout_marginBottom="16dp"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/guideWearOSTitle"
                         android:textAppearance="?attr/textAppearanceHeadline6"/>
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/guideWearOSSummary"
-                        android:lineSpacingExtra="6sp"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"/>
+                        android:textAppearance="?attr/textAppearanceBody2"/>
 
                 </LinearLayout>
 

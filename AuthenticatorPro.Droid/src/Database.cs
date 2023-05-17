@@ -1,8 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Droid.Util;
-using AuthenticatorPro.Shared.Entity;
+using AuthenticatorPro.Core.Entity;
 using SQLite;
 using System;
 using System.IO;
@@ -107,15 +106,7 @@ namespace AuthenticatorPro.Droid
 
             try
             {
-                if (firstLaunch)
-                {
-                    await _connection.EnableWriteAheadLoggingAsync();
-                }
-
-                await _connection.CreateTableAsync<Authenticator>();
-                await _connection.CreateTableAsync<Category>();
-                await _connection.CreateTableAsync<AuthenticatorCategory>();
-                await _connection.CreateTableAsync<CustomIcon>();
+                await MigrateAsync(firstLaunch);
             }
             catch
             {
@@ -131,6 +122,21 @@ namespace AuthenticatorPro.Droid
 #endif
 
             _lock.Release();
+        }
+
+        private async Task MigrateAsync(bool firstLaunch)
+        {
+            if (firstLaunch)
+            {
+                await _connection.EnableWriteAheadLoggingAsync();
+            }
+
+            await _connection.CreateTableAsync<Authenticator>();
+            await _connection.CreateTableAsync<Category>();
+            await _connection.CreateTableAsync<AuthenticatorCategory>();
+            await _connection.CreateTableAsync<CustomIcon>();
+            await _connection.CreateTableAsync<IconPack>();
+            await _connection.CreateTableAsync<IconPackEntry>();
         }
 
         private static string GetPath()
@@ -179,7 +185,7 @@ namespace AuthenticatorPro.Droid
             }
 
             // Change encryption mode
-            if ((currentPassword == null && newPassword != null) || (currentPassword != null && newPassword == null))
+            if (currentPassword == null || newPassword == null)
             {
                 var tempPath = dbPath + ".temp";
 
@@ -236,7 +242,7 @@ namespace AuthenticatorPro.Droid
 
                 try
                 {
-                    await conn.ExecuteAsync($"PRAGMA rekey = {quoted}");
+                    await conn.ExecuteScalarAsync<string>($"PRAGMA rekey = {quoted}");
 
                     await Close(Origin.Other);
                     await Open(newPassword, Origin.Other);

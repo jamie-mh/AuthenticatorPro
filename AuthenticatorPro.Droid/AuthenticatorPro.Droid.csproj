@@ -9,38 +9,64 @@
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <RuntimeIdentifiers>android.32-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>full</TrimMode>
+    <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="PCLCrypto" Version="2.0.147" />
+    <PackageReference Include="Mono.AotProfiler.Android" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="sqlite-net-sqlcipher" Version="1.8.116" />
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.4" />
     <PackageReference Include="TinyIoC" Version="1.4.0-rc1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.11" />
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0.2" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.0" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.0" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.0" />
-    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.2" />
-    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.15" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.5.1.1" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.15" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.5.1.1" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.5.1.1" />
-    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.3" />
-    <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.17" />
-    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.7.1.5" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.7.0.1" />
-    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.0.3" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0" />
+    <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.13" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.5.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.2.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.2.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.2.1" />
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.4" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.6.1.1" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.17" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.6.1.1" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.6.1.1" />
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.19" />
+    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.8.1.1" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.8.0.1" />
+  </ItemGroup>
+  <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
+    <PackageReference Include="ZXing.Net" Version="0.16.9" />
+  </ItemGroup>
+  <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
+    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.0.3.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.1" />
+  </ItemGroup>
+  <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
+    <AndroidResource Remove="Resources\values\wear.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj" />
-    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj" />
+    <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAotProfile Include="custom.aprof" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProguardConfiguration Include="proguard.cfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <LinkDescription Include="trim.xml" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,140 @@
+{
+  "deviceId": "",
+  "deviceSecret": "",
+  "localDeviceId": "81b55075-02d3-4e5f-9603-8eb4c66bff18",
+  "deviceName": "Google sdk_gphone_x86_64",
+  "version": 3,
+  "accounts": [
+    {
+      "accountID": "d9b592bb-f040-46a3-a8d2-f578a3841b9b",
+      "lmiUserId": "",
+      "issuerName": "Standard",
+      "originalIssuerName": "Standard",
+      "userName": "Totp",
+      "originalUserName": "Totp",
+      "pushNotification": false,
+      "secret": "54VEGZFJHM3BGDONFERMPUOKNGDJETGM",
+      "timeStep": 30,
+      "digits": 6,
+      "creationTimestamp": 1682843408613,
+      "isFavorite": true,
+      "algorithm": "SHA1",
+      "folderData": {
+        "folderId": 1,
+        "position": 0
+      }
+    },
+    {
+      "accountID": "91bcd71f-f696-47e5-8f53-1a2f27dadf18",
+      "lmiUserId": "",
+      "issuerName": "Long",
+      "originalIssuerName": "Long",
+      "userName": "Period",
+      "originalUserName": "Period",
+      "pushNotification": false,
+      "secret": "JGRMXBLPPYQIFMRBFQDHNP3MPPYQYNUN",
+      "timeStep": 60,
+      "digits": 6,
+      "creationTimestamp": 1682843426708,
+      "isFavorite": true,
+      "algorithm": "SHA1",
+      "folderData": {
+        "folderId": 1,
+        "position": 1
+      }
+    },
+    {
+      "accountID": "679f408f-51cb-4667-917c-f94ae1bd7aa1",
+      "lmiUserId": "",
+      "issuerName": "Many",
+      "originalIssuerName": "Many",
+      "userName": "Digits",
+      "originalUserName": "Digits",
+      "pushNotification": false,
+      "secret": "WEV2GHDH4EAU7D5SZGCIQOFBNQ35EHBS",
+      "timeStep": 30,
+      "digits": 9,
+      "creationTimestamp": 1682843432717,
+      "isFavorite": false,
+      "algorithm": "SHA1",
+      "folderData": {
+        "folderId": 2,
+        "position": 0
+      }
+    },
+    {
+      "accountID": "516f4b21-933f-4568-a672-919819036b4c",
+      "lmiUserId": "",
+      "issuerName": "",
+      "originalIssuerName": "",
+      "userName": "NoIssuer",
+      "originalUserName": "NoIssuer",
+      "pushNotification": false,
+      "secret": "KY2QJPMNQLSGSZE2C5F7AYBLBVEEDHFX",
+      "timeStep": 30,
+      "digits": 6,
+      "creationTimestamp": 1682843438269,
+      "isFavorite": false,
+      "algorithm": "SHA1",
+      "folderData": {
+        "folderId": 2,
+        "position": 1
+      }
+    },
+    {
+      "accountID": "67e7c72c-43bd-4944-89df-4963eeca0ec2",
+      "lmiUserId": "",
+      "issuerName": "Sha",
+      "originalIssuerName": "Sha",
+      "userName": "256",
+      "originalUserName": "256",
+      "pushNotification": false,
+      "secret": "RJNZJM7PAGJUBG32XHQWHFZVLYOMGIUQ",
+      "timeStep": 30,
+      "digits": 6,
+      "creationTimestamp": 1682843443560,
+      "isFavorite": false,
+      "algorithm": "SHA256",
+      "folderData": {
+        "folderId": 0,
+        "position": 0
+      }
+    },
+    {
+      "accountID": "fbc73806-c3ce-4f07-a6fc-bdda8a2931de",
+      "lmiUserId": "",
+      "issuerName": "Sha",
+      "originalIssuerName": "Sha",
+      "userName": "512",
+      "originalUserName": "512",
+      "pushNotification": false,
+      "secret": "UW33SR5O4EKTDXNCBBS5FSPUKAYXIWOH",
+      "timeStep": 30,
+      "digits": 6,
+      "creationTimestamp": 1682843448472,
+      "isFavorite": false,
+      "algorithm": "SHA512",
+      "folderData": {
+        "folderId": 0,
+        "position": 1
+      }
+    }
+  ],
+  "folders": [
+    {
+      "id": 1,
+      "name": "Favorites",
+      "isOpened": true
+    },
+    {
+      "id": 2,
+      "name": "Group",
+      "isOpened": true
+    },
+    {
+      "id": 0,
+      "name": "Other accounts",
+      "isOpened": true
+    }
+  ]
+}

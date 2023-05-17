@@ -28,11 +28,11 @@
         <item>@string/introThemesSummary</item>
     </string-array>
     <integer-array name="introImage">
-        <item>@mipmap/ic_launcher</item>
-        <item>@drawable/ic_lock</item>
-        <item>@drawable/ic_cloud</item>
-        <item>@drawable/ic_category</item>
-        <item>@drawable/ic_theme</item>
+        <item>@drawable/big_ic_logo</item>
+        <item>@drawable/big_ic_lock</item>
+        <item>@drawable/big_ic_save</item>
+        <item>@drawable/big_ic_category</item>
+        <item>@drawable/big_ic_theme</item>
     </integer-array>
 
     <string-array name="languageNames">
@@ -53,6 +53,7 @@
         <item>@string/swedish</item>
         <item>@string/turkish</item>
         <item>@string/ukrainian</item>
+        <item>@string/arabic</item>
         <item>@string/thai</item>
         <item>@string/japanese</item>
         <item>@string/chineseSimplified</item>
@@ -76,6 +77,7 @@
         <item>sv</item>
         <item>tr</item>
         <item>uk</item>
+        <item>ar</item>
         <item>th</item>
         <item>ja</item>
         <item>zh-CN</item>
@@ -103,11 +105,13 @@
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
         <item>@string/darkTheme</item>
+        <item>@string/blackTheme</item>
     </string-array>
     <string-array name="themeValues">
         <item>system</item>
         <item>light</item>
         <item>dark</item>
+        <item>black</item>
     </string-array>
 
     <string-array name="viewModeNames">

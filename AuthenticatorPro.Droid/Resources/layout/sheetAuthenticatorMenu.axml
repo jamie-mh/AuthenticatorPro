@@ -2,11 +2,21 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:background="?attr/colorBackgroundFloating"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textAlignment="center"
+        android:id="@+id/textTitle"/>
 
     <LinearLayout
         android:id="@+id/layoutCounter"
@@ -22,19 +32,19 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:src="@drawable/ic_action_refresh"
+            android:src="@drawable/baseline_refresh_24"
+            android:tint="?attr/colorOnSurface"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="32dp"
             android:layout_width="24dp"
             android:layout_height="24dp"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textCounter"
-            android:textColor="?attr/secondaryTextColor"
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"/>
+            android:textAppearance="?attr/textAppearanceSubtitle1"/>
 
     </LinearLayout>
 

@@ -1,1 +1,1 @@
-Gratis en open-source 2FA code generator met back-ups en Wear OS ondersteuning
+Gratis en open-source 2FA app met versleutelde backups

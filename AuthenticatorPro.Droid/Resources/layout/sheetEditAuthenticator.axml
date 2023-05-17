@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingBottom="20dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textAlignment="center"
+                android:id="@+id/textTitle"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:counterEnabled="true"
+                android:id="@+id/editIssuerLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/baseline_business_24"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/issuerHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editIssuer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:singleLine="true">
+                    <requestFocus/>
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:counterEnabled="true"
+                android:hint="@string/usernameHint"
+                android:id="@+id/editUsernameLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/baseline_person_24"
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonShowAdvanced"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/showAdvancedOptions"/>
+
+            <LinearLayout
+                android:id="@+id/layoutAdvanced"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="true"
+                    android:hint="@string/typeHint"
+                    android:id="@+id/editTypeLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:inputType="none"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@null"
+                    app:hintEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    android:hint="@string/secretKey"
+                    android:id="@+id/editSecretLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editSecret"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:singleLine="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@null"
+                    app:hintEnabled="true"
+                    app:counterEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    android:hint="@string/pin"
+                    android:id="@+id/editPinLayout"
+                    android:visibility="gone"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editPin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:singleLine="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    app:hintEnabled="true"
+                    android:hint="@string/algorithmHint"
+                    android:id="@+id/editAlgorithmLayout"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_marginBottom="22dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:inputType="none"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:errorEnabled="true"
+                        app:hintEnabled="true"
+                        android:id="@+id/editDigitsLayout"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/baseline_123_24"
+                        android:paddingEnd="10dp"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editDigits"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/digitsHint"
+                            android:inputType="number"
+                            android:text="6"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:errorEnabled="true"
+                        app:hintEnabled="true"
+                        android:hint="@string/periodHint"
+                        android:id="@+id/editPeriodLayout"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/outline_timer_24"
+                        android:paddingStart="10dp"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editPeriod"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="30"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:errorEnabled="true"
+                        app:hintEnabled="true"
+                        android:hint="@string/counterHint"
+                        android:id="@+id/editCounterLayout"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/baseline_plus_one_24"
+                        android:paddingStart="10dp"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editCounter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="0"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonCancel"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_marginEnd="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/cancel"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonSubmit"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/edit"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

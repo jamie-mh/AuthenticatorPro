@@ -1,21 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <resources>
     <declare-styleable name="AppTheme">
-        <attr name="colorBase" format="color"/>
-        <attr name="colorTint" format="color"/>
-
         <attr name="colorPrimary" format="color"/>
         <attr name="colorPrimaryDark" format="color"/>
 
-        <attr name="primaryTextColor" format="color"/>
-        <attr name="secondaryTextColor" format="color"/>
-        <attr name="listBorderColor" format="color"/>
-
-        <attr name="authList_background" format="color"/>
-        <attr name="authListItem_background" format="color"/>
-        <attr name="authListItem_code" format="color"/>
-
-        <attr name="bottomAppBarBackground" format="color"/>
+        <attr name="cardStyle" format="reference"/>
+        <attr name="bottomAppBarStyle" format="reference"/>
+        <attr name="progressIndicatorStyle" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CardStyle"/>
+    <declare-styleable name="BottomAppBarStyle"/>
+    <declare-styleable name="ProgressIndicatorStyle"/>
 </resources>

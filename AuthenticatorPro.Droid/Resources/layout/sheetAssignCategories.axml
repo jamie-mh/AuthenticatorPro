@@ -1,72 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="?attr/colorBackgroundFloating"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="8dp">
+    android:paddingBottom="10dp">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
-        android:background="?attr/colorBase"
-        android:minHeight="?android:attr/actionBarSize"
-        android:layout_height="wrap_content"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content"/>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        android:paddingTop="20dp"
-        android:paddingBottom="10dp"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textAlignment="center"
+        android:id="@+id/textTitle"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"/>
 
-        <TextView
-            android:id="@+id/textEmpty"
-            android:visibility="gone"
-            android:layout_marginBottom="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/primaryTextColor"
-            android:textSize="16sp"
-            android:lineSpacingExtra="6sp"
-            android:text="@string/noCategoriesMessage"/>
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
-            android:layout_marginBottom="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingBottom="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonEditCategories"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_marginEnd="10dp"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textEmpty"
+                android:visibility="gone"
+                android:layout_marginBottom="30dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/editCategories"/>
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textAlignment="center"
+                android:text="@string/noCategoriesMessage"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonOK"
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_gravity="end"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/ok"/>
+                android:layout_height="wrap_content">
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonEditCategories"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_marginEnd="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/editCategories"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonOK"
+                    android:layout_gravity="end"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/ok"/>
+
+            </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

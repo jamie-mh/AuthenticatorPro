@@ -1,1 +1,1 @@
-Autenticador 2FA gratuito e open source, com backups e suporte pra Wear OS
+App 2FA de código aberto e gratuito com backups criptografados

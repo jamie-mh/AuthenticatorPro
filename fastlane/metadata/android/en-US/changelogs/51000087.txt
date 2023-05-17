@@ -1,0 +1,7 @@
+- New feature: Icon packs
+- New feature: Black theme option
+- New feature: Edit item details
+- New feature: Quick add to categories
+- New feature: Hide usernames
+- General: 3 new icons
+- General: Translation updates

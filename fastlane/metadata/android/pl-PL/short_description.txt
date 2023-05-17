@@ -1,1 +1,1 @@
-Darmowy generator kodów OTP 2FA o otwartym kodzie źródłowym z kopiami zapasowymi i obsługą Wear OS
+Darmowa i otwarto-źródłowa aplikacja 2FA z zaszyfrowanymi kopiami zapasowymi

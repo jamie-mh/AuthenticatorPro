@@ -1,1 +1,1 @@
-Free and open-source 2FA OTP code generator with backups and Wear OS support
+Bezplatná aplikácia pre dvojfaktorové overovanie s podporou šifrovaných záloh

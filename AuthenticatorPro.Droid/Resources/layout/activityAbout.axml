@@ -2,13 +2,11 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
->
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
+        style="Widget.Material3.Toolbar"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"/>

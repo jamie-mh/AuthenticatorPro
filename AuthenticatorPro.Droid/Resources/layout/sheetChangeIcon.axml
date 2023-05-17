@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="?attr/colorBackgroundFloating"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
-        android:background="?attr/colorBase"
-        android:minHeight="?android:attr/actionBarSize"
-        android:layout_height="wrap_content"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -23,16 +17,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textAlignment="center"
+            android:id="@+id/textTitle"/>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonUseCustomIcon"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_marginBottom="6dp"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/useCustomIcon"/>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutPack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:background="@android:color/transparent"
+            app:tabMode="scrollable"/>
+
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -46,16 +56,30 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        android:layout_marginTop="16dp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="20dp"
+    
+    <FrameLayout
         android:layout_width="match_parent"
-        android:clipToPadding="false"
         android:layout_height="wrap_content">
-        <requestFocus/>
-    </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_marginTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="20dp"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:visibility="invisible"
+            android:layout_height="wrap_content">
+            <requestFocus/>
+        </androidx.recyclerview.widget.RecyclerView>
+ 
+    </FrameLayout>
 </LinearLayout>

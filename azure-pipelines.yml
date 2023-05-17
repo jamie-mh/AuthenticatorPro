@@ -1,5 +1,6 @@
 trigger:
 - master
+- develop
 
 pool:
   vmImage: ubuntu-latest
@@ -24,7 +25,7 @@ steps:
     displayName: 'Run tests'
     inputs:
       command: 'test'
-      arguments: '--configuration $(configuration)'
+      arguments: '--configuration $(configuration) --collect:"XPlat Code Coverage"'
       projects: 'AuthenticatorPro.Test/AuthenticatorPro.Test.csproj'
       
   - task: CmdLine@2
@@ -68,3 +69,10 @@ steps:
     condition: succeeded()
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish code coverage'
+    inputs:
+      codeCoverageTool: 'Cobertura'
+      summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+      failIfCoverageEmpty: true

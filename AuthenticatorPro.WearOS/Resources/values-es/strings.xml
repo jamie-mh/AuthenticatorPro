@@ -5,4 +5,8 @@
     <string name="hotpNotSupported">HOTP no soportado</string>
     <string name="categoryAll">Todo</string>
     <string name="offline">Sin conexión</string>
+    <string name="syncFailed">Error de sincronización</string>
+    <string name="noFavourite">No favourite</string>
+    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
+    <string name="open">Abrir</string>
 </resources>

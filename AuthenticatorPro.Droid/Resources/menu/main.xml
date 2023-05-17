@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/actionSearch"
-        android:icon="@drawable/ic_action_search"
+        android:icon="@drawable/baseline_search_24"
         app:showAsAction="collapseActionView"
         android:title="@string/search"
         android:visible="false"
@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/actionSort"
-        android:icon="@drawable/ic_action_sort"
+        android:icon="@drawable/baseline_sort_24"
         app:showAsAction="always"
         android:title="@string/sort">
 
@@ -23,6 +23,12 @@
 
                 <item android:id="@+id/actionSortZA"
                       android:title="@string/sortZA"/>
+
+                <item android:id="@+id/actionSortMostCopied"
+                      android:title="@string/sortMostCopied"/>
+
+                <item android:id="@+id/actionSortLeastCopied"
+                      android:title="@string/sortLeastCopied"/>
 
                 <item android:id="@+id/actionSortCustom"
                       android:title="@string/sortCustom"/>

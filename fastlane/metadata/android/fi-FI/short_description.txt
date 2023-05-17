@@ -1,1 +1,1 @@
-Vapaa ja avoimen lähdekoodin 2FA OTP -koodigeneraattori varmuuskopioilla ja Wear OS-tuella
+Ilmainen ja avoimen lähdekoodin 2FA-sovellus salatuilla varmuuskopioilla

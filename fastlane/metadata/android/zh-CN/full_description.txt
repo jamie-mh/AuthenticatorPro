@@ -1,55 +1,32 @@
-Authenticator Pro 为您的在线帐号生成两因素认证 (2FA) 代码。 支持TOTP、HOTP、mOTP (Mobile-OTP) 和Steam。 生成的代码是为您的在线帐户提供额外一层安全的一次性令牌。 在扫描简单的 QR 码后，您的帐户将得到保护。
+一个免费开源的 Android 两部验证应用 它的特点是加密备份、图标、分类和高度定制化 它也有一个适用于 Wear OS 的应用
 
-<b>请不要通过评论进行反馈。将所有反馈/问题直接发送至 GitHub 或 email (详见开发者联系部分) 会让我们更容易地跟踪您的问题。</b>
+它支持使用 SHA1、SHA256 或 SHA512 散列算法的 TOTP(基于时间) 和 HOTP(基于计数) 认证器 还支持移动Otp(mOTP)、Steam 和 Yandex
 
-<b>常见问题</b>
-https://github.com/jamie-mh/AuthicatorPro/wiki#frequently-questions
+二步验证要求使用一次性代码登录，从而为您的帐户提供额外的一层安全保护。
+除了您的用户名和密码，您还需要 Authenticator Pro 提供的代码。 因此，即使您的登录信息被泄露，您的账户仍然是安全的。
 
-<b>兼容性</b>
-Authenticator Pro 兼容大多数提供商和账户。
+<hr>
 
-<b>备份 / 还原</b>
-用强加密来备份您的身份验证器。 如果您不小心丢失或更换了你的手机，您还是可以随时访问您的帐户。 您可以将备份保存到云存储或设备中。
+<b>Features</b>
 
-<b>导入</b>
-轻松地将您的帐户从支持的其他应用程序迁移到Authenticator Pro。
+- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. 如果你丢失或更换手机，你可以随时访问你的账户 你可以将备份保存到云存储或你的设备上
+- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation</b>: Set icons and rename. 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. 请注意，需要与你的安卓设备连接 Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-<b>黑暗模式</b>
-Authenticator Pro 有美丽的符合Material Desgi n的亮色或黑暗主题。
+(¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<b>图标</b>
-为每个代码旁边添加方便识别的品牌标志和图标来方便您寻找您的身份验证器。
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
-<b>分类</b>
-使用分类对您的身份验证器进行整理。
+<hr>
 
-<b>只需要极少权限的离线应用</b>
-Authenticator Pro只需要一个权限，并且完全不需要网络权限。
-
-<b>自定义</b>
-您可以对其自定义图标和重命名。 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
-
-<b>Wear OS</b>
-Authenticator Pro也有 Wear OS 的配套应用。让您可以从您的手表中快速查看您的身份验证器。
-
-<b>安全</b>
-您可以设置密码并使用生物识别来保护您的代码。
-
-<b>开源</b>
-任何人都可以在 GitHub 审查程序源代码。
-
-
-二步验证要求使用一次性代码登录，从而为您的帐户提供额外的一层安全保护。 除了您的用户名和密码，您还需要 Authenticator Pro 提供的代码。 因此，即使您的登录信息被泄露，您的账户仍然是安全的。
-
-
-免费且开源
-https://github.com/jamie-mh/authenticatorPro
-
-<b>权限</b>
-
-通过二维码添加帐户需要相机权限。
-
-<b>免责声明：</b>
+<b>Disclaimer</b>
 
 这个软件是一个免费且自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证（许可证的第 3 版或（由您选择）任何更高版本）的条款重新分发和/或修改它。
 

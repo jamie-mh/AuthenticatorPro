@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?attr/colorBackgroundFloating"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
-        android:background="?attr/colorBase"
-        android:minHeight="?android:attr/actionBarSize"
-        android:layout_height="wrap_content"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -26,21 +20,28 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:clipChildren="false"
-            android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textAlignment="center"
+                android:id="@+id/textTitle"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 app:hintEnabled="true"
                 android:hint="@string/typeHint"
                 android:id="@+id/editTypeLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_marginBottom="22dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:editable="false"
@@ -53,8 +54,10 @@
                 app:hintEnabled="true"
                 app:counterEnabled="true"
                 android:id="@+id/editIssuerLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="10dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/baseline_business_24"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/issuerHint">
@@ -76,8 +79,10 @@
                 app:counterEnabled="true"
                 android:hint="@string/usernameHint"
                 android:id="@+id/editUsernameLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="10dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/baseline_person_24"
+                android:layout_marginBottom="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -95,10 +100,10 @@
                 app:hintEnabled="true"
                 android:hint="@string/secretKey"
                 android:id="@+id/editSecretLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
-                app:endIconDrawable="@drawable/ic_action_vpn_key"
-                android:layout_marginBottom="10dp"
+                app:endIconDrawable="@drawable/baseline_vpn_key_24"
+                android:layout_marginBottom="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -119,9 +124,9 @@
                 android:hint="@string/pin"
                 android:id="@+id/editPinLayout"
                 android:visibility="gone"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 app:endIconMode="custom"
-                app:endIconDrawable="@drawable/ic_action_lock"
+                app:endIconDrawable="@drawable/baseline_lock_24"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -138,7 +143,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonShowAdvanced"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -155,12 +160,12 @@
                     app:hintEnabled="true"
                     android:hint="@string/algorithmHint"
                     android:id="@+id/editAlgorithmLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_marginBottom="22dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <AutoCompleteTextView
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:editable="false"
@@ -170,7 +175,6 @@
 
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -178,7 +182,9 @@
                         app:errorEnabled="true"
                         app:hintEnabled="true"
                         android:id="@+id/editDigitsLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/baseline_123_24"
                         android:paddingEnd="10dp"
                         android:layout_weight=".5"
                         android:layout_width="0dp"
@@ -199,7 +205,9 @@
                         app:hintEnabled="true"
                         android:hint="@string/periodHint"
                         android:id="@+id/editPeriodLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/outline_timer_24"
                         android:paddingStart="10dp"
                         android:layout_weight=".5"
                         android:layout_width="0dp"
@@ -214,6 +222,28 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:errorEnabled="true"
+                        app:hintEnabled="true"
+                        android:hint="@string/counterHint"
+                        android:id="@+id/editCounterLayout"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/baseline_plus_one_24"
+                        android:paddingStart="10dp"
+                        android:layout_weight=".5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editCounter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="0"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -225,15 +255,15 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonCancel"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    style="@style/Widget.Material3.Button.TextButton"
                     android:layout_marginEnd="10dp"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/cancel"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonAdd"
-                    style="@style/Widget.MaterialComponents.Button"
+                    android:id="@+id/buttonSubmit"
+                    style="@style/Widget.Material3.Button"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="@string/add"/>

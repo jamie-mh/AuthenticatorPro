@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorBackgroundFloating">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.MaterialComponents.Toolbar"
-        android:background="?attr/colorBase"
-        android:minHeight="?android:attr/actionBarSize"
-        android:layout_height="wrap_content"
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:layout_width="match_parent"
-        android:id="@+id/toolbar"/>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,13 +16,20 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:clipChildren="false"
-        android:paddingTop="20dp"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textAlignment="center"
+            android:id="@+id/textTitle"/>
+
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:id="@+id/editNameLayout"
             app:counterEnabled="true"
             android:layout_marginBottom="10dp"
@@ -41,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionDone"
-                android:hint="@string/categoryNameHint">
+                android:hint="@string/name">
                 <requestFocus/>
             </com.google.android.material.textfield.TextInputEditText>
 
@@ -55,7 +56,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonCancel"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSubmit"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Widget.Material3.Button"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text=""/>

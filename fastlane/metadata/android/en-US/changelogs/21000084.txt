@@ -1,0 +1,4 @@
+- New feature: Disable copy on tap
+- General: Slight design changes
+- General: 11 new icons
+- General: Translation updates

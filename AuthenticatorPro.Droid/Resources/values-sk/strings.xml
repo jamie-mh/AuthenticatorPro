@@ -4,6 +4,7 @@
     <string name="warning">Upozornenie</string>
     <string name="delete">Odstrániť</string>
     <string name="add">Pridať</string>
+    <string name="edit">Upraviť</string>
     <string name="cancel">Zrušiť</string>
     <string name="ok">OK</string>
     <string name="yes">Áno</string>
@@ -13,6 +14,7 @@
     <string name="retry">Skúsiť znova</string>
     <string name="ignore">Ignorovať</string>
     <string name="disable">Zakázať</string>
+    <string name="name">Názov</string>
     <!-- Menu items -->
     <string name="settings">Nastavenia</string>
     <string name="restore">Obnoviť</string>
@@ -20,6 +22,7 @@
     <string name="about">O aplikácii</string>
     <string name="scanQrCode">Naskenovať QR kód</string>
     <string name="showQrCode">Zobraziť QR kód</string>
+    <string name="editDetails">Upraviť podrobnosti</string>
     <string name="scanQrCodeFromCamera">Naskenovať pomocou fotoaparátu</string>
     <string name="scanQrCodeFromGallery">Naskenovať z galérie</string>
     <string name="rename">Premenovať</string>
@@ -31,6 +34,8 @@
     <string name="sort">Zoradiť</string>
     <string name="sortAZ">Abecedné (A-Z)</string>
     <string name="sortZA">Abecedné (Z-A)</string>
+    <string name="sortMostCopied">Najpoužívanejšie</string>
+    <string name="sortLeastCopied">Málo používané</string>
     <string name="sortCustom">Vlastné</string>
     <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
     <string name="supportDevelopment">Podporiť vývoj</string>
@@ -45,6 +50,7 @@
     <string name="secretKey">Tajný kľúč</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Zobraziť pokročilé nastavenia</string>
+    <string name="advancedOptionsWarning">Zmeň len vtedy ak vieš čo robíš, mohol by si stratiť prístup do svojho účtu.\n\nPokračovať?</string>
     <string name="confirmAuthenticatorDelete">Odstránenie tohto autentifikátora vám zabráni vygenerovať kódy pre tento účet. To neznamená, že dvojfaktorová autentifikácia bude vypnutá.\n\nOdstránenie tohto autentifikátora vám môže zabrániť v prístupe k vášmu účtu.\nUistite sa, že je deaktivovaná dvojfaktorová autentifikácia alebo že máte kódy pre obnovenie.\n\nPokračovať?</string>
     <string name="useCustomIcon">Použiť vlastnú ikonu</string>
     <string name="copiedToClipboard">Kód skopírovaný do schránky</string>
@@ -55,6 +61,7 @@
     <string name="algorithmHint">Algoritmus</string>
     <string name="digitsHint">Číslice</string>
     <string name="periodHint">Perióda (v sekundách)</string>
+    <string name="counterHint">Počítadlo</string>
     <string name="noIssuer">Vydavateľ je povinný</string>
     <string name="noSecret">Tajný kľúč je povinný</string>
     <string name="noPin">Pin je povinný</string>
@@ -64,15 +71,24 @@
     <string name="pinTooLong">Pin nemôže obsahovať viac ako {0} číslic</string>
     <string name="digitsInvalid">Autentikátor musí generovať {0} až {1} číslic</string>
     <string name="periodInvalid">Perióda je neplatná</string>
+    <string name="counterInvalid">Počítadlo je neplatné</string>
     <string name="qrCodeFormatError">QR kód nie je v správnom formáte alebo nemôže byť prečítaný</string>
     <string name="duplicateAuthenticator">Autentifikátor s týmto tajným kľúčom už existuje</string>
     <string name="scanSuccessful">QR kód úspešne naskenovaný</string>
     <string name="pinMessage">Zadajte pin priradený k tomuto kódu QR. Pri nastavovaní tohto účtu by ste boli vyzvaní na zadanie PIN kódu.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Predvolené ikony</string>
+    <string name="iconPacks">Balíčky ikon</string>
+    <string name="downloadPacks">Download packs</string>
+    <string name="importIconPackSuccess">Importovaných {0} ikon z balíčka</string>
+    <string name="invalidIconPackError">Vybraný súbor nie je z balíčka ikon Authenticator Pro</string>
+    <string name="confirmIconPackDelete">Naozaj chceš odstrániť tento balík ikon? Všetky použité ikony nebudú odstránené.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Kopírovať autentifikátor do iného zariadenia alebo aplikácie naskenovaním QR kódu</string>
     <string name="qrCodeNotSupported">QR kódy tohto typu nie sú podporované</string>
     <string name="copyUri">Kopírovať URI</string>
+    <string name="copyUriWarning">Táto URI obsahuje tajný kľúč v textovej podobe. Buď opatrný kam ho vkladáš.\n\nPokračovať?</string>
     <string name="uriCopiedToClipboard">URI skopírovaný do schránky</string>
     <!-- Backup menu -->
     <string name="backupToFile">Zálohovať do zašifrovaného súboru (odporúčané)</string>
@@ -90,13 +106,16 @@
     <string name="noAuthenticatorsHelp">Ak ste nový používateľ aplikácie Authenticator Pro môžete zobraziť príručku pre začiatočníkov kliknutím nižšie.</string>
     <string name="noCategoriesTitle">Žiadne kategórie</string>
     <string name="noCategoriesMessage">Zatiaľ nemáte nastavené žiadne kategórie</string>
+    <string name="noIconPacksTitle">Žiadne balíčky ikon</string>
+    <string name="noIconPacksMessage">Zatiaľ nemáš nastavené žiadne balíčky ikon</string>
     <!-- Categories -->
+    <string name="category">Kategória</string>
     <string name="categories">Kategórie</string>
     <string name="assignCategories">Priradiť kategórie</string>
+    <string name="assignEntries">Priraď položky</string>
     <string name="more">Viac</string>
     <string name="categoryAll">Všetko</string>
     <string name="editCategories">Upraviť kategórie</string>
-    <string name="categoryNameHint">Názov kategórie</string>
     <string name="noCategoryName">Názov kategórie je povinný</string>
     <string name="duplicateCategory">Kategória z takýmto názvom už existuje</string>
     <string name="confirmCategoryDelete">Ste si istý, že chcete odstrániť túto kategóriu?</string>
@@ -114,15 +133,11 @@
     <string name="passwordHint">Heslo zálohy</string>
     <string name="fileNameHint">Názov súboru zálohy</string>
     <string name="noAuthenticators">Zatiaľ nemáte žiadne autentifikátory pre zálohovanie</string>
-    <string name="encrypting">Šifrovanie</string>
-    <string name="decrypting">Dešifrovanie</string>
-    <string name="saving">Ukladanie</string>
     <string name="saveSuccess">Úspešne uložené</string>
     <string name="backupSuccess">Záloha uložená ako \'{0}\'</string>
     <string name="restoredFromBackup">Obnovené {0} nové autentifikátory a {1} nové kategórie</string>
     <string name="restoredFromBackupUpdated">Obnovené {0} nové autentifikátory a {1} nové kategórie. Aktualizované {2} existujúce autentifikátory.</string>
     <string name="restoredNothing">Nič na obnovenie</string>
-    <string name="restoredFromMigration">Obnovené {0} nové autentifikátory</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Pre naskenovanie QR kódu je potrebné udeliť oprávnenie pre prístup k fotoaparátu</string>
     <string name="googlePlayNotInstalledError">Google Play nie je nainštalovaný na vašom zariadení</string>
@@ -151,18 +166,13 @@
     <string name="notPasswordProtected">Nechránené heslom</string>
     <string name="enableAutoBackup">Zapnúť automatické zálohovanie</string>
     <string name="enableAutoBackupMessage">Automaticky zálohovať na vybrané miesto v úložisku</string>
-    <string name="enableAutoRestore">Povoliť automatické obnovenie</string>
-    <string name="enableAutoRestoreMessage">Automaticky obnovovať poslednú zálohu nájdenú vo vybranom miesto v úložisku. Užitočné na synchronizáciu medzi zariadeniami.</string>
     <string name="batOptim">Optimalizácia batérie</string>
     <string name="disableBatOptimMessage">Na niektorých zariadeniach môže nastavenie napájania zabrániť správnemu fungovaniu záloh. Ak máte problémy, skúste vypnúť optimalizáciu batérie pre aplikáciu Authenticator Pro.</string>
     <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
     <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
-    <string name="autoRestoreFailureTitle">Automatické obnovenie zlyhalo</string>
-    <string name="autoRestoreFailureText">Posledné automatické obnovenie sa nepodarilo dokončiť. Je možné, že platnosť povolení súboru vypršala alebo je heslo nesprávne. Skúste znova nastaviť umiestnenie a heslo v nastaveniach automatického zálohovania.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohovanie dokončené</string>
     <string name="autoRestoreSuccessTitle">Automatické obnovenie dokončené</string>
     <string name="backupScheduled">Zálohovanie naplánované</string>
-    <string name="restoreScheduled">Obnovenie naplánované</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zašifrujte databázu pomocou hesla. Po otvorení aplikácie sa zobrazí výzva na zadanie hesla. Ak chcete heslo vymazať, nechajte pole prázdne.</string>
     <string name="passwordSetupWarning">Použite heslo, ktoré si zapamätáte, bez neho je databáza neobnoviteľná!</string>
@@ -180,17 +190,19 @@
     <string name="tooManyAttempts">Príliš veľa pokusov</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importovať z iných aplikácií</string>
-    <string name="importFrom">Importovať z</string>
     <string name="importError">Súbor sa nepodarilo importovať</string>
+    <string name="importIncomplete">Import neúplný</string>
+    <string name="importConversionError">Položku \"{0}\" sa nepodarilo importovať z dôvodu nasledujúcej chyby: {1}</string>
     <string name="authenticatorPlusImportHint">Importovať súbor authplus.db</string>
-    <string name="andOtp">andOTP (vo formáte čistého textu)</string>
-    <string name="andOtpImportHint">Importovať súbor otp_accounts.json (vo formáte čistého textu)</string>
+    <string name="andOtpImportHint">Import otp_accounts.json súboru</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml súboru</string>
     <string name="freeOtpPlusImportHint">Importovať súbor freeotp-backup.json</string>
-    <string name="aegis">Aegis (vo formáte čistého textu)</string>
-    <string name="aegisImportHint">Importovať súbor aegis-export-plain.json</string>
+    <string name="aegisImportHint">Import aegis-export.json súboru</string>
     <string name="bitwarden">Bitwarden (vo formáte čistého textu)</string>
     <string name="bitwardenImportHint">Importovať súbor bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importovať súbor winauth.txt</string>
+    <string name="winAuthImportHint">Import winauth.txt alebo winauth.zip súboru</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas súboru</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json súboru</string>
     <string name="totpAuthenticatorImportHint">Importovať súbor TOTP_Backup.encrypt</string>
     <string name="uriList">Zoznam URI</string>
     <string name="uriListHint">Zoznam otpauth URI identifikátorov vo formáte čistého textu</string>
@@ -209,7 +221,7 @@
     <string name="guideWearOSTitle">Prevziať sprievodnú aplikáciu pre Wear OS</string>
     <string name="guideWearOSSummary">Ak máte hodinky Wear OS, môžete si prevziať sprievodnú aplikáciu. Kódy si môžete pozrieť priamo na hodinkách.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Vložte QR kód do hľadáčika a naskenujte ho. Kód sa naskenuje automaticky. Ťuknutím zaostrite.</string>
+    <string name="scanHelpPrimary">QR kód umiestni do hľadáčika a naskenuj ho. Ťuknutím na položku ju zaostríš.</string>
     <string name="scanHelpSecondary">Snažte sa vyhýbať tieňom a odleskom. Držte zariadenie približne 15 cm od kódu.</string>
     <string name="toggleFlash">Prepnúť blesk</string>
     <!-- Preferences -->
@@ -218,9 +230,13 @@
     <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory
     </string>
     <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Automatické zálohovanie a obnovenie z konkrétneho umiestnenia po vykonaní zmien. Zakáže pripomenutie zálohovania.</string>
+    <string name="prefAutoBackupSummary">Automatické zálohovanie do určeného umiestnenia po vykonaní zmien. Zakáže pripomienky zálohovania.</string>
     <string name="prefLanguageTitle">Jazyk</string>
     <string name="prefLanguageSummary">Výber jazyka, ktorý chcete používať v celej aplikácii</string>
+    <string name="prefTapToCopyTitle">Ťuknutím skopíruješ</string>
+    <string name="prefTapToCopySummary">Skopíruje kód do schránky ťuknutím</string>
+    <string name="prefResetCopyCountTitle">Obnovenie počítadla kopírovania</string>
+    <string name="prefResetCopyCountSummary">Vymazať počet skopírovaní každého autentifikátora</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
@@ -239,10 +255,15 @@
     <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
     <string name="prefCodeGroupSizeTitle">Veľkosť skupiny kódov</string>
     <string name="prefCodeGroupSizeSummary">Zmena zoskupenia číslic v kóde</string>
+    <string name="prefShowUsernamesTitle">Zobraziť užívateľské mená</string>
+    <string name="prefShowUsernamesSummary">Zobraziť užívateľské meno pod vydavateľom</string>
+    <string name="prefDynamicColourTitle">Dynamické farby</string>
+    <string name="prefDynamicColourSummary">Dynamické nastavenie farby motívu na základe tapety</string>
     <string name="prefAccentColourTitle">Farba akcentu</string>
     <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
     <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
     <string name="prefTransparentStatusBarSummary">Zviditeľnenie zoznamu za stavovým riadkom pri posúvaní</string>
+    <string name="copyCountReset">Obnovenie počtu kopírovaní</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časovo založené (TOTP)</string>
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
@@ -256,6 +277,7 @@
     <string name="systemDefault">Predvolená systémom</string>
     <string name="lightTheme">Svetlá téma</string>
     <string name="darkTheme">Tmavá téma</string>
+    <string name="blackTheme">Tmavá téma</string>
     <string name="defaultViewMode">Predvolený</string>
     <string name="compactViewMode">Kompaktný</string>
     <string name="tileViewMode">Dlaždice</string>

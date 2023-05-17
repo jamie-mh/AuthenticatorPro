@@ -5,7 +5,7 @@ using Android.Content;
 using Android.Runtime;
 using Android.Util;
 using AuthenticatorPro.Droid.Activity;
-using AuthenticatorPro.Droid.Fragment;
+using AuthenticatorPro.Droid.Interface.Fragment;
 using System;
 
 namespace AuthenticatorPro.Droid.Preference

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="39"
-          android:versionName="2.6.3" package="me.jmh.authenticatorpro" android:installLocation="auto">
-    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="33"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="46"
+          android:versionName="2.10.0" package="me.jmh.authenticatorpro" android:installLocation="auto">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33"/>
     <uses-feature android:name="android.hardware.type.watch"/>
     <application android:allowBackup="true" android:label="@string/appName" android:icon="@mipmap/ic_launcher"
                  android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true"
-                 android:theme="@style/AppTheme" android:extractNativeLibs="true">
+                 android:theme="@style/SplashTheme" android:extractNativeLibs="true">
         <uses-library android:name="com.google.android.wearable" android:required="true"/>
         <meta-data android:name="com.google.android.wearable.standalone" android:value="false"/>
     </application>

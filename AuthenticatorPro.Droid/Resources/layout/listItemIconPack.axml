@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?attr/cardStyle"
+    android:focusable="true"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:scrollHorizontally="true"
+            android:layout_marginBottom="6dp"
+            android:id="@+id/textName"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:id="@+id/textDescription"/>
+        
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <ImageButton
+                android:id="@+id/buttonDelete"
+                android:src="@drawable/baseline_delete_24"
+                android:tint="?attr/colorOnSurface"
+                android:scaleType="centerInside"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="12dp"/>
+
+            <ImageButton
+                android:id="@+id/buttonOpenUrl"
+                android:src="@drawable/baseline_open_in_new_24"
+                android:tint="?attr/colorOnSurface"
+                android:scaleType="centerInside"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_width="22dp"
+                android:layout_height="22dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

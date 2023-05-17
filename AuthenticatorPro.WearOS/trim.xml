@@ -1,0 +1,5 @@
+<linker>
+    <assembly fullname="AuthenticatorPro.Core" preserve="all" />
+    <assembly fullname="AuthenticatorPro.WearOS" preserve="all" />
+    <assembly fullname="AuthenticatorPro.Droid.Shared" preserve="all" />
+</linker>

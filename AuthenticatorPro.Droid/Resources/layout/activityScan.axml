@@ -28,14 +28,13 @@
             android:background="#80000000"
             android:layout_weight="0.1">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:text="@string/scanHelpPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@android:color/white"
-                android:lineSpacingExtra="6sp"
-                android:textSize="16sp"/>
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
 
@@ -58,14 +57,13 @@
             android:layout_weight="0.1"
             android:layout_gravity="center">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:text="@string/scanHelpSecondary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@android:color/white"
-                android:lineSpacingExtra="6sp"
-                android:textSize="16sp"/>
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@android:color/white"/>
 
             <com.google.android.material.button.MaterialButton
                 android:text="@string/toggleFlash"
@@ -74,7 +72,7 @@
                 android:layout_marginTop="20dp"
                 android:id="@+id/buttonFlash"
                 android:layout_gravity="bottom"
-                style="@style/Widget.MaterialComponents.Button"/>
+                style="@style/Widget.Material3.Button"/>
 
         </LinearLayout>
     </LinearLayout>

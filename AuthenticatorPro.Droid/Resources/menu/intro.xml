@@ -4,11 +4,11 @@
 >
 
     <item android:id="@+id/intro_prev"
-          android:icon="@drawable/ic_action_caret_left"/>
+          android:icon="@drawable/baseline_chevron_left_24"/>
 
     <item android:id="@+id/intro_next"
-          android:icon="@drawable/ic_action_caret_right"/>
+          android:icon="@drawable/baseline_chevron_right_24"/>
 
     <item android:id="@+id/intro_done"
-          android:icon="@drawable/ic_action_done"/>
+          android:icon="@drawable/baseline_done_24"/>
 </menu>

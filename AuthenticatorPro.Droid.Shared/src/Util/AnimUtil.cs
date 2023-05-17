@@ -12,7 +12,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
         public const int LengthShort = 200;
         public const int LengthLong = 500;
 
-        public static void FadeInView(Android.Views.View view, int length, bool overrideAnim = false,
+        public static void FadeInView(View view, int length, bool overrideAnim = false,
             Action callback = null)
         {
             if (overrideAnim)
@@ -38,7 +38,7 @@ namespace AuthenticatorPro.Droid.Shared.Util
             view.StartAnimation(anim);
         }
 
-        public static void FadeOutView(Android.Views.View view, int length, bool overrideAnim = false,
+        public static void FadeOutView(View view, int length, bool overrideAnim = false,
             Action callback = null)
         {
             if (overrideAnim)

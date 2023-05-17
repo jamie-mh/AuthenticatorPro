@@ -1,1 +1,1 @@
-Yedekleme ve Wear OS desteği sağlayan ücretsiz ve açık kaynaklı 2FA OTP kod oluşturucu
+Şifreli yedeklemeli, ücretsiz ve açık kaynak 2FA uygulaması

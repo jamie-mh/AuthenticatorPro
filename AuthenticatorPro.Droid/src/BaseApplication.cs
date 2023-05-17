@@ -3,10 +3,10 @@
 
 using Android.App;
 using Android.Content;
+using Android.OS;
 using Android.Runtime;
 using AndroidX.Lifecycle;
 using AuthenticatorPro.Droid.Activity;
-using AuthenticatorPro.Droid.Util;
 using Java.Interop;
 using System;
 using System.Threading.Tasks;
@@ -49,6 +49,11 @@ namespace AuthenticatorPro.Droid
 
             ProcessLifecycleOwner.Get().Lifecycle.AddObserver(this);
             _preferences = new PreferenceWrapper(Context);
+
+            if (_preferences.FirstLaunch)
+            {
+                _preferences.DynamicColour = Build.VERSION.SdkInt >= BuildVersionCodes.S;
+            }
         }
 
         private void OnAndroidEnvironmentUnhandledExceptionRaised(object sender, RaiseThrowableEventArgs e)
