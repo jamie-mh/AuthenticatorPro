@@ -79,6 +79,7 @@
     <!-- Icon packs -->
     <string name="defaultIcons">Icônes par défaut</string>
     <string name="iconPacks">Packs d\'icônes</string>
+    <string name="downloadPacks">Download packs</string>
     <string name="importIconPackSuccess">{0} icônes importées du pack</string>
     <string name="invalidIconPackError">Le fichier sélectionné n\'est pas un pack d\'icônes Authenticator Pro</string>
     <string name="confirmIconPackDelete">Êtes-vous sûr de vouloir supprimer ce pack d\'icône ? Toutes les icônes utilisées sont préservées.</string>
