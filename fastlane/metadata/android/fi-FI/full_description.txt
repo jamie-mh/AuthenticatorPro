@@ -22,7 +22,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 
 (¹) *Sovellus vaatii kameran luvan QR-koodien skannaamiseen.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> UKK</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 

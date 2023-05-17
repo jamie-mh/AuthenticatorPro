@@ -22,7 +22,7 @@ SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 

@@ -22,7 +22,7 @@ Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego p
 
 (¹) *Aby zeskanować kody QR, aplikacja wymaga uprawnienia aparatu.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 

@@ -22,7 +22,7 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 

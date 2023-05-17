@@ -79,6 +79,7 @@
     <!-- Icon packs -->
     <string name="defaultIcons">Standard-Icons</string>
     <string name="iconPacks">Icon Packs</string>
+    <string name="downloadPacks">Packs herunterladen</string>
     <string name="importIconPackSuccess">{0} Icons aus der Pack importiert</string>
     <string name="invalidIconPackError">Die ausgewählte Datei ist kein Icon Pack</string>
     <string name="confirmIconPackDelete">Möchtest du dies Icon Pack wirklich löschen? Verwendete Icon werden nicht gelöscht.</string>

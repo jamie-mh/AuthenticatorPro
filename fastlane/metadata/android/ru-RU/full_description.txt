@@ -22,7 +22,7 @@
 
 (¹) *Для сканирования QR-кодов приложению требуется разрешение камеры.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> ЧаВо</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 
