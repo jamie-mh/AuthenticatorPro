@@ -32,7 +32,7 @@ namespace AuthenticatorPro.WearOS.Interface
             return _authView[position].GetHashCode();
         }
 
-        public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var auth = _authView[position];
 
@@ -63,7 +63,7 @@ namespace AuthenticatorPro.WearOS.Interface
                 if (auth.Icon.StartsWith(CustomIconCache.Prefix))
                 {
                     var id = auth.Icon[1..];
-                    var customIcon = await _customIconCache.GetBitmapAsync(id);
+                    var customIcon = _customIconCache.GetCachedBitmap(id);
 
                     if (customIcon != null)
                     {

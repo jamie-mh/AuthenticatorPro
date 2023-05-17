@@ -4,6 +4,7 @@
 using Android.Content;
 using Android.Graphics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace AuthenticatorPro.WearOS.Cache
 
         private readonly Context _context;
         private readonly SemaphoreSlim _decodeLock;
-        private readonly Dictionary<string, Bitmap> _bitmaps;
+        private Dictionary<string, Bitmap> _bitmaps;
         private bool _isDisposed;
 
         public CustomIconCache(Context context)
@@ -55,9 +56,23 @@ namespace AuthenticatorPro.WearOS.Cache
             _isDisposed = true;
         }
 
-        public async Task Add(string id, byte[] data)
+        public async Task InitAsync()
+        {
+            var decoded = new ConcurrentDictionary<string, Bitmap>();
+            
+            await Parallel.ForEachAsync(GetIcons(), async (id, _) =>
+            {
+                var bitmap = await BitmapFactory.DecodeFileAsync(GetIconPath(id));
+                decoded.TryAdd(id, bitmap);
+            });
+
+            _bitmaps = new Dictionary<string, Bitmap>(decoded);
+        }
+
+        public async Task AddAsync(string id, byte[] data)
         {
             await File.WriteAllBytesAsync(GetIconPath(id), data);
+            _ = await GetFreshBitmapAsync(id);
         }
 
         public void Remove(string id)
@@ -76,7 +91,12 @@ namespace AuthenticatorPro.WearOS.Cache
             return ids;
         }
 
-        public async Task<Bitmap> GetBitmapAsync(string id)
+        public Bitmap GetCachedBitmap(string id)
+        {
+            return _bitmaps.GetValueOrDefault(id);
+        }
+       
+        public async Task<Bitmap> GetFreshBitmapAsync(string id)
         {
             if (_bitmaps.TryGetValue(id, out var bitmap))
             {

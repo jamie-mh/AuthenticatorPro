@@ -114,6 +114,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             await _authCache.InitAsync();
             await _categoryCache.InitAsync();
+            await _customIconCache.InitAsync();
 
             var defaultCategory = _preferences.DefaultCategory;
             _authView = new AuthenticatorView(_authCache, defaultCategory, _preferences.SortMode);
@@ -295,7 +296,7 @@ namespace AuthenticatorPro.WearOS.Activity
             }
         }
 
-        private async void OnItemClicked(object sender, int position)
+        private void OnItemClicked(object sender, int position)
         {
             var item = _authView.ElementAtOrDefault(position);
 
@@ -329,7 +330,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if (hasCustomIcon)
             {
                 var id = item.Icon[1..];
-                var bitmap = await _customIconCache.GetBitmapAsync(id);
+                var bitmap = _customIconCache.GetCachedBitmap(id);
                 bundle.PutParcelable("icon", bitmap);
             }
             else
@@ -459,7 +460,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             foreach (var icon in toAdd)
             {
-                await _customIconCache.Add(icon.Id, icon.Data);
+                await _customIconCache.AddAsync(icon.Id, icon.Data);
             }
         }
 
