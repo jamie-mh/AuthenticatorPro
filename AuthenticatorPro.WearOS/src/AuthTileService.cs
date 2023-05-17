@@ -52,7 +52,7 @@ namespace AuthenticatorPro.WearOS
 
         private async Task<ResourceBuilders.InlineImageResource> GetCustomIconResourceAsync(string id)
         {
-            var bitmap = await _customIconCache.GetBitmapAsync(id);
+            var bitmap = await _customIconCache.GetFreshBitmapAsync(id);
             Bitmap copy = null;
 
             try

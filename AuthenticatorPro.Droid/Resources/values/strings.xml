@@ -3,6 +3,7 @@
     <string name="displayName" translatable="false">Authenticator</string>
 
     <string name="githubRepo" translatable="false">https://github.com/jamie-mh/AuthenticatorPro</string>
+    <string name="latestIconPacks" translatable="false">https://github.com/jamie-mh/AuthenticatorProIcons/releases/latest</string>
     <string name="buyMeACoffee" translatable="false">https://www.buymeacoffee.com/jamiemh</string>
     <string name="contactEmail" translatable="false">contact@jmh.me</string>
 
@@ -89,6 +90,7 @@
     <!-- Icon packs -->
     <string name="defaultIcons">Default icons</string>
     <string name="iconPacks">Icon packs</string>
+    <string name="downloadPacks">Download packs</string>
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
