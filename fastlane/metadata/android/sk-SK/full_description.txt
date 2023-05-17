@@ -22,7 +22,7 @@ Okrem používateľského mena a hesla budete potrebovať kód poskytnutý aplik
 
 (¹) *Ak chcete skenovať QR kódy, aplikácia vyžaduje povolenie fotoaparátu.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> ČASTO KLADENÉ OTÁZKY</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 
