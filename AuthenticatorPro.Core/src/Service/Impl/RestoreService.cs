@@ -73,6 +73,8 @@ namespace AuthenticatorPro.Core.Service.Impl
                 result.AddedCustomIconCount = await _customIconService.AddManyAsync(backup.CustomIcons);
             }
 
+            await _customIconService.CullUnusedAsync();
+            
             return result;
         }
     }

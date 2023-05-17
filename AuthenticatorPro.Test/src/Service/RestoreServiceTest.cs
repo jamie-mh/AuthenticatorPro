@@ -132,8 +132,11 @@ namespace AuthenticatorPro.Test.Service
                 .ReturnsAsync(new ValueTuple<int, int>(5, 6));
             _customIconService.Setup(s => s.AddManyAsync(backup.CustomIcons))
                 .ReturnsAsync(7);
+            _customIconService.Setup(s => s.CullUnusedAsync()).Verifiable();
 
             var result = await _restoreService.RestoreAndUpdateAsync(backup);
+            
+            _customIconService.Verify(s => s.CullUnusedAsync(), Times.Once());
 
             Assert.Equal(1, result.AddedAuthenticatorCount);
             Assert.Equal(2, result.UpdatedAuthenticatorCount);
