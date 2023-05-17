@@ -22,7 +22,7 @@ En plus de votre nom d'utilisateur et de votre mot de passe, vous aurez besoin d
 
 (¹) *Pour lire des QR codes, l'application a besoin d'accéder à la caméra de l'appareil.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 
