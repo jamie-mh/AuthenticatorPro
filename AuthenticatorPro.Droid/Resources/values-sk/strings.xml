@@ -79,6 +79,7 @@
     <!-- Icon packs -->
     <string name="defaultIcons">Predvolené ikony</string>
     <string name="iconPacks">Balíčky ikon</string>
+    <string name="downloadPacks">Download packs</string>
     <string name="importIconPackSuccess">Importovaných {0} ikon z balíčka</string>
     <string name="invalidIconPackError">Vybraný súbor nie je z balíčka ikon Authenticator Pro</string>
     <string name="confirmIconPackDelete">Naozaj chceš odstrániť tento balík ikon? Všetky použité ikony nebudú odstránené.</string>
