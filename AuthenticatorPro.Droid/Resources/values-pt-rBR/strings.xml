@@ -248,6 +248,8 @@
     <string name="prefTimeoutSummary">Defina quanto tempo após sair da tela o banco de dados deve ser bloqueado</string>
     <string name="prefTapToRevealTitle">Toque para revelar</string>
     <string name="prefTapToRevealSummary">Ocultar os códigos até serem tocados. Eles desaparecerão após alguns segundos.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Aparência</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Escolha um tema para o aplicativo</string>
