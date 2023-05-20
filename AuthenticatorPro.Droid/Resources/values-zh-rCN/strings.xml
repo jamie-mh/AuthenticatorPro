@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefTapToRevealTitle">点击以显示</string>
     <string name="prefTapToRevealSummary">在代码被点击都将保持隐藏。显示的代码将在几秒钟后消失。</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">外观</string>
     <string name="prefThemeTitle">主题</string>
     <string name="prefThemeSummary">选择应用的主题。</string>
