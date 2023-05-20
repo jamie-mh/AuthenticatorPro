@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">設定在應用切換至後臺執行後自動鎖定資料庫前的時間間隔</string>
     <string name="prefTapToRevealTitle">點選以顯示</string>
     <string name="prefTapToRevealSummary">在程式碼被點選都將保持隱藏。顯示的程式碼將在幾秒鐘後消失。</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">外觀</string>
     <string name="prefThemeTitle">主題</string>
     <string name="prefThemeSummary">選擇應用的主題。</string>
