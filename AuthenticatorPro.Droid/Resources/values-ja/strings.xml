@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">アプリが画面から離れてからデータベースがロックされるまでの時間を設定</string>
     <string name="prefTapToRevealTitle">タップして表示</string>
     <string name="prefTapToRevealSummary">タップするまでコードを非表示にします。数秒後に消えます。</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">外観</string>
     <string name="prefThemeTitle">テーマ</string>
     <string name="prefThemeSummary">アプリケーションのテーマを選択</string>
