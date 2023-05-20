@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">앱 화면에서 이탈했을 때 데이터베이스가 잠기기까지의 시간을 설정합니다</string>
     <string name="prefTapToRevealTitle">눌러서 확인</string>
     <string name="prefTapToRevealSummary">코드를 누르기 전까지 숨깁니다. 누른 뒤 몇 초가 지나면 다시 숨겨집니다.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">표시</string>
     <string name="prefThemeTitle">테마</string>
     <string name="prefThemeSummary">앱 테마를 선택하세요</string>
