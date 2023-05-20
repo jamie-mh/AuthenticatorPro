@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Välj hur lång tid det ska ta innan databasen låses när du lämnar appen</string>
     <string name="prefTapToRevealTitle">Tryck för att visa</string>
     <string name="prefTapToRevealSummary">Dölj koder tills du trycker på dem. De försvinner igen efter några sekunder.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Utseende</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Välj ett tema för appen</string>
