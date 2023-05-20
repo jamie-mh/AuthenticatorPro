@@ -104,6 +104,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "pref_tapToReveal":
+                case "pref_allowScreenshots":
                 case "pref_viewMode":
                 case "pref_codeGroupSize":
                 case "pref_showUsernames":

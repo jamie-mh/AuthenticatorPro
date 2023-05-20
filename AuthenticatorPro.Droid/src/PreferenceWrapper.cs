@@ -85,6 +85,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(TapToRevealKey, value);
         }
 
+        private const string AllowScreenshotsKey = "pref_allowScreenshots";
+        private const bool AllowScreenshotsDefault = false;
+
+        public bool AllowScreenshots
+        {
+            get => Preferences.GetBoolean(AllowScreenshotsKey, AllowScreenshotsDefault);
+            set => SetPreference(AllowScreenshotsKey, value);
+        }
+
         private const string ThemeKey = "pref_theme";
         private const string ThemeDefault = "system";
 

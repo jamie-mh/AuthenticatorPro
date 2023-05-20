@@ -76,6 +76,12 @@
             android:title="@string/prefTapToRevealTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
+        <authenticatorpro.droid.preference.MaterialSwitchPreference
+            android:key="pref_allowScreenshots"
+            android:summary="@string/prefAllowScreenshotsSummary"
+            android:title="@string/prefAllowScreenshotsTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory
