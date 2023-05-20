@@ -167,7 +167,7 @@ namespace AuthenticatorPro.Droid.Activity
             _preferences = new PreferenceWrapper(this);
             _secureStorageWrapper = new SecureStorageWrapper(this);
 
-            var windowFlags = WindowManagerFlags.Secure;
+            var windowFlags = !_preferences.AllowScreenshots ? WindowManagerFlags.Secure : 0;
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.R)
             {

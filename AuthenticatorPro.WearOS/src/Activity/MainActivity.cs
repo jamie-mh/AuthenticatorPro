@@ -212,7 +212,7 @@ namespace AuthenticatorPro.WearOS.Activity
             var layoutCallback = new AuthenticatorListLayoutCallback(this);
             _authList.SetLayoutManager(new WearableLinearLayoutManager(this, layoutCallback));
 
-            _authListAdapter = new AuthenticatorListAdapter(_authView, _customIconCache);
+            _authListAdapter = new AuthenticatorListAdapter(_authView, _customIconCache, _preferences.ShowUsernames);
             _authListAdapter.ItemClicked += OnItemClicked;
             _authListAdapter.ItemLongClicked += OnItemLongClicked;
             _authListAdapter.HasStableIds = true;

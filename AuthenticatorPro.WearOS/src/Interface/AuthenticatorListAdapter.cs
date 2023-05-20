@@ -8,6 +8,7 @@ using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
 using System;
+using System.Linq;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
@@ -15,16 +16,18 @@ namespace AuthenticatorPro.WearOS.Interface
     {
         private readonly AuthenticatorView _authView;
         private readonly CustomIconCache _customIconCache;
+        private readonly bool _showUsernames;
 
         public string DefaultAuth { get; set; }
 
         public event EventHandler<int> ItemClicked;
         public event EventHandler<int> ItemLongClicked;
 
-        public AuthenticatorListAdapter(AuthenticatorView authView, CustomIconCache customIconCache)
+        public AuthenticatorListAdapter(AuthenticatorView authView, CustomIconCache customIconCache, bool showUsernames)
         {
             _authView = authView;
             _customIconCache = customIconCache;
+            _showUsernames = showUsernames;
         }
 
         public override long GetItemId(int position)
@@ -43,19 +46,24 @@ namespace AuthenticatorPro.WearOS.Interface
 
             var holder = (AuthenticatorListHolder) viewHolder;
             holder.Issuer.Text = auth.Issuer;
+            holder.Username.Text = auth.Username;
 
             holder.DefaultImage.Visibility = DefaultAuth != null && HashUtil.Sha1(auth.Secret) == DefaultAuth
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            if (String.IsNullOrEmpty(auth.Username))
+            if (!_showUsernames)
             {
-                holder.Username.Visibility = ViewStates.Gone;
+                var uniqueIssuer = _authView.Count(a => a.Issuer == auth.Issuer) == 1;
+                holder.Username.Visibility = uniqueIssuer
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
             }
             else
             {
-                holder.Username.Visibility = ViewStates.Visible;
-                holder.Username.Text = auth.Username;
+                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
             }
 
             if (!String.IsNullOrEmpty(auth.Icon))
