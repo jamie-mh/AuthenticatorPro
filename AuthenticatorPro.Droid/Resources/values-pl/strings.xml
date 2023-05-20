@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
     <string name="prefTapToRevealSummary">Ukryj kody, dopóki nie zostaną dotknięte. Po kilku sekundach znikną.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Wygląd</string>
     <string name="prefThemeTitle">Motyw</string>
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
