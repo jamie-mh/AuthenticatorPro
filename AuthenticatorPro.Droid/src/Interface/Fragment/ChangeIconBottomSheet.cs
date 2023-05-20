@@ -150,7 +150,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private void OnSearchChanged(object sender, TextChangedEventArgs e)
         {
-            if (_tabLayout.SelectedTabPosition == 0)
+            if (!_iconPackView.Any() || _tabLayout.SelectedTabPosition == 0)
             {
                 _defaultIconView.Search = e.Text.ToString();
                 _defaultIconListAdapter.NotifyDataSetChanged();
