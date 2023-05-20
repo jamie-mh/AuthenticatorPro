@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
     <string name="prefTapToRevealTitle">Отображать коды нажатием</string>
     <string name="prefTapToRevealSummary">Коды будут скрыты, пока на них не нажмёшь. Через несколько секунд после нажатия, они снова скроются.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
