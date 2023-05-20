@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">انقر للكَشف</string>
     <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">المظهر</string>
     <string name="prefThemeTitle">Theme</string>
     <string name="prefThemeSummary">Choose an application theme</string>
