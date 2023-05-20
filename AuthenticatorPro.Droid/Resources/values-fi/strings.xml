@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>
     <string name="prefTapToRevealSummary">Piilota koodit, kunnes niitä napautetaan. Ne piilotetaan muutaman sekunnin kuluttua.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Ulkonäkö</string>
     <string name="prefThemeTitle">Teema</string>
     <string name="prefThemeSummary">Valitse sovelluksen teema</string>
