@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
     <string name="prefTapToRevealTitle">Taper pour afficher</string>
     <string name="prefTapToRevealSummary">Cacher les codes jusqu\'à ce qu\'ils soient tapés. Ils disparaîtront au bout de quelques secondes.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Apparence</string>
     <string name="prefThemeTitle">Thème</string>
     <string name="prefThemeSummary">Changer le thème de l\'application</string>
