@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Stel de tijd in waarna de database vergrendeld wordt zodra de app het scherm verlaten heeft</string>
     <string name="prefTapToRevealTitle">Tik om te onthullen</string>
     <string name="prefTapToRevealSummary">Verberg codes totdat je er op drukt. Ze zullen weer na een paar seconden verdwijnen.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Uiterlijk</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Kies een applicatiethema</string>
