@@ -248,6 +248,8 @@
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobraziť ťuknutím</string>
     <string name="prefTapToRevealSummary">Skrýva kódy, kým sa ich nedotknete. Po niekoľkých sekundách zmiznú.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Vzhľad</string>
     <string name="prefThemeTitle">Téma</string>
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
