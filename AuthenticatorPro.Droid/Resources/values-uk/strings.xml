@@ -247,6 +247,8 @@
     <string name="prefTimeoutSummary">Вказати час, після якого БД буде заблоковано, як тільки додаток залишить екран</string>
     <string name="prefTapToRevealTitle">Показувати після дотику</string>
     <string name="prefTapToRevealSummary">Приховати коди, показувати після дотику. Вони зникнуть через декілька секунд.</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Оформлення</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Виберіть тему застосунку</string>
