@@ -135,7 +135,8 @@ namespace AuthenticatorPro.Droid
             {
                 DefaultCategory = preferenceWrapper.DefaultCategory,
                 SortMode = preferenceWrapper.SortMode,
-                CodeGroupSize = preferenceWrapper.CodeGroupSize
+                CodeGroupSize = preferenceWrapper.CodeGroupSize,
+                ShowUsernames = preferenceWrapper.ShowUsernames
             };
 
             var bundle = new WearSyncBundle
