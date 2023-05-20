@@ -33,7 +33,7 @@
                     android:id="@+id/layoutIcon"
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="38dp">
 
                     <ImageView
                         android:id="@+id/imageIcon"
