@@ -4,7 +4,7 @@
     <string name="warning">Varning</string>
     <string name="delete">Radera</string>
     <string name="add">Lägg till</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Redigera</string>
     <string name="cancel">Avbryt</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
@@ -14,7 +14,7 @@
     <string name="retry">Försök igen</string>
     <string name="ignore">Ignorera</string>
     <string name="disable">Inaktivera</string>
-    <string name="name">Name</string>
+    <string name="name">Namn</string>
     <!-- Menu items -->
     <string name="settings">Inställningar</string>
     <string name="restore">Återställ</string>
@@ -109,7 +109,7 @@
     <string name="noIconPacksTitle">No icon packs</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Kategori</string>
     <string name="categories">Kategorier</string>
     <string name="assignCategories">Ange kategorier</string>
     <string name="assignEntries">Assign entries</string>
