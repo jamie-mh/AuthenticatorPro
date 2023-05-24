@@ -54,14 +54,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:singleLine="true"
-                            android:textAppearance="?attr/textAppearanceTitleSmall"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
                             android:id="@+id/textIssuer"/>
 
                         <com.google.android.material.textview.MaterialTextView
                             android:text="johnsmith@example.com"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?attr/textAppearanceLabelSmall"
+                            android:textAppearance="?attr/textAppearanceLabelMedium"
                             android:layout_below="@id/textIssuer"
                             android:singleLine="true"
                             android:id="@+id/textUsername"/>
