@@ -78,7 +78,7 @@
                     android:textDirection="ltr"
                     android:layout_below="@id/layoutIcon"
                     android:layout_marginTop="2dp"
-                    android:layout_marginStart="38dp"
+                    android:layout_marginStart="40dp"
                     android:id="@+id/textCode"/>
             </LinearLayout>
 
