@@ -32,7 +32,7 @@
     <PackageReference Include="Xamarin.AndroidX.Wear" Version="1.2.0.9" />
     <PackageReference Include="Xamarin.AndroidX.Wear.Tiles" Version="1.1.0.1" />
     <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.1.0.1" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.8.0.1" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.9.0.1" />
     <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.1" />
   </ItemGroup>
   <ItemGroup>
