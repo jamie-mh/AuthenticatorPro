@@ -14,7 +14,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override void OnCreatePreferences(Bundle savedInstanceState, string rootKey)
         {
             AddPreferencesFromResource(Resource.Xml.settings);
-            PreferencesCreated?.Invoke(this, null);
+            PreferencesCreated?.Invoke(this, EventArgs.Empty);
         }
     }
 }

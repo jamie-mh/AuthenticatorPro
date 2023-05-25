@@ -6,15 +6,17 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
+using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Preference;
 using AuthenticatorPro.Droid.Storage;
 using Javax.Crypto;
 using System;
+using BiometricManager = AndroidX.Biometric.BiometricManager;
+using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -24,12 +26,15 @@ namespace AuthenticatorPro.Droid.Activity
     {
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;
+        private readonly IAuthenticatorService _authenticatorService;
         
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
-        private bool _ignoreBiometricsChange;
 
-        public SettingsActivity() : base(Resource.Layout.activitySettings) { }
+        public SettingsActivity() : base(Resource.Layout.activitySettings)
+        {
+            _authenticatorService = Dependencies.Resolve<IAuthenticatorService>();
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -57,9 +62,10 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment = new SettingsFragment();
             _fragment.PreferencesCreated += delegate
             {
-                UpdateBackupRemindersEnabled();
-                UpdateSecuritySettingsEnabled();
+                UpdateBackupRemindersState();
+                UpdateSecuritySettingsState();
                 UpdateDynamicColourEnabled();
+                RegisterClickableEvents();
             };
 
             // If all fingerprints have been removed the biometrics setting is still checked
@@ -89,12 +95,6 @@ namespace AuthenticatorPro.Droid.Activity
         {
             switch (key)
             {
-                case "passwordChanged":
-                    _preferences.PasswordChanged = false;
-                    UpdateSecuritySettingsEnabled();
-                    _shouldRecreateMain = true;
-                    break;
-
                 case "pref_language":
                 case "pref_theme":
                 case "pref_dynamicColour":
@@ -113,11 +113,13 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "pref_autoBackupEnabled":
-                    UpdateBackupRemindersEnabled();
+                    UpdateBackupRemindersState();
                     break;
-
-                case "pref_allowBiometrics":
-                    HandleBiometricsChange();
+               
+                case "pref_passwordProtected":
+                case "passwordChanged":
+                    _shouldRecreateMain = true;
+                    UpdateSecuritySettingsState();
                     break;
             }
         }
@@ -145,26 +147,80 @@ namespace AuthenticatorPro.Droid.Activity
             outState.PutBoolean("shouldRecreateMain", _shouldRecreateMain);
         }
 
+        private void RegisterClickableEvents()
+        {
+            var autoBackup = (ClickablePreference) _fragment.FindPreference("pref_autoBackup");
+            var resetCopyCount = (ClickablePreference) _fragment.FindPreference("pref_resetCopyCount");
+            var password = (ClickablePreference) _fragment.FindPreference("pref_password");
+            var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
+
+            autoBackup.Clicked += delegate
+            {
+                var fragment = new AutoBackupSetupBottomSheet();
+                fragment.Show(SupportFragmentManager, fragment.Tag);
+            };
+
+            resetCopyCount.Clicked += async delegate
+            {
+                try
+                {
+                    await _authenticatorService.ResetCopyCountsAsync();
+                    Toast.MakeText(this, Resource.String.copyCountReset, ToastLength.Short).Show();
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e);
+                    Toast.MakeText(this, Resource.String.genericError, ToastLength.Short).Show();
+                }
+            };
+
+            password.Clicked += delegate
+            {
+                var fragment = new PasswordSetupBottomSheet();
+                fragment.Show(SupportFragmentManager, fragment.Tag);
+            };
+            
+            biometrics.PreferenceChange += (_, args) =>
+            {
+                var enabled = (bool) args.NewValue;
+                
+                if (enabled)
+                {
+                    EnableBiometrics(success =>
+                    {
+                        _preferences.AllowBiometrics = success;
+                        biometrics.Checked = success;
+                        
+                        if (!success)
+                        {
+                            ClearBiometrics();
+                        }
+                    });
+                }
+                else
+                {
+                    ClearBiometrics();
+                    biometrics.Checked = false;
+                    _preferences.AllowBiometrics = false;
+                }
+            };
+        }
+
         #region Preference states
 
-        private void UpdateBackupRemindersEnabled()
+        private void UpdateBackupRemindersState()
         {
             _fragment.FindPreference("pref_showBackupReminders").Enabled = !_preferences.AutoBackupEnabled;
         }
 
-        private void UpdateSecuritySettingsEnabled()
+        private void UpdateSecuritySettingsState()
         {
-            if (!_preferences.PasswordProtected)
-            {
-                _fragment.FindPreference("pref_allowBiometrics").Enabled = false;
-                _fragment.FindPreference("pref_timeout").Enabled = false;
-                _fragment.FindPreference("pref_databasePasswordBackup").Enabled = false;
-                return;
-            }
-
-            _fragment.FindPreference("pref_allowBiometrics").Enabled = CanUseBiometrics();
-            _fragment.FindPreference("pref_timeout").Enabled = true;
-            _fragment.FindPreference("pref_databasePasswordBackup").Enabled = true;
+            var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
+            biometrics.Enabled = _preferences.PasswordProtected && CanUseBiometrics();
+            biometrics.Checked = _preferences.AllowBiometrics;
+            
+            _fragment.FindPreference("pref_timeout").Enabled = _preferences.PasswordProtected;
+            _fragment.FindPreference("pref_databasePasswordBackup").Enabled = _preferences.PasswordProtected;
         }
         
         private void UpdateDynamicColourEnabled()
@@ -210,40 +266,6 @@ namespace AuthenticatorPro.Droid.Activity
             return false;
         }
         
-        private void HandleBiometricsChange()
-        {
-            if (_ignoreBiometricsChange)
-            {
-                _ignoreBiometricsChange = false;
-                return;
-            }
-            
-            var preference = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
-
-            if (preference == null)
-            {
-                return;
-            }
-            
-            if (!preference.Checked)
-            {
-                ClearBiometrics();
-            }
-            else
-            {
-                EnableBiometrics(success =>
-                {
-                    if (!success)
-                    {
-                        _ignoreBiometricsChange = true;
-                        _preferences.AllowBiometrics = false;
-                        preference.Checked = false;
-                        ClearBiometrics();
-                    }
-                });
-            }
-        }
-
         private void EnableBiometrics(Action<bool> callback)
         {
             var passwordStorage = new BiometricStorage(this);

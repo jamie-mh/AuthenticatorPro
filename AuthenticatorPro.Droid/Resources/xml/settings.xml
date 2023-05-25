@@ -13,7 +13,7 @@
             android:title="@string/prefShowBackupRemindersTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
-        <authenticatorpro.droid.preference.AutoBackupPreference
+        <authenticatorpro.droid.preference.ClickablePreference
             android:key="pref_autoBackup"
             android:summary="@string/prefAutoBackupSummary"
             android:title="@string/prefAutoBackupTitle"
@@ -33,7 +33,7 @@
             android:title="@string/prefTapToCopyTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
-        <authenticatorpro.droid.preference.ResetCopyCountPreference
+        <authenticatorpro.droid.preference.ClickablePreference
             android:key="pref_resetCopyCount"
             android:summary="@string/prefResetCopyCountSummary"
             app:iconSpaceReserved="false"
@@ -44,7 +44,7 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefSecurity"
         android:key="pref_key_security">
-        <authenticatorpro.droid.preference.PasswordPreference
+        <authenticatorpro.droid.preference.ClickablePreference
             android:key="pref_password"
             android:summary="@string/prefPasswordSummary"
             app:iconSpaceReserved="false"
