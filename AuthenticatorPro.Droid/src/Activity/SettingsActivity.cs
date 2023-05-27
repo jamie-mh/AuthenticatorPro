@@ -11,7 +11,7 @@ using AndroidX.Preference;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
-using AuthenticatorPro.Droid.Preference;
+using AuthenticatorPro.Droid.Interface.Preference;
 using AuthenticatorPro.Droid.Storage;
 using Javax.Crypto;
 using System;
@@ -149,18 +149,18 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void RegisterClickableEvents()
         {
-            var autoBackup = (ClickablePreference) _fragment.FindPreference("pref_autoBackup");
-            var resetCopyCount = (ClickablePreference) _fragment.FindPreference("pref_resetCopyCount");
-            var password = (ClickablePreference) _fragment.FindPreference("pref_password");
+            var autoBackup = _fragment.FindPreference("pref_autoBackup");
+            var resetCopyCount = _fragment.FindPreference("pref_resetCopyCount");
+            var password = _fragment.FindPreference("pref_password");
             var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
 
-            autoBackup.Clicked += delegate
+            autoBackup.PreferenceClick += delegate
             {
                 var fragment = new AutoBackupSetupBottomSheet();
                 fragment.Show(SupportFragmentManager, fragment.Tag);
             };
 
-            resetCopyCount.Clicked += async delegate
+            resetCopyCount.PreferenceClick += async delegate
             {
                 try
                 {
@@ -174,7 +174,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             };
 
-            password.Clicked += delegate
+            password.PreferenceClick += delegate
             {
                 var fragment = new PasswordSetupBottomSheet();
                 fragment.Show(SupportFragmentManager, fragment.Tag);
