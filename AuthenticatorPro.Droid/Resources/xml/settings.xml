@@ -7,13 +7,13 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefGeneral"
         android:key="pref_key_general">
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_showBackupReminders"
             android:summary="@string/prefShowBackupRemindersSummary"
             android:title="@string/prefShowBackupRemindersTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
-        <authenticatorpro.droid.preference.AutoBackupPreference
+        <androidx.preference.Preference
             android:key="pref_autoBackup"
             android:summary="@string/prefAutoBackupSummary"
             android:title="@string/prefAutoBackupTitle"
@@ -27,13 +27,13 @@
             android:entries="@array/languageNames"
             android:entryValues="@array/languageValues"
             android:defaultValue="system"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_tapToCopy"
             android:summary="@string/prefTapToCopySummary"
             android:title="@string/prefTapToCopyTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
-        <authenticatorpro.droid.preference.ResetCopyCountPreference
+        <androidx.preference.Preference
             android:key="pref_resetCopyCount"
             android:summary="@string/prefResetCopyCountSummary"
             app:iconSpaceReserved="false"
@@ -44,19 +44,19 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefSecurity"
         android:key="pref_key_security">
-        <authenticatorpro.droid.preference.PasswordPreference
+        <androidx.preference.Preference
             android:key="pref_password"
             android:summary="@string/prefPasswordSummary"
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefPasswordTitle"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_databasePasswordBackup"
             android:summary="@string/prefDatabasePasswordBackupSummary"
             android:title="@string/prefDatabasePasswordBackupTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_allowBiometrics"
             android:summary="@string/prefAllowBiometricsSummary"
             app:iconSpaceReserved="false"
@@ -70,13 +70,13 @@
             android:entries="@array/timeoutNames"
             android:entryValues="@array/timeoutValues"
             android:defaultValue="0"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_tapToReveal"
             android:summary="@string/prefTapToRevealSummary"
             android:title="@string/prefTapToRevealTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_allowScreenshots"
             android:summary="@string/prefAllowScreenshotsSummary"
             android:title="@string/prefAllowScreenshotsTitle"
@@ -111,13 +111,13 @@
             android:entries="@array/codeGroupSizeNames"
             android:entryValues="@array/codeGroupSizeValues"
             android:defaultValue="3"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_showUsernames"
             android:summary="@string/prefShowUsernamesSummary"
             android:title="@string/prefShowUsernamesTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_dynamicColour"
             android:summary="@string/prefDynamicColourSummary"
             android:title="@string/prefDynamicColourTitle"
@@ -131,7 +131,7 @@
             android:entries="@array/accentColourNames"
             android:entryValues="@array/accentColourValues"
             android:defaultValue="lightBlue"/>
-        <authenticatorpro.droid.preference.MaterialSwitchPreference
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_transparentStatusBar"
             android:summary="@string/prefTransparentStatusBarSummary"
             android:title="@string/prefTransparentStatusBarTitle"

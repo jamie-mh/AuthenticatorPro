@@ -7,7 +7,7 @@ using Android.Util;
 using AndroidX.Preference;
 using System;
 
-namespace AuthenticatorPro.Droid.Preference
+namespace AuthenticatorPro.Droid.Interface.Preference
 {
     public class MaterialSwitchPreference : SwitchPreferenceCompat
     {
