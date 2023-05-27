@@ -4,7 +4,7 @@
     <string name="warning">Uyarı</string>
     <string name="delete">Sil</string>
     <string name="add">Ekle</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Düzenle</string>
     <string name="cancel">İptal</string>
     <string name="ok">TAMAM</string>
     <string name="yes">Evet</string>
@@ -14,7 +14,7 @@
     <string name="retry">Tekrar dene</string>
     <string name="ignore">Yoksay</string>
     <string name="disable">Devre dışı bırak</string>
-    <string name="name">Name</string>
+    <string name="name">Ad</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
