@@ -5,8 +5,8 @@
     <string name="hotpNotSupported">不支援 HOTP</string>
     <string name="categoryAll">全部</string>
     <string name="offline">離線</string>
-    <string name="syncFailed">Sync failed</string>
-    <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="syncFailed">同步處理失敗</string>
+    <string name="noFavourite">沒有最愛</string>
+    <string name="noFavouriteMessage">長按應用程式中的驗證器進行設置</string>
+    <string name="open">開啟</string>
 </resources>
