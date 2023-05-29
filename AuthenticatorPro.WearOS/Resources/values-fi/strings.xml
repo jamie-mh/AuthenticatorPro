@@ -7,6 +7,6 @@
     <string name="offline">Offline</string>
     <string name="syncFailed">Synkronointi epäonnistui</string>
     <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="noFavouriteMessage">Aseta painamalla pitkään todentajaa sovelluksessa</string>
+    <string name="open">Avaa</string>
 </resources>
