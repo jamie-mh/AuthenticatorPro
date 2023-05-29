@@ -4,7 +4,7 @@
     <string name="warning">Varoitus</string>
     <string name="delete">Poista</string>
     <string name="add">Lisää</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Muokkaa</string>
     <string name="cancel">Peruuta</string>
     <string name="ok">OK</string>
     <string name="yes">Kyllä</string>
@@ -14,7 +14,7 @@
     <string name="retry">Yritä uudelleen</string>
     <string name="ignore">Ohita</string>
     <string name="disable">Poista käytöstä</string>
-    <string name="name">Name</string>
+    <string name="name">Nimi</string>
     <!-- Menu items -->
     <string name="settings">Asetukset</string>
     <string name="restore">Palauta</string>
@@ -22,7 +22,7 @@
     <string name="about">Tietoja</string>
     <string name="scanQrCode">Skannaa QR-koodi</string>
     <string name="showQrCode">Näytä QR-koodi</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">Muokkaa tietoja</string>
     <string name="scanQrCodeFromCamera">Skannaa kamerasta</string>
     <string name="scanQrCodeFromGallery">Skannaa galleriasta</string>
     <string name="rename">Nimeä uudelleen</string>
@@ -50,7 +50,7 @@
     <string name="secretKey">Salainen avain</string>
     <string name="pin">PIN-koodi</string>
     <string name="showAdvancedOptions">Näytä lisäasetukset</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">Muuta näitä vaihtoehtoja vain, jos tiedät mitä olet tekemässä, voit olla lukittu pois tililtäsi.\n\nJatketaanko?</string>
     <string name="confirmAuthenticatorDelete">Todentajan poistaminen estää koodien luomisen tälle tilille. Tämä ei tarkoita, että kaksivaiheinen tunnistus on poistettu käytöstä.\n\nTodentajan poistaminen saattaa estää sinua pääsemästä tilillesi.\nVarmista, että olet ottanut kaksivaiheisen todennuksen pois käytöstä, tai että sinulla on palautuskoodit.\n\nJatketaanko?</string>
     <string name="useCustomIcon">Käytä mukautettua kuvaketta</string>
     <string name="copiedToClipboard">Koodi kopioitiin leikepöydälle</string>
@@ -61,7 +61,7 @@
     <string name="algorithmHint">Algoritmi</string>
     <string name="digitsHint">Numeroiden määrä</string>
     <string name="periodHint">Aikaväli (sekuntia)</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">Laskuri</string>
     <string name="noIssuer">Myöntäjä on pakollinen</string>
     <string name="noSecret">Salainen avain on pakollinen</string>
     <string name="noPin">PIN-koodi on pakollinen</string>
@@ -71,24 +71,24 @@
     <string name="pinTooLong">PIN-koodi ei voi sisältää enemmän kuin {0} numeroa</string>
     <string name="digitsInvalid">Todentajan on luotava {0} - {1} numeroa</string>
     <string name="periodInvalid">Aikaväli on virheellinen</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">Laskuri on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="defaultIcons">Oletuskuvakkeet</string>
+    <string name="iconPacks">Kuvakepaketit</string>
+    <string name="downloadPacks">Lataa paketit</string>
+    <string name="importIconPackSuccess">Tuodaan {0} kuvaketta paketista</string>
+    <string name="invalidIconPackError">Valittu tiedosto ei ole Authenticator Pro -kuvakepaketti</string>
+    <string name="confirmIconPackDelete">Haluatko varmasti poistaa tämän kuvakepaketin? Käytössä olevia kuvakkeita ei poisteta.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Kopioi tämä todentaja toiseen laitteeseen tai sovellukseen skannaamalla QR-koodi</string>
     <string name="qrCodeNotSupported">QR-koodeja ei tueta tälle tyypille</string>
     <string name="copyUri">Kopioi URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">Tämä URI sisältää salaisen avaimen pelkkänä tekstinä. Ole varovainen, mihin liität nämä tiedot.\n\nJatketaanko?</string>
     <string name="uriCopiedToClipboard">URI kopioitiin leikepöydälle</string>
     <!-- Backup menu -->
     <string name="backupToFile">Varmuuskopioi salattuun tiedostoon (suositeltu)</string>
@@ -106,13 +106,13 @@
     <string name="noAuthenticatorsHelp">Jos et ole ennen käyttänyt Authenticator Prota, katso aloitusopas napauttamalla alla.</string>
     <string name="noCategoriesTitle">Ei kategorioita</string>
     <string name="noCategoriesMessage">Sinulla ei ole vielä kategorioita</string>
-    <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksTitle">Ei kuvakepaketteja</string>
+    <string name="noIconPacksMessage">Et ole vielä määrittänyt kuvakepaketteja</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Kategoria</string>
     <string name="categories">Kategoriat</string>
     <string name="assignCategories">Aseta kategoria</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">Määritä kohteet</string>
     <string name="more">Lisää</string>
     <string name="categoryAll">Kaikki</string>
     <string name="editCategories">Muokkaa kategorioita</string>
@@ -202,7 +202,7 @@
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="lastPassAuthenticatorImportHint">Tuo LastPassAuthenticator.json-tiedosto</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Raakatekstinen luettelo otpauth URI -osoitteista</string>
@@ -221,7 +221,7 @@
     <string name="guideWearOSTitle">Lataa Wear OS -kumppanisovellus</string>
     <string name="guideWearOSSummary">Jos sinulla on Wear OS -kello, voit ladata sille kumppanisovelluksen. Näet koodit suoraan kellossasi.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi sen. Paina kohdistaaksesi sen.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
     <!-- Preferences -->
@@ -247,8 +247,8 @@
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>
     <string name="prefTapToRevealSummary">Piilota koodit, kunnes niitä napautetaan. Ne piilotetaan muutaman sekunnin kuluttua.</string>
-    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
-    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefAllowScreenshotsTitle">Salli kuvakaappaukset</string>
+    <string name="prefAllowScreenshotsSummary">Poista näytön turvallisuus käytöstä ja salli sovelluksen kuvakaappaukset</string>
     <string name="prefAppearance">Ulkonäkö</string>
     <string name="prefThemeTitle">Teema</string>
     <string name="prefThemeSummary">Valitse sovelluksen teema</string>
@@ -256,10 +256,10 @@
     <string name="prefViewModeSummary">Valitse todentajaluettelon näkymätila</string>
     <string name="prefCodeGroupSizeTitle">Koodiryhmien koko</string>
     <string name="prefCodeGroupSizeSummary">Muuta koodin numeroiden ryhmittelyä</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefShowUsernamesTitle">Näytä käyttäjänimet</string>
+    <string name="prefShowUsernamesSummary">Näytä käyttäjänimi myöntäjän alla</string>
+    <string name="prefDynamicColourTitle">Dynaaminen väri</string>
+    <string name="prefDynamicColourSummary">Aseta aksenttiväri dynaamisesti taustakuvan perusteella</string>
     <string name="prefAccentColourTitle">Aksenttiväri</string>
     <string name="prefAccentColourSummary">Valitse sovelluksessa käytettävä aksenttiväri</string>
     <string name="prefTransparentStatusBarTitle">Läpinäkyvä tilapalkki</string>
@@ -278,7 +278,7 @@
     <string name="systemDefault">Järjestelmän oletus</string>
     <string name="lightTheme">Vaalea teema</string>
     <string name="darkTheme">Tumma teema</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="blackTheme">Musta teema</string>
     <string name="defaultViewMode">Oletus</string>
     <string name="compactViewMode">Tiivis</string>
     <string name="tileViewMode">Vierekkäin</string>
