@@ -30,7 +30,7 @@
     <string name="search">Szukaj</string>
     <string name="mainMenu">Menu główne</string>
     <string name="enterKey">Wprowadź klucz</string>
-    <string name="restoreBackup">Przywróć kopię</string>
+    <string name="restoreBackup">Przywróć kopię zapasową</string>
     <string name="sort">Sortowanie</string>
     <string name="sortAZ">Alfabetycznie (A-Z)</string>
     <string name="sortZA">Alfabetycznie (Z-A)</string>
