@@ -1,6 +1,6 @@
-Ilmainen avoimen lähdekoodin kaksivaiheinen todennussovellus Androidille. It features encrypted backups, icons, categories and a high level of customisation. Sillä on myös Wear OS -kumppanisovellus.
+Ilmainen avoimen lähdekoodin kaksivaiheinen todennussovellus Androidille. Se sisältää salatut varmuuskopiot, kuvakkeet, luokat ja paljon mukautettavia asetuksia. Sillä on myös Wear OS -kumppanisovellus.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Se tukee SHA1-, SHA256- tai SHA512-hajautusalgoritmeja käyttäviä TOTP (aikaan perustuvia) ja HOTP (laskuriin perustuvia) -todentajia. Mobile-Otp (mOTP), Steam ja Yandex ovat myös tuettuja.
 
 Kaksivaiheinen todennus tarjoaa ylimääräisen turvallisuuden kerroksen tileillesi edellyttämällä kertaluonteisen koodin käyttöä sisäänkirjautuessa.
 Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antamaa koodia. Joten tilisi pysyy turvassa, vaikka kirjautumistietosi olisivat vaarantuneet.
@@ -15,14 +15,14 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 - 🌙 <b>Tumma tila</b>: Authenticator Prolla on kaunis "Material Designin" innoittama ulkoasu joko vaalealla tai tummalla teemalla.
 - ⏺️ <b>Kuvakkeet</b>: Löydä todentajasi helposti tunnistettavien merkkilogojen ja kuvakkeiden avulla kunkin koodin vieressä.
 - 📂 <b>Kategoriat</b>: Järjestä todentajasi kategorioihin.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- 🔒 <b>Offline-tila ja vain muutamalla luvalla</b>: Authenticator Pro vaatii vain yhden luvan¹, eikä se vaadi Internet-yhteyttä toimiakseen.
+- 🔑 <b>Turvallisuus</b>: Aseta salasana ja käytä biometristä todennusta koodiesi suojaukseen.
+- 🎨 <b>Mukautus</b>: Aseta kuvakkeita ja nimeä uudelleen. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
+- ⌚ <b>Wear OS</b>: Näet todentajasi suoraan kellostasi. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 (¹) *Sovellus vaatii kameran luvan QR-koodien skannaamiseen.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> UKK</b></a>
 
 <hr>
 
