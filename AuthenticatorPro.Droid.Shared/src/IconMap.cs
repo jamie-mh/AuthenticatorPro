@@ -394,6 +394,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "plutus", Resource.Drawable.auth_plutus },
             { "pochta", Resource.Drawable.auth_pochta },
             { "podio", Resource.Drawable.auth_podio },
+            { "poeditor", Resource.Drawable.auth_poeditor },
             { "poloniex", Resource.Drawable.auth_poloniex },
             { "porkbun", Resource.Drawable.auth_porkbun },
             { "posteo", Resource.Drawable.auth_posteo },
