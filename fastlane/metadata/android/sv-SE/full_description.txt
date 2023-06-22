@@ -7,7 +7,7 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 
 <hr>
 
-<b>Features</b>
+<b>Funktioner</b>
 
 - ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
 - 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
