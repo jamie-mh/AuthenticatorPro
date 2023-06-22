@@ -14,7 +14,7 @@
     <string name="retry">Reintentar</string>
     <string name="ignore">Ignorar</string>
     <string name="disable">Deshabilitar</string>
-    <string name="name">Name</string>
+    <string name="name">Nombre</string>
     <!-- Menu items -->
     <string name="settings">Configuración</string>
     <string name="restore">Restaurar</string>
@@ -281,7 +281,7 @@
     <string name="systemDefault">Predeterminado por el Sistema</string>
     <string name="lightTheme">Tema Claro</string>
     <string name="darkTheme">Tema Oscuro</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="blackTheme">Tema Negro</string>
     <string name="defaultViewMode">Predeterminado</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Mosaico</string>
