@@ -34,8 +34,8 @@
     <string name="sort">排序</string>
     <string name="sortAZ">字母顺序 (a 至 z)</string>
     <string name="sortZA">字母顺序 (z 至 a)</string>
-    <string name="sortMostCopied">复制次数（多至少）</string>
-    <string name="sortLeastCopied">复制次数（少至多）</string>
+    <string name="sortMostCopied">复制次数（递减）</string>
+    <string name="sortLeastCopied">复制次数（递增）</string>
     <string name="sortCustom">自定义</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="supportDevelopment">支持开发</string>
@@ -61,7 +61,7 @@
     <string name="algorithmHint">算法</string>
     <string name="digitsHint">位数</string>
     <string name="periodHint">时间间隔（秒）</string>
-    <string name="counterHint">复制次数</string>
+    <string name="counterHint">计数器</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
     <string name="noPin">需要设置一个PIN码</string>
@@ -168,7 +168,7 @@
     <string name="enableAutoBackupMessage">自动备份至选定的存储位置</string>
     <string name="batOptim">电池优化</string>
     <string name="disableBatOptimMessage">在某些设备上，电源设置可能会导致备份工作不正常。如果您遇到问题，请尝试禁用Authenticator Pro的电池优化。</string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureTitle">自动备份失败</string>
     <string name="autoBackupFailureText">最近的自动备份未能成功完成。文件访问权限可能已被撤销，或密码不正确。请在自动备份设置中重新设置备份位置和密码。</string>
     <string name="autoBackupSuccessTitle">自动备份完成</string>
     <string name="autoRestoreSuccessTitle">自动恢复完成</string>
