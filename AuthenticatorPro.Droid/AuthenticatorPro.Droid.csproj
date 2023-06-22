@@ -21,7 +21,7 @@
     <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.1">
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.3">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Mono.AotProfiler.Android" Version="7.0.0" />
@@ -50,8 +50,8 @@
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
   </ItemGroup>
   <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
-    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.1.0" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.1" />
+    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.1.0.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.2" />
   </ItemGroup>
   <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
     <AndroidResource Remove="Resources\values\wear.xml" />
