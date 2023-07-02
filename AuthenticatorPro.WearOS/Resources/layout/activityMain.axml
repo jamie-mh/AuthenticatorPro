@@ -58,29 +58,20 @@
             android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
-        <LinearLayout
-            android:id="@+id/layoutOffline"
-            android:gravity="center_horizontal"
-            android:visibility="gone"
+        
+        <androidx.wear.widget.CurvedTextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:background="#BF000000"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:orientation="vertical"
-            android:layout_gravity="top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:contentDescription="@string/offline"
-                android:src="@drawable/baseline_cloud_off_24"/>
-
-        </LinearLayout>
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="14sp"/>
 
     </FrameLayout>
-
+    
     <androidx.wear.widget.drawer.WearableNavigationDrawerView
         android:id="@+id/drawerCategories"
         android:background="@color/colorDark"

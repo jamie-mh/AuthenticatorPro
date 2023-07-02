@@ -29,6 +29,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -44,11 +46,11 @@ namespace AuthenticatorPro.WearOS.Activity
         private const string CategoryCacheName = "categories";
 
         // Views
-        private LinearLayout _offlineLayout;
         private CircularProgressLayout _circularProgressLayout;
         private RelativeLayout _emptyLayout;
         private WearableRecyclerView _authList;
         private WearableNavigationDrawerView _categoryList;
+        private CurvedTextView _timeText;
 
         // Data
         private AuthenticatorView _authView;
@@ -63,6 +65,8 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private AuthenticatorListAdapter _authListAdapter;
         private CategoryListAdapter _categoryListAdapter;
+        
+        private readonly Timer _clockTimer;
 
         // Connection Status
         private INode _serverNode;
@@ -74,6 +78,8 @@ namespace AuthenticatorPro.WearOS.Activity
         public MainActivity()
         {
             _onCreateLock = new SemaphoreSlim(1, 1);
+            _clockTimer = new Timer { Interval = 1000, AutoReset = true };
+            _clockTimer.Elapsed += OnClockTimerElapsed;
         }
 
         ~MainActivity()
@@ -123,6 +129,7 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(delegate
             {
                 InitViews();
+                UpdateTime();
 
                 if (!_authCache.GetItems().Any())
                 {
@@ -144,6 +151,9 @@ namespace AuthenticatorPro.WearOS.Activity
 
             await _onCreateLock.WaitAsync();
             _onCreateLock.Release();
+           
+            UpdateTime();
+            _clockTimer.Start();
 
             try
             {
@@ -152,7 +162,6 @@ namespace AuthenticatorPro.WearOS.Activity
             catch (ApiException e)
             {
                 Logger.Error(e);
-                RunOnUiThread(CheckOfflineState);
                 return;
             }
 
@@ -171,11 +180,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             RunOnUiThread(delegate
             {
-                AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, delegate
-                {
-                    CheckOfflineState();
-                    CheckEmptyState();
-                });
+                AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, CheckEmptyState);
             });
         }
 
@@ -183,6 +188,12 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             base.OnDestroy();
             ReleaseOnCreateLock();
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            _clockTimer.Stop();
         }
 
         private void ReleaseOnCreateLock()
@@ -201,7 +212,7 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _emptyLayout = FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
-            _offlineLayout = FindViewById<LinearLayout>(Resource.Id.layoutOffline);
+            _timeText = FindViewById<CurvedTextView>(Resource.Id.textTime);
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
             _authList.EdgeItemsCenteringEnabled = true;
@@ -239,6 +250,16 @@ namespace AuthenticatorPro.WearOS.Activity
                 _categoryList.SetCurrentItem(0, false);
             }
         }
+        
+        private void OnClockTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            UpdateTime();
+        }
+
+        private void UpdateTime()
+        {
+            _timeText.Text = DateTime.Now.ToString("H:mm");
+        }
 
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
         {
@@ -266,19 +287,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
             _authListAdapter.NotifyDataSetChanged();
             CheckEmptyState();
-        }
-
-        private void CheckOfflineState()
-        {
-            if (_serverNode == null)
-            {
-                AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort);
-                _offlineLayout.Visibility = ViewStates.Visible;
-            }
-            else
-            {
-                _offlineLayout.Visibility = ViewStates.Invisible;
-            }
         }
 
         private void CheckEmptyState()
