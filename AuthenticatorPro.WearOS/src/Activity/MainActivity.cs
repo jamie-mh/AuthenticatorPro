@@ -29,8 +29,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
-using Timer = System.Timers.Timer;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -66,8 +64,6 @@ namespace AuthenticatorPro.WearOS.Activity
         private AuthenticatorListAdapter _authListAdapter;
         private CategoryListAdapter _categoryListAdapter;
         
-        private readonly Timer _clockTimer;
-
         // Connection Status
         private INode _serverNode;
 
@@ -78,8 +74,6 @@ namespace AuthenticatorPro.WearOS.Activity
         public MainActivity()
         {
             _onCreateLock = new SemaphoreSlim(1, 1);
-            _clockTimer = new Timer { Interval = 1000, AutoReset = true };
-            _clockTimer.Elapsed += OnClockTimerElapsed;
         }
 
         ~MainActivity()
@@ -129,7 +123,6 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(delegate
             {
                 InitViews();
-                UpdateTime();
 
                 if (!_authCache.GetItems().Any())
                 {
@@ -151,9 +144,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
             await _onCreateLock.WaitAsync();
             _onCreateLock.Release();
-           
-            UpdateTime();
-            _clockTimer.Start();
 
             try
             {
@@ -190,12 +180,6 @@ namespace AuthenticatorPro.WearOS.Activity
             ReleaseOnCreateLock();
         }
 
-        protected override void OnPause()
-        {
-            base.OnPause();
-            _clockTimer.Stop();
-        }
-
         private void ReleaseOnCreateLock()
         {
             if (_onCreateLock.CurrentCount == 0)
@@ -212,7 +196,6 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _emptyLayout = FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
-            _timeText = FindViewById<CurvedTextView>(Resource.Id.textTime);
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
             _authList.EdgeItemsCenteringEnabled = true;
@@ -249,16 +232,6 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 _categoryList.SetCurrentItem(0, false);
             }
-        }
-        
-        private void OnClockTimerElapsed(object sender, ElapsedEventArgs e)
-        {
-            UpdateTime();
-        }
-
-        private void UpdateTime()
-        {
-            _timeText.Text = DateTime.Now.ToString("H:mm");
         }
 
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
