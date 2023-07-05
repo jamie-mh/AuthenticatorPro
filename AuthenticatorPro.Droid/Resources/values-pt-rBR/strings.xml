@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">O backup automático falhou</string>
     <string name="autoBackupFailureText">O backup automático mais recente falhou. As permissões de acesso ao armazenamento podem ter expirados, tente configurar novamente o local de armazenamento nas configurações de backup automático.</string>
     <string name="autoBackupSuccessTitle">Backup automático finalizado</string>
-    <string name="autoRestoreSuccessTitle">Restauração automática finalizada</string>
     <string name="backupScheduled">Backup agendado</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Criptografa o banco de dados com uma senha. A senha será solicitada quando você abrir o aplicativo. Deixe em branco para tirar a senha.</string>
