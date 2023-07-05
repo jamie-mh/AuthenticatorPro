@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">自動バックアップに失敗しました</string>
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
-    <string name="autoRestoreSuccessTitle">自動復元完了</string>
     <string name="backupScheduled">バックアップがスケジュールされました</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">データベースをパスワードで暗号化します。アプリを開くとパスワードの入力が求められます。 パスワードを消去するには、フィールドを空白のままにしてください。</string>
