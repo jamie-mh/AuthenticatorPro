@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">最近的自動備份未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
     <string name="autoBackupSuccessTitle">自動備份完成</string>
-    <string name="autoRestoreSuccessTitle">自動還原完成</string>
     <string name="backupScheduled">已觸發自動備份</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">使用密碼對資料庫進行加密。當您開啟應用程式時，應用將提示您輸入密碼。 將該欄位留空以清除密碼。</string>
