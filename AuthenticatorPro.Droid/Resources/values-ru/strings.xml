@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
     <string name="autoBackupSuccessTitle">Автоматическое резервное копирование завершено</string>
-    <string name="autoRestoreSuccessTitle">Автоматическое восстановление завершено</string>
     <string name="backupScheduled">Резервное копирование запланировано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Зашифруйте базу данных с помощью пароля. При открытии приложения вам будет предложено ввести пароль. Оставьте поле пустым, чтобы очистить пароль.</string>
