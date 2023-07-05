@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automaattinen varmuuskopiointi epäonnistui</string>
     <string name="autoBackupFailureText">Viimeisin automaattinen varmuuskopiointi epäonnistui. Tiedoston käyttöoikeudet saattavat olla vanhentuneet, kokeile määrittää varmuuskopioinnin sijaintia uudelleen automaattisen varmuuskopioinnin asetuksissa.</string>
     <string name="autoBackupSuccessTitle">Automaattinen varmuuskopiointi valmis</string>
-    <string name="autoRestoreSuccessTitle">Automaattinen palautus valmis</string>
     <string name="backupScheduled">Varmuuskopiointi ajastettu</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Salaa tietokanta salasanalla. Salasanaa kysytään sovellusta avatessa. Poista salasana jättämällä kenttä tyhjäksi.</string>
