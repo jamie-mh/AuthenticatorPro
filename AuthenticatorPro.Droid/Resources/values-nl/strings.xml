@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatische back-up maken mislukt</string>
     <string name="autoBackupFailureText">De meest recente automatische back-up kon niet worden voltooid. Bestandsmachtigingen zijn mogelijk verlopen, probeer de back-up locatie opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
     <string name="autoBackupSuccessTitle">Automatische back-up maken voltooid</string>
-    <string name="autoRestoreSuccessTitle">Automatisch herstellen voltooid</string>
     <string name="backupScheduled">Back-up ingepland</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Versleutel de database met een wachtwoord. Bij het openen van de app wordt om het wachtwoord gevraagd. Laat het veld leeg om het wachtwoord te wissen.</string>
