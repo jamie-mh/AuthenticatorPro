@@ -173,7 +173,6 @@
         expired, try setting the backup location again in the auto backup settings.
     </string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
-    <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
