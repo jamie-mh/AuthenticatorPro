@@ -200,9 +200,7 @@
 
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
-    <string name="autoRestoreSuccessTitle">Auto Restore completed</string>
     <string name="backupScheduled">Backup scheduled</string>
 
     <!-- Password setup -->
