@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatisk säkerhetskopiering misslyckades</string>
     <string name="autoBackupFailureText">Den senaste automatiska säkerhetskopieringen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer. Prova att ställa in säkerhetskopieringsplatsen på nytt i inställningarna för automatisk säkerhetskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk säkerhetskopiering slutförd</string>
-    <string name="autoRestoreSuccessTitle">Automatisk återställning slutförd</string>
     <string name="backupScheduled">Säkerhetskopiering schemalagd</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Kryptera databasen med ett lösenord. Du kommer behöva ange lösenordet när du öppnar appen. Lämna fältet tomt för att ta bort lösenordet.</string>
