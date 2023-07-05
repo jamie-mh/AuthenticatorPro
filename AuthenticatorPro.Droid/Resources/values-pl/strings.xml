@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
     <string name="autoBackupSuccessTitle">Automatyczna kopia zapasowa wykonana</string>
-    <string name="autoRestoreSuccessTitle">Automatyczne przywracanie zakończone</string>
     <string name="backupScheduled">Zaplanowano tworzenie kopii zapasowych</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zaszyfruj bazę danych hasłem. Po otwarciu aplikacji zostaniesz poproszony o podanie hasła. Pozostaw to pole puste, aby usunąć hasło.</string>
