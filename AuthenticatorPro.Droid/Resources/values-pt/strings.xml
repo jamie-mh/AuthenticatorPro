@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">A cópia de segurança automática falhou</string>
     <string name="autoBackupFailureText">A mais recente cópia de segurança automática não foi concluída. As permissões dos ficheiros podem ter expirado, tente definir novamente o local da cópia de segurança nas definições da cópia de segurança automática.</string>
     <string name="autoBackupSuccessTitle">Cópia de segurança automática concluída</string>
-    <string name="autoRestoreSuccessTitle">Restauro automático concluído</string>
     <string name="backupScheduled">Cópia de segurança agendada</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encriptar a base de dados com uma palavra-passe. Ser-lhe-á pedida a palavra-passe quando abrir a aplicação. Deixe o campo em branco para limpar a palavra-passe.</string>
