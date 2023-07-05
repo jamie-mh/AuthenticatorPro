@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Backup automatico non riuscito</string>
     <string name="autoBackupFailureText">Il backup automatico più recente non è stato completato. I permessi dei file potrebbero essere scaduti, prova a impostare nuovamente la posizione di backup nelle impostazioni di backup automatico.</string>
     <string name="autoBackupSuccessTitle">Backup automatico completato</string>
-    <string name="autoRestoreSuccessTitle">Ripristino automatico completato</string>
     <string name="backupScheduled">Backup pianificato</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Cifra il database con una password. Ti verrà richiesta la password quando apri l\'app. Lascia vuoto il campo per cancellare la password.</string>
