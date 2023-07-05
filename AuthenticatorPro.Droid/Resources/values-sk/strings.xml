@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
     <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohovanie dokončené</string>
-    <string name="autoRestoreSuccessTitle">Automatické obnovenie dokončené</string>
     <string name="backupScheduled">Zálohovanie naplánované</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zašifrujte databázu pomocou hesla. Po otvorení aplikácie sa zobrazí výzva na zadanie hesla. Ak chcete heslo vymazať, nechajte pole prázdne.</string>
