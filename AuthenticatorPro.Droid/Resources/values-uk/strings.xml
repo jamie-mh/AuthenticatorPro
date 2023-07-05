@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Помилка автоматичного резервного копіювання</string>
     <string name="autoBackupFailureText">Останнє резервне копіювання не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища. Спробуйте встановити розташування резервної копії ще раз в налаштуваннях резервного копіювання.</string>
     <string name="autoBackupSuccessTitle">Авторезервування завершено</string>
-    <string name="autoRestoreSuccessTitle">Автовідновлення завершено</string>
     <string name="backupScheduled">Резервне копіювання заплановано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Зашифруйте базу даних за допомогою пароля. Вам буде запропоновано ввести пароль при відкритті застосунку. Залиште це поле порожнім, щоб очистити пароль.</string>
