@@ -91,19 +91,19 @@
     <string name="copyUriWarning">Esta URI contiene una clave secreta en texto plano. Ten cuidado donde pegues esta información.\n\n ¿Continuar?</string>
     <string name="uriCopiedToClipboard">URI copiado al portapapeles</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Respaldo en archivo encriptado (Recomendado)</string>
-    <string name="backupToFileMessage">Respaldar todas sus autenticadores e icónos a un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
-    <string name="backupHtml">Respaldar a un archivo local HTML</string>
-    <string name="backupHtmlMessage">Respaldar sus autenticadores a un archivo local HTML junto con los códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e icónos no serán respaldados.</string>
+    <string name="backupToFile">Respaldar en un archivo encriptado (Recomendado)</string>
+    <string name="backupToFileMessage">Respaldar todas sus autentificadores e iconos en un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
+    <string name="backupHtml">Respaldar en un archivo local HTML</string>
+    <string name="backupHtmlMessage">Respaldar sus autentificadores en un documento HTML sin encriptar con códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e iconos no serán respaldados.</string>
     <string name="backupHtmlWarning">Las copias de seguridad de los archivos HTML no están cifradas y pueden dejar sus claves secretas vulnerables.\n\nEste archivo no puede ser restaurado dentro de la aplicación y no contiene categorías ni iconos. Si no está seguro, opte por una copia de seguridad de archivo cifrada en su lugar.\n\n¿Continuar?</string>
     <string name="backupUriList">Hacer copia de seguridad al archivo de la lista URI</string>
-    <string name="backupUriListMessage">Guarda tus autenticadores en un archivo de lista de URI de texto plano sin cifrar. Este archivo es compatible con muchas aplicaciones y servicios alternativos. Las categorías y los iconos no se guardan.</string>
+    <string name="backupUriListMessage">Guardar sus autentificadores en un archivo de lista de URI de texto plano sin encriptar. Este archivo es compatible con muchas aplicaciones y servicios alternativos. Las categorías y los iconos no se guardan.</string>
     <string name="backupUriListWarning">Las copias de seguridad de archivos de texto plano no están cifradas y pueden dejar tus claves secretas vulnerables.\n\nEste archivo no contiene categorías ni iconos. Si no estás seguro, opta por una copia de seguridad de archivo cifrado en su lugar.\n\n¿Deseas continuar?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">¡No hay nada aquí!</string>
-    <string name="noAuthenticatorsMessage">Usted no tiene ningún autenticador aquí.</string>
+    <string name="noAuthenticatorsMessage">Usted no tiene ningún autentificador aquí</string>
     <string name="gettingStartedGuide">Guía de Comienzo</string>
-    <string name="noAuthenticatorsHelp">Si usted es nuevo en Autenticator Pro, vea la Guía de Comienzo haciendo clic a continuación.</string>
+    <string name="noAuthenticatorsHelp">Si usted es nuevo en Authenticator Pro, vea la Guía de Comienzo haciendo clic a continuación.</string>
     <string name="noCategoriesTitle">Sin categorías</string>
     <string name="noCategoriesMessage">Aún no tiene ninguna Categoría configurada.</string>
     <string name="noIconPacksTitle">Ningún paquete de iconos</string>
@@ -116,8 +116,8 @@
     <string name="more">Más</string>
     <string name="categoryAll">Todo</string>
     <string name="editCategories">Editar categorías</string>
-    <string name="noCategoryName">Un nombre de Categoría es requerido.</string>
-    <string name="duplicateCategory">Una Categoría con este nombre ya existe.</string>
+    <string name="noCategoryName">Un nombre de Categoría es requerido</string>
+    <string name="duplicateCategory">Una Categoría con este nombre ya existe</string>
     <string name="confirmCategoryDelete">¿Está seguro que desea eliminar esta categoría?</string>
     <string name="setAsDefault">Establecer como predeterminado</string>
     <string name="clearDefault">Borrar predeterminado</string>
@@ -129,19 +129,17 @@
     <string name="restoreError">La contraseña es incorrecta o el archivo está corrupto.</string>
     <string name="password">Contraseña</string>
     <string name="passwordConfirm">Confirmar Contraseña</string>
-    <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus llaves secretas serán vulnerables. ¿Desea continuar?</string>
+    <string name="confirmEmptyPassword">No ha elegido una contraseña, su copia de seguridad no será encriptada y sus claves secretas serán vulnerables.\n\n¿Desea continuar?</string>
     <string name="passwordHint">Respaldar contraseña</string>
     <string name="fileNameHint">Nombre del archivo de Respaldo</string>
-    <string name="noAuthenticators">Ud. no tiene ningún autenticador para respaldar.</string>
+    <string name="noAuthenticators">No tiene ningún autentificador para respaldar</string>
     <string name="saveSuccess">Guardado exitosamente</string>
     <string name="backupSuccess">Copia de seguridad guardada como \'{0}\'</string>
-    <string name="restoredFromBackup">Restauró {0} nuevos autenticadores y {1} nuevas categorías.</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2}
-        existing authenticators.
-    </string>
+    <string name="restoredFromBackup">Restauró {0} nuevos autentificadores y {1} nuevas categorías</string>
+    <string name="restoredFromBackupUpdated">Restaurado {0} nuevos autentificadores y {1} nuevas categorías. Actualizado {2} autentificadores existentes.</string>
     <string name="restoredNothing">Nada para restaurar</string>
     <!-- Errors -->
-    <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido en aras de poder escanear un código QR.</string>
+    <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido para poder escanear un código QR</string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
     <string name="filePickerMissing">No se pudo abrir el selector de archivo. Un administrador de archivos debe estar instalado.</string>
     <string name="filePickError">Error al seleccionar el archivo.</string>
@@ -156,13 +154,13 @@
     <string name="report">Reportar</string>
     <string name="email">Email</string>
     <string name="reportVia">Reportar vía</string>
-    <string name="errorCopiedToClipboard">Errores copiados al portapapeles</string>
+    <string name="errorCopiedToClipboard">Error copiado al portapapeles</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">Selecciona una ubicación y contraseña para la copia de seguridad automática. Las copias de seguridad son programadas cuando se realicen cambios. El almacenamiento en la nube no está soportado, usa el menú de copia de seguridad en su lugar.</string>
-    <string name="selectLocation">Select Location</string>
+    <string name="selectLocation">Selecciona la ubicación</string>
     <string name="noLocationSelected">Sin ubicación seleccionada</string>
     <string name="locationSetTo">Ubicación establecida en \'{0}\'</string>
-    <string name="setPassword">Set Password</string>
+    <string name="setPassword">Establecer una contraseña</string>
     <string name="passwordNotSet">La contraseña no ha sido establecida</string>
     <string name="passwordSet">Contraseña establecida</string>
     <string name="notPasswordProtected">No está protegido por contraseña</string>
@@ -173,7 +171,6 @@
     <string name="autoBackupFailureTitle">Falló la copia de seguridad automática</string>
     <string name="autoBackupFailureText">La copia de seguridad automática más reciente no se ha completado. Los permisos de archivo podrían haber expirado, intente configurar de nuevo la ubicación de la copia de seguridad en la configuración de la copia automática.</string>
     <string name="autoBackupSuccessTitle">Copia automática completada</string>
-    <string name="autoRestoreSuccessTitle">Auto restauración completada</string>
     <string name="backupScheduled">Copia de seguridad programada</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Cifrar la base de datos con una contraseña. Se te pedirá la contraseña cuando abras la aplicación. Deja el campo en blanco para borrar la contraseña.</string>
@@ -211,17 +208,17 @@
     <string name="viewGuideImportHint">Ver guía en la wiki del proyecto</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Escanear un código QR</string>
-    <string name="guideScanQRCodeSummary">Para añadir un autenticador, escanee el código QR proporcionado por la aplicación o servicio. Este se añadirá a la lista y generará nuevos códigos automáticamente. También puede introducir los detalles manualmente.</string>
+    <string name="guideScanQRCodeSummary">Para añadir un autentificador, escanee el código QR proporcionado por la aplicación o servicio. Este se añadirá a la lista y generará nuevos códigos automáticamente. También puede introducir los detalles manualmente.</string>
     <string name="guideUseCodeTitle">Use el código cuando esté iniciando sesión</string>
-    <string name="guideUseCodeSummary">Cuando esté iniciando sesión, utilice el código único proporcionado por Authenticator Pro. Sólo es válido por un corto tiempo. Pulse el autenticador en la lista para copiar el código al portapapeles.</string>
+    <string name="guideUseCodeSummary">Cuando esté iniciando sesión, utilice el código único proporcionado por Authenticator Pro. Solo es válido por un corto tiempo. Pulse el autentificador en la lista para copiar el código al portapapeles.</string>
     <string name="guideCustomiseTitle">Personalizar y editar</string>
-    <string name="guideCustomiseSummary">Renombrar y personalizar sus autenticadores para encontrarlos fácilmente. Simplemente pulse el icóno Menú en una entrada y siga los pasos.</string>
+    <string name="guideCustomiseSummary">Renombrar y personalizar sus autentificadores para encontrarlos fácilmente. Simplemente pulse el icono Menú en una entrada y siga los pasos.</string>
     <string name="guideArrangeTitle">Organizar y ordenar</string>
     <string name="guideArrangeSummary">Puede organizar sus autentificadores en categorías para encontrarlos fácilmente. Además, mantener y arrastrar objetos le permitirá reorganizarlos en el orden que desee.</string>
     <string name="guideBackupTitle">Crear un respaldo</string>
     <string name="guideBackupSummary">No permita que sus cuentas queden bloqueadas si cambia de dispositivo. Cree un archivo de Respaldo y guárdelo en un lugar seguro. Un Respaldo puede ser restaurado en cualquier momento y protegido con una contraseña.</string>
     <string name="guideWearOSTitle">Descargar el anexo para Wear OS</string>
-    <string name="guideWearOSSummary">Si tiene un reloj Wear OS, puede descargar la aplicación anexa. Puede ver los códigos directamente en su reloj!</string>
+    <string name="guideWearOSSummary">Si tiene un reloj Wear OS, puede descargar la aplicación anexa. Puede ver los códigos directamente en su reloj.</string>
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">Coloca el código QR en el visor para escanearlo. Toca para enfocar.</string>
     <string name="scanHelpSecondary">Intente evitar las sombras y los reflejos. Sostenga el dispositivo a unos 15 cm del código.</string>
@@ -229,8 +226,7 @@
     <!-- Preferences -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Configurar recordatorios de Respaldo</string>
-    <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus Autenticadores si se realizan cambios importantes.
-    </string>
+    <string name="prefShowBackupRemindersSummary">Recuerde que debe hacer una copia de seguridad de sus autentificadores si se realizan cambios importantes</string>
     <string name="prefAutoBackupTitle">Copia de seguridad automática</string>
     <string name="prefAutoBackupSummary">Automáticamente realiza copias de seguridad en una carpeta específica cuando se hacen cambios. Desactiva los recordatorios de copias de seguridad.</string>
     <string name="prefLanguageTitle">Idioma</string>
@@ -256,8 +252,8 @@
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Elija un tema de aplicación.</string>
     <string name="prefViewModeTitle">Modo de Vista</string>
-    <string name="prefViewModeSummary">Elija un modo de vista para la lista de autenticadores.</string>
-    <string name="prefCodeGroupSizeTitle">Tamaño de Código del grupo</string>
+    <string name="prefViewModeSummary">Elija un modo de vista para la lista de autentificadores</string>
+    <string name="prefCodeGroupSizeTitle">Tamaño de la agrupación del código</string>
     <string name="prefCodeGroupSizeSummary">Cambiar la agrupación de dígitos en un código</string>
     <string name="prefShowUsernamesTitle">Mostrar Nombres de Usuario</string>
     <string name="prefShowUsernamesSummary">Mostrar el nombre de usuario bajo el emisor</string>
@@ -308,7 +304,7 @@
     <string name="deepOrange">Naranja oscuro</string>
     <!-- Arrays / Intro -->
     <string name="introWelcomeTitle">Bienvenido a Authenticator Pro!</string>
-    <string name="introCompatibilityTitle">Autenticación TOTP / HOTP / mOTP</string>
+    <string name="introCompatibilityTitle">Autentificación TOTP / HOTP / mOTP</string>
     <string name="introBackupTitle">Respaldo / Restauración</string>
     <string name="introCategoriesTitle">Categorías</string>
     <string name="introThemesTitle">Tema Oscuro</string>
