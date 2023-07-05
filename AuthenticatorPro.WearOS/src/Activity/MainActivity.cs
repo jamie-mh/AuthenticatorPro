@@ -42,13 +42,13 @@ namespace AuthenticatorPro.WearOS.Activity
         // Cache Names
         private const string AuthenticatorCacheName = "authenticators";
         private const string CategoryCacheName = "categories";
-
+       
         // Views
         private CircularProgressLayout _circularProgressLayout;
         private RelativeLayout _emptyLayout;
         private WearableRecyclerView _authList;
         private WearableNavigationDrawerView _categoryList;
-        private CurvedTextView _timeText;
+        private CurrentTimeView _currentTimeView;
 
         // Data
         private AuthenticatorView _authView;
@@ -60,7 +60,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
         private PreferenceWrapper _preferences;
         private bool _preventCategorySelectEvent;
-
+        
         private AuthenticatorListAdapter _authListAdapter;
         private CategoryListAdapter _categoryListAdapter;
         
@@ -132,6 +132,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
                 AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, delegate
                 {
+                    _currentTimeView.Visibility = ViewStates.Visible;
                     CheckEmptyState();
                     ReleaseOnCreateLock();
                 });
@@ -171,6 +172,7 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(delegate
             {
                 AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, CheckEmptyState);
+                _currentTimeView.Visibility = ViewStates.Visible;
             });
         }
 
@@ -196,6 +198,7 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _emptyLayout = FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
+            _currentTimeView = FindViewById<CurrentTimeView>(Resource.Id.viewCurrentTime);
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
             _authList.EdgeItemsCenteringEnabled = true;
@@ -233,7 +236,6 @@ namespace AuthenticatorPro.WearOS.Activity
                 _categoryList.SetCurrentItem(0, false);
             }
         }
-
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
         {
             if (_preventCategorySelectEvent)

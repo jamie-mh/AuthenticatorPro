@@ -50,6 +50,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <authenticatorpro.wearos.interface.CurrentTimeView
+            android:id="@+id/viewCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="?attr/primaryTextColor"
+            android:textSize="14sp"/>
+
         <androidx.wear.widget.WearableRecyclerView
             android:id="@+id/list"
             android:visibility="invisible"
@@ -58,17 +66,6 @@
             android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-        
-        <authenticatorpro.wearos.interface.CurrentTimeView
-            android:id="@+id/clockView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:background="#BF000000"
-            android:textColor="?attr/primaryTextColor"
-            android:textSize="14sp"/>
 
     </FrameLayout>
     
