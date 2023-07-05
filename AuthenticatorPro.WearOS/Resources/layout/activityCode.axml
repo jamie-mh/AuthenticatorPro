@@ -1,68 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<authenticatorpro.wearos.interface.AuthProgressLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layoutAuthProgress"
-    android:padding="8dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <authenticatorpro.wearos.interface.AuthProgressLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layoutAuthProgress"
+        android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="2dp"
-        app:boxedEdges="all">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_centerInParent="true"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:padding="2dp"
+            app:boxedEdges="all">
 
-            <ImageView
-                android:id="@+id/imageIcon"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="8dp"
-                android:scaleType="centerInside"/>
-
-            <TextView
-                android:text=""
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:textSize="14dp"
-                android:gravity="center_horizontal"
-                android:textColor="?attr/primaryTextColor"
-                android:singleLine="true"
-                android:id="@+id/textIssuer"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:text=""
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:textSize="12dp"
-                android:gravity="center_horizontal"
-                android:textColor="?attr/secondaryTextColor"
-                android:singleLine="true"
-                android:id="@+id/textUsername"/>
+                <ImageView
+                    android:id="@+id/imageIcon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="centerInside"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="?attr/primaryTextColor"
-                android:textSize="28dp"
-                android:textDirection="ltr"
-                android:fontFamily="sans-serif-condensed"
-                android:maxLines="1"
-                android:id="@+id/textCode"/>
+                <TextView
+                    android:text=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="14dp"
+                    android:gravity="center_horizontal"
+                    android:textColor="?attr/primaryTextColor"
+                    android:singleLine="true"
+                    android:id="@+id/textIssuer"/>
 
-        </LinearLayout>
+                <TextView
+                    android:text=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="12dp"
+                    android:gravity="center_horizontal"
+                    android:textColor="?attr/secondaryTextColor"
+                    android:singleLine="true"
+                    android:id="@+id/textUsername"/>
 
-    </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="?attr/primaryTextColor"
+                    android:textSize="28dp"
+                    android:textDirection="ltr"
+                    android:fontFamily="sans-serif-condensed"
+                    android:maxLines="1"
+                    android:id="@+id/textCode"/>
 
-</authenticatorpro.wearos.interface.AuthProgressLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </authenticatorpro.wearos.interface.AuthProgressLayout>
+
+    <authenticatorpro.wearos.interface.CurrentTimeView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="?attr/primaryTextColor"
+        android:textSize="14sp"/>
+</FrameLayout>
