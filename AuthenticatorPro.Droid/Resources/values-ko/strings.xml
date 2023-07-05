@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">자동 백업 실패</string>
     <string name="autoBackupFailureText">최근 자동 백업을 실패했습니다. 파일 권한이 만료되었을 수 있으니 자동 백업 설정에서 백업 경로를 다시 설정해보세요.</string>
     <string name="autoBackupSuccessTitle">자동 백업 완료</string>
-    <string name="autoRestoreSuccessTitle">자동 복원 완료</string>
     <string name="backupScheduled">백업 예약됨</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">데이터베이스를 비밀번호로 암호화합니다. 앱을 열 때 비밀번호 입력을 요청받게 됩니다. 비밀번호를 설정하지 않으려면 입력란을 비워 두세요.</string>
