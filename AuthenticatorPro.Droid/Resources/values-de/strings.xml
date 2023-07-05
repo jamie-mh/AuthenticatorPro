@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatische Sicherung fehlgeschlagen</string>
     <string name="autoBackupFailureText">Die letzte automatische Sicherung ist fehlgeschlagen. Berechtigungen sind möglicherweise abgelaufen, versuche den Sicherungsort neu einzugeben.</string>
     <string name="autoBackupSuccessTitle">Automatische Sicherung abgeschlossen</string>
-    <string name="autoRestoreSuccessTitle">Automatische Wiederherstellung abgeschlossen</string>
     <string name="backupScheduled">Sicherung geplant</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Verschlüssele die Datenbank mit einem Passwort. Du musst das Passwort eingeben, wenn du die App öffnest. Lasse das Feld leer, um kein Passwort zu setzen.</string>
