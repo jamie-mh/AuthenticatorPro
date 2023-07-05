@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">สำรองข้อมูลอัตโนมัติเสร็จสมบูรณ์</string>
-    <string name="autoRestoreSuccessTitle">คืนค่าอัตโนมัติเสร็จสมบูรณ์</string>
     <string name="backupScheduled">Backup scheduled</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
