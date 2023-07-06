@@ -76,6 +76,14 @@
             android:title="@string/prefTapToRevealTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
+        <androidx.preference.ListPreference
+            android:key="pref_tapToRevealDuration"
+            android:summary="@string/prefTapToRevealDurationSummary"
+            android:title="@string/prefTapToRevealDurationTitle"
+            app:iconSpaceReserved="false"
+            android:entries="@array/tapToRevealDurationNames"
+            android:entryValues="@array/tapToRevealDurationValues"
+            android:defaultValue="10"/>
         <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_allowScreenshots"
             android:summary="@string/prefAllowScreenshotsSummary"

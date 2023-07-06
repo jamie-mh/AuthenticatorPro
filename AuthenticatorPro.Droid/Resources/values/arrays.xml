@@ -101,6 +101,21 @@
         <item>600</item>
     </string-array>
 
+    <string-array name="tapToRevealDurationNames">
+        <item>@string/timeout5Sec</item>
+        <item>@string/timeout10Sec</item>
+        <item>@string/timeout20Sec</item>
+        <item>@string/timeout30Sec</item>
+        <item>@string/timeout1Min</item>
+    </string-array>
+    <string-array name="tapToRevealDurationValues">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
     <string-array name="themeNames">
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
