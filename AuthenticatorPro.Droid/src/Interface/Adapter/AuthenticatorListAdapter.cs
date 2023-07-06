@@ -406,9 +406,8 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 _cooldownOffsets[holder.BindingAdapterPosition] = offset + _tapToRevealDuration;
                 holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                ItemClicked?.Invoke(this, auth.Secret);
             }
-            
-            ItemClicked?.Invoke(this, auth.Secret);
         }
 
         private async void OnRefreshClick(int position)
