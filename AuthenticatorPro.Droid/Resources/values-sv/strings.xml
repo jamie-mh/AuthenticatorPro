@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">Välj hur lång tid det ska ta innan databasen låses när du lämnar appen</string>
     <string name="prefTapToRevealTitle">Tryck för att visa</string>
     <string name="prefTapToRevealSummary">Dölj koder tills du trycker på dem. De försvinner igen efter några sekunder.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Utseende</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">Räknarbaserad (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (standard)</string>
     <string name="immediately">Omedelbart</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 sekunder</string>
     <string name="timeout1Min">1 minut</string>
     <string name="timeout2Min">2 minuter</string>
