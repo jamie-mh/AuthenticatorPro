@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">Establezca el tiempo después del cual la base de datos se bloqueará una vez que la aplicación salga de la pantalla</string>
     <string name="prefTapToRevealTitle">Pulsar para revelar</string>
     <string name="prefTapToRevealSummary">Oculta los códigos hasta que sean tocados. Desaparecerán después de unos segundos.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Permitir Capturas de Pantalla</string>
     <string name="prefAllowScreenshotsSummary">Deshabilita la pantalla de seguridad y permite las capturas de pantalla de la aplicación</string>
     <string name="prefAppearance">Apariencia</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">Basado en Contador (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predeterminado)</string>
     <string name="immediately">Inmediatamente</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 segundos</string>
     <string name="timeout1Min">1 minuto</string>
     <string name="timeout2Min">2 minutos</string>
