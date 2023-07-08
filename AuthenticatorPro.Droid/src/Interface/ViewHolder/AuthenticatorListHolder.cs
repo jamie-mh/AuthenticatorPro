@@ -11,8 +11,6 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
     internal class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
-        public bool IsRevealed { get; set; }
-        
         public MaterialTextView Issuer { get; }
         public MaterialTextView Username { get; }
         public MaterialTextView Code { get; }

@@ -85,6 +85,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(TapToRevealKey, value);
         }
 
+        private const string TapToRevealDurationKey = "pref_tapToRevealDuration";
+        private const int TapToRevealDurationDefault = 10;
+
+        public int TapToRevealDuration
+        {
+            get => GetStringBackedIntPreference(TapToRevealDurationKey, TapToRevealDurationDefault);
+            set => SetPreference(TapToRevealDurationKey, value);
+        }
+
         private const string AllowScreenshotsKey = "pref_allowScreenshots";
         private const bool AllowScreenshotsDefault = false;
 

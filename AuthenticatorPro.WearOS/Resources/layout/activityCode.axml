@@ -70,7 +70,7 @@
         </RelativeLayout>
     </authenticatorpro.wearos.interface.AuthProgressLayout>
 
-    <authenticatorpro.wearos.interface.CurrentTimeView
+    <authenticatorpro.wearos.interface.time.CurvedTimeView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

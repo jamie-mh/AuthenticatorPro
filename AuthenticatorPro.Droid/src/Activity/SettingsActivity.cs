@@ -63,7 +63,8 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment.PreferencesCreated += delegate
             {
                 UpdateBackupRemindersState();
-                UpdateSecuritySettingsState();
+                UpdatePasswordState();
+                UpdateTapToRevealState();
                 UpdateDynamicColourEnabled();
                 RegisterClickableEvents();
             };
@@ -103,13 +104,18 @@ namespace AuthenticatorPro.Droid.Activity
                     Recreate();
                     break;
 
-                case "pref_tapToReveal":
+                case "pref_tapToRevealDuration":
                 case "pref_allowScreenshots":
                 case "pref_viewMode":
                 case "pref_codeGroupSize":
                 case "pref_showUsernames":
                 case "pref_transparentStatusBar":
                     _shouldRecreateMain = true;
+                    break;
+                
+                case "pref_tapToReveal":
+                    _shouldRecreateMain = true;
+                    UpdateTapToRevealState();
                     break;
 
                 case "pref_autoBackupEnabled":
@@ -119,7 +125,7 @@ namespace AuthenticatorPro.Droid.Activity
                 case "pref_passwordProtected":
                 case "passwordChanged":
                     _shouldRecreateMain = true;
-                    UpdateSecuritySettingsState();
+                    UpdatePasswordState();
                     break;
             }
         }
@@ -213,7 +219,7 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment.FindPreference("pref_showBackupReminders").Enabled = !_preferences.AutoBackupEnabled;
         }
 
-        private void UpdateSecuritySettingsState()
+        private void UpdatePasswordState()
         {
             var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
             biometrics.Enabled = _preferences.PasswordProtected && CanUseBiometrics();
@@ -221,6 +227,11 @@ namespace AuthenticatorPro.Droid.Activity
             
             _fragment.FindPreference("pref_timeout").Enabled = _preferences.PasswordProtected;
             _fragment.FindPreference("pref_databasePasswordBackup").Enabled = _preferences.PasswordProtected;
+        }
+
+        private void UpdateTapToRevealState()
+        {
+            _fragment.FindPreference("pref_tapToRevealDuration").Enabled = _preferences.TapToReveal;
         }
         
         private void UpdateDynamicColourEnabled()
