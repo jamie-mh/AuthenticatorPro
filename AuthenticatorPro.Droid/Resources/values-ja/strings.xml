@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">アプリが画面から離れてからデータベースがロックされるまでの時間を設定</string>
     <string name="prefTapToRevealTitle">タップして表示</string>
     <string name="prefTapToRevealSummary">タップするまでコードを非表示にします。数秒後に消えます。</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">外観</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">カウンターベース （HOTP）</string>
     <string name="authAlgorithmSHA1">SHA1 （標準）</string>
     <string name="immediately">直後</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30秒</string>
     <string name="timeout1Min">1分</string>
     <string name="timeout2Min">2分</string>
