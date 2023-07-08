@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>
     <string name="prefTapToRevealSummary">Piilota koodit, kunnes niitä napautetaan. Ne piilotetaan muutaman sekunnin kuluttua.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Salli kuvakaappaukset</string>
     <string name="prefAllowScreenshotsSummary">Poista näytön turvallisuus käytöstä ja salli sovelluksen kuvakaappaukset</string>
     <string name="prefAppearance">Ulkonäkö</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">Laskuripohjainen (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (oletus)</string>
     <string name="immediately">Välittömästi</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 sekuntia</string>
     <string name="timeout1Min">1 minuutti</string>
     <string name="timeout2Min">2 minuuttia</string>
