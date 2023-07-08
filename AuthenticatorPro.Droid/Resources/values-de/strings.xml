@@ -271,9 +271,9 @@
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
     <string name="immediately">Sofort</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 Sekunden</string>
+    <string name="timeout10Sec">10 Sekunden</string>
+    <string name="timeout20Sec">20 Sekunden</string>
     <string name="timeout30Sec">30 Sekunden</string>
     <string name="timeout1Min">1 Minute</string>
     <string name="timeout2Min">2 Minuten</string>
