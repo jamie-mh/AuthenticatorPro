@@ -21,6 +21,7 @@ using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
 using AuthenticatorPro.WearOS.Comparer;
 using AuthenticatorPro.WearOS.Interface;
+using AuthenticatorPro.WearOS.Interface.Time;
 using AuthenticatorPro.WearOS.Util;
 using Java.IO;
 using Newtonsoft.Json;
@@ -48,7 +49,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private RelativeLayout _emptyLayout;
         private WearableRecyclerView _authList;
         private WearableNavigationDrawerView _categoryList;
-        private CurrentTimeView _currentTimeView;
+        private ITimeView _timeView;
 
         // Data
         private AuthenticatorView _authView;
@@ -104,7 +105,9 @@ namespace AuthenticatorPro.WearOS.Activity
             await _onCreateLock.WaitAsync();
 
             SetTheme(Resource.Style.AppTheme);
-            SetContentView(Resource.Layout.activityMain);
+            SetContentView(Resources.Configuration.IsScreenRound
+                ? Resource.Layout.activityMainRound
+                : Resource.Layout.activityMainSquare);
 
             _preferences = new PreferenceWrapper(this);
 
@@ -132,7 +135,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
                 AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, delegate
                 {
-                    _currentTimeView.Visibility = ViewStates.Visible;
+                    _timeView.Visibility = ViewStates.Visible;
                     CheckEmptyState();
                     ReleaseOnCreateLock();
                 });
@@ -172,7 +175,7 @@ namespace AuthenticatorPro.WearOS.Activity
             RunOnUiThread(delegate
             {
                 AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, CheckEmptyState);
-                _currentTimeView.Visibility = ViewStates.Visible;
+                _timeView.Visibility = ViewStates.Visible;
             });
         }
 
@@ -198,7 +201,15 @@ namespace AuthenticatorPro.WearOS.Activity
         {
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _emptyLayout = FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
-            _currentTimeView = FindViewById<CurrentTimeView>(Resource.Id.viewCurrentTime);
+
+            if (Resources.Configuration.IsScreenRound)
+            {
+                _timeView = FindViewById<CurvedTimeView>(Resource.Id.viewCurrentTime);
+            }
+            else
+            {
+                _timeView = FindViewById<StraightTimeView>(Resource.Id.viewCurrentTime);
+            }
 
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
             _authList.EdgeItemsCenteringEnabled = true;
