@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
     <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">ลักษณะ</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">Counter Based (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (ค่าเริ่มต้น)</string>
     <string name="immediately">Immediately</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 วินาที</string>
     <string name="timeout1Min">1 นาที</string>
     <string name="timeout2Min">2 นาที</string>
