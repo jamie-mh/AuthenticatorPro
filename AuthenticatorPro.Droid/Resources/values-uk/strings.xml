@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">Вказати час, після якого БД буде заблоковано, як тільки додаток залишить екран</string>
     <string name="prefTapToRevealTitle">Показувати після дотику</string>
     <string name="prefTapToRevealSummary">Приховати коди, показувати після дотику. Вони зникнуть через декілька секунд.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Дозволити скриншоти</string>
     <string name="prefAllowScreenshotsSummary">Вимкнути безпеку екрану і дозволити скриншоти застосунку</string>
     <string name="prefAppearance">Оформлення</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (за замовчуванням)</string>
     <string name="immediately">Негайно</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 секунд</string>
     <string name="timeout1Min">1 хвилина</string>
     <string name="timeout2Min">2 хвилини</string>
