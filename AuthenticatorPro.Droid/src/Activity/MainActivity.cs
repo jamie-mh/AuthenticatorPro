@@ -826,12 +826,15 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void InitAuthenticatorList()
         {
-            _authenticatorListAdapter =
-                new AuthenticatorListAdapter(this, _authenticatorService, _authenticatorView, _customIconView,
-                    IsDark) { HasStableIds = true };
+            _authenticatorListAdapter = 
+                new AuthenticatorListAdapter(this, _authenticatorView, _customIconView, IsDark)
+                {
+                    HasStableIds = true
+                };
 
             _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
             _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
+            _authenticatorListAdapter.RefreshClicked += OnAuthenticatorRefreshClicked;
             _authenticatorListAdapter.MovementStarted += OnAuthenticatorListMovementStarted;
             _authenticatorListAdapter.MovementFinished += OnAuthenticatorListMovementFinished;
 
@@ -1061,6 +1064,21 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.DeleteClicked += delegate { OpenDeleteDialog(auth); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+        
+        private async void OnAuthenticatorRefreshClicked(object sender, string secret)
+        {
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
+
+            if (auth == null)
+            {
+                return;
+            }
+
+            await _authenticatorService.IncrementCounterAsync(auth);
+            
+            var position = _authenticatorView.IndexOf(auth);
+            _authenticatorListAdapter.NotifyItemChanged(position);
         }
 
         private void OpenQrCodeDialog(Authenticator auth)
