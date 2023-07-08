@@ -246,6 +246,8 @@
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
     <string name="prefTapToRevealTitle">Отображать коды нажатием</string>
     <string name="prefTapToRevealSummary">Коды будут скрыты, пока на них не нажмёшь. Через несколько секунд после нажатия, они снова скроются.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Разрешить скриншоты</string>
     <string name="prefAllowScreenshotsSummary">Отключить защиту экрана и разрешить приложению делать скриншоты</string>
     <string name="prefAppearance">Оформление</string>
@@ -269,6 +271,9 @@
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (по умолчанию)</string>
     <string name="immediately">Сразу</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 секунд</string>
     <string name="timeout1Min">1 минута</string>
     <string name="timeout2Min">2 минуты</string>
