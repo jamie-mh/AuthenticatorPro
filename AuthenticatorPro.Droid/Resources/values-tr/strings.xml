@@ -252,6 +252,8 @@
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
     <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
     </string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
     <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Görünüm</string>
@@ -275,6 +277,9 @@
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (varsayılan)</string>
     <string name="immediately">Hemen</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 saniye</string>
     <string name="timeout1Min">1 Dakika</string>
     <string name="timeout2Min">2 dakika</string>
