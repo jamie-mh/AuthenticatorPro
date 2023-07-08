@@ -247,7 +247,7 @@
     <string name="prefTapToRevealTitle">Taper pour dévoiler</string>
     <string name="prefTapToRevealSummary">Cacher les codes jusqu\'à ce qu\'ils soient tapés. Ils disparaîtront au bout de quelques secondes.</string>
     <string name="prefTapToRevealDurationTitle">Durée de dévoilement</string>
-    <string name="prefTapToRevealDurationSummary">Définir le temps au bout duquel les codes dévoilés seront masqués</string>
+    <string name="prefTapToRevealDurationSummary">Définir le temps au bout duquel les codes dévoilés seront à nouveau masqués</string>
     <string name="prefAllowScreenshotsTitle">Autoriser les captures d\'écran</string>
     <string name="prefAllowScreenshotsSummary">Désactiver la sécurité de l\'écran et autoriser des captures d\'écran de l\'application</string>
     <string name="prefAppearance">Apparence</string>
