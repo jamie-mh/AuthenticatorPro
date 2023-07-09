@@ -30,6 +30,7 @@ namespace AuthenticatorPro.Droid.Activity
         
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
+        private bool _arePreferencesReady;
 
         public SettingsActivity() : base(Resource.Layout.activitySettings)
         {
@@ -62,6 +63,7 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment = new SettingsFragment();
             _fragment.PreferencesCreated += delegate
             {
+                _arePreferencesReady = true;
                 UpdateBackupRemindersState();
                 UpdatePasswordState();
                 UpdateTapToRevealState();
@@ -216,11 +218,19 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void UpdateBackupRemindersState()
         {
-            _fragment.FindPreference("pref_showBackupReminders").Enabled = !_preferences.AutoBackupEnabled;
+            if (_arePreferencesReady)
+            {
+                _fragment.FindPreference("pref_showBackupReminders").Enabled = !_preferences.AutoBackupEnabled;
+            }
         }
 
         private void UpdatePasswordState()
         {
+            if (!_arePreferencesReady)
+            {
+                return;
+            }
+            
             var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
             biometrics.Enabled = _preferences.PasswordProtected && CanUseBiometrics();
             biometrics.Checked = _preferences.AllowBiometrics;
@@ -231,11 +241,19 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void UpdateTapToRevealState()
         {
-            _fragment.FindPreference("pref_tapToRevealDuration").Enabled = _preferences.TapToReveal;
+            if (_arePreferencesReady)
+            {
+                _fragment.FindPreference("pref_tapToRevealDuration").Enabled = _preferences.TapToReveal;
+            }
         }
         
         private void UpdateDynamicColourEnabled()
         {
+            if (!_arePreferencesReady)
+            {
+                return;
+            }
+            
             if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
             {
                 _fragment.FindPreference("pref_dynamicColour").Enabled = true;
