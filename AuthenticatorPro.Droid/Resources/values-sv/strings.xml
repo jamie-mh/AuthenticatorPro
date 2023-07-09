@@ -4,7 +4,7 @@
     <string name="warning">Varning</string>
     <string name="delete">Radera</string>
     <string name="add">Lägg till</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Redigera</string>
     <string name="cancel">Avbryt</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
@@ -14,7 +14,7 @@
     <string name="retry">Försök igen</string>
     <string name="ignore">Ignorera</string>
     <string name="disable">Inaktivera</string>
-    <string name="name">Name</string>
+    <string name="name">Namn</string>
     <!-- Menu items -->
     <string name="settings">Inställningar</string>
     <string name="restore">Återställ</string>
@@ -109,7 +109,7 @@
     <string name="noIconPacksTitle">No icon packs</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Kategori</string>
     <string name="categories">Kategorier</string>
     <string name="assignCategories">Ange kategorier</string>
     <string name="assignEntries">Assign entries</string>
@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatisk säkerhetskopiering misslyckades</string>
     <string name="autoBackupFailureText">Den senaste automatiska säkerhetskopieringen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer. Prova att ställa in säkerhetskopieringsplatsen på nytt i inställningarna för automatisk säkerhetskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk säkerhetskopiering slutförd</string>
-    <string name="autoRestoreSuccessTitle">Automatisk återställning slutförd</string>
     <string name="backupScheduled">Säkerhetskopiering schemalagd</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Kryptera databasen med ett lösenord. Du kommer behöva ange lösenordet när du öppnar appen. Lämna fältet tomt för att ta bort lösenordet.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">Välj hur lång tid det ska ta innan databasen låses när du lämnar appen</string>
     <string name="prefTapToRevealTitle">Tryck för att visa</string>
     <string name="prefTapToRevealSummary">Dölj koder tills du trycker på dem. De försvinner igen efter några sekunder.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Utseende</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Välj ett tema för appen</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">Räknarbaserad (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (standard)</string>
     <string name="immediately">Omedelbart</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 sekunder</string>
     <string name="timeout1Min">1 minut</string>
     <string name="timeout2Min">2 minuter</string>

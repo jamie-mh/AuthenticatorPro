@@ -4,7 +4,7 @@
     <string name="warning">警告</string>
     <string name="delete">刪除</string>
     <string name="add">新增</string>
-    <string name="edit">Edit</string>
+    <string name="edit">編輯</string>
     <string name="cancel">取消</string>
     <string name="ok">確定</string>
     <string name="yes">是</string>
@@ -14,7 +14,7 @@
     <string name="retry">重試</string>
     <string name="ignore">忽略</string>
     <string name="disable">禁用</string>
-    <string name="name">Name</string>
+    <string name="name">名稱</string>
     <!-- Menu items -->
     <string name="settings">設定</string>
     <string name="restore">還原</string>
@@ -22,7 +22,7 @@
     <string name="about">關於</string>
     <string name="scanQrCode">掃描二維碼</string>
     <string name="showQrCode">展示二維碼</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">編輯詳細資料</string>
     <string name="scanQrCodeFromCamera">使用相機掃描</string>
     <string name="scanQrCodeFromGallery">從圖庫中選取</string>
     <string name="rename">更改名稱</string>
@@ -34,8 +34,8 @@
     <string name="sort">排序</string>
     <string name="sortAZ">字母順序（A-Z）</string>
     <string name="sortZA">字母順序（Z 至 A）</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">複製最多次</string>
+    <string name="sortLeastCopied">複製最少次</string>
     <string name="sortCustom">自訂</string>
     <string name="aboutSummary">查看關於和許可證信息</string>
     <string name="supportDevelopment">支持開發</string>
@@ -50,7 +50,7 @@
     <string name="secretKey">密鑰</string>
     <string name="pin">識別碼</string>
     <string name="showAdvancedOptions">顯示進階選項</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">僅當您知道自己在做什麼時才更改這些選項，否則您可能會被鎖定在您的帳戶之外。\n\n是否繼續？</string>
     <string name="confirmAuthenticatorDelete">移除這個驗證器將導致你無法再生成該賬戶的驗證碼，且該賬戶的雙重認證并不會隨之移除。\n\n移除此驗證碼可能會導致你無法再登入該賬戶。\n請確保你已經移除了該賬戶的雙重認證或持有備份安全碼。\n\n確認移除嗎？</string>
     <string name="useCustomIcon">使用自訂圖示</string>
     <string name="copiedToClipboard">驗證碼已複製至剪貼簿</string>
@@ -61,7 +61,7 @@
     <string name="algorithmHint">演算法</string>
     <string name="digitsHint">位數</string>
     <string name="periodHint">週期（秒）</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">計數器</string>
     <string name="noIssuer">請輸入發現者</string>
     <string name="noSecret">請輸入密鑰</string>
     <string name="noPin">請輸入識別碼（PIN）</string>
@@ -71,24 +71,24 @@
     <string name="pinTooLong">PIN 碼不能超過 {0} 個字元</string>
     <string name="digitsInvalid">驗證器只能生成 {0} 到 {1} 位的驗證碼</string>
     <string name="periodInvalid">輸入的週期無效</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">計數器無效</string>
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
     <string name="pinMessage">輸入該 QR Code 的密碼。在設定此帳號時，會提示您輸入密碼。</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="defaultIcons">預設圖示</string>
+    <string name="iconPacks">圖示包</string>
+    <string name="downloadPacks">下載圖示包</string>
+    <string name="importIconPackSuccess">從圖示包中導入了 {0} 個圖示</string>
+    <string name="invalidIconPackError">所選檔案不是 Authenticator Pro 圖示包</string>
+    <string name="confirmIconPackDelete">您確定要刪除此圖示包嗎？任何使用過的圖示都不會被刪除。</string>
     <!-- QR code dialog -->
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
     <string name="qrCodeNotSupported">此類型的二維碼尚未被支持</string>
     <string name="copyUri">複製 URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">此 URI 包含純文字形式的密鑰，請注意貼上此資訊的位置。\n\n是否繼續？</string>
     <string name="uriCopiedToClipboard">URI 已複製至剪貼簿</string>
     <!-- Backup menu -->
     <string name="backupToFile">備份至加密檔案（推薦）</string>
@@ -106,13 +106,13 @@
     <string name="noAuthenticatorsHelp">如果這是你的首次使用，請點擊下方的按鈕查閲入門指南。</string>
     <string name="noCategoriesTitle">尚無分類</string>
     <string name="noCategoriesMessage">你還沒有設置任何分類</string>
-    <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksTitle">沒有圖示包</string>
+    <string name="noIconPacksMessage">您還沒有設置任何圖示包</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">分類</string>
     <string name="categories">分類</string>
     <string name="assignCategories">指定分類</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">指定條目</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
     <string name="editCategories">編輯分類</string>
@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">最近的自動備份未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
     <string name="autoBackupSuccessTitle">自動備份完成</string>
-    <string name="autoRestoreSuccessTitle">自動還原完成</string>
     <string name="backupScheduled">已觸發自動備份</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">使用密碼對資料庫進行加密。當您開啟應用程式時，應用將提示您輸入密碼。 將該欄位留空以清除密碼。</string>
@@ -191,18 +190,18 @@
     <!-- Import -->
     <string name="importFromOtherApps">從其他應用匯入</string>
     <string name="importError">無法匯入這個檔案。</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importIncomplete">匯入不完整</string>
+    <string name="importConversionError">由於以下錯誤，項目“{0}”導入失敗：{1}</string>
     <string name="authenticatorPlusImportHint">匯入 authplus.db 檔案</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="andOtpImportHint">匯入 otp_accounts.json 檔案</string>
+    <string name="freeOtpImportHint">匯入 externalBackup.xml 檔案</string>
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">匯入 aegis-export.json 檔案</string>
     <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="winAuthImportHint">匯入 winauth.txt 或 winauth.zip 檔案</string>
+    <string name="twoFasImportHint">匯入 2fas-backup.2fas 檔案</string>
+    <string name="lastPassAuthenticatorImportHint">匯入 LastPassAuthenticator.json 檔案</string>
     <string name="totpAuthenticatorImportHint">匯入 TOTP_Backup.encrypt 檔案</string>
     <string name="uriList">URI 列表</string>
     <string name="uriListHint">純文字的 otpauth URI列表</string>
@@ -221,7 +220,7 @@
     <string name="guideWearOSTitle">下載配套的 Wear OS 應用</string>
     <string name="guideWearOSSummary">如果您有執行 Wear OS 的手錶，您可以下載配套的應用。您可以直接在您的手錶上檢視驗證碼。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">將 QR code 放在畫面中進行掃描，點擊可以對焦。</string>
     <string name="scanHelpSecondary">為了避免陰影和玻璃效果。按住裝置將其移到距離程式碼大約15釐米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切換閃光燈</string>
     <!-- Preferences -->
@@ -229,13 +228,13 @@
     <string name="prefShowBackupRemindersTitle">顯示備份提醒</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改後，自動提醒您備份驗證器。</string>
     <string name="prefAutoBackupTitle">自動備份</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">進行更改時自動備份到特定位置，停用備份提醒。</string>
     <string name="prefLanguageTitle">語言</string>
     <string name="prefLanguageSummary">選擇要在應用程式中使用的語言</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefTapToCopyTitle">點擊複製</string>
+    <string name="prefTapToCopySummary">點擊時將驗證碼複製到剪貼簿</string>
+    <string name="prefResetCopyCountTitle">重設複製次數</string>
+    <string name="prefResetCopyCountSummary">清除每個驗證器被複製的次數</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密碼</string>
     <string name="prefPasswordSummary">使用驗證器前要求驗證密碼。資料庫將會使用這個密碼進行加密。</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">設定在應用切換至後臺執行後自動鎖定資料庫前的時間間隔</string>
     <string name="prefTapToRevealTitle">點選以顯示</string>
     <string name="prefTapToRevealSummary">在程式碼被點選都將保持隱藏。顯示的程式碼將在幾秒鐘後消失。</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">允許螢幕截圖</string>
+    <string name="prefAllowScreenshotsSummary">停用螢幕安全保護並允許應用程式進行螢幕截圖</string>
     <string name="prefAppearance">外觀</string>
     <string name="prefThemeTitle">主題</string>
     <string name="prefThemeSummary">選擇應用的主題。</string>
@@ -254,20 +257,23 @@
     <string name="prefViewModeSummary">選擇驗證器列表的檢視。</string>
     <string name="prefCodeGroupSizeTitle">驗證碼分組</string>
     <string name="prefCodeGroupSizeSummary">更改驗證碼中數字的分組</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefShowUsernamesTitle">顯示用戶名</string>
+    <string name="prefShowUsernamesSummary">在發行者下方顯示用戶名</string>
+    <string name="prefDynamicColourTitle">動態顏色主題</string>
+    <string name="prefDynamicColourSummary">根據您的桌布動態設置畫面主色調</string>
     <string name="prefAccentColourTitle">主題色</string>
     <string name="prefAccentColourSummary">選擇要在應用中使用的主題色</string>
     <string name="prefTransparentStatusBarTitle">透明狀態列</string>
     <string name="prefTransparentStatusBarSummary">滾動時在狀態列後面顯示列表</string>
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">已重設複製次數</string>
     <!-- Arrays -->
     <string name="authTypeTime">基於時間 (TOTP)</string>
     <string name="authTypeCounter">基於計數器 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (預設)</string>
     <string name="immediately">立即</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 秒</string>
     <string name="timeout1Min">1 分鐘</string>
     <string name="timeout2Min">2 分鐘</string>
@@ -276,7 +282,7 @@
     <string name="systemDefault">跟隨系統</string>
     <string name="lightTheme">淺色主題</string>
     <string name="darkTheme">深色主題</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="blackTheme">純黑主題</string>
     <string name="defaultViewMode">預設</string>
     <string name="compactViewMode">緊湊</string>
     <string name="tileViewMode">平鋪</string>

@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir de nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
     <string name="autoBackupSuccessTitle">Sauvegarde effectuée avec succès</string>
-    <string name="autoRestoreSuccessTitle">Restauration effectuée avec succès</string>
     <string name="backupScheduled">Sauvegarde programmée</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Chiffrez la base de données avec un mot de passe. Le mot de passe vous sera demandé lorsque vous ouvrirez l\'application. Laissez le champ vide pour effacer le mot de passe.</string>
@@ -245,8 +244,12 @@
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
     <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
-    <string name="prefTapToRevealTitle">Taper pour afficher</string>
+    <string name="prefTapToRevealTitle">Taper pour dévoiler</string>
     <string name="prefTapToRevealSummary">Cacher les codes jusqu\'à ce qu\'ils soient tapés. Ils disparaîtront au bout de quelques secondes.</string>
+    <string name="prefTapToRevealDurationTitle">Durée de dévoilement</string>
+    <string name="prefTapToRevealDurationSummary">Définir le temps au bout duquel les codes dévoilés seront à nouveau masqués</string>
+    <string name="prefAllowScreenshotsTitle">Autoriser les captures d\'écran</string>
+    <string name="prefAllowScreenshotsSummary">Désactiver la sécurité de l\'écran et autoriser des captures d\'écran de l\'application</string>
     <string name="prefAppearance">Apparence</string>
     <string name="prefThemeTitle">Thème</string>
     <string name="prefThemeSummary">Changer le thème de l\'application</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">À compteur (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (par défaut)</string>
     <string name="immediately">Immédiatement</string>
+    <string name="timeout5Sec">5 secondes</string>
+    <string name="timeout10Sec">10 secondes</string>
+    <string name="timeout20Sec">20 secondes</string>
     <string name="timeout30Sec">30 secondes</string>
     <string name="timeout1Min">1 minute</string>
     <string name="timeout2Min">2 minutes</string>

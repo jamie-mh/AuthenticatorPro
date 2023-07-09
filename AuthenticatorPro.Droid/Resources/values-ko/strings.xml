@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">자동 백업 실패</string>
     <string name="autoBackupFailureText">최근 자동 백업을 실패했습니다. 파일 권한이 만료되었을 수 있으니 자동 백업 설정에서 백업 경로를 다시 설정해보세요.</string>
     <string name="autoBackupSuccessTitle">자동 백업 완료</string>
-    <string name="autoRestoreSuccessTitle">자동 복원 완료</string>
     <string name="backupScheduled">백업 예약됨</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">데이터베이스를 비밀번호로 암호화합니다. 앱을 열 때 비밀번호 입력을 요청받게 됩니다. 비밀번호를 설정하지 않으려면 입력란을 비워 두세요.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">앱 화면에서 이탈했을 때 데이터베이스가 잠기기까지의 시간을 설정합니다</string>
     <string name="prefTapToRevealTitle">눌러서 확인</string>
     <string name="prefTapToRevealSummary">코드를 누르기 전까지 숨깁니다. 누른 뒤 몇 초가 지나면 다시 숨겨집니다.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">표시</string>
     <string name="prefThemeTitle">테마</string>
     <string name="prefThemeSummary">앱 테마를 선택하세요</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">계수기 기반 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (기본값)</string>
     <string name="immediately">즉시</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30초</string>
     <string name="timeout1Min">1분</string>
     <string name="timeout2Min">2분</string>

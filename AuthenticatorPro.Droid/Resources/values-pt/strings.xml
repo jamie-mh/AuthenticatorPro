@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">A cópia de segurança automática falhou</string>
     <string name="autoBackupFailureText">A mais recente cópia de segurança automática não foi concluída. As permissões dos ficheiros podem ter expirado, tente definir novamente o local da cópia de segurança nas definições da cópia de segurança automática.</string>
     <string name="autoBackupSuccessTitle">Cópia de segurança automática concluída</string>
-    <string name="autoRestoreSuccessTitle">Restauro automático concluído</string>
     <string name="backupScheduled">Cópia de segurança agendada</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Encriptar a base de dados com uma palavra-passe. Ser-lhe-á pedida a palavra-passe quando abrir a aplicação. Deixe o campo em branco para limpar a palavra-passe.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">Intervalo de tempo até a base de dados ser bloqueada após sair da aplicação</string>
     <string name="prefTapToRevealTitle">Toque para revelar</string>
     <string name="prefTapToRevealSummary">Esconder os códigos até que sejam pressionados. Desaparecerão ao fim de alguns segundos.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Aparência</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Escolha um tema para a aplicação</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">Com base em contador (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predefinição)</string>
     <string name="immediately">Imediatamente</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 segundos</string>
     <string name="timeout1Min">1 minuto</string>
     <string name="timeout2Min">2 minutos</string>

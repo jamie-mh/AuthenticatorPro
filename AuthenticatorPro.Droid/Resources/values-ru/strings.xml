@@ -22,7 +22,7 @@
     <string name="about">О приложении</string>
     <string name="scanQrCode">Сканировать QR-код</string>
     <string name="showQrCode">Показать QR-код</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">Изменить данные</string>
     <string name="scanQrCodeFromCamera">С помощью камеры</string>
     <string name="scanQrCodeFromGallery">Из галереи</string>
     <string name="rename">Переименовать</string>
@@ -50,7 +50,7 @@
     <string name="secretKey">Секретный ключ</string>
     <string name="pin">PIN-код</string>
     <string name="showAdvancedOptions">Дополнительные параметры</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">Измените эти параметры, только если вы знаете, что вы делаете, вы можете быть заблокированы из вашей учетной записи.\n\nПродолжить?</string>
     <string name="confirmAuthenticatorDelete">Удаление этого аутентификатора не позволит вам генерировать коды для этой учетной записи.\nЭто не означает, что для вашей учетной записи отключена двухфакторная аутентификация.\n\nУдаление этого аутентификатора может помешать вам получить доступ к вашей учетной записи.\nПожалуйста, убедитесь, что либо двухфакторная аутентификация отключена, либо у вас есть коды восстановления.\n\nВы уверены, что хотите продолжить?</string>
     <string name="useCustomIcon">Использовать пользовательскую иконку</string>
     <string name="copiedToClipboard">Код скопирован в буфер обмена</string>
@@ -61,7 +61,7 @@
     <string name="algorithmHint">Метод генерирования</string>
     <string name="digitsHint">Кол-во цифр</string>
     <string name="periodHint">Период (сек.)</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">Счетчик</string>
     <string name="noIssuer">Обязательно укажите издателя.</string>
     <string name="noSecret">Требуется секретный ключ.</string>
     <string name="noPin">Требуется PIN-код.</string>
@@ -71,18 +71,18 @@
     <string name="pinTooLong">PIN-код не может быть длиннее {0} цифр</string>
     <string name="digitsInvalid">Аутентификатор должен генерировать от {0} до {1} цифр.</string>
     <string name="periodInvalid">Период является недопустимым</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">Недопустимое значение счетчика</string>
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом. PIN-код будет запрошен при настройке этой учетной записи.</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="defaultIcons">Стандартные иконки</string>
+    <string name="iconPacks">Наборы иконок</string>
+    <string name="downloadPacks">Скачать наборы</string>
+    <string name="importIconPackSuccess">Импортировано {0} иконок из набора</string>
+    <string name="invalidIconPackError">Выбранный файл не является набором иконок Authenticator Pro</string>
+    <string name="confirmIconPackDelete">Вы уверены, что хотите удалить этот набор иконок? Любые используемые иконки не будут удалены.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, просканировав QR-код</string>
@@ -106,13 +106,13 @@
     <string name="noAuthenticatorsHelp">Если вы впервые используете Authenticator Pro, ознакомьтесь с руководством по началу работы, нажав на кнопку ниже.</string>
     <string name="noCategoriesTitle">Категории отсутствуют</string>
     <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
-    <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksTitle">Нет наборов иконок</string>
+    <string name="noIconPacksMessage">У вас пока нет наборов иконок</string>
     <!-- Categories -->
     <string name="category">Категория</string>
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">Присвоить записи</string>
     <string name="more">Подробнее</string>
     <string name="categoryAll">Все</string>
     <string name="editCategories">Изменить категории</string>
@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
     <string name="autoBackupSuccessTitle">Автоматическое резервное копирование завершено</string>
-    <string name="autoRestoreSuccessTitle">Автоматическое восстановление завершено</string>
     <string name="backupScheduled">Резервное копирование запланировано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Зашифруйте базу данных с помощью пароля. При открытии приложения вам будет предложено ввести пароль. Оставьте поле пустым, чтобы очистить пароль.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">Установите время, после которого база данных будет заблокирована, когда приложение покинет экран</string>
     <string name="prefTapToRevealTitle">Отображать коды нажатием</string>
     <string name="prefTapToRevealSummary">Коды будут скрыты, пока на них не нажмёшь. Через несколько секунд после нажатия, они снова скроются.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Разрешить скриншоты</string>
+    <string name="prefAllowScreenshotsSummary">Отключить защиту экрана и разрешить приложению делать скриншоты</string>
     <string name="prefAppearance">Оформление</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Выберите тему приложения.</string>
@@ -254,8 +257,8 @@
     <string name="prefViewModeSummary">Выберите режим просмотра списка аутентификаторов.</string>
     <string name="prefCodeGroupSizeTitle">Группировка кода</string>
     <string name="prefCodeGroupSizeSummary">Измените группировку цифр в коде</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefShowUsernamesTitle">Показывать имена пользователей</string>
+    <string name="prefShowUsernamesSummary">Отображать имя пользователя под издателем</string>
     <string name="prefDynamicColourTitle">Динамический цвет</string>
     <string name="prefDynamicColourSummary">Динамически задать цвет акцента на основе ваших обоев</string>
     <string name="prefAccentColourTitle">Основной цвет</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (по умолчанию)</string>
     <string name="immediately">Сразу</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 секунд</string>
     <string name="timeout1Min">1 минута</string>
     <string name="timeout2Min">2 минуты</string>
@@ -276,7 +282,7 @@
     <string name="systemDefault">По умолчанию в системе</string>
     <string name="lightTheme">Светлая тема</string>
     <string name="darkTheme">Тёмная тема</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="blackTheme">Чёрная тема</string>
     <string name="defaultViewMode">По умолчанию</string>
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>

@@ -1,1 +1,1 @@
-Free and open-source 2FA app with encrypted backups
+加密備份、免費開源的 2FA 應用程式

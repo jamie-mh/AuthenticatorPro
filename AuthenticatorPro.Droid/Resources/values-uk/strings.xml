@@ -4,7 +4,7 @@
     <string name="warning">Увага</string>
     <string name="delete">Видалити</string>
     <string name="add">Додати</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Редагувати</string>
     <string name="cancel">Скасувати</string>
     <string name="ok">OK</string>
     <string name="yes">Так</string>
@@ -14,7 +14,7 @@
     <string name="retry">Повторити</string>
     <string name="ignore">Ігнорувати</string>
     <string name="disable">Вимкнути</string>
-    <string name="name">Name</string>
+    <string name="name">Назва</string>
     <!-- Menu items -->
     <string name="settings">Налаштування</string>
     <string name="restore">Відновити</string>
@@ -22,7 +22,7 @@
     <string name="about">Про застосунок</string>
     <string name="scanQrCode">Сканування QR-коду</string>
     <string name="showQrCode">Показати QR-код</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">Редагувати деталі</string>
     <string name="scanQrCodeFromCamera">Зчитати камерою</string>
     <string name="scanQrCodeFromGallery">Зчитати з галереї</string>
     <string name="rename">Перейменувати</string>
@@ -34,8 +34,8 @@
     <string name="sort">Сортування</string>
     <string name="sortAZ">За алфавітом (А-Я)</string>
     <string name="sortZA">За алфавітом (Я-А)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">Найчастіше копіюють</string>
+    <string name="sortLeastCopied">Найменше копіюють</string>
     <string name="sortCustom">Вручну</string>
     <string name="aboutSummary">Інформація про застосунок та ліцензії</string>
     <string name="supportDevelopment">Підтримати розробку</string>
@@ -50,7 +50,7 @@
     <string name="secretKey">Секретний ключ</string>
     <string name="pin">Пін</string>
     <string name="showAdvancedOptions">Показати додаткові параметри</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">Змініть ці параметри, лише якщо ви знаєте, що робите, ви можете бути заблоковані в обліковому записі.\n\nПродовжити?</string>
     <string name="confirmAuthenticatorDelete">Якщо видалити цей автентифікатор, ви не зможете генерувати коди для цього облікового запису. Це не означає, що двофакторну автентифікацію вимкнено.\n\nВидалення цього автентифікатора може завадити вам отримати доступ до вашого облікового запису.\nПереконайтеся, що двофакторну автентифікацію вимкнено або у вас є коди відновлення.\n\nПродовжити?</string>
     <string name="useCustomIcon">Використовувати користувацький значок</string>
     <string name="copiedToClipboard">Код скопійовано</string>
@@ -61,7 +61,7 @@
     <string name="algorithmHint">Алгоритм</string>
     <string name="digitsHint">Цифр</string>
     <string name="periodHint">Період (сек.)</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">Лічильник</string>
     <string name="noIssuer">Введіть емітента</string>
     <string name="noSecret">Необхідно ввести секретний ключ</string>
     <string name="noPin">Необхідно ввести пін</string>
@@ -71,24 +71,24 @@
     <string name="pinTooLong">PIN-код не може бути довше {0} символів</string>
     <string name="digitsInvalid">Автентифікатор має генерувати від {0} до {1} цифр</string>
     <string name="periodInvalid">Неправильний період</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">Лічильник недійсний</string>
     <string name="qrCodeFormatError">Неправильний формат QR-коду або неможливо зчитати</string>
     <string name="duplicateAuthenticator">Автентифікатор з цим секретним ключем вже існує</string>
     <string name="scanSuccessful">QR-код успішно відскановано</string>
     <string name="pinMessage">Введіть PIN-код, що пов\'язаний із цим QR-кодом. PIN необхідно буде вводити під час налаштування цього облікового запису.</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="defaultIcons">Іконки за замовчуванням</string>
+    <string name="iconPacks">Набори іконок</string>
+    <string name="downloadPacks">Завантажити набори</string>
+    <string name="importIconPackSuccess">Імпортовано {0} значків з набору</string>
+    <string name="invalidIconPackError">Вибраний файл не є набором іконок Authenticator Pro</string>
+    <string name="confirmIconPackDelete">Ви впевнені, що бажаєте видалити цей набір іконок? Будь-які використані іконки не будуть видалені.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Перенесіть автентифікатор на інший пристрій зчитав QR-код</string>
     <string name="qrCodeNotSupported">QR-код для цього типу не підтримується</string>
     <string name="copyUri">Копіювати URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">Цей URI містить секретний ключ у текстовому вигляді. Будьте обережні, де ви вставляєте цю інформацію.\n\nПродовжити?</string>
     <string name="uriCopiedToClipboard">Збережено у буфері</string>
     <!-- Backup menu -->
     <string name="backupToFile">Резервне копіювання у зашифрований файл (рекомендовано)</string>
@@ -106,13 +106,13 @@
     <string name="noAuthenticatorsHelp">Якщо ви новачок в Authenticator Pro, перегляньте інструкцію, натиснувши нижче.</string>
     <string name="noCategoriesTitle">Немає категорій</string>
     <string name="noCategoriesMessage">У вас ще немає жодної категорії</string>
-    <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksTitle">Немає наборів іконок</string>
+    <string name="noIconPacksMessage">У вас ще немає встановлених наборів іконок</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">Категорія</string>
     <string name="categories">Категорії</string>
     <string name="assignCategories">Призначити категорії</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">Призначити записи</string>
     <string name="more">Більше</string>
     <string name="categoryAll">Всі</string>
     <string name="editCategories">Змінити категорії</string>
@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Помилка автоматичного резервного копіювання</string>
     <string name="autoBackupFailureText">Останнє резервне копіювання не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища. Спробуйте встановити розташування резервної копії ще раз в налаштуваннях резервного копіювання.</string>
     <string name="autoBackupSuccessTitle">Авторезервування завершено</string>
-    <string name="autoRestoreSuccessTitle">Автовідновлення завершено</string>
     <string name="backupScheduled">Резервне копіювання заплановано</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Зашифруйте базу даних за допомогою пароля. Вам буде запропоновано ввести пароль при відкритті застосунку. Залиште це поле порожнім, щоб очистити пароль.</string>
@@ -195,14 +194,14 @@
     <string name="importConversionError">Не вдалося імпортувати \"{0}\" через помилку, що виникла в процесі: {1}</string>
     <string name="authenticatorPlusImportHint">Імпортувати файл authplus.db</string>
     <string name="andOtpImportHint">Імпортувати файл otp_accounts.json</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="freeOtpImportHint">Імпорт файлу externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Імпортувати файл freeotp-backup.json</string>
     <string name="aegisImportHint">Імпортувати файл aegis-export.json</string>
     <string name="bitwarden">Bitwarden (звичайний текст)</string>
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
     <string name="winAuthImportHint">Імпорт файлу winauth.txt або winauth.zip</string>
     <string name="twoFasImportHint">Імпортувати файл 2fas-backup.2fas</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="lastPassAuthenticatorImportHint">Імпорт файлу LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Імпортувати файл TOTP_backup.encrypt</string>
     <string name="uriList">Перелік URI</string>
     <string name="uriListHint">Простий текстовий список URI otpauth://</string>
@@ -221,7 +220,7 @@
     <string name="guideWearOSTitle">Завантажити компанійський застосунок для Wear OS</string>
     <string name="guideWearOSSummary">Якщо у вас є годинник із Wear OS, ви можете завантажити компанійський застосунок. За його допомогою можна дивитися коди прямо на пристрої.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Помістіть QR-код у видошукач, щоб відсканувати його. Торкніться, щоб сфокусуватися.</string>
     <string name="scanHelpSecondary">Спробуйте уникнути тіней та відблисків. Тримайте пристрій на відстані близько 15 см (6 дюймів) від коду.</string>
     <string name="toggleFlash">Перемкнути ліхтарик</string>
     <!-- Preferences -->
@@ -234,8 +233,8 @@
     <string name="prefLanguageSummary">Оберіть мову для використання у застосунку</string>
     <string name="prefTapToCopyTitle">Натиснути для копіювання</string>
     <string name="prefTapToCopySummary">Копіювати код в буфер обміну при натисканні на нього</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefResetCopyCountTitle">Скинути кількість копій</string>
+    <string name="prefResetCopyCountSummary">Очистити кількість разів, коли кожен автентифікатор був скопійований</string>
     <string name="prefSecurity">Безпека</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Вимагати пароль для доступу до автентифікаторів. База даних буде зашифрована вашим паролем.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">Вказати час, після якого БД буде заблоковано, як тільки додаток залишить екран</string>
     <string name="prefTapToRevealTitle">Показувати після дотику</string>
     <string name="prefTapToRevealSummary">Приховати коди, показувати після дотику. Вони зникнуть через декілька секунд.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Дозволити скриншоти</string>
+    <string name="prefAllowScreenshotsSummary">Вимкнути безпеку екрану і дозволити скриншоти застосунку</string>
     <string name="prefAppearance">Оформлення</string>
     <string name="prefThemeTitle">Тема</string>
     <string name="prefThemeSummary">Виберіть тему застосунку</string>
@@ -254,20 +257,23 @@
     <string name="prefViewModeSummary">Виберіть режим перегляду списку автентифікаторів</string>
     <string name="prefCodeGroupSizeTitle">Розмір групи кодів</string>
     <string name="prefCodeGroupSizeSummary">Змініть групування цифр у коді</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefShowUsernamesTitle">Показати імена користувачів</string>
+    <string name="prefShowUsernamesSummary">Показати ім\'я користувача під видавцем</string>
+    <string name="prefDynamicColourTitle">Динамічний колір</string>
+    <string name="prefDynamicColourSummary">Змінювати колір акценту на основі ваших шпалер</string>
     <string name="prefAccentColourTitle">Основний колір</string>
     <string name="prefAccentColourSummary">Оберіть основний колір, який буде використано в усьому додатку</string>
     <string name="prefTransparentStatusBarTitle">Прозора панель стану</string>
     <string name="prefTransparentStatusBarSummary">Зробити список видимим за панеллю стану при прокрутці</string>
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Скидання кількості копій</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основі часу (TOTP)</string>
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (за замовчуванням)</string>
     <string name="immediately">Негайно</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 секунд</string>
     <string name="timeout1Min">1 хвилина</string>
     <string name="timeout2Min">2 хвилини</string>
@@ -276,7 +282,7 @@
     <string name="systemDefault">Система тема</string>
     <string name="lightTheme">Світла тема</string>
     <string name="darkTheme">Темна тема</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="blackTheme">Чорна тема</string>
     <string name="defaultViewMode">За замовчуванням</string>
     <string name="compactViewMode">Компактний</string>
     <string name="tileViewMode">Плитками</string>

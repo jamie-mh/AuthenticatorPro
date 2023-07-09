@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">自動バックアップに失敗しました</string>
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
-    <string name="autoRestoreSuccessTitle">自動復元完了</string>
     <string name="backupScheduled">バックアップがスケジュールされました</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">データベースをパスワードで暗号化します。アプリを開くとパスワードの入力が求められます。 パスワードを消去するには、フィールドを空白のままにしてください。</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">アプリが画面から離れてからデータベースがロックされるまでの時間を設定</string>
     <string name="prefTapToRevealTitle">タップして表示</string>
     <string name="prefTapToRevealSummary">タップするまでコードを非表示にします。数秒後に消えます。</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">外観</string>
     <string name="prefThemeTitle">テーマ</string>
     <string name="prefThemeSummary">アプリケーションのテーマを選択</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">カウンターベース （HOTP）</string>
     <string name="authAlgorithmSHA1">SHA1 （標準）</string>
     <string name="immediately">直後</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30秒</string>
     <string name="timeout1Min">1分</string>
     <string name="timeout2Min">2分</string>

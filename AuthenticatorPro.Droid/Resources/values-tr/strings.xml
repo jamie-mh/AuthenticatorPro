@@ -4,7 +4,7 @@
     <string name="warning">Uyarı</string>
     <string name="delete">Sil</string>
     <string name="add">Ekle</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Düzenle</string>
     <string name="cancel">İptal</string>
     <string name="ok">TAMAM</string>
     <string name="yes">Evet</string>
@@ -14,7 +14,7 @@
     <string name="retry">Tekrar dene</string>
     <string name="ignore">Yoksay</string>
     <string name="disable">Devre dışı bırak</string>
-    <string name="name">Name</string>
+    <string name="name">Ad</string>
     <!-- Menu items -->
     <string name="settings">Ayarlar</string>
     <string name="restore">Geri Yükle</string>
@@ -173,7 +173,6 @@
         expired, try setting the backup location again in the auto backup settings.
     </string>
     <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
-    <string name="autoRestoreSuccessTitle">Otomatik geri yükleme tamamlandı</string>
     <string name="backupScheduled">Zamanlanmış yedekleme</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
@@ -253,6 +252,10 @@
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
     <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
     </string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
@@ -274,6 +277,9 @@
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (varsayılan)</string>
     <string name="immediately">Hemen</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 saniye</string>
     <string name="timeout1Min">1 Dakika</string>
     <string name="timeout2Min">2 dakika</string>

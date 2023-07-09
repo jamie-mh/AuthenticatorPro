@@ -6,7 +6,7 @@
     <string name="categoryAll">Всі</string>
     <string name="offline">Поза мережею</string>
     <string name="syncFailed">Помилка синхронізації</string>
-    <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="noFavourite">Немає улюбленого</string>
+    <string name="noFavouriteMessage">Натисніть і утримуйте автентифікатор у застосунку, щоб встановити</string>
+    <string name="open">Відкрити</string>
 </resources>

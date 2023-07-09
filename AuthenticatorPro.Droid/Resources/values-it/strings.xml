@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Backup automatico non riuscito</string>
     <string name="autoBackupFailureText">Il backup automatico più recente non è stato completato. I permessi dei file potrebbero essere scaduti, prova a impostare nuovamente la posizione di backup nelle impostazioni di backup automatico.</string>
     <string name="autoBackupSuccessTitle">Backup automatico completato</string>
-    <string name="autoRestoreSuccessTitle">Ripristino automatico completato</string>
     <string name="backupScheduled">Backup pianificato</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Cifra il database con una password. Ti verrà richiesta la password quando apri l\'app. Lascia vuoto il campo per cancellare la password.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">Imposta il tempo dopo il quale il database si bloccherà una volta che l\'applicazione lascia lo schermo</string>
     <string name="prefTapToRevealTitle">Tocca per Svelare</string>
     <string name="prefTapToRevealSummary">Nasconde i codici finché non vengono toccati. Scompariranno dopo pochi secondi.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Aspetto</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Scegli un tema per l\'applicazione</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">Basato su contatore (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predefinito)</string>
     <string name="immediately">Subito</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 secondi</string>
     <string name="timeout1Min">1 minuto</string>
     <string name="timeout2Min">2 minuti</string>

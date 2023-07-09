@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatische back-up maken mislukt</string>
     <string name="autoBackupFailureText">De meest recente automatische back-up kon niet worden voltooid. Bestandsmachtigingen zijn mogelijk verlopen, probeer de back-up locatie opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
     <string name="autoBackupSuccessTitle">Automatische back-up maken voltooid</string>
-    <string name="autoRestoreSuccessTitle">Automatisch herstellen voltooid</string>
     <string name="backupScheduled">Back-up ingepland</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Versleutel de database met een wachtwoord. Bij het openen van de app wordt om het wachtwoord gevraagd. Laat het veld leeg om het wachtwoord te wissen.</string>
@@ -247,6 +246,10 @@
     <string name="prefTimeoutSummary">Stel de tijd in waarna de database vergrendeld wordt zodra de app het scherm verlaten heeft</string>
     <string name="prefTapToRevealTitle">Tik om te onthullen</string>
     <string name="prefTapToRevealSummary">Verberg codes totdat je er op drukt. Ze zullen weer na een paar seconden verdwijnen.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Uiterlijk</string>
     <string name="prefThemeTitle">Thema</string>
     <string name="prefThemeSummary">Kies een applicatiethema</string>
@@ -268,6 +271,9 @@
     <string name="authTypeCounter">Teller gebaseerd (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (standaard)</string>
     <string name="immediately">Onmiddelijk</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 seconden</string>
     <string name="timeout1Min">1 minuut</string>
     <string name="timeout2Min">2 minuten</string>

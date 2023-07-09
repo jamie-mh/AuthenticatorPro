@@ -79,7 +79,7 @@
     <!-- Icon packs -->
     <string name="defaultIcons">Predvolené ikony</string>
     <string name="iconPacks">Balíčky ikon</string>
-    <string name="downloadPacks">Download packs</string>
+    <string name="downloadPacks">Siahnuť balíčky</string>
     <string name="importIconPackSuccess">Importovaných {0} ikon z balíčka</string>
     <string name="invalidIconPackError">Vybraný súbor nie je z balíčka ikon Authenticator Pro</string>
     <string name="confirmIconPackDelete">Naozaj chceš odstrániť tento balík ikon? Všetky použité ikony nebudú odstránené.</string>
@@ -171,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
     <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohovanie dokončené</string>
-    <string name="autoRestoreSuccessTitle">Automatické obnovenie dokončené</string>
     <string name="backupScheduled">Zálohovanie naplánované</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zašifrujte databázu pomocou hesla. Po otvorení aplikácie sa zobrazí výzva na zadanie hesla. Ak chcete heslo vymazať, nechajte pole prázdne.</string>
@@ -248,6 +247,10 @@
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobraziť ťuknutím</string>
     <string name="prefTapToRevealSummary">Skrýva kódy, kým sa ich nedotknete. Po niekoľkých sekundách zmiznú.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Povoliť snímky obrazovky</string>
+    <string name="prefAllowScreenshotsSummary">Vypnúť ochranu obrazovky a povoliť snímky obrazovky v aplikácii</string>
     <string name="prefAppearance">Vzhľad</string>
     <string name="prefThemeTitle">Téma</string>
     <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
@@ -269,6 +272,9 @@
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predvolené)</string>
     <string name="immediately">Okamžite</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 sekúnd</string>
     <string name="timeout1Min">1 minúta</string>
     <string name="timeout2Min">2 minúty</string>
