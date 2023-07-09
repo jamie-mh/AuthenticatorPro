@@ -15,9 +15,9 @@ using System.Timers;
 namespace AuthenticatorPro.Droid
 {
 #if DEBUG
-    [Application(Debuggable = true)]
+    [Application(Debuggable = true, TaskAffinity = "")]
 #else
-    [Application(Debuggable = false)]
+    [Application(Debuggable = false, TaskAffinity = "")]
 #endif
     internal class BaseApplication : Application, ILifecycleObserver
     {
