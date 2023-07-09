@@ -82,9 +82,7 @@ namespace AuthenticatorPro.WearOS
         
         protected override IListenableFuture OnResourcesRequest(RequestBuilders.ResourcesRequest request)
         {
-#if DEBUG
-            Logger.Info($"Tile resources {request.Version} requested");
-#endif
+            Logger.Debug($"Tile resources {request.Version} requested");
            
             var adapter = new TaskFutureAdapter<ResourceBuilders.Resources>(async delegate
             {
@@ -124,10 +122,7 @@ namespace AuthenticatorPro.WearOS
 
         protected override void OnTileEnterEvent(EventBuilders.TileEnterEvent requestParams)
         {
-#if DEBUG
-            Logger.Info("Tile entered view");
-#endif
-
+            Logger.Debug("Tile entered view");
             var clazz = Java.Lang.Class.FromType(typeof(AuthTileService));
             GetUpdater(this).RequestUpdate(clazz);
         }
@@ -319,18 +314,12 @@ namespace AuthenticatorPro.WearOS
 
         protected override IListenableFuture OnTileRequest(RequestBuilders.TileRequest request)
         {
-#if DEBUG
-            Logger.Info("Tile requested");
-#endif
+            Logger.Debug("Tile requested");
             
             var adapter = new TaskFutureAdapter<TileBuilders.Tile>(async delegate
             {
                 await FetchAuthenticatorAsync();
-                
-#if DEBUG
-                Logger.Info($"Rendering tile for authenticator {_authenticator?.Issuer}");
-#endif
-                
+                Logger.Debug($"Rendering tile for authenticator {_authenticator?.Issuer}");
                 return _authenticator != null ? BuildCodeTile() : BuildEmptyTile(request.DeviceParameters);
             });
 

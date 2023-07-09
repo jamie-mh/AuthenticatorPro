@@ -171,9 +171,7 @@ namespace AuthenticatorPro.Droid
 
         public override async void OnChannelOpened(ChannelClient.IChannel channel)
         {
-#if DEBUG
-            Logger.Info($"Wear channel opened: {channel.Path}");
-#endif
+            Logger.Debug($"Wear channel opened: {channel.Path}");
 
             if (channel.Path != GetSyncBundleCapability)
             {

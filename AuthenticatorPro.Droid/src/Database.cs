@@ -43,9 +43,7 @@ namespace AuthenticatorPro.Droid
         {
             await _lock.WaitAsync();
             var isOpen = _connection != null;
-#if DEBUG
-            Logger.Info($"Is database open from {origin}? {isOpen}");
-#endif
+            Logger.Debug($"Is database open from {origin}? {isOpen}");
             _lock.Release();
             return isOpen;
         }
@@ -60,9 +58,7 @@ namespace AuthenticatorPro.Droid
                 return;
             }
 
-#if DEBUG
-            Logger.Info($"Closing database from {origin}");
-#endif
+            Logger.Debug($"Closing database from {origin}");
 
             try
             {
@@ -78,10 +74,7 @@ namespace AuthenticatorPro.Droid
         public async Task Open(string password, Origin origin)
         {
             await Close(origin);
-
-#if DEBUG
-            Logger.Info($"Opening database from {origin}");
-#endif
+            Logger.Debug($"Opening database from {origin}");
 
             var path = GetPath();
             var firstLaunch = !File.Exists(path);
@@ -117,7 +110,7 @@ namespace AuthenticatorPro.Droid
 
 #if DEBUG
             _connection.Trace = true;
-            _connection.Tracer = Logger.Info;
+            _connection.Tracer = Logger.Debug;
             _connection.TimeExecution = true;
 #endif
 
