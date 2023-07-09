@@ -24,5 +24,12 @@ namespace AuthenticatorPro.WearOS
         {
             Log.Info(Tag, message);
         }
+        
+        public static void Debug(string message)
+        {
+#if DEBUG
+            Log.Debug(Tag, message);
+#endif
+        }
     }
 }

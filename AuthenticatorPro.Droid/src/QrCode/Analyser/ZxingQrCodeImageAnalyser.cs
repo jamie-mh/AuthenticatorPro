@@ -4,6 +4,7 @@
 #if FDROID
 
 using Android.Graphics;
+using Android.Util;
 using AndroidX.Camera.Core;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
     public class ZxingQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {
         public event EventHandler<string> QrCodeScanned;
+        public Size DefaultTargetResolution => new(640, 480);
 
         private readonly BarcodeReader<Bitmap> _barcodeReader;
 

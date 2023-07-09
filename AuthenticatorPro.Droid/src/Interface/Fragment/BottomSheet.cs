@@ -52,6 +52,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             dialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
 
+            var preferences = new PreferenceWrapper(Context);
+            if (!preferences.AllowScreenshots)
+            {
+                dialog.Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+            }
+
             var baseActivity = (BaseActivity) RequireActivity();
             IsDark = baseActivity.IsDark;
             

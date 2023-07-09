@@ -135,11 +135,24 @@ namespace AuthenticatorPro.Droid.Activity
                 : $"{Build.VERSION.Release} (API {Build.VERSION.SdkInt})";
         }
 
+        private string DecodeEmail()
+        {
+            var encoded = GetString(Resource.String.contactEmail).ToCharArray();
+            var decoded = new char[encoded.Length];
+
+            for (var i = 0; i < encoded.Length; ++i)
+            {
+                decoded[i] = i % 2 == 0 ? ++encoded[i] : --encoded[i];
+            }
+
+            return new string(decoded);
+        }
+
         private void ReportEmail()
         {
             var intent = new Intent(Intent.ActionSendto);
             intent.SetData(Uri.Parse("mailto:"));
-            intent.PutExtra(Intent.ExtraEmail, new[] { GetString(Resource.String.contactEmail) });
+            intent.PutExtra(Intent.ExtraEmail, new[] { DecodeEmail() });
             intent.PutExtra(Intent.ExtraSubject, "Bug report");
 
             var body = new StringBuilder();

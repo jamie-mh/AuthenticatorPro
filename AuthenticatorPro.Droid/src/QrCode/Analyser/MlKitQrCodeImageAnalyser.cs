@@ -5,6 +5,7 @@
 
 using Android.Gms.Extensions;
 using Android.Runtime;
+using Android.Util;
 using AndroidX.Camera.Core;
 using System;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
 {
     public class MlKitQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {
-        private const int ScanInterval = 500;
         public event EventHandler<string> QrCodeScanned;
+        public Size DefaultTargetResolution => new(1920, 1080);
+        
+        private const int ScanInterval = 500;
 
         private long _lastScanMillis;
         private readonly IBarcodeScanner _barcodeScanner;
