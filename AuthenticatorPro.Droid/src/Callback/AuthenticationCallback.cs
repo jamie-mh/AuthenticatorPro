@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Droid.Callback
         public override void OnAuthenticationFailed()
         {
             base.OnAuthenticationFailed();
-            Failed?.Invoke(this, null);
+            Failed?.Invoke(this, EventArgs.Empty);
         }
 
         public override void OnAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result)
