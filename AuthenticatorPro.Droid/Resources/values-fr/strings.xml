@@ -225,7 +225,7 @@
     <string name="toggleFlash">Activer/désactiver le flash</string>
     <!-- Preferences -->
     <string name="prefGeneral">Paramètres généraux</string>
-    <string name="prefShowBackupRemindersTitle">Rappels de Sauvegarde</string>
+    <string name="prefShowBackupRemindersTitle">Rappels de sauvegarde</string>
     <string name="prefShowBackupRemindersSummary">Vous rappelle de sauvegarder vos authentificateurs si des modifications importantes ont été apportées</string>
     <string name="prefAutoBackupTitle">Sauvegarde automatique</string>
     <string name="prefAutoBackupSummary">Sauvegarde automatique sur un emplacement spécifique lorsque des modifications sont faites. Désactive les rappels de sauvegarde.</string>
@@ -240,7 +240,7 @@
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
     <string name="prefDatabasePasswordBackupTitle">Sauvegarder avec le mot de passe de la base de données</string>
     <string name="prefDatabasePasswordBackupSummary">Chiffrer toutes les sauvegardes avec le mot de passe de la base de données, vous n\'aurez donc pas à le saisir à chaque fois</string>
-    <string name="prefAllowBiometricsTitle">Déverrouillage Biométrique</string>
+    <string name="prefAllowBiometricsTitle">Déverrouillage biométrique</string>
     <string name="prefAllowBiometricsSummary">Autoriser le déverrouillage de la base de données avec une authentification biométrique</string>
     <string name="prefTimeoutTitle">Délai de verrouillage</string>
     <string name="prefTimeoutSummary">Définir le temps au bout duquel la base de données sera verrouillée une fois que l\'application quitte l\'écran</string>
