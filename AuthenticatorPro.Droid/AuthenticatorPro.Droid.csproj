@@ -31,7 +31,7 @@
     <PackageReference Include="TinyIoC" Version="1.4.0-rc1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.14" />
+    <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.15" />
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.5.0.2" />
     <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.3" />
     <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.3" />
