@@ -176,6 +176,7 @@ namespace AuthenticatorPro.Droid.Activity
                     Window.SetStatusBarColor(Color.Transparent);
                 }
 
+#pragma warning disable CA1416
                 Window.SetDecorFitsSystemWindows(false);
                 Window.SetNavigationBarColor(Color.Transparent);
 
@@ -185,6 +186,7 @@ namespace AuthenticatorPro.Droid.Activity
                         (int) WindowInsetsControllerAppearance.LightStatusBars,
                         (int) WindowInsetsControllerAppearance.LightStatusBars);
                 }
+#pragma warning restore CA1416
             }
             else if (_preferences.TransparentStatusBar)
             {

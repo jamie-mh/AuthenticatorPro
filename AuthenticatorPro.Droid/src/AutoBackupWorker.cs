@@ -140,9 +140,11 @@ namespace AuthenticatorPro.Droid
                 _ => throw new ArgumentOutOfRangeException(nameof(context))
             };
 
+#pragma warning disable CA1416
             var channel = new NotificationChannel(idString, name, NotificationImportance.Low);
             var manager = NotificationManagerCompat.From(_context);
             manager.CreateNotificationChannel(channel);
+#pragma warning restore CA1416
         }
 
         private void ShowNotification(NotificationContext context, bool openAppOnClick, IResult result = null)

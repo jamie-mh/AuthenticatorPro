@@ -31,27 +31,27 @@
     <PackageReference Include="TinyIoC" Version="1.4.0-rc1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.14" />
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.5.0.2" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.3" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.3" />
-    <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.3" />
-    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.5" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.6.1.2" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.18" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.6.1.2" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.6.1.2" />
-    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.6" />
-    <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.20" />
-    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.8.1.2" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.9.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.Biometric" Version="1.1.0.15" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.5.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Camera2" Version="1.2.3.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.Core" Version="1.2.3.1" />
+    <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.2.3.1" />
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.6" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.6.1.3" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.19" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.6.1.3" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.6.1.3" />
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.7" />
+    <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.21" />
+    <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.8.1.3" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.9.0.2" />
   </ItemGroup>
   <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
     <PackageReference Include="ZXing.Net" Version="0.16.9" />
   </ItemGroup>
   <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
-    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.1.0.1" />
-    <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.2" />
+    <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.1.0.2" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.3" />
   </ItemGroup>
   <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
     <AndroidResource Remove="Resources\values\wear.xml" />
