@@ -246,8 +246,8 @@
     <string name="prefTimeoutSummary">設定在應用切換至後臺執行後自動鎖定資料庫前的時間間隔</string>
     <string name="prefTapToRevealTitle">點選以顯示</string>
     <string name="prefTapToRevealSummary">在程式碼被點選都將保持隱藏。顯示的程式碼將在幾秒鐘後消失。</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">點擊顯示持續時間</string>
+    <string name="prefTapToRevealDurationSummary">設置顯示代碼的時間</string>
     <string name="prefAllowScreenshotsTitle">允許螢幕截圖</string>
     <string name="prefAllowScreenshotsSummary">停用螢幕安全保護並允許應用程式進行螢幕截圖</string>
     <string name="prefAppearance">外觀</string>
@@ -271,9 +271,9 @@
     <string name="authTypeCounter">基於計數器 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (預設)</string>
     <string name="immediately">立即</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 秒</string>
+    <string name="timeout10Sec">10 秒</string>
+    <string name="timeout20Sec">30 秒</string>
     <string name="timeout30Sec">30 秒</string>
     <string name="timeout1Min">1 分鐘</string>
     <string name="timeout2Min">2 分鐘</string>
