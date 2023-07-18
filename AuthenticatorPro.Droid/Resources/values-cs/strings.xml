@@ -247,8 +247,8 @@
     <string name="prefTimeoutSummary">Nastavte dobu, po které se databáze uzamkne, jakmile aplikace opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobrazit klepnutím</string>
     <string name="prefTapToRevealSummary">Skrýt kódy, dokud nebudou klepnuty. Po několika vteřinách zmizí.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Doba zobrazení klepnutím</string>
+    <string name="prefTapToRevealDurationSummary">Nastavte dobu, po které se zobrazené kódy skryjí</string>
     <string name="prefAllowScreenshotsTitle">Povolit snímky obrazovky</string>
     <string name="prefAllowScreenshotsSummary">Vypnout zabezpečení obrazovky a povolit pořizování snímků obrazovky aplikace</string>
     <string name="prefAppearance">Vzhled</string>
@@ -272,9 +272,9 @@
     <string name="authTypeCounter">Založeno na počítadle (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (výchozí)</string>
     <string name="immediately">Okamžitě</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 sekund</string>
+    <string name="timeout10Sec">10 sekund</string>
+    <string name="timeout20Sec">20 sekund</string>
     <string name="timeout30Sec">30 sekund</string>
     <string name="timeout1Min">1 minuta</string>
     <string name="timeout2Min">2 minuty</string>
