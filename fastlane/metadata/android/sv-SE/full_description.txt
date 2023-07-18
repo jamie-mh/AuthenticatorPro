@@ -9,24 +9,24 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 
 <b>Funktioner</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Observera att klockan behöver vara ansluten till din Android-enhet. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⚙️ <b>Kompatibilitet</b>: Authenticator Pro är kompatibel med de flesta tjänster och konton.
+- 📲 <b>Import</b>: Flytta enkelt dina konton till Authenticator Pro från andra appar som stöds.
+- 💾 <b>Säkerhetskopiering</b>: Säkerhetskopiera dina konton med stark kryptering. Om du förlorar eller byter din mobil kan du ändå få tillgång till dina konton. Du kan spara säkerhetskopiorna i molnet eller på din enhet.
+- 🌙 <b>Mörkt tema</b>: Authenticator Pro har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
+- ⏺️ <b>Ikoner</b>: Hitta enkelt dina konton tack vare igenkännbara loggor och ikoner bredvid varje kod.
+- 📂 <b>Kategorier</b>: Organisera dina konton genom att dela in dem i kategorier.
+- 🔒 <b>Offline med få behörigheter</b>: Authenticator Pro kräver bara en enda behörighet¹ och fungerar utan internetuppkoppling.
+- 🔑 <b>Säkerhet</b>: Ställ in ett lösenord och använd biometri för att skydda dina koder.
+- 🎨 <b>Anpassning</b>: Ställ in ikoner och byt namn på konton. Du kan också ordna dina autentiserare i vilken ordning du vill så att du enkelt kan hitta dem.
+- ⌚ <b>Wear OS</b>: Få snabb åtkomst till dina koder direkt från din klocka. Observera att klockan behöver vara ansluten till din Android-enhet. F-Droid-distributioner av appen är inte kompatibla med Wear OS eftersom appen är beroende av mjukvara som inte har öppen källkod.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(¹) *För att skanna QR-koder behöver appen åtkomst till kameran.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Vanliga frågor</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Ansvarsfriskrivning</b>
 
 Detta program är fri programvara: du kan distribuera det och/eller modifiera det enligt villkoren i GNU General Public License som publicerats av Free Software Foundation, antingen version 3 av licensen eller (efter eget val) valfri senare version.
 
