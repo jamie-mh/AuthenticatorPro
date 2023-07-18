@@ -51,7 +51,8 @@ namespace AuthenticatorPro.Test.Entity
                 AuthenticatorType.Totp => new Totp(auth.Secret, auth.Period, auth.Algorithm, auth.Digits),
                 AuthenticatorType.MobileOtp => new MobileOtp(auth.Secret, auth.Pin),
                 AuthenticatorType.SteamOtp => new SteamOtp(auth.Secret),
-                AuthenticatorType.YandexOtp => new YandexOtp(auth.Secret, auth.Pin)
+                AuthenticatorType.YandexOtp => new YandexOtp(auth.Secret, auth.Pin),
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
 
             var code = auth.GetCode(1000);

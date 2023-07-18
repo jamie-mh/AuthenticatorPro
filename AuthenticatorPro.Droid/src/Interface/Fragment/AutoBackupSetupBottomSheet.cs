@@ -289,10 +289,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
 
+#pragma warning disable CA1416
             if (powerManager.IsIgnoringBatteryOptimizations(Context.PackageName))
             {
                 return;
             }
+#pragma warning restore CA1416
 
             var builder = new MaterialAlertDialogBuilder(Context)
                 .SetTitle(Resource.String.batOptim)
