@@ -212,9 +212,9 @@
     <string name="guideUseCodeTitle">Använd koden när du loggar in</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
     <string name="guideCustomiseTitle">Anpassa och redigera</string>
-    <string name="guideCustomiseSummary">Döp och anpassa dina autentiserare för att enkelt kunna hitta dem. Tryck på menyikonen på en autentiserare i listan och följ stegen.</string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Ordna och sortera</string>
-    <string name="guideArrangeSummary">Du kan organisera dina autentiserare i kategorier för att enkelt kunna hitta dem. Du kan också trycka och dra för att flytta dina autentiserare i vilken ordning du vill.</string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
     <string name="guideBackupTitle">Skapa en säkerhetskopia</string>
     <string name="guideBackupSummary">Bli inte utlåst från dina konton om du byter enhet. Skapa en säkerhetskopieringsfil och lagra den på ett säkert ställe. En säkerhetskopia kan återställas när som helst och skyddas med ett lösenord.</string>
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
@@ -237,7 +237,7 @@
     <string name="prefResetCopyCountSummary">Glöm hur många gånger du kopierat koden för varje konto</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
-    <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina autentiserare. Databasen kommer att krypteras med ditt lösenord.</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
     <string name="prefDatabasePasswordBackupTitle">Säkerhetskopiera med databasens lösenord</string>
     <string name="prefDatabasePasswordBackupSummary">Kryptera alla säkerhetskopior med databasens lösenord så att du inte behöver ange det varje gång</string>
     <string name="prefAllowBiometricsTitle">Biometrisk upplåsning</string>
@@ -253,8 +253,8 @@
     <string name="prefAppearance">Utseende</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Välj ett tema för appen</string>
-    <string name="prefViewModeTitle">Visningsläge</string>
-    <string name="prefViewModeSummary">Välj visningsläge för listan över autentiserare</string>
+    <string name="prefViewModeTitle">View Mode</string>
+    <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
     <string name="prefCodeGroupSizeTitle">Gruppering av kodsiffror</string>
     <string name="prefCodeGroupSizeSummary">Ändra hur siffrorna i koder grupperas</string>
     <string name="prefShowUsernamesTitle">Visa användarnamn</string>
@@ -315,7 +315,7 @@
     <string name="introThemesTitle">Mörkt tema</string>
     <string name="introWelcomeSummary">Tack för att du laddade ner Authenticator Pro.\nSkydda dina onlinekonton med den bästa autentiseringsappen med öppen källkod.</string>
     <string name="introCompatibilitySummary">Authenticator Pro är kompatibel med de flesta hemsidor och konton. Den fungerar till 100 % med tjänster som stödjer Google Authenticator.</string>
-    <string name="introBackupSummary">Säkerhetskopiera dina autentiserare med stark kryptering. Om du förlorar din enhet kan du alltid få tillgång till dina konton. Spara till molnlagring eller på din enhet.</string>
-    <string name="introCategoriesSummary">Organisera dina autentiserare i kategorier och ordna om dem genom att helt enkelt trycka och dra.</string>
+    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
     <string name="introThemesSummary">Om du föredrar kan du välja mörkt tema i inställningarna. Alla ikoner kommer att anpassa sig för att matcha den mörka bakgrunden.</string>
 </resources>
