@@ -18,8 +18,6 @@ namespace AuthenticatorPro.WearOS.Interface
     internal sealed class AuthProgressLayout : FrameLayout, ViewGroup.IOnHierarchyChangeListener
     {
         private const float StartingRotation = .75f;
-        private const float ProgressMin = 0.08f;
-        private const float ProgressMax = 0.92f;
         private const long TimerInterval = 1000 / 60;
         private const float StrokeWidth = 6f;
 
@@ -71,7 +69,7 @@ namespace AuthenticatorPro.WearOS.Interface
         {
             var timeRemaining = Period - _timeSinceStart;
             var progress = 1f - (float) timeRemaining / Period;
-            _progressDrawable.SetStartEndTrim(ProgressMin, ProgressMin + (ProgressMax - ProgressMin) * progress);
+            _progressDrawable.SetStartEndTrim(0f, progress);
             Invalidate();
         }
 
@@ -107,7 +105,7 @@ namespace AuthenticatorPro.WearOS.Interface
                 return;
             }
 
-            _progressDrawable.SetStartEndTrim(ProgressMin, ProgressMin);
+            _progressDrawable.SetStartEndTrim(0f, 0f);
             _timer.Stop();
         }
 

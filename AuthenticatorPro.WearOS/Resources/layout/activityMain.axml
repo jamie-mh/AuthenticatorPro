@@ -46,19 +46,9 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <authenticatorpro.wearos.interface.time.StraightTimeView
-            android:id="@+id/viewCurrentTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:textColor="?attr/primaryTextColor"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.wear.widget.WearableRecyclerView
             android:id="@+id/list"
@@ -67,13 +57,30 @@
             android:focusableInTouchMode="true"
             android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewCurrentTime"/>
+            android:layout_height="match_parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    
+        <LinearLayout
+            android:id="@+id/layoutOffline"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:background="#BF000000"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:orientation="vertical"
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@string/offline"
+                android:src="@drawable/baseline_cloud_off_24"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
     <androidx.wear.widget.drawer.WearableNavigationDrawerView
         android:id="@+id/drawerCategories"
         android:background="@color/colorDark"
