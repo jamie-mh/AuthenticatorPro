@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
+    <string name="noAuthenticators">Inga konton</string>
+    <string name="noAuthenticatorsMessage">Ingenting här. Lägg till konton i mobilappen.</string>
     <string name="hotpNotSupported">HOTP stöds inte</string>
     <string name="categoryAll">Alla</string>
     <string name="offline">Offline</string>
