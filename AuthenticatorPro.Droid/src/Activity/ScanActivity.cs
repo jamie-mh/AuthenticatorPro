@@ -59,7 +59,7 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
                 .Build();
             
-            var analyser = new MlKitQrCodeImageAnalyser();
+            var analyser = new MlKitQrCodeImageAnalyser(this);
             analyser.QrCodeScanned += OnQrCodeScanned;
             analysis.SetAnalyzer(ContextCompat.GetMainExecutor(this), analyser);
 #endif

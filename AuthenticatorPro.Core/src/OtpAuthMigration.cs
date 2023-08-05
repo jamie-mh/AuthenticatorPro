@@ -14,7 +14,11 @@ namespace AuthenticatorPro.Core
         {
             [ProtoEnum] Unknown = 0,
 
-            [ProtoEnum] Sha1 = 1
+            [ProtoEnum] Sha1 = 1,
+            
+            [ProtoEnum] Sha256 = 2,
+            
+            [ProtoEnum] Sha512 = 3
         }
 
         [ProtoContract]
