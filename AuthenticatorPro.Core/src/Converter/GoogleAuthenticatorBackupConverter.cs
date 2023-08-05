@@ -80,6 +80,8 @@ namespace AuthenticatorPro.Core.Converter
             var algorithm = auth.Algorithm switch
             {
                 OtpAuthMigration.Algorithm.Sha1 => HashAlgorithm.Sha1,
+                OtpAuthMigration.Algorithm.Sha256 => HashAlgorithm.Sha256,
+                OtpAuthMigration.Algorithm.Sha512 => HashAlgorithm.Sha512,
                 _ => throw new ArgumentException($"Unknown algorithm '{auth.Algorithm}")
             };
 
