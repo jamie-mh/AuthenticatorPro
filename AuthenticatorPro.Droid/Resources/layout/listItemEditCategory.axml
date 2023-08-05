@@ -35,8 +35,8 @@
 
             <ImageView
                 android:id="@+id/imageDefault"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/baseline_star_24"
                 android:tint="?attr/colorSecondary"
                 android:visibility="gone"
@@ -48,8 +48,8 @@
                 android:tint="?attr/colorOnSurface"
                 android:scaleType="centerInside"
                 android:background="?selectableItemBackgroundBorderless"
-                android:layout_width="22dp"
-                android:layout_height="22dp"/>
+                android:layout_width="30dp"
+                android:layout_height="24dp"/>
 
         </LinearLayout>
     </RelativeLayout>
