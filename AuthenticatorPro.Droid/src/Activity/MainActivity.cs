@@ -451,24 +451,9 @@ namespace AuthenticatorPro.Droid.Activity
 
             searchView.QueryTextChange += (_, e) =>
             {
-                var oldSearch = _authenticatorView.Search;
-
                 _authenticatorView.Search = e.NewText;
                 _authenticatorListAdapter.NotifyDataSetChanged();
-
-                if (e.NewText == "")
-                {
-                    _authenticatorTouchHelperCallback.IsLocked = false;
-
-                    if (!String.IsNullOrEmpty(oldSearch))
-                    {
-                        searchItem.CollapseActionView();
-                    }
-                }
-                else
-                {
-                    _authenticatorTouchHelperCallback.IsLocked = true;
-                }
+                _authenticatorTouchHelperCallback.IsLocked = e.NewText != "";
             };
 
             return base.OnCreateOptionsMenu(menu);
