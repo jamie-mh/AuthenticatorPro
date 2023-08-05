@@ -269,6 +269,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "kickstarter", Resource.Drawable.auth_kickstarter },
             { "kinguin", Resource.Drawable.auth_kinguin },
             { "klarna", Resource.Drawable.auth_klarna },
+            { "kofi", Resource.Drawable.auth_kofi },
             { "koofr", Resource.Drawable.auth_koofr },
             { "kraken", Resource.Drawable.auth_kraken },
             { "kucoin", Resource.Drawable.auth_kucoin },
