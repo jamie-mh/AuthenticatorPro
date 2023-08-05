@@ -17,7 +17,7 @@ Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandah
 - 📂 <b>Kategorier</b>: Organisera dina konton genom att dela in dem i kategorier.
 - 🔒 <b>Offline med få behörigheter</b>: Authenticator Pro kräver bara en enda behörighet¹ och fungerar utan internetuppkoppling.
 - 🔑 <b>Säkerhet</b>: Ställ in ett lösenord och använd biometri för att skydda dina koder.
-- 🎨 <b>Anpassning</b>: Ställ in ikoner och byt namn på konton. You can also arrange your authenticators in any order you like so you can find them easily.
+- 🎨 <b>Anpassning</b>: Ställ in ikoner och byt namn på konton. Du kan också ordna dina konton i valfri ordning så att du enkelt kan hitta dem.
 - ⌚ <b>Wear OS</b>: Få snabb åtkomst till dina koder direkt från din klocka. Observera att klockan behöver vara ansluten till din Android-enhet. F-Droid-distributioner av appen är inte kompatibla med Wear OS eftersom appen är beroende av mjukvara som inte har öppen källkod.
 
 (¹) *För att skanna QR-koder behöver appen åtkomst till kameran.*
