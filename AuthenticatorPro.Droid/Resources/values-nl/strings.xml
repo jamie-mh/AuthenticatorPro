@@ -4,7 +4,7 @@
     <string name="warning">Waarschuwing</string>
     <string name="delete">Verwijderen</string>
     <string name="add">Toevoegen</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Bewerken</string>
     <string name="cancel">Annuleren</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
@@ -14,7 +14,7 @@
     <string name="retry">Probeer opnieuw</string>
     <string name="ignore">Negeren</string>
     <string name="disable">Uitschakelen</string>
-    <string name="name">Name</string>
+    <string name="name">Naam</string>
     <!-- Menu items -->
     <string name="settings">Instellingen</string>
     <string name="restore">Herstellen</string>
@@ -22,7 +22,7 @@
     <string name="about">Over</string>
     <string name="scanQrCode">QR-code scannen</string>
     <string name="showQrCode">QR-code tonen</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">Bewerk details</string>
     <string name="scanQrCodeFromCamera">Scannen met camera</string>
     <string name="scanQrCodeFromGallery">Scan vanuit galerij</string>
     <string name="rename">Wijzig naam</string>
@@ -34,8 +34,8 @@
     <string name="sort">Sorteren</string>
     <string name="sortAZ">Alfabetisch (a tot z)</string>
     <string name="sortZA">Alfabetisch (z tot a)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">Meest gekopieerd</string>
+    <string name="sortLeastCopied">Minst gekopieerd</string>
     <string name="sortCustom">Aangepast</string>
     <string name="aboutSummary">Bekijk over en licentie informatie</string>
     <string name="supportDevelopment">Ondersteun de ontwikkeling</string>
@@ -50,7 +50,7 @@
     <string name="secretKey">Geheime sleutel</string>
     <string name="pin">Vastzetten</string>
     <string name="showAdvancedOptions">Toon geadvanceerde opties</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">Pas deze opties alleen aan als je weet wat je aan het doen bent, je kan uit je account worden buitengesloten.\n\nDoorgaan?</string>
     <string name="confirmAuthenticatorDelete">Als je deze authenticator verwijdert, kun je geen codes genereren voor dit account. Dit betekent niet dat authenticatie in twee stappen uitgeschakeld wordt.\n\nAls u deze authenticator verwijdert, kunt u mogelijk geen toegang meer krijgen tot uw account.\nControleer of tweestapsverificatie is uitgeschakeld of dat u de herstelcodes heeft.\n\nDoorgaan?</string>
     <string name="useCustomIcon">Gebruik aangepast icoon</string>
     <string name="copiedToClipboard">Code gekopieerd naar klembord</string>
@@ -61,25 +61,25 @@
     <string name="algorithmHint">Algorithme</string>
     <string name="digitsHint">Cijfers</string>
     <string name="periodHint">Periode (seconden)</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">Teller</string>
     <string name="noIssuer">Een naam is verplicht</string>
     <string name="noSecret">Een geheime sleutel is verplicht</string>
     <string name="noPin">Een pincode is verplicht</string>
     <string name="noFileName">Bestandsnaam is vereist</string>
     <string name="secretInvalid">Secret is ongeldig</string>
-    <string name="pinTooShort">The pin must contain at least {0} digits</string>
-    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="pinTooShort">De PIN moet ten minste {0} cijfers bevatten</string>
+    <string name="pinTooLong">De pin kan niet meer dan {0} cijfers bevatten</string>
     <string name="digitsInvalid">De authenticator moet tussen {0} en {1} cijfers genereren</string>
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">De teller is ongeldig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Voer de pin in die gekoppeld is aan deze QR-code. Er wordt u om een pin gevraagd bij het instellen van dit account.</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
+    <string name="defaultIcons">Standaard pictogrammen</string>
+    <string name="iconPacks">Pictogrampakketten</string>
+    <string name="downloadPacks">Download pakketten</string>
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
