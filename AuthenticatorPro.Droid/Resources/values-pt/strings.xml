@@ -130,7 +130,7 @@
     <string name="password">Palavra-passe</string>
     <string name="passwordConfirm">Confirmar palavra-passe</string>
     <string name="confirmEmptyPassword">Não escolheu uma palavra-passe, a sua cópia de segurança não será encriptada e as suas chaves secretas poderão estar vulneráveis.\n\nContinuar?</string>
-    <string name="passwordHint">Backup password</string>
+    <string name="passwordHint">Palavra-passe do backup</string>
     <string name="fileNameHint">Nome do ficheiro de cópia de segurança</string>
     <string name="noAuthenticators">Não tem nenhum autenticador para fazer cópia de segurança</string>
     <string name="saveSuccess">Guardado com sucesso</string>
