@@ -3,13 +3,16 @@
 
 #if !FDROID
 
+using Android.Content;
 using Android.Gms.Extensions;
 using Android.Runtime;
 using Android.Util;
 using AndroidX.Camera.Core;
+using Java.Lang;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Google.MLKit.Common;
 using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
 using Xamarin.Google.MLKit.Vision.Common;
@@ -26,8 +29,17 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
         private long _lastScanMillis;
         private readonly IBarcodeScanner _barcodeScanner;
 
-        public MlKitQrCodeImageAnalyser()
+        public MlKitQrCodeImageAnalyser(Context context)
         {
+            try
+            {
+                MlKit.Initialize(context);
+            }
+            catch (IllegalStateException e)
+            {
+                Logger.Warn("MlKit already initialised", e);
+            }
+            
             var options = new BarcodeScannerOptions.Builder()
                 .SetBarcodeFormats(Barcode.FormatQrCode)
                 .Build();

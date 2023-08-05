@@ -14,7 +14,10 @@
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <application android:allowBackup="false" android:label="@string/appName" android:icon="@mipmap/ic_launcher"
                  android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true"
-                 android:theme="@style/AppTheme"></application>
+                 android:theme="@style/AppTheme">
+        <provider android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+                  android:authorities="me.jmh.authenticatorpro.mlkitinitprovider" tools:node="remove" />
+    </application>
     <supports-screens android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true"
                       android:normalScreens="true" android:anyDensity="true"/>
 </manifest>

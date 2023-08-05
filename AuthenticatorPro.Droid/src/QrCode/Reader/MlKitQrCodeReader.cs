@@ -6,13 +6,15 @@
 using Android.Content;
 using Android.Gms.Extensions;
 using Android.Runtime;
-using System;
+using Java.Lang;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Google.MLKit.Common;
 using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
 using Xamarin.Google.MLKit.Vision.Common;
+using Exception = System.Exception;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.QrCode.Reader
@@ -21,6 +23,15 @@ namespace AuthenticatorPro.Droid.QrCode.Reader
     {
         public async Task<string> ScanImageFromFileAsync(Context context, Uri uri)
         {
+            try
+            {
+                MlKit.Initialize(context);
+            }
+            catch (IllegalStateException e)
+            {
+                Logger.Warn("MlKit already initialised", e);
+            }
+            
             InputImage image;
 
             try
