@@ -51,7 +51,7 @@
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
     <string name="advancedOptionsWarning">Ändra bara de här alternativen om du vet vad du gör. Du kan bli utelåst från ditt konto.\n\nVill du fortsätta?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Om du raderar kontot kommer du inte längre kunna få koder för det. Tvåfaktorsautentisering stängs dock inte av.\n\nGenom att radera kontot från Authenticator Pro kan du bli utelåst från kontot. Se till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
@@ -69,11 +69,11 @@
     <string name="secretInvalid">Den hemliga nyckeln är ogiltig</string>
     <string name="pinTooShort">PIN-koden måste innehålla minst {0} siffror</string>
     <string name="pinTooLong">PIN-koden får inte innehålla fler än {0} siffror</string>
-    <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
+    <string name="digitsInvalid">Koderna måste vara mellan {0} och {1} siffror långa</string>
     <string name="periodInvalid">Tidsperioden är ogiltig</string>
     <string name="counterInvalid">Räknaren är ogiltig</string>
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
-    <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
+    <string name="duplicateAuthenticator">Det finns redan ett konto med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
     <string name="pinMessage">Ange PIN-koden som är kopplad till den här QR-koden. Du blev ombedd att ställa in denna PIN-kod när du konfigurerade kontot.</string>
     <!-- Icon packs -->
@@ -85,23 +85,23 @@
     <string name="confirmIconPackDelete">Är du säker på att du vill ta bort detta ikonpaket? Eventuella använda ikoner kommer inte att raderas.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-kod</string>
-    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
+    <string name="qrCodeHelp">Kopiera detta konto till en annan enhet eller app genom att skanna QR-koden</string>
     <string name="qrCodeNotSupported">QR-koder stöds inte för denna typ</string>
     <string name="copyUri">Kopiera URI</string>
     <string name="copyUriWarning">Denna URI innehåller en hemlig nyckel i klartext. Var försiktig med var du klistrar in denna information.\n\nVill du fortsätta?</string>
     <string name="uriCopiedToClipboard">URI har kopierats till urklipp</string>
     <!-- Backup menu -->
     <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupToFileMessage">Säkerhetskopiera alla dina konton, kategorier och ikoner i en krypterad fil. Filen kan återställas i appen.</string>
     <string name="backupHtml">Säkerhetskopiera till HTML-fil</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
+    <string name="backupHtmlMessage">Spara dina konton som QR-koder i ett okrypterat HTML-dokument. För att återställa behöver du skanna QR-koderna individuellt. Kategorier och ikoner sparas inte.</string>
     <string name="backupHtmlWarning">Säkerhetskopior till HTML-filer är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil kan inte återställas i appen och innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
     <string name="backupUriList">Säkerhetskopiera till fil som URI-lista</string>
-    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListMessage">Spara dina konton som en URI-lista i en okrypterad, oformaterad textfil. En sådan fil är kompatibel med många andra appar och tjänster. Kategorier och ikoner sparas inte.</string>
     <string name="backupUriListWarning">Säkerhetskopior till oformaterade textfiler är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
     <!-- Empty states -->
     <string name="noAuthenticatorsTitle">Tomt än så länge!</string>
-    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
+    <string name="noAuthenticatorsMessage">Du har inga konton här</string>
     <string name="gettingStartedGuide">Komma igång-guide</string>
     <string name="noAuthenticatorsHelp">Om du är ny till Authenticator Pro kan du läsa guiden genom att trycka nedan.</string>
     <string name="noCategoriesTitle">Inga kategorier</string>
@@ -132,11 +132,11 @@
     <string name="confirmEmptyPassword">Du har inte valt något lösenord. Din säkerhetskopia kommer inte krypteras och dina hemliga nycklar kan bli sårbara.\n\nVill du fortsätta?</string>
     <string name="passwordHint">Lösenord för säkerhetskopia</string>
     <string name="fileNameHint">Namn på säkerhetskopia</string>
-    <string name="noAuthenticators">Du har inga autentiserare att säkerhetskopiera</string>
+    <string name="noAuthenticators">Du har inga konton att säkerhetskopiera</string>
     <string name="saveSuccess">Sparat</string>
     <string name="backupSuccess">Sparade säkerhetskopia som \"{0}\"</string>
-    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
-    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredFromBackup">Återställde {0} nya konton och {1} nya kategorier</string>
+    <string name="restoredFromBackupUpdated">Återställde {0} nya konton och {1} nya kategorier. Uppdaterade {2} befintliga konton.</string>
     <string name="restoredNothing">Inget att återställa</string>
     <!-- Errors -->
     <string name="cameraPermissionError">Behörighet till kameran behövs för att skanna QR-koder</string>
@@ -184,7 +184,7 @@
     <string name="unlock">Lås upp</string>
     <string name="useBiometrics">Använd biometri</string>
     <string name="unlockMessage">Ange ditt lösenord eller använd biometri för att låsa upp databasen</string>
-    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
+    <string name="unlockBiometricsMessage">Använd biometri för att komma åt dina koder</string>
     <string name="passwordIncorrect">Lösenordet är felaktigt</string>
     <string name="tooManyAttempts">För många försök</string>
     <!-- Import -->
@@ -208,13 +208,13 @@
     <string name="viewGuideImportHint">Visa guide på projektets wiki</string>
     <!-- Getting Started Guide -->
     <string name="guideScanQRCodeTitle">Skanna en QR-kod</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
+    <string name="guideScanQRCodeSummary">För att lägga till ett konto, skanna QR-koden som du fått av appen eller tjänsten. Kontot läggs då till i listan och koder börjar genereras. Du kan också ange uppgifterna manuellt.</string>
     <string name="guideUseCodeTitle">Använd koden när du loggar in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+    <string name="guideUseCodeSummary">När du loggar in, använd den unika koden som syns i Authenticator Pro. Den är endast giltig under en kort tid. Tryck på kontot i listan för att kopiera koden till urklipp.</string>
     <string name="guideCustomiseTitle">Anpassa och redigera</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
+    <string name="guideCustomiseSummary">Döp och anpassa dina konton för att enkelt kunna hitta dem. Tryck på menyikonen på ett konto i listan och följ stegen.</string>
     <string name="guideArrangeTitle">Ordna och sortera</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    <string name="guideArrangeSummary">Du kan kategorisera dina konton för att enkelt kunna hitta dem. Du kan också trycka och dra för att ändra ordningen på kontona.</string>
     <string name="guideBackupTitle">Skapa en säkerhetskopia</string>
     <string name="guideBackupSummary">Bli inte utlåst från dina konton om du byter enhet. Skapa en säkerhetskopieringsfil och lagra den på ett säkert ställe. En säkerhetskopia kan återställas när som helst och skyddas med ett lösenord.</string>
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
@@ -226,7 +226,7 @@
     <!-- Preferences -->
     <string name="prefGeneral">Allmänt</string>
     <string name="prefShowBackupRemindersTitle">Påminnelser om säkerhetskopiering</string>
-    <string name="prefShowBackupRemindersSummary">Påminner dig att säkerhetskopiera dina autentiserare när viktiga ändringar görs</string>
+    <string name="prefShowBackupRemindersSummary">Påminner dig att säkerhetskopiera dina konton när viktiga ändringar har gjorts</string>
     <string name="prefAutoBackupTitle">Automatisk säkerhetskopiering</string>
     <string name="prefAutoBackupSummary">Säkerhetskopiera automatiskt till en specifik plats när ändringar görs. Inaktiverar påminnelser.</string>
     <string name="prefLanguageTitle">Språk</string>
@@ -237,7 +237,7 @@
     <string name="prefResetCopyCountSummary">Glöm hur många gånger du kopierat koden för varje konto</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina koder. Databasen krypteras med ditt lösenord.</string>
     <string name="prefDatabasePasswordBackupTitle">Säkerhetskopiera med databasens lösenord</string>
     <string name="prefDatabasePasswordBackupSummary">Kryptera alla säkerhetskopior med databasens lösenord så att du inte behöver ange det varje gång</string>
     <string name="prefAllowBiometricsTitle">Biometrisk upplåsning</string>
@@ -253,8 +253,8 @@
     <string name="prefAppearance">Utseende</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Välj ett tema för appen</string>
-    <string name="prefViewModeTitle">View Mode</string>
-    <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
+    <string name="prefViewModeTitle">Layout</string>
+    <string name="prefViewModeSummary">Välj layout för kontolistan</string>
     <string name="prefCodeGroupSizeTitle">Gruppering av kodsiffror</string>
     <string name="prefCodeGroupSizeSummary">Ändra hur siffrorna i koder grupperas</string>
     <string name="prefShowUsernamesTitle">Visa användarnamn</string>
@@ -315,7 +315,7 @@
     <string name="introThemesTitle">Mörkt tema</string>
     <string name="introWelcomeSummary">Tack för att du laddade ner Authenticator Pro.\nSkydda dina onlinekonton med den bästa autentiseringsappen med öppen källkod.</string>
     <string name="introCompatibilitySummary">Authenticator Pro är kompatibel med de flesta hemsidor och konton. Den fungerar till 100 % med tjänster som stödjer Google Authenticator.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introBackupSummary">Säkerhetskopiera dina konton med stark kryptering så att du kan få tillgång till dina koder om du skulle förlora din enhet. Spara kopian i molnlagring eller på din enhet.</string>
+    <string name="introCategoriesSummary">Kategorisera och ordna om dina konton genom att trycka och dra.</string>
     <string name="introThemesSummary">Om du föredrar kan du välja mörkt tema i inställningarna. Alla ikoner kommer att anpassa sig för att matcha den mörka bakgrunden.</string>
 </resources>
