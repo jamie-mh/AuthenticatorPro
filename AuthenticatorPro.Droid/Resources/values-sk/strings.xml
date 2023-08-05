@@ -247,8 +247,8 @@
     <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobraziť ťuknutím</string>
     <string name="prefTapToRevealSummary">Skrýva kódy, kým sa ich nedotknete. Po niekoľkých sekundách zmiznú.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Ťuknutím zobrazíte čas trvania</string>
+    <string name="prefTapToRevealDurationSummary">Nastaviť čas, po ktorom sa zobrazené kódy skryjú</string>
     <string name="prefAllowScreenshotsTitle">Povoliť snímky obrazovky</string>
     <string name="prefAllowScreenshotsSummary">Vypnúť ochranu obrazovky a povoliť snímky obrazovky v aplikácii</string>
     <string name="prefAppearance">Vzhľad</string>
@@ -272,9 +272,9 @@
     <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predvolené)</string>
     <string name="immediately">Okamžite</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 sekúnd</string>
+    <string name="timeout10Sec">10 sekúnd</string>
+    <string name="timeout20Sec">20 sekúnd</string>
     <string name="timeout30Sec">30 sekúnd</string>
     <string name="timeout1Min">1 minúta</string>
     <string name="timeout2Min">2 minúty</string>
