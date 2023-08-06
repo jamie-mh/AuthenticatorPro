@@ -12,12 +12,14 @@ using AuthenticatorPro.Core;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Color;
 using Insets = AndroidX.Core.Graphics.Insets;
+using Serilog;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     public class AboutActivity : BaseActivity
     {
+        private readonly ILogger _log = Log.ForContext<AboutActivity>();
         private readonly IAssetProvider _assetProvider;
 
         public AboutActivity() : base(Resource.Layout.activityAbout)
@@ -47,7 +49,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to get current version");
                 version = "unknown";
             }
 

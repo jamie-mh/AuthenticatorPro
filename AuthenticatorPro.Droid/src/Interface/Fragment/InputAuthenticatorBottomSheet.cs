@@ -17,14 +17,16 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
 using Java.Lang;
+using Serilog;
 using Exception = System.Exception;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     public abstract class InputAuthenticatorBottomSheet : BottomSheet
     {
+        private readonly ILogger _log = Log.ForContext<InputAuthenticatorBottomSheet>();
         private readonly IIconResolver _iconResolver;
-
+        
         private LinearLayout _advancedLayout;
         private MaterialButton _advancedButton;
 
@@ -339,7 +341,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Invalid secret");
                 _secretLayout.Error = GetString(Resource.String.secretInvalid);
                 isValid = false;
             }

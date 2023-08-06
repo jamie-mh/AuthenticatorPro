@@ -18,12 +18,16 @@ using AuthenticatorPro.Droid.Interface.Preference;
 using AuthenticatorPro.Droid.Storage;
 using Google.Android.Material.Snackbar;
 using Javax.Crypto;
+using Serilog;
+using BiometricManager = AndroidX.Biometric.BiometricManager;
+using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     public class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
+        private readonly ILogger _log = Log.ForContext<SettingsActivity>();
         private readonly IAuthenticatorService _authenticatorService;
         private SecureStorageWrapper _secureStorageWrapper;
 
@@ -183,7 +187,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Failed to reset copy counts");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 }
             };
@@ -294,7 +298,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error("Key invalidated or unrecoverable", e);
+                _log.Error(e, "Key invalidated or unrecoverable");
                 return true;
             }
 
@@ -316,7 +320,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Failed to store cipher");
                     callback(false);
                     return;
                 }
@@ -353,7 +357,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to get encryption cipher");
                 passwordStorage.Clear();
                 callback(false);
                 return;

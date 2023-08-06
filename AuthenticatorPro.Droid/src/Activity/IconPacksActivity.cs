@@ -27,6 +27,7 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using ProtoBuf;
+using Serilog;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -36,6 +37,7 @@ namespace AuthenticatorPro.Droid.Activity
     {
         private const int RequestAdd = 0;
 
+        private readonly ILogger _log = Log.ForContext<IconPacksActivity>();
         private readonly IIconPackView _iconPackView;
         private readonly IIconPackService _iconPackService;
 
@@ -120,7 +122,7 @@ namespace AuthenticatorPro.Droid.Activity
                     ? Resource.String.invalidIconPackError
                     : Resource.String.filePickError, Snackbar.LengthShort);
 
-                Logger.Error(e);
+                _log.Error(e, "Failed to read icon pack");
                 SetLoading(false);
                 return;
             }
@@ -135,7 +137,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to import icon pack");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 SetLoading(false);
                 return;
@@ -204,7 +206,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Failed to delete icon pack");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 }
 
