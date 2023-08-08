@@ -330,7 +330,12 @@
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
 
+    <string name="prefOther">Other</string>
+    <string name="prefSaveLogTitle">Save Log</string>
+    <string name="prefSaveLogSummary">Save error log to file for debugging purposes</string>
+
     <string name="copyCountReset">Copy count reset</string>
+    <string name="noLogFile">No log file available</string>
 
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>
