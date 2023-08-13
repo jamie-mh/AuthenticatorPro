@@ -15,23 +15,17 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.Preference;
 using AuthenticatorPro.Droid.Storage;
-using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Snackbar;
 using Javax.Crypto;
 using Serilog;
-using System.IO;
-using System.Linq;
 using BiometricManager = AndroidX.Biometric.BiometricManager;
 using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
-using Environment = System.Environment;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     public class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
-        private const int RequestSaveLog = 0;
-
         private readonly ILogger _log = Log.ForContext<SettingsActivity>();
         private readonly IAuthenticatorService _authenticatorService;
         private SecureStorageWrapper _secureStorageWrapper;
@@ -170,42 +164,12 @@ namespace AuthenticatorPro.Droid.Activity
             layout.SetPadding(0, 0, 0, insets.Bottom);
         }
 
-        protected override async void OnActivityResult(int requestCode, Result resultCode, Intent intent)
-        {
-            if (requestCode != RequestSaveLog || resultCode != Result.Ok)
-            {
-                return;
-            }
-
-            try
-            {
-                var contents = await File.ReadAllTextAsync(GetLogFilePath());
-                await FileUtil.WriteFile(this, intent.Data, contents);
-            }
-            catch (Exception e)
-            {
-                _log.Error(e, "Log saving failed");
-                Toast.MakeText(this, Resource.String.genericError, ToastLength.Short).Show();
-                return;
-            }
-
-            Toast.MakeText(this, Resource.String.saveSuccess, ToastLength.Short).Show();
-        }
-
-        private static string GetLogFilePath()
-        {
-            var privateDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            var file = Directory.GetFiles(privateDir, "*.log").FirstOrDefault();
-            return file == null ? null : Path.Combine(privateDir, file);
-        }
-
         private void RegisterClickableEvents()
         {
             var autoBackup = _fragment.FindPreference("pref_autoBackup");
             var resetCopyCount = _fragment.FindPreference("pref_resetCopyCount");
             var password = _fragment.FindPreference("pref_password");
             var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
-            var saveLog = _fragment.FindPreference("pref_saveLog");
 
             autoBackup.PreferenceClick += delegate
             {
@@ -255,33 +219,6 @@ namespace AuthenticatorPro.Droid.Activity
                     ClearBiometrics();
                     biometrics.Checked = false;
                     Preferences.AllowBiometrics = false;
-                }
-            };
-
-            saveLog.PreferenceClick += delegate
-            {
-                var path = GetLogFilePath();
-
-                if (path == null)
-                {
-                    Toast.MakeText(this, Resource.String.noLogFile, ToastLength.Short).Show();
-                    return;
-                }
-
-                var intent = new Intent(Intent.ActionCreateDocument);
-                intent.AddCategory(Intent.CategoryOpenable);
-                intent.SetType("text/plain");
-                intent.PutExtra(Intent.ExtraTitle, Path.GetFileName(path));
-
-                BaseApplication.PreventNextAutoLock = true;
-
-                try
-                {
-                    StartActivityForResult(intent, RequestSaveLog);
-                }
-                catch (ActivityNotFoundException)
-                {
-                    Toast.MakeText(this, Resource.String.filePickerMissing, ToastLength.Long).Show();
                 }
             };
         }

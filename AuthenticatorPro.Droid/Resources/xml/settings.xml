@@ -158,15 +158,4 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
-
-    <androidx.preference.PreferenceCategory
-        android:title="@string/prefOther"
-        android:key="pref_key_other">
-        <androidx.preference.Preference
-            android:key="pref_saveLog"
-            android:summary="@string/prefSaveLogSummary"
-            app:iconSpaceReserved="false"
-            android:defaultValue="false"
-            android:title="@string/prefSaveLogTitle"/>
-    </androidx.preference.PreferenceCategory>
 </androidx.preference.PreferenceScreen>
