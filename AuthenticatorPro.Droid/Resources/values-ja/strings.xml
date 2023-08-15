@@ -4,7 +4,7 @@
     <string name="warning">警告</string>
     <string name="delete">削除</string>
     <string name="add">追加</string>
-    <string name="edit">Edit</string>
+    <string name="edit">編集</string>
     <string name="cancel">キャンセル</string>
     <string name="ok">OK</string>
     <string name="yes">はい</string>
@@ -14,7 +14,7 @@
     <string name="retry">リトライ</string>
     <string name="ignore">無視</string>
     <string name="disable">無効化</string>
-    <string name="name">Name</string>
+    <string name="name">名前</string>
     <!-- Menu items -->
     <string name="settings">設定</string>
     <string name="restore">復元</string>
@@ -22,7 +22,7 @@
     <string name="about">このアプリについて</string>
     <string name="scanQrCode">QRコードをスキャン</string>
     <string name="showQrCode">QRコードを表示</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">詳細を編集</string>
     <string name="scanQrCodeFromCamera">カメラでスキャン</string>
     <string name="scanQrCodeFromGallery">ギャラリーから選択</string>
     <string name="rename">名前を変更</string>
@@ -34,14 +34,14 @@
     <string name="sort">並び替え</string>
     <string name="sortAZ">アルファベット順 (aからz)</string>
     <string name="sortZA">アルファベット順 (zからa)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">コピー回数 (降順)</string>
+    <string name="sortLeastCopied">コピー回数 (昇順)</string>
     <string name="sortCustom">カスタム</string>
     <string name="aboutSummary">詳細とライセンス情報を表示する</string>
     <string name="supportDevelopment">開発を支援する</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffeeで継続的な開発と更新をサポートする</string>
     <string name="rate">評価する</string>
-    <string name="rateSummary">Google Playストアで Authenticator Pro を評価する</string>
+    <string name="rateSummary">Google Play ストアで Authenticator Pro を評価する</string>
     <string name="viewGitHub">GitHubで表示</string>
     <string name="viewGitHubSummary">GitHub で Authenticator Pro のリポジトリを表示します。問題を報告したり、アイコンや機能をリクエストすることができます。</string>
     <!-- Authenticator -->
@@ -50,7 +50,7 @@
     <string name="secretKey">シークレットキー</string>
     <string name="pin">ピン留め</string>
     <string name="showAdvancedOptions">詳細設定を表示する</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">自分が何をしているのか理解している場合のみ、このオプションを変更してください。アカウントがロックアウトされる可能性があります。\n\n続けますか？</string>
     <string name="confirmAuthenticatorDelete">認証コードを削除すると、このアカウントのコードを作成できなくなります。これは、2要素認証が無効化されるわけではありません。\n\n認証コードを削除することで、あなたのアカウントへアクセスできなくなる可能性があります。\n2要素認証が無効化されているか、リカバリーコードにアクセスできるか確認してください。\n\n続けますか？</string>
     <string name="useCustomIcon">カスタムアイコンを使用する</string>
     <string name="copiedToClipboard">コードをクリップボードにコピーしました</string>
@@ -61,7 +61,7 @@
     <string name="algorithmHint">アルゴリズム</string>
     <string name="digitsHint">桁数</string>
     <string name="periodHint">期間（秒）</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">カウンター</string>
     <string name="noIssuer">発行元が必要です</string>
     <string name="noSecret">シークレットキーが必要です</string>
     <string name="noPin">PINコードが必要です</string>
@@ -71,24 +71,24 @@
     <string name="pinTooLong">ピンには数字を {0} 桁以上を含めることはできません</string>
     <string name="digitsInvalid">認証コードは {0} 桁から {1} 桁の間で生成する必要があります</string>
     <string name="periodInvalid">期間が無効です</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">カウンターが無効です</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
     <string name="pinMessage">このQRコードに関連付けられているピンを入力してください。このアカウントを設定する際にピンが必要になります。</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="defaultIcons">デフォルトのアイコン</string>
+    <string name="iconPacks">アイコンパック</string>
+    <string name="downloadPacks">パックをダウンロード</string>
+    <string name="importIconPackSuccess">パックから {0} 個のアイコンをインポートしました</string>
+    <string name="invalidIconPackError">選択されたファイルは Authenticator Pro アイコンパックではありません</string>
+    <string name="confirmIconPackDelete">本当にこのアイコンパックを削除しますか？使用されているアイコンは削除されません。</string>
     <!-- QR code dialog -->
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
     <string name="qrCodeNotSupported">このタイプのQRコードはサポートされていません</string>
     <string name="copyUri">URIをコピー</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">このURIには秘密鍵が平文で含まれています。この情報を貼り付ける場合は注意してください。\n\n続けますか？</string>
     <string name="uriCopiedToClipboard">URI をクリップボードにコピーしました</string>
     <!-- Backup menu -->
     <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
