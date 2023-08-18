@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
-    <string name="pinMessage">Enter the pin associated with this QR code. You would have been prompted for a pin when setting up this account.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Default icons</string>
     <string name="iconPacks">Icon packs</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
-    <string name="bitwarden">Bitwarden (plain-text)</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
