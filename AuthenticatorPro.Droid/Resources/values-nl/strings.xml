@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
-    <string name="pinMessage">Voer de pin in die gekoppeld is aan deze QR-code. Er wordt u om een pin gevraagd bij het instellen van dit account.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Standaard pictogrammen</string>
     <string name="iconPacks">Pictogrampakketten</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">Importeer freeotp-backup.json bestand</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
-    <string name="bitwarden">Bitwarden (platte tekst)</string>
     <string name="bitwardenImportHint">Importeer bitwarden_export.json bestand</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
