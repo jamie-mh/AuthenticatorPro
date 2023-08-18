@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
-    <string name="pinMessage">Bu QR koduyla ilişkili pini girin. Bu hesabı kurarken sizden bir pin istenmişti.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Default icons</string>
     <string name="iconPacks">Icon packs</string>
@@ -199,7 +199,6 @@
     <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
-    <string name="bitwarden">Bitwarden (düz-metin)</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
