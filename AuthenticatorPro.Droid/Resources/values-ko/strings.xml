@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
     <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
-    <string name="pinMessage">이 QR코드에 할당된 PIN을 입력하세요. 계정을 설정할 때 PIN을 설정하셨을 겁니다.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Default icons</string>
     <string name="iconPacks">Icon packs</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
-    <string name="bitwarden">Bitwarden (평문)</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
