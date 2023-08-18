@@ -76,7 +76,7 @@
     <string name="qrCodeFormatError">QR kód není ve správném formátu nebo jej nelze přčíst</string>
     <string name="duplicateAuthenticator">Autentifikátor s tímto tajným klíčem již existuje</string>
     <string name="scanSuccessful">QR kód úspěšně naskenován</string>
-    <string name="pinMessage">Zadejte pin spojený s tímto QR kódem. Při nastavování tohoto účtu jste byli vyzváni k zadání pinu.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Výchozí ikony</string>
     <string name="iconPacks">Balíčky ikon</string>
@@ -113,7 +113,7 @@
     <string name="category">Kategorie</string>
     <string name="categories">Kategorie</string>
     <string name="assignCategories">Přiřadit kategorie</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">Přiřadit položky</string>
     <string name="more">Více</string>
     <string name="categoryAll">Vše</string>
     <string name="editCategories">Upravit kategorie</string>
@@ -198,7 +198,6 @@
     <string name="freeOtpImportHint">Importovat soubor externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importovat soubor freeotp-backup.json</string>
     <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
-    <string name="bitwarden">Bitwarden (prostý text)</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
