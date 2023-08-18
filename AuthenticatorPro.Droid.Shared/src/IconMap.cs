@@ -1,4 +1,4 @@
-// Copyright (C) 2022 jmh
+// Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System.Collections.Generic;
@@ -564,6 +564,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "wrike", Resource.Drawable.auth_wrike },
             { "wykop", Resource.Drawable.auth_wykop },
             { "wyze", Resource.Drawable.auth_wyze },
+            { "x", Resource.Drawable.auth_x },
             { "xda", Resource.Drawable.auth_xda },
             { "xero", Resource.Drawable.auth_xero },
             { "xing", Resource.Drawable.auth_xing },
@@ -712,6 +713,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "wikipedia", Resource.Drawable.auth_wikipedia_dark },
             { "wolfbet", Resource.Drawable.auth_wolfbet_dark },
             { "wordpress", Resource.Drawable.auth_wordpress_dark },
+            { "x", Resource.Drawable.auth_x_dark },
             { "zendesk", Resource.Drawable.auth_zendesk_dark },
             { "zonda", Resource.Drawable.auth_zonda_dark },
             { "zyxel", Resource.Drawable.auth_zyxel_dark },
