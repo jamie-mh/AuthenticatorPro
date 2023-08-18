@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
-    <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Oletuskuvakkeet</string>
     <string name="iconPacks">Kuvakepaketit</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Tuo externalBackup.xml-tiedosto</string>
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
     <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
-    <string name="bitwarden">Bitwarden (raakateksti)</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
