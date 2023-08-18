@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
-    <string name="pinMessage">輸入該 QR Code 的密碼。在設定此帳號時，會提示您輸入密碼。</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">預設圖示</string>
     <string name="iconPacks">圖示包</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">匯入 externalBackup.xml 檔案</string>
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
     <string name="aegisImportHint">匯入 aegis-export.json 檔案</string>
-    <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 或 winauth.zip 檔案</string>
     <string name="twoFasImportHint">匯入 2fas-backup.2fas 檔案</string>
