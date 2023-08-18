@@ -171,7 +171,7 @@ namespace AuthenticatorPro.Core.Converter
 
                 var algorithm = Otp.Algorithm switch
                 {
-                    "SHA1" => HashAlgorithm.Sha1,
+                    "SHA1" or null => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
                     _ => throw new ArgumentException($"Algorithm '{Otp.Algorithm}' not supported")

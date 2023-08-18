@@ -54,8 +54,8 @@
                 android:tint="?attr/colorOnSurface"
                 android:scaleType="centerInside"
                 android:background="?selectableItemBackgroundBorderless"
-                android:layout_width="22dp"
-                android:layout_height="22dp"/>
+                android:layout_width="26dp"
+                android:layout_height="26dp"/>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
