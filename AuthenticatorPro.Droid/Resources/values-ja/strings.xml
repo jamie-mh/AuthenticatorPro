@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
-    <string name="pinMessage">このQRコードに関連付けられているピンを入力してください。このアカウントを設定する際にピンが必要になります。</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">デフォルトのアイコン</string>
     <string name="iconPacks">アイコンパック</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
     <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
-    <string name="bitwarden">Bitwarden (プレーンテキスト)</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
