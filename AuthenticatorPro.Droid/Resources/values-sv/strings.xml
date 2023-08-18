@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
     <string name="duplicateAuthenticator">Det finns redan ett konto med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
-    <string name="pinMessage">Ange PIN-koden som är kopplad till den här QR-koden. Du blev ombedd att ställa in denna PIN-kod när du konfigurerade kontot.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Standardikoner</string>
     <string name="iconPacks">Ikonpaket</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Importera \"externalBackup.xml\"-fil</string>
     <string name="freeOtpPlusImportHint">Importera \"freeotp-backup.json\"-fil</string>
     <string name="aegisImportHint">Importera \"aegis-export.json\"-fil</string>
-    <string name="bitwarden">Bitwarden (oformaterad text)</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"- eller \"winauth.zip\"-fil</string>
     <string name="twoFasImportHint">Importera \"2fas-backup.2fas\"-fil</string>
