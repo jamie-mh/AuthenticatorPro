@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022 jmh
+# Copyright (C) 2023 jmh
 # SPDX-License-Identifier: GPL-3.0-only
 
 import os
-import sys
 import argparse
+import subprocess
 import tempfile
 import shutil
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ElementTree
 
 REPO = "https://github.com/jamie-mh/AuthenticatorPro.git"
 
@@ -17,7 +17,7 @@ CONFIGURATION = "Release"
 
 PROJECT_NAMES = {
     "android": "AuthenticatorPro.Droid",
-    "wearos": "AuthenticatorPro.WearOS"
+    "wearos": "AuthenticatorPro.WearOS",
 }
 
 
@@ -27,20 +27,20 @@ def get_full_path(path: str) -> str:
 
 def adjust_csproj(build_dir: str, args: argparse.Namespace):
     csproj_path = os.path.join(build_dir, args.project, f"{args.project}.csproj")
-    csproj = ET.parse(csproj_path)
+    csproj = ElementTree.parse(csproj_path)
 
     property_group = csproj.find("PropertyGroup")
 
-    package_format = ET.Element("AndroidPackageFormat")
+    package_format = ElementTree.Element("AndroidPackageFormat")
     package_format.text = args.package
     property_group.append(package_format)
 
-    package_per_abi = ET.Element("AndroidCreatePackagePerAbi")
+    package_per_abi = ElementTree.Element("AndroidCreatePackagePerAbi")
     package_per_abi.text = "true" if args.package == "apk" else "false"
     property_group.append(package_per_abi)
 
     if args.fdroid:
-        define_constants = ET.Element("DefineConstants")
+        define_constants = ElementTree.Element("DefineConstants")
         define_constants.text = "FDROID"
         property_group.append(define_constants)
 
@@ -49,13 +49,13 @@ def adjust_csproj(build_dir: str, args: argparse.Namespace):
 
 def adjust_version_code(build_dir: str):
     manifest_path = f"{build_dir}/AuthenticatorPro.Droid/Properties/AndroidManifest.xml"
-    manifest = ET.parse(manifest_path)
+    manifest = ElementTree.parse(manifest_path)
 
     android_namespace = "http://schemas.android.com/apk/res/android"
-    ET.register_namespace("android", android_namespace)
+    ElementTree.register_namespace("android", android_namespace)
 
     tools_namespace = "http://schemas.android.com/tools"
-    ET.register_namespace("tools", tools_namespace)
+    ElementTree.register_namespace("tools", tools_namespace)
 
     # add 2 zeroes to version code when building aab
     version_code_path = f"{{{android_namespace}}}versionCode"
@@ -67,17 +67,26 @@ def adjust_version_code(build_dir: str):
 
 def build_project(build_dir: str, args: argparse.Namespace):
     os.makedirs(args.output, exist_ok=True)
-    build_args = f"-f:{FRAMEWORK} -c:{CONFIGURATION}"
+    build_args = [f"-f:{FRAMEWORK}", f"-c:{CONFIGURATION}"]
 
     if args.keystore is not None:
-        build_args += f' -p:AndroidKeyStore=True -p:AndroidSigningKeyStore="{args.keystore}" -p:AndroidSigningStorePass="{args.keystore_pass}" -p:AndroidSigningKeyAlias="{args.keystore_alias}" -p:AndroidSigningKeyPass="{args.keystore_key_pass}"'
+        build_args += [
+            "-p:AndroidKeyStore=True",
+            f'-p:AndroidSigningKeyStore="{args.keystore}"',
+            f'-p:AndroidSigningStorePass="{args.keystore_pass}"',
+            f'-p:AndroidSigningKeyAlias="{args.keystore_alias}"',
+            f'-p:AndroidSigningKeyPass="{args.keystore_key_pass}"',
+        ]
 
     project_file_path = os.path.join(build_dir, args.project, f"{args.project}.csproj")
-    os.system(f'dotnet publish {build_args} "{project_file_path}"')
+    subprocess.run(["dotnet", "publish", *build_args, project_file_path], check=True)
 
 
 def move_build_artifacts(args: argparse.Namespace, build_dir: str, output_dir: str):
-    publish_dir = os.path.join(build_dir, args.project, "bin", CONFIGURATION, FRAMEWORK, "publish")
+    publish_dir = os.path.join(
+        build_dir, args.project, "bin", CONFIGURATION, FRAMEWORK, "publish"
+    )
+
     files = os.listdir(publish_dir)
 
     for file in filter(lambda f: "Signed" in f and f[-3:] == args.package, files):
@@ -96,16 +105,39 @@ def move_build_artifacts(args: argparse.Namespace, build_dir: str, output_dir: s
 
 def get_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build Authenticator Pro")
-    parser.add_argument("project", metavar="P", type=str, choices=PROJECT_NAMES.keys(), help="Project to build")
-    parser.add_argument("package", metavar="T", type=str, choices=["apk", "aab"], help="Package type to build")
+    parser.add_argument(
+        "project",
+        metavar="P",
+        type=str,
+        choices=PROJECT_NAMES.keys(),
+        help="Project to build",
+    )
+    parser.add_argument(
+        "package",
+        metavar="T",
+        type=str,
+        choices=["apk", "aab"],
+        help="Package type to build",
+    )
 
-    parser.add_argument("--fdroid", action=argparse.BooleanOptionalAction,
-                        help="Build without proprietary libraries (Wear OS, ML Kit, etc.)")
-    parser.add_argument("--output", type=str, help="Build output path (defaults to 'out')", default="out")
+    parser.add_argument(
+        "--fdroid",
+        action=argparse.BooleanOptionalAction,
+        help="Build without proprietary libraries (Wear OS, ML Kit, etc.)",
+    )
+    parser.add_argument(
+        "--output",
+        type=str,
+        help="Build output path (defaults to 'out')",
+        default="out",
+    )
 
     signing = parser.add_argument_group("build signing")
-    signing.add_argument("--keystore", type=str,
-                         help="Keystore location (if not set, output is signed with debug keystore)")
+    signing.add_argument(
+        "--keystore",
+        type=str,
+        help="Keystore location (if not set, output is signed with debug keystore)",
+    )
     signing.add_argument("--keystore-pass", type=str, help="Keystore password")
     signing.add_argument("--keystore-alias", type=str, help="Keystore alias")
     signing.add_argument("--keystore-key-pass", type=str, help="Keystore key password")
@@ -116,8 +148,14 @@ def get_args() -> argparse.Namespace:
         raise ValueError("Cannot build Wear OS as F-Droid")
 
     if args.keystore is not None:
-        if args.keystore_pass is None or args.keystore_alias is None or args.keystore_key_pass is None:
-            raise ValueError("Keystore provided but not all signing arguments are present")
+        if (
+            args.keystore_pass is None
+            or args.keystore_alias is None
+            or args.keystore_key_pass is None
+        ):
+            raise ValueError(
+                "Keystore provided but not all signing arguments are present"
+            )
 
         args.keystore = get_full_path(args.keystore)
 
@@ -133,37 +171,24 @@ def validate_path():
             raise ValueError(f"Missing {program} on PATH")
 
 
-def run(args: argparse.Namespace):
-    with tempfile.TemporaryDirectory() as build_dir:
-        os.system(f'git clone "{REPO}" "{build_dir}"')
-        adjust_csproj(build_dir, args)
-        
-        if args.project == PROJECT_NAMES["android"] and args.package == "aab":
-            adjust_version_code(build_dir)
-        
-        build_project(build_dir, args)
-        move_build_artifacts(args, build_dir, args.output)
-
-
 def main():
     args = get_args()
-
-    try:
-        validate_path()
-    except ValueError as err:
-        print(err)
-        return 1
+    validate_path()
 
     print(f"Building {args.project} as {args.package}")
 
-    try:
-        run(args)
-    except Exception as err:
-        print(err)
-        return 1
+    with tempfile.TemporaryDirectory() as build_dir:
+        subprocess.run(["git", "clone", REPO, build_dir], check=True)
+        adjust_csproj(build_dir, args)
 
-    return 0
+        if args.project == PROJECT_NAMES["android"] and args.package == "aab":
+            adjust_version_code(build_dir)
+
+        build_project(build_dir, args)
+        move_build_artifacts(args, build_dir, args.output)
+
+    print("Build finished")
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
