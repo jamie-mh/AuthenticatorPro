@@ -654,7 +654,9 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
 
+#pragma warning disable CA1416
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+#pragma warning restore CA1416
         }
 
         #endregion
