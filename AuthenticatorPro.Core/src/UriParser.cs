@@ -14,19 +14,19 @@ namespace AuthenticatorPro.Core
 {
     public static partial class UriParser
     {
-        [GeneratedRegex("^otpauth-migration:\\/\\/offline\\?data=(.*)$")]
+        [GeneratedRegex(@"^otpauth-migration://offline\?data=(.*)$")]
         private static partial Regex OtpAuthMigrationRegex();
 
         [GeneratedRegex("([^?=&]+)(=([^&]*))?")]
         private static partial Regex QueryStringRegex();
 
-        [GeneratedRegex("^otpauth:\\/\\/([a-z]+)\\/([^?]*)(.*)$")]
+        [GeneratedRegex(@"^otpauth://([a-z]+)/([^?]*)(.*)$")]
         private static partial Regex OtpAuthUriRegex();
 
         [GeneratedRegex("^(.*?):(.*)$")]
         private static partial Regex UsernameIssuerRegex();
 
-        [GeneratedRegex("^motp:\\/\\/(.*?):(.*?)\\?secret=([a-fA-F\\d]+)$")]
+        [GeneratedRegex(@"^motp://(.*?):(.*?)\?secret=([a-fA-F\d]+)$")]
         private static partial Regex MotpRegex();
 
         private static UriParseResult ParseMotpUri(string uri, IIconResolver iconResolver)

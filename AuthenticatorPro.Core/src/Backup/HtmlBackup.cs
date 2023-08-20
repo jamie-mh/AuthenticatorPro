@@ -70,14 +70,14 @@ namespace AuthenticatorPro.Core.Backup
 
                 var qrCode = await GetQrCodeDataAsync(uri);
 
-                itemsHtml.Append($@"
-                    <tr>
-                        <td>{auth.Issuer}</td>
-                        <td>{auth.Username}</td>
-                        <td><code>{uri}</code></td>
-                        <td><img src=""data:image/png;base64,{qrCode}""></td>
-                    </tr>
-                ");
+                itemsHtml.Append($"""
+                                  <tr>
+                                      <td>{auth.Issuer}</td>
+                                      <td>{auth.Username}</td>
+                                      <td><code>{uri}</code></td>
+                                      <td><img src="data:image/png;base64,{qrCode}"></td>
+                                  </tr>
+                                  """);
             }
 
             var contents = template.Replace("%ITEMS", itemsHtml.ToString());
