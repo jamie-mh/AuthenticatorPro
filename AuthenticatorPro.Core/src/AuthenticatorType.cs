@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Core
         {
             return type switch
             {
-                AuthenticatorType.Hotp => true,
+                AuthenticatorType.Hotp => false,
                 AuthenticatorType.Totp => true,
                 AuthenticatorType.MobileOtp => false,
                 AuthenticatorType.SteamOtp => false,

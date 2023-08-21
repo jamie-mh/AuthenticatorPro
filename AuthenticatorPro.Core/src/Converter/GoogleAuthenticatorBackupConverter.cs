@@ -44,7 +44,11 @@ namespace AuthenticatorPro.Core.Converter
                 authenticators.Add(auth);
             }
 
-            var result = new ConversionResult { Failures = failures, Backup = new Backup.Backup(authenticators) };
+            var result = new ConversionResult
+            {
+                Failures = failures, Backup = new Backup.Backup { Authenticators = authenticators }
+            };
+            
             return Task.FromResult(result);
         }
 
@@ -76,6 +80,8 @@ namespace AuthenticatorPro.Core.Converter
             var algorithm = auth.Algorithm switch
             {
                 OtpAuthMigration.Algorithm.Sha1 => HashAlgorithm.Sha1,
+                OtpAuthMigration.Algorithm.Sha256 => HashAlgorithm.Sha256,
+                OtpAuthMigration.Algorithm.Sha512 => HashAlgorithm.Sha512,
                 _ => throw new ArgumentException($"Unknown algorithm '{auth.Algorithm}")
             };
 
@@ -93,8 +99,8 @@ namespace AuthenticatorPro.Core.Converter
 
             var result = new Authenticator
             {
-                Issuer = issuer,
-                Username = username,
+                Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                Username = username.Truncate(Authenticator.UsernameMaxLength),
                 Algorithm = algorithm,
                 Type = type,
                 Secret = secret,

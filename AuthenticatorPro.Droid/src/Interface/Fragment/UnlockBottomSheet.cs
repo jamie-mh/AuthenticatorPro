@@ -9,8 +9,10 @@ using Android.Widget;
 using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 using System;
 
@@ -24,24 +26,23 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private BiometricPrompt _prompt;
         private bool _canUseBiometrics;
 
-        private ProgressBar _progressBar;
         private MaterialButton _unlockButton;
         private MaterialButton _useBiometricsButton;
         private TextInputLayout _passwordLayout;
         private TextInputEditText _passwordText;
+        private CircularProgressIndicator _progressIndicator;
 
-        public UnlockBottomSheet() : base(Resource.Layout.sheetUnlock)
+        public UnlockBottomSheet() : base(Resource.Layout.sheetUnlock, Resource.String.unlock)
         {
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.unlock);
 
             _preferences = new PreferenceWrapper(Context);
-            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
 
+            _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
             _passwordLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPasswordLayout);
             _passwordText = view.FindViewById<TextInputEditText>(Resource.Id.editPassword);
             TextInputUtil.EnableAutoErrorClear(_passwordLayout);
@@ -91,22 +92,24 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             return view;
         }
 
-        public void SetBusy()
+        public void SetLoading(bool loading)
         {
-            _unlockButton.Enabled = _useBiometricsButton.Enabled = false;
-            _progressBar.Visibility = ViewStates.Visible;
-        }
-
-        private void ClearBusy()
-        {
-            _unlockButton.Enabled = true;
-            _useBiometricsButton.Enabled = _canUseBiometrics;
-            _progressBar.Visibility = ViewStates.Invisible;
+            if (loading)
+            {
+                _unlockButton.Visibility = ViewStates.Invisible;
+                _progressIndicator.Visibility = ViewStates.Visible;
+                _useBiometricsButton.Enabled = false;
+            }
+            else
+            {
+                _unlockButton.Visibility = ViewStates.Visible;
+                _progressIndicator.Visibility = ViewStates.Invisible;
+                _useBiometricsButton.Enabled = _canUseBiometrics;
+            }
         }
 
         public void ShowError()
         {
-            ClearBusy();
             FocusPasswordText();
             _passwordLayout.Error = GetString(Resource.String.passwordIncorrect);
         }

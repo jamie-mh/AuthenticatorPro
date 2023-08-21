@@ -7,6 +7,7 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
+using Google.Android.Material.TextView;
 using System;
 using System.Collections.Generic;
 
@@ -14,7 +15,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class AuthenticatorMenuBottomSheet : BottomSheet
     {
-        public event EventHandler RenameClicked;
+        public event EventHandler EditClicked;
         public event EventHandler ChangeIconClicked;
         public event EventHandler AssignCategoriesClicked;
         public event EventHandler ShowQrCodeClicked;
@@ -23,7 +24,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private AuthenticatorType _type;
         private long _counter;
 
-        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu) { }
+        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu, Resource.String.edit) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,7 +40,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (_type.GetGenerationMethod() == GenerationMethod.Counter)
             {
-                var counterText = view.FindViewById<TextView>(Resource.Id.textCounter);
+                var counterText = view.FindViewById<MaterialTextView>(Resource.Id.textCounter);
                 counterText.Text = _counter.ToString();
 
                 view.FindViewById<LinearLayout>(Resource.Id.layoutCounter).Visibility = ViewStates.Visible;
@@ -49,7 +50,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             SetupMenu(menu,
                 new List<SheetMenuItem>
                 {
-                    new(Resource.Drawable.baseline_edit_24, Resource.String.rename, RenameClicked),
+                    new(Resource.Drawable.baseline_edit_24, Resource.String.editDetails, EditClicked),
                     new(Resource.Drawable.baseline_image_24, Resource.String.changeIcon,
                         ChangeIconClicked),
                     new(Resource.Drawable.baseline_category_24, Resource.String.assignCategories,

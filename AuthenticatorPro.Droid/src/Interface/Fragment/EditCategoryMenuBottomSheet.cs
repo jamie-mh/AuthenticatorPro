@@ -11,19 +11,20 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class EditCategoryMenuBottomSheet : BottomSheet
     {
-        public event EventHandler<int> RenameClicked;
-        public event EventHandler<int> SetDefaultClicked;
-        public event EventHandler<int> DeleteClicked;
+        public event EventHandler<string> RenameClicked;
+        public event EventHandler<string> AssignEntriesClicked;
+        public event EventHandler<string> SetDefaultClicked;
+        public event EventHandler<string> DeleteClicked;
 
-        private int _position;
+        private string _id;
         private bool _isDefault;
 
-        public EditCategoryMenuBottomSheet() : base(Resource.Layout.sheetMenu) { }
+        public EditCategoryMenuBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.edit) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            _position = Arguments.GetInt("position", -1);
+            _id = Arguments.GetString("id");
             _isDefault = Arguments.GetBoolean("isDefault", false);
         }
 
@@ -36,16 +37,20 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             {
                 new(Resource.Drawable.baseline_edit_24, Resource.String.rename, delegate
                 {
-                    RenameClicked(this, _position);
+                    RenameClicked(this, _id);
+                }),
+                new(Resource.Drawable.baseline_checklist_24, Resource.String.assignEntries, delegate
+                {
+                    AssignEntriesClicked(this, _id);
                 }),
                 new(Resource.Drawable.baseline_star_24,
                     _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault, delegate
                     {
-                        SetDefaultClicked(this, _position);
+                        SetDefaultClicked(this, _id);
                     }),
                 new(Resource.Drawable.baseline_delete_24, Resource.String.delete, delegate
                 {
-                    DeleteClicked(this, _position);
+                    DeleteClicked(this, _id);
                 }, null, true)
             });
 

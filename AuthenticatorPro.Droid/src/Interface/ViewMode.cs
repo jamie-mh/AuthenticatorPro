@@ -34,9 +34,9 @@ namespace AuthenticatorPro.Droid.Interface
         {
             return viewMode switch
             {
-                ViewMode.Default => 8,
-                ViewMode.Compact => 6,
-                _ => 4
+                ViewMode.Default => 14,
+                ViewMode.Compact => 12,
+                _ => 10
             };
         }
     }

@@ -16,7 +16,6 @@ namespace AuthenticatorPro.Test.Service
     {
         private readonly Mock<IAuthenticatorService> _authenticatorService;
         private readonly Mock<ICategoryService> _categoryService;
-        private readonly Mock<IAuthenticatorCategoryService> _authenticatorCategoryService;
         private readonly Mock<ICustomIconService> _customIconService;
 
         private readonly IRestoreService _restoreService;
@@ -25,20 +24,18 @@ namespace AuthenticatorPro.Test.Service
         {
             _authenticatorService = new Mock<IAuthenticatorService>();
             _categoryService = new Mock<ICategoryService>();
-            _authenticatorCategoryService = new Mock<IAuthenticatorCategoryService>();
             _customIconService = new Mock<ICustomIconService>();
 
             _restoreService = new RestoreService(
                 _authenticatorService.Object,
                 _categoryService.Object,
-                _authenticatorCategoryService.Object,
                 _customIconService.Object);
         }
 
         [Fact]
         public async Task RestoreAsync_nulls()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>());
+            var backup = new Core.Backup.Backup();
 
             _authenticatorService.Setup(s => s.AddManyAsync(backup.Authenticators)).ReturnsAsync(1);
 
@@ -55,19 +52,25 @@ namespace AuthenticatorPro.Test.Service
 
             Assert.Equal(0, result.AddedCustomIconCount);
 
-            _categoryService.Verify(s => s.AddManyAsync(It.IsAny<List<Category>>()), Times.Never());
-            _authenticatorCategoryService.Verify(s => s.AddManyAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
+            _categoryService.Verify(s => s.AddManyCategoriesAsync(It.IsAny<List<Category>>()), Times.Never());
+            _categoryService.Verify(s => s.AddManyBindingsAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
             _customIconService.Verify(s => s.AddManyAsync(It.IsAny<List<CustomIcon>>()), Times.Never());
         }
 
         [Fact]
         public async Task RestoreAsync_full()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>(), new List<Category>(), new List<AuthenticatorCategory>(), new List<CustomIcon>());
+            var backup = new Core.Backup.Backup
+            {
+                Authenticators = new List<Authenticator>(), 
+                Categories = new List<Category>(),
+                AuthenticatorCategories = new List<AuthenticatorCategory>(),
+                CustomIcons = new List<CustomIcon>()
+            };
 
             _authenticatorService.Setup(s => s.AddManyAsync(backup.Authenticators)).ReturnsAsync(1);
-            _categoryService.Setup(s => s.AddManyAsync(backup.Categories)).ReturnsAsync(1);
-            _authenticatorCategoryService.Setup(s => s.AddManyAsync(backup.AuthenticatorCategories)).ReturnsAsync(1);
+            _categoryService.Setup(s => s.AddManyCategoriesAsync(backup.Categories)).ReturnsAsync(1);
+            _categoryService.Setup(s => s.AddManyBindingsAsync(backup.AuthenticatorCategories)).ReturnsAsync(1);
             _customIconService.Setup(s => s.AddManyAsync(backup.CustomIcons)).ReturnsAsync(1);
 
             var result = await _restoreService.RestoreAsync(backup);
@@ -87,7 +90,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RestoreAndUpdateAsync_nulls()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>());
+            var backup = new Core.Backup.Backup();
 
             _authenticatorService.Setup(s => s.AddOrUpdateManyAsync(backup.Authenticators))
                 .ReturnsAsync(new ValueTuple<int, int>(1, 2));
@@ -105,26 +108,35 @@ namespace AuthenticatorPro.Test.Service
 
             Assert.Equal(0, result.AddedCustomIconCount);
 
-            _categoryService.Verify(s => s.AddOrUpdateManyAsync(It.IsAny<List<Category>>()), Times.Never());
-            _authenticatorCategoryService.Verify(s => s.AddOrUpdateManyAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
+            _categoryService.Verify(s => s.AddOrUpdateManyCategoriesAsync(It.IsAny<List<Category>>()), Times.Never());
+            _categoryService.Verify(s => s.AddOrUpdateManyBindingsAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
             _customIconService.Verify(s => s.AddManyAsync(It.IsAny<List<CustomIcon>>()), Times.Never());
         }
 
         [Fact]
         public async Task RestoreAndUpdateAsync_full()
         {
-            var backup = new Core.Backup.Backup(new List<Authenticator>(), new List<Category>(), new List<AuthenticatorCategory>(), new List<CustomIcon>());
+            var backup = new Core.Backup.Backup
+            {
+                Authenticators = new List<Authenticator>(), 
+                Categories = new List<Category>(),
+                AuthenticatorCategories = new List<AuthenticatorCategory>(),
+                CustomIcons = new List<CustomIcon>()
+            };
 
             _authenticatorService.Setup(s => s.AddOrUpdateManyAsync(backup.Authenticators))
                 .ReturnsAsync(new ValueTuple<int, int>(1, 2));
-            _categoryService.Setup(s => s.AddOrUpdateManyAsync(backup.Categories))
+            _categoryService.Setup(s => s.AddOrUpdateManyCategoriesAsync(backup.Categories))
                 .ReturnsAsync(new ValueTuple<int, int>(3, 4));
-            _authenticatorCategoryService.Setup(s => s.AddOrUpdateManyAsync(backup.AuthenticatorCategories))
+            _categoryService.Setup(s => s.AddOrUpdateManyBindingsAsync(backup.AuthenticatorCategories))
                 .ReturnsAsync(new ValueTuple<int, int>(5, 6));
             _customIconService.Setup(s => s.AddManyAsync(backup.CustomIcons))
                 .ReturnsAsync(7);
+            _customIconService.Setup(s => s.CullUnusedAsync()).Verifiable();
 
             var result = await _restoreService.RestoreAndUpdateAsync(backup);
+            
+            _customIconService.Verify(s => s.CullUnusedAsync(), Times.Once());
 
             Assert.Equal(1, result.AddedAuthenticatorCount);
             Assert.Equal(2, result.UpdatedAuthenticatorCount);

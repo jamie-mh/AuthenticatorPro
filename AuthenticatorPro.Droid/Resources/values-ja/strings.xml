@@ -4,6 +4,7 @@
     <string name="warning">警告</string>
     <string name="delete">削除</string>
     <string name="add">追加</string>
+    <string name="edit">Edit</string>
     <string name="cancel">キャンセル</string>
     <string name="ok">OK</string>
     <string name="yes">はい</string>
@@ -13,6 +14,7 @@
     <string name="retry">リトライ</string>
     <string name="ignore">無視</string>
     <string name="disable">無効化</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">設定</string>
     <string name="restore">復元</string>
@@ -20,6 +22,7 @@
     <string name="about">このアプリについて</string>
     <string name="scanQrCode">QRコードをスキャン</string>
     <string name="showQrCode">QRコードを表示</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">カメラでスキャン</string>
     <string name="scanQrCodeFromGallery">ギャラリーから選択</string>
     <string name="rename">名前を変更</string>
@@ -31,6 +34,8 @@
     <string name="sort">並び替え</string>
     <string name="sortAZ">アルファベット順 (aからz)</string>
     <string name="sortZA">アルファベット順 (zからa)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">カスタム</string>
     <string name="aboutSummary">詳細とライセンス情報を表示する</string>
     <string name="supportDevelopment">開発を支援する</string>
@@ -45,6 +50,7 @@
     <string name="secretKey">シークレットキー</string>
     <string name="pin">ピン留め</string>
     <string name="showAdvancedOptions">詳細設定を表示する</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">認証コードを削除すると、このアカウントのコードを作成できなくなります。これは、2要素認証が無効化されるわけではありません。\n\n認証コードを削除することで、あなたのアカウントへアクセスできなくなる可能性があります。\n2要素認証が無効化されているか、リカバリーコードにアクセスできるか確認してください。\n\n続けますか？</string>
     <string name="useCustomIcon">カスタムアイコンを使用する</string>
     <string name="copiedToClipboard">コードをクリップボードにコピーしました</string>
@@ -55,6 +61,7 @@
     <string name="algorithmHint">アルゴリズム</string>
     <string name="digitsHint">桁数</string>
     <string name="periodHint">期間（秒）</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">発行元が必要です</string>
     <string name="noSecret">シークレットキーが必要です</string>
     <string name="noPin">PINコードが必要です</string>
@@ -64,15 +71,25 @@
     <string name="pinTooLong">ピンには数字を {0} 桁以上を含めることはできません</string>
     <string name="digitsInvalid">認証コードは {0} 桁から {1} 桁の間で生成する必要があります</string>
     <string name="periodInvalid">期間が無効です</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
-    <string name="qrCodeNotFound">QRコードが画像に見つかりません</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
     <string name="pinMessage">このQRコードに関連付けられているピンを入力してください。このアカウントを設定する際にピンが必要になります。</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="downloadPacks">Download packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
     <string name="qrCodeNotSupported">このタイプのQRコードはサポートされていません</string>
+    <string name="copyUri">URIをコピー</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI をクリップボードにコピーしました</string>
     <!-- Backup menu -->
     <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
@@ -89,13 +106,16 @@
     <string name="noAuthenticatorsHelp">Authenticator Proを初めて使用する場合は、以下をクリックして開始ガイドを参照してください。</string>
     <string name="noCategoriesTitle">カテゴリがありません</string>
     <string name="noCategoriesMessage">まだカテゴリが設定されていません</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">カテゴリ</string>
     <string name="assignCategories">カテゴリを割り当て</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">さらに表示</string>
     <string name="categoryAll">すべて</string>
     <string name="editCategories">カテゴリを編集</string>
-    <string name="categoryNameHint">カテゴリ名</string>
     <string name="noCategoryName">カテゴリ名が必要です</string>
     <string name="duplicateCategory">この名前のカテゴリはすでに存在します</string>
     <string name="confirmCategoryDelete">このカテゴリを削除してもよろしいですか？</string>
@@ -113,9 +133,6 @@
     <string name="passwordHint">バックアップ パスワード</string>
     <string name="fileNameHint">バックアップ ファイル名</string>
     <string name="noAuthenticators">バックアップする認証コードがありません</string>
-    <string name="encrypting">暗号化しています</string>
-    <string name="decrypting">復号しています</string>
-    <string name="saving">保存しています</string>
     <string name="saveSuccess">正常に保存されました</string>
     <string name="backupSuccess">バックアップを「{0}」として保存しました</string>
     <string name="restoredFromBackup">{0} 個の新しい認証コードと {1} 個の新しいカテゴリを復元しました</string>
@@ -154,7 +171,6 @@
     <string name="autoBackupFailureTitle">自動バックアップに失敗しました</string>
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
-    <string name="autoRestoreSuccessTitle">自動復元完了</string>
     <string name="backupScheduled">バックアップがスケジュールされました</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">データベースをパスワードで暗号化します。アプリを開くとパスワードの入力が求められます。 パスワードを消去するには、フィールドを空白のままにしてください。</string>
@@ -173,18 +189,19 @@
     <string name="tooManyAttempts">試行回数が多すぎます</string>
     <!-- Import -->
     <string name="importFromOtherApps">別のアプリからインポート</string>
-    <string name="importFrom">インポート元</string>
     <string name="importError">ファイルをインポートできませんでした</string>
     <string name="importIncomplete">インポートが未完了です</string>
     <string name="importConversionError">\"{0}\" は以下のエラーによりインポートできませんでした: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.dbファイルをインポート</string>
     <string name="andOtpImportHint">otp_accounts.json ファイルをインポートします</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
     <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwarden">Bitwarden (プレーンテキスト)</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
-    <string name="winAuthImportHint">winauth.txt ファイルをインポート</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt ファイルをインポート</string>
     <string name="uriList">URI リスト</string>
     <string name="uriListHint">otpauth URI のプレーンテキスト一覧</string>
@@ -203,7 +220,7 @@
     <string name="guideWearOSTitle">Wear OS コンパニオンアプリをダウンロード</string>
     <string name="guideWearOSSummary">Wear OS ウォッチをお持ちの場合は、コンパニオンアプリをダウンロードできます。ウォッチでコードを直接確認できます。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QRコードをファインダーに入れてスキャンしてください。コードは自動的にスキャンされます。</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!-- Preferences -->
@@ -216,6 +233,8 @@
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">セキュリティ</string>
     <string name="prefPasswordTitle">パスワード</string>
     <string name="prefPasswordSummary">認証コードへのアクセスにはパスワードが必要です。データベースはパスワードで暗号化されます。</string>
@@ -227,6 +246,10 @@
     <string name="prefTimeoutSummary">アプリが画面から離れてからデータベースがロックされるまでの時間を設定</string>
     <string name="prefTapToRevealTitle">タップして表示</string>
     <string name="prefTapToRevealSummary">タップするまでコードを非表示にします。数秒後に消えます。</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">外観</string>
     <string name="prefThemeTitle">テーマ</string>
     <string name="prefThemeSummary">アプリケーションのテーマを選択</string>
@@ -234,15 +257,23 @@
     <string name="prefViewModeSummary">認証コードの表示モードを選択</string>
     <string name="prefCodeGroupSizeTitle">コードグループのサイズ</string>
     <string name="prefCodeGroupSizeSummary">コードの区切りを変更します</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">アクセントカラー</string>
     <string name="prefAccentColourSummary">アプリ全体で使用するアクセントカラーを選択します</string>
     <string name="prefTransparentStatusBarTitle">ステータスバーの透過</string>
     <string name="prefTransparentStatusBarSummary">スクロール時にステータスバーの背後にリストを表示する</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">タイムベース (TOTP)</string>
     <string name="authTypeCounter">カウンターベース （HOTP）</string>
     <string name="authAlgorithmSHA1">SHA1 （標準）</string>
     <string name="immediately">直後</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30秒</string>
     <string name="timeout1Min">1分</string>
     <string name="timeout2Min">2分</string>
@@ -251,6 +282,7 @@
     <string name="systemDefault">システムの既定値</string>
     <string name="lightTheme">ライトテーマ</string>
     <string name="darkTheme">ダークテーマ</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">デフォルト</string>
     <string name="compactViewMode">コンパクト</string>
     <string name="tileViewMode">タイル</string>

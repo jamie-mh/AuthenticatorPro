@@ -10,7 +10,7 @@
         "issuer": "Standard",
         "digits": 6,
         "period": 30,
-        "algorithm": "SHA1",
+        "algorithm": null,
         "tokenType": "TOTP",
         "source": "Link"
       },

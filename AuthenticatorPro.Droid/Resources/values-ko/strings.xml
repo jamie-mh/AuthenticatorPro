@@ -4,6 +4,7 @@
     <string name="warning">경고</string>
     <string name="delete">삭제</string>
     <string name="add">추가</string>
+    <string name="edit">Edit</string>
     <string name="cancel">취소</string>
     <string name="ok">확인</string>
     <string name="yes">네</string>
@@ -13,6 +14,7 @@
     <string name="retry">재시도</string>
     <string name="ignore">무시</string>
     <string name="disable">사용 안 함</string>
+    <string name="name">Name</string>
     <!-- Menu items -->
     <string name="settings">설정</string>
     <string name="restore">복원</string>
@@ -20,6 +22,7 @@
     <string name="about">정보</string>
     <string name="scanQrCode">QR코드 스캔</string>
     <string name="showQrCode">QR코드 표시</string>
+    <string name="editDetails">Edit details</string>
     <string name="scanQrCodeFromCamera">카메라에서 스캔</string>
     <string name="scanQrCodeFromGallery">갤러리에서 스캔</string>
     <string name="rename">이름 변경</string>
@@ -31,6 +34,8 @@
     <string name="sort">정렬</string>
     <string name="sortAZ">가나다순</string>
     <string name="sortZA">가나다 역순</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
     <string name="sortCustom">사용자 지정</string>
     <string name="aboutSummary">앱 및 라이선스 정보 보기</string>
     <string name="supportDevelopment">개발 지원</string>
@@ -45,6 +50,7 @@
     <string name="secretKey">암호</string>
     <string name="pin">PIN</string>
     <string name="showAdvancedOptions">고급 설정 표시</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
     <string name="confirmAuthenticatorDelete">인증기를 제거하면 계정의 코드를 생성하지 못하게 됩니다. 하지만 2단계 인증이 꺼진다는 것은 아닙니다.\n\n인증기를 제거하는 경우 계정에 접근하지 못하게 될 수 있습니다.\n2단계 인증을 먼저 끄거나 계정 복구 코드를 마련해두시기 바랍니다.\n\n계속 진행하시겠습니까?</string>
     <string name="useCustomIcon">사용자 지정 아이콘 사용</string>
     <string name="copiedToClipboard">코드를 클립보드에 복사했습니다</string>
@@ -55,6 +61,7 @@
     <string name="algorithmHint">알고리즘</string>
     <string name="digitsHint">자릿수</string>
     <string name="periodHint">유효 기간 (초)</string>
+    <string name="counterHint">Counter</string>
     <string name="noIssuer">발급처를 입력해야 합니다</string>
     <string name="noSecret">암호를 입력해야 합니다</string>
     <string name="noPin">PIN을 입력해야 합니다</string>
@@ -64,15 +71,25 @@
     <string name="pinTooLong">PIN은 {0}자리 이하여야 합니다</string>
     <string name="digitsInvalid">인증기가 {0}~{1}자 코드를 생성해야 합니다</string>
     <string name="periodInvalid">유효 기간이 잘못되었습니다</string>
+    <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
-    <string name="qrCodeNotFound">사진에서 QR코드를 찾을 수 없습니다</string>
     <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
     <string name="pinMessage">이 QR코드에 할당된 PIN을 입력하세요. 계정을 설정할 때 PIN을 설정하셨을 겁니다.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="downloadPacks">Download packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR코드</string>
     <string name="qrCodeHelp">QR코드를 스캔하여 인증기를 다른 기기나 앱으로 복사하세요</string>
     <string name="qrCodeNotSupported">이 유형은 QR코드를 지원하지 않습니다</string>
+    <string name="copyUri">URI 복사</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI을 클립보드에 복사했습니다</string>
     <!-- Backup menu -->
     <string name="backupToFile">암호화된 파일로 백업 (권장)</string>
     <string name="backupToFileMessage">모든 인증기, 분류, 아이콘 암호화된 백업 파일 하나에 저장합니다. 백업 파일은 앱을 통해 복원할 수 있습니다.</string>
@@ -89,13 +106,16 @@
     <string name="noAuthenticatorsHelp">Authenticator Pro가 처음이라면, 아래 버튼을 눌러 시작 도움말을 확인하세요.</string>
     <string name="noCategoriesTitle">분류 없음</string>
     <string name="noCategoriesMessage">설정한 분류가 없습니다</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
+    <string name="category">Category</string>
     <string name="categories">분류</string>
     <string name="assignCategories">분류 지정</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">더보기</string>
     <string name="categoryAll">모두</string>
     <string name="editCategories">분류 수정</string>
-    <string name="categoryNameHint">분류 이름</string>
     <string name="noCategoryName">분류 이름을 입력해야 합니다</string>
     <string name="duplicateCategory">이름이 같은 분류가 이미 있습니다</string>
     <string name="confirmCategoryDelete">정말로 이 분류를 삭제하시겠습니까?</string>
@@ -113,9 +133,6 @@
     <string name="passwordHint">백업 비밀번호</string>
     <string name="fileNameHint">백업 파일 이름</string>
     <string name="noAuthenticators">백업할 인증기가 없습니다</string>
-    <string name="encrypting">암호화 중</string>
-    <string name="decrypting">복호화 중</string>
-    <string name="saving">저장 중</string>
     <string name="saveSuccess">성공적으로 저장했습니다</string>
     <string name="backupSuccess">\'{0}\' 파일로 백업을 저장했습니다</string>
     <string name="restoredFromBackup">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다</string>
@@ -154,7 +171,6 @@
     <string name="autoBackupFailureTitle">자동 백업 실패</string>
     <string name="autoBackupFailureText">최근 자동 백업을 실패했습니다. 파일 권한이 만료되었을 수 있으니 자동 백업 설정에서 백업 경로를 다시 설정해보세요.</string>
     <string name="autoBackupSuccessTitle">자동 백업 완료</string>
-    <string name="autoRestoreSuccessTitle">자동 복원 완료</string>
     <string name="backupScheduled">백업 예약됨</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">데이터베이스를 비밀번호로 암호화합니다. 앱을 열 때 비밀번호 입력을 요청받게 됩니다. 비밀번호를 설정하지 않으려면 입력란을 비워 두세요.</string>
@@ -173,18 +189,19 @@
     <string name="tooManyAttempts">너무 많이 시도했습니다</string>
     <!-- Import -->
     <string name="importFromOtherApps">다른 앱에서 가져오기</string>
-    <string name="importFrom">가져오기</string>
     <string name="importError">파일을 가져올 수 없습니다</string>
     <string name="importIncomplete">가져오기 일부 실패</string>
     <string name="importConversionError">\"{0}\" 항목은 다음 오류로 인해 가져올 수 없었습니다: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db 파일 가져오기</string>
     <string name="andOtpImportHint">otp_accounts.json 파일 가져오기</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwarden">Bitwarden (평문)</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
-    <string name="winAuthImportHint">winauth.txt 파일 가져오기</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt 파일 가져오기</string>
     <string name="uriList">URL 목록</string>
     <string name="uriListHint">평문 otpauth URL 목록</string>
@@ -203,7 +220,7 @@
     <string name="guideWearOSTitle">Wear OS 전용 앱 다운로드</string>
     <string name="guideWearOSSummary">Wear OS 시계가 있다면 전용 앱을 다운로드 할 수 있습니다. 시계로 코드를 바로 볼 수 있습니다.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">QR코드를 사각형에 맞추어 스캔하세요. 코드는 자동으로 스캔됩니다.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!-- Preferences -->
@@ -216,6 +233,8 @@
     <string name="prefLanguageSummary">앱에서 쓸 언어를 선택하세요</string>
     <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSecurity">보안</string>
     <string name="prefPasswordTitle">비밀번호</string>
     <string name="prefPasswordSummary">인증기에 접근할 때 비밀번호를 요구합니다. 데이터베이스가 비밀번호로 암호화됩니다.</string>
@@ -227,6 +246,10 @@
     <string name="prefTimeoutSummary">앱 화면에서 이탈했을 때 데이터베이스가 잠기기까지의 시간을 설정합니다</string>
     <string name="prefTapToRevealTitle">눌러서 확인</string>
     <string name="prefTapToRevealSummary">코드를 누르기 전까지 숨깁니다. 누른 뒤 몇 초가 지나면 다시 숨겨집니다.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">표시</string>
     <string name="prefThemeTitle">테마</string>
     <string name="prefThemeSummary">앱 테마를 선택하세요</string>
@@ -234,15 +257,23 @@
     <string name="prefViewModeSummary">인증기 목록을 어떻게 표시할지 고릅니다</string>
     <string name="prefCodeGroupSizeTitle">코드 자릿수 단위</string>
     <string name="prefCodeGroupSizeSummary">몇 자리마다 코드를 묶을지 설정합니다</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">강조 색상</string>
     <string name="prefAccentColourSummary">전체적인 앱의 강조 색상을 선택하세요</string>
     <string name="prefTransparentStatusBarTitle">투명 상태표시줄</string>
     <string name="prefTransparentStatusBarSummary">스크롤할 때 상태 표시줄 뒤에 있는 목록을 보이도록 합니다</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">시간 기반 (TOTP)</string>
     <string name="authTypeCounter">계수기 기반 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (기본값)</string>
     <string name="immediately">즉시</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30초</string>
     <string name="timeout1Min">1분</string>
     <string name="timeout2Min">2분</string>
@@ -251,6 +282,7 @@
     <string name="systemDefault">시스템 기본값</string>
     <string name="lightTheme">밝은 테마</string>
     <string name="darkTheme">어두운 테마</string>
+    <string name="blackTheme">Black theme</string>
     <string name="defaultViewMode">기본</string>
     <string name="compactViewMode">작게</string>
     <string name="tileViewMode">타일</string>

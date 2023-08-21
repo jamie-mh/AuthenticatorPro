@@ -4,25 +4,27 @@
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using Google.Android.Material.ProgressIndicator;
+using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
     internal class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
-        public TextView Issuer { get; }
-        public TextView Username { get; }
-        public TextView Code { get; }
-        public ProgressBar ProgressBar { get; }
+        public MaterialTextView Issuer { get; }
+        public MaterialTextView Username { get; }
+        public MaterialTextView Code { get; }
+        public LinearProgressIndicator ProgressIndicator { get; }
         public ImageButton MenuButton { get; }
         public ImageButton RefreshButton { get; }
         public ImageView Icon { get; }
 
         public AuthenticatorListHolder(View view) : base(view)
         {
-            Issuer = view.FindViewById<TextView>(Resource.Id.textIssuer);
-            Username = view.FindViewById<TextView>(Resource.Id.textUsername);
-            Code = view.FindViewById<TextView>(Resource.Id.textCode);
-            ProgressBar = view.FindViewById<ProgressBar>(Resource.Id.progressBar);
+            Issuer = view.FindViewById<MaterialTextView>(Resource.Id.textIssuer);
+            Username = view.FindViewById<MaterialTextView>(Resource.Id.textUsername);
+            Code = view.FindViewById<MaterialTextView>(Resource.Id.textCode);
+            ProgressIndicator = view.FindViewById<LinearProgressIndicator>(Resource.Id.progressIndicator);
             MenuButton = view.FindViewById<ImageButton>(Resource.Id.buttonMenu);
             RefreshButton = view.FindViewById<ImageButton>(Resource.Id.buttonRefresh);
             Icon = view.FindViewById<ImageView>(Resource.Id.imageIcon);

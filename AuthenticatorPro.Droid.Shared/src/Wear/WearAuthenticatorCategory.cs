@@ -5,13 +5,7 @@ namespace AuthenticatorPro.Droid.Shared.Wear
 {
     public class WearAuthenticatorCategory
     {
-        public readonly string CategoryId;
-        public readonly int Ranking;
-
-        public WearAuthenticatorCategory(string categoryId, int ranking)
-        {
-            CategoryId = categoryId;
-            Ranking = ranking;
-        }
+        public string CategoryId { get; set; }
+        public int Ranking { get; set; }
     }
 }

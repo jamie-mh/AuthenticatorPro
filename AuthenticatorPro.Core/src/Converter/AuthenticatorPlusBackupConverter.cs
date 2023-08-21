@@ -105,7 +105,11 @@ namespace AuthenticatorPro.Core.Converter
                 }
             }
 
-            var backup = new Backup.Backup(authenticators, categories, bindings);
+            var backup = new Backup.Backup
+            {
+                Authenticators = authenticators, Categories = categories, AuthenticatorCategories = bindings
+            };
+            
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
@@ -192,8 +196,8 @@ namespace AuthenticatorPro.Core.Converter
 
                 return new Authenticator
                 {
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Type = type,
                     Secret = secret,
                     Counter = Counter,

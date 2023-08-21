@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022 jmh
+# Copyright (C) 2023 jmh
 # SPDX-License-Identifier: GPL-3.0-only
 
-import os
-from xml.dom import minidom
-import xml.etree.ElementTree as ET
+import argparse
 
-from PIL import Image
+import os
+import shutil
+import subprocess
 
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 MAIN_DIR = os.path.realpath(os.path.join(CURRENT_DIR, os.pardir))
@@ -15,13 +15,7 @@ MAIN_DIR = os.path.realpath(os.path.join(CURRENT_DIR, os.pardir))
 DARK_SUFFIX = "_dark"
 RES_PREFIX = "auth_"
 
-DPI_SIZES = {
-    "mdpi": 32,
-    "hdpi": 48,
-    "xhdpi": 64,
-    "xxhdpi": 96,
-    "xxxhdpi": 128
-}
+DPI_SIZES = {"mdpi": 32, "hdpi": 48, "xhdpi": 64, "xxhdpi": 96, "xxxhdpi": 128}
 
 
 def build_map(files: list):
@@ -33,17 +27,23 @@ def build_map(files: list):
     dark = []
 
     for filename in files:
-        is_dark = len(filename) > len(DARK_SUFFIX) and filename[-len(DARK_SUFFIX):] == DARK_SUFFIX
+        is_dark = (
+            len(filename) > len(DARK_SUFFIX)
+            and filename[-len(DARK_SUFFIX) :] == DARK_SUFFIX
+        )
 
         if is_dark:
             dark.append(filename)
         else:
             standard.append(filename)
 
-    map_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "src", "IconMap.cs")
+    map_path = os.path.join(
+        MAIN_DIR, "AuthenticatorPro.Droid.Shared", "src", "IconMap.cs"
+    )
     file = open(map_path, "w")
 
-    file.write("// Copyright (C) 2022 jmh\n")
+    # fmt: off
+    file.write("// Copyright (C) 2023 jmh\n")
     file.write("// SPDX-License-Identifier: GPL-3.0-only\n\n")
     file.write("using System.Collections.Generic;\n\n")
     file.write("namespace AuthenticatorPro.Droid.Shared\n")
@@ -67,34 +67,71 @@ def build_map(files: list):
     file.write("        };\n")
     file.write("    }\n")
     file.write("}")
+    # fmt: on
 
     file.truncate()
     file.close()
 
 
-def write_element_tree(tree: ET.ElementTree, output_path: str):
-    contents = ET.tostring(tree.getroot(), encoding="utf-8", xml_declaration=True) 
-    formatted = minidom.parseString(contents).toprettyxml(indent="    ")
-    formatted = "\n".join([l for l in formatted.splitlines() if l.strip()])
+def generate_for_dpi(dpi: str, path: str, overwrite: bool):
+    file_name = os.path.basename(path)
+    output_path = os.path.join(
+        MAIN_DIR,
+        "AuthenticatorPro.Droid.Shared",
+        "Resources",
+        f"drawable-{dpi}",
+        f"{RES_PREFIX}{file_name}",
+    )
 
-    with open(output_path, "w") as file:
-        file.write(formatted)
-
-
-def generate_for_dpi(dpi: str, filename: str, icon: Image):
-    output_path = os.path.join(MAIN_DIR, "AuthenticatorPro.Droid.Shared", "Resources", f"drawable-{dpi}", f"{RES_PREFIX}{filename}")
-
-    if os.path.isfile(output_path):
+    if not overwrite and os.path.isfile(output_path):
         return
 
-    with icon.copy() as resized:
-        resized.thumbnail((DPI_SIZES[dpi], DPI_SIZES[dpi]), resample=Image.LANCZOS, reducing_gap=3.0)
-        resized.save(output_path, optimize=True)
+    subprocess.run(
+        ["convert", "-resize", f"{DPI_SIZES[dpi]}x{DPI_SIZES[dpi]}", path, output_path],
+        check=True,
+        capture_output=True,
+    )
+
+    subprocess.run(
+        [
+            "oxipng",
+            "-o",
+            "3",
+            "-i",
+            "0",
+            "--strip",
+            "safe",
+            "--threads",
+            "1",
+            output_path,
+        ],
+        check=True,
+        capture_output=True,
+    )
+
+
+def validate_path():
+    for program in ["convert", "oxipng"]:
+        if shutil.which(program) is None:
+            raise ValueError(f"Missing {program} on PATH")
+
+
+def get_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Generate icons")
+    parser.add_argument(
+        "--overwrite",
+        action=argparse.BooleanOptionalAction,
+        help="Overwrite existing icons",
+    )
+
+    return parser.parse_args()
 
 
 def main():
-    icons_dir = os.path.join(MAIN_DIR, "icons")
+    args = get_args()
+    validate_path()
 
+    icons_dir = os.path.join(MAIN_DIR, "icons")
     files = os.listdir(icons_dir)
     files.sort()
 
@@ -104,9 +141,8 @@ def main():
         print(f"Processing {filename}")
         path = os.path.join(icons_dir, filename)
 
-        with Image.open(path) as icon:
-            for dpi in DPI_SIZES.keys():
-                generate_for_dpi(dpi, filename, icon)
+        for dpi in DPI_SIZES.keys():
+            generate_for_dpi(dpi, path, args.overwrite)
 
     print("Building map")
     build_map(files)

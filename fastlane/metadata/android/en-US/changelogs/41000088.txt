@@ -1,0 +1,5 @@
+- New feature: Allow screenshots
+- General: Hide usernames on Wear OS
+- General: Bug fixes
+- General: 7 new icons
+- General: Translation updates

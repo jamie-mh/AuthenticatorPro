@@ -4,6 +4,7 @@
     <string name="warning">警告</string>
     <string name="delete">删除</string>
     <string name="add">添加</string>
+    <string name="edit">编辑</string>
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
     <string name="yes">是</string>
@@ -13,6 +14,7 @@
     <string name="retry">重试</string>
     <string name="ignore">忽略</string>
     <string name="disable">禁用</string>
+    <string name="name">名称</string>
     <!-- Menu items -->
     <string name="settings">设置</string>
     <string name="restore">恢复</string>
@@ -20,6 +22,7 @@
     <string name="about">关于</string>
     <string name="scanQrCode">扫描二维码</string>
     <string name="showQrCode">显示二维码</string>
+    <string name="editDetails">编辑详情</string>
     <string name="scanQrCodeFromCamera">使用相机扫描</string>
     <string name="scanQrCodeFromGallery">从相册中选择</string>
     <string name="rename">更改名称</string>
@@ -31,6 +34,8 @@
     <string name="sort">排序</string>
     <string name="sortAZ">字母顺序 (a 至 z)</string>
     <string name="sortZA">字母顺序 (z 至 a)</string>
+    <string name="sortMostCopied">复制次数（递减）</string>
+    <string name="sortLeastCopied">复制次数（递增）</string>
     <string name="sortCustom">自定义</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="supportDevelopment">支持开发</string>
@@ -45,6 +50,7 @@
     <string name="secretKey">密钥</string>
     <string name="pin">PIN码</string>
     <string name="showAdvancedOptions">显示高级选项</string>
+    <string name="advancedOptionsWarning">除非你明确知道自己在做什么，否则不建议更改这些选项。错误的更改可能会导致你无法访问你的账户。\n\n是否继续？</string>
     <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
     <string name="useCustomIcon">使用自定义图标</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
@@ -55,6 +61,7 @@
     <string name="algorithmHint">算法</string>
     <string name="digitsHint">位数</string>
     <string name="periodHint">时间间隔（秒）</string>
+    <string name="counterHint">计数器</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
     <string name="noPin">需要设置一个PIN码</string>
@@ -64,15 +71,25 @@
     <string name="pinTooLong">PIN 码不能超过 {0} 个字符</string>
     <string name="digitsInvalid">验证器只能生成 {0} 到 {1} 位的验证码。</string>
     <string name="periodInvalid">时间段无效</string>
+    <string name="counterInvalid">无效的复制次数</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
     <string name="pinMessage">输入该二维码的密码。在设置此账户时，会提示您输入密码。</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">默认图标</string>
+    <string name="iconPacks">图标包</string>
+    <string name="downloadPacks">下载图标包</string>
+    <string name="importIconPackSuccess">从图标包中导入了 {0} 个图标。</string>
+    <string name="invalidIconPackError">选择的文件不是适用于 Authenticator Pro 的图标包文件。</string>
+    <string name="confirmIconPackDelete">确认删除这一图标包吗？正在使用中的图标不会被删除。</string>
     <!-- QR code dialog -->
     <string name="qrCode">二维码</string>
     <string name="qrCodeHelp">通过扫描二维码将此验证器复制到另一个设备或应用程序</string>
     <string name="qrCodeNotSupported">不支持此类型的二维码</string>
+    <string name="copyUri">复制 URI</string>
+    <string name="copyUriWarning">此链接包含纯文本格式的密钥！请不要粘贴到不信任的地方。\n\n是否继续？</string>
+    <string name="uriCopiedToClipboard">URI 已被复制到剪贴板</string>
     <!-- Backup menu -->
     <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
@@ -89,13 +106,16 @@
     <string name="noAuthenticatorsHelp">如果您是第一次使用 Authenticator Pro，请点击下方的按钮阅览入门指南。</string>
     <string name="noCategoriesTitle">暂无分类</string>
     <string name="noCategoriesMessage">您还没有设置分类。</string>
+    <string name="noIconPacksTitle">没有图标包</string>
+    <string name="noIconPacksMessage">还没有下载任何的图标包</string>
     <!-- Categories -->
+    <string name="category">分类</string>
     <string name="categories">分类</string>
     <string name="assignCategories">指定分类</string>
+    <string name="assignEntries">指定条目</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
     <string name="editCategories">编辑分类</string>
-    <string name="categoryNameHint">分类名</string>
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
     <string name="confirmCategoryDelete">您确定要删除这个分类吗？</string>
@@ -113,9 +133,6 @@
     <string name="passwordHint">备份密码</string>
     <string name="fileNameHint">备份文件名</string>
     <string name="noAuthenticators">您没有可备份的验证器。</string>
-    <string name="encrypting">加密中</string>
-    <string name="decrypting">解密中</string>
-    <string name="saving">保存中</string>
     <string name="saveSuccess">保存成功</string>
     <string name="backupSuccess">已将备份保存为 \'{0}\'</string>
     <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 个新分类。</string>
@@ -151,10 +168,9 @@
     <string name="enableAutoBackupMessage">自动备份至选定的存储位置</string>
     <string name="batOptim">电池优化</string>
     <string name="disableBatOptimMessage">在某些设备上，电源设置可能会导致备份工作不正常。如果您遇到问题，请尝试禁用Authenticator Pro的电池优化。</string>
-    <string name="autoBackupFailureTitle">Auto backup failed</string>
+    <string name="autoBackupFailureTitle">自动备份失败</string>
     <string name="autoBackupFailureText">最近的自动备份未能成功完成。文件访问权限可能已被撤销，或密码不正确。请在自动备份设置中重新设置备份位置和密码。</string>
     <string name="autoBackupSuccessTitle">自动备份完成</string>
-    <string name="autoRestoreSuccessTitle">自动恢复完成</string>
     <string name="backupScheduled">已触发自动备份</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">使用密码对数据库进行加密。当您打开应用程序时，应用将提示您输入密码。 将该字段留空以清除密码。</string>
@@ -173,18 +189,19 @@
     <string name="tooManyAttempts">尝试次数过多</string>
     <!-- Import -->
     <string name="importFromOtherApps">从其他应用导入</string>
-    <string name="importFrom">导入自</string>
     <string name="importError">无法导入这个文件。</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importIncomplete">导入不完整</string>
+    <string name="importConversionError">项目 {0} 导入失败：{1}</string>
     <string name="authenticatorPlusImportHint">导入 authplus.db 文件</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="andOtpImportHint">导入 otp_accounts.json 文件</string>
+    <string name="freeOtpImportHint">导入 externalBackup.xml 文件</string>
     <string name="freeOtpPlusImportHint">导入 freeotp-backup.json 文件</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">导入 aegis-export.json 文件</string>
     <string name="bitwarden">Bitwarden (纯文本)</string>
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
-    <string name="winAuthImportHint">导入 winauth.txt 文件</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
+    <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
+    <string name="lastPassAuthenticatorImportHint">导入 LastPassAuthenticator.json 文件</string>
     <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
     <string name="uriList">URI 列表</string>
     <string name="uriListHint">纯文本的 otpauth URI列表</string>
@@ -203,7 +220,7 @@
     <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">将二维码置于画面中央以进行扫描。点击以对焦。</string>
     <string name="scanHelpSecondary">为了避免阴影和玻璃效果。按住设备将其移到距离代码大约15厘米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切换闪光灯</string>
     <!-- Preferences -->
@@ -211,11 +228,13 @@
     <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
     <string name="prefAutoBackupTitle">自动备份</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">发生变更时自动备份至指定位置。这将停用备份提醒。</string>
     <string name="prefLanguageTitle">语言</string>
     <string name="prefLanguageSummary">选择要在应用程序中使用的语言</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefTapToCopyTitle">点击复制</string>
+    <string name="prefTapToCopySummary">点击时将验证码复制到剪贴板</string>
+    <string name="prefResetCopyCountTitle">重置复制次数</string>
+    <string name="prefResetCopyCountSummary">重置每个验证器的复制次数</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
@@ -227,6 +246,10 @@
     <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefTapToRevealTitle">点击以显示</string>
     <string name="prefTapToRevealSummary">在代码被点击都将保持隐藏。显示的代码将在几秒钟后消失。</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">允许截图</string>
+    <string name="prefAllowScreenshotsSummary">禁用安全隐私保护并允许在应用内截图</string>
     <string name="prefAppearance">外观</string>
     <string name="prefThemeTitle">主题</string>
     <string name="prefThemeSummary">选择应用的主题。</string>
@@ -234,15 +257,23 @@
     <string name="prefViewModeSummary">选择验证器列表的视图。</string>
     <string name="prefCodeGroupSizeTitle">验证码分组</string>
     <string name="prefCodeGroupSizeSummary">更改验证码中数字的分组</string>
+    <string name="prefShowUsernamesTitle">显示用户名</string>
+    <string name="prefShowUsernamesSummary">在发行方下方显示用户名</string>
+    <string name="prefDynamicColourTitle">动态颜色</string>
+    <string name="prefDynamicColourSummary">根据壁纸自动设置主题色</string>
     <string name="prefAccentColourTitle">主题色</string>
     <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
     <string name="prefTransparentStatusBarTitle">透明状态栏</string>
     <string name="prefTransparentStatusBarSummary">滚动时在状态栏后面显示列表</string>
+    <string name="copyCountReset">复制次数已重置</string>
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>
     <string name="authAlgorithmSHA1">SHA1（默认）</string>
     <string name="immediately">立即</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 秒</string>
     <string name="timeout1Min">1 分钟</string>
     <string name="timeout2Min">2 分钟</string>
@@ -251,6 +282,7 @@
     <string name="systemDefault">跟随系统</string>
     <string name="lightTheme">浅色主题</string>
     <string name="darkTheme">深色主题</string>
+    <string name="blackTheme">纯黑主题</string>
     <string name="defaultViewMode">默认</string>
     <string name="compactViewMode">紧凑</string>
     <string name="tileViewMode">平铺</string>

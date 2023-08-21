@@ -4,6 +4,7 @@
     <string name="warning">Ostrzeżenie</string>
     <string name="delete">Usuń</string>
     <string name="add">Dodaj</string>
+    <string name="edit">Edytuj</string>
     <string name="cancel">Anuluj</string>
     <string name="ok">Ok</string>
     <string name="yes">Tak</string>
@@ -13,6 +14,7 @@
     <string name="retry">Powtórz</string>
     <string name="ignore">Ignoruj</string>
     <string name="disable">Wyłącz</string>
+    <string name="name">Nazwa</string>
     <!-- Menu items -->
     <string name="settings">Ustawienia</string>
     <string name="restore">Przywróć</string>
@@ -20,6 +22,7 @@
     <string name="about">O aplikacji</string>
     <string name="scanQrCode">Skanuj kod QR</string>
     <string name="showQrCode">Pokaż kod QR</string>
+    <string name="editDetails">Edytuj szczegóły</string>
     <string name="scanQrCodeFromCamera">Skanuj aparatem</string>
     <string name="scanQrCodeFromGallery">Skanuj z galerii</string>
     <string name="rename">Zmień nazwę</string>
@@ -27,10 +30,12 @@
     <string name="search">Szukaj</string>
     <string name="mainMenu">Menu główne</string>
     <string name="enterKey">Wprowadź klucz</string>
-    <string name="restoreBackup">Przywróć kopię</string>
+    <string name="restoreBackup">Przywróć kopię zapasową</string>
     <string name="sort">Sortowanie</string>
     <string name="sortAZ">Alfabetycznie (A-Z)</string>
     <string name="sortZA">Alfabetycznie (Z-A)</string>
+    <string name="sortMostCopied">Najczęściej kopiowane</string>
+    <string name="sortLeastCopied">Najrzadziej kopiowane</string>
     <string name="sortCustom">Niestandardowo</string>
     <string name="aboutSummary">Wyświetl informacje o aplikacji i licencjach</string>
     <string name="supportDevelopment">Wesprzyj rozwój aplikacji</string>
@@ -45,6 +50,7 @@
     <string name="secretKey">Sekret</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Pokaż opcje zaawansowane</string>
+    <string name="advancedOptionsWarning">Zmieniaj te opcje tylko wtedy, gdy wiesz, co robisz, ponieważ możesz zostać zablokowany na swoim koncie.\n\nKontynuować?</string>
     <string name="confirmAuthenticatorDelete">Usunięcie tego wpisu uniemożliwi generowanie kodów dla tego konta. Nie oznacza to, że uwierzytelnianie dwuskładnikowe jest wyłączone.\n\nUsunięcie tego wpisu może uniemożliwić dostęp do konta.\nUpewnij się, że uwierzytelnianie dwuskładnikowe jest wyłączone lub że masz kody odzyskiwania.\n\nKontynuować?</string>
     <string name="useCustomIcon">Użyj niestandardowej ikony</string>
     <string name="copiedToClipboard">Kod został skopiowany do schowka</string>
@@ -55,6 +61,7 @@
     <string name="algorithmHint">Algorytm</string>
     <string name="digitsHint">Cyfr</string>
     <string name="periodHint">Okres (sekundy)</string>
+    <string name="counterHint">Licznik</string>
     <string name="noIssuer">Wystawca jest wymagany</string>
     <string name="noSecret">Sekret jest wymagany</string>
     <string name="noPin">Pin jest wymagany</string>
@@ -64,15 +71,25 @@
     <string name="pinTooLong">Pin nie może zawierać więcej niż {0} cyfr</string>
     <string name="digitsInvalid">Pole musi mieć między {0} a {1} cyfr</string>
     <string name="periodInvalid">Okres jest nieprawidłowy</string>
+    <string name="counterInvalid">Nieprawidłowy licznik</string>
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
-    <string name="qrCodeNotFound">Nie znaleziono kodu QR na obrazku</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
     <string name="pinMessage">Wprowadź pin skojarzony z tym kodem QR. Zostałeś/aś poproszony o pin podczas konfiguracji tego konta.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Domyślne ikony</string>
+    <string name="iconPacks">Paczki ikon</string>
+    <string name="downloadPacks">Pobierz paczki</string>
+    <string name="importIconPackSuccess">Zaimportowano {0} ikon z paczki</string>
+    <string name="invalidIconPackError">Wybrany plik nie jest paczką ikon dla Authenticator Pro</string>
+    <string name="confirmIconPackDelete">Czy na pewno chcesz usunąć tę paczkę ikon? Użyte ikony nie zostaną usunięte.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Kod QR</string>
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
     <string name="qrCodeNotSupported">Kody QR nie są obsługiwane w przypadku tego typu</string>
+    <string name="copyUri">Kopiuj URI</string>
+    <string name="copyUriWarning">Ten URI zawiera tajny klucz zapisany czystym tekstem. Zachowaj ostrożność w miejscu wklejania tych informacji.\n\nKontynuować?</string>
+    <string name="uriCopiedToClipboard">URI skopiowane do schowka</string>
     <!-- Backup menu -->
     <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
@@ -89,13 +106,16 @@
     <string name="noAuthenticatorsHelp">Jeśli jesteś nowy w Authenticator Pro, wyświetl przewodnik wprowadzający, klikając poniżej.</string>
     <string name="noCategoriesTitle">Brak kategorii</string>
     <string name="noCategoriesMessage">Nie masz jeszcze ustawionych kategorii</string>
+    <string name="noIconPacksTitle">Brak paczek ikon</string>
+    <string name="noIconPacksMessage">Nie posiadasz jeszcze żadnych paczek ikon</string>
     <!-- Categories -->
+    <string name="category">Kategoria</string>
     <string name="categories">Kategorie</string>
     <string name="assignCategories">Przypisz kategorię</string>
+    <string name="assignEntries">Przypisz wpisy</string>
     <string name="more">Więcej</string>
     <string name="categoryAll">Wszystkie</string>
     <string name="editCategories">Edytuj kategorie</string>
-    <string name="categoryNameHint">Nazwa kategorii</string>
     <string name="noCategoryName">Nazwa kategorii jest wymagana</string>
     <string name="duplicateCategory">Kategoria już istnieje</string>
     <string name="confirmCategoryDelete">Na pewno chcesz usunąć tą kategorię?</string>
@@ -113,9 +133,6 @@
     <string name="passwordHint">Hasło kopii</string>
     <string name="fileNameHint">Nazwa pliku kopii</string>
     <string name="noAuthenticators">Nie masz nic do zapisania w kopii</string>
-    <string name="encrypting">Szyfrowanie</string>
-    <string name="decrypting">Odszyfrowywanie</string>
-    <string name="saving">Zapisywanie</string>
     <string name="saveSuccess">Zapisano pomyślnie</string>
     <string name="backupSuccess">Zapisano kopię jako \'{0}\'</string>
     <string name="restoredFromBackup">Przywrócono {0} nowych wpisów i {1} nowych kategorii</string>
@@ -154,7 +171,6 @@
     <string name="autoBackupFailureTitle">Automatyczna kopia zapasowa nie powiodła się</string>
     <string name="autoBackupFailureText">Nie udało się ukończyć ostatniej automatycznej kopii zapasowej. Uprawnienia do plików mogły wygasnąć, spróbuj ponownie ustawić lokalizację kopii zapasowej w ustawieniach automatycznej kopii zapasowej.</string>
     <string name="autoBackupSuccessTitle">Automatyczna kopia zapasowa wykonana</string>
-    <string name="autoRestoreSuccessTitle">Automatyczne przywracanie zakończone</string>
     <string name="backupScheduled">Zaplanowano tworzenie kopii zapasowych</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zaszyfruj bazę danych hasłem. Po otwarciu aplikacji zostaniesz poproszony o podanie hasła. Pozostaw to pole puste, aby usunąć hasło.</string>
@@ -173,18 +189,19 @@
     <string name="tooManyAttempts">Zbyt wiele prób</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importuj z innych aplikacji</string>
-    <string name="importFrom">Importuj z</string>
     <string name="importError">Nie można zaimportować pliku</string>
     <string name="importIncomplete">Import niekompletny</string>
     <string name="importConversionError">Nie udało się zaimportować elementu \"{0}\" z powodu następującego błędu: {1}</string>
     <string name="authenticatorPlusImportHint">Importuj plik authplus.db</string>
     <string name="andOtpImportHint">Importuj plik otp_accounts.json</string>
+    <string name="freeOtpImportHint">Importuj plik externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importuj plik freeotp-backup.json</string>
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwarden">Bitwarden (czysty tekst)</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importuj plik winauth.txt</string>
+    <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Importuj plik LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importuj plik TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
     <string name="uriListHint">Lista URI otpauth w postaci zwykłego tekstu</string>
@@ -203,7 +220,7 @@
     <string name="guideWearOSTitle">Pobierz aplikację towarzyszącą Wear OS</string>
     <string name="guideWearOSSummary">Jeśli masz zegarek z Wear OS, możesz pobrać aplikację towarzyszącą. Możesz przeglądać kody bezpośrednio na zegarku.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Umieść kod QR w wizjerze, aby go zeskanować. Kod zostanie zeskanowany automatycznie.</string>
+    <string name="scanHelpPrimary">Umieść kod QR w okienku aby go zeskanować. Dotknij, aby wyostrzyć.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!-- Preferences -->
@@ -216,6 +233,8 @@
     <string name="prefLanguageSummary">Wybierz w jakim języku ma być aplikacja</string>
     <string name="prefTapToCopyTitle">Dotknij, aby skopiować</string>
     <string name="prefTapToCopySummary">Skopiuj kod do schowka po dotknięciu</string>
+    <string name="prefResetCopyCountTitle">Resetuj licznik kopiowań</string>
+    <string name="prefResetCopyCountSummary">Zresetuj licznik ile razy każdy wpis był kopiowany</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
@@ -227,6 +246,10 @@
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
     <string name="prefTapToRevealSummary">Ukryj kody, dopóki nie zostaną dotknięte. Po kilku sekundach znikną.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Zezwalaj na zrzuty ekranu</string>
+    <string name="prefAllowScreenshotsSummary">Wyłącz ochronę ekranu i zezwól na zrzuty ekranu aplikacji</string>
     <string name="prefAppearance">Wygląd</string>
     <string name="prefThemeTitle">Motyw</string>
     <string name="prefThemeSummary">Wybierz motyw aplikacji</string>
@@ -234,15 +257,23 @@
     <string name="prefViewModeSummary">Wybierz tryb wyświetlania listy wpisów</string>
     <string name="prefCodeGroupSizeTitle">Ilość cyfr w grupie</string>
     <string name="prefCodeGroupSizeSummary">Zmień grupowanie cyfr w kodzie</string>
+    <string name="prefShowUsernamesTitle">Pokaż nazwy użytkowników</string>
+    <string name="prefShowUsernamesSummary">Wyświetl nazwę użytkownika pod wystawcą</string>
+    <string name="prefDynamicColourTitle">Dynamiczny kolor</string>
+    <string name="prefDynamicColourSummary">Dynamicznie ustaw kolor akcentu na podstawie tapety</string>
     <string name="prefAccentColourTitle">Kolor akcentów</string>
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
     <string name="prefTransparentStatusBarSummary">Lista będzie widoczna za paskiem statusu podczas przewijania</string>
+    <string name="copyCountReset">Reset licznika kopiowań</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (domyślnie)</string>
     <string name="immediately">Natychmiast</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 sekund</string>
     <string name="timeout1Min">1 minuta</string>
     <string name="timeout2Min">2 minuty</string>
@@ -251,6 +282,7 @@
     <string name="systemDefault">Domyślny systemu</string>
     <string name="lightTheme">Jasny motyw</string>
     <string name="darkTheme">Ciemny motyw</string>
+    <string name="blackTheme">Czarny motyw</string>
     <string name="defaultViewMode">Domyślny</string>
     <string name="compactViewMode">Kompaktowy</string>
     <string name="tileViewMode">Kafelki</string>

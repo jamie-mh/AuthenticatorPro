@@ -3,14 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout"
-    android:background="?attr/colorBase"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         app:elevation="0dp"
-        android:background="?attr/colorBase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -22,21 +20,19 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
-                style="Widget.MaterialComponents.Toolbar"
-                android:background="?attr/colorBase"
+                style="Widget.Material3.Toolbar"
                 android:minHeight="?android:attr/actionBarSize"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/toolbar"/>
 
-            <ProgressBar
-                android:id="@+id/appBarProgressBar"
-                android:layout_marginTop="-7dp"
-                android:layout_marginBottom="-7dp"
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/appBarProgressIndicator"
                 android:indeterminate="true"
+                app:trackThickness="2dp"
+                app:trackColor="@android:color/transparent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -45,7 +41,6 @@
         android:id="@+id/list"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:clipToPadding="false"
-        android:background="?attr/colorBase"
         android:visibility="invisible"
         android:paddingBottom="80dp"
         android:layout_width="match_parent"
@@ -67,7 +62,7 @@
             android:layout_gravity="center"
             android:src="@drawable/big_ic_empty"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -75,7 +70,7 @@
             android:textAppearance="?attr/textAppearanceHeadline5"
             android:text="@string/noAuthenticatorsTitle"/>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textEmptyMessage"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
@@ -95,7 +90,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonViewGuide"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_marginBottom="4dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
@@ -104,7 +99,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonImport"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
@@ -114,15 +109,14 @@
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
-        style="@style/Widget.MaterialComponents.BottomAppBar"
+        style="?attr/bottomAppBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:fabAlignmentMode="center"
+        app:fabAlignmentMode="end"
         app:fabCradleMargin="0dp"
         app:fabCradleRoundedCornerRadius="0dp"
         app:hideOnScroll="true"
-        app:backgroundTint="?attr/bottomAppBarBackground"
         app:menu="@menu/bottom"
         app:paddingBottomSystemWindowInsets="true"
         app:navigationIcon="@drawable/baseline_menu_24"
@@ -132,9 +126,7 @@
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_add_24"
-        app:tint="@color/colorDark"
-        app:layout_anchor="@id/bottomAppBar"
-        app:backgroundTint="?attr/colorAccent"/>
+        app:srcCompat="@drawable/baseline_add_24"
+        app:layout_anchor="@id/bottomAppBar"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

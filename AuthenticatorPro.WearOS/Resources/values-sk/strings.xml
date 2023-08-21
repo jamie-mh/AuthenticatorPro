@@ -5,5 +5,8 @@
     <string name="hotpNotSupported">HOTP nie je podporované</string>
     <string name="categoryAll">Všetko</string>
     <string name="offline">Odpojené</string>
-    <string name="syncFailed">Sync failed</string>
+    <string name="syncFailed">Synchronizácia zlyhala</string>
+    <string name="noFavourite">Žiadna obľúbená položka</string>
+    <string name="noFavouriteMessage">Dlhým stlačením autentifikátora ho nastavíš</string>
+    <string name="open">Otvoriť</string>
 </resources>

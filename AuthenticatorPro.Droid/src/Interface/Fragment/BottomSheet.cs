@@ -8,14 +8,14 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
-using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
+using Google.Android.Material.TextView;
 using Java.Lang;
 using System;
 using System.Collections.Generic;
-using ContextThemeWrapper = AndroidX.AppCompat.View.ContextThemeWrapper;
 using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
@@ -23,15 +23,17 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     internal abstract class BottomSheet : BottomSheetDialogFragment
     {
         public event EventHandler Dismissed;
+        public bool IsDark { get; private set; }
 
         private const int MaxWidth = 600;
 
         private readonly int _layout;
-        protected LayoutInflater StyledInflater;
-
-        protected BottomSheet(int layout)
+        private readonly int _title;
+        
+        protected BottomSheet(int layout, int title)
         {
             _layout = layout;
+            _title = title;
         }
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
@@ -48,6 +50,17 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 dialog.Window.SetNavigationBarColor(Color.Black);
             }
 
+            dialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
+
+            var preferences = new PreferenceWrapper(Context);
+            if (!preferences.AllowScreenshots)
+            {
+                dialog.Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
+            }
+
+            var baseActivity = (BaseActivity) RequireActivity();
+            IsDark = baseActivity.IsDark;
+            
             return dialog;
         }
 
@@ -60,12 +73,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater contextInflater, ViewGroup container,
             Bundle savedInstanceState)
         {
-            var contextThemeWrapper = new ContextThemeWrapper(Activity, Resource.Style.BottomSheetStyle);
-            var prefs = new PreferenceWrapper(Context);
-            contextThemeWrapper.Theme.ApplyStyle(AccentColourMap.GetOverlayId(prefs.AccentColour), true);
-            StyledInflater = contextInflater.CloneInContext(contextThemeWrapper);
+            var view = contextInflater.Inflate(_layout, container, false);
 
-            return StyledInflater.Inflate(_layout, container, false);
+            var title = view.FindViewById<MaterialTextView>(Resource.Id.textTitle);
+            title.SetText(_title); 
+
+            return view;
         }
 
         public override void Show(FragmentManager manager, string tag)
@@ -93,30 +106,9 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
         }
 
-        protected void SetupToolbar(View view, int titleRes, bool showCloseButton = false)
-        {
-            var toolbar = view.FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            toolbar.SetTitle(titleRes);
-            toolbar.Visibility = ViewStates.Visible;
-
-            if (!showCloseButton)
-            {
-                return;
-            }
-
-            toolbar.InflateMenu(Resource.Menu.sheet);
-            toolbar.MenuItemClick += (_, args) =>
-            {
-                if (args.Item.ItemId == Resource.Id.actionClose)
-                {
-                    Dismiss();
-                }
-            };
-        }
-
         protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)
         {
-            var adapter = new SheetMenuAdapter(Context, items);
+            var adapter = new SheetMenuAdapter(items);
             adapter.ItemClicked += delegate
             {
                 Dismiss();

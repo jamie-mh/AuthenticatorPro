@@ -1,27 +1,40 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022 jmh
+# Copyright (C) 2023 jmh
 # SPDX-License-Identifier: GPL-3.0-only
 
 # Authenticator Pro Backup Decryption Tool
 # View https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md#encrypted-backups for details
 
-import sys
+import argparse
 import hashlib
 import json
-import argparse
-
+import sys
 from getpass import getpass
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import unpad
 
-HEADER = "AuthenticatorPro"
-HASH_MODE = "sha1"
-AES_MODE = AES.MODE_CBC
-ITERATIONS = 64000
-SALT_LENGTH = 20
-IV_LENGTH = 16
-DERV_KEY_LENGTH = 32
+import argon2
+from argon2 import Type
+from cryptography.hazmat.primitives import padding
+from cryptography.hazmat.primitives.ciphers import Cipher, modes, algorithms
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+KEY_LENGTH = 32
+
+# Default
+HEADER = "AUTHENTICATORPRO"
+SALT_LENGTH = 16
+IV_LENGTH = 12
+
+PARALLELISM = 4
+ITERATIONS = 3
+MEMORY_SIZE = 65536
+
+# Legacy
+LEGACY_HEADER = "AuthenticatorPro"
+LEGACY_HASH_MODE = "sha1"
+LEGACY_ITERATIONS = 64000
+LEGACY_SALT_LENGTH = 20
+LEGACY_IV_LENGTH = 16
 
 
 def get_cli_args() -> argparse.Namespace:
@@ -32,49 +45,71 @@ def get_cli_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def decrypt(data: bytes, password: str) -> str:
-    salt = data[len(HEADER):len(HEADER) + SALT_LENGTH]
-    iv = data[len(HEADER) + SALT_LENGTH:len(HEADER) + SALT_LENGTH + IV_LENGTH]
-    payload = data[len(HEADER) + SALT_LENGTH + IV_LENGTH:]
+def decrypt(data: bytes, password: str) -> bytes:
+    salt = data[len(HEADER) : len(HEADER) + SALT_LENGTH]
+    iv = data[len(HEADER) + SALT_LENGTH : len(HEADER) + SALT_LENGTH + IV_LENGTH]
+    payload = data[len(HEADER) + SALT_LENGTH + IV_LENGTH :]
 
     password_bytes = password.encode("utf-8")
-    key = hashlib.pbkdf2_hmac(HASH_MODE, password_bytes, salt, ITERATIONS, DERV_KEY_LENGTH)
-    aes = AES.new(key, AES_MODE, iv)
-    decrypted_bytes = unpad(aes.decrypt(payload), IV_LENGTH)
-    result = decrypted_bytes.decode("utf-8")
 
-    return result
+    key = argon2.low_level.hash_secret_raw(
+        password_bytes,
+        salt,
+        time_cost=ITERATIONS,
+        memory_cost=MEMORY_SIZE,
+        parallelism=PARALLELISM,
+        hash_len=KEY_LENGTH,
+        type=Type.ID,
+    )
+
+    aes = AESGCM(key)
+    return aes.decrypt(iv, payload, None)
+
+
+def decrypt_legacy(data: bytes, password: str) -> bytes:
+    salt = data[len(LEGACY_HEADER) : len(LEGACY_HEADER) + LEGACY_SALT_LENGTH]
+    iv = data[
+        len(LEGACY_HEADER)
+        + LEGACY_SALT_LENGTH : len(LEGACY_HEADER)
+        + LEGACY_SALT_LENGTH
+        + LEGACY_IV_LENGTH
+    ]
+    payload = data[len(LEGACY_HEADER) + LEGACY_SALT_LENGTH + LEGACY_IV_LENGTH :]
+
+    password_bytes = password.encode("utf-8")
+
+    key = hashlib.pbkdf2_hmac(
+        LEGACY_HASH_MODE, password_bytes, salt, LEGACY_ITERATIONS, KEY_LENGTH
+    )
+
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+    decryptor = cipher.decryptor()
+
+    raw_bytes = decryptor.update(payload) + decryptor.finalize()
+    unpadder = padding.PKCS7(LEGACY_IV_LENGTH * 8).unpadder()
+
+    return unpadder.update(raw_bytes) + unpadder.finalize()
 
 
 def main():
-
     args = get_cli_args()
-
-    try:
-        with open(args.path, "rb") as f:
-            data = f.read()
-    except FileNotFoundError:
-        print("error: File cannot be read")
-        sys.exit(1)
-
-    try:
-        header = data[:len(HEADER)]
-
-        if header.decode("utf-8") != HEADER:
-            raise ValueError
-    except ValueError:
-        print("error: File is not a valid backup file or uses an older format")
-        sys.exit(1)
-
     password = args.password if args.password is not None else getpass("Password: ")
 
-    try:
-        result = decrypt(data, password)
-    except ValueError:
-        print("error: Invalid password")
-        sys.exit(1)
+    with open(args.path, "rb") as f:
+        data = f.read()
 
-    backup = json.loads(result)
+    header = data[: len(HEADER)]
+    header_str = header.decode("utf-8")
+
+    if header_str == HEADER:
+        decrypted = decrypt(data, password)
+    elif header_str == LEGACY_HEADER:
+        decrypted = decrypt_legacy(data, password)
+    else:
+        print("error: File is not a valid backup")
+        return
+
+    backup = json.loads(decrypted.decode("utf8"))
     sys.stdout.write(json.dumps(backup, indent=4))
 
 

@@ -85,6 +85,24 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(TapToRevealKey, value);
         }
 
+        private const string TapToRevealDurationKey = "pref_tapToRevealDuration";
+        private const int TapToRevealDurationDefault = 10;
+
+        public int TapToRevealDuration
+        {
+            get => GetStringBackedIntPreference(TapToRevealDurationKey, TapToRevealDurationDefault);
+            set => SetPreference(TapToRevealDurationKey, value);
+        }
+
+        private const string AllowScreenshotsKey = "pref_allowScreenshots";
+        private const bool AllowScreenshotsDefault = false;
+
+        public bool AllowScreenshots
+        {
+            get => Preferences.GetBoolean(AllowScreenshotsKey, AllowScreenshotsDefault);
+            set => SetPreference(AllowScreenshotsKey, value);
+        }
+
         private const string ThemeKey = "pref_theme";
         private const string ThemeDefault = "system";
 
@@ -110,6 +128,24 @@ namespace AuthenticatorPro.Droid
         {
             get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
             set => SetPreference(CodeGroupSizeKey, value.ToString());
+        }
+        
+        private const string ShowUsernamesKey = "pref_showUsernames";
+        private const bool ShowUsernamesDefault = true;
+
+        public bool ShowUsernames
+        {
+            get => Preferences.GetBoolean(ShowUsernamesKey, ShowUsernamesDefault);
+            set => SetPreference(ShowUsernamesKey, value);
+        }
+        
+        private const string DynamicColourKey = "pref_dynamicColour";
+        private const bool DynamicColourDefault = false;
+
+        public bool DynamicColour
+        {
+            get => Preferences.GetBoolean(DynamicColourKey, DynamicColourDefault);
+            set => SetPreference(DynamicColourKey, value);
         }
 
         private const string AccentColourKey = "pref_accentColour";

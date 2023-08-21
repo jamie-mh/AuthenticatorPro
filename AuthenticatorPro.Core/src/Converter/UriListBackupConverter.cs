@@ -3,6 +3,7 @@
 
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,10 +51,13 @@ namespace AuthenticatorPro.Core.Converter
                     continue;
                 }
 
+                auth.Issuer = auth.Issuer.Truncate(Authenticator.IssuerMaxLength);
+                auth.Username = auth.Username.Truncate(Authenticator.UsernameMaxLength);
+
                 authenticators.Add(auth);
             }
 
-            var backup = new Backup.Backup(authenticators);
+            var backup = new Backup.Backup { Authenticators = authenticators };
             var result = new ConversionResult { Failures = failures, Backup = backup };
 
             return Task.FromResult(result);

@@ -22,7 +22,7 @@ Oltre al nome utente e alla password, avrai bisogno di un codice fornito da Auth
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 

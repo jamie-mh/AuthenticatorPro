@@ -28,9 +28,9 @@
         <item>@string/introThemesSummary</item>
     </string-array>
     <integer-array name="introImage">
-        <item>@mipmap/ic_launcher</item>
+        <item>@drawable/big_ic_logo</item>
         <item>@drawable/big_ic_lock</item>
-        <item>@drawable/big_ic_cloud</item>
+        <item>@drawable/big_ic_save</item>
         <item>@drawable/big_ic_category</item>
         <item>@drawable/big_ic_theme</item>
     </integer-array>
@@ -101,15 +101,32 @@
         <item>600</item>
     </string-array>
 
+    <string-array name="tapToRevealDurationNames">
+        <item>@string/timeout5Sec</item>
+        <item>@string/timeout10Sec</item>
+        <item>@string/timeout20Sec</item>
+        <item>@string/timeout30Sec</item>
+        <item>@string/timeout1Min</item>
+    </string-array>
+    <string-array name="tapToRevealDurationValues">
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+
     <string-array name="themeNames">
         <item>@string/systemDefault</item>
         <item>@string/lightTheme</item>
         <item>@string/darkTheme</item>
+        <item>@string/blackTheme</item>
     </string-array>
     <string-array name="themeValues">
         <item>system</item>
         <item>light</item>
         <item>dark</item>
+        <item>black</item>
     </string-array>
 
     <string-array name="viewModeNames">

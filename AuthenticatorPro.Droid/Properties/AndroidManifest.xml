@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionName="1.17.3"
-          package="me.jmh.authenticatorpro" android:installLocation="auto" android:versionCode="1000084">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionName="1.21.0"
+          package="me.jmh.authenticatorpro" android:installLocation="auto" android:versionCode="1000089">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
@@ -14,7 +14,10 @@
     <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
     <application android:allowBackup="false" android:label="@string/appName" android:icon="@mipmap/ic_launcher"
                  android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true"
-                 android:theme="@style/AppTheme"></application>
+                 android:theme="@style/AppTheme">
+        <provider android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+                  android:authorities="me.jmh.authenticatorpro.mlkitinitprovider" tools:node="remove" />
+    </application>
     <supports-screens android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true"
                       android:normalScreens="true" android:anyDensity="true"/>
 </manifest>

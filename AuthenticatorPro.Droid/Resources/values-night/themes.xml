@@ -1,0 +1,20 @@
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
+
+        <item name="alertDialogTheme">@style/AlertDialogStyle</item>
+        <item name="cardStyle">@style/CardStyle</item>
+        <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle</item>
+
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+    </style>
+
+    <style name="MainActivityTheme" parent="AppTheme">
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

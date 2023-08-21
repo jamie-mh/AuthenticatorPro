@@ -7,7 +7,7 @@ using Android.App;
 using Android.Gms.Wearable;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Service;
 using Java.IO;
 using Newtonsoft.Json;
 using System;
@@ -30,16 +30,17 @@ namespace AuthenticatorPro.Droid
         private const string GetSyncBundleCapability = "get_sync_bundle";
 
         private readonly Database _database;
-        private readonly SemaphoreSlim _lock = new(1, 1);
+        private readonly SemaphoreSlim _lock;
+        private SecureStorageWrapper _secureStorageWrapper;
 
         private readonly IAuthenticatorView _authenticatorView;
-        private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly ICustomIconRepository _customIconRepository;
+        private readonly ICategoryService _categoryService;
+        private readonly ICustomIconService _customIconService;
 
         public WearQueryService()
         {
             _database = new Database();
+            _lock = new SemaphoreSlim(1, 1);
 
             using var container = Dependencies.GetChildContainer();
             container.Register(_database);
@@ -48,14 +49,19 @@ namespace AuthenticatorPro.Droid
             Dependencies.RegisterViews(container);
 
             _authenticatorView = container.Resolve<IAuthenticatorView>();
-            _categoryRepository = container.Resolve<ICategoryRepository>();
-            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
-            _customIconRepository = container.Resolve<ICustomIconRepository>();
+            _categoryService = container.Resolve<ICategoryService>();
+            _customIconService = container.Resolve<ICustomIconService>();
+        }
+        
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            _secureStorageWrapper = new SecureStorageWrapper(this);
         }
 
         private async Task OpenDatabaseAsync()
         {
-            var password = await SecureStorageWrapper.GetDatabasePassword();
+            var password = _secureStorageWrapper.GetDatabasePassword();
             await _database.Open(password, Database.Origin.Wear);
         }
 
@@ -88,35 +94,58 @@ namespace AuthenticatorPro.Droid
             await _authenticatorView.LoadFromPersistenceAsync();
             var auths = new List<WearAuthenticator>();
 
-            var authCategories = await _authenticatorCategoryRepository.GetAllAsync();
+            var authCategories = await _categoryService.GetAllBindingsAsync();
 
             foreach (var auth in _authenticatorView)
             {
                 var bindings = authCategories
                     .Where(c => c.AuthenticatorSecret == auth.Secret)
-                    .Select(c => new WearAuthenticatorCategory(c.CategoryId, c.Ranking))
+                    .Select(c => new WearAuthenticatorCategory { CategoryId = c.CategoryId, Ranking = c.Ranking })
                     .ToList();
 
-                var item = new WearAuthenticator(
-                    auth.Type, auth.Secret, auth.Pin, auth.Icon, auth.Issuer, auth.Username, auth.Period, auth.Digits,
-                    auth.Algorithm, auth.Ranking, bindings);
+                var item = new WearAuthenticator
+                {
+                    Type = auth.Type,
+                    Secret = auth.Secret,
+                    Pin = auth.Pin,
+                    Icon = auth.Icon,
+                    Issuer = auth.Issuer,
+                    Username = auth.Username,
+                    Period = auth.Period,
+                    Digits = auth.Digits,
+                    Algorithm = auth.Algorithm,
+                    Ranking = auth.Ranking,
+                    CopyCount = auth.CopyCount,
+                    Categories = bindings
+                };
 
                 auths.Add(item);
             }
 
-            var categories = (await _categoryRepository.GetAllAsync())
-                .Select(c => new WearCategory(c.Id, c.Name, c.Ranking))
+            var categories = (await _categoryService.GetAllCategoriesAsync())
+                .Select(c => new WearCategory { Id = c.Id, Name = c.Name, Ranking = c.Ranking })
                 .ToList();
 
-            var customIcons = (await _customIconRepository.GetAllAsync())
-                .Select(i => new WearCustomIcon(i.Id, i.Data))
+            var customIcons = (await _customIconService.GetAllAsync())
+                .Select(i => new WearCustomIcon { Id = i.Id, Data = i.Data })
                 .ToList();
 
             var preferenceWrapper = new PreferenceWrapper(this);
-            var preferences = new WearPreferences(
-                preferenceWrapper.DefaultCategory, preferenceWrapper.SortMode, preferenceWrapper.CodeGroupSize);
+            var preferences = new WearPreferences
+            {
+                DefaultCategory = preferenceWrapper.DefaultCategory,
+                SortMode = preferenceWrapper.SortMode,
+                CodeGroupSize = preferenceWrapper.CodeGroupSize,
+                ShowUsernames = preferenceWrapper.ShowUsernames
+            };
 
-            var bundle = new WearSyncBundle(auths, categories, customIcons, preferences);
+            var bundle = new WearSyncBundle
+            {
+                Authenticators = auths,
+                Categories = categories,
+                CustomIcons = customIcons,
+                Preferences = preferences
+            };
 
             var json = JsonConvert.SerializeObject(bundle);
             return Encoding.UTF8.GetBytes(json);
@@ -142,9 +171,7 @@ namespace AuthenticatorPro.Droid
 
         public override async void OnChannelOpened(ChannelClient.IChannel channel)
         {
-#if DEBUG
-            Logger.Info($"Wear channel opened: {channel.Path}");
-#endif
+            Logger.Debug($"Wear channel opened: {channel.Path}");
 
             if (channel.Path != GetSyncBundleCapability)
             {

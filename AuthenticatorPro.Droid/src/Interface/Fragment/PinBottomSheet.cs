@@ -25,7 +25,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private int _length;
 
-        public PinBottomSheet() : base(Resource.Layout.sheetPin) { }
+        public PinBottomSheet() : base(Resource.Layout.sheetPin, Resource.String.pin) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,7 +36,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.pin);
 
             _pinText = view.FindViewById<TextInputEditText>(Resource.Id.editPin);
             _pinTextLayout = view.FindViewById<TextInputLayout>(Resource.Id.editPinLayout);
@@ -78,7 +77,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private void OnCancelButtonClick(object sender, EventArgs e)
         {
             Dismiss();
-            CancelClicked?.Invoke(this, null);
+            CancelClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

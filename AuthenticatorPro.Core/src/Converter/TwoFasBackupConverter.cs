@@ -85,7 +85,11 @@ namespace AuthenticatorPro.Core.Converter
                 }
             }
 
-            var backup = new Backup.Backup(authenticators, categories, bindings);
+            var backup = new Backup.Backup
+            {
+                Authenticators = authenticators, Categories = categories, AuthenticatorCategories = bindings
+            };
+            
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
@@ -167,7 +171,7 @@ namespace AuthenticatorPro.Core.Converter
 
                 var algorithm = Otp.Algorithm switch
                 {
-                    "SHA1" => HashAlgorithm.Sha1,
+                    "SHA1" or null => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
                     "SHA512" => HashAlgorithm.Sha512,
                     _ => throw new ArgumentException($"Algorithm '{Otp.Algorithm}' not supported")
@@ -190,8 +194,8 @@ namespace AuthenticatorPro.Core.Converter
                 return new Authenticator
                 {
                     Secret = SecretUtil.Clean(Secret, type),
-                    Issuer = issuer,
-                    Username = username,
+                    Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
+                    Username = username.Truncate(Authenticator.UsernameMaxLength),
                     Digits = Otp.Digits,
                     Period = Otp.Period,
                     Counter = Otp.Counter,

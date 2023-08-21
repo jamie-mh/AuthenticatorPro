@@ -6,4 +6,7 @@
     <string name="categoryAll">Alle</string>
     <string name="offline">Offline</string>
     <string name="syncFailed">Synchronisierung fehlgeschlagen</string>
+    <string name="noFavourite">Kein Favorit</string>
+    <string name="noFavouriteMessage">Tippe lange auf einen Authentifikator in der App, um diesen einzustellen</string>
+    <string name="open">Öffnen</string>
 </resources>

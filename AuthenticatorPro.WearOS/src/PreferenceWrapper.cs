@@ -20,12 +20,12 @@ namespace AuthenticatorPro.WearOS
         }
 
         private const string DefaultAuthKey = "defaultAuth";
-        private static readonly int? DefaultAuthDefault = null;
+        private static readonly string DefaultAuthDefault = null;
 
-        public int? DefaultAuth
+        public string DefaultAuth
         {
-            get => GetNullableIntPreference(DefaultAuthKey, DefaultAuthDefault);
-            set => SetNullableIntPreference(DefaultAuthKey, value);
+            get => Preferences.GetString(DefaultAuthKey, DefaultAuthDefault);
+            set => SetPreference(DefaultAuthKey, value);
         }
 
         private const string SortModeKey = "sortMode";
@@ -45,6 +45,15 @@ namespace AuthenticatorPro.WearOS
             get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
             set => SetPreference(CodeGroupSizeKey, value.ToString());
         }
+        
+        private const string ShowUsernamesKey = "showUsernames";
+        private const bool ShowUsernamesDefault = true;
+
+        public bool ShowUsernames
+        {
+            get => Preferences.GetBoolean(ShowUsernamesKey, ShowUsernamesDefault);
+            set => SetPreference(ShowUsernamesKey, value);
+        }
 
         public PreferenceWrapper(Context context) : base(context) { }
 
@@ -53,6 +62,7 @@ namespace AuthenticatorPro.WearOS
             DefaultCategory = preferences.DefaultCategory;
             SortMode = preferences.SortMode;
             CodeGroupSize = preferences.CodeGroupSize;
+            ShowUsernames = preferences.ShowUsernames;
         }
     }
 }

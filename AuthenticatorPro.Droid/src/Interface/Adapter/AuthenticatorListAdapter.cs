@@ -3,11 +3,9 @@
 
 using Android.Animation;
 using Android.Content;
-using Android.Graphics;
 using Android.Provider;
 using Android.Views;
 using Android.Views.Animations;
-using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using AuthenticatorPro.Droid.Persistence.View;
@@ -15,25 +13,24 @@ using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
-using AuthenticatorPro.Core.Persistence;
-using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Util;
+using Google.Android.Material.ProgressIndicator;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Linq;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter, IDisposable
+    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
 
         public event EventHandler<string> ItemClicked;
         public event EventHandler<string> MenuClicked;
+        public event EventHandler<string> RefreshClicked;
 
         public event EventHandler MovementStarted;
         public event EventHandler<bool> MovementFinished;
@@ -41,73 +38,41 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
         private readonly bool _tapToReveal;
+        private readonly int _tapToRevealDuration;
         private readonly int _codeGroupSize;
+        private readonly bool _showUsernames;
 
-        private readonly IAuthenticatorService _authenticatorService;
         private readonly IAuthenticatorView _authenticatorView;
-        private readonly ICustomIconRepository _customIconRepository;
-
-        private readonly SemaphoreSlim _customIconDecodeLock;
-        private readonly Dictionary<string, Bitmap> _decodedCustomIcons;
+        private readonly ICustomIconView _customIconView;
 
         private readonly Dictionary<int, long> _generationOffsets;
-        private readonly Dictionary<int, long> _counterCooldownOffsets;
+        private readonly Dictionary<int, long> _cooldownOffsets;
         private readonly Queue<int> _positionsToUpdate;
         private readonly Queue<int> _offsetsToUpdate;
 
         private readonly float _animationScale;
 
-        private bool _isDisposed;
-
-        public AuthenticatorListAdapter(Context context, IAuthenticatorService authenticatorService,
-            IAuthenticatorView authenticatorView, ICustomIconRepository customIconRepository, bool isDark)
+        public AuthenticatorListAdapter(
+            Context context, IAuthenticatorView authenticatorView, ICustomIconView customIconView, bool isDark)
         {
-            _authenticatorService = authenticatorService;
             _authenticatorView = authenticatorView;
-            _customIconRepository = customIconRepository;
+            _customIconView = customIconView;
 
             var preferences = new PreferenceWrapper(context);
             _viewMode = ViewModeSpecification.FromName(preferences.ViewMode);
             _tapToReveal = preferences.TapToReveal;
+            _tapToRevealDuration = preferences.TapToRevealDuration;
             _codeGroupSize = preferences.CodeGroupSize;
+            _showUsernames = preferences.ShowUsernames;
             _isDark = isDark;
 
-            _customIconDecodeLock = new SemaphoreSlim(1, 1);
-            _decodedCustomIcons = new Dictionary<string, Bitmap>();
-
             _generationOffsets = new Dictionary<int, long>();
-            _counterCooldownOffsets = new Dictionary<int, long>();
+            _cooldownOffsets = new Dictionary<int, long>();
             _positionsToUpdate = new Queue<int>();
             _offsetsToUpdate = new Queue<int>();
 
             _animationScale =
                 Settings.Global.GetFloat(context.ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
-        }
-
-        ~AuthenticatorListAdapter()
-        {
-            Dispose(false);
-        }
-
-        public new void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (!_isDisposed)
-            {
-                if (disposing)
-                {
-                    _customIconDecodeLock.Dispose();
-                }
-
-                _isDisposed = true;
-            }
-
-            base.Dispose(disposing);
         }
 
         public override int ItemCount => _authenticatorView.Count;
@@ -130,7 +95,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public void OnMovementStarted()
         {
-            MovementStarted?.Invoke(this, null);
+            MovementStarted?.Invoke(this, EventArgs.Empty);
         }
 
         public override long GetItemId(int position)
@@ -145,7 +110,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             return position >= 0 && position < _authenticatorView.Count;
         }
 
-        public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             if (!ValidatePosition(position))
             {
@@ -158,18 +123,28 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             holder.Issuer.Text = auth.Issuer;
             holder.Username.Text = auth.Username;
 
-            holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
-                ? ViewStates.Gone
-                : ViewStates.Visible;
+            if (!_showUsernames)
+            {
+                var uniqueIssuer = _authenticatorView.Count(a => a.Issuer == auth.Issuer) == 1;
+                holder.Username.Visibility = uniqueIssuer
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
+            }
+            else
+            {
+                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
+            }
 
             if (auth.Icon != null && auth.Icon.StartsWith(CustomIcon.Prefix))
             {
                 var id = auth.Icon[1..];
-                Bitmap decoded;
+                var customIconBitmap = _customIconView.GetOrDefault(id);
 
-                if ((decoded = await DecodeCustomIcon(id)) != null)
+                if (customIconBitmap != null)
                 {
-                    holder.Icon.SetImageBitmap(decoded);
+                    holder.Icon.SetImageBitmap(customIconBitmap);
                 }
                 else
                 {
@@ -185,28 +160,24 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             {
                 case GenerationMethod.Time:
                 {
-                    if (_tapToReveal)
-                    {
-                        holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
-                    }
-
                     holder.RefreshButton.Visibility = ViewStates.Gone;
-                    holder.ProgressBar.Visibility = ViewStates.Visible;
+                    holder.ProgressIndicator.Visibility = ViewStates.Visible;
 
-                    var offset = GetGenerationOffset(auth.Period);
                     var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                    UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
+                    var offset = GetGenerationOffset(auth.Period);
+                    UpdateTimeGeneratorCodeText(auth, holder, offset);
+                    UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
                     break;
                 }
 
                 case GenerationMethod.Counter:
                 {
-                    var inCooldown = _counterCooldownOffsets.ContainsKey(position);
+                    var inCooldown = _cooldownOffsets.ContainsKey(position);
                     var code = (_tapToReveal && inCooldown) || !_tapToReveal ? auth.GetCode() : null;
 
                     holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
                     holder.RefreshButton.Visibility = inCooldown ? ViewStates.Invisible : ViewStates.Visible;
-                    holder.ProgressBar.Visibility = ViewStates.Invisible;
+                    holder.ProgressIndicator.Visibility = ViewStates.Invisible;
                     break;
                 }
             }
@@ -238,11 +209,10 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             if (payload.RequiresGeneration)
             {
-                var code = _tapToReveal ? null : auth.GetCode(offset);
-                holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+                UpdateTimeGeneratorCodeText(auth, holder, offset);
             }
 
-            UpdateProgressBar(holder.ProgressBar, auth.Period, offset, payload.CurrentOffset);
+            UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
         }
 
         public override void OnViewAttachedToWindow(Object holderObj)
@@ -263,67 +233,17 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 return;
             }
 
-            var offset = GetGenerationOffset(auth.Period);
-            var code = _tapToReveal ? null : auth.GetCode(offset);
-            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
-
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            UpdateProgressBar(holder.ProgressBar, auth.Period, offset, now);
-        }
-
-        private async Task<Bitmap> DecodeCustomIcon(string id)
-        {
-            if (_decodedCustomIcons.TryGetValue(id, out var bitmap))
-            {
-                return bitmap;
-            }
-
-            CustomIcon icon;
-
-            try
-            {
-                icon = await _customIconRepository.GetAsync(id);
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                return null;
-            }
-
-            if (icon == null)
-            {
-                return null;
-            }
-
-            await _customIconDecodeLock.WaitAsync();
-
-            try
-            {
-                if (_decodedCustomIcons.TryGetValue(id, out bitmap))
-                {
-                    return bitmap;
-                }
-
-                bitmap = await BitmapFactory.DecodeByteArrayAsync(icon.Data, 0, icon.Data.Length);
-                _decodedCustomIcons.Add(icon.Id, bitmap);
-                return bitmap;
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                return null;
-            }
-            finally
-            {
-                _customIconDecodeLock.Release();
-            }
+            var offset = GetGenerationOffset(auth.Period);
+            UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
+            UpdateTimeGeneratorCodeText(auth, holder, offset);
         }
 
         public void Tick()
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-            foreach (var (position, offset) in _counterCooldownOffsets.ToImmutableArray())
+            foreach (var (position, offset) in _cooldownOffsets.ToImmutableArray())
             {
                 if (offset > now)
                 {
@@ -335,7 +255,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                     NotifyItemChanged(position);
                 }
 
-                _counterCooldownOffsets.Remove(position);
+                _cooldownOffsets.Remove(position);
             }
 
             var noAnimationProgressUpdate
@@ -407,25 +327,32 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             _generationOffsets[period] = offset;
         }
 
-        private void UpdateProgressBar(ProgressBar progressBar, int period, long generationOffset, long now)
+        private void UpdateProgressIndicator(LinearProgressIndicator progressIndicator, int period, long generationOffset, long now)
         {
             var renewTime = generationOffset + period;
             var secondsRemaining = Math.Max(renewTime - now, 0);
             var progress = (int) Math.Round((double) MaxProgress * secondsRemaining / period);
 
-            progressBar.Progress = progress;
+            progressIndicator.SetProgressCompat(progress, true);
 
             if (_animationScale.Equals(0f))
             {
                 return;
             }
 
-            var animator = ObjectAnimator.OfInt(progressBar, "progress", 0);
+            var animator = ObjectAnimator.OfInt(progressIndicator, "progress", 0);
             var duration = (int) (secondsRemaining * 1000 / _animationScale);
 
             animator.SetDuration(duration);
             animator.SetInterpolator(new LinearInterpolator());
             animator.Start();
+        }
+
+        private void UpdateTimeGeneratorCodeText(Authenticator auth, AuthenticatorListHolder holder, long offset)
+        {
+            var isRevealed = !_tapToReveal || _tapToReveal && _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition);
+            var code = isRevealed ? auth.GetCode(offset) : null;
+            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize); 
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -460,29 +387,37 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             var auth = _authenticatorView[holder.BindingAdapterPosition];
 
-            if (_tapToReveal)
+            if (!_tapToReveal)
             {
-                var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                ItemClicked?.Invoke(this, auth.Secret);
+                return;
             }
 
-            ItemClicked?.Invoke(this, auth.Secret);
+            if (_cooldownOffsets.Remove(holder.BindingAdapterPosition))
+            {
+                holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+            }
+            else
+            {
+                var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                _cooldownOffsets[holder.BindingAdapterPosition] = offset + _tapToRevealDuration;
+                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                ItemClicked?.Invoke(this, auth.Secret);
+            }
         }
 
-        private async void OnRefreshClick(int position)
+        private void OnRefreshClick(int position)
         {
             if (!ValidatePosition(position))
             {
                 return;
             }
 
-            var auth = _authenticatorView[position];
-            await _authenticatorService.IncrementCounterAsync(auth);
-
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            _counterCooldownOffsets[position] = now + CounterCooldownSeconds;
-
-            NotifyItemChanged(position);
+            _cooldownOffsets[position] = now + CounterCooldownSeconds;
+            
+            var auth = _authenticatorView[position];
+            RefreshClicked?.Invoke(this, auth.Secret);
         }
 
         private class TimerPartialUpdate : Object

@@ -2,96 +2,262 @@
   "encrypted": false,
   "folders": [
     {
-      "id": "1954c098-86a2-4d5f-a075-afba015cf052",
-      "name": "Test"
+      "id": "1df1a363-300f-4136-ad76-e922b13d0645",
+      "name": "My Folder"
     }
   ],
   "items": [
     {
-      "id": "ddab8cf4-452c-4577-8907-7edcf74a56ad",
+      "id": "fa2eb72a-bb2f-4e12-b19f-30db26132868",
       "organizationId": null,
       "folderId": null,
-      "type": 1,
+      "type": 3,
       "reprompt": 0,
-      "name": "Entry A",
-      "notes": null,
+      "name": "Card",
+      "notes": "My card",
       "favorite": false,
-      "login": {
-        "uris": [
-          {
-            "match": null,
-            "uri": "https://www.example.com"
-          }
-        ],
-        "username": "username",
-        "password": "password",
-        "totp": ""
+      "card": {
+        "cardholderName": "John Doe",
+        "brand": "Visa",
+        "number": "4024007137334933",
+        "expMonth": "6",
+        "expYear": "2029",
+        "code": "697"
       },
       "collectionIds": null
     },
     {
-      "id": "dc24d542-925e-4e76-ac3c-874f53bd9b55",
+      "id": "7bb0fcb1-a31f-4875-86f8-0ae8d9e7c3aa",
       "organizationId": null,
-      "folderId": "1954c098-86a2-4d5f-a075-afba015cf052",
+      "folderId": null,
+      "type": 4,
+      "reprompt": 0,
+      "name": "Identity",
+      "notes": null,
+      "favorite": false,
+      "identity": {
+        "title": "Mr",
+        "firstName": "John",
+        "middleName": "Example",
+        "lastName": "Doe",
+        "address1": "742 Evergreen Terrace",
+        "address2": null,
+        "address3": null,
+        "city": "Springfield",
+        "state": null,
+        "postalCode": null,
+        "country": "USA",
+        "company": null,
+        "email": "john@example.com",
+        "phone": null,
+        "ssn": null,
+        "username": "johndoe",
+        "passportNumber": null,
+        "licenseNumber": null
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "64345860-0e60-460f-8c16-c5bbdfd276c3",
+      "organizationId": null,
+      "folderId": "1df1a363-300f-4136-ad76-e922b13d0645",
       "type": 1,
       "reprompt": 0,
-      "name": "Entry B",
+      "name": "Long",
+      "notes": null,
+      "favorite": true,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://example.com"
+          }
+        ],
+        "username": "Period",
+        "password": "Ca2M9NuWigw5cC",
+        "totp": "otpauth://totp/Long%3APeriod?secret=JGRMXBLPPYQIFMRBFQDHNP3MPPYQYNUN&issuer=Long&period=60"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "1b126c9c-9119-4b29-a1f7-a16269ff4d63",
+      "organizationId": null,
+      "folderId": "1df1a363-300f-4136-ad76-e922b13d0645",
+      "type": 1,
+      "reprompt": 0,
+      "name": "Many",
       "notes": null,
       "favorite": false,
       "login": {
         "uris": [
           {
             "match": null,
-            "uri": "https://www.example.com"
+            "uri": "https://example.com"
           }
         ],
-        "username": "username",
-        "password": "password",
+        "username": "Digits",
+        "password": "Cjsrud56gx32cL",
+        "totp": "otpauth://totp/Many%3ADigits?secret=WEV2GHDH4EAU7D5SZGCIQOFBNQ35EHBS&issuer=Many&digits=9"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "99639f2c-9a9e-46bc-9a2e-1ebb35cc5a35",
+      "organizationId": null,
+      "folderId": "1df1a363-300f-4136-ad76-e922b13d0645",
+      "type": 1,
+      "reprompt": 1,
+      "name": "No",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://example.com"
+          }
+        ],
+        "username": "Issuer",
+        "password": "TGao886Us8KMXo",
+        "totp": "otpauth://totp/NoIssuer?secret=KY2QJPMNQLSGSZE2C5F7AYBLBVEEDHFX&issuer=NoIssuer"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "b19554da-959a-4c78-b932-1e1f1c2686b7",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Secret",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://example.com"
+          }
+        ],
+        "username": "Only",
+        "password": null,
+        "totp": "JOR2VZXMNHACFNLRAOACFFRDRYAOFMLB"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "f7760b73-f3cf-4ce9-bec2-999d273f168d",
+      "organizationId": null,
+      "folderId": "1df1a363-300f-4136-ad76-e922b13d0645",
+      "type": 2,
+      "reprompt": 0,
+      "name": "Secure Note",
+      "notes": "My secret text",
+      "favorite": false,
+      "secureNote": {
+        "type": 0
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "6616fe85-0495-4f34-9d80-cff7dc6a5eb4",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Sha",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://example.com"
+          }
+        ],
+        "username": "256",
+        "password": "cZh9SQn2PbhUVc",
+        "totp": "otpauth://totp/Sha%3A256?secret=RJNZJM7PAGJUBG32XHQWHFZVLYOMGIUQ&issuer=Sha&algorithm=SHA256"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "c362a3f6-f41b-461d-be4e-00de62acc80f",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Sha",
+      "notes": null,
+      "favorite": false,
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://example.com"
+          }
+        ],
+        "username": "512",
+        "password": "Cd6MLr5yvmj5CF",
+        "totp": "otpauth://totp/Sha%3A512?secret=UW33SR5O4EKTDXNCBBS5FSPUKAYXIWOH&issuer=Sha&algorithm=SHA512"
+      },
+      "collectionIds": null
+    },
+    {
+      "id": "963ce707-a4b4-49d0-995b-065f21f0ce7b",
+      "organizationId": null,
+      "folderId": null,
+      "type": 1,
+      "reprompt": 0,
+      "name": "Standard",
+      "notes": "This is a note",
+      "favorite": false,
+      "fields": [
+        {
+          "name": "Text",
+          "value": "Field",
+          "type": 0,
+          "linkedId": null
+        },
+        {
+          "name": "Boolean",
+          "value": "true",
+          "type": 2,
+          "linkedId": null
+        }
+      ],
+      "login": {
+        "uris": [
+          {
+            "match": null,
+            "uri": "https://example.com"
+          }
+        ],
+        "username": "Totp",
+        "password": "PEsB9if3rtTAaH",
         "totp": "otpauth://totp/Standard%3ATotp?secret=54VEGZFJHM3BGDONFERMPUOKNGDJETGM&issuer=Standard"
       },
       "collectionIds": null
     },
     {
-      "id": "ddab8cf4-452c-4577-8907-7edcf74a56ad",
-      "organizationId": null,
-      "folderId": "1954c098-86a2-4d5f-a075-afba015cf052",
-      "type": 1,
-      "reprompt": 0,
-      "name": "Entry C",
-      "notes": null,
-      "favorite": false,
-      "login": {
-        "uris": [
-          {
-            "match": null,
-            "uri": "https://www.example.com"
-          }
-        ],
-        "username": "username",
-        "password": "password",
-        "totp": "steam://2NREZAL2WYZVYCEOTKBADVRDDTRQSOPQ"
-      },
-      "collectionIds": null
-    },
-    {
-      "id": "ddab8cf4-452c-4577-8907-7edcf74a56ad",
+      "id": "1c46559b-d364-4100-b306-cc45c90d5dc1",
       "organizationId": null,
       "folderId": null,
       "type": 1,
       "reprompt": 0,
-      "name": "Entry D",
+      "name": "Steam",
       "notes": null,
       "favorite": false,
       "login": {
         "uris": [
           {
             "match": null,
-            "uri": "https://www.example.com"
+            "uri": "https://steampowered.com"
           }
         ],
-        "username": "username",
-        "password": "password",
-        "totp": "UTJVWG6PAC4GYNRPHJ3FTRWRJIAWVWBD"
+        "username": "john@example.com",
+        "password": "X7D5jApkTCRpHc",
+        "totp": "steam://GJD4ZX3RQMLCAXKCT7GGQ4U27VN4FPK6"
       },
       "collectionIds": null
     }

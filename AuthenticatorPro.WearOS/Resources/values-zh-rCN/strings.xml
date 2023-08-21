@@ -5,5 +5,8 @@
     <string name="hotpNotSupported">不支持HOTP</string>
     <string name="categoryAll">全部</string>
     <string name="offline">离线</string>
-    <string name="syncFailed">Sync failed</string>
+    <string name="syncFailed">同步失败</string>
+    <string name="noFavourite">没有收藏</string>
+    <string name="noFavouriteMessage">长按验证器以更改设置</string>
+    <string name="open">打开</string>
 </resources>

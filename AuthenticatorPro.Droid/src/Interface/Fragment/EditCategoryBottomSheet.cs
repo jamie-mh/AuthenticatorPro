@@ -23,7 +23,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler<EditCategoryEventArgs> Submitted;
 
         private Mode _mode;
-        private int _position;
+        private string _id;
         private string _initialValue;
 
         private TextInputEditText _textName;
@@ -34,14 +34,14 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             set => _textNameLayout.Error = value;
         }
 
-        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory) { }
+        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory, Resource.String.category) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             _mode = (Mode) Arguments.GetInt("mode", 0);
-            _position = Arguments.GetInt("position", -1);
+            _id = Arguments.GetString("id");
             _initialValue = Arguments.GetString("initialValue");
         }
 
@@ -54,7 +54,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             };
 
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, titleRes);
 
             _textName = view.FindViewById<TextInputEditText>(Resource.Id.editName);
             _textNameLayout = view.FindViewById<TextInputLayout>(Resource.Id.editNameLayout);
@@ -89,7 +88,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                     return;
                 }
 
-                var args = new EditCategoryEventArgs(_position, _initialValue, name);
+                var args = new EditCategoryEventArgs(_id, _initialValue, name);
                 Submitted?.Invoke(this, args);
             };
 
@@ -104,13 +103,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         public class EditCategoryEventArgs : EventArgs
         {
-            public readonly int Position;
+            public readonly string Id;
             public readonly string InitialName;
             public readonly string Name;
 
-            public EditCategoryEventArgs(int position, string initialName, string name)
+            public EditCategoryEventArgs(string id, string initialName, string name)
             {
-                Position = position;
+                Id = id;
                 InitialName = initialName;
                 Name = name;
             }

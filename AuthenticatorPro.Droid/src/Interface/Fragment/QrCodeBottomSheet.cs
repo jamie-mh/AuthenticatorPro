@@ -1,12 +1,15 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.Dialog;
+using Google.Android.Material.ProgressIndicator;
 using QRCoder;
 using System;
 using System.Threading.Tasks;
@@ -18,11 +21,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private const int PixelsPerModule = 4;
 
         private ImageView _image;
-        private ProgressBar _progressBar;
+        private CircularProgressIndicator _progressIndicator;
 
         private string _uri;
 
-        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode) { }
+        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode, Resource.String.qrCode) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,13 +36,34 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.qrCode, true);
 
-            _progressBar = view.FindViewById<ProgressBar>(Resource.Id.appBarProgressBar);
+            _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
             _image = view.FindViewById<ImageView>(Resource.Id.imageQrCode);
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             okButton.Click += delegate { Dismiss(); };
+            
+            var copyButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCopyUri);
+            copyButton.Click += delegate
+            {
+                var builder = new MaterialAlertDialogBuilder(RequireContext());
+                builder.SetMessage(Resource.String.copyUriWarning);
+                builder.SetTitle(Resource.String.warning);
+                builder.SetIcon(Resource.Drawable.baseline_warning_24);
+                builder.SetPositiveButton(Resource.String.copyUri, delegate
+                {
+                    var clipboard = (ClipboardManager) Context.GetSystemService(Context.ClipboardService);
+                    var clip = ClipData.NewPlainText("uri", _uri);
+                    clipboard.PrimaryClip = clip;
+                    Toast.MakeText(Context, Resource.String.uriCopiedToClipboard, ToastLength.Short).Show();
+                });
+    
+                builder.SetNegativeButton(Resource.String.cancel, delegate { });
+                builder.SetCancelable(true);
+    
+                var dialog = builder.Create();
+                dialog.Show();
+            };
 
             return view;
         }
@@ -59,7 +83,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var bitmap = await BitmapFactory.DecodeByteArrayAsync(bytes, 0, bytes.Length);
 
-            AnimUtil.FadeOutView(_progressBar, AnimUtil.LengthShort);
+            _progressIndicator.Visibility = ViewStates.Gone;
             AnimUtil.FadeInView(_image, AnimUtil.LengthLong);
             _image.SetImageBitmap(bitmap);
         }

@@ -32,22 +32,22 @@ namespace AuthenticatorPro.Droid.Interface
         {
             return name switch
             {
-                "red" => Resource.Color.colorRedPrimary,
-                "pink" => Resource.Color.colorPinkPrimary,
-                "purple" => Resource.Color.colorPurplePrimary,
-                "deepPurple" => Resource.Color.colorDeepPurplePrimary,
-                "indigo" => Resource.Color.colorIndigoPrimary,
-                "blue" => Resource.Color.colorBluePrimary,
-                "lightBlue" => Resource.Color.colorLightBluePrimary,
-                "cyan" => Resource.Color.colorCyanPrimary,
-                "teal" => Resource.Color.colorTealPrimary,
-                "green" => Resource.Color.colorGreenPrimary,
-                "lightGreen" => Resource.Color.colorLightGreenPrimary,
-                "lime" => Resource.Color.colorLimePrimary,
-                "yellow" => Resource.Color.colorYellowPrimary,
-                "amber" => Resource.Color.colorAmberPrimary,
-                "orange" => Resource.Color.colorOrangePrimary,
-                "deepOrange" => Resource.Color.colorDeepOrangePrimary,
+                "red" => Resource.Color.md_theme_light_red_primary,
+                "pink" => Resource.Color.md_theme_light_pink_primary,
+                "purple" => Resource.Color.md_theme_light_purple_primary,
+                "deepPurple" => Resource.Color.md_theme_light_deepPurple_primary,
+                "indigo" => Resource.Color.md_theme_light_indigo_primary,
+                "blue" => Resource.Color.md_theme_light_blue_primary,
+                "lightBlue" => Resource.Color.md_theme_light_lightBlue_primary,
+                "cyan" => Resource.Color.md_theme_light_cyan_primary,
+                "teal" => Resource.Color.md_theme_light_teal_primary,
+                "green" => Resource.Color.md_theme_light_green_primary,
+                "lightGreen" => Resource.Color.md_theme_dark_lightGreen_primary,
+                "lime" => Resource.Color.md_theme_light_lime_primary,
+                "yellow" => Resource.Color.md_theme_light_yellow_primary,
+                "amber" => Resource.Color.md_theme_light_amber_primary,
+                "orange" => Resource.Color.md_theme_light_orange_primary,
+                "deepOrange" => Resource.Color.md_theme_light_deepOrange_primary,
                 _ => throw new ArgumentOutOfRangeException(nameof(name))
             };
         }

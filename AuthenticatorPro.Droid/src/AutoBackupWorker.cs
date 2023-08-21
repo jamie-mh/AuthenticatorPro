@@ -12,7 +12,8 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Extension;
 using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core.Backup;
-using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Backup.Encryption;
+using AuthenticatorPro.Core.Service;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,13 +27,9 @@ namespace AuthenticatorPro.Droid
 
         private readonly Context _context;
         private readonly PreferenceWrapper _preferences;
+        private readonly SecureStorageWrapper _secureStorageWrapper;
         private readonly Database _database;
-
-        private readonly IAuthenticatorRepository _authenticatorRepository;
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
-        private readonly ICustomIconRepository _customIconRepository;
-
+        private readonly IBackupService _backupService;
 
         private enum NotificationContext
         {
@@ -43,6 +40,7 @@ namespace AuthenticatorPro.Droid
         {
             _context = context;
             _preferences = new PreferenceWrapper(context);
+            _secureStorageWrapper = new SecureStorageWrapper(context);
             _database = new Database();
 
             using var container = Dependencies.GetChildContainer();
@@ -50,15 +48,12 @@ namespace AuthenticatorPro.Droid
             Dependencies.RegisterRepositories(container);
             Dependencies.RegisterServices(container);
 
-            _authenticatorRepository = container.Resolve<IAuthenticatorRepository>();
-            _categoryRepository = container.Resolve<ICategoryRepository>();
-            _authenticatorCategoryRepository = container.Resolve<IAuthenticatorCategoryRepository>();
-            _customIconRepository = container.Resolve<ICustomIconRepository>();
+            _backupService = container.Resolve<IBackupService>();
         }
 
         private async Task OpenDatabase()
         {
-            var password = await SecureStorageWrapper.GetDatabasePassword();
+            var password = _secureStorageWrapper.GetDatabasePassword();
             await _database.Open(password, Database.Origin.AutoBackup);
         }
 
@@ -87,21 +82,18 @@ namespace AuthenticatorPro.Droid
             return permission.IsReadPermission && permission.IsWritePermission;
         }
 
-        private async Task<string> GetBackupPassword()
+        private string GetBackupPassword()
         {
-            if (_preferences.DatabasePasswordBackup)
-            {
-                return await SecureStorageWrapper.GetDatabasePassword();
-            }
-
-            return await SecureStorageWrapper.GetAutoBackupPassword();
+            return _preferences.DatabasePasswordBackup
+                ? _secureStorageWrapper.GetDatabasePassword()
+                : _secureStorageWrapper.GetAutoBackupPassword();
         }
 
         private async Task<BackupResult> BackupToDir(Uri destUri)
         {
-            var auths = await _authenticatorRepository.GetAllAsync();
+            var backup = await _backupService.CreateBackupAsync();
 
-            if (!auths.Any())
+            if (!backup.Authenticators.Any())
             {
                 return new BackupResult();
             }
@@ -111,21 +103,18 @@ namespace AuthenticatorPro.Droid
                 throw new InvalidOperationException("No permission at URI");
             }
 
-            var password = await GetBackupPassword();
+            var password = GetBackupPassword();
 
             if (password == null)
             {
                 throw new InvalidOperationException("No password defined");
             }
 
-            var backup = new Backup(
-                auths,
-                await _categoryRepository.GetAllAsync(),
-                await _authenticatorCategoryRepository.GetAllAsync(),
-                await _customIconRepository.GetAllAsync()
-            );
-
-            var dataToWrite = backup.ToBytes(password);
+            IBackupEncryption encryption = !string.IsNullOrEmpty(password)
+                ? new StrongBackupEncryption()
+                : new NoBackupEncryption();
+            
+            var dataToWrite = await encryption.EncryptAsync(backup, password);
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
             var file = directory.CreateFile(Backup.MimeType,
@@ -151,9 +140,11 @@ namespace AuthenticatorPro.Droid
                 _ => throw new ArgumentOutOfRangeException(nameof(context))
             };
 
+#pragma warning disable CA1416
             var channel = new NotificationChannel(idString, name, NotificationImportance.Low);
             var manager = NotificationManagerCompat.From(_context);
             manager.CreateNotificationChannel(channel);
+#pragma warning restore CA1416
         }
 
         private void ShowNotification(NotificationContext context, bool openAppOnClick, IResult result = null)

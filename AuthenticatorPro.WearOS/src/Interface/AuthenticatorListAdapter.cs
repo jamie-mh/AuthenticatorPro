@@ -3,10 +3,12 @@
 
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Core.Util;
 using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
 using System;
+using System.Linq;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
@@ -14,16 +16,18 @@ namespace AuthenticatorPro.WearOS.Interface
     {
         private readonly AuthenticatorView _authView;
         private readonly CustomIconCache _customIconCache;
+        private readonly bool _showUsernames;
 
-        public int? DefaultAuth { get; set; }
+        public string DefaultAuth { get; set; }
 
         public event EventHandler<int> ItemClicked;
         public event EventHandler<int> ItemLongClicked;
 
-        public AuthenticatorListAdapter(AuthenticatorView authView, CustomIconCache customIconCache)
+        public AuthenticatorListAdapter(AuthenticatorView authView, CustomIconCache customIconCache, bool showUsernames)
         {
             _authView = authView;
             _customIconCache = customIconCache;
+            _showUsernames = showUsernames;
         }
 
         public override long GetItemId(int position)
@@ -31,7 +35,7 @@ namespace AuthenticatorPro.WearOS.Interface
             return _authView[position].GetHashCode();
         }
 
-        public override async void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
+        public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var auth = _authView[position];
 
@@ -42,19 +46,24 @@ namespace AuthenticatorPro.WearOS.Interface
 
             var holder = (AuthenticatorListHolder) viewHolder;
             holder.Issuer.Text = auth.Issuer;
+            holder.Username.Text = auth.Username;
 
-            holder.DefaultImage.Visibility = DefaultAuth != null && auth.Secret.GetHashCode() == DefaultAuth
+            holder.DefaultImage.Visibility = DefaultAuth != null && HashUtil.Sha1(auth.Secret) == DefaultAuth
                 ? ViewStates.Visible
                 : ViewStates.Gone;
 
-            if (String.IsNullOrEmpty(auth.Username))
+            if (!_showUsernames)
             {
-                holder.Username.Visibility = ViewStates.Gone;
+                var uniqueIssuer = _authView.Count(a => a.Issuer == auth.Issuer) == 1;
+                holder.Username.Visibility = uniqueIssuer
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
             }
             else
             {
-                holder.Username.Visibility = ViewStates.Visible;
-                holder.Username.Text = auth.Username;
+                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                    ? ViewStates.Gone
+                    : ViewStates.Visible;
             }
 
             if (!String.IsNullOrEmpty(auth.Icon))
@@ -62,7 +71,7 @@ namespace AuthenticatorPro.WearOS.Interface
                 if (auth.Icon.StartsWith(CustomIconCache.Prefix))
                 {
                     var id = auth.Icon[1..];
-                    var customIcon = await _customIconCache.GetBitmap(id);
+                    var customIcon = _customIconCache.GetCachedBitmap(id);
 
                     if (customIcon != null)
                     {

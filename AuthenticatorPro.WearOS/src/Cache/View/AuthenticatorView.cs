@@ -64,8 +64,9 @@ namespace AuthenticatorPro.WearOS.Cache.View
                 SortMode.AlphabeticalAscending => view.OrderBy(a => a.Issuer).ThenBy(a => a.Username),
                 SortMode.AlphabeticalDescending => view.OrderByDescending(a => a.Issuer)
                     .ThenByDescending(a => a.Username),
-                SortMode.Custom when CategoryId == null => view.OrderBy(a => a.Ranking).ThenBy(a => a.Issuer)
-                    .ThenBy(a => a.Username),
+                SortMode.CopyCountAscending => view.OrderBy(a => a.CopyCount).ThenBy(a => a.Issuer),
+                SortMode.CopyCountDescending => view.OrderByDescending(a => a.CopyCount).ThenBy(a => a.Issuer),
+                SortMode.Custom when CategoryId == null => view.OrderBy(a => a.Ranking),
                 _ => view
             };
 

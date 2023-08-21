@@ -4,6 +4,7 @@
     <string name="warning">Upozornění</string>
     <string name="delete">Odstranit</string>
     <string name="add">Přidat</string>
+    <string name="edit">Upravit</string>
     <string name="cancel">Zrušit</string>
     <string name="ok">OK</string>
     <string name="yes">Ano</string>
@@ -13,6 +14,7 @@
     <string name="retry">Opakovat</string>
     <string name="ignore">Ignorovat</string>
     <string name="disable">Deaktivovat</string>
+    <string name="name">Název</string>
     <!-- Menu items -->
     <string name="settings">Nastavení</string>
     <string name="restore">Obnovit</string>
@@ -20,6 +22,7 @@
     <string name="about">O Aplikaci</string>
     <string name="scanQrCode">Naskenovat QR kód</string>
     <string name="showQrCode">Zobrazit QR kód</string>
+    <string name="editDetails">Upravit podrobnosti</string>
     <string name="scanQrCodeFromCamera">Skenovat z fotoaparátu</string>
     <string name="scanQrCodeFromGallery">Skenovat z Galerie</string>
     <string name="rename">Přejmenovat</string>
@@ -31,6 +34,8 @@
     <string name="sort">Seřadit</string>
     <string name="sortAZ">Abecedně (A-Z)</string>
     <string name="sortZA">Abecedně (Z-A)</string>
+    <string name="sortMostCopied">Nejvíce kopírované</string>
+    <string name="sortLeastCopied">Nejméně kopírované</string>
     <string name="sortCustom">Vlastní</string>
     <string name="aboutSummary">Zobrazit informace o licenci</string>
     <string name="supportDevelopment">Podpořte vývoj</string>
@@ -45,6 +50,8 @@
     <string name="secretKey">Tajný klíč</string>
     <string name="pin">Připnout</string>
     <string name="showAdvancedOptions">Zobrazit pokročilé možnosti</string>
+    <string name="advancedOptionsWarning">Tato nastavení měňte pouze pokud víte, co děláte. Mohli byste přijít o přístup k vašim účtům.\n
+\nPokračovat?</string>
     <string name="confirmAuthenticatorDelete">Odstranění tohoto autentifikátoru vám zabrání generovat kódy pro tento účet. Neznamená to, že je dvoufaktorové ověřování zakázáno.\n\nSmazání tohoto autentifikátoru vám může zabránit v přístupu k vašemu účtu.\nUjistěte se, že je dvoufázové ověřování zakázáno, nebo máte uložené obnovovací kódy.\n\nPokračovat?</string>
     <string name="useCustomIcon">Použít vlastní ikonu</string>
     <string name="copiedToClipboard">Kód zkopírován do schránky</string>
@@ -55,6 +62,7 @@
     <string name="algorithmHint">Algoritmus</string>
     <string name="digitsHint">Číslice</string>
     <string name="periodHint">Doba (sekundy)</string>
+    <string name="counterHint">Počítadlo</string>
     <string name="noIssuer">Je vyžadován vydavatel</string>
     <string name="noSecret">Tajný klíč je povinný</string>
     <string name="noPin">Pin je povinný</string>
@@ -64,15 +72,25 @@
     <string name="pinTooLong">Pin nemůže obsahovat více než {0} číslic</string>
     <string name="digitsInvalid">Autentifikátor musí generovat mezi {0} a {1} číslicemi</string>
     <string name="periodInvalid">Doba je neplatná</string>
+    <string name="counterInvalid">Počítadlo není platné</string>
     <string name="qrCodeFormatError">QR kód není ve správném formátu nebo jej nelze přčíst</string>
-    <string name="qrCodeNotFound">QR code not found in image</string>
     <string name="duplicateAuthenticator">Autentifikátor s tímto tajným klíčem již existuje</string>
     <string name="scanSuccessful">QR kód úspěšně naskenován</string>
     <string name="pinMessage">Zadejte pin spojený s tímto QR kódem. Při nastavování tohoto účtu jste byli vyzváni k zadání pinu.</string>
+    <!-- Icon packs -->
+    <string name="defaultIcons">Výchozí ikony</string>
+    <string name="iconPacks">Balíčky ikon</string>
+    <string name="downloadPacks">Stáhnout balíčky</string>
+    <string name="importIconPackSuccess">Importováno {0} ikon z balíčku</string>
+    <string name="invalidIconPackError">Vybraný soubor není balíček ikon Authenticator Pro</string>
+    <string name="confirmIconPackDelete">Jste si jisti odstraněním balíčku ikon? Jakékoliv použité ikony budou odstraněny.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Zkopírujte tento autentifikátor do jiného zařízení nebo aplikace naskenováním QR kódu</string>
     <string name="qrCodeNotSupported">QR kódy nejsou pro tento typ podporovány</string>
+    <string name="copyUri">Kopírovat URI</string>
+    <string name="copyUriWarning">Tato URI obsahuje tajný klíč v prostém textu. Buďte opatrní, kam vložíte tyto informace.\n\nPokračovat?</string>
+    <string name="uriCopiedToClipboard">URI zkopírováno do schránky</string>
     <!-- Backup menu -->
     <string name="backupToFile">Zálohovat do šifrovaného souboru (doporučeno)</string>
     <string name="backupToFileMessage">Uložte všechny vaše autentifikátory, kategorie a ikony do zašifrovaného záložního souboru. Tento soubor lze obnovit v aplikaci.</string>
@@ -89,13 +107,16 @@
     <string name="noAuthenticatorsHelp">Pokud jste v Authenticator Pro noví, podívejte se na návod kliknutím níže.</string>
     <string name="noCategoriesTitle">Žádné kategorie</string>
     <string name="noCategoriesMessage">Zatím nemáte nastavené žádné kategorie</string>
+    <string name="noIconPacksTitle">Žádné balíčky ikon</string>
+    <string name="noIconPacksMessage">Zatím nemáte nastaveny jakékoliv balíčky ikon</string>
     <!-- Categories -->
+    <string name="category">Kategorie</string>
     <string name="categories">Kategorie</string>
     <string name="assignCategories">Přiřadit kategorie</string>
+    <string name="assignEntries">Assign entries</string>
     <string name="more">Více</string>
     <string name="categoryAll">Vše</string>
     <string name="editCategories">Upravit kategorie</string>
-    <string name="categoryNameHint">Název kategorie</string>
     <string name="noCategoryName">Název kategorie je povinný</string>
     <string name="duplicateCategory">Kategorie s tímto názvem již existuje</string>
     <string name="confirmCategoryDelete">Opravdu chcete tuto kategorii odstranit?</string>
@@ -113,9 +134,6 @@
     <string name="passwordHint">Záložní heslo</string>
     <string name="fileNameHint">Název záložního souboru</string>
     <string name="noAuthenticators">Nemáte žádné autentifikátory k zálohování</string>
-    <string name="encrypting">Šifrování</string>
-    <string name="decrypting">Dešifrování</string>
-    <string name="saving">Ukládání</string>
     <string name="saveSuccess">Úspěšně úloženo</string>
     <string name="backupSuccess">Záloha uložena jako \'{0}\'</string>
     <string name="restoredFromBackup">Obnoveno {0} nových autentifikátorů a {1} nových kategorií</string>
@@ -154,7 +172,6 @@
     <string name="autoBackupFailureTitle">Automatické zálohování se nezdařilo</string>
     <string name="autoBackupFailureText">Nejnovější automatické zálohování se nepodařilo dokončit. Pravděpodobně vypršela platnost oprávnění k úložišti, zkuste znovu nastavit umístění zálohy v nastavení automatického zálohování.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohování dokončeno</string>
-    <string name="autoRestoreSuccessTitle">Automatické obnovení dokončeno</string>
     <string name="backupScheduled">Záloha naplánována</string>
     <!-- Password setup -->
     <string name="passwordSetupHelp">Zašifrujte databázi pomocí hesla. Při otevření aplikace budete vyzváni k heslu. Pro vymazání hesla ponechte pole prázdné.</string>
@@ -173,18 +190,19 @@
     <string name="tooManyAttempts">Příliš mnoho pokusů</string>
     <!-- Import -->
     <string name="importFromOtherApps">Importovat z jiných aplikací</string>
-    <string name="importFrom">Importovat z</string>
     <string name="importError">Soubor nemohl být importován</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importIncomplete">Import nekompletní</string>
+    <string name="importConversionError">Selhal import položky \"{0}\" kvůli následující chybě: {1}</string>
     <string name="authenticatorPlusImportHint">Importovat soubor authplus.db</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="andOtpImportHint">Importovat soubor otp_accounts.json</string>
+    <string name="freeOtpImportHint">Importovat soubor externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importovat soubor freeotp-backup.json</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
     <string name="bitwarden">Bitwarden (prostý text)</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
-    <string name="winAuthImportHint">Importovat soubor winauth.txt</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
+    <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Importovat soubor LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importovat soubor TOTP_backup.encrypt</string>
     <string name="uriList">URI list</string>
     <string name="uriListHint">Textový seznam URI otpauth</string>
@@ -203,7 +221,7 @@
     <string name="guideWearOSTitle">Stáhnout doplněk Wear OS</string>
     <string name="guideWearOSSummary">Pokud máte hodinky s Wear OS, můžete si stáhnout doprovodnou aplikaci. Kódy můžete zobrazit přímo ve svých hodinkách.</string>
     <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. The code will scan automatically.</string>
+    <string name="scanHelpPrimary">Umístěte QR kód do hledáčku pro nasnímání. Klepněte pro zaostření.</string>
     <string name="scanHelpSecondary">Pokuste se vyhnout stínům a odleskům. Držte zařízení přibližně 6 palců (15 cm) od kódu.</string>
     <string name="toggleFlash">Přepnout blesk</string>
     <!-- Preferences -->
@@ -211,11 +229,13 @@
     <string name="prefShowBackupRemindersTitle">Připomenutí zálohování</string>
     <string name="prefShowBackupRemindersSummary">Připomíná vám zálohu vašich autentifikátorů, pokud jsou provedeny důležité změny</string>
     <string name="prefAutoBackupTitle">Automatické zálohování</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">Při změnách automaticky zálohovat do specifického umístění. Zakáže připomenutí zálohování.</string>
     <string name="prefLanguageTitle">Jazyk</string>
     <string name="prefLanguageSummary">Vyberte jazyk, který chcete použít v celé aplikaci</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefTapToCopyTitle">Klepnutím kopírujte</string>
+    <string name="prefTapToCopySummary">Při klepnutí se kód zkopíruje do schránky</string>
+    <string name="prefResetCopyCountTitle">Vynulovat počet kopírování</string>
+    <string name="prefResetCopyCountSummary">Vynulovat počet kopírování všech autentifikátorů</string>
     <string name="prefSecurity">Zabezpečení</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovat heslo pro přístup k autentifikátorům. Databáze bude šifrována s vaším heslem.</string>
@@ -227,6 +247,10 @@
     <string name="prefTimeoutSummary">Nastavte dobu, po které se databáze uzamkne, jakmile aplikace opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobrazit klepnutím</string>
     <string name="prefTapToRevealSummary">Skrýt kódy, dokud nebudou klepnuty. Po několika vteřinách zmizí.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Povolit snímky obrazovky</string>
+    <string name="prefAllowScreenshotsSummary">Vypnout zabezpečení obrazovky a povolit pořizování snímků obrazovky aplikace</string>
     <string name="prefAppearance">Vzhled</string>
     <string name="prefThemeTitle">Motiv</string>
     <string name="prefThemeSummary">Zvolte motiv aplikace</string>
@@ -234,15 +258,23 @@
     <string name="prefViewModeSummary">Vyberte mód zobrazení seznamu autentifikátorů</string>
     <string name="prefCodeGroupSizeTitle">Velikost skupiny kódů</string>
     <string name="prefCodeGroupSizeSummary">Změnit seskupování číslic v kódu</string>
+    <string name="prefShowUsernamesTitle">Zobrazit uživatelská jména</string>
+    <string name="prefShowUsernamesSummary">Zobrazit uživatelské jméno pod vydavatelem</string>
+    <string name="prefDynamicColourTitle">Dynamická barva</string>
+    <string name="prefDynamicColourSummary">Dynamicky nastavit barvu zvýraznění dle vaší tapety</string>
     <string name="prefAccentColourTitle">Barva zvýraznění</string>
     <string name="prefAccentColourSummary">Vyberte barvu zvýraznění, kterou chcete použít v celé aplikaci</string>
     <string name="prefTransparentStatusBarTitle">Průhledný stavový řádek</string>
     <string name="prefTransparentStatusBarSummary">Zviditelnit seznam za stavovou lištou při posouvání</string>
+    <string name="copyCountReset">Vynulování počtu kopírování</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časově založené (TOTP)</string>
     <string name="authTypeCounter">Založeno na počítadle (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (výchozí)</string>
     <string name="immediately">Okamžitě</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
     <string name="timeout30Sec">30 sekund</string>
     <string name="timeout1Min">1 minuta</string>
     <string name="timeout2Min">2 minuty</string>
@@ -251,6 +283,7 @@
     <string name="systemDefault">Systémové nastavení</string>
     <string name="lightTheme">Světlý motiv</string>
     <string name="darkTheme">Tmavý motiv</string>
+    <string name="blackTheme">Černý motiv</string>
     <string name="defaultViewMode">Výchozí</string>
     <string name="compactViewMode">Kompaktní</string>
     <string name="tileViewMode">Dlaždice</string>

@@ -62,7 +62,7 @@ namespace AuthenticatorPro.WearOS.Cache
             return $"{_context.CacheDir}/{_name}.json";
         }
 
-        public async Task Init()
+        public async Task InitAsync()
         {
             var path = GetFilePath();
 
@@ -75,10 +75,10 @@ namespace AuthenticatorPro.WearOS.Cache
             _items = JsonConvert.DeserializeObject<List<T>>(json);
         }
 
-        public async Task Replace(List<T> items)
+        public async Task ReplaceAsync(List<T> items)
         {
             _items = items;
-            await Flush();
+            await FlushAsync();
         }
 
         public bool Dirty(IEnumerable<T> items, IEqualityComparer<T> comparer = null)
@@ -88,7 +88,7 @@ namespace AuthenticatorPro.WearOS.Cache
                 : !_items.SequenceEqual(items);
         }
 
-        private async Task Flush()
+        private async Task FlushAsync()
         {
             var json = JsonConvert.SerializeObject(_items);
             await _flushLock.WaitAsync();

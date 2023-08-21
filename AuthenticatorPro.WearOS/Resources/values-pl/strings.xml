@@ -6,4 +6,7 @@
     <string name="categoryAll">Wszystko</string>
     <string name="offline">Offline</string>
     <string name="syncFailed">Synchronizacja nieudana</string>
+    <string name="noFavourite">Brak ulubionych</string>
+    <string name="noFavouriteMessage">Przytrzymaj wpis w aplikacji aby ustawić</string>
+    <string name="open">Otwórz</string>
 </resources>

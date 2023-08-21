@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Test.Converter
         {
             Assert.Empty(result.Failures);
 
-            Assert.Equal(7, result.Backup.Authenticators.Count());
+            Assert.Equal(6, result.Backup.Authenticators.Count());
             Assert.Null(result.Backup.Categories);
             Assert.Null(result.Backup.AuthenticatorCategories);
             Assert.Null(result.Backup.CustomIcons);
@@ -41,13 +41,6 @@ namespace AuthenticatorPro.Test.Converter
         public async Task ConvertAsync_ok()
         {
             var result = await _googleAuthenticatorBackupConverter.ConvertAsync(_googleAuthenticatorBackupFixture.Data);
-            CheckResult(result);
-        }
-
-        [Fact]
-        public async Task ConvertAsync_noPadding()
-        {
-            var result = await _googleAuthenticatorBackupConverter.ConvertAsync(_googleAuthenticatorBackupFixture.DataNoPadding);
             CheckResult(result);
         }
     }

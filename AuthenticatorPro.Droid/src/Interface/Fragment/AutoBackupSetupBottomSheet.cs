@@ -17,8 +17,10 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
+using Google.Android.Material.Card;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.SwitchMaterial;
+using Google.Android.Material.MaterialSwitch;
+using Google.Android.Material.TextView;
 using Java.Util.Concurrent;
 using System;
 using Uri = Android.Net.Uri;
@@ -28,21 +30,27 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     internal class AutoBackupSetupBottomSheet : BottomSheet
     {
         private PreferenceWrapper _preferences;
+        private SecureStorageWrapper _secureStorageWrapper;
+        
         private ActivityResultLauncher _locationSelectResultLauncher;
         private ActivityResultLauncher _showNotificationsResultLauncher;
+        private Action _showNotificationsPromptCallback;
 
-        private TextView _locationStatusText;
-        private TextView _passwordStatusText;
+        private MaterialTextView _locationStatusText;
+        private MaterialTextView _passwordStatusText;
 
-        private SwitchMaterial _backupEnabledSwitch;
+        private MaterialSwitch _backupEnabledSwitch;
         private MaterialButton _backupNowButton;
         private MaterialButton _okButton;
 
-        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup) { }
+        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup, Resource.String.prefAutoBackupTitle) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
+            _preferences = new PreferenceWrapper(RequireContext());
+            _secureStorageWrapper = new SecureStorageWrapper(RequireContext());
 
             var locationSelectCallback = new ActivityResultCallback();
             locationSelectCallback.Result += OnLocationSelectResult;
@@ -51,7 +59,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 RegisterForActivityResult(new ActivityResultContracts.StartActivityForResult(), locationSelectCallback);
 
             var showNotificationsPermissionCallback = new ActivityResultCallback();
-            showNotificationsPermissionCallback.Result += OnShowNotificationsPermissionResult;
+            showNotificationsPermissionCallback.Result += delegate { _showNotificationsPromptCallback(); };
 
             _showNotificationsResultLauncher =
                 RegisterForActivityResult(new ActivityResultContracts.RequestPermission(), showNotificationsPermissionCallback);
@@ -60,18 +68,15 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            SetupToolbar(view, Resource.String.prefAutoBackupTitle, true);
 
-            _preferences = new PreferenceWrapper(Context);
+            var selectLocationCard = view.FindViewById<MaterialCardView>(Resource.Id.cardSelectLocation);
+            selectLocationCard.Click += OnSelectLocationClick;
 
-            var selectLocationButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSelectLocation);
-            selectLocationButton.Click += OnSelectLocationClick;
+            var setPasswordCard = view.FindViewById<MaterialCardView>(Resource.Id.cardSetPassword);
+            setPasswordCard.Click += OnSetPasswordButtonClick;
 
-            var setPasswordButton = view.FindViewById<LinearLayout>(Resource.Id.buttonSetPassword);
-            setPasswordButton.Click += OnSetPasswordButtonClick;
-
-            _locationStatusText = view.FindViewById<TextView>(Resource.Id.textLocationStatus);
-            _passwordStatusText = view.FindViewById<TextView>(Resource.Id.textPasswordStatus);
+            _locationStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textLocationStatus);
+            _passwordStatusText = view.FindViewById<MaterialTextView>(Resource.Id.textPasswordStatus);
 
             _backupNowButton = view.FindViewById<MaterialButton>(Resource.Id.buttonBackupNow);
             _backupNowButton.Click += OnBackupNowButtonClick;
@@ -79,7 +84,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             _okButton.Click += delegate { Dismiss(); };
 
-            _backupEnabledSwitch = view.FindViewById<SwitchMaterial>(Resource.Id.switchBackupEnabled);
+            _backupEnabledSwitch = view.FindViewById<MaterialSwitch>(Resource.Id.switchBackupEnabled);
             _backupEnabledSwitch.Click += OnSwitchClicked;
 
             UpdateLocationStatusText();
@@ -87,7 +92,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (_preferences.DatabasePasswordBackup)
             {
-                setPasswordButton.Visibility = ViewStates.Gone;
+                setPasswordCard.Visibility = ViewStates.Gone;
             }
             else
             {
@@ -137,11 +142,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             UpdateSwitchAndTriggerButton();
         }
 
-        private void OnShowNotificationsPermissionResult(object sender, Object obj)
-        {
-            ShowBatteryOptimisationDialog();
-        }
-
         private void OnSwitchClicked(object sender, EventArgs e)
         {
             if (!_backupEnabledSwitch.Checked)
@@ -151,6 +151,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
             {
+                _showNotificationsPromptCallback = ShowBatteryOptimisationDialog;
                 _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
             }
             else
@@ -161,13 +162,22 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private void OnBackupNowButtonClick(object sender, EventArgs e)
         {
-            _preferences.AutoBackupTrigger = true;
-            TriggerWork();
-            Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
+            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
+            {
+                _showNotificationsPromptCallback = BackupNow;
+                _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
+            }
+            else
+            {
+                BackupNow();
+            }
         }
 
-        private void TriggerWork()
+        private void BackupNow()
         {
+            _preferences.AutoBackupTrigger = true;
+            Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
+            
             var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
             var manager = WorkManager.GetInstance(RequireContext());
             manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace!, request);
@@ -211,13 +221,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             fragment.Show(activity.SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnPasswordEntered(object sender, string password)
+        private void OnPasswordEntered(object sender, string password)
         {
             _preferences.AutoBackupPasswordProtected = password != "";
             ((BackupPasswordBottomSheet) sender).Dismiss();
             UpdatePasswordStatusText();
             UpdateSwitchAndTriggerButton();
-            await SecureStorageWrapper.SetAutoBackupPassword(password);
+            _secureStorageWrapper.SetAutoBackupPassword(password);
         }
 
         private void UpdateLocationStatusText()
@@ -279,10 +289,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
 
+#pragma warning disable CA1416
             if (powerManager.IsIgnoringBatteryOptimizations(Context.PackageName))
             {
                 return;
             }
+#pragma warning restore CA1416
 
             var builder = new MaterialAlertDialogBuilder(Context)
                 .SetTitle(Resource.String.batOptim)

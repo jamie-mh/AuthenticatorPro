@@ -6,4 +6,7 @@
     <string name="categoryAll">Kaikki</string>
     <string name="offline">Offline</string>
     <string name="syncFailed">Synkronointi epäonnistui</string>
+    <string name="noFavourite">No favourite</string>
+    <string name="noFavouriteMessage">Aseta painamalla pitkään todentajaa sovelluksessa</string>
+    <string name="open">Avaa</string>
 </resources>

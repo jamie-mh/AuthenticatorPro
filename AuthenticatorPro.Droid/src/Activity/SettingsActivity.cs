@@ -5,15 +5,19 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
-using AndroidX.AppCompat.Widget;
-using AndroidX.Biometric;
+using Android.Widget;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
+using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
-using AuthenticatorPro.Droid.Preference;
+using AuthenticatorPro.Droid.Interface.Preference;
+using AuthenticatorPro.Droid.Storage;
 using Javax.Crypto;
 using System;
+using BiometricManager = AndroidX.Biometric.BiometricManager;
+using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
+using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -21,10 +25,17 @@ namespace AuthenticatorPro.Droid.Activity
     internal class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
         private PreferenceWrapper _preferences;
+        private SecureStorageWrapper _secureStorageWrapper;
+        private readonly IAuthenticatorService _authenticatorService;
+        
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
+        private bool _arePreferencesReady;
 
-        public SettingsActivity() : base(Resource.Layout.activitySettings) { }
+        public SettingsActivity() : base(Resource.Layout.activitySettings)
+        {
+            _authenticatorService = Dependencies.Resolve<IAuthenticatorService>();
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,7 +45,9 @@ namespace AuthenticatorPro.Droid.Activity
             // return a result telling it to recreate.
             _shouldRecreateMain =
                 savedInstanceState != null && savedInstanceState.GetBoolean("shouldRecreateMain", false);
+            
             _preferences = new PreferenceWrapper(this);
+            _secureStorageWrapper = new SecureStorageWrapper(this);
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -50,8 +63,12 @@ namespace AuthenticatorPro.Droid.Activity
             _fragment = new SettingsFragment();
             _fragment.PreferencesCreated += delegate
             {
-                UpdateBackupRemindersEnabled(prefs);
-                UpdateSecuritySettingsEnabled();
+                _arePreferencesReady = true;
+                UpdateBackupRemindersState();
+                UpdatePasswordState();
+                UpdateTapToRevealState();
+                UpdateDynamicColourEnabled();
+                RegisterClickableEvents();
             };
 
             // If all fingerprints have been removed the biometrics setting is still checked
@@ -81,40 +98,36 @@ namespace AuthenticatorPro.Droid.Activity
         {
             switch (key)
             {
-                case "passwordChanged":
-                    _preferences.PasswordChanged = false;
-                    UpdateSecuritySettingsEnabled();
-                    _shouldRecreateMain = true;
-                    break;
-
-                case "pref_theme":
-                    UpdateTheme();
-                    break;
-
                 case "pref_language":
+                case "pref_theme":
+                case "pref_dynamicColour":
                 case "pref_accentColour":
                     _shouldRecreateMain = true;
                     Recreate();
                     break;
 
-                case "pref_tapToReveal":
+                case "pref_tapToRevealDuration":
+                case "pref_allowScreenshots":
                 case "pref_viewMode":
                 case "pref_codeGroupSize":
+                case "pref_showUsernames":
                 case "pref_transparentStatusBar":
                     _shouldRecreateMain = true;
                     break;
-
-                case "pref_autoBackupEnabled":
-                    UpdateBackupRemindersEnabled(sharedPreferences);
+                
+                case "pref_tapToReveal":
+                    _shouldRecreateMain = true;
+                    UpdateTapToRevealState();
                     break;
 
-                case "pref_allowBiometrics":
-                    var pref = _fragment.FindPreference(key);
-                    if (pref != null)
-                    {
-                        ((BiometricsPreference) pref).Checked = _preferences.AllowBiometrics;
-                    }
-
+                case "pref_autoBackupEnabled":
+                    UpdateBackupRemindersState();
+                    break;
+               
+                case "pref_passwordProtected":
+                case "passwordChanged":
+                    _shouldRecreateMain = true;
+                    UpdatePasswordState();
                     break;
             }
         }
@@ -142,27 +155,116 @@ namespace AuthenticatorPro.Droid.Activity
             outState.PutBoolean("shouldRecreateMain", _shouldRecreateMain);
         }
 
-        #region Preference states
-
-        private void UpdateBackupRemindersEnabled(ISharedPreferences sharedPreferences)
+        private void RegisterClickableEvents()
         {
-            var autoBackupEnabled = sharedPreferences.GetBoolean("pref_autoBackupEnabled", false);
-            _fragment.FindPreference("pref_showBackupReminders").Enabled = !autoBackupEnabled;
+            var autoBackup = _fragment.FindPreference("pref_autoBackup");
+            var resetCopyCount = _fragment.FindPreference("pref_resetCopyCount");
+            var password = _fragment.FindPreference("pref_password");
+            var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
+
+            autoBackup.PreferenceClick += delegate
+            {
+                var fragment = new AutoBackupSetupBottomSheet();
+                fragment.Show(SupportFragmentManager, fragment.Tag);
+            };
+
+            resetCopyCount.PreferenceClick += async delegate
+            {
+                try
+                {
+                    await _authenticatorService.ResetCopyCountsAsync();
+                    Toast.MakeText(this, Resource.String.copyCountReset, ToastLength.Short).Show();
+                }
+                catch (Exception e)
+                {
+                    Logger.Error(e);
+                    Toast.MakeText(this, Resource.String.genericError, ToastLength.Short).Show();
+                }
+            };
+
+            password.PreferenceClick += delegate
+            {
+                var fragment = new PasswordSetupBottomSheet();
+                fragment.Show(SupportFragmentManager, fragment.Tag);
+            };
+            
+            biometrics.PreferenceChange += (_, args) =>
+            {
+                var enabled = (bool) args.NewValue;
+                
+                if (enabled)
+                {
+                    EnableBiometrics(success =>
+                    {
+                        _preferences.AllowBiometrics = success;
+                        biometrics.Checked = success;
+                        
+                        if (!success)
+                        {
+                            ClearBiometrics();
+                        }
+                    });
+                }
+                else
+                {
+                    ClearBiometrics();
+                    biometrics.Checked = false;
+                    _preferences.AllowBiometrics = false;
+                }
+            };
         }
 
-        private void UpdateSecuritySettingsEnabled()
+        #region Preference states
+
+        private void UpdateBackupRemindersState()
         {
-            if (!_preferences.PasswordProtected)
+            if (_arePreferencesReady)
             {
-                _fragment.FindPreference("pref_allowBiometrics").Enabled = false;
-                _fragment.FindPreference("pref_timeout").Enabled = false;
-                _fragment.FindPreference("pref_databasePasswordBackup").Enabled = false;
+                _fragment.FindPreference("pref_showBackupReminders").Enabled = !_preferences.AutoBackupEnabled;
+            }
+        }
+
+        private void UpdatePasswordState()
+        {
+            if (!_arePreferencesReady)
+            {
                 return;
             }
+            
+            var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
+            biometrics.Enabled = _preferences.PasswordProtected && CanUseBiometrics();
+            biometrics.Checked = _preferences.AllowBiometrics;
+            
+            _fragment.FindPreference("pref_timeout").Enabled = _preferences.PasswordProtected;
+            _fragment.FindPreference("pref_databasePasswordBackup").Enabled = _preferences.PasswordProtected;
+        }
 
-            _fragment.FindPreference("pref_allowBiometrics").Enabled = CanUseBiometrics();
-            _fragment.FindPreference("pref_timeout").Enabled = true;
-            _fragment.FindPreference("pref_databasePasswordBackup").Enabled = true;
+        private void UpdateTapToRevealState()
+        {
+            if (_arePreferencesReady)
+            {
+                _fragment.FindPreference("pref_tapToRevealDuration").Enabled = _preferences.TapToReveal;
+            }
+        }
+        
+        private void UpdateDynamicColourEnabled()
+        {
+            if (!_arePreferencesReady)
+            {
+                return;
+            }
+            
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
+            {
+                _fragment.FindPreference("pref_dynamicColour").Enabled = true;
+                _fragment.FindPreference("pref_accentColour").Enabled = !_preferences.DynamicColour;
+            }
+            else
+            {
+                _fragment.FindPreference("pref_dynamicColour").Enabled = false;
+                _fragment.FindPreference("pref_accentColour").Enabled = true;
+                _preferences.DynamicColour = false;
+            }
         }
 
         #endregion
@@ -192,18 +294,18 @@ namespace AuthenticatorPro.Droid.Activity
 
             return false;
         }
-
-        public void EnableBiometrics(Action<bool> callback)
+        
+        private void EnableBiometrics(Action<bool> callback)
         {
             var passwordStorage = new BiometricStorage(this);
             var executor = ContextCompat.GetMainExecutor(this);
             var authCallback = new AuthenticationCallback();
 
-            authCallback.Succeeded += async (_, result) =>
+            authCallback.Succeeded += (_, result) =>
             {
                 try
                 {
-                    var password = await SecureStorageWrapper.GetDatabasePassword();
+                    var password = _secureStorageWrapper.GetDatabasePassword();
                     passwordStorage.Store(password, result.CryptoObject.Cipher);
                 }
                 catch (Exception e)
@@ -218,12 +320,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             authCallback.Failed += delegate
             {
+                Toast.MakeText(this, Resource.String.genericError, ToastLength.Long).Show();
                 callback(false);
             };
 
-            authCallback.Errored += delegate
+            authCallback.Errored += (_, args) =>
             {
-                // Do something, probably
+                Toast.MakeText(this, args.Message, ToastLength.Long).Show();
                 callback(false);
             };
 
@@ -253,7 +356,7 @@ namespace AuthenticatorPro.Droid.Activity
             prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
         }
 
-        public void ClearBiometrics()
+        private void ClearBiometrics()
         {
             var storage = new BiometricStorage(this);
             storage.Clear();

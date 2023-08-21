@@ -7,26 +7,26 @@
 
 <hr>
 
-<b>Features</b>
+<b>特点</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. 如果你丢失或更换手机，你可以随时访问你的账户 你可以将备份保存到云存储或你的设备上
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. 请注意，需要与你的安卓设备连接 Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⚙️ <b>兼容性</b>：Authenticator Pro 兼容大部分发行方和账户。
+- 📲 <b>导入</b>：轻松从其他支持的验证器迁移到 Authenticator Pro。
+- 💾 <b>备份 / 还原</b>：高强度加密备份验证器 如果你丢失或更换手机，你可以随时访问你的账户 你可以将备份保存到云存储或你的设备上
+- 🌙 <b>深色模式</b>：Authenticator Pro 不管在浅色或深色主题都可以保持漂亮的 Material Design 外观
+- ⏺️ <b>图标</b>：使用 Logo 和图标轻松找到需要的验证器
+- 📂 <b>分类</b>：将验证器分类以适应不同场景
+- 🔒 <b>离线且几乎无需权限</b>：Authenticator Pro 只需要一个权限即可运行¹，且不需要访问网络。
+- 🔑 <b>安全</b>：设置密码并使用生物识别技术来保护验证码
+- 🎨 <b>自定义</b>：自定图标和名称 您也可以按照您喜欢的任何顺序调整您的身份验证器，以便于您可以轻松地找到它们。
+- ⌚ <b>Wear OS</b>：在手表上快速查看验证码 请注意，需要与你的安卓设备连接 顺带一提，F-Droid 版本无法使用 Wear OS，因为其依赖于非自由软件。
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(¹) *应用需要相机权限以扫描二维码*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> 常见问题</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>免责声明</b>
 
 这个软件是一个免费且自由软件：您可以根据自由软件基金会发布的 GNU 通用公共许可证（许可证的第 3 版或（由您选择）任何更高版本）的条款重新分发和/或修改它。
 

@@ -5,5 +5,8 @@
     <string name="hotpNotSupported">HOTP не підтримується</string>
     <string name="categoryAll">Всі</string>
     <string name="offline">Поза мережею</string>
-    <string name="syncFailed">Sync failed</string>
+    <string name="syncFailed">Помилка синхронізації</string>
+    <string name="noFavourite">Немає улюбленого</string>
+    <string name="noFavouriteMessage">Натисніть і утримуйте автентифікатор у застосунку, щоб встановити</string>
+    <string name="open">Відкрити</string>
 </resources>

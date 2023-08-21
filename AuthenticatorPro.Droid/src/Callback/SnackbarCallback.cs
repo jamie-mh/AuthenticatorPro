@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Droid.Callback
         public override void OnShown(Snackbar sb)
         {
             base.OnShown(sb);
-            Shown?.Invoke(sb, null);
+            Shown?.Invoke(sb, EventArgs.Empty);
         }
     }
 }
