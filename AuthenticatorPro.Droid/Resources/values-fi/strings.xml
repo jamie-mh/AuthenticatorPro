@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
-    <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi. Sinulta olisi kysytty tätä PIN-koodia kun määritit tiliä.</string>
+    <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Oletuskuvakkeet</string>
     <string name="iconPacks">Kuvakepaketit</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Tuo externalBackup.xml-tiedosto</string>
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
     <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
-    <string name="bitwarden">Bitwarden (raakateksti)</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
@@ -246,8 +245,8 @@
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>
     <string name="prefTapToRevealSummary">Piilota koodit, kunnes niitä napautetaan. Ne piilotetaan muutaman sekunnin kuluttua.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Napauttamalla paljastuksen kesto</string>
+    <string name="prefTapToRevealDurationSummary">Aseta aika, jonka jälkeen paljastetut koodit piilotetaan</string>
     <string name="prefAllowScreenshotsTitle">Salli kuvakaappaukset</string>
     <string name="prefAllowScreenshotsSummary">Poista näytön turvallisuus käytöstä ja salli sovelluksen kuvakaappaukset</string>
     <string name="prefAppearance">Ulkonäkö</string>
@@ -271,9 +270,9 @@
     <string name="authTypeCounter">Laskuripohjainen (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (oletus)</string>
     <string name="immediately">Välittömästi</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 sekuntia</string>
+    <string name="timeout10Sec">10 sekuntia</string>
+    <string name="timeout20Sec">20 sekuntia</string>
     <string name="timeout30Sec">30 sekuntia</string>
     <string name="timeout1Min">1 minuutti</string>
     <string name="timeout2Min">2 minuuttia</string>

@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
-    <string name="pinMessage">輸入該 QR Code 的密碼。在設定此帳號時，會提示您輸入密碼。</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">預設圖示</string>
     <string name="iconPacks">圖示包</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">匯入 externalBackup.xml 檔案</string>
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
     <string name="aegisImportHint">匯入 aegis-export.json 檔案</string>
-    <string name="bitwarden">Bitwarden (純文字)</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 或 winauth.zip 檔案</string>
     <string name="twoFasImportHint">匯入 2fas-backup.2fas 檔案</string>
@@ -246,8 +245,8 @@
     <string name="prefTimeoutSummary">設定在應用切換至後臺執行後自動鎖定資料庫前的時間間隔</string>
     <string name="prefTapToRevealTitle">點選以顯示</string>
     <string name="prefTapToRevealSummary">在程式碼被點選都將保持隱藏。顯示的程式碼將在幾秒鐘後消失。</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">點擊顯示持續時間</string>
+    <string name="prefTapToRevealDurationSummary">設置顯示代碼的時間</string>
     <string name="prefAllowScreenshotsTitle">允許螢幕截圖</string>
     <string name="prefAllowScreenshotsSummary">停用螢幕安全保護並允許應用程式進行螢幕截圖</string>
     <string name="prefAppearance">外觀</string>
@@ -271,9 +270,9 @@
     <string name="authTypeCounter">基於計數器 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (預設)</string>
     <string name="immediately">立即</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 秒</string>
+    <string name="timeout10Sec">10 秒</string>
+    <string name="timeout20Sec">30 秒</string>
     <string name="timeout30Sec">30 秒</string>
     <string name="timeout1Min">1 分鐘</string>
     <string name="timeout2Min">2 分鐘</string>

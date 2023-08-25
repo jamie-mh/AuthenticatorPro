@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
     <string name="duplicateAuthenticator">Ya existe un autentificador con esta clave secreta</string>
     <string name="scanSuccessful">Código QR escaneado exitosamente</string>
-    <string name="pinMessage">Introduzca el pin asociado con este código QR. Se le habría solicitado un pin al configurar esta cuenta.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Iconos por defecto</string>
     <string name="iconPacks">Paquetes de iconos</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Importar archivo externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importar archivo freeotp-backup.json</string>
     <string name="aegisImportHint">Importar archivo aegis-export.json</string>
-    <string name="bitwarden">Bitwarden (texto sin formato)</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
     <string name="winAuthImportHint">Importar archivo winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importar archivo 2fas-backup.2fas</string>
@@ -246,8 +245,8 @@
     <string name="prefTimeoutSummary">Establezca el tiempo después del cual la base de datos se bloqueará una vez que la aplicación salga de la pantalla</string>
     <string name="prefTapToRevealTitle">Pulsar para revelar</string>
     <string name="prefTapToRevealSummary">Oculta los códigos hasta que sean tocados. Desaparecerán después de unos segundos.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Duración de Tocar para Revelar</string>
+    <string name="prefTapToRevealDurationSummary">Establece el tiempo tras el cual los códigos revelados se ocultarán</string>
     <string name="prefAllowScreenshotsTitle">Permitir Capturas de Pantalla</string>
     <string name="prefAllowScreenshotsSummary">Deshabilita la pantalla de seguridad y permite las capturas de pantalla de la aplicación</string>
     <string name="prefAppearance">Apariencia</string>
@@ -271,9 +270,9 @@
     <string name="authTypeCounter">Basado en Contador (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predeterminado)</string>
     <string name="immediately">Inmediatamente</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 segundos</string>
+    <string name="timeout10Sec">10 segundos</string>
+    <string name="timeout20Sec">20 segundos</string>
     <string name="timeout30Sec">30 segundos</string>
     <string name="timeout1Min">1 minuto</string>
     <string name="timeout2Min">2 minutos</string>

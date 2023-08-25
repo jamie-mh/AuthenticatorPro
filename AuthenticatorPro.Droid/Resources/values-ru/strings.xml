@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QR-код некорректен или не может быть прочитан.</string>
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
-    <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом. PIN-код будет запрошен при настройке этой учетной записи.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Стандартные иконки</string>
     <string name="iconPacks">Наборы иконок</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Импорт файла externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
     <string name="aegisImportHint">Импортировать файл aegis-export.json</string>
-    <string name="bitwarden">Bitwarden (простой текст)</string>
     <string name="bitwardenImportHint">Импорт файла bitwarden_export.json</string>
     <string name="winAuthImportHint">Импорт файла winauth.txt или winauth.zip</string>
     <string name="twoFasImportHint">Импорт файла 2fas-backup.2fas</string>

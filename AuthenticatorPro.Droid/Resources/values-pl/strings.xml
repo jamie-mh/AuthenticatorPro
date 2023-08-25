@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
-    <string name="pinMessage">Wprowadź pin skojarzony z tym kodem QR. Zostałeś/aś poproszony o pin podczas konfiguracji tego konta.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Domyślne ikony</string>
     <string name="iconPacks">Paczki ikon</string>
@@ -197,7 +197,6 @@
     <string name="freeOtpImportHint">Importuj plik externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importuj plik freeotp-backup.json</string>
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
-    <string name="bitwarden">Bitwarden (czysty tekst)</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
@@ -246,8 +245,8 @@
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
     <string name="prefTapToRevealSummary">Ukryj kody, dopóki nie zostaną dotknięte. Po kilku sekundach znikną.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Czas odkrycia po dotknięciu</string>
+    <string name="prefTapToRevealDurationSummary">Ustaw czas, po którym ujawnione kody zostaną ukryte</string>
     <string name="prefAllowScreenshotsTitle">Zezwalaj na zrzuty ekranu</string>
     <string name="prefAllowScreenshotsSummary">Wyłącz ochronę ekranu i zezwól na zrzuty ekranu aplikacji</string>
     <string name="prefAppearance">Wygląd</string>
@@ -271,9 +270,9 @@
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (domyślnie)</string>
     <string name="immediately">Natychmiast</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 sekund</string>
+    <string name="timeout10Sec">10 sekund</string>
+    <string name="timeout20Sec">20 sekund</string>
     <string name="timeout30Sec">30 sekund</string>
     <string name="timeout1Min">1 minuta</string>
     <string name="timeout2Min">2 minuty</string>

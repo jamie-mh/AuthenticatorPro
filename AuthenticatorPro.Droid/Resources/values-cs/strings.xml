@@ -76,7 +76,7 @@
     <string name="qrCodeFormatError">QR kód není ve správném formátu nebo jej nelze přčíst</string>
     <string name="duplicateAuthenticator">Autentifikátor s tímto tajným klíčem již existuje</string>
     <string name="scanSuccessful">QR kód úspěšně naskenován</string>
-    <string name="pinMessage">Zadejte pin spojený s tímto QR kódem. Při nastavování tohoto účtu jste byli vyzváni k zadání pinu.</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Výchozí ikony</string>
     <string name="iconPacks">Balíčky ikon</string>
@@ -113,7 +113,7 @@
     <string name="category">Kategorie</string>
     <string name="categories">Kategorie</string>
     <string name="assignCategories">Přiřadit kategorie</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">Přiřadit položky</string>
     <string name="more">Více</string>
     <string name="categoryAll">Vše</string>
     <string name="editCategories">Upravit kategorie</string>
@@ -198,7 +198,6 @@
     <string name="freeOtpImportHint">Importovat soubor externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importovat soubor freeotp-backup.json</string>
     <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
-    <string name="bitwarden">Bitwarden (prostý text)</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
@@ -247,8 +246,8 @@
     <string name="prefTimeoutSummary">Nastavte dobu, po které se databáze uzamkne, jakmile aplikace opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobrazit klepnutím</string>
     <string name="prefTapToRevealSummary">Skrýt kódy, dokud nebudou klepnuty. Po několika vteřinách zmizí.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Doba zobrazení klepnutím</string>
+    <string name="prefTapToRevealDurationSummary">Nastavte dobu, po které se zobrazené kódy skryjí</string>
     <string name="prefAllowScreenshotsTitle">Povolit snímky obrazovky</string>
     <string name="prefAllowScreenshotsSummary">Vypnout zabezpečení obrazovky a povolit pořizování snímků obrazovky aplikace</string>
     <string name="prefAppearance">Vzhled</string>
@@ -272,9 +271,9 @@
     <string name="authTypeCounter">Založeno na počítadle (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (výchozí)</string>
     <string name="immediately">Okamžitě</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 sekund</string>
+    <string name="timeout10Sec">10 sekund</string>
+    <string name="timeout20Sec">20 sekund</string>
     <string name="timeout30Sec">30 sekund</string>
     <string name="timeout1Min">1 minuta</string>
     <string name="timeout2Min">2 minuty</string>
