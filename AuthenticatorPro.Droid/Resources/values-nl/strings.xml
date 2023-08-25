@@ -75,14 +75,14 @@
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Voer de PIN in die bij deze QR-code hoort</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Standaard pictogrammen</string>
     <string name="iconPacks">Pictogrampakketten</string>
     <string name="downloadPacks">Download pakketten</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="importIconPackSuccess">Importeerde {0} pictogrammen van pakket</string>
+    <string name="invalidIconPackError">Het geselecteerde bestand is geen Authenticator Pro pictogrammenpakket</string>
+    <string name="confirmIconPackDelete">Weet je zeker dat je dit icoon pakket wilt verwijderen? Alle gebruikte iconen worden niet verwijderd.</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Kopieer deze authenticator naar een ander apparaat of app door de QR code te scannen</string>
