@@ -18,7 +18,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antama
 - 🔒 <b>Offline-tila ja vain muutamalla luvalla</b>: Authenticator Pro vaatii vain yhden luvan¹, eikä se vaadi Internet-yhteyttä toimiakseen.
 - 🔑 <b>Turvallisuus</b>: Aseta salasana ja käytä biometristä todennusta koodiesi suojaukseen.
 - 🎨 <b>Mukautus</b>: Aseta kuvakkeita ja nimeä uudelleen. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
-- ⌚ <b>Wear OS</b>: Näet todentajasi suoraan kellostasi. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⌚ <b>Wear OS</b>: Näet todentajasi suoraan kellostasi. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Lisäksi sovelluksen F-Droid-versiot eivät ole yhteensopivia Wear OS:n kanssa, koska ne vaativat ei-ilmaisia riippuvuuksia.
 
 (¹) *Sovellus vaatii kameran luvan QR-koodien skannaamiseen.*
 
