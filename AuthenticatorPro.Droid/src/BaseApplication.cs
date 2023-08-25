@@ -30,13 +30,13 @@ namespace AuthenticatorPro.Droid
 
         public BaseApplication(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
-            Dependencies.Register();
+            _database = new Database();
+
+            Dependencies.Register(_database);
             Dependencies.RegisterApplicationContext(this);
 
             AutoLockEnabled = false;
             PreventNextAutoLock = false;
-
-            _database = Dependencies.Resolve<Database>();
         }
 
         public override void OnCreate()
@@ -100,7 +100,7 @@ namespace AuthenticatorPro.Droid
 
             if (!_preferences.PasswordProtected || _preferences.Timeout == 0)
             {
-                await _database.Close(Database.Origin.Application);
+                await _database.CloseAsync(Database.Origin.Application);
             }
             else
             {
@@ -108,7 +108,7 @@ namespace AuthenticatorPro.Droid
 
                 _timeoutTimer.Elapsed += async delegate
                 {
-                    await _database.Close(Database.Origin.Application);
+                    await _database.CloseAsync(Database.Origin.Application);
                 };
 
                 _timeoutTimer.Start();
@@ -126,7 +126,7 @@ namespace AuthenticatorPro.Droid
         [Export]
         public async void OnDestroyed()
         {
-            await _database.Close(Database.Origin.Application);
+            await _database.CloseAsync(Database.Origin.Application);
         }
     }
 }

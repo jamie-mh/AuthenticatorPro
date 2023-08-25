@@ -107,7 +107,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             try
             {
                 var currentPassword = _secureStorageWrapper.GetDatabasePassword();
-                await _database.SetPassword(currentPassword, newPassword);
+                await _database.SetPasswordAsync(currentPassword, newPassword);
 
                 try
                 {
@@ -116,7 +116,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 catch
                 {
                     // Revert changes
-                    await _database.SetPassword(newPassword, currentPassword);
+                    await _database.SetPasswordAsync(newPassword, currentPassword);
                     throw;
                 }
             }

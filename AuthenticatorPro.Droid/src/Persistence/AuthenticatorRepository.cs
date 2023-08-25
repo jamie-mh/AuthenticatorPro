@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task ChangeSecretAsync(string oldSecret, string newSecret)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
 
             try
             {

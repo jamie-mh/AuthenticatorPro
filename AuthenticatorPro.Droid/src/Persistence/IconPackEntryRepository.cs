@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task CreateAsync(IconPackEntry item)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             var id = new ValueTuple<string, string>(item.IconPackName, item.Name);
 
             if (await GetAsync(id) != null)
@@ -34,7 +34,7 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task<IconPackEntry> GetAsync(ValueTuple<string, string> id)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             var (packName, name) = id;
 
             try
@@ -49,13 +49,13 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task<List<IconPackEntry>> GetAllAsync()
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             return await conn.Table<IconPackEntry>().ToListAsync();
         }
 
         public async Task UpdateAsync(IconPackEntry item)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             await conn.ExecuteAsync(
                 "UPDATE iconpackentry SET iconPackName = ?, name = ?, data = ? WHERE iconPackName = ? AND name = ?",
                 item.IconPackName, item.Name, item.Data, item.IconPackName, item.Name);
@@ -63,20 +63,20 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task DeleteAsync(IconPackEntry item)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             await conn.ExecuteAsync(
                 "DELETE FROM iconpackentry WHERE iconPackName = ? AND name = ?", item.IconPackName, item.Name);
         }
 
         public async Task<List<IconPackEntry>> GetAllForPackAsync(IconPack pack)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             return await conn.Table<IconPackEntry>().Where(e => e.IconPackName == pack.Name).ToListAsync();
         }
 
         public async Task DeleteAllForPackAsync(IconPack pack)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             await conn.ExecuteAsync("DELETE FROM iconpackentry WHERE iconPackName = ?", pack.Name);
         }
     }

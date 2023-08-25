@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task CreateAsync(T item)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
 
             try
             {
@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task<T> GetAsync(TU id)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
 
             try
             {
@@ -49,19 +49,19 @@ namespace AuthenticatorPro.Droid.Persistence
 
         public async Task<List<T>> GetAllAsync()
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             return await conn.Table<T>().ToListAsync();
         }
 
         public async Task UpdateAsync(T item)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             await conn.UpdateAsync(item);
         }
 
         public async Task DeleteAsync(T item)
         {
-            var conn = await _database.GetConnection();
+            var conn = await _database.GetConnectionAsync();
             await conn.DeleteAsync(item);
         }
     }

@@ -62,12 +62,12 @@ namespace AuthenticatorPro.Droid
         private async Task OpenDatabaseAsync()
         {
             var password = _secureStorageWrapper.GetDatabasePassword();
-            await _database.Open(password, Database.Origin.Wear);
+            await _database.OpenAsync(password, Database.Origin.Wear);
         }
 
         private async Task CloseDatabaseAsync()
         {
-            await _database.Close(Database.Origin.Wear);
+            await _database.CloseAsync(Database.Origin.Wear);
         }
 
         private async Task<T> UseDatabaseAsync<T>(Func<Task<T>> action)

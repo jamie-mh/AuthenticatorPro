@@ -51,8 +51,15 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnResume();
 
             await _onResumeLock.WaitAsync();
-            await OnResumeAsync();
-            _onResumeLock.Release();
+
+            try
+            {
+                await OnResumeAsync();
+            }
+            finally
+            {
+                _onResumeLock.Release();
+            }
         }
 
         protected abstract Task OnResumeAsync();
@@ -63,9 +70,15 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnActivityResult(requestCode, resultCode, intent);
 
             await _onResumeLock.WaitAsync();
-            _onResumeLock.Release();
 
-            await OnActivityResultAsync(requestCode, resultCode, intent);
+            try
+            {
+                await OnActivityResultAsync(requestCode, resultCode, intent);
+            }
+            finally
+            {
+                _onResumeLock.Release();
+            }
         }
 
         protected abstract Task

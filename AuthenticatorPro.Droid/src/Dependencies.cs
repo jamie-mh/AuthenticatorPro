@@ -23,9 +23,9 @@ namespace AuthenticatorPro.Droid
     {
         private static readonly TinyIoCContainer Container = TinyIoCContainer.Current;
 
-        public static void Register()
+        public static void Register(Database database)
         {
-            Container.Register<Database>().AsSingleton();
+            Container.Register(database);
             Container.RegisterMultiple<IBackupEncryption>(new []
             {
                 typeof(StrongBackupEncryption), typeof(LegacyBackupEncryption), typeof(NoBackupEncryption)

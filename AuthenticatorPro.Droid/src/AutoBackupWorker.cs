@@ -54,12 +54,12 @@ namespace AuthenticatorPro.Droid
         private async Task OpenDatabase()
         {
             var password = _secureStorageWrapper.GetDatabasePassword();
-            await _database.Open(password, Database.Origin.AutoBackup);
+            await _database.OpenAsync(password, Database.Origin.AutoBackup);
         }
 
         private async Task CloseDatabase()
         {
-            await _database.Close(Database.Origin.AutoBackup);
+            await _database.CloseAsync(Database.Origin.AutoBackup);
         }
 
         private bool HasPersistentPermissionsAtUri(Uri uri)
