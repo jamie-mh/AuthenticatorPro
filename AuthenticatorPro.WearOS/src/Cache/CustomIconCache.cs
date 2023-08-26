@@ -1,8 +1,6 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Content;
-using Android.Graphics;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -10,6 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.Content;
+using Android.Graphics;
 
 namespace AuthenticatorPro.WearOS.Cache
 {
@@ -30,15 +30,15 @@ namespace AuthenticatorPro.WearOS.Cache
             _bitmaps = new Dictionary<string, Bitmap>();
         }
 
-        ~CustomIconCache()
-        {
-            Dispose(false);
-        }
-
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        ~CustomIconCache()
+        {
+            Dispose(false);
         }
 
         private void Dispose(bool disposing)
@@ -59,7 +59,7 @@ namespace AuthenticatorPro.WearOS.Cache
         public async Task InitAsync()
         {
             var decoded = new ConcurrentDictionary<string, Bitmap>();
-            
+
             await Parallel.ForEachAsync(GetIcons(), async (id, _) =>
             {
                 var bitmap = await BitmapFactory.DecodeFileAsync(GetIconPath(id));
@@ -95,7 +95,7 @@ namespace AuthenticatorPro.WearOS.Cache
         {
             return _bitmaps.GetValueOrDefault(id);
         }
-       
+
         public async Task<Bitmap> GetFreshBitmapAsync(string id)
         {
             if (_bitmaps.TryGetValue(id, out var bitmap))

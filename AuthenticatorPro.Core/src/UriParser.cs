@@ -1,14 +1,14 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Generator;
-using AuthenticatorPro.Core.Util;
-using ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
+using ProtoBuf;
 
 namespace AuthenticatorPro.Core
 {
@@ -173,7 +173,10 @@ namespace AuthenticatorPro.Core
                 throw new ArgumentException("Secret parameter is required");
             }
 
-            var icon = iconResolver.FindServiceKeyByName(args.TryGetValue("icon", out var iconParam) ? iconParam : issuer);
+            var icon = iconResolver.FindServiceKeyByName(args.TryGetValue("icon", out var iconParam)
+                ? iconParam
+                : issuer);
+            
             var secret = SecretUtil.Clean(args["secret"], type);
 
             var pinLength = 0;

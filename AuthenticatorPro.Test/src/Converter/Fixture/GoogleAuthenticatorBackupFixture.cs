@@ -7,12 +7,12 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class GoogleAuthenticatorBackupFixture
     {
-        public byte[] Data { get; }
-
         public GoogleAuthenticatorBackupFixture()
         {
             var path = Path.Join("data", "googleauthenticator.txt");
             Data = File.ReadAllBytes(path);
         }
+
+        public byte[] Data { get; }
     }
 }

@@ -10,11 +10,6 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
     internal class IconPackListHolder : RecyclerView.ViewHolder
     {
-        public MaterialTextView Name { get; }
-        public MaterialTextView Description { get; }
-        public ImageButton OpenUrl { get; }
-        public ImageButton Delete { get; }
-
         public IconPackListHolder(View itemView) : base(itemView)
         {
             Name = itemView.FindViewById<MaterialTextView>(Resource.Id.textName);
@@ -22,5 +17,10 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
             OpenUrl = itemView.FindViewById<ImageButton>(Resource.Id.buttonOpenUrl);
             Delete = itemView.FindViewById<ImageButton>(Resource.Id.buttonDelete);
         }
+
+        public MaterialTextView Name { get; }
+        public MaterialTextView Description { get; }
+        public ImageButton OpenUrl { get; }
+        public ImageButton Delete { get; }
     }
 }

@@ -13,9 +13,9 @@
     <style name="CardStyle.Black" parent="Widget.Material3.CardView.Outlined"/>
 
     <style name="BottomAppBarStyle.Black" parent="Widget.Material3.BottomAppBar">
-        <item name="elevation">0dp</item>     
+        <item name="elevation">0dp</item>
     </style>
-    
+
     <style name="ModalBottomSheetDialog.Black" parent="ThemeOverlay.Material3.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/ModalBottomSheet.Black</item>
     </style>
@@ -27,7 +27,7 @@
     <style name="ProgressIndicatorStyle.Black" parent="Widget.Material3.LinearProgressIndicator">
         <item name="trackThickness">3dp</item>
     </style>
-    
+
     <!-- Accent colours -->
     <style name="OverlayAccentRed">
         <item name="colorPrimary">@color/md_theme_dark_red_primary</item>
@@ -86,7 +86,7 @@
         <item name="colorOnSurfaceVariant">@color/md_theme_dark_pink_onSurfaceVariant</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_pink_inversePrimary</item>
     </style>
-    
+
     <style name="OverlayAccentPurple">
         <item name="colorPrimary">@color/md_theme_dark_purple_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_purple_onPrimary</item>

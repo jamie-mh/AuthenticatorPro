@@ -1,12 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
-using AuthenticatorPro.Core.Persistence.Exception;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
@@ -107,7 +107,8 @@ namespace AuthenticatorPro.Droid.Persistence
         {
             var conn = await _database.GetConnectionAsync();
             await conn.ExecuteAsync(
-                "UPDATE authenticatorcategory SET authenticatorSecret = ? WHERE authenticatorSecret = ?", next.Secret, initial.Secret);
+                "UPDATE authenticatorcategory SET authenticatorSecret = ? WHERE authenticatorSecret = ?", next.Secret,
+                initial.Secret);
         }
     }
 }

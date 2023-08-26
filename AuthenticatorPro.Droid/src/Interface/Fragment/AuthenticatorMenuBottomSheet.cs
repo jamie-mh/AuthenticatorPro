@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -8,23 +10,23 @@ using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
 using Google.Android.Material.TextView;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class AuthenticatorMenuBottomSheet : BottomSheet
     {
+        private AuthenticatorType _type;
+        private long _counter;
+
+        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu, Resource.String.edit)
+        {
+        }
+
         public event EventHandler EditClicked;
         public event EventHandler ChangeIconClicked;
         public event EventHandler AssignCategoriesClicked;
         public event EventHandler ShowQrCodeClicked;
         public event EventHandler DeleteClicked;
-
-        private AuthenticatorType _type;
-        private long _counter;
-
-        public AuthenticatorMenuBottomSheet() : base(Resource.Layout.sheetAuthenticatorMenu, Resource.String.edit) { }
 
         public override void OnCreate(Bundle savedInstanceState)
         {

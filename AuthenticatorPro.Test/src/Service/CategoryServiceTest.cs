@@ -1,15 +1,15 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Service
@@ -74,13 +74,13 @@ namespace AuthenticatorPro.Test.Service
             _categoryRepository.Verify(r => r.DeleteAsync(initial));
             _authenticatorCategoryRepository.Verify(r => r.TransferCategoryAsync(initial, next));
         }
-        
+
         [Fact]
         public async Task AddCategoryAsync_null()
         {
             await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.AddCategoryAsync(null));
         }
-        
+
         [Fact]
         public async Task AddCategoryAsync_ok()
         {
@@ -170,7 +170,8 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddOrUpdateManyCategoriesAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.AddOrUpdateManyCategoriesAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _categoryService.AddOrUpdateManyCategoriesAsync(null));
         }
 
         [Fact]
@@ -182,7 +183,8 @@ namespace AuthenticatorPro.Test.Service
             _categoryRepository.Setup(r => r.GetAsync("id")).ReturnsAsync(category);
             _categoryComparer.Setup(c => c.Equals(category, category)).Returns(false);
 
-            var (added, updated) = await _categoryService.AddOrUpdateManyCategoriesAsync(new List<Category> { category });
+            var (added, updated) =
+                await _categoryService.AddOrUpdateManyCategoriesAsync(new List<Category> { category });
 
             Assert.Equal(1, added);
             Assert.Equal(1, updated);
@@ -191,7 +193,8 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task DeleteWithCategoryBindingsAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.DeleteWithCategoryBindingsASync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(
+                () => _categoryService.DeleteWithCategoryBindingsASync(null));
         }
 
         [Fact]
@@ -207,7 +210,7 @@ namespace AuthenticatorPro.Test.Service
             _categoryRepository.Verify(r => r.DeleteAsync(category));
             _authenticatorCategoryRepository.Verify(r => r.DeleteAllForCategoryAsync(category));
         }
-        
+
         [Fact]
         public async Task AddManyBindingsAsync_null()
         {
@@ -304,7 +307,8 @@ namespace AuthenticatorPro.Test.Service
             _authenticatorCategoryRepository.Setup(r => r.GetAsync(id)).ReturnsAsync(ac);
             _authenticatorCategoryComparer.Setup(c => c.Equals(ac, ac)).Returns(false);
 
-            var (added, updated) = await _categoryService.AddOrUpdateManyBindingsAsync(new List<AuthenticatorCategory> { ac });
+            var (added, updated) =
+                await _categoryService.AddOrUpdateManyBindingsAsync(new List<AuthenticatorCategory> { ac });
 
             Assert.Equal(1, added);
             Assert.Equal(1, updated);
@@ -313,8 +317,10 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task AddBindingAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.AddBindingAsync(null, new Category()));
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.AddBindingAsync(new Authenticator(), null));
+            await Assert.ThrowsAsync<ArgumentNullException>(
+                () => _categoryService.AddBindingAsync(null, new Category()));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _categoryService.AddBindingAsync(new Authenticator(), null));
         }
 
         [Fact]
@@ -339,8 +345,10 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task RemoveBindingAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.RemoveBindingAsync(null, new Category()));
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.RemoveBindingAsync(new Authenticator(), null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _categoryService.RemoveBindingAsync(null, new Category()));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _categoryService.RemoveBindingAsync(new Authenticator(), null));
         }
 
         [Fact]
@@ -365,9 +373,10 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task GetBindingsForAuthenticatorAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.GetBindingsForAuthenticatorAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _categoryService.GetBindingsForAuthenticatorAsync(null));
         }
-        
+
         [Fact]
         public async Task GetBindingsForAuthenticatorAsync_ok()
         {
@@ -382,7 +391,7 @@ namespace AuthenticatorPro.Test.Service
         {
             await Assert.ThrowsAsync<ArgumentNullException>(() => _categoryService.GetBindingsForCategoryAsync(null));
         }
-        
+
         [Fact]
         public async Task GetBindingsForCategoryAsync_ok()
         {
@@ -399,7 +408,7 @@ namespace AuthenticatorPro.Test.Service
             _categoryRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(categories);
             Assert.Equal(categories, await _categoryService.GetAllCategoriesAsync());
         }
-        
+
         [Fact]
         public async Task GetAllBindingsAsync()
         {

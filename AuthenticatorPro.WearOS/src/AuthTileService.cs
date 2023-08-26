@@ -1,6 +1,7 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Threading.Tasks;
 using Android.App;
 using Android.Graphics;
 using AndroidX.Wear.Tiles;
@@ -15,33 +16,34 @@ using AuthenticatorPro.WearOS.Activity;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Util;
 using Google.Common.Util.Concurrent;
+using Java.Lang;
 using Java.Nio;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.WearOS
 {
-    [Service(Exported = true, Permission = "com.google.android.wearable.permission.BIND_TILE_PROVIDER", Label = "@string/displayName")]
-    [IntentFilter(new []{ ActionBindTileProvider })]
+    [Service(Exported = true, Permission = "com.google.android.wearable.permission.BIND_TILE_PROVIDER",
+        Label = "@string/displayName")]
+    [IntentFilter(new[] { ActionBindTileProvider })]
     [MetaData(MetadataPreviewKey, Resource = "@drawable/tile_preview")]
     public class AuthTileService : TileService
     {
         private const string AuthenticatorCacheName = "authenticators";
         private const string EmptyResourcesVersion = "EMPTY";
-        
+
         private PreferenceWrapper _preferences;
         private ListCache<WearAuthenticator> _authenticatorCache;
         private CustomIconCache _customIconCache;
-        
+
         private WearAuthenticator _authenticator;
         private IGenerator _generator;
-        
+
         public override void OnCreate()
         {
             base.OnCreate();
 
             _preferences = new PreferenceWrapper(this);
             _authenticatorCache = new ListCache<WearAuthenticator>(AuthenticatorCacheName, this);
-            _customIconCache = new CustomIconCache(this); 
+            _customIconCache = new CustomIconCache(this);
         }
 
         public override void OnDestroy()
@@ -79,11 +81,11 @@ namespace AuthenticatorPro.WearOS
                 copy?.Recycle();
             }
         }
-        
+
         protected override IListenableFuture OnResourcesRequest(RequestBuilders.ResourcesRequest request)
         {
             Logger.Debug($"Tile resources {request.Version} requested");
-           
+
             var adapter = new TaskFutureAdapter<ResourceBuilders.Resources>(async delegate
             {
                 var builder = new ResourceBuilders.Resources.Builder();
@@ -113,7 +115,7 @@ namespace AuthenticatorPro.WearOS
 
                 builder.AddIdToImageMapping("icon", imageBuilder.Build());
                 builder.SetVersion(request.Version);
-                
+
                 return builder.Build();
             });
 
@@ -123,7 +125,7 @@ namespace AuthenticatorPro.WearOS
         protected override void OnTileEnterEvent(EventBuilders.TileEnterEvent requestParams)
         {
             Logger.Debug("Tile entered view");
-            var clazz = Java.Lang.Class.FromType(typeof(AuthTileService));
+            var clazz = Class.FromType(typeof(AuthTileService));
             GetUpdater(this).RequestUpdate(clazz);
         }
 
@@ -136,7 +138,7 @@ namespace AuthenticatorPro.WearOS
             var colourProp = new ColorBuilders.ColorProp.Builder()
                 .SetArgb(colour)
                 .Build();
-            
+
             return new LayoutElementBuilders.FontStyle.Builder()
                 .SetSize(sizeProp)
                 .SetColor(colourProp)
@@ -157,18 +159,18 @@ namespace AuthenticatorPro.WearOS
                 .SetHeight(BuildDpProp(vertical))
                 .Build();
         }
-        
+
         private TileBuilders.Tile BuildEmptyTile(DeviceParametersBuilders.DeviceParameters deviceParameters)
         {
             var titleText = new LayoutElementBuilders.Text.Builder()
                 .SetText(GetString(Resource.String.noFavourite))
                 .SetFontStyle(BuildFontStyle(16f, Colors.Default.Primary))
                 .Build();
-            
+
             var overflow = new LayoutElementBuilders.TextOverflowProp.Builder()
                 .SetValue(LayoutElementBuilders.TextOverflowEllipsizeEnd)
                 .Build();
-            
+
             var messageText = new LayoutElementBuilders.Text.Builder()
                 .SetText(GetString(Resource.String.noFavouriteMessage))
                 .SetMaxLines(3)
@@ -176,7 +178,7 @@ namespace AuthenticatorPro.WearOS
                 .SetFontStyle(BuildFontStyle(16f, GetColor(Resource.Color.colorLighter)))
                 .Build();
 
-            var clazz = Java.Lang.Class.FromType(typeof(MainActivity));
+            var clazz = Class.FromType(typeof(MainActivity));
 
             var activity = new ActionBuilders.AndroidActivity.Builder()
                 .SetClassName(clazz.Name)
@@ -190,20 +192,21 @@ namespace AuthenticatorPro.WearOS
             var clickable = new ModifiersBuilders.Clickable.Builder()
                 .SetOnClick(action)
                 .Build();
-            
-            var compactChip = new CompactChip.Builder(this, GetString(Resource.String.open), clickable, deviceParameters)
-                .Build();
+
+            var compactChip =
+                new CompactChip.Builder(this, GetString(Resource.String.open), clickable, deviceParameters)
+                    .Build();
 
             var primaryLayout = new PrimaryLayout.Builder(deviceParameters)
                 .SetPrimaryLabelTextContent(titleText)
                 .SetContent(messageText)
                 .SetPrimaryChipContent(compactChip)
                 .Build();
-            
+
             var layout = new LayoutElementBuilders.Layout.Builder()
                 .SetRoot(primaryLayout)
                 .Build();
-       
+
             var entry = new TimelineBuilders.TimelineEntry.Builder()
                 .SetLayout(layout)
                 .Build();
@@ -217,12 +220,12 @@ namespace AuthenticatorPro.WearOS
                 .SetTimeline(timeline)
                 .Build();
         }
-        
+
         private TileBuilders.Tile BuildCodeTile()
         {
             var (code, secondsRemaining) =
                 AuthenticatorUtil.GetCodeAndRemainingSeconds(_generator, _authenticator.Period);
-            
+
             var column = new LayoutElementBuilders.Column.Builder();
 
             var iconSize = BuildDpProp(24f);
@@ -235,7 +238,7 @@ namespace AuthenticatorPro.WearOS
 
             column.AddContent(icon);
             column.AddContent(BuildSpacer(0, 8f));
-            
+
             var issuerText = new LayoutElementBuilders.Text.Builder()
                 .SetText(_authenticator.Issuer)
                 .SetFontStyle(BuildFontStyle(14f, GetColor(Resource.Color.colorLighter)))
@@ -254,12 +257,12 @@ namespace AuthenticatorPro.WearOS
                 column.AddContent(usernameText);
                 column.AddContent(BuildSpacer(0, 4f));
             }
-            
+
             var codeText = new LayoutElementBuilders.Text.Builder()
                 .SetText(CodeUtil.PadCode(code, _authenticator.Digits, _preferences.CodeGroupSize))
                 .SetFontStyle(BuildFontStyle(28f, GetColor(Resource.Color.colorLightest)))
                 .Build();
-            
+
             column.AddContent(codeText);
 
             var layout = new LayoutElementBuilders.Layout.Builder()
@@ -280,7 +283,7 @@ namespace AuthenticatorPro.WearOS
                 .SetFreshnessIntervalMillis(secondsRemaining * 1000)
                 .Build();
         }
-        
+
         private async Task FetchAuthenticatorAsync()
         {
             var defaultAuth = _preferences.DefaultAuth;
@@ -296,7 +299,7 @@ namespace AuthenticatorPro.WearOS
             {
                 return;
             }
-            
+
             await _authenticatorCache.InitAsync();
             var index = _authenticatorCache.FindIndex(a => HashUtil.Sha1(a.Secret) == defaultAuth);
 
@@ -315,7 +318,7 @@ namespace AuthenticatorPro.WearOS
         protected override IListenableFuture OnTileRequest(RequestBuilders.TileRequest request)
         {
             Logger.Debug("Tile requested");
-            
+
             var adapter = new TaskFutureAdapter<TileBuilders.Tile>(async delegate
             {
                 await FetchAuthenticatorAsync();

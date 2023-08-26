@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
+using AuthenticatorPro.Core;
 using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Core;
 
 namespace AuthenticatorPro.WearOS
 {

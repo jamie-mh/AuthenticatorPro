@@ -7,12 +7,12 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class LastPassBackupFixture
     {
-        public byte[] Data { get; }
-
         public LastPassBackupFixture()
         {
             var path = Path.Join("data", "lastpass.json");
             Data = File.ReadAllBytes(path);
         }
+
+        public byte[] Data { get; }
     }
 }

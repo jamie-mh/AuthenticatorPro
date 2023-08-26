@@ -1,12 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Collections.Generic;
 using Android.Content;
-using AuthenticatorPro.Droid.Interface;
-using AuthenticatorPro.Droid.Persistence;
-using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.Persistence.View.Impl;
-using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Comparer;
@@ -14,7 +10,11 @@ using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
-using System.Collections.Generic;
+using AuthenticatorPro.Droid.Interface;
+using AuthenticatorPro.Droid.Persistence;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Persistence.View.Impl;
+using AuthenticatorPro.Droid.Shared;
 using TinyIoC;
 
 namespace AuthenticatorPro.Droid
@@ -26,7 +26,7 @@ namespace AuthenticatorPro.Droid
         public static void Register(Database database)
         {
             Container.Register(database);
-            Container.RegisterMultiple<IBackupEncryption>(new []
+            Container.RegisterMultiple<IBackupEncryption>(new[]
             {
                 typeof(StrongBackupEncryption), typeof(LegacyBackupEncryption), typeof(NoBackupEncryption)
             });

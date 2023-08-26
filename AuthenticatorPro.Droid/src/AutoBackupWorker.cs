@@ -1,6 +1,9 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -8,15 +11,12 @@ using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using AndroidX.DocumentFile.Provider;
 using AndroidX.Work;
-using AuthenticatorPro.Droid.Activity;
-using AuthenticatorPro.Droid.Extension;
-using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Service;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
+using AuthenticatorPro.Droid.Activity;
+using AuthenticatorPro.Droid.Extension;
+using AuthenticatorPro.Droid.Util;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid
@@ -30,11 +30,6 @@ namespace AuthenticatorPro.Droid
         private readonly SecureStorageWrapper _secureStorageWrapper;
         private readonly Database _database;
         private readonly IBackupService _backupService;
-
-        private enum NotificationContext
-        {
-            BackupFailure, BackupSuccess
-        }
 
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
@@ -113,7 +108,7 @@ namespace AuthenticatorPro.Droid
             IBackupEncryption encryption = !string.IsNullOrEmpty(password)
                 ? new StrongBackupEncryption()
                 : new NoBackupEncryption();
-            
+
             var dataToWrite = await encryption.EncryptAsync(backup, password);
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
@@ -230,6 +225,12 @@ namespace AuthenticatorPro.Droid
         public override Result DoWork()
         {
             return DoWorkAsync().GetAwaiter().GetResult();
+        }
+
+        private enum NotificationContext
+        {
+            BackupFailure,
+            BackupSuccess
         }
     }
 }

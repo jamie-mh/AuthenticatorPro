@@ -1,12 +1,12 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Persistence;
-using AuthenticatorPro.Core.Persistence.Exception;
-using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
+using SQLite;
 
 namespace AuthenticatorPro.Droid.Persistence
 {

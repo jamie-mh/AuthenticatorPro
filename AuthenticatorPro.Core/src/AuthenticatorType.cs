@@ -1,14 +1,18 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Generator;
 using System;
+using AuthenticatorPro.Core.Generator;
 
 namespace AuthenticatorPro.Core
 {
     public enum AuthenticatorType
     {
-        Hotp = 1, Totp = 2, MobileOtp = 3, SteamOtp = 4, YandexOtp = 5
+        Hotp = 1,
+        Totp = 2,
+        MobileOtp = 3,
+        SteamOtp = 4,
+        YandexOtp = 5
     }
 
     public static class AuthenticatorTypeSpecification

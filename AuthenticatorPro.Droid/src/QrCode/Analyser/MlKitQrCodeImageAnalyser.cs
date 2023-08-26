@@ -3,31 +3,29 @@
 
 #if !FDROID
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Gms.Extensions;
 using Android.Runtime;
 using Android.Util;
 using AndroidX.Camera.Core;
 using Java.Lang;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Google.MLKit.Common;
 using Xamarin.Google.MLKit.Vision.BarCode;
 using Xamarin.Google.MLKit.Vision.Barcode.Common;
 using Xamarin.Google.MLKit.Vision.Common;
+using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.QrCode.Analyser
 {
-    public class MlKitQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
+    public class MlKitQrCodeImageAnalyser : Object, ImageAnalysis.IAnalyzer
     {
-        public event EventHandler<string> QrCodeScanned;
-        public Size DefaultTargetResolution => new(1920, 1080);
-        
         private const int ScanInterval = 500;
+        private readonly IBarcodeScanner _barcodeScanner;
 
         private long _lastScanMillis;
-        private readonly IBarcodeScanner _barcodeScanner;
 
         public MlKitQrCodeImageAnalyser(Context context)
         {
@@ -39,13 +37,15 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
             {
                 Logger.Warn("MlKit already initialised", e);
             }
-            
+
             var options = new BarcodeScannerOptions.Builder()
                 .SetBarcodeFormats(Barcode.FormatQrCode)
                 .Build();
 
             _barcodeScanner = BarcodeScanning.GetClient(options);
         }
+
+        public Size DefaultTargetResolution => new(1920, 1080);
 
         public async void Analyze(IImageProxy imageProxy)
         {
@@ -73,6 +73,8 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
                 imageProxy.Close();
             }
         }
+
+        public event EventHandler<string> QrCodeScanned;
 
         private async Task AnalyseAsync(IImageProxy imageProxy)
         {

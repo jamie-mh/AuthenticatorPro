@@ -13,7 +13,8 @@ namespace AuthenticatorPro.Droid.Interface
         public readonly int? Description;
         public readonly bool IsSensitive;
 
-        public SheetMenuItem(int icon, int title, EventHandler handler, int? description = null, bool isSensitive = false)
+        public SheetMenuItem(int icon, int title, EventHandler handler, int? description = null,
+            bool isSensitive = false)
         {
             Icon = icon;
             Title = title;

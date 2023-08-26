@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using Android.Views;
 using AndroidX.AppCompat.Widget;
@@ -8,15 +9,11 @@ using AndroidX.Core.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using AuthenticatorPro.Droid.Persistence.View;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
     internal class DefaultIconListAdapter : RecyclerView.Adapter
     {
-        public event EventHandler<int> ItemClicked;
-        public override int ItemCount => _defaultIconView.Count;
-
         private readonly Context _context;
         private readonly IDefaultIconView _defaultIconView;
 
@@ -25,6 +22,9 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             _context = context;
             _defaultIconView = defaultIconView;
         }
+
+        public override int ItemCount => _defaultIconView.Count;
+        public event EventHandler<int> ItemClicked;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

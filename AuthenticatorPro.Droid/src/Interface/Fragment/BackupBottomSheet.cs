@@ -1,22 +1,24 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using Google.Android.Material.Dialog;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class BackupBottomSheet : BottomSheet
     {
+        public BackupBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.backup)
+        {
+        }
+
         public event EventHandler BackupFileClicked;
         public event EventHandler BackupHtmlFileClicked;
         public event EventHandler BackupUriListClicked;
-
-        public BackupBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.backup) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -32,7 +34,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                         delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, BackupHtmlFileClicked); },
                         Resource.String.backupHtmlMessage),
                     new(Resource.Drawable.baseline_list_24, Resource.String.backupUriList,
-                        delegate { ShowUnencryptedWarning(Resource.String.backupUriListWarning, BackupUriListClicked); },
+                        delegate
+                        {
+                            ShowUnencryptedWarning(Resource.String.backupUriListWarning, BackupUriListClicked);
+                        },
                         Resource.String.backupUriListMessage)
                 });
 
@@ -48,10 +53,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             builder.SetCancelable(true);
 
             builder.SetNegativeButton(Resource.String.cancel, delegate { });
-            builder.SetPositiveButton(Resource.String.ok, delegate
-            {
-                onContinue.Invoke(this, EventArgs.Empty);
-            });
+            builder.SetPositiveButton(Resource.String.ok, delegate { onContinue.Invoke(this, EventArgs.Empty); });
 
             builder.Create().Show();
         }

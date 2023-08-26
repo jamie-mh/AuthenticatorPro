@@ -1,10 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using SimpleBase;
 using System;
 using System.Globalization;
 using System.Security.Cryptography;
+using SimpleBase;
 
 namespace AuthenticatorPro.Core.Generator
 {
@@ -26,6 +26,12 @@ namespace AuthenticatorPro.Core.Generator
                 HashAlgorithm.Sha512 => new HMACSHA512(secretBytes),
                 _ => throw new ArgumentOutOfRangeException(nameof(algorithm))
             };
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         protected int Compute(byte[] counter)
@@ -60,12 +66,6 @@ namespace AuthenticatorPro.Core.Generator
             }
 
             _isDisposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

@@ -1,6 +1,10 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -9,13 +13,13 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Service;
-using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
@@ -23,10 +27,6 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Snackbar;
 using ProtoBuf;
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using Uri = Android.Net.Uri;
 
@@ -36,16 +36,16 @@ namespace AuthenticatorPro.Droid.Activity
     internal class IconPacksActivity : SensitiveSubActivity
     {
         private const int RequestAdd = 0;
-        
+
+        private readonly IIconPackView _iconPackView;
+        private readonly IIconPackService _iconPackService;
+
         private CoordinatorLayout _rootLayout;
         private LinearProgressIndicator _progressIndicator;
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
         private IconPackListAdapter _iconPackListAdapter;
         private RecyclerView _packList;
-
-        private readonly IIconPackView _iconPackView;
-        private readonly IIconPackService _iconPackService;
 
         public IconPacksActivity() : base(Resource.Layout.activityIconPacks)
         {
@@ -88,7 +88,7 @@ namespace AuthenticatorPro.Droid.Activity
             var layout = new FixedGridLayoutManager(this, 1);
             _packList.SetLayoutManager(layout);
             _packList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 12, true));
-            
+
             var layoutAnimation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);
             _packList.LayoutAnimation = layoutAnimation;
 
@@ -109,7 +109,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 return;
             }
-            
+
             SetLoading(true);
             MemoryStream stream = null;
             IconPack pack;
@@ -123,8 +123,8 @@ namespace AuthenticatorPro.Droid.Activity
             catch (Exception e)
             {
                 ShowSnackbar(e is ProtoException
-                        ? Resource.String.invalidIconPackError
-                        : Resource.String.filePickError, Snackbar.LengthShort);
+                    ? Resource.String.invalidIconPackError
+                    : Resource.String.filePickError, Snackbar.LengthShort);
 
                 Logger.Error(e);
                 SetLoading(false);
@@ -146,13 +146,13 @@ namespace AuthenticatorPro.Droid.Activity
                 SetLoading(false);
                 return;
             }
-            
-            var message = String.Format(GetString(Resource.String.importIconPackSuccess), pack.Icons.Count);
+
+            var message = string.Format(GetString(Resource.String.importIconPackSuccess), pack.Icons.Count);
             ShowSnackbar(message, Snackbar.LengthLong);
 
             await _iconPackView.LoadFromPersistenceAsync();
             SetLoading(false);
-            
+
             RunOnUiThread(delegate
             {
                 CheckEmptyState();
@@ -201,7 +201,7 @@ namespace AuthenticatorPro.Droid.Activity
             intent.SetType("*/*");
 
             BaseApplication.PreventNextAutoLock = true;
-            
+
             try
             {
                 StartActivityForResult(intent, RequestAdd);
@@ -212,7 +212,7 @@ namespace AuthenticatorPro.Droid.Activity
                 BaseApplication.PreventNextAutoLock = false;
             }
         }
-        
+
         private void OnDeleteClicked(object sender, IconPack pack)
         {
             var builder = new MaterialAlertDialogBuilder(this);
@@ -220,7 +220,7 @@ namespace AuthenticatorPro.Droid.Activity
             builder.SetTitle(Resource.String.delete);
             builder.SetIcon(Resource.Drawable.baseline_delete_24);
             builder.SetCancelable(true);
-            
+
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
                 try
@@ -232,10 +232,10 @@ namespace AuthenticatorPro.Droid.Activity
                     Logger.Error(e);
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 }
-                
+
                 var position = _iconPackView.IndexOf(pack.Name);
                 await _iconPackView.LoadFromPersistenceAsync();
-                
+
                 RunOnUiThread(delegate
                 {
                     _iconPackListAdapter.NotifyItemRemoved(position);
@@ -270,7 +270,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             return base.OnOptionsItemSelected(item);
         }
-        
+
         private void SetLoading(bool loading)
         {
             RunOnUiThread(delegate
@@ -285,14 +285,14 @@ namespace AuthenticatorPro.Droid.Activity
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
         }
-        
+
         private void ShowSnackbar(string message, int length)
         {
             var snackbar = Snackbar.Make(_rootLayout, message, length);
             snackbar.SetAnchorView(_addButton);
             snackbar.Show();
         }
-        
+
         private void StartWebBrowserActivity(string url)
         {
             var intent = new Intent(Intent.ActionView, Uri.Parse(url));

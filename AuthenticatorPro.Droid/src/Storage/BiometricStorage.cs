@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Text;
 using Android.Content;
 using Android.OS;
 using Android.Security.Keystore;
@@ -8,8 +10,6 @@ using AndroidX.Preference;
 using Java.Security;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
-using System;
-using System.Text;
 
 namespace AuthenticatorPro.Droid.Storage
 {
@@ -20,13 +20,6 @@ namespace AuthenticatorPro.Droid.Storage
 
         private const string PasswordPrefKey = "databasePassphrase";
         private const string IvPrefKey = "databasePassphraseIv";
-
-#pragma warning disable CA1416
-        private const string Algorithm = KeyProperties.KeyAlgorithmAes;
-        private const string BlockMode = KeyProperties.BlockModeCbc;
-        private const string Padding = KeyProperties.EncryptionPaddingPkcs7;
-        private const string Transformation = Algorithm + "/" + BlockMode + "/" + Padding;
-#pragma warning restore CA1416
 
         private readonly ISharedPreferences _preferences;
         private readonly object _lock;
@@ -62,7 +55,7 @@ namespace AuthenticatorPro.Droid.Storage
                 specBuilder = specBuilder.SetUserAuthenticationValidityDurationSeconds(-1);
 #pragma warning restore CA1422
             }
-            
+
             var spec = specBuilder.Build();
 #pragma warning restore CA1416
 
@@ -180,5 +173,12 @@ namespace AuthenticatorPro.Droid.Storage
 
             _preferences.Edit().PutString(key, valueStr).Commit();
         }
+
+#pragma warning disable CA1416
+        private const string Algorithm = KeyProperties.KeyAlgorithmAes;
+        private const string BlockMode = KeyProperties.BlockModeCbc;
+        private const string Padding = KeyProperties.EncryptionPaddingPkcs7;
+        private const string Transformation = Algorithm + "/" + BlockMode + "/" + Padding;
+#pragma warning restore CA1416
     }
 }

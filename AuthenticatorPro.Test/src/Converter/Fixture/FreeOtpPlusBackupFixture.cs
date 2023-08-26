@@ -7,12 +7,12 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class FreeOtpPlusBackupFixture
     {
-        public byte[] Data { get; }
-
         public FreeOtpPlusBackupFixture()
         {
             var path = Path.Join("data", "freeotpplus.json");
             Data = File.ReadAllBytes(path);
         }
+
+        public byte[] Data { get; }
     }
 }

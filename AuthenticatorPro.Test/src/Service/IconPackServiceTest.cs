@@ -1,14 +1,14 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Service
@@ -35,38 +35,28 @@ namespace AuthenticatorPro.Test.Service
         {
             await Assert.ThrowsAsync<ArgumentNullException>(() => _iconPackService.ImportPackAsync(null));
         }
-        
+
         [Fact]
         public async Task ImportPackAsync_nullIcons()
         {
             var pack = new IconPack();
             await Assert.ThrowsAsync<ArgumentException>(() => _iconPackService.ImportPackAsync(pack));
         }
-        
+
         [Fact]
         public async Task ImportPackAsync_doesntExist()
         {
-            var pack = new IconPack
-            {
-                Name = "test",
-                Icons = new List<IconPackEntry>
-                {
-                    new() { Name = "icon" }
-                }
-            };
-                
+            var pack = new IconPack { Name = "test", Icons = new List<IconPackEntry> { new() { Name = "icon" } } };
+
             _iconPackRepository.Setup(r => r.GetAsync(pack.Name)).ReturnsAsync((IconPack) null);
             _iconPackRepository.Setup(r => r.CreateAsync(pack)).Verifiable();
-            
-            var match = new CaptureMatch<IconPackEntry>(e =>
-            {
-                Assert.Equal(pack.Name, e.IconPackName);
-            });
-            
+
+            var match = new CaptureMatch<IconPackEntry>(e => { Assert.Equal(pack.Name, e.IconPackName); });
+
             _iconPackEntryRepository.Setup(r => r.CreateAsync(Capture.With(match)));
 
             await _iconPackService.ImportPackAsync(pack);
-            
+
             _iconPackRepository.Verify(r => r.CreateAsync(pack), Times.Once());
             _iconPackEntryRepository.Verify(r => r.CreateAsync(It.IsAny<IconPackEntry>()), Times.Once());
         }
@@ -77,38 +67,31 @@ namespace AuthenticatorPro.Test.Service
             var pack = new IconPack
             {
                 Name = "test",
-                Icons = new List<IconPackEntry>
-                {
-                    new() { Name = "icon1" },
-                    new() { Name = "icon2" }
-                }
+                Icons = new List<IconPackEntry> { new() { Name = "icon1" }, new() { Name = "icon2" } }
             };
-                
+
             _iconPackRepository.Setup(r => r.GetAsync(pack.Name)).ReturnsAsync(pack);
             _iconPackRepository.Setup(r => r.UpdateAsync(pack)).Verifiable();
-            
+
             _iconPackEntryRepository.Setup(r => r.DeleteAllForPackAsync(pack)).Verifiable();
-            
-            var match = new CaptureMatch<IconPackEntry>(e =>
-            {
-                Assert.Equal(pack.Name, e.IconPackName);
-            });
-            
+
+            var match = new CaptureMatch<IconPackEntry>(e => { Assert.Equal(pack.Name, e.IconPackName); });
+
             _iconPackEntryRepository.Setup(r => r.CreateAsync(Capture.With(match)));
 
             await _iconPackService.ImportPackAsync(pack);
-            
+
             _iconPackRepository.Verify(r => r.UpdateAsync(pack), Times.Once());
             _iconPackEntryRepository.Verify(r => r.DeleteAllForPackAsync(pack), Times.Once());
             _iconPackEntryRepository.Verify(r => r.CreateAsync(It.IsAny<IconPackEntry>()), Times.Exactly(2));
         }
-        
+
         [Fact]
         public async Task DeletePackAsync_null()
         {
             await Assert.ThrowsAsync<ArgumentNullException>(() => _iconPackService.DeletePackAsync(null));
         }
-        
+
         [Fact]
         public async Task DeletePackAsync_ok()
         {
@@ -118,7 +101,7 @@ namespace AuthenticatorPro.Test.Service
             _iconPackRepository.Setup(r => r.DeleteAsync(pack)).Verifiable();
 
             await _iconPackService.DeletePackAsync(pack);
-            
+
             _iconPackEntryRepository.Verify(r => r.DeleteAllForPackAsync(pack), Times.Once());
             _iconPackRepository.Verify(r => r.DeleteAsync(pack), Times.Once());
         }

@@ -1,14 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Android.Graphics;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using Google.Android.Material.Color;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
@@ -16,13 +16,14 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
     {
         private readonly List<SheetMenuItem> _items;
 
-        public event EventHandler ItemClicked;
-        public override int ItemCount => _items.Count;
-
         public SheetMenuAdapter(List<SheetMenuItem> items)
         {
             _items = items;
         }
+
+        public override int ItemCount => _items.Count;
+
+        public event EventHandler ItemClicked;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

@@ -1,13 +1,13 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Test.Converter.Fixture;
 using Moq;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Converter
@@ -43,7 +43,9 @@ namespace AuthenticatorPro.Test.Converter
         [Fact]
         public async Task ConvertAsync_encrypted_pbkdf2()
         {
-            var result = await _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedPbkdf2Data, "rud9^5S6$^Ewmr%d");
+            var result =
+                await _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedPbkdf2Data,
+                    "rud9^5S6$^Ewmr%d");
 
             Assert.Empty(result.Failures);
 
@@ -56,7 +58,8 @@ namespace AuthenticatorPro.Test.Converter
         [Fact]
         public async Task ConvertAsync_encrypted_argon2id()
         {
-            var result = await _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedArgon2IdData, "rud9^5S6$^Ewmr%d");
+            var result = await _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedArgon2IdData,
+                "rud9^5S6$^Ewmr%d");
 
             Assert.Empty(result.Failures);
 
@@ -70,14 +73,15 @@ namespace AuthenticatorPro.Test.Converter
         public async Task ConvertAsync_encrypted_accountRestricted()
         {
             await Assert.ThrowsAsync<ArgumentException>(() =>
-                _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedAccountRestrictedData, "password"));
+                _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedAccountRestrictedData,
+                    "password"));
         }
 
         [Fact]
         public async Task ConvertAsync_encrypted_noPassword()
         {
             await Assert.ThrowsAsync<ArgumentException>(() =>
-                _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedPbkdf2Data, null));
+                _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedPbkdf2Data));
             await Assert.ThrowsAsync<ArgumentException>(() =>
                 _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedPbkdf2Data, ""));
         }
@@ -88,7 +92,8 @@ namespace AuthenticatorPro.Test.Converter
             await Assert.ThrowsAsync<ArgumentException>(() =>
                 _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedPbkdf2Data, "wrong password"));
             await Assert.ThrowsAsync<ArgumentException>(() =>
-                _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedArgon2IdData, "wrong password"));
+                _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedArgon2IdData,
+                    "wrong password"));
         }
     }
 }

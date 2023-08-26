@@ -1,20 +1,19 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Timers;
 using Android.App;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
+using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.WearOS.Interface;
 using AuthenticatorPro.WearOS.Util;
-using System;
-using System.Timers;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -50,7 +49,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             issuerText.Text = issuer;
 
-            if (String.IsNullOrEmpty(username))
+            if (string.IsNullOrEmpty(username))
             {
                 usernameText.Visibility = ViewStates.Gone;
             }

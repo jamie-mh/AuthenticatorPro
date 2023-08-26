@@ -1,8 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Util;
 using System;
+using Android.Util;
 
 namespace AuthenticatorPro.Droid
 {
@@ -29,7 +29,7 @@ namespace AuthenticatorPro.Droid
         {
             Log.Warn(Tag, message + Environment.NewLine + e);
         }
-        
+
         public static void Warn(Exception e)
         {
             Log.Warn(Tag, e.ToString());

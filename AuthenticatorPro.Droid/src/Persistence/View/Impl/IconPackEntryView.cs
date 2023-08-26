@@ -1,25 +1,32 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Graphics;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Android.Graphics;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
 
 namespace AuthenticatorPro.Droid.Persistence.View.Impl
 {
     public class IconPackEntryView : IIconPackEntryView
     {
         private readonly IIconPackEntryRepository _iconPackEntryRepository;
-        
+
         private Dictionary<string, Bitmap> _all;
         private Dictionary<string, Bitmap> _view;
-        
+
         private string _search;
+
+        public IconPackEntryView(IIconPackEntryRepository iconPackEntryRepository)
+        {
+            _iconPackEntryRepository = iconPackEntryRepository;
+            _all = new Dictionary<string, Bitmap>();
+            _view = new Dictionary<string, Bitmap>();
+        }
 
         public string Search
         {
@@ -31,19 +38,12 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
             }
         }
 
-        public IconPackEntryView(IIconPackEntryRepository iconPackEntryRepository)
-        {
-            _iconPackEntryRepository = iconPackEntryRepository;
-            _all = new Dictionary<string, Bitmap>();
-            _view = new Dictionary<string, Bitmap>();
-        }
-        
         public void Update()
         {
             if (!string.IsNullOrEmpty(_search))
             {
                 var query = _search.ToLower();
-                
+
                 _view = _all
                     .Where(e => e.Key.Contains(query))
                     .OrderBy(e => e.Key)

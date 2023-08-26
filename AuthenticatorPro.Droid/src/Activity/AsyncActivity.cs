@@ -1,12 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.App;
-using Android.Content;
-using Android.Runtime;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
+using Android.Content;
+using Android.Runtime;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -20,15 +20,15 @@ namespace AuthenticatorPro.Droid.Activity
             _onResumeLock = new SemaphoreSlim(1, 1);
         }
 
-        ~AsyncActivity()
-        {
-            Dispose(false);
-        }
-
         public new void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        ~AsyncActivity()
+        {
+            Dispose(false);
         }
 
         protected override void Dispose(bool disposing)

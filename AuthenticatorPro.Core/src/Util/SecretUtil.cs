@@ -1,9 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using AuthenticatorPro.Core.Generator;
 using SimpleBase;
-using System;
 
 namespace AuthenticatorPro.Core.Util
 {
@@ -24,7 +24,7 @@ namespace AuthenticatorPro.Core.Util
 
         public static void Validate(string secret, AuthenticatorType type)
         {
-            if (String.IsNullOrEmpty(secret))
+            if (string.IsNullOrEmpty(secret))
             {
                 throw new ArgumentException("Secret cannot be null or empty");
             }

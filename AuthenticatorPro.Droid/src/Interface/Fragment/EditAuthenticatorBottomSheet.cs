@@ -10,7 +10,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class EditAuthenticatorBottomSheet : InputAuthenticatorBottomSheet
     {
-        public EditAuthenticatorBottomSheet() : base(Resource.Layout.sheetEditAuthenticator, Resource.String.editDetails) { }
+        public EditAuthenticatorBottomSheet() : base(Resource.Layout.sheetEditAuthenticator,
+            Resource.String.editDetails)
+        {
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -23,7 +26,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var digits = Arguments.GetInt("digits");
             var period = Arguments.GetInt("period");
             var counter = Arguments.GetLong("counter");
-            
+
             InitialAuthenticator = new Authenticator
             {
                 Type = type,
@@ -36,7 +39,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 Period = period,
                 Counter = counter
             };
-            
+
             base.OnCreate(savedInstanceState);
         }
 

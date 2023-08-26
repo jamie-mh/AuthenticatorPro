@@ -7,12 +7,12 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class AuthenticatorPlusBackupFixture
     {
-        public byte[] Data { get; }
-
         public AuthenticatorPlusBackupFixture()
         {
             var path = Path.Join("data", "authplus.db");
             Data = File.ReadAllBytes(path);
         }
+
+        public byte[] Data { get; }
     }
 }

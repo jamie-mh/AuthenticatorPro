@@ -1,17 +1,27 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using SQLite;
 using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Entity;
+using SQLite;
 
 namespace AuthenticatorPro.Droid
 {
     internal class Database : IAsyncDisposable
     {
+        public enum Origin
+        {
+            Application,
+            Activity,
+            Wear,
+            AutoBackup,
+            Gc,
+            Other
+        }
+
         private const string FileName = "proauth.db3";
 
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite |
@@ -20,9 +30,9 @@ namespace AuthenticatorPro.Droid
         private readonly SemaphoreSlim _lock = new(1, 1);
         private SQLiteAsyncConnection _connection;
 
-        public enum Origin
+        public async ValueTask DisposeAsync()
         {
-            Application, Activity, Wear, AutoBackup, Gc, Other
+            await CloseAsync(Origin.Gc);
         }
 
         public async Task<SQLiteAsyncConnection> GetConnectionAsync()
@@ -127,9 +137,9 @@ namespace AuthenticatorPro.Droid
                 }
 
 #if DEBUG
-            _connection.Trace = true;
-            _connection.Tracer = Logger.Debug;
-            _connection.TimeExecution = true;
+                _connection.Trace = true;
+                _connection.Tracer = Logger.Debug;
+                _connection.TimeExecution = true;
 #endif
             }
             finally
@@ -272,11 +282,6 @@ namespace AuthenticatorPro.Droid
                     File.Delete(backupPath);
                 }
             }
-        }
-
-        public async ValueTask DisposeAsync()
-        {
-            await CloseAsync(Origin.Gc);
         }
     }
 }

@@ -1,19 +1,19 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
-using AuthenticatorPro.Core.Persistence.Exception;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
     internal class IconPackEntryRepository : IIconPackEntryRepository
     {
         private readonly Database _database;
-        
+
         public IconPackEntryRepository(Database database)
         {
             _database = database;

@@ -21,6 +21,8 @@ namespace AuthenticatorPro.WearOS.Interface
             _categoryView = categoryView;
         }
 
+        public override int Count => _categoryView.Count + 1;
+
         public override Drawable GetItemDrawable(int pos)
         {
             return ContextCompat.GetDrawable(_context, Resource.Drawable.baseline_menu_24);
@@ -39,7 +41,5 @@ namespace AuthenticatorPro.WearOS.Interface
                 ? new String()
                 : new String(item.Name);
         }
-
-        public override int Count => _categoryView.Count + 1;
     }
 }

@@ -7,12 +7,12 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class UriListBackupFixture
     {
-        public byte[] Data { get; }
-
         public UriListBackupFixture()
         {
             var path = Path.Join("data", "urilist.txt");
             Data = File.ReadAllBytes(path);
         }
+
+        public byte[] Data { get; }
     }
 }

@@ -1,6 +1,9 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Threading.Tasks;
+using System.Timers;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -8,9 +11,6 @@ using Android.Runtime;
 using AndroidX.Lifecycle;
 using AuthenticatorPro.Droid.Activity;
 using Java.Interop;
-using System;
-using System.Threading.Tasks;
-using System.Timers;
 
 namespace AuthenticatorPro.Droid
 {
@@ -83,7 +83,7 @@ namespace AuthenticatorPro.Droid
             StartActivity(intent);
         }
 
-        [Lifecycle.Event.OnStopAttribute]
+        [Lifecycle.Event.OnStop]
         [Export]
         public async void OnStopped()
         {
@@ -105,24 +105,19 @@ namespace AuthenticatorPro.Droid
             else
             {
                 _timeoutTimer = new Timer(_preferences.Timeout * 1000) { AutoReset = false };
-
-                _timeoutTimer.Elapsed += async delegate
-                {
-                    await _database.CloseAsync(Database.Origin.Application);
-                };
-
+                _timeoutTimer.Elapsed += async delegate { await _database.CloseAsync(Database.Origin.Application); };
                 _timeoutTimer.Start();
             }
         }
 
-        [Lifecycle.Event.OnStartAttribute]
+        [Lifecycle.Event.OnStart]
         [Export]
         public void OnStarted()
         {
             _timeoutTimer?.Stop();
         }
 
-        [Lifecycle.Event.OnDestroyAttribute]
+        [Lifecycle.Event.OnDestroy]
         [Export]
         public async void OnDestroyed()
         {

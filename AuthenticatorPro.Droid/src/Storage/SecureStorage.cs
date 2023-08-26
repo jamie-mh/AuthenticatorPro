@@ -4,6 +4,8 @@
 // Adapted from Xamarin.Essentials (MIT License) for backwards compatibility
 // https://github.com/xamarin/Essentials/blob/main/Xamarin.Essentials/SecureStorage/SecureStorage.android.cs
 
+using System;
+using System.Text;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -15,8 +17,6 @@ using Java.Util;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
 using Javax.Security.Auth.X500;
-using System;
-using System.Text;
 
 namespace AuthenticatorPro.Droid.Storage
 {
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Droid.Storage
 
         public string Get(string key)
         {
-            string encryptedString = _preferences.GetString(key, null);
+            var encryptedString = _preferences.GetString(key, null);
 
             if (encryptedString == null)
             {

@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Timers;
 using Android.Content;
 using Android.Graphics;
 using Android.Runtime;
@@ -9,9 +11,6 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Core.Content;
 using AndroidX.SwipeRefreshLayout.Widget;
-using System;
-using System.Timers;
-using Timer = System.Timers.Timer;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
@@ -21,13 +20,10 @@ namespace AuthenticatorPro.WearOS.Interface
         private const long TimerInterval = 1000 / 60;
         private const float StrokeWidth = 6f;
 
-        public long Period { get; set; }
-        public event EventHandler<ElapsedEventArgs> TimerFinished;
-
-        private long _timeSinceStart;
-
         private readonly CircularProgressDrawable _progressDrawable;
         private readonly Timer _timer;
+
+        private long _timeSinceStart;
 
 
         private AuthProgressLayout(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
@@ -64,6 +60,21 @@ namespace AuthenticatorPro.WearOS.Interface
 
             Background = _progressDrawable;
         }
+
+        public long Period { get; set; }
+
+        public void OnChildViewAdded(View parent, View child)
+        {
+            var frameLayoutParams = (LayoutParams) child.LayoutParameters;
+            frameLayoutParams.Gravity = GravityFlags.Center;
+            child.LayoutParameters = frameLayoutParams;
+        }
+
+        public void OnChildViewRemoved(View parent, View child)
+        {
+        }
+
+        public event EventHandler<ElapsedEventArgs> TimerFinished;
 
         private void DrawProgress()
         {
@@ -121,17 +132,6 @@ namespace AuthenticatorPro.WearOS.Interface
 
             var child = GetChildAt(0);
             _progressDrawable.CenterRadius = Math.Min(child.Width, child.Height) / 2f;
-        }
-
-        public void OnChildViewAdded(View parent, View child)
-        {
-            var frameLayoutParams = (LayoutParams) child.LayoutParameters;
-            frameLayoutParams.Gravity = GravityFlags.Center;
-            child.LayoutParameters = frameLayoutParams;
-        }
-
-        public void OnChildViewRemoved(View parent, View child)
-        {
         }
     }
 }

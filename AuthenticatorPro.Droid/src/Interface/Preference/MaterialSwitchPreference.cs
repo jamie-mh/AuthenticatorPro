@@ -1,17 +1,18 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using Android.Runtime;
 using Android.Util;
 using AndroidX.Preference;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Preference
 {
     public class MaterialSwitchPreference : SwitchPreferenceCompat
     {
-        protected MaterialSwitchPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        protected MaterialSwitchPreference(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference,
+            transfer)
         {
             WidgetLayoutResource = Resource.Layout.switchPreference;
         }
@@ -26,12 +27,14 @@ namespace AuthenticatorPro.Droid.Interface.Preference
             WidgetLayoutResource = Resource.Layout.switchPreference;
         }
 
-        public MaterialSwitchPreference(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs, defStyleAttr)
+        public MaterialSwitchPreference(Context context, IAttributeSet attrs, int defStyleAttr) : base(context, attrs,
+            defStyleAttr)
         {
             WidgetLayoutResource = Resource.Layout.switchPreference;
         }
 
-        public MaterialSwitchPreference(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(context, attrs, defStyleAttr, defStyleRes)
+        public MaterialSwitchPreference(Context context, IAttributeSet attrs, int defStyleAttr, int defStyleRes) : base(
+            context, attrs, defStyleAttr, defStyleRes)
         {
             WidgetLayoutResource = Resource.Layout.switchPreference;
         }

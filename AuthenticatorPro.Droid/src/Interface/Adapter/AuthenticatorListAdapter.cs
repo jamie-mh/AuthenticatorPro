@@ -1,24 +1,24 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 using Android.Animation;
 using Android.Content;
 using Android.Provider;
 using Android.Views;
 using Android.Views.Animations;
 using AndroidX.RecyclerView.Widget;
-using AuthenticatorPro.Droid.Interface.ViewHolder;
-using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
+using AuthenticatorPro.Droid.Interface.ViewHolder;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Shared;
 using Google.Android.Material.ProgressIndicator;
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
@@ -27,13 +27,6 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
-
-        public event EventHandler<string> ItemClicked;
-        public event EventHandler<string> MenuClicked;
-        public event EventHandler<string> RefreshClicked;
-
-        public event EventHandler MovementStarted;
-        public event EventHandler<bool> MovementFinished;
 
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
@@ -98,6 +91,13 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             MovementStarted?.Invoke(this, EventArgs.Empty);
         }
 
+        public event EventHandler<string> ItemClicked;
+        public event EventHandler<string> MenuClicked;
+        public event EventHandler<string> RefreshClicked;
+
+        public event EventHandler MovementStarted;
+        public event EventHandler<bool> MovementFinished;
+
         public override long GetItemId(int position)
         {
             return ValidatePosition(position)
@@ -132,7 +132,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
             else
             {
-                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                holder.Username.Visibility = string.IsNullOrEmpty(auth.Username)
                     ? ViewStates.Gone
                     : ViewStates.Visible;
             }
@@ -323,11 +323,12 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         private void UpdateGenerationOffset(int period, long now)
         {
-            var offset = now - (now % period);
+            var offset = now - now % period;
             _generationOffsets[period] = offset;
         }
 
-        private void UpdateProgressIndicator(LinearProgressIndicator progressIndicator, int period, long generationOffset, long now)
+        private void UpdateProgressIndicator(LinearProgressIndicator progressIndicator, int period,
+            long generationOffset, long now)
         {
             var renewTime = generationOffset + period;
             var secondsRemaining = Math.Max(renewTime - now, 0);
@@ -350,9 +351,10 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         private void UpdateTimeGeneratorCodeText(Authenticator auth, AuthenticatorListHolder holder, long offset)
         {
-            var isRevealed = !_tapToReveal || _tapToReveal && _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition);
+            var isRevealed = !_tapToReveal ||
+                             (_tapToReveal && _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition));
             var code = isRevealed ? auth.GetCode(offset) : null;
-            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize); 
+            holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -415,7 +417,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             _cooldownOffsets[position] = now + CounterCooldownSeconds;
-            
+
             var auth = _authenticatorView[position];
             RefreshClicked?.Invoke(this, auth.Secret);
         }

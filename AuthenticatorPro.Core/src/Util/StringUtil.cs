@@ -9,7 +9,7 @@ namespace AuthenticatorPro.Core.Util
     {
         public static string Truncate(this string value, int maxLength)
         {
-            if (String.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
                 return value;
             }

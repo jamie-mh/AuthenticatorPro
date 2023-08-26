@@ -1,6 +1,11 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
@@ -11,18 +16,11 @@ using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class TwoFasBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
-
         private const string BaseAlgorithm = "AES";
         private const string Mode = "GCM";
         private const string Padding = "NoPadding";
@@ -31,7 +29,11 @@ namespace AuthenticatorPro.Core.Converter
         private const int Iterations = 10000;
         private const int KeyLength = 32;
 
-        public TwoFasBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public TwoFasBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
+
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -40,7 +42,7 @@ namespace AuthenticatorPro.Core.Converter
 
             if (backup.ServicesEncrypted != null)
             {
-                if (String.IsNullOrEmpty(password))
+                if (string.IsNullOrEmpty(password))
                 {
                     throw new ArgumentException("Password required but not provided");
                 }
@@ -89,7 +91,7 @@ namespace AuthenticatorPro.Core.Converter
             {
                 Authenticators = authenticators, Categories = categories, AuthenticatorCategories = bindings
             };
-            
+
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
@@ -180,9 +182,9 @@ namespace AuthenticatorPro.Core.Converter
                 string issuer;
                 string username;
 
-                if (String.IsNullOrEmpty(Otp.Issuer))
+                if (string.IsNullOrEmpty(Otp.Issuer))
                 {
-                    issuer = !String.IsNullOrEmpty(Otp.Account) ? Otp.Account : Name;
+                    issuer = !string.IsNullOrEmpty(Otp.Account) ? Otp.Account : Name;
                     username = null;
                 }
                 else

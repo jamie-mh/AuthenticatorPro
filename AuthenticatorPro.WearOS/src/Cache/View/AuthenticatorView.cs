@@ -1,12 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Droid.Shared.Wear;
 
 namespace AuthenticatorPro.WearOS.Cache.View
 {
@@ -16,6 +16,14 @@ namespace AuthenticatorPro.WearOS.Cache.View
         private List<WearAuthenticator> _view;
         private string _categoryId;
         private SortMode _sortMode;
+
+        public AuthenticatorView(ListCache<WearAuthenticator> cache, string categoryId, SortMode sortMode)
+        {
+            _cache = cache;
+            _categoryId = categoryId;
+            _sortMode = sortMode;
+            Update();
+        }
 
         public string CategoryId
         {
@@ -37,13 +45,19 @@ namespace AuthenticatorPro.WearOS.Cache.View
             }
         }
 
-        public AuthenticatorView(ListCache<WearAuthenticator> cache, string categoryId, SortMode sortMode)
+        public IEnumerator<WearAuthenticator> GetEnumerator()
         {
-            _cache = cache;
-            _categoryId = categoryId;
-            _sortMode = sortMode;
-            Update();
+            return _view.GetEnumerator();
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public int Count => _view.Count;
+
+        public WearAuthenticator this[int index] => _view[index];
 
         public void Update()
         {
@@ -77,19 +91,5 @@ namespace AuthenticatorPro.WearOS.Cache.View
         {
             return _view.FindIndex(predicate);
         }
-
-        public IEnumerator<WearAuthenticator> GetEnumerator()
-        {
-            return _view.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public int Count => _view.Count;
-
-        public WearAuthenticator this[int index] => _view[index];
     }
 }

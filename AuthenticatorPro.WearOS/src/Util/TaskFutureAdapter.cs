@@ -1,10 +1,10 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AndroidX.Concurrent.Futures;
-using Google.Common.Util.Concurrent;
 using System;
 using System.Threading.Tasks;
+using AndroidX.Concurrent.Futures;
+using Google.Common.Util.Concurrent;
 using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.WearOS.Util
@@ -17,7 +17,7 @@ namespace AuthenticatorPro.WearOS.Util
         {
             _executor = executor;
         }
-        
+
         public Object AttachCompleter(CallbackToFutureAdapter.Completer completer)
         {
             Task.Run(async delegate

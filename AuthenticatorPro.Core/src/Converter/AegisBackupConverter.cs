@@ -1,6 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
@@ -11,18 +16,11 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities.Encoders;
 using SimpleBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class AegisBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
-
         private const string BaseAlgorithm = "AES";
         private const string Mode = "GCM";
         private const string Padding = "NoPadding";
@@ -38,12 +36,14 @@ namespace AuthenticatorPro.Core.Converter
             _customIconDecoder = customIconDecoder;
         }
 
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
+
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var json = Encoding.UTF8.GetString(data);
             AegisBackup<DecryptedDatabase> backup;
 
-            if (String.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(password))
             {
                 backup = JsonConvert.DeserializeObject<AegisBackup<DecryptedDatabase>>(json);
             }
@@ -93,9 +93,7 @@ namespace AuthenticatorPro.Core.Converter
 
             return new AegisBackup<DecryptedDatabase>
             {
-                Version = backup.Version,
-                Header = backup.Header,
-                Database = database
+                Version = backup.Version, Header = backup.Header, Database = database
             };
         }
 
@@ -149,16 +147,11 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = entry.Issuer,
-                        Error = e.Message
-                    });
-
+                    failures.Add(new ConversionFailure { Description = entry.Issuer, Error = e.Message });
                     continue;
                 }
 
-                if (!String.IsNullOrEmpty(entry.Group))
+                if (!string.IsNullOrEmpty(entry.Group))
                 {
                     var category = categories.FirstOrDefault(c => c.Name == entry.Group);
 
@@ -221,7 +214,8 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "header")]
             public Header Header { get; set; }
 
-            [JsonProperty(PropertyName = "db")] public T Database { get; set; }
+            [JsonProperty(PropertyName = "db")]
+            public T Database { get; set; }
         }
 
         private sealed class KeyParams
@@ -244,7 +238,9 @@ namespace AuthenticatorPro.Core.Converter
 
         private enum SlotType
         {
-            Raw = 0, Password = 1, Biometric = 2
+            Raw = 0,
+            Password = 1,
+            Biometric = 2
         }
 
         private sealed class Slot
@@ -279,20 +275,24 @@ namespace AuthenticatorPro.Core.Converter
 
         private sealed class Entry
         {
-            [JsonProperty(PropertyName = "type")] public string Type { get; set; }
+            [JsonProperty(PropertyName = "type")]
+            public string Type { get; set; }
 
-            [JsonProperty(PropertyName = "name")] public string Name { get; set; }
+            [JsonProperty(PropertyName = "name")]
+            public string Name { get; set; }
 
             [JsonProperty(PropertyName = "issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "group")] public string Group { get; set; }
+            [JsonProperty(PropertyName = "group")]
+            public string Group { get; set; }
 
             [JsonProperty(PropertyName = "icon")]
             [JsonConverter(typeof(ByteArrayConverter))]
             public byte[] Icon { get; set; }
 
-            [JsonProperty(PropertyName = "info")] public EntryInfo Info { get; set; }
+            [JsonProperty(PropertyName = "info")]
+            public EntryInfo Info { get; set; }
 
             private string ConvertSecret(AuthenticatorType type)
             {
@@ -332,7 +332,7 @@ namespace AuthenticatorPro.Core.Converter
                 string issuer;
                 string username;
 
-                if (String.IsNullOrEmpty(Issuer))
+                if (string.IsNullOrEmpty(Issuer))
                 {
                     issuer = Name;
                     username = null;
@@ -364,7 +364,8 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "secret")]
             public string Secret { get; set; }
 
-            [JsonProperty(PropertyName = "algo")] public string Algorithm { get; set; }
+            [JsonProperty(PropertyName = "algo")]
+            public string Algorithm { get; set; }
 
             [JsonProperty(PropertyName = "digits")]
             public int Digits { get; set; }

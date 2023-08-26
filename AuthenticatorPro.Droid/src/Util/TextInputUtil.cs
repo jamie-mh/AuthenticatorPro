@@ -1,9 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Google.Android.Material.TextField;
-using System;
 using System.Collections.Generic;
+using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Util
 {
@@ -21,7 +20,7 @@ namespace AuthenticatorPro.Droid.Util
         {
             layout.EditText.TextChanged += delegate
             {
-                if (!String.IsNullOrEmpty(layout.Error))
+                if (!string.IsNullOrEmpty(layout.Error))
                 {
                     layout.Error = null;
                 }

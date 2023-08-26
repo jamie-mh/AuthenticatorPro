@@ -1,27 +1,27 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Graphics;
 using Android.Views;
 using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using AuthenticatorPro.Droid.Persistence.View;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
     internal class IconPackEntryListAdapter : RecyclerView.Adapter
     {
-        public event EventHandler<Bitmap> ItemClicked;
-        public override int ItemCount => _iconPackEntryView.Count;
-
         private readonly IIconPackEntryView _iconPackEntryView;
-        
+
         public IconPackEntryListAdapter(IIconPackEntryView iconPackEntryView)
         {
             _iconPackEntryView = iconPackEntryView;
         }
+
+        public override int ItemCount => _iconPackEntryView.Count;
+        public event EventHandler<Bitmap> ItemClicked;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {

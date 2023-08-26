@@ -1,6 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Util;
@@ -11,19 +17,11 @@ using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class BitwardenBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
-
         private const string BaseAlgorithm = "AES";
         private const string Mode = "CBC";
         private const string Padding = "PKCS7";
@@ -32,7 +30,11 @@ namespace AuthenticatorPro.Core.Converter
         private const int KeyLength = 32;
         private const int LoginType = 1;
 
-        public BitwardenBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public BitwardenBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
+
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -199,12 +201,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = item.Name,
-                        Error = e.Message
-                    });
-
+                    failures.Add(new ConversionFailure { Description = item.Name, Error = e.Message });
                     continue;
                 }
 
@@ -240,7 +237,8 @@ namespace AuthenticatorPro.Core.Converter
         {
             public enum Kdf
             {
-                Pbkdf2Sha256 = 0, Argon2Id = 1
+                Pbkdf2Sha256 = 0,
+                Argon2Id = 1
             }
 
             [JsonProperty(PropertyName = "salt")]

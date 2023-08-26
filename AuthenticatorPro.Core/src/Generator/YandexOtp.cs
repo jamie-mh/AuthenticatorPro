@@ -1,11 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using SimpleBase;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using SimpleBase;
 
 namespace AuthenticatorPro.Core.Generator
 {
@@ -29,6 +29,23 @@ namespace AuthenticatorPro.Core.Generator
             }
 
             _hmac = new HMACSHA256(key);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        public string Compute(long counter)
+        {
+            var counterBytes = Totp.GetCounterBytes(counter, Period);
+            var hash = _hmac.ComputeHash(counterBytes);
+
+            var material = ComputeMaterial(hash);
+            var truncated = material % (long) Math.Pow(26, Digits);
+
+            return Finalise(truncated);
         }
 
         private static byte[] GetSecretBytes(string secret, string pin)
@@ -56,17 +73,6 @@ namespace AuthenticatorPro.Core.Generator
             return BitConverter.ToInt64(bytes) & long.MaxValue;
         }
 
-        public string Compute(long counter)
-        {
-            var counterBytes = Totp.GetCounterBytes(counter, Period);
-            var hash = _hmac.ComputeHash(counterBytes);
-
-            var material = ComputeMaterial(hash);
-            var truncated = material % (long) Math.Pow(26, Digits);
-
-            return Finalise(truncated);
-        }
-
         private static string Finalise(long material)
         {
             var result = new char[Digits];
@@ -77,7 +83,7 @@ namespace AuthenticatorPro.Core.Generator
                 material /= 26;
             }
 
-            return new String(result);
+            return new string(result);
         }
 
         protected virtual void Dispose(bool disposing)
@@ -93,12 +99,6 @@ namespace AuthenticatorPro.Core.Generator
             }
 
             _isDisposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

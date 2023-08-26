@@ -1,14 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
 
 namespace AuthenticatorPro.Droid.Persistence.View.Impl
 {
@@ -24,6 +24,14 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
         private IEnumerable<Authenticator> _all;
         private List<Authenticator> _view;
         private IEnumerable<AuthenticatorCategory> _authenticatorCategories;
+
+        public AuthenticatorView(IAuthenticatorRepository authenticatorRepository,
+            IAuthenticatorCategoryRepository authenticatorCategoryRepository)
+        {
+            _authenticatorRepository = authenticatorRepository;
+            _authenticatorCategoryRepository = authenticatorCategoryRepository;
+            _view = new List<Authenticator>();
+        }
 
         public string Search
         {
@@ -55,14 +63,6 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
             }
         }
 
-        public AuthenticatorView(IAuthenticatorRepository authenticatorRepository,
-            IAuthenticatorCategoryRepository authenticatorCategoryRepository)
-        {
-            _authenticatorRepository = authenticatorRepository;
-            _authenticatorCategoryRepository = authenticatorCategoryRepository;
-            _view = new List<Authenticator>();
-        }
-
         public async Task LoadFromPersistenceAsync()
         {
             _all = await _authenticatorRepository.GetAllAsync();
@@ -91,7 +91,7 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
                 }
             }
 
-            if (!String.IsNullOrEmpty(Search))
+            if (!string.IsNullOrEmpty(Search))
             {
                 var searchLower = Search.ToLower();
                 view = view.Where(i =>

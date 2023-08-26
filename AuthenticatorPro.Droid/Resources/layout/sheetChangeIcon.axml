@@ -56,7 +56,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-    
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -80,6 +80,6 @@
             android:layout_height="wrap_content">
             <requestFocus/>
         </androidx.recyclerview.widget.RecyclerView>
- 
+
     </FrameLayout>
 </LinearLayout>

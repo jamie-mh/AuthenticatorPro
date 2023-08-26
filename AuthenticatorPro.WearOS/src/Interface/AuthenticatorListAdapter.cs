@@ -1,14 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Core.Util;
 using AuthenticatorPro.Droid.Shared;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
-using System;
-using System.Linq;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
@@ -18,17 +18,19 @@ namespace AuthenticatorPro.WearOS.Interface
         private readonly CustomIconCache _customIconCache;
         private readonly bool _showUsernames;
 
-        public string DefaultAuth { get; set; }
-
-        public event EventHandler<int> ItemClicked;
-        public event EventHandler<int> ItemLongClicked;
-
         public AuthenticatorListAdapter(AuthenticatorView authView, CustomIconCache customIconCache, bool showUsernames)
         {
             _authView = authView;
             _customIconCache = customIconCache;
             _showUsernames = showUsernames;
         }
+
+        public string DefaultAuth { get; set; }
+
+        public override int ItemCount => _authView.Count;
+
+        public event EventHandler<int> ItemClicked;
+        public event EventHandler<int> ItemLongClicked;
 
         public override long GetItemId(int position)
         {
@@ -61,12 +63,12 @@ namespace AuthenticatorPro.WearOS.Interface
             }
             else
             {
-                holder.Username.Visibility = String.IsNullOrEmpty(auth.Username)
+                holder.Username.Visibility = string.IsNullOrEmpty(auth.Username)
                     ? ViewStates.Gone
                     : ViewStates.Visible;
             }
 
-            if (!String.IsNullOrEmpty(auth.Icon))
+            if (!string.IsNullOrEmpty(auth.Icon))
             {
                 if (auth.Icon.StartsWith(CustomIconCache.Prefix))
                 {
@@ -97,19 +99,11 @@ namespace AuthenticatorPro.WearOS.Interface
         {
             var view = LayoutInflater.FromContext(parent.Context).Inflate(Resource.Layout.authListItem, parent, false);
             var holder = new AuthenticatorListHolder(view);
-            holder.ItemView.Click += delegate
-            {
-                ItemClicked?.Invoke(this, holder.BindingAdapterPosition);
-            };
+            holder.ItemView.Click += delegate { ItemClicked?.Invoke(this, holder.BindingAdapterPosition); };
 
-            holder.ItemView.LongClick += delegate
-            {
-                ItemLongClicked?.Invoke(this, holder.BindingAdapterPosition);
-            };
+            holder.ItemView.LongClick += delegate { ItemLongClicked?.Invoke(this, holder.BindingAdapterPosition); };
 
             return holder;
         }
-
-        public override int ItemCount => _authView.Count;
     }
 }

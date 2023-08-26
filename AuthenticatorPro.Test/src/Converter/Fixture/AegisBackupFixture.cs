@@ -7,9 +7,6 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class AegisBackupFixture
     {
-        public byte[] UnencryptedData { get; }
-        public byte[] EncryptedData { get; }
-
         public AegisBackupFixture()
         {
             var unencryptedPath = Path.Join("data", "aegis.unencrypted.json");
@@ -18,5 +15,8 @@ namespace AuthenticatorPro.Test.Converter.Fixture
             var encryptedPath = Path.Join("data", "aegis.encrypted.json");
             EncryptedData = File.ReadAllBytes(encryptedPath);
         }
+
+        public byte[] UnencryptedData { get; }
+        public byte[] EncryptedData { get; }
     }
 }

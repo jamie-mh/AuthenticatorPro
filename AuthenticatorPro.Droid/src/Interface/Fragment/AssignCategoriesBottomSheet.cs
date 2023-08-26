@@ -1,32 +1,33 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
 using Android.OS;
 using Android.Views;
 using AuthenticatorPro.Droid.Persistence.View;
 using Google.Android.Material.Button;
 using Google.Android.Material.Chip;
 using Google.Android.Material.TextView;
-using System;
-using System.Linq;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class AssignCategoriesBottomSheet : BottomSheet
     {
-        public event EventHandler<CategoryClickedEventArgs> CategoryClicked;
-        public event EventHandler EditCategoriesClicked;
-        public event EventHandler Closed;
-
         private readonly ICategoryView _categoryView;
 
         private string _secret;
         private string[] _assignedCategoryIds;
 
-        public AssignCategoriesBottomSheet() : base(Resource.Layout.sheetAssignCategories, Resource.String.assignCategories)
+        public AssignCategoriesBottomSheet() : base(Resource.Layout.sheetAssignCategories,
+            Resource.String.assignCategories)
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
         }
+
+        public event EventHandler<CategoryClickedEventArgs> CategoryClicked;
+        public event EventHandler EditCategoriesClicked;
+        public event EventHandler Closed;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -76,7 +77,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 chip.Text = category.Name;
                 chip.Checkable = true;
                 chip.Clickable = true;
-                
+
                 if (_assignedCategoryIds.Contains(category.Id))
                 {
                     chip.Checked = true;
@@ -84,7 +85,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
                 chip.Click += (sender, _) =>
                 {
-                    CategoryClicked?.Invoke(sender, new CategoryClickedEventArgs(_secret, category.Id, chip.Checked));
+                    CategoryClicked?.Invoke(sender,
+                        new CategoryClickedEventArgs(_secret, category.Id, chip.Checked));
                 };
 
                 chipGroup.AddView(chip);

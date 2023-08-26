@@ -1,16 +1,16 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Konscious.Security.Cryptography;
-using Newtonsoft.Json;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Security;
 using System;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Konscious.Security.Cryptography;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
 
 namespace AuthenticatorPro.Core.Backup.Encryption
 {
@@ -33,19 +33,6 @@ namespace AuthenticatorPro.Core.Backup.Encryption
         private const string AlgorithmDescription = BaseAlgorithm + "/" + Mode + "/" + Padding;
         private const int IvLength = 12;
         private const int TagLength = 16;
-
-        private static async Task<byte[]> DeriveKeyAsync(string password, byte[] salt)
-        {
-            var passwordBytes = Encoding.UTF8.GetBytes(password);
-
-            var argon2 = new Argon2id(passwordBytes);
-            argon2.DegreeOfParallelism = Parallelism;
-            argon2.Iterations = Iterations;
-            argon2.MemorySize = MemorySize;
-            argon2.Salt = salt;
-
-            return await argon2.GetBytesAsync(KeyLength);
-        }
 
         public async Task<byte[]> EncryptAsync(Backup backup, string password)
         {
@@ -74,7 +61,8 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             Buffer.BlockCopy(headerBytes, 0, output, 0, headerBytes.Length);
             Buffer.BlockCopy(salt, 0, output, headerBytes.Length, SaltLength);
             Buffer.BlockCopy(iv, 0, output, headerBytes.Length + SaltLength, IvLength);
-            Buffer.BlockCopy(encryptedData, 0, output, headerBytes.Length + SaltLength + IvLength, encryptedData.Length);
+            Buffer.BlockCopy(encryptedData, 0, output, headerBytes.Length + SaltLength + IvLength,
+                encryptedData.Length);
 
             return output;
         }
@@ -126,6 +114,19 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             var foundHeader = data.Take(Header.Length).ToArray();
             var headerBytes = Encoding.UTF8.GetBytes(Header);
             return headerBytes.SequenceEqual(foundHeader);
+        }
+
+        private static async Task<byte[]> DeriveKeyAsync(string password, byte[] salt)
+        {
+            var passwordBytes = Encoding.UTF8.GetBytes(password);
+
+            var argon2 = new Argon2id(passwordBytes);
+            argon2.DegreeOfParallelism = Parallelism;
+            argon2.Iterations = Iterations;
+            argon2.MemorySize = MemorySize;
+            argon2.Salt = salt;
+
+            return await argon2.GetBytesAsync(KeyLength);
         }
     }
 }

@@ -8,14 +8,6 @@ namespace AuthenticatorPro.Core.Entity
     [Table("authenticatorcategory")]
     public class AuthenticatorCategory
     {
-        [Column("categoryId")] [Indexed] public string CategoryId { get; set; }
-
-        [Column("authenticatorSecret")]
-        [Indexed]
-        public string AuthenticatorSecret { get; set; }
-
-        [Column("ranking")] public int Ranking { get; set; }
-
         public AuthenticatorCategory()
         {
             Ranking = 0;
@@ -27,5 +19,16 @@ namespace AuthenticatorPro.Core.Entity
             CategoryId = categoryId;
             Ranking = 0;
         }
+
+        [Column("categoryId")]
+        [Indexed]
+        public string CategoryId { get; set; }
+
+        [Column("authenticatorSecret")]
+        [Indexed]
+        public string AuthenticatorSecret { get; set; }
+
+        [Column("ranking")]
+        public int Ranking { get; set; }
     }
 }

@@ -1,16 +1,20 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class ImportBottomSheet : BottomSheet
     {
+        public ImportBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.importFromOtherApps)
+        {
+        }
+
         public event EventHandler GoogleAuthenticatorClicked;
         public event EventHandler AuthenticatorPlusClicked;
         public event EventHandler AndOtpClicked;
@@ -26,8 +30,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler SteamClicked;
         public event EventHandler BlizzardAuthenticatorClicked;
         public event EventHandler UriListClicked;
-
-        public ImportBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.importFromOtherApps) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

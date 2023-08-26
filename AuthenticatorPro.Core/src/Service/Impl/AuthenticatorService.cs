@@ -1,14 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Generator;
-using AuthenticatorPro.Core.Persistence;
-using AuthenticatorPro.Core.Persistence.Exception;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Persistence;
+using AuthenticatorPro.Core.Persistence.Exception;
 
 namespace AuthenticatorPro.Core.Service.Impl
 {
@@ -84,7 +84,7 @@ namespace AuthenticatorPro.Core.Service.Impl
                 throw new ArgumentNullException(nameof(auth));
             }
 
-            if (String.IsNullOrEmpty(newSecret))
+            if (string.IsNullOrEmpty(newSecret))
             {
                 throw new ArgumentException("Old secret cannot be null or empty");
             }
@@ -102,7 +102,7 @@ namespace AuthenticatorPro.Core.Service.Impl
                 throw new ArgumentNullException(nameof(auth));
             }
 
-            if (String.IsNullOrEmpty(icon))
+            if (string.IsNullOrEmpty(icon))
             {
                 throw new ArgumentException("Invalid icon");
             }

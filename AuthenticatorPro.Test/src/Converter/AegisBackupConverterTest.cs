@@ -1,14 +1,14 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Test.Converter.Fixture;
 using Moq;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Converter
@@ -26,7 +26,8 @@ namespace AuthenticatorPro.Test.Converter
             iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns("icon");
 
             var customIconDecoder = new Mock<ICustomIconDecoder>();
-            customIconDecoder.Setup(d => d.DecodeAsync(It.IsAny<byte[]>(), It.IsAny<bool>())).ReturnsAsync(new CustomIcon());
+            customIconDecoder.Setup(d => d.DecodeAsync(It.IsAny<byte[]>(), It.IsAny<bool>()))
+                .ReturnsAsync(new CustomIcon());
 
             _aegisBackupConverter = new AegisBackupConverter(iconResolver.Object, customIconDecoder.Object);
         }

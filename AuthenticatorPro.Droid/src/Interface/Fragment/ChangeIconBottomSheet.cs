@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
 using Android.Graphics;
 using Android.OS;
 using Android.Text;
@@ -15,21 +17,15 @@ using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Tabs;
-using System;
-using System.Linq;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class ChangeIconBottomSheet : BottomSheet
     {
-        public event EventHandler<DefaultIconSelectedEventArgs> DefaultIconSelected;
-        public event EventHandler<IconPackEntrySelectedEventArgs> IconPackEntrySelected;
-        public event EventHandler UseCustomIconClick;
-
         private readonly IDefaultIconView _defaultIconView;
         private readonly IIconPackView _iconPackView;
         private readonly IIconPackEntryView _iconPackEntryView;
-        
+
         private string _secret;
 
         private DefaultIconListAdapter _defaultIconListAdapter;
@@ -47,20 +43,24 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _iconPackEntryView = Dependencies.Resolve<IIconPackEntryView>();
         }
 
+        public event EventHandler<DefaultIconSelectedEventArgs> DefaultIconSelected;
+        public event EventHandler<IconPackEntrySelectedEventArgs> IconPackEntrySelected;
+        public event EventHandler UseCustomIconClick;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             _secret = Arguments.GetString("secret");
-           
+
             var baseActivity = (BaseActivity) RequireActivity();
             _defaultIconView.UseDarkTheme = baseActivity.IsDark;
             _defaultIconView.Update();
-            
+
             _defaultIconListAdapter = new DefaultIconListAdapter(RequireContext(), _defaultIconView);
             _defaultIconListAdapter.ItemClicked += OnDefaultItemClicked;
             _defaultIconListAdapter.HasStableIds = true;
-            
+
             _iconPackEntryListAdapter = new IconPackEntryListAdapter(_iconPackEntryView);
             _iconPackEntryListAdapter.ItemClicked += OnIconPackEntryClicked;
             _iconPackEntryListAdapter.HasStableIds = true;
@@ -89,16 +89,16 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 UseCustomIconClick?.Invoke(s, e);
                 Dismiss();
             };
-            
+
             return view;
         }
-        
+
         public override async void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
 
             await _iconPackView.LoadFromPersistenceAsync();
-            
+
             _tabLayout = view.FindViewById<TabLayout>(Resource.Id.tabLayoutPack);
             _tabLayout.TabSelected += OnPackSelected;
 
@@ -128,7 +128,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             _iconList.Visibility = ViewStates.Invisible;
             _progressIndicator.Visibility = ViewStates.Visible;
-            
+
             if (e.Tab.Position == 0)
             {
                 _iconList.SetAdapter(_defaultIconListAdapter);
@@ -143,7 +143,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 _iconList.SetAdapter(_iconPackEntryListAdapter);
                 _iconPackEntryListAdapter.NotifyDataSetChanged();
             }
-            
+
             _progressIndicator.Visibility = ViewStates.Gone;
             AnimUtil.FadeInView(_iconList, AnimUtil.LengthShort);
         }
@@ -167,7 +167,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var eventArgs = new DefaultIconSelectedEventArgs(_secret, _defaultIconView[iconPosition].Key);
             DefaultIconSelected?.Invoke(this, eventArgs);
         }
-        
+
         private void OnIconPackEntryClicked(object sender, Bitmap bitmap)
         {
             var eventArgs = new IconPackEntrySelectedEventArgs(_secret, bitmap);
@@ -185,7 +185,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 Icon = icon;
             }
         }
-        
+
         public class IconPackEntrySelectedEventArgs : EventArgs
         {
             public readonly string Secret;

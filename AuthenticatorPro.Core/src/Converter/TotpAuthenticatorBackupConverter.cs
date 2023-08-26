@@ -1,6 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Util;
@@ -9,21 +14,19 @@ using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using SimpleBase;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class TotpAuthenticatorBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
         private const AuthenticatorType Type = AuthenticatorType.Totp;
         private const string Algorithm = "AES/CBC/PKCS7";
 
-        public TotpAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public TotpAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
+
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -42,11 +45,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = account.Issuer,
-                        Error = e.Message
-                    });
+                    failures.Add(new ConversionFailure { Description = account.Issuer, Error = e.Message });
 
                     continue;
                 }
@@ -96,9 +95,11 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "name")] public string Name { get; set; }
+            [JsonProperty(PropertyName = "name")]
+            public string Name { get; set; }
 
-            [JsonProperty(PropertyName = "key")] public string Key { get; set; }
+            [JsonProperty(PropertyName = "key")]
+            public string Key { get; set; }
 
             [JsonProperty(PropertyName = "digits")]
             public string Digits { get; set; }
@@ -106,7 +107,8 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "period")]
             public string Period { get; set; }
 
-            [JsonProperty(PropertyName = "base")] public int Base { get; set; }
+            [JsonProperty(PropertyName = "base")]
+            public int Base { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)
             {
@@ -126,11 +128,11 @@ namespace AuthenticatorPro.Core.Converter
 
                 var period = Period == ""
                     ? Type.GetDefaultPeriod()
-                    : Int32.Parse(Period);
+                    : int.Parse(Period);
 
                 var digits = Digits == ""
                     ? Type.GetDefaultDigits()
-                    : Int32.Parse(Digits);
+                    : int.Parse(Digits);
 
                 if (Base != 16)
                 {

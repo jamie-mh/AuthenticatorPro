@@ -1,6 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Gms.Common.Apis;
@@ -12,23 +16,20 @@ using AndroidX.AppCompat.App;
 using AndroidX.Wear.Tiles;
 using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
-using AuthenticatorPro.Droid.Shared.Util;
-using AuthenticatorPro.Droid.Shared.Wear;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
+using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Droid.Shared.Wear;
 using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Cache.View;
 using AuthenticatorPro.WearOS.Comparer;
 using AuthenticatorPro.WearOS.Interface;
 using AuthenticatorPro.WearOS.Util;
 using Java.IO;
+using Java.Lang;
 using Newtonsoft.Json;
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using Exception = System.Exception;
 
 namespace AuthenticatorPro.WearOS.Activity
 {
@@ -42,6 +43,9 @@ namespace AuthenticatorPro.WearOS.Activity
         // Cache Names
         private const string AuthenticatorCacheName = "authenticators";
         private const string CategoryCacheName = "categories";
+
+        // Lifecycle Synchronisation
+        private readonly SemaphoreSlim _onCreateLock;
 
         // Views
         private LinearLayout _offlineLayout;
@@ -66,9 +70,6 @@ namespace AuthenticatorPro.WearOS.Activity
 
         // Connection Status
         private INode _serverNode;
-
-        // Lifecycle Synchronisation
-        private readonly SemaphoreSlim _onCreateLock;
         private bool _isDisposed;
 
         public MainActivity()
@@ -163,10 +164,7 @@ namespace AuthenticatorPro.WearOS.Activity
             catch (Exception e)
             {
                 Logger.Error(e);
-                RunOnUiThread(delegate
-                {
-                    Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show();
-                });
+                RunOnUiThread(delegate { Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show(); });
             }
 
             RunOnUiThread(delegate
@@ -239,6 +237,7 @@ namespace AuthenticatorPro.WearOS.Activity
                 _categoryList.SetCurrentItem(0, false);
             }
         }
+
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
         {
             if (_preventCategorySelectEvent)
@@ -323,7 +322,7 @@ namespace AuthenticatorPro.WearOS.Activity
             bundle.PutString("pin", item.Pin);
             bundle.PutInt("algorithm", (int) item.Algorithm);
 
-            var hasCustomIcon = !String.IsNullOrEmpty(item.Icon) && item.Icon.StartsWith(CustomIconCache.Prefix);
+            var hasCustomIcon = !string.IsNullOrEmpty(item.Icon) && item.Icon.StartsWith(CustomIconCache.Prefix);
             bundle.PutBoolean("hasCustomIcon", hasCustomIcon);
 
             if (hasCustomIcon)
@@ -373,7 +372,7 @@ namespace AuthenticatorPro.WearOS.Activity
                 }
             }
 
-            var clazz = Java.Lang.Class.FromType(typeof(AuthTileService));
+            var clazz = Class.FromType(typeof(AuthTileService));
             TileService.GetUpdater(this).RequestUpdate(clazz);
         }
 

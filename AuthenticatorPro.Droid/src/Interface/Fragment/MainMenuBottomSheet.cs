@@ -1,25 +1,18 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Persistence.View;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class MainMenuBottomSheet : BottomSheet
     {
-        public event EventHandler<string> CategoryClicked;
-        public event EventHandler BackupClicked;
-        public event EventHandler CategoriesClicked;
-        public event EventHandler IconPacksClicked;
-        public event EventHandler SettingsClicked;
-        public event EventHandler AboutClicked;
-
         private readonly ICategoryView _categoryView;
         private CategoryMenuListAdapter _categoryMenuListAdapter;
         private RecyclerView _categoryList;
@@ -30,6 +23,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             _categoryView = Dependencies.Resolve<ICategoryView>();
         }
+
+        public event EventHandler<string> CategoryClicked;
+        public event EventHandler BackupClicked;
+        public event EventHandler CategoriesClicked;
+        public event EventHandler IconPacksClicked;
+        public event EventHandler SettingsClicked;
+        public event EventHandler AboutClicked;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,10 +53,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _categoryMenuListAdapter.NotifyDataSetChanged();
 
-            _categoryMenuListAdapter.CategorySelected += (_, id) =>
-            {
-                CategoryClicked?.Invoke(this, id);
-            };
+            _categoryMenuListAdapter.CategorySelected += (_, id) => { CategoryClicked?.Invoke(this, id); };
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,

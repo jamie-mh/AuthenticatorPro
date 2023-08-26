@@ -1,10 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using AndroidX.RecyclerView.Widget;
 using Google.Android.Material.Internal;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.LayoutManager
 {

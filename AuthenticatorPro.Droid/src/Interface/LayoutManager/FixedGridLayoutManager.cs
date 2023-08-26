@@ -8,7 +8,9 @@ namespace AuthenticatorPro.Droid.Interface.LayoutManager
 {
     internal class FixedGridLayoutManager : GridLayoutManager
     {
-        public FixedGridLayoutManager(Context context, int spanCount) : base(context, spanCount) { }
+        public FixedGridLayoutManager(Context context, int spanCount) : base(context, spanCount)
+        {
+        }
 
         public override bool SupportsPredictiveItemAnimations()
         {

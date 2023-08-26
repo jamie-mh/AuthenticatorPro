@@ -1,11 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Text;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
 using SQLite;
-using System;
-using System.Text;
 
 namespace AuthenticatorPro.Core.Entity
 {
@@ -17,39 +17,9 @@ namespace AuthenticatorPro.Core.Entity
 
         public const HashAlgorithm DefaultAlgorithm = HashAlgorithm.Sha1;
 
-        [Column("type")] public AuthenticatorType Type { get; set; }
-
-        [Column("icon")] public string Icon { get; set; }
-
-        [Column("issuer")]
-        [MaxLength(IssuerMaxLength)]
-        public string Issuer { get; set; }
-
-        [Column("username")]
-        [MaxLength(UsernameMaxLength)]
-        public string Username { get; set; }
-
-        [Column("secret")] [PrimaryKey] public string Secret { get; set; }
-
-        [Column("pin")] public string Pin { get; set; }
-
-        [Column("algorithm")] public HashAlgorithm Algorithm { get; set; }
-
-        [Column("digits")] public int Digits { get; set; }
-
-        [Column("period")] public int Period { get; set; }
-
-        [Column("counter")] public long Counter { get; set; }
-
-        [Column("copy_count")] public int CopyCount { get; set; }
-
-        [Column("ranking")] public int Ranking { get; set; }
-
-
         private IGenerator _generator;
         private long _lastCounter;
         private string _code;
-
 
         public Authenticator()
         {
@@ -62,6 +32,45 @@ namespace AuthenticatorPro.Core.Entity
             Digits = Type.GetDefaultDigits();
             Period = Type.GetDefaultPeriod();
         }
+
+        [Column("type")]
+        public AuthenticatorType Type { get; set; }
+
+        [Column("icon")]
+        public string Icon { get; set; }
+
+        [Column("issuer")]
+        [MaxLength(IssuerMaxLength)]
+        public string Issuer { get; set; }
+
+        [Column("username")]
+        [MaxLength(UsernameMaxLength)]
+        public string Username { get; set; }
+
+        [Column("secret")]
+        [PrimaryKey]
+        public string Secret { get; set; }
+
+        [Column("pin")]
+        public string Pin { get; set; }
+
+        [Column("algorithm")]
+        public HashAlgorithm Algorithm { get; set; }
+
+        [Column("digits")]
+        public int Digits { get; set; }
+
+        [Column("period")]
+        public int Period { get; set; }
+
+        [Column("counter")]
+        public long Counter { get; set; }
+
+        [Column("copy_count")]
+        public int CopyCount { get; set; }
+
+        [Column("ranking")]
+        public int Ranking { get; set; }
 
         public string GetCode(long counter)
         {
@@ -104,7 +113,7 @@ namespace AuthenticatorPro.Core.Entity
                 case GenerationMethod.Time:
                 {
                     var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                    counter = now - (now % Period);
+                    counter = now - now % Period;
                     break;
                 }
 
@@ -142,7 +151,7 @@ namespace AuthenticatorPro.Core.Entity
                 _ => throw new NotSupportedException("Unsupported authenticator type")
             };
 
-            var issuerUsername = String.IsNullOrEmpty(Username) ? Issuer : $"{Issuer}:{Username}";
+            var issuerUsername = string.IsNullOrEmpty(Username) ? Issuer : $"{Issuer}:{Username}";
 
             var uri = new StringBuilder(
                 $"otpauth://{type}/{Uri.EscapeDataString(issuerUsername)}?secret={Secret}&issuer={Uri.EscapeDataString(Issuer)}");
@@ -193,7 +202,7 @@ namespace AuthenticatorPro.Core.Entity
 
         public virtual void Validate()
         {
-            if (String.IsNullOrEmpty(Issuer))
+            if (string.IsNullOrEmpty(Issuer))
             {
                 throw new ArgumentException("Issuer cannot be null or empty");
             }

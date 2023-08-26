@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using Android.OS;
 using Android.Views;
@@ -14,14 +15,11 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     internal class UnlockBottomSheet : BottomSheet
     {
-        public event EventHandler<string> UnlockAttempted;
-
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;
         private bool _canUseBiometrics;
@@ -35,6 +33,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public UnlockBottomSheet() : base(Resource.Layout.sheetUnlock, Resource.String.unlock)
         {
         }
+
+        public event EventHandler<string> UnlockAttempted;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -56,10 +56,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             };
 
             _unlockButton = view.FindViewById<MaterialButton>(Resource.Id.buttonUnlock);
-            _unlockButton.Click += delegate
-            {
-                UnlockAttempted?.Invoke(this, _passwordText.Text);
-            };
+            _unlockButton.Click += delegate { UnlockAttempted?.Invoke(this, _passwordText.Text); };
 
             if (_preferences.AllowBiometrics)
             {
@@ -75,10 +72,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             _useBiometricsButton = view.FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
             _useBiometricsButton.Enabled = _canUseBiometrics;
-            _useBiometricsButton.Click += delegate
-            {
-                ShowBiometricPrompt();
-            };
+            _useBiometricsButton.Click += delegate { ShowBiometricPrompt(); };
 
             if (_canUseBiometrics)
             {
@@ -149,10 +143,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 UnlockAttempted?.Invoke(this, password);
             };
 
-            callback.Failed += delegate
-            {
-                FocusPasswordText();
-            };
+            callback.Failed += delegate { FocusPasswordText(); };
 
             callback.Errored += (_, result) =>
             {

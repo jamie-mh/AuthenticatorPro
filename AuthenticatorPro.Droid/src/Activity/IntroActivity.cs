@@ -20,7 +20,9 @@ namespace AuthenticatorPro.Droid.Activity
         private FragmentStateAdapter _adapter;
         private BottomNavigationView _nav;
 
-        public IntroActivity() : base(Resource.Layout.activityIntro) { }
+        public IntroActivity() : base(Resource.Layout.activityIntro)
+        {
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

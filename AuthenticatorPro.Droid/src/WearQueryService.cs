@@ -3,19 +3,19 @@
 
 #if !FDROID
 
-using Android.App;
-using Android.Gms.Wearable;
-using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Core.Service;
-using Java.IO;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
+using Android.Gms.Wearable;
+using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Shared.Wear;
+using Java.IO;
+using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Droid
 {
@@ -31,11 +31,11 @@ namespace AuthenticatorPro.Droid
 
         private readonly Database _database;
         private readonly SemaphoreSlim _lock;
-        private SecureStorageWrapper _secureStorageWrapper;
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICategoryService _categoryService;
         private readonly ICustomIconService _customIconService;
+        private SecureStorageWrapper _secureStorageWrapper;
 
         public WearQueryService()
         {
@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Droid
             _categoryService = container.Resolve<ICategoryService>();
             _customIconService = container.Resolve<ICustomIconService>();
         }
-        
+
         public override void OnCreate()
         {
             base.OnCreate();

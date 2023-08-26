@@ -1,16 +1,16 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup.Encryption;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Test.Backup.Comparer;
-using AuthenticatorPro.Test.Backup.Fixture;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Backup.Encryption;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Test.Backup.Comparer;
+using AuthenticatorPro.Test.Backup.Fixture;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Backup
@@ -80,7 +80,8 @@ namespace AuthenticatorPro.Test.Backup
         public async Task LegacyDecrypt_invalidPassword()
         {
             var encryption = new LegacyBackupEncryption();
-            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(_backupFixture.LegacyData, "testing1"));
+            await Assert.ThrowsAsync<ArgumentException>(() =>
+                encryption.DecryptAsync(_backupFixture.LegacyData, "testing1"));
         }
 
         [Fact]
@@ -118,7 +119,8 @@ namespace AuthenticatorPro.Test.Backup
         public async Task StrongDecrypt_invalidPassword()
         {
             var encryption = new StrongBackupEncryption();
-            await Assert.ThrowsAsync<ArgumentException>(() => encryption.DecryptAsync(_backupFixture.StrongData, "testing1"));
+            await Assert.ThrowsAsync<ArgumentException>(() =>
+                encryption.DecryptAsync(_backupFixture.StrongData, "testing1"));
         }
 
         [Fact]
@@ -135,38 +137,38 @@ namespace AuthenticatorPro.Test.Backup
             var backup = new Core.Backup.Backup { Authenticators = new List<Authenticator>() };
             var json = JsonConvert.SerializeObject(backup);
             var data = Encoding.UTF8.GetBytes(json);
-            
+
             var encryption = new NoBackupEncryption();
             Assert.True(encryption.CanBeDecrypted(data));
         }
-        
+
         [Fact]
         public void NoEncrypt_invalid_nullAuthenticators()
         {
             var backup = new Core.Backup.Backup();
             var json = JsonConvert.SerializeObject(backup);
             var data = Encoding.UTF8.GetBytes(json);
-            
+
             var encryption = new NoBackupEncryption();
             Assert.False(encryption.CanBeDecrypted(data));
         }
-        
+
         [Fact]
         public void NoEncrypt_invalid_badJson()
         {
             const string badJson = "hello world";
             var data = Encoding.UTF8.GetBytes(badJson);
-            
+
             var encryption = new NoBackupEncryption();
             Assert.False(encryption.CanBeDecrypted(data));
         }
-        
+
         [Fact]
         public void NoEncrypt_invalid_wrongFormat()
         {
             const string json = "{\"something\":\"test\"}";
             var data = Encoding.UTF8.GetBytes(json);
-            
+
             var encryption = new NoBackupEncryption();
             Assert.False(encryption.CanBeDecrypted(data));
         }

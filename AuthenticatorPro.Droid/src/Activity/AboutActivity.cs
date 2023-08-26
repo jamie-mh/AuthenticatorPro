@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.App;
 using Android.Graphics;
 using Android.OS;
@@ -10,7 +11,6 @@ using AuthenticatorPro.Core;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.Color;
-using System;
 
 namespace AuthenticatorPro.Droid.Activity
 {

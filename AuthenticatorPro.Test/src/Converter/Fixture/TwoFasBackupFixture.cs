@@ -7,9 +7,6 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class TwoFasBackupFixture
     {
-        public byte[] UnencryptedData { get; }
-        public byte[] EncryptedData { get; }
-
         public TwoFasBackupFixture()
         {
             var unencryptedPath = Path.Join("data", "twofas.unencrypted.2fas");
@@ -18,5 +15,8 @@ namespace AuthenticatorPro.Test.Converter.Fixture
             var encryptedPath = Path.Join("data", "twofas.encrypted.2fas");
             EncryptedData = File.ReadAllBytes(encryptedPath);
         }
+
+        public byte[] UnencryptedData { get; }
+        public byte[] EncryptedData { get; }
     }
 }

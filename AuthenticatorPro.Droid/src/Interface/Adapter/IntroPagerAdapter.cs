@@ -10,12 +10,12 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 {
     internal class IntroPagerAdapter : FragmentStateAdapter
     {
-        public override int ItemCount { get; }
-
         public IntroPagerAdapter(FragmentActivity activity, int pageCount) : base(activity)
         {
             ItemCount = pageCount;
         }
+
+        public override int ItemCount { get; }
 
         public override AndroidX.Fragment.App.Fragment CreateFragment(int position)
         {

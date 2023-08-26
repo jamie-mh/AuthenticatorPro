@@ -14,6 +14,12 @@ namespace AuthenticatorPro.Core.Generator
             _period = period;
         }
 
+        public string Compute(long counter)
+        {
+            var material = base.Compute(GetCounterBytes(counter, _period));
+            return Finalise(material);
+        }
+
         public static byte[] GetCounterBytes(long counter, int period)
         {
             var window = counter / period;
@@ -23,12 +29,6 @@ namespace AuthenticatorPro.Core.Generator
         protected virtual string Finalise(int material)
         {
             return Truncate(material);
-        }
-
-        public string Compute(long counter)
-        {
-            var material = base.Compute(GetCounterBytes(counter, _period));
-            return Finalise(material);
         }
     }
 }

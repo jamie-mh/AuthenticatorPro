@@ -1,9 +1,9 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using AndroidX.Preference;
-using System;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Shared
@@ -67,7 +67,7 @@ namespace AuthenticatorPro.Droid.Shared
             return result switch
             {
                 null => null,
-                _ => Int32.Parse(result)
+                _ => int.Parse(result)
             };
         }
 
@@ -96,7 +96,7 @@ namespace AuthenticatorPro.Droid.Shared
 
         protected int GetStringBackedIntPreference(string key, int defaultValue)
         {
-            return Int32.TryParse(Preferences.GetString(key, defaultValue.ToString()), out var value)
+            return int.TryParse(Preferences.GetString(key, defaultValue.ToString()), out var value)
                 ? value
                 : defaultValue;
         }

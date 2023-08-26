@@ -1,13 +1,13 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Service
@@ -53,7 +53,8 @@ namespace AuthenticatorPro.Test.Service
             Assert.Equal(0, result.AddedCustomIconCount);
 
             _categoryService.Verify(s => s.AddManyCategoriesAsync(It.IsAny<List<Category>>()), Times.Never());
-            _categoryService.Verify(s => s.AddManyBindingsAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
+            _categoryService.Verify(s => s.AddManyBindingsAsync(It.IsAny<List<AuthenticatorCategory>>()),
+                Times.Never());
             _customIconService.Verify(s => s.AddManyAsync(It.IsAny<List<CustomIcon>>()), Times.Never());
         }
 
@@ -62,7 +63,7 @@ namespace AuthenticatorPro.Test.Service
         {
             var backup = new Core.Backup.Backup
             {
-                Authenticators = new List<Authenticator>(), 
+                Authenticators = new List<Authenticator>(),
                 Categories = new List<Category>(),
                 AuthenticatorCategories = new List<AuthenticatorCategory>(),
                 CustomIcons = new List<CustomIcon>()
@@ -109,7 +110,8 @@ namespace AuthenticatorPro.Test.Service
             Assert.Equal(0, result.AddedCustomIconCount);
 
             _categoryService.Verify(s => s.AddOrUpdateManyCategoriesAsync(It.IsAny<List<Category>>()), Times.Never());
-            _categoryService.Verify(s => s.AddOrUpdateManyBindingsAsync(It.IsAny<List<AuthenticatorCategory>>()), Times.Never());
+            _categoryService.Verify(s => s.AddOrUpdateManyBindingsAsync(It.IsAny<List<AuthenticatorCategory>>()),
+                Times.Never());
             _customIconService.Verify(s => s.AddManyAsync(It.IsAny<List<CustomIcon>>()), Times.Never());
         }
 
@@ -118,7 +120,7 @@ namespace AuthenticatorPro.Test.Service
         {
             var backup = new Core.Backup.Backup
             {
-                Authenticators = new List<Authenticator>(), 
+                Authenticators = new List<Authenticator>(),
                 Categories = new List<Category>(),
                 AuthenticatorCategories = new List<AuthenticatorCategory>(),
                 CustomIcons = new List<CustomIcon>()
@@ -135,7 +137,7 @@ namespace AuthenticatorPro.Test.Service
             _customIconService.Setup(s => s.CullUnusedAsync()).Verifiable();
 
             var result = await _restoreService.RestoreAndUpdateAsync(backup);
-            
+
             _customIconService.Verify(s => s.CullUnusedAsync(), Times.Once());
 
             Assert.Equal(1, result.AddedAuthenticatorCount);

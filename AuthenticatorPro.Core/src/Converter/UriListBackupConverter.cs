@@ -1,22 +1,24 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class UriListBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
+        public UriListBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
 
-        public UriListBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
         public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -42,12 +44,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = line,
-                        Error = e.Message
-                    });
-
+                    failures.Add(new ConversionFailure { Description = line, Error = e.Message });
                     continue;
                 }
 

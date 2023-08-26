@@ -16,9 +16,6 @@ namespace AuthenticatorPro.Droid.Activity
 {
     internal abstract class BaseActivity : AppCompatActivity
     {
-        public BaseApplication BaseApplication { get; private set; }
-        public bool IsDark { get; private set; }
-
         private readonly int _layout;
         private PreferenceWrapper _preferences;
 
@@ -29,6 +26,9 @@ namespace AuthenticatorPro.Droid.Activity
         {
             _layout = layout;
         }
+
+        public BaseApplication BaseApplication { get; private set; }
+        public bool IsDark { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -125,7 +125,7 @@ namespace AuthenticatorPro.Droid.Activity
         private void UpdateOverlay()
         {
             var overlay = AccentColourMap.GetOverlayId(_preferences.AccentColour);
-            
+
             if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
             {
                 var dynamicColorOptions = new DynamicColorsOptions.Builder();

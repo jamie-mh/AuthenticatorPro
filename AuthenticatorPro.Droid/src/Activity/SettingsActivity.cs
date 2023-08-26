@@ -1,11 +1,13 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Biometric;
 using AndroidX.Core.Content;
 using AndroidX.Preference;
 using AuthenticatorPro.Core.Service;
@@ -14,9 +16,6 @@ using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.Preference;
 using AuthenticatorPro.Droid.Storage;
 using Javax.Crypto;
-using System;
-using BiometricManager = AndroidX.Biometric.BiometricManager;
-using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -24,10 +23,11 @@ namespace AuthenticatorPro.Droid.Activity
     [Activity]
     internal class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
+        private readonly IAuthenticatorService _authenticatorService;
+
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;
-        private readonly IAuthenticatorService _authenticatorService;
-        
+
         private SettingsFragment _fragment;
         private bool _shouldRecreateMain;
         private bool _arePreferencesReady;
@@ -35,6 +35,44 @@ namespace AuthenticatorPro.Droid.Activity
         public SettingsActivity() : base(Resource.Layout.activitySettings)
         {
             _authenticatorService = Dependencies.Resolve<IAuthenticatorService>();
+        }
+
+        public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
+        {
+            switch (key)
+            {
+                case "pref_language":
+                case "pref_theme":
+                case "pref_dynamicColour":
+                case "pref_accentColour":
+                    _shouldRecreateMain = true;
+                    Recreate();
+                    break;
+
+                case "pref_tapToRevealDuration":
+                case "pref_allowScreenshots":
+                case "pref_viewMode":
+                case "pref_codeGroupSize":
+                case "pref_showUsernames":
+                case "pref_transparentStatusBar":
+                    _shouldRecreateMain = true;
+                    break;
+
+                case "pref_tapToReveal":
+                    _shouldRecreateMain = true;
+                    UpdateTapToRevealState();
+                    break;
+
+                case "pref_autoBackupEnabled":
+                    UpdateBackupRemindersState();
+                    break;
+
+                case "pref_passwordProtected":
+                case "passwordChanged":
+                    _shouldRecreateMain = true;
+                    UpdatePasswordState();
+                    break;
+            }
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -45,7 +83,7 @@ namespace AuthenticatorPro.Droid.Activity
             // return a result telling it to recreate.
             _shouldRecreateMain =
                 savedInstanceState != null && savedInstanceState.GetBoolean("shouldRecreateMain", false);
-            
+
             _preferences = new PreferenceWrapper(this);
             _secureStorageWrapper = new SecureStorageWrapper(this);
 
@@ -92,44 +130,6 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             base.Finish();
-        }
-
-        public void OnSharedPreferenceChanged(ISharedPreferences sharedPreferences, string key)
-        {
-            switch (key)
-            {
-                case "pref_language":
-                case "pref_theme":
-                case "pref_dynamicColour":
-                case "pref_accentColour":
-                    _shouldRecreateMain = true;
-                    Recreate();
-                    break;
-
-                case "pref_tapToRevealDuration":
-                case "pref_allowScreenshots":
-                case "pref_viewMode":
-                case "pref_codeGroupSize":
-                case "pref_showUsernames":
-                case "pref_transparentStatusBar":
-                    _shouldRecreateMain = true;
-                    break;
-                
-                case "pref_tapToReveal":
-                    _shouldRecreateMain = true;
-                    UpdateTapToRevealState();
-                    break;
-
-                case "pref_autoBackupEnabled":
-                    UpdateBackupRemindersState();
-                    break;
-               
-                case "pref_passwordProtected":
-                case "passwordChanged":
-                    _shouldRecreateMain = true;
-                    UpdatePasswordState();
-                    break;
-            }
         }
 
         public override bool OnSupportNavigateUp()
@@ -187,18 +187,18 @@ namespace AuthenticatorPro.Droid.Activity
                 var fragment = new PasswordSetupBottomSheet();
                 fragment.Show(SupportFragmentManager, fragment.Tag);
             };
-            
+
             biometrics.PreferenceChange += (_, args) =>
             {
                 var enabled = (bool) args.NewValue;
-                
+
                 if (enabled)
                 {
                     EnableBiometrics(success =>
                     {
                         _preferences.AllowBiometrics = success;
                         biometrics.Checked = success;
-                        
+
                         if (!success)
                         {
                             ClearBiometrics();
@@ -230,11 +230,11 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 return;
             }
-            
+
             var biometrics = (MaterialSwitchPreference) _fragment.FindPreference("pref_allowBiometrics");
             biometrics.Enabled = _preferences.PasswordProtected && CanUseBiometrics();
             biometrics.Checked = _preferences.AllowBiometrics;
-            
+
             _fragment.FindPreference("pref_timeout").Enabled = _preferences.PasswordProtected;
             _fragment.FindPreference("pref_databasePasswordBackup").Enabled = _preferences.PasswordProtected;
         }
@@ -246,14 +246,14 @@ namespace AuthenticatorPro.Droid.Activity
                 _fragment.FindPreference("pref_tapToRevealDuration").Enabled = _preferences.TapToReveal;
             }
         }
-        
+
         private void UpdateDynamicColourEnabled()
         {
             if (!_arePreferencesReady)
             {
                 return;
             }
-            
+
             if (Build.VERSION.SdkInt >= BuildVersionCodes.S)
             {
                 _fragment.FindPreference("pref_dynamicColour").Enabled = true;
@@ -275,7 +275,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var biometricManager = BiometricManager.From(this);
             return biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
-                BiometricManager.BiometricSuccess;
+                   BiometricManager.BiometricSuccess;
         }
 
         private bool IsBiometricsInvalidatedOrUnrecoverable()
@@ -294,7 +294,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             return false;
         }
-        
+
         private void EnableBiometrics(Action<bool> callback)
         {
             var passwordStorage = new BiometricStorage(this);
