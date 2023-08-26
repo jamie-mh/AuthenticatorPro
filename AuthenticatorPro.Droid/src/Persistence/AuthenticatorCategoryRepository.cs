@@ -10,7 +10,7 @@ using AuthenticatorPro.Core.Persistence.Exception;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
-    internal class AuthenticatorCategoryRepository : IAuthenticatorCategoryRepository
+    public class AuthenticatorCategoryRepository : IAuthenticatorCategoryRepository
     {
         private readonly Database _database;
 

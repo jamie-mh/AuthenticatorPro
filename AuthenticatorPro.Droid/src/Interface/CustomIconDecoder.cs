@@ -11,7 +11,7 @@ using AuthenticatorPro.Core.Util;
 
 namespace AuthenticatorPro.Droid.Interface
 {
-    internal class CustomIconDecoder : ICustomIconDecoder
+    public class CustomIconDecoder : ICustomIconDecoder
     {
         public async Task<CustomIcon> DecodeAsync(byte[] rawData, bool shouldPreProcess)
         {

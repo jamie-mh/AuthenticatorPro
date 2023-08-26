@@ -13,7 +13,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AuthenticatorMenuBottomSheet : BottomSheet
+    public class AuthenticatorMenuBottomSheet : BottomSheet
     {
         private AuthenticatorType _type;
         private long _counter;

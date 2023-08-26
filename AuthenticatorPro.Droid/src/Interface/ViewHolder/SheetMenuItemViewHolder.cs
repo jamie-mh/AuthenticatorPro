@@ -8,7 +8,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
-    internal class SheetMenuItemViewHolder : RecyclerView.ViewHolder
+    public class SheetMenuItemViewHolder : RecyclerView.ViewHolder
     {
         public SheetMenuItemViewHolder(View itemView) : base(itemView)
         {

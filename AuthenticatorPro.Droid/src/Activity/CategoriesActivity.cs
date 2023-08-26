@@ -28,7 +28,7 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class CategoriesActivity : SensitiveSubActivity
+    public class CategoriesActivity : SensitiveSubActivity
     {
         private readonly ICategoryView _categoryView;
         private readonly ICategoryService _categoryService;

@@ -15,7 +15,7 @@ using Google.Android.Material.Color;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class AboutActivity : BaseActivity
+    public class AboutActivity : BaseActivity
     {
         private readonly IAssetProvider _assetProvider;
 

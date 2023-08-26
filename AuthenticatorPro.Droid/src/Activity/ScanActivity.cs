@@ -18,7 +18,7 @@ using Java.Util.Concurrent;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class ScanActivity : BaseActivity
+    public class ScanActivity : BaseActivity
     {
         private PreviewView _previewView;
         private ICamera _camera;

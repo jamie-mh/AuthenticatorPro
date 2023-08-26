@@ -16,7 +16,7 @@ using Google.Android.Material.TextView;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class ErrorActivity : BaseActivity
+    public class ErrorActivity : BaseActivity
     {
         private string _exception;
 

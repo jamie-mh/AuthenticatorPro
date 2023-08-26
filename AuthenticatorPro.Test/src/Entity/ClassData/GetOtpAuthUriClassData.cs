@@ -9,7 +9,7 @@ using AuthenticatorPro.Core.Generator;
 
 namespace AuthenticatorPro.Test.Entity.ClassData
 {
-    internal class GetOtpAuthUriClassData : IEnumerable<object[]>
+    public class GetOtpAuthUriClassData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {

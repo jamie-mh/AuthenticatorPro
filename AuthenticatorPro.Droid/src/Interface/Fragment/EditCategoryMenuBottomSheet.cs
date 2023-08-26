@@ -9,7 +9,7 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class EditCategoryMenuBottomSheet : BottomSheet
+    public class EditCategoryMenuBottomSheet : BottomSheet
     {
         private string _id;
         private bool _isDefault;

@@ -8,7 +8,7 @@ using AuthenticatorPro.Core.Entity;
 
 namespace AuthenticatorPro.Test.Entity.ClassData
 {
-    internal class ValidateClassData : IEnumerable<object[]>
+    public class ValidateClassData : IEnumerable<object[]>
     {
         public IEnumerator<object[]> GetEnumerator()
         {

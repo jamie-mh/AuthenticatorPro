@@ -11,7 +11,7 @@ using AuthenticatorPro.Droid.Persistence.View;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class IconPackEntryListAdapter : RecyclerView.Adapter
+    public class IconPackEntryListAdapter : RecyclerView.Adapter
     {
         private readonly IIconPackEntryView _iconPackEntryView;
 

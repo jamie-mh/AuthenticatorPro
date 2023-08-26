@@ -7,7 +7,7 @@ using AndroidX.Preference;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class SettingsFragment : PreferenceFragmentCompat
+    public class SettingsFragment : PreferenceFragmentCompat
     {
         public event EventHandler PreferencesCreated;
 

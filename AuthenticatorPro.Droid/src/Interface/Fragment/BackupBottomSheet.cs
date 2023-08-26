@@ -10,7 +10,7 @@ using Google.Android.Material.Dialog;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class BackupBottomSheet : BottomSheet
+    public class BackupBottomSheet : BottomSheet
     {
         public BackupBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.backup)
         {

@@ -9,7 +9,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
-    internal class IconListHolder : RecyclerView.ViewHolder
+    public class IconListHolder : RecyclerView.ViewHolder
     {
         public IconListHolder(View itemView, Action<int> clickListener) : base(itemView)
         {

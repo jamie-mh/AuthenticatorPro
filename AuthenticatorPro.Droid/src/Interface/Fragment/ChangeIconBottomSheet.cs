@@ -20,7 +20,7 @@ using Google.Android.Material.Tabs;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class ChangeIconBottomSheet : BottomSheet
+    public class ChangeIconBottomSheet : BottomSheet
     {
         private readonly IDefaultIconView _defaultIconView;
         private readonly IIconPackView _iconPackView;

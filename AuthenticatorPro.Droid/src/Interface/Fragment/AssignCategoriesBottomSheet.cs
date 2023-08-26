@@ -12,7 +12,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AssignCategoriesBottomSheet : BottomSheet
+    public class AssignCategoriesBottomSheet : BottomSheet
     {
         private readonly ICategoryView _categoryView;
 

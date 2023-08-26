@@ -6,7 +6,7 @@ using Java.Lang;
 
 namespace AuthenticatorPro.Droid.Callback
 {
-    internal class ActivityResultCallback : Object, IActivityResultCallback
+    public class ActivityResultCallback : Object, IActivityResultCallback
     {
         public void OnActivityResult(Object obj)
         {

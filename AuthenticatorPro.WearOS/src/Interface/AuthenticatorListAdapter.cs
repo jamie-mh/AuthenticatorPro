@@ -12,7 +12,7 @@ using AuthenticatorPro.WearOS.Cache.View;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
-    internal class AuthenticatorListAdapter : RecyclerView.Adapter
+    public class AuthenticatorListAdapter : RecyclerView.Adapter
     {
         private readonly AuthenticatorView _authView;
         private readonly CustomIconCache _customIconCache;

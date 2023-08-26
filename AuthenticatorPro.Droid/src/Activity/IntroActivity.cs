@@ -13,7 +13,7 @@ using Google.Android.Material.Navigation;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class IntroActivity : BaseActivity
+    public class IntroActivity : BaseActivity
     {
         private int _pageCount;
         private ViewPager2 _pager;

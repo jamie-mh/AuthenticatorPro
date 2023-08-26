@@ -15,7 +15,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AssignCategoryEntriesBottomSheet : BottomSheet
+    public class AssignCategoryEntriesBottomSheet : BottomSheet
     {
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICustomIconView _customIconview;

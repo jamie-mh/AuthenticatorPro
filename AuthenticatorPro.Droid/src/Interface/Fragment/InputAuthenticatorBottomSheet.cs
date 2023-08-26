@@ -21,7 +21,7 @@ using Exception = System.Exception;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal abstract class InputAuthenticatorBottomSheet : BottomSheet
+    public abstract class InputAuthenticatorBottomSheet : BottomSheet
     {
         private readonly IIconResolver _iconResolver;
 

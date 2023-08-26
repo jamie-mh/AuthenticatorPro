@@ -14,7 +14,7 @@ using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class PasswordSetupBottomSheet : BottomSheet
+    public class PasswordSetupBottomSheet : BottomSheet
     {
         private readonly Database _database;
         private PreferenceWrapper _preferences;

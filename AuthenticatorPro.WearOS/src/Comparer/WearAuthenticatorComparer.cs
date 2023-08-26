@@ -8,7 +8,7 @@ using AuthenticatorPro.Droid.Shared.Wear;
 
 namespace AuthenticatorPro.WearOS.Comparer
 {
-    internal class WearAuthenticatorComparer : IEqualityComparer<WearAuthenticator>
+    public class WearAuthenticatorComparer : IEqualityComparer<WearAuthenticator>
     {
         public bool Equals(WearAuthenticator x, WearAuthenticator y)
         {

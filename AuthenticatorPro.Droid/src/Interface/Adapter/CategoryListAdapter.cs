@@ -9,7 +9,7 @@ using AuthenticatorPro.Droid.Persistence.View;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class CategoryListAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    public class CategoryListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private readonly ICategoryView _categoryView;
 

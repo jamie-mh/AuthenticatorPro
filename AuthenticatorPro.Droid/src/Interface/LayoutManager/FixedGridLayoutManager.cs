@@ -6,7 +6,7 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.Droid.Interface.LayoutManager
 {
-    internal class FixedGridLayoutManager : GridLayoutManager
+    public class FixedGridLayoutManager : GridLayoutManager
     {
         public FixedGridLayoutManager(Context context, int spanCount) : base(context, spanCount)
         {

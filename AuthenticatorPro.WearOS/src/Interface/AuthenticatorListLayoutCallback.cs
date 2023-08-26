@@ -10,7 +10,7 @@ using AndroidX.Wear.Widget;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
-    internal class AuthenticatorListLayoutCallback : CurvingLayoutCallback
+    public class AuthenticatorListLayoutCallback : CurvingLayoutCallback
     {
         private const float MaxIconProgress = .65f;
 

@@ -15,7 +15,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class BackupPasswordBottomSheet : BottomSheet
+    public class BackupPasswordBottomSheet : BottomSheet
     {
         public enum Mode
         {

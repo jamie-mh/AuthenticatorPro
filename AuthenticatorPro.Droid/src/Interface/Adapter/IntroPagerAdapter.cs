@@ -8,7 +8,7 @@ using AuthenticatorPro.Droid.Interface.Fragment;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class IntroPagerAdapter : FragmentStateAdapter
+    public class IntroPagerAdapter : FragmentStateAdapter
     {
         public IntroPagerAdapter(FragmentActivity activity, int pageCount) : base(activity)
         {

@@ -5,7 +5,7 @@ using Android.Views;
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal abstract class SensitiveSubActivity : BaseActivity
+    public abstract class SensitiveSubActivity : BaseActivity
     {
         protected SensitiveSubActivity(int layout) : base(layout)
         {

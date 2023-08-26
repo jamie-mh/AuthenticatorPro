@@ -8,7 +8,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class IntroPageFragment : AndroidX.Fragment.App.Fragment
+    public class IntroPageFragment : AndroidX.Fragment.App.Fragment
     {
         private int _position;
 

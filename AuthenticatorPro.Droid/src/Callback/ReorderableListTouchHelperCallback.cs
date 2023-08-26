@@ -11,7 +11,7 @@ using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Callback
 {
-    internal class ReorderableListTouchHelperCallback : ItemTouchHelper.Callback
+    public class ReorderableListTouchHelperCallback : ItemTouchHelper.Callback
     {
         private const int DragElevationDp = 8;
 

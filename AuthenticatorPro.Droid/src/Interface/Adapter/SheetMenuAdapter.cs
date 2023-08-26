@@ -12,7 +12,7 @@ using Google.Android.Material.Color;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class SheetMenuAdapter : RecyclerView.Adapter
+    public class SheetMenuAdapter : RecyclerView.Adapter
     {
         private readonly List<SheetMenuItem> _items;
 

@@ -6,7 +6,7 @@ using AuthenticatorPro.Core.Persistence;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
-    internal class CategoryRepository : AsyncRepository<Category, string>, ICategoryRepository
+    public class CategoryRepository : AsyncRepository<Category, string>, ICategoryRepository
     {
         public CategoryRepository(Database database) : base(database)
         {

@@ -10,7 +10,7 @@ using AuthenticatorPro.Droid.Persistence.View;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class CategoryMenuListAdapter : RecyclerView.Adapter
+    public class CategoryMenuListAdapter : RecyclerView.Adapter
     {
         private readonly Context _context;
         private readonly ICategoryView _categoryView;

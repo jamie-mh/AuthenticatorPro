@@ -10,7 +10,7 @@ using AuthenticatorPro.Core.Persistence.Exception;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
-    internal class IconPackEntryRepository : IIconPackEntryRepository
+    public class IconPackEntryRepository : IIconPackEntryRepository
     {
         private readonly Database _database;
 

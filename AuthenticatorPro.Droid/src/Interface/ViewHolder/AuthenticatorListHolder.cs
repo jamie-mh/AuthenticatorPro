@@ -9,7 +9,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
-    internal class AuthenticatorListHolder : RecyclerView.ViewHolder
+    public class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
         public AuthenticatorListHolder(View view) : base(view)
         {

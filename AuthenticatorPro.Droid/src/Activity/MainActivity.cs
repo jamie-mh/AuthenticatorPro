@@ -63,7 +63,7 @@ namespace AuthenticatorPro.Droid.Activity
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
         DataSchemes = new[] { "otpauth", "otpauth-migration" })]
-    internal class MainActivity : AsyncActivity, IOnApplyWindowInsetsListener
+    public class MainActivity : AsyncActivity, IOnApplyWindowInsetsListener
     {
         private const int PermissionCameraCode = 0;
 

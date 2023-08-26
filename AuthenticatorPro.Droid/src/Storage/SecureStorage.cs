@@ -20,7 +20,7 @@ using Javax.Security.Auth.X500;
 
 namespace AuthenticatorPro.Droid.Storage
 {
-    internal class SecureStorage
+    public class SecureStorage
     {
         private const string KeyStoreName = "AndroidKeyStore";
         private const string AsymmetricCipher = "RSA/ECB/PKCS1Padding";

@@ -34,7 +34,7 @@ using Exception = System.Exception;
 namespace AuthenticatorPro.WearOS.Activity
 {
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
-    internal class MainActivity : AppCompatActivity
+    public class MainActivity : AppCompatActivity
     {
         // Query Paths
         private const string ProtocolVersion = "protocol_v4.0";

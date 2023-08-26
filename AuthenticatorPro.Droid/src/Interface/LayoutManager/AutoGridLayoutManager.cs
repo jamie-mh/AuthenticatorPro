@@ -8,7 +8,7 @@ using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface.LayoutManager
 {
-    internal class AutoGridLayoutManager : GridLayoutManager
+    public class AutoGridLayoutManager : GridLayoutManager
     {
         private readonly float _minColumnWidth;
         private int _lastWidth;

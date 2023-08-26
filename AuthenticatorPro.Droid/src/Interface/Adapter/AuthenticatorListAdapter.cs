@@ -23,7 +23,7 @@ using Object = Java.Lang.Object;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
+    public class AuthenticatorListAdapter : RecyclerView.Adapter, IReorderableListAdapter
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;

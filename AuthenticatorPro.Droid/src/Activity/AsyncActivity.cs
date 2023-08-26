@@ -10,7 +10,7 @@ using Android.Runtime;
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal abstract class AsyncActivity : BaseActivity, IDisposable
+    public abstract class AsyncActivity : BaseActivity, IDisposable
     {
         private readonly SemaphoreSlim _onResumeLock;
         private bool _isDisposed;

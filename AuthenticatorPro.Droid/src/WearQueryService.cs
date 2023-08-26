@@ -25,7 +25,7 @@ namespace AuthenticatorPro.Droid
         DataScheme = "wear",
         DataHost = "*"
     )]
-    internal class WearQueryService : WearableListenerService
+    public class WearQueryService : WearableListenerService
     {
         private const string GetSyncBundleCapability = "get_sync_bundle";
 

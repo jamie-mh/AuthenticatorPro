@@ -18,7 +18,7 @@ using AuthenticatorPro.WearOS.Util;
 namespace AuthenticatorPro.WearOS.Activity
 {
     [Activity(Theme = "@style/AppTheme")]
-    internal class CodeActivity : AppCompatActivity
+    public class CodeActivity : AppCompatActivity
     {
         private IGenerator _generator;
 

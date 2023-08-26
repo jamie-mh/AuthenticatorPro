@@ -14,7 +14,7 @@ using Java.Util;
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal abstract class BaseActivity : AppCompatActivity
+    public abstract class BaseActivity : AppCompatActivity
     {
         private readonly int _layout;
         private PreferenceWrapper _preferences;

@@ -8,7 +8,7 @@ using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 
 namespace AuthenticatorPro.Droid.Callback
 {
-    internal class AuthenticationCallback : BiometricPrompt.AuthenticationCallback
+    public class AuthenticationCallback : BiometricPrompt.AuthenticationCallback
     {
         public event EventHandler<ErrorEventArgs> Errored;
         public event EventHandler Failed;

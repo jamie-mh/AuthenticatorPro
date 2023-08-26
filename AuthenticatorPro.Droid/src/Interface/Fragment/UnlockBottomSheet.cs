@@ -18,7 +18,7 @@ using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class UnlockBottomSheet : BottomSheet
+    public class UnlockBottomSheet : BottomSheet
     {
         private PreferenceWrapper _preferences;
         private BiometricPrompt _prompt;

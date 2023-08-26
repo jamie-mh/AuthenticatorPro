@@ -13,7 +13,7 @@ using Javax.Crypto.Spec;
 
 namespace AuthenticatorPro.Droid.Storage
 {
-    internal class BiometricStorage
+    public class BiometricStorage
     {
         private const string KeyStoreName = "AndroidKeyStore";
         private const string KeyAlias = "databasePassphrase";

@@ -6,7 +6,7 @@ using AuthenticatorPro.Droid.Storage;
 
 namespace AuthenticatorPro.Droid
 {
-    internal class SecureStorageWrapper
+    public class SecureStorageWrapper
     {
         private const string AutoBackupPasswordKey = "autoBackupPassword";
         private const string DatabasePasswordKey = "databasePassword";

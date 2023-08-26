@@ -5,7 +5,7 @@ using System;
 
 namespace AuthenticatorPro.Droid.Interface
 {
-    internal class SheetMenuItem
+    public class SheetMenuItem
     {
         public readonly int Icon;
         public readonly int Title;

@@ -10,7 +10,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Droid
 {
-    internal class Database : IAsyncDisposable
+    public class Database : IAsyncDisposable
     {
         public enum Origin
         {

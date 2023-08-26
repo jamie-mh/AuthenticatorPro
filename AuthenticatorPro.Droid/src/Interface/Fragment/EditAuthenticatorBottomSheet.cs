@@ -8,7 +8,7 @@ using AuthenticatorPro.Core.Generator;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class EditAuthenticatorBottomSheet : InputAuthenticatorBottomSheet
+    public class EditAuthenticatorBottomSheet : InputAuthenticatorBottomSheet
     {
         public EditAuthenticatorBottomSheet() : base(Resource.Layout.sheetEditAuthenticator,
             Resource.String.editDetails)

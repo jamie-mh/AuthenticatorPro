@@ -33,7 +33,7 @@ using Uri = Android.Net.Uri;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class IconPacksActivity : SensitiveSubActivity
+    public class IconPacksActivity : SensitiveSubActivity
     {
         private const int RequestAdd = 0;
 

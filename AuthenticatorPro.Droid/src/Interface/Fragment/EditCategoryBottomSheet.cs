@@ -13,7 +13,7 @@ using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class EditCategoryBottomSheet : BottomSheet
+    public class EditCategoryBottomSheet : BottomSheet
     {
         public enum Mode
         {

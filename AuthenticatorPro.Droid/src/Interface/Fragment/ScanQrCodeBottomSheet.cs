@@ -9,7 +9,7 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class ScanQrCodeBottomSheet : BottomSheet
+    public class ScanQrCodeBottomSheet : BottomSheet
     {
         public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.scanQrCode)
         {

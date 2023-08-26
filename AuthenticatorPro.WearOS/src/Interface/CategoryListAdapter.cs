@@ -10,7 +10,7 @@ using Java.Lang;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
-    internal class CategoryListAdapter : WearableNavigationDrawerView.WearableNavigationDrawerAdapter
+    public class CategoryListAdapter : WearableNavigationDrawerView.WearableNavigationDrawerAdapter
     {
         private readonly Context _context;
         private readonly CategoryView _categoryView;

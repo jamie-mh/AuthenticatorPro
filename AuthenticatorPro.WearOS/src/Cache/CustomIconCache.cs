@@ -13,7 +13,7 @@ using Android.Graphics;
 
 namespace AuthenticatorPro.WearOS.Cache
 {
-    internal class CustomIconCache : IDisposable
+    public class CustomIconCache : IDisposable
     {
         public const char Prefix = '@';
         private const string IconFileExtension = "bmp";

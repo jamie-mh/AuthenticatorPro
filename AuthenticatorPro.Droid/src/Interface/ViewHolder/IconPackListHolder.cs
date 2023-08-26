@@ -8,7 +8,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
-    internal class IconPackListHolder : RecyclerView.ViewHolder
+    public class IconPackListHolder : RecyclerView.ViewHolder
     {
         public IconPackListHolder(View itemView) : base(itemView)
         {

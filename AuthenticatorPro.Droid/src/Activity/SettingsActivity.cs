@@ -21,7 +21,7 @@ using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
+    public class SettingsActivity : SensitiveSubActivity, ISharedPreferencesOnSharedPreferenceChangeListener
     {
         private readonly IAuthenticatorService _authenticatorService;
 

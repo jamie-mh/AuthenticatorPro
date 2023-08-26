@@ -21,7 +21,7 @@ using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid
 {
-    internal class AutoBackupWorker : Worker
+    public class AutoBackupWorker : Worker
     {
         public const string Name = "autobackup";
 

@@ -9,7 +9,7 @@ using AuthenticatorPro.Droid.Shared.Wear;
 
 namespace AuthenticatorPro.WearOS.Cache.View
 {
-    internal class CategoryView : IReadOnlyList<WearCategory>
+    public class CategoryView : IReadOnlyList<WearCategory>
     {
         private readonly ListCache<WearCategory> _cache;
         private List<WearCategory> _view;

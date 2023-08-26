@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace AuthenticatorPro.WearOS.Cache
 {
-    internal class ListCache<T> : IEnumerable, IDisposable
+    public class ListCache<T> : IEnumerable, IDisposable
     {
         private readonly string _name;
         private readonly Context _context;

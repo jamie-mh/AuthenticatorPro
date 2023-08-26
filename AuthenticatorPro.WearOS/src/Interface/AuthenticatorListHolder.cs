@@ -7,7 +7,7 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
-    internal class AuthenticatorListHolder : RecyclerView.ViewHolder
+    public class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
         public AuthenticatorListHolder(View itemView) : base(itemView)
         {

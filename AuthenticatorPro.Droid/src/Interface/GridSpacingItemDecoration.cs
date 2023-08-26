@@ -9,7 +9,7 @@ using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface
 {
-    internal class GridSpacingItemDecoration : RecyclerView.ItemDecoration
+    public class GridSpacingItemDecoration : RecyclerView.ItemDecoration
     {
         private readonly GridLayoutManager _layoutManager;
         private readonly int _spacing;

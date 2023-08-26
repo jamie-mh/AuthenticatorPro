@@ -11,7 +11,7 @@ using AuthenticatorPro.Droid.Persistence.View;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class MainMenuBottomSheet : BottomSheet
+    public class MainMenuBottomSheet : BottomSheet
     {
         private readonly ICategoryView _categoryView;
         private CategoryMenuListAdapter _categoryMenuListAdapter;

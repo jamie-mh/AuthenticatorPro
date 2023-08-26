@@ -8,7 +8,7 @@ using AuthenticatorPro.Droid.Shared.Wear;
 
 namespace AuthenticatorPro.WearOS
 {
-    internal class PreferenceWrapper : BasePreferenceWrapper
+    public class PreferenceWrapper : BasePreferenceWrapper
     {
         private const string DefaultCategoryKey = "defaultCategory";
         private const string DefaultCategoryDefault = null;

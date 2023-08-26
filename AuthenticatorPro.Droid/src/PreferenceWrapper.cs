@@ -9,7 +9,7 @@ using AuthenticatorPro.Droid.Shared;
 
 namespace AuthenticatorPro.Droid
 {
-    internal class PreferenceWrapper : BasePreferenceWrapper
+    public class PreferenceWrapper : BasePreferenceWrapper
     {
         public PreferenceWrapper(Context context) : base(context)
         {

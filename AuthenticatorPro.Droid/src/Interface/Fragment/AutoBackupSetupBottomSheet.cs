@@ -27,7 +27,7 @@ using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AutoBackupSetupBottomSheet : BottomSheet
+    public class AutoBackupSetupBottomSheet : BottomSheet
     {
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;

@@ -10,7 +10,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
-    internal abstract class AsyncRepository<T, TU> : IAsyncRepository<T, TU> where T : new()
+    public abstract class AsyncRepository<T, TU> : IAsyncRepository<T, TU> where T : new()
     {
         private readonly Database _database;
 

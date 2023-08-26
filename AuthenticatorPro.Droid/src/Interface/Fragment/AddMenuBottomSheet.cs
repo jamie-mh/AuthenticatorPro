@@ -9,7 +9,7 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AddMenuBottomSheet : BottomSheet
+    public class AddMenuBottomSheet : BottomSheet
     {
         public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.add)
         {

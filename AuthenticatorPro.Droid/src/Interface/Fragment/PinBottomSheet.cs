@@ -12,7 +12,7 @@ using Google.Android.Material.TextField;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class PinBottomSheet : BottomSheet
+    public class PinBottomSheet : BottomSheet
     {
         private TextInputEditText _pinText;
         private TextInputLayout _pinTextLayout;

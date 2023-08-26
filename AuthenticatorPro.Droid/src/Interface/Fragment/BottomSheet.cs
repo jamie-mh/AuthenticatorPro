@@ -20,7 +20,7 @@ using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal abstract class BottomSheet : BottomSheetDialogFragment
+    public abstract class BottomSheet : BottomSheetDialogFragment
     {
         private const int MaxWidth = 600;
 

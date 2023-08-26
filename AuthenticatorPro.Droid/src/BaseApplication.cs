@@ -19,7 +19,7 @@ namespace AuthenticatorPro.Droid
 #else
     [Application(Debuggable = false, TaskAffinity = "")]
 #endif
-    internal class BaseApplication : Application, ILifecycleObserver
+    public class BaseApplication : Application, ILifecycleObserver
     {
         public bool AutoLockEnabled { get; set; }
         public bool PreventNextAutoLock { get; set; }

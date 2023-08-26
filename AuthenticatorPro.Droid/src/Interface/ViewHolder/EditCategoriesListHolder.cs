@@ -8,7 +8,7 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
-    internal class EditCategoriesListHolder : RecyclerView.ViewHolder
+    public class EditCategoriesListHolder : RecyclerView.ViewHolder
     {
         public EditCategoriesListHolder(View itemView) : base(itemView)
         {

@@ -10,7 +10,7 @@ using AuthenticatorPro.Droid.Shared.Wear;
 
 namespace AuthenticatorPro.WearOS.Cache.View
 {
-    internal class AuthenticatorView : IReadOnlyList<WearAuthenticator>
+    public class AuthenticatorView : IReadOnlyList<WearAuthenticator>
     {
         private readonly ListCache<WearAuthenticator> _cache;
         private List<WearAuthenticator> _view;
