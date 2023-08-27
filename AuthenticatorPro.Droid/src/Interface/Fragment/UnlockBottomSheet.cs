@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Views;
@@ -12,6 +13,7 @@ using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Storage;
 using AuthenticatorPro.Droid.Util;
+using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
@@ -21,7 +23,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     public class UnlockBottomSheet : BottomSheet
     {
         private PreferenceWrapper _preferences;
-        private BiometricPrompt _prompt;
         private bool _canUseBiometrics;
 
         private MaterialButton _unlockButton;
@@ -36,9 +37,23 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         public event EventHandler<string> UnlockAttempted;
 
+        public override Dialog OnCreateDialog(Bundle savedInstanceState)
+        {
+            var backPressCallback = new BackPressCallback(true);
+            backPressCallback.BackPressed += delegate
+            {
+                Dismiss();
+            };
+
+            var dialog = (BottomSheetDialog) base.OnCreateDialog(savedInstanceState);
+            dialog.OnBackPressedDispatcher.AddCallback(this, backPressCallback);
+            return dialog;
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
+            SetCancelable(false);
 
             _preferences = new PreferenceWrapper(Context);
 
@@ -151,7 +166,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 FocusPasswordText();
             };
 
-            _prompt = new BiometricPrompt(this, executor, callback);
+            var prompt = new BiometricPrompt(this, executor, callback);
 
             var promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .SetTitle(GetString(Resource.String.unlock))
@@ -164,7 +179,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             try
             {
                 var cipher = passwordStorage.GetDecryptionCipher();
-                _prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
+                prompt.Authenticate(promptInfo, new BiometricPrompt.CryptoObject(cipher));
             }
             catch (Exception e)
             {
@@ -173,12 +188,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 _useBiometricsButton.Enabled = false;
                 FocusPasswordText();
             }
-        }
-
-        public override void Dismiss()
-        {
-            base.Dismiss();
-            _prompt?.CancelAuthentication();
         }
     }
 }
