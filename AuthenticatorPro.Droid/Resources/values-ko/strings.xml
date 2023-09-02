@@ -4,7 +4,7 @@
     <string name="warning">경고</string>
     <string name="delete">삭제</string>
     <string name="add">추가</string>
-    <string name="edit">Edit</string>
+    <string name="edit">편집</string>
     <string name="cancel">취소</string>
     <string name="ok">확인</string>
     <string name="yes">네</string>
@@ -14,7 +14,7 @@
     <string name="retry">재시도</string>
     <string name="ignore">무시</string>
     <string name="disable">사용 안 함</string>
-    <string name="name">Name</string>
+    <string name="name">이름</string>
     <!-- Menu items -->
     <string name="settings">설정</string>
     <string name="restore">복원</string>
@@ -77,9 +77,9 @@
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
-    <string name="downloadPacks">Download packs</string>
+    <string name="defaultIcons">기본 아이콘</string>
+    <string name="iconPacks">아이콘 팩</string>
+    <string name="downloadPacks">아이콘 팩 다운로드</string>
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
@@ -109,7 +109,7 @@
     <string name="noIconPacksTitle">No icon packs</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
-    <string name="category">Category</string>
+    <string name="category">카테고리</string>
     <string name="categories">분류</string>
     <string name="assignCategories">분류 지정</string>
     <string name="assignEntries">Assign entries</string>
@@ -194,13 +194,13 @@
     <string name="importConversionError">\"{0}\" 항목은 다음 오류로 인해 가져올 수 없었습니다: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db 파일 가져오기</string>
     <string name="andOtpImportHint">otp_accounts.json 파일 가져오기</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="freeOtpImportHint">externalBackup.xml 파일 가져오기</string>
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
+    <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
+    <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json 파일 가져오기</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt 파일 가져오기</string>
     <string name="uriList">URL 목록</string>
     <string name="uriListHint">평문 otpauth URL 목록</string>
@@ -270,9 +270,9 @@
     <string name="authTypeCounter">계수기 기반 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (기본값)</string>
     <string name="immediately">즉시</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5초</string>
+    <string name="timeout10Sec">10초</string>
+    <string name="timeout20Sec">20초</string>
     <string name="timeout30Sec">30초</string>
     <string name="timeout1Min">1분</string>
     <string name="timeout2Min">2분</string>
@@ -281,7 +281,7 @@
     <string name="systemDefault">시스템 기본값</string>
     <string name="lightTheme">밝은 테마</string>
     <string name="darkTheme">어두운 테마</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="blackTheme">검정색 테마</string>
     <string name="defaultViewMode">기본</string>
     <string name="compactViewMode">작게</string>
     <string name="tileViewMode">타일</string>
