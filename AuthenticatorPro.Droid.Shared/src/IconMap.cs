@@ -185,6 +185,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "epicgames", Resource.Drawable.auth_epicgames },
             { "equinix", Resource.Drawable.auth_equinix },
             { "escapefromtarkov", Resource.Drawable.auth_escapefromtarkov },
+            { "estateguru", Resource.Drawable.auth_estateguru },
             { "etsy", Resource.Drawable.auth_etsy },
             { "eveonline", Resource.Drawable.auth_eveonline },
             { "evernote", Resource.Drawable.auth_evernote },
