@@ -1,16 +1,17 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Droid.Shared.Wear;
-using System;
 
 namespace AuthenticatorPro.WearOS.Util
 {
     public static class AuthenticatorUtil
     {
-        public static IGenerator GetGenerator(AuthenticatorType type, string secret, string pin, int period, HashAlgorithm algorithm, int digits)
+        public static IGenerator GetGenerator(AuthenticatorType type, string secret, string pin, int period,
+            HashAlgorithm algorithm, int digits)
         {
             return type switch
             {
@@ -20,7 +21,7 @@ namespace AuthenticatorPro.WearOS.Util
                 _ => new Totp(secret, period, algorithm, digits)
             };
         }
-        
+
         public static IGenerator GetGenerator(WearAuthenticator auth)
         {
             return GetGenerator(auth.Type, auth.Secret, auth.Pin, auth.Period, auth.Algorithm, auth.Digits);
@@ -29,7 +30,7 @@ namespace AuthenticatorPro.WearOS.Util
         public static ValueTuple<string, long> GetCodeAndRemainingSeconds(IGenerator generator, int period)
         {
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            var generationOffset = now - (now % period);
+            var generationOffset = now - now % period;
 
             var code = generator.Compute(generationOffset);
             var renewTime = generationOffset + period;

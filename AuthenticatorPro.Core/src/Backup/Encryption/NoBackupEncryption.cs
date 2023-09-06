@@ -1,10 +1,10 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Newtonsoft.Json;
 using System;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Core.Backup.Encryption
 {

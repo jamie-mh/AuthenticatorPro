@@ -1,10 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Content;
-using AuthenticatorPro.Core;
 using System.IO;
 using System.Threading.Tasks;
+using Android.Content;
+using AuthenticatorPro.Core;
 
 namespace AuthenticatorPro.Droid.Shared
 {

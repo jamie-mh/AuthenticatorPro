@@ -1,11 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Test.Entity.ClassData;
-using System;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Entity
@@ -45,7 +45,7 @@ namespace AuthenticatorPro.Test.Entity
                 Digits = 6,
                 Period = 30
             };
-            
+
             IGenerator generator = type switch
             {
                 AuthenticatorType.Totp => new Totp(auth.Secret, auth.Period, auth.Algorithm, auth.Digits),
@@ -58,7 +58,7 @@ namespace AuthenticatorPro.Test.Entity
             var code = auth.GetCode(1000);
             Assert.Equal(generator.Compute(1000), code);
         }
-        
+
         [Fact]
         public void GetCodeWithCounter()
         {
@@ -77,7 +77,7 @@ namespace AuthenticatorPro.Test.Entity
 
             var codeA = auth.GetCode(1234);
             Assert.Equal(generator.Compute(1000), codeA);
-            
+
             var codeB = auth.GetCode(4321);
             Assert.Equal(generator.Compute(1000), codeB);
 

@@ -6,7 +6,7 @@ using AuthenticatorPro.Core.Persistence;
 
 namespace AuthenticatorPro.Droid.Persistence
 {
-    internal class IconPackRepository : AsyncRepository<IconPack, string>, IIconPackRepository
+    public class IconPackRepository : AsyncRepository<IconPack, string>, IIconPackRepository
     {
         public IconPackRepository(Database database) : base(database)
         {

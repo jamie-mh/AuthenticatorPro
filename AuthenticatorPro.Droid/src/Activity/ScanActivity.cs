@@ -1,6 +1,7 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -13,18 +14,19 @@ using AndroidX.Core.Content;
 using AuthenticatorPro.Droid.QrCode.Analyser;
 using Google.Android.Material.Button;
 using Java.Util.Concurrent;
-using System;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class ScanActivity : BaseActivity
+    public class ScanActivity : BaseActivity
     {
         private PreviewView _previewView;
         private ICamera _camera;
         private bool _isFlashOn;
-        
-        public ScanActivity() : base(Resource.Layout.activityScan) { }
+
+        public ScanActivity() : base(Resource.Layout.activityScan)
+        {
+        }
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -32,7 +34,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _previewView = FindViewById<PreviewView>(Resource.Id.previewView);
             _previewView.Touch += OnPreviewViewTouch;
-            
+
             var flashButton = FindViewById<MaterialButton>(Resource.Id.buttonFlash);
             flashButton.Click += OnFlashButtonClick;
 
@@ -58,12 +60,12 @@ namespace AuthenticatorPro.Droid.Activity
                 .SetTargetResolution(new Size(1920, 1080))
                 .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
                 .Build();
-            
+
             var analyser = new MlKitQrCodeImageAnalyser(this);
             analyser.QrCodeScanned += OnQrCodeScanned;
             analysis.SetAnalyzer(ContextCompat.GetMainExecutor(this), analyser);
 #endif
-            
+
             _camera = provider.BindToLifecycle(this, selector, analysis, preview);
         }
 
@@ -76,11 +78,11 @@ namespace AuthenticatorPro.Droid.Activity
 
             var factory = new SurfaceOrientedMeteringPointFactory(_previewView.Width, _previewView.Height);
             var point = factory.CreatePoint(args.Event.GetX(), args.Event.GetY());
-            
+
             var action = new FocusMeteringAction.Builder(point, FocusMeteringAction.FlagAf)
                 .DisableAutoCancel()
                 .Build();
-            
+
             _camera.CameraControl.StartFocusAndMetering(action);
         }
 

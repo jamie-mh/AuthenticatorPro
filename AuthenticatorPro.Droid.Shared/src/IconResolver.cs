@@ -1,14 +1,37 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core;
 using System.Text.RegularExpressions;
+using AuthenticatorPro.Core;
 
 namespace AuthenticatorPro.Droid.Shared
 {
     public partial class IconResolver : IIconResolver
     {
         public const string Default = "default";
+
+        public string FindServiceKeyByName(string name)
+        {
+            static string Simplify(string input)
+            {
+                input = input.ToLower();
+                input = SimplifyRegex().Replace(input, "");
+                return input.Trim();
+            }
+
+            var key = Simplify(name);
+
+            if (IconMap.Service.ContainsKey(key))
+            {
+                return key;
+            }
+
+            var firstWordKey = Simplify(name.Split(new[] { ' ', '.' }, 2)[0]);
+
+            return IconMap.Service.ContainsKey(firstWordKey)
+                ? firstWordKey
+                : null;
+        }
 
         [GeneratedRegex("[^a-z0-9]")]
         private static partial Regex SimplifyRegex();
@@ -40,29 +63,6 @@ namespace AuthenticatorPro.Droid.Shared
             return IconMap.Service.TryGetValue(key, out var lightIcon)
                 ? lightIcon
                 : IconMap.Service[Default];
-        }
-
-        public string FindServiceKeyByName(string name)
-        {
-            static string Simplify(string input)
-            {
-                input = input.ToLower();
-                input = SimplifyRegex().Replace(input, "");
-                return input.Trim();
-            }
-
-            var key = Simplify(name);
-
-            if (IconMap.Service.ContainsKey(key))
-            {
-                return key;
-            }
-
-            var firstWordKey = Simplify(name.Split(new[] { ' ', '.' }, 2)[0]);
-
-            return IconMap.Service.ContainsKey(firstWordKey)
-                ? firstWordKey
-                : null;
         }
     }
 }

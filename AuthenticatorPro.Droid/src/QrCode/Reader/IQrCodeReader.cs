@@ -1,9 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Content;
 using System.Threading.Tasks;
-using Uri = Android.Net.Uri;
+using Android.Content;
+using Android.Net;
 
 namespace AuthenticatorPro.Droid.QrCode.Reader
 {

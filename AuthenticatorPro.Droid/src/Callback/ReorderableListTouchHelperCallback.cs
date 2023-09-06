@@ -11,17 +11,13 @@ using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Callback
 {
-    internal class ReorderableListTouchHelperCallback : ItemTouchHelper.Callback
+    public class ReorderableListTouchHelperCallback : ItemTouchHelper.Callback
     {
         private const int DragElevationDp = 8;
 
         private readonly IReorderableListAdapter _adapter;
         private readonly GridLayoutManager _layoutManager;
         private readonly float _dragElevation;
-
-        public override bool IsLongPressDragEnabled => true;
-        public override bool IsItemViewSwipeEnabled => false;
-        public bool IsLocked { get; set; }
 
         private int _movementStartPosition;
         private int _movementEndPosition;
@@ -36,6 +32,10 @@ namespace AuthenticatorPro.Droid.Callback
 
             _dragElevation = ViewUtils.DpToPx(context, DragElevationDp);
         }
+
+        public override bool IsLongPressDragEnabled => true;
+        public override bool IsItemViewSwipeEnabled => false;
+        public bool IsLocked { get; set; }
 
         public override int GetMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder)
         {
@@ -119,6 +119,8 @@ namespace AuthenticatorPro.Droid.Callback
             }
         }
 
-        public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction) { }
+        public override void OnSwiped(RecyclerView.ViewHolder viewHolder, int direction)
+        {
+        }
     }
 }

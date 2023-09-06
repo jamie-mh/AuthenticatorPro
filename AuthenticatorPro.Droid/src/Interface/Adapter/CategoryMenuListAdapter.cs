@@ -1,24 +1,19 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.ViewHolder;
 using AuthenticatorPro.Droid.Persistence.View;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal class CategoryMenuListAdapter : RecyclerView.Adapter
+    public class CategoryMenuListAdapter : RecyclerView.Adapter
     {
-        public event EventHandler<string> CategorySelected;
-        public int SelectedPosition { get; set; }
-
         private readonly Context _context;
         private readonly ICategoryView _categoryView;
-
-        public override int ItemCount => _categoryView.Count + 1;
 
         public CategoryMenuListAdapter(Context context, ICategoryView categoryView)
         {
@@ -26,6 +21,11 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             _categoryView = categoryView;
             SelectedPosition = 0;
         }
+
+        public int SelectedPosition { get; set; }
+
+        public override int ItemCount => _categoryView.Count + 1;
+        public event EventHandler<string> CategorySelected;
 
         public override long GetItemId(int position)
         {

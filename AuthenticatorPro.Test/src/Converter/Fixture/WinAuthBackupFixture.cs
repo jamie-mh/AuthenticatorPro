@@ -7,13 +7,13 @@ namespace AuthenticatorPro.Test.Converter.Fixture
 {
     public class WinAuthBackupFixture
     {
-        public byte[] Data { get; }
-        public byte[] InvalidData { get; }
-
         public WinAuthBackupFixture()
         {
             Data = File.ReadAllBytes(Path.Join("data", "winauth.zip"));
             InvalidData = File.ReadAllBytes(Path.Join("data", "winauth.invalid.zip"));
         }
+
+        public byte[] Data { get; }
+        public byte[] InvalidData { get; }
     }
 }

@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -10,16 +11,15 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class PasswordSetupBottomSheet : BottomSheet
+    public class PasswordSetupBottomSheet : BottomSheet
     {
         private readonly Database _database;
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;
-        
+
         private bool _hasPassword;
 
         private TextInputEditText _passwordText;
@@ -37,7 +37,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             _preferences = new PreferenceWrapper(RequireContext());
             _hasPassword = _preferences.PasswordProtected;
 
@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
-            
+
             _progressIndicator = view.FindViewById<CircularProgressIndicator>(Resource.Id.progressIndicator);
 
             _setPasswordButton = view.FindViewById<MaterialButton>(Resource.Id.buttonSetPassword);
@@ -74,7 +74,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             UpdateSetPasswordButton();
             return view;
         }
-        
+
         private void SetLoading(bool loading)
         {
             SetCancelable(!loading);
@@ -107,7 +107,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             try
             {
                 var currentPassword = _secureStorageWrapper.GetDatabasePassword();
-                await _database.SetPassword(currentPassword, newPassword);
+                await _database.SetPasswordAsync(currentPassword, newPassword);
 
                 try
                 {
@@ -116,7 +116,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 catch
                 {
                     // Revert changes
-                    await _database.SetPassword(newPassword, currentPassword);
+                    await _database.SetPasswordAsync(newPassword, currentPassword);
                     throw;
                 }
             }

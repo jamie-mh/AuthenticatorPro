@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.OS;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -11,11 +12,10 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
 using Google.Android.Material.TextView;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class BackupPasswordBottomSheet : BottomSheet
+    public class BackupPasswordBottomSheet : BottomSheet
     {
         public enum Mode
         {
@@ -25,9 +25,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private Mode _mode;
 
-        public event EventHandler CancelClicked;
-        public event EventHandler<string> PasswordEntered;
-
         private TextInputEditText _passwordText;
         private TextInputLayout _passwordTextLayout;
 
@@ -35,12 +32,17 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private MaterialButton _okButton;
         private CircularProgressIndicator _progressIndicator;
 
+        public BackupPasswordBottomSheet() : base(Resource.Layout.sheetBackupPassword, Resource.String.password)
+        {
+        }
+
         public string Error
         {
             set => _passwordTextLayout.Error = value;
         }
 
-        public BackupPasswordBottomSheet() : base(Resource.Layout.sheetBackupPassword, Resource.String.password) { }
+        public event EventHandler CancelClicked;
+        public event EventHandler<string> PasswordEntered;
 
         public override void OnCreate(Bundle savedInstanceState)
         {

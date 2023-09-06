@@ -1,26 +1,25 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.OS;
 using Android.Text;
 using Android.Views;
 using Android.Views.InputMethods;
-using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class EditCategoryBottomSheet : BottomSheet
+    public class EditCategoryBottomSheet : BottomSheet
     {
         public enum Mode
         {
-            New, Edit
+            New,
+            Edit
         }
-
-        public event EventHandler<EditCategoryEventArgs> Submitted;
 
         private Mode _mode;
         private string _id;
@@ -29,12 +28,16 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private TextInputEditText _textName;
         private TextInputLayout _textNameLayout;
 
+        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory, Resource.String.category)
+        {
+        }
+
         public string NameError
         {
             set => _textNameLayout.Error = value;
         }
 
-        public EditCategoryBottomSheet() : base(Resource.Layout.sheetEditCategory, Resource.String.category) { }
+        public event EventHandler<EditCategoryEventArgs> Submitted;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -93,10 +96,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             };
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += delegate
-            {
-                Dismiss();
-            };
+            cancelButton.Click += delegate { Dismiss(); };
 
             return view;
         }

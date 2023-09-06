@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Net;
@@ -11,16 +12,17 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextView;
-using System.Text;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class ErrorActivity : BaseActivity
+    public class ErrorActivity : BaseActivity
     {
         private string _exception;
 
-        public ErrorActivity() : base(Resource.Layout.activityError) { }
+        public ErrorActivity() : base(Resource.Layout.activityError)
+        {
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

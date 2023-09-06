@@ -7,13 +7,8 @@ using AndroidX.RecyclerView.Widget;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
-    internal class AuthenticatorListHolder : RecyclerView.ViewHolder
+    public class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
-        public TextView Username { get; }
-        public TextView Issuer { get; }
-        public ImageView Icon { get; }
-        public ImageView DefaultImage { get; }
-
         public AuthenticatorListHolder(View itemView) : base(itemView)
         {
             Issuer = itemView.FindViewById<TextView>(Resource.Id.textIssuer);
@@ -21,5 +16,10 @@ namespace AuthenticatorPro.WearOS.Interface
             Icon = itemView.FindViewById<ImageView>(Resource.Id.imageIcon);
             DefaultImage = itemView.FindViewById<ImageView>(Resource.Id.imageDefault);
         }
+
+        public TextView Username { get; }
+        public TextView Issuer { get; }
+        public ImageView Icon { get; }
+        public ImageView DefaultImage { get; }
     }
 }

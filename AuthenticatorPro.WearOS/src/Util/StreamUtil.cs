@@ -1,9 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Java.IO;
 using System;
 using System.Threading.Tasks;
+using Java.IO;
 
 namespace AuthenticatorPro.WearOS.Util
 {

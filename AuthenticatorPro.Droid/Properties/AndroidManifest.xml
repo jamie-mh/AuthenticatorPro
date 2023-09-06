@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionName="1.21.0"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+          android:versionName="1.21.0"
           package="me.jmh.authenticatorpro" android:installLocation="auto" android:versionCode="1000089">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33"/>
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -16,7 +17,7 @@
                  android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true"
                  android:theme="@style/AppTheme">
         <provider android:name="com.google.mlkit.common.internal.MlKitInitProvider"
-                  android:authorities="me.jmh.authenticatorpro.mlkitinitprovider" tools:node="remove" />
+                  android:authorities="me.jmh.authenticatorpro.mlkitinitprovider" tools:node="remove"/>
     </application>
     <supports-screens android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true"
                       android:normalScreens="true" android:anyDensity="true"/>

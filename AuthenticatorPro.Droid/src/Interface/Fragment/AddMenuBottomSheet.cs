@@ -1,22 +1,24 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AddMenuBottomSheet : BottomSheet
+    public class AddMenuBottomSheet : BottomSheet
     {
+        public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.add)
+        {
+        }
+
         public event EventHandler QrCodeClicked;
         public event EventHandler EnterKeyClicked;
         public event EventHandler RestoreClicked;
         public event EventHandler ImportClicked;
-
-        public AddMenuBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.add) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

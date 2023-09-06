@@ -1,6 +1,13 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
@@ -13,29 +20,24 @@ using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
 using SimpleBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public partial class FreeOtpBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
-
         private const int MasterKeyBytes = 32;
 
-        [GeneratedRegex("([0-9a-f]{8}\\-[0-9a-f]{4}\\-[0-9a-f]{4}\\-[0-9a-f]{4}\\-[0-9a-f]{12}(?:\\-token)?|masterKey)[tx]")]
+        public FreeOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
+
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
+
+        [GeneratedRegex("([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?:-token)?|masterKey)[tx]")]
         private static partial Regex MapKeyRegex();
 
         [GeneratedRegex("({.*?})[tx]")]
         private static partial Regex MapValueRegex();
-
-        public FreeOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -43,7 +45,7 @@ namespace AuthenticatorPro.Core.Converter
             {
                 throw new ArgumentException("Password cannot be null");
             }
-            
+
             var decoded = Encoding.UTF8.GetString(data);
             var values = DeserialiseApproximately(decoded);
 
@@ -54,7 +56,7 @@ namespace AuthenticatorPro.Core.Converter
         {
             var masterKeyInfo = JsonConvert.DeserializeObject<MasterKey>(values["masterKey"]);
             var masterKey = DecryptMasterKey(masterKeyInfo, password);
-            
+
             var authenticators = new List<Authenticator>();
             var failures = new List<ConversionFailure>();
 
@@ -66,7 +68,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
 
                 var info = JsonConvert.DeserializeObject<TokenInfo>(value);
-                
+
                 var keyJson = values[key.Replace("-token", "")];
                 var keyInfo = JsonConvert.DeserializeObject<TokenKeyInfo>(keyJson);
                 var encryptedKey = JsonConvert.DeserializeObject<EncryptedKey>(keyInfo.Key);
@@ -81,12 +83,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = info.Label,
-                        Error = e.Message
-                    });
-
+                    failures.Add(new ConversionFailure { Description = info.Label, Error = e.Message });
                     continue;
                 }
 
@@ -96,7 +93,7 @@ namespace AuthenticatorPro.Core.Converter
             var backup = new Backup.Backup { Authenticators = authenticators };
             return new ConversionResult { Failures = failures, Backup = backup };
         }
-        
+
         private static KeyParameter DecryptMasterKey(MasterKey masterKey, string password)
         {
             var salt = MemoryMarshal.Cast<sbyte, byte>(masterKey.Salt).ToArray();
@@ -112,7 +109,7 @@ namespace AuthenticatorPro.Core.Converter
             var encryptedData = MemoryMarshal.Cast<sbyte, byte>(encryptedKey.CipherText).ToArray();
 
             var parameters = ReadAsn1Parameters(key, encodedParams, encryptedKey.Token);
-            
+
             var cipher = CipherUtilities.GetCipher(encryptedKey.Cipher);
             cipher.Init(false, parameters);
 
@@ -126,18 +123,19 @@ namespace AuthenticatorPro.Core.Converter
             }
         }
 
-        private static AeadParameters ReadAsn1Parameters(KeyParameter key, byte[] encodedParameters, string associatedText)
+        private static AeadParameters ReadAsn1Parameters(KeyParameter key, byte[] encodedParameters,
+            string associatedText)
         {
             var sequence = (DerSequence) Asn1Sequence.FromByteArray(encodedParameters);
             var parts = sequence.ToArray();
-            
+
             var iv = (DerOctetString) parts[0];
             var macLength = (DerInteger) parts[1];
             var associatedBytes = Encoding.UTF8.GetBytes(associatedText);
-        
+
             return new AeadParameters(key, macLength.IntValueExact * 8, iv.GetOctets(), associatedBytes);
         }
-        
+
         private static KeyParameter DeriveKey(string password, string algorithm, int iterations, byte[] salt)
         {
             IDigest digest = algorithm switch
@@ -146,11 +144,11 @@ namespace AuthenticatorPro.Core.Converter
                 "PBKDF2withHmacSHA512" => new Sha512Digest(),
                 _ => throw new ArgumentException($"Unsupported algorithm '{algorithm}'")
             };
-            
+
             var passwordBytes = Encoding.UTF8.GetBytes(password);
             var generator = new Pkcs5S2ParametersGenerator(digest);
             generator.Init(passwordBytes, salt, iterations);
-            
+
             return (KeyParameter) generator.GenerateDerivedParameters("AES", MasterKeyBytes * 8);
         }
 
@@ -173,14 +171,14 @@ namespace AuthenticatorPro.Core.Converter
         private sealed class MasterKey
         {
             [JsonProperty(PropertyName = "mAlgorithm")]
-            public String Algorithm { get; set; }
-            
+            public string Algorithm { get; set; }
+
             [JsonProperty(PropertyName = "mIterations")]
             public int Iterations { get; set; }
-            
+
             [JsonProperty(PropertyName = "mSalt")]
             public sbyte[] Salt { get; set; }
-            
+
             [JsonProperty(PropertyName = "mEncryptedKey")]
             public EncryptedKey EncryptedKey { get; set; }
         }
@@ -188,14 +186,14 @@ namespace AuthenticatorPro.Core.Converter
         private sealed class EncryptedKey
         {
             [JsonProperty(PropertyName = "mCipher")]
-            public String Cipher { get; set; }
-            
+            public string Cipher { get; set; }
+
             [JsonProperty(PropertyName = "mCipherText")]
             public sbyte[] CipherText { get; set; }
-            
+
             [JsonProperty(PropertyName = "mParameters")]
             public sbyte[] Parameters { get; set; }
-            
+
             [JsonProperty(PropertyName = "mToken")]
             public string Token { get; set; }
         }
@@ -203,20 +201,20 @@ namespace AuthenticatorPro.Core.Converter
         private sealed class TokenInfo
         {
             [JsonProperty(PropertyName = "issuerExt")]
-            public String IssuerExt { get; set; }
-            
+            public string IssuerExt { get; set; }
+
             [JsonProperty(PropertyName = "issuerInt")]
-            public String IssuerInt { get; set; }
-            
+            public string IssuerInt { get; set; }
+
             [JsonProperty(PropertyName = "label")]
-            public String Label { get; set; }
-            
+            public string Label { get; set; }
+
             [JsonProperty(PropertyName = "type")]
-            public String Type { get; set; }
-            
+            public string Type { get; set; }
+
             [JsonProperty(PropertyName = "algo")]
-            public String Algorithm { get; set; }
-            
+            public string Algorithm { get; set; }
+
             [JsonProperty(PropertyName = "counter")]
             public int Counter { get; set; }
 
@@ -225,7 +223,7 @@ namespace AuthenticatorPro.Core.Converter
 
             [JsonProperty(PropertyName = "period")]
             public int Period { get; set; } = AuthenticatorType.Totp.GetDefaultPeriod();
-            
+
             public Authenticator Convert(IIconResolver iconResolver, byte[] secret)
             {
                 var type = Type switch
@@ -242,7 +240,7 @@ namespace AuthenticatorPro.Core.Converter
                     "SHA512" => HashAlgorithm.Sha512,
                     _ => throw new ArgumentException($"Algorithm '{Algorithm}' not supported")
                 };
-                
+
                 string issuer;
                 string username;
 
@@ -256,7 +254,7 @@ namespace AuthenticatorPro.Core.Converter
                     issuer = IssuerExt;
                     username = Label;
                 }
-                
+
                 return new Authenticator
                 {
                     Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
@@ -275,7 +273,7 @@ namespace AuthenticatorPro.Core.Converter
         private sealed class TokenKeyInfo
         {
             [JsonProperty(PropertyName = "key")]
-            public String Key { get; set; }
+            public string Key { get; set; }
         }
     }
 }

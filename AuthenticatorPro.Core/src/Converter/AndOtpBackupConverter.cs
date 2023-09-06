@@ -1,6 +1,11 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
@@ -11,18 +16,11 @@ using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class AndOtpBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
-
         private const string BaseAlgorithm = "AES";
         private const string Mode = "GCM";
         private const string Padding = "NoPadding";
@@ -34,13 +32,17 @@ namespace AuthenticatorPro.Core.Converter
         private const int KeyLength = 32;
 
 
-        public AndOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public AndOtpBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
+
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Maybe;
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             string json;
 
-            if (String.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(password))
             {
                 json = Encoding.UTF8.GetString(data);
             }
@@ -67,11 +69,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = account.Issuer,
-                        Error = e.Message
-                    });
+                    failures.Add(new ConversionFailure { Description = account.Issuer, Error = e.Message });
 
                     continue;
                 }
@@ -97,7 +95,7 @@ namespace AuthenticatorPro.Core.Converter
             {
                 Authenticators = authenticators, Categories = categories, AuthenticatorCategories = bindings
             };
-            
+
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
@@ -152,12 +150,14 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "label")] public string Label { get; set; }
+            [JsonProperty(PropertyName = "label")]
+            public string Label { get; set; }
 
             [JsonProperty(PropertyName = "digits")]
             public int Digits { get; set; }
 
-            [JsonProperty(PropertyName = "type")] public string Type { get; set; }
+            [JsonProperty(PropertyName = "type")]
+            public string Type { get; set; }
 
             [JsonProperty(PropertyName = "algorithm")]
             public string Algorithm { get; set; }
@@ -171,7 +171,8 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "counter")]
             public int Counter { get; set; }
 
-            [JsonProperty(PropertyName = "tags")] public List<string> Tags { get; set; }
+            [JsonProperty(PropertyName = "tags")]
+            public List<string> Tags { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)
             {
@@ -194,7 +195,7 @@ namespace AuthenticatorPro.Core.Converter
                 string issuer;
                 string username;
 
-                if (String.IsNullOrEmpty(Issuer))
+                if (string.IsNullOrEmpty(Issuer))
                 {
                     issuer = Label;
                     username = null;

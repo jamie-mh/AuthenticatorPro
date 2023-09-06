@@ -1,6 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
@@ -10,9 +13,6 @@ using HtmlAgilityPack;
 using Moq;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 using ZXing;
 using ZXing.Common;
@@ -93,7 +93,8 @@ namespace AuthenticatorPro.Test.Service
             var authC = new Mock<Authenticator>();
             authC.Setup(a => a.GetUri()).Throws(new NotSupportedException());
 
-            _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<Authenticator> { authA, authB, authC.Object });
+            _authenticatorRepository.Setup(r => r.GetAllAsync())
+                .ReturnsAsync(new List<Authenticator> { authA, authB, authC.Object });
             _assetProvider.Setup(a => a.ReadStringAsync("backup_template.html")).ReturnsAsync("%ITEMS");
 
             var backup = await _backupService.CreateHtmlBackupAsync();
@@ -159,7 +160,8 @@ namespace AuthenticatorPro.Test.Service
             var authC = new Mock<Authenticator>();
             authC.Setup(a => a.GetUri()).Throws(new NotSupportedException());
 
-            _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<Authenticator> { authA, authB, authC.Object });
+            _authenticatorRepository.Setup(r => r.GetAllAsync())
+                .ReturnsAsync(new List<Authenticator> { authA, authB, authC.Object });
 
             var backup = await _backupService.CreateUriListBackupAsync();
             var lines = backup.ToString().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);

@@ -1,6 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
@@ -8,9 +11,6 @@ using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Service
@@ -152,25 +152,26 @@ namespace AuthenticatorPro.Test.Service
         {
             var transferInitial = new CaptureMatch<Authenticator>(a => { Assert.Equal("old", a.Secret); });
             var transferNext = new CaptureMatch<Authenticator>(a => { Assert.Equal("new", a.Secret); });
-            
+
             _authenticatorCategoryRepository
                 .Setup(r => r.TransferAuthenticatorAsync(Capture.With(transferInitial), Capture.With(transferNext)))
                 .Verifiable();
-            
+
             var oldSecretMatch = new CaptureMatch<string>(s => { Assert.Equal("old", s); });
             var newSecretMatch = new CaptureMatch<string>(s => { Assert.Equal("new", s); });
 
             _authenticatorRepository
                 .Setup(r => r.ChangeSecretAsync(Capture.With(oldSecretMatch), Capture.With(newSecretMatch)))
                 .Verifiable();
-            
+
             var auth = new Authenticator { Secret = "old" };
 
             await _authenticatorService.ChangeSecretAsync(auth, "new");
-            
+
             _authenticatorCategoryRepository
-                .Verify(r => r.TransferAuthenticatorAsync(It.IsAny<Authenticator>(), It.IsAny<Authenticator>()), Times.Once());
-            
+                .Verify(r => r.TransferAuthenticatorAsync(It.IsAny<Authenticator>(), It.IsAny<Authenticator>()),
+                    Times.Once());
+
             _authenticatorRepository
                 .Verify(r => r.ChangeSecretAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Once());
         }
@@ -192,10 +193,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task SetIconAsync_ok()
         {
-            var match = new CaptureMatch<Authenticator>(a =>
-            {
-                Assert.Equal("icon", a.Icon);
-            });
+            var match = new CaptureMatch<Authenticator>(a => { Assert.Equal("icon", a.Icon); });
 
             _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
 
@@ -299,7 +297,8 @@ namespace AuthenticatorPro.Test.Service
             _authenticatorRepository.Setup(r => r.GetAsync(It.IsAny<string>())).ReturnsAsync(auth.Object);
             _equalityComparer.Setup(c => c.Equals(It.IsAny<Authenticator>(), It.IsAny<Authenticator>())).Returns(false);
 
-            var (added, updated) = await _authenticatorService.AddOrUpdateManyAsync(new List<Authenticator> { auth.Object });
+            var (added, updated) =
+                await _authenticatorService.AddOrUpdateManyAsync(new List<Authenticator> { auth.Object });
 
             Assert.Equal(1, added);
             Assert.Equal(1, updated);
@@ -308,7 +307,8 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task DeleteWithCategoryBindingsAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _authenticatorService.DeleteWithCategoryBindingsAsync(null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _authenticatorService.DeleteWithCategoryBindingsAsync(null));
         }
 
         [Fact]
@@ -337,10 +337,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task IncrementCounterAsync_ok()
         {
-            var match = new CaptureMatch<Authenticator>(a =>
-            {
-                Assert.Equal(2, a.Counter);
-            });
+            var match = new CaptureMatch<Authenticator>(a => { Assert.Equal(2, a.Counter); });
 
             _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
 
@@ -359,10 +356,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task IncrementCopyCountAsync_ok()
         {
-            var match = new CaptureMatch<Authenticator>(a =>
-            {
-                Assert.Equal(2, a.CopyCount);
-            });
+            var match = new CaptureMatch<Authenticator>(a => { Assert.Equal(2, a.CopyCount); });
 
             _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
 
@@ -380,10 +374,7 @@ namespace AuthenticatorPro.Test.Service
 
             _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<Authenticator> { authA, authB });
 
-            var match = new CaptureMatch<Authenticator>(a =>
-            {
-                Assert.Equal(0, a.CopyCount);
-            });
+            var match = new CaptureMatch<Authenticator>(a => { Assert.Equal(0, a.CopyCount); });
 
             _authenticatorRepository.Setup(r => r.UpdateAsync(Capture.With(match)));
             await _authenticatorService.ResetCopyCountsAsync();

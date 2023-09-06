@@ -1,8 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Backup;
 
 namespace AuthenticatorPro.Core.Converter
 {
@@ -10,7 +10,9 @@ namespace AuthenticatorPro.Core.Converter
     {
         public enum BackupPasswordPolicy
         {
-            Never, Always, Maybe
+            Never,
+            Always,
+            Maybe
         }
 
         protected readonly IIconResolver IconResolver;

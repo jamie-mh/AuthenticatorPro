@@ -9,16 +9,8 @@ using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
 {
-    internal class AuthenticatorListHolder : RecyclerView.ViewHolder
+    public class AuthenticatorListHolder : RecyclerView.ViewHolder
     {
-        public MaterialTextView Issuer { get; }
-        public MaterialTextView Username { get; }
-        public MaterialTextView Code { get; }
-        public LinearProgressIndicator ProgressIndicator { get; }
-        public ImageButton MenuButton { get; }
-        public ImageButton RefreshButton { get; }
-        public ImageView Icon { get; }
-
         public AuthenticatorListHolder(View view) : base(view)
         {
             Issuer = view.FindViewById<MaterialTextView>(Resource.Id.textIssuer);
@@ -29,5 +21,13 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
             RefreshButton = view.FindViewById<ImageButton>(Resource.Id.buttonRefresh);
             Icon = view.FindViewById<ImageView>(Resource.Id.imageIcon);
         }
+
+        public MaterialTextView Issuer { get; }
+        public MaterialTextView Username { get; }
+        public MaterialTextView Code { get; }
+        public LinearProgressIndicator ProgressIndicator { get; }
+        public ImageButton MenuButton { get; }
+        public ImageButton RefreshButton { get; }
+        public ImageView Icon { get; }
     }
 }

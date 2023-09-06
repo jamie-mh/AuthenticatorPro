@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -14,27 +16,25 @@ using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
 using Google.Android.Material.TextView;
 using Java.Lang;
-using System;
-using System.Collections.Generic;
 using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal abstract class BottomSheet : BottomSheetDialogFragment
+    public abstract class BottomSheet : BottomSheetDialogFragment
     {
-        public event EventHandler Dismissed;
-        public bool IsDark { get; private set; }
-
         private const int MaxWidth = 600;
 
         private readonly int _layout;
         private readonly int _title;
-        
+
         protected BottomSheet(int layout, int title)
         {
             _layout = layout;
             _title = title;
         }
+
+        public bool IsDark { get; private set; }
+        public event EventHandler Dismissed;
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
@@ -60,7 +60,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var baseActivity = (BaseActivity) RequireActivity();
             IsDark = baseActivity.IsDark;
-            
+
             return dialog;
         }
 
@@ -76,7 +76,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var view = contextInflater.Inflate(_layout, container, false);
 
             var title = view.FindViewById<MaterialTextView>(Resource.Id.textTitle);
-            title.SetText(_title); 
+            title.SetText(_title);
 
             return view;
         }
@@ -109,10 +109,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         protected void SetupMenu(RecyclerView list, List<SheetMenuItem> items)
         {
             var adapter = new SheetMenuAdapter(items);
-            adapter.ItemClicked += delegate
-            {
-                Dismiss();
-            };
+            adapter.ItemClicked += delegate { Dismiss(); };
 
             list.SetAdapter(adapter);
             list.HasFixedSize = true;

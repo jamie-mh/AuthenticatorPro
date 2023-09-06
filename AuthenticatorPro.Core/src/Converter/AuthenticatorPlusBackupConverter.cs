@@ -1,28 +1,30 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Util;
-using SimpleBase;
-using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Backup;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Util;
+using SimpleBase;
+using SQLite;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class AuthenticatorPlusBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
-
         private const string TempFileName = "authplus.db";
         private const string BlizzardIssuer = "Blizzard";
         private const int BlizzardDigits = 8;
 
-        public AuthenticatorPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public AuthenticatorPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
+
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -33,10 +35,8 @@ namespace AuthenticatorPro.Core.Converter
 
             await File.WriteAllBytesAsync(path, data);
 
-            var connStr = new SQLiteConnectionString(path, true, password, null, conn =>
-            {
-                conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
-            });
+            var connStr = new SQLiteConnectionString(path, true, password, null,
+                conn => { conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3"); });
 
             var connection = new SQLiteAsyncConnection(connStr);
 
@@ -76,11 +76,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = account.Issuer,
-                        Error = e.Message
-                    });
+                    failures.Add(new ConversionFailure { Description = account.Issuer, Error = e.Message });
 
                     continue;
                 }
@@ -109,30 +105,39 @@ namespace AuthenticatorPro.Core.Converter
             {
                 Authenticators = authenticators, Categories = categories, AuthenticatorCategories = bindings
             };
-            
+
             return new ConversionResult { Failures = failures, Backup = backup };
         }
 
         private enum Type
         {
-            Totp = 0, Hotp = 1, Blizzard = 2
+            Totp = 0,
+            Hotp = 1,
+            Blizzard = 2
         }
 
         private sealed class Account
         {
-            [Column("email")] public string Email { get; set; }
+            [Column("email")]
+            public string Email { get; set; }
 
-            [Column("secret")] public string Secret { get; set; }
+            [Column("secret")]
+            public string Secret { get; set; }
 
-            [Column("counter")] public int Counter { get; set; }
+            [Column("counter")]
+            public int Counter { get; set; }
 
-            [Column("type")] public Type Type { get; set; }
+            [Column("type")]
+            public Type Type { get; set; }
 
-            [Column("issuer")] public string Issuer { get; set; }
+            [Column("issuer")]
+            public string Issuer { get; set; }
 
-            [Column("original_name")] public string OriginalName { get; set; }
+            [Column("original_name")]
+            public string OriginalName { get; set; }
 
-            [Column("category")] public string CategoryName { get; set; }
+            [Column("category")]
+            public string CategoryName { get; set; }
 
             private string ConvertSecret(AuthenticatorType type)
             {
@@ -159,11 +164,11 @@ namespace AuthenticatorPro.Core.Converter
                 string issuer;
                 string username = null;
 
-                if (!String.IsNullOrEmpty(Issuer))
+                if (!string.IsNullOrEmpty(Issuer))
                 {
                     issuer = Type == Type.Blizzard ? BlizzardIssuer : Issuer;
 
-                    if (!String.IsNullOrEmpty(Email))
+                    if (!string.IsNullOrEmpty(Email))
                     {
                         username = Email;
                     }
@@ -209,7 +214,8 @@ namespace AuthenticatorPro.Core.Converter
 
         private sealed class Category
         {
-            [Column("name")] public string Name { get; set; }
+            [Column("name")]
+            public string Name { get; set; }
 
             public Entity.Category Convert()
             {

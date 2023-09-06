@@ -1,24 +1,26 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
 using SimpleBase;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class FreeOtpPlusBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
+        public FreeOtpPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
 
-        public FreeOtpPlusBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
         public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -38,12 +40,7 @@ namespace AuthenticatorPro.Core.Converter
                 }
                 catch (Exception e)
                 {
-                    failures.Add(new ConversionFailure
-                    {
-                        Description = token.Issuer,
-                        Error = e.Message
-                    });
-
+                    failures.Add(new ConversionFailure { Description = token.Issuer, Error = e.Message });
                     continue;
                 }
 
@@ -64,7 +61,8 @@ namespace AuthenticatorPro.Core.Converter
 
         private sealed class Token
         {
-            [JsonProperty(PropertyName = "algo")] public string Algorithm { get; set; }
+            [JsonProperty(PropertyName = "algo")]
+            public string Algorithm { get; set; }
 
             [JsonProperty(PropertyName = "counter")]
             public int Counter { get; set; }
@@ -75,12 +73,14 @@ namespace AuthenticatorPro.Core.Converter
             [JsonProperty(PropertyName = "issuerExt")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "label")] public string Label { get; set; }
+            [JsonProperty(PropertyName = "label")]
+            public string Label { get; set; }
 
             [JsonProperty(PropertyName = "period")]
             public int Period { get; set; }
 
-            [JsonProperty(PropertyName = "type")] public string Type { get; set; }
+            [JsonProperty(PropertyName = "type")]
+            public string Type { get; set; }
 
             [JsonProperty(PropertyName = "secret")]
             public sbyte[] Secret { get; set; }
@@ -105,7 +105,7 @@ namespace AuthenticatorPro.Core.Converter
                 string issuer;
                 string username;
 
-                if (String.IsNullOrEmpty(Issuer))
+                if (string.IsNullOrEmpty(Issuer))
                 {
                     issuer = Label;
                     username = null;

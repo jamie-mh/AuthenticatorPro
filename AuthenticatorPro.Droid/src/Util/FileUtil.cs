@@ -1,15 +1,15 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Content;
-using Android.Database;
-using Android.Provider;
-using Java.IO;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Android.Content;
+using Android.Database;
+using Android.Net;
+using Android.Provider;
+using Java.IO;
 using IOException = System.IO.IOException;
-using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Util
 {

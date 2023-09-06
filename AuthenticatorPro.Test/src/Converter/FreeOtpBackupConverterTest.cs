@@ -1,13 +1,13 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Test.Converter.Fixture;
 using Moq;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Converter
@@ -26,14 +26,14 @@ namespace AuthenticatorPro.Test.Converter
 
             _freeOtpBackupConverter = new FreeOtpBackupConverter(iconResolver.Object);
         }
-        
+
         [Fact]
         public async Task ConvertAsync_noPassword()
         {
             await Assert.ThrowsAsync<ArgumentException>(() =>
                 _freeOtpBackupConverter.ConvertAsync(_freeOtpBackupFixture.Data));
         }
-        
+
         [Fact]
         public async Task ConvertAsync_wrongPassword()
         {

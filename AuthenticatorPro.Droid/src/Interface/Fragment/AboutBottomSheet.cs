@@ -1,22 +1,24 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AboutBottomSheet : BottomSheet
+    public class AboutBottomSheet : BottomSheet
     {
+        public AboutBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.about)
+        {
+        }
+
         public event EventHandler AboutClicked;
         public event EventHandler SupportClicked;
         public event EventHandler RateClicked;
         public event EventHandler ViewGitHubClicked;
-
-        public AboutBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.about) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

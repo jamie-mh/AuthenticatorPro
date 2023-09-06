@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
@@ -11,12 +13,10 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.ProgressIndicator;
 using QRCoder;
-using System;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class QrCodeBottomSheet : BottomSheet
+    public class QrCodeBottomSheet : BottomSheet
     {
         private const int PixelsPerModule = 4;
 
@@ -25,7 +25,9 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private string _uri;
 
-        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode, Resource.String.qrCode) { }
+        public QrCodeBottomSheet() : base(Resource.Layout.sheetQrCode, Resource.String.qrCode)
+        {
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,7 +44,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var okButton = view.FindViewById<MaterialButton>(Resource.Id.buttonOk);
             okButton.Click += delegate { Dismiss(); };
-            
+
             var copyButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCopyUri);
             copyButton.Click += delegate
             {
@@ -57,10 +59,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                     clipboard.PrimaryClip = clip;
                     Toast.MakeText(Context, Resource.String.uriCopiedToClipboard, ToastLength.Short).Show();
                 });
-    
+
                 builder.SetNegativeButton(Resource.String.cancel, delegate { });
                 builder.SetCancelable(true);
-    
+
                 var dialog = builder.Create();
                 dialog.Show();
             };

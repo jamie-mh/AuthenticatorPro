@@ -1,22 +1,28 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.App;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
+using AuthenticatorPro.Core;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.Color;
-using System;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class AboutActivity : BaseActivity
+    public class AboutActivity : BaseActivity
     {
-        public AboutActivity() : base(Resource.Layout.activityAbout) { }
+        private readonly IAssetProvider _assetProvider;
+
+        public AboutActivity() : base(Resource.Layout.activityAbout)
+        {
+            _assetProvider = Dependencies.Resolve<IAssetProvider>();
+        }
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -46,29 +52,29 @@ namespace AuthenticatorPro.Droid.Activity
                 Logger.Error(e);
                 version = "unknown";
             }
-            
+
             var surface = MaterialColors.GetColor(this, Resource.Attribute.colorSurface, 0);
             var onSurface = MaterialColors.GetColor(this, Resource.Attribute.colorOnSurface, 0);
             var primary = MaterialColors.GetColor(this, Resource.Attribute.colorPrimary, 0);
 
-            var icon = await AssetUtil.ReadAllBytes(Assets, "icon.png");
-            
+            var icon = await _assetProvider.ReadBytesAsync("icon.png");
+
 #if FDROID
             const string extraLicenseFile = "license.extra.fdroid.html";
 #else
             const string extraLicenseFile = "license.extra.html";
 #endif
 
-            var extraLicense = await AssetUtil.ReadAllTextAsync(Assets, extraLicenseFile);
+            var extraLicense = await _assetProvider.ReadStringAsync(extraLicenseFile);
 
-            var html = (await AssetUtil.ReadAllTextAsync(Assets, "about.html"))
+            var html = (await _assetProvider.ReadStringAsync("about.html"))
                 .Replace("%ICON", $"data:image/png;base64,{Convert.ToBase64String(icon)}")
                 .Replace("%VERSION", version)
                 .Replace("%LICENSE", extraLicense)
                 .Replace("%SURFACE", ColourToHexString(surface))
                 .Replace("%ON_SURFACE", ColourToHexString(onSurface))
                 .Replace("%PRIMARY", ColourToHexString(primary));
-            
+
             var webView = FindViewById<WebView>(Resource.Id.webView);
             webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
         }

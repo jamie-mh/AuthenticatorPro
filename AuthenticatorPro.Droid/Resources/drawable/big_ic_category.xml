@@ -42,6 +42,7 @@
     <path android:fillColor="#00000000"
           android:pathData="M27,8l-6,0l0,-6" android:strokeColor="?attr/colorOnBackground"
           android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="2"/>
-    <path android:fillColor="?attr/colorPrimaryInverse" android:pathData="M18.75,17l-3.75,0l0,4l-6,0l6,-10.67l3.75,6.67z"/>
+    <path android:fillColor="?attr/colorPrimaryInverse"
+          android:pathData="M18.75,17l-3.75,0l0,4l-6,0l6,-10.67l3.75,6.67z"/>
     <path android:fillColor="?attr/colorPrimaryInverse" android:pathData="M16,18h7v7h-7z"/>
 </vector>

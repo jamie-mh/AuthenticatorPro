@@ -1,15 +1,15 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Service
@@ -88,7 +88,7 @@ namespace AuthenticatorPro.Test.Service
             Assert.Equal(1, added);
             _customIconRepository.Verify(r => r.CreateAsync(icon));
         }
-        
+
         [Fact]
         public async Task GetAllAsync()
         {
@@ -107,7 +107,8 @@ namespace AuthenticatorPro.Test.Service
             var iconUsed = new CustomIcon { Id = "id" };
             var iconUnused = new CustomIcon { Id = "id2" };
 
-            _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<Authenticator> { authA, authB, authC });
+            _authenticatorRepository.Setup(r => r.GetAllAsync())
+                .ReturnsAsync(new List<Authenticator> { authA, authB, authC });
             _customIconRepository.Setup(r => r.GetAllAsync())
                 .ReturnsAsync(new List<CustomIcon> { iconUsed, iconUnused });
 

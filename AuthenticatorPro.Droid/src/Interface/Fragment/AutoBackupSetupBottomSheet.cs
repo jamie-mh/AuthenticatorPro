@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android;
 using Android.App;
 using Android.Content;
@@ -22,16 +23,15 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.MaterialSwitch;
 using Google.Android.Material.TextView;
 using Java.Util.Concurrent;
-using System;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class AutoBackupSetupBottomSheet : BottomSheet
+    public class AutoBackupSetupBottomSheet : BottomSheet
     {
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;
-        
+
         private ActivityResultLauncher _locationSelectResultLauncher;
         private ActivityResultLauncher _showNotificationsResultLauncher;
         private Action _showNotificationsPromptCallback;
@@ -43,12 +43,15 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private MaterialButton _backupNowButton;
         private MaterialButton _okButton;
 
-        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup, Resource.String.prefAutoBackupTitle) { }
+        public AutoBackupSetupBottomSheet() : base(Resource.Layout.sheetAutoBackupSetup,
+            Resource.String.prefAutoBackupTitle)
+        {
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             _preferences = new PreferenceWrapper(RequireContext());
             _secureStorageWrapper = new SecureStorageWrapper(RequireContext());
 
@@ -62,7 +65,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             showNotificationsPermissionCallback.Result += delegate { _showNotificationsPromptCallback(); };
 
             _showNotificationsResultLauncher =
-                RegisterForActivityResult(new ActivityResultContracts.RequestPermission(), showNotificationsPermissionCallback);
+                RegisterForActivityResult(new ActivityResultContracts.RequestPermission(),
+                    showNotificationsPermissionCallback);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -122,7 +126,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
         }
 
-        private void OnLocationSelectResult(object sender, Object obj)
+        private void OnLocationSelectResult(object sender, object obj)
         {
             var result = (ActivityResult) obj;
             var intent = result.Data;
@@ -149,7 +153,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 return;
             }
 
-            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
+            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) !=
+                Permission.Granted)
             {
                 _showNotificationsPromptCallback = ShowBatteryOptimisationDialog;
                 _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
@@ -162,7 +167,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private void OnBackupNowButtonClick(object sender, EventArgs e)
         {
-            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) != Permission.Granted)
+            if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) !=
+                Permission.Granted)
             {
                 _showNotificationsPromptCallback = BackupNow;
                 _showNotificationsResultLauncher.Launch(Manifest.Permission.PostNotifications);
@@ -177,7 +183,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             _preferences.AutoBackupTrigger = true;
             Toast.MakeText(Context, Resource.String.backupScheduled, ToastLength.Short).Show();
-            
+
             var request = new OneTimeWorkRequest.Builder(typeof(AutoBackupWorker)).Build();
             var manager = WorkManager.GetInstance(RequireContext());
             manager.EnqueueUniqueWork(AutoBackupWorker.Name, ExistingWorkPolicy.Replace!, request);
@@ -252,7 +258,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 dirName = "Unknown";
             }
 
-            _locationStatusText.Text = String.Format(GetString(Resource.String.locationSetTo), dirName);
+            _locationStatusText.Text = string.Format(GetString(Resource.String.locationSetTo), dirName);
         }
 
         private void UpdatePasswordStatusText()
@@ -270,7 +276,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _backupEnabledSwitch.Checked = _preferences.AutoBackupEnabled;
 
             var canBeChecked = _preferences.AutoBackupUri != null &&
-                (_preferences.DatabasePasswordBackup || _preferences.AutoBackupPasswordProtected != null);
+                               (_preferences.DatabasePasswordBackup ||
+                                _preferences.AutoBackupPasswordProtected != null);
 
             _backupEnabledSwitch.Enabled = _backupNowButton.Enabled = canBeChecked;
 

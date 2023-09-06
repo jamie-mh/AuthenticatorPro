@@ -15,12 +15,12 @@ namespace AuthenticatorPro.Core.Entity
         [Indexed]
         [Column("iconPackName")]
         public string IconPackName { get; set; }
-        
+
         [ProtoMember(1)]
         [Indexed]
         [Column("name")]
         public string Name { get; set; }
-        
+
         [ProtoMember(2)]
         [Column("data")]
         [JsonConverter(typeof(ByteArrayConverter))]

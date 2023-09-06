@@ -1,10 +1,10 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence;
 using System;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence;
 
 namespace AuthenticatorPro.Core.Service.Impl
 {
@@ -18,14 +18,14 @@ namespace AuthenticatorPro.Core.Service.Impl
             _iconPackRepository = iconPackRepository;
             _iconPackEntryRepository = iconPackEntryRepository;
         }
-        
+
         public async Task ImportPackAsync(IconPack pack)
         {
             if (pack == null)
             {
                 throw new ArgumentNullException(nameof(pack));
             }
-            
+
             if (pack.Icons == null)
             {
                 throw new ArgumentException("Pack must contain icons");

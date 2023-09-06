@@ -1,13 +1,13 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Linq;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Test.Converter.Fixture;
 using Moq;
-using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Converter

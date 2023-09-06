@@ -1,6 +1,13 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Timers;
 using Android;
 using Android.App;
 using Android.Content;
@@ -17,15 +24,6 @@ using AndroidX.Core.Content;
 using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;
 using AndroidX.Work;
-using AuthenticatorPro.Droid.Callback;
-using AuthenticatorPro.Droid.Extension;
-using AuthenticatorPro.Droid.Interface;
-using AuthenticatorPro.Droid.Interface.Adapter;
-using AuthenticatorPro.Droid.Interface.Fragment;
-using AuthenticatorPro.Droid.Interface.LayoutManager;
-using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.Shared.Util;
-using AuthenticatorPro.Droid.Util;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
@@ -33,7 +31,16 @@ using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Extension;
+using AuthenticatorPro.Droid.Interface;
+using AuthenticatorPro.Droid.Interface.Adapter;
+using AuthenticatorPro.Droid.Interface.Fragment;
+using AuthenticatorPro.Droid.Interface.LayoutManager;
+using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.QrCode.Reader;
+using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;
@@ -43,16 +50,8 @@ using Google.Android.Material.Internal;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Configuration = Android.Content.Res.Configuration;
-using Result = Android.App.Result;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
-using Timer = System.Timers.Timer;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 using Uri = Android.Net.Uri;
 using UriParser = AuthenticatorPro.Core.UriParser;
@@ -64,7 +63,7 @@ namespace AuthenticatorPro.Droid.Activity
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
         DataSchemes = new[] { "otpauth", "otpauth-migration" })]
-    internal class MainActivity : AsyncActivity, IOnApplyWindowInsetsListener
+    public class MainActivity : AsyncActivity, IOnApplyWindowInsetsListener
     {
         private const int PermissionCameraCode = 0;
 
@@ -92,6 +91,23 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestImportTotpAuthenticator = 17;
         private const int RequestImportUriList = 18;
 
+        // Data
+        private readonly Database _database;
+        private readonly IEnumerable<IBackupEncryption> _backupEncryptions;
+
+        private readonly IAuthenticatorService _authenticatorService;
+        private readonly IBackupService _backupService;
+        private readonly ICategoryService _categoryService;
+        private readonly ICustomIconService _customIconService;
+        private readonly IImportService _importService;
+        private readonly IRestoreService _restoreService;
+
+        private readonly IAuthenticatorView _authenticatorView;
+        private readonly ICustomIconView _customIconView;
+
+        private readonly IIconResolver _iconResolver;
+        private readonly ICustomIconDecoder _customIconDecoder;
+
         // Views
         private CoordinatorLayout _coordinatorLayout;
         private AppBarLayout _appBarLayout;
@@ -109,26 +125,9 @@ namespace AuthenticatorPro.Droid.Activity
         private AutoGridLayoutManager _authenticatorLayout;
         private ReorderableListTouchHelperCallback _authenticatorTouchHelperCallback;
 
-        // Data
-        private readonly Database _database;
-        private readonly IEnumerable<IBackupEncryption> _backupEncryptions;
-
-        private readonly IAuthenticatorService _authenticatorService;
-        private readonly IBackupService _backupService;
-        private readonly ICategoryService _categoryService;
-        private readonly ICustomIconService _customIconService;
-        private readonly IImportService _importService;
-        private readonly IRestoreService _restoreService;
-
-        private readonly IAuthenticatorView _authenticatorView;
-        private readonly ICustomIconView _customIconView;
-
         // State
         private SecureStorageWrapper _secureStorageWrapper;
         private PreferenceWrapper _preferences;
-        
-        private readonly IIconResolver _iconResolver;
-        private readonly ICustomIconDecoder _customIconDecoder;
 
         private Timer _timer;
         private DateTime _pauseTime;
@@ -142,7 +141,7 @@ namespace AuthenticatorPro.Droid.Activity
         public MainActivity() : base(Resource.Layout.activityMain)
         {
             _database = Dependencies.Resolve<Database>();
-            
+
             _iconResolver = Dependencies.Resolve<IIconResolver>();
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
             _backupEncryptions = Dependencies.ResolveAll<IBackupEncryption>();
@@ -221,13 +220,7 @@ namespace AuthenticatorPro.Droid.Activity
             OnBackPressedDispatcher.AddCallback(backPressCallback);
 
             _timer = new Timer { Interval = 1000, AutoReset = true };
-            _timer.Elapsed += delegate
-            {
-                RunOnUiThread(delegate
-                {
-                    _authenticatorListAdapter.Tick();
-                });
-            };
+            _timer.Elapsed += delegate { RunOnUiThread(delegate { _authenticatorListAdapter.Tick(); }); };
 
             _shouldLoadFromPersistenceOnNextOpen = true;
 
@@ -245,7 +238,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorList.Visibility = ViewStates.Invisible;
             });
 
-            switch (await _database.IsOpen(Database.Origin.Activity))
+            switch (await _database.IsOpenAsync(Database.Origin.Activity))
             {
                 // Unlocked, no need to do anything
                 case true:
@@ -266,7 +259,7 @@ namespace AuthenticatorPro.Droid.Activity
                     {
                         _unlockFragmentOpen = false;
 
-                        if (!await _database.IsOpen(Database.Origin.Activity))
+                        if (!await _database.IsOpenAsync(Database.Origin.Activity))
                         {
                             Finish();
                         }
@@ -283,7 +276,7 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     try
                     {
-                        await _database.Open(null, Database.Origin.Activity);
+                        await _database.OpenAsync(null, Database.Origin.Activity);
                     }
                     catch (Exception e)
                     {
@@ -377,7 +370,7 @@ namespace AuthenticatorPro.Droid.Activity
                 case RequestImportAndOtp:
                     await ImportFromUri(new AndOtpBackupConverter(_iconResolver), intent.Data);
                     break;
-                
+
                 case RequestImportFreeOtp:
                     await ImportFromUri(new FreeOtpBackupConverter(_iconResolver), intent.Data);
                     break;
@@ -397,7 +390,7 @@ namespace AuthenticatorPro.Droid.Activity
                 case RequestImportTwoFas:
                     await ImportFromUri(new TwoFasBackupConverter(_iconResolver), intent.Data);
                     break;
-                
+
                 case RequestImportLastPass:
                     await ImportFromUri(new LastPassBackupConverter(_iconResolver), intent.Data);
                     break;
@@ -545,11 +538,8 @@ namespace AuthenticatorPro.Droid.Activity
                 _shouldLoadFromPersistenceOnNextOpen = true;
                 StartActivity(typeof(CategoriesActivity));
             };
-            
-            fragment.IconPacksClicked += delegate
-            {
-                StartActivity(typeof(IconPacksActivity));
-            };
+
+            fragment.IconPacksClicked += delegate { StartActivity(typeof(IconPacksActivity)); };
 
             fragment.SettingsClicked += delegate
             {
@@ -560,15 +550,9 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 var sub = new AboutBottomSheet();
 
-                sub.AboutClicked += delegate
-                {
-                    StartActivity(typeof(AboutActivity));
-                };
+                sub.AboutClicked += delegate { StartActivity(typeof(AboutActivity)); };
 
-                sub.SupportClicked += delegate
-                {
-                    StartWebBrowserActivity(GetString(Resource.String.buyMeACoffee));
-                };
+                sub.SupportClicked += delegate { StartWebBrowserActivity(GetString(Resource.String.buyMeACoffee)); };
 
                 sub.RateClicked += delegate
                 {
@@ -584,10 +568,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                 };
 
-                sub.ViewGitHubClicked += delegate
-                {
-                    StartWebBrowserActivity(GetString(Resource.String.githubRepo));
-                };
+                sub.ViewGitHubClicked += delegate { StartWebBrowserActivity(GetString(Resource.String.githubRepo)); };
 
                 sub.Show(SupportFragmentManager, sub.Tag);
             };
@@ -654,7 +635,9 @@ namespace AuthenticatorPro.Droid.Activity
                 }
             }
 
+#pragma warning disable CA1416
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+#pragma warning restore CA1416
         }
 
         #endregion
@@ -668,7 +651,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                await _database.Open(password, Database.Origin.Activity);
+                await _database.OpenAsync(password, Database.Origin.Activity);
             }
             catch (Exception e)
             {
@@ -693,7 +676,7 @@ namespace AuthenticatorPro.Droid.Activity
             if (_shouldLoadFromPersistenceOnNextOpen)
             {
                 _shouldLoadFromPersistenceOnNextOpen = false;
-                
+
                 await _authenticatorView.LoadFromPersistenceAsync();
                 await _customIconView.LoadFromPersistenceAsync();
 
@@ -750,7 +733,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             builder.SetPositiveButton(Resource.String.retry, async delegate
             {
-                await _database.Close(Database.Origin.Activity);
+                await _database.CloseAsync(Database.Origin.Activity);
                 Recreate();
             });
 
@@ -813,7 +796,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void InitAuthenticatorList()
         {
-            _authenticatorListAdapter = 
+            _authenticatorListAdapter =
                 new AuthenticatorListAdapter(this, _authenticatorView, _customIconView, IsDark)
                 {
                     HasStableIds = true
@@ -1052,7 +1035,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
-        
+
         private async void OnAuthenticatorRefreshClicked(object sender, string secret)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
@@ -1063,7 +1046,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await _authenticatorService.IncrementCounterAsync(auth);
-            
+
             var position = _authenticatorView.IndexOf(auth);
             _authenticatorListAdapter.NotifyItemChanged(position);
         }
@@ -1143,7 +1126,10 @@ namespace AuthenticatorPro.Droid.Activity
                 {
                     var subFragment = new ScanQrCodeBottomSheet();
                     subFragment.FromCameraClicked += delegate { RequestPermissionThenScanQrCode(); };
-                    subFragment.FromGalleryClicked += delegate { StartFilePickActivity("image/*", RequestQrCodeFromImage); };
+                    subFragment.FromGalleryClicked += delegate
+                    {
+                        StartFilePickActivity("image/*", RequestQrCodeFromImage);
+                    };
                     subFragment.Show(SupportFragmentManager, subFragment.Tag);
                 }
                 else
@@ -1153,15 +1139,9 @@ namespace AuthenticatorPro.Droid.Activity
             };
 
             fragment.EnterKeyClicked += OpenAddDialog;
-            fragment.RestoreClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestRestore);
-            };
+            fragment.RestoreClicked += delegate { StartFilePickActivity("*/*", RequestRestore); };
 
-            fragment.ImportClicked += delegate
-            {
-                OpenImportMenu();
-            };
+            fragment.ImportClicked += delegate { OpenImportMenu(); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1327,7 +1307,8 @@ namespace AuthenticatorPro.Droid.Activity
             var fragment = new ImportBottomSheet();
             fragment.GoogleAuthenticatorClicked += delegate
             {
-                StartWebBrowserActivity(GetString(Resource.String.githubRepo) + "/wiki/Importing-from-Google-Authenticator");
+                StartWebBrowserActivity(GetString(Resource.String.githubRepo) +
+                                        "/wiki/Importing-from-Google-Authenticator");
             };
 
             // Use */* mime-type for most binary files because some files might not show on older Android versions
@@ -1338,45 +1319,21 @@ namespace AuthenticatorPro.Droid.Activity
                 StartFilePickActivity("*/*", RequestImportAuthenticatorPlus);
             };
 
-            fragment.AndOtpClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportAndOtp);
-            };
-            
-            fragment.FreeOtpClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportFreeOtp);
-            };
+            fragment.AndOtpClicked += delegate { StartFilePickActivity("*/*", RequestImportAndOtp); };
 
-            fragment.FreeOtpPlusClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportFreeOtpPlus);
-            };
+            fragment.FreeOtpClicked += delegate { StartFilePickActivity("*/*", RequestImportFreeOtp); };
 
-            fragment.AegisClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportAegis);
-            };
+            fragment.FreeOtpPlusClicked += delegate { StartFilePickActivity("*/*", RequestImportFreeOtpPlus); };
 
-            fragment.BitwardenClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportBitwarden);
-            };
+            fragment.AegisClicked += delegate { StartFilePickActivity("*/*", RequestImportAegis); };
 
-            fragment.WinAuthClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportWinAuth);
-            };
+            fragment.BitwardenClicked += delegate { StartFilePickActivity("*/*", RequestImportBitwarden); };
 
-            fragment.TwoFasClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportTwoFas);
-            };
-            
-            fragment.LastPassClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportLastPass);
-            };
+            fragment.WinAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportWinAuth); };
+
+            fragment.TwoFasClicked += delegate { StartFilePickActivity("*/*", RequestImportTwoFas); };
+
+            fragment.LastPassClicked += delegate { StartFilePickActivity("*/*", RequestImportLastPass); };
 
             fragment.AuthyClicked += delegate
             {
@@ -1390,7 +1347,8 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.BlizzardAuthenticatorClicked += delegate
             {
-                StartWebBrowserActivity(GetString(Resource.String.githubRepo) + "/wiki/Importing-from-Blizzard-Authenticator");
+                StartWebBrowserActivity(GetString(Resource.String.githubRepo) +
+                                        "/wiki/Importing-from-Blizzard-Authenticator");
             };
 
             fragment.SteamClicked += delegate
@@ -1398,10 +1356,7 @@ namespace AuthenticatorPro.Droid.Activity
                 StartWebBrowserActivity(GetString(Resource.String.githubRepo) + "/wiki/Importing-from-Steam");
             };
 
-            fragment.UriListClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportUriList);
-            };
+            fragment.UriListClicked += delegate { StartFilePickActivity("*/*", RequestImportUriList); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
@@ -1513,7 +1468,7 @@ namespace AuthenticatorPro.Droid.Activity
 
                 foreach (var failure in conversionResult.Failures)
                 {
-                    var message = String.Format(
+                    var message = string.Format(
                         GetString(Resource.String.importConversionError), failure.Description, failure.Error);
 
                     new MaterialAlertDialogBuilder(this)
@@ -1621,7 +1576,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             await _authenticatorView.LoadFromPersistenceAsync();
             await _customIconView.LoadFromPersistenceAsync();
-            
+
             await SwitchCategory(null);
 
             RunOnUiThread(delegate
@@ -1645,10 +1600,7 @@ namespace AuthenticatorPro.Droid.Activity
                     FormattableString.Invariant($"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{fileExtension}"));
             }
 
-            fragment.BackupFileClicked += delegate
-            {
-                ShowPicker("*/*", RequestBackupFile, Backup.FileExtension);
-            };
+            fragment.BackupFileClicked += delegate { ShowPicker("*/*", RequestBackupFile, Backup.FileExtension); };
 
             fragment.BackupHtmlFileClicked += delegate
             {
@@ -1770,10 +1722,7 @@ namespace AuthenticatorPro.Droid.Activity
             _lastBackupReminderTime = DateTime.UtcNow;
             var snackbar = Snackbar.Make(_coordinatorLayout, Resource.String.backupReminder, Snackbar.LengthLong);
             snackbar.SetAnchorView(_addButton);
-            snackbar.SetAction(Resource.String.backupNow, delegate
-            {
-                OpenBackupMenu();
-            });
+            snackbar.SetAction(Resource.String.backupNow, delegate { OpenBackupMenu(); });
 
             var callback = new SnackbarCallback();
             callback.Dismissed += (_, e) =>
@@ -1799,7 +1748,8 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnAddDialogSubmit(object sender, InputAuthenticatorBottomSheet.InputAuthenticatorEventArgs args)
+        private async void OnAddDialogSubmit(object sender,
+            InputAuthenticatorBottomSheet.InputAuthenticatorEventArgs args)
         {
             var dialog = (AddAuthenticatorBottomSheet) sender;
 
@@ -1866,15 +1816,16 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnEditDialogSubmit(object sender, InputAuthenticatorBottomSheet.InputAuthenticatorEventArgs args)
+        private async void OnEditDialogSubmit(object sender,
+            InputAuthenticatorBottomSheet.InputAuthenticatorEventArgs args)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.InitialSecret);
-            
+
             if (auth == null)
             {
                 return;
             }
-            
+
             var dialog = (EditAuthenticatorBottomSheet) sender;
             var position = _authenticatorView.IndexOf(auth);
 
@@ -1886,7 +1837,7 @@ namespace AuthenticatorPro.Droid.Activity
             auth.Digits = args.Authenticator.Digits;
             auth.Period = args.Authenticator.Period;
             auth.Counter = args.Authenticator.Counter;
-            
+
             try
             {
                 if (args.InitialSecret != args.Authenticator.Secret)
@@ -1895,7 +1846,7 @@ namespace AuthenticatorPro.Droid.Activity
                     await _authenticatorService.ChangeSecretAsync(auth, args.Authenticator.Secret);
                     auth.Secret = args.Authenticator.Secret;
                 }
-                
+
                 await _authenticatorService.UpdateAsync(auth);
             }
             catch (EntityDuplicateException)
@@ -1909,12 +1860,12 @@ namespace AuthenticatorPro.Droid.Activity
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
-            
+
             await _authenticatorView.LoadFromPersistenceAsync();
-            
+
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
             _preferences.BackupRequired = BackupRequirement.Urgent;
-            
+
             dialog.Dismiss();
         }
 
@@ -1968,7 +1919,8 @@ namespace AuthenticatorPro.Droid.Activity
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
 
-        private async void OnIconPackEntrySelected(object sender, ChangeIconBottomSheet.IconPackEntrySelectedEventArgs args)
+        private async void OnIconPackEntrySelected(object sender,
+            ChangeIconBottomSheet.IconPackEntrySelectedEventArgs args)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == args.Secret);
 
@@ -1979,7 +1931,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             SetLoading(true);
             var stream = new MemoryStream();
-            
+
             try
             {
                 await args.Icon.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
@@ -1996,7 +1948,7 @@ namespace AuthenticatorPro.Droid.Activity
                 stream.Close();
                 SetLoading(false);
             }
-            
+
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
 
@@ -2089,10 +2041,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            RunOnUiThread(delegate
-            {
-                _authenticatorListAdapter.NotifyDataSetChanged();
-            });
+            RunOnUiThread(delegate { _authenticatorListAdapter.NotifyDataSetChanged(); });
 
             CheckEmptyState();
         }

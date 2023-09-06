@@ -3,7 +3,7 @@
 
 namespace AuthenticatorPro.Droid.Interface.Adapter
 {
-    internal interface IReorderableListAdapter
+    public interface IReorderableListAdapter
     {
         public void MoveItemView(int oldPosition, int newPosition);
         public void OnMovementStarted();

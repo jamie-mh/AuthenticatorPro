@@ -9,7 +9,7 @@ using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface
 {
-    internal class GridSpacingItemDecoration : RecyclerView.ItemDecoration
+    public class GridSpacingItemDecoration : RecyclerView.ItemDecoration
     {
         private readonly GridLayoutManager _layoutManager;
         private readonly int _spacing;
@@ -48,7 +48,7 @@ namespace AuthenticatorPro.Droid.Interface
             else
             {
                 outRect.Left = column * _spacing / _layoutManager.SpanCount;
-                outRect.Right = _spacing - ((column + 1) * _spacing / _layoutManager.SpanCount);
+                outRect.Right = _spacing - (column + 1) * _spacing / _layoutManager.SpanCount;
             }
 
             outRect.Bottom = _spacing;

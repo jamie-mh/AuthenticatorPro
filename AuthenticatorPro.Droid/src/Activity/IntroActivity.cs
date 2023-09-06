@@ -13,14 +13,16 @@ using Google.Android.Material.Navigation;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class IntroActivity : BaseActivity
+    public class IntroActivity : BaseActivity
     {
         private int _pageCount;
         private ViewPager2 _pager;
         private FragmentStateAdapter _adapter;
         private BottomNavigationView _nav;
 
-        public IntroActivity() : base(Resource.Layout.activityIntro) { }
+        public IntroActivity() : base(Resource.Layout.activityIntro)
+        {
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

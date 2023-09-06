@@ -1,32 +1,32 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Generator;
-using AuthenticatorPro.Core.Util;
-using ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Generator;
+using AuthenticatorPro.Core.Util;
+using ProtoBuf;
 
 namespace AuthenticatorPro.Core
 {
     public static partial class UriParser
     {
-        [GeneratedRegex("^otpauth-migration:\\/\\/offline\\?data=(.*)$")]
+        [GeneratedRegex(@"^otpauth-migration://offline\?data=(.*)$")]
         private static partial Regex OtpAuthMigrationRegex();
 
         [GeneratedRegex("([^?=&]+)(=([^&]*))?")]
         private static partial Regex QueryStringRegex();
 
-        [GeneratedRegex("^otpauth:\\/\\/([a-z]+)\\/([^?]*)(.*)$")]
+        [GeneratedRegex(@"^otpauth://([a-z]+)/([^?]*)(.*)$")]
         private static partial Regex OtpAuthUriRegex();
 
         [GeneratedRegex("^(.*?):(.*)$")]
         private static partial Regex UsernameIssuerRegex();
 
-        [GeneratedRegex("^motp:\\/\\/(.*?):(.*?)\\?secret=([a-fA-F\\d]+)$")]
+        [GeneratedRegex(@"^motp://(.*?):(.*?)\?secret=([a-fA-F\d]+)$")]
         private static partial Regex MotpRegex();
 
         private static UriParseResult ParseMotpUri(string uri, IIconResolver iconResolver)
@@ -173,7 +173,10 @@ namespace AuthenticatorPro.Core
                 throw new ArgumentException("Secret parameter is required");
             }
 
-            var icon = iconResolver.FindServiceKeyByName(args.TryGetValue("icon", out var iconParam) ? iconParam : issuer);
+            var icon = iconResolver.FindServiceKeyByName(args.TryGetValue("icon", out var iconParam)
+                ? iconParam
+                : issuer);
+            
             var secret = SecretUtil.Clean(args["secret"], type);
 
             var pinLength = 0;

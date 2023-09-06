@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #nullable enable
-using Newtonsoft.Json;
 using System;
+using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Core
 {

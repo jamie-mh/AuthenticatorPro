@@ -10,7 +10,7 @@ using Java.Lang;
 
 namespace AuthenticatorPro.WearOS.Interface
 {
-    internal class CategoryListAdapter : WearableNavigationDrawerView.WearableNavigationDrawerAdapter
+    public class CategoryListAdapter : WearableNavigationDrawerView.WearableNavigationDrawerAdapter
     {
         private readonly Context _context;
         private readonly CategoryView _categoryView;
@@ -20,6 +20,8 @@ namespace AuthenticatorPro.WearOS.Interface
             _context = context;
             _categoryView = categoryView;
         }
+
+        public override int Count => _categoryView.Count + 1;
 
         public override Drawable GetItemDrawable(int pos)
         {
@@ -39,7 +41,5 @@ namespace AuthenticatorPro.WearOS.Interface
                 ? new String()
                 : new String(item.Name);
         }
-
-        public override int Count => _categoryView.Count + 1;
     }
 }

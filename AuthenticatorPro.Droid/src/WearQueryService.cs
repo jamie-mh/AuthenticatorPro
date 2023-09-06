@@ -3,19 +3,19 @@
 
 #if !FDROID
 
-using Android.App;
-using Android.Gms.Wearable;
-using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.Shared.Wear;
-using AuthenticatorPro.Core.Service;
-using Java.IO;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
+using Android.Gms.Wearable;
+using AuthenticatorPro.Core.Service;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Shared.Wear;
+using Java.IO;
+using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Droid
 {
@@ -25,17 +25,17 @@ namespace AuthenticatorPro.Droid
         DataScheme = "wear",
         DataHost = "*"
     )]
-    internal class WearQueryService : WearableListenerService
+    public class WearQueryService : WearableListenerService
     {
         private const string GetSyncBundleCapability = "get_sync_bundle";
 
         private readonly Database _database;
         private readonly SemaphoreSlim _lock;
-        private SecureStorageWrapper _secureStorageWrapper;
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICategoryService _categoryService;
         private readonly ICustomIconService _customIconService;
+        private SecureStorageWrapper _secureStorageWrapper;
 
         public WearQueryService()
         {
@@ -52,7 +52,7 @@ namespace AuthenticatorPro.Droid
             _categoryService = container.Resolve<ICategoryService>();
             _customIconService = container.Resolve<ICustomIconService>();
         }
-        
+
         public override void OnCreate()
         {
             base.OnCreate();
@@ -62,12 +62,12 @@ namespace AuthenticatorPro.Droid
         private async Task OpenDatabaseAsync()
         {
             var password = _secureStorageWrapper.GetDatabasePassword();
-            await _database.Open(password, Database.Origin.Wear);
+            await _database.OpenAsync(password, Database.Origin.Wear);
         }
 
         private async Task CloseDatabaseAsync()
         {
-            await _database.Close(Database.Origin.Wear);
+            await _database.CloseAsync(Database.Origin.Wear);
         }
 
         private async Task<T> UseDatabaseAsync<T>(Func<Task<T>> action)

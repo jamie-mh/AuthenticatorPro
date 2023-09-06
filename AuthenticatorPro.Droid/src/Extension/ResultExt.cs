@@ -1,6 +1,5 @@
 using Android.Content;
 using AuthenticatorPro.Core.Backup;
-using System;
 
 namespace AuthenticatorPro.Droid.Extension
 {
@@ -14,10 +13,10 @@ namespace AuthenticatorPro.Droid.Extension
             }
 
             return result.UpdatedAuthenticatorCount > 0
-                ? String.Format(context.GetString(Resource.String.restoredFromBackupUpdated),
+                ? string.Format(context.GetString(Resource.String.restoredFromBackupUpdated),
                     result.AddedAuthenticatorCount,
                     result.AddedCategoryCount, result.UpdatedAuthenticatorCount)
-                : String.Format(context.GetString(Resource.String.restoredFromBackup), result.AddedAuthenticatorCount,
+                : string.Format(context.GetString(Resource.String.restoredFromBackup), result.AddedAuthenticatorCount,
                     result.AddedCategoryCount);
         }
 
@@ -25,7 +24,7 @@ namespace AuthenticatorPro.Droid.Extension
         {
             return result.IsVoid()
                 ? context.GetString(Resource.String.noAuthenticators)
-                : String.Format(context.GetString(Resource.String.backupSuccess), result.FileName);
+                : string.Format(context.GetString(Resource.String.backupSuccess), result.FileName);
         }
     }
 }

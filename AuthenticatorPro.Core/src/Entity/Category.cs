@@ -34,6 +34,7 @@ namespace AuthenticatorPro.Core.Entity
         [MaxLength(NameMaxLength)]
         public string Name { get; set; }
 
-        [Column("ranking")] public int Ranking { get; set; }
+        [Column("ranking")]
+        public int Ranking { get; set; }
     }
 }

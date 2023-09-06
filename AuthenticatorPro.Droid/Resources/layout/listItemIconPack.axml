@@ -6,7 +6,7 @@
     android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,12 +32,12 @@
             android:layout_marginBottom="12dp"
             android:textAppearance="?attr/textAppearanceBody2"
             android:id="@+id/textDescription"/>
-        
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            
+
             <ImageButton
                 android:id="@+id/buttonDelete"
                 android:src="@drawable/baseline_delete_24"

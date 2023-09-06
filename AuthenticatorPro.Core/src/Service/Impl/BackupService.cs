@@ -1,9 +1,9 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Persistence;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Service.Impl
 {

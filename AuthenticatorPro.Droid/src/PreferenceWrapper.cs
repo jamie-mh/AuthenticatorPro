@@ -2,15 +2,19 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
-using AuthenticatorPro.Droid.Shared;
+using Android.Net;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup;
-using Uri = Android.Net.Uri;
+using AuthenticatorPro.Droid.Shared;
 
 namespace AuthenticatorPro.Droid
 {
-    internal class PreferenceWrapper : BasePreferenceWrapper
+    public class PreferenceWrapper : BasePreferenceWrapper
     {
+        public PreferenceWrapper(Context context) : base(context)
+        {
+        }
+
         #region Standard preferences
 
         private const string ShowBackupRemindersKey = "pref_showBackupReminders";
@@ -129,7 +133,7 @@ namespace AuthenticatorPro.Droid
             get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
             set => SetPreference(CodeGroupSizeKey, value.ToString());
         }
-        
+
         private const string ShowUsernamesKey = "pref_showUsernames";
         private const bool ShowUsernamesDefault = true;
 
@@ -138,7 +142,7 @@ namespace AuthenticatorPro.Droid
             get => Preferences.GetBoolean(ShowUsernamesKey, ShowUsernamesDefault);
             set => SetPreference(ShowUsernamesKey, value);
         }
-        
+
         private const string DynamicColourKey = "pref_dynamicColour";
         private const bool DynamicColourDefault = false;
 
@@ -261,7 +265,5 @@ namespace AuthenticatorPro.Droid
         }
 
         #endregion
-
-        public PreferenceWrapper(Context context) : base(context) { }
     }
 }

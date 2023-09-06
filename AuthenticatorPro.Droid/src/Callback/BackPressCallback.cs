@@ -1,17 +1,18 @@
-using AndroidX.Activity;
 using System;
+using AndroidX.Activity;
 
 namespace AuthenticatorPro.Droid.Callback
 {
     public class BackPressCallback : OnBackPressedCallback
     {
-        public event EventHandler BackPressed;
         private readonly bool _enabled;
 
         public BackPressCallback(bool enabled) : base(enabled)
         {
             _enabled = enabled;
         }
+
+        public event EventHandler BackPressed;
 
         public override void HandleOnBackPressed()
         {

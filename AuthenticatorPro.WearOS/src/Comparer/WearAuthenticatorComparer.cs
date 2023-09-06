@@ -1,14 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Droid.Shared.Wear;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AuthenticatorPro.Droid.Shared.Wear;
 
 namespace AuthenticatorPro.WearOS.Comparer
 {
-    internal class WearAuthenticatorComparer : IEqualityComparer<WearAuthenticator>
+    public class WearAuthenticatorComparer : IEqualityComparer<WearAuthenticator>
     {
         public bool Equals(WearAuthenticator x, WearAuthenticator y)
         {

@@ -1,6 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.OS;
 using Android.Text;
 using Android.Views;
@@ -8,15 +9,11 @@ using Android.Views.InputMethods;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.TextField;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class PinBottomSheet : BottomSheet
+    public class PinBottomSheet : BottomSheet
     {
-        public event EventHandler CancelClicked;
-        public event EventHandler<string> PinEntered;
-
         private TextInputEditText _pinText;
         private TextInputLayout _pinTextLayout;
 
@@ -25,7 +22,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         private int _length;
 
-        public PinBottomSheet() : base(Resource.Layout.sheetPin, Resource.String.pin) { }
+        public PinBottomSheet() : base(Resource.Layout.sheetPin, Resource.String.pin)
+        {
+        }
+
+        public event EventHandler CancelClicked;
+        public event EventHandler<string> PinEntered;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -66,7 +68,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         {
             if (_pinText.Text.Length < _length)
             {
-                var error = String.Format(GetString(Resource.String.pinTooShort), _length);
+                var error = string.Format(GetString(Resource.String.pinTooShort), _length);
                 _pinTextLayout.Error = error;
                 return;
             }

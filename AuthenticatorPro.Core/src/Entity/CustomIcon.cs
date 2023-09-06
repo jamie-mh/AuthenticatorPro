@@ -12,7 +12,9 @@ namespace AuthenticatorPro.Core.Entity
         public const char Prefix = '@';
         public const int MaxSize = 128;
 
-        [Column("id")] [PrimaryKey] public string Id { get; set; }
+        [Column("id")]
+        [PrimaryKey]
+        public string Id { get; set; }
 
         [Column("data")]
         [JsonConverter(typeof(ByteArrayConverter))]

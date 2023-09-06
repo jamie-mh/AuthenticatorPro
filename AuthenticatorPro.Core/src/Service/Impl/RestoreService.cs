@@ -1,8 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Backup;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Backup;
 
 namespace AuthenticatorPro.Core.Service.Impl
 {
@@ -63,7 +63,8 @@ namespace AuthenticatorPro.Core.Service.Impl
 
             if (backup.AuthenticatorCategories != null)
             {
-                var (added, updated) = await _categoryService.AddOrUpdateManyBindingsAsync(backup.AuthenticatorCategories);
+                var (added, updated) =
+                    await _categoryService.AddOrUpdateManyBindingsAsync(backup.AuthenticatorCategories);
                 result.AddedAuthenticatorCategoryCount = added;
                 result.UpdatedAuthenticatorCategoryCount = updated;
             }
@@ -74,7 +75,7 @@ namespace AuthenticatorPro.Core.Service.Impl
             }
 
             await _customIconService.CullUnusedAsync();
-            
+
             return result;
         }
     }

@@ -13,9 +13,11 @@ using Google.Android.Material.Card;
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class GuideActivity : BaseActivity
+    public class GuideActivity : BaseActivity
     {
-        public GuideActivity() : base(Resource.Layout.activityGuide) { }
+        public GuideActivity() : base(Resource.Layout.activityGuide)
+        {
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

@@ -1,12 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Entity;
-using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Entity;
+using QRCoder;
 
 namespace AuthenticatorPro.Core.Backup
 {
@@ -70,14 +70,14 @@ namespace AuthenticatorPro.Core.Backup
 
                 var qrCode = await GetQrCodeDataAsync(uri);
 
-                itemsHtml.Append($@"
-                    <tr>
-                        <td>{auth.Issuer}</td>
-                        <td>{auth.Username}</td>
-                        <td><code>{uri}</code></td>
-                        <td><img src=""data:image/png;base64,{qrCode}""></td>
-                    </tr>
-                ");
+                itemsHtml.Append($"""
+                                  <tr>
+                                      <td>{auth.Issuer}</td>
+                                      <td>{auth.Username}</td>
+                                      <td><code>{uri}</code></td>
+                                      <td><img src="data:image/png;base64,{qrCode}"></td>
+                                  </tr>
+                                  """);
             }
 
             var contents = template.Replace("%ITEMS", itemsHtml.ToString());

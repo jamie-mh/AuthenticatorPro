@@ -1,6 +1,8 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using Android.Content;
 using Android.OS;
 using Android.Text;
 using Android.Views;
@@ -15,21 +17,14 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.TextField;
 using Java.Lang;
-using System;
 using Exception = System.Exception;
-using String = System.String;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal abstract class InputAuthenticatorBottomSheet : BottomSheet
+    public abstract class InputAuthenticatorBottomSheet : BottomSheet
     {
-        public event EventHandler<InputAuthenticatorEventArgs> SubmitClicked;
-        
-        public string SecretError
-        {
-            set => _secretLayout.Error = value;
-        }
-        
+        private readonly IIconResolver _iconResolver;
+
         private LinearLayout _advancedLayout;
         private MaterialButton _advancedButton;
 
@@ -44,7 +39,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private ArrayAdapter _typeAdapter;
         private TextInputLayout _typeLayout;
         private MaterialAutoCompleteTextView _typeText;
-        
+
         private ArrayAdapter _algorithmAdapter;
         private TextInputLayout _algorithmLayout;
         private MaterialAutoCompleteTextView _algorithmText;
@@ -56,18 +51,24 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         private EditText _periodText;
         private EditText _digitsText;
         private EditText _counterText;
-        
+
         private AuthenticatorType _type;
         private HashAlgorithm _algorithm;
-        
+
         protected Authenticator InitialAuthenticator;
-        private readonly IIconResolver _iconResolver;
 
         protected InputAuthenticatorBottomSheet(int layout, int title) : base(layout, title)
         {
             _iconResolver = Dependencies.Resolve<IIconResolver>();
         }
-        
+
+        public string SecretError
+        {
+            set => _secretLayout.Error = value;
+        }
+
+        public event EventHandler<InputAuthenticatorEventArgs> SubmitClicked;
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = base.OnCreateView(inflater, container, savedInstanceState);
@@ -126,33 +127,30 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                     return;
                 }
 
-                var imm = (InputMethodManager) Activity.GetSystemService(Android.Content.Context.InputMethodService);
+                var imm = (InputMethodManager) Activity.GetSystemService(Context.InputMethodService);
                 imm.HideSoftInputFromWindow(_secretText.WindowToken, HideSoftInputFlags.None);
             };
 
             var cancelButton = view.FindViewById<MaterialButton>(Resource.Id.buttonCancel);
-            cancelButton.Click += delegate
-            {
-                Dismiss();
-            };
+            cancelButton.Click += delegate { Dismiss(); };
 
             var submitBottom = view.FindViewById<MaterialButton>(Resource.Id.buttonSubmit);
             submitBottom.Click += OnAddButtonClicked;
-            
+
             // Load initial values
             _type = InitialAuthenticator.Type;
             _algorithm = InitialAuthenticator.Algorithm;
-           
+
             UpdateType();
             UpdateLayoutForType();
             UpdateAlgorithm();
-            
+
             // Force text cursor to end
             if (InitialAuthenticator.Issuer != null)
             {
                 _issuerText.Append(InitialAuthenticator.Issuer);
             }
-            
+
             _usernameText.Text = InitialAuthenticator.Username;
             _secretText.Text = InitialAuthenticator.Secret;
             _pinText.Text = InitialAuthenticator.Pin;
@@ -206,10 +204,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 _pinText.SetFilters(new IInputFilter[] { new InputFilterLengthFilter(_type.GetMaxPinLength()) });
             }
 
-            _advancedButton.Visibility = _advancedLayout.Visibility == ViewStates.Gone && ShouldShowAdvancedOptions(_type)
-                ? ViewStates.Visible
-                : ViewStates.Gone;
-            
+            _advancedButton.Visibility =
+                _advancedLayout.Visibility == ViewStates.Gone && ShouldShowAdvancedOptions(_type)
+                    ? ViewStates.Visible
+                    : ViewStates.Gone;
+
             var hasVariableDigits = _type.GetMinDigits() != _type.GetMaxDigits();
 
             _digitsLayout.Visibility = hasVariableDigits
@@ -219,12 +218,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _periodLayout.Visibility = _type.HasVariablePeriod()
                 ? ViewStates.Visible
                 : ViewStates.Gone;
-            
+
             _counterLayout.Visibility = _type.GetGenerationMethod() == GenerationMethod.Counter
                 ? ViewStates.Visible
                 : ViewStates.Gone;
         }
-        
+
         private void UpdateType()
         {
             var position = _type switch
@@ -235,7 +234,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 AuthenticatorType.YandexOtp => 4,
                 _ => 0
             };
-            
+
             _typeText.SetText((ICharSequence) _typeAdapter.GetItem(position), false);
         }
 
@@ -248,7 +247,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 _ => HashAlgorithm.Sha1
             };
         }
-        
+
         private void UpdateAlgorithm()
         {
             var position = _algorithm switch
@@ -257,10 +256,10 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 HashAlgorithm.Sha512 => 2,
                 _ => 0
             };
-            
+
             _algorithmText.SetText((ICharSequence) _algorithmAdapter.GetItem(position), false);
         }
-        
+
         private void OnAdvancedButtonClick(object sender, EventArgs e)
         {
             if (!ShouldShowAdvancedWarning())
@@ -268,18 +267,15 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 ShowAdvancedOptions();
                 return;
             }
-            
+
             var builder = new MaterialAlertDialogBuilder(RequireContext());
             builder.SetMessage(Resource.String.advancedOptionsWarning);
             builder.SetTitle(Resource.String.warning);
             builder.SetIcon(Resource.Drawable.baseline_warning_24);
             builder.SetCancelable(true);
-            
-            builder.SetPositiveButton(Resource.String.ok, delegate
-            {
-                ShowAdvancedOptions();
-            });
-            
+
+            builder.SetPositiveButton(Resource.String.ok, delegate { ShowAdvancedOptions(); });
+
             builder.SetNegativeButton(Resource.String.cancel, delegate { });
 
             var dialog = builder.Create();
@@ -315,13 +311,13 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 }
                 else if (pin.Length < _type.GetMinPinLength())
                 {
-                    var error = String.Format(GetString(Resource.String.pinTooShort), _type.GetMinPinLength());
+                    var error = string.Format(GetString(Resource.String.pinTooShort), _type.GetMinPinLength());
                     _pinLayout.Error = error;
                     isValid = false;
                 }
                 else if (pin.Length > _type.GetMaxPinLength())
                 {
-                    var error = String.Format(GetString(Resource.String.pinTooLong), _type.GetMaxPinLength());
+                    var error = string.Format(GetString(Resource.String.pinTooLong), _type.GetMaxPinLength());
                     _pinLayout.Error = error;
                     isValid = false;
                 }
@@ -348,22 +344,22 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 isValid = false;
             }
 
-            if (!Int32.TryParse(_digitsText.Text, out var digits) || digits < _type.GetMinDigits() ||
+            if (!int.TryParse(_digitsText.Text, out var digits) || digits < _type.GetMinDigits() ||
                 digits > _type.GetMaxDigits())
             {
-                var digitsError = String.Format(GetString(Resource.String.digitsInvalid), _type.GetMinDigits(),
+                var digitsError = string.Format(GetString(Resource.String.digitsInvalid), _type.GetMinDigits(),
                     _type.GetMaxDigits());
                 _digitsLayout.Error = digitsError;
                 isValid = false;
             }
 
-            if (!Int32.TryParse(_periodText.Text, out var period) || period <= 0)
+            if (!int.TryParse(_periodText.Text, out var period) || period <= 0)
             {
                 _periodLayout.Error = GetString(Resource.String.periodInvalid);
                 isValid = false;
             }
-            
-            if (!Int32.TryParse(_counterText.Text, out var counter) || period <= 0)
+
+            if (!int.TryParse(_counterText.Text, out var counter) || period <= 0)
             {
                 _counterLayout.Error = GetString(Resource.String.counterInvalid);
                 isValid = false;
@@ -394,7 +390,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         protected abstract bool ShouldShowAdvancedOptions(AuthenticatorType type);
         protected abstract bool ShouldShowAdvancedWarning();
-        
+
         public class InputAuthenticatorEventArgs : EventArgs
         {
             public readonly string InitialSecret;

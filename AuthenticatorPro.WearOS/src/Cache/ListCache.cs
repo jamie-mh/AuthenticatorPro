@@ -1,8 +1,6 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Content;
-using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,18 +8,18 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.Content;
+using Newtonsoft.Json;
 
 namespace AuthenticatorPro.WearOS.Cache
 {
-    internal class ListCache<T> : IEnumerable, IDisposable
+    public class ListCache<T> : IEnumerable, IDisposable
     {
         private readonly string _name;
         private readonly Context _context;
         private readonly SemaphoreSlim _flushLock;
         private List<T> _items;
         private bool _isDisposed;
-
-        public int Count => _items.Count;
 
         public ListCache(string name, Context context)
         {
@@ -31,15 +29,28 @@ namespace AuthenticatorPro.WearOS.Cache
             _flushLock = new SemaphoreSlim(1, 1);
         }
 
-        ~ListCache()
+        public int Count => _items.Count;
+
+        public T this[int index]
         {
-            Dispose(false);
+            get => _items[index];
+            set => _items[index] = value;
         }
 
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        ~ListCache()
+        {
+            Dispose(false);
         }
 
         private void Dispose(bool disposing)
@@ -113,20 +124,9 @@ namespace AuthenticatorPro.WearOS.Cache
             return _items.GetEnumerator();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
         public int FindIndex(Predicate<T> predicate)
         {
             return _items.FindIndex(predicate);
-        }
-
-        public T this[int index]
-        {
-            get => _items[index];
-            set => _items[index] = value;
         }
     }
 }

@@ -1,9 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Util;
-using System;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Util
@@ -50,10 +50,7 @@ namespace AuthenticatorPro.Test.Util
             {
                 if (!isValid)
                 {
-                    Assert.Throws<ArgumentException>(delegate
-                    {
-                        SecretUtil.Validate(secret, type);
-                    });
+                    Assert.Throws<ArgumentException>(delegate { SecretUtil.Validate(secret, type); });
                 }
             }
         }

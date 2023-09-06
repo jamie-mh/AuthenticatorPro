@@ -1,11 +1,11 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Test.General.ClassData;
 using Moq;
-using System;
 using Xunit;
 using UriParser = AuthenticatorPro.Core.UriParser;
 
@@ -39,10 +39,7 @@ namespace AuthenticatorPro.Test.General
         [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=test")] // Invalid Yandex pin length
         public void ParseStandardUri_invalid(string uri)
         {
-            Assert.Throws<ArgumentException>(delegate
-            {
-                _ = UriParser.ParseStandardUri(uri, _iconResolver.Object);
-            });
+            Assert.Throws<ArgumentException>(delegate { _ = UriParser.ParseStandardUri(uri, _iconResolver.Object); });
         }
 
         [Theory]

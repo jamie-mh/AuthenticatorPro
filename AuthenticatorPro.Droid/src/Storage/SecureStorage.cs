@@ -4,6 +4,8 @@
 // Adapted from Xamarin.Essentials (MIT License) for backwards compatibility
 // https://github.com/xamarin/Essentials/blob/main/Xamarin.Essentials/SecureStorage/SecureStorage.android.cs
 
+using System;
+using System.Text;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -15,20 +17,20 @@ using Java.Util;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
 using Javax.Security.Auth.X500;
-using System;
-using System.Text;
 
 namespace AuthenticatorPro.Droid.Storage
 {
-    internal class SecureStorage
+    public class SecureStorage
     {
-        const string KeyStoreName = "AndroidKeyStore";
-        const string AsymmetricCipher = "RSA/ECB/PKCS1Padding";
-        const string SymmetricCipher = "AES/GCM/NoPadding";
-        const int IvLength = 12; // Android supports an IV of 12 for AES/GCM
+        private const string KeyStoreName = "AndroidKeyStore";
+        private const string AsymmetricCipher = "RSA/ECB/PKCS1Padding";
+        private const string SymmetricCipher = "AES/GCM/NoPadding";
+        private const string AsymmetricAlgorithm = "RSA";
+        private const string SymmetricAlgorithm = "AES";
+        private const int IvLength = 12; // Android supports an IV of 12 for AES/GCM
 
-        const string MasterKeyPreferenceKey = "SecureStorageKey";
-        const string UseSymmetricPreferenceKey = "essentials_use_symmetric";
+        private const string MasterKeyPreferenceKey = "SecureStorageKey";
+        private const string UseSymmetricPreferenceKey = "essentials_use_symmetric";
 
         private readonly Context _context;
         private readonly string _preferenceAlias;
@@ -45,7 +47,7 @@ namespace AuthenticatorPro.Droid.Storage
 
         public string Get(string key)
         {
-            string encryptedString = _preferences.GetString(key, null);
+            var encryptedString = _preferences.GetString(key, null);
 
             if (encryptedString == null)
             {
@@ -138,7 +140,7 @@ namespace AuthenticatorPro.Droid.Storage
                 _preferences.Edit().Remove(MasterKeyPreferenceKey).Commit();
             }
 
-            var keyGenerator = KeyGenerator.GetInstance(KeyProperties.KeyAlgorithmAes);
+            var keyGenerator = KeyGenerator.GetInstance(SymmetricAlgorithm);
             var symmetricKey = keyGenerator.GenerateKey();
 
             var newWrappedKey = WrapKey(symmetricKey, keyPair.Public);
@@ -223,7 +225,7 @@ namespace AuthenticatorPro.Droid.Storage
                 lock (_lock)
                 {
                     // Otherwise we create a new key
-                    var generator = KeyPairGenerator.GetInstance(KeyProperties.KeyAlgorithmRsa, KeyStoreName);
+                    var generator = KeyPairGenerator.GetInstance(AsymmetricAlgorithm, KeyStoreName);
 
 #pragma warning disable CA1422
                     var soec = new KeyPairGeneratorSpec.Builder(_context)

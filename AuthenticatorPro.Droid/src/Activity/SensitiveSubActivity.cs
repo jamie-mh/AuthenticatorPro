@@ -5,16 +5,18 @@ using Android.Views;
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal abstract class SensitiveSubActivity : BaseActivity
+    public abstract class SensitiveSubActivity : BaseActivity
     {
-        protected SensitiveSubActivity(int layout) : base(layout) { }
+        protected SensitiveSubActivity(int layout) : base(layout)
+        {
+        }
 
         protected override async void OnResume()
         {
             base.OnResume();
             var database = Dependencies.Resolve<Database>();
 
-            if (!await database.IsOpen(Database.Origin.Activity))
+            if (!await database.IsOpenAsync(Database.Origin.Activity))
             {
                 Finish();
             }

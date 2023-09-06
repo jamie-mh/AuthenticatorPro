@@ -1,23 +1,25 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
 using SimpleBase;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthenticatorPro.Core.Converter
 {
     public class GoogleAuthenticatorBackupConverter : BackupConverter
     {
-        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
+        public GoogleAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver)
+        {
+        }
 
-        public GoogleAuthenticatorBackupConverter(IIconResolver iconResolver) : base(iconResolver) { }
+        public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Never;
 
         public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
@@ -48,7 +50,7 @@ namespace AuthenticatorPro.Core.Converter
             {
                 Failures = failures, Backup = new Backup.Backup { Authenticators = authenticators }
             };
-            
+
             return Task.FromResult(result);
         }
 
@@ -58,7 +60,7 @@ namespace AuthenticatorPro.Core.Converter
             string username;
 
             // Google Auth may not have an issuer, just use the username instead
-            if (String.IsNullOrEmpty(auth.Issuer))
+            if (string.IsNullOrEmpty(auth.Issuer))
             {
                 issuer = auth.Username.Trim().Truncate(Authenticator.IssuerMaxLength);
                 username = null;
@@ -67,7 +69,10 @@ namespace AuthenticatorPro.Core.Converter
             {
                 issuer = auth.Issuer.Trim().Truncate(Authenticator.IssuerMaxLength);
                 // For some odd reason the username field always follows a '[issuer]: [username]' format
-                username = auth.Username.Replace($"{auth.Issuer}: ", "").Trim().Truncate(Authenticator.UsernameMaxLength);
+                username = auth.Username
+                    .Replace($"{auth.Issuer}: ", "")
+                    .Trim()
+                    .Truncate(Authenticator.UsernameMaxLength);
             }
 
             var type = auth.Type switch

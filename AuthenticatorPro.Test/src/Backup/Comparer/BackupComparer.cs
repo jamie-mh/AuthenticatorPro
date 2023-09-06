@@ -1,10 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Comparer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AuthenticatorPro.Core.Comparer;
 
 namespace AuthenticatorPro.Test.Backup.Comparer
 {

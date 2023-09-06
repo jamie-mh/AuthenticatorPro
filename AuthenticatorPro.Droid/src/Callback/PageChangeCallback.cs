@@ -1,12 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AndroidX.ViewPager2.Widget;
 using System;
+using AndroidX.ViewPager2.Widget;
 
 namespace AuthenticatorPro.Droid.Callback
 {
-    internal class PageChangeCallback : ViewPager2.OnPageChangeCallback
+    public class PageChangeCallback : ViewPager2.OnPageChangeCallback
     {
         public event EventHandler<int> PageScrollStateChanged;
         public event EventHandler<PageScrollEventArgs> PageScrolled;

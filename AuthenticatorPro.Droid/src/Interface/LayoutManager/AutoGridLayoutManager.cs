@@ -1,14 +1,14 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using Android.Content;
 using AndroidX.RecyclerView.Widget;
 using Google.Android.Material.Internal;
-using System;
 
 namespace AuthenticatorPro.Droid.Interface.LayoutManager
 {
-    internal class AutoGridLayoutManager : GridLayoutManager
+    public class AutoGridLayoutManager : GridLayoutManager
     {
         private readonly float _minColumnWidth;
         private int _lastWidth;

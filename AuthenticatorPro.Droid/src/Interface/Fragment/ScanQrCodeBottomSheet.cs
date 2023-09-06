@@ -1,20 +1,22 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using System;
-using System.Collections.Generic;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
-    internal class ScanQrCodeBottomSheet : BottomSheet
+    public class ScanQrCodeBottomSheet : BottomSheet
     {
+        public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.scanQrCode)
+        {
+        }
+
         public event EventHandler FromCameraClicked;
         public event EventHandler FromGalleryClicked;
-
-        public ScanQrCodeBottomSheet() : base(Resource.Layout.sheetMenu, Resource.String.scanQrCode) { }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {

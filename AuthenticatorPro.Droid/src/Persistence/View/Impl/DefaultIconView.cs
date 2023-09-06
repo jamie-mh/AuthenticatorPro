@@ -1,11 +1,10 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Droid.Shared;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AuthenticatorPro.Droid.Shared;
 
 namespace AuthenticatorPro.Droid.Persistence.View.Impl
 {
@@ -43,7 +42,7 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
 
         public void Update()
         {
-            if (String.IsNullOrEmpty(_search))
+            if (string.IsNullOrEmpty(_search))
             {
                 _view = new Dictionary<string, int>(IconMap.Service.Count);
                 foreach (var (key, _) in IconMap.Service)

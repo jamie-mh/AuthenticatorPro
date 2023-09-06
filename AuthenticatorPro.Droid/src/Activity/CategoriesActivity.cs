@@ -1,6 +1,8 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Linq;
 using Android.App;
 using Android.OS;
 using Android.Views;
@@ -8,28 +10,29 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Persistence.Exception;
+using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Callback;
+using AuthenticatorPro.Droid.Interface;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
-using AuthenticatorPro.Core.Entity;
-using AuthenticatorPro.Core.Persistence.Exception;
-using AuthenticatorPro.Core.Service;
-using AuthenticatorPro.Droid.Interface;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
-using System;
-using System.Linq;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
-    internal class CategoriesActivity : SensitiveSubActivity
+    public class CategoriesActivity : SensitiveSubActivity
     {
+        private readonly ICategoryView _categoryView;
+        private readonly ICategoryService _categoryService;
+
         private CoordinatorLayout _rootLayout;
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
@@ -37,9 +40,6 @@ namespace AuthenticatorPro.Droid.Activity
         private RecyclerView _categoryList;
 
         private PreferenceWrapper _preferences;
-
-        private readonly ICategoryView _categoryView;
-        private readonly ICategoryService _categoryService;
 
         public CategoriesActivity() : base(Resource.Layout.activityCategories)
         {
@@ -86,7 +86,7 @@ namespace AuthenticatorPro.Droid.Activity
             touchHelper.AttachToRecyclerView(_categoryList);
 
             _categoryList.AddItemDecoration(new GridSpacingItemDecoration(this, layout, 12, true));
-            
+
             var layoutAnimation = AnimationUtils.LoadLayoutAnimation(this, Resource.Animation.layout_animation_fade_in);
             _categoryList.LayoutAnimation = layoutAnimation;
 
@@ -218,7 +218,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Submitted += OnRenameDialogSubmit;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
-        
+
         private async void OnAssignEntriesClick(object item, string id)
         {
             var category = _categoryView.FirstOrDefault(c => c.Id == id);
@@ -239,7 +239,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.AuthenticatorClicked += OnAssignEntriesAuthenticatorClicked;
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
-        
+
         private async void OnAssignEntriesAuthenticatorClicked(object sender,
             AssignCategoryEntriesBottomSheet.AuthenticatorClickedEventArgs args)
         {
@@ -249,7 +249,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 return;
             }
-            
+
             try
             {
                 if (args.IsChecked)
@@ -306,7 +306,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             var position = _categoryView.IndexOf(args.Id);
             await _categoryView.LoadFromPersistenceAsync();
-            
+
             RunOnUiThread(delegate
             {
                 _categoryListAdapter.NotifyItemChanged(position);
@@ -350,7 +350,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 return;
             }
-            
+
             var builder = new MaterialAlertDialogBuilder(this);
             builder.SetMessage(Resource.String.confirmCategoryDelete);
             builder.SetTitle(Resource.String.delete);

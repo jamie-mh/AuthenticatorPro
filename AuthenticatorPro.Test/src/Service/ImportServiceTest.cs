@@ -1,6 +1,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Converter;
@@ -8,9 +11,6 @@ using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace AuthenticatorPro.Test.Service
@@ -29,10 +29,12 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task ImportAsync_null()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _importService.ImportAsync(null, new byte[] { 0 }, null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _importService.ImportAsync(null, new byte[] { 0 }, null));
 
             var converter = new Mock<BackupConverter>(new Mock<IIconResolver>().Object);
-            await Assert.ThrowsAsync<ArgumentNullException>(() => _importService.ImportAsync(converter.Object, null, null));
+            await Assert.ThrowsAsync<ArgumentNullException>(() =>
+                _importService.ImportAsync(converter.Object, null, null));
         }
 
         [Fact]

@@ -1,8 +1,8 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.Util;
 using System;
+using Android.Util;
 
 namespace AuthenticatorPro.WearOS
 {
@@ -24,7 +24,7 @@ namespace AuthenticatorPro.WearOS
         {
             Log.Info(Tag, message);
         }
-        
+
         public static void Debug(string message)
         {
 #if DEBUG

@@ -1,16 +1,16 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Android.App;
-using Android.Content;
-using Android.Runtime;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
+using Android.Content;
+using Android.Runtime;
 
 namespace AuthenticatorPro.Droid.Activity
 {
-    internal abstract class AsyncActivity : BaseActivity, IDisposable
+    public abstract class AsyncActivity : BaseActivity, IDisposable
     {
         private readonly SemaphoreSlim _onResumeLock;
         private bool _isDisposed;
@@ -20,15 +20,15 @@ namespace AuthenticatorPro.Droid.Activity
             _onResumeLock = new SemaphoreSlim(1, 1);
         }
 
-        ~AsyncActivity()
-        {
-            Dispose(false);
-        }
-
         public new void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        ~AsyncActivity()
+        {
+            Dispose(false);
         }
 
         protected override void Dispose(bool disposing)
@@ -51,8 +51,15 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnResume();
 
             await _onResumeLock.WaitAsync();
-            await OnResumeAsync();
-            _onResumeLock.Release();
+
+            try
+            {
+                await OnResumeAsync();
+            }
+            finally
+            {
+                _onResumeLock.Release();
+            }
         }
 
         protected abstract Task OnResumeAsync();
@@ -63,9 +70,15 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnActivityResult(requestCode, resultCode, intent);
 
             await _onResumeLock.WaitAsync();
-            _onResumeLock.Release();
 
-            await OnActivityResultAsync(requestCode, resultCode, intent);
+            try
+            {
+                await OnActivityResultAsync(requestCode, resultCode, intent);
+            }
+            finally
+            {
+                _onResumeLock.Release();
+            }
         }
 
         protected abstract Task
