@@ -1,0 +1,4 @@
+- New feature: Import Bitwarden password-protected exports
+- General: 43 new icons
+- General: Bug fixes
+- General: Translation updates
