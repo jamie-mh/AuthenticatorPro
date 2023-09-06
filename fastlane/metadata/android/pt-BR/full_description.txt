@@ -22,7 +22,7 @@ Em adição ao nome de usuário e senha, você vai precisar de um código fornec
 
 (¹) *Para escanear códigos QR, o aplicativo requer a permissão da câmera.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions">-> Perguntas Frequentes (Inglês)</a>
 
 <hr>
 
