@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Wprowadź pin powiązany z tym kodem QR</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Domyślne ikony</string>
     <string name="iconPacks">Paczki ikon</string>
