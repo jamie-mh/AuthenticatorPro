@@ -383,6 +383,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "nutstore", Resource.Drawable.auth_nutstore },
             { "nvidia", Resource.Drawable.auth_nvidia },
             { "obsidian", Resource.Drawable.auth_obsidian },
+            { "obsidianmd", Resource.Drawable.auth_obsidianmd },
             { "odoo", Resource.Drawable.auth_odoo },
             { "okta", Resource.Drawable.auth_okta },
             { "okx", Resource.Drawable.auth_okx },
