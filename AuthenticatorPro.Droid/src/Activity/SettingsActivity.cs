@@ -16,6 +16,7 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.Preference;
 using AuthenticatorPro.Droid.Storage;
+using Google.Android.Material.Snackbar;
 using Javax.Crypto;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -175,12 +176,12 @@ namespace AuthenticatorPro.Droid.Activity
                 try
                 {
                     await _authenticatorService.ResetCopyCountsAsync();
-                    Toast.MakeText(this, Resource.String.copyCountReset, ToastLength.Short).Show();
+                    ShowSnackbar(Resource.String.copyCountReset, Snackbar.LengthShort);
                 }
                 catch (Exception e)
                 {
                     Logger.Error(e);
-                    Toast.MakeText(this, Resource.String.genericError, ToastLength.Short).Show();
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 }
             };
 
@@ -322,13 +323,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             authCallback.Failed += delegate
             {
-                Toast.MakeText(this, Resource.String.genericError, ToastLength.Long).Show();
+                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 callback(false);
             };
 
             authCallback.Errored += (_, args) =>
             {
-                Toast.MakeText(this, args.Message, ToastLength.Long).Show();
+                ShowSnackbar(args.Message, Snackbar.LengthLong);
                 callback(false);
             };
 

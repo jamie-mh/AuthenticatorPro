@@ -526,7 +526,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                     catch (ActivityNotFoundException)
                     {
-                        Toast.MakeText(this, Resource.String.googlePlayNotInstalledError, ToastLength.Short).Show();
+                        ShowSnackbar(Resource.String.googlePlayNotInstalledError, Snackbar.LengthShort);
                     }
                 };
 
