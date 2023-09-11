@@ -149,6 +149,8 @@
     <string name="genericError">Bir hata meydana geldi.</string>
     <string name="databaseError">Veritabanı açılırken bir hata oluştu. Uygulamayı yeniden başlatmayı deneyin. Sorun devam ederse uygulama verilerini temizleyin ve en son yedeklemenizi geri yükleyin.\n\nAyrıca bir hata raporu gönderebilirsiniz.</string>
     <string name="viewErrorLog">Hata günlüğünü görüntüle</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
     <string name="report">Bildir</string>
@@ -285,6 +287,7 @@
     <string name="timeout5Min">5 dakika</string>
     <string name="timeout10Min">10 dakika</string>
     <string name="systemDefault">Sistem Varsayılanı</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Açık Tema</string>
     <string name="darkTheme">Koyu Tema</string>
     <string name="blackTheme">Koyu Tema</string>
