@@ -149,6 +149,8 @@
     <string name="genericError">Виникла помилка</string>
     <string name="databaseError">Сталася помилка під час відкриття бази даних. Спробуйте перезапустити застосунок. Якщо проблема залишиться, очистіть дані застосунку та відновіть останню резервну копію.\n\nАбо ви можете відправити звіт про помилку.</string>
     <string name="viewErrorLog">Переглянути журнал помилок</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Виникла помилка в програмі. Нижче наведено деталі помилки:</string>
     <string name="report">Повідомити</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 хвилин</string>
     <string name="timeout10Min">10 хвилин</string>
     <string name="systemDefault">Система тема</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Світла тема</string>
     <string name="darkTheme">Темна тема</string>
     <string name="blackTheme">Чорна тема</string>
