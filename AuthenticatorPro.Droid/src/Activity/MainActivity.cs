@@ -986,6 +986,7 @@ namespace AuthenticatorPro.Droid.Activity
             var bundle = new Bundle();
             bundle.PutInt("type", (int) auth.Type);
             bundle.PutLong("counter", auth.Counter);
+            bundle.PutInt("copyCount", auth.CopyCount);
 
             var fragment = new AuthenticatorMenuBottomSheet { Arguments = bundle };
 
