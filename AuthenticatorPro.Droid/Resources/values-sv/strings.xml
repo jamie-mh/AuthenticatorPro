@@ -149,6 +149,8 @@
     <string name="genericError">Ett fel uppstod</string>
     <string name="databaseError">Ett fel uppstod när databasen öppnades. Prova att starta appen igen. Om problemet kvarstår, rensa appdata och återställ din senaste säkerhetskopia.\n\nAlternativt kan du skicka in en felrapport.</string>
     <string name="viewErrorLog">Visa fellogg</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ett oväntat fel inträffade i appen. Detaljer om felet följer nedan:</string>
     <string name="report">Rapportera</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minuter</string>
     <string name="timeout10Min">10 minuter</string>
     <string name="systemDefault">Systemets standardinställning</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Ljust tema</string>
     <string name="darkTheme">Mörkt tema</string>
     <string name="blackTheme">Svart tema</string>
