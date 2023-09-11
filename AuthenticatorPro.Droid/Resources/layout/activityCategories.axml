@@ -6,18 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        app:elevation="0dp"
+    <include
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            style="Widget.Material3.Toolbar"
-            android:minHeight="?android:attr/actionBarSize"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/toolbar"/>
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="wrap_content"
+        layout="@layout/includeAppBar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"

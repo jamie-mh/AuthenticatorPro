@@ -7,10 +7,12 @@ using Android.Content;
 using Android.OS;
 using Android.Util;
 using Android.Views;
+using Android.Widget;
 using AndroidX.Camera.Core;
 using AndroidX.Camera.Lifecycle;
 using AndroidX.Camera.View;
 using AndroidX.Core.Content;
+using AndroidX.Core.Graphics;
 using AuthenticatorPro.Droid.QrCode.Analyser;
 using Google.Android.Material.Button;
 using Java.Util.Concurrent;
@@ -98,6 +100,17 @@ namespace AuthenticatorPro.Droid.Activity
             intent.PutExtra("text", qrCode);
             SetResult(Result.Ok, intent);
             Finish();
+        }
+
+        protected override void OnApplySystemBarInsets(Insets insets)
+        {
+            var topLayout = FindViewById<LinearLayout>(Resource.Id.topLayout);
+            topLayout.SetPadding(topLayout.PaddingLeft, topLayout.PaddingTop + insets.Top, topLayout.PaddingRight,
+                topLayout.PaddingBottom);
+
+            var bottomLayout = FindViewById<LinearLayout>(Resource.Id.bottomLayout);
+            bottomLayout.SetPadding(bottomLayout.PaddingLeft, bottomLayout.PaddingTop, bottomLayout.PaddingRight,
+                bottomLayout.PaddingBottom + insets.Bottom);
         }
     }
 }

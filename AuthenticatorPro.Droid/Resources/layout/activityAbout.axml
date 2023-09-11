@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.Material3.Toolbar"
-        android:minHeight="?android:attr/actionBarSize"
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"/>
+        layout="@layout/includeAppBar"/>
 
-    <android.webkit.WebView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:id="@+id/webView"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</RelativeLayout>
+        <android.webkit.WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/webView"/>
+ 
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

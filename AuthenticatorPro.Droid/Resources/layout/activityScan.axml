@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.camera.view.PreviewView
         android:layout_width="match_parent"
@@ -10,6 +11,7 @@
         android:id="@+id/previewView"/>
 
     <LinearLayout
+        android:id="@+id/topLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -45,6 +47,7 @@
             android:layout_weight="0.8"/>
 
         <LinearLayout
+            android:id="@+id/bottomLayout"
             android:orientation="vertical"
             android:background="#80000000"
             android:layout_width="match_parent"
@@ -76,4 +79,4 @@
 
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

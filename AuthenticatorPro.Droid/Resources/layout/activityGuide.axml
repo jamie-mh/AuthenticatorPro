@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        style="Widget.Material3.Toolbar"
-        android:minHeight="?android:attr/actionBarSize"
+    <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"/>
+        layout="@layout/includeAppBar"/>
 
-    <ScrollView android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:orientation="vertical"
@@ -231,5 +233,5 @@
 
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

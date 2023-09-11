@@ -8,7 +8,7 @@ using Android.OS;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
-using AndroidX.CoordinatorLayout.Widget;
+using AndroidX.Core.Graphics;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence.Exception;
@@ -21,9 +21,8 @@ using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.FloatingActionButton;
+using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
-using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -33,13 +32,9 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly ICategoryView _categoryView;
         private readonly ICategoryService _categoryService;
 
-        private CoordinatorLayout _rootLayout;
         private LinearLayout _emptyStateLayout;
-        private FloatingActionButton _addButton;
         private CategoryListAdapter _categoryListAdapter;
         private RecyclerView _categoryList;
-
-        private PreferenceWrapper _preferences;
 
         public CategoriesActivity() : base(Resource.Layout.activityCategories)
         {
@@ -51,26 +46,18 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnCreate(savedInstanceState);
 
-            _preferences = new PreferenceWrapper(this);
-
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
-
             SupportActionBar.SetTitle(Resource.String.categories);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
-            _rootLayout = FindViewById<CoordinatorLayout>(Resource.Id.layoutRoot);
-
-            _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
-            _addButton.Click += OnAddClick;
+            AddButton.Click += OnAddClick;
 
             _categoryListAdapter = new CategoryListAdapter(_categoryView);
             _categoryListAdapter.MenuClicked += OnMenuClicked;
             _categoryListAdapter.MovementFinished += OnMovementFinished;
             _categoryListAdapter.HasStableIds = true;
-            _categoryListAdapter.DefaultId = _preferences.DefaultCategory;
+            _categoryListAdapter.DefaultId = Preferences.DefaultCategory;
 
             _categoryList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
@@ -190,7 +177,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             var bundle = new Bundle();
             bundle.PutString("id", id);
-            bundle.PutBoolean("isDefault", _preferences.DefaultCategory == id);
+            bundle.PutBoolean("isDefault", Preferences.DefaultCategory == id);
 
             var fragment = new EditCategoryMenuBottomSheet { Arguments = bundle };
             fragment.RenameClicked += OnRenameClicked;
@@ -279,7 +266,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var isDefault = _preferences.DefaultCategory == initial.Id;
+            var isDefault = Preferences.DefaultCategory == initial.Id;
             var next = new Category(args.Name) { Ranking = initial.Ranking };
 
             try
@@ -323,7 +310,7 @@ namespace AuthenticatorPro.Droid.Activity
                 return;
             }
 
-            var oldDefault = _preferences.DefaultCategory;
+            var oldDefault = Preferences.DefaultCategory;
             var isDefault = oldDefault == category.Id;
 
             SetDefaultCategory(isDefault ? null : category.Id);
@@ -359,7 +346,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             builder.SetPositiveButton(Resource.String.delete, async delegate
             {
-                if (_preferences.DefaultCategory == category.Id)
+                if (Preferences.DefaultCategory == category.Id)
                 {
                     SetDefaultCategory(null);
                 }
@@ -393,7 +380,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void SetDefaultCategory(string id)
         {
-            _preferences.DefaultCategory = _categoryListAdapter.DefaultId = id;
+            Preferences.DefaultCategory = _categoryListAdapter.DefaultId = id;
         }
 
         public override bool OnSupportNavigateUp()
@@ -413,11 +400,16 @@ namespace AuthenticatorPro.Droid.Activity
             return base.OnOptionsItemSelected(item);
         }
 
-        private void ShowSnackbar(int textRes, int length)
+        protected override void OnApplySystemBarInsets(Insets insets)
         {
-            var snackbar = Snackbar.Make(_rootLayout, textRes, length);
-            snackbar.SetAnchorView(_addButton);
-            snackbar.Show();
+            base.OnApplySystemBarInsets(insets);
+
+            var bottomPadding = (int) ViewUtils.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
+            _categoryList.SetPadding(0, 0, 0, bottomPadding);
+
+            var layoutParams = (ViewGroup.MarginLayoutParams) AddButton.LayoutParameters;
+            layoutParams.SetMargins(layoutParams.LeftMargin, layoutParams.TopMargin, layoutParams.RightMargin,
+                layoutParams.BottomMargin + insets.Bottom);
         }
     }
 }
