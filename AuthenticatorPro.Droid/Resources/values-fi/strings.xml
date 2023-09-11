@@ -149,6 +149,8 @@
     <string name="genericError">Tapahtui virhe</string>
     <string name="databaseError">Tietokannan avaamisessa tapahtui virhe. Yritä käynnistää sovellus uudelleen. Jos ongelma jatkuu, tyhjennä sovelluksen tiedot ja palauta uusin varmuuskopio.\n\nVaihtoehtoisesti voit lähettää virheraportin.</string>
     <string name="viewErrorLog">Näytä virheloki</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Sovelluksessa tapahtui käsittelemätön virhe. Virheen tiedot ovat alla:</string>
     <string name="report">Raportoi</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minuuttia</string>
     <string name="timeout10Min">10 minuuttia</string>
     <string name="systemDefault">Järjestelmän oletus</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Vaalea teema</string>
     <string name="darkTheme">Tumma teema</string>
     <string name="blackTheme">Musta teema</string>
