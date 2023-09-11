@@ -149,6 +149,8 @@
     <string name="genericError">Si è verificato un errore</string>
     <string name="databaseError">Si è verificato un errore durante l\'apertura del database. Riprova ad avviare l\'app. Se il problema persiste, cancella i dati dell\'app e ripristina il tuo ultimo backup.\n\nIn alternativa, puoi inviare una segnalazione di errore.</string>
     <string name="viewErrorLog">Visualizza registro errori</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Si è verificato un errore non gestito all\'interno dell\'applicazione. I dettagli dell\'errore sono i seguenti:</string>
     <string name="report">Segnala</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minuti</string>
     <string name="timeout10Min">10 minuti</string>
     <string name="systemDefault">Predefinito di sistema</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Tema chiaro</string>
     <string name="darkTheme">Tema scuro</string>
     <string name="blackTheme">Black theme</string>
