@@ -45,7 +45,11 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 BottomSheetBehavior.From(bottomSheet).State = BottomSheetBehavior.StateExpanded;
             };
 
-            if (Build.VERSION.SdkInt < BuildVersionCodes.OMr1)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
+            {
+                dialog.Window.SetNavigationBarColor(Color.Transparent);
+            }
+            else if (Build.VERSION.SdkInt < BuildVersionCodes.OMr1)
             {
                 dialog.Window.SetNavigationBarColor(Color.Black);
             }
