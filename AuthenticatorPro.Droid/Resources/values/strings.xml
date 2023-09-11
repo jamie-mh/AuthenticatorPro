@@ -172,6 +172,8 @@
     <string name="genericError">An error occurred</string>
     <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">View error log</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
 
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>

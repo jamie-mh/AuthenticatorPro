@@ -228,6 +228,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(FirstLaunchKey, value);
         }
 
+        private const string ShownAutoTimeWarningKey = "shownAutoTimeWarning";
+        private const bool ShownAutoTimeWarningDefault = false;
+
+        public bool ShownAutoTimeWarning
+        {
+            get => Preferences.GetBoolean(ShownAutoTimeWarningKey, ShownAutoTimeWarningDefault);
+            set => SetPreference(ShownAutoTimeWarningKey, value);
+        }
+
         private const string DefaultCategoryKey = "defaultCategory";
         private const string DefaultCategoryDefault = null;
 

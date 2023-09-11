@@ -14,6 +14,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
+using Android.Provider;
 using Android.Runtime;
 using Android.Views;
 using Android.Views.Animations;
@@ -27,6 +28,7 @@ using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Core.Entity;
+using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Persistence.Exception;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Droid.Callback;
@@ -1100,7 +1102,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             fragment.EnterKeyClicked += OpenAddDialog;
             fragment.RestoreClicked += delegate { StartFilePickActivity("*/*", RequestRestore); };
-
             fragment.ImportClicked += delegate { OpenImportMenu(); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1205,6 +1206,11 @@ namespace AuthenticatorPro.Droid.Activity
 
                 await _authenticatorView.LoadFromPersistenceAsync();
                 CheckEmptyState();
+
+                if (result.Authenticator.Type.GetGenerationMethod() == GenerationMethod.Time)
+                {
+                    ShowAutoTimeWarning();
+                }
 
                 var position = _authenticatorView.IndexOf(result.Authenticator);
 
@@ -1538,6 +1544,7 @@ namespace AuthenticatorPro.Droid.Activity
             await _customIconView.LoadFromPersistenceAsync();
 
             await SwitchCategory(null);
+            ShowAutoTimeWarning();
 
             RunOnUiThread(delegate
             {
@@ -1754,6 +1761,11 @@ namespace AuthenticatorPro.Droid.Activity
             await _authenticatorView.LoadFromPersistenceAsync();
             CheckEmptyState();
 
+            if (args.Authenticator.Type.GetGenerationMethod() == GenerationMethod.Time)
+            {
+                ShowAutoTimeWarning();
+            }
+
             var position = _authenticatorView.IndexOf(args.Authenticator);
 
             RunOnUiThread(delegate
@@ -1834,6 +1846,11 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             await _authenticatorView.LoadFromPersistenceAsync();
+
+            if (args.Authenticator.Type.GetGenerationMethod() == GenerationMethod.Time)
+            {
+                ShowAutoTimeWarning();
+            }
 
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
             Preferences.BackupRequired = BackupRequirement.Urgent;
@@ -2048,6 +2065,29 @@ namespace AuthenticatorPro.Droid.Activity
             }
         }
 
+        #endregion
+        
+        #region Misc
+
+        private void ShowAutoTimeWarning()
+        {
+            var autoTimeEnabled = Settings.Global.GetInt(ContentResolver, Settings.Global.AutoTime) == 1;
+
+            if (autoTimeEnabled || Preferences.ShownAutoTimeWarning)
+            {
+                return;
+            }
+
+            new MaterialAlertDialogBuilder(this)
+                .SetTitle(Resource.String.autoTimeWarningTitle)
+                .SetMessage(Resource.String.autoTimeWarningMessage)
+                .SetIcon(Resource.Drawable.baseline_warning_24)
+                .SetPositiveButton(Resource.String.ok, delegate { })
+                .Show();
+
+            Preferences.ShownAutoTimeWarning = true;
+        }
+        
         #endregion
     }
 }
