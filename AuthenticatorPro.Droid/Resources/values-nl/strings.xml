@@ -149,6 +149,8 @@
     <string name="genericError">Er is een fout opgetreden</string>
     <string name="databaseError">Er is een fout opgetreden bij het openen van de database. Probeer de app opnieuw te starten. Als het probleem zich blijft voordoen, wis dan de app-gegevens en hrstel uw laatste back-up.\n\nAls alternatief kunt u een foutmelding indienen.</string>
     <string name="viewErrorLog">Bekijk foutenlogboek</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Er is een onbekende fout opgetreden in de toepassing. Details van de fout kunt u hieronder vinden:</string>
     <string name="report">Rapporteren</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minuten</string>
     <string name="timeout10Min">10 minuten</string>
     <string name="systemDefault">Systeem standaard</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Licht thema</string>
     <string name="darkTheme">Donker thema</string>
     <string name="blackTheme">Black theme</string>
