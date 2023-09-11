@@ -150,6 +150,8 @@
     <string name="genericError">Došlo k chybě</string>
     <string name="databaseError">Při otevírání databáze došlo k chybě. Zkuste aplikaci znovu spustit. Pokud problém přetrvává, vymažte data aplikace a obnovte svou nejnovější zálohu.\n\nPřípadně můžete odeslat zprávu o chybě.</string>
     <string name="viewErrorLog">Zobrazit protokol chyb</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikaci došlo k chybě. Podrobnosti o chybě jsou níže:</string>
     <string name="report">Nahlásit</string>
@@ -280,6 +282,7 @@
     <string name="timeout5Min">5 minut</string>
     <string name="timeout10Min">10 minut</string>
     <string name="systemDefault">Systémové nastavení</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Světlý motiv</string>
     <string name="darkTheme">Tmavý motiv</string>
     <string name="blackTheme">Černý motiv</string>
