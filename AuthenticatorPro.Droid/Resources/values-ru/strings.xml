@@ -149,6 +149,8 @@
     <string name="genericError">Произошла ошибка.</string>
     <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение снова. Если проблема не устранена, очистите приложение и восстановите вашу последнюю резервную копию.\n\nИли отправьте отчёт об ошибке.</string>
     <string name="viewErrorLog">Показать журнал ошибок</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Произошла обработанная ошибка внутри приложения. Подробности об ошибке ниже:</string>
     <string name="report">Отчёт</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 минут</string>
     <string name="timeout10Min">10 минут</string>
     <string name="systemDefault">По умолчанию в системе</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Светлая тема</string>
     <string name="darkTheme">Тёмная тема</string>
     <string name="blackTheme">Чёрная тема</string>
