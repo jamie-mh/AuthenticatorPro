@@ -149,6 +149,8 @@
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
     <string name="databaseError">Beim Öffnen der Datenbank ist ein Fehler aufgetreten. Versuche die App neu zu starten. Falls das Problem bestehen bleibt, lösche die App Daten und wiederherstelle dein letztes Backup.\n\nAlternativ kannst du uns einen Fehlerbericht erstatten.</string>
     <string name="viewErrorLog">Fehlerprotokoll anzeigen</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 Minuten</string>
     <string name="timeout10Min">10 Minuten</string>
     <string name="systemDefault">Systemstandard</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Helles Thema</string>
     <string name="darkTheme">Dunkles Thema</string>
     <string name="blackTheme">Schwarzes Thema</string>
