@@ -348,6 +348,7 @@
     <string name="timeout10Min">10 minutes</string>
 
     <string name="systemDefault">System default</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Light theme</string>
     <string name="darkTheme">Dark theme</string>
     <string name="blackTheme">Black theme</string>

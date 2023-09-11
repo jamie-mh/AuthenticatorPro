@@ -183,7 +183,7 @@ namespace AuthenticatorPro.Droid.Activity
                 Theme.ApplyStyle(overlay, true);
             }
 
-            if (Preferences.Theme == "black")
+            if (Preferences.Theme == "black" || Preferences.Theme == "system-black" && IsDark)
             {
                 Theme.ApplyStyle(Resource.Style.OverlayBlack, true);
             }
