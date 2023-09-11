@@ -278,6 +278,12 @@ namespace AuthenticatorPro.Droid.Activity
             }
             
             var systemBarInsets = insets.GetInsets(WindowInsetsCompat.Type.SystemBars());
+            
+            var layoutParameters = (ViewGroup.MarginLayoutParams) view.LayoutParameters;
+            layoutParameters.LeftMargin = systemBarInsets.Left;
+            layoutParameters.RightMargin = systemBarInsets.Right;
+            view.LayoutParameters = layoutParameters;
+            
             OnApplySystemBarInsets(systemBarInsets);
             _appliedSystemBarInsets = true;
             
