@@ -4,6 +4,8 @@
 using Android.App;
 using Android.OS;
 using Android.Views;
+using AndroidX.Core.Graphics;
+using AndroidX.Core.Widget;
 using Google.Android.Material.AppBar;
 
 #if FDROID
@@ -53,6 +55,13 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        protected override void OnApplySystemBarInsets(Insets insets)
+        {
+            base.OnApplySystemBarInsets(insets);
+            var scrollView = FindViewById<NestedScrollView>(Resource.Id.nestedScrollView);
+            scrollView.SetPadding(0, 0, 0, insets.Bottom);
         }
     }
 }

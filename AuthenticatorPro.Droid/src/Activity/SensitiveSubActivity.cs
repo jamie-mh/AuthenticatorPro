@@ -21,8 +21,7 @@ namespace AuthenticatorPro.Droid.Activity
                 Finish();
             }
 
-            var preferences = new PreferenceWrapper(this);
-            var windowFlags = !preferences.AllowScreenshots ? WindowManagerFlags.Secure : 0;
+            var windowFlags = !Preferences.AllowScreenshots ? WindowManagerFlags.Secure : 0;
             Window.SetFlags(windowFlags, windowFlags);
         }
     }

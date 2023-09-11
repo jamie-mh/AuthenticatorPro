@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="?attr/appBarLayoutStyle">
+
+    <LinearLayout
+        android:id="@+id/toolbarWrapLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            style="Widget.Material3.Toolbar"
+            android:minHeight="?android:attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/appBarProgressIndicator"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            app:trackThickness="2dp"
+            app:trackColor="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</com.google.android.material.appbar.AppBarLayout>

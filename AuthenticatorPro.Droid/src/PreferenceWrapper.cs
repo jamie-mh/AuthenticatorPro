@@ -162,7 +162,7 @@ namespace AuthenticatorPro.Droid
         }
 
         private const string TransparentStatusBarKey = "pref_transparentStatusBar";
-        private const bool TransparentStatusBarDefault = true;
+        private const bool TransparentStatusBarDefault = false;
 
         public bool TransparentStatusBar
         {
@@ -226,6 +226,15 @@ namespace AuthenticatorPro.Droid
         {
             get => Preferences.GetBoolean(FirstLaunchKey, FirstLaunchDefault);
             set => SetPreference(FirstLaunchKey, value);
+        }
+
+        private const string ShownAutoTimeWarningKey = "shownAutoTimeWarning";
+        private const bool ShownAutoTimeWarningDefault = false;
+
+        public bool ShownAutoTimeWarning
+        {
+            get => Preferences.GetBoolean(ShownAutoTimeWarningKey, ShownAutoTimeWarningDefault);
+            set => SetPreference(ShownAutoTimeWarningKey, value);
         }
 
         private const string DefaultCategoryKey = "defaultCategory";

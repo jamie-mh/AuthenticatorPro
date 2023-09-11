@@ -11,7 +11,7 @@ using Android.OS;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
-using AndroidX.CoordinatorLayout.Widget;
+using AndroidX.Core.Graphics;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Service;
@@ -24,11 +24,10 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
-using Google.Android.Material.ProgressIndicator;
+using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using ProtoBuf;
 using Toolbar = AndroidX.AppCompat.Widget.Toolbar;
-using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -40,8 +39,6 @@ namespace AuthenticatorPro.Droid.Activity
         private readonly IIconPackView _iconPackView;
         private readonly IIconPackService _iconPackService;
 
-        private CoordinatorLayout _rootLayout;
-        private LinearProgressIndicator _progressIndicator;
         private LinearLayout _emptyStateLayout;
         private FloatingActionButton _addButton;
         private IconPackListAdapter _iconPackListAdapter;
@@ -65,11 +62,8 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
-            _rootLayout = FindViewById<CoordinatorLayout>(Resource.Id.layoutRoot);
-            _progressIndicator = FindViewById<LinearProgressIndicator>(Resource.Id.progressIndicator);
-
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
-            _addButton.Click += OnAddClick;
+            _addButton.Click += delegate { StartFilePickActivity("*/*", RequestAdd); };
 
             var downloadButton = FindViewById<MaterialButton>(Resource.Id.buttonDownloadPacks);
             downloadButton.Click += OnDownloadButtonClick;
@@ -194,25 +188,6 @@ namespace AuthenticatorPro.Droid.Activity
             StartWebBrowserActivity(url);
         }
 
-        private void OnAddClick(object sender, EventArgs args)
-        {
-            var intent = new Intent(Intent.ActionGetContent);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("*/*");
-
-            BaseApplication.PreventNextAutoLock = true;
-
-            try
-            {
-                StartActivityForResult(intent, RequestAdd);
-            }
-            catch (ActivityNotFoundException)
-            {
-                ShowSnackbar(Resource.String.filePickerMissing, Snackbar.LengthLong);
-                BaseApplication.PreventNextAutoLock = false;
-            }
-        }
-
         private void OnDeleteClicked(object sender, IconPack pack)
         {
             var builder = new MaterialAlertDialogBuilder(this);
@@ -271,40 +246,16 @@ namespace AuthenticatorPro.Droid.Activity
             return base.OnOptionsItemSelected(item);
         }
 
-        private void SetLoading(bool loading)
+        protected override void OnApplySystemBarInsets(Insets insets)
         {
-            RunOnUiThread(delegate
-            {
-                _progressIndicator.Visibility = loading ? ViewStates.Visible : ViewStates.Invisible;
-            });
-        }
+            base.OnApplySystemBarInsets(insets);
 
-        private void ShowSnackbar(int textRes, int length)
-        {
-            var snackbar = Snackbar.Make(_rootLayout, textRes, length);
-            snackbar.SetAnchorView(_addButton);
-            snackbar.Show();
-        }
+            var bottomPadding = (int) ViewUtils.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
+            _packList.SetPadding(0, 0, 0, bottomPadding);
 
-        private void ShowSnackbar(string message, int length)
-        {
-            var snackbar = Snackbar.Make(_rootLayout, message, length);
-            snackbar.SetAnchorView(_addButton);
-            snackbar.Show();
-        }
-
-        private void StartWebBrowserActivity(string url)
-        {
-            var intent = new Intent(Intent.ActionView, Uri.Parse(url));
-
-            try
-            {
-                StartActivity(intent);
-            }
-            catch (ActivityNotFoundException)
-            {
-                ShowSnackbar(Resource.String.webBrowserMissing, Snackbar.LengthLong);
-            }
+            var layoutParams = (ViewGroup.MarginLayoutParams) AddButton.LayoutParameters;
+            layoutParams.SetMargins(layoutParams.LeftMargin, layoutParams.TopMargin, layoutParams.RightMargin,
+                layoutParams.BottomMargin + insets.Bottom);
         }
     }
 }

@@ -7,8 +7,8 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
         app:layout_constraintWidth_max="550dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -2,40 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinatorLayout"
+    android:id="@+id/layoutRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        app:elevation="0dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:id="@+id/toolbarWrapLayout"
-            app:layout_scrollFlags="scroll"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                style="Widget.Material3.Toolbar"
-                android:minHeight="?android:attr/actionBarSize"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/toolbar"/>
-
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/appBarProgressIndicator"
-                android:indeterminate="true"
-                app:trackThickness="2dp"
-                app:trackColor="@android:color/transparent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -45,6 +14,11 @@
         android:paddingBottom="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/includeAppBar"/>
 
     <LinearLayout
         android:id="@+id/layoutEmptyState"

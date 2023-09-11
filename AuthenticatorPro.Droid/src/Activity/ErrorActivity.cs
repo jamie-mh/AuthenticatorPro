@@ -8,9 +8,11 @@ using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using AndroidX.Core.Graphics;
+using AndroidX.Core.Widget;
 using AuthenticatorPro.Droid.Util;
-using Google.Android.Material.AppBar;
 using Google.Android.Material.Dialog;
+using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Activity
@@ -28,8 +30,6 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnCreate(savedInstanceState);
 
-            var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
             SupportActionBar.SetTitle(Resource.String.error);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
@@ -94,8 +94,7 @@ namespace AuthenticatorPro.Droid.Activity
             var clip = ClipData.NewPlainText("error", _exception);
             clipboard.PrimaryClip = clip;
 
-            Toast.MakeText(this, Resource.String.errorCopiedToClipboard, ToastLength.Short).Show();
-
+            ShowSnackbar(Resource.String.errorCopiedToClipboard, Snackbar.LengthShort);
             var intent = new Intent(Intent.ActionView, Uri.Parse($"{GetString(Resource.String.githubRepo)}/issues"));
 
             try
@@ -104,7 +103,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (ActivityNotFoundException)
             {
-                Toast.MakeText(this, Resource.String.webBrowserMissing, ToastLength.Short).Show();
+                ShowSnackbar(Resource.String.webBrowserMissing, Snackbar.LengthShort);
             }
         }
 
@@ -180,8 +179,15 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (ActivityNotFoundException)
             {
-                Toast.MakeText(this, Resource.String.emailClientMissing, ToastLength.Short).Show();
+                ShowSnackbar(Resource.String.emailClientMissing, Snackbar.LengthShort);
             }
+        }
+
+        protected override void OnApplySystemBarInsets(Insets insets)
+        {
+            base.OnApplySystemBarInsets(insets);
+            var scrollView = FindViewById<NestedScrollView>(Resource.Id.nestedScrollView);
+            scrollView.SetPadding(0, 0, 0, insets.Bottom);
         }
     }
 }

@@ -7,10 +7,11 @@ using Android.Graphics;
 using Android.OS;
 using Android.Views;
 using Android.Webkit;
+using AndroidX.Core.Widget;
 using AuthenticatorPro.Core;
 using AuthenticatorPro.Droid.Util;
-using Google.Android.Material.AppBar;
 using Google.Android.Material.Color;
+using Insets = AndroidX.Core.Graphics.Insets;
 
 namespace AuthenticatorPro.Droid.Activity
 {
@@ -27,9 +28,6 @@ namespace AuthenticatorPro.Droid.Activity
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            var toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
 
             SupportActionBar.SetTitle(Resource.String.about);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
@@ -101,6 +99,13 @@ namespace AuthenticatorPro.Droid.Activity
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        protected override void OnApplySystemBarInsets(Insets insets)
+        {
+            base.OnApplySystemBarInsets(insets);
+            var scrollView = FindViewById<NestedScrollView>(Resource.Id.nestedScrollView);
+            scrollView.SetPadding(0, 0, 0, insets.Bottom);
         }
     }
 }
