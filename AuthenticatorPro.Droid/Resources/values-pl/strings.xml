@@ -149,8 +149,8 @@
     <string name="genericError">Wystąpił nieoczekiwany błąd</string>
     <string name="databaseError">Wystąpił błąd podczas otwierania bazy danych. Spróbuj uruchomić aplikację ponownie. Jeśli problem będzie się powtarzał, wyczyść dane aplikacji i przywrócić najnowszą kopię zapasową.\n\nAlternatywnie, możesz przesłać raport o błędzie.</string>
     <string name="viewErrorLog">Wyświetl dziennik błędów</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">Synchronizacja czasu wyłączona</string>
+    <string name="autoTimeWarningMessage">Twoje urządzenie ma wyłączony czas automatyczny. Uwierzytelnianie dwuetapowe wymaga dokładnego czasu do generowania kodów.\n\nProszę włącz automatyczną synchronizację czasu w ustawieniach urządzenia, aby upewnić się, że wygenerowane kody są zawsze ważne.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Wystąpił nieobsługiwany błąd w aplikacji. Szczegóły błędu znajdują się poniżej:</string>
     <string name="report">Raport</string>
@@ -281,7 +281,7 @@
     <string name="timeout5Min">5 minut</string>
     <string name="timeout10Min">10 minut</string>
     <string name="systemDefault">Domyślny systemu</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">Domyślny systemowy (czarny)</string>
     <string name="lightTheme">Jasny motyw</string>
     <string name="darkTheme">Ciemny motyw</string>
     <string name="blackTheme">Czarny motyw</string>
