@@ -145,6 +145,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "communityamerica", Resource.Drawable.auth_communityamerica },
             { "contabo", Resource.Drawable.auth_contabo },
             { "controld", Resource.Drawable.auth_controld },
+            { "coursera", Resource.Drawable.auth_coursera },
             { "crashplan", Resource.Drawable.auth_crashplan },
             { "credly", Resource.Drawable.auth_credly },
             { "cronometer", Resource.Drawable.auth_cronometer },
