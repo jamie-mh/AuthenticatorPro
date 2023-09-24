@@ -85,18 +85,18 @@
     <string name="confirmIconPackDelete">هل أنت متأكد من أنك تريد حذف حزمة الأيقونة هذه؟ لن يتم حذف أي أيقونات مستخدمة.</string>
     <!-- QR code dialog -->
     <string name="qrCode">رمز QR</string>
-    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
+    <string name="qrCodeHelp">نسخ هذه المصادقة إلى جهاز آخر أو تطبيق آخر عن طريق فحص رمز QR</string>
     <string name="qrCodeNotSupported">رموز QR غير مدعومة لهذا النوع</string>
-    <string name="copyUri">Copy URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
+    <string name="copyUri">نسخ URI</string>
+    <string name="copyUriWarning">يحتوي هذا URI على مفتاح سري في نص عادي. كن حذرا حيث تقوم بلصق هذه المعلومات.\n\n مواصلة؟</string>
+    <string name="uriCopiedToClipboard">تم نسخ URI إلى الحافظة</string>
     <!-- Backup menu -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
-    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
-    <string name="backupHtml">Back up to HTML file</string>
-    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
-    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupToFile">النسخ الاحتياطي إلى ملف المشفر (موصى به)</string>
+    <string name="backupToFileMessage">حفظ جميع المصادقات والفئات والرموز الخاصة بك في ملف النسخ الاحتياطي المشفر. يمكن استعادة هذا الملف داخل التطبيق.</string>
+    <string name="backupHtml">نسخ احتياطي إلى ملف HTML</string>
+    <string name="backupHtmlMessage">حفظ المصادقة الخاصة بك إلى مستند HTML غير مشفر مع رموز QR. للاستعادة يجب مسح هذه الرموز بشكل فردي. لا يتم حفظ الفئات والرموز بشكل فردي.</string>
+    <string name="backupHtmlWarning">النسخ الاحتياطية إلى ملفات HTML غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nلا يمكن استعادة هذا الملف داخل التطبيق ولا يحتوي على فئات أو أيقونات إذا لم تكن متأكدة، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
+    <string name="backupUriList">النسخ الاحتياطي إلى ملف قائمة URI</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!-- Empty states -->
