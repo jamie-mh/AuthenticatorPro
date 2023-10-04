@@ -10,7 +10,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="HtmlAgilityPack" Version="1.11.53" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.4">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
