@@ -1,0 +1,5 @@
+- New feature: Copy count is viewable when sorting by times copied
+- New feature: System theme (black) option
+- General: Title bar is now fixed when transparent status bar is disabled
+- General: 58 new icons and improvements to existing icons
+- General: Translation updates
