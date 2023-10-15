@@ -149,6 +149,8 @@
     <string name="genericError">出現錯誤。</string>
     <string name="databaseError">開啟資料庫時發生錯誤。請嘗試重新啟動應用程式。 如果問題仍然存在，清除應用資料並還原您的最新備份。\n\n或者您可以提交錯誤報告。</string>
     <string name="viewErrorLog">檢視錯誤日誌</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">應用程式中發生未處理的錯誤。該錯誤的詳細資訊如下：</string>
     <string name="report">反饋</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 分鐘</string>
     <string name="timeout10Min">10 分鐘</string>
     <string name="systemDefault">跟隨系統</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">淺色主題</string>
     <string name="darkTheme">深色主題</string>
     <string name="blackTheme">純黑主題</string>

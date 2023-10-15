@@ -149,6 +149,8 @@
     <string name="genericError">Ocurrió un error.</string>
     <string name="databaseError">Un error ocurrió al abrir la base de datos. Intenta iniciando la aplicación de nuevo. Si el problema persiste, elimina los datos de la aplicación y restaura tu copia de seguridad más reciente.\n\nAdicionalmente, puedes enviar un reporte de error.</string>
     <string name="viewErrorLog">Ver registro de errores</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Un error inesperado ha ocurrido en la aplicación. Los detalles del error están abajo:</string>
     <string name="report">Reportar</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minutos</string>
     <string name="timeout10Min">10 minutos</string>
     <string name="systemDefault">Predeterminado por el Sistema</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Tema Claro</string>
     <string name="darkTheme">Tema Oscuro</string>
     <string name="blackTheme">Tema Negro</string>

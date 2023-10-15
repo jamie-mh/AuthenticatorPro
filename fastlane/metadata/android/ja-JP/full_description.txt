@@ -7,11 +7,11 @@ SHA1、SHA256またはSHA512のいずれかのハッシュアルゴリズムの�
 
 <hr>
 
-<b>Features</b>
+<b>特徴</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. 携帯電話を紛失、あるいは、機種変更をした場合でも、自分のアカウントにアクセスできます。 バックアップをクラウドストレージまたはデバイスに保存できます。
+- ⚙️ <b>互換性</b>: Authenticator Proはほとんどのサービスのプロバイダーやアカウントと互換性があります。
+- 📲 <b>インポート</b>: 対応している他のアプリから、Authenticator Proへアカウントを簡単に移行できます。
+- 💾 <b>バックアップ / リストア</b>: 強力な暗号であなたの認証データをバックアップします。 携帯電話を紛失、あるいは、機種変更をした場合でも、自分のアカウントにアクセスできます。 バックアップをクラウドストレージまたはデバイスに保存できます。
 - 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 - ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
 - 📂 <b>Categories</b>: Organise your authenticators into categories.
@@ -20,13 +20,13 @@ SHA1、SHA256またはSHA512のいずれかのハッシュアルゴリズムの�
 - 🎨 <b>Customisation</b>: Set icons and rename. また、認証コードを自由に並び替えて、簡単に見つけることができます。
 - ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(1) *QRコードをスキャンするには、カメラの許可が必要です。*
 
 <a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>免責事項</b>
 
 このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 一般公衆利用許諾書 (バージョン3か、それ以降のバージョンのうちどれか) が定める条件の下で再頒布または改変することができます。
 

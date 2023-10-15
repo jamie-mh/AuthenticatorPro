@@ -149,6 +149,8 @@
     <string name="genericError">Ocorreu um erro</string>
     <string name="databaseError">Ocorreu um erro ao abrir o banco de dados. Tente iniciar o aplicativo novamente. Se o problema persistir, limpe os dados da aplicação e restaure seu último backup.\n\nComo alternativa, envie um relatório de erros.</string>
     <string name="viewErrorLog">Ver o registro de erros</string>
+    <string name="autoTimeWarningTitle">Sincronização de tempo desativada</string>
+    <string name="autoTimeWarningMessage">Seu dispositivo está com o tempo automático desativado. A autenticação de dois fatores requer um relógio preciso para gerar códigos.\n\nPor favor, ative a sincronização automática de tempo nas configurações do seu dispositivo para garantir que os códigos gerados sejam sempre válidos.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Um erro inesperado ocorreu no aplicativo. Detalhes do erro abaixo:</string>
     <string name="report">Reportar</string>
@@ -280,6 +282,7 @@
     <string name="timeout5Min">5 minutos</string>
     <string name="timeout10Min">10 minutos</string>
     <string name="systemDefault">Padrão do sistema</string>
+    <string name="systemDefaultBlack">Padrão do sistema (preto)</string>
     <string name="lightTheme">Tema claro</string>
     <string name="darkTheme">Tema escuro</string>
     <string name="blackTheme">Tema escuro</string>

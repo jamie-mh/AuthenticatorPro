@@ -149,6 +149,8 @@
     <string name="genericError">Une erreur s\'est produite</string>
     <string name="databaseError">Une erreur s\'est produite lors de l\'accès à la base de données. Tentez de relancer l\'application. Si le problème persiste, effacez les données de l\'application et restaurez votre dernière sauvegarde.\n\nVous pouvez également envoyer un rapport d\'erreur.</string>
     <string name="viewErrorLog">Afficher le journal d\'erreur</string>
+    <string name="autoTimeWarningTitle">Synchronisation de l\'heure désactivée</string>
+    <string name="autoTimeWarningMessage">La synchronisation automatique de l\'heure de votre appareil est désactivée. L\'authentification à deux facteurs nécessite l\'heure précise pour générer des codes.\n\nVeuillez activer la synchronisation automatique de l\'heure dans les paramètres de votre appareil pour vous assurer que les codes générés soient toujours valides.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Une erreur s\'est produite dans l\'application. Les détails de l\'erreur se trouvent ci-dessous :</string>
     <string name="report">Signaler</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minutes</string>
     <string name="timeout10Min">10 minutes</string>
     <string name="systemDefault">Valeur système</string>
+    <string name="systemDefaultBlack">Valeur système (noir)</string>
     <string name="lightTheme">Thème clair</string>
     <string name="darkTheme">Thème sombre</string>
     <string name="blackTheme">Thème noir</string>

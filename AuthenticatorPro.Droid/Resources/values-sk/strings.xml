@@ -149,6 +149,8 @@
     <string name="genericError">Vyskytla sa chyba</string>
     <string name="databaseError">Pri otváraní databázy došlo k chybe. Skúste aplikáciu spustiť znova. Ak problém pretrváva, vymažte údaje aplikácie a obnovte poslednú zálohu.\n\nPrípadne môžete odoslať chybové hlásenie.</string>
     <string name="viewErrorLog">Zobraziť protokol chýb</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
     <string name="report">Nahlásiť</string>
@@ -280,6 +282,7 @@
     <string name="timeout5Min">5 minút</string>
     <string name="timeout10Min">10 minút</string>
     <string name="systemDefault">Predvolená systémom</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Svetlá téma</string>
     <string name="darkTheme">Tmavá téma</string>
     <string name="blackTheme">Tmavá téma</string>

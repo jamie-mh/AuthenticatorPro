@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">Kod QR ma nieprawidłowy format lub nie można go odczytać</string>
     <string name="duplicateAuthenticator">Wpis z tym sekretem już istnieje</string>
     <string name="scanSuccessful">Kod QR zeskanowany poprawnie</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Wprowadź pin powiązany z tym kodem QR</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Domyślne ikony</string>
     <string name="iconPacks">Paczki ikon</string>
@@ -149,6 +149,8 @@
     <string name="genericError">Wystąpił nieoczekiwany błąd</string>
     <string name="databaseError">Wystąpił błąd podczas otwierania bazy danych. Spróbuj uruchomić aplikację ponownie. Jeśli problem będzie się powtarzał, wyczyść dane aplikacji i przywrócić najnowszą kopię zapasową.\n\nAlternatywnie, możesz przesłać raport o błędzie.</string>
     <string name="viewErrorLog">Wyświetl dziennik błędów</string>
+    <string name="autoTimeWarningTitle">Synchronizacja czasu wyłączona</string>
+    <string name="autoTimeWarningMessage">Twoje urządzenie ma wyłączony czas automatyczny. Uwierzytelnianie dwuetapowe wymaga dokładnego czasu do generowania kodów.\n\nProszę włącz automatyczną synchronizację czasu w ustawieniach urządzenia, aby upewnić się, że wygenerowane kody są zawsze ważne.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Wystąpił nieobsługiwany błąd w aplikacji. Szczegóły błędu znajdują się poniżej:</string>
     <string name="report">Raport</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minut</string>
     <string name="timeout10Min">10 minut</string>
     <string name="systemDefault">Domyślny systemu</string>
+    <string name="systemDefaultBlack">Domyślny systemowy (czarny)</string>
     <string name="lightTheme">Jasny motyw</string>
     <string name="darkTheme">Ciemny motyw</string>
     <string name="blackTheme">Czarny motyw</string>

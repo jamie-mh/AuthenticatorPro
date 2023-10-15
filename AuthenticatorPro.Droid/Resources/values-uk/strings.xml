@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">Неправильний формат QR-коду або неможливо зчитати</string>
     <string name="duplicateAuthenticator">Автентифікатор з цим секретним ключем вже існує</string>
     <string name="scanSuccessful">QR-код успішно відскановано</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Введіть PIN-код, пов\'язаний з цим QR-кодом</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Іконки за замовчуванням</string>
     <string name="iconPacks">Набори іконок</string>
@@ -149,6 +149,8 @@
     <string name="genericError">Виникла помилка</string>
     <string name="databaseError">Сталася помилка під час відкриття бази даних. Спробуйте перезапустити застосунок. Якщо проблема залишиться, очистіть дані застосунку та відновіть останню резервну копію.\n\nАбо ви можете відправити звіт про помилку.</string>
     <string name="viewErrorLog">Переглянути журнал помилок</string>
+    <string name="autoTimeWarningTitle">Вимкнено синхронізацію часу</string>
+    <string name="autoTimeWarningMessage">Ваш пристрій автоматично вимкнено за часом. Двоетапна автентифікація вимагає точного годинника для генерації кодів.\n\nУвімкніть автоматичну синхронізацію часу в налаштуваннях пристрою, щоб переконатися, що згенеровані коди завжди дійсні.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Виникла помилка в програмі. Нижче наведено деталі помилки:</string>
     <string name="report">Повідомити</string>
@@ -245,8 +247,8 @@
     <string name="prefTimeoutSummary">Вказати час, після якого БД буде заблоковано, як тільки додаток залишить екран</string>
     <string name="prefTapToRevealTitle">Показувати після дотику</string>
     <string name="prefTapToRevealSummary">Приховати коди, показувати після дотику. Вони зникнуть через декілька секунд.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Торкніться, щоб відкрити тривалість</string>
+    <string name="prefTapToRevealDurationSummary">Встановіть час, через який показані коди будуть приховані</string>
     <string name="prefAllowScreenshotsTitle">Дозволити скриншоти</string>
     <string name="prefAllowScreenshotsSummary">Вимкнути безпеку екрану і дозволити скриншоти застосунку</string>
     <string name="prefAppearance">Оформлення</string>
@@ -270,15 +272,16 @@
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (за замовчуванням)</string>
     <string name="immediately">Негайно</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 секунд</string>
+    <string name="timeout10Sec">10 секунд</string>
+    <string name="timeout20Sec">20 секунд</string>
     <string name="timeout30Sec">30 секунд</string>
     <string name="timeout1Min">1 хвилина</string>
     <string name="timeout2Min">2 хвилини</string>
     <string name="timeout5Min">5 хвилин</string>
     <string name="timeout10Min">10 хвилин</string>
     <string name="systemDefault">Система тема</string>
+    <string name="systemDefaultBlack">За замовчуванням (чорний)</string>
     <string name="lightTheme">Світла тема</string>
     <string name="darkTheme">Темна тема</string>
     <string name="blackTheme">Чорна тема</string>

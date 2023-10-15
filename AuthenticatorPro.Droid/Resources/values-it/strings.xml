@@ -77,11 +77,11 @@
     <string name="scanSuccessful">Codice QR scansionato con successo</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!-- Icon packs -->
-    <string name="defaultIcons">Default icons</string>
-    <string name="iconPacks">Icon packs</string>
+    <string name="defaultIcons">Icone predefinite</string>
+    <string name="iconPacks">Pacchetti icone</string>
     <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="importIconPackSuccess">{0} icone importate dal pacchetto</string>
+    <string name="invalidIconPackError">Il file selezionato non è un pacchetto icone Authenticator Pro</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- QR code dialog -->
     <string name="qrCode">Codice QR</string>
@@ -149,6 +149,8 @@
     <string name="genericError">Si è verificato un errore</string>
     <string name="databaseError">Si è verificato un errore durante l\'apertura del database. Riprova ad avviare l\'app. Se il problema persiste, cancella i dati dell\'app e ripristina il tuo ultimo backup.\n\nIn alternativa, puoi inviare una segnalazione di errore.</string>
     <string name="viewErrorLog">Visualizza registro errori</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Si è verificato un errore non gestito all\'interno dell\'applicazione. I dettagli dell\'errore sono i seguenti:</string>
     <string name="report">Segnala</string>
@@ -230,7 +232,7 @@
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Lingua</string>
     <string name="prefLanguageSummary">Scegli una lingua da usare nell\'app</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopyTitle">Tocca per copiare</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
@@ -279,6 +281,7 @@
     <string name="timeout5Min">5 minuti</string>
     <string name="timeout10Min">10 minuti</string>
     <string name="systemDefault">Predefinito di sistema</string>
+    <string name="systemDefaultBlack">System default (black)</string>
     <string name="lightTheme">Tema chiaro</string>
     <string name="darkTheme">Tema scuro</string>
     <string name="blackTheme">Black theme</string>
