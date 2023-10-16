@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/imageDefault"
                 android:layout_centerVertical="true"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:gravity="start"
                 android:textColor="?attr/primaryTextColor"
                 android:textDirection="locale"
@@ -56,7 +56,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:gravity="start"
             android:textColor="?attr/secondaryTextColor"
             android:singleLine="true"
