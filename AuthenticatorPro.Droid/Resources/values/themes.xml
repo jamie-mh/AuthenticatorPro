@@ -12,11 +12,11 @@
         <item name="bottomAppBarStyle">@style/BottomAppBarStyle</item>
         <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle</item>
 
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">?isLightTheme</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
     <style name="MainActivityTheme" parent="AppTheme">
-        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

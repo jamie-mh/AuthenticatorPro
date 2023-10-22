@@ -12,6 +12,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.Core.Content;
+using AndroidX.Core.Content.Resources;
 using AndroidX.Core.View;
 using AuthenticatorPro.Droid.Interface;
 using Google.Android.Material.AppBar;
@@ -125,7 +126,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             base.AttachBaseContext(context);
         }
-        
+
         public override void OnConfigurationChanged(Configuration newConfig)
         {
             base.OnConfigurationChanged(newConfig);
@@ -191,29 +192,27 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void UpdateStatusBar()
         {
-            if (Build.VERSION.SdkInt < BuildVersionCodes.R)
+            WindowCompat.SetDecorFitsSystemWindows(Window, false);
+            var windowInsetsControllerCompat = WindowCompat.GetInsetsController(Window, Window.DecorView);
+            var compatScrimColor = new Color(ResourcesCompat.GetColor(Resources, Resource.Color.system_window_scrim_light_black, Theme));
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
             {
-                if (Build.VERSION.SdkInt < BuildVersionCodes.M)
-                {
-                    Window.SetStatusBarColor(Color.Black);
-                }
-
-                return;
+                Window.SetNavigationBarColor(Color.Transparent);
+                windowInsetsControllerCompat.AppearanceLightNavigationBars = !IsDark;
             }
-
-            Window.SetStatusBarColor(Color.Transparent);
-
-#pragma warning disable CA1416
-            Window.SetDecorFitsSystemWindows(false);
-            Window.SetNavigationBarColor(Color.Transparent);
-
-            if (!IsDark)
+            else
             {
-                Window.InsetsController?.SetSystemBarsAppearance(
-                    (int) WindowInsetsControllerAppearance.LightStatusBars,
-                    (int) WindowInsetsControllerAppearance.LightStatusBars);
+                Window.SetNavigationBarColor(compatScrimColor);
             }
-#pragma warning restore CA1416
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                Window.SetStatusBarColor(Color.Transparent);
+                windowInsetsControllerCompat.AppearanceLightStatusBars = !IsDark;
+            }
+            else
+            {
+                Window.SetStatusBarColor(compatScrimColor);
+            }
         }
 
         protected override void OnResume()
@@ -276,17 +275,17 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 return insets;
             }
-            
+
             var systemBarInsets = insets.GetInsets(WindowInsetsCompat.Type.SystemBars());
-            
+
             var layoutParameters = (ViewGroup.MarginLayoutParams) view.LayoutParameters;
             layoutParameters.LeftMargin = systemBarInsets.Left;
             layoutParameters.RightMargin = systemBarInsets.Right;
             view.LayoutParameters = layoutParameters;
-            
+
             OnApplySystemBarInsets(systemBarInsets);
             _appliedSystemBarInsets = true;
-            
+
             return insets;
         }
 
