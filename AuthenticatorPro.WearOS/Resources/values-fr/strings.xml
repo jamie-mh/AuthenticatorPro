@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="noAuthenticators">Rien ici !</string>
-    <string name="noAuthenticatorsMessage">Ajoutez des authentificateurs depuis l\'application principal</string>
+    <string name="noAuthenticatorsMessage">Ajoutez des authentificateurs depuis l\'application principale</string>
     <string name="hotpNotSupported">HOTP non pris en charge</string>
     <string name="categoryAll">Tout</string>
     <string name="offline">Déconnecté</string>
