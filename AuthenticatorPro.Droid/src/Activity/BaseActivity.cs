@@ -283,7 +283,7 @@ namespace AuthenticatorPro.Droid.Activity
 
         protected virtual void OnApplySystemBarInsets(Insets insets)
         {
-            ToolbarWrapLayout?.SetPadding(0, insets.Top, 0, 0);
+            //ToolbarWrapLayout?.SetPadding(0, insets.Top, 0, 0);
         }
 
         #region Common Helpers
