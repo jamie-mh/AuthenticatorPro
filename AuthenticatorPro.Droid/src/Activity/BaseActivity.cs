@@ -32,7 +32,6 @@ namespace AuthenticatorPro.Droid.Activity
         // Internal state
         private readonly int _layout;
         private bool _updatedThemeOnCreate;
-        private bool _appliedSystemBarInsets;
         private string _lastTheme;
 
         // Common data
@@ -130,7 +129,6 @@ namespace AuthenticatorPro.Droid.Activity
         public override void OnConfigurationChanged(Configuration newConfig)
         {
             base.OnConfigurationChanged(newConfig);
-            _appliedSystemBarInsets = false;
         }
 
         private void UpdateTheme()
@@ -272,11 +270,6 @@ namespace AuthenticatorPro.Droid.Activity
 
         public WindowInsetsCompat OnApplyWindowInsets(View view, WindowInsetsCompat insets)
         {
-            if (_appliedSystemBarInsets)
-            {
-                return insets;
-            }
-
             var systemBarInsets = insets.GetInsets(WindowInsetsCompat.Type.SystemBars());
 
             var layoutParameters = (ViewGroup.MarginLayoutParams) view.LayoutParameters;
@@ -285,8 +278,6 @@ namespace AuthenticatorPro.Droid.Activity
             view.LayoutParameters = layoutParameters;
 
             OnApplySystemBarInsets(systemBarInsets);
-            _appliedSystemBarInsets = true;
-
             return insets;
         }
 
