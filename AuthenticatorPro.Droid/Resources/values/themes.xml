@@ -1,5 +1,5 @@
 <resources>
-    <style name="Base.V21.AppTheme" parent="Theme.Material3.DynamicColors.Light">
+    <style name="Base.V21.AppTheme" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
@@ -9,8 +9,6 @@
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogStyle</item>
         <item name="cardStyle">@style/CardStyle</item>
-        <item name="appBarLayoutStyle">@style/AppBarLayoutStyle</item>
-        <item name="bottomAppBarStyle">@style/BottomAppBarStyle</item>
         <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle</item>
 
         <item name="android:statusBarColor">@color/system_window_scrim_light_black</item>

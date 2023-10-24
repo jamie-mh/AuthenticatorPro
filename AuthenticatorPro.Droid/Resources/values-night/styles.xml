@@ -21,7 +21,7 @@
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="ModalBottomSheetDialog.Black" parent="ThemeOverlay.Material3.BottomSheetDialog">
+    <style name="ModalBottomSheetDialog.Black" parent="BottomSheetDialogStyle">
         <item name="bottomSheetStyle">@style/ModalBottomSheet.Black</item>
     </style>
 

@@ -10,8 +10,6 @@
     </style>
 
     <style name="CardStyle" parent="Widget.Material3.CardView.Elevated"/>
-    <style name="AppBarLayoutStyle" parent="Widget.Material3.AppBarLayout"/>
-    <style name="BottomAppBarStyle" parent="Widget.Material3.BottomAppBar"/>
     <style name="ProgressIndicatorStyle" parent="Widget.Material3.LinearProgressIndicator">
         <item name="trackThickness">2dp</item>
     </style>
