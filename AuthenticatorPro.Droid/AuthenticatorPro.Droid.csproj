@@ -8,6 +8,7 @@
         <ApplicationId>me.jmh.authenticatorpro</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
@@ -21,12 +22,17 @@
         <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
     </PropertyGroup>
     <ItemGroup>
+      <None Remove="Resources\color\background_emphasis_high_type.xml" />
+      <None Remove="Resources\values-v27\themes.xml" />
+      <None Remove="Resources\values-v23\themes.xml" />
+    </ItemGroup>
+    <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.4">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Mono.AotProfiler.Android" Version="7.0.0"/>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="sqlite-net-sqlcipher" Version="1.8.116"/>
+        <PackageReference Include="Mono.AotProfiler.Android" Version="7.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="sqlite-net-sqlcipher" Version="1.8.116" />
         <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.6" />
         <PackageReference Include="TinyIoC" Version="1.4.0-rc1">
             <PrivateAssets>all</PrivateAssets>
@@ -47,26 +53,26 @@
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.1" />
     </ItemGroup>
     <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
-        <PackageReference Include="ZXing.Net" Version="0.16.9"/>
+        <PackageReference Include="ZXing.Net" Version="0.16.9" />
     </ItemGroup>
     <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
-        <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.1.0.2"/>
-        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.3"/>
+        <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.1.0.2" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.0.0.3" />
     </ItemGroup>
     <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
-        <AndroidResource Remove="Resources\values\wear.xml"/>
+        <AndroidResource Remove="Resources\values\wear.xml" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj"/>
-        <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj"/>
+        <ProjectReference Include="..\AuthenticatorPro.Droid.Shared\AuthenticatorPro.Droid.Shared.csproj" />
+        <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <AndroidAotProfile Include="custom.aprof"/>
+        <AndroidAotProfile Include="custom.aprof" />
     </ItemGroup>
     <ItemGroup>
-        <ProguardConfiguration Include="proguard.cfg"/>
+        <ProguardConfiguration Include="proguard.cfg" />
     </ItemGroup>
     <ItemGroup>
-        <LinkDescription Include="trim.xml"/>
+        <LinkDescription Include="trim.xml" />
     </ItemGroup>
 </Project>

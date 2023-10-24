@@ -3,6 +3,7 @@
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:enforceNavigationBarContrast">true</item>
         <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
     <style name="AppTheme" parent="Base.V29.AppTheme"/>
 </resources>
