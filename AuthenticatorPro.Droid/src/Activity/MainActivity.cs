@@ -722,6 +722,7 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 SupportActionBar.SetDisplayShowTitleEnabled(false);
             }
+            AppBarLayout.LiftOnScrollTargetViewId = Resource.Id.list;
 
             if (Preferences.TransparentStatusBar)
             {
