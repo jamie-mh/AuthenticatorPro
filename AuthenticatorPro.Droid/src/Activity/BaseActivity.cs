@@ -192,26 +192,6 @@ namespace AuthenticatorPro.Droid.Activity
         {
             WindowCompat.SetDecorFitsSystemWindows(Window, false);
 
-            /*var windowInsetsControllerCompat = WindowCompat.GetInsetsController(Window, Window.DecorView);
-            var compatScrimColor = new Color(ResourcesCompat.GetColor(Resources, Resource.Color.system_window_scrim_light_black, Theme));
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-            {
-                Window.SetNavigationBarColor(Color.Transparent);
-                windowInsetsControllerCompat.AppearanceLightNavigationBars = !IsDark;
-            }
-            else
-            {
-                Window.SetNavigationBarColor(compatScrimColor);
-            }
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
-            {
-                Window.SetStatusBarColor(Color.Transparent);
-                windowInsetsControllerCompat.AppearanceLightStatusBars = !IsDark;
-            }
-            else
-            {
-                Window.SetStatusBarColor(compatScrimColor);
-            }*/
         }
 
         protected override void OnResume()
@@ -283,7 +263,6 @@ namespace AuthenticatorPro.Droid.Activity
 
         protected virtual void OnApplySystemBarInsets(Insets insets)
         {
-            //ToolbarWrapLayout?.SetPadding(0, insets.Top, 0, 0);
         }
 
         #region Common Helpers
