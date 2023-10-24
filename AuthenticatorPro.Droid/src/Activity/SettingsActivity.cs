@@ -115,10 +115,13 @@ namespace AuthenticatorPro.Droid.Activity
                 ClearBiometrics();
                 Preferences.AllowBiometrics = false;
             }
+            if (savedInstanceState == null)
+            {
+                SupportFragmentManager.BeginTransaction()
+                   .Replace(Resource.Id.layoutFragment, _fragment)
+                   .Commit();
+            }
 
-            SupportFragmentManager.BeginTransaction()
-                .Replace(Resource.Id.layoutFragment, _fragment)
-                .Commit();
         }
 
         public override void Finish()
