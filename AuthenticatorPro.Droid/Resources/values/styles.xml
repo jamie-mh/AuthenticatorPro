@@ -5,6 +5,10 @@
         <item name="android:background">@drawable/alertDialogBackground</item>
     </style>
 
+    <style name="BottomSheetDialogStyle" parent="ThemeOverlay.Material3.DayNight.BottomSheetDialog">
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+
     <style name="CardStyle" parent="Widget.Material3.CardView.Elevated"/>
     <style name="AppBarLayoutStyle" parent="Widget.Material3.AppBarLayout"/>
     <style name="BottomAppBarStyle" parent="Widget.Material3.BottomAppBar"/>
