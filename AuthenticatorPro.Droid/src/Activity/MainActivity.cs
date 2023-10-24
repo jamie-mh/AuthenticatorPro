@@ -21,6 +21,7 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
+using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;
 using AndroidX.Work;
 using AuthenticatorPro.Core;
@@ -156,13 +157,16 @@ namespace AuthenticatorPro.Droid.Activity
             _secureStorageWrapper = new SecureStorageWrapper(this);
 
             var windowFlags = !Preferences.AllowScreenshots ? WindowManagerFlags.Secure : 0;
-
-            if (Build.VERSION.SdkInt < BuildVersionCodes.R)
-            {
-                windowFlags |= WindowManagerFlags.TranslucentStatus;
-            }
-
             Window.SetFlags(windowFlags, windowFlags);
+
+#pragma warning disable CA1416
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
+            {
+
+                Window.NavigationBarContrastEnforced = false;
+            }
+#pragma warning restore CA1416
+
             RunOnUiThread(InitViews);
 
             if (savedInstanceState != null)

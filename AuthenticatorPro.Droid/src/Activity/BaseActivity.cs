@@ -193,7 +193,8 @@ namespace AuthenticatorPro.Droid.Activity
         private void UpdateStatusBar()
         {
             WindowCompat.SetDecorFitsSystemWindows(Window, false);
-            var windowInsetsControllerCompat = WindowCompat.GetInsetsController(Window, Window.DecorView);
+
+            /*var windowInsetsControllerCompat = WindowCompat.GetInsetsController(Window, Window.DecorView);
             var compatScrimColor = new Color(ResourcesCompat.GetColor(Resources, Resource.Color.system_window_scrim_light_black, Theme));
             if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
             {
@@ -212,7 +213,7 @@ namespace AuthenticatorPro.Droid.Activity
             else
             {
                 Window.SetStatusBarColor(compatScrimColor);
-            }
+            }*/
         }
 
         protected override void OnResume()
