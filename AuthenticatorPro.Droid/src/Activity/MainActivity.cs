@@ -162,7 +162,6 @@ namespace AuthenticatorPro.Droid.Activity
 #pragma warning disable CA1416
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
             {
-
                 Window.NavigationBarContrastEnforced = false;
             }
 #pragma warning restore CA1416
