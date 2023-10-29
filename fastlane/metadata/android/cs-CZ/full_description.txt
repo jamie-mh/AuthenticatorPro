@@ -22,7 +22,7 @@ Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnut�
 
 (¹) *Pro čtení QR kódů aplikace vyžaduje oprávnění kamery*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Často pokládané otázky</b></a>
 
 <hr>
 
