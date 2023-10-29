@@ -281,7 +281,7 @@
     <string name="timeout5Min">5 минут</string>
     <string name="timeout10Min">10 минут</string>
     <string name="systemDefault">Как в системе</string>
-    <string name="systemDefaultBlack">Системные настройки (чёрный)</string>
+    <string name="systemDefaultBlack">Как в системе (чёрная)</string>
     <string name="lightTheme">Светлая тема</string>
     <string name="darkTheme">Тёмная тема</string>
     <string name="blackTheme">Чёрная тема</string>
