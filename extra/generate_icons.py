@@ -110,6 +110,22 @@ def generate_for_dpi(dpi: str, path: str, overwrite: bool):
     )
 
 
+def delete_removed(files: list[str]):
+    lookup = {f"auth_{file}": 1 for file in files}
+
+    for dpi in DPI_SIZES.keys():
+        resources_path = os.path.join(
+            MAIN_DIR, "AuthenticatorPro.Droid.Shared", "Resources", f"drawable-{dpi}"
+        )
+
+        resources = os.listdir(resources_path)
+
+        for resource in resources:
+            if resource not in lookup:
+                print(f"Deleting removed resource {resource}")
+                os.remove(os.path.join(resources_path, resource))
+
+
 def validate_path():
     for program in ["convert", "oxipng"]:
         if shutil.which(program) is None:
@@ -136,6 +152,7 @@ def main():
     files.sort()
 
     print(f"Generating {len(files)} icons")
+    delete_removed(files)
 
     for filename in files:
         print(f"Processing {filename}")
