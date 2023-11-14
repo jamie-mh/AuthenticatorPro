@@ -166,7 +166,7 @@ namespace AuthenticatorPro.Droid
         private static string GetPath()
         {
             return Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 FileName
             );
         }

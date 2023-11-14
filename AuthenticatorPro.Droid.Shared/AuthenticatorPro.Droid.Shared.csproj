@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net7.0-android</TargetFramework>
+        <TargetFramework>net8.0-android</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
         <Nullable>disable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
+        <LangVersion>12</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.4">

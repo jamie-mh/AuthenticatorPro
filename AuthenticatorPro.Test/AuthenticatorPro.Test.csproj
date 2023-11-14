@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <IsPackable>false</IsPackable>
+        <LangVersion>12</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.0">

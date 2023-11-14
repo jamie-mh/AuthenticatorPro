@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net7.0-android</TargetFramework>
+        <TargetFramework>net8.0-android</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
         <OutputType>Exe</OutputType>
         <Nullable>disable</Nullable>
@@ -8,11 +8,12 @@
         <ApplicationId>me.jmh.authenticatorpro</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <LangVersion>12</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
         <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-        <RuntimeIdentifiers>android.32-x64</RuntimeIdentifiers>
+        <RuntimeIdentifiers>android-x64</RuntimeIdentifiers>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
