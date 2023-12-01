@@ -106,7 +106,7 @@
     <string name="noAuthenticatorsHelp">Authenticator Pro가 처음이라면, 아래 버튼을 눌러 시작 도움말을 확인하세요.</string>
     <string name="noCategoriesTitle">분류 없음</string>
     <string name="noCategoriesMessage">설정한 분류가 없습니다</string>
-    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksTitle">아이콘 팩 없음</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!-- Categories -->
     <string name="category">카테고리</string>
@@ -249,7 +249,7 @@
     <string name="prefTapToRevealSummary">코드를 누르기 전까지 숨깁니다. 누른 뒤 몇 초가 지나면 다시 숨겨집니다.</string>
     <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
     <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
-    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsTitle">스크린샷 허용</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">표시</string>
     <string name="prefThemeTitle">테마</string>
@@ -258,7 +258,7 @@
     <string name="prefViewModeSummary">인증기 목록을 어떻게 표시할지 고릅니다</string>
     <string name="prefCodeGroupSizeTitle">코드 자릿수 단위</string>
     <string name="prefCodeGroupSizeSummary">몇 자리마다 코드를 묶을지 설정합니다</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesTitle">사용자 이름 표시</string>
     <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Dynamic Colour</string>
     <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
