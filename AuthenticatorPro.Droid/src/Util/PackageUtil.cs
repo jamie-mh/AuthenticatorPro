@@ -15,7 +15,7 @@ namespace AuthenticatorPro.Droid.Util
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Tiramisu)
             {
 #pragma warning disable CA1416
-                var flags = PackageManager.PackageInfoFlags.Of(0);
+                var flags = PackageManager.PackageInfoFlags.Of(0L);
                 packageInfo = packageManager.GetPackageInfo(packageName, flags);
 #pragma warning restore CA1416
             }
