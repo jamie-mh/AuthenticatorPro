@@ -19,6 +19,7 @@
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
+        <AndroidStripILAfterAOT>true</AndroidStripILAfterAOT>
         <PublishTrimmed>true</PublishTrimmed>
         <TrimMode>full</TrimMode>
         <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
