@@ -1,17 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
+        <LangVersion>12</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.0"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="7.0.4">
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
         <PackageReference Include="Portable.BouncyCastle" Version="1.9.0"/>
-        <PackageReference Include="protobuf-net" Version="3.2.26"/>
+        <PackageReference Include="protobuf-net" Version="3.2.30" />
         <PackageReference Include="QRCoder" Version="1.4.3"/>
         <PackageReference Include="SharpZipLib" Version="1.4.2"/>
         <PackageReference Include="SimpleBase" Version="4.0.0"/>
