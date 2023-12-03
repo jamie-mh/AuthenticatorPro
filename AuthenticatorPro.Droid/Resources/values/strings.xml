@@ -94,6 +94,7 @@
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="viewSource">View source</string>
 
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
