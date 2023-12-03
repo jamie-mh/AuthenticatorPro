@@ -44,6 +44,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(TapToCopyKey, value);
         }
 
+        private const string SkipToNextKey = "pref_skipToNext";
+        private const bool SkipToNextDefault = false;
+
+        public bool SkipToNext
+        {
+            get => Preferences.GetBoolean(SkipToNextKey, SkipToNextDefault);
+            set => SetPreference(SkipToNextKey, value);
+        }
+        
         private const string PasswordProtectedKey = "pref_passwordProtected";
         private const bool PasswordProtectedDefault = false;
 
