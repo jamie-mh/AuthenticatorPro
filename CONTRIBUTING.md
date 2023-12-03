@@ -2,7 +2,7 @@
 
 ## Translations 💬
 
-Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin project](https://crwd.in/authenticator-pro) to contribute. If your language is not available, please contact me and I will add it.
+Translations are now managed on Crowdin. Go to the [Authenticator Pro Crowdin project](https://crowdin.com/project/authenticator-pro) to contribute. If your language is not available, please contact me and I will add it.
 <br></br>
 
 ## Icons ⏺️
