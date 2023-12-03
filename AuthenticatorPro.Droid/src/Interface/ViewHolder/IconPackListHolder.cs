@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Views;
-using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using Google.Android.Material.Button;
 using Google.Android.Material.TextView;
 
 namespace AuthenticatorPro.Droid.Interface.ViewHolder
@@ -14,13 +14,13 @@ namespace AuthenticatorPro.Droid.Interface.ViewHolder
         {
             Name = itemView.FindViewById<MaterialTextView>(Resource.Id.textName);
             Description = itemView.FindViewById<MaterialTextView>(Resource.Id.textDescription);
-            OpenUrl = itemView.FindViewById<ImageButton>(Resource.Id.buttonOpenUrl);
-            Delete = itemView.FindViewById<ImageButton>(Resource.Id.buttonDelete);
+            ViewSource = itemView.FindViewById<MaterialButton>(Resource.Id.buttonViewSource);
+            Delete = itemView.FindViewById<MaterialButton>(Resource.Id.buttonDelete);
         }
 
         public MaterialTextView Name { get; }
         public MaterialTextView Description { get; }
-        public ImageButton OpenUrl { get; }
-        public ImageButton Delete { get; }
+        public MaterialButton ViewSource { get; }
+        public MaterialButton Delete { get; }
     }
 }
