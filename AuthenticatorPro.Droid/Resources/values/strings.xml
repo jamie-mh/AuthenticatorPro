@@ -293,6 +293,8 @@
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
 
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Password</string>

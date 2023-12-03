@@ -766,7 +766,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
             _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
-            _authenticatorListAdapter.RefreshClicked += OnAuthenticatorRefreshClicked;
+            _authenticatorListAdapter.IncrementCounterClicked += OnAuthenticatorIncrementCounterClicked;
             _authenticatorListAdapter.MovementStarted += OnAuthenticatorListMovementStarted;
             _authenticatorListAdapter.MovementFinished += OnAuthenticatorListMovementFinished;
 
@@ -1000,7 +1000,7 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async void OnAuthenticatorRefreshClicked(object sender, string secret)
+        private async void OnAuthenticatorIncrementCounterClicked(object sender, string secret)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
 
