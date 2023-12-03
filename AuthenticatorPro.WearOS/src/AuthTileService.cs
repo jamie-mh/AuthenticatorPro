@@ -160,6 +160,24 @@ namespace AuthenticatorPro.WearOS
                 .Build();
         }
 
+        private ModifiersBuilders.Clickable BuildAppOpenClickable()
+        {
+            var clazz = Class.FromType(typeof(MainActivity));
+
+            var activity = new ActionBuilders.AndroidActivity.Builder()
+                .SetClassName(clazz.Name)
+                .SetPackageName(PackageName)
+                .Build();
+
+            var action = new ActionBuilders.LaunchAction.Builder()
+                .SetAndroidActivity(activity)
+                .Build();
+
+            return new ModifiersBuilders.Clickable.Builder()
+                .SetOnClick(action)
+                .Build();
+        }
+
         private TileBuilders.Tile BuildEmptyTile(DeviceParametersBuilders.DeviceParameters deviceParameters)
         {
             var titleText = new LayoutElementBuilders.Text.Builder()
@@ -178,23 +196,9 @@ namespace AuthenticatorPro.WearOS
                 .SetFontStyle(BuildFontStyle(16f, GetColor(Resource.Color.colorLighter)))
                 .Build();
 
-            var clazz = Class.FromType(typeof(MainActivity));
-
-            var activity = new ActionBuilders.AndroidActivity.Builder()
-                .SetClassName(clazz.Name)
-                .SetPackageName(PackageName)
-                .Build();
-
-            var action = new ActionBuilders.LaunchAction.Builder()
-                .SetAndroidActivity(activity)
-                .Build();
-
-            var clickable = new ModifiersBuilders.Clickable.Builder()
-                .SetOnClick(action)
-                .Build();
-
             var compactChip =
-                new CompactChip.Builder(this, GetString(Resource.String.open), clickable, deviceParameters)
+                new CompactChip.Builder(this, GetString(Resource.String.open), BuildAppOpenClickable(),
+                        deviceParameters)
                     .Build();
 
             var primaryLayout = new PrimaryLayout.Builder(deviceParameters)
@@ -223,10 +227,12 @@ namespace AuthenticatorPro.WearOS
 
         private TileBuilders.Tile BuildCodeTile()
         {
-            var (code, secondsRemaining) =
-                AuthenticatorUtil.GetCodeAndRemainingSeconds(_generator, _authenticator.Period);
+            var clickableModifier = new ModifiersBuilders.Modifiers.Builder()
+                .SetClickable(BuildAppOpenClickable())
+                .Build();
 
             var column = new LayoutElementBuilders.Column.Builder();
+            column.SetModifiers(clickableModifier);
 
             var iconSize = BuildDpProp(24f);
 
@@ -257,6 +263,9 @@ namespace AuthenticatorPro.WearOS
                 column.AddContent(usernameText);
                 column.AddContent(BuildSpacer(0, 4f));
             }
+
+            var (code, secondsRemaining) =
+                AuthenticatorUtil.GetCodeAndRemainingSeconds(_generator, _authenticator.Period);
 
             var codeText = new LayoutElementBuilders.Text.Builder()
                 .SetText(CodeUtil.PadCode(code, _authenticator.Digits, _preferences.CodeGroupSize))
