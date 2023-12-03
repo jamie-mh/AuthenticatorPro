@@ -44,6 +44,7 @@ namespace AuthenticatorPro.Droid.Activity
                 case "pref_theme":
                 case "pref_dynamicColour":
                 case "pref_accentColour":
+                case "pref_systemFont":
                     _shouldRecreateMain = true;
                     Recreate();
                     break;

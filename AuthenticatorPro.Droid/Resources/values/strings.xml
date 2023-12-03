@@ -325,6 +325,8 @@
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
 
     <string name="copyCountReset">Copy count reset</string>
 

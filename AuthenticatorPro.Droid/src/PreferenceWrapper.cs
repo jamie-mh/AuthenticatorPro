@@ -170,6 +170,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(TransparentStatusBarKey, value);
         }
 
+        private const string SystemFontKey = "pref_systemFont";
+        private const bool SystemFontDefault = false;
+
+        public bool SystemFont
+        {
+            get => Preferences.GetBoolean(SystemFontKey, SystemFontDefault);
+            set => SetPreference(SystemFontKey, value);
+        }
+
         private const string AutoBackupEnabledKey = "pref_autoBackupEnabled";
         private const bool AutoBackupEnabledDefault = false;
 
