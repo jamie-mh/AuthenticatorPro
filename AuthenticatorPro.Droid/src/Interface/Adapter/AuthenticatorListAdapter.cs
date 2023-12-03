@@ -210,6 +210,10 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             if (payload.RequiresGeneration)
             {
                 UpdateTimeGeneratorCodeText(auth, holder, offset);
+            }
+
+            if (payload.RequiresGeneration || _animationScale.Equals(0f))
+            {
                 UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
             }
 
@@ -267,16 +271,8 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 _cooldownOffsets.Remove(position);
             }
 
-            var update = new TimerPartialUpdate
-            {
-                CurrentOffset = now, RequiresGeneration = false, ShowRefresh = false
-            };
-
             for (var i = 0; i < ItemCount; ++i)
             {
-                update.RequiresGeneration = false;
-                update.ShowRefresh = false;
-                
                 var auth = _authenticatorView[i];
 
                 if (auth.Type.GetGenerationMethod() != GenerationMethod.Time)
@@ -287,21 +283,28 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 var offset = GetGenerationOffset(i, auth.Period);
                 var renewOffset = offset + auth.Period;
                 var isExpired = renewOffset <= now;
+                var showRefresh = false;
 
                 if (isExpired)
                 {
-                    update.RequiresGeneration = true;
                     UpdateGenerationOffset(i, auth.Period, now);
                 }
                 else if (_skipToNext)
                 {
                     var progress = (double) Math.Max(renewOffset - now, 0) / auth.Period;
-                    update.ShowRefresh = progress < SkipToNextRatio;
+                    showRefresh = progress < SkipToNextRatio;
                 }
 
-                if ((update.RequiresGeneration || update.ShowRefresh || _animationScale.Equals(0f)) &&
+                if ((isExpired || showRefresh || _animationScale.Equals(0f)) &&
                     ValidatePosition(i))
                 {
+                    var update = new TimerPartialUpdate
+                    {
+                        CurrentOffset = now,
+                        RequiresGeneration = isExpired,
+                        ShowRefresh = showRefresh
+                    };
+                    
                     NotifyItemChanged(i, update);
                 }
             }
