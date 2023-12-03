@@ -935,6 +935,7 @@ namespace AuthenticatorPro.Droid.Activity
                 _authenticatorListAdapter.NotifyDataSetChanged();
                 _authenticatorList.ScheduleLayoutAnimation();
                 ScrollToPosition(0, false);
+                _bottomAppBar.PerformShow();
             });
         }
 
