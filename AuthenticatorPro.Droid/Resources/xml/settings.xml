@@ -145,6 +145,12 @@
             android:title="@string/prefTransparentStatusBarTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+            android:key="pref_systemFont"
+            android:summary="@string/prefSystemFontSummary"
+            android:title="@string/prefSystemFontTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
