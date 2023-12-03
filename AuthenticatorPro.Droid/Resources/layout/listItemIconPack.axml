@@ -43,7 +43,7 @@
                 android:id="@+id/buttonViewSource"
                 style="@style/Widget.Material3.Button.Icon"
                 app:icon="@drawable/baseline_open_in_new_24"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="10dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/viewSource"/>
