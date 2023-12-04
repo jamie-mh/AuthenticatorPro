@@ -240,14 +240,17 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             var offset = GetGenerationOffset(holder.BindingAdapterPosition, auth.Period);
+            var showRefreshButton = false;
 
             if (_skipToNext)
             {
                 var renewOffset = offset + auth.Period;
                 var progress = (double) Math.Max(renewOffset - now, 0) / auth.Period;
-                holder.RefreshButton.Visibility = progress < SkipToNextRatio ? ViewStates.Visible : ViewStates.Gone;
+                showRefreshButton = progress < SkipToNextRatio &&
+                                    (!_tapToReveal || _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition));
             }
             
+            holder.RefreshButton.Visibility = showRefreshButton ? ViewStates.Visible : ViewStates.Gone;
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
             UpdateTimeGeneratorCodeText(auth, holder, offset);
         }
@@ -292,7 +295,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 else if (_skipToNext)
                 {
                     var progress = (double) Math.Max(renewOffset - now, 0) / auth.Period;
-                    showRefresh = progress < SkipToNextRatio;
+                    showRefresh = progress < SkipToNextRatio && (!_tapToReveal || _cooldownOffsets.ContainsKey(i));
                 }
 
                 if ((isExpired || showRefresh || _animationScale.Equals(0f)) &&
@@ -429,6 +432,11 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             switch (auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
+                    if (_cooldownOffsets.ContainsKey(position))
+                    {
+                        _cooldownOffsets[position] += _tapToRevealDuration;
+                    }
+                    
                     SkipToNextOffset(position, auth.Period);
                     NotifyItemChanged(position);
                     break;
