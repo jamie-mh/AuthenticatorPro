@@ -47,12 +47,9 @@
         <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.24" />
         <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.8.1.6" />
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.2" />
-    </ItemGroup>
-    <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
         <PackageReference Include="ZXing.Net" Version="0.16.9"/>
     </ItemGroup>
     <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
-        <PackageReference Include="Xamarin.Google.MLKit.BarcodeScanning" Version="117.2.0.2" />
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.1.0.1" />
     </ItemGroup>
     <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">

@@ -57,21 +57,17 @@ namespace AuthenticatorPro.Droid.Activity
 
             var icon = await _assetProvider.ReadBytesAsync("icon.png");
 
-#if FDROID
-            const string extraLicenseFile = "license.extra.fdroid.html";
-#else
-            const string extraLicenseFile = "license.extra.html";
-#endif
-
-            var extraLicense = await _assetProvider.ReadStringAsync(extraLicenseFile);
-
             var html = (await _assetProvider.ReadStringAsync("about.html"))
                 .Replace("%ICON", $"data:image/png;base64,{Convert.ToBase64String(icon)}")
                 .Replace("%VERSION", version)
-                .Replace("%LICENSE", extraLicense)
                 .Replace("%SURFACE", ColourToHexString(surface))
                 .Replace("%ON_SURFACE", ColourToHexString(onSurface))
                 .Replace("%PRIMARY", ColourToHexString(primary));
+
+#if !FDROID
+            var extraLicense = await _assetProvider.ReadStringAsync("license.extra.html");
+            html = html.Replace("%LICENSE", extraLicense);
+#endif
 
             var webView = FindViewById<WebView>(Resource.Id.webView);
             webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
