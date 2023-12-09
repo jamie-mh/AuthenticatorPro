@@ -78,6 +78,26 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             _authenticatorView.Swap(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
+
+            SwapDictionaryValues(_generationOffsets, oldPosition, newPosition);
+            SwapDictionaryValues(_cooldownOffsets, oldPosition, newPosition);
+        }
+
+        private static void SwapDictionaryValues<T>(Dictionary<int, T> dictionary, int oldPosition, int newPosition)
+        {
+            if (dictionary.TryGetValue(oldPosition, out var oldValue))
+            {
+                if (dictionary.TryGetValue(newPosition, out var newValue))
+                {
+                    dictionary[oldPosition] = newValue;
+                }
+                
+                dictionary[newPosition] = oldValue;
+            }
+            else if (dictionary.TryGetValue(newPosition, out var newValue))
+            {
+                dictionary[oldPosition] = newValue;
+            }
         }
 
         public void OnMovementFinished(bool orderChanged)
