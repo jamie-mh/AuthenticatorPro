@@ -5,7 +5,5 @@ using AuthenticatorPro.Core.Entity;
 
 namespace AuthenticatorPro.Core.Persistence
 {
-    public interface ICategoryRepository : IAsyncRepository<Category, string>
-    {
-    }
+    public interface ICategoryRepository : IAsyncRepository<Category, string>;
 }

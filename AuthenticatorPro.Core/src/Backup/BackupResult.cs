@@ -16,7 +16,7 @@ namespace AuthenticatorPro.Core.Backup
 
         public bool IsVoid()
         {
-            return String.IsNullOrEmpty(FileName);
+            return string.IsNullOrEmpty(FileName);
         }
     }
 }
