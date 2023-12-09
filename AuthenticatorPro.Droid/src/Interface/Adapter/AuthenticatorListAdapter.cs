@@ -31,6 +31,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
+        private readonly bool _tapToCopy;
         private readonly bool _tapToReveal;
         private readonly int _tapToRevealDuration;
         private readonly int _codeGroupSize;
@@ -53,6 +54,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             var preferences = new PreferenceWrapper(context);
             _viewMode = ViewModeSpecification.FromName(preferences.ViewMode);
+            _tapToCopy = preferences.TapToCopy;
             _tapToReveal = preferences.TapToReveal;
             _tapToRevealDuration = preferences.TapToRevealDuration;
             _codeGroupSize = preferences.CodeGroupSize;
@@ -110,7 +112,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             MovementStarted?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler<string> ItemClicked;
+        public event EventHandler<string> CodeCopied;
         public event EventHandler<string> MenuClicked;
         public event EventHandler<string> IncrementCounterClicked;
 
@@ -422,23 +424,41 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
 
             var auth = _authenticatorView[holder.BindingAdapterPosition];
-
+            
             if (!_tapToReveal)
             {
-                ItemClicked?.Invoke(this, auth.Secret);
+                if (_tapToCopy)
+                {
+                    CodeCopied?.Invoke(this, auth.Secret);
+                }
+                
                 return;
             }
 
-            if (_cooldownOffsets.Remove(holder.BindingAdapterPosition))
+            var isRevealed = _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition);
+
+            if (isRevealed)
             {
-                holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+                if (_tapToCopy)
+                {
+                    CodeCopied?.Invoke(this, auth.Secret);    
+                }
+                else
+                {
+                    _cooldownOffsets.Remove(holder.BindingAdapterPosition);
+                    holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+
+                    if (_skipToNext)
+                    {
+                        holder.RefreshButton.Visibility = ViewStates.Gone;
+                    }
+                }
             }
             else
             {
                 var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 _cooldownOffsets[holder.BindingAdapterPosition] = offset + _tapToRevealDuration;
                 holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
-                ItemClicked?.Invoke(this, auth.Secret);
             }
         }
 

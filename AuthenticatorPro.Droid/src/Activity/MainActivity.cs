@@ -764,7 +764,7 @@ namespace AuthenticatorPro.Droid.Activity
                     HasStableIds = true
                 };
 
-            _authenticatorListAdapter.ItemClicked += OnAuthenticatorClicked;
+            _authenticatorListAdapter.CodeCopied += OnAuthenticatorCopied;
             _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
             _authenticatorListAdapter.IncrementCounterClicked += OnAuthenticatorIncrementCounterClicked;
             _authenticatorListAdapter.MovementStarted += OnAuthenticatorListMovementStarted;
@@ -958,11 +958,11 @@ namespace AuthenticatorPro.Droid.Activity
             AppBarLayout.SetExpanded(true);
         }
 
-        private async void OnAuthenticatorClicked(object sender, string secret)
+        private async void OnAuthenticatorCopied(object sender, string secret)
         {
             var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
 
-            if (auth == null || !Preferences.TapToCopy)
+            if (auth == null)
             {
                 return;
             }
