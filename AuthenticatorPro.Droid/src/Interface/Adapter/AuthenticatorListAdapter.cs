@@ -351,13 +351,12 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 return;
             }
 
-            progressIndicator.ClearAnimation();
-            
             var animator = ObjectAnimator.OfInt(progressIndicator, "progress", 0);
             var duration = (int) (secondsRemaining * 1000 / _animationScale);
 
             animator.SetDuration(duration);
             animator.SetInterpolator(new LinearInterpolator());
+            animator.SetAutoCancel(true);
             animator.Start();
         }
 
