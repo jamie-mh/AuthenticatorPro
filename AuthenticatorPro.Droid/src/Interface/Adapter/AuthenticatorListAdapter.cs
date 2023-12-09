@@ -224,7 +224,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
 
             var holder = (AuthenticatorListHolder) viewHolder;
-            var payload = (TimerPartialUpdate) payloads[0];
+            var payload = (PartialUpdate) payloads[0];
             var offset = GetGenerationOffset(holder.BindingAdapterPosition, auth.Period);
 
             if (payload.RequiresGeneration)
@@ -264,10 +264,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             if (_skipToNext)
             {
-                var renewOffset = offset + auth.Period;
-                var progress = (double) Math.Max(renewOffset - now, 0) / auth.Period;
-                showRefreshButton = progress < SkipToNextRatio &&
-                                    (!_tapToReveal || _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition));
+                showRefreshButton = ShouldAllowSkip(offset, auth.Period, now, holder.BindingAdapterPosition);
             }
             
             holder.RefreshButton.Visibility = showRefreshButton ? ViewStates.Visible : ViewStates.Gone;
@@ -314,14 +311,13 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 }
                 else if (_skipToNext)
                 {
-                    var progress = (double) Math.Max(renewOffset - now, 0) / auth.Period;
-                    showRefresh = progress < SkipToNextRatio && (!_tapToReveal || _cooldownOffsets.ContainsKey(i));
+                    showRefresh = ShouldAllowSkip(offset, auth.Period, now, i);
                 }
 
                 if ((isExpired || showRefresh || _animationScale.Equals(0f)) &&
                     ValidatePosition(i))
                 {
-                    var update = new TimerPartialUpdate
+                    var update = new PartialUpdate
                     {
                         CurrentOffset = now,
                         RequiresGeneration = isExpired,
@@ -386,6 +382,13 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                              (_tapToReveal && _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition));
             var code = isRevealed ? auth.GetCode(offset) : null;
             holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+        }
+
+        private bool ShouldAllowSkip(long offset, int period, long now, int position)
+        {
+            var renewOffset = offset + period;
+            var progress = (double) Math.Max(renewOffset - now, 0) / period;
+            return progress < SkipToNextRatio && (!_tapToReveal || _cooldownOffsets.ContainsKey(position));
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -470,7 +473,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
         }
 
-        private class TimerPartialUpdate : Object
+        private class PartialUpdate : Object
         {
             public bool RequiresGeneration { get; set; }
             public bool ShowRefresh { get; set; }
