@@ -21,11 +21,8 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task ImportPackAsync(IconPack pack)
         {
-            if (pack == null)
-            {
-                throw new ArgumentNullException(nameof(pack));
-            }
-
+            ArgumentNullException.ThrowIfNull(pack);
+            
             if (pack.Icons == null)
             {
                 throw new ArgumentException("Pack must contain icons");
@@ -52,11 +49,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task DeletePackAsync(IconPack pack)
         {
-            if (pack == null)
-            {
-                throw new ArgumentNullException(nameof(pack));
-            }
-
+            ArgumentNullException.ThrowIfNull(pack);
             await _iconPackEntryRepository.DeleteAllForPackAsync(pack);
             await _iconPackRepository.DeleteAsync(pack);
         }

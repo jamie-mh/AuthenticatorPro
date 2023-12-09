@@ -93,10 +93,9 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
 
             if (!string.IsNullOrEmpty(Search))
             {
-                var searchLower = Search.ToLower();
                 view = view.Where(i =>
-                    i.Issuer.ToLower().Contains(searchLower) ||
-                    (i.Username != null && i.Username.Contains(searchLower)));
+                    i.Issuer.Contains(Search, StringComparison.OrdinalIgnoreCase) ||
+                    (i.Username != null && i.Username.Contains(Search, StringComparison.OrdinalIgnoreCase)));
             }
 
             view = SortMode switch

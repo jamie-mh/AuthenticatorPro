@@ -33,6 +33,8 @@ namespace AuthenticatorPro.Droid
         public async ValueTask DisposeAsync()
         {
             await CloseAsync(Origin.Gc);
+            _lock.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public async Task<SQLiteAsyncConnection> GetConnectionAsync()
