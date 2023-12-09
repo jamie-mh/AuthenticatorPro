@@ -434,7 +434,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 case GenerationMethod.Time:
                     if (_cooldownOffsets.ContainsKey(position))
                     {
-                        _cooldownOffsets[position] += _tapToRevealDuration;
+                        _cooldownOffsets[position] = _tapToRevealDuration;
                     }
                     
                     SkipToNextOffset(position, auth.Period);
