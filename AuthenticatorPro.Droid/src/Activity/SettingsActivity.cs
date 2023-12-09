@@ -50,6 +50,7 @@ namespace AuthenticatorPro.Droid.Activity
                     break;
 
                 case "pref_skipToNext":
+                case "pref_tapToCopy":
                 case "pref_tapToRevealDuration":
                 case "pref_allowScreenshots":
                 case "pref_viewMode":
