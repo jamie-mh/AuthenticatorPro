@@ -34,6 +34,8 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
+            AppBarLayout.LiftOnScrollTargetViewId = Resource.Id.nestedScrollView;
+
             string version;
 
             try

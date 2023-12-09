@@ -1,0 +1,7 @@
+<resources>
+    <style name="Base.V27.AppTheme" parent="Base.V23.AppTheme">
+        <item name="android:windowLightNavigationBar">?isLightTheme</item>
+        <item name="android:navigationBarColor">@color/background_emphasis_high_type</item>
+    </style>
+    <style name="AppTheme" parent="Base.V27.AppTheme"/>
+</resources>

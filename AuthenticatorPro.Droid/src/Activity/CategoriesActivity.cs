@@ -51,6 +51,8 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
+            AppBarLayout.LiftOnScrollTargetViewId = Resource.Id.list;
+
             AddButton.Click += OnAddClick;
 
             _categoryListAdapter = new CategoryListAdapter(_categoryView);

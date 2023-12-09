@@ -16,6 +16,7 @@ using AuthenticatorPro.Droid.Callback;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.Preference;
 using AuthenticatorPro.Droid.Storage;
+using Google.Android.Material.AppBar;
 using Google.Android.Material.Snackbar;
 using Javax.Crypto;
 
@@ -91,6 +92,8 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
+            AppBarLayout.LiftOnScrollTargetViewId = Resource.Id.recycler_view;
+
             var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
             prefs.RegisterOnSharedPreferenceChangeListener(this);
 
@@ -112,10 +115,13 @@ namespace AuthenticatorPro.Droid.Activity
                 ClearBiometrics();
                 Preferences.AllowBiometrics = false;
             }
+            if (savedInstanceState == null)
+            {
+                SupportFragmentManager.BeginTransaction()
+                   .Replace(Resource.Id.layoutFragment, _fragment)
+                   .Commit();
+            }
 
-            SupportFragmentManager.BeginTransaction()
-                .Replace(Resource.Id.layoutFragment, _fragment)
-                .Commit();
         }
 
         public override void Finish()

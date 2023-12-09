@@ -5,7 +5,8 @@
     android:id="@+id/appBarLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="?attr/appBarLayoutStyle">
+    style="?attr/appBarLayoutStyle"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@+id/toolbarWrapLayout"

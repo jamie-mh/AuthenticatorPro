@@ -1,0 +1,8 @@
+<resources>
+    <style name="Base.V23.AppTheme" parent="Base.V21.AppTheme">
+        <item name="android:windowLightStatusBar">?isLightTheme</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="AppTheme" parent="Base.V23.AppTheme"/>
+    
+</resources>

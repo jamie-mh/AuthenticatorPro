@@ -35,6 +35,8 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
+            AppBarLayout.LiftOnScrollTargetViewId = Resource.Id.nestedScrollView;
+
             _exception = Intent.GetStringExtra("exception");
             var textError = FindViewById<MaterialTextView>(Resource.Id.errorText);
             textError.Text = _exception;

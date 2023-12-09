@@ -62,6 +62,8 @@ namespace AuthenticatorPro.Droid.Activity
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.baseline_arrow_back_24);
 
+            AppBarLayout.LiftOnScrollTargetViewId = Resource.Id.list;
+
             _addButton = FindViewById<FloatingActionButton>(Resource.Id.buttonAdd);
             _addButton.Click += delegate { StartFilePickActivity("*/*", RequestAdd); };
 

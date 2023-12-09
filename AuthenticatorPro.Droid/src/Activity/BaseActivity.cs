@@ -12,6 +12,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.CoordinatorLayout.Widget;
 using AndroidX.Core.Content;
+using AndroidX.Core.Content.Resources;
 using AndroidX.Core.View;
 using AuthenticatorPro.Droid.Interface;
 using Google.Android.Material.AppBar;
@@ -31,7 +32,6 @@ namespace AuthenticatorPro.Droid.Activity
         // Internal state
         private readonly int _layout;
         private bool _updatedThemeOnCreate;
-        private bool _appliedSystemBarInsets;
         private string _lastTheme;
 
         // Common data
@@ -125,11 +125,10 @@ namespace AuthenticatorPro.Droid.Activity
 
             base.AttachBaseContext(context);
         }
-        
+
         public override void OnConfigurationChanged(Configuration newConfig)
         {
             base.OnConfigurationChanged(newConfig);
-            _appliedSystemBarInsets = false;
         }
 
         private void UpdateTheme()
@@ -191,29 +190,8 @@ namespace AuthenticatorPro.Droid.Activity
 
         private void UpdateStatusBar()
         {
-            if (Build.VERSION.SdkInt < BuildVersionCodes.R)
-            {
-                if (Build.VERSION.SdkInt < BuildVersionCodes.M)
-                {
-                    Window.SetStatusBarColor(Color.Black);
-                }
+            WindowCompat.SetDecorFitsSystemWindows(Window, false);
 
-                return;
-            }
-
-            Window.SetStatusBarColor(Color.Transparent);
-
-#pragma warning disable CA1416
-            Window.SetDecorFitsSystemWindows(false);
-            Window.SetNavigationBarColor(Color.Transparent);
-
-            if (!IsDark)
-            {
-                Window.InsetsController?.SetSystemBarsAppearance(
-                    (int) WindowInsetsControllerAppearance.LightStatusBars,
-                    (int) WindowInsetsControllerAppearance.LightStatusBars);
-            }
-#pragma warning restore CA1416
         }
 
         protected override void OnResume()
@@ -272,27 +250,19 @@ namespace AuthenticatorPro.Droid.Activity
 
         public WindowInsetsCompat OnApplyWindowInsets(View view, WindowInsetsCompat insets)
         {
-            if (_appliedSystemBarInsets)
-            {
-                return insets;
-            }
-            
             var systemBarInsets = insets.GetInsets(WindowInsetsCompat.Type.SystemBars());
-            
+
             var layoutParameters = (ViewGroup.MarginLayoutParams) view.LayoutParameters;
             layoutParameters.LeftMargin = systemBarInsets.Left;
             layoutParameters.RightMargin = systemBarInsets.Right;
             view.LayoutParameters = layoutParameters;
-            
+
             OnApplySystemBarInsets(systemBarInsets);
-            _appliedSystemBarInsets = true;
-            
             return insets;
         }
 
         protected virtual void OnApplySystemBarInsets(Insets insets)
         {
-            ToolbarWrapLayout?.SetPadding(0, insets.Top, 0, 0);
         }
 
         #region Common Helpers

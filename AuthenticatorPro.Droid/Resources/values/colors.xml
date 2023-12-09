@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="system_window_scrim_light_black">#44000000</color>
 
     <!-- Red -->
     <color name="md_theme_light_red_primary">#B81D27</color>
