@@ -447,13 +447,14 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
 
             var auth = _authenticatorView[position];
+            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
             switch (auth.Type.GetGenerationMethod())
             {
                 case GenerationMethod.Time:
                     if (_cooldownOffsets.ContainsKey(position))
                     {
-                        _cooldownOffsets[position] = _tapToRevealDuration;
+                        _cooldownOffsets[position] = now + _tapToRevealDuration;
                     }
                     
                     SkipToNextOffset(position, auth.Period);
@@ -462,7 +463,6 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
                 case GenerationMethod.Counter:
                 {
-                    var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                     _cooldownOffsets[position] = now + CounterCooldownSeconds;
                     IncrementCounterClicked?.Invoke(this, auth.Secret);
                     break;
