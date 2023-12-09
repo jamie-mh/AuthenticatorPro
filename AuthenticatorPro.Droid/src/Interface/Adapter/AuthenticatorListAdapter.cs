@@ -493,6 +493,13 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
         }
 
+        public new void NotifyDataSetChanged()
+        {
+            _generationOffsets.Clear();
+            _cooldownOffsets.Clear();
+            base.NotifyDataSetChanged(); 
+        }
+
         private class PartialUpdate : Object
         {
             public bool RequiresGeneration { get; set; }
