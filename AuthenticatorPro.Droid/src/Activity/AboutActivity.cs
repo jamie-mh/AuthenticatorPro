@@ -3,7 +3,6 @@
 
 using System;
 using Android.App;
-using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Views;
@@ -20,17 +19,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Environment = System.Environment;
 using Path = System.IO.Path;
-using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     public class AboutActivity : BaseActivity
     {
-        private const int RequestSaveLog = 0;
-
         private readonly ILogger _log = Log.ForContext<AboutActivity>();
         private readonly IAssetProvider _assetProvider;
+        private WebView _webView;
 
         public AboutActivity() : base(Resource.Layout.activityAbout)
         {
@@ -81,8 +78,8 @@ namespace AuthenticatorPro.Droid.Activity
             html = html.Replace("%LICENSE", extraLicense);
 #endif
 
-            var webView = FindViewById<WebView>(Resource.Id.webView);
-            webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
+            _webView = FindViewById<WebView>(Resource.Id.webView);
+            _webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
         }
 
         public override bool OnSupportNavigateUp()
@@ -105,34 +102,13 @@ namespace AuthenticatorPro.Droid.Activity
                     Finish();
                     return true;
 
-                case Resource.Id.actionSaveLog:
-                    StartLogSaveActivity();
+                case Resource.Id.actionViewLog:
+                    ShowDebugLog();
                     return true;
 
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-        }
-
-        protected override async void OnActivityResult(int requestCode, Result resultCode, Intent intent)
-        {
-            if (requestCode != RequestSaveLog || resultCode != Result.Ok)
-            {
-                return;
-            }
-
-            try
-            {
-                await SaveLogToFileAsync(intent.Data);
-            }
-            catch (Exception e)
-            {
-                _log.Error(e, "Log saving failed");
-                Toast.MakeText(this, Resource.String.genericError, ToastLength.Short).Show();
-                return;
-            }
-
-            Toast.MakeText(this, Resource.String.saveSuccess, ToastLength.Short).Show();
         }
 
         protected override void OnApplySystemBarInsets(Insets insets)
@@ -142,7 +118,7 @@ namespace AuthenticatorPro.Droid.Activity
             scrollView.SetPadding(0, 0, 0, insets.Bottom);
         }
 
-        private void StartLogSaveActivity()
+        private void ShowDebugLog()
         {
             var path = GetLogPath();
 
@@ -151,35 +127,22 @@ namespace AuthenticatorPro.Droid.Activity
                 Toast.MakeText(this, Resource.String.noLogFile, ToastLength.Short).Show();
                 return;
             }
-
-            var intent = new Intent(Intent.ActionCreateDocument);
-            intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("text/plain");
-            intent.PutExtra(Intent.ExtraTitle, Path.GetFileName(path));
-
-            BaseApplication.PreventNextAutoLock = true;
-
-            try
+            
+            Toolbar.SetTitle(Resource.String.debugLog);
+            Toolbar.Menu.RemoveItem(Resource.Id.actionViewLog);
+            
+            Task.Run(async delegate
             {
-                StartActivityForResult(intent, RequestSaveLog);
-            }
-            catch (ActivityNotFoundException)
-            {
-                Toast.MakeText(this, Resource.String.filePickerMissing, ToastLength.Long).Show();
-            }
+                var data = await File.ReadAllTextAsync(path);
+                RunOnUiThread(delegate { _webView.LoadData(data, "text/plain", "utf-8"); });
+            });
         }
 
         private static string GetLogPath()
         {
-            var privateDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            var privateDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             var file = Directory.GetFiles(privateDir, "*.log").FirstOrDefault();
             return file == null ? null : Path.Combine(privateDir, file);
-        }
-
-        private async Task SaveLogToFileAsync(Uri uri)
-        {
-            var contents = await File.ReadAllTextAsync(GetLogPath());
-            await FileUtil.WriteFile(this, uri, contents);
         }
 
         private static string ColourToHexString(int colour)

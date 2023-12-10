@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Droid
         private static void InitLogger()
         {
             var logPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "events.log"
             );
 
