@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">從圖示包中導入了 {0} 個圖示</string>
     <string name="invalidIconPackError">所選檔案不是 Authenticator Pro 圖示包</string>
     <string name="confirmIconPackDelete">您確定要刪除此圖示包嗎？任何使用過的圖示都不會被刪除。</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">點擊時將驗證碼複製到剪貼簿</string>
     <string name="prefResetCopyCountTitle">重設複製次數</string>
     <string name="prefResetCopyCountSummary">清除每個驗證器被複製的次數</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密碼</string>
     <string name="prefPasswordSummary">使用驗證器前要求驗證密碼。資料庫將會使用這個密碼進行加密。</string>
@@ -266,6 +269,8 @@
     <string name="prefAccentColourSummary">選擇要在應用中使用的主題色</string>
     <string name="prefTransparentStatusBarTitle">透明狀態列</string>
     <string name="prefTransparentStatusBarSummary">滾動時在狀態列後面顯示列表</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">已重設複製次數</string>
     <!-- Arrays -->
     <string name="authTypeTime">基於時間 (TOTP)</string>
