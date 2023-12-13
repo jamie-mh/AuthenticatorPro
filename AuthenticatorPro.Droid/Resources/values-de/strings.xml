@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">{0} Icons aus der Pack importiert</string>
     <string name="invalidIconPackError">Die ausgewählte Datei ist kein Icon Pack</string>
     <string name="confirmIconPackDelete">Möchtest du dies Icon Pack wirklich löschen? Verwendete Icon werden nicht gelöscht.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-Code</string>
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Den Code in die Zwischenablage kopieren, wenn angetippt</string>
     <string name="prefResetCopyCountTitle">Kopierzähler zurücksetzen</string>
     <string name="prefResetCopyCountSummary">Lösche die Anzahl der Kopien jedes Authentifikators, der kopiert wurde</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
     <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit dem Passwort verschlüsselt.</string>
@@ -266,6 +269,8 @@
     <string name="prefAccentColourSummary">Wählen Sie eine Akzentfarbe, die in der App verwendet werden soll</string>
     <string name="prefTransparentStatusBarTitle">Transparente Statusleiste</string>
     <string name="prefTransparentStatusBarSummary">Beim Scrollen die Liste hinter der Statusleiste sichtbar machen</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Kopierzähler zurücksetzen</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
