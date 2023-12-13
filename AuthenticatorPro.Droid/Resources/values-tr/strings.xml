@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">Paketten {0} simge içe aktarıldı</string>
     <string name="invalidIconPackError">Seçilen dosya bir Authenticator Pro simge paketi değil</string>
     <string name="confirmIconPackDelete">Bu simge paketini silmek istediğinizden emin misiniz? Kullanılan simgeler silinmeyecektir.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">Karekod</string>
     <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
@@ -239,6 +240,8 @@
     <string name="prefTapToCopySummary">Dokunulduğunda kodu panoya kopyalayın</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
@@ -272,6 +275,8 @@
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
     <string name="prefTransparentStatusBarSummary">Listeyi kaydırırken durum çubuğunun arkasında görünür yapın</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
