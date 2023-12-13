@@ -3,10 +3,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Entity;
@@ -23,7 +22,7 @@ using SimpleBase;
 
 namespace AuthenticatorPro.Core.Converter
 {
-    public partial class FreeOtpBackupConverter : BackupConverter
+    public class FreeOtpBackupConverter : BackupConverter
     {
         private const int MasterKeyBytes = 32;
 
@@ -33,12 +32,6 @@ namespace AuthenticatorPro.Core.Converter
 
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
 
-        [GeneratedRegex("([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?:-token)?|masterKey)[tx]")]
-        private static partial Regex MapKeyRegex();
-
-        [GeneratedRegex("({.*?})[tx]")]
-        private static partial Regex MapValueRegex();
-
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             if (password == null)
@@ -46,9 +39,7 @@ namespace AuthenticatorPro.Core.Converter
                 throw new ArgumentException("Password cannot be null");
             }
 
-            var decoded = Encoding.UTF8.GetString(data);
-            var values = DeserialiseApproximately(decoded);
-
+            var values = Deserialise(data);
             return await Task.Run(() => DecryptAndConvert(values, password));
         }
 
@@ -152,17 +143,54 @@ namespace AuthenticatorPro.Core.Converter
             return (KeyParameter) generator.GenerateDerivedParameters("AES", MasterKeyBytes * 8);
         }
 
-        // Use regex to deserialise the Java object binary serialisation.
         // Since there is only a HashMap object, there is no need to write a proper deserialiser
-        private static Dictionary<string, string> DeserialiseApproximately(string data)
+        // https://docs.oracle.com/javase/8/docs/platform/serialization/spec/protocol.html
+        private static Dictionary<string, string> Deserialise(byte[] data)
         {
-            var keys = MapKeyRegex().Matches(data);
-            var values = MapValueRegex().Matches(data);
+            using var memoryStream = new MemoryStream(data);
+            using var reader = new BinaryReader(memoryStream);
+            
             var result = new Dictionary<string, string>();
 
-            foreach (var (key, value) in keys.Zip(values))
+            var startParsing = false;
+            string key = null;
+
+            while (memoryStream.Position < memoryStream.Length)
             {
-                result.Add(key.Groups[1].Value, value.Groups[1].Value);
+                var item = memoryStream.ReadByte();
+
+                if (!startParsing)
+                {
+                    // TC_BLOCKDATA
+                    if (item == 0x77)
+                    {
+                        startParsing = true;
+                    }
+                    
+                    continue;
+                }
+
+                // TC_STRING
+                if (item == 0x74)
+                {
+                    // Read big-endian bytes (BinaryReader uses little-endian)
+                    var lengthBytes = reader.ReadBytes(2);
+                    Array.Reverse(lengthBytes);
+                    var length = BitConverter.ToUInt16(lengthBytes);
+
+                    var stringBytes = reader.ReadBytes(length);
+                    var decoded = Encoding.UTF8.GetString(stringBytes);
+
+                    if (key == null)
+                    {
+                        key = decoded;
+                    }
+                    else
+                    {
+                        result.Add(key, decoded);
+                        key = null;
+                    }
+                }
             }
 
             return result;
