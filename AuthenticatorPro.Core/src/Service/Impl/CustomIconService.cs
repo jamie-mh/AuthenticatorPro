@@ -25,11 +25,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task AddIfNotExistsAsync(CustomIcon icon)
         {
-            if (icon == null)
-            {
-                throw new ArgumentNullException(nameof(icon));
-            }
-
+            ArgumentNullException.ThrowIfNull(icon);
             var existing = await _customIconRepository.GetAsync(icon.Id);
 
             if (existing == null)
@@ -40,10 +36,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<int> AddManyAsync(IEnumerable<CustomIcon> icons)
         {
-            if (icons == null)
-            {
-                throw new ArgumentNullException(nameof(icons));
-            }
+            ArgumentNullException.ThrowIfNull(icons);
 
             var added = 0;
 

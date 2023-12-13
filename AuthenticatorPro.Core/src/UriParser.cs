@@ -20,7 +20,7 @@ namespace AuthenticatorPro.Core
         [GeneratedRegex("([^?=&]+)(=([^&]*))?")]
         private static partial Regex QueryStringRegex();
 
-        [GeneratedRegex(@"^otpauth://([a-z]+)/([^?]*)(.*)$")]
+        [GeneratedRegex("^otpauth://([a-z]+)/([^?]*)(.*)$")]
         private static partial Regex OtpAuthUriRegex();
 
         [GeneratedRegex("^(.*?):(.*)$")]
@@ -221,10 +221,7 @@ namespace AuthenticatorPro.Core
 
         public static OtpAuthMigration ParseOtpAuthMigrationUri(string uri)
         {
-            if (uri == null)
-            {
-                throw new ArgumentNullException(nameof(uri));
-            }
+            ArgumentNullException.ThrowIfNull(uri);
 
             var real = Uri.UnescapeDataString(uri);
             var match = OtpAuthMigrationRegex().Match(real);

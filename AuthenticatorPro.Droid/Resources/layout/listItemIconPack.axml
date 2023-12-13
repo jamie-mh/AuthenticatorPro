@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="?attr/cardStyle"
     android:focusable="true"
     android:clickable="true"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingBottom="12dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp">
 
@@ -38,24 +39,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageButton
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonViewSource"
+                style="@style/Widget.Material3.Button.Icon"
+                app:icon="@drawable/baseline_open_in_new_24"
+                android:layout_marginEnd="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/viewSource"/>
+            
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDelete"
-                android:src="@drawable/baseline_delete_24"
-                android:tint="?attr/colorOnSurface"
-                android:scaleType="centerInside"
-                android:background="?selectableItemBackgroundBorderless"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginEnd="12dp"/>
-
-            <ImageButton
-                android:id="@+id/buttonOpenUrl"
-                android:src="@drawable/baseline_open_in_new_24"
-                android:tint="?attr/colorOnSurface"
-                android:scaleType="centerInside"
-                android:background="?selectableItemBackgroundBorderless"
-                android:layout_width="26dp"
-                android:layout_height="26dp"/>
+                style="@style/Widget.Material3.Button.TextButton"
+                app:icon="@drawable/baseline_delete_24"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/delete"/>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

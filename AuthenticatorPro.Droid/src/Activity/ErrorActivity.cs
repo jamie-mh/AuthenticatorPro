@@ -7,7 +7,6 @@ using Android.Content;
 using Android.Net;
 using Android.OS;
 using Android.Views;
-using Android.Widget;
 using AndroidX.Core.Graphics;
 using AndroidX.Core.Widget;
 using AuthenticatorPro.Droid.Util;

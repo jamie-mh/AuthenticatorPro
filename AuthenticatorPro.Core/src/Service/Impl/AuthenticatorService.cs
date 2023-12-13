@@ -31,32 +31,21 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task AddAsync(Authenticator auth)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
-
+            ArgumentNullException.ThrowIfNull(auth);
             auth.Validate();
             await _authenticatorRepository.CreateAsync(auth);
         }
 
         public async Task UpdateAsync(Authenticator auth)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
-
+            ArgumentNullException.ThrowIfNull(auth);
             auth.Validate();
             await _authenticatorRepository.UpdateAsync(auth);
         }
 
         public async Task<int> UpdateManyAsync(IEnumerable<Authenticator> auths)
         {
-            if (auths == null)
-            {
-                throw new ArgumentNullException(nameof(auths));
-            }
+            ArgumentNullException.ThrowIfNull(auths);
 
             var updated = 0;
 
@@ -79,10 +68,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task ChangeSecretAsync(Authenticator auth, string newSecret)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
+            ArgumentNullException.ThrowIfNull(auth);
 
             if (string.IsNullOrEmpty(newSecret))
             {
@@ -97,32 +83,24 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task SetIconAsync(Authenticator auth, string icon)
         {
-            if (auth == null)
+            ArgumentNullException.ThrowIfNull(auth);
+            
+            if (!string.IsNullOrEmpty(icon))
             {
-                throw new ArgumentNullException(nameof(auth));
+                auth.Icon = icon;
+                await _authenticatorRepository.UpdateAsync(auth);
+                await _customIconService.CullUnusedAsync();
             }
-
-            if (string.IsNullOrEmpty(icon))
+            else
             {
                 throw new ArgumentException("Invalid icon");
             }
-
-            auth.Icon = icon;
-            await _authenticatorRepository.UpdateAsync(auth);
-            await _customIconService.CullUnusedAsync();
         }
 
         public async Task SetCustomIconAsync(Authenticator auth, CustomIcon icon)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
-
-            if (icon == null)
-            {
-                throw new ArgumentNullException(nameof(icon));
-            }
+            ArgumentNullException.ThrowIfNull(auth);
+            ArgumentNullException.ThrowIfNull(icon);
 
             var iconId = CustomIcon.Prefix + icon.Id;
 
@@ -146,10 +124,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<int> AddManyAsync(IEnumerable<Authenticator> auths)
         {
-            if (auths == null)
-            {
-                throw new ArgumentNullException(nameof(auths));
-            }
+            ArgumentNullException.ThrowIfNull(auths);
 
             var added = 0;
 
@@ -174,10 +149,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task<ValueTuple<int, int>> AddOrUpdateManyAsync(IEnumerable<Authenticator> auths)
         {
-            if (auths == null)
-            {
-                throw new ArgumentNullException(nameof(auths));
-            }
+            ArgumentNullException.ThrowIfNull(auths);
 
             var list = auths.ToList();
             var added = await AddManyAsync(list);
@@ -188,21 +160,14 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task DeleteWithCategoryBindingsAsync(Authenticator auth)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
-
+            ArgumentNullException.ThrowIfNull(auth);
             await _authenticatorRepository.DeleteAsync(auth);
             await _authenticatorCategoryRepository.DeleteAllForAuthenticatorAsync(auth);
         }
 
         public async Task IncrementCounterAsync(Authenticator auth)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
+            ArgumentNullException.ThrowIfNull(auth);
 
             if (auth.Type.GetGenerationMethod() != GenerationMethod.Counter)
             {
@@ -215,11 +180,7 @@ namespace AuthenticatorPro.Core.Service.Impl
 
         public async Task IncrementCopyCountAsync(Authenticator auth)
         {
-            if (auth == null)
-            {
-                throw new ArgumentNullException(nameof(auth));
-            }
-
+            ArgumentNullException.ThrowIfNull(auth);
             auth.CopyCount++;
             await _authenticatorRepository.UpdateAsync(auth);
         }

@@ -12,6 +12,11 @@
         <item name="trackThickness">2dp</item>
     </style>
 
+    <style name="OverlayCustomFont">
+        <item name="fontFamily">@font/rubik</item>
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
     <!-- Accent colours -->
     <style name="OverlayAccentRed">
         <item name="colorPrimary">@color/md_theme_light_red_primary</item>

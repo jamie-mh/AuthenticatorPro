@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ElementTree
 
 REPO = "https://github.com/jamie-mh/AuthenticatorPro.git"
 
-FRAMEWORK = "net7.0-android"
+FRAMEWORK = "net8.0-android"
 CONFIGURATION = "Release"
 
 PROJECT_NAMES = {

@@ -27,21 +27,22 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
     {
         private const int MaxProgress = 10000;
         private const int CounterCooldownSeconds = 10;
+        private const double SkipToNextRatio = 1d / 3d;
 
         private readonly ViewMode _viewMode;
         private readonly bool _isDark;
+        private readonly bool _tapToCopy;
         private readonly bool _tapToReveal;
         private readonly int _tapToRevealDuration;
         private readonly int _codeGroupSize;
         private readonly bool _showUsernames;
+        private readonly bool _skipToNext;
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICustomIconView _customIconView;
 
         private readonly Dictionary<int, long> _generationOffsets;
         private readonly Dictionary<int, long> _cooldownOffsets;
-        private readonly Queue<int> _positionsToUpdate;
-        private readonly Queue<int> _offsetsToUpdate;
 
         private readonly float _animationScale;
 
@@ -53,16 +54,16 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             var preferences = new PreferenceWrapper(context);
             _viewMode = ViewModeSpecification.FromName(preferences.ViewMode);
+            _tapToCopy = preferences.TapToCopy;
             _tapToReveal = preferences.TapToReveal;
             _tapToRevealDuration = preferences.TapToRevealDuration;
             _codeGroupSize = preferences.CodeGroupSize;
             _showUsernames = preferences.ShowUsernames;
+            _skipToNext = preferences.SkipToNext;
             _isDark = isDark;
 
             _generationOffsets = new Dictionary<int, long>();
             _cooldownOffsets = new Dictionary<int, long>();
-            _positionsToUpdate = new Queue<int>();
-            _offsetsToUpdate = new Queue<int>();
 
             _animationScale =
                 Settings.Global.GetFloat(context.ContentResolver, Settings.Global.AnimatorDurationScale, 1.0f);
@@ -79,6 +80,26 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             _authenticatorView.Swap(oldPosition, newPosition);
             NotifyItemMoved(oldPosition, newPosition);
+
+            SwapDictionaryValues(_generationOffsets, oldPosition, newPosition);
+            SwapDictionaryValues(_cooldownOffsets, oldPosition, newPosition);
+        }
+
+        private static void SwapDictionaryValues<T>(Dictionary<int, T> dictionary, int oldPosition, int newPosition)
+        {
+            if (dictionary.TryGetValue(oldPosition, out var oldValue))
+            {
+                if (dictionary.TryGetValue(newPosition, out var newValue))
+                {
+                    dictionary[oldPosition] = newValue;
+                }
+                
+                dictionary[newPosition] = oldValue;
+            }
+            else if (dictionary.TryGetValue(newPosition, out var newValue))
+            {
+                dictionary[oldPosition] = newValue;
+            }
         }
 
         public void OnMovementFinished(bool orderChanged)
@@ -91,9 +112,9 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             MovementStarted?.Invoke(this, EventArgs.Empty);
         }
 
-        public event EventHandler<string> ItemClicked;
+        public event EventHandler<string> CodeCopied;
         public event EventHandler<string> MenuClicked;
-        public event EventHandler<string> RefreshClicked;
+        public event EventHandler<string> IncrementCounterClicked;
 
         public event EventHandler MovementStarted;
         public event EventHandler<bool> MovementFinished;
@@ -160,11 +181,12 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             {
                 case GenerationMethod.Time:
                 {
-                    holder.RefreshButton.Visibility = ViewStates.Gone;
                     holder.ProgressIndicator.Visibility = ViewStates.Visible;
+                    holder.RefreshButton.Visibility = ViewStates.Gone;
 
                     var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-                    var offset = GetGenerationOffset(auth.Period);
+                    var offset = GetGenerationOffset(holder.BindingAdapterPosition, auth.Period);
+                    
                     UpdateTimeGeneratorCodeText(auth, holder, offset);
                     UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
                     break;
@@ -204,15 +226,20 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
 
             var holder = (AuthenticatorListHolder) viewHolder;
-            var payload = (TimerPartialUpdate) payloads[0];
-            var offset = GetGenerationOffset(auth.Period);
+            var payload = (PartialUpdate) payloads[0];
+            var offset = GetGenerationOffset(holder.BindingAdapterPosition, auth.Period);
 
             if (payload.RequiresGeneration)
             {
                 UpdateTimeGeneratorCodeText(auth, holder, offset);
             }
 
-            UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
+            if (payload.RequiresGeneration || _animationScale.Equals(0f))
+            {
+                UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
+            }
+
+            holder.RefreshButton.Visibility = payload.ShowRefresh ? ViewStates.Visible : ViewStates.Gone;
         }
 
         public override void OnViewAttachedToWindow(Object holderObj)
@@ -234,7 +261,15 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            var offset = GetGenerationOffset(auth.Period);
+            var offset = GetGenerationOffset(holder.BindingAdapterPosition, auth.Period);
+            var showRefreshButton = false;
+
+            if (_skipToNext)
+            {
+                showRefreshButton = ShouldAllowSkip(offset, auth.Period, now, holder.BindingAdapterPosition);
+            }
+            
+            holder.RefreshButton.Visibility = showRefreshButton ? ViewStates.Visible : ViewStates.Gone;
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
             UpdateTimeGeneratorCodeText(auth, holder, offset);
         }
@@ -258,9 +293,6 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 _cooldownOffsets.Remove(position);
             }
 
-            var noAnimationProgressUpdate
-                = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = false };
-
             for (var i = 0; i < ItemCount; ++i)
             {
                 var auth = _authenticatorView[i];
@@ -270,61 +302,57 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                     continue;
                 }
 
-                var offset = GetGenerationOffset(auth.Period);
-                var isExpired = offset + auth.Period <= now;
+                var offset = GetGenerationOffset(i, auth.Period);
+                var renewOffset = offset + auth.Period;
+                var isExpired = renewOffset <= now;
+                var showRefresh = false;
 
-                if (!isExpired)
+                if (isExpired)
                 {
-                    if (_animationScale.Equals(0f) && ValidatePosition(i))
+                    UpdateGenerationOffset(i, auth.Period, now);
+                }
+                else if (_skipToNext)
+                {
+                    showRefresh = ShouldAllowSkip(offset, auth.Period, now, i);
+                }
+
+                if ((isExpired || showRefresh || _animationScale.Equals(0f)) &&
+                    ValidatePosition(i))
+                {
+                    var update = new PartialUpdate
                     {
-                        NotifyItemChanged(i, noAnimationProgressUpdate);
-                    }
-
-                    continue;
-                }
-
-                _positionsToUpdate.Enqueue(i);
-
-                if (!_offsetsToUpdate.Contains(auth.Period))
-                {
-                    _offsetsToUpdate.Enqueue(auth.Period);
-                }
-            }
-
-            while (_offsetsToUpdate.Count > 0)
-            {
-                UpdateGenerationOffset(_offsetsToUpdate.Dequeue(), now);
-            }
-
-            var expiredCodeUpdate = new TimerPartialUpdate { CurrentOffset = now, RequiresGeneration = true };
-
-            while (_positionsToUpdate.Count > 0)
-            {
-                var position = _positionsToUpdate.Dequeue();
-
-                if (ValidatePosition(position))
-                {
-                    NotifyItemChanged(position, expiredCodeUpdate);
+                        CurrentOffset = now,
+                        RequiresGeneration = isExpired,
+                        ShowRefresh = showRefresh
+                    };
+                    
+                    NotifyItemChanged(i, update);
                 }
             }
         }
 
-        private long GetGenerationOffset(int period)
+        private long GetGenerationOffset(int position, int period)
         {
-            if (_generationOffsets.TryGetValue(period, out var offset))
+            if (_generationOffsets.TryGetValue(position, out var offset))
             {
                 return offset;
             }
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            UpdateGenerationOffset(period, now);
-            return _generationOffsets[period];
+            UpdateGenerationOffset(position, period, now);
+            return _generationOffsets[position];
         }
 
-        private void UpdateGenerationOffset(int period, long now)
+        private void UpdateGenerationOffset(int position, int period, long now)
         {
             var offset = now - now % period;
-            _generationOffsets[period] = offset;
+            _generationOffsets[position] = offset;
+        }
+
+        private void SkipToNextOffset(int position, int period)
+        {
+            var currentOffset = GetGenerationOffset(position, period);
+            UpdateGenerationOffset(position, period, currentOffset + period);
         }
 
         private void UpdateProgressIndicator(LinearProgressIndicator progressIndicator, int period,
@@ -346,6 +374,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
             animator.SetDuration(duration);
             animator.SetInterpolator(new LinearInterpolator());
+            animator.SetAutoCancel(true);
             animator.Start();
         }
 
@@ -355,6 +384,13 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                              (_tapToReveal && _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition));
             var code = isRevealed ? auth.GetCode(offset) : null;
             holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+        }
+
+        private bool ShouldAllowSkip(long offset, int period, long now, int position)
+        {
+            var renewOffset = offset + period;
+            var progress = (double) Math.Max(renewOffset - now, 0) / period;
+            return progress < SkipToNextRatio && (!_tapToReveal || _cooldownOffsets.ContainsKey(position));
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -388,23 +424,41 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
             }
 
             var auth = _authenticatorView[holder.BindingAdapterPosition];
-
+            
             if (!_tapToReveal)
             {
-                ItemClicked?.Invoke(this, auth.Secret);
+                if (_tapToCopy)
+                {
+                    CodeCopied?.Invoke(this, auth.Secret);
+                }
+                
                 return;
             }
 
-            if (_cooldownOffsets.Remove(holder.BindingAdapterPosition))
+            var isRevealed = _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition);
+
+            if (isRevealed)
             {
-                holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+                if (_tapToCopy)
+                {
+                    CodeCopied?.Invoke(this, auth.Secret);    
+                }
+                else
+                {
+                    _cooldownOffsets.Remove(holder.BindingAdapterPosition);
+                    holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+
+                    if (_skipToNext)
+                    {
+                        holder.RefreshButton.Visibility = ViewStates.Gone;
+                    }
+                }
             }
             else
             {
                 var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 _cooldownOffsets[holder.BindingAdapterPosition] = offset + _tapToRevealDuration;
                 holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
-                ItemClicked?.Invoke(this, auth.Secret);
             }
         }
 
@@ -415,16 +469,41 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 return;
             }
 
-            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            _cooldownOffsets[position] = now + CounterCooldownSeconds;
-
             var auth = _authenticatorView[position];
-            RefreshClicked?.Invoke(this, auth.Secret);
+            var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            switch (auth.Type.GetGenerationMethod())
+            {
+                case GenerationMethod.Time:
+                    if (_cooldownOffsets.ContainsKey(position))
+                    {
+                        _cooldownOffsets[position] = now + _tapToRevealDuration;
+                    }
+                    
+                    SkipToNextOffset(position, auth.Period);
+                    NotifyItemChanged(position);
+                    break;
+
+                case GenerationMethod.Counter:
+                {
+                    _cooldownOffsets[position] = now + CounterCooldownSeconds;
+                    IncrementCounterClicked?.Invoke(this, auth.Secret);
+                    break;
+                }
+            }
         }
 
-        private class TimerPartialUpdate : Object
+        public new void NotifyDataSetChanged()
+        {
+            _generationOffsets.Clear();
+            _cooldownOffsets.Clear();
+            base.NotifyDataSetChanged(); 
+        }
+
+        private class PartialUpdate : Object
         {
             public bool RequiresGeneration { get; set; }
+            public bool ShowRefresh { get; set; }
             public long CurrentOffset { get; set; }
         }
     }

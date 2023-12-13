@@ -71,7 +71,7 @@ namespace AuthenticatorPro.Droid.Activity
             _iconPackListAdapter = new IconPackListAdapter(_iconPackView);
             _iconPackListAdapter.HasStableIds = true;
             _iconPackListAdapter.DeleteClicked += OnDeleteClicked;
-            _iconPackListAdapter.OpenUrlClicked += OnOpenUrlClicked;
+            _iconPackListAdapter.ViewSourceClicked += OnViewSourceClicked;
 
             _packList = FindViewById<RecyclerView>(Resource.Id.list);
             _emptyStateLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmptyState);
@@ -224,7 +224,7 @@ namespace AuthenticatorPro.Droid.Activity
             dialog.Show();
         }
 
-        private void OnOpenUrlClicked(object sender, IconPack pack)
+        private void OnViewSourceClicked(object sender, IconPack pack)
         {
             StartWebBrowserActivity(pack.Url);
         }

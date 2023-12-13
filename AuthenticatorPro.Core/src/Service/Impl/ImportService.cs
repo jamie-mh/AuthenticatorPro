@@ -20,15 +20,8 @@ namespace AuthenticatorPro.Core.Service.Impl
         public async Task<ValueTuple<ConversionResult, RestoreResult>> ImportAsync(BackupConverter converter,
             byte[] data, string password)
         {
-            if (converter == null)
-            {
-                throw new ArgumentNullException(nameof(converter));
-            }
-
-            if (data == null)
-            {
-                throw new ArgumentNullException(nameof(data));
-            }
+            ArgumentNullException.ThrowIfNull(converter);
+            ArgumentNullException.ThrowIfNull(data);
 
             var conversionResult = await converter.ConvertAsync(data, password);
             var restoreResult = await _restoreService.RestoreAsync(conversionResult.Backup);

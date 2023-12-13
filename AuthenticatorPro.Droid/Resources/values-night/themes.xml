@@ -3,9 +3,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="fontFamily">@font/rubik</item>
-        <item name="android:fontFamily">@font/rubik</item>
-
         <item name="alertDialogTheme">@style/AlertDialogStyle</item>
         <item name="cardStyle">@style/CardStyle</item>
         <item name="progressIndicatorStyle">@style/ProgressIndicatorStyle</item>

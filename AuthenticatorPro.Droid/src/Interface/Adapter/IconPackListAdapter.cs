@@ -21,7 +21,7 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
 
         public override int ItemCount => _iconPackView.Count;
         public event EventHandler<IconPack> DeleteClicked;
-        public event EventHandler<IconPack> OpenUrlClicked;
+        public event EventHandler<IconPack> ViewSourceClicked;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
@@ -43,10 +43,10 @@ namespace AuthenticatorPro.Droid.Interface.Adapter
                 DeleteClicked?.Invoke(this, pack);
             };
 
-            holder.OpenUrl.Click += delegate
+            holder.ViewSource.Click += delegate
             {
                 var pack = _iconPackView[holder.BindingAdapterPosition];
-                OpenUrlClicked?.Invoke(this, pack);
+                ViewSourceClicked?.Invoke(this, pack);
             };
 
             return holder;

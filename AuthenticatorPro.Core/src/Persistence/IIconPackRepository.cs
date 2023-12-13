@@ -5,7 +5,5 @@ using AuthenticatorPro.Core.Entity;
 
 namespace AuthenticatorPro.Core.Persistence
 {
-    public interface IIconPackRepository : IAsyncRepository<IconPack, string>
-    {
-    }
+    public interface IIconPackRepository : IAsyncRepository<IconPack, string>;
 }

@@ -44,6 +44,15 @@ namespace AuthenticatorPro.Droid
             set => SetPreference(TapToCopyKey, value);
         }
 
+        private const string SkipToNextKey = "pref_skipToNext";
+        private const bool SkipToNextDefault = false;
+
+        public bool SkipToNext
+        {
+            get => Preferences.GetBoolean(SkipToNextKey, SkipToNextDefault);
+            set => SetPreference(SkipToNextKey, value);
+        }
+        
         private const string PasswordProtectedKey = "pref_passwordProtected";
         private const bool PasswordProtectedDefault = false;
 
@@ -168,6 +177,15 @@ namespace AuthenticatorPro.Droid
         {
             get => Preferences.GetBoolean(TransparentStatusBarKey, TransparentStatusBarDefault);
             set => SetPreference(TransparentStatusBarKey, value);
+        }
+
+        private const string SystemFontKey = "pref_systemFont";
+        private const bool SystemFontDefault = false;
+
+        public bool SystemFont
+        {
+            get => Preferences.GetBoolean(SystemFontKey, SystemFontDefault);
+            set => SetPreference(SystemFontKey, value);
         }
 
         private const string AutoBackupEnabledKey = "pref_autoBackupEnabled";

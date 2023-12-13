@@ -39,6 +39,12 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefResetCopyCountTitle"/>
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+            android:key="pref_skipToNext"
+            android:summary="@string/prefSkipToNextSummary"
+            android:title="@string/prefSkipToNextTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory
@@ -143,6 +149,12 @@
             android:key="pref_transparentStatusBar"
             android:summary="@string/prefTransparentStatusBarSummary"
             android:title="@string/prefTransparentStatusBarTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
+        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+            android:key="pref_systemFont"
+            android:summary="@string/prefSystemFontSummary"
+            android:title="@string/prefSystemFontTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
