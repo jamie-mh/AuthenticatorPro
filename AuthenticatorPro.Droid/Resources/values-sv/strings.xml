@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">Importerade {0} ikoner från paket</string>
     <string name="invalidIconPackError">Den valda filen är inte ett Authenticator Pro-ikonpaket</string>
     <string name="confirmIconPackDelete">Är du säker på att du vill ta bort detta ikonpaket? Eventuella använda ikoner kommer inte att raderas.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-kod</string>
     <string name="qrCodeHelp">Kopiera detta konto till en annan enhet eller app genom att skanna QR-koden</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Kopiera koden till urklipp när du trycker på den</string>
     <string name="prefResetCopyCountTitle">Nollställ antal kopieringar</string>
     <string name="prefResetCopyCountSummary">Glöm hur många gånger du kopierat koden för varje konto</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
     <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina koder. Databasen krypteras med ditt lösenord.</string>
@@ -266,6 +269,8 @@
     <string name="prefAccentColourSummary">Välj en accentfärg som ska synas i appen</string>
     <string name="prefTransparentStatusBarTitle">Genomskinligt statusfält</string>
     <string name="prefTransparentStatusBarSummary">Gör listan synlig bakom statusfältet när du bläddrar</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Räknaren för antal kopieringar har nollställts</string>
     <!-- Arrays -->
     <string name="authTypeTime">Tidsbaserad (TOTP)</string>
