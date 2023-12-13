@@ -84,6 +84,7 @@
     <string name="importIconPackSuccess">Importováno {0} ikon z balíčku</string>
     <string name="invalidIconPackError">Vybraný soubor není balíček ikon Authenticator Pro</string>
     <string name="confirmIconPackDelete">Jste si jisti odstraněním balíčku ikon? Jakékoliv použité ikony budou odstraněny.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Zkopírujte tento autentifikátor do jiného zařízení nebo aplikace naskenováním QR kódu</string>
@@ -237,6 +238,8 @@
     <string name="prefTapToCopySummary">Při klepnutí se kód zkopíruje do schránky</string>
     <string name="prefResetCopyCountTitle">Vynulovat počet kopírování</string>
     <string name="prefResetCopyCountSummary">Vynulovat počet kopírování všech autentifikátorů</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Zabezpečení</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovat heslo pro přístup k autentifikátorům. Databáze bude šifrována s vaším heslem.</string>
@@ -267,6 +270,8 @@
     <string name="prefAccentColourSummary">Vyberte barvu zvýraznění, kterou chcete použít v celé aplikaci</string>
     <string name="prefTransparentStatusBarTitle">Průhledný stavový řádek</string>
     <string name="prefTransparentStatusBarSummary">Zviditelnit seznam za stavovou lištou při posouvání</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Vynulování počtu kopírování</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časově založené (TOTP)</string>
