@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">パックから {0} 個のアイコンをインポートしました</string>
     <string name="invalidIconPackError">選択されたファイルは Authenticator Pro アイコンパックではありません</string>
     <string name="confirmIconPackDelete">本当にこのアイコンパックを削除しますか？使用されているアイコンは削除されません。</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">セキュリティ</string>
     <string name="prefPasswordTitle">パスワード</string>
     <string name="prefPasswordSummary">認証コードへのアクセスにはパスワードが必要です。データベースはパスワードで暗号化されます。</string>
@@ -266,6 +269,8 @@
     <string name="prefAccentColourSummary">アプリ全体で使用するアクセントカラーを選択します</string>
     <string name="prefTransparentStatusBarTitle">ステータスバーの透過</string>
     <string name="prefTransparentStatusBarSummary">スクロール時にステータスバーの背後にリストを表示する</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
     <!-- Arrays -->
     <string name="authTypeTime">タイムベース (TOTP)</string>
