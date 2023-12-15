@@ -150,7 +150,7 @@
     <string name="genericError">Bir hata meydana geldi.</string>
     <string name="databaseError">Veritabanı açılırken bir hata oluştu. Uygulamayı yeniden başlatmayı deneyin. Sorun devam ederse uygulama verilerini temizleyin ve en son yedeklemenizi geri yükleyin.\n\nAyrıca bir hata raporu gönderebilirsiniz.</string>
     <string name="viewErrorLog">Hata günlüğünü görüntüle</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningTitle">Zaman eşitleme devre dışı</string>
     <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
@@ -256,10 +256,10 @@
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
     <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
     </string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Süreyi göstermek için dokunun</string>
+    <string name="prefTapToRevealDurationSummary">Gösterilen kodların ne kadar süre sonra gizleneceğini ayarlayın</string>
     <string name="prefAllowScreenshotsTitle">Ekran görüntülerine izin ver</string>
-    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefAllowScreenshotsSummary">Ekran güvenliğini devre dışı bırakın ve uygulamanın ekran görüntüsünün alınmasına izin verin</string>
     <string name="prefAppearance">Görünüm</string>
     <string name="prefThemeTitle">Tema</string>
     <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
@@ -270,7 +270,7 @@
     <string name="prefShowUsernamesTitle">Kullanıcı adlarını göster</string>
     <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
     <string name="prefDynamicColourTitle">Dinamik Renk</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefDynamicColourSummary">Duvar kağıdınıza göre vurgu rengini dinamik olarak ayarlayın</string>
     <string name="prefAccentColourTitle">Ara Renk</string>
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
@@ -278,6 +278,10 @@
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
     <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
@@ -292,7 +296,7 @@
     <string name="timeout5Min">5 dakika</string>
     <string name="timeout10Min">10 dakika</string>
     <string name="systemDefault">Sistem Varsayılanı</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">Sistem varsayılanı (Koyu)</string>
     <string name="lightTheme">Açık Tema</string>
     <string name="darkTheme">Koyu Tema</string>
     <string name="blackTheme">Koyu Tema</string>
