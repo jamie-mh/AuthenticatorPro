@@ -11,12 +11,15 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.TextField;
+using Serilog;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
 {
     public class PasswordSetupBottomSheet : BottomSheet
     {
+        private readonly ILogger _log = Log.ForContext<PasswordSetupBottomSheet>();
         private readonly Database _database;
+
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;
 
@@ -122,7 +125,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error changing password");
                 Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
                 UpdateSetPasswordButton();
                 return;
@@ -149,7 +152,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             catch (Exception e)
             {
                 // Not really an issue if this fails
-                Logger.Error(e);
+                _log.Error(e, "Failed to clear biometrics");
             }
 
             Dismiss();

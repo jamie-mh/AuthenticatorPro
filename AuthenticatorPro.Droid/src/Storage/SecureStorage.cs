@@ -17,6 +17,7 @@ using Java.Util;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
 using Javax.Security.Auth.X500;
+using Serilog;
 
 namespace AuthenticatorPro.Droid.Storage
 {
@@ -32,17 +33,17 @@ namespace AuthenticatorPro.Droid.Storage
         private const string MasterKeyPreferenceKey = "SecureStorageKey";
         private const string UseSymmetricPreferenceKey = "essentials_use_symmetric";
 
+        private readonly ILogger _log = Log.ForContext<SecureStorage>();
         private readonly Context _context;
         private readonly string _preferenceAlias;
         private readonly ISharedPreferences _preferences;
-        private readonly object _lock;
+        private readonly object _lock = new();
 
         public SecureStorage(Context context)
         {
             _context = context;
             _preferenceAlias = $"{context.PackageName}.xamarinessentials";
             _preferences = context.GetSharedPreferences(_preferenceAlias, FileCreationMode.Private);
-            _lock = new object();
         }
 
         public string Get(string key)
@@ -62,7 +63,7 @@ namespace AuthenticatorPro.Droid.Storage
             }
             catch (AEADBadTagException e)
             {
-                Logger.Error($"Unable to decrypt value for key {key}", e);
+                _log.Error(e, "Unable to decrypt value for key {Key}", key);
                 _preferences.Edit().Remove(key).Commit();
                 return null;
             }
@@ -126,15 +127,15 @@ namespace AuthenticatorPro.Droid.Storage
                 }
                 catch (InvalidKeyException ikEx)
                 {
-                    Logger.Error("Unable to unwrap key: Invalid Key", ikEx);
+                    _log.Error(ikEx, "Unable to unwrap key: Invalid Key");
                 }
                 catch (IllegalBlockSizeException ibsEx)
                 {
-                    Logger.Error("Unable to unwrap key: Illegal Block Size", ibsEx);
+                    _log.Error(ibsEx, "Unable to unwrap key: Illegal Block Size");
                 }
                 catch (BadPaddingException paddingEx)
                 {
-                    Logger.Error("Unable to unwrap key: Bad Padding", paddingEx);
+                    _log.Error(paddingEx, "Unable to unwrap key: Bad Padding");
                 }
 
                 _preferences.Edit().Remove(MasterKeyPreferenceKey).Commit();

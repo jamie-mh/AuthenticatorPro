@@ -16,6 +16,7 @@ using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
 using Google.Android.Material.TextView;
 using Java.Lang;
+using Serilog;
 using FragmentManager = AndroidX.Fragment.App.FragmentManager;
 
 namespace AuthenticatorPro.Droid.Interface.Fragment
@@ -24,6 +25,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
     {
         private const int MaxWidth = 600;
 
+        private readonly ILogger _log = Log.ForContext<BottomSheet>();
         private readonly int _layout;
         private readonly int _title;
 
@@ -96,7 +98,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             catch (IllegalStateException e)
             {
                 // This sometimes fails for some reason, not sure why
-                Logger.Error(e);
+                _log.Error(e, "Illegal state in showing fragment");
             }
         }
 
