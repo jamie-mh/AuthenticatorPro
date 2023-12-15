@@ -32,8 +32,8 @@
     <string name="enterKey">输入提供的密钥</string>
     <string name="restoreBackup">从备份中恢复</string>
     <string name="sort">排序</string>
-    <string name="sortAZ">字母顺序 (a 至 z)</string>
-    <string name="sortZA">字母顺序 (z 至 a)</string>
+    <string name="sortAZ">字母顺序（a 至 z）</string>
+    <string name="sortZA">字母顺序（z 至 a）</string>
     <string name="sortMostCopied">复制次数（递减）</string>
     <string name="sortLeastCopied">复制次数（递增）</string>
     <string name="sortCustom">自定义</string>
@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">输入与此 QR 码相关联的 pin</string>
     <!-- Icon packs -->
     <string name="defaultIcons">默认图标</string>
     <string name="iconPacks">图标包</string>
@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">从图标包中导入了 {0} 个图标。</string>
     <string name="invalidIconPackError">选择的文件不是适用于 Authenticator Pro 的图标包文件。</string>
     <string name="confirmIconPackDelete">确认删除这一图标包吗？正在使用中的图标不会被删除。</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">二维码</string>
     <string name="qrCodeHelp">通过扫描二维码将此验证器复制到另一个设备或应用程序</string>
@@ -149,8 +150,8 @@
     <string name="genericError">出现错误。</string>
     <string name="databaseError">打开数据库时发生错误。请尝试重新启动应用程序。 如果问题仍然存在，清除应用数据并恢复您的最新备份。\n\n或者您可以提交错误报告。</string>
     <string name="viewErrorLog">查看错误日志</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">自动同步时间已禁用</string>
+    <string name="autoTimeWarningMessage">您的设备已禁用自动同步时间功能。双因素身份验证需要精确的时钟来生成代码。\n\n请在您的设备设置中启用自动同步时间，以确保生成的代码始终有效。</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">应用程序中发生未处理的错误。该错误的详细信息如下：</string>
     <string name="report">反馈</string>
@@ -159,10 +160,10 @@
     <string name="errorCopiedToClipboard">错误已复制到剪贴板</string>
     <!-- Auto backup -->
     <string name="autoBackupHelp">选择自动备份的位置和密码。当发生更改时将自动进行备份。不支持云存储，请使用备份菜单。</string>
-    <string name="selectLocation">Select Location</string>
+    <string name="selectLocation">选择位置</string>
     <string name="noLocationSelected">未选择位置</string>
     <string name="locationSetTo">位置被设置为 \'{0}\'</string>
-    <string name="setPassword">Set Password</string>
+    <string name="setPassword">设置密码</string>
     <string name="passwordNotSet">未设置密码</string>
     <string name="passwordSet">密码已设置</string>
     <string name="notPasswordProtected">未受密码保护</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">点击时将验证码复制到剪贴板</string>
     <string name="prefResetCopyCountTitle">重置复制次数</string>
     <string name="prefResetCopyCountSummary">重置每个验证器的复制次数</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
     <string name="prefTransparentStatusBarTitle">透明状态栏</string>
     <string name="prefTransparentStatusBarSummary">滚动时在状态栏后面显示列表</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">复制次数已重置</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">基于时间（TOTP）</string>
     <string name="authTypeCounter">基于计数器（HOTP）</string>
@@ -281,7 +290,7 @@
     <string name="timeout5Min">5 分钟</string>
     <string name="timeout10Min">10 分钟</string>
     <string name="systemDefault">跟随系统</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">系统默认（黑色）</string>
     <string name="lightTheme">浅色主题</string>
     <string name="darkTheme">深色主题</string>
     <string name="blackTheme">纯黑主题</string>
@@ -315,7 +324,7 @@
     <string name="introBackupTitle">备份 / 恢复</string>
     <string name="introCategoriesTitle">分类</string>
     <string name="introThemesTitle">深色主题</string>
-    <string name="introWelcomeSummary">感谢您下载 Authenticator Pro。\n作为最好的开源身份验证器应用，我们将为您的在线帐户保驾护航。</string>
+    <string name="introWelcomeSummary">感谢您下载 Authenticator Pro。\n作为最好的开源身份验证器应用，我们将为您的在线账户保驾护航。</string>
     <string name="introCompatibilitySummary">Authenticator Pro 支持绝大多数服务提供方和帐户，并 100% 兼容支持 Google 身份验证器的服务。</string>
     <string name="introBackupSummary">备份您的验证器并对其进行强加密。即便您的设备丢失了，您也能恢复对您帐号的访问。您可以将备份保存在云端存储或设备上。</string>
     <string name="introCategoriesSummary">将您的验证器归入到多个分类中，并通过长按和拖拽轻松改变排序。</string>

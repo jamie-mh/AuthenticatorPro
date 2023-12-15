@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">Импортировано {0} иконок из набора</string>
     <string name="invalidIconPackError">Выбранный файл не является набором иконок Authenticator Pro</string>
     <string name="confirmIconPackDelete">Вы уверены, что хотите удалить этот набор иконок? Любые используемые иконки не будут удалены.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, отсканировав QR-код</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Копируйте код в буфер обмена при нажатии</string>
     <string name="prefResetCopyCountTitle">Сбросить счётчик копирований</string>
     <string name="prefResetCopyCountSummary">Очистить количество раз, когда каждый аутентификатор был скопирован</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Безопасность</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Запрашивать пароль для доступа к аутентификаторам. База данных будет зашифрована с помощью пароля.</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">Выберите основной цвет, который будет использоваться в приложении</string>
     <string name="prefTransparentStatusBarTitle">Прозрачная строка состояния</string>
     <string name="prefTransparentStatusBarSummary">Сделать список видимым за строкой состояния при прокрутке</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Сбросить счётчик копирований</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
@@ -281,7 +290,7 @@
     <string name="timeout5Min">5 минут</string>
     <string name="timeout10Min">10 минут</string>
     <string name="systemDefault">Как в системе</string>
-    <string name="systemDefaultBlack">Системные настройки (чёрный)</string>
+    <string name="systemDefaultBlack">Как в системе (чёрная)</string>
     <string name="lightTheme">Светлая тема</string>
     <string name="darkTheme">Тёмная тема</string>
     <string name="blackTheme">Чёрная тема</string>

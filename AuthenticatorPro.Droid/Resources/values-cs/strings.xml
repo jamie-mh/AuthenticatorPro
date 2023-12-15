@@ -84,6 +84,7 @@
     <string name="importIconPackSuccess">Importováno {0} ikon z balíčku</string>
     <string name="invalidIconPackError">Vybraný soubor není balíček ikon Authenticator Pro</string>
     <string name="confirmIconPackDelete">Jste si jisti odstraněním balíčku ikon? Jakékoliv použité ikony budou odstraněny.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Zkopírujte tento autentifikátor do jiného zařízení nebo aplikace naskenováním QR kódu</string>
@@ -150,8 +151,8 @@
     <string name="genericError">Došlo k chybě</string>
     <string name="databaseError">Při otevírání databáze došlo k chybě. Zkuste aplikaci znovu spustit. Pokud problém přetrvává, vymažte data aplikace a obnovte svou nejnovější zálohu.\n\nPřípadně můžete odeslat zprávu o chybě.</string>
     <string name="viewErrorLog">Zobrazit protokol chyb</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">Synchronizace času zakázána</string>
+    <string name="autoTimeWarningMessage">Vaše zařízení má vypnutou automatickou synchronizaci času. Dvoufaktorové oveřování vyžaduje přesný čas pro generování kódů.\n\nProsíme, povolte automatickou synchronizaci času v nastavení zařízení, aby byly generované kódy vždy platné.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">V aplikaci došlo k chybě. Podrobnosti o chybě jsou níže:</string>
     <string name="report">Nahlásit</string>
@@ -237,6 +238,8 @@
     <string name="prefTapToCopySummary">Při klepnutí se kód zkopíruje do schránky</string>
     <string name="prefResetCopyCountTitle">Vynulovat počet kopírování</string>
     <string name="prefResetCopyCountSummary">Vynulovat počet kopírování všech autentifikátorů</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Zabezpečení</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovat heslo pro přístup k autentifikátorům. Databáze bude šifrována s vaším heslem.</string>
@@ -267,7 +270,13 @@
     <string name="prefAccentColourSummary">Vyberte barvu zvýraznění, kterou chcete použít v celé aplikaci</string>
     <string name="prefTransparentStatusBarTitle">Průhledný stavový řádek</string>
     <string name="prefTransparentStatusBarSummary">Zviditelnit seznam za stavovou lištou při posouvání</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Vynulování počtu kopírování</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časově založené (TOTP)</string>
     <string name="authTypeCounter">Založeno na počítadle (HOTP)</string>
@@ -282,7 +291,7 @@
     <string name="timeout5Min">5 minut</string>
     <string name="timeout10Min">10 minut</string>
     <string name="systemDefault">Systémové nastavení</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">Dle systému (černý)</string>
     <string name="lightTheme">Světlý motiv</string>
     <string name="darkTheme">Tmavý motiv</string>
     <string name="blackTheme">Černý motiv</string>
@@ -319,6 +328,6 @@
     <string name="introWelcomeSummary">Děkujeme, že jste si stáhli Authenticator Pro.\nUchovávejte své účty v bezpečí a chráněte je pomocí nejlepší open-source ověřovací aplikace.</string>
     <string name="introCompatibilitySummary">Authenticator Pro je kompatibilní s většinou poskytovatelů a účtů. Je 100% kompatibilní se službami povolenými Google Authenticator.</string>
     <string name="introBackupSummary">Zálohujte své autentifikátory pomocí silného šifrování. V případě, že ztratíte své zařízení, můžete vždy získat přístup ke svým účtům. Uložte do cloudového úložiště nebo do vašeho zařízení.</string>
-    <string name="introCategoriesSummary">Uspořádejte své autentifikátory do kategorií a dokonce změňte objednávku jednoduchým podržením a přetažením.</string>
+    <string name="introCategoriesSummary">Uspořádejte své ověřovače do kategorií a dokonce změňte pořadí jednoduchým podržením a přetažením.</string>
     <string name="introThemesSummary">Pokud chcete, můžete povolit tmavý motiv v nastavení. Všechny ikony se novému motivu přizpůsobí.</string>
 </resources>

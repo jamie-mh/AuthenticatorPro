@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicação, digitalizando o código QR</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Palavra-passe</string>
     <string name="prefPasswordSummary">Exigir palavra-passe para aceder aos autenticadores. A base de dados será encriptada com ela.</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para utilizar em toda a aplicação</string>
     <string name="prefTransparentStatusBarTitle">Transparência da barra de estado</string>
     <string name="prefTransparentStatusBarSummary">Tornar a lista atrás da barra de estado visível ao fazer scroll</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Com base no tempo (TOTP)</string>
     <string name="authTypeCounter">Com base em contador (HOTP)</string>

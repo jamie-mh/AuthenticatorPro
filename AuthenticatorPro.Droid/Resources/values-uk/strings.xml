@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">Імпортовано {0} значків з набору</string>
     <string name="invalidIconPackError">Вибраний файл не є набором іконок Authenticator Pro</string>
     <string name="confirmIconPackDelete">Ви впевнені, що бажаєте видалити цей набір іконок? Будь-які використані іконки не будуть видалені.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Перенесіть автентифікатор на інший пристрій зчитав QR-код</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Копіювати код в буфер обміну при натисканні на нього</string>
     <string name="prefResetCopyCountTitle">Скинути кількість копій</string>
     <string name="prefResetCopyCountSummary">Очистити кількість разів, коли кожен автентифікатор був скопійований</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Безпека</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Вимагати пароль для доступу до автентифікаторів. База даних буде зашифрована вашим паролем.</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">Оберіть основний колір, який буде використано в усьому додатку</string>
     <string name="prefTransparentStatusBarTitle">Прозора панель стану</string>
     <string name="prefTransparentStatusBarSummary">Зробити список видимим за панеллю стану при прокрутці</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Скидання кількості копій</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">На основі часу (TOTP)</string>
     <string name="authTypeCounter">На основі лічильника (HOTP)</string>

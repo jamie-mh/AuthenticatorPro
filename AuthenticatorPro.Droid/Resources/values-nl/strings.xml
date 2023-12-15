@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">Importeerde {0} pictogrammen van pakket</string>
     <string name="invalidIconPackError">Het geselecteerde bestand is geen Authenticator Pro pictogrammenpakket</string>
     <string name="confirmIconPackDelete">Weet je zeker dat je dit icoon pakket wilt verwijderen? Alle gebruikte iconen worden niet verwijderd.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Kopieer deze authenticator naar een ander apparaat of app door de QR code te scannen</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">Veiligheid</string>
     <string name="prefPasswordTitle">Wachtwoord</string>
     <string name="prefPasswordSummary">Wachtwoord is vereist om toegang te krijgen tot de authenticators. De database zal versleuteld worden met uw wachtwoord.</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">Kies een accentkleur die je in de app wilt gebruiken</string>
     <string name="prefTransparentStatusBarTitle">Transparante Status Balk</string>
     <string name="prefTransparentStatusBarSummary">Maak de lijst zichtbaar achter de statusbalk tijdens het scrollen</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Tijd gebaseerd (TOTP)</string>
     <string name="authTypeCounter">Teller gebaseerd (HOTP)</string>

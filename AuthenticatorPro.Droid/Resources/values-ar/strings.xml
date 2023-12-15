@@ -83,6 +83,7 @@
     <string name="importIconPackSuccess">الأيقونات المستوردة {0} من الحُزْمَة</string>
     <string name="invalidIconPackError">الملف المحدد ليس حزمة أيقونات لهذا للتطبيق</string>
     <string name="confirmIconPackDelete">هل أنت متأكد من أنك تريد حذف حزمة الأيقونة هذه؟ لن يتم حذف أي أيقونات مستخدمة.</string>
+    <string name="viewSource">View source</string>
     <!-- QR code dialog -->
     <string name="qrCode">رمز QR</string>
     <string name="qrCodeHelp">نسخ هذه المصادقة إلى جهاز آخر أو تطبيق آخر عن طريق فحص رمز QR</string>
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">الحماية</string>
     <string name="prefPasswordTitle">كلمة المرور</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
     <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Time based (TOTP)</string>
     <string name="authTypeCounter">Counter based (HOTP)</string>

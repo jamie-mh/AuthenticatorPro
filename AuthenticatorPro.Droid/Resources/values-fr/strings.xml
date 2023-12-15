@@ -82,13 +82,14 @@
     <string name="downloadPacks">Télécharger des packs</string>
     <string name="importIconPackSuccess">{0} icônes importées du pack</string>
     <string name="invalidIconPackError">Le fichier sélectionné n\'est pas un pack d\'icônes Authenticator Pro</string>
-    <string name="confirmIconPackDelete">Êtes-vous sûr de vouloir supprimer ce pack d\'icône ? Toutes les icônes utilisées sont préservées.</string>
+    <string name="confirmIconPackDelete">Êtes-vous sûr de vouloir supprimer ce pack d\'icône ? Toutes les icônes utilisées seront préservées.</string>
+    <string name="viewSource">Voir la source</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Copiez cet authentificateur vers un autre appareil ou une autre application en scannant le QR code</string>
     <string name="qrCodeNotSupported">Les QR codes ne sont pas pris en charge pour ce type</string>
     <string name="copyUri">Copier l\'URI</string>
-    <string name="copyUriWarning">Cet URI contient une clé secrète en clair. Faites attention à l\'endroit où vous collez cette information.\n\nContinuer ?</string>
+    <string name="copyUriWarning">Cet URI contient une clé secrète en texte clair. Faites attention à l\'endroit où vous collez cette information.\n\nContinuer ?</string>
     <string name="uriCopiedToClipboard">URI copié dans le presse-papiers</string>
     <!-- Backup menu -->
     <string name="backupToFile">Sauvegarder vers un fichier chiffré (conseillé)</string>
@@ -125,11 +126,11 @@
     <string name="backupNow">Sauvegarder maintenant</string>
     <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
-    <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous souhaitez mettre de mot de passe, laissez le champ vide.</string>
+    <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne souhaitez pas mettre de mot de passe, laissez le champ vide.</string>
     <string name="restoreError">Le mot de passe est incorrect ou le fichier est corrompu</string>
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>
-    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffrée et ne sera pas sécurisé.\n\nContinuer ?</string>
+    <string name="confirmEmptyPassword">Vous n\'avez pas renseigné de mot de passe, votre sauvegarde ne sera pas chiffrée et ne sera pas sécurisée.\n\nContinuer ?</string>
     <string name="passwordHint">Mot de passe de la sauvegarde</string>
     <string name="fileNameHint">Nom du fichier de la sauvegarde</string>
     <string name="noAuthenticators">Vous n\'avez aucun authentificateur à sauvegarder</string>
@@ -215,9 +216,9 @@
     <string name="guideCustomiseTitle">Personnaliser et modifier</string>
     <string name="guideCustomiseSummary">Renommez et personnalisez vos authentificateurs pour les retrouver facilement. Appuyez simplement sur l\'icône de menu sur l\'un des authentificateurs et suivez les étapes.</string>
     <string name="guideArrangeTitle">Organiser et trier</string>
-    <string name="guideArrangeSummary">Vous pouvez affecter des catégories à vos authentificateurs pour les retrouver plus facilement. De plus, appuyez et faites glisser votre doigt sur des élements de la liste pour les placer dans l\'ordre que vous souhaitez.</string>
+    <string name="guideArrangeSummary">Vous pouvez affecter des catégories à vos authentificateurs pour les retrouver plus facilement. De plus, appuyez et faites glisser votre doigt sur des éléments de la liste pour les placer dans l\'ordre que vous souhaitez.</string>
     <string name="guideBackupTitle">Créer une sauvegarde</string>
-    <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une sauvegarde et placez-le dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut même être protégée par un mot de passe.</string>
+    <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une sauvegarde et placez-la dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut même être protégée par un mot de passe.</string>
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
     <string name="guideWearOSSummary">Si vous portez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
     <!-- QR code scanner -->
@@ -236,6 +237,8 @@
     <string name="prefTapToCopySummary">Copier le code dans le presse-papiers lorsqu\'il est tapé</string>
     <string name="prefResetCopyCountTitle">Réinitialiser le nombre de fois copié</string>
     <string name="prefResetCopyCountSummary">Effacer le nombre de fois où chaque authentificateur a été copié</string>
+    <string name="prefSkipToNextTitle">Passer au suivant</string>
+    <string name="prefSkipToNextSummary">Autoriser le passage au code suivant quand il est proche de l\'expiration</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
@@ -266,7 +269,13 @@
     <string name="prefAccentColourSummary">Choisir une couleur d\'accentuation à utiliser dans l\'application</string>
     <string name="prefTransparentStatusBarTitle">Barre d\'état transparente</string>
     <string name="prefTransparentStatusBarSummary">Rendre la liste visible derrière la barre d\'état lors du défilement</string>
+    <string name="prefSystemFontTitle">Police du système</string>
+    <string name="prefSystemFontSummary">Utiliser la police par défaut du système au lieu d\'une police personnalisée</string>
     <string name="copyCountReset">Nombre de fois copiés réinitialisé</string>
+    <!-- About -->
+    <string name="viewLog">Afficher le journal</string>
+    <string name="noLogFile">Aucun journal disponible</string>
+    <string name="debugLog">Journal de débogage</string>
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
