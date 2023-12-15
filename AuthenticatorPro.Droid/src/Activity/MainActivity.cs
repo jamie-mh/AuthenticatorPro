@@ -38,7 +38,7 @@ using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.QrCode.Reader;
+using AuthenticatorPro.Droid.QrCode;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
@@ -48,6 +48,7 @@ using Google.Android.Material.Dialog;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
+using Serilog;
 using Configuration = Android.Content.Res.Configuration;
 using Insets = AndroidX.Core.Graphics.Insets;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
@@ -89,6 +90,7 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestImportUriList = 18;
 
         // Data
+        private readonly ILogger _log = Log.ForContext<MainActivity>();
         private readonly Database _database;
         private readonly IEnumerable<IBackupEncryption> _backupEncryptions;
 
@@ -250,7 +252,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                     catch (Exception e)
                     {
-                        Logger.Error($"Database not usable? error: {e}");
+                        _log.Error(e, "Error opening unprotected database");
                         ShowDatabaseErrorDialog(e);
                         return;
                     }
@@ -619,7 +621,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error performing unlock");
                 RunOnUiThread(delegate { fragment.ShowError(); });
                 return;
             }
@@ -1050,7 +1052,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Error deleting category bindings for authenticator");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }
@@ -1061,7 +1063,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Error culling unused icons after delete");
                     // ignored
                 }
 
@@ -1115,27 +1117,21 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task ScanQrCodeFromImage(Uri uri)
         {
-#if FDROID
-            IQrCodeReader reader = new ZxingQrCodeReader();
-#else
-            IQrCodeReader reader = new MlKitQrCodeReader();
-#endif
-
             string result;
 
             try
             {
-                result = await reader.ScanImageFromFileAsync(this, uri);
+                result = await QrCodeReader.ScanImageFromFileAsync(this, uri);
             }
             catch (IOException e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error picking QR code image file");
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error scanning QR code from file");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1195,7 +1191,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Error adding authenticator");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }
@@ -1247,11 +1243,11 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async Task OnOtpAuthMigrationScan(string uri)
+        private Task OnOtpAuthMigrationScan(string uri)
         {
             var converter = new GoogleAuthenticatorBackupConverter(_iconResolver);
             var data = Encoding.UTF8.GetBytes(uri);
-            await ImportFromData(converter, data);
+            return ImportFromData(converter, data);
         }
 
         private void RequestPermissionThenScanQrCode()
@@ -1341,7 +1337,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Warn($"Unable to decrypt with {encryption}", e);
+                    _log.Warning(e, "Unable to decrypt with {Encryption}", encryption);
                     continue;
                 }
 
@@ -1368,7 +1364,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Error decrypting file");
                     sheet.Error = GetString(Resource.String.restoreError);
                     sheet.SetLoading(false);
                     return;
@@ -1397,7 +1393,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error picking file to restore");
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 SetLoading(false);
                 return;
@@ -1419,7 +1415,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error decrypting file");
                 PromptForRestorePassword(data);
             }
             finally
@@ -1468,7 +1464,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                     catch (Exception e)
                     {
-                        Logger.Error(e);
+                        _log.Error(e, "Error converting backup for restore");
                         sheet.Error = GetString(Resource.String.restoreError);
                         sheet.SetLoading(false);
                     }
@@ -1487,7 +1483,7 @@ namespace AuthenticatorPro.Droid.Activity
                     }
                     catch (Exception e)
                     {
-                        Logger.Error(e);
+                        _log.Error(e, "Error converting backup for restore");
                         ShowSnackbar(Resource.String.importError, Snackbar.LengthShort);
                     }
                     finally
@@ -1525,7 +1521,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error reading file for import");
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
                 return;
             }
@@ -1600,7 +1596,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Error performing backup");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }
@@ -1645,7 +1641,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error performing backup to HTML file");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1662,7 +1658,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error performing backup to URI list file");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1755,7 +1751,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error adding authenticator");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1842,7 +1838,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error editing authenticator");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
@@ -1897,7 +1893,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error setting authenticator icon");
                 auth.Icon = oldIcon;
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
@@ -1931,7 +1927,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error loading icon from icon pack");
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
             }
             finally
@@ -1966,7 +1962,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error decoding custom icon");
                 ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
             }
             finally
@@ -1985,7 +1981,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error setting custom icon");
                 auth.Icon = oldIcon;
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
@@ -2062,7 +2058,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error adding/removing category");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
             }
         }

@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Test.Service
             var conversionResult = new ConversionResult
             {
                 Backup = new Core.Backup.Backup { Authenticators = new List<Authenticator>() },
-                Failures = new List<ConversionFailure>()
+                Failures = []
             };
 
             var converter = new Mock<BackupConverter>(new Mock<IIconResolver>().Object);

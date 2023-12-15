@@ -15,9 +15,9 @@ namespace AuthenticatorPro.Droid.Util
 {
     internal static class FileUtil
     {
-        public static async Task<byte[]> ReadFile(Context context, Uri uri)
+        public static Task<byte[]> ReadFile(Context context, Uri uri)
         {
-            return await Task.Run(async delegate
+            return Task.Run(async delegate
             {
                 MemoryStream memoryStream = null;
                 Stream stream = null;
@@ -45,10 +45,10 @@ namespace AuthenticatorPro.Droid.Util
             });
         }
 
-        public static async Task WriteFile(Context context, Uri uri, byte[] data)
+        public static Task WriteFile(Context context, Uri uri, byte[] data)
         {
             // Run backup on separate thread, file writing on the main thread fails when using Nextcloud
-            await Task.Run(async delegate
+            return Task.Run(async delegate
             {
                 // This is the only way of reliably writing binary files using SAF on Xamarin.
                 // A file output stream will usually create 0 byte files on virtual storage such as Google Drive
@@ -71,9 +71,9 @@ namespace AuthenticatorPro.Droid.Util
             });
         }
 
-        public static async Task WriteFile(Context context, Uri uri, string data)
+        public static Task WriteFile(Context context, Uri uri, string data)
         {
-            await Task.Run(async delegate
+            return Task.Run(async delegate
             {
                 Stream output = null;
                 OutputStreamWriter outputWriter = null;

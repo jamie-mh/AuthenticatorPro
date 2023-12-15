@@ -34,18 +34,6 @@ namespace AuthenticatorPro.Core
         [ProtoMember(1)]
         public List<MigrationAuthenticator> Authenticators { get; set; }
 
-        [ProtoMember(2)]
-        public int Unknown2 { get; set; }
-
-        [ProtoMember(3)]
-        public int Unknown3 { get; set; }
-
-        [ProtoMember(4)]
-        public int Unknown4 { get; set; }
-
-        [ProtoMember(5)]
-        public int Unknown5 { get; set; }
-
         [ProtoContract]
         public class MigrationAuthenticator
         {
@@ -60,9 +48,6 @@ namespace AuthenticatorPro.Core
 
             [ProtoMember(4)]
             public Algorithm Algorithm { get; set; }
-
-            [ProtoMember(5)]
-            public int Unknown1 { get; set; }
 
             [ProtoMember(6)]
             public Type Type { get; set; }

@@ -9,16 +9,25 @@ using Android.Views;
 using Android.Webkit;
 using AndroidX.Core.Widget;
 using AuthenticatorPro.Core;
+using Android.Widget;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Color;
 using Insets = AndroidX.Core.Graphics.Insets;
+using Serilog;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Environment = System.Environment;
+using Path = System.IO.Path;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     public class AboutActivity : BaseActivity
     {
+        private readonly ILogger _log = Log.ForContext<AboutActivity>();
         private readonly IAssetProvider _assetProvider;
+        private WebView _webView;
 
         public AboutActivity() : base(Resource.Layout.activityAbout)
         {
@@ -47,7 +56,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to get current version");
                 version = "unknown";
             }
 
@@ -57,36 +66,32 @@ namespace AuthenticatorPro.Droid.Activity
 
             var icon = await _assetProvider.ReadBytesAsync("icon.png");
 
-#if FDROID
-            const string extraLicenseFile = "license.extra.fdroid.html";
-#else
-            const string extraLicenseFile = "license.extra.html";
-#endif
-
-            var extraLicense = await _assetProvider.ReadStringAsync(extraLicenseFile);
-
             var html = (await _assetProvider.ReadStringAsync("about.html"))
                 .Replace("%ICON", $"data:image/png;base64,{Convert.ToBase64String(icon)}")
                 .Replace("%VERSION", version)
-                .Replace("%LICENSE", extraLicense)
                 .Replace("%SURFACE", ColourToHexString(surface))
                 .Replace("%ON_SURFACE", ColourToHexString(onSurface))
                 .Replace("%PRIMARY", ColourToHexString(primary));
 
-            var webView = FindViewById<WebView>(Resource.Id.webView);
-            webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
-        }
+#if !FDROID
+            var extraLicense = await _assetProvider.ReadStringAsync("license.extra.html");
+            html = html.Replace("%LICENSE", extraLicense);
+#endif
 
-        private static string ColourToHexString(int colour)
-        {
-            var parsed = new Color(colour);
-            return "#" + parsed.R.ToString("X2") + parsed.G.ToString("X2") + parsed.B.ToString("X2");
+            _webView = FindViewById<WebView>(Resource.Id.webView);
+            _webView.LoadDataWithBaseURL("file:///android_asset", html, "text/html", "utf-8", null);
         }
 
         public override bool OnSupportNavigateUp()
         {
             Finish();
             return base.OnSupportNavigateUp();
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.about, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -96,9 +101,14 @@ namespace AuthenticatorPro.Droid.Activity
                 case Android.Resource.Id.Home:
                     Finish();
                     return true;
-            }
 
-            return base.OnOptionsItemSelected(item);
+                case Resource.Id.actionViewLog:
+                    ShowDebugLog();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
         }
 
         protected override void OnApplySystemBarInsets(Insets insets)
@@ -106,6 +116,39 @@ namespace AuthenticatorPro.Droid.Activity
             base.OnApplySystemBarInsets(insets);
             var scrollView = FindViewById<NestedScrollView>(Resource.Id.nestedScrollView);
             scrollView.SetPadding(0, 0, 0, insets.Bottom);
+        }
+
+        private void ShowDebugLog()
+        {
+            var path = GetLogPath();
+
+            if (path == null)
+            {
+                Toast.MakeText(this, Resource.String.noLogFile, ToastLength.Short).Show();
+                return;
+            }
+            
+            Toolbar.SetTitle(Resource.String.debugLog);
+            Toolbar.Menu.RemoveItem(Resource.Id.actionViewLog);
+            
+            Task.Run(async delegate
+            {
+                var data = await File.ReadAllTextAsync(path);
+                RunOnUiThread(delegate { _webView.LoadData(data, "text/plain", "utf-8"); });
+            });
+        }
+
+        private static string GetLogPath()
+        {
+            var privateDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var file = Directory.GetFiles(privateDir, "*.log").FirstOrDefault();
+            return file == null ? null : Path.Combine(privateDir, file);
+        }
+
+        private static string ColourToHexString(int colour)
+        {
+            var parsed = new Color(colour);
+            return "#" + parsed.R.ToString("X2") + parsed.G.ToString("X2") + parsed.B.ToString("X2");
         }
     }
 }

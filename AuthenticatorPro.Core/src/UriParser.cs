@@ -168,16 +168,13 @@ namespace AuthenticatorPro.Core
                 throw new ArgumentException("Counter cannot be negative");
             }
 
-            if (!args.ContainsKey("secret"))
+            if (!args.TryGetValue("secret", out var secret))
             {
                 throw new ArgumentException("Secret parameter is required");
             }
 
-            var icon = iconResolver.FindServiceKeyByName(args.TryGetValue("icon", out var iconParam)
-                ? iconParam
-                : issuer);
-            
-            var secret = SecretUtil.Clean(args["secret"], type);
+            secret = SecretUtil.Clean(secret, type);
+            var icon = iconResolver.FindServiceKeyByName(args.GetValueOrDefault("icon", issuer));
 
             var pinLength = 0;
 

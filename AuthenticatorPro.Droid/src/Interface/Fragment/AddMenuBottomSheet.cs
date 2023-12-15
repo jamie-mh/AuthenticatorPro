@@ -25,13 +25,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var view = base.OnCreateView(inflater, container, savedInstanceState);
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,
-                new List<SheetMenuItem>
-                {
-                    new(Resource.Drawable.baseline_qr_code_24, Resource.String.scanQrCode, QrCodeClicked),
-                    new(Resource.Drawable.baseline_vpn_key_24, Resource.String.enterKey, EnterKeyClicked),
-                    new(Resource.Drawable.baseline_restore_24, Resource.String.restoreBackup, RestoreClicked),
-                    new(Resource.Drawable.baseline_input_24, Resource.String.importFromOtherApps, ImportClicked)
-                });
+            [
+                new SheetMenuItem(Resource.Drawable.baseline_qr_code_24, Resource.String.scanQrCode, QrCodeClicked),
+                new SheetMenuItem(Resource.Drawable.baseline_vpn_key_24, Resource.String.enterKey, EnterKeyClicked),
+                new SheetMenuItem(Resource.Drawable.baseline_restore_24, Resource.String.restoreBackup, RestoreClicked),
+                new SheetMenuItem(Resource.Drawable.baseline_input_24, Resource.String.importFromOtherApps, ImportClicked)
+            ]);
 
             return view;
         }

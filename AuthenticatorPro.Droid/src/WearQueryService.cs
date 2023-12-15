@@ -3,19 +3,20 @@
 
 #if !FDROID
 
+using Android.App;
+using Android.Gms.Wearable;
+using AuthenticatorPro.Droid.Persistence.View;
+using AuthenticatorPro.Droid.Shared.Wear;
+using AuthenticatorPro.Core.Service;
+using Java.IO;
+using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Android.App;
-using Android.Gms.Wearable;
-using AuthenticatorPro.Core.Service;
-using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.Shared.Wear;
-using Java.IO;
-using Newtonsoft.Json;
 
 namespace AuthenticatorPro.Droid
 {
@@ -29,6 +30,7 @@ namespace AuthenticatorPro.Droid
     {
         private const string GetSyncBundleCapability = "get_sync_bundle";
 
+        private readonly ILogger _log = Log.ForContext<WearQueryService>();
         private readonly Database _database;
         private readonly SemaphoreSlim _lock;
 
@@ -41,7 +43,7 @@ namespace AuthenticatorPro.Droid
         {
             _database = new Database();
             _lock = new SemaphoreSlim(1, 1);
-
+            
             using var container = Dependencies.GetChildContainer();
             container.Register(_database);
             Dependencies.RegisterRepositories(container);
@@ -59,15 +61,15 @@ namespace AuthenticatorPro.Droid
             _secureStorageWrapper = new SecureStorageWrapper(this);
         }
 
-        private async Task OpenDatabaseAsync()
+        private Task OpenDatabaseAsync()
         {
             var password = _secureStorageWrapper.GetDatabasePassword();
-            await _database.OpenAsync(password, Database.Origin.Wear);
+            return _database.OpenAsync(password, Database.Origin.Wear);
         }
 
-        private async Task CloseDatabaseAsync()
+        private Task CloseDatabaseAsync()
         {
-            await _database.CloseAsync(Database.Origin.Wear);
+            return _database.CloseAsync(Database.Origin.Wear);
         }
 
         private async Task<T> UseDatabaseAsync<T>(Func<Task<T>> action)
@@ -171,7 +173,7 @@ namespace AuthenticatorPro.Droid
 
         public override async void OnChannelOpened(ChannelClient.IChannel channel)
         {
-            Logger.Debug($"Wear channel opened: {channel.Path}");
+            _log.Debug("Wear channel opened: {Path}", channel.Path);
 
             if (channel.Path != GetSyncBundleCapability)
             {
@@ -184,7 +186,7 @@ namespace AuthenticatorPro.Droid
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Error sending sync bundle");
             }
         }
     }

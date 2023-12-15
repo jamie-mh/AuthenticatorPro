@@ -23,12 +23,14 @@ using AuthenticatorPro.Droid.Shared.Util;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
+using Serilog;
 
 namespace AuthenticatorPro.Droid.Activity
 {
     [Activity]
     public class CategoriesActivity : SensitiveSubActivity
     {
+        private readonly ILogger _log = Log.ForContext<CategoriesActivity>();
         private readonly ICategoryView _categoryView;
         private readonly ICategoryService _categoryService;
 
@@ -157,7 +159,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to add category");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 RunOnUiThread(dialog.Dismiss);
                 return;
@@ -250,7 +252,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to assign entry");
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
             }
         }
@@ -280,7 +282,7 @@ namespace AuthenticatorPro.Droid.Activity
             }
             catch (Exception e)
             {
-                Logger.Error(e);
+                _log.Error(e, "Failed to transfer category bindings");
                 RunOnUiThread(dialog.Dismiss);
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
@@ -357,7 +359,7 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e);
+                    _log.Error(e, "Failed to delete category with bindings");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                     return;
                 }

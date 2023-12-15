@@ -1,25 +1,23 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-#if FDROID
-
-using Android.Content;
-using Android.Graphics;
-using AuthenticatorPro.Droid.Util;
-using Java.Nio;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Android.Content;
+using Android.Graphics;
+using AuthenticatorPro.Droid.Util;
+using Java.Nio;
 using ZXing;
 using ZXing.Common;
 using Uri = Android.Net.Uri;
 
-namespace AuthenticatorPro.Droid.QrCode.Reader
+namespace AuthenticatorPro.Droid.QrCode
 {
-    public class ZxingQrCodeReader : IQrCodeReader
+    public static class QrCodeReader
     {
-        public async Task<string> ScanImageFromFileAsync(Context context, Uri uri)
+        public static async Task<string> ScanImageFromFileAsync(Context context, Uri uri)
         {
             Bitmap bitmap;
         
@@ -63,5 +61,3 @@ namespace AuthenticatorPro.Droid.QrCode.Reader
         }
     }
 }
-
-#endif

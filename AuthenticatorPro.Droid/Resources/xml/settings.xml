@@ -158,5 +158,4 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
-
 </androidx.preference.PreferenceScreen>

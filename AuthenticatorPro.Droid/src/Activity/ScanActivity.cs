@@ -5,15 +5,13 @@ using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Camera.Core;
 using AndroidX.Camera.Lifecycle;
 using AndroidX.Camera.View;
-using AndroidX.Core.Content;
 using AndroidX.Core.Graphics;
-using AuthenticatorPro.Droid.QrCode.Analyser;
+using AuthenticatorPro.Droid.QrCode;
 using Google.Android.Material.Button;
 using Java.Util.Concurrent;
 
@@ -49,24 +47,13 @@ namespace AuthenticatorPro.Droid.Activity
 
             preview.SetSurfaceProvider(_previewView.SurfaceProvider);
 
-#if FDROID
             var analysis = new ImageAnalysis.Builder()
                 .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
                 .Build();
             
-            var analyser = new ZxingQrCodeImageAnalyser();
+            var analyser = new QrCodeImageAnalyser();
             analyser.QrCodeScanned += OnQrCodeScanned;
             analysis.SetAnalyzer(Executors.NewSingleThreadExecutor(), analyser);
-#else
-            var analysis = new ImageAnalysis.Builder()
-                .SetTargetResolution(new Size(1920, 1080))
-                .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
-                .Build();
-
-            var analyser = new MlKitQrCodeImageAnalyser(this);
-            analyser.QrCodeScanned += OnQrCodeScanned;
-            analysis.SetAnalyzer(ContextCompat.GetMainExecutor(this), analyser);
-#endif
 
             _camera = provider.BindToLifecycle(this, selector, analysis, preview);
         }

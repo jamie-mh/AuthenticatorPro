@@ -164,23 +164,23 @@ namespace AuthenticatorPro.Core.Service.Impl
             return updated;
         }
 
-        public async Task AddBindingAsync(Authenticator authenticator, Category category)
+        public Task AddBindingAsync(Authenticator authenticator, Category category)
         {
             ArgumentNullException.ThrowIfNull(authenticator);
             ArgumentNullException.ThrowIfNull(category);
 
-            await _authenticatorCategoryRepository.CreateAsync(new AuthenticatorCategory
+            return _authenticatorCategoryRepository.CreateAsync(new AuthenticatorCategory
             {
                 AuthenticatorSecret = authenticator.Secret, CategoryId = category.Id
             });
         }
 
-        public async Task RemoveBindingAsync(Authenticator authenticator, Category category)
+        public Task RemoveBindingAsync(Authenticator authenticator, Category category)
         {
             ArgumentNullException.ThrowIfNull(authenticator);
             ArgumentNullException.ThrowIfNull(category);
 
-            await _authenticatorCategoryRepository.DeleteAsync(new AuthenticatorCategory
+            return _authenticatorCategoryRepository.DeleteAsync(new AuthenticatorCategory
             {
                 AuthenticatorSecret = authenticator.Secret, CategoryId = category.Id
             });

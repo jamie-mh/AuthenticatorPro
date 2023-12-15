@@ -26,20 +26,16 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,
-                new List<SheetMenuItem>
-                {
-                    new(Resource.Drawable.baseline_lock_24, Resource.String.backupToFile,
-                        BackupFileClicked, Resource.String.backupToFileMessage),
-                    new(Resource.Drawable.baseline_html_24, Resource.String.backupHtml,
-                        delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, BackupHtmlFileClicked); },
-                        Resource.String.backupHtmlMessage),
-                    new(Resource.Drawable.baseline_list_24, Resource.String.backupUriList,
-                        delegate
-                        {
-                            ShowUnencryptedWarning(Resource.String.backupUriListWarning, BackupUriListClicked);
-                        },
-                        Resource.String.backupUriListMessage)
-                });
+            [
+                new SheetMenuItem(Resource.Drawable.baseline_lock_24, Resource.String.backupToFile,
+                    BackupFileClicked, Resource.String.backupToFileMessage),
+                new SheetMenuItem(Resource.Drawable.baseline_html_24, Resource.String.backupHtml,
+                    delegate { ShowUnencryptedWarning(Resource.String.backupHtmlWarning, BackupHtmlFileClicked); },
+                    Resource.String.backupHtmlMessage),
+                new SheetMenuItem(Resource.Drawable.baseline_list_24, Resource.String.backupUriList,
+                    delegate { ShowUnencryptedWarning(Resource.String.backupUriListWarning, BackupUriListClicked); },
+                    Resource.String.backupUriListMessage)
+            ]);
 
             return view;
         }

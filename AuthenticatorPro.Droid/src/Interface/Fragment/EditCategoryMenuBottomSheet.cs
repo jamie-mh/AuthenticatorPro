@@ -35,17 +35,16 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             var view = base.OnCreateView(inflater, container, savedInstanceState);
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
-            SetupMenu(menu, new List<SheetMenuItem>
-            {
-                new(Resource.Drawable.baseline_edit_24, Resource.String.rename, delegate { RenameClicked(this, _id); }),
-                new(Resource.Drawable.baseline_checklist_24, Resource.String.assignEntries,
+            SetupMenu(menu, [
+                new SheetMenuItem(Resource.Drawable.baseline_edit_24, Resource.String.rename, delegate { RenameClicked(this, _id); }),
+                new SheetMenuItem(Resource.Drawable.baseline_checklist_24, Resource.String.assignEntries,
                     delegate { AssignEntriesClicked(this, _id); }),
-                new(Resource.Drawable.baseline_star_24,
+                new SheetMenuItem(Resource.Drawable.baseline_star_24,
                     _isDefault ? Resource.String.clearDefault : Resource.String.setAsDefault,
                     delegate { SetDefaultClicked(this, _id); }),
-                new(Resource.Drawable.baseline_delete_24, Resource.String.delete,
+                new SheetMenuItem(Resource.Drawable.baseline_delete_24, Resource.String.delete,
                     delegate { DeleteClicked(this, _id); }, null, true)
-            });
+            ]);
 
             return view;
         }

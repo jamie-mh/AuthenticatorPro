@@ -94,7 +94,7 @@ namespace AuthenticatorPro.Test.Service
             authC.Setup(a => a.GetUri()).Throws(new NotSupportedException());
 
             _authenticatorRepository.Setup(r => r.GetAllAsync())
-                .ReturnsAsync(new List<Authenticator> { authA, authB, authC.Object });
+                .ReturnsAsync([authA, authB, authC.Object]);
             _assetProvider.Setup(a => a.ReadStringAsync("backup_template.html")).ReturnsAsync("%ITEMS");
 
             var backup = await _backupService.CreateHtmlBackupAsync();
@@ -161,7 +161,7 @@ namespace AuthenticatorPro.Test.Service
             authC.Setup(a => a.GetUri()).Throws(new NotSupportedException());
 
             _authenticatorRepository.Setup(r => r.GetAllAsync())
-                .ReturnsAsync(new List<Authenticator> { authA, authB, authC.Object });
+                .ReturnsAsync([authA, authB, authC.Object]);
 
             var backup = await _backupService.CreateUriListBackupAsync();
             var lines = backup.ToString().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);

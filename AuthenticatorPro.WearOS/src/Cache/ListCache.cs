@@ -25,7 +25,7 @@ namespace AuthenticatorPro.WearOS.Cache
         {
             _name = name;
             _context = context;
-            _items = new List<T>();
+            _items = [];
             _flushLock = new SemaphoreSlim(1, 1);
         }
 
@@ -86,10 +86,10 @@ namespace AuthenticatorPro.WearOS.Cache
             _items = JsonConvert.DeserializeObject<List<T>>(json);
         }
 
-        public async Task ReplaceAsync(List<T> items)
+        public Task ReplaceAsync(List<T> items)
         {
             _items = items;
-            await FlushAsync();
+            return FlushAsync();
         }
 
         public bool Dirty(IEnumerable<T> items, IEqualityComparer<T> comparer = null)
