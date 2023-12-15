@@ -32,7 +32,7 @@ namespace AuthenticatorPro.Core.Converter
 
         public override BackupPasswordPolicy PasswordPolicy => BackupPasswordPolicy.Always;
 
-        public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
+        public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             if (password == null)
             {
@@ -40,7 +40,7 @@ namespace AuthenticatorPro.Core.Converter
             }
 
             var values = Deserialise(data);
-            return await Task.Run(() => DecryptAndConvert(values, password));
+            return Task.Run(() => DecryptAndConvert(values, password));
         }
 
         private ConversionResult DecryptAndConvert(Dictionary<string, string> values, string password)

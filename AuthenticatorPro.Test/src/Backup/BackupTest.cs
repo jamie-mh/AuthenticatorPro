@@ -25,10 +25,7 @@ namespace AuthenticatorPro.Test.Backup
         {
             _backupComparer = new BackupComparer();
             _backupFixture = backupFixture;
-            _backupEncryptions = new List<IBackupEncryption>
-            {
-                new StrongBackupEncryption(), new LegacyBackupEncryption(), new NoBackupEncryption()
-            };
+            _backupEncryptions = [new StrongBackupEncryption(), new LegacyBackupEncryption(), new NoBackupEncryption()];
         }
 
         [Theory]

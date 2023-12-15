@@ -108,9 +108,9 @@ namespace AuthenticatorPro.Test.Service
             var iconUnused = new CustomIcon { Id = "id2" };
 
             _authenticatorRepository.Setup(r => r.GetAllAsync())
-                .ReturnsAsync(new List<Authenticator> { authA, authB, authC });
+                .ReturnsAsync([authA, authB, authC]);
             _customIconRepository.Setup(r => r.GetAllAsync())
-                .ReturnsAsync(new List<CustomIcon> { iconUsed, iconUnused });
+                .ReturnsAsync([iconUsed, iconUnused]);
 
             _customIconRepository.Setup(r => r.DeleteAsync(iconUsed)).Verifiable();
             _customIconRepository.Setup(r => r.DeleteAsync(iconUnused)).Verifiable();

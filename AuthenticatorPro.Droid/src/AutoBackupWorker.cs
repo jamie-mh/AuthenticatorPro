@@ -47,15 +47,15 @@ namespace AuthenticatorPro.Droid
             _backupService = container.Resolve<IBackupService>();
         }
 
-        private async Task OpenDatabase()
+        private Task OpenDatabase()
         {
             var password = _secureStorageWrapper.GetDatabasePassword();
-            await _database.OpenAsync(password, Database.Origin.AutoBackup);
+            return _database.OpenAsync(password, Database.Origin.AutoBackup);
         }
 
-        private async Task CloseDatabase()
+        private Task CloseDatabase()
         {
-            await _database.CloseAsync(Database.Origin.AutoBackup);
+            return _database.CloseAsync(Database.Origin.AutoBackup);
         }
 
         private bool HasPersistentPermissionsAtUri(Uri uri)

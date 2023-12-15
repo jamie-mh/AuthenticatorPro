@@ -49,12 +49,7 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
 
         public Bitmap GetOrDefault(string id)
         {
-            if (_all.TryGetValue(id, out var bitmap))
-            {
-                return bitmap;
-            }
-
-            return default;
+            return _all.GetValueOrDefault(id);
         }
 
         public IEnumerator<KeyValuePair<string, Bitmap>> GetEnumerator()

@@ -35,7 +35,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             _title = title;
         }
 
-        public bool IsDark { get; private set; }
+        protected bool IsDark { get; private set; }
         public event EventHandler Dismissed;
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)

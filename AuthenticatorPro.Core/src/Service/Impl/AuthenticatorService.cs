@@ -29,18 +29,18 @@ namespace AuthenticatorPro.Core.Service.Impl
             _equalityComparer = equalityComparer;
         }
 
-        public async Task AddAsync(Authenticator auth)
+        public Task AddAsync(Authenticator auth)
         {
             ArgumentNullException.ThrowIfNull(auth);
             auth.Validate();
-            await _authenticatorRepository.CreateAsync(auth);
+            return _authenticatorRepository.CreateAsync(auth);
         }
 
-        public async Task UpdateAsync(Authenticator auth)
+        public Task UpdateAsync(Authenticator auth)
         {
             ArgumentNullException.ThrowIfNull(auth);
             auth.Validate();
-            await _authenticatorRepository.UpdateAsync(auth);
+            return _authenticatorRepository.UpdateAsync(auth);
         }
 
         public async Task<int> UpdateManyAsync(IEnumerable<Authenticator> auths)
@@ -165,7 +165,7 @@ namespace AuthenticatorPro.Core.Service.Impl
             await _authenticatorCategoryRepository.DeleteAllForAuthenticatorAsync(auth);
         }
 
-        public async Task IncrementCounterAsync(Authenticator auth)
+        public Task IncrementCounterAsync(Authenticator auth)
         {
             ArgumentNullException.ThrowIfNull(auth);
 
@@ -175,14 +175,14 @@ namespace AuthenticatorPro.Core.Service.Impl
             }
 
             auth.Counter++;
-            await _authenticatorRepository.UpdateAsync(auth);
+            return _authenticatorRepository.UpdateAsync(auth);
         }
 
-        public async Task IncrementCopyCountAsync(Authenticator auth)
+        public Task IncrementCopyCountAsync(Authenticator auth)
         {
             ArgumentNullException.ThrowIfNull(auth);
             auth.CopyCount++;
-            await _authenticatorRepository.UpdateAsync(auth);
+            return _authenticatorRepository.UpdateAsync(auth);
         }
 
         public async Task ResetCopyCountsAsync()

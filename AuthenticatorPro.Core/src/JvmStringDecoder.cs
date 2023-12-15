@@ -98,25 +98,15 @@ namespace AuthenticatorPro.Core
 
         private static int GetUtf8CharacterWidth(byte first)
         {
-            if (first <= 0x7F)
-            {
-                return 1;
-            }
-
-            if (first is >= 0xC2 and <= 0xDF)
-            {
-                return 2;
-            }
-
-            if (first <= 0xEF)
-            {
-                return 3;
-            }
-
             // There are no 4 byte characters in U+0000 to U+FFFF
             // No need to handle this case
-
-            throw new ArgumentException("Unsupported character value");
+            return first switch
+            {
+                <= 0x7F => 1,
+                >= 0xC2 and <= 0xDF => 2,
+                <= 0xEF => 3,
+                _ => throw new ArgumentException("Unsupported character value")
+            };
         }
     }
 }

@@ -46,7 +46,7 @@ namespace AuthenticatorPro.Test.Service
         [Fact]
         public async Task ImportPackAsync_doesntExist()
         {
-            var pack = new IconPack { Name = "test", Icons = new List<IconPackEntry> { new() { Name = "icon" } } };
+            var pack = new IconPack { Name = "test", Icons = [new IconPackEntry { Name = "icon" }] };
 
             _iconPackRepository.Setup(r => r.GetAsync(pack.Name)).ReturnsAsync((IconPack) null);
             _iconPackRepository.Setup(r => r.CreateAsync(pack)).Verifiable();
@@ -67,7 +67,7 @@ namespace AuthenticatorPro.Test.Service
             var pack = new IconPack
             {
                 Name = "test",
-                Icons = new List<IconPackEntry> { new() { Name = "icon1" }, new() { Name = "icon2" } }
+                Icons = [new IconPackEntry { Name = "icon1" }, new IconPackEntry { Name = "icon2" }]
             };
 
             _iconPackRepository.Setup(r => r.GetAsync(pack.Name)).ReturnsAsync(pack);

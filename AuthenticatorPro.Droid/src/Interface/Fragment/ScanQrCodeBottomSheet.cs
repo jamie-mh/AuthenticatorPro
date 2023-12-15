@@ -24,13 +24,12 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             var menu = view.FindViewById<RecyclerView>(Resource.Id.listMenu);
             SetupMenu(menu,
-                new List<SheetMenuItem>
-                {
-                    new(Resource.Drawable.baseline_photo_camera_24, Resource.String.scanQrCodeFromCamera,
-                        FromCameraClicked),
-                    new(Resource.Drawable.baseline_image_24, Resource.String.scanQrCodeFromGallery,
-                        FromGalleryClicked)
-                });
+            [
+                new SheetMenuItem(Resource.Drawable.baseline_photo_camera_24, Resource.String.scanQrCodeFromCamera,
+                    FromCameraClicked),
+                new SheetMenuItem(Resource.Drawable.baseline_image_24, Resource.String.scanQrCodeFromGallery,
+                    FromGalleryClicked)
+            ]);
 
             return view;
         }

@@ -1243,11 +1243,11 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.Show(SupportFragmentManager, fragment.Tag);
         }
 
-        private async Task OnOtpAuthMigrationScan(string uri)
+        private Task OnOtpAuthMigrationScan(string uri)
         {
             var converter = new GoogleAuthenticatorBackupConverter(_iconResolver);
             var data = Encoding.UTF8.GetBytes(uri);
-            await ImportFromData(converter, data);
+            return ImportFromData(converter, data);
         }
 
         private void RequestPermissionThenScanQrCode()

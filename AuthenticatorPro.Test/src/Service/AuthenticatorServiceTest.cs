@@ -372,7 +372,7 @@ namespace AuthenticatorPro.Test.Service
             var authA = new Authenticator { CopyCount = 10 };
             var authB = new Authenticator { CopyCount = 100 };
 
-            _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<Authenticator> { authA, authB });
+            _authenticatorRepository.Setup(r => r.GetAllAsync()).ReturnsAsync([authA, authB]);
 
             var match = new CaptureMatch<Authenticator>(a => { Assert.Equal(0, a.CopyCount); });
 

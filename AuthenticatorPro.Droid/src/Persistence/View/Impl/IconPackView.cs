@@ -18,7 +18,7 @@ namespace AuthenticatorPro.Droid.Persistence.View.Impl
         public IconPackView(IIconPackRepository iconPackRepository)
         {
             _iconPackRepository = iconPackRepository;
-            _all = new List<IconPack>();
+            _all = [];
         }
 
         public void Update()

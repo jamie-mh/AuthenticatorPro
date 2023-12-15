@@ -120,7 +120,7 @@ namespace AuthenticatorPro.Core.Converter
             return hash.SequenceEqual(expected);
         }
 
-        private static async Task<byte[]> DeriveKeyAsync(Encryption encryption, string password)
+        private static Task<byte[]> DeriveKeyAsync(Encryption encryption, string password)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);
             // Salt is base 64 but not decoded for some reason
@@ -129,7 +129,7 @@ namespace AuthenticatorPro.Core.Converter
             switch (encryption.KdfType)
             {
                 case Encryption.Kdf.Pbkdf2Sha256:
-                    return await Task.Run(() => DerivePbkdf2Sha256(passwordBytes, encryption.KdfIterations, saltBytes));
+                    return Task.Run(() => DerivePbkdf2Sha256(passwordBytes, encryption.KdfIterations, saltBytes));
 
                 case Encryption.Kdf.Argon2Id:
                 {
@@ -138,7 +138,7 @@ namespace AuthenticatorPro.Core.Converter
                         throw new ArgumentException("Missing memory and/or parallelism parameters");
                     }
 
-                    return await DeriveArgon2IdAsync(passwordBytes, encryption.KdfIterations,
+                    return DeriveArgon2IdAsync(passwordBytes, encryption.KdfIterations,
                         encryption.KdfMemory.Value,
                         encryption.KdfParallelism.Value, saltBytes);
                 }
@@ -156,7 +156,7 @@ namespace AuthenticatorPro.Core.Converter
             return parameter.GetKey();
         }
 
-        private static async Task<byte[]> DeriveArgon2IdAsync(
+        private static Task<byte[]> DeriveArgon2IdAsync(
             byte[] password, int iterations, int memory, int parallelism, byte[] salt)
         {
             var argon2 = new Argon2id(password);
@@ -165,7 +165,7 @@ namespace AuthenticatorPro.Core.Converter
             argon2.MemorySize = memory * 1024;
             argon2.Salt = SHA256.HashData(salt);
 
-            return await argon2.GetBytesAsync(KeyLength);
+            return argon2.GetBytesAsync(KeyLength);
         }
 
         private static byte[] HkdfExpand(byte[] key, string info)

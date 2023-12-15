@@ -6,7 +6,7 @@ namespace AuthenticatorPro.Core.Backup
     {
         public ConversionResult()
         {
-            Failures = new List<ConversionFailure>();
+            Failures = [];
         }
 
         public Backup Backup { get; set; }

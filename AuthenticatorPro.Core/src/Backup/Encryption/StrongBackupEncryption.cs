@@ -116,7 +116,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             return headerBytes.SequenceEqual(foundHeader);
         }
 
-        private static async Task<byte[]> DeriveKeyAsync(string password, byte[] salt)
+        private static Task<byte[]> DeriveKeyAsync(string password, byte[] salt)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);
 
@@ -126,7 +126,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             argon2.MemorySize = MemorySize;
             argon2.Salt = salt;
 
-            return await argon2.GetBytesAsync(KeyLength);
+            return argon2.GetBytesAsync(KeyLength);
         }
     }
 }
