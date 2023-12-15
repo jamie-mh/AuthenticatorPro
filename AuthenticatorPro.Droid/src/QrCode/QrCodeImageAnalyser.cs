@@ -1,26 +1,24 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-#if FDROID
-
+using System;
+using System.Collections.Generic;
 using Android.Graphics;
 using Android.Util;
 using AndroidX.Camera.Core;
-using System;
-using System.Collections.Generic;
 using ZXing;
 using ZXing.Common;
 
-namespace AuthenticatorPro.Droid.QrCode.Analyser
+namespace AuthenticatorPro.Droid.QrCode
 {
-    public class ZxingQrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
+    public class QrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {
         public event EventHandler<string> QrCodeScanned;
         public Size DefaultTargetResolution => new(640, 480);
 
         private readonly BarcodeReader<Bitmap> _barcodeReader;
 
-        public ZxingQrCodeImageAnalyser()
+        public QrCodeImageAnalyser()
         {
             _barcodeReader = new BarcodeReader<Bitmap>(null, null, ls => new HybridBinarizer(ls))
             {
@@ -69,5 +67,3 @@ namespace AuthenticatorPro.Droid.QrCode.Analyser
         }
     }
 }
-
-#endif

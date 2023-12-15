@@ -38,7 +38,7 @@ using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
-using AuthenticatorPro.Droid.QrCode.Reader;
+using AuthenticatorPro.Droid.QrCode;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.AppBar;
@@ -1115,17 +1115,11 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task ScanQrCodeFromImage(Uri uri)
         {
-#if FDROID
-            IQrCodeReader reader = new ZxingQrCodeReader();
-#else
-            IQrCodeReader reader = new MlKitQrCodeReader();
-#endif
-
             string result;
 
             try
             {
-                result = await reader.ScanImageFromFileAsync(this, uri);
+                result = await QrCodeReader.ScanImageFromFileAsync(this, uri);
             }
             catch (IOException e)
             {
