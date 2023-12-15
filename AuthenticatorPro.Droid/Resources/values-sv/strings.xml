@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
     <string name="duplicateAuthenticator">Det finns redan ett konto med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Ange PIN-koden som hör till den här QR-koden</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Standardikoner</string>
     <string name="iconPacks">Ikonpaket</string>
@@ -150,8 +150,8 @@
     <string name="genericError">Ett fel uppstod</string>
     <string name="databaseError">Ett fel uppstod när databasen öppnades. Prova att starta appen igen. Om problemet kvarstår, rensa appdata och återställ din senaste säkerhetskopia.\n\nAlternativt kan du skicka in en felrapport.</string>
     <string name="viewErrorLog">Visa fellogg</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">Tidssynkronisering inaktiverad</string>
+    <string name="autoTimeWarningMessage">Automatisk tid är avstängd på din enhet. Tvåfaktorsautentisering kräver en exakt ställd klocka för att generera koder.\n\nAktivera automatisk tid i din enhets inställningar så att du alltid får giltiga koder.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Ett oväntat fel inträffade i appen. Detaljer om felet följer nedan:</string>
     <string name="report">Rapportera</string>
@@ -272,6 +272,10 @@
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Räknaren för antal kopieringar har nollställts</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Tidsbaserad (TOTP)</string>
     <string name="authTypeCounter">Räknarbaserad (HOTP)</string>
@@ -286,7 +290,7 @@
     <string name="timeout5Min">5 minuter</string>
     <string name="timeout10Min">10 minuter</string>
     <string name="systemDefault">Systemets standardinställning</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">Automatiskt (svart)</string>
     <string name="lightTheme">Ljust tema</string>
     <string name="darkTheme">Mörkt tema</string>
     <string name="blackTheme">Svart tema</string>
