@@ -149,6 +149,7 @@ namespace AuthenticatorPro.Core.Converter
         {
             using var memoryStream = new MemoryStream(data);
             using var reader = new BinaryReader(memoryStream);
+            var stringDecoder = new JvmStringDecoder();
             
             var result = new Dictionary<string, string>();
 
@@ -179,7 +180,7 @@ namespace AuthenticatorPro.Core.Converter
                     var length = BitConverter.ToUInt16(lengthBytes);
 
                     var stringBytes = reader.ReadBytes(length);
-                    var decoded = Encoding.UTF8.GetString(stringBytes);
+                    var decoded = stringDecoder.GetString(stringBytes);
 
                     if (key == null)
                     {
