@@ -272,6 +272,10 @@
     <string name="prefSystemFontTitle">Police du système</string>
     <string name="prefSystemFontSummary">Utiliser la police par défaut du système au lieu d\'une police personnalisée</string>
     <string name="copyCountReset">Nombre de fois copiés réinitialisé</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Temporel (TOTP)</string>
     <string name="authTypeCounter">À compteur (HOTP)</string>
