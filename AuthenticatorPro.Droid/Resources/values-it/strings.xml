@@ -272,6 +272,10 @@
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <string name="copyCountReset">Copy count reset</string>
+    <!-- About -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
     <!-- Arrays -->
     <string name="authTypeTime">Basato sul tempo (TOTP)</string>
     <string name="authTypeCounter">Basato su contatore (HOTP)</string>
