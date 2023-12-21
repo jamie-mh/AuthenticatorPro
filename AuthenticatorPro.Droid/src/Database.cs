@@ -11,7 +11,7 @@ using SQLite;
 
 namespace AuthenticatorPro.Droid
 {
-    public class Database : IDisposable
+    public class Database
     {
         public enum Origin
         {
@@ -30,7 +30,6 @@ namespace AuthenticatorPro.Droid
         private readonly ILogger _log = Log.ForContext<Database>();
         private readonly SemaphoreSlim _lock = new(1, 1);
         private SQLiteAsyncConnection _connection;
-        private bool _isDisposed;
 
         public async Task<SQLiteAsyncConnection> GetConnectionAsync()
         {
@@ -279,25 +278,6 @@ namespace AuthenticatorPro.Droid
                     File.Delete(backupPath);
                 }
             }
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (!_isDisposed)
-            {
-                if (disposing)
-                {
-                    _lock?.Dispose();
-                }
-
-                _isDisposed = true;
-            }
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }
