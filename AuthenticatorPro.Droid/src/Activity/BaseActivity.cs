@@ -337,6 +337,7 @@ namespace AuthenticatorPro.Droid.Activity
         protected void StartWebBrowserActivity(string url)
         {
             var intent = new Intent(Intent.ActionView, Uri.Parse(url));
+            intent.AddCategory(Intent.CategoryBrowsable);
 
             try
             {

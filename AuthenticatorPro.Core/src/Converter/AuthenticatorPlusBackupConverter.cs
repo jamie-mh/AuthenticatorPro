@@ -29,7 +29,7 @@ namespace AuthenticatorPro.Core.Converter
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var path = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Personal),
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 TempFileName
             );
 
