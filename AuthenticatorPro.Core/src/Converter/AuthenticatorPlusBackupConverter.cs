@@ -16,7 +16,6 @@ namespace AuthenticatorPro.Core.Converter
 {
     public class AuthenticatorPlusBackupConverter : BackupConverter
     {
-        private const string TempFileName = "authplus.db";
         private const string BlizzardIssuer = "Blizzard";
         private const int BlizzardDigits = 8;
 
@@ -28,29 +27,32 @@ namespace AuthenticatorPro.Core.Converter
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var path = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                TempFileName
-            );
-
-            await File.WriteAllBytesAsync(path, data);
-
-            var connStr = new SQLiteConnectionString(path, true, password, null,
-                conn => { conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3"); });
-
-            var connection = new SQLiteAsyncConnection(connStr);
+            var path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 
             try
             {
-                return await ConvertFromConnectionAsync(connection);
-            }
-            catch (SQLiteException e)
-            {
-                throw new ArgumentException("Database cannot be opened", e);
+                await File.WriteAllBytesAsync(path, data);
+
+                var connStr = new SQLiteConnectionString(path, true, password, null,
+                    conn => { conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3"); });
+
+                var connection = new SQLiteAsyncConnection(connStr);
+
+                try
+                {
+                    return await ConvertFromConnectionAsync(connection);
+                }
+                catch (SQLiteException e)
+                {
+                    throw new ArgumentException("Database cannot be opened", e);
+                }
+                finally
+                {
+                    await connection.CloseAsync();
+                }
             }
             finally
             {
-                await connection.CloseAsync();
                 File.Delete(path);
             }
         }
