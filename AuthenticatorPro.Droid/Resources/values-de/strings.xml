@@ -297,6 +297,7 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
+    <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
