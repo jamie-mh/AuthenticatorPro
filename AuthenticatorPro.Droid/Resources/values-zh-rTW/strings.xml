@@ -297,6 +297,7 @@
     <string name="defaultViewMode">預設</string>
     <string name="compactViewMode">緊湊</string>
     <string name="tileViewMode">平鋪</string>
+    <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
