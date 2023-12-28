@@ -388,6 +388,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "mailde", Resource.Drawable.auth_mailde },
             { "mailfence", Resource.Drawable.auth_mailfence },
             { "mailgun", Resource.Drawable.auth_mailgun },
+            { "mailinabox", Resource.Drawable.auth_mailinabox },
             { "mailo", Resource.Drawable.auth_mailo },
             { "mailru", Resource.Drawable.auth_mailru },
             { "make", Resource.Drawable.auth_make },
