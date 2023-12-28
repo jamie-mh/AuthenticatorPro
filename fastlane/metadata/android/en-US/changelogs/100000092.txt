@@ -1,0 +1,8 @@
+- New feature: Skip to next code
+- New feature: Use system font
+- New feature: Disable code grouping
+- New feature: Tapping Wear OS tile now opens app
+- General: Code is copied only when code is revealed
+- General: 59 new icons and improvements to existing icons
+- General: Translation updates
+- General: Bug fixes
