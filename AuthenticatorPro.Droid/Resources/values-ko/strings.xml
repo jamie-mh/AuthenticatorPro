@@ -297,6 +297,7 @@
     <string name="defaultViewMode">기본</string>
     <string name="compactViewMode">작게</string>
     <string name="tileViewMode">타일</string>
+    <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>

@@ -297,6 +297,7 @@
     <string name="defaultViewMode">Standaard</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tegel</string>
+    <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>

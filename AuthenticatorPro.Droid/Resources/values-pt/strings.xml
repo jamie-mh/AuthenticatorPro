@@ -297,6 +297,7 @@
     <string name="defaultViewMode">Predefinição</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Grelha</string>
+    <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
