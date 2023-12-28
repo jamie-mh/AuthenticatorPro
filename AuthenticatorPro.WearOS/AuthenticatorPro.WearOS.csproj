@@ -2,6 +2,7 @@
     <PropertyGroup>
         <TargetFramework>net8.0-android</TargetFramework>
         <SupportedOSPlatformVersion>26</SupportedOSPlatformVersion>
+        <TargetFrameworkVersion>33</TargetFrameworkVersion>
         <OutputType>Exe</OutputType>
         <Nullable>disable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
