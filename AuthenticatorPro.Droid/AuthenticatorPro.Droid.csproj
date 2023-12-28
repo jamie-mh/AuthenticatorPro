@@ -9,6 +9,7 @@
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <LangVersion>12</LangVersion>
+        <AndroidVersionCodePattern>{versionCode}</AndroidVersionCodePattern>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>

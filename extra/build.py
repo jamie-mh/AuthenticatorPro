@@ -47,24 +47,6 @@ def adjust_csproj(build_dir: str, args: argparse.Namespace):
     csproj.write(csproj_path, xml_declaration=True, encoding="utf-8")
 
 
-def adjust_version_code(build_dir: str):
-    manifest_path = f"{build_dir}/AuthenticatorPro.Droid/Properties/AndroidManifest.xml"
-    manifest = ElementTree.parse(manifest_path)
-
-    android_namespace = "http://schemas.android.com/apk/res/android"
-    ElementTree.register_namespace("android", android_namespace)
-
-    tools_namespace = "http://schemas.android.com/tools"
-    ElementTree.register_namespace("tools", tools_namespace)
-
-    # add 2 zeroes to version code when building aab
-    version_code_path = f"{{{android_namespace}}}versionCode"
-    version_code = manifest.getroot().get(version_code_path)
-    manifest.getroot().set(version_code_path, "100" + version_code[1:])
-
-    manifest.write(manifest_path, xml_declaration=True, encoding="utf-8")
-
-
 def build_project(build_dir: str, args: argparse.Namespace):
     os.makedirs(args.output, exist_ok=True)
     build_args = [f"-f:{FRAMEWORK}", f"-c:{CONFIGURATION}"]
@@ -180,10 +162,6 @@ def main():
     with tempfile.TemporaryDirectory() as build_dir:
         subprocess.run(["git", "clone", REPO, build_dir], check=True)
         adjust_csproj(build_dir, args)
-
-        if args.project == PROJECT_NAMES["android"] and args.package == "aab":
-            adjust_version_code(build_dir)
-
         build_project(build_dir, args)
         move_build_artifacts(args, build_dir, args.output)
 

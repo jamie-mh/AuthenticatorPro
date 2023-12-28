@@ -54,6 +54,7 @@
         <item>@string/turkish</item>
         <item>@string/ukrainian</item>
         <item>@string/arabic</item>
+        <item>@string/kannada</item>
         <item>@string/thai</item>
         <item>@string/japanese</item>
         <item>@string/chineseSimplified</item>
@@ -78,6 +79,7 @@
         <item>tr</item>
         <item>uk</item>
         <item>ar</item>
+        <item>kn-IN</item>
         <item>th</item>
         <item>ja</item>
         <item>zh-CN</item>
