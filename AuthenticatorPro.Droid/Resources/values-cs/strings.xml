@@ -76,7 +76,7 @@
     <string name="qrCodeFormatError">QR kód není ve správném formátu nebo jej nelze přčíst</string>
     <string name="duplicateAuthenticator">Autentifikátor s tímto tajným klíčem již existuje</string>
     <string name="scanSuccessful">QR kód úspěšně naskenován</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Zadejte PIN přidružený k tomuto QR kódu</string>
     <!-- Icon packs -->
     <string name="defaultIcons">Výchozí ikony</string>
     <string name="iconPacks">Balíčky ikon</string>
@@ -238,8 +238,8 @@
     <string name="prefTapToCopySummary">Při klepnutí se kód zkopíruje do schránky</string>
     <string name="prefResetCopyCountTitle">Vynulovat počet kopírování</string>
     <string name="prefResetCopyCountSummary">Vynulovat počet kopírování všech autentifikátorů</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Přeskočit na další</string>
+    <string name="prefSkipToNextSummary">Povolit přeskočení na další kód, když je blízko vypršení</string>
     <string name="prefSecurity">Zabezpečení</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovat heslo pro přístup k autentifikátorům. Databáze bude šifrována s vaším heslem.</string>
@@ -270,13 +270,13 @@
     <string name="prefAccentColourSummary">Vyberte barvu zvýraznění, kterou chcete použít v celé aplikaci</string>
     <string name="prefTransparentStatusBarTitle">Průhledný stavový řádek</string>
     <string name="prefTransparentStatusBarSummary">Zviditelnit seznam za stavovou lištou při posouvání</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Systémové písmo</string>
+    <string name="prefSystemFontSummary">Použít výchozí písmo místo vlastního</string>
     <string name="copyCountReset">Vynulování počtu kopírování</string>
     <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Zobrazit protokol</string>
+    <string name="noLogFile">Soubor protokolu není k dispozici</string>
+    <string name="debugLog">Protokol ladění</string>
     <!-- Arrays -->
     <string name="authTypeTime">Časově založené (TOTP)</string>
     <string name="authTypeCounter">Založeno na počítadle (HOTP)</string>
