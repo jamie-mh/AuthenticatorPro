@@ -273,9 +273,9 @@
     <string name="prefSystemFontSummary">Verwenden Sie die Systemschrift anstelle der enthaltenen App Schriftart</string>
     <string name="copyCountReset">Kopierzähler zurücksetzen</string>
     <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Protokoll anzeigen</string>
+    <string name="noLogFile">Keine Protokolldatei verfügbar</string>
+    <string name="debugLog">Debug-Protokoll</string>
     <!-- Arrays -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
