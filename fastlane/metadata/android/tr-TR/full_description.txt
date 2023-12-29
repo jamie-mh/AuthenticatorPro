@@ -18,7 +18,7 @@ Kullanıcı adınız ve parolanız yanında Authenticator Pro tarafından sağla
 - 🔒 <b>Çok az izinle çevrimdışı</b>: Authenticator Pro yalnızca tek bir izin gerektirir ve çalışması için internet erişimi gerektirmez.
 - 🔑 <b>Güvenlik</b>: Kodlarınızı korumak için bir şifre belirleyin ve biyometrik kimlik doğrulamayı kullanın.
 - 🎨 <b>Özelleştirme</b>: Simgeleri ayarlayın ve yeniden adlandırın. Ayrıca kimlik doğrulama kodlarınızı istediğiniz sırayla düzenleyerek kolayca bulabilirsiniz.
-- ⌚ <b>Wear OS</b>: Kimlik doğrulayıcılarınızı doğrudan saatinizden hızlıca görüntüleyin. Android cihazınızla bağlantı kurulması gerektiğini lütfen unutmayın. Ayrıca, uygulamanın F-Droid dağıtımları Wear OS ile uyumlu değildir, çünkü özgür olmayan bağımlılıklar gereklidir.
+- ⌚ <b>Wear OS</b>: Kimlik doğrulayıcılarınızı doğrudan saatinizden hızlıca görüntüleyin. You can even set a favourite and place in a tile. Android cihazınızla bağlantı kurulması gerektiğini lütfen unutmayın. Ayrıca, uygulamanın F-Droid dağıtımları Wear OS ile uyumlu değildir, çünkü özgür olmayan bağımlılıklar gereklidir.
 
 (¹) * QR-Kodlarını taramak için uygulama kamera izni gerektirir.*
 
