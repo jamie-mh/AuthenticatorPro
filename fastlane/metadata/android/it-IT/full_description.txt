@@ -18,7 +18,7 @@ Oltre al nome utente e alla password, avrai bisogno di un codice fornito da Auth
 - 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
 - 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
 - 🎨 <b>Customisation</b>: Set icons and rename. Puoi anche organizzare i tuoi autenticatori in qualsiasi ordine ti piaccia, in modo da poterli trovare facilmente.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 
