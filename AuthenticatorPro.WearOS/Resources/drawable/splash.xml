@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@android:color/black"/>
-        </shape>
-    </item>
-    <item
-        android:width="48dp"
-        android:height="48dp"
-        android:gravity="center">
-        <bitmap
-            android:src="@drawable/ic_splash"
-            android:gravity="fill_horizontal|fill_vertical"/>
+    <item android:width="48dp"
+          android:height="48dp"
+          android:gravity="center"
+          android:drawable="@mipmap/ic_launcher">
     </item>
 </layer-list>
