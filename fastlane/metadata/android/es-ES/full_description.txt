@@ -18,7 +18,7 @@ Además de su nombre de usuario y contraseña, necesitará un código proporcion
 - 🔒 <b>Offline con pocos permisos</b>: Authenticator Pro únicamente requiere un solo permiso y no necesita la función de acceso a internet.
 - 🔑 <b>Seguridad</b>: Establece una contraseña y usa la autenticación biométrica para proteger tus códigos.
 - 🎨 <b>Personalización</b>: Cambia los Íconos y renombra. También puedes organizar tus autentificadores en el orden que quieras para encontrarlos fácilmente.
-- ⌚ <b>Wear OS</b>: Revisa rápidamente tus autentificadores directamente desde tu reloj. Por favor nota que una conexión a tu dispositivo Android es requerida. Las distribuciones de F-Droid de la aplicación no son compatibles con Wear OS, ya que se requieren dependencias no libres.
+- ⌚ <b>Wear OS</b>: Revisa rápidamente tus autentificadores directamente desde tu reloj. You can even set a favourite and place in a tile. Por favor nota que una conexión a tu dispositivo Android es requerida. Las distribuciones de F-Droid de la aplicación no son compatibles con Wear OS, ya que se requieren dependencias no libres.
 
 (¹) *Para escanear códigos QR, la aplicación necesita permiso a la cámara*
 
