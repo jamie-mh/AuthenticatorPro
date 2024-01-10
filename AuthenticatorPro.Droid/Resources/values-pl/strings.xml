@@ -83,7 +83,7 @@
     <string name="importIconPackSuccess">Zaimportowano {0} ikon z paczki</string>
     <string name="invalidIconPackError">Wybrany plik nie jest paczką ikon dla Authenticator Pro</string>
     <string name="confirmIconPackDelete">Czy na pewno chcesz usunąć tę paczkę ikon? Użyte ikony nie zostaną usunięte.</string>
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Pokaż źródło</string>
     <!-- QR code dialog -->
     <string name="qrCode">Kod QR</string>
     <string name="qrCodeHelp">Skopiuj ten wpis na inne urządzenie lub aplikację, skanując kod QR</string>
@@ -237,8 +237,8 @@
     <string name="prefTapToCopySummary">Skopiuj kod do schowka po dotknięciu</string>
     <string name="prefResetCopyCountTitle">Resetuj licznik kopiowań</string>
     <string name="prefResetCopyCountSummary">Zresetuj licznik ile razy każdy wpis był kopiowany</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Przejdź do następnego</string>
+    <string name="prefSkipToNextSummary">Zezwalaj na pominięcie do następnego kodu, kiedy jest bliski wygaśnięcia</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
@@ -269,13 +269,13 @@
     <string name="prefAccentColourSummary">Wybierz kolor akcentu do użycia w całej aplikacji</string>
     <string name="prefTransparentStatusBarTitle">Przeźroczysty pasek statusu</string>
     <string name="prefTransparentStatusBarSummary">Lista będzie widoczna za paskiem statusu podczas przewijania</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Czcionka systemowa</string>
+    <string name="prefSystemFontSummary">Użyj domyślnej czcionki systemowej zamiast niestandardowej</string>
     <string name="copyCountReset">Reset licznika kopiowań</string>
     <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Wyświetl dziennik</string>
+    <string name="noLogFile">Brak dostępnego pliku dziennika</string>
+    <string name="debugLog">Dziennik debugowania</string>
     <!-- Arrays -->
     <string name="authTypeTime">Oparte na czasie (TOTP)</string>
     <string name="authTypeCounter">Oparte na liczniku (HOTP)</string>
@@ -297,7 +297,7 @@
     <string name="defaultViewMode">Domyślny</string>
     <string name="compactViewMode">Kompaktowy</string>
     <string name="tileViewMode">Kafelki</string>
-    <string name="none">None</string>
+    <string name="none">Brak</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
