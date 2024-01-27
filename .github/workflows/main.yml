@@ -1,0 +1,63 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request: 
+    branches: [ master ]
+  workflow_dispatch:
+
+env:
+  FRAMEWORK: net8.0-android
+  CONFIGURATION: Release
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Android workload
+        run: dotnet workload install android
+
+      - name: Install Android platform tools
+        run: $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install platform-tools
+
+      - name: Restore NuGet packages
+        run: dotnet restore
+
+      - name: Run tests
+        run: dotnet test --configuration $CONFIGURATION --collect:"XPlat Code Coverage" --results-directory ./coverage AuthenticatorPro.Test/AuthenticatorPro.Test.csproj
+
+      - name: Publish Android
+        run: |
+          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj
+          mv AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro-Signed.apk me.jmh.authenticatorpro.apk
+
+      - name: Publish Wear OS
+        run: |
+          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
+          mv AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro-Signed.apk me.jmh.authenticatorpro.wearos.apk
+
+      - name: Generate coverage report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage/**/coverage.cobertura.xml
+          badge: true
+          format: markdown
+          output: both
+          thresholds: '60 80'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: AuthenticatorPro
+          path: |
+            me.jmh.authenticatorpro.apk
+            me.jmh.authenticatorpro.wearos.apk
+            code-coverage-results.md
