@@ -168,6 +168,7 @@ namespace AuthenticatorPro.Core.Converter
                 {
                     "TOTP" => AuthenticatorType.Totp,
                     "HOTP" => AuthenticatorType.Hotp,
+                    "STEAM" => AuthenticatorType.SteamOtp,
                     _ => throw new ArgumentException($"Type '{Otp.TokenType}' not supported")
                 };
 
