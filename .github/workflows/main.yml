@@ -41,7 +41,8 @@ jobs:
           sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.Droid/Resources/values/strings.xml
 
           dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj
-          mv "AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro.$REF-Signed.apk" "me.jmh.authenticatorpro.$REF.apk"
+          APK=$(find AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
+          mv $APK "me.jmh.authenticatorpro.$REF.apk"
 
       - name: Publish Wear OS
         run: |
@@ -50,7 +51,8 @@ jobs:
           sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.WearOS/Resources/values/strings.xml
 
           dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
-          mv "AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro.$REF-Signed.apk" "me.jmh.authenticatorpro.wearos.$REF.apk"
+          APK=$(find AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
+          mv $APK "me.jmh.authenticatorpro.wearos.$REF.apk"
 
       - name: Generate coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
