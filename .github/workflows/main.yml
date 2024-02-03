@@ -32,17 +32,25 @@ jobs:
         run: dotnet restore
 
       - name: Run tests
-        run: dotnet test --configuration $CONFIGURATION --collect:"XPlat Code Coverage" --results-directory ./coverage AuthenticatorPro.Test/AuthenticatorPro.Test.csproj
+        run: dotnet test --configuration $CONFIGURATION --no-restore --collect:"XPlat Code Coverage" --results-directory ./coverage AuthenticatorPro.Test/AuthenticatorPro.Test.csproj
 
       - name: Publish Android
         run: |
-          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj
-          mv AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro-Signed.apk me.jmh.authenticatorpro.apk
+          REF=$(echo $GITHUB_SHA | cut -c -7)
+          sed -i "s|package=\"me.jmh.authenticatorpro\"|package=\"me.jmh.authenticatorpro.$REF\"|g" AuthenticatorPro.Droid/Properties/AndroidManifest.xml
+          sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.Droid/Resources/values/strings.xml
+
+          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj
+          mv "AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro.$REF-Signed.apk" "me.jmh.authenticatorpro.$REF.apk"
 
       - name: Publish Wear OS
         run: |
-          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
-          mv AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro-Signed.apk me.jmh.authenticatorpro.wearos.apk
+          REF=$(echo $GITHUB_SHA | cut -c -7)
+          sed -i "s|package=\"me.jmh.authenticatorpro\"|package=\"me.jmh.authenticatorpro.$REF\"|g" AuthenticatorPro.WearOS/Properties/AndroidManifest.xml
+          sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.WearOS/Resources/values/strings.xml
+
+          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
+          mv "AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish/me.jmh.authenticatorpro.$REF-Signed.apk" "me.jmh.authenticatorpro.wearos.$REF.apk"
 
       - name: Generate coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
@@ -54,10 +62,9 @@ jobs:
           thresholds: '60 80'
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AuthenticatorPro
           path: |
-            me.jmh.authenticatorpro.apk
-            me.jmh.authenticatorpro.wearos.apk
+            me.jmh.authenticatorpro*.apk
             code-coverage-results.md
