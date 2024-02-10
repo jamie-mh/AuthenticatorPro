@@ -2,9 +2,6 @@
 ![GitHub stars](https://img.shields.io/github/stars/jamie-mh/AuthenticatorPro?style=flat)
 ![GitHub last commit](https://img.shields.io/github/last-commit/jamie-mh/AuthenticatorPro?style=flat)
 [![Crowdin](https://badges.crowdin.net/authenticator-pro/localized.svg)](https://crowdin.com/project/authenticator-pro)
-![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/authenticatorpro/Authenticator%20Pro/1?style=flat)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b43c6acd26db4beea256d94544ad63e9)](https://www.codacy.com/gh/jamie-mh/AuthenticatorPro/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jamie-mh/AuthenticatorPro&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_apis/build/status/jamie-mh.AuthenticatorPro?branchName=master)](https://dev.azure.com/authenticatorpro/Authenticator%20Pro/_build/latest?definitionId=1&branchName=master)
 
 ![Authenticator Pro](./doc/Rebranding/Wordmark.png)
 <br/><br/>
