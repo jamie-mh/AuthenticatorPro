@@ -84,7 +84,7 @@
     <string name="importIconPackSuccess">Importováno {0} ikon z balíčku</string>
     <string name="invalidIconPackError">Vybraný soubor není balíček ikon Authenticator Pro</string>
     <string name="confirmIconPackDelete">Jste si jisti odstraněním balíčku ikon? Jakékoliv použité ikony budou odstraněny.</string>
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Zobrazit zdroj</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR kód</string>
     <string name="qrCodeHelp">Zkopírujte tento autentifikátor do jiného zařízení nebo aplikace naskenováním QR kódu</string>
@@ -298,7 +298,7 @@
     <string name="defaultViewMode">Výchozí</string>
     <string name="compactViewMode">Kompaktní</string>
     <string name="tileViewMode">Dlaždice</string>
-    <string name="none">None</string>
+    <string name="none">Žádné</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
