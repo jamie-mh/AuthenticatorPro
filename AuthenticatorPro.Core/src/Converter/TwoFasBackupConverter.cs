@@ -194,13 +194,21 @@ namespace AuthenticatorPro.Core.Converter
                     username = Otp.Account;
                 }
 
+                var digits = Otp.Digits > 0
+                    ? Otp.Digits
+                    : type.GetDefaultDigits();
+
+                var period = Otp.Period > 0
+                    ? Otp.Period
+                    : type.GetDefaultPeriod();
+
                 return new Authenticator
                 {
                     Secret = SecretUtil.Clean(Secret, type),
                     Issuer = issuer.Truncate(Authenticator.IssuerMaxLength),
                     Username = username.Truncate(Authenticator.UsernameMaxLength),
-                    Digits = Otp.Digits,
-                    Period = Otp.Period,
+                    Digits = digits,
+                    Period = period,
                     Counter = Otp.Counter,
                     Type = type,
                     Algorithm = algorithm,
