@@ -32,6 +32,12 @@ namespace AuthenticatorPro.Droid.Persistence
             await conn.InsertAsync(item);
         }
 
+        public async Task CreateManyAsync(List<IconPackEntry> items)
+        {
+            var conn = await _database.GetConnectionAsync();
+            await conn.InsertAllAsync(items);
+        }
+
         public async Task<IconPackEntry> GetAsync(ValueTuple<string, string> id)
         {
             var conn = await _database.GetConnectionAsync();

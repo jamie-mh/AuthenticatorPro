@@ -10,6 +10,7 @@ namespace AuthenticatorPro.Core.Persistence
 {
     public interface IIconPackEntryRepository : IAsyncRepository<IconPackEntry, ValueTuple<string, string>>
     {
+        public Task CreateManyAsync(List<IconPackEntry> items);
         public Task<List<IconPackEntry>> GetAllForPackAsync(IconPack pack);
         public Task DeleteAllForPackAsync(IconPack pack);
     }
