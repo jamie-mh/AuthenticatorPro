@@ -5,8 +5,8 @@
     <string name="hotpNotSupported">HOTP wordt niet ondersteund</string>
     <string name="categoryAll">Alles</string>
     <string name="offline">Offline</string>
-    <string name="syncFailed">Sync failed</string>
-    <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="syncFailed">Synchroniseren mislukt</string>
+    <string name="noFavourite">Geen favoriet</string>
+    <string name="noFavouriteMessage">Druk lang op een authenticator in de app om in te stellen</string>
+    <string name="open">Openen</string>
 </resources>

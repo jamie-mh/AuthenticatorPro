@@ -18,7 +18,7 @@ SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP
 - 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
 - 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
 - 🎨 <b>Customisation</b>: Set icons and rename. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 

@@ -18,7 +18,7 @@ Okrem používateľského mena a hesla budete potrebovať kód poskytnutý aplik
 - 🔒 <b>Offline s minimálnymi oprávneniami</b>: Authenticator Pro vyžaduje len jedno povolenie¹ a na svoju činnosť nevyžaduje prístup na internet.
 - 🔑 <b>Zabezpečenie</b>: Nastavte heslo a použite biometrické overovanie na ochranu svojich kódov.
 - 🎨 <b>Prispôsobenie</b>: Nastavte ikony a premenujte ich. Svoje autentifikátory si tiež môžete usporiadať v ľubovoľnom poradí, aby ste ich mohli ľahko nájsť.
-- ⌚ <b>Wear OS</b>: Rýchle zobrazenie autentifikátorov priamo z Vašich hodiniek. Upozorňujeme, že je potrebné pripojenie k vášmu zariadeniu Android. Ďalej platí, že F-Droid distribúcie nie sú kompatibilné so systémom Wear OS, pretože sa vyžadujú neslobodné závislosti.
+- ⌚ <b>Wear OS</b>: Rýchle zobrazenie autentifikátorov priamo z Vašich hodiniek. You can even set a favourite and place it in a tile. Upozorňujeme, že je potrebné pripojenie k vášmu zariadeniu Android. Ďalej platí, že F-Droid distribúcie nie sú kompatibilné so systémom Wear OS, pretože sa vyžadujú neslobodné závislosti.
 
 (¹) *Ak chcete skenovať QR kódy, aplikácia vyžaduje povolenie fotoaparátu.*
 

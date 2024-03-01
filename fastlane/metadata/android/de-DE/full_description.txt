@@ -18,7 +18,7 @@ Zusätzlich zu deinem Benutzernamen und Passwort benötigst du einen Code von de
 - 🔒 <b>Offline mit wenigen Berechtigungen</b>: Authenticator Pro benötigt nur eine einzige Berechtigung¹ und keinen Internet-Zugriff um zu funktionieren.
 - 🔑 <b>Sicherheit</b>: Lege ein Passwort fest und verwende biometrische Authentifizierung, um deine Codes zu schützen.
 - 🎨 <b>Personalisierung</b>: Lege Icons fest und benenne um. Du kannst deine Authentifikatoren auch in beliebiger Reihenfolge sortieren, sodass du sie leicht finden kannst.
-- ⌚ <b>Wear OS</b>: Sehe dir deine Authentifikatoren direkt auf deiner Uhr an. Bitte beachte, dass eine Verbindung zu Deinem Android-Gerät erforderlich ist. Darüber hinaus sind F-Droid-Distributionen der App nicht mit Wear OS kompatibel, da nicht-freie Abhängigkeiten erforderlich sind.
+- ⌚ <b>Wear OS</b>: Sehe dir deine Authentifikatoren direkt auf deiner Uhr an. Du kannst sogar einen Favoriten setzen und diesen in eine Kachel setzen. Bitte beachte, dass eine Verbindung zu Deinem Android-Gerät erforderlich ist. Darüber hinaus sind F-Droid-Distributionen der App nicht mit Wear OS kompatibel, da nicht-freie Abhängigkeiten erforderlich sind.
 
 (¹) *Um QR-Codes zu scannen, benötigt die App die Kamera-Berechtigung.*
 

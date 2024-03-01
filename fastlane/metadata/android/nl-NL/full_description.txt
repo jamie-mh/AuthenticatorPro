@@ -1,6 +1,6 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+Een gratis, open-source app voor tweefactorauthenticatie voor Android. Het beschikt over versleutelde back-ups, pictogrammen, categorieën en een hoge mate van aanpassing. Het heeft ook een Wear OS companion app.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Het ondersteunt TOTP (Time Based) en HOTP (Counter Based) authenticators die SHA1, SHA256 of SHA512 hashing algoritmen gebruiken. Mobile-Otp (mOTP), Steam en Yandex worden ook ondersteund.
 
 Authenticatie in 2 stappen biedt een extra beveiligingslaag voor je accounts door het vereisen van een eenmalige code om in te loggen.
 Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegeven code nodig. Dus zelfs als je inloggegevens gelekt zijn, blijft je account veilig.
@@ -9,8 +9,8 @@ Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegev
 
 <b>Kenmerken:</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
+- ⚙️ <b>Compatibiliteit</b>: Authenticator Pro is compatibel met de meeste providers en accounts.
+- 📲 <b>Importeer</b>: migreer uw accounts eenvoudig van ondersteunde alternatieve apps naar Authenticator Pro.
 - 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
 - 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 - ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
@@ -18,7 +18,7 @@ Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegev
 - 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
 - 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
 - 🎨 <b>Customisation</b>: Set icons and rename. Je kunt je authenticatoren ordenen in elke gewenste volgorde, zodat je ze gemakkelijk kunt vinden.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 

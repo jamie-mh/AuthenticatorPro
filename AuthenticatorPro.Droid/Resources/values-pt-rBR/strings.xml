@@ -83,7 +83,7 @@
     <string name="importIconPackSuccess">{0} Ícones importados do pacote</string>
     <string name="invalidIconPackError">O arquivo selecionado não é um pacote de ícone do Authenticator Pro</string>
     <string name="confirmIconPackDelete">Tem certeza que deseja excluir este pacote de ícones? Os ícones usados não serão excluídos.</string>
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Ver fonte</string>
     <!-- QR code dialog -->
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicativo escaneando o código QR</string>
@@ -238,8 +238,8 @@
     <string name="prefTapToCopySummary">Copiar o código para a área de transferência quando pressionado</string>
     <string name="prefResetCopyCountTitle">Redefinir contagem de cópias</string>
     <string name="prefResetCopyCountSummary">Limpar o número de vezes que cada autenticador foi copiado</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Pular para o próximo</string>
+    <string name="prefSkipToNextSummary">Permite pular para o próximo código quando estiver perto de expirar</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Senha</string>
     <string name="prefPasswordSummary">Uma senha é necessária para acessar os autenticadores. O banco de dados será encriptado com sua senha.</string>
@@ -270,13 +270,13 @@
     <string name="prefAccentColourSummary">Escolha uma cor de destaque para usar em todo o aplicativo</string>
     <string name="prefTransparentStatusBarTitle">Transparência da barra de status</string>
     <string name="prefTransparentStatusBarSummary">Torne a lista atrás da barra de status visível ao rolar</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Fonte do Sistema</string>
+    <string name="prefSystemFontSummary">Use a fonte padrão do sistema ao invés de uma fonte personalizada</string>
     <string name="copyCountReset">Copiar contagem de redefinição</string>
     <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Ver Log</string>
+    <string name="noLogFile">Nenhum arquivo de log disponível</string>
+    <string name="debugLog">Log de depuração</string>
     <!-- Arrays -->
     <string name="authTypeTime">Baseado no horário (TOTP)</string>
     <string name="authTypeCounter">Baseado em um contador (HOTP)</string>
@@ -298,7 +298,7 @@
     <string name="defaultViewMode">Padrão</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Lista</string>
-    <string name="none">None</string>
+    <string name="none">Nenhum</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>

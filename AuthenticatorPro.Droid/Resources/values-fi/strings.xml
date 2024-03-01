@@ -83,7 +83,7 @@
     <string name="importIconPackSuccess">Tuodaan {0} kuvaketta paketista</string>
     <string name="invalidIconPackError">Valittu tiedosto ei ole Authenticator Pro -kuvakepaketti</string>
     <string name="confirmIconPackDelete">Haluatko varmasti poistaa tämän kuvakepaketin? Käytössä olevia kuvakkeita ei poisteta.</string>
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Näytä lähde</string>
     <!-- QR code dialog -->
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Kopioi tämä todentaja toiseen laitteeseen tai sovellukseen skannaamalla QR-koodi</string>
@@ -151,7 +151,7 @@
     <string name="databaseError">Tietokannan avaamisessa tapahtui virhe. Yritä käynnistää sovellus uudelleen. Jos ongelma jatkuu, tyhjennä sovelluksen tiedot ja palauta uusin varmuuskopio.\n\nVaihtoehtoisesti voit lähettää virheraportin.</string>
     <string name="viewErrorLog">Näytä virheloki</string>
     <string name="autoTimeWarningTitle">Ajan synkronointi poistettu käytöstä</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningMessage">Laitteesi automaattinen kellonaika on poistettu käytöstä. Kaksivaiheinen todennus edellyttää tarkkaa kellonaikaa koodien luomiseksi. \n\nOta automaattinen aikasynkronointi käyttöön laitteesi asetuksissa, jotta luodut koodit ovat aina voimassa.</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">Sovelluksessa tapahtui käsittelemätön virhe. Virheen tiedot ovat alla:</string>
     <string name="report">Raportoi</string>
@@ -237,8 +237,8 @@
     <string name="prefTapToCopySummary">Kopioi koodi leikepöydälle napauttamalla</string>
     <string name="prefResetCopyCountTitle">Nollaa kopioiden määrä</string>
     <string name="prefResetCopyCountSummary">Tyhjennä kunkin todentajan kopiointikerrat</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Siirry seuraavaan</string>
+    <string name="prefSkipToNextSummary">Salli siirtyimen seuraavaan koodiin, kun se on päättymässä</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>
@@ -269,13 +269,13 @@
     <string name="prefAccentColourSummary">Valitse sovelluksessa käytettävä aksenttiväri</string>
     <string name="prefTransparentStatusBarTitle">Läpinäkyvä tilapalkki</string>
     <string name="prefTransparentStatusBarSummary">Anna luettelon näkyä tilarivin alla vieritettäessä</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Järjestelmän fontti</string>
+    <string name="prefSystemFontSummary">Käytä järjestelmän oletusfonttia oman fontin sijasta</string>
     <string name="copyCountReset">Kopioiden määrän nollaus</string>
     <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Näytä loki</string>
+    <string name="noLogFile">Lokitiedostoa ei ole saatavilla</string>
+    <string name="debugLog">Virheenkorjausloki</string>
     <!-- Arrays -->
     <string name="authTypeTime">Aikaperusteinen (TOTP)</string>
     <string name="authTypeCounter">Laskuripohjainen (HOTP)</string>
@@ -297,7 +297,7 @@
     <string name="defaultViewMode">Oletus</string>
     <string name="compactViewMode">Tiivis</string>
     <string name="tileViewMode">Vierekkäin</string>
-    <string name="none">None</string>
+    <string name="none">Ei mitään</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
