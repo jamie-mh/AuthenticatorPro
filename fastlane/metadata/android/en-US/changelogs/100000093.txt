@@ -1,0 +1,4 @@
+- General: Fixed issue with clipped text when using larger fonts
+- General: Improvements to 2FAS import
+- General: 16 new icons and improvements to existing icons
+- General: Translation updates
