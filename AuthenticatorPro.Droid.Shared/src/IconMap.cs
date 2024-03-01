@@ -247,6 +247,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "fastmail", Resource.Drawable.auth_fastmail },
             { "favro", Resource.Drawable.auth_favro },
             { "faxplus", Resource.Drawable.auth_faxplus },
+            { "federalstudentaid", Resource.Drawable.auth_federalstudentaid },
             { "fedora", Resource.Drawable.auth_fedora },
             { "figma", Resource.Drawable.auth_figma },
             { "filen", Resource.Drawable.auth_filen },
