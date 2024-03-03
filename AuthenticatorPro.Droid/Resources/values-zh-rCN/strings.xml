@@ -223,7 +223,7 @@
     <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
     <!-- QR code scanner -->
     <string name="scanHelpPrimary">将二维码置于画面中央以进行扫描。点击以对焦。</string>
-    <string name="scanHelpSecondary">为了避免阴影和玻璃效果。按住设备将其移到距离代码大约15厘米 (6英寸) 的位置。</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">切换闪光灯</string>
     <!-- Preferences -->
     <string name="prefGeneral">常规​​​​​</string>
