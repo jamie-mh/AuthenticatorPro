@@ -36,6 +36,7 @@ namespace AuthenticatorPro.Droid.Shared
             { "airbrake", Resource.Drawable.auth_airbrake },
             { "airship", Resource.Drawable.auth_airship },
             { "airtable", Resource.Drawable.auth_airtable },
+            { "airvpn", Resource.Drawable.auth_airvpn },
             { "aiven", Resource.Drawable.auth_aiven },
             { "ajaxsystems", Resource.Drawable.auth_ajaxsystems },
             { "algolia", Resource.Drawable.auth_algolia },
