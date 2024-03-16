@@ -2,7 +2,7 @@
 name: Icon request
 about: Request one or more icons
 title: 'Icon Request'
-labels: enhancement
+labels: icon
 assignees: ''
 
 ---
