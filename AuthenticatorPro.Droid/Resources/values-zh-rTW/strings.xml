@@ -75,7 +75,7 @@
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">輸入與此二維碼關聯的 PIN 碼</string>
     <!-- Icon packs -->
     <string name="defaultIcons">預設圖示</string>
     <string name="iconPacks">圖示包</string>
@@ -83,7 +83,7 @@
     <string name="importIconPackSuccess">從圖示包中導入了 {0} 個圖示</string>
     <string name="invalidIconPackError">所選檔案不是 Authenticator Pro 圖示包</string>
     <string name="confirmIconPackDelete">您確定要刪除此圖示包嗎？任何使用過的圖示都不會被刪除。</string>
-    <string name="viewSource">View source</string>
+    <string name="viewSource">檢視原始碼</string>
     <!-- QR code dialog -->
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
@@ -150,8 +150,8 @@
     <string name="genericError">出現錯誤。</string>
     <string name="databaseError">開啟資料庫時發生錯誤。請嘗試重新啟動應用程式。 如果問題仍然存在，清除應用資料並還原您的最新備份。\n\n或者您可以提交錯誤報告。</string>
     <string name="viewErrorLog">檢視錯誤日誌</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">自動同步時間已停用</string>
+    <string name="autoTimeWarningMessage">您的裝置已停用自動同步時間功能。 雙重身份驗證需要準確的時間來產生程式碼。 \n\n請在您的裝置設定中啟用自動同步時間，以確保產生的驗證碼始終有效。</string>
     <!-- Error reporting -->
     <string name="unhandledErrorMessage">應用程式中發生未處理的錯誤。該錯誤的詳細資訊如下：</string>
     <string name="report">反饋</string>
@@ -237,8 +237,8 @@
     <string name="prefTapToCopySummary">點擊時將驗證碼複製到剪貼簿</string>
     <string name="prefResetCopyCountTitle">重設複製次數</string>
     <string name="prefResetCopyCountSummary">清除每個驗證器被複製的次數</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">跳到下一個</string>
+    <string name="prefSkipToNextSummary">當前驗證碼將要過期時允許跳到下一個驗證碼</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密碼</string>
     <string name="prefPasswordSummary">使用驗證器前要求驗證密碼。資料庫將會使用這個密碼進行加密。</string>
@@ -269,13 +269,13 @@
     <string name="prefAccentColourSummary">選擇要在應用中使用的主題色</string>
     <string name="prefTransparentStatusBarTitle">透明狀態列</string>
     <string name="prefTransparentStatusBarSummary">滾動時在狀態列後面顯示列表</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">系統字體</string>
+    <string name="prefSystemFontSummary">使用系統預設字體而非自定義字體</string>
     <string name="copyCountReset">已重設複製次數</string>
     <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">查看記錄</string>
+    <string name="noLogFile">無可用記錄</string>
+    <string name="debugLog">除錯紀錄</string>
     <!-- Arrays -->
     <string name="authTypeTime">基於時間 (TOTP)</string>
     <string name="authTypeCounter">基於計數器 (HOTP)</string>
@@ -290,14 +290,14 @@
     <string name="timeout5Min">5 分鐘</string>
     <string name="timeout10Min">10 分鐘</string>
     <string name="systemDefault">跟隨系統</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">系統默認（黑色）</string>
     <string name="lightTheme">淺色主題</string>
     <string name="darkTheme">深色主題</string>
     <string name="blackTheme">純黑主題</string>
     <string name="defaultViewMode">預設</string>
     <string name="compactViewMode">緊湊</string>
     <string name="tileViewMode">平鋪</string>
-    <string name="none">None</string>
+    <string name="none">無</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
