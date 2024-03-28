@@ -249,7 +249,7 @@
     <string name="prefTimeoutTitle">超时时间</string>
     <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefTapToRevealTitle">点击以显示</string>
-    <string name="prefTapToRevealSummary">在代码被点击都将保持隐藏。显示的代码将在几秒钟后消失。</string>
+    <string name="prefTapToRevealSummary">验证码在被点击前将保持隐藏，显示的验证码将在几秒钟后消失。</string>
     <string name="prefTapToRevealDurationTitle">点击显示持续时长</string>
     <string name="prefTapToRevealDurationSummary">设置多长时间后点击显示的代码会被隐藏</string>
     <string name="prefAllowScreenshotsTitle">允许截图</string>
