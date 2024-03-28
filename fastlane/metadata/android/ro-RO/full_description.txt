@@ -1,33 +1,33 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+O aplicație gratuită de autentificare cu doi factori open-source pentru Android. Dispune de copii de rezervă criptate, pictograme, categorii și un nivel ridicat de personalizare. Are, de asemenea, o aplicație însoțitoare Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Acceptă autentificatoarele TOTP (bazate pe timp) și HOTP (bazate pe contor) folosind algoritmi de hashing SHA1, SHA256 sau SHA512. Mobile-Otp (mOTP), Steam și Yandex sunt, de asemenea, acceptate.
 
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
-In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
-
-<hr>
-
-<b>Features</b>
-
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
-
-(¹) *To scan QR-Codes, the app requires the camera permission.*
-
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+Autentificarea cu 2 factori oferă un nivel suplimentar de securitate conturilor dvs. solicitând utilizarea unui cod unic pentru a vă conecta.
+Pe lângă numele de utilizator și parola, veți avea nevoie de un cod furnizat de Authenticator Pro. Deci, chiar dacă detaliile dvs. de conectare sunt compromise, contul dvs. rămâne în siguranță.
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Caracteristici</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+- ⚙️ <b>Compatibilitate</b>: Authenticator Pro este compatibil cu majoritatea furnizorilor și conturilor.
+- 📲 <b>Import</b>: migrați cu ușurință conturile la Authenticator Pro din aplicații alternative acceptate.
+- 💾 <b>Copie de rezervă/Restaurare</b>: faceți backup pentru autentificatoarele dvs. cu criptare puternică. În cazul în care vă pierdeți sau schimbați telefonul, puteți avea întotdeauna acces la conturile dvs. Puteți salva copii de rezervă în stocarea cloud sau pe dispozitivul dvs.
+- 🌙 <b>Modul întunecat</b>: Authenticator Pro are un aspect frumos inspirat de design material, fie în teme deschise, fie întunecate.
+- ⏺️ <b>Pictograme</b>: Găsiți-vă cu ușurință autentificatorii cu logo-uri și pictograme de marcă recunoscute lângă fiecare cod.
+- 📂 <b>Categorii</b>: Organizați-vă autentificatoarele în categorii.
+- 🔒 <b>Offline cu puține permisiuni</b>: Authenticator Pro necesită doar o singură permisiune¹ și nu necesită acces la Internet pentru a funcționa.
+- 🔑 <b>Securitate</b>: Setați o parolă și utilizați autentificarea biometrică pentru a vă proteja codurile.
+- 🎨 <b>Personalizare</b>: setați pictograme și redenumiți. De asemenea, vă puteți aranja autentificatoarele în orice ordine doriți, astfel încât să le puteți găsi cu ușurință.
+- ⌚ <b>Wear OS</b>: Vizualizați rapid autentificatoarele direct de pe ceas. Puteți chiar să setați un favorit și să îl plasați într-o căsuță. Vă rugăm să rețineți că este necesară o conexiune la dispozitivul dvs. Android. În plus, distribuțiile F-Droid ale aplicației nu sunt compatibile cu Wear OS, deoarece sunt necesare dependențe care nu sunt gratuite.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+(¹) *Pentru a scana codurile QR, aplicația necesită permisiunea camerei.*
+
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Întrebări frecvente</b></a>
+
+<hr>
+
+<b>Renunțare</b>
+
+Acest program este software gratuit: îl puteți redistribui și/sau modifica în conformitate cu termenii Licenței Publice Generale GNU publicate de Free Software Foundation, fie versiunea 3 a Licenței, fie (la alegerea dvs.) orice versiune ulterioară.
+
+Acest program este distribuit in speranta ca va fi de folos, dar FARA NICIO GARANTIE; fără nici măcar garanția implicită de VANTABILITATE sau ADECVARE PENTRU UN ANUMIT SCOP. Consultați Licența publică generală GNU pentru mai multe detalii.
