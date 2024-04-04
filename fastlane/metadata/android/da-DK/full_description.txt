@@ -1,6 +1,6 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+En gratis open-source to-faktor-godkendelsesapp til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. Den har også en ledsage-app til Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Den understøtter TOTP (Tidsbaseret) og HOTP (Tællerbaseret) godkendere ved brug af enten SHA1, SHA256 eller SHA512 hash-algoritmer. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
 2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
 In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
