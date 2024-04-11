@@ -271,7 +271,7 @@
     <string name="prefTransparentStatusBarSummary">Gør listen synlig bag statuslinjen under scrolling</string>
     <string name="prefSystemFontTitle">Systemskrifttype</string>
     <string name="prefSystemFontSummary">Brug systemets standardskrifttype i stedet for en tilpasset skrifttype</string>
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Nulstil kopiantal</string>
     <!-- About -->
     <string name="viewLog">Se Log</string>
     <string name="noLogFile">Ingen logfil tilgængelig</string>
