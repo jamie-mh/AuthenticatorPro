@@ -1,33 +1,33 @@
 En gratis open-source to-faktor-godkendelsesapp til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. Den har også en ledsage-app til Wear OS.
 
-Den understøtter TOTP (Tidsbaseret) og HOTP (Tællerbaseret) godkendere ved brug af enten SHA1, SHA256 eller SHA512 hash-algoritmer. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Den understøtter TOTP (Tidsbaseret) og HOTP (Tællerbaseret) godkendere ved brug af enten SHA1, SHA256 eller SHA512 hash-algoritmer. Mobile-Otp (mOTP), Steam og Yandex understøttes også.
 
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
-In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
+To-faktor godkendelse giver et ekstra lag sikkerhed til dine konti ved at kræve brug af en engangskode for at logge ind.
+Ud over dit brugernavn og din adgangskode, skal du bruge en kode fra Authenticator Pro. Så selv hvis dine loginoplysninger bliver kompromitteret, forbliver din konto sikker.
 
 <hr>
 
-<b>Features</b>
+<b>Funktioner</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⚙️ <b>Kompatibilitet</b>: Authenticator Pro er kompatibel med de fleste udbydere og konti.
+- 📲 <b>Import</b>: Migrér nemt dine konti til Authenticator Pro fra understøttede alternative apps.
+- 💾 <b>Sikkerhedskopiering / Gendannelse</b>: Sikkerhedskopiér dine godkendere med stærk kryptering. Skulle du miste eller skifte din telefon, kan du altid få adgang til dine konti. Du kan gemme sikkerhedskopier i skyen eller på din enhed.
+- 🌙 <b>Mørk tilstand</b>: Authenticator Pro har et smukt materialedesign-inspireret look i enten lyse eller mørke temaer.
+- ⏺️ <b>Ikoner</b>: Find nemt dine godkendere med genkendelige brandlogoer og ikoner ved siden af hver kode.
+- 📂 <b>Kategorier</b>: Organisér dine godkendere i kategorier.
+- 🔒 <b>Offline med få tilladelser</b>: Authenticator Pro kræver kun en enkelt tilladelse¹ og kræver ikke internetadgang for at fungere.
+- 🔑 <b>Sikkerhed</b>: Indstil en adgangskode og brug biometrisk autentificering til at beskytte dine koder.
+- 🎨 <b>Tilpasning</b>: Indstil ikoner og omdøb. Du kan også arrangere dine godkendere i den rækkefølge, du ønsker, så du nemt kan finde dem.
+- ⌚ <b>Wear OS</b>: Se hurtigt dine godkendere direkte fra dit ur. Du kan endda angive en favorit og placere den i en flise. Bemærk venligst, at det kræver en forbindelse til din Android-enhed. Desuden er F-Droid-distributioner af appen ikke kompatible med Wear OS, da det kræver ikke-frie afhængigheder.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(¹) *For at scanne QR-koder skal appen have adgang til kameraet.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Ofte Stillede Spørgsmål</b></a>
 
 <hr>
 
 <b>Disclaimer</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Dette program er fri software: Du kan redistribuere det og/eller modificere det i henhold til vilkårene i GNU General Public License som udgivet af Free Software Foundation, enten version 3 af licensen eller (efter eget valg) enhver senere version.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+Dette program distribueres i håb om, at det vil være nyttigt, men UDEN NOGEN GARANTI; selv uden den underforståede garanti for SALGBARHED eller EGNETHED TIL ET SPECIFIKT FORMÅL. Se GNU General Public License for flere detaljer.
