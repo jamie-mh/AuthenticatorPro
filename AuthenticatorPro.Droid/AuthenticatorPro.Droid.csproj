@@ -32,7 +32,7 @@
         <PackageReference Include="Serilog" Version="3.1.1" />
         <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
         <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-        <PackageReference Include="sqlite-net-sqlcipher" Version="1.8.116" />
+        <PackageReference Include="sqlite-net-sqlcipher" Version="1.9.172" />
         <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.8" />
         <PackageReference Include="TinyIoC" Version="1.4.0-rc1">
             <PrivateAssets>all</PrivateAssets>
@@ -54,7 +54,7 @@
         <PackageReference Include="ZXing.Net" Version="0.16.9" />
     </ItemGroup>
     <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
-        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.1.0.2" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.1.0.3" />
     </ItemGroup>
     <ItemGroup Condition="$(DefineConstants.Contains(FDROID))">
         <AndroidResource Remove="Resources\values\wear.xml" />
