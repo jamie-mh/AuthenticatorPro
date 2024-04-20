@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Niciun Autentificator</string>
+    <string name="noAuthenticatorsMessage">Nimic aici. Adaugă niște autentificatori din aplicația pentru telefon.</string>
+    <string name="hotpNotSupported">HOTP nu este acceptat</string>
+    <string name="categoryAll">Toate</string>
+    <string name="offline">Deconectat</string>
+    <string name="syncFailed">Sincronizare eșuată</string>
+    <string name="noFavourite">Niciun favorit</string>
+    <string name="noFavouriteMessage">Apasă lung pe un autentificator din aplicație pentru a seta</string>
+    <string name="open">Deschide</string>
+</resources>

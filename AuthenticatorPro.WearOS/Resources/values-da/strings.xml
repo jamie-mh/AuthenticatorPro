@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Ingen Godkendere</string>
+    <string name="noAuthenticatorsMessage">Intet her. Tilføj nogle godkendere fra telefonappen.</string>
+    <string name="hotpNotSupported">HOTP understøttes ikke</string>
+    <string name="categoryAll">Alle</string>
+    <string name="offline">Offline</string>
+    <string name="syncFailed">Synk. mislykkedes</string>
+    <string name="noFavourite">Ingen favorit</string>
+    <string name="noFavouriteMessage">Tryk og hold på en godkender i appen for at indstille den</string>
+    <string name="open">Åbn</string>
+</resources>
