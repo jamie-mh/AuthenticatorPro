@@ -37,6 +37,7 @@
 
     <string-array name="languageNames">
         <item>@string/systemDefault</item>
+        <item>@string/danish</item>
         <item>@string/german</item>
         <item>@string/english</item>
         <item>@string/spanish</item>
@@ -62,6 +63,7 @@
     </string-array>
     <string-array name="languageValues">
         <item>system</item>
+        <item>da</item>
         <item>de</item>
         <item>en</item>
         <item>es</item>

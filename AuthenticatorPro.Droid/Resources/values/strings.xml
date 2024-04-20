@@ -373,6 +373,7 @@
     <string name="four">4</string>
 
     <!-- Arrays > Languages -->
+    <string name="danish" translatable="false">Dansk</string>
     <string name="german" translatable="false">Deutsch</string>
     <string name="english" translatable="false">English</string>
     <string name="spanish" translatable="false">Español</string>
