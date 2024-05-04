@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
+using System.Buffers.Binary;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -69,8 +70,7 @@ namespace AuthenticatorPro.Core.Generator
         {
             var offset = hash.Last() & 15;
             var bytes = hash.Skip(offset).Take(8).ToArray();
-            Array.Reverse(bytes);
-            return BitConverter.ToInt64(bytes) & long.MaxValue;
+            return BinaryPrimitives.ReadInt64BigEndian(bytes) & long.MaxValue;
         }
 
         private static string Finalise(long material)

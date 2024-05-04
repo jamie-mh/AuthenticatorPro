@@ -1,7 +1,6 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Core;

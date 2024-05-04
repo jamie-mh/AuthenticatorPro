@@ -1,7 +1,7 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using AuthenticatorPro.Core.Util;
+using System.Buffers.Binary;
 
 namespace AuthenticatorPro.Core.Generator
 {
@@ -23,7 +23,9 @@ namespace AuthenticatorPro.Core.Generator
         public static byte[] GetCounterBytes(long counter, int period)
         {
             var window = counter / period;
-            return ByteUtil.GetBigEndianBytes(window);
+            var bytes = new byte[sizeof(long)];
+            BinaryPrimitives.WriteInt64BigEndian(bytes, window);    
+            return bytes;
         }
 
         protected virtual string Finalise(int material)

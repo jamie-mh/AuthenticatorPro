@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
+using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -174,11 +175,7 @@ namespace AuthenticatorPro.Core.Converter
                 // TC_STRING
                 if (item == 0x74)
                 {
-                    // Read big-endian bytes (BinaryReader uses little-endian)
-                    var lengthBytes = reader.ReadBytes(2);
-                    Array.Reverse(lengthBytes);
-                    var length = BitConverter.ToUInt16(lengthBytes);
-
+                    var length = BinaryPrimitives.ReadUInt16BigEndian(reader.ReadBytes(2));
                     var stringBytes = reader.ReadBytes(length);
                     var decoded = stringDecoder.GetString(stringBytes);
 
