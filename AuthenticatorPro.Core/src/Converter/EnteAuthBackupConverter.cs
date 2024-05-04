@@ -79,11 +79,7 @@ namespace AuthenticatorPro.Core.Converter
                 throw new ArgumentException("The password is incorrect", e);
             }
             
-            if (message.Tag != XChaCha20Poly1305Stream.Tag.Final)
-            {
-                throw new ArgumentException("Invalid message");
-            }
-            
+            // Don't check the tag, there is only one message
             return message.Data;
         }
         

@@ -242,6 +242,8 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwarden" translatable="false">Bitwarden</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="enteAuth" translatable="false">Ente Auth</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuth" translatable="false">WinAuth</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFas" translatable="false">2FAS</string>

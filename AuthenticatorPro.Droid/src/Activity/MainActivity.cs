@@ -83,11 +83,12 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestImportFreeOtpPlus = 11;
         private const int RequestImportAegis = 12;
         private const int RequestImportBitwarden = 13;
-        private const int RequestImportTwoFas = 14;
-        private const int RequestImportLastPass = 15;
-        private const int RequestImportWinAuth = 16;
-        private const int RequestImportTotpAuthenticator = 17;
-        private const int RequestImportUriList = 18;
+        private const int RequestImportEnteAuth = 14;
+        private const int RequestImportTwoFas = 15;
+        private const int RequestImportLastPass = 16;
+        private const int RequestImportWinAuth = 17;
+        private const int RequestImportTotpAuthenticator = 18;
+        private const int RequestImportUriList = 19;
 
         // Data
         private readonly ILogger _log = Log.ForContext<MainActivity>();
@@ -357,6 +358,10 @@ namespace AuthenticatorPro.Droid.Activity
 
                 case RequestImportBitwarden:
                     await ImportFromUri(new BitwardenBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportEnteAuth:
+                    await ImportFromUri(new EnteAuthBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportTwoFas:
@@ -1292,6 +1297,8 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.AegisClicked += delegate { StartFilePickActivity("*/*", RequestImportAegis); };
 
             fragment.BitwardenClicked += delegate { StartFilePickActivity("*/*", RequestImportBitwarden); };
+            
+            fragment.EnteAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportEnteAuth); };
 
             fragment.WinAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportWinAuth); };
 

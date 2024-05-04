@@ -21,6 +21,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler FreeOtpPlusClicked;
         public event EventHandler AegisClicked;
         public event EventHandler BitwardenClicked;
+        public event EventHandler EnteAuthClicked;
         public event EventHandler WinAuthClicked;
         public event EventHandler TwoFasClicked;
         public event EventHandler LastPassClicked;
@@ -51,6 +52,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                     Resource.String.aegisImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_bitwarden, Resource.String.bitwarden,
                     BitwardenClicked, Resource.String.bitwardenImportHint),
+                new SheetMenuItem(Resource.Drawable.ic_enteauth, Resource.String.enteAuth,
+                    EnteAuthClicked, Resource.String.enteAuthImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_winauth, Resource.String.winAuth, WinAuthClicked,
                     Resource.String.winAuthImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_twofas, Resource.String.twoFas, TwoFasClicked,
