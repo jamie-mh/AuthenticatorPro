@@ -4,6 +4,7 @@
 using System;
 using System.Threading.Tasks;
 using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Test.Converter.Fixture;
 using Moq;
@@ -44,7 +45,7 @@ namespace AuthenticatorPro.Test.Converter
         {
             await Assert.ThrowsAsync<ArgumentException>(() =>
                 _winAuthBackupConverter.ConvertAsync(_winAuthBackupFixture.Data));
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<BackupPasswordException>(() =>
                 _winAuthBackupConverter.ConvertAsync(_winAuthBackupFixture.Data, "test1"));
         }
 

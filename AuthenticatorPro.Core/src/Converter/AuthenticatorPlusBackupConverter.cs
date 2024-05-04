@@ -37,14 +37,14 @@ namespace AuthenticatorPro.Core.Converter
                     conn => { conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3"); });
 
                 var connection = new SQLiteAsyncConnection(connStr);
-
+                
                 try
                 {
                     return await ConvertFromConnectionAsync(connection);
                 }
                 catch (SQLiteException e)
                 {
-                    throw new ArgumentException("Database cannot be opened", e);
+                    throw new BackupPasswordException("Database cannot be opened", e);
                 }
                 finally
                 {
@@ -56,7 +56,7 @@ namespace AuthenticatorPro.Core.Converter
                 File.Delete(path);
             }
         }
-
+        
         private async Task<ConversionResult> ConvertFromConnectionAsync(SQLiteAsyncConnection connection)
         {
             var sourceAccounts = await connection.QueryAsync<Account>("SELECT * FROM accounts");
@@ -79,7 +79,6 @@ namespace AuthenticatorPro.Core.Converter
                 catch (Exception e)
                 {
                     failures.Add(new ConversionFailure { Description = account.Issuer, Error = e.Message });
-
                     continue;
                 }
 

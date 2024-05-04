@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Backup.Encryption;
 using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Test.Backup.Comparer;
@@ -77,7 +78,7 @@ namespace AuthenticatorPro.Test.Backup
         public async Task LegacyDecrypt_invalidPassword()
         {
             var encryption = new LegacyBackupEncryption();
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<BackupPasswordException>(() =>
                 encryption.DecryptAsync(_backupFixture.LegacyData, "testing1"));
         }
 
@@ -116,7 +117,7 @@ namespace AuthenticatorPro.Test.Backup
         public async Task StrongDecrypt_invalidPassword()
         {
             var encryption = new StrongBackupEncryption();
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<BackupPasswordException>(() =>
                 encryption.DecryptAsync(_backupFixture.StrongData, "testing1"));
         }
 

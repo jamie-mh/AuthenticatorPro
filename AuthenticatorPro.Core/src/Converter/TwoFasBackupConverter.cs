@@ -121,7 +121,7 @@ namespace AuthenticatorPro.Core.Converter
             }
             catch (InvalidCipherTextException e)
             {
-                throw new ArgumentException("The password is incorrect", e);
+                throw new BackupPasswordException("The password is incorrect", e);
             }
 
             var decryptedJson = Encoding.UTF8.GetString(decryptedBytes);

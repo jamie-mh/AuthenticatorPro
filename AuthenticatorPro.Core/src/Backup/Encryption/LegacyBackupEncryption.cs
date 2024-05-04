@@ -99,7 +99,7 @@ namespace AuthenticatorPro.Core.Backup.Encryption
             }
             catch (InvalidCipherTextException e)
             {
-                throw new ArgumentException("Invalid password", e);
+                throw new BackupPasswordException("Invalid password", e);
             }
 
             var json = Encoding.UTF8.GetString(unencryptedData);

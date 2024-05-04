@@ -11,6 +11,7 @@ using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Generator;
 using AuthenticatorPro.Core.Util;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
@@ -107,13 +108,13 @@ namespace AuthenticatorPro.Core.Converter
                 {
                     return DecryptSlot(slot, passwordBytes);
                 }
-                catch
+                catch (InvalidCipherTextException)
                 {
                     // Cannot be decrypted with the provided password
                 }
             }
 
-            throw new ArgumentException("Master key cannot be decrypted");
+            throw new BackupPasswordException("Master key cannot be decrypted");
         }
 
         private static byte[] DecryptSlot(Slot slot, byte[] password)

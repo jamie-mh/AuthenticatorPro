@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Core.Converter
             }
             catch (ZipException e)
             {
-                throw new ArgumentException("Invalid password", e);
+                throw new BackupPasswordException("Invalid password", e);
             }
 
             return await base.ConvertAsync(outputMemory.ToArray());

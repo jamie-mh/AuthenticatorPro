@@ -87,7 +87,7 @@ namespace AuthenticatorPro.Core.Converter
 
             if (!VerifyMac(macKey, iv, payload, mac))
             {
-                throw new ArgumentException("The password is incorrect. Invalid HMAC.");
+                throw new BackupPasswordException("The password is incorrect. Invalid HMAC.");
             }
 
             var keyParameter = new ParametersWithIV(new KeyParameter(encryptionKey), iv);
@@ -102,7 +102,7 @@ namespace AuthenticatorPro.Core.Converter
             }
             catch (InvalidCipherTextException e)
             {
-                throw new ArgumentException("The password is incorrect. Bad cipher text.", e);
+                throw new BackupPasswordException("The password is incorrect. Bad cipher text.", e);
             }
 
             var json = Encoding.UTF8.GetString(decryptedBytes);

@@ -110,7 +110,7 @@ namespace AuthenticatorPro.Core.Converter
             }
             catch (InvalidCipherTextException e)
             {
-                throw new ArgumentException("Invalid password", e);
+                throw new BackupPasswordException("Invalid password", e);
             }
         }
 

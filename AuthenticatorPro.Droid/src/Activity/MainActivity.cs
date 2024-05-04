@@ -1334,6 +1334,8 @@ namespace AuthenticatorPro.Droid.Activity
 
         private async Task<RestoreResult> DecryptAndRestore(byte[] data, string password)
         {
+            Exception exception = null;
+            
             foreach (var encryption in _backupEncryptions.Where(e => e.CanBeDecrypted(data)))
             {
                 Backup backup;
@@ -1345,13 +1347,14 @@ namespace AuthenticatorPro.Droid.Activity
                 catch (Exception e)
                 {
                     _log.Warning(e, "Unable to decrypt with {Encryption}", encryption);
+                    exception = e;
                     continue;
                 }
 
                 return await _restoreService.RestoreAndUpdateAsync(backup);
             }
 
-            throw new ArgumentException("Decryption failed");
+            throw exception;
         }
 
         private void PromptForRestorePassword(byte[] data)
@@ -1363,7 +1366,7 @@ namespace AuthenticatorPro.Droid.Activity
             sheet.PasswordEntered += async (_, password) =>
             {
                 sheet.SetLoading(true);
-
+                
                 try
                 {
                     var result = await DecryptAndRestore(data, password);
@@ -1371,8 +1374,9 @@ namespace AuthenticatorPro.Droid.Activity
                 }
                 catch (Exception e)
                 {
+                    sheet.Error = GetString(e is BackupPasswordException
+                        ? Resource.String.restorePasswordError : Resource.String.restoreFormatError);
                     _log.Error(e, "Error decrypting file");
-                    sheet.Error = GetString(Resource.String.restoreError);
                     sheet.SetLoading(false);
                     return;
                 }
@@ -1472,7 +1476,8 @@ namespace AuthenticatorPro.Droid.Activity
                     catch (Exception e)
                     {
                         _log.Error(e, "Error converting backup for restore");
-                        sheet.Error = GetString(Resource.String.restoreError);
+                        sheet.Error = GetString(e is BackupPasswordException
+                            ? Resource.String.restorePasswordError : Resource.String.importError);
                         sheet.SetLoading(false);
                     }
                 };

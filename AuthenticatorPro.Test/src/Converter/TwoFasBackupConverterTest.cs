@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticatorPro.Core;
+using AuthenticatorPro.Core.Backup;
 using AuthenticatorPro.Core.Converter;
 using AuthenticatorPro.Test.Converter.Fixture;
 using Moq;
@@ -43,7 +44,7 @@ namespace AuthenticatorPro.Test.Converter
         [Fact]
         public async Task ConvertAsync_encrypted_wrongPassword()
         {
-            await Assert.ThrowsAsync<ArgumentException>(() =>
+            await Assert.ThrowsAsync<BackupPasswordException>(() =>
                 _twoFasBackupConverter.ConvertAsync(_twoFasBackupFixture.EncryptedData, "test1"));
         }
 
