@@ -1,0 +1,7 @@
+otpauth://totp/Long%3APeriod?secret=JGRMXBLPPYQIFMRBFQDHNP3MPPYQYNUN&issuer=Long&period=60
+otpauth://totp/Many%3ADigits?secret=WEV2GHDH4EAU7D5SZGCIQOFBNQ35EHBS&issuer=Many&digits=9
+otpauth://totp/NoIssuer?secret=KY2QJPMNQLSGSZE2C5F7AYBLBVEEDHFX&issuer=NoIssuer
+otpauth://totp/Sha%3A256?secret=RJNZJM7PAGJUBG32XHQWHFZVLYOMGIUQ&issuer=Sha&algorithm=SHA256
+otpauth://totp/Sha%3A512?secret=UW33SR5O4EKTDXNCBBS5FSPUKAYXIWOH&issuer=Sha&algorithm=SHA512
+otpauth://hotp/Standard%3AHotp?secret=JOR2VZXMNHACFNLRAOACFFRDRYAOFMLB&issuer=Standard&counter=10
+otpauth://totp/Standard%3ATotp?secret=54VEGZFJHM3BGDONFERMPUOKNGDJETGM&issuer=Standard
