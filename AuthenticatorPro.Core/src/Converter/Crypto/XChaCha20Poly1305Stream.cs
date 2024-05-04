@@ -15,7 +15,6 @@ namespace AuthenticatorPro.Core.Converter.Crypto
     {
         private const int KeySize = 32;
         private const int NonceSize = 12;
-        private const int PadSize = 8;
         private const int InputSize = 16;
         private const int InputNonceSize = 8;
         private const int BlockSize = 64;
@@ -26,7 +25,6 @@ namespace AuthenticatorPro.Core.Converter.Crypto
         
         private byte[] _key = new byte[KeySize];
         private readonly byte[] _nonce = new byte[NonceSize];
-        private readonly byte[] _pad = new byte[PadSize];
         
         public enum Tag
         {
@@ -48,7 +46,6 @@ namespace AuthenticatorPro.Core.Converter.Crypto
             _key = hChaCha.Generate();
             
             Array.Clear(_nonce);
-            Array.Clear(_pad);
             
             Buffer.BlockCopy(header, InputSize, _nonce, sizeof(uint), InputNonceSize);
             BinaryPrimitives.WriteUInt32LittleEndian(_nonce, 1);
