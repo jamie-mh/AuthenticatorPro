@@ -17,6 +17,7 @@ using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities;
 
 namespace AuthenticatorPro.Core.Converter
 {
@@ -117,7 +118,7 @@ namespace AuthenticatorPro.Core.Converter
             using var hmac = new HMACSHA256(key);
             var hash = hmac.ComputeHash(material);
 
-            return hash.SequenceEqual(expected);
+            return Arrays.ConstantTimeAreEqual(hash, expected);
         }
 
         private static Task<byte[]> DeriveKeyAsync(Encryption encryption, string password)
