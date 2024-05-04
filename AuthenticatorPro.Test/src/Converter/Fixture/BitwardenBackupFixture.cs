@@ -14,11 +14,13 @@ namespace AuthenticatorPro.Test.Converter.Fixture
             EncryptedArgon2IdData = File.ReadAllBytes(Path.Join("data", "bitwarden.encrypted.argon2id.json"));
             EncryptedAccountRestrictedData =
                 File.ReadAllBytes(Path.Join("data", "bitwarden.encrypted.accountrestricted.json"));
+            AuthenticatorData = File.ReadAllBytes(Path.Join("data", "bitwardenauthenticator.json"));
         }
 
         public byte[] Data { get; }
         public byte[] EncryptedPbkdf2Data { get; }
         public byte[] EncryptedArgon2IdData { get; }
         public byte[] EncryptedAccountRestrictedData { get; }
+        public byte[] AuthenticatorData { get; }
     }
 }

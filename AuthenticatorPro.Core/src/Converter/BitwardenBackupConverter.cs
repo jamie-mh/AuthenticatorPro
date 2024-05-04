@@ -186,9 +186,14 @@ namespace AuthenticatorPro.Core.Converter
                 item.Type == LoginType && item.Login != null && !string.IsNullOrEmpty(item.Login.Totp));
 
             var authenticators = new List<Authenticator>();
-            var categories = vault.Folders.Select(f => f.Convert()).ToList();
+            var categories = new List<Category>();
             var bindings = new List<AuthenticatorCategory>();
             var failures = new List<ConversionFailure>();
+            
+            if (vault.Folders != null)
+            {
+                categories.AddRange(vault.Folders.Select(f => f.Convert()));     
+            }
 
             foreach (var item in convertableItems)
             {
@@ -207,7 +212,7 @@ namespace AuthenticatorPro.Core.Converter
 
                 authenticators.Add(auth);
 
-                if (item.FolderId != null)
+                if (vault.Folders != null && item.FolderId != null)
                 {
                     var folderName = vault.Folders.First(f => f.Id == item.FolderId).Name;
                     var category = categories.First(c => c.Name == folderName);

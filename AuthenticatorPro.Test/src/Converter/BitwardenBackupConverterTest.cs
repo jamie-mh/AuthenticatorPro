@@ -95,5 +95,18 @@ namespace AuthenticatorPro.Test.Converter
                 _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.EncryptedArgon2IdData,
                     "wrong password"));
         }
+        
+        [Fact]
+        public async Task ConvertAsync_authenticator()
+        {
+            var result = await _bitwardenBackupConverter.ConvertAsync(_bitwardenBackupFixture.AuthenticatorData);
+
+            Assert.Empty(result.Failures);
+
+            Assert.Equal(6, result.Backup.Authenticators.Count());
+            Assert.Empty(result.Backup.Categories);
+            Assert.Empty(result.Backup.AuthenticatorCategories);
+            Assert.Null(result.Backup.CustomIcons);
+        }
     }
 }

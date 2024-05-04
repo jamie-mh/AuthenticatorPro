@@ -1,0 +1,83 @@
+{
+  "encrypted": false,
+  "items": [
+    {
+      "id": "21442bd8-2e15-4983-9d31-960a46d9e157",
+      "name": "Standard",
+      "folderId": null,
+      "organizationId": null,
+      "collectionIds": null,
+      "notes": null,
+      "type": 1,
+      "login": {
+        "totp": "otpauth://totp/Standard%3ATotp?secret=54VEGZFJHM3BGDONFERMPUOKNGDJETGM&algorithm=SHA1&digits=6&period=30&issuer=Standard"
+      },
+      "favorite": false
+    },
+    {
+      "id": "78b8c94b-f83f-4437-a0a0-d659d337d727",
+      "name": "NoIssuer",
+      "folderId": null,
+      "organizationId": null,
+      "collectionIds": null,
+      "notes": null,
+      "type": 1,
+      "login": {
+        "totp": "otpauth://totp/NoIssuer%3ANoIssuer?secret=KY2QJPMNQLSGSZE2C5F7AYBLBVEEDHFX&algorithm=SHA1&digits=6&period=30&issuer=NoIssuer"
+      },
+      "favorite": false
+    },
+    {
+      "id": "ffd38503-3778-4c03-976e-2f7de2665be9",
+      "name": "Sha",
+      "folderId": null,
+      "organizationId": null,
+      "collectionIds": null,
+      "notes": null,
+      "type": 1,
+      "login": {
+        "totp": "otpauth://totp/Sha%3A256?secret=RJNZJM7PAGJUBG32XHQWHFZVLYOMGIUQ&algorithm=SHA256&digits=6&period=30&issuer=Sha"
+      },
+      "favorite": false
+    },
+    {
+      "id": "5f457f06-d009-4dda-aa13-3efc465be907",
+      "name": "Sha",
+      "folderId": null,
+      "organizationId": null,
+      "collectionIds": null,
+      "notes": null,
+      "type": 1,
+      "login": {
+        "totp": "otpauth://totp/Sha%3A512?secret=UW33SR5O4EKTDXNCBBS5FSPUKAYXIWOH&algorithm=SHA512&digits=6&period=30&issuer=Sha"
+      },
+      "favorite": false
+    },
+    {
+      "id": "376fe2a6-4441-4af1-83ea-24e7cd94e691",
+      "name": "Many",
+      "folderId": null,
+      "organizationId": null,
+      "collectionIds": null,
+      "notes": null,
+      "type": 1,
+      "login": {
+        "totp": "otpauth://totp/Many%3ADigits?secret=WEV2GHDH4EAU7D5SZGCIQOFBNQ35EHBS&algorithm=SHA1&digits=9&period=30&issuer=Many"
+      },
+      "favorite": false
+    },
+    {
+      "id": "57b1a2ec-16e1-4cbf-9a18-ea871a8db739",
+      "name": "Long",
+      "folderId": null,
+      "organizationId": null,
+      "collectionIds": null,
+      "notes": null,
+      "type": 1,
+      "login": {
+        "totp": "otpauth://totp/Long%3APeriod?secret=JGRMXBLPPYQIFMRBFQDHNP3MPPYQYNUN&algorithm=SHA1&digits=6&period=60&issuer=Long"
+      },
+      "favorite": false
+    }
+  ]
+}
