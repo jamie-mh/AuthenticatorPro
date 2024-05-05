@@ -127,7 +127,6 @@
     <string name="restoreNow">Şimdi geri yükle</string>
     <string name="backupReminder">There have been changes made since your last backup.</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
-    <string name="restoreError">Parola yanlış veya dosya bozuk.</string>
     <string name="password">Parola</string>
     <string name="passwordConfirm">Parolayı Onayla</string>
     <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi. Mevcut {2} kimlik doğrulayıcı güncellendi.</string>
     <string name="restoredNothing">Geri yüklenecek bir şey yok</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
@@ -203,6 +204,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json dosyasını içe aktarın</string>
