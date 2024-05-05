@@ -127,7 +127,6 @@
     <string name="restoreNow">Återställ nu</string>
     <string name="backupReminder">Det har gjorts ändringar sedan din senaste säkerhetskopia</string>
     <string name="backupPasswordMessage">Ange ett lösenord för att kryptera din säkerhetskopia. Om du inte vill lösenordsskydda filen, lämna lösenordet tomt.</string>
-    <string name="restoreError">Lösenordet är felaktigt eller så är filen skadad</string>
     <string name="password">Lösenord</string>
     <string name="passwordConfirm">Bekräfta lösenord</string>
     <string name="confirmEmptyPassword">Du har inte valt något lösenord. Din säkerhetskopia kommer inte krypteras och dina hemliga nycklar kan bli sårbara.\n\nVill du fortsätta?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Återställde {0} nya konton och {1} nya kategorier. Uppdaterade {2} befintliga konton.</string>
     <string name="restoredNothing">Inget att återställa</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Behörighet till kameran behövs för att skanna QR-koder</string>
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Importera \"freeotp-backup.json\"-fil</string>
     <string name="aegisImportHint">Importera \"aegis-export.json\"-fil</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"- eller \"winauth.zip\"-fil</string>
     <string name="twoFasImportHint">Importera \"2fas-backup.2fas\"-fil</string>
     <string name="lastPassAuthenticatorImportHint">Importera \"LastPassAuthenticator.json\"-fil</string>
