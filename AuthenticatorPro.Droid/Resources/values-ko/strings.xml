@@ -127,7 +127,6 @@
     <string name="restoreNow">지금 복원</string>
     <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
-    <string name="restoreError">비밀번호가 잘못되었거나 파일이 손상되었습니다</string>
     <string name="password">비밀번호</string>
     <string name="passwordConfirm">비밀번호 확인</string>
     <string name="confirmEmptyPassword">비밀번호를 고르지 않았습니다. 백업 파일이 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n계속 진행하시겠습니까?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다. 기존의 인증기 {2}개를 갱신했습니다.</string>
     <string name="restoredNothing">복원할 것이 없습니다</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
     <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
     <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json 파일 가져오기</string>
