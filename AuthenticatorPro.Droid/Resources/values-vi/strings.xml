@@ -127,7 +127,6 @@
     <string name="restoreNow">Restore now</string>
     <string name="backupReminder">There have been changes made since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
-    <string name="restoreError">The password is incorrect or the file is corrupt</string>
     <string name="password">Password</string>
     <string name="passwordConfirm">Password confirm</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nothing to restore</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
