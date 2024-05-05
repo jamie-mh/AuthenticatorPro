@@ -127,7 +127,6 @@
     <string name="restoreNow">Restaurar agora</string>
     <string name="backupReminder">Foram feitas alterações desde a sua última cópia de segurança</string>
     <string name="backupPasswordMessage">Introduza uma palavra-passe para encriptar a cópia de segurança. Se não desejar proteger o ficheiro, deixe o campo vazio.</string>
-    <string name="restoreError">A palavra-passe está incorreta ou o ficheiro está corrompido</string>
     <string name="password">Palavra-passe</string>
     <string name="passwordConfirm">Confirmar palavra-passe</string>
     <string name="confirmEmptyPassword">Não escolheu uma palavra-passe, a sua cópia de segurança não será encriptada e as suas chaves secretas poderão estar vulneráveis.\n\nContinuar?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Restaurados {0} novos autenticadores e {1} novas categorias. Atualização de {2} autenticadores existentes.</string>
     <string name="restoredNothing">Nada a restaurar</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Deve conceder permissão de acesso à câmara para digitalizar um código QR</string>
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de ficheiros. Deve ter um gestor de ficheiros instalado.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Importar ficheiro freeotp-backup.json</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwardenImportHint">Importar ficheiro bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
