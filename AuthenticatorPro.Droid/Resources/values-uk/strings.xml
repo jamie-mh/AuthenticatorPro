@@ -127,7 +127,6 @@
     <string name="restoreNow">Відновити</string>
     <string name="backupReminder">Після останньої резервної копії відбулись зміни</string>
     <string name="backupPasswordMessage">Введіть пароль для безпечного шифрування файлу резервної копії. Якщо ви не хочете захистити файл, залиште поле порожнім.</string>
-    <string name="restoreError">Пароль невірний або файл пошкоджено</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Повторіть пароль</string>
     <string name="confirmEmptyPassword">Ви не вказали пароль, тому резервна копія буде не захищена, а ваші секретні ключі можуть бути вразливими.\n\nПродовжити?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Відновлено {0} нових автентифікаторів та {1} нових категорій. Оновлено {2} існуючих автентифікаторів.</string>
     <string name="restoredNothing">Немає що відновлювати</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Для зчитування QR-коду потрібний дозвіл до камери</string>
     <string name="googlePlayNotInstalledError">Google Play не встановлений на вашому пристрої</string>
     <string name="filePickerMissing">Не вдалося відкрити вікно вибору файлу. Будь ласка, встановіть менеджер файлів.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Імпортувати файл freeotp-backup.json</string>
     <string name="aegisImportHint">Імпортувати файл aegis-export.json</string>
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Імпорт файлу winauth.txt або winauth.zip</string>
     <string name="twoFasImportHint">Імпортувати файл 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Імпорт файлу LastPassAuthenticator.json</string>
