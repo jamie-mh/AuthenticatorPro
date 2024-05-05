@@ -127,7 +127,6 @@
     <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
-    <string name="restoreError">Salasana on virheellinen tai tiedosto on vahingoittunut</string>
     <string name="password">Salasana</string>
     <string name="passwordConfirm">Vahvista salasana</string>
     <string name="confirmEmptyPassword">Et ole valinnut salasanaa, varmuuskopiosi ei ole salattu, ja salaiset avaimesi voivat olla haavoittuvia.\n\nJatketaanko?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu. {2} olemassa olevaa todentajaa päivitetty.</string>
     <string name="restoredNothing">Ei palautettavaa</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Kameran käyttöoikeus on myönnettävä, jotta QR-koodi voidaan skannata</string>
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Tiedostoja ei voida valita. Tiedostonhallintasovellus on asennettava.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
     <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
     <string name="lastPassAuthenticatorImportHint">Tuo LastPassAuthenticator.json-tiedosto</string>
