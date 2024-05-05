@@ -127,7 +127,6 @@
     <string name="restoreNow">ಈಗಲೇ ಮರುಸ್ಥಾಪಿಸಿ</string>
     <string name="backupReminder">ನೀವು ಕಳೆದ ಬಾರಿ ಬ್ಯಾಕಪ್ ಮಾಡಿದಾಗಿನಿಂದ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲಾಗಿದೆ</string>
     <string name="backupPasswordMessage">ನಿಮ್ಮ ಬ್ಯಾಕಪ್ ಫೈಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ. ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ಫೈಲ್ ಅನ್ನು ರಕ್ಷಿಸಲು ನೀವು ಬಯಸದಿದ್ದರೆ, ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಖಾಲಿ ಬಿಡಿ.</string>
-    <string name="restoreError">ಪಾಸ್ವರ್ಡ್ ತಪ್ಪಾಗಿದೆ ಅಥವಾ ಫೈಲ್ ದೋಷಪೂರಿತವಾಗಿದೆ</string>
     <string name="password">ಪಾಸ್ವರ್ಡ್</string>
     <string name="passwordConfirm">ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಿಸಿ</string>
     <string name="confirmEmptyPassword">ನೀವು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ, ನಿಮ್ಮ ಬ್ಯಾಕಪ್ ಅನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗುವುದಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ರಹಸ್ಯ ಕೀಗಳು ದುರ್ಬಲವಾಗಬಹುದು.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">{0} ಹೊಸ ದೃಢೀಕರಣಗಳು ಮತ್ತು {1} ಹೊಸ ವರ್ಗಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ. ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ {2} ದೃಢೀಕರಣಗಳನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ.</string>
     <string name="restoredNothing">ಮರುಸ್ಥಾಪಿಸಲು ಏನೂ ಇಲ್ಲ</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಕ್ಯಾಮರಾ ಅನುಮತಿಯನ್ನು ನೀಡಬೇಕು</string>
     <string name="googlePlayNotInstalledError">ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ Google Play ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="filePickerMissing">ಫೈಲ್ ಪಿಕರ್ ಅನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ. ಫೈಲ್ ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಸ್ಥಾಪಿಸಬೇಕು.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="aegisImportHint">aegis-export.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="bitwardenImportHint">bitwarden_export.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">winauth.txt ಅಥವಾ winauth.zip ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="twoFasImportHint">2fas-backup.2fas ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
