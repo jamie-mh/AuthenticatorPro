@@ -127,7 +127,6 @@
     <string name="restoreNow">عمل استعادة الآن</string>
     <string name="backupReminder">تم إجراء تغييرات منذ آخر نسخة احتياطية قمت بها</string>
     <string name="backupPasswordMessage">أدخل كلمة مرور لتشفير ملف النسخ الاحتياطي الخاص بك بشكل آمن. إذا كنت لا ترغب في حماية الملف بكلمة المرور، اترك كلمة المرور فارغة.</string>
-    <string name="restoreError">كلمة المرور غير صحيحة أو أن الملف تالف</string>
     <string name="password">كلمة المرور</string>
     <string name="passwordConfirm">تأكيد كلمة المرور</string>
     <string name="confirmEmptyPassword">لم تقم باختيار كلمة مرور، ولن يتم تشفير نسختك الاحتياطية وقد تكون مفاتيحك السرية معرضة للخطر.\n\nهل تريد المتابعة؟</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">استعاد {0} مصادقات جديدة و {1} فئات جديدة. حدّث {2} المصادقة الموجودة.</string>
     <string name="restoredNothing">لاشيء لاستعادته</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">يجب منح إذن الكاميرا كي يتم مسح رمز QR</string>
     <string name="googlePlayNotInstalledError">متجر play غير مثَبت على جهازك</string>
     <string name="filePickerMissing">لا يمكن فتح منتقي الملفات. يجب تثبيت مدير الملفات.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
