@@ -127,7 +127,6 @@
     <string name="restoreNow">Restaurează acum</string>
     <string name="backupReminder">Au fost făcute modificări de la ultima copie de rezervă</string>
     <string name="backupPasswordMessage">Introdu o parolă pentru a cripta în siguranță fișierul de rezervă. Dacă nu dorești să protejezi fișierul cu parolă, lasă câmpul necompletat.</string>
-    <string name="restoreError">Parola este incorectă sau fișierul este deteriorat</string>
     <string name="password">Parolă</string>
     <string name="passwordConfirm">Confirmarea parolei</string>
     <string name="confirmEmptyPassword">Nu ai ales o parolă, copia de rezervă nu va fi criptată și cheile secrete pot fi vulnerabile.\n\nContinui?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Au fost restaurate {0} noi autentificatoare și {1} noi categorii. S-au actualizat {2} autentificatori existenți.</string>
     <string name="restoredNothing">Nimic de restaurat</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Permisiunea de accesare a camerei trebuie acordată pentru a scana un cod QR</string>
     <string name="googlePlayNotInstalledError">Google Play nu este instalat pe dispozitiv</string>
     <string name="filePickerMissing">Nu se poate deschide selectorul de fișiere. Trebuie instalat un manager de fișiere.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Importă fișierul freeotp-backup.json</string>
     <string name="aegisImportHint">Importă fișierul aegis-export.json</string>
     <string name="bitwardenImportHint">Importă fișierul bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Importă fișierul winauth.txt sau winauth.zip</string>
     <string name="twoFasImportHint">Importă fișierul 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importă fișierul LastPassAuthenticator.json</string>
