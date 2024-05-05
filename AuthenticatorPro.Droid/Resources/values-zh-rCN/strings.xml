@@ -127,7 +127,6 @@
     <string name="restoreNow">立即恢复</string>
     <string name="backupReminder">自上次备份后已出现新的更改。</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
-    <string name="restoreError">密码不正确，或文件已损坏。</string>
     <string name="password">密码</string>
     <string name="passwordConfirm">确认密码</string>
     <string name="confirmEmptyPassword">您没有输入密码，这将导致您的备份处于未加密状态，且您的密钥将会被明文暴露。您确定要继续吗？</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">已恢复 {0} 个新验证器和 {1} 个新分类。更新了 {2} 个已有的验证器。</string>
     <string name="restoredNothing">没有可以恢复的内容。</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">导入 freeotp-backup.json 文件</string>
     <string name="aegisImportHint">导入 aegis-export.json 文件</string>
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
     <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
     <string name="lastPassAuthenticatorImportHint">导入 LastPassAuthenticator.json 文件</string>
