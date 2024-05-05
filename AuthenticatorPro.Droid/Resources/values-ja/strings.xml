@@ -127,7 +127,6 @@
     <string name="restoreNow">今すぐ復元</string>
     <string name="backupReminder">前回のバックアップから変更がありました</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
-    <string name="restoreError">パスワードが間違っているか、ファイルに問題があります。</string>
     <string name="password">パスワード</string>
     <string name="passwordConfirm">パスワードの確認</string>
     <string name="confirmEmptyPassword">パスワードが選択されていないため、バックアップは暗号化されず、秘密鍵が危険にさらされる可能性があります。\n\n続けますか？</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">{0} 件の新しい認証コードと {1} 件の新しいカテゴリを復元しました。既存の認証コードを {2} 件更新しました。</string>
     <string name="restoredNothing">復元するものがありません</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QRコードをスキャンするにはカメラの許可が必要です</string>
     <string name="googlePlayNotInstalledError">Google Playがデバイスにインストールされていません</string>
     <string name="filePickerMissing">ファイルピッカーを開けません。ファイルマネージャーがインストールされている必要があります。</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
     <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">winauth.txtまたはwinauth.zipファイルをインポート</string>
     <string name="twoFasImportHint">2fas-backup.2fasファイルをインポート</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json ファイルをインポート</string>
