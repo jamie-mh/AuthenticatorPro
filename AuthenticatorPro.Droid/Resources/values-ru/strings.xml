@@ -127,7 +127,6 @@
     <string name="restoreNow">Восстановить</string>
     <string name="backupReminder">С момента последнего резервного копирования были внесены изменения</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
-    <string name="restoreError">Неверный пароль или файл повреждён.</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Подтверждение пароля</string>
     <string name="confirmEmptyPassword">Вы не выбрали пароль, ваша резервная копия не будет зашифрована и ваши секретные ключи будут уязвимы. Вы хотите продолжить?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Восстановлено {0} новых аутентификаторов и {1} новых категорий. Обновлено {2} существующих аутентификаторов.</string>
     <string name="restoredNothing">Нет данных для восстановления</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
     <string name="aegisImportHint">Импортировать файл aegis-export.json</string>
     <string name="bitwardenImportHint">Импортировать файл bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Импортировать файл winauth.txt или winauth.zip</string>
     <string name="twoFasImportHint">Импортировать файл 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Импортировать файл LastPassAuthenticator.json</string>
