@@ -128,7 +128,6 @@
     <string name="restoreNow">Obnovit nyní</string>
     <string name="backupReminder">Od vaší poslední zálohy došlo ke změnám</string>
     <string name="backupPasswordMessage">Zadejte heslo pro bezpečné zašifrování záložního souboru. Pokud nechcete soubor chránit heslem, nechte pole prázdné.</string>
-    <string name="restoreError">Heslo je nesprávné nebo je soubor poškozen</string>
     <string name="password">Heslo</string>
     <string name="passwordConfirm">Potvrzení hesla</string>
     <string name="confirmEmptyPassword">Nevybrali jste heslo, vaše záloha nebude šifrována a vaše tajné klíče mohou být zranitelné.\n\nPokračovat?</string>
@@ -141,6 +140,8 @@
     <string name="restoredFromBackupUpdated">Obnoveno {0} nových autentifikátorů a {1} nových kategorií. Aktualizováno {2} stávajících autentifikátorů.</string>
     <string name="restoredNothing">Není co obnovit</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Musí být povoleno oprávnění k fotoaparátu, aby bylo možné naskenovat QR kód</string>
     <string name="googlePlayNotInstalledError">Google Play není v zařízení nainstalován</string>
     <string name="filePickerMissing">Nelze otevřít správce souborů. Správce souborů musí být nainstalován.</string>
@@ -202,6 +203,7 @@
     <string name="freeOtpPlusImportHint">Importovat soubor freeotp-backup.json</string>
     <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importovat soubor LastPassAuthenticator.json</string>
