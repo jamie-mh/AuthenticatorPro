@@ -127,7 +127,6 @@
     <string name="restoreNow">Przywróć kopię</string>
     <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
     <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie chcesz, aby plik był chroniony hasłem, pozostaw je puste.</string>
-    <string name="restoreError">Hasło jest nieprawidłowe lub plik jest uszkodzony</string>
     <string name="password">Hasło</string>
     <string name="passwordConfirm">Potwierdzenie hasła</string>
     <string name="confirmEmptyPassword">Nie wybrałeś hasła, kopia zapasowa nie będzie szyfrowana, a Twoje tajne klucze mogą być podatne na ataki.\n\nKontynuować?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Przywrócono {0} nowych wpisów i {1} nowych kategorii. Zaktualizowano {2} istniejący(ch) wpisów.</string>
     <string name="restoredNothing">Brak rzeczy do przywrócenia</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Aby zeskanować kod QR, należy nadać uprawnieni do aparatu</string>
     <string name="googlePlayNotInstalledError">Google Play nie jest zainstalowany na Twoim urządzeniu</string>
     <string name="filePickerMissing">Nie można otworzyć okna wybierania plików. Musi być zainstalowany menedżer plików.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Importuj plik freeotp-backup.json</string>
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importuj plik LastPassAuthenticator.json</string>
