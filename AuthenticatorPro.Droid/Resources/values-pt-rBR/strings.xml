@@ -127,7 +127,6 @@
     <string name="restoreNow">Restaurar agora</string>
     <string name="backupReminder">Houveram mudanças desde o seu último backup</string>
     <string name="backupPasswordMessage">Digite uma senha para criptografar seu arquivo de backup com segurança. Se você não quiser proteger seu backup com uma senha, deixe o campo vazio.</string>
-    <string name="restoreError">A senha está incorreta ou o arquivo está corrompido</string>
     <string name="password">Senha</string>
     <string name="passwordConfirm">Confirmar a senha</string>
     <string name="confirmEmptyPassword">Você não digitou uma senha, logo seu backup não será encriptado e suas autenticações podem ficar vulneráveis.\n\nContinuar?</string>
@@ -140,6 +139,8 @@
     <string name="restoredFromBackupUpdated">Restaurado {0} novos autenticadores e {1} novas categorias. Atualizado {2} autenticadores existentes.</string>
     <string name="restoredNothing">Nada para restaurar</string>
     <!-- Errors -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">A permissão de câmera deve ser concedida para digitalizar um código QR</string>
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no seu dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de arquivos. Um gerenciador de arquivos deve ser instalado.</string>
@@ -201,6 +202,7 @@
     <string name="freeOtpPlusImportHint">Importar arquivo freeotp-backup.json</string>
     <string name="aegisImportHint">Importar arquivo aegis-export.json</string>
     <string name="bitwardenImportHint">Importar arquivo bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Importar arquivo winauth.txt ou winauth.zip</string>
     <string name="twoFasImportHint">Importar arquivo 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importar arquivo LastPassAuthenticator.json</string>
