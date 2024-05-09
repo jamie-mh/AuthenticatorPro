@@ -247,17 +247,7 @@ namespace AuthenticatorPro.Droid.Activity
                 // Locked but no password, unlock now
                 case false:
                 {
-                    try
-                    {
-                        await _database.OpenAsync(null, Database.Origin.Activity);
-                    }
-                    catch (Exception e)
-                    {
-                        _log.Error(e, "Error opening unprotected database");
-                        ShowDatabaseErrorDialog(e);
-                        return;
-                    }
-
+                    await _database.OpenAsync(null, Database.Origin.Activity);
                     await OnDatabaseOpened();
                     break;
                 }
@@ -686,30 +676,6 @@ namespace AuthenticatorPro.Droid.Activity
 
             _preventBackupReminder = false;
             TriggerAutoBackupWorker();
-        }
-
-        private void ShowDatabaseErrorDialog(Exception exception)
-        {
-            var builder = new MaterialAlertDialogBuilder(this);
-            builder.SetMessage(Resource.String.databaseError);
-            builder.SetTitle(Resource.String.error);
-            builder.SetIcon(Resource.Drawable.baseline_warning_24);
-
-            builder.SetNeutralButton(Resource.String.viewErrorLog, delegate
-            {
-                var intent = new Intent(this, typeof(ErrorActivity));
-                intent.PutExtra("exception", exception.ToString());
-                StartActivity(intent);
-            });
-
-            builder.SetPositiveButton(Resource.String.retry, async delegate
-            {
-                await _database.CloseAsync(Database.Origin.Activity);
-                Recreate();
-            });
-
-            builder.SetCancelable(false);
-            builder.Create().Show();
         }
 
         #endregion
