@@ -139,8 +139,8 @@
     <string name="restoredFromBackupUpdated">Восстановлено {0} новых аутентификаторов и {1} новых категорий. Обновлено {2} существующих аутентификаторов.</string>
     <string name="restoredNothing">Нет данных для восстановления</string>
     <!-- Errors -->
-    <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
+    <string name="restoreFormatError">Не удалось восстановить резервную копию</string>
+    <string name="restorePasswordError">Неверный пароль</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
     <string name="googlePlayNotInstalledError">Google Play не установлен на вашем устройстве.</string>
     <string name="filePickerMissing">Не удается открыть средство выбора файла. Необходимо установить файловый менеджер.</string>
@@ -202,7 +202,7 @@
     <string name="freeOtpPlusImportHint">Импортировать файл freeotp-backup.json</string>
     <string name="aegisImportHint">Импортировать файл aegis-export.json</string>
     <string name="bitwardenImportHint">Импортировать файл bitwarden_export.json</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">Импорт файла ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Импортировать файл winauth.txt или winauth.zip</string>
     <string name="twoFasImportHint">Импортировать файл 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Импортировать файл LastPassAuthenticator.json</string>
