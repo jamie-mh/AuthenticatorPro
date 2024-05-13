@@ -140,8 +140,8 @@
     <string name="restoredFromBackupUpdated">Obnoveno {0} nových autentifikátorů a {1} nových kategorií. Aktualizováno {2} stávajících autentifikátorů.</string>
     <string name="restoredNothing">Není co obnovit</string>
     <!-- Errors -->
-    <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
+    <string name="restoreFormatError">Záloha nemohla být obnovena</string>
+    <string name="restorePasswordError">Heslo je nesprávné</string>
     <string name="cameraPermissionError">Musí být povoleno oprávnění k fotoaparátu, aby bylo možné naskenovat QR kód</string>
     <string name="googlePlayNotInstalledError">Google Play není v zařízení nainstalován</string>
     <string name="filePickerMissing">Nelze otevřít správce souborů. Správce souborů musí být nainstalován.</string>
@@ -203,7 +203,7 @@
     <string name="freeOtpPlusImportHint">Importovat soubor freeotp-backup.json</string>
     <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">Importovat soubor ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importovat soubor LastPassAuthenticator.json</string>
