@@ -57,7 +57,7 @@
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Pokaż opcje zaawansowane</string>
     <string name="advancedOptionsWarning">Zmieniaj te opcje tylko wtedy, gdy wiesz, co robisz, ponieważ możesz zostać zablokowany na swoim koncie.\n\nKontynuować?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Usunięcie tego wpisu uniemożliwi generowanie kodów dla tego konta. Nie oznacza to, że uwierzytelnianie dwuskładnikowe jest wyłączone.\n\nUsunięcie tego wpisu może uniemożliwić dostęp do konta.\nUpewnij się, że uwierzytelnianie dwuskładnikowe jest wyłączone lub że masz kody odzyskiwania.\n\nKontynuować?</string>
     <string name="useCustomIcon">Użyj niestandardowej ikony</string>
     <string name="copiedToClipboard">Kod został skopiowany do schowka</string>
     <string name="issuerHint">Wystawca (np.: Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Wykonaj kopię</string>
     <string name="restoreNow">Przywróć kopię</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
     <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie chcesz, aby plik był chroniony hasłem, pozostaw je puste.</string>
     <string name="password">Hasło</string>
     <string name="passwordConfirm">Potwierdzenie hasła</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Aby zeskanować kod QR, należy nadać uprawnieni do aparatu</string>
     <string name="googlePlayNotInstalledError">Google Play nie jest zainstalowany na Twoim urządzeniu</string>
     <string name="filePickerMissing">Nie można otworzyć okna wybierania plików. Musi być zainstalowany menedżer plików.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Witaj w Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Uwierzytelnianie dwuskładnikowe</string>
+    <string name="introBackupTitle">Kopia zapasowa i przywracanie</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Ciemny motyw</string>
     <string name="introWelcomeSummary">Dziękujemy za pobranie Authenticator Pro.\n\nDbaj o bezpieczeństwo swoich kont online dzięki najlepszej aplikacji do uwierzytelniania typu open source.</string>
