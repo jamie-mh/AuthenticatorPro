@@ -57,7 +57,7 @@
     <string name="pin">PIN码</string>
     <string name="showAdvancedOptions">显示高级选项</string>
     <string name="advancedOptionsWarning">除非你明确知道自己在做什么，否则不建议更改这些选项。错误的更改可能会导致你无法访问你的账户。\n\n是否继续？</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
     <string name="useCustomIcon">使用自定义图标</string>
     <string name="copiedToClipboard">验证码已复制到剪贴板</string>
     <string name="issuerHint">发行方（如：Google）</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">立即备份</string>
     <string name="restoreNow">立即恢复</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">自上次备份后已出现新的更改</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
     <string name="password">密码</string>
     <string name="passwordConfirm">确认密码</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">欢迎使用 Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">双因素认证</string>
+    <string name="introBackupTitle">备份与还原</string>
     <string name="introCategoriesTitle">分类</string>
     <string name="introThemesTitle">深色主题</string>
     <string name="introWelcomeSummary">感谢您下载 Authenticator Pro。\n作为最好的开源身份验证器应用，我们将为您的在线账户保驾护航。</string>
