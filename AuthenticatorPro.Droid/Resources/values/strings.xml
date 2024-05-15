@@ -196,7 +196,6 @@
     -->
     
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>

@@ -1341,7 +1341,7 @@ namespace AuthenticatorPro.Droid.Activity
                 catch (Exception e)
                 {
                     sheet.Error = GetString(e is BackupPasswordException
-                        ? Resource.String.restorePasswordError : Resource.String.restoreFormatError);
+                        ? Resource.String.passwordIncorrect: Resource.String.restoreFormatError);
                     _log.Error(e, "Error decrypting file");
                     sheet.SetLoading(false);
                     return;
@@ -1443,7 +1443,7 @@ namespace AuthenticatorPro.Droid.Activity
                     {
                         _log.Error(e, "Error converting backup for restore");
                         sheet.Error = GetString(e is BackupPasswordException
-                            ? Resource.String.restorePasswordError : Resource.String.importError);
+                            ? Resource.String.passwordIncorrect : Resource.String.importError);
                         sheet.SetLoading(false);
                     }
                 };
