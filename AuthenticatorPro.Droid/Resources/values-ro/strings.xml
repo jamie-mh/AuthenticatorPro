@@ -57,7 +57,7 @@
     <string name="pin">Fixat</string>
     <string name="showAdvancedOptions">Arată opțiunile avansate</string>
     <string name="advancedOptionsWarning">Schimbă aceste opțiuni doar dacă știi ce faci, poți fi blocat din contul tău.\n\nContinui?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Eliminarea acestei autentificări va împiedica generarea codurilor pentru acest cont. Acest lucru nu înseamnă că autentificarea în doi pași este dezactivată.\n\nȘtergerea acestui autentificator poate împiedica accesarea contului.\nAsigură-te că autentificarea în doi pași este dezactivată sau că ai codurile de recuperare.\n\nContinui?</string>
     <string name="useCustomIcon">Utilizare pictogramă personalizată</string>
     <string name="copiedToClipboard">Cod copiat în clipboard</string>
     <string name="issuerHint">Emitent (de exemplu: Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Creează o copie de rezervă acum</string>
     <string name="restoreNow">Restaurează acum</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Au fost făcute modificări de la ultima copie de rezervă</string>
     <string name="backupPasswordMessage">Introdu o parolă pentru a cripta în siguranță fișierul de rezervă. Dacă nu dorești să protejezi fișierul cu parolă, lasă câmpul necompletat.</string>
     <string name="password">Parolă</string>
     <string name="passwordConfirm">Confirmarea parolei</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">Copia de rezervă nu a putut fi restaurată</string>
-    <string name="restorePasswordError">Parola este incorectă</string>
     <string name="cameraPermissionError">Permisiunea de accesare a camerei trebuie acordată pentru a scana un cod QR</string>
     <string name="googlePlayNotInstalledError">Google Play nu este instalat pe dispozitiv</string>
     <string name="filePickerMissing">Nu se poate deschide selectorul de fișiere. Trebuie instalat un manager de fișiere.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Bun venit la Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Autentificare cu doi factori</string>
+    <string name="introBackupTitle">Copie de rezervă și Restaurare</string>
     <string name="introCategoriesTitle">Categorii</string>
     <string name="introThemesTitle">Temă întunecată</string>
     <string name="introWelcomeSummary">Îți mulțumim pentru descărcarea Authenticator Pro.\nPăstrează conturile online în siguranță și protejate cu cea mai bună aplicație de autentificare open-source.</string>
