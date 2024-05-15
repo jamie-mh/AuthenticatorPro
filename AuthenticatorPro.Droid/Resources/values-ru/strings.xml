@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Внимание</string>
     <string name="delete">Удалить</string>
     <string name="add">Добавить</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Игнорировать</string>
     <string name="disable">Отключить</string>
     <string name="name">Имя</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Настройки</string>
     <string name="restore">Восстановление</string>
     <string name="backup">Резервное копирование</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">Оцените Authenticator Pro в магазине Google Play.</string>
     <string name="viewGitHub">Посмотреть на GitHub</string>
     <string name="viewGitHubSummary">Посмотреть репозиторий Authenticator Pro на GitHub. Вы можете сообщить об ошибке, запросить больше иконок и функций.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Издатель</string>
     <string name="username">Логин</string>
     <string name="secretKey">Секретный ключ</string>
     <string name="pin">PIN-код</string>
     <string name="showAdvancedOptions">Дополнительные параметры</string>
     <string name="advancedOptionsWarning">Измените эти параметры, только если вы знаете, что вы делаете, вы можете быть заблокированы из вашей учетной записи.\n\nПродолжить?</string>
-    <string name="confirmAuthenticatorDelete">Удаление этого аутентификатора не позволит вам генерировать коды для этой учетной записи.\nЭто не означает, что для вашей учетной записи отключена двухфакторная аутентификация.\n\nУдаление этого аутентификатора может помешать вам получить доступ к вашей учетной записи.\nПожалуйста, убедитесь, что либо двухфакторная аутентификация отключена, либо у вас есть коды восстановления.\n\nВы уверены, что хотите продолжить?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Использовать свою иконку</string>
     <string name="copiedToClipboard">Код скопирован в буфер обмена</string>
     <string name="issuerHint">Издатель (например: Google)</string>
@@ -76,22 +82,29 @@
     <string name="duplicateAuthenticator">Аутентификатор с этим секретным ключом уже существует.</string>
     <string name="scanSuccessful">QR-код успешно отсканирован</string>
     <string name="pinMessage">Введите PIN-код, связанный с этим QR-кодом</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Стандартные иконки</string>
     <string name="iconPacks">Наборы иконок</string>
     <string name="downloadPacks">Скачать наборы</string>
     <string name="importIconPackSuccess">Импортировано {0} иконок из набора</string>
     <string name="invalidIconPackError">Выбранный файл не является набором иконок Authenticator Pro</string>
     <string name="confirmIconPackDelete">Вы уверены, что хотите удалить этот набор иконок? Любые используемые иконки не будут удалены.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Показать источник</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR-код</string>
     <string name="qrCodeHelp">Скопируйте этот аутентификатор на другое устройство или приложение, отсканировав QR-код</string>
     <string name="qrCodeNotSupported">QR-коды не поддерживаются для данного типа</string>
     <string name="copyUri">Скопировать URI</string>
     <string name="copyUriWarning">Этот URI содержит секретный ключ в открытом виде. Будьте осторожны, вставляя эту информацию.\n\nПродолжить?</string>
     <string name="uriCopiedToClipboard">Ссылка скопирована в буфер обмена</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл можно восстановить в приложении.</string>
     <string name="backupHtml">Резервное копирование в HTML файл</string>
@@ -100,7 +113,9 @@
     <string name="backupUriList">Резервное копирование в файл списка URI</string>
     <string name="backupUriListMessage">Сохраните ваши аутентификаторы в незашифрованном текстовом файле списке URI. Этот файл совместим со многими альтернативными приложениями и услугами. Категории и иконки не сохраняются.</string>
     <string name="backupUriListWarning">Резервные копии в текстовые файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и в нём не сохраняются категории и иконки. Если не уверены, то вместо этого выберите резервное копирование в зашифрованный файл.\n\nПродолжить?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Пусто!</string>
     <string name="noAuthenticatorsMessage">У вас нет здесь никаких аутентификаторов.</string>
     <string name="gettingStartedGuide">Руководство по началу работы</string>
@@ -109,7 +124,9 @@
     <string name="noCategoriesMessage">У вас пока нет настроенных категорий.</string>
     <string name="noIconPacksTitle">Нет наборов иконок</string>
     <string name="noIconPacksMessage">У вас пока нет наборов иконок</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Категория</string>
     <string name="categories">Категории</string>
     <string name="assignCategories">Присвоить категории</string>
@@ -120,12 +137,16 @@
     <string name="noCategoryName">Требуется название категории.</string>
     <string name="duplicateCategory">Категория с таким названием уже существует.</string>
     <string name="confirmCategoryDelete">Вы уверены, что хотите удалить эту категорию?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Установить по умолчанию</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Удалить настройки по умолчанию</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Создать резервную копию</string>
     <string name="restoreNow">Восстановить</string>
-    <string name="backupReminder">С момента последнего резервного копирования были внесены изменения</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Подтверждение пароля</string>
@@ -138,7 +159,9 @@
     <string name="restoredFromBackup">Восстановлено(ы) {0} новых аутентификаторов и {1} новых(ые) категорий(ии).</string>
     <string name="restoredFromBackupUpdated">Восстановлено {0} новых аутентификаторов и {1} новых категорий. Обновлено {2} существующих аутентификаторов.</string>
     <string name="restoredNothing">Нет данных для восстановления</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
     <string name="restoreFormatError">Не удалось восстановить резервную копию</string>
     <string name="restorePasswordError">Неверный пароль</string>
     <string name="cameraPermissionError">Чтобы сканировать QR-коды, необходимо дать приложению доступ к камере.</string>
@@ -149,23 +172,29 @@
     <string name="webBrowserMissing">Не найдено ни одного установленного браузера</string>
     <string name="emailClientMissing">Не установлен клиент электронной почты</string>
     <string name="genericError">Произошла ошибка.</string>
-    <string name="databaseError">Произошла ошибка при открытии базы данных. Попробуйте запустить приложение снова. Если проблема не устранена, очистите приложение и восстановите вашу последнюю резервную копию.\n\nИли отправьте отчёт об ошибке.</string>
     <string name="viewErrorLog">Показать журнал ошибок</string>
     <string name="autoTimeWarningTitle">Синхронизация времени отключена</string>
     <string name="autoTimeWarningMessage">На вашем устройстве отключена автоматическая синхронизация времени. Двухфакторная аутентификация требует наличия точных часов для генерации кодов.\n\nПожалуйста, включите автоматическую синхронизацию времени в настройках устройства, чтобы генерируемые коды всегда были верны.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">Произошла необработанная ошибка внутри приложения. Подробности об ошибке ниже:</string>
     <string name="report">Отчёт</string>
     <string name="email">Почта</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Сообщить через</string>
     <string name="errorCopiedToClipboard">Ошибка скопирована в буфер обмена</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Выберите место и пароль для создания автоматических резервных копий. Резервные копии создаются при внесении изменений. Сохранение в облаке не поддерживается, используйте меню \"Резервное копирование\".</string>
     <string name="selectLocation">Выбрать место</string>
     <string name="noLocationSelected">Место не выбрано</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Расположение настроено как {0}</string>
     <string name="setPassword">Установить пароль</string>
     <string name="passwordNotSet">Пароль не установлен</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Пароль установлен</string>
     <string name="notPasswordProtected">Не защищено паролем</string>
     <string name="enableAutoBackup">Включить автоматическое резервное копирование</string>
@@ -176,7 +205,9 @@
     <string name="autoBackupFailureText">Последняя автоматическая резервная копия не может быть завершена. Возможно, истек срок действия разрешений, попробуйте снова установить место резервного копирования в настройках автоматического резервного копирования.</string>
     <string name="autoBackupSuccessTitle">Автоматическое резервное копирование завершено</string>
     <string name="backupScheduled">Резервное копирование запланировано</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Зашифруйте базу данных с помощью пароля. При открытии приложения вам будет предложено ввести пароль. Оставьте поле пустым, чтобы очистить пароль.</string>
     <string name="passwordSetupWarning">Используйте пароль, который вы можете запомнить, база данных не восстанавливается без него!</string>
     <string name="clearPassword">Очистить пароль</string>
@@ -184,14 +215,18 @@
     <string name="setupBiometricUnlock">Установка биометрической разблокировки</string>
     <string name="passwordsDoNotMatch">Пароли не совпадают</string>
     <string name="biometricsChanged">Биометрические данные устройства изменились. Введите пароль для разблокировки.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Разблокировать</string>
     <string name="useBiometrics">Использовать биометрию</string>
     <string name="unlockMessage">Введите ваш пароль или используйте биометрические данные для разблокировки базы данных</string>
     <string name="unlockBiometricsMessage">Использовать биометрические данные для доступа к вашим аутентификаторам</string>
     <string name="passwordIncorrect">Неверный пароль</string>
     <string name="tooManyAttempts">Слишком много попыток</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Импорт из других приложений</string>
     <string name="importError">Не удалось импортировать файл</string>
     <string name="importIncomplete">Импорт не завершен</string>
@@ -210,7 +245,9 @@
     <string name="uriList">Список URl</string>
     <string name="uriListHint">Простой текстовый список URI otpauth</string>
     <string name="viewGuideImportHint">Посмотреть руководство в разделе вики проекта</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Сканировать QR-код</string>
     <string name="guideScanQRCodeSummary">Чтобы добавить аутентификатор, отсканируйте QR-код, предоставленный приложением или службой. Он будет добавлен в список и будет генерировать новые коды автоматически. Вы также можете ввести данные вручную.</string>
     <string name="guideUseCodeTitle">Используйте код при входе в систему</string>
@@ -223,11 +260,15 @@
     <string name="guideBackupSummary">Не допускайте блокировки учетных записей при смене устройства. Создайте файл резервной копии и храните его в надежном месте. Резервная копия может быть восстановлена в любое время и защищена паролем.</string>
     <string name="guideWearOSTitle">Загрузите приложение-компаньон для Wear OS</string>
     <string name="guideWearOSSummary">Если у вас есть часы на Wear OS, вы можете скачать и установить на них приложение-компаньон. Коды можно просматривать прямо на часах.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Чтобы отсканировать QR-код, разместите его в сканере. Коснитесь экрана для фокусировки.</string>
     <string name="scanHelpSecondary">Старайтесь избегать теней и бликов. Держите устройство на расстоянии примерно 6 дюймов (15 см) от кода.</string>
     <string name="toggleFlash">Переключить вспышку</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">Основные</string>
     <string name="prefShowBackupRemindersTitle">Напоминания о резервном копировании</string>
     <string name="prefShowBackupRemindersSummary">Напоминание о необходимости создания резервной копии аутентификаторов в случае внесения важных изменений</string>
@@ -273,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Сделать список видимым за строкой состояния при прокрутке</string>
     <string name="prefSystemFontTitle">Шрифт системы</string>
     <string name="prefSystemFontSummary">Использовать системный шрифт по умолчанию вместо шрифта приложения</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Сбросить счётчик копирований</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">Показать журнал</string>
     <string name="noLogFile">Отсутствует файл журнала</string>
     <string name="debugLog">Журнал отладки</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">На основе времени (TOTP)</string>
     <string name="authTypeCounter">На основе счётчиков (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (по умолчанию)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Сразу</string>
     <string name="timeout5Sec">5 секунд</string>
     <string name="timeout10Sec">10 секунд</string>
@@ -299,12 +346,17 @@
     <string name="defaultViewMode">По умолчанию</string>
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">Нет</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Красный</string>
     <string name="pink">Розовый</string>
     <string name="purple">Фиолетовый</string>
@@ -321,10 +373,12 @@
     <string name="amber">Янтарный</string>
     <string name="orange">Оранжевый</string>
     <string name="deepOrange">Тёмно-оранжевый</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Добро пожаловать в Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP аутентификация</string>
-    <string name="introBackupTitle">Резервное копирование / восстановление</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">Категории</string>
     <string name="introThemesTitle">Тёмная тема</string>
     <string name="introWelcomeSummary">Благодарим за скачивание Authenticator Pro.\nСохраняйте безопасность и защиту своих аккаунтов в сети с помощью лучшего приложения для аутентификации с открытым исходным кодом.</string>
