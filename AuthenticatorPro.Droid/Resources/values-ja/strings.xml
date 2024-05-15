@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">警告</string>
     <string name="delete">削除</string>
     <string name="add">追加</string>
@@ -15,7 +17,9 @@
     <string name="ignore">無視</string>
     <string name="disable">無効化</string>
     <string name="name">名前</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">設定</string>
     <string name="restore">復元</string>
     <string name="backup">バックアップ</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">Google Play ストアで Authenticator Pro を評価する</string>
     <string name="viewGitHub">GitHubで表示</string>
     <string name="viewGitHubSummary">GitHub で Authenticator Pro のリポジトリを表示します。問題を報告したり、アイコンや機能をリクエストすることができます。</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">発行者</string>
     <string name="username">ユーザー名</string>
     <string name="secretKey">シークレットキー</string>
     <string name="pin">ピン留め</string>
     <string name="showAdvancedOptions">詳細設定を表示する</string>
     <string name="advancedOptionsWarning">自分が何をしているのか理解している場合のみ、このオプションを変更してください。アカウントがロックアウトされる可能性があります。\n\n続けますか？</string>
-    <string name="confirmAuthenticatorDelete">認証コードを削除すると、このアカウントのコードを作成できなくなります。これは、2要素認証が無効化されるわけではありません。\n\n認証コードを削除することで、あなたのアカウントへアクセスできなくなる可能性があります。\n2要素認証が無効化されているか、リカバリーコードにアクセスできるか確認してください。\n\n続けますか？</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">カスタムアイコンを使用する</string>
     <string name="copiedToClipboard">コードをクリップボードにコピーしました</string>
     <string name="issuerHint">発行者（例：Google）</string>
@@ -76,22 +82,29 @@
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">デフォルトのアイコン</string>
     <string name="iconPacks">アイコンパック</string>
     <string name="downloadPacks">パックをダウンロード</string>
     <string name="importIconPackSuccess">パックから {0} 個のアイコンをインポートしました</string>
     <string name="invalidIconPackError">選択されたファイルは Authenticator Pro アイコンパックではありません</string>
     <string name="confirmIconPackDelete">本当にこのアイコンパックを削除しますか？使用されているアイコンは削除されません。</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QRコード</string>
     <string name="qrCodeHelp">QRコードをスキャンして、この認証コードを別のデバイスまたはアプリにコピーします</string>
     <string name="qrCodeNotSupported">このタイプのQRコードはサポートされていません</string>
     <string name="copyUri">URIをコピー</string>
     <string name="copyUriWarning">このURIには秘密鍵が平文で含まれています。この情報を貼り付ける場合は注意してください。\n\n続けますか？</string>
     <string name="uriCopiedToClipboard">URI をクリップボードにコピーしました</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
     <string name="backupHtml">HTMLファイルでバックアップ</string>
@@ -100,7 +113,9 @@
     <string name="backupUriList">URI リスト形式でバックアップ</string>
     <string name="backupUriListMessage">暗号化されていないテキストファイルに URI リストとして認証コードを保存します。 このファイルは、多くの代替アプリケーションやサービスと互換性があります。カテゴリとアイコンは保存されません。</string>
     <string name="backupUriListWarning">テキスト形式のバックアップは暗号化されておらず、はあなたの秘密鍵を危険にさらします。\n\nこのファイルはアプリでは復元できず、カテゴリやアイコンは保存されません。不安でしたら、暗号化されたファイルにバックアップすることができます。\n\n続行しますか？</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">何もありません！</string>
     <string name="noAuthenticatorsMessage">認証コードがありません</string>
     <string name="gettingStartedGuide">はじめにお読み下さい</string>
@@ -109,7 +124,9 @@
     <string name="noCategoriesMessage">まだカテゴリが設定されていません</string>
     <string name="noIconPacksTitle">No icon packs</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Category</string>
     <string name="categories">カテゴリ</string>
     <string name="assignCategories">カテゴリを割り当て</string>
@@ -120,12 +137,16 @@
     <string name="noCategoryName">カテゴリ名が必要です</string>
     <string name="duplicateCategory">この名前のカテゴリはすでに存在します</string>
     <string name="confirmCategoryDelete">このカテゴリを削除してもよろしいですか？</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">デフォルトとして設定</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">デフォルトを解除</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">今すぐバックアップ</string>
     <string name="restoreNow">今すぐ復元</string>
-    <string name="backupReminder">前回のバックアップから変更がありました</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
     <string name="password">パスワード</string>
     <string name="passwordConfirm">パスワードの確認</string>
@@ -138,7 +159,9 @@
     <string name="restoredFromBackup">{0} 個の新しい認証コードと {1} 個の新しいカテゴリを復元しました</string>
     <string name="restoredFromBackupUpdated">{0} 件の新しい認証コードと {1} 件の新しいカテゴリを復元しました。既存の認証コードを {2} 件更新しました。</string>
     <string name="restoredNothing">復元するものがありません</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
     <string name="restoreFormatError">The backup could not be restored</string>
     <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QRコードをスキャンするにはカメラの許可が必要です</string>
@@ -149,23 +172,29 @@
     <string name="webBrowserMissing">ウェブブラウザがインストールされていません</string>
     <string name="emailClientMissing">メールアプリがインストールされていません</string>
     <string name="genericError">エラーが発生しました</string>
-    <string name="databaseError">データベースを開くときにエラーが発生しました。もう一度アプリを起動してみてください。 問題が解決しない場合は、アプリのデータを消去し、最新のバックアップから復元してください。\n\nまたは、エラーレポートを送信できます。</string>
     <string name="viewErrorLog">エラーログを表示</string>
     <string name="autoTimeWarningTitle">Time sync disabled</string>
     <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">アプリケーション内で未処理のエラーが発生しました。エラーの詳細は以下の通りです：</string>
     <string name="report">報告する</string>
     <string name="email">メール</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">報告方法</string>
     <string name="errorCopiedToClipboard">エラーをクリップボードにコピーしました</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">自動バックアップの場所とパスワードを選択します。変更が行われるとバックアップがスケジュールされます。クラウドストレージはサポートされていないため、代わりにバックアップメニューを使用してください。</string>
     <string name="selectLocation">場所を選択</string>
     <string name="noLocationSelected">場所が選択されていません</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">バックアップ先を \'{0}\' に設定しました</string>
     <string name="setPassword">パスワードを設定</string>
     <string name="passwordNotSet">パスワードが設定されていません</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">パスワードを設定</string>
     <string name="notPasswordProtected">パスワードで保護されていません</string>
     <string name="enableAutoBackup">自動バックアップを有効にする</string>
@@ -176,7 +205,9 @@
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
     <string name="backupScheduled">バックアップがスケジュールされました</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">データベースをパスワードで暗号化します。アプリを開くとパスワードの入力が求められます。 パスワードを消去するには、フィールドを空白のままにしてください。</string>
     <string name="passwordSetupWarning">覚えておくことができるパスワードを使用してください。パスワードを失うとデータベースは復元できません！</string>
     <string name="clearPassword">パスワードを消去</string>
@@ -184,14 +215,18 @@
     <string name="setupBiometricUnlock">生体認証を設定</string>
     <string name="passwordsDoNotMatch">パスワードが一致しません</string>
     <string name="biometricsChanged">端末の生体認証が変更されました。パスワードを使用してロックを解除してください。</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">ロックを解除</string>
     <string name="useBiometrics">生体認証を利用</string>
     <string name="unlockMessage">パスワードを入力するか、生体認証を使用してデータベースのロックを解除します</string>
     <string name="unlockBiometricsMessage">生体認証を使用して認証コードにアクセス</string>
     <string name="passwordIncorrect">パスワードが正しくありません</string>
     <string name="tooManyAttempts">試行回数が多すぎます</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">別のアプリからインポート</string>
     <string name="importError">ファイルをインポートできませんでした</string>
     <string name="importIncomplete">インポートが未完了です</string>
@@ -210,7 +245,9 @@
     <string name="uriList">URI リスト</string>
     <string name="uriListHint">otpauth URI のプレーンテキスト一覧</string>
     <string name="viewGuideImportHint">プロジェクトのwikiでガイドを表示</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">QRコードをスキャン</string>
     <string name="guideScanQRCodeSummary">認証コードを追加するには、アプリまたはサービスが提供するQRコードをスキャンしてください。 リストに追加され、自動的に新しいコードが生成されます。手動で入力することもできます。</string>
     <string name="guideUseCodeTitle">ログイン時にコードを使用する</string>
@@ -223,11 +260,15 @@
     <string name="guideBackupSummary">デバイスを変更した場合、アカウントからロックアウトされないよう注意してください。バックアップファイルを作成し、安全な場所に保存してください。 バックアップはいつでも復元でき、パスワードで保護できます。</string>
     <string name="guideWearOSTitle">Wear OS コンパニオンアプリをダウンロード</string>
     <string name="guideWearOSSummary">Wear OS ウォッチをお持ちの場合は、コンパニオンアプリをダウンロードできます。ウォッチでコードを直接確認できます。</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">一般</string>
     <string name="prefShowBackupRemindersTitle">バックアップリマインダ</string>
     <string name="prefShowBackupRemindersSummary">重要な変更が行われたとき、認証コードをバックアップするよう通知します</string>
@@ -273,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">スクロール時にステータスバーの背後にリストを表示する</string>
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Copy count reset</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">View Log</string>
     <string name="noLogFile">No log file available</string>
     <string name="debugLog">Debug log</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">タイムベース (TOTP)</string>
     <string name="authTypeCounter">カウンターベース （HOTP）</string>
     <string name="authAlgorithmSHA1">SHA1 （標準）</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">直後</string>
     <string name="timeout5Sec">5秒</string>
     <string name="timeout10Sec">10秒</string>
@@ -299,12 +346,17 @@
     <string name="defaultViewMode">デフォルト</string>
     <string name="compactViewMode">コンパクト</string>
     <string name="tileViewMode">タイル</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">赤色</string>
     <string name="pink">ピンク</string>
     <string name="purple">紫</string>
@@ -321,10 +373,12 @@
     <string name="amber">琥珀色</string>
     <string name="orange">橙色</string>
     <string name="deepOrange">濃い橙</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Authenticator Proへようこそ</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP 認証</string>
-    <string name="introBackupTitle">バックアップ / 復元</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">カテゴリ</string>
     <string name="introThemesTitle">ダークテーマ</string>
     <string name="introWelcomeSummary">Authenticator Proをダウンロードしていただきありがとうございます。\nオンラインアカウントを、最高のオープンソースの認証アプリで保護しましょう。</string>
