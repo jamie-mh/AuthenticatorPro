@@ -57,7 +57,7 @@
     <string name="pin">ثبّت</string>
     <string name="showAdvancedOptions">إظهار إعدادات متقدمة</string>
     <string name="advancedOptionsWarning">فقط غير هذه الخيارات إذا كنت تعرف ما تقوم به، من الممكن أن يتم منعك من الوصول إلى حسابك.\n\n هل تريد المتابعة؟</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">ستؤدي إزالة أداة المصادقة هذه إلى منعك من إنشاء رموز لهذا الحساب. هذا لا يعني أن المصادقة الثنائية معطلة.\n\nقد يؤدي حذف هذا المصدق إلى منعك من الوصول إلى حسابك.\nالرجاء التأكد من تعطيل المصادقة الثنائية أو أن لديك رموز الاسترداد.\n\nهل تريد المتابعة؟</string>
     <string name="useCustomIcon">استخدام أيقونة مخصصة</string>
     <string name="copiedToClipboard">تم نسخ الرمز إلى الحافظة</string>
     <string name="issuerHint">المُصدر (على سبيل المثال: Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">عمل نسخة احتياطية الآن</string>
     <string name="restoreNow">عمل استعادة الآن</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">تم إجراء تغييرات منذ آخر نسخة احتياطية قمت بها</string>
     <string name="backupPasswordMessage">أدخل كلمة مرور لتشفير ملف النسخ الاحتياطي الخاص بك بشكل آمن. إذا كنت لا ترغب في حماية الملف بكلمة المرور، اترك كلمة المرور فارغة.</string>
     <string name="password">كلمة المرور</string>
     <string name="passwordConfirm">تأكيد كلمة المرور</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">تعذر استعادة النسخة الاحتياطية</string>
-    <string name="restorePasswordError">كلمة المرور غير صحيحة</string>
     <string name="cameraPermissionError">يجب منح إذن الكاميرا كي يتم مسح رمز QR</string>
     <string name="googlePlayNotInstalledError">متجر play غير مثَبت على جهازك</string>
     <string name="filePickerMissing">لا يمكن فتح منتقي الملفات. يجب تثبيت مدير الملفات.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">مرحبا بك في Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">عامل التوثيق الثنائي</string>
+    <string name="introBackupTitle">النسخ الإحتياطي والإستعادة</string>
     <string name="introCategoriesTitle">التصنيفات</string>
     <string name="introThemesTitle">سمة داكنة</string>
     <string name="introWelcomeSummary">شكرا لك على تحميل Authenticator Pro. \n حافظ على أمان حساباتك وحمايتها على الأنترنيت باستخدام أفضل تطبيق مصادقة مفتوح المصدر.</string>
