@@ -57,7 +57,7 @@
     <string name="pin">Pin kodu</string>
     <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
     <string name="advancedOptionsWarning">Bu seçenekleri yalnızca ne yaptığınızı biliyorsanız değiştirin, hesabınız kilitlenebilir\\n\nDevam Et?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin misin?</string>
     <string name="useCustomIcon">Özel simge kullan</string>
     <string name="copiedToClipboard">Kod panoya kopyalandı</string>
     <string name="issuerHint">Kuruluş (ör: Google)</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
@@ -383,8 +382,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Authenticator Pro\'ya hoş geldiniz</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">İki Faktörlü Kimlik Doğrulama</string>
+    <string name="introBackupTitle">Yedekleme ve Geri yükleme</string>
     <string name="introCategoriesTitle">Kategoriler</string>
     <string name="introThemesTitle">Koyu Tema</string>
     <string name="introWelcomeSummary">Authenticator Pro\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
