@@ -57,7 +57,7 @@
     <string name="pin">識別碼</string>
     <string name="showAdvancedOptions">顯示進階選項</string>
     <string name="advancedOptionsWarning">僅當您知道自己在做什麼時才更改這些選項，否則您可能會被鎖定在您的帳戶之外。\n\n是否繼續？</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">移除這個驗證器將導致你無法再生成該賬戶的驗證碼，且該賬戶的雙重認證并不會隨之移除。\n\n移除此驗證碼可能會導致你無法再登入該賬戶。\n請確保你已經移除了該賬戶的雙重認證或持有備份安全碼。\n\n確認移除嗎？</string>
     <string name="useCustomIcon">使用自訂圖示</string>
     <string name="copiedToClipboard">驗證碼已複製至剪貼簿</string>
     <string name="issuerHint">發行者（例：Google）</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">立即備份</string>
     <string name="restoreNow">立即還原</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">自上次備份後出現了新的變更。</string>
     <string name="backupPasswordMessage">請輸入用於安全加密備份檔案的密碼。如果您不需要使用密碼保護備份檔案，請將密碼欄留空。</string>
     <string name="password">密碼</string>
     <string name="passwordConfirm">確認密碼</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">無法恢復備份</string>
-    <string name="restorePasswordError">密碼錯誤</string>
     <string name="cameraPermissionError">必須授予相機使用權才能掃描 QR Code。</string>
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
     <string name="filePickerMissing">無法顯示檔案選擇介面。請安裝檔案管理器。</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">歡迎使用 Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">兩步驟驗證</string>
+    <string name="introBackupTitle">備份與還原</string>
     <string name="introCategoriesTitle">分類</string>
     <string name="introThemesTitle">深色主題</string>
     <string name="introWelcomeSummary">感謝您下載 Authenticator Pro。\n作為最好的開源身份驗證器應用，我們將為您的線上帳戶保駕護航。</string>
