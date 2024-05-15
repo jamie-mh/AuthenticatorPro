@@ -57,7 +57,7 @@
     <string name="pin">Пін</string>
     <string name="showAdvancedOptions">Показати додаткові параметри</string>
     <string name="advancedOptionsWarning">Змініть ці параметри, лише якщо ви знаєте, що робите, ви можете бути заблоковані в обліковому записі.\n\nПродовжити?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Якщо видалити цей автентифікатор, ви не зможете генерувати коди для цього облікового запису. Це не означає, що двофакторну автентифікацію вимкнено.\n\nВидалення цього автентифікатора може завадити вам отримати доступ до вашого облікового запису.\nПереконайтеся, що двофакторну автентифікацію вимкнено або у вас є коди відновлення.\n\nПродовжити?</string>
     <string name="useCustomIcon">Використовувати користувацький значок</string>
     <string name="copiedToClipboard">Код скопійовано</string>
     <string name="issuerHint">Емітент (наприклад: Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Зробити резервну копію</string>
     <string name="restoreNow">Відновити</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Після останньої резервної копії відбулись зміни</string>
     <string name="backupPasswordMessage">Введіть пароль для безпечного шифрування файлу резервної копії. Якщо ви не хочете захистити файл, залиште поле порожнім.</string>
     <string name="password">Пароль</string>
     <string name="passwordConfirm">Повторіть пароль</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">Не вдалося відновити резервну копію</string>
-    <string name="restorePasswordError">Неправильний пароль</string>
     <string name="cameraPermissionError">Для зчитування QR-коду потрібний дозвіл до камери</string>
     <string name="googlePlayNotInstalledError">Google Play не встановлений на вашому пристрої</string>
     <string name="filePickerMissing">Не вдалося відкрити вікно вибору файлу. Будь ласка, встановіть менеджер файлів.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Ласкаво просимо в Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Двофакторна автентифікація</string>
+    <string name="introBackupTitle">Резервна копія та Відновлення</string>
     <string name="introCategoriesTitle">Категорії</string>
     <string name="introThemesTitle">Темна тема</string>
     <string name="introWelcomeSummary">Дякуємо що завантажили аутентифікації Pro.\nТримайте ваші облікові записи в Інтернеті захищеними з найкращим додатком аутентифікації з відкритим вихідним кодом.</string>
