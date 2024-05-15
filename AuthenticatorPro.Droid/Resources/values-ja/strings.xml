@@ -57,7 +57,7 @@
     <string name="pin">ピン留め</string>
     <string name="showAdvancedOptions">詳細設定を表示する</string>
     <string name="advancedOptionsWarning">自分が何をしているのか理解している場合のみ、このオプションを変更してください。アカウントがロックアウトされる可能性があります。\n\n続けますか？</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">認証コードを削除すると、このアカウントのコードを作成できなくなります。これは、2要素認証が無効化されるわけではありません。\n\n認証コードを削除することで、あなたのアカウントへアクセスできなくなる可能性があります。\n2要素認証が無効化されているか、リカバリーコードにアクセスできるか確認してください。\n\n続けますか？</string>
     <string name="useCustomIcon">カスタムアイコンを使用する</string>
     <string name="copiedToClipboard">コードをクリップボードにコピーしました</string>
     <string name="issuerHint">発行者（例：Google）</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">今すぐバックアップ</string>
     <string name="restoreNow">今すぐ復元</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">前回のバックアップから変更がありました</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
     <string name="password">パスワード</string>
     <string name="passwordConfirm">パスワードの確認</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QRコードをスキャンするにはカメラの許可が必要です</string>
     <string name="googlePlayNotInstalledError">Google Playがデバイスにインストールされていません</string>
     <string name="filePickerMissing">ファイルピッカーを開けません。ファイルマネージャーがインストールされている必要があります。</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Authenticator Proへようこそ</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">二要素認証</string>
+    <string name="introBackupTitle">バックアップと復元</string>
     <string name="introCategoriesTitle">カテゴリ</string>
     <string name="introThemesTitle">ダークテーマ</string>
     <string name="introWelcomeSummary">Authenticator Proをダウンロードしていただきありがとうございます。\nオンラインアカウントを、最高のオープンソースの認証アプリで保護しましょう。</string>
