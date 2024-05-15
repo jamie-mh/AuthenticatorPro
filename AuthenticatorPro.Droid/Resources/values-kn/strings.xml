@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">ಎಚ್ಚರಿಕೆ</string>
     <string name="delete">ಅಳಿಸಿ</string>
     <string name="add">ಸೇರಿಸಿ</string>
@@ -15,7 +17,9 @@
     <string name="ignore">ನಿರ್ಲಕ್ಷಿಸಿ</string>
     <string name="disable">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="name">ಹೆಸರು</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">ಸೆಟ್ಟಿಂಗ್ಸಗಳು</string>
     <string name="restore">ಪುನಸ್ಥಾಪಿಸಿ</string>
     <string name="backup">​ಬ್ಯಾಕಪ್</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">Google Play ಸ್ಟೋರ್‌ನಲ್ಲಿ Authenticator Pro ಅನ್ನು ರೇಟ್ ಮಾಡಿ</string>
     <string name="viewGitHub">GitHub ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ</string>
     <string name="viewGitHubSummary">GitHub ನಲ್ಲಿ Authenticator Pro ರೆಪೊಸಿಟರಿಯನ್ನು ವೀಕ್ಷಿಸಿ. ನೀವು ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಬಹುದು, ಹೆಚ್ಚಿನ ಐಕಾನ್‌ಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವಿನಂತಿಸಬಹುದು.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">ವಿತರಕ</string>
     <string name="username">ಬಳಕೆದಾರರ ಹೆಸರು</string>
     <string name="secretKey">ರಹಸ್ಯ ಕೀಲಿ</string>
     <string name="pin">ಪಿನ್</string>
     <string name="showAdvancedOptions">ಸುಧಾರಿತ ಆಯ್ಕೆಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="advancedOptionsWarning">ನೀವು ಏನು ಮಾಡುತ್ತಿದ್ದೀರಿ ಎಂದು ನಿಮಗೆ ತಿಳಿದಿದ್ದರೆ ಮಾತ್ರ ಈ ಆಯ್ಕೆಗಳನ್ನು ಬದಲಿಸಿ, ನಿಮ್ಮ ಖಾತೆಯಿಂದ ನೀವು ಲಾಕ್ ಔಟ್ ಆಗಬಹುದು.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
-    <string name="confirmAuthenticatorDelete">ಈ ದೃಢೀಕರಣವನ್ನು ತೆಗೆದುಹಾಕುವುದರಿಂದ ಈ ಖಾತೆಗೆ ಕೋಡ್‌ಗಳನ್ನು ರಚಿಸುವುದರಿಂದ ನಿಮ್ಮನ್ನು ತಡೆಯುತ್ತದೆ. ಎರಡು ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ ಎಂದು ಇದರ ಅರ್ಥವಲ್ಲ.\n\nಈ ದೃಢೀಕರಣವನ್ನು ಅಳಿಸುವುದರಿಂದ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಪ್ರವೇಶಿಸುವುದನ್ನು ತಡೆಯಬಹುದು.\nದಯವಿಟ್ಟು ಎರಡು ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆಯೇ ಅಥವಾ ನೀವು ಮರುಪಡೆಯುವಿಕೆ ಕೋಡ್‌ಗಳನ್ನು ಹೊಂದಿರುವಿರಾ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">ವೈಯಕ್ತಿಕ ಐಕಾನ್ ಅನ್ನು ಬಳಸಿ</string>
     <string name="copiedToClipboard">ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಕೋಡ್ ಅನ್ನು ನಕಲಿಸಲಾಗಿದೆ</string>
     <string name="issuerHint">ವಿತರಕರು (ಉದಾ: ಗೂಗಲ್)</string>
@@ -76,22 +82,29 @@
     <string name="duplicateAuthenticator">ಈ ರಹಸ್ಯ ಕೀಲಿಯೊಂದಿಗೆ ದೃಢೀಕರಣವು ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ</string>
     <string name="scanSuccessful">QR ಕೋಡ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="pinMessage">ಈ QR ಕೋಡ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಪಿನ್ ಅನ್ನು ನಮೂದಿಸಿ</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">ಡಿಫಾಲ್ಟ್ ಐಕಾನ್‌ಗಳು</string>
     <string name="iconPacks">ಐಕಾನ್ ಪ್ಯಾಕುಗಳು</string>
     <string name="downloadPacks">ಪ್ಯಾಕ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="importIconPackSuccess">ಪ್ಯಾಕ್‌ನಿಂದ {0} ಐಕಾನ್‌ಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಲಾಗಿದೆ</string>
     <string name="invalidIconPackError">ಆಯ್ಕೆಮಾಡಿದ ಫೈಲ್ Authenticator Pro ಐಕಾನ್ ಪ್ಯಾಕ್ ಅಲ್ಲ</string>
     <string name="confirmIconPackDelete">ನೀವು ಖಚಿತವಾಗಿಯೂ ಈ ಐಕಾನ್ ಪ್ಯಾಕ್ ಅನ್ನು ಅಳಿಸಲು ಬಯಸುವಿರಾ? ಬಳಸಿದ ಯಾವುದೇ ಐಕಾನ್‌ಗಳನ್ನು ಅಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">ಮೂಲವನ್ನು ವೀಕ್ಷಿಸಿ</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR ಕೋಡ್</string>
     <string name="qrCodeHelp">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡುವ ಮೂಲಕ ಈ ದೃಢೀಕರಣವನ್ನು ಮತ್ತೊಂದು ಸಾಧನ ಅಥವಾ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ನಕಲಿಸಿ</string>
     <string name="qrCodeNotSupported">ಈ ಪ್ರಕಾರಕ್ಕೆ QR ಕೋಡ್‌ಗಳು ಬೆಂಬಲಿತವಾಗಿಲ್ಲ</string>
     <string name="copyUri">URI ಅನ್ನು ನಕಲಿಸಿ</string>
     <string name="copyUriWarning">ಈ URI ಸರಳ ಪಠ್ಯದಲ್ಲಿ ರಹಸ್ಯ ಕೀಲಿಯನ್ನು ಒಳಗೊಂಡಿದೆ. ನೀವು ಈ ಮಾಹಿತಿಯನ್ನು ಎಲ್ಲಿ ಅಂಟಿಸುತ್ತೀರಿ ಎಂದು ಜಾಗರೂಕರಾಗಿರಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
     <string name="uriCopiedToClipboard">URI ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾದ ಫೈಲ್‌ಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮಾಡಿ (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)</string>
     <string name="backupToFileMessage">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾದ ಬ್ಯಾಕ್‌ಅಪ್ ಫೈಲ್‌ಗೆ ನಿಮ್ಮ ಎಲ್ಲಾ ದೃಢೀಕರಣಗಳು, ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಿ. ಈ ಫೈಲ್ ಅನ್ನು ಆ್ಯಪ್‌ನಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಬಹುದು.</string>
     <string name="backupHtml">HTML ಫೈಲ್‌ಗೆ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
@@ -100,7 +113,9 @@
     <string name="backupUriList">URI ಪಟ್ಟಿ ಫೈಲ್‌ಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮಾಡಿ</string>
     <string name="backupUriListMessage">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ ಸರಳ-ಪಠ್ಯ URI ಪಟ್ಟಿಯ ಫೈಲ್‌ಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಉಳಿಸಿ. ಈ ಫೈಲ್ ಹಲವಾರು ಪರ್ಯಾಯ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳೊಂದಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ. ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
     <string name="backupUriListWarning">ಸರಳ-ಪಠ್ಯ ಫೈಲ್‌ಗಳಿಗೆ ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ರಹಸ್ಯ ಕೀಗಳನ್ನು ದುರ್ಬಲಗೊಳಿಸಬಹುದು.\n\nಈ ಫೈಲ್ ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಹೊಂದಿಲ್ಲ. ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ, ಬದಲಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಫೈಲ್ ಬ್ಯಾಕಪ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">ಇಲ್ಲಿ ಏನೂ ಇಲ್ಲ!</string>
     <string name="noAuthenticatorsMessage">ನೀವು ಇಲ್ಲಿ ಯಾವುದೇ ದೃಢೀಕರಣಗಳನ್ನು ಹೊಂದಿಲ್ಲ</string>
     <string name="gettingStartedGuide">ಬಳಕೆದಾರರ ಕೈಪಿಡಿ</string>
@@ -109,7 +124,9 @@
     <string name="noCategoriesMessage">ನೀವು ಇನ್ನೂ ಯಾವುದೇ ವರ್ಗಗಳನ್ನು ಹೊಂದಿಸಿಲ್ಲ</string>
     <string name="noIconPacksTitle">ಐಕಾನ್ ಪ್ಯಾಕ್‌ಗಳಿಲ್ಲ</string>
     <string name="noIconPacksMessage">ನೀವು ಇನ್ನೂ ಯಾವುದೇ ಐಕಾನ್ ಪ್ಯಾಕ್‌ಗಳನ್ನು ಹೊಂದಿಸಿಲ್ಲ</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">ವರ್ಗ</string>
     <string name="categories">ವರ್ಗಗಳು</string>
     <string name="assignCategories">ವರ್ಗಗಳನ್ನು ನಿಯೋಜಿಸಿ</string>
@@ -120,12 +137,16 @@
     <string name="noCategoryName">ವರ್ಗದ ಹೆಸರು ಅಗತ್ಯವಿದೆ</string>
     <string name="duplicateCategory">ಈ ಹೆಸರಿನ ವರ್ಗವು ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ</string>
     <string name="confirmCategoryDelete">ನೀವು ಖಚಿತವಾಗಿಯೂ ಈ ವರ್ಗವನ್ನು ಅಳಿಸಲು ಬಯಸುವಿರಾ?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ ಹೊಂದಿಸಿ</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">ಡೀಫಾಲ್ಟ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">ಈಗಲೇ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
     <string name="restoreNow">ಈಗಲೇ ಮರುಸ್ಥಾಪಿಸಿ</string>
-    <string name="backupReminder">ನೀವು ಕಳೆದ ಬಾರಿ ಬ್ಯಾಕಪ್ ಮಾಡಿದಾಗಿನಿಂದ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲಾಗಿದೆ</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">ನಿಮ್ಮ ಬ್ಯಾಕಪ್ ಫೈಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ. ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ಫೈಲ್ ಅನ್ನು ರಕ್ಷಿಸಲು ನೀವು ಬಯಸದಿದ್ದರೆ, ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಖಾಲಿ ಬಿಡಿ.</string>
     <string name="password">ಪಾಸ್ವರ್ಡ್</string>
     <string name="passwordConfirm">ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಿಸಿ</string>
@@ -138,7 +159,9 @@
     <string name="restoredFromBackup">{0} ಹೊಸ ದೃಢೀಕರಣಗಳು ಮತ್ತು {1} ಹೊಸ ವರ್ಗಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ</string>
     <string name="restoredFromBackupUpdated">{0} ಹೊಸ ದೃಢೀಕರಣಗಳು ಮತ್ತು {1} ಹೊಸ ವರ್ಗಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ. ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ {2} ದೃಢೀಕರಣಗಳನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ.</string>
     <string name="restoredNothing">ಮರುಸ್ಥಾಪಿಸಲು ಏನೂ ಇಲ್ಲ</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
     <string name="restoreFormatError">The backup could not be restored</string>
     <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಕ್ಯಾಮರಾ ಅನುಮತಿಯನ್ನು ನೀಡಬೇಕು</string>
@@ -149,23 +172,29 @@
     <string name="webBrowserMissing">ಯಾವುದೇ ವೆಬ್ ಬ್ರೌಸರ್ ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="emailClientMissing">ಯಾವುದೇ ಇಮೇಲ್ ಕ್ಲೈಂಟ್ ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="genericError">ಒಂದು ದೋಷ ಉಂಟಾಗಿದೆ</string>
-    <string name="databaseError">ಡೇಟಾಬೇಸ್ ಅನ್ನು ತೆರೆಯುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ. ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಲು ಪ್ರಯತ್ನಿಸಿ. ಸಮಸ್ಯೆ ಮುಂದುವರಿದರೆ, ಆ್ಯಪ್ ಡೇಟಾವನ್ನು ತೆರವುಗೊಳಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಇತ್ತೀಚಿನ ಬ್ಯಾಕಪ್ ಅನ್ನು ಮರುಸ್ಥಾಪಿಸಿ.\n\nಪರ್ಯಾಯವಾಗಿ, ನೀವು ದೋಷ ವರದಿಯನ್ನು ಸಲ್ಲಿಸಬಹುದು.</string>
     <string name="viewErrorLog">ದೋಷ ಲಾಗ್ ಅನ್ನು ವೀಕ್ಷಿಸಿ</string>
     <string name="autoTimeWarningTitle">ಸಮಯ ಸಿಂಕ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
     <string name="autoTimeWarningMessage">ನಿಮ್ಮ ಸಾಧನವು ಸ್ವಯಂಚಾಲಿತ ಸಮಯವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದೆ. ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣಕ್ಕೆ ಕೋಡ್‌ಗಳನ್ನು ರಚಿಸಲು ನಿಖರವಾದ ಗಡಿಯಾರ ಅಗತ್ಯವಿದೆ.\n\nದಯವಿಟ್ಟು ನಿಮ್ಮ ಸಾಧನದ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತ ಸಮಯ ಸಿಂಕ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ಇದರಿಂದ ರಚಿಸಲಾದ ಕೋಡ್‌ಗಳು ಯಾವಾಗಲೂ ಮಾನ್ಯವಾಗಿರುತ್ತವೆ.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ನಿರ್ವಹಿಸಲಾಗದ ದೋಷ ಸಂಭವಿಸಿದೆ. ದೋಷದ ವಿವರಗಳನ್ನು ಕೆಳಗೆ ನೀಡಲಾಗಿದೆ:</string>
     <string name="report">ವರದಿ</string>
     <string name="email">ಈಮೇಲ್</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">ಮೂಲಕ ವರದಿ ಮಾಡಿ</string>
     <string name="errorCopiedToClipboard">ದೋಷವನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">ಸ್ವಯಂ ಬ್ಯಾಕಪ್‌ಗಳಿಗಾಗಿ ಸ್ಥಳ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ. ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿದಾಗ ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ನಿಗದಿಪಡಿಸಲಾಗಿದೆ. Cloud ಸಂಗ್ರಹಣೆಯು ಬೆಂಬಲಿತವಾಗಿಲ್ಲ, ಬದಲಿಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮೆನು ಬಳಸಿ.</string>
     <string name="selectLocation">ಸ್ಥಳ ಆಯ್ಕೆ ಮಾಡಿ</string>
     <string name="noLocationSelected">ಯಾವುದೇ ಸ್ಥಳವನ್ನು ಆಯ್ಕೆ ಮಾಡಲಾಗಿಲ್ಲ</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">ಸ್ಥಳವನ್ನು \'{0}\' ಗೆ ಹೊಂದಿಸಲಾಗಿದೆ</string>
     <string name="setPassword">ಪಾಸ್ವರ್ಡ್ ಹೊಂದಿಸಿ</string>
     <string name="passwordNotSet">ಪಾಸ್ವರ್ಡ್ ಹೊಂದಿಸಲಾಗಿಲ್ಲ</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">ಪಾಸ್ವರ್ಡ್ ಹೊಂದಿಸಲಾಗಿದೆ</string>
     <string name="notPasswordProtected">ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ರಕ್ಷಿಸಲಾಗಿಲ್ಲ</string>
     <string name="enableAutoBackup">ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
@@ -176,7 +205,9 @@
     <string name="autoBackupFailureText">ತೀರಾ ಇತ್ತೀಚಿನ ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಪೂರ್ಣಗೊಳಿಸಲು ವಿಫಲವಾಗಿದೆ. ಫೈಲ್ ಅನುಮತಿಗಳು ಅವಧಿ ಮೀರಿರಬಹುದು, ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬ್ಯಾಕಪ್ ಸ್ಥಳವನ್ನು ಮತ್ತೆ ಹೊಂದಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="autoBackupSuccessTitle">ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಪೂರ್ಣಗೊಂಡಿದೆ</string>
     <string name="backupScheduled">ಬ್ಯಾಕಪ್ ನಿಗದಿಪಡಿಸಲಾಗಿದೆ</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ಡೇಟಾಬೇಸ್ ಅನ್ನು ಎನ್ಕ್ರಿಪ್ಟ್ ಮಾಡಿ. ನೀವು ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ತೆರೆದಾಗ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಲು ನಿಮ್ಮನ್ನು ಕೇಳಲಾಗುತ್ತದೆ. ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಲು ಕ್ಷೇತ್ರವನ್ನು ಖಾಲಿ ಬಿಡಿ.</string>
     <string name="passwordSetupWarning">ನೀವು ನೆನಪಿಡುವ ಪಾಸ್‌ವರ್ಡ್ ಬಳಸಿ, ಪಾಸ್‌ವರ್ಡ್ ಇಲ್ಲದೆ ಡೇಟಾಬೇಸ್ ಮರುಪಡೆಯಲಾಗುವುದಿಲ್ಲ!</string>
     <string name="clearPassword">ಪಾಸ್ವರ್ಡ್ ತೆರವುಗೊಳಿಸಿ</string>
@@ -184,14 +215,18 @@
     <string name="setupBiometricUnlock">ಬಯೋಮೆಟ್ರಿಕ್ ಅನ್‌ಲಾಕ್ ಅನ್ನು ಹೊಂದಿಸಿ</string>
     <string name="passwordsDoNotMatch">ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ</string>
     <string name="biometricsChanged">ಸಾಧನದ ಬಯೋಮೆಟ್ರಿಕ್ಸ್ ಬದಲಾಗಿದೆ. ಅನ್ಲಾಕ್ ಮಾಡಲು ಪಾಸ್ವರ್ಡ್ ಬಳಸಿ.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">ಅನ್‌ಲಾಕ್ ಮಾಡಿ</string>
     <string name="useBiometrics">ಬಯೋಮೆಟ್ರಿಕ್ಸ್ ಬಳಸಿ</string>
     <string name="unlockMessage">ಡೇಟಾಬೇಸ್ ಅನ್‌ಲಾಕ್ ಮಾಡಲು ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ ಅಥವಾ ಬಯೋಮೆಟ್ರಿಕ್ಸ್ ಬಳಸಿ</string>
     <string name="unlockBiometricsMessage">ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಬಳಸಲು ಬಯೋಮೆಟ್ರಿಕ್ಸ್ ಬಳಸಿ</string>
     <string name="passwordIncorrect">ಪಾಸ್‌ವರ್ಡ್ ತಪ್ಪಾಗಿದೆ</string>
     <string name="tooManyAttempts">ಹಲವಾರು ಪ್ರಯತ್ನಗಳು</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳಿಂದ ಆಮದು ಮಾಡಿ</string>
     <string name="importError">ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಲಾಗಲಿಲ್ಲ</string>
     <string name="importIncomplete">ಆಮದು ಅಪೂರ್ಣವಾಗಿದೆ</string>
@@ -210,7 +245,9 @@
     <string name="uriList">URI ಪಟ್ಟಿ</string>
     <string name="uriListHint">otpauth URI ಗಳ ಸರಳ ಪಠ್ಯ ಪಟ್ಟಿ</string>
     <string name="viewGuideImportHint">ಯೋಜನೆಯ ವಿಕಿಯಲ್ಲಿ ಮಾರ್ಗದರ್ಶಿಯನ್ನು ವೀಕ್ಷಿಸಿ</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
     <string name="guideScanQRCodeSummary">ದೃಢೀಕರಣವನ್ನು ಸೇರಿಸಲು, ಅಪ್ಲಿಕೇಶನ್ ಅಥವಾ ಸೇವೆಯಿಂದ ಒದಗಿಸಲಾದ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ಇದನ್ನು ಪಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹೊಸ ಕೋಡ್‌ಗಳನ್ನು ರಚಿಸುತ್ತದೆ. ನೀವು ವಿವರಗಳನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ಕೂಡ ನಮೂದಿಸಬಹುದು.</string>
     <string name="guideUseCodeTitle">ಲಾಗ್ ಇನ್ ಮಾಡುವಾಗ ಕೋಡ್ ಬಳಸಿ</string>
@@ -223,11 +260,15 @@
     <string name="guideBackupSummary">ನೀವು ಸಾಧನವನ್ನು ಬದಲಾಯಿಸಿದರೆ ನಿಮ್ಮ ಖಾತೆಗಳಿಂದ ಲಾಕ್ ಆಗಬೇಡಿ. ಬ್ಯಾಕಪ್ ಫೈಲ್ ಅನ್ನು ರಚಿಸಿ ಮತ್ತು ಅದನ್ನು ಸುರಕ್ಷಿತ ಸ್ಥಳದಲ್ಲಿ ಸಂಗ್ರಹಿಸಿ. ಬ್ಯಾಕಪ್ ಅನ್ನು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಬಹುದು ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್‌ನೊಂದಿಗೆ ರಕ್ಷಿಸಬಹುದು.</string>
     <string name="guideWearOSTitle">Wear OS ಕಂಪ್ಯಾನಿಯನ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="guideWearOSSummary">ನೀವು Wear OS ವಾಚ್ ಹೊಂದಿದ್ದರೆ, ನೀವು ಕಂಪ್ಯಾನಿಯನ್ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಬಹುದು. ನೀವು ನಿಮ್ಮ ಗಡಿಯಾರದಲ್ಲಿ ಕೋಡ್‌ಗಳನ್ನು ನೇರವಾಗಿ ವೀಕ್ಷಿಸಬಹುದು.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ವ್ಯೂಫೈಂಡರ್‌ನಲ್ಲಿ ಇರಿಸಿ. ಕೇಂದ್ರೀಕರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="scanHelpSecondary">ನೆರಳುಗಳು ಮತ್ತು ಪ್ರಜ್ವಲಿಸುವಿಕೆಯನ್ನು ತಪ್ಪಿಸಲು ಪ್ರಯತ್ನಿಸಿ. ಕೋಡ್‌ನಿಂದ ಸಾಧನವನ್ನು ಸರಿಸುಮಾರು 6 ಇಂಚುಗಳು (15 cm) ಹಿಡಿದುಕೊಳ್ಳಿ.</string>
     <string name="toggleFlash">ಫ್ಲ್ಯಾಶ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಿ</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">ಸಾಮಾನ್ಯ</string>
     <string name="prefShowBackupRemindersTitle">ಬ್ಯಾಕಪ್ ರಿಮೈಂಡರ್‌ಗಳು</string>
     <string name="prefShowBackupRemindersSummary">ಪ್ರಮುಖ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿದರೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡಲು ನಿಮಗೆ ಜ್ಞಾಪಿಸುತ್ತದೆ</string>
@@ -273,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">ಸ್ಕ್ರಾಲ್ ಮಾಡುವಾಗ ಸ್ಥಿತಿ ಪಟ್ಟಿಯ ಹಿಂದೆ ಪಟ್ಟಿಯನ್ನು ಗೋಚರಿಸುವಂತೆ ಮಾಡಿ</string>
     <string name="prefSystemFontTitle">ಸಿಸ್ಟಂ ಫಾಂಟ್</string>
     <string name="prefSystemFontSummary">ಕಸ್ಟಮ್ ಫಾಂಟ್ ಬದಲಿಗೆ ಸಿಸ್ಟಮ್ ಡೀಫಾಲ್ಟ್ ಫಾಂಟ್ ಅನ್ನು ಬಳಸಿ</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">ನಕಲು ಎಣಿಕೆಯನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">ಲಾಗ್ ವೀಕ್ಷಿಸಿ</string>
     <string name="noLogFile">ಯಾವುದೇ ಲಾಗ್ ಫೈಲ್ ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="debugLog">ಡೀಬಗ್ ಲಾಗ್</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">ಸಮಯ ಆಧಾರಿತ (TOTP)</string>
     <string name="authTypeCounter">ಕೌಂಟರ್ ಆಧಾರಿತ (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (ಡೀಫಾಲ್ಟ್)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">ತಕ್ಷಣ</string>
     <string name="timeout5Sec">5 ಸೆಕೆಂಡುಗಳು</string>
     <string name="timeout10Sec">10 ಸೆಕೆಂಡುಗಳು</string>
@@ -299,12 +346,17 @@
     <string name="defaultViewMode">ಪೂರ್ವನಿಯೋಜಿತ</string>
     <string name="compactViewMode">ಕಾಂಪ್ಯಾಕ್ಟ್</string>
     <string name="tileViewMode">ಟೈಲ್</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">ಯಾವುದೂ ಇಲ್ಲ</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">ಕೆಂಪು</string>
     <string name="pink">ಗುಲಾಬಿ</string>
     <string name="purple">ನೇರಳೆ</string>
@@ -321,10 +373,12 @@
     <string name="amber">ಅಂಬರ್</string>
     <string name="orange">ಕಿತ್ತಳೆ</string>
     <string name="deepOrange">ಗಾಢ ಕಿತ್ತಳೆ</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Authenticator Pro ಗೆ ಸ್ವಾಗತ</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP ದೃಢೀಕರಣ</string>
-    <string name="introBackupTitle">ಬ್ಯಾಕಪ್ / ಮರುಸ್ಥಾಪನೆ</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">ವರ್ಗಗಳು</string>
     <string name="introThemesTitle">ಡಾರ್ಕ್ ಥೀಮ್</string>
     <string name="introWelcomeSummary">Authenticator Pro ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.\nಉತ್ತಮ ತೆರೆದ ಮೂಲ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ಆನ್‌ಲೈನ್ ಖಾತೆಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ರಕ್ಷಿಸಿ.</string>
