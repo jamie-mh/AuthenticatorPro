@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Avertizare</string>
     <string name="delete">Șterge</string>
     <string name="add">Adaugă</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Ignoră</string>
     <string name="disable">Dezactivează</string>
     <string name="name">Nume</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Setări</string>
     <string name="restore">Restabilește</string>
     <string name="backup">Copie de rezervă</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">Evaluează Authenticator Pro în magazinul Google Play</string>
     <string name="viewGitHub">Vezi pe GitHub</string>
     <string name="viewGitHubSummary">Vezi depozitul Authenticator Pro pe GitHub. Poți raporta o problemă, solicita mai multe pictograme și caracteristici.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Emitent</string>
     <string name="username">Nume de utilizator</string>
     <string name="secretKey">Cheie secretă</string>
     <string name="pin">Fixat</string>
     <string name="showAdvancedOptions">Arată opțiunile avansate</string>
     <string name="advancedOptionsWarning">Schimbă aceste opțiuni doar dacă știi ce faci, poți fi blocat din contul tău.\n\nContinui?</string>
-    <string name="confirmAuthenticatorDelete">Eliminarea acestei autentificări va împiedica generarea codurilor pentru acest cont. Acest lucru nu înseamnă că autentificarea în doi pași este dezactivată.\n\nȘtergerea acestui autentificator poate împiedica accesarea contului.\nAsigură-te că autentificarea în doi pași este dezactivată sau că ai codurile de recuperare.\n\nContinui?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Utilizare pictogramă personalizată</string>
     <string name="copiedToClipboard">Cod copiat în clipboard</string>
     <string name="issuerHint">Emitent (de exemplu: Google)</string>
@@ -76,22 +82,29 @@
     <string name="duplicateAuthenticator">O autentificare cu această cheie secretă există deja</string>
     <string name="scanSuccessful">Codul QR a fost scanat cu succes</string>
     <string name="pinMessage">Introdu codul PIN asociat acestui cod QR</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Pictograme implicite</string>
     <string name="iconPacks">Pachete de pictograme</string>
     <string name="downloadPacks">Descarcă pachete</string>
     <string name="importIconPackSuccess">S-au importat {0} pictograme din pachet</string>
     <string name="invalidIconPackError">Fișierul selectat nu este un pachet de pictograme pentru Authenticator Pro</string>
     <string name="confirmIconPackDelete">Sigur dorești să ștergi acest pachet de pictograme? Orice pictograme folosite nu vor fi șterse.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Vizualizare sursă</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">Cod QR</string>
     <string name="qrCodeHelp">Copiază acest autentificator pe alt dispozitiv sau aplicație prin scanarea codului QR</string>
     <string name="qrCodeNotSupported">Codurile QR nu sunt acceptate pentru acest tip</string>
     <string name="copyUri">Copiere URL</string>
     <string name="copyUriWarning">Acest URL conține o cheie secretă în text simplu. Ai grijă unde lipești aceste informații.\n\nContinui?</string>
     <string name="uriCopiedToClipboard">URL copiat în clipboard</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Creează o copie de rezervă a fișierului criptat (recomandat)</string>
     <string name="backupToFileMessage">Salvează toți autentificatorii, categoriile și pictogramele într-un fișier de backup criptat. Acest fișier poate fi restaurat în aplicație.</string>
     <string name="backupHtml">Creează o copie de rezervă într-un fișier HTML</string>
@@ -100,7 +113,9 @@
     <string name="backupUriList">Creează o copie de rezervă într-un fișier URI</string>
     <string name="backupUriListMessage">Salvează autentificatoarele într-un fișier necriptat cu listă URI de text simplu. Acest fișier este compatibil cu multe aplicații și servicii alternative. Categoriile și pictogramele nu sunt salvate.</string>
     <string name="backupUriListWarning">Copiile de rezervă ale fișierelor cu text simplu sunt necriptate și pot lăsa cheile secrete vulnerabile.\n\nAcest fișier nu conține categorii și pictograme. Dacă nu ești sigur, optează pentru o copie de rezervă a fișierelor criptate.\n\nContinui?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Nimic aici!</string>
     <string name="noAuthenticatorsMessage">Nu ai niciun autentificator aici</string>
     <string name="gettingStartedGuide">Ghidul începătorului</string>
@@ -109,7 +124,9 @@
     <string name="noCategoriesMessage">Încă nu ai nicio categorie configurată</string>
     <string name="noIconPacksTitle">Niciun pachet de pictograme</string>
     <string name="noIconPacksMessage">Încă nu ai niciun pachet de pictograme configurat</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Categorie</string>
     <string name="categories">Categorii</string>
     <string name="assignCategories">Asignează categorii</string>
@@ -120,12 +137,16 @@
     <string name="noCategoryName">Este necesar un nume de categorie</string>
     <string name="duplicateCategory">O categorie cu acest nume există deja</string>
     <string name="confirmCategoryDelete">Ești sigur că dorești să ștergi această categorie?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Setează ca implicit</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Ștergere valoarea implicită</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Creează o copie de rezervă acum</string>
     <string name="restoreNow">Restaurează acum</string>
-    <string name="backupReminder">Au fost făcute modificări de la ultima copie de rezervă</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">Introdu o parolă pentru a cripta în siguranță fișierul de rezervă. Dacă nu dorești să protejezi fișierul cu parolă, lasă câmpul necompletat.</string>
     <string name="password">Parolă</string>
     <string name="passwordConfirm">Confirmarea parolei</string>
@@ -138,7 +159,9 @@
     <string name="restoredFromBackup">Au fost restaurate {0} noi autentificatoare și {1} noi categorii</string>
     <string name="restoredFromBackupUpdated">Au fost restaurate {0} noi autentificatoare și {1} noi categorii. S-au actualizat {2} autentificatori existenți.</string>
     <string name="restoredNothing">Nimic de restaurat</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
     <string name="restoreFormatError">Copia de rezervă nu a putut fi restaurată</string>
     <string name="restorePasswordError">Parola este incorectă</string>
     <string name="cameraPermissionError">Permisiunea de accesare a camerei trebuie acordată pentru a scana un cod QR</string>
@@ -149,23 +172,29 @@
     <string name="webBrowserMissing">Niciun browser web instalat</string>
     <string name="emailClientMissing">Nu este instalat niciun client de e-mail</string>
     <string name="genericError">A aparut o eroare</string>
-    <string name="databaseError">A apărut o eroare la deschiderea bazei de date. Încearcă să lansezi din nou aplicația. Dacă problema persistă, șterge datele aplicației și restaurează cea mai recentă copie de rezervă.\n\nCa alternativă, poți trimite un raport de eroare.</string>
     <string name="viewErrorLog">Vizualizează jurnalul de erori</string>
     <string name="autoTimeWarningTitle">Sincronizarea timpului a fost dezactivată</string>
     <string name="autoTimeWarningMessage">Dispozitivul are ora automată dezactivată. Autentificarea în doi pași necesită un ceas precis pentru a genera coduri.\n\nActivează sincronizarea automată a orei în setările dispozitivului pentru a te asigura că codurile generate sunt întotdeauna valide.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">A apărut o eroare nerezolvată în cadrul aplicației. Detalii despre eroare sunt mai jos:</string>
     <string name="report">Raportează</string>
     <string name="email">E-mail</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Raportează prin</string>
     <string name="errorCopiedToClipboard">Eroare copiată în clipboard</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Selectează o locație și o parolă pentru copii de rezervă automate. Copiile de rezervă sunt programate atunci când se fac modificări. Stocarea în cloud nu este acceptată, utilizează meniul de rezervă.</string>
     <string name="selectLocation">Selectează locația</string>
     <string name="noLocationSelected">Nicio locație selectată</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Locația setată la \'{0}\'</string>
     <string name="setPassword">Setează parola</string>
     <string name="passwordNotSet">Parola nu a fost setată</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Parola a fost setată</string>
     <string name="notPasswordProtected">Nu este protejat prin parolă</string>
     <string name="enableAutoBackup">Activează crearea automată a copiilor de rezervă</string>
@@ -176,7 +205,9 @@
     <string name="autoBackupFailureText">Cea mai recentă copie de rezervă automată nu s-a finalizat. Este posibil ca permisiunile pentru fișiere să fi expirat, încearcă să setezi din nou locația de rezervă în setările pentru copia de rezervă automată.</string>
     <string name="autoBackupSuccessTitle">Copia de rezervă automată finalizată</string>
     <string name="backupScheduled">Copie de rezervă programată</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Criptează baza de date cu o parolă. Ți se va solicita parola când deschizi aplicația. Lasă câmpul necompletat pentru a șterge parola.</string>
     <string name="passwordSetupWarning">Folosește o parolă pe care să ți-o amintești, baza de date este irecuperabilă fără ea!</string>
     <string name="clearPassword">Șterge parola</string>
@@ -184,14 +215,18 @@
     <string name="setupBiometricUnlock">Configurează deblocarea biometrică</string>
     <string name="passwordsDoNotMatch">Parolele nu coincid</string>
     <string name="biometricsChanged">Datele biometrice ale dispozitivului s-au schimbat. Utilizează parola pentru a debloca.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Deblocare</string>
     <string name="useBiometrics">Utilizează datele biometrice</string>
     <string name="unlockMessage">Introdu parola sau utilizează datele biometrice pentru a debloca baza de date</string>
     <string name="unlockBiometricsMessage">Utilizează datele biometrice pentru a accesa autentificatoarele</string>
     <string name="passwordIncorrect">Parola este incorectă</string>
     <string name="tooManyAttempts">Prea multe încercări</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Importă din alte aplicații</string>
     <string name="importError">Fișierul nu a putut fi importat</string>
     <string name="importIncomplete">Importare incompletă</string>
@@ -210,7 +245,9 @@
     <string name="uriList">Lista de adrese URI</string>
     <string name="uriListHint">Listă text simplu a URI-urilor otpauth</string>
     <string name="viewGuideImportHint">Viezi ghidul pe wiki-ul proiectului</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Scanează un cod QR</string>
     <string name="guideScanQRCodeSummary">Pentru a adăuga un autentificator, scanează codul QR furnizat de aplicație sau serviciu. Acesta va fi adăugat în listă și va genera automat coduri noi. De asemenea, poți introduce detaliile manual.</string>
     <string name="guideUseCodeTitle">Utilizează codul când te conectezi</string>
@@ -223,11 +260,15 @@
     <string name="guideBackupSummary">Nu bloca conturile dacă schimbi dispozitivul. Creează un fișier de rezervă și stochează-l într-un loc sigur. O copie de rezervă poate fi restaurată în orice moment și protejată cu o parolă.</string>
     <string name="guideWearOSTitle">Descarcă însoțitorul Wear OS</string>
     <string name="guideWearOSSummary">Dacă ai un ceas Wear OS, poți descărca aplicația de companion. Poți vedea codurile direct pe ceas.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Pune codul QR în vizualizator pentru a-l scana. Atinge pentru a focaliza.</string>
     <string name="scanHelpSecondary">Încearcă să eviți umbrele și strălucirea. Ține dispozitivul la aproximativ 6 inchi (15 cm) depărtare de cod.</string>
     <string name="toggleFlash">Comută blițul</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Reamintire pentru copiile de rezervă</string>
     <string name="prefShowBackupRemindersSummary">Îți reamintește să faci o copie de rezervă a autentificatoarelor dacă se fac modificări importante</string>
@@ -273,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Face lista vizibilă în spatele barei de stare la derulare</string>
     <string name="prefSystemFontTitle">Font de sistem</string>
     <string name="prefSystemFontSummary">Utilizează fontul implicit al sistemului în loc de un font personalizat</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Resetarea numărului de copii</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">Vizualizați jurnal</string>
     <string name="noLogFile">Niciun fișier jurnal disponibil</string>
     <string name="debugLog">Jurnal depanare</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">Bazat pe timp (TOTP)</string>
     <string name="authTypeCounter">Bazat pe contor (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (implicit)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Imediat</string>
     <string name="timeout5Sec">5 secunde</string>
     <string name="timeout10Sec">10 secunde</string>
@@ -299,12 +346,17 @@
     <string name="defaultViewMode">Implicit</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Dală</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">Niciunul</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Roșu</string>
     <string name="pink">Roz</string>
     <string name="purple">Mov</string>
@@ -321,10 +373,12 @@
     <string name="amber">Chihlimbar</string>
     <string name="orange">Portocaliu</string>
     <string name="deepOrange">Portocaliu închis</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Bun venit la Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Autentificare TOTP / HOTP / mOTP</string>
-    <string name="introBackupTitle">Copie de rezervă / Restaurare</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">Categorii</string>
     <string name="introThemesTitle">Temă întunecată</string>
     <string name="introWelcomeSummary">Îți mulțumim pentru descărcarea Authenticator Pro.\nPăstrează conturile online în siguranță și protejate cu cea mai bună aplicație de autentificare open-source.</string>
