@@ -58,7 +58,7 @@
     <string name="showAdvancedOptions">Zobrazit pokročilé možnosti</string>
     <string name="advancedOptionsWarning">Tato nastavení měňte pouze pokud víte, co děláte. Mohli byste přijít o přístup k vašim účtům.\n
 \nPokračovat?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Odstranění tohoto autentifikátoru vám zabrání generovat kódy pro tento účet. Neznamená to, že je dvoufaktorové ověřování zakázáno.\n\nSmazání tohoto autentifikátoru vám může zabránit v přístupu k vašemu účtu.\nUjistěte se, že je dvoufázové ověřování zakázáno, nebo máte uložené obnovovací kódy.\n\nPokračovat?</string>
     <string name="useCustomIcon">Použít vlastní ikonu</string>
     <string name="copiedToClipboard">Kód zkopírován do schránky</string>
     <string name="issuerHint">Vydavatel (např. Google)</string>
@@ -147,7 +147,7 @@
     -->
     <string name="backupNow">Zálohovat nyní</string>
     <string name="restoreNow">Obnovit nyní</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Od vaší poslední zálohy došlo ke změnám</string>
     <string name="backupPasswordMessage">Zadejte heslo pro bezpečné zašifrování záložního souboru. Pokud nechcete soubor chránit heslem, nechte pole prázdné.</string>
     <string name="password">Heslo</string>
     <string name="passwordConfirm">Potvrzení hesla</string>
@@ -164,7 +164,6 @@
         Errors
     -->
     <string name="restoreFormatError">Záloha nemohla být obnovena</string>
-    <string name="restorePasswordError">Heslo je nesprávné</string>
     <string name="cameraPermissionError">Musí být povoleno oprávnění k fotoaparátu, aby bylo možné naskenovat QR kód</string>
     <string name="googlePlayNotInstalledError">Google Play není v zařízení nainstalován</string>
     <string name="filePickerMissing">Nelze otevřít správce souborů. Správce souborů musí být nainstalován.</string>
@@ -378,8 +377,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Vítejte v Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Dvoufaktorové Ověřování</string>
+    <string name="introBackupTitle">Zálohování a Obnovení</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Tmavý motiv</string>
     <string name="introWelcomeSummary">Děkujeme, že jste si stáhli Authenticator Pro.\nUchovávejte své účty v bezpečí a chráněte je pomocí nejlepší open-source ověřovací aplikace.</string>
