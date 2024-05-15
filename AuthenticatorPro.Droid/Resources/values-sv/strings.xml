@@ -57,7 +57,7 @@
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
     <string name="advancedOptionsWarning">Ändra bara de här alternativen om du vet vad du gör. Du kan bli utelåst från ditt konto.\n\nVill du fortsätta?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Om du raderar kontot kommer du inte längre kunna få koder för det. Tvåfaktorsautentisering stängs dock inte av.\n\nGenom att radera kontot från Authenticator Pro kan du bli utelåst från kontot.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Säkerhetshopiera nu</string>
     <string name="restoreNow">Återställ nu</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Det har gjorts ändringar sedan din senaste säkerhetskopia</string>
     <string name="backupPasswordMessage">Ange ett lösenord för att kryptera din säkerhetskopia. Om du inte vill lösenordsskydda filen, lämna lösenordet tomt.</string>
     <string name="password">Lösenord</string>
     <string name="passwordConfirm">Bekräfta lösenord</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Behörighet till kameran behövs för att skanna QR-koder</string>
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Välkommen till Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Tvåfaktorsautentisering</string>
+    <string name="introBackupTitle">Säkerhetskopiera och återställ</string>
     <string name="introCategoriesTitle">Kategorier</string>
     <string name="introThemesTitle">Mörkt tema</string>
     <string name="introWelcomeSummary">Tack för att du laddade ner Authenticator Pro.\nSkydda dina onlinekonton med den bästa autentiseringsappen med öppen källkod.</string>
