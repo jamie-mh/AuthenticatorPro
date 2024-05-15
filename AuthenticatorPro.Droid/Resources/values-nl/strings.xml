@@ -57,7 +57,7 @@
     <string name="pin">Vastzetten</string>
     <string name="showAdvancedOptions">Toon geadvanceerde opties</string>
     <string name="advancedOptionsWarning">Pas deze opties alleen aan als je weet wat je aan het doen bent, je kan uit je account worden buitengesloten.\n\nDoorgaan?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Als je deze authenticator verwijdert, kun je geen codes genereren voor dit account. Dit betekent niet dat authenticatie in twee stappen uitgeschakeld wordt.\n\nAls u deze authenticator verwijdert, kunt u mogelijk geen toegang meer krijgen tot uw account.\nControleer of tweestapsverificatie is uitgeschakeld of dat u de herstelcodes heeft.\n\nDoorgaan?</string>
     <string name="useCustomIcon">Gebruik aangepast icoon</string>
     <string name="copiedToClipboard">Code gekopieerd naar klembord</string>
     <string name="issuerHint">Naam (bijv. Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Nu een back-up maken</string>
     <string name="restoreNow">Nu herstellen</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Er zijn wijzigingen aangebracht sinds je laatste back-up</string>
     <string name="backupPasswordMessage">Voer een wachtwoord in om uw back-upbestand veilig te versleutelen. Laat het wachtwoord leeg als u het bestand niet wilt beveiligen.</string>
     <string name="password">Wachtwoord</string>
     <string name="passwordConfirm">Bevestig wachtwoord</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">De camera permissie moet verleend worden om een QR-code te kunnen scannen</string>
     <string name="googlePlayNotInstalledError">Google Play is niet geïnstalleerd op uw apparaat</string>
     <string name="filePickerMissing">Kan de bestandskiezer niet openen. Een bestandsbeheerder moet worden geïnstalleerd.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Welkom bij Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Twee-factor Authenticatie</string>
+    <string name="introBackupTitle">Back-up en Herstellen</string>
     <string name="introCategoriesTitle">Categorieën</string>
     <string name="introThemesTitle">Donker thema</string>
     <string name="introWelcomeSummary">Bedankt voor het downloaden van Authenticator Pro.\nHoud je online accounts veilig en beveiligd met de beste open-source authenticatie-app.</string>
