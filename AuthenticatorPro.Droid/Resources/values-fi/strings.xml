@@ -57,7 +57,7 @@
     <string name="pin">PIN-koodi</string>
     <string name="showAdvancedOptions">Näytä lisäasetukset</string>
     <string name="advancedOptionsWarning">Muuta näitä vaihtoehtoja vain, jos tiedät mitä olet tekemässä, voit olla lukittu pois tililtäsi.\n\nJatketaanko?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Todentajan poistaminen estää koodien luomisen tälle tilille. Tämä ei tarkoita, että kaksivaiheinen tunnistus on poistettu käytöstä.\n\nTodentajan poistaminen saattaa estää sinua pääsemästä tilillesi.\nVarmista, että olet ottanut kaksivaiheisen todennuksen pois käytöstä, tai että sinulla on palautuskoodit.\n\nJatketaanko?</string>
     <string name="useCustomIcon">Käytä mukautettua kuvaketta</string>
     <string name="copiedToClipboard">Koodi kopioitiin leikepöydälle</string>
     <string name="issuerHint">Myöntäjä (esim. Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Varmuuskopioi nyt</string>
     <string name="restoreNow">Palauta nyt</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
     <string name="password">Salasana</string>
     <string name="passwordConfirm">Vahvista salasana</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">Kameran käyttöoikeus on myönnettävä, jotta QR-koodi voidaan skannata</string>
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Tiedostoja ei voida valita. Tiedostonhallintasovellus on asennettava.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Tervetuloa Authenticator Pro:hon</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Kaksivaiheinen Todennus</string>
+    <string name="introBackupTitle">Varmuuskopiointi ja palautus</string>
     <string name="introCategoriesTitle">Kategoriat</string>
     <string name="introThemesTitle">Tumma teema</string>
     <string name="introWelcomeSummary">Kiitos kun latasit Authenticator Pron.\nPidä online-tilisi turvassa ja suojattuna parhaalla avoimen lähdekoodin todennussovelluksella.</string>
