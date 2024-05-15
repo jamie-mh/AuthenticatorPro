@@ -57,7 +57,7 @@
     <string name="pin">ಪಿನ್</string>
     <string name="showAdvancedOptions">ಸುಧಾರಿತ ಆಯ್ಕೆಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="advancedOptionsWarning">ನೀವು ಏನು ಮಾಡುತ್ತಿದ್ದೀರಿ ಎಂದು ನಿಮಗೆ ತಿಳಿದಿದ್ದರೆ ಮಾತ್ರ ಈ ಆಯ್ಕೆಗಳನ್ನು ಬದಲಿಸಿ, ನಿಮ್ಮ ಖಾತೆಯಿಂದ ನೀವು ಲಾಕ್ ಔಟ್ ಆಗಬಹುದು.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">ಈ ದೃಢೀಕರಣವನ್ನು ತೆಗೆದುಹಾಕುವುದರಿಂದ ಈ ಖಾತೆಗೆ ಕೋಡ್‌ಗಳನ್ನು ರಚಿಸುವುದರಿಂದ ನಿಮ್ಮನ್ನು ತಡೆಯುತ್ತದೆ. ಎರಡು ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ ಎಂದು ಇದರ ಅರ್ಥವಲ್ಲ.\n\nಈ ದೃಢೀಕರಣವನ್ನು ಅಳಿಸುವುದರಿಂದ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಪ್ರವೇಶಿಸುವುದನ್ನು ತಡೆಯಬಹುದು.\nದಯವಿಟ್ಟು ಎರಡು ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆಯೇ ಅಥವಾ ನೀವು ಮರುಪಡೆಯುವಿಕೆ ಕೋಡ್‌ಗಳನ್ನು ಹೊಂದಿರುವಿರಾ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
     <string name="useCustomIcon">ವೈಯಕ್ತಿಕ ಐಕಾನ್ ಅನ್ನು ಬಳಸಿ</string>
     <string name="copiedToClipboard">ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಕೋಡ್ ಅನ್ನು ನಕಲಿಸಲಾಗಿದೆ</string>
     <string name="issuerHint">ವಿತರಕರು (ಉದಾ: ಗೂಗಲ್)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">ಈಗಲೇ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
     <string name="restoreNow">ಈಗಲೇ ಮರುಸ್ಥಾಪಿಸಿ</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">ನೀವು ಕಳೆದ ಬಾರಿ ಬ್ಯಾಕಪ್ ಮಾಡಿದಾಗಿನಿಂದ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲಾಗಿದೆ</string>
     <string name="backupPasswordMessage">ನಿಮ್ಮ ಬ್ಯಾಕಪ್ ಫೈಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ. ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ಫೈಲ್ ಅನ್ನು ರಕ್ಷಿಸಲು ನೀವು ಬಯಸದಿದ್ದರೆ, ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಖಾಲಿ ಬಿಡಿ.</string>
     <string name="password">ಪಾಸ್ವರ್ಡ್</string>
     <string name="passwordConfirm">ಪಾಸ್ವರ್ಡ್ ದೃಢೀಕರಿಸಿ</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಕ್ಯಾಮರಾ ಅನುಮತಿಯನ್ನು ನೀಡಬೇಕು</string>
     <string name="googlePlayNotInstalledError">ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ Google Play ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="filePickerMissing">ಫೈಲ್ ಪಿಕರ್ ಅನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ. ಫೈಲ್ ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಸ್ಥಾಪಿಸಬೇಕು.</string>
