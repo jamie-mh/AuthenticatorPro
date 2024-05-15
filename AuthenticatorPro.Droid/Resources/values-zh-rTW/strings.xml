@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">警告</string>
     <string name="delete">刪除</string>
     <string name="add">新增</string>
@@ -15,7 +17,9 @@
     <string name="ignore">忽略</string>
     <string name="disable">禁用</string>
     <string name="name">名稱</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">設定</string>
     <string name="restore">還原</string>
     <string name="backup">備份</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">在 Google Play 商店上為 Authenticator Pro 評分</string>
     <string name="viewGitHub">在 GitHub 上查看</string>
     <string name="viewGitHubSummary">前往 Authenticator Pro 在 GitHub 上的存儲庫。你可以回報問題、請求更多圖示及功能。</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">發行者</string>
     <string name="username">使用者名稱</string>
     <string name="secretKey">密鑰</string>
     <string name="pin">識別碼</string>
     <string name="showAdvancedOptions">顯示進階選項</string>
     <string name="advancedOptionsWarning">僅當您知道自己在做什麼時才更改這些選項，否則您可能會被鎖定在您的帳戶之外。\n\n是否繼續？</string>
-    <string name="confirmAuthenticatorDelete">移除這個驗證器將導致你無法再生成該賬戶的驗證碼，且該賬戶的雙重認證并不會隨之移除。\n\n移除此驗證碼可能會導致你無法再登入該賬戶。\n請確保你已經移除了該賬戶的雙重認證或持有備份安全碼。\n\n確認移除嗎？</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">使用自訂圖示</string>
     <string name="copiedToClipboard">驗證碼已複製至剪貼簿</string>
     <string name="issuerHint">發行者（例：Google）</string>
@@ -76,22 +82,29 @@
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
     <string name="pinMessage">輸入與此二維碼關聯的 PIN 碼</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">預設圖示</string>
     <string name="iconPacks">圖示包</string>
     <string name="downloadPacks">下載圖示包</string>
     <string name="importIconPackSuccess">從圖示包中導入了 {0} 個圖示</string>
     <string name="invalidIconPackError">所選檔案不是 Authenticator Pro 圖示包</string>
     <string name="confirmIconPackDelete">您確定要刪除此圖示包嗎？任何使用過的圖示都不會被刪除。</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">檢視原始碼</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">二維碼</string>
     <string name="qrCodeHelp">通過掃描此二維碼以將此驗證器複製至另一個裝置或應用</string>
     <string name="qrCodeNotSupported">此類型的二維碼尚未被支持</string>
     <string name="copyUri">複製 URI</string>
     <string name="copyUriWarning">此 URI 包含純文字形式的密鑰，請注意貼上此資訊的位置。\n\n是否繼續？</string>
     <string name="uriCopiedToClipboard">URI 已複製至剪貼簿</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">備份至加密檔案（推薦）</string>
     <string name="backupToFileMessage">這將會把所有的驗證器、分類及圖示保存至一個加密的備份檔案中。你可以通過該文件恢復備份。</string>
     <string name="backupHtml">備份至 HTML 檔案</string>
@@ -100,7 +113,9 @@
     <string name="backupUriList">備份至 URI 列表檔案</string>
     <string name="backupUriListMessage">這將會把所有的驗證器保存至一個未加密的 URI 列表純文字檔案。此檔案與許多其他應用和服務兼容。分類和圖示并不包括在内。</string>
     <string name="backupUriListWarning">保存至純文字檔案時將不會進行加密，這表示你的密鑰將會被明文暴露。\n\n你也無法直接透過本應用恢復備份，且分類和圖示并不包含在内。除非你確定要這麽做，否則請使用加密檔案備份。\n\n確認繼續嗎？</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">這沒有東西！</string>
     <string name="noAuthenticatorsMessage">你尚未擁有驗證器</string>
     <string name="gettingStartedGuide">入門指南</string>
@@ -109,7 +124,9 @@
     <string name="noCategoriesMessage">你還沒有設置任何分類</string>
     <string name="noIconPacksTitle">沒有圖示包</string>
     <string name="noIconPacksMessage">您還沒有設置任何圖示包</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">分類</string>
     <string name="categories">分類</string>
     <string name="assignCategories">指定分類</string>
@@ -120,12 +137,16 @@
     <string name="noCategoryName">請輸入分類名稱</string>
     <string name="duplicateCategory">已存在同名分類</string>
     <string name="confirmCategoryDelete">確認刪除此分類嗎？</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">設爲預設值</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">清除預設值</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">立即備份</string>
     <string name="restoreNow">立即還原</string>
-    <string name="backupReminder">自上次備份後出現了新的變更。</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">請輸入用於安全加密備份檔案的密碼。如果您不需要使用密碼保護備份檔案，請將密碼欄留空。</string>
     <string name="password">密碼</string>
     <string name="passwordConfirm">確認密碼</string>
@@ -138,9 +159,11 @@
     <string name="restoredFromBackup">已還原 {0} 個新驗證器和 {1} 個新分類。</string>
     <string name="restoredFromBackupUpdated">已還原 {0} 個新驗證器和 {1} 個新分類。更新了 {2} 個已有的驗證器。</string>
     <string name="restoredNothing">沒有可以還原的內容。</string>
-    <!-- Errors -->
-    <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">無法恢復備份</string>
+    <string name="restorePasswordError">密碼錯誤</string>
     <string name="cameraPermissionError">必須授予相機使用權才能掃描 QR Code。</string>
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
     <string name="filePickerMissing">無法顯示檔案選擇介面。請安裝檔案管理器。</string>
@@ -149,23 +172,29 @@
     <string name="webBrowserMissing">沒有檢測到已安裝的瀏覽器。</string>
     <string name="emailClientMissing">未安裝電子郵件客戶端</string>
     <string name="genericError">出現錯誤。</string>
-    <string name="databaseError">開啟資料庫時發生錯誤。請嘗試重新啟動應用程式。 如果問題仍然存在，清除應用資料並還原您的最新備份。\n\n或者您可以提交錯誤報告。</string>
     <string name="viewErrorLog">檢視錯誤日誌</string>
     <string name="autoTimeWarningTitle">自動同步時間已停用</string>
     <string name="autoTimeWarningMessage">您的裝置已停用自動同步時間功能。 雙重身份驗證需要準確的時間來產生程式碼。 \n\n請在您的裝置設定中啟用自動同步時間，以確保產生的驗證碼始終有效。</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">應用程式中發生未處理的錯誤。該錯誤的詳細資訊如下：</string>
     <string name="report">反饋</string>
     <string name="email">郵箱</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">反饋方式</string>
     <string name="errorCopiedToClipboard">錯誤已複製到剪貼簿</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">選擇自動備份的位置和密碼。當發生更改時將自動進行備份。不支援雲端儲存，請使用備份選單。</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">未選擇位置</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">位置被設定為 \'{0}\'</string>
     <string name="setPassword">Set Password</string>
     <string name="passwordNotSet">未設定密碼</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">密碼已設定</string>
     <string name="notPasswordProtected">未受密碼保護</string>
     <string name="enableAutoBackup">啟用自動備份</string>
@@ -176,7 +205,9 @@
     <string name="autoBackupFailureText">最近的自動備份未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
     <string name="autoBackupSuccessTitle">自動備份完成</string>
     <string name="backupScheduled">已觸發自動備份</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">使用密碼對資料庫進行加密。當您開啟應用程式時，應用將提示您輸入密碼。 將該欄位留空以清除密碼。</string>
     <string name="passwordSetupWarning">使用您可以記住的密碼，沒有它，資料庫將無法還原！</string>
     <string name="clearPassword">清除密碼</string>
@@ -184,14 +215,18 @@
     <string name="setupBiometricUnlock">設定生物識別解鎖</string>
     <string name="passwordsDoNotMatch">密碼不匹配</string>
     <string name="biometricsChanged">裝置指紋已改變，輸入密碼以解鎖</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">解鎖</string>
     <string name="useBiometrics">使用生物識別</string>
     <string name="unlockMessage">輸入您的密碼或使用生物識別來解鎖資料庫</string>
     <string name="unlockBiometricsMessage">使用生物識別上鎖您的身份驗證器</string>
     <string name="passwordIncorrect">密碼不正確</string>
     <string name="tooManyAttempts">嘗試次數過多</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">從其他應用匯入</string>
     <string name="importError">無法匯入這個檔案。</string>
     <string name="importIncomplete">匯入不完整</string>
@@ -202,7 +237,7 @@
     <string name="freeOtpPlusImportHint">匯入 freeotp-backup.json 檔案</string>
     <string name="aegisImportHint">匯入 aegis-export.json 檔案</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">匯入 ente-auth-codes.txt 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 或 winauth.zip 檔案</string>
     <string name="twoFasImportHint">匯入 2fas-backup.2fas 檔案</string>
     <string name="lastPassAuthenticatorImportHint">匯入 LastPassAuthenticator.json 檔案</string>
@@ -210,7 +245,9 @@
     <string name="uriList">URI 列表</string>
     <string name="uriListHint">純文字的 otpauth URI列表</string>
     <string name="viewGuideImportHint">在專案 wiki 上檢視教程</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">掃描 QR Code</string>
     <string name="guideScanQRCodeSummary">掃描應用或服務提供的 QR Code 來新增驗證器。驗證器會出現在列表中，並自動生成新的驗證碼。您也可以手動輸入詳細資訊。</string>
     <string name="guideUseCodeTitle">使用驗證碼登入</string>
@@ -223,11 +260,15 @@
     <string name="guideBackupSummary">即便您更換了裝置，也不會無法登入帳號。您可以建立一個備份檔案，並將其儲存在安全的位置。您還可以隨時還原備份，也可以使用密碼加密備份。</string>
     <string name="guideWearOSTitle">下載配套的 Wear OS 應用</string>
     <string name="guideWearOSSummary">如果您有執行 Wear OS 的手錶，您可以下載配套的應用。您可以直接在您的手錶上檢視驗證碼。</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">將 QR code 放在畫面中進行掃描，點擊可以對焦。</string>
     <string name="scanHelpSecondary">為了避免陰影和玻璃效果。按住裝置將其移到距離程式碼大約15釐米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切換閃光燈</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">常規​​​​​</string>
     <string name="prefShowBackupRemindersTitle">顯示備份提醒</string>
     <string name="prefShowBackupRemindersSummary">在您做出重要更改後，自動提醒您備份驗證器。</string>
@@ -273,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">滾動時在狀態列後面顯示列表</string>
     <string name="prefSystemFontTitle">系統字體</string>
     <string name="prefSystemFontSummary">使用系統預設字體而非自定義字體</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">已重設複製次數</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">查看記錄</string>
     <string name="noLogFile">無可用記錄</string>
     <string name="debugLog">除錯紀錄</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">基於時間 (TOTP)</string>
     <string name="authTypeCounter">基於計數器 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (預設)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">立即</string>
     <string name="timeout5Sec">5 秒</string>
     <string name="timeout10Sec">10 秒</string>
@@ -299,12 +346,17 @@
     <string name="defaultViewMode">預設</string>
     <string name="compactViewMode">緊湊</string>
     <string name="tileViewMode">平鋪</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">無</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">紅色</string>
     <string name="pink">粉紅</string>
     <string name="purple">紫色</string>
@@ -321,10 +373,12 @@
     <string name="amber">橙黃色</string>
     <string name="orange">橘色</string>
     <string name="deepOrange">深橘色</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">歡迎使用 Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP 身份驗證</string>
-    <string name="introBackupTitle">備份 / 還原</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">分類</string>
     <string name="introThemesTitle">深色主題</string>
     <string name="introWelcomeSummary">感謝您下載 Authenticator Pro。\n作為最好的開源身份驗證器應用，我們將為您的線上帳戶保駕護航。</string>
