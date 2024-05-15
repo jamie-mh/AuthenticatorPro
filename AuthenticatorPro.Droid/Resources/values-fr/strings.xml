@@ -57,7 +57,7 @@
     <string name="pin">Code Pin</string>
     <string name="showAdvancedOptions">Afficher les options avancées</string>
     <string name="advancedOptionsWarning">Ne changez ces options que si vous avez bonne connaissance de ce que vous faites, vous pouvez perdre l\'accès à votre compte.\n\nContinuer ?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">La suppression de cet authentificateur vous empêchera de générer des codes pour ce compte.\nCela ne signifie pas que l\'authentification à deux facteurs est désactivée.\n\nLa suppression de cet authentificateur pourrait vous empêcher d\'accéder à votre compte.\nVeillez à ce que l\'authentification en 2 étapes soit désactivée ou que vous disposez des codes de récupération.\n\nContinuer ?</string>
     <string name="useCustomIcon">Utiliser une icône personnalisée</string>
     <string name="copiedToClipboard">Code copié dans le presse-papiers</string>
     <string name="issuerHint">Émetteur (ex: Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">Sauvegarder maintenant</string>
     <string name="restoreNow">Restaurer maintenant</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne souhaitez pas mettre de mot de passe, laissez le champ vide.</string>
     <string name="password">Mot de passe</string>
     <string name="passwordConfirm">Confirmer le mot de passe</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">La sauvegarde n\'a pas pu être restaurée</string>
-    <string name="restorePasswordError">Le mot de passe est incorrect</string>
     <string name="cameraPermissionError">L\'autorisation d\'accéder à la caméra doit être approuvée pour pouvoir scanner un QR code</string>
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Bienvenue dans Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">Authentification en deux étapes</string>
+    <string name="introBackupTitle">Sauvegarde et Restauration</string>
     <string name="introCategoriesTitle">Catégories</string>
     <string name="introThemesTitle">Thème Sombre</string>
     <string name="introWelcomeSummary">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
