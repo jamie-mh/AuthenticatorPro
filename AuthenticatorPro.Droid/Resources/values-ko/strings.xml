@@ -57,7 +57,7 @@
     <string name="pin">PIN</string>
     <string name="showAdvancedOptions">고급 설정 표시</string>
     <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">인증기를 제거하면 계정의 코드를 생성하지 못하게 됩니다. 하지만 2단계 인증이 꺼진다는 것은 아닙니다.\n\n인증기를 제거하는 경우 계정에 접근하지 못하게 될 수 있습니다.\n2단계 인증을 먼저 끄거나 계정 복구 코드를 마련해두시기 바랍니다.\n\n계속 진행하시겠습니까?</string>
     <string name="useCustomIcon">사용자 지정 아이콘 사용</string>
     <string name="copiedToClipboard">코드를 클립보드에 복사했습니다</string>
     <string name="issuerHint">발급처 (예: Google)</string>
@@ -146,7 +146,7 @@
     -->
     <string name="backupNow">지금 백업</string>
     <string name="restoreNow">지금 복원</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
     <string name="password">비밀번호</string>
     <string name="passwordConfirm">비밀번호 확인</string>
@@ -163,7 +163,6 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
     <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
@@ -377,8 +376,8 @@
         Arrays / Intro
     -->
     <string name="introWelcomeTitle">Authenticator Pro 사용을 환영합니다</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCompatibilityTitle">2단계 인증</string>
+    <string name="introBackupTitle">백업 및 복원</string>
     <string name="introCategoriesTitle">분류</string>
     <string name="introThemesTitle">어두운 테마</string>
     <string name="introWelcomeSummary">Authenticator Pro를 다운로드해주셔서 감사드립니다.\n최고의 오픈 소스 인증 앱으로 온라인 계정을 보호하세요.</string>
