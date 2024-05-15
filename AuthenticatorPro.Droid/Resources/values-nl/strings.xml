@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Waarschuwing</string>
     <string name="delete">Verwijderen</string>
     <string name="add">Toevoegen</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Negeren</string>
     <string name="disable">Uitschakelen</string>
     <string name="name">Naam</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Instellingen</string>
     <string name="restore">Herstellen</string>
     <string name="backup">Back-up maken</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">Beoordeel Authenticator Pro in de Google Play Store</string>
     <string name="viewGitHub">Bekijk op GitHub</string>
     <string name="viewGitHubSummary">Bekijk de Authenticator Pro repository op GitHub. U kunt een probleem melden en een verzoek indienen om meer iconen en functies toe te voegen.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Naam</string>
     <string name="username">Gebruikersnaam</string>
     <string name="secretKey">Geheime sleutel</string>
     <string name="pin">Vastzetten</string>
     <string name="showAdvancedOptions">Toon geadvanceerde opties</string>
     <string name="advancedOptionsWarning">Pas deze opties alleen aan als je weet wat je aan het doen bent, je kan uit je account worden buitengesloten.\n\nDoorgaan?</string>
-    <string name="confirmAuthenticatorDelete">Als je deze authenticator verwijdert, kun je geen codes genereren voor dit account. Dit betekent niet dat authenticatie in twee stappen uitgeschakeld wordt.\n\nAls u deze authenticator verwijdert, kunt u mogelijk geen toegang meer krijgen tot uw account.\nControleer of tweestapsverificatie is uitgeschakeld of dat u de herstelcodes heeft.\n\nDoorgaan?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
     <string name="useCustomIcon">Gebruik aangepast icoon</string>
     <string name="copiedToClipboard">Code gekopieerd naar klembord</string>
     <string name="issuerHint">Naam (bijv. Google)</string>
@@ -76,22 +82,29 @@
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
     <string name="pinMessage">Voer de PIN in die bij deze QR-code hoort</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Standaard pictogrammen</string>
     <string name="iconPacks">Pictogrampakketten</string>
     <string name="downloadPacks">Download pakketten</string>
     <string name="importIconPackSuccess">Importeerde {0} pictogrammen van pakket</string>
     <string name="invalidIconPackError">Het geselecteerde bestand is geen Authenticator Pro pictogrammenpakket</string>
     <string name="confirmIconPackDelete">Weet je zeker dat je dit icoon pakket wilt verwijderen? Alle gebruikte iconen worden niet verwijderd.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Bron bekijken</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR code</string>
     <string name="qrCodeHelp">Kopieer deze authenticator naar een ander apparaat of app door de QR code te scannen</string>
     <string name="qrCodeNotSupported">QR codes worden niet ondersteund voor dit type</string>
     <string name="copyUri">URI kopiëren</string>
     <string name="copyUriWarning">Deze URL bevat een beschermde sleutel in platte-tekst. Wees voorzichtig met het plakken van deze informatie.\n\nDoorgaan?</string>
     <string name="uriCopiedToClipboard">URI naar het klembord gekopieerd</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Back-up naar versleuteld bestand (aanbevolen)</string>
     <string name="backupToFileMessage">Sla al uw authenticators, categorieën en iconen op in een versleuteld back-upbestand. Dit bestand kan worden hersteld in de app.</string>
     <string name="backupHtml">Back-up maken naar HTML bestand</string>
@@ -100,7 +113,9 @@
     <string name="backupUriList">Back-up maken naar URI lijstbestand</string>
     <string name="backupUriListMessage">Sla uw authenticatoren op in een niet versleutelde platte-tekst URI lijstbestand. Dit bestand is compatibel met veel andere applicaties en diensten. Categorieën en iconen worden niet opgeslagen.</string>
     <string name="backupUriListWarning">Back-ups naar platte-tekst bestanden zijn niet versleuteld en kunnen uw geheime sleutels kwetsbaar maken.\n\nDeze back-up bevat geen categorieën en pictogrammen. Indien onzeker, kies dan voor versleutelde bestandsreservekopie.\n\nDoorgaan?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Hier is niets gevonden!</string>
     <string name="noAuthenticatorsMessage">Je hebt hier geen authenticators</string>
     <string name="gettingStartedGuide">Handleiding voor beginners</string>
@@ -109,7 +124,9 @@
     <string name="noCategoriesMessage">U heeft nog geen categorieën ingesteld</string>
     <string name="noIconPacksTitle">Geen icon packs</string>
     <string name="noIconPacksMessage">Je hebt nog geen icon packs ingesteld</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Categorie</string>
     <string name="categories">Categorieën</string>
     <string name="assignCategories">Categorie toewijzen</string>
@@ -120,12 +137,16 @@
     <string name="noCategoryName">Categorienaam is vereist</string>
     <string name="duplicateCategory">Er bestaat al een categorie met deze naam</string>
     <string name="confirmCategoryDelete">Weet u zeker dat u deze categorie wil verwijderen?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Instellen als standaard</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Standaardwaarden wissen</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Nu een back-up maken</string>
     <string name="restoreNow">Nu herstellen</string>
-    <string name="backupReminder">Er zijn wijzigingen aangebracht sinds je laatste back-up</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">Voer een wachtwoord in om uw back-upbestand veilig te versleutelen. Laat het wachtwoord leeg als u het bestand niet wilt beveiligen.</string>
     <string name="password">Wachtwoord</string>
     <string name="passwordConfirm">Bevestig wachtwoord</string>
@@ -138,7 +159,9 @@
     <string name="restoredFromBackup">{0} authenticators en {1} categorieën hersteld</string>
     <string name="restoredFromBackupUpdated">{0} nieuwe authenticators en {1} nieuwe categorieën hersteld. {2} bestaande authenticators bijgewerkt.</string>
     <string name="restoredNothing">Niets om te herstellen</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
     <string name="restoreFormatError">The backup could not be restored</string>
     <string name="restorePasswordError">The password is incorrect</string>
     <string name="cameraPermissionError">De camera permissie moet verleend worden om een QR-code te kunnen scannen</string>
@@ -149,23 +172,29 @@
     <string name="webBrowserMissing">Geen webbrowser geïnstalleerd</string>
     <string name="emailClientMissing">Geen e-mailclient geïnstalleerd</string>
     <string name="genericError">Er is een fout opgetreden</string>
-    <string name="databaseError">Er is een fout opgetreden bij het openen van de database. Probeer de app opnieuw te starten. Als het probleem zich blijft voordoen, wis dan de app-gegevens en hrstel uw laatste back-up.\n\nAls alternatief kunt u een foutmelding indienen.</string>
     <string name="viewErrorLog">Bekijk foutenlogboek</string>
     <string name="autoTimeWarningTitle">Tijdsynchronisatie uitgeschakeld</string>
     <string name="autoTimeWarningMessage">Op uw apparaat staat automatische tijdsynchronisatie uitgeschakeld. Voor authenticatie met twee factoren is een nauwkeurige klok nodig om codes te genereren.\n\nSchakel automatische tijdsynchronisatie in bij de instellingen van je apparaat om ervoor te zorgen dat de gegenereerde codes altijd geldig zijn.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">Er is een onbekende fout opgetreden in de toepassing. Details van de fout kunt u hieronder vinden:</string>
     <string name="report">Rapporteren</string>
     <string name="email">E-mail</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Rapporteren via</string>
     <string name="errorCopiedToClipboard">Fouten zijn gekopieerd naar klembord</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Selecteer een locatie en wachtwoord voor automatische back-ups. Back-ups worden gepland wanneer wijzigingen zijn aangebracht. Cloud opslag wordt niet ondersteund, gebruik in plaats daarvan het back-upmenu.</string>
     <string name="selectLocation">Kies een locatie</string>
     <string name="noLocationSelected">Geen locatie geselecteerd</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Locatie ingesteld op \'{0}\'</string>
     <string name="setPassword">Stel een wachtwoord in</string>
     <string name="passwordNotSet">Wachtwoord is niet ingesteld</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Wachtwoord is ingesteld</string>
     <string name="notPasswordProtected">Niet beveiligd met een wachtwoord</string>
     <string name="enableAutoBackup">Automatische back-up inschakelen</string>
@@ -176,7 +205,9 @@
     <string name="autoBackupFailureText">De meest recente automatische back-up kon niet worden voltooid. Bestandsmachtigingen zijn mogelijk verlopen, probeer de back-up locatie opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
     <string name="autoBackupSuccessTitle">Automatische back-up maken voltooid</string>
     <string name="backupScheduled">Back-up ingepland</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Versleutel de database met een wachtwoord. Bij het openen van de app wordt om het wachtwoord gevraagd. Laat het veld leeg om het wachtwoord te wissen.</string>
     <string name="passwordSetupWarning">Gebruik een wachtwoord dat je kunt onthouden, de database is onherstelbaar zonder het wachtwoord!</string>
     <string name="clearPassword">Wachtwoord wissen</string>
@@ -184,14 +215,18 @@
     <string name="setupBiometricUnlock">Biometrische ontgrendeling instellen</string>
     <string name="passwordsDoNotMatch">Wachtwoorden komen niet overeen</string>
     <string name="biometricsChanged">Biometrische gegevens zijn gewijzigd. Gebruik het wachtwoord om te ontgrendelen.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Ontgrendelen</string>
     <string name="useBiometrics">Biometrie gebruiken</string>
     <string name="unlockMessage">Voer je wachtwoord in of gebruik biometrische gegevens om de database te ontgrendelen</string>
     <string name="unlockBiometricsMessage">Gebruik biometrie om toegang te krijgen tot uw authenticators</string>
     <string name="passwordIncorrect">Wachtwoord is onjuist</string>
     <string name="tooManyAttempts">Te veel mislukte pogingen</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Importeren uit andere apps</string>
     <string name="importError">Het bestand kon niet worden geïmporteerd</string>
     <string name="importIncomplete">Import is incompleet</string>
@@ -210,7 +245,9 @@
     <string name="uriList">URI lijst</string>
     <string name="uriListHint">Platte tekst lijst met otpauth URI\'s</string>
     <string name="viewGuideImportHint">Bekijk de handleiding op de project wiki</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Scan een QR-code</string>
     <string name="guideScanQRCodeSummary">Om een authenticator toe te voegen, scan de QR-code die wordt verstrekt door de app of service. Het wordt aan de lijst toegevoegd en zal automatisch nieuwe codes genereren. U kunt de details ook handmatig invoeren.</string>
     <string name="guideUseCodeTitle">Gebruik de code bij het inloggen</string>
@@ -223,11 +260,15 @@
     <string name="guideBackupSummary">Wordt niet vergrendeld uit je accounts als je van apparaat wisselt. Maak een backup bestand aan en sla het op een veilige plaats. Een back-up kan op elk moment worden hersteld en beveiligd met een wachtwoord.</string>
     <string name="guideWearOSTitle">Download de bijbehorende Wear OS app</string>
     <string name="guideWearOSSummary">Als je een Wear OS horloge hebt, kun je de bijbehorende app downloaden. Je kunt de codes dan direct op je horloge bekijken.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Plaats de QR-code in de viewfinder om te scannen. Tik voor focus.</string>
     <string name="scanHelpSecondary">Probeer schaduwen en verblindingen te vermijden. Houd het apparaat ongeveer 15 cm van de code af.</string>
     <string name="toggleFlash">Flitslicht aan/uit</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">Algemeen</string>
     <string name="prefShowBackupRemindersTitle">Back-up Herinneringen</string>
     <string name="prefShowBackupRemindersSummary">Herinnert je om een back-up van je authenticators te maken als er belangrijke wijzigingen worden aangebracht</string>
@@ -273,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Maak de lijst zichtbaar achter de statusbalk tijdens het scrollen</string>
     <string name="prefSystemFontTitle">Systeemlettertype</string>
     <string name="prefSystemFontSummary">Gebruik het standaardlettertype van het systeem in plaats van een aangepast lettertype</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Aantal kopieën opnieuw instellen</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">Bekijk log</string>
     <string name="noLogFile">Geen logbestand beschikbaar</string>
     <string name="debugLog">Foutopsporingslogboek</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">Tijd gebaseerd (TOTP)</string>
     <string name="authTypeCounter">Teller gebaseerd (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (standaard)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Onmiddelijk</string>
     <string name="timeout5Sec">5 seconden</string>
     <string name="timeout10Sec">10 seconden</string>
@@ -299,12 +346,17 @@
     <string name="defaultViewMode">Standaard</string>
     <string name="compactViewMode">Compact</string>
     <string name="tileViewMode">Tegel</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">Geen</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Rood</string>
     <string name="pink">Roze</string>
     <string name="purple">Paars</string>
@@ -321,10 +373,12 @@
     <string name="amber">Amber</string>
     <string name="orange">Oranje</string>
     <string name="deepOrange">Donkeroranje</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Welkom bij Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP authenticatie</string>
-    <string name="introBackupTitle">Back-up / Herstellen</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">Categorieën</string>
     <string name="introThemesTitle">Donker thema</string>
     <string name="introWelcomeSummary">Bedankt voor het downloaden van Authenticator Pro.\nHoud je online accounts veilig en beveiligd met de beste open-source authenticatie-app.</string>
