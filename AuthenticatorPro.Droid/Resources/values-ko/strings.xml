@@ -236,7 +236,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">ente-auth-codes.txt 파일 가져오기</string>
     <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
     <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json 파일 가져오기</string>
