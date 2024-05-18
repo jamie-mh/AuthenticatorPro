@@ -236,7 +236,7 @@
     <string name="freeOtpPlusImportHint">Importovať súbor freeotp-backup.json</string>
     <string name="aegisImportHint">Import aegis-export.json súboru</string>
     <string name="bitwardenImportHint">Importovať súbor bitwarden_export.json</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">Importovať súbor ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Import winauth.txt alebo winauth.zip súboru</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas súboru</string>
     <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json súboru</string>
