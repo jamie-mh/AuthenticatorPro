@@ -230,13 +230,13 @@
     <string name="importError">No se ha podido importar el archivo</string>
     <string name="importIncomplete">Importación incompleta</string>
     <string name="importConversionError">La importación del elemento \"{0}\" falló debido al siguiente error: {1}</string>
-    <string name="authenticatorPlusImportHint">Importar el archivo authplus.db</string>
+    <string name="authenticatorPlusImportHint">Importar archivo authplus.db</string>
     <string name="andOtpImportHint">Importar archivo otp_accounts.json</string>
     <string name="freeOtpImportHint">Importar archivo externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importar archivo freeotp-backup.json</string>
     <string name="aegisImportHint">Importar archivo aegis-export.json</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">Importar archivo ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importar archivo winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importar archivo 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importar archivo LastPassAuthenticator.json</string>
