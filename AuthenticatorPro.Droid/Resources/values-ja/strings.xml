@@ -236,7 +236,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json ファイルをインポート</string>
     <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">ente-auth-codes.txt ファイルをインポート</string>
     <string name="winAuthImportHint">winauth.txtまたはwinauth.zipファイルをインポート</string>
     <string name="twoFasImportHint">2fas-backup.2fasファイルをインポート</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json ファイルをインポート</string>
