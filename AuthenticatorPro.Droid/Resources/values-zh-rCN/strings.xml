@@ -236,7 +236,7 @@
     <string name="freeOtpPlusImportHint">导入 freeotp-backup.json 文件</string>
     <string name="aegisImportHint">导入 aegis-export.json 文件</string>
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">导入 ente-auth-codes.txt 文件</string>
     <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
     <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
     <string name="lastPassAuthenticatorImportHint">导入 LastPassAuthenticator.json 文件</string>
