@@ -1126,6 +1126,17 @@ namespace AuthenticatorPro.Droid.Activity
             {
                 await OnUriScan(uri);
             }
+            else if (uri.StartsWith("phonefactor"))
+            {
+                new MaterialAlertDialogBuilder(this)
+                    .SetTitle(Resource.String.warning)
+                    .SetMessage(Resource.String.qrCodePhoneFactorError)
+                    .SetIcon(Resource.Drawable.baseline_warning_24)
+                    .SetPositiveButton(Resource.String.ok, delegate { })
+                    .Show();
+                
+                return;
+            }
             else
             {
                 ShowSnackbar(Resource.String.qrCodeFormatError, Snackbar.LengthShort);
