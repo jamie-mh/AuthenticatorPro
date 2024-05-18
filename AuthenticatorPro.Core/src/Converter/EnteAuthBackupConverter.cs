@@ -26,16 +26,13 @@ namespace AuthenticatorPro.Core.Converter
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
             var jsonOrText = Encoding.UTF8.GetString(data);
-            EnteBackup backup;
             
-            try
-            {
-                backup = JsonConvert.DeserializeObject<EnteBackup>(jsonOrText);
-            }
-            catch (JsonException)
+            if (password == null)
             {
                 return await base.ConvertAsync(data);
             }
+            
+            var backup = JsonConvert.DeserializeObject<EnteBackup>(jsonOrText);
 
             if (backup.Version != 1)
             {
