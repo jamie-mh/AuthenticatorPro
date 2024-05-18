@@ -238,7 +238,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">ente-auth-codes.txt dosyasını içe aktarın</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json dosyasını içe aktarın</string>
