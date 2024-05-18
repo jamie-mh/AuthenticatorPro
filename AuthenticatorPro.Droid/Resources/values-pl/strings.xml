@@ -236,7 +236,7 @@
     <string name="freeOtpPlusImportHint">Importuj plik freeotp-backup.json</string>
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">Importuj plik ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
     <string name="lastPassAuthenticatorImportHint">Importuj plik LastPassAuthenticator.json</string>
