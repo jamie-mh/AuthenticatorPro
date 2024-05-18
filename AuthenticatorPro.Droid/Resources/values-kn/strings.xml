@@ -236,7 +236,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="aegisImportHint">aegis-export.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="bitwardenImportHint">bitwarden_export.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="enteAuthImportHint">ente-auth-codes.txt ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="winAuthImportHint">winauth.txt ಅಥವಾ winauth.zip ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="twoFasImportHint">2fas-backup.2fas ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
