@@ -22,7 +22,7 @@ insert_final_newline = false
 
 # Organize usings
 dotnet_separate_import_directive_groups = false
-file_header_template = Copyright (C) 2023 jmh\nSPDX-License-Identifier:GPL-3.0-only
+file_header_template = Copyright (C) 2024 jmh\nSPDX-License-Identifier:GPL-3.0-only
 
 # this. and Me. preferences
 dotnet_style_qualification_for_event = false:suggestion
