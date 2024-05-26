@@ -79,6 +79,7 @@
     <string name="periodInvalid">La période est invalide</string>
     <string name="counterInvalid">Le compteur est invalide</string>
     <string name="qrCodeFormatError">Le QR code n\'est pas au bon format ou n\'est pas lisible</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Un authentificateur avec cette clé secrète existe déjà</string>
     <string name="scanSuccessful">QR code scanné avec succès</string>
     <string name="pinMessage">Veuillez saisir le code pin associé à ce QR code</string>
