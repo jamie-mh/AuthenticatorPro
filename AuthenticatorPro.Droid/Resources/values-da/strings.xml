@@ -79,6 +79,7 @@
     <string name="periodInvalid">Perioden er ugyldig</string>
     <string name="counterInvalid">Tælleren er ugyldig</string>
     <string name="qrCodeFormatError">QR-koden er ikke i det rigtige format eller kan ikke læses</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">En godkender med denne hemmelige nøgle findes allerede</string>
     <string name="scanSuccessful">QR-kode scannet</string>
     <string name="pinMessage">Indtast PIN-koden knyttet til denne QR-kode</string>
