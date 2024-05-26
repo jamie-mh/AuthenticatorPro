@@ -79,6 +79,7 @@
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
     <string name="counterInvalid">De teller is ongeldig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
     <string name="pinMessage">Voer de PIN in die bij deze QR-code hoort</string>
