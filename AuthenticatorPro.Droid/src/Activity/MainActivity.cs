@@ -1372,7 +1372,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                data = await FileUtil.ReadFile(this, uri);
+                data = await FileUtil.ReadFileAsync(this, uri);
 
                 if (data.Length == 0)
                 {
@@ -1506,7 +1506,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                data = await FileUtil.ReadFile(this, uri);
+                data = await FileUtil.ReadFileAsync(this, uri);
             }
             catch (Exception e)
             {
@@ -1581,7 +1581,7 @@ namespace AuthenticatorPro.Droid.Activity
                 try
                 {
                     var data = await encryption.EncryptAsync(backup, password);
-                    await FileUtil.WriteFile(this, destination, data);
+                    await FileUtil.WriteFileAsync(this, destination, data);
                 }
                 catch (Exception e)
                 {
@@ -1626,7 +1626,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 var backup = await _backupService.CreateHtmlBackupAsync();
-                await FileUtil.WriteFile(this, destination, backup.ToString());
+                await FileUtil.WriteFileAsync(this, destination, backup.ToString());
             }
             catch (Exception e)
             {
@@ -1643,7 +1643,7 @@ namespace AuthenticatorPro.Droid.Activity
             try
             {
                 var backup = await _backupService.CreateUriListBackupAsync();
-                await FileUtil.WriteFile(this, destination, backup.ToString());
+                await FileUtil.WriteFileAsync(this, destination, backup.ToString());
             }
             catch (Exception e)
             {
@@ -1945,7 +1945,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                var data = await FileUtil.ReadFile(this, source);
+                var data = await FileUtil.ReadFileAsync(this, source);
                 var icon = await _customIconDecoder.DecodeAsync(data, true);
                 await SetCustomIcon(auth, icon);
             }

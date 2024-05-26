@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Droid.QrCode
         
             try
             {
-                var data = await FileUtil.ReadFile(context, uri);
+                var data = await FileUtil.ReadFileAsync(context, uri);
                 bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
             }
             catch (Exception e)

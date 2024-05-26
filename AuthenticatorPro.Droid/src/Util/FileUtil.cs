@@ -15,7 +15,7 @@ namespace AuthenticatorPro.Droid.Util
 {
     internal static class FileUtil
     {
-        public static Task<byte[]> ReadFile(Context context, Uri uri)
+        public static Task<byte[]> ReadFileAsync(Context context, Uri uri)
         {
             return Task.Run(async delegate
             {
@@ -45,7 +45,7 @@ namespace AuthenticatorPro.Droid.Util
             });
         }
 
-        public static Task WriteFile(Context context, Uri uri, byte[] data)
+        public static Task WriteFileAsync(Context context, Uri uri, byte[] data)
         {
             // Run backup on separate thread, file writing on the main thread fails when using Nextcloud
             return Task.Run(async delegate
@@ -71,7 +71,7 @@ namespace AuthenticatorPro.Droid.Util
             });
         }
 
-        public static Task WriteFile(Context context, Uri uri, string data)
+        public static Task WriteFileAsync(Context context, Uri uri, string data)
         {
             return Task.Run(async delegate
             {
