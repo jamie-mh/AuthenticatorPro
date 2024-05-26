@@ -79,6 +79,7 @@
     <string name="periodInvalid">輸入的週期無效</string>
     <string name="counterInvalid">計數器無效</string>
     <string name="qrCodeFormatError">二維碼格式錯誤或無法讀取</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">已存在密鑰相同的驗證器</string>
     <string name="scanSuccessful">二維碼掃描成功</string>
     <string name="pinMessage">輸入與此二維碼關聯的 PIN 碼</string>
