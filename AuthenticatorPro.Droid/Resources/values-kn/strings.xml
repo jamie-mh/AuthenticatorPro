@@ -79,6 +79,7 @@
     <string name="periodInvalid">ಅವಧಿಯು ಅಮಾನ್ಯವಾಗಿದೆ</string>
     <string name="counterInvalid">ಕೌಂಟರ್ ಅಮಾನ್ಯವಾಗಿದೆ</string>
     <string name="qrCodeFormatError">QR ಕೋಡ್ ಸರಿಯಾದ ಸ್ವರೂಪದಲ್ಲಿ ಇಲ್ಲ ಅಥವಾ ಓದಲಾಗುವುದಿಲ್ಲ</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">ಈ ರಹಸ್ಯ ಕೀಲಿಯೊಂದಿಗೆ ದೃಢೀಕರಣವು ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ</string>
     <string name="scanSuccessful">QR ಕೋಡ್ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="pinMessage">ಈ QR ಕೋಡ್‌ಗೆ ಸಂಬಂಧಿಸಿದ ಪಿನ್ ಅನ್ನು ನಮೂದಿಸಿ</string>
