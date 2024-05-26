@@ -79,6 +79,7 @@
     <string name="periodInvalid">الفترة غير صالحة</string>
     <string name="counterInvalid">العداد غير صحيح</string>
     <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">يوجد بالفعل مصادق بهذا المفتاح السري</string>
     <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
     <string name="pinMessage">أدخل الرمز المرتبط برمز QR هذا</string>
