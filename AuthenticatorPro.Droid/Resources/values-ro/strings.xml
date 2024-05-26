@@ -79,6 +79,7 @@
     <string name="periodInvalid">Perioada este invalidă</string>
     <string name="counterInvalid">Contorul este incorect</string>
     <string name="qrCodeFormatError">Codul QR nu este în formatul corect sau nu poate fi citit</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">O autentificare cu această cheie secretă există deja</string>
     <string name="scanSuccessful">Codul QR a fost scanat cu succes</string>
     <string name="pinMessage">Introdu codul PIN asociat acestui cod QR</string>
