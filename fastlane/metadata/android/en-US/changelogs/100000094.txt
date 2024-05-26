@@ -1,0 +1,4 @@
+- New feature: Import from Ente Auth
+- General: 12 new icons
+- General: Improvements to QR code scanning
+- General: Translation updates
