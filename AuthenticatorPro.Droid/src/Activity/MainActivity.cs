@@ -1092,7 +1092,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                result = await QrCodeReader.ScanImageFromFileAsync(this, uri);
+                result = await QrCodeImageReader.ScanImageFromFileAsync(this, uri);
             }
             catch (IOException e)
             {

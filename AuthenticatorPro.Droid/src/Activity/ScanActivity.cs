@@ -49,6 +49,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             var analysis = new ImageAnalysis.Builder()
                 .SetBackpressureStrategy(ImageAnalysis.StrategyKeepOnlyLatest)
+                .SetOutputImageFormat(ImageAnalysis.OutputImageFormatRgba8888)
                 .Build();
             
             var analyser = new QrCodeImageAnalyser();

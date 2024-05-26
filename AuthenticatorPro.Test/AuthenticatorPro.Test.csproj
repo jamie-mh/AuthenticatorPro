@@ -17,12 +17,13 @@
         </PackageReference>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
         <PackageReference Include="Moq" Version="4.20.70" />
+        <PackageReference Include="SkiaSharp" Version="2.88.8" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.8" />
         <PackageReference Include="xunit" Version="2.8.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="ZXing.Net" Version="0.16.9"/>
-        <PackageReference Include="ZXing.Net.Bindings.ImageSharp.V2" Version="0.16.16" />
+        <PackageReference Include="AuthenticatorPro.ZXing" Version="1.1.0" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj"/>
