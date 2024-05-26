@@ -112,7 +112,7 @@ namespace AuthenticatorPro.Droid.Activity
 
             try
             {
-                var data = await FileUtil.ReadFile(this, intent.Data);
+                var data = await FileUtil.ReadFileAsync(this, intent.Data);
                 stream = new MemoryStream(data);
                 pack = await Task.Run(() => Serializer.Deserialize<IconPack>(stream));
             }

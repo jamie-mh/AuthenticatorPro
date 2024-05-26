@@ -121,7 +121,7 @@ namespace AuthenticatorPro.Droid
                 throw new InvalidOperationException("File creation failed, got null");
             }
 
-            await FileUtil.WriteFile(_context, file.Uri, dataToWrite);
+            await FileUtil.WriteFileAsync(_context, file.Uri, dataToWrite);
             return new BackupResult(file.Name);
         }
 

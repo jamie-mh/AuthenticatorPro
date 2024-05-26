@@ -5,9 +5,9 @@ using System.IO;
 
 namespace AuthenticatorPro.Test.Converter.Fixture
 {
-    public class EnteBackupFixture
+    public class EnteAuthBackupFixture
     {
-        public EnteBackupFixture()
+        public EnteAuthBackupFixture()
         {
             var unencryptedPath = Path.Join("data", "ente.unencrypted.txt");
             UnencryptedData = File.ReadAllBytes(unencryptedPath);

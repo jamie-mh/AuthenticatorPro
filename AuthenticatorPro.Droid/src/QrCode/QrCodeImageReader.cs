@@ -2,20 +2,19 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.Graphics;
 using AuthenticatorPro.Droid.Util;
+using AuthenticatorPro.ZXing;
 using Java.Nio;
-using ZXing;
-using ZXing.Common;
+using ImageFormat = AuthenticatorPro.ZXing.ImageFormat;
 using Uri = Android.Net.Uri;
 
 namespace AuthenticatorPro.Droid.QrCode
 {
-    public static class QrCodeReader
+    public static class QrCodeImageReader
     {
         public static async Task<string> ScanImageFromFileAsync(Context context, Uri uri)
         {
@@ -23,7 +22,7 @@ namespace AuthenticatorPro.Droid.QrCode
         
             try
             {
-                var data = await FileUtil.ReadFile(context, uri);
+                var data = await FileUtil.ReadFileAsync(context, uri);
                 bitmap = await BitmapFactory.DecodeByteArrayAsync(data, 0, data.Length);
             }
             catch (Exception e)
@@ -36,28 +35,23 @@ namespace AuthenticatorPro.Droid.QrCode
                 throw new IOException("Failed to decode bitmap");
             }
             
-            var reader = new BarcodeReader<Bitmap>(null, null, ls => new HybridBinarizer(ls))
+            var reader = new QrCodeReader(new ReaderOptions
             {
-                AutoRotate = true,
-                Options = new DecodingOptions
-                {
-                    PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE },
-                    TryHarder = true,
-                    TryInverted = true
-                }
-            };
-
-            var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
+                Binarizer = Binarizer.LocalAverage,
+                TryRotate = true,
+                TryHarder = true,
+                TryInvert = true
+            });
+            
+            using var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
             await bitmap.CopyPixelsToBufferAsync(buffer);
             buffer.Rewind();
     
             var bytes = new byte[buffer.Remaining()];
             buffer.Get(bytes);
     
-            var source = new RGBLuminanceSource(bytes, bitmap.Width, bitmap.Height, RGBLuminanceSource.BitmapFormat.RGBA32);
-            var result = await Task.Run(() => reader.Decode(source));
-
-            return result?.Text;
+            using var imageView = new ImageView(bytes, bitmap.Width, bitmap.Height, ImageFormat.RGBA);
+            return await Task.Run(() => reader.Read(imageView));
         }
     }
 }

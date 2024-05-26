@@ -12,14 +12,14 @@ using Xunit;
 
 namespace AuthenticatorPro.Test.Converter
 {
-    public class EnteAuthBackupConverterTest : IClassFixture<EnteBackupFixture>
+    public class EnteAuthBackupConverterTest : IClassFixture<EnteAuthBackupFixture>
     {
-        private readonly EnteBackupFixture _enteBackupFixture;
+        private readonly EnteAuthBackupFixture _enteAuthBackupFixture;
         private readonly EnteAuthBackupConverter _enteAuthBackupConverter;
 
-        public EnteAuthBackupConverterTest(EnteBackupFixture enteBackupFixture)
+        public EnteAuthBackupConverterTest(EnteAuthBackupFixture enteAuthBackupFixture)
         {
-            _enteBackupFixture = enteBackupFixture;
+            _enteAuthBackupFixture = enteAuthBackupFixture;
 
             var iconResolver = new Mock<IIconResolver>();
             iconResolver.Setup(r => r.FindServiceKeyByName(It.IsAny<string>())).Returns("icon");
@@ -30,7 +30,7 @@ namespace AuthenticatorPro.Test.Converter
         [Fact]
         public async Task ConvertAsync_unencrypted()
         {
-            var result = await _enteAuthBackupConverter.ConvertAsync(_enteBackupFixture.UnencryptedData);
+            var result = await _enteAuthBackupConverter.ConvertAsync(_enteAuthBackupFixture.UnencryptedData);
             
             Assert.Empty(result.Failures);
             
@@ -44,13 +44,13 @@ namespace AuthenticatorPro.Test.Converter
         public async Task ConvertAsync_encrypted_wrongPassword()
         {
             await Assert.ThrowsAsync<BackupPasswordException>(() =>
-                _enteAuthBackupConverter.ConvertAsync(_enteBackupFixture.EncryptedData, "test1"));
+                _enteAuthBackupConverter.ConvertAsync(_enteAuthBackupFixture.EncryptedData, "test1"));
         }
 
         [Fact]
         public async Task ConvertAsync_encrypted_ok()
         {
-            var result = await _enteAuthBackupConverter.ConvertAsync(_enteBackupFixture.EncryptedData, "test");
+            var result = await _enteAuthBackupConverter.ConvertAsync(_enteAuthBackupFixture.EncryptedData, "test");
 
             Assert.Empty(result.Failures);
 
