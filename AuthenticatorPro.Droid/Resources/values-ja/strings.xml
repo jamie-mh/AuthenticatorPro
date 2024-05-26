@@ -79,6 +79,7 @@
     <string name="periodInvalid">期間が無効です</string>
     <string name="counterInvalid">カウンターが無効です</string>
     <string name="qrCodeFormatError">QRコードが正しい形式でないか、読み取ることができません</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
