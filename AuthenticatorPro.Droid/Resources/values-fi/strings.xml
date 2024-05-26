@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Varoitus</string>
     <string name="delete">Poista</string>
     <string name="add">Lisää</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Ohita</string>
     <string name="disable">Poista käytöstä</string>
     <string name="name">Nimi</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Asetukset</string>
     <string name="restore">Palauta</string>
     <string name="backup">Varmuuskopioi</string>
@@ -44,7 +48,9 @@
     <string name="rateSummary">Arvostele Authenticator Pro Google Play kaupassa</string>
     <string name="viewGitHub">Katso GitHubissa</string>
     <string name="viewGitHubSummary">Katso Authenticator Pro GitHubissa. Voit raportoida ongelmasta, pyytää lisää kuvakkeita ja ominaisuuksia.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Myöntäjä</string>
     <string name="username">Käyttäjänimi</string>
     <string name="secretKey">Salainen avain</string>
@@ -73,25 +79,33 @@
     <string name="periodInvalid">Aikaväli on virheellinen</string>
     <string name="counterInvalid">Laskuri on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Oletuskuvakkeet</string>
     <string name="iconPacks">Kuvakepaketit</string>
     <string name="downloadPacks">Lataa paketit</string>
     <string name="importIconPackSuccess">Tuodaan {0} kuvaketta paketista</string>
     <string name="invalidIconPackError">Valittu tiedosto ei ole Authenticator Pro -kuvakepaketti</string>
     <string name="confirmIconPackDelete">Haluatko varmasti poistaa tämän kuvakepaketin? Käytössä olevia kuvakkeita ei poisteta.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Näytä lähde</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR-koodi</string>
     <string name="qrCodeHelp">Kopioi tämä todentaja toiseen laitteeseen tai sovellukseen skannaamalla QR-koodi</string>
     <string name="qrCodeNotSupported">QR-koodeja ei tueta tälle tyypille</string>
     <string name="copyUri">Kopioi URI</string>
     <string name="copyUriWarning">Tämä URI sisältää salaisen avaimen pelkkänä tekstinä. Ole varovainen, mihin liität nämä tiedot.\n\nJatketaanko?</string>
     <string name="uriCopiedToClipboard">URI kopioitiin leikepöydälle</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Varmuuskopioi salattuun tiedostoon (suositeltu)</string>
     <string name="backupToFileMessage">Tallenna kaikki todentajasi, kategoriasi ja kuvakkeesi salattuun varmuuskopiotiedostoon. Tämä tiedosto voidaan palauttaa sovellukseen.</string>
     <string name="backupHtml">Varmuuskopioi HTML-tiedostoon</string>
@@ -100,7 +114,9 @@
     <string name="backupUriList">Varmuuskopioi URI-listatiedostoon</string>
     <string name="backupUriListMessage">Tallenna todentajasi salaamattomaan raakatekstiseen URI-luettelotiedostoon. Tämä tiedosto on yhteensopiva monien vaihtoehtoisten sovellusten ja palveluiden kanssa. Kategorioita ja kuvakkeita ei tallenneta.</string>
     <string name="backupUriListWarning">Raakatekstitiedostoja käyttävät varmuuskopiot ovat salaamattomia ja saattavat jättää salatut avaimesi haavoittuviksi.\n\nTämä tiedosto ei sisällä kategorioita tai kuvakkeita. Jos olet epävarma, käytä sen sijaan salattua varmuuskopiointia.\n\nJatketaanko?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Täällä ei ole mitään!</string>
     <string name="noAuthenticatorsMessage">Sinulla ei ole yhtään todentajaa täällä</string>
     <string name="gettingStartedGuide">Aloitusopas</string>
@@ -109,7 +125,9 @@
     <string name="noCategoriesMessage">Sinulla ei ole vielä kategorioita</string>
     <string name="noIconPacksTitle">Ei kuvakepaketteja</string>
     <string name="noIconPacksMessage">Et ole vielä määrittänyt kuvakepaketteja</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Kategoria</string>
     <string name="categories">Kategoriat</string>
     <string name="assignCategories">Aseta kategoria</string>
@@ -120,14 +138,17 @@
     <string name="noCategoryName">Kategorian nimi vaaditaan</string>
     <string name="duplicateCategory">Samanniminen kategoria on jo olemassa</string>
     <string name="confirmCategoryDelete">Haluatko varmasti poistaa tämän kategorian?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Aseta oletukseksi</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Poista oletus</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Varmuuskopioi nyt</string>
     <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
-    <string name="restoreError">Salasana on virheellinen tai tiedosto on vahingoittunut</string>
     <string name="password">Salasana</string>
     <string name="passwordConfirm">Vahvista salasana</string>
     <string name="confirmEmptyPassword">Et ole valinnut salasanaa, varmuuskopiosi ei ole salattu, ja salaiset avaimesi voivat olla haavoittuvia.\n\nJatketaanko?</string>
@@ -139,7 +160,10 @@
     <string name="restoredFromBackup">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu</string>
     <string name="restoredFromBackupUpdated">{0} uutta todentajaa ja {1} uutta kategoriaa palautettu. {2} olemassa olevaa todentajaa päivitetty.</string>
     <string name="restoredNothing">Ei palautettavaa</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">Varmuuskopiota ei voitu palauttaa</string>
     <string name="cameraPermissionError">Kameran käyttöoikeus on myönnettävä, jotta QR-koodi voidaan skannata</string>
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Tiedostoja ei voida valita. Tiedostonhallintasovellus on asennettava.</string>
@@ -148,23 +172,29 @@
     <string name="webBrowserMissing">Selainta ei ole asennettu</string>
     <string name="emailClientMissing">Sähköpostisovellusta ei ole asennettu</string>
     <string name="genericError">Tapahtui virhe</string>
-    <string name="databaseError">Tietokannan avaamisessa tapahtui virhe. Yritä käynnistää sovellus uudelleen. Jos ongelma jatkuu, tyhjennä sovelluksen tiedot ja palauta uusin varmuuskopio.\n\nVaihtoehtoisesti voit lähettää virheraportin.</string>
     <string name="viewErrorLog">Näytä virheloki</string>
     <string name="autoTimeWarningTitle">Ajan synkronointi poistettu käytöstä</string>
     <string name="autoTimeWarningMessage">Laitteesi automaattinen kellonaika on poistettu käytöstä. Kaksivaiheinen todennus edellyttää tarkkaa kellonaikaa koodien luomiseksi. \n\nOta automaattinen aikasynkronointi käyttöön laitteesi asetuksissa, jotta luodut koodit ovat aina voimassa.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">Sovelluksessa tapahtui käsittelemätön virhe. Virheen tiedot ovat alla:</string>
     <string name="report">Raportoi</string>
     <string name="email">Sähköposti</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Raportoi käyttäen</string>
     <string name="errorCopiedToClipboard">Virhe kopioitu leikepöydälle</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Valitse automaattisten varmuuskopioiden sijainti ja salasana. Varmuuskopiot ajoitetaan muutoksia tehdessä. Pilvipalveluita ei tueta, käytä varmuuskopiointivalikkoa sen sijaan.</string>
     <string name="selectLocation">Valitse sijainti</string>
     <string name="noLocationSelected">Sijaintia ei ole valittu</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Sijainniksi asetettu \'{0}\'</string>
     <string name="setPassword">Aseta salasana</string>
     <string name="passwordNotSet">Salasanaa ei ole asetettu</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Salasana asetettu</string>
     <string name="notPasswordProtected">Ei suojattu salasanalla</string>
     <string name="enableAutoBackup">Ota automaattinen varmuuskopiointi käyttöön</string>
@@ -175,7 +205,9 @@
     <string name="autoBackupFailureText">Viimeisin automaattinen varmuuskopiointi epäonnistui. Tiedoston käyttöoikeudet saattavat olla vanhentuneet, kokeile määrittää varmuuskopioinnin sijaintia uudelleen automaattisen varmuuskopioinnin asetuksissa.</string>
     <string name="autoBackupSuccessTitle">Automaattinen varmuuskopiointi valmis</string>
     <string name="backupScheduled">Varmuuskopiointi ajastettu</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Salaa tietokanta salasanalla. Salasanaa kysytään sovellusta avatessa. Poista salasana jättämällä kenttä tyhjäksi.</string>
     <string name="passwordSetupWarning">Käytä salasanaa, jonka muistat, tietokantaa ei voi palauttaa ilman sitä!</string>
     <string name="clearPassword">Tyhjennä salasana</string>
@@ -183,14 +215,18 @@
     <string name="setupBiometricUnlock">Määritä biometrinen avaus</string>
     <string name="passwordsDoNotMatch">Salasanat eivät täsmää</string>
     <string name="biometricsChanged">Laitteen biometria on muuttunut. Avaa lukitus käyttämällä salasanaa.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Avaa</string>
     <string name="useBiometrics">Käytä biometriaa</string>
     <string name="unlockMessage">Avaa tietokanta syöttämällä salasanasi tai käyttämällä biometriaa</string>
     <string name="unlockBiometricsMessage">Käytä biometriaa päästäksesi käsiksi todentajiisi</string>
     <string name="passwordIncorrect">Salasana on virheellinen</string>
     <string name="tooManyAttempts">Liian monta yritystä</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Tuo muista sovelluksista</string>
     <string name="importError">Tiedostoa ei voitu tuoda</string>
     <string name="importIncomplete">Tuonti on kesken</string>
@@ -201,6 +237,7 @@
     <string name="freeOtpPlusImportHint">Tuo freeotp-backup.json-tiedosto</string>
     <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
+    <string name="enteAuthImportHint">Tuo ente-auth-codes.txt-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
     <string name="lastPassAuthenticatorImportHint">Tuo LastPassAuthenticator.json-tiedosto</string>
@@ -208,7 +245,9 @@
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Raakatekstinen luettelo otpauth URI -osoitteista</string>
     <string name="viewGuideImportHint">Näytä opas projektin wikissä</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Skannaa QR-koodi</string>
     <string name="guideScanQRCodeSummary">Lisää todentaja skannaamalla sovelluksen tai palvelun antama QR-koodi. Se lisätään listaan ja luo uusia koodeja automaattisesti. Voit myös syöttää tiedot manuaalisesti.</string>
     <string name="guideUseCodeTitle">Käytä koodia sisäänkirjautuessa</string>
@@ -221,11 +260,15 @@
     <string name="guideBackupSummary">Älä menetä pääsyäsi tileillisi, jos vaihdat laitetta. Luo varmuuskopiotiedosto ja tallenna se turvalliseen paikkaan. Varmuuskopion voi suojata salasanalla ja palauttaa koska tahansa.</string>
     <string name="guideWearOSTitle">Lataa Wear OS -kumppanisovellus</string>
     <string name="guideWearOSSummary">Jos sinulla on Wear OS -kello, voit ladata sille kumppanisovelluksen. Näet koodit suoraan kellossasi.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi sen. Paina kohdistaaksesi sen.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">Yleiset</string>
     <string name="prefShowBackupRemindersTitle">Varmuuskopiomuistutukset</string>
     <string name="prefShowBackupRemindersSummary">Muistuttaa sinua varmuuskopioimaan todentajasi, jos tärkeitä muutoksia tehdään</string>
@@ -271,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Anna luettelon näkyä tilarivin alla vieritettäessä</string>
     <string name="prefSystemFontTitle">Järjestelmän fontti</string>
     <string name="prefSystemFontSummary">Käytä järjestelmän oletusfonttia oman fontin sijasta</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Kopioiden määrän nollaus</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">Näytä loki</string>
     <string name="noLogFile">Lokitiedostoa ei ole saatavilla</string>
     <string name="debugLog">Virheenkorjausloki</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">Aikaperusteinen (TOTP)</string>
     <string name="authTypeCounter">Laskuripohjainen (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (oletus)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Välittömästi</string>
     <string name="timeout5Sec">5 sekuntia</string>
     <string name="timeout10Sec">10 sekuntia</string>
@@ -297,12 +346,17 @@
     <string name="defaultViewMode">Oletus</string>
     <string name="compactViewMode">Tiivis</string>
     <string name="tileViewMode">Vierekkäin</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">Ei mitään</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Punainen</string>
     <string name="pink">Pinkki</string>
     <string name="purple">Violetti</string>
@@ -319,10 +373,12 @@
     <string name="amber">Kullanruskea</string>
     <string name="orange">Oranssi</string>
     <string name="deepOrange">Tumma oranssi</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Tervetuloa Authenticator Pro:hon</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP -todennus</string>
-    <string name="introBackupTitle">Varmuuskopioi / palauta</string>
+    <string name="introCompatibilityTitle">Kaksivaiheinen Todennus</string>
+    <string name="introBackupTitle">Varmuuskopiointi ja palautus</string>
     <string name="introCategoriesTitle">Kategoriat</string>
     <string name="introThemesTitle">Tumma teema</string>
     <string name="introWelcomeSummary">Kiitos kun latasit Authenticator Pron.\nPidä online-tilisi turvassa ja suojattuna parhaalla avoimen lähdekoodin todennussovelluksella.</string>

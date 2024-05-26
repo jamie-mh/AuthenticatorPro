@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">경고</string>
     <string name="delete">삭제</string>
     <string name="add">추가</string>
@@ -15,7 +17,9 @@
     <string name="ignore">무시</string>
     <string name="disable">사용 안 함</string>
     <string name="name">이름</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">설정</string>
     <string name="restore">복원</string>
     <string name="backup">백업</string>
@@ -44,7 +48,9 @@
     <string name="rateSummary">Google Play 스토어에서 Authenticator Pro를 평가해주세요</string>
     <string name="viewGitHub">GitHub에서 보기</string>
     <string name="viewGitHubSummary">Authenticator Pro의 GitHub 리포지토리를 열람하세요. 오류를 보고하거나, 더 많은 기능이나 아이콘을 요청할 수 있습니다.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">발급처</string>
     <string name="username">사용자 이름</string>
     <string name="secretKey">암호</string>
@@ -73,25 +79,33 @@
     <string name="periodInvalid">유효 기간이 잘못되었습니다</string>
     <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">기본 아이콘</string>
     <string name="iconPacks">아이콘 팩</string>
     <string name="downloadPacks">아이콘 팩 다운로드</string>
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR코드</string>
     <string name="qrCodeHelp">QR코드를 스캔하여 인증기를 다른 기기나 앱으로 복사하세요</string>
     <string name="qrCodeNotSupported">이 유형은 QR코드를 지원하지 않습니다</string>
     <string name="copyUri">URI 복사</string>
     <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
     <string name="uriCopiedToClipboard">URI을 클립보드에 복사했습니다</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">암호화된 파일로 백업 (권장)</string>
     <string name="backupToFileMessage">모든 인증기, 분류, 아이콘 암호화된 백업 파일 하나에 저장합니다. 백업 파일은 앱을 통해 복원할 수 있습니다.</string>
     <string name="backupHtml">HTML 파일로 백업</string>
@@ -100,7 +114,9 @@
     <string name="backupUriList">URL 목록 파일로 백업</string>
     <string name="backupUriListMessage">인증기를 암호화되지 않은 평문 URL 목록 파일에 저장합니다. 이 파일은 대부분의 다른 인증기 앱이나 서비스와 호환됩니다. 분류와 아이콘은 저장되지 않습니다.</string>
     <string name="backupUriListWarning">평문 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">아무것도 없습니다!</string>
     <string name="noAuthenticatorsMessage">등록한 인증기가 없습니다</string>
     <string name="gettingStartedGuide">시작 도움말</string>
@@ -109,7 +125,9 @@
     <string name="noCategoriesMessage">설정한 분류가 없습니다</string>
     <string name="noIconPacksTitle">아이콘 팩 없음</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">카테고리</string>
     <string name="categories">분류</string>
     <string name="assignCategories">분류 지정</string>
@@ -120,14 +138,17 @@
     <string name="noCategoryName">분류 이름을 입력해야 합니다</string>
     <string name="duplicateCategory">이름이 같은 분류가 이미 있습니다</string>
     <string name="confirmCategoryDelete">정말로 이 분류를 삭제하시겠습니까?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">기본값으로 설정</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">기본값 지우기</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">지금 백업</string>
     <string name="restoreNow">지금 복원</string>
     <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
-    <string name="restoreError">비밀번호가 잘못되었거나 파일이 손상되었습니다</string>
     <string name="password">비밀번호</string>
     <string name="passwordConfirm">비밀번호 확인</string>
     <string name="confirmEmptyPassword">비밀번호를 고르지 않았습니다. 백업 파일이 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n계속 진행하시겠습니까?</string>
@@ -139,7 +160,10 @@
     <string name="restoredFromBackup">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다</string>
     <string name="restoredFromBackupUpdated">새 인증기 {0}개와 새 분류 {1}개를 복원했습니다. 기존의 인증기 {2}개를 갱신했습니다.</string>
     <string name="restoredNothing">복원할 것이 없습니다</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">The backup could not be restored</string>
     <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
     <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
@@ -148,23 +172,29 @@
     <string name="webBrowserMissing">설치한 웹 브라우저가 없습니다</string>
     <string name="emailClientMissing">설치한 이메일 앱이 없습니다</string>
     <string name="genericError">오류가 발생했습니다</string>
-    <string name="databaseError">데이터베이스를 여는 중 오류가 발생했습니다. 앱을 다시 시작해보세요. 문제가 계속되면 앱 데이터를 지우고 최근 백업을 복원하세요.\n\n혹은 오류 보고서를 제출할 수도 있습니다.</string>
     <string name="viewErrorLog">오류 기록 보기</string>
     <string name="autoTimeWarningTitle">Time sync disabled</string>
     <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">앱 내에서 처리하지 못한 오류가 발생했습니다. 오류 세부 사항:</string>
     <string name="report">보고</string>
     <string name="email">이메일</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">보고 방법</string>
     <string name="errorCopiedToClipboard">오류 사항을 클립보드에 복사했습니다</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">자동 백업을 진행할 경로와 비밀번호를 선택하세요. 백업은 변경 사항이 생길 때 진행됩니다. 클라우드 저장소는 지원하지 않습니다. 대신 백업 메뉴를 이용해보세요.</string>
     <string name="selectLocation">위치 선택</string>
     <string name="noLocationSelected">위치를 선택하지 않았습니다</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">\'{0}\' 위치로 설정했습니다</string>
     <string name="setPassword">비밀번호 설정</string>
     <string name="passwordNotSet">비밀번호를 설정하지 않았습니다</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">비밀번호를 설정했습니다</string>
     <string name="notPasswordProtected">암호로 보호되지 않음</string>
     <string name="enableAutoBackup">자동 백업 켜기</string>
@@ -175,7 +205,9 @@
     <string name="autoBackupFailureText">최근 자동 백업을 실패했습니다. 파일 권한이 만료되었을 수 있으니 자동 백업 설정에서 백업 경로를 다시 설정해보세요.</string>
     <string name="autoBackupSuccessTitle">자동 백업 완료</string>
     <string name="backupScheduled">백업 예약됨</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">데이터베이스를 비밀번호로 암호화합니다. 앱을 열 때 비밀번호 입력을 요청받게 됩니다. 비밀번호를 설정하지 않으려면 입력란을 비워 두세요.</string>
     <string name="passwordSetupWarning">기억할 수 있는 비밀번호를 사용하세요. 비밀번호가 없다면 데이터베이스를 복원할 수 없습니다!</string>
     <string name="clearPassword">비밀번호 지우기</string>
@@ -183,14 +215,18 @@
     <string name="setupBiometricUnlock">생체 인식 잠금 해제 설정</string>
     <string name="passwordsDoNotMatch">비밀번호가 일치하지 않습니다</string>
     <string name="biometricsChanged">기기의 생체 정보가 바뀌었습니다. 비밀번호를 사용해 잠금을 푸세요.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">잠금 해제</string>
     <string name="useBiometrics">생체 인식 사용</string>
     <string name="unlockMessage">비밀번호를 입력하거나 생체 인식으로 데이터베이스를 잠금 해제하세요</string>
     <string name="unlockBiometricsMessage">인증기에 접근하려면 생체 인증을 통과하세요</string>
     <string name="passwordIncorrect">비밀번호가 올바르지 않습니다</string>
     <string name="tooManyAttempts">너무 많이 시도했습니다</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">다른 앱에서 가져오기</string>
     <string name="importError">파일을 가져올 수 없습니다</string>
     <string name="importIncomplete">가져오기 일부 실패</string>
@@ -201,6 +237,7 @@
     <string name="freeOtpPlusImportHint">freeotp-backup.json 파일 가져오기</string>
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
+    <string name="enteAuthImportHint">ente-auth-codes.txt 파일 가져오기</string>
     <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
     <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json 파일 가져오기</string>
@@ -208,7 +245,9 @@
     <string name="uriList">URL 목록</string>
     <string name="uriListHint">평문 otpauth URL 목록</string>
     <string name="viewGuideImportHint">프로젝트 위키에서 도움말 보기</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">QR코드 스캔</string>
     <string name="guideScanQRCodeSummary">인증기를 추가하려면 앱이나 서비스에서 제공하는 QR코드를 스캔하세요. 스캔하면 인증기가 자동으로 목록에 추가되고 새로운 코드를 생성합니다. 수동으로 세부 정보를 입력할 수도 있습니다.</string>
     <string name="guideUseCodeTitle">로그인 시 코드 사용</string>
@@ -221,11 +260,15 @@
     <string name="guideBackupSummary">기기를 변경할 때 계정이 잠기지 않도록 하세요. 백업 파일을 만든 뒤 안전한 장소에 저장하세요. 백업은 언제든지 복원할 수 있고 비밀번호로 보호할 수 있습니다.</string>
     <string name="guideWearOSTitle">Wear OS 전용 앱 다운로드</string>
     <string name="guideWearOSSummary">Wear OS 시계가 있다면 전용 앱을 다운로드 할 수 있습니다. 시계로 코드를 바로 볼 수 있습니다.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">일반</string>
     <string name="prefShowBackupRemindersTitle">백업 알림</string>
     <string name="prefShowBackupRemindersSummary">중요한 변경 사항이 생겼을 때 인증기를 백업하라고 알려줍니다</string>
@@ -271,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">스크롤할 때 상태 표시줄 뒤에 있는 목록을 보이도록 합니다</string>
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Copy count reset</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">View Log</string>
     <string name="noLogFile">No log file available</string>
     <string name="debugLog">Debug log</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">시간 기반 (TOTP)</string>
     <string name="authTypeCounter">계수기 기반 (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (기본값)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">즉시</string>
     <string name="timeout5Sec">5초</string>
     <string name="timeout10Sec">10초</string>
@@ -297,12 +346,17 @@
     <string name="defaultViewMode">기본</string>
     <string name="compactViewMode">작게</string>
     <string name="tileViewMode">타일</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">빨강</string>
     <string name="pink">분홍</string>
     <string name="purple">보라</string>
@@ -319,10 +373,12 @@
     <string name="amber">황색</string>
     <string name="orange">주황</string>
     <string name="deepOrange">짙은 주황</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Authenticator Pro 사용을 환영합니다</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP 인증</string>
-    <string name="introBackupTitle">백업 / 복원</string>
+    <string name="introCompatibilityTitle">2단계 인증</string>
+    <string name="introBackupTitle">백업 및 복원</string>
     <string name="introCategoriesTitle">분류</string>
     <string name="introThemesTitle">어두운 테마</string>
     <string name="introWelcomeSummary">Authenticator Pro를 다운로드해주셔서 감사드립니다.\n최고의 오픈 소스 인증 앱으로 온라인 계정을 보호하세요.</string>

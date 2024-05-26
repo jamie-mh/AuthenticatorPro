@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Varning</string>
     <string name="delete">Radera</string>
     <string name="add">Lägg till</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Ignorera</string>
     <string name="disable">Inaktivera</string>
     <string name="name">Namn</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Inställningar</string>
     <string name="restore">Återställ</string>
     <string name="backup">Säkerhetskopiera</string>
@@ -44,14 +48,16 @@
     <string name="rateSummary">Betygsätt Authenticator Pro i Google Play-butiken</string>
     <string name="viewGitHub">Visa på GitHub</string>
     <string name="viewGitHubSummary">Visa källkoden för Authenticator Pro på GitHub. Du kan rapportera fel och fråga efter fler ikoner och funktioner.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Utfärdare</string>
     <string name="username">Användarnamn</string>
     <string name="secretKey">Hemlig nyckel</string>
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
     <string name="advancedOptionsWarning">Ändra bara de här alternativen om du vet vad du gör. Du kan bli utelåst från ditt konto.\n\nVill du fortsätta?</string>
-    <string name="confirmAuthenticatorDelete">Om du raderar kontot kommer du inte längre kunna få koder för det. Tvåfaktorsautentisering stängs dock inte av.\n\nGenom att radera kontot från Authenticator Pro kan du bli utelåst från kontot. Se till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
+    <string name="confirmAuthenticatorDelete">Om du raderar kontot kommer du inte längre kunna få koder för det. Tvåfaktorsautentisering stängs dock inte av.\n\nGenom att radera kontot från Authenticator Pro kan du bli utelåst från kontot.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
@@ -73,25 +79,33 @@
     <string name="periodInvalid">Tidsperioden är ogiltig</string>
     <string name="counterInvalid">Räknaren är ogiltig</string>
     <string name="qrCodeFormatError">QR-koden är inte i rätt format eller går inte att läsa</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Det finns redan ett konto med denna hemliga nyckel</string>
     <string name="scanSuccessful">QR-kod skannad</string>
     <string name="pinMessage">Ange PIN-koden som hör till den här QR-koden</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Standardikoner</string>
     <string name="iconPacks">Ikonpaket</string>
     <string name="downloadPacks">Ladda ner paket</string>
     <string name="importIconPackSuccess">Importerade {0} ikoner från paket</string>
     <string name="invalidIconPackError">Den valda filen är inte ett Authenticator Pro-ikonpaket</string>
     <string name="confirmIconPackDelete">Är du säker på att du vill ta bort detta ikonpaket? Eventuella använda ikoner kommer inte att raderas.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Visa källa</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR-kod</string>
     <string name="qrCodeHelp">Kopiera detta konto till en annan enhet eller app genom att skanna QR-koden</string>
     <string name="qrCodeNotSupported">QR-koder stöds inte för denna typ</string>
     <string name="copyUri">Kopiera URI</string>
     <string name="copyUriWarning">Denna URI innehåller en hemlig nyckel i klartext. Var försiktig med var du klistrar in denna information.\n\nVill du fortsätta?</string>
     <string name="uriCopiedToClipboard">URI har kopierats till urklipp</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
     <string name="backupToFileMessage">Säkerhetskopiera alla dina konton, kategorier och ikoner i en krypterad fil. Filen kan återställas i appen.</string>
     <string name="backupHtml">Säkerhetskopiera till HTML-fil</string>
@@ -100,7 +114,9 @@
     <string name="backupUriList">Säkerhetskopiera till fil som URI-lista</string>
     <string name="backupUriListMessage">Spara dina konton som en URI-lista i en okrypterad, oformaterad textfil. En sådan fil är kompatibel med många andra appar och tjänster. Kategorier och ikoner sparas inte.</string>
     <string name="backupUriListWarning">Säkerhetskopior till oformaterade textfiler är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Tomt än så länge!</string>
     <string name="noAuthenticatorsMessage">Du har inga konton här</string>
     <string name="gettingStartedGuide">Komma igång-guide</string>
@@ -109,7 +125,9 @@
     <string name="noCategoriesMessage">Du har inte skapat några kategorier än</string>
     <string name="noIconPacksTitle">Inga ikonpaket</string>
     <string name="noIconPacksMessage">Du har inga ikonpaket ännu</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Kategori</string>
     <string name="categories">Kategorier</string>
     <string name="assignCategories">Ange kategorier</string>
@@ -120,14 +138,17 @@
     <string name="noCategoryName">Kategorinamn måste anges</string>
     <string name="duplicateCategory">Det finns redan en kategori med detta namn</string>
     <string name="confirmCategoryDelete">Är du säker på att du vill ta bort denna kategori?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Ange som standard</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Rensa standard</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Säkerhetshopiera nu</string>
     <string name="restoreNow">Återställ nu</string>
     <string name="backupReminder">Det har gjorts ändringar sedan din senaste säkerhetskopia</string>
     <string name="backupPasswordMessage">Ange ett lösenord för att kryptera din säkerhetskopia. Om du inte vill lösenordsskydda filen, lämna lösenordet tomt.</string>
-    <string name="restoreError">Lösenordet är felaktigt eller så är filen skadad</string>
     <string name="password">Lösenord</string>
     <string name="passwordConfirm">Bekräfta lösenord</string>
     <string name="confirmEmptyPassword">Du har inte valt något lösenord. Din säkerhetskopia kommer inte krypteras och dina hemliga nycklar kan bli sårbara.\n\nVill du fortsätta?</string>
@@ -139,7 +160,10 @@
     <string name="restoredFromBackup">Återställde {0} nya konton och {1} nya kategorier</string>
     <string name="restoredFromBackupUpdated">Återställde {0} nya konton och {1} nya kategorier. Uppdaterade {2} befintliga konton.</string>
     <string name="restoredNothing">Inget att återställa</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">The backup could not be restored</string>
     <string name="cameraPermissionError">Behörighet till kameran behövs för att skanna QR-koder</string>
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
@@ -148,23 +172,29 @@
     <string name="webBrowserMissing">Ingen webbläsare installerad</string>
     <string name="emailClientMissing">Ingen e-postapp installerad</string>
     <string name="genericError">Ett fel uppstod</string>
-    <string name="databaseError">Ett fel uppstod när databasen öppnades. Prova att starta appen igen. Om problemet kvarstår, rensa appdata och återställ din senaste säkerhetskopia.\n\nAlternativt kan du skicka in en felrapport.</string>
     <string name="viewErrorLog">Visa fellogg</string>
     <string name="autoTimeWarningTitle">Tidssynkronisering inaktiverad</string>
     <string name="autoTimeWarningMessage">Automatisk tid är avstängd på din enhet. Tvåfaktorsautentisering kräver en exakt ställd klocka för att generera koder.\n\nAktivera automatisk tid i din enhets inställningar så att du alltid får giltiga koder.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">Ett oväntat fel inträffade i appen. Detaljer om felet följer nedan:</string>
     <string name="report">Rapportera</string>
     <string name="email">E-post</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Rapportera via</string>
     <string name="errorCopiedToClipboard">Felet har kopierats till urklipp</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Välj plats och lösenord för automatisk säkerhetskopiering. Säkerhetskopior schemaläggs när ändringar görs. Molnlagring stöds inte – använd säkerhetskopieringsmenyn istället.</string>
     <string name="selectLocation">Välj plats</string>
     <string name="noLocationSelected">Ingen plats vald</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Vald plats: \"{0}\"</string>
     <string name="setPassword">Välj lösenord</string>
     <string name="passwordNotSet">Inget lösenord har valts</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Lösenord inställt</string>
     <string name="notPasswordProtected">Inte lösenordsskyddad</string>
     <string name="enableAutoBackup">Aktivera automatisk säkerhetskopiering</string>
@@ -175,7 +205,9 @@
     <string name="autoBackupFailureText">Den senaste automatiska säkerhetskopieringen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer. Prova att ställa in säkerhetskopieringsplatsen på nytt i inställningarna för automatisk säkerhetskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk säkerhetskopiering slutförd</string>
     <string name="backupScheduled">Säkerhetskopiering schemalagd</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Kryptera databasen med ett lösenord. Du kommer behöva ange lösenordet när du öppnar appen. Lämna fältet tomt för att ta bort lösenordet.</string>
     <string name="passwordSetupWarning">Använd ett lösenord som du kommer ihåg – databasen kan inte återställas utan det!</string>
     <string name="clearPassword">Ta bort lösenord</string>
@@ -183,14 +215,18 @@
     <string name="setupBiometricUnlock">Ställ in biometrisk upplåsning</string>
     <string name="passwordsDoNotMatch">Lösenorden är inte lika</string>
     <string name="biometricsChanged">Enhetens biometri har ändrats. Använd lösenordet för att låsa upp.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Lås upp</string>
     <string name="useBiometrics">Använd biometri</string>
     <string name="unlockMessage">Ange ditt lösenord eller använd biometri för att låsa upp databasen</string>
     <string name="unlockBiometricsMessage">Använd biometri för att komma åt dina koder</string>
     <string name="passwordIncorrect">Lösenordet är felaktigt</string>
     <string name="tooManyAttempts">För många försök</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Importera från andra appar</string>
     <string name="importError">Filen kunde inte importeras</string>
     <string name="importIncomplete">Import ofullständig</string>
@@ -201,6 +237,7 @@
     <string name="freeOtpPlusImportHint">Importera \"freeotp-backup.json\"-fil</string>
     <string name="aegisImportHint">Importera \"aegis-export.json\"-fil</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
+    <string name="enteAuthImportHint">Importera \"ente-auth-codes.txt\"-fil</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"- eller \"winauth.zip\"-fil</string>
     <string name="twoFasImportHint">Importera \"2fas-backup.2fas\"-fil</string>
     <string name="lastPassAuthenticatorImportHint">Importera \"LastPassAuthenticator.json\"-fil</string>
@@ -208,7 +245,9 @@
     <string name="uriList">URI-lista</string>
     <string name="uriListHint">Oformaterad textlista med otpauth-URI:er</string>
     <string name="viewGuideImportHint">Visa guide på projektets wiki</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Skanna en QR-kod</string>
     <string name="guideScanQRCodeSummary">För att lägga till ett konto, skanna QR-koden som du fått av appen eller tjänsten. Kontot läggs då till i listan och koder börjar genereras. Du kan också ange uppgifterna manuellt.</string>
     <string name="guideUseCodeTitle">Använd koden när du loggar in</string>
@@ -221,11 +260,15 @@
     <string name="guideBackupSummary">Bli inte utlåst från dina konton om du byter enhet. Skapa en säkerhetskopieringsfil och lagra den på ett säkert ställe. En säkerhetskopia kan återställas när som helst och skyddas med ett lösenord.</string>
     <string name="guideWearOSTitle">Ladda ner den tillhörande Wear OS-appen</string>
     <string name="guideWearOSSummary">Om du har en Wear OS-klocka kan du ladda ner appen och få dina koder direkt på klockan.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Placera QR-koden framför kameran för att skanna den. Tryck för att fokusera.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">Allmänt</string>
     <string name="prefShowBackupRemindersTitle">Påminnelser om säkerhetskopiering</string>
     <string name="prefShowBackupRemindersSummary">Påminner dig att säkerhetskopiera dina konton när viktiga ändringar har gjorts</string>
@@ -271,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Gör listan synlig bakom statusfältet när du bläddrar</string>
     <string name="prefSystemFontTitle">Systemets typsnitt</string>
     <string name="prefSystemFontSummary">Använd systemets standardtypsnitt i stället för ett anpassat typsnitt</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Räknaren för antal kopieringar har nollställts</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">Visa logg</string>
     <string name="noLogFile">Ingen loggfil tillgänglig</string>
     <string name="debugLog">Felsökningslogg</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">Tidsbaserad (TOTP)</string>
     <string name="authTypeCounter">Räknarbaserad (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (standard)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Omedelbart</string>
     <string name="timeout5Sec">5 sekunder</string>
     <string name="timeout10Sec">10 sekunder</string>
@@ -297,12 +346,17 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Rutnät</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">Ingen</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Röd</string>
     <string name="pink">Rosa</string>
     <string name="purple">Lila</string>
@@ -319,9 +373,11 @@
     <string name="amber">Gul</string>
     <string name="orange">Orange</string>
     <string name="deepOrange">Mörkorange</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Välkommen till Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Autentisering med TOTP / HOTP / mOTP</string>
+    <string name="introCompatibilityTitle">Tvåfaktorsautentisering</string>
     <string name="introBackupTitle">Säkerhetskopiera och återställ</string>
     <string name="introCategoriesTitle">Kategorier</string>
     <string name="introThemesTitle">Mörkt tema</string>

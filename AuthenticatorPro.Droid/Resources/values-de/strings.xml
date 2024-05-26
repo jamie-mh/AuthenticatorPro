@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Warnung</string>
     <string name="delete">Löschen</string>
     <string name="add">Hinzufügen</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Ignorieren</string>
     <string name="disable">Deaktivieren</string>
     <string name="name">Name</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Einstellungen</string>
     <string name="restore">Wiederherstellen</string>
     <string name="backup">Sicherung</string>
@@ -44,7 +48,9 @@
     <string name="rateSummary">Bewerte Authenticator Pro im Google Play Store</string>
     <string name="viewGitHub">Auf GitHub anzeigen</string>
     <string name="viewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Herausgeber</string>
     <string name="username">Nutzername</string>
     <string name="secretKey">Geheimer Schlüssel</string>
@@ -73,25 +79,33 @@
     <string name="periodInvalid">Ungültige Dauer</string>
     <string name="counterInvalid">Der Zähler ist ungültig</string>
     <string name="qrCodeFormatError">Der QR-Code ist nicht im richtigen Format oder kann nicht gelesen werden.</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Diesen Schlüssel hast du bereits.</string>
     <string name="scanSuccessful">QR-Code erfolgreich gescannt</string>
     <string name="pinMessage">Gebe die Pin ein, die diesem QR-Code zugeordnet ist</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Standard-Icons</string>
     <string name="iconPacks">Icon Packs</string>
     <string name="downloadPacks">Packs herunterladen</string>
     <string name="importIconPackSuccess">{0} Icons aus der Pack importiert</string>
     <string name="invalidIconPackError">Die ausgewählte Datei ist kein Icon Pack</string>
     <string name="confirmIconPackDelete">Möchtest du dies Icon Pack wirklich löschen? Verwendete Icon werden nicht gelöscht.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Quelle anzeigen</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">QR-Code</string>
     <string name="qrCodeHelp">Scanne diesen QR-Code, um den Schlüssel auf ein anderes Gerät zu übertragen</string>
     <string name="qrCodeNotSupported">QR-Codes werden für diesen Typ nicht unterstützt</string>
     <string name="copyUri">URI kopieren</string>
     <string name="copyUriWarning">Diese URI enthält einen geheimen Schlüssel im Klartext. Sei vorsichtig, wo du diese Informationen einfügst.\n\nFortfahren?</string>
     <string name="uriCopiedToClipboard">URI wurde in die Zwischenablage kopiert</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
     <string name="backupToFileMessage">Speichere alle deine Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
     <string name="backupHtml">Als HTML-Datei sichern</string>
@@ -100,7 +114,9 @@
     <string name="backupUriList">Sicherung als URI-Listen-Datei</string>
     <string name="backupUriListMessage">Speichere deine Authentifikatoren in einer unverschlüsselten Klartext-URI-Listendatei. Diese Datei ist mit vielen alternativen Anwendungen und Diensten kompatibel. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="backupUriListWarning">Sicherungen in Klartext-Dateien sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir unsicher bist, verwende stattdessen eine verschlüsselte Sicherung.\n\nFortfahren?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
     <string name="gettingStartedGuide">Anleitung</string>
@@ -109,7 +125,9 @@
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt</string>
     <string name="noIconPacksTitle">Kein Icon Packs</string>
     <string name="noIconPacksMessage">Du hast noch kein Icon Pack importiert</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Kategorie</string>
     <string name="categories">Kategorien</string>
     <string name="assignCategories">Kategorien zuweisen</string>
@@ -120,14 +138,17 @@
     <string name="noCategoryName">Ein Name muss angegeben werden.</string>
     <string name="duplicateCategory">Eine Kategorie mit diesem Namen existiert bereits.</string>
     <string name="confirmCategoryDelete">Möchtest du diese Kategorie wirklich löschen?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Als Standard setzen</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Als Standard entfernen</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Jetzt sichern</string>
     <string name="restoreNow">Jetzt wiederherstellen</string>
-    <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen.</string>
+    <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
-    <string name="restoreError">Das Passwort ist falsch oder die Datei ist beschädigt.</string>
     <string name="password">Passwort</string>
     <string name="passwordConfirm">Passwort bestätigen</string>
     <string name="confirmEmptyPassword">Du hast kein Passwort eingegeben, deine Sicherung wird nicht verschlüsselt und deine Schlüssel können womöglich gestohlen werden. Fortfahren?</string>
@@ -139,7 +160,10 @@
     <string name="restoredFromBackup">{0} Schlüssel und {1} Kategorien wiederhergestellt.</string>
     <string name="restoredFromBackupUpdated">{0} Schlüssel und {1} Kategorien wiederhergestellt. {2} bereits vorhandene Schlüssel wurden aktualisiert.</string>
     <string name="restoredNothing">Es gibt nichts wiederherzustellen</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">Die Sicherung konnte nicht wiederhergestellt werden</string>
     <string name="cameraPermissionError">Du musst Zugriff auf die Kamera gewähren, um einen QR-Code zu scannen.</string>
     <string name="googlePlayNotInstalledError">Google Play ist auf deinem Gerät nicht installiert.</string>
     <string name="filePickerMissing">Dateiauswahl kann nicht geöffnet werden. Ein Dateiverwalter muss installiert sein.</string>
@@ -148,23 +172,29 @@
     <string name="webBrowserMissing">Kein Webbrowser installiert</string>
     <string name="emailClientMissing">Keine E-Mail-Anwendung installiert</string>
     <string name="genericError">Es ist ein Fehler aufgetreten.</string>
-    <string name="databaseError">Beim Öffnen der Datenbank ist ein Fehler aufgetreten. Versuche die App neu zu starten. Falls das Problem bestehen bleibt, lösche die App Daten und wiederherstelle dein letztes Backup.\n\nAlternativ kannst du uns einen Fehlerbericht erstatten.</string>
     <string name="viewErrorLog">Fehlerprotokoll anzeigen</string>
     <string name="autoTimeWarningTitle">Zeitsynchronisation deaktiviert</string>
     <string name="autoTimeWarningMessage">Dein Gerät hat die automatische Zeit deaktiviert. Zwei-Faktor-Authentifizierung erfordert eine genaue Uhr, um Codes zu generieren.\n\nBitte aktiviere die automatische Zeitsynchronisierung in den Geräteeinstellungen, um sicherzustellen, dass die generierten Codes immer gültig sind.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">Ein unbehandelter Fehler ist aufgetreten. Fehlerdetails werden unten angezeigt:</string>
     <string name="report">Melden</string>
     <string name="email">E-Mail</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Bericht über</string>
     <string name="errorCopiedToClipboard">Fehler in die Zwischenablage kopiert</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Wähle einen Pfad und ein Passwort für automatische Sicherungen. Sicherungen werden ausgeführt, wenn Änderungen gemacht werden. Cloud Speicherorte sind nicht unterstützt, verwende stattdessen das Sicherungsmenü.</string>
     <string name="selectLocation">Ort auswählen</string>
     <string name="noLocationSelected">Keinen Ort ausgewählt</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Ort gesetzt zu: \'{0}\'</string>
     <string name="setPassword">Passwort setzen</string>
     <string name="passwordNotSet">Es wurde kein Passwort gesetzt</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Passwort wurde gesetzt</string>
     <string name="notPasswordProtected">Nicht passwortgeschützt</string>
     <string name="enableAutoBackup">Automatische Sicherung</string>
@@ -175,7 +205,9 @@
     <string name="autoBackupFailureText">Die letzte automatische Sicherung ist fehlgeschlagen. Berechtigungen sind möglicherweise abgelaufen, versuche den Sicherungsort neu einzugeben.</string>
     <string name="autoBackupSuccessTitle">Automatische Sicherung abgeschlossen</string>
     <string name="backupScheduled">Sicherung geplant</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Verschlüssele die Datenbank mit einem Passwort. Du musst das Passwort eingeben, wenn du die App öffnest. Lasse das Feld leer, um kein Passwort zu setzen.</string>
     <string name="passwordSetupWarning">Verwende ein Passwort, das du dir merken kannst. Ohne das Passwort kannst du nicht mehr auf die Schlüssel zugreifen!</string>
     <string name="clearPassword">Passwort entfernen</string>
@@ -183,14 +215,18 @@
     <string name="setupBiometricUnlock">Biometrisches Entsperren einrichten</string>
     <string name="passwordsDoNotMatch">Passwörter stimmen nicht überein</string>
     <string name="biometricsChanged">Die Biometriedaten des Geräts haben sich verändert. Bitte benutze das Passwort zum Entsperren.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Entsperren</string>
     <string name="useBiometrics">Biometrie verwenden</string>
     <string name="unlockMessage">Passwort oder Biometrie verwenden, um die Datenbank zu entsperren</string>
     <string name="unlockBiometricsMessage">Datenbank entsperren</string>
     <string name="passwordIncorrect">Das Passwort ist falsch</string>
     <string name="tooManyAttempts">Zu viele Versuche</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Aus anderer App importieren</string>
     <string name="importError">Die Datei konnte nicht importiert werden</string>
     <string name="importIncomplete">Import unvollständig</string>
@@ -201,6 +237,7 @@
     <string name="freeOtpPlusImportHint">Importieren einer freeotp-backup.json Datei</string>
     <string name="aegisImportHint">Importieren einer aegis-export-plain.json Datei</string>
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
+    <string name="enteAuthImportHint">Importieren einer ente-auth-codes.txt Datei</string>
     <string name="winAuthImportHint">winauth.txt oder winauth.zip Datei importieren</string>
     <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json Datei importieren</string>
@@ -208,7 +245,9 @@
     <string name="uriList">URI-Liste</string>
     <string name="uriListHint">Reine Liste mit otpauth-URIs</string>
     <string name="viewGuideImportHint">Anleitung auf Projektseite anzeigen</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Scanne einen QR-Code</string>
     <string name="guideScanQRCodeSummary">Um einen Schlüssel hinzuzufügen, scanne den QR-Code, der von der App oder dem Dienst bereitgestellt wird. Er wird dann automatisch zu deiner Liste hinzugefügt und wird Codes für dich generieren. Du kannst die Daten auch manuell eingeben.</string>
     <string name="guideUseCodeTitle">Benutze den Code beim Anmelden</string>
@@ -221,11 +260,15 @@
     <string name="guideBackupSummary">Schließe dich nicht aus deinen Konten aus, wenn du das Gerät wechselst oder verlierst. Erstelle eine Sicherung und bewahre sie an einem sicheren Ort auf. Eine Sicherung kann jederzeit geladen und zusätzlich verschlüsselt werden.</string>
     <string name="guideWearOSTitle">Lade den WearOS-Begleiter herunter</string>
     <string name="guideWearOSSummary">Wenn du eine WearOS-Uhr hast, kannst du die Begleit-App herunterladen. Du bekommst die Codes dann auf deiner Uhr angezeigt.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Platziere den QR-Code in den Sucher, um diesen zu scannen. Zum Fokussieren tippen.</string>
     <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den Code.</string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">Allgemein</string>
     <string name="prefShowBackupRemindersTitle">Erinnerungen für Sicherungen</string>
     <string name="prefShowBackupRemindersSummary">Erinnert dich daran eine Sicherung zu erstellen, wenn wichtige Änderungen vorgenommen wurden</string>
@@ -271,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Beim Scrollen die Liste hinter der Statusleiste sichtbar machen</string>
     <string name="prefSystemFontTitle">Systemschrift</string>
     <string name="prefSystemFontSummary">Verwenden Sie die Systemschrift anstelle der enthaltenen App Schriftart</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Kopierzähler zurücksetzen</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">Protokoll anzeigen</string>
     <string name="noLogFile">Keine Protokolldatei verfügbar</string>
     <string name="debugLog">Debug-Protokoll</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">Zeitbasiert (TOTP)</string>
     <string name="authTypeCounter">Zählerbasiert (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (Standard)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Sofort</string>
     <string name="timeout5Sec">5 Sekunden</string>
     <string name="timeout10Sec">10 Sekunden</string>
@@ -297,12 +346,17 @@
     <string name="defaultViewMode">Standard</string>
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">Keine</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Rot</string>
     <string name="pink">Rosa</string>
     <string name="purple">Violett</string>
@@ -319,10 +373,12 @@
     <string name="amber">Bernstein</string>
     <string name="orange">Orange</string>
     <string name="deepOrange">Dunkelorange</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentifikation</string>
-    <string name="introBackupTitle">Sichern / Wiederherstellen</string>
+    <string name="introCompatibilityTitle">Zwei-Faktor-Authentifizierung</string>
+    <string name="introBackupTitle">Sichern und Wiederherstellen</string>
     <string name="introCategoriesTitle">Kategorien</string>
     <string name="introThemesTitle">Dunkles Thema</string>
     <string name="introWelcomeSummary">Danke für das Herunterladen von Authenticator Pro.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">Atenção</string>
     <string name="delete">Apagar</string>
     <string name="add">Adicionar</string>
@@ -15,7 +17,9 @@
     <string name="ignore">Ignorar</string>
     <string name="disable">Desativar</string>
     <string name="name">Name</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">Definições</string>
     <string name="restore">Restaurar</string>
     <string name="backup">Cópia de segurança</string>
@@ -44,7 +48,9 @@
     <string name="rateSummary">Avalie o Authenticator Pro no Google Play</string>
     <string name="viewGitHub">Ver no GitHub</string>
     <string name="viewGitHubSummary">Ver o repositório do Authenticator Pro no GitHub. Pode reportar um problema, solicitar mais ícones e funcionalidades.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">Emissor</string>
     <string name="username">Nome de utilizador</string>
     <string name="secretKey">Chave secreta</string>
@@ -73,25 +79,33 @@
     <string name="periodInvalid">O período é inválido</string>
     <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
     <string name="scanSuccessful">Código QR digitalizado com sucesso</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">Default icons</string>
     <string name="iconPacks">Icon packs</string>
     <string name="downloadPacks">Download packs</string>
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
     <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
-    <!-- QR code dialog -->
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">Código QR</string>
     <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicação, digitalizando o código QR</string>
     <string name="qrCodeNotSupported">Não são suportados códigos QR para este tipo</string>
     <string name="copyUri">Copiar URI</string>
     <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
     <string name="uriCopiedToClipboard">URI copiado para a área de transferência</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">Cópia de segurança para ficheiro encriptado (recomendado)</string>
     <string name="backupToFileMessage">Faça cópia de segurança de todos os seus autenticadores, categorias e ícones num ficheiro encriptado. Ele pode ser restaurado dentro da aplicação.</string>
     <string name="backupHtml">Cópia de segurança para ficheiro HTML</string>
@@ -100,7 +114,9 @@
     <string name="backupUriList">Cópia de segurança para ficheiro de lista URI</string>
     <string name="backupUriListMessage">Guarde os seus autenticadores para um ficheiro de lista URI em texto simples não encriptado. Este ficheiro é compatível com muitas aplicações e serviços alternativos. As categorias e ícones não são guardados.</string>
     <string name="backupUriListWarning">Cópias de segurança em texto simples não são encriptadas e podem deixar as suas chaves secretas vulneráveis.\n\nEste ficheiro não contém categorias e ícones. Se não tiver a certeza, opte por uma cópia de segurança encriptada.\n\nContinuar?</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">Não há nada aqui!</string>
     <string name="noAuthenticatorsMessage">Não tem nenhum autenticador aqui</string>
     <string name="gettingStartedGuide">Guia de introdução</string>
@@ -109,7 +125,9 @@
     <string name="noCategoriesMessage">Ainda não criou nenhuma categoria</string>
     <string name="noIconPacksTitle">No icon packs</string>
     <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">Category</string>
     <string name="categories">Categorias</string>
     <string name="assignCategories">Atribuir categorias</string>
@@ -120,14 +138,17 @@
     <string name="noCategoryName">É necessário dar um nome à categoria</string>
     <string name="duplicateCategory">Já existe uma categoria com este nome</string>
     <string name="confirmCategoryDelete">Tem a certeza de que quer eliminar esta categoria?</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">Predefinir</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">Limpar predefinição</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">Fazer cópia de segurança agora</string>
     <string name="restoreNow">Restaurar agora</string>
     <string name="backupReminder">Foram feitas alterações desde a sua última cópia de segurança</string>
     <string name="backupPasswordMessage">Introduza uma palavra-passe para encriptar a cópia de segurança. Se não desejar proteger o ficheiro, deixe o campo vazio.</string>
-    <string name="restoreError">A palavra-passe está incorreta ou o ficheiro está corrompido</string>
     <string name="password">Palavra-passe</string>
     <string name="passwordConfirm">Confirmar palavra-passe</string>
     <string name="confirmEmptyPassword">Não escolheu uma palavra-passe, a sua cópia de segurança não será encriptada e as suas chaves secretas poderão estar vulneráveis.\n\nContinuar?</string>
@@ -139,7 +160,10 @@
     <string name="restoredFromBackup">Restaurados {0} novos autenticadores e {1} novas categorias</string>
     <string name="restoredFromBackupUpdated">Restaurados {0} novos autenticadores e {1} novas categorias. Atualização de {2} autenticadores existentes.</string>
     <string name="restoredNothing">Nada a restaurar</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">The backup could not be restored</string>
     <string name="cameraPermissionError">Deve conceder permissão de acesso à câmara para digitalizar um código QR</string>
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de ficheiros. Deve ter um gestor de ficheiros instalado.</string>
@@ -148,23 +172,29 @@
     <string name="webBrowserMissing">Nenhum navegador instalado</string>
     <string name="emailClientMissing">Nenhum cliente de email instalado</string>
     <string name="genericError">Ocorreu um erro</string>
-    <string name="databaseError">Ocorreu um erro ao abrir a base de dados. Tente iniciar a aplicação novamente. Se o problema persistir, limpe os dados da aplicação e restaure a sua última cópia de segurança.\n\n Em alternativa, pode submeter um relatório de erros.</string>
     <string name="viewErrorLog">Ver o registo de erros</string>
     <string name="autoTimeWarningTitle">Time sync disabled</string>
     <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
-    <!-- Error reporting -->
+    <!--
+        Error reporting
+    -->
     <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Reportar</string>
     <string name="email">Email</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Reportar via</string>
     <string name="errorCopiedToClipboard">Erro copiado para a área de transferência</string>
-    <!-- Auto backup -->
+    <!--
+        Auto backup
+    -->
     <string name="autoBackupHelp">Selecione um local e uma palavra-passe para as cópias de segurança automáticas. As cópias de segurança são agendadas quando são feitas alterações. O armazenamento em nuvem não é suportado, utilize o menu de cópias de segurança.</string>
     <string name="selectLocation">Selecione o local</string>
     <string name="noLocationSelected">Nenhum local selecionado</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Localização definida para \'{0}\'</string>
     <string name="setPassword">Definir palavra-passe</string>
     <string name="passwordNotSet">Não foi definida uma palavra-passe</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Palavra-passe definida</string>
     <string name="notPasswordProtected">Não está protegido por palavra-passe</string>
     <string name="enableAutoBackup">Ativar cópia de segurança automática</string>
@@ -175,7 +205,9 @@
     <string name="autoBackupFailureText">A mais recente cópia de segurança automática não foi concluída. As permissões dos ficheiros podem ter expirado, tente definir novamente o local da cópia de segurança nas definições da cópia de segurança automática.</string>
     <string name="autoBackupSuccessTitle">Cópia de segurança automática concluída</string>
     <string name="backupScheduled">Cópia de segurança agendada</string>
-    <!-- Password setup -->
+    <!--
+        Password setup
+    -->
     <string name="passwordSetupHelp">Encriptar a base de dados com uma palavra-passe. Ser-lhe-á pedida a palavra-passe quando abrir a aplicação. Deixe o campo em branco para limpar a palavra-passe.</string>
     <string name="passwordSetupWarning">Utilize uma palavra-passe de que não se esqueça, a base de dados é irrecuperável sem ela!</string>
     <string name="clearPassword">Limpar palavra-passe</string>
@@ -183,32 +215,39 @@
     <string name="setupBiometricUnlock">Configurar o desbloqueio biométrico</string>
     <string name="passwordsDoNotMatch">As palavras-passe não correspondem</string>
     <string name="biometricsChanged">A biometria do dispositivo mudou. Utilizar a palavra-passe para desbloquear.</string>
-    <!-- Unlock -->
+    <!--
+        Unlock
+    -->
     <string name="unlock">Desbloquear</string>
     <string name="useBiometrics">Utilizar biometria</string>
     <string name="unlockMessage">Introduza a sua palavra-passe ou utilize a biometria para desbloquear a base de dados</string>
     <string name="unlockBiometricsMessage">Utilizar a biometria para desbloquear</string>
     <string name="passwordIncorrect">A palavra-passe está incorreta</string>
     <string name="tooManyAttempts">Demasiadas tentativas</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">Importar a partir de outras aplicações</string>
     <string name="importError">O ficheiro não pôde ser importado</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importar ficheiro authplus.db</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="andOtpImportHint">Importar ficheiro otp_accounts.json</string>
+    <string name="freeOtpImportHint">Importar ficheiro externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importar ficheiro freeotp-backup.json</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="aegisImportHint">Importar ficheiro aegis-export.json</string>
     <string name="bitwardenImportHint">Importar ficheiro bitwarden_export.json</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="enteAuthImportHint">Importar ficheiro ente-auth-codes.txt</string>
+    <string name="winAuthImportHint">Importar ficheiro winauth.txt ou winauth.zip</string>
+    <string name="twoFasImportHint">Importar ficheiro 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Importar ficheiro LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importar ficheiro TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
     <string name="uriListHint">Plain text list of otpauth URIs</string>
     <string name="viewGuideImportHint">Ver manual no wiki</string>
-    <!-- Getting Started Guide -->
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">Digitalizar um código QR</string>
     <string name="guideScanQRCodeSummary">Para adicionar um autenticador, digitalize o código QR fornecido pela aplicação ou serviço. Este será adicionado à lista e irá gerar novos códigos automaticamente. Também é possível introduzir as informações manualmente.</string>
     <string name="guideUseCodeTitle">Utilize o código ao iniciar sessão</string>
@@ -221,11 +260,15 @@
     <string name="guideBackupSummary">Não perca o acesso às suas contas ao mudar de dispositivo ou após fazer uma reposição de fábrica. Crie uma cópia de segurança e guarde-a num lugar seguro. Uma cópia de segurança pode ser restaurada em qualquer altura e protegida com uma palavra-passe.</string>
     <string name="guideWearOSTitle">Download the Wear OS companion</string>
     <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
-    <!-- QR code scanner -->
+    <!--
+        QR code scanner
+    -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Tente evitar sombras e reflexos. Mantenha o dispositivo a cerca de 15 cm do código.</string>
     <string name="toggleFlash">Ligar o flash</string>
-    <!-- Preferences -->
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">General</string>
     <string name="prefShowBackupRemindersTitle">Lembretes de cópia de segurança</string>
     <string name="prefShowBackupRemindersSummary">Lembra-o de fazer cópias de segurança dos seus autenticadores se forem feitas alterações importantes</string>
@@ -271,15 +314,21 @@
     <string name="prefTransparentStatusBarSummary">Tornar a lista atrás da barra de estado visível ao fazer scroll</string>
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Copy count reset</string>
-    <!-- About -->
+    <!--
+        About
+    -->
     <string name="viewLog">View Log</string>
     <string name="noLogFile">No log file available</string>
     <string name="debugLog">Debug log</string>
-    <!-- Arrays -->
+    <!--
+        Arrays
+    -->
     <string name="authTypeTime">Com base no tempo (TOTP)</string>
     <string name="authTypeCounter">Com base em contador (HOTP)</string>
     <string name="authAlgorithmSHA1">SHA1 (predefinição)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">Imediatamente</string>
     <string name="timeout5Sec">5 seconds</string>
     <string name="timeout10Sec">10 seconds</string>
@@ -297,12 +346,17 @@
     <string name="defaultViewMode">Predefinição</string>
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Grelha</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">None</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">Vermelho</string>
     <string name="pink">Rosa</string>
     <string name="purple">Roxo</string>
@@ -319,10 +373,12 @@
     <string name="amber">Laranja-amarelado</string>
     <string name="orange">Laranja</string>
     <string name="deepOrange">Laranja-escuro</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">Bem-vindo ao Authenticator Pro</string>
-    <string name="introCompatibilityTitle">Autenticação TOTP / HOTP / mOTP</string>
-    <string name="introBackupTitle">Cópia de segurança / Restauro</string>
+    <string name="introCompatibilityTitle">Autenticação de dois fatores</string>
+    <string name="introBackupTitle">Cópia de segurança e Restauro</string>
     <string name="introCategoriesTitle">Categorias</string>
     <string name="introThemesTitle">Tema escuro</string>
     <string name="introWelcomeSummary">Obrigado por descarregar o Authenticator Pro.\nMantenha as suas contas online seguras e protegidas com a melhor aplicação de autenticação de código aberto.</string>

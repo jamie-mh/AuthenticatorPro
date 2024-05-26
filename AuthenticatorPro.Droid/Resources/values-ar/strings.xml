@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Non specific strings -->
+    <!-- 
+        Non-specific strings
+    -->
     <string name="warning">تحذير</string>
     <string name="delete">حذف</string>
     <string name="add">إضافة</string>
@@ -15,7 +17,9 @@
     <string name="ignore">تجاهل</string>
     <string name="disable">إلغاء التفعيل</string>
     <string name="name">الإسم</string>
-    <!-- Menu items -->
+    <!-- 
+        Menu items
+    -->
     <string name="settings">الإعدادات</string>
     <string name="restore">استرجاع</string>
     <string name="backup">نسخ احتياطي</string>
@@ -44,7 +48,9 @@
     <string name="rateSummary">تقييم تطبيق Authenticator Pro على متجر بلاي</string>
     <string name="viewGitHub">العرض في GitHub</string>
     <string name="viewGitHubSummary">عرض مصدر Authenticator Pro على GitHub. يمكنك الإبلاغ عن مشكلة وطلب المزيد من الايقونات و الميزات.</string>
-    <!-- Authenticator -->
+    <!--
+        Authenticator
+    -->
     <string name="issuer">المُصدر</string>
     <string name="username">اسم المستخدم</string>
     <string name="secretKey">مفتاح سري</string>
@@ -73,25 +79,33 @@
     <string name="periodInvalid">الفترة غير صالحة</string>
     <string name="counterInvalid">العداد غير صحيح</string>
     <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">يوجد بالفعل مصادق بهذا المفتاح السري</string>
     <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
     <string name="pinMessage">أدخل الرمز المرتبط برمز QR هذا</string>
-    <!-- Icon packs -->
+    <!--
+        Icon packs
+    -->
     <string name="defaultIcons">الإيقونات الافتراضية</string>
     <string name="iconPacks">حزمة الايقونات</string>
     <string name="downloadPacks">تنزيل الحزم</string>
     <string name="importIconPackSuccess">الأيقونات المستوردة {0} من الحُزْمَة</string>
     <string name="invalidIconPackError">الملف المحدد ليس حزمة أيقونات لهذا للتطبيق</string>
     <string name="confirmIconPackDelete">هل أنت متأكد من أنك تريد حذف حزمة الأيقونة هذه؟ لن يتم حذف أي أيقونات مستخدمة.</string>
-    <string name="viewSource">View source</string>
-    <!-- QR code dialog -->
+    <!-- View the source (website) of the icon pack -->
+    <string name="viewSource">عرض المصدر</string>
+    <!--
+        QR code dialog
+    -->
     <string name="qrCode">رمز QR</string>
     <string name="qrCodeHelp">نسخ هذه المصادقة إلى جهاز آخر أو تطبيق آخر عن طريق فحص رمز QR</string>
     <string name="qrCodeNotSupported">رموز QR غير مدعومة لهذا النوع</string>
     <string name="copyUri">نسخ URI</string>
     <string name="copyUriWarning">يحتوي هذا URI على مفتاح سري في نص عادي. كن حذرا حيث تقوم بلصق هذه المعلومات.\n\n مواصلة؟</string>
     <string name="uriCopiedToClipboard">تم نسخ URI إلى الحافظة</string>
-    <!-- Backup menu -->
+    <!--
+        Backup menu
+    -->
     <string name="backupToFile">النسخ الاحتياطي إلى ملف المشفر (موصى به)</string>
     <string name="backupToFileMessage">حفظ جميع المصادقات والفئات والرموز الخاصة بك في ملف النسخ الاحتياطي المشفر. يمكن استعادة هذا الملف داخل التطبيق.</string>
     <string name="backupHtml">نسخ احتياطي إلى ملف HTML</string>
@@ -100,7 +114,9 @@
     <string name="backupUriList">النسخ الاحتياطي إلى ملف قائمة URI</string>
     <string name="backupUriListMessage">حفظ المصادقات الخاص بك إلى ملف قائمة URI للنص غير مشفر. هذا الملف متوافق مع العديد من التطبيقات والخدمات البديلة. الفئات والرموز غير محفوظة.</string>
     <string name="backupUriListWarning">النسخ الاحتياطي لملفات النص العادي غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nهذا الملف لا يحتوي على فئات أو أيقونات . إذا كان غير متأكد ، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
-    <!-- Empty states -->
+    <!--
+        Empty states
+    -->
     <string name="noAuthenticatorsTitle">لا شيء هنا!</string>
     <string name="noAuthenticatorsMessage">ليس لديك أي مُصادقات لإجراء نسخ احتياطية لها</string>
     <string name="gettingStartedGuide">دليل بداية الاستخدام</string>
@@ -109,7 +125,9 @@
     <string name="noCategoriesMessage">ليس لديك أي تصنيفات مُعدة حتى الآن</string>
     <string name="noIconPacksTitle">لا توجد حزمة أيقونات</string>
     <string name="noIconPacksMessage">ليس لديك أي حزم أيقونات بعد</string>
-    <!-- Categories -->
+    <!--
+        Categories
+    -->
     <string name="category">الفئة</string>
     <string name="categories">التصنيفات</string>
     <string name="assignCategories">تعيين التصنيفات</string>
@@ -120,14 +138,17 @@
     <string name="noCategoryName">اسم الفئة مطلوب</string>
     <string name="duplicateCategory">توجد فئة بهذا الاسم فعلًا</string>
     <string name="confirmCategoryDelete">هل تود حقًا حذف هذه الفئة؟</string>
+    <!-- Set as default category -->
     <string name="setAsDefault">تعيين كافتراضي</string>
+    <!-- Clear the selected category as the default -->
     <string name="clearDefault">محو الإعدادات الافتراضية</string>
-    <!-- Backups -->
+    <!--
+        Backups
+    -->
     <string name="backupNow">عمل نسخة احتياطية الآن</string>
     <string name="restoreNow">عمل استعادة الآن</string>
     <string name="backupReminder">تم إجراء تغييرات منذ آخر نسخة احتياطية قمت بها</string>
     <string name="backupPasswordMessage">أدخل كلمة مرور لتشفير ملف النسخ الاحتياطي الخاص بك بشكل آمن. إذا كنت لا ترغب في حماية الملف بكلمة المرور، اترك كلمة المرور فارغة.</string>
-    <string name="restoreError">كلمة المرور غير صحيحة أو أن الملف تالف</string>
     <string name="password">كلمة المرور</string>
     <string name="passwordConfirm">تأكيد كلمة المرور</string>
     <string name="confirmEmptyPassword">لم تقم باختيار كلمة مرور، ولن يتم تشفير نسختك الاحتياطية وقد تكون مفاتيحك السرية معرضة للخطر.\n\nهل تريد المتابعة؟</string>
@@ -139,7 +160,10 @@
     <string name="restoredFromBackup">استعادة {0} مصادقة جديدة و {1} فئات جديدة</string>
     <string name="restoredFromBackupUpdated">استعاد {0} مصادقات جديدة و {1} فئات جديدة. حدّث {2} المصادقة الموجودة.</string>
     <string name="restoredNothing">لاشيء لاستعادته</string>
-    <!-- Errors -->
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">تعذر استعادة النسخة الاحتياطية</string>
     <string name="cameraPermissionError">يجب منح إذن الكاميرا كي يتم مسح رمز QR</string>
     <string name="googlePlayNotInstalledError">متجر play غير مثَبت على جهازك</string>
     <string name="filePickerMissing">لا يمكن فتح منتقي الملفات. يجب تثبيت مدير الملفات.</string>
@@ -148,23 +172,29 @@
     <string name="webBrowserMissing">لا يوجد أي متصفح ويب مُثبت</string>
     <string name="emailClientMissing">لايوجد تطبيق بريد إلكتروني مثبت</string>
     <string name="genericError">حذث خطأ</string>
-    <string name="databaseError">An error occurred when opening the database. Try launching the app again. If the issue persists, clear app data and restore your latest backup.\n\nAlternatively, you can submit an error report.</string>
     <string name="viewErrorLog">عرض سِجل الأخطاء</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
-    <!-- Error reporting -->
-    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="autoTimeWarningTitle">المزامنة الزمنية معطلة</string>
+    <string name="autoTimeWarningMessage">جهازك لديه وقت تلقائي. المصادقة الثنائية تتطلب ساعة دقيقة لإنشاء الرموز.\n\nالرجاء تمكين المزامنة التلقائية في إعدادات جهازك للتأكد من أن الرموز التي أُنشئت صالحة دائما.</string>
+    <!--
+        Error reporting
+    -->
+    <string name="unhandledErrorMessage">حدث خطأ غير معالج في التطبيق. تفاصيل الخطأ أدناه:</string>
     <string name="report">إبلاغ</string>
     <string name="email">بريد إلكتروني</string>
+    <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">الإبلاغ عبر</string>
     <string name="errorCopiedToClipboard">تم نسخ الخطأ إلى الحافظة</string>
-    <!-- Auto backup -->
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <!--
+        Auto backup
+    -->
+    <string name="autoBackupHelp">حدد موقعا وكلمة مرور للنسخ الاحتياطي التلقائي. يتم جدولة النسخ الاحتياطي عند إجراء تغييرات. التخزين السحابي غير مدعوم، استخدم قائمة النسخ الاحتياطي بدلا من ذلك.</string>
     <string name="selectLocation">حدد موقعًا</string>
     <string name="noLocationSelected">لم يتم تحديد أي موقع</string>
+    <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">تم تعيين الموقع على \'{0}\'</string>
     <string name="setPassword">تعيين كلمة المرور</string>
     <string name="passwordNotSet">لم يتم تعيين كلمة المرور</string>
+    <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">تعيين كلمة المرور</string>
     <string name="notPasswordProtected">غير مَحْمي بكلمة مرور</string>
     <string name="enableAutoBackup">تفعيل النسخ الاحتياطي التلقائي</string>
@@ -172,137 +202,161 @@
     <string name="batOptim">تحسين البطارية</string>
     <string name="disableBatOptimMessage">قد تمنع إعدادات الطاقة أو البطارية النسخ الاحتياطي من العمل بالشكل الصحيح في بعض الأجهزة. إذا كنت تواجه مشكلات بهذا الخصوص فحاول تعطيل مِيزة تحسين البطارية لتطبيقAuthenticator Pro.</string>
     <string name="autoBackupFailureTitle">فشل النسخ الاحتياطي التلقائي</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupFailureText">أخفق إكمال أحدث نسخة احتياطية تلقائية. ربما تكون أذونات الملف قد انتهت، حاول إعداد موقع النسخ الاحتياطي مرة أخرى في إعدادات النسخ الاحتياطي التلقائي.</string>
     <string name="autoBackupSuccessTitle">اكتمل النسخ الاحتياطي التلقائي</string>
     <string name="backupScheduled">تمت جدولة النسخ الاحتياطي</string>
-    <!-- Password setup -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <!--
+        Password setup
+    -->
+    <string name="passwordSetupHelp">قم بتشفير قاعدة البيانات بكلمة مرور. ستُطالب بكلمة المرور عند فتح التطبيق. اترك الحقل فارغاً لمسح كلمة المرور.</string>
     <string name="passwordSetupWarning">استعمل كلمة مرور يمكنك تذكرها لأنه لا يمكن استرداد قاعدة البيانات بدونها!</string>
     <string name="clearPassword">مسح كلمة المرور</string>
     <string name="confirmPassword">تأكيد كلمة المرور</string>
-    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="setupBiometricUnlock">تعيين الفتح البيومتري</string>
     <string name="passwordsDoNotMatch">كلمة المرور غير متطابقة</string>
-    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
-    <!-- Unlock -->
-    <string name="unlock">Unlock</string>
-    <string name="useBiometrics">Use biometrics</string>
-    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
-    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
+    <string name="biometricsChanged">تم تغيير القفل البيومتري. استخدم كلمة المرور لإلغاء القفل.</string>
+    <!--
+        Unlock
+    -->
+    <string name="unlock">إلغاء القفل</string>
+    <string name="useBiometrics">استخدم القفل البيومتري</string>
+    <string name="unlockMessage">أدخل كلمة المرور الخاصة بك أو استخدم القفل البيومتري لفتح قاعدة البيانات</string>
+    <string name="unlockBiometricsMessage">استخدام القفل البيومتري للوصول إلى مصادقيك</string>
     <string name="passwordIncorrect">كلمة المرور غير صحيحة</string>
     <string name="tooManyAttempts">مُحاولات كثيرة</string>
-    <!-- Import -->
+    <!--
+        Import
+    -->
     <string name="importFromOtherApps">استيراد من تطبيقات أخرى</string>
     <string name="importError">تعذر استيراد الملف</string>
     <string name="importIncomplete">لم يكتمل الاستيراد</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
-    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
-    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
-    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
-    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="importConversionError">العنصر \"{0}\" أخفق في الاستيراد بسبب الخطأ التالي: {1}</string>
+    <string name="authenticatorPlusImportHint">استيراد ملف authplus.db</string>
+    <string name="andOtpImportHint">استيراد ملف otp_accounts.json</string>
+    <string name="freeOtpImportHint">استيراد ملف externalBackup.xml</string>
+    <string name="freeOtpPlusImportHint">استيراد ملف freeotp-backup.json</string>
+    <string name="aegisImportHint">استيراد ملف aegis-export.json</string>
+    <string name="bitwardenImportHint">استيراد ملف bitwarden_export.json</string>
+    <string name="enteAuthImportHint">استيراد ملف ente-auth-codes.txt</string>
+    <string name="winAuthImportHint">استيراد ملف winauth.txt أو winauth.zip</string>
+    <string name="twoFasImportHint">استيراد ملف 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">استيراد ملف LastPassAuthenticator.json</string>
+    <string name="totpAuthenticatorImportHint">استيراد ملف TOTP_Backup.encrypt</string>
     <string name="uriList">قائمة URl</string>
-    <string name="uriListHint">Plain text list of otpauth URIs</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
-    <!-- Getting Started Guide -->
+    <string name="uriListHint">قائمة نص عادي لـ URIs otpath</string>
+    <string name="viewGuideImportHint">عرض الدليل على ويكي المشروع</string>
+    <!--
+        Getting Started Guide
+    -->
     <string name="guideScanQRCodeTitle">مسح رمز QR</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
+    <string name="guideScanQRCodeSummary">لإضافة مصادق، امسح رمز QR المقدم من التطبيق أو الخدمة. وستضاف إلى القائمة وستنشأ رموز جديدة تلقائياً. يمكنك أيضًا إدخال التفاصيل يدوياً.</string>
     <string name="guideUseCodeTitle">استخدم الرمز عن تسجيل الدخول</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+    <string name="guideUseCodeSummary">عند تسجيل الدخول، استخدم الرمز الفريد من نوعه الذي يوفره Authenticator Pro. إنه صالح فقط لفترة قصيرة. انقر على المصادق في القائمة لنسخ الرمز إلى الحافظة.</string>
     <string name="guideCustomiseTitle">التخصيص والتعديل</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
+    <string name="guideCustomiseSummary">أعد تسمية وتخصيص مصادقيك للعثور عليهم بسهولة. ببساطة اضغط على أيقونة القائمة على إدخال واتبع الخطوات.</string>
     <string name="guideArrangeTitle">الترتيب والفرز</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    <string name="guideArrangeSummary">يمكنك تنظيم مصادقيك في فئات للعثور عليهم بسهولة. إضافة إلى الاحتفاظ بالعناصر وسحبها ما يمكنك من إعادة ترتيبها بأي ترتيب تريده.</string>
     <string name="guideBackupTitle">إنشاء نسخة احتياطية</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
-    <string name="guideWearOSTitle">Download the Wear OS companion</string>
-    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
-    <!-- QR code scanner -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
-    <!-- Preferences -->
+    <string name="guideBackupSummary">كي لا يحظر دخولك إلى حساباتك إذا غيرت جهازك. أنشئ ملف نسخ احتياطي وخزنه في مكان آمن. يمكن استعادة النسخة الاحتياطية في أي وقت وحمايتها بكلمة مرور.</string>
+    <string name="guideWearOSTitle">تنزيل مرافق نظام Wear OS</string>
+    <string name="guideWearOSSummary">إذا كان لديك ساعة بنظام Wear OS، فيمكنك تنزيل التطبيق المرافق. يمكنك عرض الرموز مباشرةً على ساعتك.</string>
+    <!--
+        QR code scanner
+    -->
+    <string name="scanHelpPrimary">ضع رمز QR في الباحث للمسح. انقر للتركيز.</string>
+    <string name="scanHelpSecondary">حاول تجنب الظلال والزجاج. امسك الجهاز على بعد حوالي 6 بوصات (15 سم) من الكود.</string>
+    <string name="toggleFlash">تشغيل الفلاش</string>
+    <!--
+        Preferences
+    -->
     <string name="prefGeneral">عامة</string>
     <string name="prefShowBackupRemindersTitle">تذكير النسخ الاحتياطية</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefShowBackupRemindersSummary">يذكرك بعمل نسخة احتياطية لمصادقيك إذا أجريت تغييرات هامة</string>
     <string name="prefAutoBackupTitle">نسخ احتياطي تلقائي</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">النسخ الاحتياطي تلقائياً إلى موقع محدد عند إجراء تغييرات. يعطل التذكير بالنسخ الاحتياطي.</string>
     <string name="prefLanguageTitle">اللغة</string>
     <string name="prefLanguageSummary">اختر لغة لاستخدامها في التطبيق</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefTapToCopyTitle">انقر للنسخ</string>
+    <string name="prefTapToCopySummary">نسخ الرمز إلى الحافظة عند النقر عليه</string>
+    <string name="prefResetCopyCountTitle">إعادة تعيين عدد النسخ</string>
+    <string name="prefResetCopyCountSummary">مسح عدد المرات التي نُسخ فيها كل مصادقة</string>
+    <string name="prefSkipToNextTitle">التخطي إلى التالي</string>
+    <string name="prefSkipToNextSummary">السماح بالتخطي إلى الرمز التالي عندما يكون قريبًا من الانتهاء</string>
     <string name="prefSecurity">الحماية</string>
     <string name="prefPasswordTitle">كلمة المرور</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefPasswordSummary">يتطلب كلمة مرور للوصول إلى المصادقين. ستشفر قاعدة البيانات باستخدام كلمة مرورك.</string>
     <string name="prefDatabasePasswordBackupTitle">النسخ الاحتياطي بكلمة مرور قاعدة البيانات</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
-    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
-    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefDatabasePasswordBackupSummary">تشفير جميع النسخ الاحتياطية باستخدام كلمة مرور قاعدة البيانات حتى لا تحتج إلى إدخالها في كل مرة</string>
+    <string name="prefAllowBiometricsTitle">قفل بيومتري</string>
+    <string name="prefAllowBiometricsSummary">السماح بفتح قاعدة البيانات بمصادقة بيومترية</string>
     <string name="prefTimeoutTitle">نفذ الوقت</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
+    <string name="prefTimeoutSummary">عين الوقت الذي ستُقفل بعدها قاعدة البيانات بمجرد مغادرة التطبيق الشاشة</string>
     <string name="prefTapToRevealTitle">انقر للكَشف</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
-    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
-    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefTapToRevealSummary">إخفاء الرموز حتى يتم النقر عليها. ستختفي بعد بضع ثوان.</string>
+    <string name="prefTapToRevealDurationTitle">انقر لكشف المدة</string>
+    <string name="prefTapToRevealDurationSummary">تعيين الوقت الذي سيتم بعدها إخفاء الرموز المكشوفة</string>
+    <string name="prefAllowScreenshotsTitle">السماح بلقطات الشاشة</string>
+    <string name="prefAllowScreenshotsSummary">تعطيل أمان الشاشة والسماح بلقطات الشاشة للتطبيق</string>
     <string name="prefAppearance">المظهر</string>
-    <string name="prefThemeTitle">Theme</string>
-    <string name="prefThemeSummary">Choose an application theme</string>
-    <string name="prefViewModeTitle">View Mode</string>
-    <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
-    <string name="prefAccentColourTitle">Accent Colour</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
-    <string name="copyCountReset">Copy count reset</string>
-    <!-- About -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
-    <!-- Arrays -->
-    <string name="authTypeTime">Time based (TOTP)</string>
-    <string name="authTypeCounter">Counter based (HOTP)</string>
-    <string name="authAlgorithmSHA1">SHA1 (default)</string>
+    <string name="prefThemeTitle">السمة</string>
+    <string name="prefThemeSummary">اختر سمة التطبيق</string>
+    <string name="prefViewModeTitle">طريقة العرض</string>
+    <string name="prefViewModeSummary">اختر وضع عرض لقائمة المصادقة</string>
+    <string name="prefCodeGroupSizeTitle">حجم مجموعة الرمز</string>
+    <string name="prefCodeGroupSizeSummary">تغيير تجميع الأرقام في رمز</string>
+    <string name="prefShowUsernamesTitle">إظهار أسماء المستخدم</string>
+    <string name="prefShowUsernamesSummary">عرض اسم المستخدم تحت اسم المُصدر</string>
+    <string name="prefDynamicColourTitle">لون ديناميكي</string>
+    <string name="prefDynamicColourSummary">تعيين اللون الثانوي بشكل ديناميكي على أساس خلفيتك</string>
+    <string name="prefAccentColourTitle">اللون الثانوي</string>
+    <string name="prefAccentColourSummary">اختر لون ثانوي لاستخدامه في التطبيق كله</string>
+    <string name="prefTransparentStatusBarTitle">شريط حالة شفاف</string>
+    <string name="prefTransparentStatusBarSummary">جعل القائمة مرئية خلف شريط الحالة عند التمرير</string>
+    <string name="prefSystemFontTitle">خط النظام</string>
+    <string name="prefSystemFontSummary">استخدام الخط الافتراضي للنظام بدلاً من خط مخصص</string>
+    <!-- Message shown when the copy count has been reset successfully -->
+    <string name="copyCountReset">إعادة تعيين العد</string>
+    <!--
+        About
+    -->
+    <string name="viewLog">عرض السجل</string>
+    <string name="noLogFile">لا يوجد ملف سجل متاح</string>
+    <string name="debugLog">سجل تصحيح الأخطاء</string>
+    <!--
+        Arrays
+    -->
+    <string name="authTypeTime">حسب الوقت (TOTP)</string>
+    <string name="authTypeCounter">حسب العداد (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (الافتراضي)</string>
+    <!-- Lock the app immediately when closed -->
     <string name="immediately">حالاً</string>
-    <string name="timeout5Sec">5 seconds</string>
-    <string name="timeout10Sec">10 seconds</string>
-    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout5Sec">5 ثوانٍ</string>
+    <string name="timeout10Sec">10 ثوانٍ</string>
+    <string name="timeout20Sec">20 ثانية</string>
     <string name="timeout30Sec">30 ثانية</string>
     <string name="timeout1Min">دقيقة واحدة</string>
     <string name="timeout2Min">دقيقتين</string>
     <string name="timeout5Min">5 دقائق</string>
     <string name="timeout10Min">10 دقائق</string>
     <string name="systemDefault">النظام الافتراضي</string>
-    <string name="systemDefaultBlack">System default (black)</string>
-    <string name="lightTheme">Light theme</string>
-    <string name="darkTheme">Dark theme</string>
-    <string name="blackTheme">Black theme</string>
+    <string name="systemDefaultBlack">افتراضي النظام (أسود)</string>
+    <string name="lightTheme">سمة فاتحة</string>
+    <string name="darkTheme">سمة داكنة</string>
+    <string name="blackTheme">سمة سوداء</string>
     <string name="defaultViewMode">افتراضي</string>
-    <string name="compactViewMode">Compact</string>
-    <string name="tileViewMode">Tile</string>
-    <string name="none">None</string>
+    <string name="compactViewMode">مضغوط</string>
+    <string name="tileViewMode">طبقة</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
+    <string name="none">لا شيء</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
-    <!-- Arrays > Languages -->
-    <!-- Arrays > Accent colours -->
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
     <string name="red">أحمر</string>
     <string name="pink">وردي</string>
     <string name="purple">بنفسجي</string>
@@ -319,15 +373,17 @@
     <string name="amber">عَنْبَري</string>
     <string name="orange">برتقالي</string>
     <string name="deepOrange">برتقالي غامق</string>
-    <!-- Arrays / Intro -->
+    <!--
+        Arrays / Intro
+    -->
     <string name="introWelcomeTitle">مرحبا بك في Authenticator Pro</string>
-    <string name="introCompatibilityTitle">TOTP / HOTP / mOTP Authentication</string>
-    <string name="introBackupTitle">النسخ الاحتياطي/ الاسترجاع</string>
+    <string name="introCompatibilityTitle">عامل التوثيق الثنائي</string>
+    <string name="introBackupTitle">النسخ الإحتياطي والإستعادة</string>
     <string name="introCategoriesTitle">التصنيفات</string>
-    <string name="introThemesTitle">Dark theme</string>
+    <string name="introThemesTitle">سمة داكنة</string>
     <string name="introWelcomeSummary">شكرا لك على تحميل Authenticator Pro. \n حافظ على أمان حساباتك وحمايتها على الأنترنيت باستخدام أفضل تطبيق مصادقة مفتوح المصدر.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro متوافق مع معظم مقدمي الخدمات والحسابات. متوافق 100٪ مع خدمات Google Authenticator المفعلة.</string>
+    <string name="introBackupSummary">قم بالنسخ الاحتياطي لمصادقيك بتشفير قوي. في حال فقدت جهازك، يمكنك دائماً الوصول إلى حساباتك. احفظهم في التخزين السحابي أو في جهازك.</string>
+    <string name="introCategoriesSummary">نظم مصادقيك إلى فئات، وغير أيضًا الترتيب بالضغط المستمر والسحب البسيطين.</string>
+    <string name="introThemesSummary">يمكنك تمكين السمة الداكنة في الإعدادات إذا كنت تفضل ذلك. ستتكيف جميع الأيقونات لتتوافق مع خلفيتها الجديدة.</string>
 </resources>
