@@ -79,7 +79,7 @@
     <string name="periodInvalid">Aikaväli on virheellinen</string>
     <string name="counterInvalid">Laskuri on virheellinen</string>
     <string name="qrCodeFormatError">QR-koodi ei ole oikeassa muodossa tai sitä ei voi lukea</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Tämä QR-koodi on tarkoitettu erityisesti Microsoft Authenticatorille, eikä se ole yhteensopiva.\n\nValitse \"Määritä toinen todennussovellus\" tai \"Määritä sovellus ilman ilmoituksia\" saadaksesi yhteensopivan QR-koodin.</string>
     <string name="duplicateAuthenticator">Tätä salaista avainta käyttävä todentaja on jo olemassa</string>
     <string name="scanSuccessful">QR-koodin skannaus onnistui</string>
     <string name="pinMessage">Syötä tähän QR-koodiin liittyvä PIN-koodi</string>
