@@ -40,6 +40,9 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
         public override Dialog OnCreateDialog(Bundle savedInstanceState)
         {
+            var baseActivity = (BaseActivity) RequireActivity();
+            IsDark = baseActivity.IsDark;
+            
             var dialog = (BottomSheetDialog) base.OnCreateDialog(savedInstanceState);
             dialog.ShowEvent += delegate
             {
@@ -47,11 +50,20 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                 BottomSheetBehavior.From(bottomSheet).State = BottomSheetBehavior.StateExpanded;
             };
 
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.OMr1)
             {
                 dialog.Window.SetNavigationBarColor(Color.Transparent);
+                
+                if (!IsDark && Build.VERSION.SdkInt < BuildVersionCodes.R)
+                {
+#pragma warning disable CA1422
+#pragma warning disable CA1416
+                    dialog.Window.DecorView.SystemUiFlags = SystemUiFlags.LightNavigationBar;
+#pragma warning restore CA1422
+#pragma warning restore CA1416
+                }
             }
-            else if (Build.VERSION.SdkInt < BuildVersionCodes.OMr1)
+            else
             {
                 dialog.Window.SetNavigationBarColor(Color.Black);
             }
@@ -63,9 +75,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             {
                 dialog.Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
             }
-
-            var baseActivity = (BaseActivity) RequireActivity();
-            IsDark = baseActivity.IsDark;
 
             return dialog;
         }
