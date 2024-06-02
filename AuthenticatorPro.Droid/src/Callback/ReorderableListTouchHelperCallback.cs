@@ -6,6 +6,7 @@ using Android.Content;
 using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.Adapter;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Card;
 using Google.Android.Material.Internal;
 
@@ -30,7 +31,7 @@ namespace AuthenticatorPro.Droid.Callback
             _movementStartPosition = -1;
             _movementEndPosition = -1;
 
-            _dragElevation = ViewUtils.DpToPx(context, DragElevationDp);
+            _dragElevation = DimenUtil.DpToPx(context, DragElevationDp);
         }
 
         public override bool IsLongPressDragEnabled => true;

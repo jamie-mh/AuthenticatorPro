@@ -391,7 +391,7 @@ namespace AuthenticatorPro.Droid.Activity
         protected override void OnApplySystemBarInsets(Insets insets)
         {
             base.OnApplySystemBarInsets(insets);
-            var bottomPadding = (int) ViewUtils.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
+            var bottomPadding = DimenUtil.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
             _authenticatorList.SetPadding(0, 0, 0, bottomPadding);
         }
 

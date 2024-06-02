@@ -4,6 +4,7 @@
 using System;
 using Android.Content;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface.LayoutManager
@@ -16,7 +17,7 @@ namespace AuthenticatorPro.Droid.Interface.LayoutManager
 
         public AutoGridLayoutManager(Context context, int minColumnWidth) : base(context, 1)
         {
-            _minColumnWidth = (int) ViewUtils.DpToPx(context, minColumnWidth);
+            _minColumnWidth = DimenUtil.DpToPx(context, minColumnWidth);
             CalculateSpanCount();
         }
 

@@ -12,6 +12,7 @@ using Android.Widget;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.BottomSheet;
 using Google.Android.Material.Internal;
 using Google.Android.Material.TextView;
@@ -117,7 +118,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
 
             if (Activity.Resources.Configuration.ScreenWidthDp > MaxWidth)
             {
-                Dialog.Window.SetLayout((int) ViewUtils.DpToPx(Activity, MaxWidth), -1);
+                Dialog.Window.SetLayout(DimenUtil.DpToPx(Activity, MaxWidth), -1);
             }
         }
 

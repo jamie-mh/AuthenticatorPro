@@ -252,7 +252,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnApplySystemBarInsets(insets);
 
-            var bottomPadding = (int) ViewUtils.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
+            var bottomPadding = DimenUtil.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
             _packList.SetPadding(0, 0, 0, bottomPadding);
 
             var layoutParams = (ViewGroup.MarginLayoutParams) AddButton.LayoutParameters;

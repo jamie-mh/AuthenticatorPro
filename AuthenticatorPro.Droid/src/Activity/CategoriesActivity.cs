@@ -20,6 +20,7 @@ using AuthenticatorPro.Droid.Interface.Fragment;
 using AuthenticatorPro.Droid.Interface.LayoutManager;
 using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
@@ -406,7 +407,7 @@ namespace AuthenticatorPro.Droid.Activity
         {
             base.OnApplySystemBarInsets(insets);
 
-            var bottomPadding = (int) ViewUtils.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
+            var bottomPadding = DimenUtil.DpToPx(this, ListFabPaddingBottom) + insets.Bottom;
             _categoryList.SetPadding(0, 0, 0, bottomPadding);
 
             var layoutParams = (ViewGroup.MarginLayoutParams) AddButton.LayoutParameters;

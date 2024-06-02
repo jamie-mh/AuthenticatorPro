@@ -5,6 +5,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface
@@ -19,7 +20,7 @@ namespace AuthenticatorPro.Droid.Interface
             bool hasEdgeSpacing)
         {
             _layoutManager = layoutManager;
-            _spacing = (int) ViewUtils.DpToPx(context, spacingDp);
+            _spacing = DimenUtil.DpToPx(context, spacingDp);
             _hasEdgeSpacing = hasEdgeSpacing;
         }
 
