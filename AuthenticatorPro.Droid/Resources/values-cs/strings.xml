@@ -80,7 +80,7 @@
     <string name="periodInvalid">Doba je neplatná</string>
     <string name="counterInvalid">Počítadlo není platné</string>
     <string name="qrCodeFormatError">QR kód není ve správném formátu nebo jej nelze přčíst</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Tento QR kód je určen speciálně pro Microsoft Authenticator a není kompatibilní.\n\nPro získání kompatibilního QR kódu vyberte možnost „Nastavit jinou ověřovací aplikaci“ nebo „Konfigurovat aplikaci bez oznámení“.</string>
     <string name="duplicateAuthenticator">Autentifikátor s tímto tajným klíčem již existuje</string>
     <string name="scanSuccessful">QR kód úspěšně naskenován</string>
     <string name="pinMessage">Zadejte PIN přidružený k tomuto QR kódu</string>
