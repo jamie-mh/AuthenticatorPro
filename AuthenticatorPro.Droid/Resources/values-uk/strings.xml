@@ -79,7 +79,7 @@
     <string name="periodInvalid">Неправильний період</string>
     <string name="counterInvalid">Лічильник недійсний</string>
     <string name="qrCodeFormatError">Неправильний формат QR-коду або неможливо зчитати</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Цей QR-код призначений спеціально для Microsoft Authenticator і не сумісний.\n\nВиберіть «Налаштувати інший застосунок для автентифікації» або «Налаштувати застосунок без сповіщень», щоб отримати сумісний QR-код.</string>
     <string name="duplicateAuthenticator">Автентифікатор з цим секретним ключем вже існує</string>
     <string name="scanSuccessful">QR-код успішно відскановано</string>
     <string name="pinMessage">Введіть PIN-код, пов\'язаний з цим QR-кодом</string>
