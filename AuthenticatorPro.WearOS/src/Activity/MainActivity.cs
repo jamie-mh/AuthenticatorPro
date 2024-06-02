@@ -113,9 +113,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _categoryCache = new ListCache<WearCategory>(CategoryCacheName, this);
             _customIconCache = new CustomIconCache(this);
 
-            await _authCache.InitAsync();
-            await _categoryCache.InitAsync();
-            await _customIconCache.InitAsync();
+            await Task.WhenAll(_authCache.InitAsync(), _categoryCache.InitAsync(), _customIconCache.InitAsync());
 
             var defaultCategory = _preferences.DefaultCategory;
             _authView = new AuthenticatorView(_authCache, defaultCategory, _preferences.SortMode);
