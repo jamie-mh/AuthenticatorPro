@@ -52,6 +52,7 @@
         <item>@string/slovak</item>
         <item>@string/finnish</item>
         <item>@string/swedish</item>
+        <item>@string/vietnamese</item>
         <item>@string/turkish</item>
         <item>@string/ukrainian</item>
         <item>@string/arabic</item>
@@ -78,6 +79,7 @@
         <item>sk</item>
         <item>fi</item>
         <item>sv</item>
+        <item>vi</item>
         <item>tr</item>
         <item>uk</item>
         <item>ar</item>
