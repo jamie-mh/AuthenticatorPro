@@ -58,7 +58,7 @@
     <string name="showAdvancedOptions">Hiển thị tùy chọn nâng cao</string>
     <string name="advancedOptionsWarning">Chỉ thay đổi những tùy chọn này nếu bạn biết mình đang làm gì, bạn có thể bị khóa tài khoản của mình.\n\nTiếp tục?</string>
     <string name="confirmAuthenticatorDelete">Việc xóa trình xác thực này sẽ ngăn bạn tạo mã cho tài khoản này. Điều này không có nghĩa là xác thực hai yếu tố bị vô hiệu hóa.\n\nViệc xóa trình xác thực này có thể ngăn bạn truy cập vào tài khoản của mình.\nHãy đảm bảo rằng xác thực hai yếu tố bị vô hiệu hóa hoặc bạn có mã khôi phục.\n\nTiếp tục?</string>
-    <string name="useCustomIcon">Sử dụng icon tùy chỉnh</string>
+    <string name="useCustomIcon">Sử dụng biểu tượng tùy chỉnh</string>
     <string name="copiedToClipboard">Đã sao chép mã vào bảng nhớ tạm</string>
     <string name="issuerHint">Nhà phát hành (ví dụ: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
