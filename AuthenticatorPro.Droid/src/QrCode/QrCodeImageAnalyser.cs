@@ -14,13 +14,14 @@ namespace AuthenticatorPro.Droid.QrCode
     public class QrCodeImageAnalyser : Java.Lang.Object, ImageAnalysis.IAnalyzer
     {
         public event EventHandler<string> QrCodeScanned;
-        public Size DefaultTargetResolution => new(1920, 1080);
+        public Size DefaultTargetResolution => new(640, 480);
         
         private readonly ILogger _log = Log.ForContext<QrCodeImageAnalyser>();
 
         private readonly QrCodeReader _qrCodeReader = new(new ReaderOptions
         {
             TryRotate = true,
+            TryHarder = true,
             Binarizer = Binarizer.LocalAverage
         });
         
@@ -48,7 +49,7 @@ namespace AuthenticatorPro.Droid.QrCode
             var bytes = new byte[plane.Buffer.Capacity()];
             plane.Buffer.Get(bytes);
             
-            using var imageView = new ImageView(bytes, imageProxy.Width, imageProxy.Height, ImageFormat.RGBA);
+            using var imageView = new ImageView(bytes, imageProxy.Width, imageProxy.Height, ImageFormat.Lum, plane.RowStride, plane.PixelStride);
             string result;
             
             try
