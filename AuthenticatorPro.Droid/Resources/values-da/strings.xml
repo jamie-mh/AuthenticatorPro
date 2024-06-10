@@ -155,8 +155,8 @@
     <string name="passwordHint">Sikkerhedskopiér adgangskode</string>
     <string name="fileNameHint">Sikkerhedskopiér filnavn</string>
     <string name="noAuthenticators">Du har ingen autentifikatorer at sikkerhedskopiere</string>
-    <string name="saveSuccess">Gemt med succes</string>
-    <string name="backupSuccess">Gemt sikkerhedskopi som \'{0}\'</string>
+    <string name="saveSuccess">Saved successfully</string>
+    <string name="backupSuccess">Saved backup as \'{0}\'</string>
     <string name="restoredFromBackup">Gendannede {0} nye autentificatorer og {1} nye kategorier</string>
     <string name="restoredFromBackupUpdated">Gendannede {0} nye autentifikatorer og {1} nye kategorier. Opdaterede {2} eksisterende autentifikatorer.</string>
     <string name="restoredNothing">Intet at gendanne</string>
@@ -164,7 +164,7 @@
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="cameraPermissionError">Kamera-tilladelsen skal gives for at kunne scanne en QR-kode</string>
+    <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
     <string name="googlePlayNotInstalledError">Google Play er ikke installeret på din enhed</string>
     <string name="filePickerMissing">Kan ikke åbne filvælger. En filhåndtering skal være installeret.</string>
     <string name="filePickError">Fejl ved valg af fil</string>
@@ -178,7 +178,7 @@
     <!--
         Error reporting
     -->
-    <string name="unhandledErrorMessage">Der opstod en ikke-håndteret fejl i applikationen. Detaljer om fejlen er nedenfor:</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
     <string name="report">Rapportér</string>
     <string name="email">E-mail</string>
     <!-- Report via Email, GitHub, etc. -->
@@ -230,7 +230,7 @@
     <string name="importFromOtherApps">Importér fra andre apps</string>
     <string name="importError">Filen kunne ikke importeres</string>
     <string name="importIncomplete">Import ikke fuldført</string>
-    <string name="importConversionError">Elementet \"{0}\" kunne ikke importeres pga. følgende fejl: {1}</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importér authplus.db-fil</string>
     <string name="andOtpImportHint">Importér otp_accounts.json-fil</string>
     <string name="freeOtpImportHint">Importér externalBackup.xml-fil</string>
@@ -263,7 +263,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placér QR-koden i søgeren for at scanne den. Tryk for at fokusere.</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Prøv at undgå skygger og blænding. Hold enheden ca. 15 cm (6 inches) fra koden.</string>
     <string name="toggleFlash">Slå blitz til/fra</string>
     <!--
@@ -275,8 +275,8 @@
     <string name="prefAutoBackupTitle">Automatisk sikkerhedskopiering</string>
     <string name="prefAutoBackupSummary">Sikkerhedskopiér automatisk til en bestemt lokation, når der foretages ændringer. Deaktiverer påmindelser om sikkerhedskopiering.</string>
     <string name="prefLanguageTitle">Sprog</string>
-    <string name="prefLanguageSummary">Vælg et sprog, der skal bruges i hele appen</string>
-    <string name="prefTapToCopyTitle">Tryk for at kopiere</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
     <string name="prefTapToCopySummary">Kopiér koden til udklipsholderen, når den trykkes</string>
     <string name="prefResetCopyCountTitle">Nulstil Kopieringstæller</string>
     <string name="prefResetCopyCountSummary">Ryd antallet af gange hver autentifikator er blevet kopieret</string>
@@ -286,14 +286,14 @@
     <string name="prefPasswordTitle">Adgangskode</string>
     <string name="prefPasswordSummary">Kræv adgangskode for at få adgang til godkendere. Databasen krypteres med din adgangskode.</string>
     <string name="prefDatabasePasswordBackupTitle">Sikkerhedskopiering med databaseadgangskode</string>
-    <string name="prefDatabasePasswordBackupSummary">Kryptér alle sikkerhedskopier vha. database-adgangskode, så du ikke skal indtaste det hver gang</string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometrisk Oplåsning</string>
-    <string name="prefAllowBiometricsSummary">Tillad oplåsning af databasen med biometrisk godkender</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
     <string name="prefTimeoutTitle">Tidsudløb</string>
     <string name="prefTimeoutSummary">Angiv tidspunktet, hvorefter databasen låser, når appen forlader skærmen</string>
     <string name="prefTapToRevealTitle">Tryk for at afsløre</string>
     <string name="prefTapToRevealSummary">Skjul koder indtil de trykkes. De forsvinder efter nogle sekunder.</string>
-    <string name="prefTapToRevealDurationTitle">Tryk for at afsløre Varighed</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
     <string name="prefTapToRevealDurationSummary">Angiv tiden, hvorefter koderne skjules</string>
     <string name="prefAllowScreenshotsTitle">Tillad Skærmbilleder</string>
     <string name="prefAllowScreenshotsSummary">Deaktivér skærmsikkerhed, og tillad skærmbilleder af appen</string>
