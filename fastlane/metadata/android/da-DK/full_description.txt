@@ -1,26 +1,26 @@
-En gratis open-source to-faktor-godkendelsesapp til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. It also has a Wear OS companion app.
+A free open-source two factor authentication app for Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. It also has a Wear OS companion app.
 
 Den understøtter TOTP (Tidsbaseret) og HOTP (Tællerbaseret) godkendere ved brug af enten SHA1, SHA256 eller SHA512 hash-algoritmer. Mobile-Otp (mOTP), Steam og Yandex understøttes også.
 
-To-faktor godkendelse giver et ekstra lag sikkerhed til dine konti ved at kræve brug af en engangskode for at logge ind.
-Ud over dit brugernavn og din adgangskode, skal du bruge en kode fra Authenticator Pro. Så selv hvis dine loginoplysninger bliver kompromitteret, forbliver din konto sikker.
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
+In addition to your username and password, you will need a code provided by Authenticator Pro. Så selv hvis dine loginoplysninger bliver kompromitteret, forbliver din konto sikker.
 
 <hr>
 
 <b>Funktioner</b>
 
 - ⚙️ <b>Kompatibilitet</b>: Authenticator Pro er kompatibel med de fleste udbydere og konti.
-- 📲 <b>Import</b>: Migrér nemt dine konti til Authenticator Pro fra understøttede alternative apps.
+- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
 - 💾 <b>Sikkerhedskopiering / Gendannelse</b>: Sikkerhedskopiér dine godkendere med stærk kryptering. Skulle du miste eller skifte din telefon, kan du altid få adgang til dine konti. Du kan gemme sikkerhedskopier i skyen eller på din enhed.
-- 🌙 <b>Mørk tilstand</b>: Authenticator Pro har et smukt materialedesign-inspireret look i enten lyse eller mørke temaer.
+- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
 - ⏺️ <b>Ikoner</b>: Find nemt dine godkendere med genkendelige brandlogoer og ikoner ved siden af hver kode.
-- 📂 <b>Kategorier</b>: Organisér dine godkendere i kategorier.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
 - 🔒 <b>Offline med få tilladelser</b>: Authenticator Pro kræver kun en enkelt tilladelse¹ og kræver ikke internetadgang for at fungere.
-- 🔑 <b>Sikkerhed</b>: Indstil en adgangskode og brug biometrisk autentificering til at beskytte dine koder.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
 - 🎨 <b>Tilpasning</b>: Indstil ikoner og omdøb. Du kan også arrangere dine godkendere i den rækkefølge, du ønsker, så du nemt kan finde dem.
 - ⌚ <b>Wear OS</b>: Se hurtigt dine godkendere direkte fra dit ur. Du kan endda angive en favorit og placere den i en flise. Bemærk venligst, at det kræver en forbindelse til din Android-enhed. Desuden er F-Droid-distributioner af appen ikke kompatible med Wear OS, da det kræver ikke-frie afhængigheder.
 
-(¹) *For at scanne QR-koder skal appen have adgang til kameraet.*
+(¹) *To scan QR-Codes, the app requires the camera permission.*
 
 <a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Ofte Stillede Spørgsmål</b></a>
 
@@ -28,6 +28,6 @@ Ud over dit brugernavn og din adgangskode, skal du bruge en kode fra Authenticat
 
 <b>Disclaimer</b>
 
-Dette program er fri software: Du kan redistribuere det og/eller modificere det i henhold til vilkårene i GNU General Public License som udgivet af Free Software Foundation, enten version 3 af licensen eller (efter eget valg) enhver senere version.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 Dette program distribueres i håb om, at det vil være nyttigt, men UDEN NOGEN GARANTI; selv uden den underforståede garanti for SALGBARHED eller EGNETHED TIL ET SPECIFIKT FORMÅL. Se GNU General Public License for flere detaljer.
