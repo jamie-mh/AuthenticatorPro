@@ -112,7 +112,7 @@
     <string name="backupHtmlMessage">Gem dine godkendere i et ukrypteret HTML-dokument med QR-koder. For at gendanne skal disse koder scannes individuelt. Kategorier og ikoner gemmes ikke.</string>
     <string name="backupHtmlWarning">Sikkerhedskopier til HTML-filer er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil kan ikke gendannes i appen og indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg krypteret fil-sikkerhedskopi i stedet.\n\nFortsæt?</string>
     <string name="backupUriList">Sikkerhedskopiér til URI-listefil</string>
-    <string name="backupUriListMessage">Gem dine autentifikatorer til en ukrypteret URI-listefil. Denne fil er kompatibel med mange alternative applikationer og tjenester. Kategorier og ikoner gemmes ikke.</string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Sikkerhedskopier til filer med almindelig tekst er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg krypteret fil-sikkerhedskopi i stedet.\n\nFortsæt?</string>
     <!--
         Empty states
