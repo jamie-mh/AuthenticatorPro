@@ -1,4 +1,4 @@
-En gratis open-source to-faktor-godkendelsesapp til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. Den har også en ledsage-app til Wear OS.
+En gratis open-source to-faktor-godkendelsesapp til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. It also has a Wear OS companion app.
 
 Den understøtter TOTP (Tidsbaseret) og HOTP (Tællerbaseret) godkendere ved brug af enten SHA1, SHA256 eller SHA512 hash-algoritmer. Mobile-Otp (mOTP), Steam og Yandex understøttes også.
 
