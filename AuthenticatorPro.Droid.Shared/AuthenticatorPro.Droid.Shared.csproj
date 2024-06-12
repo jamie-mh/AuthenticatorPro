@@ -11,7 +11,7 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.5" />
+        <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.7" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\AuthenticatorPro.Core\AuthenticatorPro.Core.csproj"/>
