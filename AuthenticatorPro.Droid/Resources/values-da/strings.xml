@@ -7,14 +7,14 @@
     <string name="delete">Slet</string>
     <string name="add">Tilføj</string>
     <string name="edit">Redigér</string>
-    <string name="cancel">Annullér</string>
+    <string name="cancel">Annuller</string>
     <string name="ok">OK</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
     <string name="close">Luk</string>
     <string name="error">Fejl</string>
     <string name="retry">Prøv igen</string>
-    <string name="ignore">Ignorér</string>
+    <string name="ignore">Ignorer</string>
     <string name="disable">Deaktivér</string>
     <string name="name">Navn</string>
     <!-- 
@@ -26,7 +26,7 @@
     <string name="about">Om</string>
     <string name="scanQrCode">Scan en QR-kode</string>
     <string name="showQrCode">Vis QR-kode</string>
-    <string name="editDetails">Redigér detaljer</string>
+    <string name="editDetails">Rediger detaljer</string>
     <string name="scanQrCodeFromCamera">Scan fra kamera</string>
     <string name="scanQrCodeFromGallery">Scan fra galleri</string>
     <string name="rename">Omdøb</string>
@@ -58,7 +58,7 @@
     <string name="showAdvancedOptions">Vis avancerede indstillinger</string>
     <string name="advancedOptionsWarning">Ændr kun disse indstillinger, hvis du ved, hvad du laver; du kan blive låst ud af din konto.\n\nFortsæt?</string>
     <string name="confirmAuthenticatorDelete">Fjernelse af denne godkender vil forhindre dig i at generere koder for denne konto. Dette betyder ikke, at to-faktor godkendelse deaktiveres.\n\nSletning af denne godkender kan forhindre dig i at få adgang til din konto.\nSørg for, at enten to-faktor godkendelse er deaktiveret, eller at du har gendannelseskoderne.\n\nFortsæt?</string>
-    <string name="useCustomIcon">Brug tilpasset ikon</string>
+    <string name="useCustomIcon">Brug brugerdefineret ikon</string>
     <string name="copiedToClipboard">Kode kopieret til udklipsholder</string>
     <string name="issuerHint">Udsteder (fx: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
@@ -79,7 +79,7 @@
     <string name="periodInvalid">Perioden er ugyldig</string>
     <string name="counterInvalid">Tælleren er ugyldig</string>
     <string name="qrCodeFormatError">QR-koden er ikke i det rigtige format eller kan ikke læses</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Denne QR-kode er specifikt til Microsoft Authenticator og er ikke kompatibel. \n\nVælg \"Opsæt en anden Godkendelsesapp\" eller \"Konfigurer app uden meddelelser\" for at få en kompatibel QR-kode.</string>
     <string name="duplicateAuthenticator">En godkender med denne hemmelige nøgle findes allerede</string>
     <string name="scanSuccessful">QR-kode scannet</string>
     <string name="pinMessage">Indtast PIN-koden knyttet til denne QR-kode</string>
@@ -91,7 +91,7 @@
     <string name="downloadPacks">Hent pakker</string>
     <string name="importIconPackSuccess">Importerede {0} ikoner fra pakke</string>
     <string name="invalidIconPackError">Den valgte fil er ikke en Authenticator Pro-ikonpakke</string>
-    <string name="confirmIconPackDelete">Er du sikker på, at du vil slette denne ikonpakke? Brugte ikoner vil ikke blive slettet.</string>
+    <string name="confirmIconPackDelete">Er du sikker på, at du vil slette denne ikonpakke? Brugte ikoner slettes ikke.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Se kilde</string>
     <!--
@@ -107,24 +107,24 @@
         Backup menu
     -->
     <string name="backupToFile">Sikkerhedskopiér til krypteret fil (anbefalet)</string>
-    <string name="backupToFileMessage">Gem alle dine godkendere, kategorier og ikoner til en krypteret sikkerhedskopi-fil. Denne fil kan gendannes i appen.</string>
+    <string name="backupToFileMessage">Gem alle dine godkendere, kategorier og ikoner til en krypteret sikkerhedskopifil. Denne fil kan gendannes i appen.</string>
     <string name="backupHtml">Sikkerhedskopiér til HTML-fil</string>
     <string name="backupHtmlMessage">Gem dine godkendere i et ukrypteret HTML-dokument med QR-koder. For at gendanne skal disse koder scannes individuelt. Kategorier og ikoner gemmes ikke.</string>
-    <string name="backupHtmlWarning">Sikkerhedskopier til HTML-filer er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil kan ikke gendannes i appen og indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg krypteret fil-sikkerhedskopi i stedet.\n\nFortsæt?</string>
+    <string name="backupHtmlWarning">Sikkerhedskopier til HTML-filer er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil kan ikke gendannes i appen og indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
     <string name="backupUriList">Sikkerhedskopiér til URI-listefil</string>
-    <string name="backupUriListMessage">Gem dine autentifikatorer til en ukrypteret URI-listefil. Denne fil er kompatibel med mange alternative applikationer og tjenester. Kategorier og ikoner gemmes ikke.</string>
-    <string name="backupUriListWarning">Sikkerhedskopier til filer med almindelig tekst er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg krypteret fil-sikkerhedskopi i stedet.\n\nFortsæt?</string>
+    <string name="backupUriListMessage">Gem dine godkendere i en ukrypteret URI-listefil i almindelig tekst. Denne fil er kompatibel med mange alternative programmer og tjenester. Kategorier og ikoner gemmes ikke.</string>
+    <string name="backupUriListWarning">Sikkerhedskopier til filer med almindelig tekst er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
     <!--
         Empty states
     -->
     <string name="noAuthenticatorsTitle">Her er ingenting! </string>
-    <string name="noAuthenticatorsMessage">Du har ingen autentifikatorer her</string>
+    <string name="noAuthenticatorsMessage">Du har ingen godkendere her</string>
     <string name="gettingStartedGuide">Guide til at komme i gang</string>
     <string name="noAuthenticatorsHelp">Hvis du er ny til Authenticator Pro, se guiden til at komme i gang ved at klikke nedenfor.</string>
     <string name="noCategoriesTitle">Ingen kategorier</string>
-    <string name="noCategoriesMessage">Du har ingen kategorier konfigureret endnu</string>
+    <string name="noCategoriesMessage">Du har endnu ikke opsat nogen kategorier</string>
     <string name="noIconPacksTitle">Ingen ikonpakker</string>
-    <string name="noIconPacksMessage">Du har ikke nogen ikonpakker konfigureret endnu</string>
+    <string name="noIconPacksMessage">Du har endnu ikke opsat nogen ikonpakker</string>
     <!--
         Categories
     -->
@@ -134,7 +134,7 @@
     <string name="assignEntries">Tildel poster</string>
     <string name="more">Mere</string>
     <string name="categoryAll">Alle</string>
-    <string name="editCategories">Redigér kategorier</string>
+    <string name="editCategories">Rediger kategorier</string>
     <string name="noCategoryName">Et kategorinavn er påkrævet</string>
     <string name="duplicateCategory">En kategori med dette navn findes allerede</string>
     <string name="confirmCategoryDelete">Er du sikker på, at du vil slette denne kategori?</string>
@@ -148,37 +148,37 @@
     <string name="backupNow">Sikkerhedskopiér nu</string>
     <string name="restoreNow">Gendan nu</string>
     <string name="backupReminder">Der er foretaget ændringer siden din sidste sikkerhedskopi</string>
-    <string name="backupPasswordMessage">Indtast en adgangskode for at kryptere din sikkerhedskopi-fil sikkert. Hvis du ikke ønsker at beskytte filen med en adgangskode, skal du lade adgangskoden være tom.</string>
+    <string name="backupPasswordMessage">Indtast en adgangskode for at kryptere din sikkerhedskopifil sikkert. Ønsker du ikke at beskytte filen med en adgangskode, skal du lade den være tom.</string>
     <string name="password">Adgangskode</string>
     <string name="passwordConfirm">Bekræft adgangskode</string>
-    <string name="confirmEmptyPassword">Du har ikke valgt en adgangskode, og derfor bliver din sikkerhedskopi ikke krypteret, og dine hemmelige nøgler kan være sårbare.\n\nFortsæt?</string>
-    <string name="passwordHint">Sikkerhedskopiér adgangskode</string>
-    <string name="fileNameHint">Sikkerhedskopiér filnavn</string>
-    <string name="noAuthenticators">Du har ingen autentifikatorer at sikkerhedskopiere</string>
-    <string name="saveSuccess">Gemt med succes</string>
-    <string name="backupSuccess">Gemt sikkerhedskopi som \'{0}\'</string>
-    <string name="restoredFromBackup">Gendannede {0} nye autentificatorer og {1} nye kategorier</string>
-    <string name="restoredFromBackupUpdated">Gendannede {0} nye autentifikatorer og {1} nye kategorier. Opdaterede {2} eksisterende autentifikatorer.</string>
+    <string name="confirmEmptyPassword">Du har ikke valgt en adgangskode, så din sikkerhedskopi krypteres ikke, og dine hemmelige nøgler kan være sårbare.\n\nFortsæt?</string>
+    <string name="passwordHint">Adgangskode til sikkerhedskopi</string>
+    <string name="fileNameHint">Navn på sikkerhedskopifil</string>
+    <string name="noAuthenticators">Du har ingen godkendere at sikkerhedskopiere</string>
+    <string name="saveSuccess">Gemt</string>
+    <string name="backupSuccess">Gemte sikkerhedskopi som \'{0}\'</string>
+    <string name="restoredFromBackup">Gendannede {0} nye godkendere og {1} nye kategorier</string>
+    <string name="restoredFromBackupUpdated">Gendannede {0} nye godkendere og {1} nye kategorier. Opdaterede {2} eksisterende godkendere.</string>
     <string name="restoredNothing">Intet at gendanne</string>
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="cameraPermissionError">Kamera-tilladelsen skal gives for at kunne scanne en QR-kode</string>
+    <string name="restoreFormatError">Sikkerhedskopien kunne ikke gendannes</string>
+    <string name="cameraPermissionError">Kameratilladelsen skal gives for at kunne scanne en QR-kode</string>
     <string name="googlePlayNotInstalledError">Google Play er ikke installeret på din enhed</string>
     <string name="filePickerMissing">Kan ikke åbne filvælger. En filhåndtering skal være installeret.</string>
     <string name="filePickError">Fejl ved valg af fil</string>
     <string name="invalidFileError">Den valgte fil er ikke en Authenticator Pro-sikkerhedskopi</string>
     <string name="webBrowserMissing">Ingen webbrowser installeret</string>
-    <string name="emailClientMissing">Ingen e-mail klient installeret</string>
+    <string name="emailClientMissing">Ingen e-mailklient installeret</string>
     <string name="genericError">Der opstod en fejl</string>
     <string name="viewErrorLog">Se fejllog</string>
     <string name="autoTimeWarningTitle">Tidssynkronisering deaktiveret</string>
-    <string name="autoTimeWarningMessage">Din enhed har automatisk tid deaktiveret. To-faktor godkendelse kræver et præcist ur for at generere koder.\n\nAktivér venligst automatisk tidssynkronisering i din enheds indstillinger for at sikre, at de genererede koder altid er gyldige.</string>
+    <string name="autoTimeWarningMessage">Din enhed har automatisk tid deaktiveret. Tofaktorgodkendelse kræver et nøjagtigt ur for at generere koder.\n\nAktivér venligst automatisk tidssynkronisering i enhedens indstillinger for at sikre, at de genererede koder altid er gyldige.</string>
     <!--
         Error reporting
     -->
-    <string name="unhandledErrorMessage">Der opstod en ikke-håndteret fejl i applikationen. Detaljer om fejlen er nedenfor:</string>
+    <string name="unhandledErrorMessage">En ubehandlet fejl opstod i applikationen. Detaljer om fejlen er nedenfor:</string>
     <string name="report">Rapportér</string>
     <string name="email">E-mail</string>
     <!-- Report via Email, GitHub, etc. -->
@@ -187,7 +187,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Vælg en lokation og adgangskode til automatisk sikkerhedskopiering. Sikkerhedskopier planlægges, når der foretages ændringer. Cloud-lagring understøttes ikke, så brug sikkerhedskopi-menuen i stedet.</string>
+    <string name="autoBackupHelp">Vælg en lokation og adgangskode til automatisk sikkerhedskopiering. Sikkerhedskopier planlægges, når ændringer foretages. Cloud-lagring understøttes ikke; brug i stedet sikkerhedskopieringsmenuen.</string>
     <string name="selectLocation">Vælg lokation</string>
     <string name="noLocationSelected">Ingen lokation valgt</string>
     <!-- Shown when auto backup location has been selected -->
@@ -201,10 +201,10 @@
     <string name="enableAutoBackupMessage">Sikkerhedskopiér automatisk til den valgte lagringsplacering</string>
     <string name="batOptim">Batterioptimering</string>
     <string name="disableBatOptimMessage">På visse enheder kan strømindstillinger forhindre sikkerhedskopier i at fungere korrekt. Hvis du oplever problemer, så prøv at deaktivere batterioptimering for Authenticator Pro.</string>
-    <string name="autoBackupFailureTitle">Auto-backup mislykkedes</string>
-    <string name="autoBackupFailureText">Den seneste automatiske backup blev ikke fuldført. Filtilladelser kan være udløbet; prøv at indstille backup-placeringen igen i indstillingerne for auto-backup.</string>
+    <string name="autoBackupFailureTitle">Auto-sikkerhedskopiering mislykkedes</string>
+    <string name="autoBackupFailureText">Den seneste auto-sikkerhedskopiering blev ikke gennemført. Filtilladelser kan være udløbet; prøv at indstille lokationen for sikkerhedskopiering igen i indstillingerne for auto-sikkerhedskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk Backup fuldført</string>
-    <string name="backupScheduled">Backup planlagt</string>
+    <string name="backupScheduled">Sikkerhedskopiering planlagt</string>
     <!--
         Password setup
     -->
@@ -222,7 +222,7 @@
     <string name="useBiometrics">Brug biometri</string>
     <string name="unlockMessage">Indtast din adgangskode eller brug biometri for at låse databasen op</string>
     <string name="unlockBiometricsMessage">Brug biometri for at få adgang til dine godkendere</string>
-    <string name="passwordIncorrect">Adgangskode er forkert</string>
+    <string name="passwordIncorrect">Adgangskoden er forkert</string>
     <string name="tooManyAttempts">For mange forsøg</string>
     <!--
         Import
@@ -230,7 +230,7 @@
     <string name="importFromOtherApps">Importér fra andre apps</string>
     <string name="importError">Filen kunne ikke importeres</string>
     <string name="importIncomplete">Import ikke fuldført</string>
-    <string name="importConversionError">Elementet \"{0}\" kunne ikke importeres pga. følgende fejl: {1}</string>
+    <string name="importConversionError">Elementet \"{0}\" kunne ikke importeres grundet følgende fejl: {1}</string>
     <string name="authenticatorPlusImportHint">Importér authplus.db-fil</string>
     <string name="andOtpImportHint">Importér otp_accounts.json-fil</string>
     <string name="freeOtpImportHint">Importér externalBackup.xml-fil</string>
@@ -249,13 +249,13 @@
         Getting Started Guide
     -->
     <string name="guideScanQRCodeTitle">Scan en QR-kode</string>
-    <string name="guideScanQRCodeSummary">For at tilføje en godkender, skal du scanne QR-koden givet af appen eller tjenesten. Den føjes til listen og vil generere nye koder automatisk. Du kan også indtaste detaljerne manuelt.</string>
-    <string name="guideUseCodeTitle">Brug koden, når du logger ind</string>
+    <string name="guideScanQRCodeSummary">For at tilføje en godkender, skal du scanne QR-koden fra appen eller tjenesten. Den føjes til listen og genererer automatisk nye koder. Du kan også indtaste oplysningerne manuelt.</string>
+    <string name="guideUseCodeTitle">Brug koden ved login</string>
     <string name="guideUseCodeSummary">Når du logger ind, brug den unikke kode givet af Authenticator Pro. Den er kun gyldig i en kort periode. Tryk på godkenderen i listen for at kopiere koden til udklipsholderen.</string>
-    <string name="guideCustomiseTitle">Tilpas og redigér</string>
+    <string name="guideCustomiseTitle">Tilpas og rediger</string>
     <string name="guideCustomiseSummary">Omdøb og tilpas dine godkendere, så du nemt kan finde dem. Tryk blot på menuikonet på en post, og følg trinnene.</string>
-    <string name="guideArrangeTitle">Arrangér og sortér</string>
-    <string name="guideArrangeSummary">Du kan organisere dine autentifikatorer i kategorier, så du nemt kan finde dem. Desuden kan du holde og trække elementer, så du kan omarrangere dem i den rækkefølge, du ønsker.</string>
+    <string name="guideArrangeTitle">Arranger og sortér</string>
+    <string name="guideArrangeSummary">Du kan organisere dine godkendere i kategorier for nemt at kunne finde dem. Desuden kan du holde og trække elementer, så du kan omarrangere dem i den rækkefølge, du ønsker.</string>
     <string name="guideBackupTitle">Opret en sikkerhedskopi</string>
     <string name="guideBackupSummary">Undgå at blive låst ude af dine konti, hvis du skifter enhed. Opret en sikkerhedskopi, og opbevar den et sikkert sted. En sikkerhedskopi kan til enhver tid gendannes og beskyttes med en adgangskode.</string>
     <string name="guideWearOSTitle">Hent Wear OS-appen</string>
@@ -263,7 +263,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placér QR-koden i søgeren for at scanne den. Tryk for at fokusere.</string>
+    <string name="scanHelpPrimary">Placer QR-koden i søgeren for at scanne den. Tryk for at fokusere.</string>
     <string name="scanHelpSecondary">Prøv at undgå skygger og blænding. Hold enheden ca. 15 cm (6 inches) fra koden.</string>
     <string name="toggleFlash">Slå blitz til/fra</string>
     <!--
@@ -271,29 +271,29 @@
     -->
     <string name="prefGeneral">Generelt</string>
     <string name="prefShowBackupRemindersTitle">Påmindelser om Sikkerhedskopiering</string>
-    <string name="prefShowBackupRemindersSummary">Påminder dig om at sikkerhedskopiere dine autentifikatorer, hvis vigtige ændringer er foretaget</string>
-    <string name="prefAutoBackupTitle">Automatisk sikkerhedskopiering</string>
-    <string name="prefAutoBackupSummary">Sikkerhedskopiér automatisk til en bestemt lokation, når der foretages ændringer. Deaktiverer påmindelser om sikkerhedskopiering.</string>
+    <string name="prefShowBackupRemindersSummary">Påminder dig om at sikkerhedskopiere dine godkendere, hvis vigtige ændringer foretages</string>
+    <string name="prefAutoBackupTitle">Auto-sikkerhedskopiering</string>
+    <string name="prefAutoBackupSummary">Sikkerhedskopiér automatisk til en bestemt lokation, når ændringer foretages. Deaktiverer påmindelser om sikkerhedskopiering.</string>
     <string name="prefLanguageTitle">Sprog</string>
-    <string name="prefLanguageSummary">Vælg et sprog, der skal bruges i hele appen</string>
-    <string name="prefTapToCopyTitle">Tryk for at kopiere</string>
+    <string name="prefLanguageSummary">Vælg et sprog til brug i hele appen</string>
+    <string name="prefTapToCopyTitle">Tryk for at Kopiere</string>
     <string name="prefTapToCopySummary">Kopiér koden til udklipsholderen, når den trykkes</string>
     <string name="prefResetCopyCountTitle">Nulstil Kopieringstæller</string>
-    <string name="prefResetCopyCountSummary">Ryd antallet af gange hver autentifikator er blevet kopieret</string>
+    <string name="prefResetCopyCountSummary">Ryd antallet af gange, hver godkender er blevet kopieret</string>
     <string name="prefSkipToNextTitle">Spring til Næste</string>
     <string name="prefSkipToNextSummary">Tillad at springe til den næste kode, når den er tæt på at udløbe</string>
     <string name="prefSecurity">Sikkerhed</string>
     <string name="prefPasswordTitle">Adgangskode</string>
     <string name="prefPasswordSummary">Kræv adgangskode for at få adgang til godkendere. Databasen krypteres med din adgangskode.</string>
-    <string name="prefDatabasePasswordBackupTitle">Sikkerhedskopiering med databaseadgangskode</string>
-    <string name="prefDatabasePasswordBackupSummary">Kryptér alle sikkerhedskopier vha. database-adgangskode, så du ikke skal indtaste det hver gang</string>
+    <string name="prefDatabasePasswordBackupTitle">Sikkerhedskopiering med Databaseadgangskode</string>
+    <string name="prefDatabasePasswordBackupSummary">Kryptér alle sikkerhedskopier med databaseadgangskoden, så du ikke skal indtaste den hver gang</string>
     <string name="prefAllowBiometricsTitle">Biometrisk Oplåsning</string>
-    <string name="prefAllowBiometricsSummary">Tillad oplåsning af databasen med biometrisk godkender</string>
+    <string name="prefAllowBiometricsSummary">Tillad oplåsning af databasen med biometrisk godkendelse</string>
     <string name="prefTimeoutTitle">Tidsudløb</string>
     <string name="prefTimeoutSummary">Angiv tidspunktet, hvorefter databasen låser, når appen forlader skærmen</string>
-    <string name="prefTapToRevealTitle">Tryk for at afsløre</string>
-    <string name="prefTapToRevealSummary">Skjul koder indtil de trykkes. De forsvinder efter nogle sekunder.</string>
-    <string name="prefTapToRevealDurationTitle">Tryk for at afsløre Varighed</string>
+    <string name="prefTapToRevealTitle">Tryk for at Afsløre</string>
+    <string name="prefTapToRevealSummary">Skjul koder, indtil de trykkes. De forsvinder efter nogle sekunder.</string>
+    <string name="prefTapToRevealDurationTitle">Tryk for at Afsløre Varighed</string>
     <string name="prefTapToRevealDurationSummary">Angiv tiden, hvorefter koderne skjules</string>
     <string name="prefAllowScreenshotsTitle">Tillad Skærmbilleder</string>
     <string name="prefAllowScreenshotsSummary">Deaktivér skærmsikkerhed, og tillad skærmbilleder af appen</string>
@@ -313,7 +313,7 @@
     <string name="prefTransparentStatusBarTitle">Gennemsigtig Statuslinje</string>
     <string name="prefTransparentStatusBarSummary">Gør listen synlig bag statuslinjen under scrolling</string>
     <string name="prefSystemFontTitle">Systemskrifttype</string>
-    <string name="prefSystemFontSummary">Brug systemets standardskrifttype i stedet for en tilpasset skrifttype</string>
+    <string name="prefSystemFontSummary">Brug systemets standardskrifttype i stedet for en brugerdefineret skrifttype</string>
     <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Nulstil kopiantal</string>
     <!--
@@ -383,7 +383,7 @@
     <string name="introThemesTitle">Mørkt tema</string>
     <string name="introWelcomeSummary">Tak, fordi du hentede Authenticator Pro.\nHold dine onlinekonti sikre og beskyttede med den bedste open-source godkendelsesapp.</string>
     <string name="introCompatibilitySummary">Authenticator Pro er kompatibel med de fleste udbydere og konti. Den er 100% kompatibel med Google Authenticator-aktiverede enheder.</string>
-    <string name="introBackupSummary">Sikkerhedskopiér dine godkendere med stærk kryptering. Hvis du mister din enhed, kan du altid få adgang til dine konti. Gem på cloudlagring eller din enhed.</string>
-    <string name="introCategoriesSummary">Organisér dine godkendere i kategorier og ændr endda rækkefølgen med en enkel hold-og-træk.</string>
+    <string name="introBackupSummary">Sikkerhedskopiér dine godkendere med stærk kryptering. Hvis du mister din enhed, kan du altid få adgang til dine konti. Gem på cloud-lagring eller din enhed.</string>
+    <string name="introCategoriesSummary">Organiser dine godkendere i kategorier, og ændr endda rækkefølgen ved blot at holde og trække.</string>
     <string name="introThemesSummary">Hvis du foretrækker det, kan du aktivere et mørkt tema i indstillingerne. Alle ikoner vil tilpasse sig deres nye baggrund.</string>
 </resources>

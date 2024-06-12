@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+        Non-specific strings
+    -->
+    <string name="warning">Cảnh báo</string>
+    <string name="delete">Xóa</string>
+    <string name="add">Thêm</string>
+    <string name="edit">Chỉnh sửa</string>
+    <string name="cancel">Hủy</string>
+    <string name="ok">OK</string>
+    <string name="yes">Đồng ý</string>
+    <string name="no">Không</string>
+    <string name="close">Đóng</string>
+    <string name="error">Lỗi</string>
+    <string name="retry">Thử lại</string>
+    <string name="ignore">Bỏ qua</string>
+    <string name="disable">Tắt</string>
+    <string name="name">Tên</string>
+    <!-- 
+        Menu items
+    -->
+    <string name="settings">Thiết đặt</string>
+    <string name="restore">Khôi phục</string>
+    <string name="backup">Sao lưu</string>
+    <string name="about">Giới thiệu</string>
+    <string name="scanQrCode">Quét mã QR</string>
+    <string name="showQrCode">Hiện mã QR</string>
+    <string name="editDetails">Chỉnh sửa thông tin</string>
+    <string name="scanQrCodeFromCamera">Quét bằng máy ảnh</string>
+    <string name="scanQrCodeFromGallery">Quét từ thư viện</string>
+    <string name="rename">Đổi tên</string>
+    <string name="changeIcon">Đổi biểu tượng</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="mainMenu">Menu chính</string>
+    <string name="enterKey">Nhập một khóa được cung cấp</string>
+    <string name="restoreBackup">Khôi phục bản sao lưu</string>
+    <string name="sort">Sắp xếp</string>
+    <string name="sortAZ">Theo tên (a đến z)</string>
+    <string name="sortZA">Theo tên (z đến a)</string>
+    <string name="sortMostCopied">Sao chép nhiều nhất</string>
+    <string name="sortLeastCopied">Sao chép ít nhất</string>
+    <string name="sortCustom">Tùy chỉnh</string>
+    <string name="aboutSummary">Xem thông tin giới thiệu và giấy phép</string>
+    <string name="supportDevelopment">Ủng hộ nhà phát triển</string>
+    <string name="supportDevelopmentSummary">Hỗ trợ tiếp tục phát triển và cập nhật ứng dụng bằng Buy Me a Coffee</string>
+    <string name="rate">Đánh giá</string>
+    <string name="rateSummary">Đánh giá Authenticator Pro trên Cửa hàng Play</string>
+    <string name="viewGitHub">Xem trên GitHub</string>
+    <string name="viewGitHubSummary">Xem kho lưu trữ Authenticator Pro trên GitHub. Bạn có thể báo cáo sự cố, yêu cầu thêm biểu tượng và tính năng.</string>
+    <!--
+        Authenticator
+    -->
+    <string name="issuer">Nhà phát hành</string>
+    <string name="username">Tên người dùng</string>
+    <string name="secretKey">Khóa bí mật</string>
+    <string name="pin">Ghim</string>
+    <string name="showAdvancedOptions">Hiển thị tùy chọn nâng cao</string>
+    <string name="advancedOptionsWarning">Chỉ thay đổi những tùy chọn này nếu bạn biết mình đang làm gì, bạn có thể bị khóa tài khoản của mình.\n\nTiếp tục?</string>
+    <string name="confirmAuthenticatorDelete">Việc xóa trình xác thực này sẽ ngăn bạn tạo mã cho tài khoản này. Điều này không có nghĩa là xác thực hai yếu tố bị vô hiệu hóa.\n\nViệc xóa trình xác thực này có thể ngăn bạn truy cập vào tài khoản của mình.\nHãy đảm bảo rằng xác thực hai yếu tố bị vô hiệu hóa hoặc bạn có mã khôi phục.\n\nTiếp tục?</string>
+    <string name="useCustomIcon">Sử dụng biểu tượng tùy chỉnh</string>
+    <string name="copiedToClipboard">Đã sao chép mã vào bảng nhớ tạm</string>
+    <string name="issuerHint">Nhà phát hành (ví dụ: Google)</string>
+    <!-- Keep domain example.com as described in RFC6761 -->
+    <string name="usernameHint">Tên người dùng (ví dụ: john@example.com)</string>
+    <string name="typeHint">Kiểu</string>
+    <string name="algorithmHint">Thuật toán</string>
+    <string name="digitsHint">Chữ số</string>
+    <string name="periodHint">Khoảng thời gian (giây)</string>
+    <string name="counterHint">Bộ Đếm</string>
+    <string name="noIssuer">Yêu cầu một nhà phát hành</string>
+    <string name="noSecret">Yêu cầu một khóa bí mật</string>
+    <string name="noPin">Yêu cầu một mã pin</string>
+    <string name="noFileName">Yêu cầu một tên tệp</string>
+    <string name="secretInvalid">Khóa bí mật không hợp lệ</string>
+    <string name="pinTooShort">Mã Pin phải chứa ít nhất {0} chữ số</string>
+    <string name="pinTooLong">Mã Pin không thể chứa nhiều hơn {0} chữ số</string>
+    <string name="digitsInvalid">Trình xác thực phải tạo giữa {0} và {1} chữ số</string>
+    <string name="periodInvalid">Khoảng thời gian không hợp lệ</string>
+    <string name="counterInvalid">Bộ đếm không hợp lệ</string>
+    <string name="qrCodeFormatError">Mã QR không đúng định dạng hoặc không thể đọc</string>
+    <string name="qrCodePhoneFactorError">Mã QR này dành riêng cho ứng dụng Microsoft Authenticator và không tương thích.\n\n
+Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hình ứng dụng mà không có thông báo\" để nhận một mã QR tương thích.</string>
+    <string name="duplicateAuthenticator">Một trình xác thực với khóa bí mật này đã tồn tại</string>
+    <string name="scanSuccessful">Quét mã QR thành công</string>
+    <string name="pinMessage">Nhập mã PIN liên kết với mã QR này</string>
+    <!--
+        Icon packs
+    -->
+    <string name="defaultIcons">Biểu tượng mặc định</string>
+    <string name="iconPacks">Gói biểu tượng</string>
+    <string name="downloadPacks">Tải gói</string>
+    <string name="importIconPackSuccess">Nhập {0} biểu tượng từ gói</string>
+    <string name="invalidIconPackError">Tệp được chọn không phải là gói biểu tượng của Authenticator Pro</string>
+    <string name="confirmIconPackDelete">Bạn có chắc chắn muốn xóa gói biểu tượng này không? Bất kỳ biểu tượng nào đang sử dụng sẽ không bị xóa.</string>
+    <!-- View the source (website) of the icon pack -->
+    <string name="viewSource">Xem nguồn</string>
+    <!--
+        QR code dialog
+    -->
+    <string name="qrCode">Mã QR</string>
+    <string name="qrCodeHelp">Sao chép trình xác thực này sang thiết bị hoặc ứng dụng khác bằng cách quét mã QR</string>
+    <string name="qrCodeNotSupported">Kiểu mã QR không được hỗ trợ</string>
+    <string name="copyUri">Sao chép URL</string>
+    <string name="copyUriWarning">URI này chứa một khóa bí mật dưới dạng văn bản. Hãy cẩn thận khi bạn dán thông tin này.\n\nTiếp tục?</string>
+    <string name="uriCopiedToClipboard">URL đã được sao chép vào bộ nhớ tạm</string>
+    <!--
+        Backup menu
+    -->
+    <string name="backupToFile">Sao lưu vào tệp được mã hóa (được khuyến nghị)</string>
+    <string name="backupToFileMessage">Lưu tất cả các trình xác thực, danh mục và biểu tượng của bạn vào một tệp sao lưu được mã hóa. Tệp này có thể được khôi phục trong ứng dụng.</string>
+    <string name="backupHtml">Sao lưu vào tệp HTML</string>
+    <string name="backupHtmlMessage">Lưu trữ các trình xác thực của bạn vào một tài liệu HTML không được mã hóa với mã QR. Để khôi phục, các mã này phải được quét một cách riêng lẻ. Các danh mục và biểu tượng không được lưu trữ.</string>
+    <string name="backupHtmlWarning">Các tệp sao lưu dưới dạng tệp HTML không được mã hóa và có thể làm cho các khóa bí mật của bạn trở nên dễ bị tấn công.\n\nTệp này không thể được khôi phục trong ứng dụng và không chứa danh mục và biểu tượng. Nếu không chắc chắn, hãy chọn tệp sao lưu được mã hóa thay thế.\n\nTiếp tục?</string>
+    <string name="backupUriList">Sao lưu vào tệp danh sách URI</string>
+    <string name="backupUriListMessage">Lưu trữ các trình xác thực của bạn vào một tệp danh sách URI văn bản không được mã hóa. Tệp này tương thích với nhiều ứng dụng và dịch vụ thay thế. Các danh mục và biểu tượng không được lưu trữ.</string>
+    <string name="backupUriListWarning">Các tệp sao lưu dưới dạng văn bản không được mã hóa và có thể làm cho các khóa bí mật của bạn trở nên dễ bị tấn công.\n\nTệp này không chứa danh mục và biểu tượng. Nếu không chắc chắn, hãy chọn tệp sao lưu được mã hóa thay thế.\n\nTiếp tục?</string>
+    <!--
+        Empty states
+    -->
+    <string name="noAuthenticatorsTitle">Không có gì ở đây!</string>
+    <string name="noAuthenticatorsMessage">Bạn không có bất kỳ trình xác thực nào ở đây</string>
+    <string name="gettingStartedGuide">Hướng dẫn bắt đầu</string>
+    <string name="noAuthenticatorsHelp">Nếu bạn mới sử dụng Authenticator Pro, hãy xem hướng dẫn bằng cách nhấp vào bên dưới.</string>
+    <string name="noCategoriesTitle">Không có trong mục nào</string>
+    <string name="noCategoriesMessage">Bạn chưa thiết lập bất kỳ danh mục nào</string>
+    <string name="noIconPacksTitle">Không có gói biểu tượng</string>
+    <string name="noIconPacksMessage">Bạn chưa thiết lập bất kỳ gói biểu tượng nào</string>
+    <!--
+        Categories
+    -->
+    <string name="category">Danh mục</string>
+    <string name="categories">Danh mục</string>
+    <string name="assignCategories">Xếp vào danh mục</string>
+    <string name="assignEntries">Gán các mục</string>
+    <string name="more">Khác</string>
+    <string name="categoryAll">Tất cả</string>
+    <string name="editCategories">Chỉnh sửa danh mục</string>
+    <string name="noCategoryName">Tên danh mục là bắt buộc</string>
+    <string name="duplicateCategory">Tên danh mục đã tồn tại</string>
+    <string name="confirmCategoryDelete">Bạn có chắc chắn muốn xóa danh mục này không?</string>
+    <!-- Set as default category -->
+    <string name="setAsDefault">Đặt làm mặc định</string>
+    <!-- Clear the selected category as the default -->
+    <string name="clearDefault">Xóa mặc định</string>
+    <!--
+        Backups
+    -->
+    <string name="backupNow">Sao lưu ngay</string>
+    <string name="restoreNow">Khôi phục ngay</string>
+    <string name="backupReminder">Đã có những thay đổi được thực hiện kể từ lần sao lưu cuối cùng của bạn</string>
+    <string name="backupPasswordMessage">Nhập mật khẩu để mã hóa tệp sao lưu của bạn một cách an toàn. Nếu bạn không muốn bảo vệ tệp bằng mật khẩu, hãy để trống mật khẩu.</string>
+    <string name="password">Mật khẩu</string>
+    <string name="passwordConfirm">Xác nhận mật khẩu</string>
+    <string name="confirmEmptyPassword">Bạn chưa chọn mật khẩu, tệp sao lưu của bạn sẽ không được mã hóa và các khóa bảo mật của bạn có thể bị tấn công.\n\n Bạn có muốn tiếp tục không?</string>
+    <string name="passwordHint">Sao lưu mật khẩu</string>
+    <string name="fileNameHint">Tên tệp sao lưu</string>
+    <string name="noAuthenticators">Bạn không có bất kỳ trình xác thực nào để sao lưu</string>
+    <string name="saveSuccess">Lưu thành công</string>
+    <string name="backupSuccess">Đã lưu sao lưu với tên \'{0}\'</string>
+    <string name="restoredFromBackup">Khôi phục {0} trình xác thực mới và {1} danh mục mới</string>
+    <string name="restoredFromBackupUpdated">Khôi phục {0} trình xác thực mới và {1} danh mục mới. Cập nhật {2} trình xác thực hiện có.</string>
+    <string name="restoredNothing">Không có gì để khôi phục</string>
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">Không thể khôi phục bản sao lưu</string>
+    <string name="cameraPermissionError">Quyền truy cập vào camera phải được cấp để quét mã QR</string>
+    <string name="googlePlayNotInstalledError">Cửa hàng Play không được cài đặt trên thiết bị của bạn</string>
+    <string name="filePickerMissing">Không thể mở trình quản lý tệp. Cần phải cài đặt một trình quản lý tệp.</string>
+    <string name="filePickError">Lỗi khi chọn tệp</string>
+    <string name="invalidFileError">Tệp đã chọn không phải là bản sao lưu của Authenticator Pro</string>
+    <string name="webBrowserMissing">Không có trình duyệt web được cài đặt</string>
+    <string name="emailClientMissing">Không có ứng dụng email được cài đặt</string>
+    <string name="genericError">Đã xảy ra lỗi</string>
+    <string name="viewErrorLog">Xem nhật ký lỗi</string>
+    <string name="autoTimeWarningTitle">Đồng bộ thời gian bị vô hiệu hóa</string>
+    <string name="autoTimeWarningMessage">Thiết bị của bạn đã tắt đồng bộ thời gian tự động. Xác thực hai yếu tố yêu cầu một đồng hồ chính xác để tạo mã.\n\nVui lòng bật đồng bộ thời gian tự động trong cài đặt của thiết bị của bạn để đảm bảo rằng các mã được tạo luôn hợp lệ.</string>
+    <!--
+        Error reporting
+    -->
+    <string name="unhandledErrorMessage">Ứng dụng đã gặp một lỗi không xác định. Chi tiết lỗi được mô tả như sau:</string>
+    <string name="report">Báo cáo</string>
+    <string name="email">Email</string>
+    <!-- Report via Email, GitHub, etc. -->
+    <string name="reportVia">Báo cáo bằng</string>
+    <string name="errorCopiedToClipboard">Đã sao chép các lỗi vào bộ nhớ tạm</string>
+    <!--
+        Auto backup
+    -->
+    <string name="autoBackupHelp">Chọn một vị trí và mật khẩu cho sao lưu tự động. Các sao lưu được lên lịch khi có thay đổi được thực hiện. Lưu trữ đám mây không được hỗ trợ, vui lòng sử dụng menu sao lưu thay thế.</string>
+    <string name="selectLocation">Chọn vị trí</string>
+    <string name="noLocationSelected">Không có vị trí nào được chọn</string>
+    <!-- Shown when auto backup location has been selected -->
+    <string name="locationSetTo">Vị trí được đặt thành \'{0}\'</string>
+    <string name="setPassword">Đặt mật khẩu</string>
+    <string name="passwordNotSet">Mật khẩu chưa được đặt</string>
+    <!-- Shown when auto backup password has been selected -->
+    <string name="passwordSet">Mật khẩu đã được đặt</string>
+    <string name="notPasswordProtected">Không được bảo vệ bằng mật khẩu</string>
+    <string name="enableAutoBackup">Bật tự động sao lưu</string>
+    <string name="enableAutoBackupMessage">Tự động sao lưu vào vị trí lưu trữ đã chọn</string>
+    <string name="batOptim">Tối ưu hóa pin</string>
+    <string name="disableBatOptimMessage">Trên một số thiết bị, cài đặt về nguồn điện có thể làm cho việc sao lưu không hoạt động đúng cách. Nếu bạn gặp vấn đề, thử tắt tối ưu hóa pin cho Authenticator Pro.</string>
+    <string name="autoBackupFailureTitle">Tự động sao lưu thất bại</string>
+    <string name="autoBackupFailureText">Tự đọng sao lưu gần nhất không hoàn thành. Quyền truy cập vào tệp có thể đã hết hạn, hãy thử đặt lại vị trí sao lưu trong cài đặt.</string>
+    <string name="autoBackupSuccessTitle">Tự động sao lưu thành công</string>
+    <string name="backupScheduled">Sao lưu theo lịch trình</string>
+    <!--
+        Password setup
+    -->
+    <string name="passwordSetupHelp">Mã hóa cơ sở dữ liệu bằng mật khẩu. Bạn sẽ được nhắc nhập mật khẩu khi mở ứng dụng. Để trống nếu muốn xóa mật khẩu.</string>
+    <string name="passwordSetupWarning">Sử dụng một mật khẩu mà bạn có thể nhớ, cơ sở dữ liệu sẽ không thể khôi phục mà không có nó!</string>
+    <string name="clearPassword">Xóa mật khẩu</string>
+    <string name="confirmPassword">Xác nhận mật khẩu</string>
+    <string name="setupBiometricUnlock">Thiết lập mở khóa sinh trắc học</string>
+    <string name="passwordsDoNotMatch">Mật khẩu không khớp</string>
+    <string name="biometricsChanged">Thông tin sinh học trên thiết bị đã thay đổi. Sử dụng mật khẩu để mở khóa.</string>
+    <!--
+        Unlock
+    -->
+    <string name="unlock">Mở khóa</string>
+    <string name="useBiometrics">Dùng dữ liệu sinh trắc học</string>
+    <string name="unlockMessage">Nhập mật khẩu của bạn hoặc sử dụng dữ liệu sinh học để mở khóa cơ sở dữ liệu</string>
+    <string name="unlockBiometricsMessage">Sử dụng dữ liệu sinh trắc học để truy cập vào trình xác thực của bạn</string>
+    <string name="passwordIncorrect">Mật khẩu không chính xác</string>
+    <string name="tooManyAttempts">Thử quá nhiều lần</string>
+    <!--
+        Import
+    -->
+    <string name="importFromOtherApps">Nhập từ ứng dụng khác</string>
+    <string name="importError">Không thể nhập tệp</string>
+    <string name="importIncomplete">Quá trình nhập chưa hoàn tất</string>
+    <string name="importConversionError">Mục \"{0}\" không thể nhập do lỗi sau: {1}</string>
+    <string name="authenticatorPlusImportHint">Nhập tệp authplus.db</string>
+    <string name="andOtpImportHint">Nhập tệp otp_accounts.json</string>
+    <string name="freeOtpImportHint">Nhập tệp externalBackup.xml</string>
+    <string name="freeOtpPlusImportHint">Nhập tệp freeotp-backup.jso</string>
+    <string name="aegisImportHint">Nhập tệp aegis-export.json</string>
+    <string name="bitwardenImportHint">Nhập tệp aegis-export.json</string>
+    <string name="enteAuthImportHint">Nhập tệp ente-auth-codes.txt</string>
+    <string name="winAuthImportHint">Nhập tệp winauth.txt hoặc winauth.zip</string>
+    <string name="twoFasImportHint">Nhập tệp 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Nhập tệp LastPassAuthenticator.json</string>
+    <string name="totpAuthenticatorImportHint">Nhập tệp TOTP_Backup.encrypt</string>
+    <string name="uriList">Danh sách URL</string>
+    <string name="uriListHint">Danh sách văn bản các URI otpauth</string>
+    <string name="viewGuideImportHint">Xem hướng dẫn trên wiki dự án</string>
+    <!--
+        Getting Started Guide
+    -->
+    <string name="guideScanQRCodeTitle">Quét mã QR</string>
+    <string name="guideScanQRCodeSummary">Để thêm một trình xác thực, hãy quét mã QR được cung cấp bởi ứng dụng hoặc dịch vụ. Trình xác thực sẽ được thêm vào danh sách và sẽ tự động tạo mã mới. Bạn cũng có thể nhập thông tin thủ công.</string>
+    <string name="guideUseCodeTitle">Sử dụng mã khi đăng nhập</string>
+    <string name="guideUseCodeSummary">Khi đăng nhập, hãy sử dụng mã duy nhất được cung cấp bởi Authenticator Pro. Mã này chỉ hợp lệ trong một khoảng thời gian ngắn. Nhấn vào trình xác thực trong danh sách để sao chép mã vào bộ nhớ tạm.</string>
+    <string name="guideCustomiseTitle">Tùy chỉnh và chỉnh sửa</string>
+    <string name="guideCustomiseSummary">Đổi tên và tùy chỉnh các trình xác thực của bạn để dễ dàng tìm thấy chúng. Chỉ cần nhấn vào biểu tượng menu trên một mục và làm theo các bước.</string>
+    <string name="guideArrangeTitle">Sắp xếp và phân loại</string>
+    <string name="guideArrangeSummary">Bạn có thể tổ chức các trình xác thực của mình thành các danh mục để dễ dàng tìm thấy chúng. Hơn nữa, việc giữ và kéo các mục sẽ cho phép bạn sắp xếp lại chúng theo bất kỳ thứ tự nào bạn muốn.</string>
+    <string name="guideBackupTitle">Tạo bản sao lưu</string>
+    <string name="guideBackupSummary">Đừng để bị khóa tài khoản của bạn nếu bạn thay đổi thiết bị. Tạo một tệp sao lưu và lưu trữ nó ở một nơi an toàn. Bản sao lưu có thể được khôi phục bất cứ lúc nào và được bảo vệ bằng mật khẩu.</string>
+    <string name="guideWearOSTitle">Tải xuống ứng dụng Wear OS</string>
+    <string name="guideWearOSSummary">Nếu bạn có đồng hồ Wear OS, bạn có thể tải xuống ứng dụng. Bạn có thể xem mã trên đồng hồ của mình.</string>
+    <!--
+        QR code scanner
+    -->
+    <string name="scanHelpPrimary">Đặt mã QR vào khung ngắm để quét. Nhấn để lấy nét.</string>
+    <string name="scanHelpSecondary">Cố gắng tránh bóng và chói. Giữ thiết bị cách mã khoảng 6 inch (15 cm).</string>
+    <string name="toggleFlash">Bật đèn Flash</string>
+    <!--
+        Preferences
+    -->
+    <string name="prefGeneral">Chung</string>
+    <string name="prefShowBackupRemindersTitle">Nhắc nhở sao lưu</string>
+    <string name="prefShowBackupRemindersSummary">Nhắc bạn sao lưu các trình xác thực nếu có thay đổi quan trọng được thực hiện</string>
+    <string name="prefAutoBackupTitle">Tự động sao lưu</string>
+    <string name="prefAutoBackupSummary">Tự động sao lưu vào một vị trí cụ thể khi có thay đổi được thực hiện. Tắt nhắc nhở sao lưu.</string>
+    <string name="prefLanguageTitle">Ngôn ngữ</string>
+    <string name="prefLanguageSummary">Chọn một ngôn ngữ để sử dụng trong toàn bộ ứng dụng</string>
+    <string name="prefTapToCopyTitle">Chạm để sao chép</string>
+    <string name="prefTapToCopySummary">Sao chép mã vào clipboard khi chạm vào</string>
+    <string name="prefResetCopyCountTitle">Đặt lại Số lần Sao chép</string>
+    <string name="prefResetCopyCountSummary">Xóa số lần trình xác thực đã được sao chép</string>
+    <string name="prefSkipToNextTitle">Chuyển tới mục tiếp theo</string>
+    <string name="prefSkipToNextSummary">Cho phép bỏ qua sang mã tiếp theo khi nó gần hết hạn</string>
+    <string name="prefSecurity">Bảo mật</string>
+    <string name="prefPasswordTitle">Mật khẩu</string>
+    <string name="prefPasswordSummary">Yêu cầu mật khẩu để truy cập vào các trình xác thực. Cơ sở dữ liệu sẽ được mã hóa bằng mật khẩu của bạn.</string>
+    <string name="prefDatabasePasswordBackupTitle">Sao lưu với Mật khẩu Cơ sở dữ liệu</string>
+    <string name="prefDatabasePasswordBackupSummary">Mã hóa tất cả các bản sao lưu bằng mật khẩu cơ sở dữ liệu để bạn không cần phải nhập nó mỗi lần</string>
+    <string name="prefAllowBiometricsTitle">Mở khóa Sinh trắc học</string>
+    <string name="prefAllowBiometricsSummary">Cho phép mở khóa cơ sở dữ liệu bằng xác thực sinh học</string>
+    <string name="prefTimeoutTitle">Thời gian chờ</string>
+    <string name="prefTimeoutSummary">Thiết lập thời gian cơ sở dữ liệu sẽ bị khóa sau khi ứng dụng rời</string>
+    <string name="prefTapToRevealTitle">Nhấn để xem</string>
+    <string name="prefTapToRevealSummary">Ẩn mã cho đến khi chúng được nhấp. Chúng sẽ biến mất sau một vài giây.</string>
+    <string name="prefTapToRevealDurationTitle">Thời gian Hiện mã bằng cách nhấp vào</string>
+    <string name="prefTapToRevealDurationSummary">Thiết lập thời gian sau đó mã đã hiện sẽ được ẩn</string>
+    <string name="prefAllowScreenshotsTitle">Cho phép chụp ảnh màn hình</string>
+    <string name="prefAllowScreenshotsSummary">Tắt bảo mật màn hình và cho phép chụp ảnh màn hình ứng dụng</string>
+    <string name="prefAppearance">Giao diện</string>
+    <string name="prefThemeTitle">Chủ đề</string>
+    <string name="prefThemeSummary">Chọn chủ đề ứng dụng</string>
+    <string name="prefViewModeTitle">Chế độ xem</string>
+    <string name="prefViewModeSummary">Chọn chế độ xem cho danh sách trình xác thực</string>
+    <string name="prefCodeGroupSizeTitle">Kích thước Nhóm Mã</string>
+    <string name="prefCodeGroupSizeSummary">Thay đổi nhóm các chữ số trong một mã</string>
+    <string name="prefShowUsernamesTitle">Hiện tên người dùng</string>
+    <string name="prefShowUsernamesSummary">Hiển thị tên người dùng phía dưới nhà phát hành</string>
+    <string name="prefDynamicColourTitle">Tự động chọn màu</string>
+    <string name="prefDynamicColourSummary">Đặt màu một cách động dựa trên hình nền của bạn</string>
+    <string name="prefAccentColourTitle">Màu nhấn</string>
+    <string name="prefAccentColourSummary">Chọn một màu nhấn để sử dụng xuyên suốt ứng dụng</string>
+    <string name="prefTransparentStatusBarTitle">Thanh trạng thái trong suốt</string>
+    <string name="prefTransparentStatusBarSummary">Hiển thị danh sách phía sau thanh trạng thái khi cuộn</string>
+    <string name="prefSystemFontTitle">Phông chữ hệ thống</string>
+    <string name="prefSystemFontSummary">Sử dụng phông chữ mặc định của hệ thống thay vì phông chữ tùy chỉnh</string>
+    <!-- Message shown when the copy count has been reset successfully -->
+    <string name="copyCountReset">Đặt lại số lần sao chép</string>
+    <!--
+        About
+    -->
+    <string name="viewLog">Xem nhật ký</string>
+    <string name="noLogFile">Không có tệp nhật ký khả dụng</string>
+    <string name="debugLog">Nhật ký gỡ lỗi</string>
+    <!--
+        Arrays
+    -->
+    <string name="authTypeTime">Dựa trên thời gian (TOTP)</string>
+    <string name="authTypeCounter">Dựa trên bộ đếm (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (mặc định)</string>
+    <!-- Lock the app immediately when closed -->
+    <string name="immediately">Tức thì</string>
+    <string name="timeout5Sec">5 giây</string>
+    <string name="timeout10Sec">10 giây</string>
+    <string name="timeout20Sec">20 giây</string>
+    <string name="timeout30Sec">30 giây</string>
+    <string name="timeout1Min">1 phút</string>
+    <string name="timeout2Min">2 phút</string>
+    <string name="timeout5Min">5 phút</string>
+    <string name="timeout10Min">10 phút</string>
+    <string name="systemDefault">Mặc định hệ thống</string>
+    <string name="systemDefaultBlack">Mặc định hệ thống (đen)</string>
+    <string name="lightTheme">Chủ đề sáng</string>
+    <string name="darkTheme">Chủ đề tối</string>
+    <string name="blackTheme">Chủ đề tối</string>
+    <string name="defaultViewMode">Mặc định</string>
+    <string name="compactViewMode">Thu nhỏ</string>
+    <string name="tileViewMode">Ô</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
+    <string name="none">Không</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
+    <string name="red">Đỏ</string>
+    <string name="pink">Hồng</string>
+    <string name="purple">Tím</string>
+    <string name="deepPurple">Tím đậm</string>
+    <string name="indigo">Chàm</string>
+    <string name="blue">Xanh dương</string>
+    <string name="lightBlue">Xanh dương nhạt</string>
+    <string name="cyan">Xanh lam</string>
+    <string name="teal">Xanh lục</string>
+    <string name="green">Xanh lá</string>
+    <string name="lightGreen">Xanh lá nhạt</string>
+    <string name="lime">Vàng chanh</string>
+    <string name="yellow">Vàng</string>
+    <string name="amber">Hổ phách</string>
+    <string name="orange">Cam</string>
+    <string name="deepOrange">Cam đậm</string>
+    <!--
+        Arrays / Intro
+    -->
+    <string name="introWelcomeTitle">Chào mừng bạn đến với Authenticator Pro</string>
+    <string name="introCompatibilityTitle">Xác thực 2 bước</string>
+    <string name="introBackupTitle">Sao lưu và Khôi phục</string>
+    <string name="introCategoriesTitle">Danh mục</string>
+    <string name="introThemesTitle">Chủ đề tối</string>
+    <string name="introWelcomeSummary">Cảm ơn bạn đã tải xuống Authenticator Pro.\nGiữ an toàn và bảo vệ các tài khoản trực tuyến của bạn với ứng dụng xác thực mã nguồn mở tốt nhất.</string>
+    <string name="introCompatibilitySummary">Authenticator Pro tương thích với hầu hết các nhà cung cấp và tài khoản. Nó hoàn toàn tương thích với các dịch vụ được kích hoạt bởi Google Authenticator.</string>
+    <string name="introBackupSummary">Sao lưu các trình xác thực của bạn với mã hóa mạnh mẽ. Trong trường hợp bạn mất thiết bị, bạn luôn có thể truy cập vào tài khoản của mình. Lưu vào lưu trữ đám mây hoặc vào thiết bị của bạn.</string>
+    <string name="introCategoriesSummary">Tổ chức các trình xác thực của bạn thành các danh mục và thậm chí thay đổi thứ tự với cách giữ và kéo đơn giản.</string>
+    <string name="introThemesSummary">Nếu bạn muốn, bạn có thể kích hoạt chủ đề tối trong cài đặt. Tất cả biểu tượng sẽ tự động phù hợp với nền mới.</string>
+</resources>

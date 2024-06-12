@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
-    <string name="syncFailed">Sync failed</string>
-    <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="noAuthenticators">Không có xác thực</string>
+    <string name="noAuthenticatorsMessage">Không có gì ở đây. Thêm một số trình xác thực từ ứng dụng trên điện thoại.</string>
+    <string name="hotpNotSupported">HOTP không hỗ trợ</string>
+    <string name="categoryAll">Tất cả</string>
+    <string name="offline">Ngoại tuyến</string>
+    <string name="syncFailed">Đồng bộ hóa không thành công</string>
+    <string name="noFavourite">Không có mục yêu thích</string>
+    <string name="noFavouriteMessage">Nhấn giữ một trình xác thực trong ứng dụng để thiết lập</string>
+    <string name="open">Mở</string>
 </resources>

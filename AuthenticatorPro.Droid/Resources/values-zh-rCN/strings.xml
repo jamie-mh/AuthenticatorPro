@@ -79,7 +79,7 @@
     <string name="periodInvalid">时间段无效</string>
     <string name="counterInvalid">无效的复制次数</string>
     <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">此二维码专门用于Microsoft Authenticator因此不兼容\n\n请选择“设置另一个验证器应用”或“配置应用而不通知”以获取相兼容的二维码</string>
     <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
     <string name="scanSuccessful">二维码扫描成功</string>
     <string name="pinMessage">输入与此 QR 码相关联的 pin</string>
@@ -163,7 +163,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">无法恢复备份</string>
     <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
