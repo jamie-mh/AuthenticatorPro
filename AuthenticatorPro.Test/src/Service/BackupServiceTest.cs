@@ -117,7 +117,7 @@ namespace AuthenticatorPro.Test.Service
                 var data = Convert.FromBase64String(src["data:image/png;base64,".Length..]);
                 
                 using var image = SKBitmap.Decode(data);
-                using var imageView = new ImageView(image.GetPixelSpan().ToArray(), image.Width, image.Height, ImageFormat.Lum);
+                using var imageView = new ImageView(image.GetPixelSpan(), image.Width, image.Height, ImageFormat.Lum);
                 Assert.Equal(auth.GetUri(), qrCodeReader.Read(imageView));
             }
 

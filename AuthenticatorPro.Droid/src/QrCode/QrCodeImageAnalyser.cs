@@ -22,6 +22,7 @@ namespace AuthenticatorPro.Droid.QrCode
         {
             TryRotate = true,
             TryHarder = true,
+            TryInvert = true,
             Binarizer = Binarizer.LocalAverage
         });
         
@@ -45,9 +46,13 @@ namespace AuthenticatorPro.Droid.QrCode
         private void AnalyseInternal(IImageProxy imageProxy)
         {
             using var plane = imageProxy.Image.GetPlanes()[0];
-
-            var bytes = new byte[plane.Buffer.Capacity()];
-            plane.Buffer.Get(bytes);
+            ReadOnlySpan<byte> bytes;
+            
+            unsafe
+            {
+                var bufferAddress = plane.Buffer.GetDirectBufferAddress().ToPointer();
+                bytes = new ReadOnlySpan<byte>(bufferAddress, plane.Buffer.Capacity());
+            }
             
             using var imageView = new ImageView(bytes, imageProxy.Width, imageProxy.Height, ImageFormat.Lum, plane.RowStride, plane.PixelStride);
             string result;

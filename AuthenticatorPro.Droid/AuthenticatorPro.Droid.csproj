@@ -10,6 +10,7 @@
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <LangVersion>12</LangVersion>
         <AndroidVersionCodePattern>{versionCode}</AndroidVersionCodePattern>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
@@ -51,7 +52,7 @@
         <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.28" />
         <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.9.0.4" />
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.6" />
-        <PackageReference Include="AuthenticatorPro.ZXing" Version="1.1.1" />
+        <PackageReference Include="AuthenticatorPro.ZXing" Version="1.2.0" />
     </ItemGroup>
     <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="118.1.0.4" />
