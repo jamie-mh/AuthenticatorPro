@@ -50,7 +50,7 @@ namespace AuthenticatorPro.Droid.QrCode
         
         private void AnalyseInternal(IImageProxy imageProxy)
         {
-            var plane = imageProxy.Image.GetPlanes()[0];
+            using var plane = imageProxy.Image.GetPlanes()[0];
             
             var bytes = new byte[plane.Buffer.Capacity()];
             plane.Buffer.Get(bytes);

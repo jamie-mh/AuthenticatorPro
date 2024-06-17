@@ -47,7 +47,7 @@ namespace AuthenticatorPro.Droid.QrCode
                 }
             };
             
-            var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
+            using var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
             await bitmap.CopyPixelsToBufferAsync(buffer);
             buffer.Rewind();
             
