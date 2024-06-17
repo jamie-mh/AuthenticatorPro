@@ -346,6 +346,12 @@ namespace AuthenticatorPro.WearOS.Activity
             {
                 return;
             }
+            
+            if (item.Type.GetGenerationMethod() == GenerationMethod.Counter)
+            {
+                Toast.MakeText(this, Resource.String.hotpNotSupported, ToastLength.Short).Show();
+                return;
+            }
 
             var oldDefault = _preferences.DefaultAuth;
             var newDefault = HashUtil.Sha1(item.Secret);
