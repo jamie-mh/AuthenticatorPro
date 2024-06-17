@@ -9,11 +9,13 @@ using AuthenticatorPro.Core.Entity;
 using AuthenticatorPro.Core.Persistence;
 using AuthenticatorPro.Core.Service;
 using AuthenticatorPro.Core.Service.Impl;
-using AuthenticatorPro.ZXing;
 using HtmlAgilityPack;
 using Moq;
-using SkiaSharp;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 using Xunit;
+using ZXing;
+using ZXing.Common;
 
 namespace AuthenticatorPro.Test.Service
 {
@@ -103,7 +105,13 @@ namespace AuthenticatorPro.Test.Service
             var rows = document.DocumentNode.SelectNodes("//tr");
             Assert.Equal(2, rows.Count);
 
-            var qrCodeReader = new QrCodeReader();
+            var barcodeReader = new ZXing.ImageSharp.BarcodeReader<Rgba32>
+            {
+                Options = new DecodingOptions
+                {
+                    PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE }
+                }
+            };
 
             void AssertRowMatches(HtmlNode node, Authenticator auth)
             {
@@ -115,10 +123,10 @@ namespace AuthenticatorPro.Test.Service
                 var img = tds[3].SelectSingleNode("img");
                 var src = img.Attributes["src"].Value;
                 var data = Convert.FromBase64String(src["data:image/png;base64,".Length..]);
-                
-                using var image = SKBitmap.Decode(data);
-                using var imageView = new ImageView(image.GetPixelSpan(), image.Width, image.Height, ImageFormat.Lum);
-                Assert.Equal(auth.GetUri(), qrCodeReader.Read(imageView));
+
+                using var decodedImage = Image.Load<Rgba32>(data);
+                var qrCodeResult = barcodeReader.Decode(decodedImage);
+                Assert.Equal(auth.GetUri(), qrCodeResult.Text);
             }
 
             AssertRowMatches(rows[0], authA);

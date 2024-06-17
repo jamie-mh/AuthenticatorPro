@@ -2,12 +2,12 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
+using System.Collections.Generic;
+using Android.Graphics;
 using Android.Util;
 using AndroidX.Camera.Core;
-using AuthenticatorPro.ZXing;
-using Serilog;
-using ImageFormat = AuthenticatorPro.ZXing.ImageFormat;
-using Log = Serilog.Log;
+using ZXing;
+using ZXing.Common;
 
 namespace AuthenticatorPro.Droid.QrCode
 {
@@ -16,15 +16,20 @@ namespace AuthenticatorPro.Droid.QrCode
         public event EventHandler<string> QrCodeScanned;
         public Size DefaultTargetResolution => new(640, 480);
         
-        private readonly ILogger _log = Log.ForContext<QrCodeImageAnalyser>();
-
-        private readonly QrCodeReader _qrCodeReader = new(new ReaderOptions
+        private readonly BarcodeReader<Bitmap> _barcodeReader;
+        
+        public QrCodeImageAnalyser()
         {
-            TryRotate = true,
-            TryHarder = true,
-            TryInvert = true,
-            Binarizer = Binarizer.LocalAverage
-        });
+            _barcodeReader = new BarcodeReader<Bitmap>(null, null, ls => new HybridBinarizer(ls))
+            {
+                AutoRotate = true,
+                Options = new DecodingOptions
+                {
+                    PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.QR_CODE },
+                    TryInverted = true
+                }
+            };
+        }
         
         public void Analyze(IImageProxy imageProxy)
         {
@@ -32,7 +37,7 @@ namespace AuthenticatorPro.Droid.QrCode
             {
                 return;
             }
-
+            
             try
             {
                 AnalyseInternal(imageProxy);
@@ -42,34 +47,22 @@ namespace AuthenticatorPro.Droid.QrCode
                 imageProxy.Close();
             }
         }
-
+        
         private void AnalyseInternal(IImageProxy imageProxy)
         {
-            using var plane = imageProxy.Image.GetPlanes()[0];
-            ReadOnlySpan<byte> bytes;
+            var plane = imageProxy.Image.GetPlanes()[0];
             
-            unsafe
-            {
-                var bufferAddress = plane.Buffer.GetDirectBufferAddress().ToPointer();
-                bytes = new ReadOnlySpan<byte>(bufferAddress, plane.Buffer.Capacity());
-            }
+            var bytes = new byte[plane.Buffer.Capacity()];
+            plane.Buffer.Get(bytes);
             
-            using var imageView = new ImageView(bytes, imageProxy.Width, imageProxy.Height, ImageFormat.Lum, plane.RowStride, plane.PixelStride);
-            string result;
+            var source = new PlanarYUVLuminanceSource(
+                bytes, imageProxy.Width, imageProxy.Height, 0, 0, imageProxy.Width, imageProxy.Height, false);
             
-            try
-            {
-                result = _qrCodeReader.Read(imageView);
-            }
-            catch (QrCodeException e)
-            {
-                _log.Warning(e, "Error scanning QR code: {Type}", e.Type);
-                return;
-            }
-
+            var result = _barcodeReader.Decode(source);
+            
             if (result != null)
             {
-                QrCodeScanned?.Invoke(this, result);
+                QrCodeScanned?.Invoke(this, result.Text);
             }
         }
     }
