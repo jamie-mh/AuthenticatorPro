@@ -6,7 +6,7 @@
         <LangVersion>12</LangVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.0"/>
+        <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.1" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
