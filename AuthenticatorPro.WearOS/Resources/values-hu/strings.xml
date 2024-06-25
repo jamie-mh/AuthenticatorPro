@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Nincsenek hitelesítők</string>
+    <string name="noAuthenticatorsMessage">Semmi sincs itt. Adjon hozzá néhány hitelesítőt a telefonos alkalmazásból.</string>
+    <string name="hotpNotSupported">A HOTP nem támogatott</string>
+    <string name="categoryAll">Összes</string>
+    <string name="offline">Offline</string>
+    <string name="syncFailed">Szinkronizáció sikertelen</string>
+    <string name="noFavourite">Nincs kedvenc</string>
+    <string name="noFavouriteMessage">A beállításhoz nyomja meg hosszan a hitelesítőt az alkalmazásban</string>
+    <string name="open">Megnyitás</string>
+</resources>

@@ -1,0 +1,1 @@
+Ingyenes és nyílt forráskódú 2FA alkalmazás titkosított biztonsági másolatokkal

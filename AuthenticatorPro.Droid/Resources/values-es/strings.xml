@@ -79,10 +79,10 @@
     <string name="periodInvalid">El periodo es inválido</string>
     <string name="counterInvalid">El contador es inválido</string>
     <string name="qrCodeFormatError">El código QR no está en el formato correcto o no se puede leer.</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Este código QR es específicamente para Microsoft Authenticator y no es compatible.\n\nSelecciona \"Configurar una aplicación de autenticación diferente\" o \"Configurar aplicación sin notificaciones\" para obtener un código QR compatible.</string>
     <string name="duplicateAuthenticator">Ya existe un autentificador con esta clave secreta</string>
     <string name="scanSuccessful">Código QR escaneado exitosamente</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Introduce el pin asociado con este código QR</string>
     <!--
         Icon packs
     -->
@@ -93,7 +93,7 @@
     <string name="invalidIconPackError">El archivo seleccionado no es paquete de iconos para Authenticator Pro</string>
     <string name="confirmIconPackDelete">¿Estás seguro de que deseas eliminar este paquete de iconos? Cualquier icono usado no será borrado.</string>
     <!-- View the source (website) of the icon pack -->
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Ver fuente</string>
     <!--
         QR code dialog
     -->
@@ -163,7 +163,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">No se pudo restaurar la copia de seguridad</string>
     <string name="cameraPermissionError">El permiso de acceso la cámara debe ser concedido para poder escanear un código QR</string>
     <string name="googlePlayNotInstalledError">Google Play no está instalado en su dispositivo.</string>
     <string name="filePickerMissing">No se pudo abrir el selector de archivo. Un administrador de archivos debe estar instalado.</string>
@@ -173,8 +173,8 @@
     <string name="emailClientMissing">Ningún cliente de correo electrónico instalado</string>
     <string name="genericError">Ocurrió un error.</string>
     <string name="viewErrorLog">Ver registro de errores</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">Sincronización de tiempo deshabilitada</string>
+    <string name="autoTimeWarningMessage">Tu dispositivo tiene el el tiempo automático deshabilitado. La autenticación de dos factores requiere un reloj preciso para generar códigos.\n\nPor favor activa la sincronización automática del tiempo en los ajustes de tu dispositivo para asegurar que los códigos generados sean siempre válidos.</string>
     <!--
         Error reporting
     -->
@@ -280,8 +280,8 @@
     <string name="prefTapToCopySummary">Copia el código en el portapapeles cuando lo tocas</string>
     <string name="prefResetCopyCountTitle">Reiniciar contador de copiado</string>
     <string name="prefResetCopyCountSummary">Borra el número de veces que cada contador ha sido copiado</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Saltar al siguiente</string>
+    <string name="prefSkipToNextSummary">Permite saltar al siguiente código cuando está cerca de expirar</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Contraseña</string>
     <string name="prefPasswordSummary">Requiere contraseña para acceder a los autentificadores. La base de datos será cifrada con su contraseña.</string>
@@ -312,16 +312,16 @@
     <string name="prefAccentColourSummary">Elige un idioma para usar en la aplicación</string>
     <string name="prefTransparentStatusBarTitle">Barra de estado transparente</string>
     <string name="prefTransparentStatusBarSummary">Hacer visible la lista detrás de la barra de estado al desplazarse</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Fuente del sistema</string>
+    <string name="prefSystemFontSummary">Usar la fuente predeterminada del sistema en lugar de una fuente personalizada</string>
     <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Contador de copiado reiniciado</string>
     <!--
         About
     -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Ver registro</string>
+    <string name="noLogFile">No hay archivo de registro disponible</string>
+    <string name="debugLog">Registro de depuración</string>
     <!--
         Arrays
     -->
@@ -339,7 +339,7 @@
     <string name="timeout5Min">5 minutos</string>
     <string name="timeout10Min">10 minutos</string>
     <string name="systemDefault">Predeterminado por el Sistema</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">Predeterminado del sistema (negro)</string>
     <string name="lightTheme">Tema Claro</string>
     <string name="darkTheme">Tema Oscuro</string>
     <string name="blackTheme">Tema Negro</string>
@@ -347,7 +347,7 @@
     <string name="compactViewMode">Compacto</string>
     <string name="tileViewMode">Mosaico</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">None</string>
+    <string name="none">Ninguno</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
