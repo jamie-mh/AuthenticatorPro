@@ -163,7 +163,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Säkerhetskopian kunde inte återställas</string>
     <string name="cameraPermissionError">Behörighet till kameran behövs för att skanna QR-koder</string>
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
