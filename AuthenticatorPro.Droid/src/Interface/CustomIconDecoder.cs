@@ -86,12 +86,13 @@ namespace AuthenticatorPro.Droid.Interface
             var width = bitmap.Width;
             var height = bitmap.Height;
 
+            using var alphaMap = bitmap.ExtractAlpha();
             var pixels = new int[width * height];
-            bitmap.GetPixels(pixels, 0, width, 0, 0, width, height);
+            alphaMap.GetPixels(pixels, 0, width, 0, 0, width, height);
 
             bool IsTransparent(int x, int y)
             {
-                return (pixels[y * width + x] & 0xF000) == 0;
+                return pixels[y * width + x] == 0;
             }
 
             var left = width;
@@ -100,12 +101,16 @@ namespace AuthenticatorPro.Droid.Interface
             {
                 for (var x = 0; x < width; ++x)
                 {
-                    if (IsTransparent(x, y) || x > left)
+                    if (IsTransparent(x, y))
                     {
                         continue;
                     }
 
-                    left = x;
+                    if (x < left)
+                    {
+                        left = x;
+                        break;
+                    }
                 }
             }
 
@@ -115,12 +120,16 @@ namespace AuthenticatorPro.Droid.Interface
             {
                 for (var y = 0; y < height; ++y)
                 {
-                    if (IsTransparent(x, y) || y > top)
+                    if (IsTransparent(x, y))
                     {
                         continue;
                     }
 
-                    top = y;
+                    if (y < top)
+                    {
+                        top = y;
+                        break;
+                    }
                 }
             }
 
@@ -130,12 +139,16 @@ namespace AuthenticatorPro.Droid.Interface
             {
                 for (var x = width - 1; x >= 0; --x)
                 {
-                    if (IsTransparent(x, y) || x < right)
+                    if (IsTransparent(x, y))
                     {
                         continue;
                     }
 
-                    right = x;
+                    if (x > right)
+                    {
+                        right = x;
+                        break;
+                    }
                 }
             }
 
@@ -145,15 +158,19 @@ namespace AuthenticatorPro.Droid.Interface
             {
                 for (var y = height - 1; y >= 0; --y)
                 {
-                    if (IsTransparent(x, y) || y < bottom)
+                    if (IsTransparent(x, y))
                     {
                         continue;
                     }
 
-                    bottom = y;
+                    if (y > bottom)
+                    {
+                        bottom = y;
+                        break;
+                    }
                 }
             }
-
+            
             return Bitmap.CreateBitmap(bitmap, left, top, right - left, bottom - top);
         }
     }
