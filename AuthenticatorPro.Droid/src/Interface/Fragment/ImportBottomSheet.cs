@@ -15,7 +15,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         }
 
         public event EventHandler GoogleAuthenticatorClicked;
-        public event EventHandler AuthenticatorPlusClicked;
         public event EventHandler AndOtpClicked;
         public event EventHandler FreeOtpClicked;
         public event EventHandler FreeOtpPlusClicked;
@@ -27,6 +26,7 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
         public event EventHandler LastPassClicked;
         public event EventHandler AuthyClicked;
         public event EventHandler TotpAuthenticatorClicked;
+        public event EventHandler AuthenticatorPlusClicked;
         public event EventHandler SteamClicked;
         public event EventHandler BlizzardAuthenticatorClicked;
         public event EventHandler UriListClicked;
@@ -40,8 +40,6 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
             [
                 new SheetMenuItem(Resource.Drawable.ic_googleauthenticator, Resource.String.googleAuthenticator,
                     GoogleAuthenticatorClicked, Resource.String.viewGuideImportHint),
-                new SheetMenuItem(Resource.Drawable.ic_authenticatorplus, Resource.String.authenticatorPlus,
-                    AuthenticatorPlusClicked, Resource.String.authenticatorPlusImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_andotp, Resource.String.andOtp, AndOtpClicked,
                     Resource.String.andOtpImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_freeotp, Resource.String.freeOtp,
@@ -64,6 +62,8 @@ namespace AuthenticatorPro.Droid.Interface.Fragment
                     Resource.String.viewGuideImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_totpauthenticator, Resource.String.totpAuthenticator,
                     TotpAuthenticatorClicked, Resource.String.totpAuthenticatorImportHint),
+                new SheetMenuItem(Resource.Drawable.ic_authenticatorplus, Resource.String.authenticatorPlus,
+                    AuthenticatorPlusClicked, Resource.String.authenticatorPlusImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_steam, Resource.String.steam, SteamClicked,
                     Resource.String.viewGuideImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_blizzard, Resource.String.blizzardAuthenticator,

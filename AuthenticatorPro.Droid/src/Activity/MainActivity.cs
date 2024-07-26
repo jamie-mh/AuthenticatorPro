@@ -76,17 +76,17 @@ namespace AuthenticatorPro.Droid.Activity
         private const int RequestQrCodeFromImage = 5;
         private const int RequestCustomIcon = 6;
         private const int RequestSettingsRecreate = 7;
-        private const int RequestImportAuthenticatorPlus = 8;
-        private const int RequestImportAndOtp = 9;
-        private const int RequestImportFreeOtp = 10;
-        private const int RequestImportFreeOtpPlus = 11;
-        private const int RequestImportAegis = 12;
-        private const int RequestImportBitwarden = 13;
-        private const int RequestImportEnteAuth = 14;
-        private const int RequestImportTwoFas = 15;
-        private const int RequestImportLastPass = 16;
-        private const int RequestImportWinAuth = 17;
-        private const int RequestImportTotpAuthenticator = 18;
+        private const int RequestImportAndOtp = 8;
+        private const int RequestImportFreeOtp = 9;
+        private const int RequestImportFreeOtpPlus = 10;
+        private const int RequestImportAegis = 11;
+        private const int RequestImportBitwarden = 12;
+        private const int RequestImportEnteAuth = 13;
+        private const int RequestImportTwoFas = 14;
+        private const int RequestImportLastPass = 15;
+        private const int RequestImportWinAuth = 16;
+        private const int RequestImportTotpAuthenticator = 17;
+        private const int RequestImportAuthenticatorPlus = 18;
         private const int RequestImportUriList = 19;
 
         // Data
@@ -325,10 +325,6 @@ namespace AuthenticatorPro.Droid.Activity
                     await ScanQrCodeFromImage(intent.Data);
                     break;
 
-                case RequestImportAuthenticatorPlus:
-                    await ImportFromUri(new AuthenticatorPlusBackupConverter(_iconResolver), intent.Data);
-                    break;
-
                 case RequestImportAndOtp:
                     await ImportFromUri(new AndOtpBackupConverter(_iconResolver), intent.Data);
                     break;
@@ -367,6 +363,10 @@ namespace AuthenticatorPro.Droid.Activity
 
                 case RequestImportTotpAuthenticator:
                     await ImportFromUri(new TotpAuthenticatorBackupConverter(_iconResolver), intent.Data);
+                    break;
+
+                case RequestImportAuthenticatorPlus:
+                    await ImportFromUri(new AuthenticatorPlusBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportUriList:
@@ -1259,11 +1259,6 @@ namespace AuthenticatorPro.Droid.Activity
             // Use */* mime-type for most binary files because some files might not show on older Android versions
             // Use */* for json also, because application/json doesn't work
 
-            fragment.AuthenticatorPlusClicked += delegate
-            {
-                StartFilePickActivity("*/*", RequestImportAuthenticatorPlus);
-            };
-
             fragment.AndOtpClicked += delegate { StartFilePickActivity("*/*", RequestImportAndOtp); };
 
             fragment.FreeOtpClicked += delegate { StartFilePickActivity("*/*", RequestImportFreeOtp); };
@@ -1290,6 +1285,11 @@ namespace AuthenticatorPro.Droid.Activity
             fragment.TotpAuthenticatorClicked += delegate
             {
                 StartFilePickActivity("*/*", RequestImportTotpAuthenticator);
+            };
+
+            fragment.AuthenticatorPlusClicked += delegate
+            {
+                StartFilePickActivity("*/*", RequestImportAuthenticatorPlus);
             };
 
             fragment.BlizzardAuthenticatorClicked += delegate
