@@ -8,7 +8,6 @@ using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Card;
-using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Callback
 {

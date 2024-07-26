@@ -45,7 +45,6 @@ using Google.Android.Material.AppBar;
 using Google.Android.Material.BottomAppBar;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
 using Serilog;

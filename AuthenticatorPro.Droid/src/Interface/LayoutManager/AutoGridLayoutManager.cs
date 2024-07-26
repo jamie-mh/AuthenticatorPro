@@ -5,7 +5,6 @@ using System;
 using Android.Content;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Util;
-using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface.LayoutManager
 {

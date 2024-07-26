@@ -24,7 +24,6 @@ using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.FloatingActionButton;
-using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using ProtoBuf;
 using Serilog;

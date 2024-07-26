@@ -22,7 +22,6 @@ using AuthenticatorPro.Droid.Persistence.View;
 using AuthenticatorPro.Droid.Shared.Util;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.Dialog;
-using Google.Android.Material.Internal;
 using Google.Android.Material.Snackbar;
 using Serilog;
 

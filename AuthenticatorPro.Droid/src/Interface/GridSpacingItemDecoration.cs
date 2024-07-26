@@ -6,7 +6,6 @@ using Android.Graphics;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 using AuthenticatorPro.Droid.Util;
-using Google.Android.Material.Internal;
 
 namespace AuthenticatorPro.Droid.Interface
 {

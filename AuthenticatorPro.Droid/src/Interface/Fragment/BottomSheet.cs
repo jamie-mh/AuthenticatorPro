@@ -14,7 +14,6 @@ using AuthenticatorPro.Droid.Activity;
 using AuthenticatorPro.Droid.Interface.Adapter;
 using AuthenticatorPro.Droid.Util;
 using Google.Android.Material.BottomSheet;
-using Google.Android.Material.Internal;
 using Google.Android.Material.TextView;
 using Java.Lang;
 using Serilog;
