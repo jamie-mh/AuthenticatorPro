@@ -96,6 +96,7 @@ namespace AuthenticatorPro.Droid.Interface
             }
 
             var left = width;
+            var right = 0;
 
             for (var y = 0; y < height; ++y)
             {
@@ -112,9 +113,24 @@ namespace AuthenticatorPro.Droid.Interface
                         break;
                     }
                 }
+                
+                for (var x = width - 1; x >= 0; --x)
+                {
+                    if (IsTransparent(x, y))
+                    {
+                        continue;
+                    }
+
+                    if (x > right)
+                    {
+                        right = x;
+                        break;
+                    }
+                }
             }
 
             var top = height;
+            var bottom = 0;
 
             for (var x = 0; x < width; ++x)
             {
@@ -131,31 +147,7 @@ namespace AuthenticatorPro.Droid.Interface
                         break;
                     }
                 }
-            }
-
-            var right = 0;
-
-            for (var y = 0; y < height; ++y)
-            {
-                for (var x = width - 1; x >= 0; --x)
-                {
-                    if (IsTransparent(x, y))
-                    {
-                        continue;
-                    }
-
-                    if (x > right)
-                    {
-                        right = x;
-                        break;
-                    }
-                }
-            }
-
-            var bottom = 0;
-
-            for (var x = 0; x < width; ++x)
-            {
+                
                 for (var y = height - 1; y >= 0; --y)
                 {
                     if (IsTransparent(x, y))
