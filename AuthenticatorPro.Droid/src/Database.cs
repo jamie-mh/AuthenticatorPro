@@ -22,7 +22,7 @@ namespace AuthenticatorPro.Droid
             Other
         }
 
-        private const string FileName = "proauth.db3";
+        private const string FileName = "authenticator.db3";
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.FullMutex;
 
         private readonly ILogger _log = Log.ForContext<Database>();
@@ -159,8 +159,11 @@ namespace AuthenticatorPro.Droid
 
         private static string GetPath()
         {
+            var appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            
             return Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                Directory.GetParent(appDataDir).FullName,
+                "databases",
                 FileName
             );
         }

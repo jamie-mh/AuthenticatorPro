@@ -6,7 +6,6 @@ using System.Text;
 using Android.Content;
 using Android.OS;
 using Android.Security.Keystore;
-using AndroidX.Preference;
 using Java.Security;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
@@ -28,7 +27,8 @@ namespace AuthenticatorPro.Droid.Storage
 
         public BiometricStorage(Context context)
         {
-            _preferences = PreferenceManager.GetDefaultSharedPreferences(context);
+            var preferenceAlias = $"{context.PackageName}_biometrics";
+            _preferences = context.GetSharedPreferences(preferenceAlias, FileCreationMode.Private);
         }
 
         private static void GenerateKey()

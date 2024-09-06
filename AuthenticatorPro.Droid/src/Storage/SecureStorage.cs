@@ -31,7 +31,7 @@ namespace AuthenticatorPro.Droid.Storage
         private const int IvLength = 12; // Android supports an IV of 12 for AES/GCM
 
         private const string MasterKeyPreferenceKey = "SecureStorageKey";
-        private const string UseSymmetricPreferenceKey = "essentials_use_symmetric";
+        private const string UseSymmetricPreferenceKey = "use_symmetric";
 
         private readonly ILogger _log = Log.ForContext<SecureStorage>();
         private readonly Context _context;
@@ -42,7 +42,7 @@ namespace AuthenticatorPro.Droid.Storage
         public SecureStorage(Context context)
         {
             _context = context;
-            _preferenceAlias = $"{context.PackageName}.xamarinessentials";
+            _preferenceAlias = $"{context.PackageName}_securestorage";
             _preferences = context.GetSharedPreferences(_preferenceAlias, FileCreationMode.Private);
         }
 
