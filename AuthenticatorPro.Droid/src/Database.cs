@@ -98,16 +98,7 @@ namespace AuthenticatorPro.Droid
                 password = null;
             }
 
-            var connStr = new SQLiteConnectionString(path, Flags, true, password, null, conn =>
-            {
-                // TODO: update to SQLCipher 4 encryption
-                // Performance issue: https://github.com/praeclarum/sqlite-net/issues/978
-                if (password != null)
-                {
-                    conn.ExecuteScalar<string>("PRAGMA cipher_compatibility = 3");
-                }
-            });
-
+            var connStr = new SQLiteConnectionString(path, Flags, true, password);
             await _lock.WaitAsync();
 
             try
@@ -215,7 +206,6 @@ namespace AuthenticatorPro.Droid
                     if (newPassword != null)
                     {
                         await conn.ExecuteAsync("ATTACH DATABASE ? AS temporary KEY ?", tempPath, newPassword);
-                        await conn.ExecuteAsync("PRAGMA temporary.cipher_compatibility = 3");
                     }
                     else
                     {
