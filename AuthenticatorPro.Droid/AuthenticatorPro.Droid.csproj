@@ -5,7 +5,7 @@
         <OutputType>Exe</OutputType>
         <Nullable>disable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
-        <ApplicationId>me.jmh.authenticatorpro</ApplicationId>
+        <ApplicationId>me.jmh.authenticator</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <LangVersion>12</LangVersion>
