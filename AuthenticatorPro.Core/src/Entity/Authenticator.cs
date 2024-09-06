@@ -66,7 +66,7 @@ namespace AuthenticatorPro.Core.Entity
         [Column("counter")]
         public long Counter { get; set; }
 
-        [Column("copy_count")]
+        [Column("copyCount")]
         public int CopyCount { get; set; }
 
         [Column("ranking")]
