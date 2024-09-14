@@ -1,0 +1,7 @@
+<linker>
+    <assembly fullname="Stratum.Core" preserve="all"/>
+    <assembly fullname="Stratum.Droid" preserve="all"/>
+    <assembly fullname="Stratum.Droid.Shared" preserve="all"/>
+    <assembly fullname="protobuf-net" preserve="all"/>
+    <assembly fullname="protobuf-net.Core" preserve="all"/>
+</linker>
