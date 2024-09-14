@@ -1,7 +1,6 @@
 <resources>
-    <string name="appName" translatable="false">Authenticator Pro</string>
-    <string name="displayName" translatable="false">Authenticator</string>
-
+    <string name="appName" translatable="false">Stratum</string>
+    
     <string name="githubRepo" translatable="false">https://github.com/jamie-mh/AuthenticatorPro</string>
     <string name="latestIconPacks" translatable="false">https://github.com/jamie-mh/AuthenticatorProIcons/releases/latest</string>
     <string name="buyMeACoffee" translatable="false">https://www.buymeacoffee.com/jamiemh</string>
@@ -55,9 +54,9 @@
     <string name="supportDevelopment">Support development</string>
     <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Rate</string>
-    <string name="rateSummary">Rate Authenticator Pro on the Google Play store</string>
+    <string name="rateSummary">Rate Stratum on the Google Play store</string>
     <string name="viewGitHub">View on GitHub</string>
-    <string name="viewGitHubSummary">View the Authenticator Pro repository on GitHub. You can report an issue, request more icons and features.</string>
+    <string name="viewGitHubSummary">View the Stratum repository on GitHub. You can report an issue, request more icons and features.</string>
 
     <!--
         Authenticator
@@ -105,7 +104,7 @@
     <string name="iconPacks">Icon packs</string>
     <string name="downloadPacks">Download packs</string>
     <string name="importIconPackSuccess">Imported {0} icons from pack</string>
-    <string name="invalidIconPackError">The selected file is not an Authenticator Pro icon pack</string>
+    <string name="invalidIconPackError">The selected file is not an Stratum icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
@@ -143,7 +142,7 @@
     <string name="noAuthenticatorsTitle">Nothing here!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
     <string name="gettingStartedGuide">Getting started guide</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Authenticator Pro, view the getting started guide by clicking below.</string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Stratum, view the getting started guide by clicking below.</string>
     <string name="noCategoriesTitle">No categories</string>
     <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
     <string name="noIconPacksTitle">No icon packs</string>
@@ -201,7 +200,7 @@
     <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
     <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
     <string name="filePickError">Error picking file</string>
-    <string name="invalidFileError">The selected file is not an Authenticator Pro backup</string>
+    <string name="invalidFileError">The selected file is not an Stratum backup</string>
     <string name="webBrowserMissing">No web browser installed</string>
     <string name="emailClientMissing">No email client installed</string>
     <string name="genericError">An error occurred</string>
@@ -241,7 +240,7 @@
     <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
 
     <string name="batOptim">Battery Optimisation</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Stratum.</string>
 
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
@@ -318,7 +317,7 @@
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
 
     <string name="guideUseCodeTitle">Use the code when logging in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
 
     <string name="guideCustomiseTitle">Customise and edit</string>
     <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
@@ -498,14 +497,14 @@
         Arrays / Intro
     -->
     
-    <string name="introWelcomeTitle">Welcome to Authenticator Pro</string>
+    <string name="introWelcomeTitle">Welcome to Stratum</string>
     <string name="introCompatibilityTitle">Two-factor Authentication</string>
     <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">Categories</string>
     <string name="introThemesTitle">Dark theme</string>
 
-    <string name="introWelcomeSummary">Thanks for downloading Authenticator Pro.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introCompatibilitySummary">Stratum is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
     <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
     <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>

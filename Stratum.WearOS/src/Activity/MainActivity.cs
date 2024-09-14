@@ -33,7 +33,7 @@ using Exception = System.Exception;
 
 namespace Stratum.WearOS.Activity
 {
-    [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
+    [Activity(Label = "@string/appName", MainLauncher = true, Icon = "@mipmap/ic_launcher")]
     public class MainActivity : AppCompatActivity
     {
         // Query Paths
