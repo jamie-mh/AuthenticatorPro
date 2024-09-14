@@ -7,7 +7,7 @@
     <androidx.preference.PreferenceCategory
         android:title="@string/prefGeneral"
         android:key="pref_key_general">
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_showBackupReminders"
             android:summary="@string/prefShowBackupRemindersSummary"
             android:title="@string/prefShowBackupRemindersTitle"
@@ -27,7 +27,7 @@
             android:entries="@array/languageNames"
             android:entryValues="@array/languageValues"
             android:defaultValue="system"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_tapToCopy"
             android:summary="@string/prefTapToCopySummary"
             android:title="@string/prefTapToCopyTitle"
@@ -39,7 +39,7 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefResetCopyCountTitle"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_skipToNext"
             android:summary="@string/prefSkipToNextSummary"
             android:title="@string/prefSkipToNextTitle"
@@ -56,13 +56,13 @@
             app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:title="@string/prefPasswordTitle"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_databasePasswordBackup"
             android:summary="@string/prefDatabasePasswordBackupSummary"
             android:title="@string/prefDatabasePasswordBackupTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_allowBiometrics"
             android:summary="@string/prefAllowBiometricsSummary"
             app:iconSpaceReserved="false"
@@ -76,7 +76,7 @@
             android:entries="@array/timeoutNames"
             android:entryValues="@array/timeoutValues"
             android:defaultValue="0"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_tapToReveal"
             android:summary="@string/prefTapToRevealSummary"
             android:title="@string/prefTapToRevealTitle"
@@ -90,7 +90,7 @@
             android:entries="@array/tapToRevealDurationNames"
             android:entryValues="@array/tapToRevealDurationValues"
             android:defaultValue="10"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_allowScreenshots"
             android:summary="@string/prefAllowScreenshotsSummary"
             android:title="@string/prefAllowScreenshotsTitle"
@@ -125,13 +125,13 @@
             android:entries="@array/codeGroupSizeNames"
             android:entryValues="@array/codeGroupSizeValues"
             android:defaultValue="3"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_showUsernames"
             android:summary="@string/prefShowUsernamesSummary"
             android:title="@string/prefShowUsernamesTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_dynamicColour"
             android:summary="@string/prefDynamicColourSummary"
             android:title="@string/prefDynamicColourTitle"
@@ -145,13 +145,13 @@
             android:entries="@array/accentColourNames"
             android:entryValues="@array/accentColourValues"
             android:defaultValue="lightBlue"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_transparentStatusBar"
             android:summary="@string/prefTransparentStatusBarSummary"
             android:title="@string/prefTransparentStatusBarTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
-        <authenticatorpro.droid.interface.preference.MaterialSwitchPreference
+        <stratum.droid.interface.preference.MaterialSwitchPreference
             android:key="pref_systemFont"
             android:summary="@string/prefSystemFontSummary"
             android:title="@string/prefSystemFontTitle"

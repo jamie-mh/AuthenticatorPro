@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<authenticatorpro.wearos.interface.AuthProgressLayout
+<stratum.wearos.interface.AuthProgressLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layoutAuthProgress"
@@ -62,4 +62,4 @@
 
         </LinearLayout>
     </RelativeLayout>
-</authenticatorpro.wearos.interface.AuthProgressLayout>
+</stratum.wearos.interface.AuthProgressLayout>
