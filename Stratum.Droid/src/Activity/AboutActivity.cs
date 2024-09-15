@@ -64,10 +64,7 @@ namespace Stratum.Droid.Activity
             var onSurface = MaterialColors.GetColor(this, Resource.Attribute.colorOnSurface, 0);
             var primary = MaterialColors.GetColor(this, Resource.Attribute.colorPrimary, 0);
 
-            var icon = await _assetProvider.ReadBytesAsync("icon.png");
-
             var html = (await _assetProvider.ReadStringAsync("about.html"))
-                .Replace("%ICON", $"data:image/png;base64,{Convert.ToBase64String(icon)}")
                 .Replace("%VERSION", version)
                 .Replace("%SURFACE", ColourToHexString(surface))
                 .Replace("%ON_SURFACE", ColourToHexString(onSurface))
