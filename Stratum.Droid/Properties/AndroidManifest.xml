@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           android:versionName="1.0.0"
-          package="me.jmh.stratum" android:installLocation="auto" android:versionCode="1">
+          package="com.stratumauth.app" android:installLocation="auto" android:versionCode="1">
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>

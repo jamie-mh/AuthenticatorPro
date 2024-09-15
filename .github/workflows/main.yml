@@ -37,22 +37,22 @@ jobs:
       - name: Publish Android
         run: |
           REF=$(echo $GITHUB_SHA | cut -c -7)
-          sed -i "s|package=\"me.jmh.stratum\"|package=\"me.jmh.stratum.$REF\"|g" AuthenticatorPro.Droid/Properties/AndroidManifest.xml
+          sed -i "s|package=\"com.stratumauth.app\"|package=\"com.stratumauth.app.$REF\"|g" AuthenticatorPro.Droid/Properties/AndroidManifest.xml
           sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.Droid/Resources/values/strings.xml
 
           dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj
           APK=$(find AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
-          mv $APK "me.jmh.stratum.$REF.apk"
+          mv $APK "com.stratumauth.app.$REF.apk"
 
       - name: Publish Wear OS
         run: |
           REF=$(echo $GITHUB_SHA | cut -c -7)
-          sed -i "s|package=\"me.jmh.stratum\"|package=\"me.jmh.stratum.$REF\"|g" AuthenticatorPro.WearOS/Properties/AndroidManifest.xml
+          sed -i "s|package=\"com.stratumauth.app\"|package=\"com.stratumauth.app.$REF\"|g" AuthenticatorPro.WearOS/Properties/AndroidManifest.xml
           sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.WearOS/Resources/values/strings.xml
 
           dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
           APK=$(find AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
-          mv $APK "me.jmh.stratum.wearos.$REF.apk"
+          mv $APK "com.stratumauth.app.wearos.$REF.apk"
 
       - name: Generate coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
@@ -68,5 +68,5 @@ jobs:
         with:
           name: AuthenticatorPro
           path: |
-            me.jmh.stratum*.apk
+            com.stratumauth.app*.apk
             code-coverage-results.md
