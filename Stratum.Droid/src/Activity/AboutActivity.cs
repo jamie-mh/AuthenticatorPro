@@ -65,6 +65,7 @@ namespace Stratum.Droid.Activity
             var primary = MaterialColors.GetColor(this, Resource.Attribute.colorPrimary, 0);
 
             var html = (await _assetProvider.ReadStringAsync("about.html"))
+                .Replace("%LOGO_FILE", IsDark ? "logo_dark.svg" : "logo.svg")
                 .Replace("%VERSION", version)
                 .Replace("%SURFACE", ColourToHexString(surface))
                 .Replace("%ON_SURFACE", ColourToHexString(onSurface))
@@ -73,6 +74,8 @@ namespace Stratum.Droid.Activity
 #if !FDROID
             var extraLicense = await _assetProvider.ReadStringAsync("license.extra.html");
             html = html.Replace("%LICENSE", extraLicense);
+#else
+            html = html.Replace("%LICENSE", "");
 #endif
 
             _webView = FindViewById<WebView>(Resource.Id.webView);
