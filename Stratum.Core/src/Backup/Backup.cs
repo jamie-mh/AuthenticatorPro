@@ -8,7 +8,7 @@ namespace Stratum.Core.Backup
 {
     public class Backup
     {
-        public const string FileExtension = "authpro";
+        public const string FileExtension = "stratum";
         public const string MimeType = "application/octet-stream";
 
         public IEnumerable<Authenticator> Authenticators { get; set; }
