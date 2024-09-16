@@ -10,7 +10,7 @@ namespace Stratum.Droid
 {
     public class LogcatSink : ILogEventSink
     {
-        private const string Tag = "AUTHPRO";
+        private const string Tag = "STRATUM";
 
         public void Emit(LogEvent logEvent)
         {

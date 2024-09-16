@@ -8,7 +8,7 @@ namespace Stratum.WearOS
 {
     internal static class Logger
     {
-        private const string Tag = "AUTHPROWEAR";
+        private const string Tag = "STRATUMWEAR";
 
         public static void Error(string message)
         {
