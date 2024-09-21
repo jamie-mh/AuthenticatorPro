@@ -16,8 +16,8 @@ FRAMEWORK = "net8.0-android"
 CONFIGURATION = "Release"
 
 PROJECT_NAMES = {
-    "android": "AuthenticatorPro.Droid",
-    "wearos": "AuthenticatorPro.WearOS",
+    "android": "Stratum.Droid",
+    "wearos": "Stratum.WearOS",
 }
 
 
@@ -86,7 +86,7 @@ def move_build_artifacts(args: argparse.Namespace, build_dir: str, output_dir: s
 
 
 def get_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build Authenticator Pro")
+    parser = argparse.ArgumentParser(description="Build Stratum")
     parser.add_argument(
         "project",
         metavar="P",
@@ -105,7 +105,7 @@ def get_args() -> argparse.Namespace:
     parser.add_argument(
         "--fdroid",
         action=argparse.BooleanOptionalAction,
-        help="Build without proprietary libraries (Wear OS, ML Kit, etc.)",
+        help="Build without proprietary libraries (Wear OS)",
     )
     parser.add_argument(
         "--output",
