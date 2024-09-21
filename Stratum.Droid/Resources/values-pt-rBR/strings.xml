@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Ajude no desenvolvimento</string>
     <string name="supportDevelopmentSummary">Apoie o desenvolvimento contínuo e atualizações com Buy Me a Coffee</string>
     <string name="rate">Avaliar</string>
-    <string name="rateSummary">Avalie o Authenticator Pro na Google Play Store</string>
+    <string name="rateSummary">Avalie o Stratum na Google Play Store</string>
     <string name="viewGitHub">Ver no GitHub</string>
-    <string name="viewGitHubSummary">Ver o repositório do Authenticator Pro no GitHub. Você pode relatar um problema, solicitar mais ícones e recursos.</string>
+    <string name="viewGitHubSummary">Ver o repositório do Stratum no GitHub. Você pode relatar um problema, solicitar mais ícones e recursos.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Pacote de ícones</string>
     <string name="downloadPacks">Baixar pacotes</string>
     <string name="importIconPackSuccess">{0} Ícones importados do pacote</string>
-    <string name="invalidIconPackError">O arquivo selecionado não é um pacote de ícone do Authenticator Pro</string>
+    <string name="invalidIconPackError">O arquivo selecionado não é um pacote de ícone do Stratum</string>
     <string name="confirmIconPackDelete">Tem certeza que deseja excluir este pacote de ícones? Os ícones usados não serão excluídos.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Ver fonte</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Nada aqui!</string>
     <string name="noAuthenticatorsMessage">Você não tem nenhuma autenticação aqui</string>
     <string name="gettingStartedGuide">Guia de introdução</string>
-    <string name="noAuthenticatorsHelp">Se você é novo no Authenticator Pro, veja o guia para começar clicando abaixo.</string>
+    <string name="noAuthenticatorsHelp">Se você é novo no Stratum, veja o guia para começar clicando abaixo.</string>
     <string name="noCategoriesTitle">Sem categorias</string>
     <string name="noCategoriesMessage">Você ainda não configurou nenhuma categoria</string>
     <string name="noIconPacksTitle">Nenhum pacote de ícones</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Ativar o backup automático</string>
     <string name="enableAutoBackupMessage">Fazer backup automático para o local de armazenamento selecionado</string>
     <string name="batOptim">Otimização da bateria</string>
-    <string name="disableBatOptimMessage">Em alguns dispositivos, as configurações de energia podem causar alguns erros. Se você estiver tendo algum problema, tente desabilitar a otimização de bateria para o Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">Em alguns dispositivos, as configurações de energia podem causar alguns erros. Se você estiver tendo algum problema, tente desabilitar a otimização de bateria para o Stratum.</string>
     <string name="autoBackupFailureTitle">O backup automático falhou</string>
     <string name="autoBackupFailureText">O backup automático mais recente falhou. As permissões de acesso ao armazenamento podem ter expirados, tente configurar novamente o local de armazenamento nas configurações de backup automático.</string>
     <string name="autoBackupSuccessTitle">Backup automático finalizado</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Escanear um código QR</string>
     <string name="guideScanQRCodeSummary">Para adicionar um autenticador, leia o código QR fornecido pelo aplicativo ou serviço. Ele será adicionado à lista e gerará novos códigos automaticamente. Você também pode inserir os detalhes manualmente.</string>
     <string name="guideUseCodeTitle">Use o código ao fazer login</string>
-    <string name="guideUseCodeSummary">Ao fazer o login, use o código exclusivo fornecido pelo Authenticator Pro. Ele é válido apenas por uma curta duração. Toque o autenticador na lista para copiar o código para a área de transferência.</string>
+    <string name="guideUseCodeSummary">Ao fazer o login, use o código exclusivo fornecido pelo Stratum. Ele é válido apenas por uma curta duração. Toque o autenticador na lista para copiar o código para a área de transferência.</string>
     <string name="guideCustomiseTitle">Personalizar e editar</string>
     <string name="guideCustomiseSummary">Renomeie e personalize seus autenticadores para encontrá-los facilmente. Simplesmente toque no ícone do menu em uma entrada e siga os passos.</string>
     <string name="guideArrangeTitle">Organizar e ordenar</string>
@@ -382,8 +382,8 @@
     <string name="introBackupTitle">Backup e Restauração</string>
     <string name="introCategoriesTitle">Categorias</string>
     <string name="introThemesTitle">Tema escuro</string>
-    <string name="introWelcomeSummary">Obrigado por baixar o Authenticator Pro.\nMantenha suas contas online seguras e protegidas com o melhor aplicativo de autenticação de código aberto.</string>
-    <string name="introCompatibilitySummary">O Authenticator Pro é compatível com a maioria dos provedores e contas. É 100% compatível com os serviços ativados pelo Google Authenticator.</string>
+    <string name="introWelcomeSummary">Obrigado por baixar o Stratum.\nMantenha suas contas online seguras e protegidas com o melhor aplicativo de autenticação de código aberto.</string>
+    <string name="introCompatibilitySummary">O Stratum é compatível com a maioria dos provedores e contas. É 100% compatível com os serviços ativados pelo Google Authenticator.</string>
     <string name="introBackupSummary">Faça o backup das suas autenticações com uma criptografia. No caso de você perder o seu dispositivo, você sempre pode ter acesso à elas. Salve na nuvem ou no seu dispositivo.</string>
     <string name="introCategoriesSummary">Organize suas autenticações em categorias e até mesmo troque a ordem delas com um simples arraste e solte.</string>
     <string name="introThemesSummary">Se você preferir, pode ativar o tema escuro nas configurações. Todos os ícones serão adaptados para a nova cor de fundo.</string>

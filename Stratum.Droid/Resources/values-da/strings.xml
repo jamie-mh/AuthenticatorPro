@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Støt udviklingen</string>
     <string name="supportDevelopmentSummary">Støt op om fortsat udvikling og opdateringer med Buy Me a Coffee</string>
     <string name="rate">Bedøm</string>
-    <string name="rateSummary">Bedøm Authenticator Pro på Google Play butik</string>
+    <string name="rateSummary">Bedøm Stratum på Google Play butik</string>
     <string name="viewGitHub">Se på GitHub</string>
-    <string name="viewGitHubSummary">Se Authenticator Pro-repository på GitHub. Du kan rapportere et problem, anmode om flere ikoner og funktioner.</string>
+    <string name="viewGitHubSummary">Se Stratum-repository på GitHub. Du kan rapportere et problem, anmode om flere ikoner og funktioner.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Ikonpakker</string>
     <string name="downloadPacks">Hent pakker</string>
     <string name="importIconPackSuccess">Importerede {0} ikoner fra pakke</string>
-    <string name="invalidIconPackError">Den valgte fil er ikke en Authenticator Pro-ikonpakke</string>
+    <string name="invalidIconPackError">Den valgte fil er ikke en Stratum-ikonpakke</string>
     <string name="confirmIconPackDelete">Er du sikker på, at du vil slette denne ikonpakke? Brugte ikoner slettes ikke.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Se kilde</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Her er ingenting! </string>
     <string name="noAuthenticatorsMessage">Du har ingen godkendere her</string>
     <string name="gettingStartedGuide">Guide til at komme i gang</string>
-    <string name="noAuthenticatorsHelp">Hvis du er ny til Authenticator Pro, se guiden til at komme i gang ved at klikke nedenfor.</string>
+    <string name="noAuthenticatorsHelp">Hvis du er ny til Stratum, se guiden til at komme i gang ved at klikke nedenfor.</string>
     <string name="noCategoriesTitle">Ingen kategorier</string>
     <string name="noCategoriesMessage">Du har endnu ikke opsat nogen kategorier</string>
     <string name="noIconPacksTitle">Ingen ikonpakker</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play er ikke installeret på din enhed</string>
     <string name="filePickerMissing">Kan ikke åbne filvælger. En filhåndtering skal være installeret.</string>
     <string name="filePickError">Fejl ved valg af fil</string>
-    <string name="invalidFileError">Den valgte fil er ikke en Authenticator Pro-sikkerhedskopi</string>
+    <string name="invalidFileError">Den valgte fil er ikke en Stratum-sikkerhedskopi</string>
     <string name="webBrowserMissing">Ingen webbrowser installeret</string>
     <string name="emailClientMissing">Ingen e-mailklient installeret</string>
     <string name="genericError">Der opstod en fejl</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Aktivér Auto-sikkerhedskopiering</string>
     <string name="enableAutoBackupMessage">Sikkerhedskopiér automatisk til den valgte lagringsplacering</string>
     <string name="batOptim">Batterioptimering</string>
-    <string name="disableBatOptimMessage">På visse enheder kan strømindstillinger forhindre sikkerhedskopier i at fungere korrekt. Hvis du oplever problemer, så prøv at deaktivere batterioptimering for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">På visse enheder kan strømindstillinger forhindre sikkerhedskopier i at fungere korrekt. Hvis du oplever problemer, så prøv at deaktivere batterioptimering for Stratum.</string>
     <string name="autoBackupFailureTitle">Auto-sikkerhedskopiering mislykkedes</string>
     <string name="autoBackupFailureText">Den seneste auto-sikkerhedskopiering blev ikke gennemført. Filtilladelser kan være udløbet; prøv at indstille lokationen for sikkerhedskopiering igen i indstillingerne for auto-sikkerhedskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk Backup fuldført</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Scan en QR-kode</string>
     <string name="guideScanQRCodeSummary">For at tilføje en godkender, skal du scanne QR-koden fra appen eller tjenesten. Den føjes til listen og genererer automatisk nye koder. Du kan også indtaste oplysningerne manuelt.</string>
     <string name="guideUseCodeTitle">Brug koden ved login</string>
-    <string name="guideUseCodeSummary">Når du logger ind, brug den unikke kode givet af Authenticator Pro. Den er kun gyldig i en kort periode. Tryk på godkenderen i listen for at kopiere koden til udklipsholderen.</string>
+    <string name="guideUseCodeSummary">Når du logger ind, brug den unikke kode givet af Stratum. Den er kun gyldig i en kort periode. Tryk på godkenderen i listen for at kopiere koden til udklipsholderen.</string>
     <string name="guideCustomiseTitle">Tilpas og rediger</string>
     <string name="guideCustomiseSummary">Omdøb og tilpas dine godkendere, så du nemt kan finde dem. Tryk blot på menuikonet på en post, og følg trinnene.</string>
     <string name="guideArrangeTitle">Arranger og sortér</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Velkommen til Authenticator Pro</string>
+    <string name="introWelcomeTitle">Velkommen til Stratum</string>
     <string name="introCompatibilityTitle">Tofaktorgodkendelse</string>
     <string name="introBackupTitle">Backup og Gendannelse</string>
     <string name="introCategoriesTitle">Kategorier</string>
     <string name="introThemesTitle">Mørkt tema</string>
-    <string name="introWelcomeSummary">Tak, fordi du hentede Authenticator Pro.\nHold dine onlinekonti sikre og beskyttede med den bedste open-source godkendelsesapp.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro er kompatibel med de fleste udbydere og konti. Den er 100% kompatibel med Google Authenticator-aktiverede enheder.</string>
+    <string name="introWelcomeSummary">Tak, fordi du hentede Stratum.\nHold dine onlinekonti sikre og beskyttede med den bedste open-source godkendelsesapp.</string>
+    <string name="introCompatibilitySummary">Stratum er kompatibel med de fleste udbydere og konti. Den er 100% kompatibel med Google Authenticator-aktiverede enheder.</string>
     <string name="introBackupSummary">Sikkerhedskopiér dine godkendere med stærk kryptering. Hvis du mister din enhed, kan du altid få adgang til dine konti. Gem på cloud-lagring eller din enhed.</string>
     <string name="introCategoriesSummary">Organiser dine godkendere i kategorier, og ændr endda rækkefølgen ved blot at holde og trække.</string>
     <string name="introThemesSummary">Hvis du foretrækker det, kan du aktivere et mørkt tema i indstillingerne. Alle ikoner vil tilpasse sig deres nye baggrund.</string>

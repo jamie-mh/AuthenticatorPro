@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Entwicklung unterstützen</string>
     <string name="supportDevelopmentSummary">Unterstütze die weitere Entwicklung und Updates mit \"Buy Me a Coffee\"</string>
     <string name="rate">Bewerten</string>
-    <string name="rateSummary">Bewerte Authenticator Pro im Google Play Store</string>
+    <string name="rateSummary">Bewerte Stratum im Google Play Store</string>
     <string name="viewGitHub">Auf GitHub anzeigen</string>
-    <string name="viewGitHubSummary">Öffnet das Authenticator Pro Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
+    <string name="viewGitHubSummary">Öffnet das Stratum Repository auf GitHub. Dort kannst du Fehler melden oder Vorschläge machen.</string>
     <!--
         Authenticator
     -->
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Ganz schön leer hier!</string>
     <string name="noAuthenticatorsMessage">Du hast hier keine Schlüssel.</string>
     <string name="gettingStartedGuide">Anleitung</string>
-    <string name="noAuthenticatorsHelp">Wenn du neu bei Authenticator Pro bist, tippe unten auf Anleitung.</string>
+    <string name="noAuthenticatorsHelp">Wenn du neu bei Stratum bist, tippe unten auf Anleitung.</string>
     <string name="noCategoriesTitle">Keine Kategorien</string>
     <string name="noCategoriesMessage">Du hast noch keine Kategorien erstellt</string>
     <string name="noIconPacksTitle">Kein Icon Packs</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Automatische Sicherung</string>
     <string name="enableAutoBackupMessage">Automatische Sicherungen am gewählten Ort erstellen</string>
     <string name="batOptim">Batterieoptimierung</string>
-    <string name="disableBatOptimMessage">Auf manchen Geräten verhindern die Energieeinstellungen das automatische Sichern. Falls du Probleme hast, kann es helfen, eine Ausnahme für Authenticator Pro zu erstellen.</string>
+    <string name="disableBatOptimMessage">Auf manchen Geräten verhindern die Energieeinstellungen das automatische Sichern. Falls du Probleme hast, kann es helfen, eine Ausnahme für Stratum zu erstellen.</string>
     <string name="autoBackupFailureTitle">Automatische Sicherung fehlgeschlagen</string>
     <string name="autoBackupFailureText">Die letzte automatische Sicherung ist fehlgeschlagen. Berechtigungen sind möglicherweise abgelaufen, versuche den Sicherungsort neu einzugeben.</string>
     <string name="autoBackupSuccessTitle">Automatische Sicherung abgeschlossen</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Willkommen bei Authenticator Pro</string>
+    <string name="introWelcomeTitle">Willkommen bei Stratum</string>
     <string name="introCompatibilityTitle">Zwei-Faktor-Authentifizierung</string>
     <string name="introBackupTitle">Sichern und Wiederherstellen</string>
     <string name="introCategoriesTitle">Kategorien</string>
     <string name="introThemesTitle">Dunkles Thema</string>
-    <string name="introWelcomeSummary">Danke für das Herunterladen von Authenticator Pro.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro ist mit den meisten Anbietern und Konten kompatibel. Er ist zu 100 % kompatibel mit Google Authenticator fähigen Diensten.</string>
+    <string name="introWelcomeSummary">Danke für das Herunterladen von Stratum.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>
+    <string name="introCompatibilitySummary">Stratum ist mit den meisten Anbietern und Konten kompatibel. Er ist zu 100 % kompatibel mit Google Authenticator fähigen Diensten.</string>
     <string name="introBackupSummary">Sichere deine Schlüssel mit einer starken Verschlüsselung. Solltest du dein Gerät verlieren, kannst du so Zugriff auf deine Konten erhalten. Speichere das Backup in der Cloud oder auf deinem Gerät.</string>
     <string name="introCategoriesSummary">Ordne deine Schlüssel in Kategorien und sortiere sie durch Drücken und Schieben, wie du möchtest.</string>
     <string name="introThemesSummary">Wenn du möchtest, kannst du ein dunkles Thema verwenden. Die Icons der Schlüssel werden sich daran anpassen.</string>

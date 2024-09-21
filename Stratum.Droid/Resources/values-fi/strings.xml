@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Tue kehitystä</string>
     <string name="supportDevelopmentSummary">Tue jatkuvaa kehitystä ja päivityksiä \"Buy Me a Coffee\" -palvelulla</string>
     <string name="rate">Arvostele</string>
-    <string name="rateSummary">Arvostele Authenticator Pro Google Play kaupassa</string>
+    <string name="rateSummary">Arvostele Stratum Google Play kaupassa</string>
     <string name="viewGitHub">Katso GitHubissa</string>
-    <string name="viewGitHubSummary">Katso Authenticator Pro GitHubissa. Voit raportoida ongelmasta, pyytää lisää kuvakkeita ja ominaisuuksia.</string>
+    <string name="viewGitHubSummary">Katso Stratum GitHubissa. Voit raportoida ongelmasta, pyytää lisää kuvakkeita ja ominaisuuksia.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Kuvakepaketit</string>
     <string name="downloadPacks">Lataa paketit</string>
     <string name="importIconPackSuccess">Tuodaan {0} kuvaketta paketista</string>
-    <string name="invalidIconPackError">Valittu tiedosto ei ole Authenticator Pro -kuvakepaketti</string>
+    <string name="invalidIconPackError">Valittu tiedosto ei ole Stratum -kuvakepaketti</string>
     <string name="confirmIconPackDelete">Haluatko varmasti poistaa tämän kuvakepaketin? Käytössä olevia kuvakkeita ei poisteta.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Näytä lähde</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Täällä ei ole mitään!</string>
     <string name="noAuthenticatorsMessage">Sinulla ei ole yhtään todentajaa täällä</string>
     <string name="gettingStartedGuide">Aloitusopas</string>
-    <string name="noAuthenticatorsHelp">Jos et ole ennen käyttänyt Authenticator Prota, katso aloitusopas napauttamalla alla.</string>
+    <string name="noAuthenticatorsHelp">Jos et ole ennen käyttänyt Stratumta, katso aloitusopas napauttamalla alla.</string>
     <string name="noCategoriesTitle">Ei kategorioita</string>
     <string name="noCategoriesMessage">Sinulla ei ole vielä kategorioita</string>
     <string name="noIconPacksTitle">Ei kuvakepaketteja</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Playtä ei ole asennettu laitteeseesi</string>
     <string name="filePickerMissing">Tiedostoja ei voida valita. Tiedostonhallintasovellus on asennettava.</string>
     <string name="filePickError">Virhe tiedostoa valitessa</string>
-    <string name="invalidFileError">Valittu tiedosto ei ole Authenticator Pro -varmuuskopiotiedosto</string>
+    <string name="invalidFileError">Valittu tiedosto ei ole Stratum -varmuuskopiotiedosto</string>
     <string name="webBrowserMissing">Selainta ei ole asennettu</string>
     <string name="emailClientMissing">Sähköpostisovellusta ei ole asennettu</string>
     <string name="genericError">Tapahtui virhe</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Ota automaattinen varmuuskopiointi käyttöön</string>
     <string name="enableAutoBackupMessage">Varmuuskopioi automaattisesti valittuun sijaintiin</string>
     <string name="batOptim">Akun Optimointi</string>
-    <string name="disableBatOptimMessage">Joissakin laitteissa virta-asetukset saattavat estää varmuuskopioita toimimasta oikein. Jos sinulla on ongelmia, kokeile poistaa Authenticator Pron akun optimointi käytöstä.</string>
+    <string name="disableBatOptimMessage">Joissakin laitteissa virta-asetukset saattavat estää varmuuskopioita toimimasta oikein. Jos sinulla on ongelmia, kokeile poistaa Stratumn akun optimointi käytöstä.</string>
     <string name="autoBackupFailureTitle">Automaattinen varmuuskopiointi epäonnistui</string>
     <string name="autoBackupFailureText">Viimeisin automaattinen varmuuskopiointi epäonnistui. Tiedoston käyttöoikeudet saattavat olla vanhentuneet, kokeile määrittää varmuuskopioinnin sijaintia uudelleen automaattisen varmuuskopioinnin asetuksissa.</string>
     <string name="autoBackupSuccessTitle">Automaattinen varmuuskopiointi valmis</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Skannaa QR-koodi</string>
     <string name="guideScanQRCodeSummary">Lisää todentaja skannaamalla sovelluksen tai palvelun antama QR-koodi. Se lisätään listaan ja luo uusia koodeja automaattisesti. Voit myös syöttää tiedot manuaalisesti.</string>
     <string name="guideUseCodeTitle">Käytä koodia sisäänkirjautuessa</string>
-    <string name="guideUseCodeSummary">Kirjautuessasi sisään, käytä Authenticator Pron antamaa ainutlaatuista koodia. Se on voimassa vain lyhyen ajan. Kopioi koodi leikepöydälle napauttamalla luettelossa olevaa todentajaa.</string>
+    <string name="guideUseCodeSummary">Kirjautuessasi sisään, käytä Stratumn antamaa ainutlaatuista koodia. Se on voimassa vain lyhyen ajan. Kopioi koodi leikepöydälle napauttamalla luettelossa olevaa todentajaa.</string>
     <string name="guideCustomiseTitle">Räätälöi ja muokkaa</string>
     <string name="guideCustomiseSummary">Nimeä ja mukauta todentajia löytääksesi ne helpommin. Napauta vain kohteen valikkokuvaketta ja seuraa ohjeita.</string>
     <string name="guideArrangeTitle">Järjestä ja lajittele</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Tervetuloa Authenticator Pro:hon</string>
+    <string name="introWelcomeTitle">Tervetuloa Stratum:hon</string>
     <string name="introCompatibilityTitle">Kaksivaiheinen Todennus</string>
     <string name="introBackupTitle">Varmuuskopiointi ja palautus</string>
     <string name="introCategoriesTitle">Kategoriat</string>
     <string name="introThemesTitle">Tumma teema</string>
-    <string name="introWelcomeSummary">Kiitos kun latasit Authenticator Pron.\nPidä online-tilisi turvassa ja suojattuna parhaalla avoimen lähdekoodin todennussovelluksella.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro on yhteensopiva useimpien palveluntarjoajien ja tilien kanssa. Se on 100% yhteensopiva Google Authenticatoria käyttävien palveluiden kanssa.</string>
+    <string name="introWelcomeSummary">Kiitos kun latasit Stratumn.\nPidä online-tilisi turvassa ja suojattuna parhaalla avoimen lähdekoodin todennussovelluksella.</string>
+    <string name="introCompatibilitySummary">Stratum on yhteensopiva useimpien palveluntarjoajien ja tilien kanssa. Se on 100% yhteensopiva Google Authenticatoria käyttävien palveluiden kanssa.</string>
     <string name="introBackupSummary">Varmuuskopioi todentajat vahvalla salauksella. Voit aina päästä käsiksi tileihisi, vaikka kadottaisit laitteesi. Tallenna ne pilvitallennustilaan tai laitteeseesi.</string>
     <string name="introCategoriesSummary">Järjestä todentajasi kategorioihin ja muuta niiden järjestystä painamalla ja vetämällä.</string>
     <string name="introThemesSummary">Jos haluat, voit ottaa käyttöön tumman teeman asetuksista. Kaikki kuvakkeet mukautuvat vastaamaan niiden uutta taustaa.</string>

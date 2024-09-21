@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Geliştirmeyi destekle</string>
     <string name="supportDevelopmentSummary">Bana bir Kahve al ile sürekli geliştirmeyi ve güncellemeleri destekleyin</string>
     <string name="rate">Değerlendir</string>
-    <string name="rateSummary">Google Play mağazasında Authenticator Pro\'yu değerlendirin.</string>
+    <string name="rateSummary">Google Play mağazasında Stratum\'yu değerlendirin.</string>
     <string name="viewGitHub">GitHub\'da görüntüle</string>
-    <string name="viewGitHubSummary">Authenticator Pro deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha fazla simge ve özellik talep edebilirsiniz.</string>
+    <string name="viewGitHubSummary">Stratum deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha fazla simge ve özellik talep edebilirsiniz.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Simge paketleri</string>
     <string name="downloadPacks">Simge paketi yükle</string>
     <string name="importIconPackSuccess">Paketten {0} simge içe aktarıldı</string>
-    <string name="invalidIconPackError">Seçilen dosya bir Authenticator Pro simge paketi değil</string>
+    <string name="invalidIconPackError">Seçilen dosya bir Stratum simge paketi değil</string>
     <string name="confirmIconPackDelete">Bu simge paketini silmek istediğinizden emin misiniz? Kullanılan simgeler silinmeyecektir.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Kaynağı görüntüle</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Burada bir şey yok!</string>
     <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
     <string name="gettingStartedGuide">Başlangıç Kılavuzu</string>
-    <string name="noAuthenticatorsHelp">Authenticator Pro\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
+    <string name="noAuthenticatorsHelp">Stratum\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
     <string name="noCategoriesTitle">Kategori yok</string>
     <string name="noCategoriesMessage">Henüz herhangi bir kategori oluşturmadınız.</string>
     <string name="noIconPacksTitle">Simge paketleri yok</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
     <string name="filePickError">Dosya seçilirken hata oluştu.</string>
-    <string name="invalidFileError">Seçilen dosya Authenticator Pro yedekleme dosyası değil</string>
+    <string name="invalidFileError">Seçilen dosya Stratum yedekleme dosyası değil</string>
     <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
     <string name="emailClientMissing">Kurulu e-posta istemcisi yok</string>
     <string name="genericError">Bir hata meydana geldi.</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Otomatik yedeklemeyi etkinleştir</string>
     <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
     <string name="batOptim">Pil Optimizasyonu</string>
-    <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Authenticator Pro için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
+    <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Stratum için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
     <string name="autoBackupFailureTitle">Otomatik Yedekleme başarısız</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
         expired, try setting the backup location again in the auto backup settings.
@@ -253,7 +253,7 @@
     <string name="guideScanQRCodeTitle">Karekodu tara</string>
     <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de girebilirsiniz.</string>
     <string name="guideUseCodeTitle">Giriş yaparken kodu kullanın</string>
-    <string name="guideUseCodeSummary">Giriş yaparken, Authenticator Pro tarafından sağlanan benzersiz kodu kullanın. Sadece kısa bir süre için geçerlidir. Kodu panoya kopyalamak için listedeki kimlik doğrulayıcıya dokunun.</string>
+    <string name="guideUseCodeSummary">Giriş yaparken, Stratum tarafından sağlanan benzersiz kodu kullanın. Sadece kısa bir süre için geçerlidir. Kodu panoya kopyalamak için listedeki kimlik doğrulayıcıya dokunun.</string>
     <string name="guideCustomiseTitle">Özelleştirin ve düzenleyin</string>
     <string name="guideCustomiseSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için yeniden adlandırın ve özelleştirin. Bir girişteki menü simgesine dokunmanız ve adımları takip etmeniz yeterlidir.</string>
     <string name="guideArrangeTitle">Düzenleyin ve sıralayın</string>
@@ -382,13 +382,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Authenticator Pro\'ya hoş geldiniz</string>
+    <string name="introWelcomeTitle">Stratum\'ya hoş geldiniz</string>
     <string name="introCompatibilityTitle">İki Faktörlü Kimlik Doğrulama</string>
     <string name="introBackupTitle">Yedekleme ve Geri yükleme</string>
     <string name="introCategoriesTitle">Kategoriler</string>
     <string name="introThemesTitle">Koyu Tema</string>
-    <string name="introWelcomeSummary">Authenticator Pro\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator özellikli hizmetlerle %100 uyumludur.</string>
+    <string name="introWelcomeSummary">Stratum\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
+    <string name="introCompatibilitySummary">Stratum çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator özellikli hizmetlerle %100 uyumludur.</string>
     <string name="introBackupSummary">Kimlik doğrulayıcılarınızı güçlü bir şifreleme ile yedekleyin. Cihazınızı kaybetmeniz durumunda, her zaman hesaplarınıza erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.</string>
     <string name="introCategoriesSummary">Kimlik doğrulama kodlarınızı kategorilere ayırın ve hatta basitçe tutup sürükleyerek sıralamayı değiştirin.</string>
     <string name="introThemesSummary">İsterseniz, ayarlardan karanlık temayı etkinleştirebilirsiniz. Tüm simgeler yeni arka plana eşleşecek şekilde uyarlanacaktır.</string>

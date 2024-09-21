@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Ondersteun de ontwikkeling</string>
     <string name="supportDevelopmentSummary">Ondersteun de verdere ontwikkeling en updates met Buy Me a Coffee</string>
     <string name="rate">Beoordelen</string>
-    <string name="rateSummary">Beoordeel Authenticator Pro in de Google Play Store</string>
+    <string name="rateSummary">Beoordeel Stratum in de Google Play Store</string>
     <string name="viewGitHub">Bekijk op GitHub</string>
-    <string name="viewGitHubSummary">Bekijk de Authenticator Pro repository op GitHub. U kunt een probleem melden en een verzoek indienen om meer iconen en functies toe te voegen.</string>
+    <string name="viewGitHubSummary">Bekijk de Stratum repository op GitHub. U kunt een probleem melden en een verzoek indienen om meer iconen en functies toe te voegen.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Pictogrampakketten</string>
     <string name="downloadPacks">Download pakketten</string>
     <string name="importIconPackSuccess">Importeerde {0} pictogrammen van pakket</string>
-    <string name="invalidIconPackError">Het geselecteerde bestand is geen Authenticator Pro pictogrammenpakket</string>
+    <string name="invalidIconPackError">Het geselecteerde bestand is geen Stratum pictogrammenpakket</string>
     <string name="confirmIconPackDelete">Weet je zeker dat je dit icoon pakket wilt verwijderen? Alle gebruikte iconen worden niet verwijderd.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Bron bekijken</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Hier is niets gevonden!</string>
     <string name="noAuthenticatorsMessage">Je hebt hier geen authenticators</string>
     <string name="gettingStartedGuide">Handleiding voor beginners</string>
-    <string name="noAuthenticatorsHelp">Als je nieuw bent bij Authenticator Pro, bekijk dan de handleiding voor beginners door hieronder te klikken.</string>
+    <string name="noAuthenticatorsHelp">Als je nieuw bent bij Stratum, bekijk dan de handleiding voor beginners door hieronder te klikken.</string>
     <string name="noCategoriesTitle">Geen categorieën</string>
     <string name="noCategoriesMessage">U heeft nog geen categorieën ingesteld</string>
     <string name="noIconPacksTitle">Geen icon packs</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play is niet geïnstalleerd op uw apparaat</string>
     <string name="filePickerMissing">Kan de bestandskiezer niet openen. Een bestandsbeheerder moet worden geïnstalleerd.</string>
     <string name="filePickError">Fout bij het kiezen van bestand</string>
-    <string name="invalidFileError">Het geselecteerde bestand is geen Authenticator Pro back-up bestand</string>
+    <string name="invalidFileError">Het geselecteerde bestand is geen Stratum back-up bestand</string>
     <string name="webBrowserMissing">Geen webbrowser geïnstalleerd</string>
     <string name="emailClientMissing">Geen e-mailclient geïnstalleerd</string>
     <string name="genericError">Er is een fout opgetreden</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Automatische back-up inschakelen</string>
     <string name="enableAutoBackupMessage">Automatisch back-up maken naar de geselecteerde opslaglocatie</string>
     <string name="batOptim">Batterijoptimalisatie</string>
-    <string name="disableBatOptimMessage">Op sommige apparaten kunnen de stroominstellingen back-ups niet goed laten werken. Probeer de accuoptimalisatie voor Authenticator Pro uit te schakelen als u problemen ondervindt.</string>
+    <string name="disableBatOptimMessage">Op sommige apparaten kunnen de stroominstellingen back-ups niet goed laten werken. Probeer de accuoptimalisatie voor Stratum uit te schakelen als u problemen ondervindt.</string>
     <string name="autoBackupFailureTitle">Automatische back-up maken mislukt</string>
     <string name="autoBackupFailureText">De meest recente automatische back-up kon niet worden voltooid. Bestandsmachtigingen zijn mogelijk verlopen, probeer de back-up locatie opnieuw in te stellen in de instellingen voor automatische back-ups.</string>
     <string name="autoBackupSuccessTitle">Automatische back-up maken voltooid</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Scan een QR-code</string>
     <string name="guideScanQRCodeSummary">Om een authenticator toe te voegen, scan de QR-code die wordt verstrekt door de app of service. Het wordt aan de lijst toegevoegd en zal automatisch nieuwe codes genereren. U kunt de details ook handmatig invoeren.</string>
     <string name="guideUseCodeTitle">Gebruik de code bij het inloggen</string>
-    <string name="guideUseCodeSummary">Gebruik bij het inloggen de unieke code van Authenticator Pro. Deze is alleen geldig voor een korte duur. Tik op de authenticator in de lijst om de code te kopiëren naar het klembord.</string>
+    <string name="guideUseCodeSummary">Gebruik bij het inloggen de unieke code van Stratum. Deze is alleen geldig voor een korte duur. Tik op de authenticator in de lijst om de code te kopiëren naar het klembord.</string>
     <string name="guideCustomiseTitle">Aanpassen en bewerken</string>
     <string name="guideCustomiseSummary">Hernoem en pas uw authenticators aan om ze gemakkelijk te vinden. Tik gewoon op het menu-icoon van een item en volg de stappen.</string>
     <string name="guideArrangeTitle">Ordenen en sorteren</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Welkom bij Authenticator Pro</string>
+    <string name="introWelcomeTitle">Welkom bij Stratum</string>
     <string name="introCompatibilityTitle">Twee-factor Authenticatie</string>
     <string name="introBackupTitle">Back-up en Herstellen</string>
     <string name="introCategoriesTitle">Categorieën</string>
     <string name="introThemesTitle">Donker thema</string>
-    <string name="introWelcomeSummary">Bedankt voor het downloaden van Authenticator Pro.\nHoud je online accounts veilig en beveiligd met de beste open-source authenticatie-app.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro is compatibel met de meeste providers en accounts. Het is 100% compatibel met ingeschakelde diensten van Google Authenticator.</string>
+    <string name="introWelcomeSummary">Bedankt voor het downloaden van Stratum.\nHoud je online accounts veilig en beveiligd met de beste open-source authenticatie-app.</string>
+    <string name="introCompatibilitySummary">Stratum is compatibel met de meeste providers en accounts. Het is 100% compatibel met ingeschakelde diensten van Google Authenticator.</string>
     <string name="introBackupSummary">Maak een back-up van uw authenticators met sterke versleuteling. In het geval dat je je apparaat verliest, kun je altijd toegang krijgen tot je accounts. Sla je back-up op in de cloud of naar je apparaat.</string>
     <string name="introCategoriesSummary">Organiseer uw authenticators in categorieën en verander de volgorde door ze vast te houden en te slepen.</string>
     <string name="introThemesSummary">Als je wilt, kun je een donker thema inschakelen in de instellingen. Alle iconen worden aangepast aan hun nieuwe achtergrond.</string>

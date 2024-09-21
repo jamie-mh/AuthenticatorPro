@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Підтримати розробку</string>
     <string name="supportDevelopmentSummary">Підтримайте сталу розробку та оновлення цього застосунку через Buy Me Coffee</string>
     <string name="rate">Оцінити</string>
-    <string name="rateSummary">Поставте оцінку Authenticator Pro у Google Play</string>
+    <string name="rateSummary">Поставте оцінку Stratum у Google Play</string>
     <string name="viewGitHub">Переглянути на GitHub</string>
-    <string name="viewGitHubSummary">Переглянути репозиторій Authenticator Pro на GitHub. Ви можете повідомити про проблему, запитувати додаткові іконки та функції.</string>
+    <string name="viewGitHubSummary">Переглянути репозиторій Stratum на GitHub. Ви можете повідомити про проблему, запитувати додаткові іконки та функції.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Набори іконок</string>
     <string name="downloadPacks">Завантажити набори</string>
     <string name="importIconPackSuccess">Імпортовано {0} значків з набору</string>
-    <string name="invalidIconPackError">Вибраний файл не є набором іконок Authenticator Pro</string>
+    <string name="invalidIconPackError">Вибраний файл не є набором іконок Stratum</string>
     <string name="confirmIconPackDelete">Ви впевнені, що бажаєте видалити цей набір іконок? Будь-які використані іконки не будуть видалені.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Переглянути джерело</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Тут поки порожньо!</string>
     <string name="noAuthenticatorsMessage">Тут немає жодного автентифікатора</string>
     <string name="gettingStartedGuide">Посібник для початківця</string>
-    <string name="noAuthenticatorsHelp">Якщо ви новачок в Authenticator Pro, перегляньте інструкцію, натиснувши нижче.</string>
+    <string name="noAuthenticatorsHelp">Якщо ви новачок в Stratum, перегляньте інструкцію, натиснувши нижче.</string>
     <string name="noCategoriesTitle">Немає категорій</string>
     <string name="noCategoriesMessage">У вас ще немає жодної категорії</string>
     <string name="noIconPacksTitle">Немає наборів іконок</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play не встановлений на вашому пристрої</string>
     <string name="filePickerMissing">Не вдалося відкрити вікно вибору файлу. Будь ласка, встановіть менеджер файлів.</string>
     <string name="filePickError">Помилка вибору файлу</string>
-    <string name="invalidFileError">Вибраний файл не є файлом резервної копії Authenticator Pro</string>
+    <string name="invalidFileError">Вибраний файл не є файлом резервної копії Stratum</string>
     <string name="webBrowserMissing">Браузер не встановлено</string>
     <string name="emailClientMissing">Не встановлено жодного клієнта електронної пошти</string>
     <string name="genericError">Виникла помилка</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Увімкнути автоматичне резервне копіювання</string>
     <string name="enableAutoBackupMessage">Автоматичне резервне копіювання до вибраного місця</string>
     <string name="batOptim">Оптимізація батареї</string>
-    <string name="disableBatOptimMessage">На деяких пристроях, налаштування живлення можуть перешкоджати коректній роботі резервних копій. Якщо у вас виникли проблеми, спробуйте вимкнути оптимізацію батареї для Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">На деяких пристроях, налаштування живлення можуть перешкоджати коректній роботі резервних копій. Якщо у вас виникли проблеми, спробуйте вимкнути оптимізацію батареї для Stratum.</string>
     <string name="autoBackupFailureTitle">Помилка автоматичного резервного копіювання</string>
     <string name="autoBackupFailureText">Останнє резервне копіювання не вдалося завершити. Можливо закінчився дозвіл на доступ до сховища. Спробуйте встановити розташування резервної копії ще раз в налаштуваннях резервного копіювання.</string>
     <string name="autoBackupSuccessTitle">Авторезервування завершено</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Зчитати QR код</string>
     <string name="guideScanQRCodeSummary">Щоби додати автентифікатор, скануйте QR-код наданий додатком або сервісом. Його буде додано до загального списку з автоматичним генеруванням кодів. Ви також можете ввести деталі вручну.</string>
     <string name="guideUseCodeTitle">Використовувати код при вході</string>
-    <string name="guideUseCodeSummary">При вході використовуйте унікальний код, що надається Authenticator Pro. Він дійсний лише протягом короткого проміжку часу. Торкніться на необхідному автентифікаторі зі списку, щоби скопіювати код в буфер обміну.</string>
+    <string name="guideUseCodeSummary">При вході використовуйте унікальний код, що надається Stratum. Він дійсний лише протягом короткого проміжку часу. Торкніться на необхідному автентифікаторі зі списку, щоби скопіювати код в буфер обміну.</string>
     <string name="guideCustomiseTitle">Налаштування та редагування</string>
     <string name="guideCustomiseSummary">Перейменуйте та налаштуйте ваші автентифікатори, щоби було легко їх знаходити. Просто натисніть іконку меню на запис і виконайте кроки.</string>
     <string name="guideArrangeTitle">Впорядкувати та сортувати</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Ласкаво просимо в Authenticator Pro</string>
+    <string name="introWelcomeTitle">Ласкаво просимо в Stratum</string>
     <string name="introCompatibilityTitle">Двофакторна автентифікація</string>
     <string name="introBackupTitle">Резервна копія та Відновлення</string>
     <string name="introCategoriesTitle">Категорії</string>
     <string name="introThemesTitle">Темна тема</string>
     <string name="introWelcomeSummary">Дякуємо що завантажили аутентифікації Pro.\nТримайте ваші облікові записи в Інтернеті захищеними з найкращим додатком аутентифікації з відкритим вихідним кодом.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro сумісний з більшістю сервісів та облікових записів. Він на 100% сумісний з сервісами, що підтримують Google Authenticator.</string>
+    <string name="introCompatibilitySummary">Stratum сумісний з більшістю сервісів та облікових записів. Він на 100% сумісний з сервісами, що підтримують Google Authenticator.</string>
     <string name="introBackupSummary">Резервне копіювання ваших автентифікаторів з міцним шифруванням. У випадку втрати пристрою, ви не втратите доступ до облікових записів. Збережіть на хмарному сховищі або до пристрою.</string>
     <string name="introCategoriesSummary">Організуйте ваші автентифікатори по категоріях. Змінюйте порядок за допомогою простого утримання і перетягування.</string>
     <string name="introThemesSummary">У разі потреби, ви можете увімкнути темну тему в налаштуваннях. Усі піктограми адаптуються до нового фону.</string>

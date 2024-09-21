@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Susține dezvoltarea</string>
     <string name="supportDevelopmentSummary">Susține dezvoltarea continuă și actualizările făcând cinste cu o cafea</string>
     <string name="rate">Evaluează</string>
-    <string name="rateSummary">Evaluează Authenticator Pro în magazinul Google Play</string>
+    <string name="rateSummary">Evaluează Stratum în magazinul Google Play</string>
     <string name="viewGitHub">Vezi pe GitHub</string>
-    <string name="viewGitHubSummary">Vezi depozitul Authenticator Pro pe GitHub. Poți raporta o problemă, solicita mai multe pictograme și caracteristici.</string>
+    <string name="viewGitHubSummary">Vezi depozitul Stratum pe GitHub. Poți raporta o problemă, solicita mai multe pictograme și caracteristici.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Pachete de pictograme</string>
     <string name="downloadPacks">Descarcă pachete</string>
     <string name="importIconPackSuccess">S-au importat {0} pictograme din pachet</string>
-    <string name="invalidIconPackError">Fișierul selectat nu este un pachet de pictograme pentru Authenticator Pro</string>
+    <string name="invalidIconPackError">Fișierul selectat nu este un pachet de pictograme pentru Stratum</string>
     <string name="confirmIconPackDelete">Sigur dorești să ștergi acest pachet de pictograme? Orice pictograme folosite nu vor fi șterse.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Vizualizare sursă</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Nimic aici!</string>
     <string name="noAuthenticatorsMessage">Nu ai niciun autentificator aici</string>
     <string name="gettingStartedGuide">Ghidul începătorului</string>
-    <string name="noAuthenticatorsHelp">Dacă ești nou în Authenticator Pro, consultă ghidul introductiv făcând clic mai jos.</string>
+    <string name="noAuthenticatorsHelp">Dacă ești nou în Stratum, consultă ghidul introductiv făcând clic mai jos.</string>
     <string name="noCategoriesTitle">Nicio categorie</string>
     <string name="noCategoriesMessage">Încă nu ai nicio categorie configurată</string>
     <string name="noIconPacksTitle">Niciun pachet de pictograme</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play nu este instalat pe dispozitiv</string>
     <string name="filePickerMissing">Nu se poate deschide selectorul de fișiere. Trebuie instalat un manager de fișiere.</string>
     <string name="filePickError">Eroare la alegerea fișierului</string>
-    <string name="invalidFileError">Fișierul selectat nu este o copie de rezervă a aplicației Authenticator Pro</string>
+    <string name="invalidFileError">Fișierul selectat nu este o copie de rezervă a aplicației Stratum</string>
     <string name="webBrowserMissing">Niciun browser web instalat</string>
     <string name="emailClientMissing">Nu este instalat niciun client de e-mail</string>
     <string name="genericError">A aparut o eroare</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Activează crearea automată a copiilor de rezervă</string>
     <string name="enableAutoBackupMessage">Copie de rezervă automată în locația de stocare selectată</string>
     <string name="batOptim">Optimizarea bateriei</string>
-    <string name="disableBatOptimMessage">Pe unele dispozitive, setările de alimentare ar putea împiedica backup-urile să funcționeze corect. Dacă întâmpini probleme, încearcă să dezactivezi optimizarea bateriei pentru Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">Pe unele dispozitive, setările de alimentare ar putea împiedica backup-urile să funcționeze corect. Dacă întâmpini probleme, încearcă să dezactivezi optimizarea bateriei pentru Stratum.</string>
     <string name="autoBackupFailureTitle">Copia de rezervă automată a eșuat</string>
     <string name="autoBackupFailureText">Cea mai recentă copie de rezervă automată nu s-a finalizat. Este posibil ca permisiunile pentru fișiere să fi expirat, încearcă să setezi din nou locația de rezervă în setările pentru copia de rezervă automată.</string>
     <string name="autoBackupSuccessTitle">Copia de rezervă automată finalizată</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Bun venit la Authenticator Pro</string>
+    <string name="introWelcomeTitle">Bun venit la Stratum</string>
     <string name="introCompatibilityTitle">Autentificare cu doi factori</string>
     <string name="introBackupTitle">Copie de rezervă și Restaurare</string>
     <string name="introCategoriesTitle">Categorii</string>
     <string name="introThemesTitle">Temă întunecată</string>
-    <string name="introWelcomeSummary">Îți mulțumim pentru descărcarea Authenticator Pro.\nPăstrează conturile online în siguranță și protejate cu cea mai bună aplicație de autentificare open-source.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro este compatibil cu majoritatea furnizorilor și conturilor. Este 100% compatibil cu serviciile activate Google Authenticator.</string>
+    <string name="introWelcomeSummary">Îți mulțumim pentru descărcarea Stratum.\nPăstrează conturile online în siguranță și protejate cu cea mai bună aplicație de autentificare open-source.</string>
+    <string name="introCompatibilitySummary">Stratum este compatibil cu majoritatea furnizorilor și conturilor. Este 100% compatibil cu serviciile activate Google Authenticator.</string>
     <string name="introBackupSummary">Creează copii de rezervă pentru autentificatoare cu criptare puternică. În cazul în care vei pierde dispozitivul, poți oricând să obții acces la conturile tale. Salvează în cloud sau pe dispozitiv.</string>
     <string name="introCategoriesSummary">Organizează-ți autentificatorii în categorii și chiar schimbă ordinea cu o simplă apăsare și tragere.</string>
     <string name="introThemesSummary">Dacă preferi, poți activa o temă întunecată în setări. Toate pictogramele se vor adapta pentru a se potrivi cu noul lor fundal.</string>

@@ -45,9 +45,9 @@
     <string name="supportDevelopment">ಅಭಿವೃದ್ದಿಗೆ ಬೆಂಬಲಿಸಿ</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffee ಯೊಂದಿಗೆ ನಿರಂತರ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ನವೀಕರಣಗಳನ್ನು ಬೆಂಬಲಿಸಿ</string>
     <string name="rate">ರೇಟ್ ಮಾಡಿ</string>
-    <string name="rateSummary">Google Play ಸ್ಟೋರ್‌ನಲ್ಲಿ Authenticator Pro ಅನ್ನು ರೇಟ್ ಮಾಡಿ</string>
+    <string name="rateSummary">Google Play ಸ್ಟೋರ್‌ನಲ್ಲಿ Stratum ಅನ್ನು ರೇಟ್ ಮಾಡಿ</string>
     <string name="viewGitHub">GitHub ನಲ್ಲಿ ವೀಕ್ಷಿಸಿ</string>
-    <string name="viewGitHubSummary">GitHub ನಲ್ಲಿ Authenticator Pro ರೆಪೊಸಿಟರಿಯನ್ನು ವೀಕ್ಷಿಸಿ. ನೀವು ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಬಹುದು, ಹೆಚ್ಚಿನ ಐಕಾನ್‌ಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವಿನಂತಿಸಬಹುದು.</string>
+    <string name="viewGitHubSummary">GitHub ನಲ್ಲಿ Stratum ರೆಪೊಸಿಟರಿಯನ್ನು ವೀಕ್ಷಿಸಿ. ನೀವು ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಬಹುದು, ಹೆಚ್ಚಿನ ಐಕಾನ್‌ಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವಿನಂತಿಸಬಹುದು.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">ಐಕಾನ್ ಪ್ಯಾಕುಗಳು</string>
     <string name="downloadPacks">ಪ್ಯಾಕ್‌ಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="importIconPackSuccess">ಪ್ಯಾಕ್‌ನಿಂದ {0} ಐಕಾನ್‌ಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಲಾಗಿದೆ</string>
-    <string name="invalidIconPackError">ಆಯ್ಕೆಮಾಡಿದ ಫೈಲ್ Authenticator Pro ಐಕಾನ್ ಪ್ಯಾಕ್ ಅಲ್ಲ</string>
+    <string name="invalidIconPackError">ಆಯ್ಕೆಮಾಡಿದ ಫೈಲ್ Stratum ಐಕಾನ್ ಪ್ಯಾಕ್ ಅಲ್ಲ</string>
     <string name="confirmIconPackDelete">ನೀವು ಖಚಿತವಾಗಿಯೂ ಈ ಐಕಾನ್ ಪ್ಯಾಕ್ ಅನ್ನು ಅಳಿಸಲು ಬಯಸುವಿರಾ? ಬಳಸಿದ ಯಾವುದೇ ಐಕಾನ್‌ಗಳನ್ನು ಅಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">ಮೂಲವನ್ನು ವೀಕ್ಷಿಸಿ</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">ಇಲ್ಲಿ ಏನೂ ಇಲ್ಲ!</string>
     <string name="noAuthenticatorsMessage">ನೀವು ಇಲ್ಲಿ ಯಾವುದೇ ದೃಢೀಕರಣಗಳನ್ನು ಹೊಂದಿಲ್ಲ</string>
     <string name="gettingStartedGuide">ಬಳಕೆದಾರರ ಕೈಪಿಡಿ</string>
-    <string name="noAuthenticatorsHelp">ನೀವು Authenticator Pro ಗೆ ಹೊಸಬರಾಗಿದ್ದರೆ, ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡುವುದರ ಮೂಲಕ ಪ್ರಾರಂಭದ ಮಾರ್ಗದರ್ಶಿಯನ್ನು ವೀಕ್ಷಿಸಿ.</string>
+    <string name="noAuthenticatorsHelp">ನೀವು Stratum ಗೆ ಹೊಸಬರಾಗಿದ್ದರೆ, ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡುವುದರ ಮೂಲಕ ಪ್ರಾರಂಭದ ಮಾರ್ಗದರ್ಶಿಯನ್ನು ವೀಕ್ಷಿಸಿ.</string>
     <string name="noCategoriesTitle">ಯಾವುದೇ ವರ್ಗಗಳಿಲ್ಲ</string>
     <string name="noCategoriesMessage">ನೀವು ಇನ್ನೂ ಯಾವುದೇ ವರ್ಗಗಳನ್ನು ಹೊಂದಿಸಿಲ್ಲ</string>
     <string name="noIconPacksTitle">ಐಕಾನ್ ಪ್ಯಾಕ್‌ಗಳಿಲ್ಲ</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ Google Play ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="filePickerMissing">ಫೈಲ್ ಪಿಕರ್ ಅನ್ನು ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ. ಫೈಲ್ ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಸ್ಥಾಪಿಸಬೇಕು.</string>
     <string name="filePickError">ಫೈಲ್ ಆಯ್ಕೆಮಾಡುವಲ್ಲಿ ದೋಷ</string>
-    <string name="invalidFileError">ಆಯ್ಕೆಮಾಡಿದ ಫೈಲ್ Authenticator Pro ಬ್ಯಾಕಪ್ ಆಗಿಲ್ಲ</string>
+    <string name="invalidFileError">ಆಯ್ಕೆಮಾಡಿದ ಫೈಲ್ Stratum ಬ್ಯಾಕಪ್ ಆಗಿಲ್ಲ</string>
     <string name="webBrowserMissing">ಯಾವುದೇ ವೆಬ್ ಬ್ರೌಸರ್ ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="emailClientMissing">ಯಾವುದೇ ಇಮೇಲ್ ಕ್ಲೈಂಟ್ ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ</string>
     <string name="genericError">ಒಂದು ದೋಷ ಉಂಟಾಗಿದೆ</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="enableAutoBackupMessage">ಆಯ್ಕೆಮಾಡಿದ ಸ್ಥಳಕ್ಕೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
     <string name="batOptim">ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್</string>
-    <string name="disableBatOptimMessage">ಕೆಲವು ಸಾಧನಗಳಲ್ಲಿ, ಪವರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಬ್ಯಾಕಪ್‌ಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದನ್ನು ತಡೆಯಬಹುದು. ನೀವು ಸಮಸ್ಯೆಗಳನ್ನು ಎದುರಿಸುತ್ತಿದ್ದರೆ, Authenticator Pro ಗಾಗಿ ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="disableBatOptimMessage">ಕೆಲವು ಸಾಧನಗಳಲ್ಲಿ, ಪವರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಬ್ಯಾಕಪ್‌ಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದನ್ನು ತಡೆಯಬಹುದು. ನೀವು ಸಮಸ್ಯೆಗಳನ್ನು ಎದುರಿಸುತ್ತಿದ್ದರೆ, Stratum ಗಾಗಿ ಬ್ಯಾಟರಿ ಆಪ್ಟಿಮೈಸೇಶನ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="autoBackupFailureTitle">ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ವಿಫಲವಾಗಿದೆ</string>
     <string name="autoBackupFailureText">ತೀರಾ ಇತ್ತೀಚಿನ ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಪೂರ್ಣಗೊಳಿಸಲು ವಿಫಲವಾಗಿದೆ. ಫೈಲ್ ಅನುಮತಿಗಳು ಅವಧಿ ಮೀರಿರಬಹುದು, ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬ್ಯಾಕಪ್ ಸ್ಥಳವನ್ನು ಮತ್ತೆ ಹೊಂದಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="autoBackupSuccessTitle">ಸ್ವಯಂ ಬ್ಯಾಕಪ್ ಪೂರ್ಣಗೊಂಡಿದೆ</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
     <string name="guideScanQRCodeSummary">ದೃಢೀಕರಣವನ್ನು ಸೇರಿಸಲು, ಅಪ್ಲಿಕೇಶನ್ ಅಥವಾ ಸೇವೆಯಿಂದ ಒದಗಿಸಲಾದ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ಇದನ್ನು ಪಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗುತ್ತದೆ ಮತ್ತು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹೊಸ ಕೋಡ್‌ಗಳನ್ನು ರಚಿಸುತ್ತದೆ. ನೀವು ವಿವರಗಳನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ಕೂಡ ನಮೂದಿಸಬಹುದು.</string>
     <string name="guideUseCodeTitle">ಲಾಗ್ ಇನ್ ಮಾಡುವಾಗ ಕೋಡ್ ಬಳಸಿ</string>
-    <string name="guideUseCodeSummary">ಲಾಗ್ ಇನ್ ಮಾಡುವಾಗ, Authenticator Pro ಒದಗಿಸಿದ ಅನನ್ಯ ಕೋಡ್ ಅನ್ನು ಬಳಸಿ. ಇದು ಅಲ್ಪಾವಧಿಗೆ ಮಾತ್ರ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ. ಕೋಡ್ ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲು ಪಟ್ಟಿಯಲ್ಲಿರುವ ದೃಢೀಕರಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="guideUseCodeSummary">ಲಾಗ್ ಇನ್ ಮಾಡುವಾಗ, Stratum ಒದಗಿಸಿದ ಅನನ್ಯ ಕೋಡ್ ಅನ್ನು ಬಳಸಿ. ಇದು ಅಲ್ಪಾವಧಿಗೆ ಮಾತ್ರ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ. ಕೋಡ್ ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲು ಪಟ್ಟಿಯಲ್ಲಿರುವ ದೃಢೀಕರಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="guideCustomiseTitle">ಕಸ್ಟಮೈಸ್ ಮಾಡಿ ಮತ್ತು ಎಡಿಟ್ ಮಾಡಿ</string>
     <string name="guideCustomiseSummary">ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಸುಲಭವಾಗಿ ಹುಡುಕಲು ಮರುಹೆಸರಿಸಿ ಮತ್ತು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ. ನಮೂದಿನಲ್ಲಿ ಮೆನು ಐಕಾನ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ.</string>
     <string name="guideArrangeTitle">ಜೋಡಿಸಿ ಮತ್ತು ವಿಂಗಡಿಸಿ</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Authenticator Pro ಗೆ ಸ್ವಾಗತ</string>
+    <string name="introWelcomeTitle">Stratum ಗೆ ಸ್ವಾಗತ</string>
     <string name="introCompatibilityTitle">Two-factor Authentication</string>
     <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">ವರ್ಗಗಳು</string>
     <string name="introThemesTitle">ಡಾರ್ಕ್ ಥೀಮ್</string>
-    <string name="introWelcomeSummary">Authenticator Pro ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.\nಉತ್ತಮ ತೆರೆದ ಮೂಲ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ಆನ್‌ಲೈನ್ ಖಾತೆಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ರಕ್ಷಿಸಿ.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro ಬಹುತೇಕ ಎಲ್ಲಾ ಪೂರೈಕೆದಾರರು ಮತ್ತು ಖಾತೆಗಳೊಂದಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ. ಇದು Google Authenticator ಸಕ್ರಿಯಗೊಳಿಸಿದ ಸೇವೆಗಳೊಂದಿಗೆ 100% ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ.</string>
+    <string name="introWelcomeSummary">Stratum ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.\nಉತ್ತಮ ತೆರೆದ ಮೂಲ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ಆನ್‌ಲೈನ್ ಖಾತೆಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ರಕ್ಷಿಸಿ.</string>
+    <string name="introCompatibilitySummary">Stratum ಬಹುತೇಕ ಎಲ್ಲಾ ಪೂರೈಕೆದಾರರು ಮತ್ತು ಖಾತೆಗಳೊಂದಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ. ಇದು Google Authenticator ಸಕ್ರಿಯಗೊಳಿಸಿದ ಸೇವೆಗಳೊಂದಿಗೆ 100% ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ.</string>
     <string name="introBackupSummary">ಬಲವಾದ ಎನ್‌ಕ್ರಿಪ್ಶನ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡಿ. ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಕಳೆದುಕೊಂಡರೆ, ನೀವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಖಾತೆಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಬಹುದು. ಕ್ಲೌಡ್ ಸ್ಟೋರೇಜ್ ಅಥವಾ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಉಳಿಸಿ.</string>
     <string name="introCategoriesSummary">ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ವರ್ಗಗಳಾಗಿ ಸಂಘಟಿಸಿ ಮತ್ತು ಸರಳವಾದ ಹೋಲ್ಡ್ ಮತ್ತು ಡ್ರ್ಯಾಗ್ ಕ್ರಿಯೆಯೊಂದಿಗೆ ಕ್ರಮವನ್ನು ಬದಲಾಯಿಸಿ.</string>
     <string name="introThemesSummary">ನೀವು ಬಯಸಿದಲ್ಲಿ, ನೀವು ಸೆಟ್ಟಿಂಗ್‌ಗಳ ವಿಭಾಗದಲ್ಲಿ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಬಹುದು. ಎಲ್ಲಾ ಐಕಾನ್‌ಗಳು ತಮ್ಮ ಹೊಸ ಹಿನ್ನೆಲೆಗೆ ಹೊಂದಾಣಿಕೆಯಾಗುವಂತೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತವೆ.</string>

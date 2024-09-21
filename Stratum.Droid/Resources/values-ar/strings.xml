@@ -45,9 +45,9 @@
     <string name="supportDevelopment">دعم التطوير</string>
     <string name="supportDevelopmentSummary">دعم التطوير المستمر والتحديثات الجديدة للتطبيق عن طريق Buy Me a Coffee</string>
     <string name="rate">تقييم</string>
-    <string name="rateSummary">تقييم تطبيق Authenticator Pro على متجر بلاي</string>
+    <string name="rateSummary">تقييم تطبيق Stratum على متجر بلاي</string>
     <string name="viewGitHub">العرض في GitHub</string>
-    <string name="viewGitHubSummary">عرض مصدر Authenticator Pro على GitHub. يمكنك الإبلاغ عن مشكلة وطلب المزيد من الايقونات و الميزات.</string>
+    <string name="viewGitHubSummary">عرض مصدر Stratum على GitHub. يمكنك الإبلاغ عن مشكلة وطلب المزيد من الايقونات و الميزات.</string>
     <!--
         Authenticator
     -->
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">لا شيء هنا!</string>
     <string name="noAuthenticatorsMessage">ليس لديك أي مُصادقات لإجراء نسخ احتياطية لها</string>
     <string name="gettingStartedGuide">دليل بداية الاستخدام</string>
-    <string name="noAuthenticatorsHelp">إن كنت مستخدما جديدًا لتطبيق Authenticator Pro فراجع دليل بداية الاستخدام بالنقر أدناه.</string>
+    <string name="noAuthenticatorsHelp">إن كنت مستخدما جديدًا لتطبيق Stratum فراجع دليل بداية الاستخدام بالنقر أدناه.</string>
     <string name="noCategoriesTitle">لا توجد تصنيفات</string>
     <string name="noCategoriesMessage">ليس لديك أي تصنيفات مُعدة حتى الآن</string>
     <string name="noIconPacksTitle">لا توجد حزمة أيقونات</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">تفعيل النسخ الاحتياطي التلقائي</string>
     <string name="enableAutoBackupMessage">النسخ الاحتياطي بشكل تلقائي في موقع التخزين الذي تم تحديده</string>
     <string name="batOptim">تحسين البطارية</string>
-    <string name="disableBatOptimMessage">قد تمنع إعدادات الطاقة أو البطارية النسخ الاحتياطي من العمل بالشكل الصحيح في بعض الأجهزة. إذا كنت تواجه مشكلات بهذا الخصوص فحاول تعطيل مِيزة تحسين البطارية لتطبيقAuthenticator Pro.</string>
+    <string name="disableBatOptimMessage">قد تمنع إعدادات الطاقة أو البطارية النسخ الاحتياطي من العمل بالشكل الصحيح في بعض الأجهزة. إذا كنت تواجه مشكلات بهذا الخصوص فحاول تعطيل مِيزة تحسين البطارية لتطبيقStratum.</string>
     <string name="autoBackupFailureTitle">فشل النسخ الاحتياطي التلقائي</string>
     <string name="autoBackupFailureText">أخفق إكمال أحدث نسخة احتياطية تلقائية. ربما تكون أذونات الملف قد انتهت، حاول إعداد موقع النسخ الاحتياطي مرة أخرى في إعدادات النسخ الاحتياطي التلقائي.</string>
     <string name="autoBackupSuccessTitle">اكتمل النسخ الاحتياطي التلقائي</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">مسح رمز QR</string>
     <string name="guideScanQRCodeSummary">لإضافة مصادق، امسح رمز QR المقدم من التطبيق أو الخدمة. وستضاف إلى القائمة وستنشأ رموز جديدة تلقائياً. يمكنك أيضًا إدخال التفاصيل يدوياً.</string>
     <string name="guideUseCodeTitle">استخدم الرمز عن تسجيل الدخول</string>
-    <string name="guideUseCodeSummary">عند تسجيل الدخول، استخدم الرمز الفريد من نوعه الذي يوفره Authenticator Pro. إنه صالح فقط لفترة قصيرة. انقر على المصادق في القائمة لنسخ الرمز إلى الحافظة.</string>
+    <string name="guideUseCodeSummary">عند تسجيل الدخول، استخدم الرمز الفريد من نوعه الذي يوفره Stratum. إنه صالح فقط لفترة قصيرة. انقر على المصادق في القائمة لنسخ الرمز إلى الحافظة.</string>
     <string name="guideCustomiseTitle">التخصيص والتعديل</string>
     <string name="guideCustomiseSummary">أعد تسمية وتخصيص مصادقيك للعثور عليهم بسهولة. ببساطة اضغط على أيقونة القائمة على إدخال واتبع الخطوات.</string>
     <string name="guideArrangeTitle">الترتيب والفرز</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">مرحبا بك في Authenticator Pro</string>
+    <string name="introWelcomeTitle">مرحبا بك في Stratum</string>
     <string name="introCompatibilityTitle">عامل التوثيق الثنائي</string>
     <string name="introBackupTitle">النسخ الإحتياطي والإستعادة</string>
     <string name="introCategoriesTitle">التصنيفات</string>
     <string name="introThemesTitle">سمة داكنة</string>
-    <string name="introWelcomeSummary">شكرا لك على تحميل Authenticator Pro. \n حافظ على أمان حساباتك وحمايتها على الأنترنيت باستخدام أفضل تطبيق مصادقة مفتوح المصدر.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro متوافق مع معظم مقدمي الخدمات والحسابات. متوافق 100٪ مع خدمات Google Authenticator المفعلة.</string>
+    <string name="introWelcomeSummary">شكرا لك على تحميل Stratum. \n حافظ على أمان حساباتك وحمايتها على الأنترنيت باستخدام أفضل تطبيق مصادقة مفتوح المصدر.</string>
+    <string name="introCompatibilitySummary">Stratum متوافق مع معظم مقدمي الخدمات والحسابات. متوافق 100٪ مع خدمات Google Authenticator المفعلة.</string>
     <string name="introBackupSummary">قم بالنسخ الاحتياطي لمصادقيك بتشفير قوي. في حال فقدت جهازك، يمكنك دائماً الوصول إلى حساباتك. احفظهم في التخزين السحابي أو في جهازك.</string>
     <string name="introCategoriesSummary">نظم مصادقيك إلى فئات، وغير أيضًا الترتيب بالضغط المستمر والسحب البسيطين.</string>
     <string name="introThemesSummary">يمكنك تمكين السمة الداكنة في الإعدادات إذا كنت تفضل ذلك. ستتكيف جميع الأيقونات لتتوافق مع خلفيتها الجديدة.</string>

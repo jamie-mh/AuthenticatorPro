@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Podpořte vývoj</string>
     <string name="supportDevelopmentSummary">Podpořte další vývoj a aktualizace nákupem pomocí Buy Me a Coffee</string>
     <string name="rate">Ohodnotit</string>
-    <string name="rateSummary">Ohodnoťte Authenticator Pro v obchodě Google Play</string>
+    <string name="rateSummary">Ohodnoťte Stratum v obchodě Google Play</string>
     <string name="viewGitHub">Zobrazit na GitHubu</string>
-    <string name="viewGitHubSummary">Zobrazit repozitář Authenticator Pro na GitHubu. Můžete nahlásit problém, požádat o další ikony a funkce.</string>
+    <string name="viewGitHubSummary">Zobrazit repozitář Stratum na GitHubu. Můžete nahlásit problém, požádat o další ikony a funkce.</string>
     <!--
         Authenticator
     -->
@@ -91,7 +91,7 @@
     <string name="iconPacks">Balíčky ikon</string>
     <string name="downloadPacks">Stáhnout balíčky</string>
     <string name="importIconPackSuccess">Importováno {0} ikon z balíčku</string>
-    <string name="invalidIconPackError">Vybraný soubor není balíček ikon Authenticator Pro</string>
+    <string name="invalidIconPackError">Vybraný soubor není balíček ikon Stratum</string>
     <string name="confirmIconPackDelete">Jste si jisti odstraněním balíčku ikon? Jakékoliv použité ikony budou odstraněny.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Zobrazit zdroj</string>
@@ -121,7 +121,7 @@
     <string name="noAuthenticatorsTitle">Nic tu není!</string>
     <string name="noAuthenticatorsMessage">Nemáte zde žádné autentifikátory</string>
     <string name="gettingStartedGuide">Příručka pro nováčky</string>
-    <string name="noAuthenticatorsHelp">Pokud jste v Authenticator Pro noví, podívejte se na návod kliknutím níže.</string>
+    <string name="noAuthenticatorsHelp">Pokud jste v Stratum noví, podívejte se na návod kliknutím níže.</string>
     <string name="noCategoriesTitle">Žádné kategorie</string>
     <string name="noCategoriesMessage">Zatím nemáte nastavené žádné kategorie</string>
     <string name="noIconPacksTitle">Žádné balíčky ikon</string>
@@ -169,7 +169,7 @@
     <string name="googlePlayNotInstalledError">Google Play není v zařízení nainstalován</string>
     <string name="filePickerMissing">Nelze otevřít správce souborů. Správce souborů musí být nainstalován.</string>
     <string name="filePickError">Chyba při výběru souboru</string>
-    <string name="invalidFileError">Vybraný soubor není záložní soubor pro Authenticator Pro</string>
+    <string name="invalidFileError">Vybraný soubor není záložní soubor pro Stratum</string>
     <string name="webBrowserMissing">Není nainstalován žádný prohlížeč</string>
     <string name="emailClientMissing">Není nainstalován žádný emailový klient</string>
     <string name="genericError">Došlo k chybě</string>
@@ -201,7 +201,7 @@
     <string name="enableAutoBackup">Povolit automatické zálohování</string>
     <string name="enableAutoBackupMessage">Automaticky zálohovat do vybraného úložiště</string>
     <string name="batOptim">Optimalizace baterie</string>
-    <string name="disableBatOptimMessage">Na některých zařízeních může nastavení napájení zabránit správnému fungování záloh. Pokud máte problémy, zkuste pro Authenticator Pro zakázat optimalizaci baterie.</string>
+    <string name="disableBatOptimMessage">Na některých zařízeních může nastavení napájení zabránit správnému fungování záloh. Pokud máte problémy, zkuste pro Stratum zakázat optimalizaci baterie.</string>
     <string name="autoBackupFailureTitle">Automatické zálohování se nezdařilo</string>
     <string name="autoBackupFailureText">Nejnovější automatické zálohování se nepodařilo dokončit. Pravděpodobně vypršela platnost oprávnění k úložišti, zkuste znovu nastavit umístění zálohy v nastavení automatického zálohování.</string>
     <string name="autoBackupSuccessTitle">Automatické zálohování dokončeno</string>
@@ -377,13 +377,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Vítejte v Authenticator Pro</string>
+    <string name="introWelcomeTitle">Vítejte v Stratum</string>
     <string name="introCompatibilityTitle">Dvoufaktorové Ověřování</string>
     <string name="introBackupTitle">Zálohování a Obnovení</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Tmavý motiv</string>
-    <string name="introWelcomeSummary">Děkujeme, že jste si stáhli Authenticator Pro.\nUchovávejte své účty v bezpečí a chráněte je pomocí nejlepší open-source ověřovací aplikace.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro je kompatibilní s většinou poskytovatelů a účtů. Je 100% kompatibilní se službami povolenými Google Authenticator.</string>
+    <string name="introWelcomeSummary">Děkujeme, že jste si stáhli Stratum.\nUchovávejte své účty v bezpečí a chráněte je pomocí nejlepší open-source ověřovací aplikace.</string>
+    <string name="introCompatibilitySummary">Stratum je kompatibilní s většinou poskytovatelů a účtů. Je 100% kompatibilní se službami povolenými Google Authenticator.</string>
     <string name="introBackupSummary">Zálohujte své autentifikátory pomocí silného šifrování. V případě, že ztratíte své zařízení, můžete vždy získat přístup ke svým účtům. Uložte do cloudového úložiště nebo do vašeho zařízení.</string>
     <string name="introCategoriesSummary">Uspořádejte své ověřovače do kategorií a dokonce změňte pořadí jednoduchým podržením a přetažením.</string>
     <string name="introThemesSummary">Pokud chcete, můžete povolit tmavý motiv v nastavení. Všechny ikony se novému motivu přizpůsobí.</string>

@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Stöd utvecklingen</string>
     <string name="supportDevelopmentSummary">Stöd fortsatt utveckling och uppdateringar med Buy Me a Coffee</string>
     <string name="rate">Betygsätt</string>
-    <string name="rateSummary">Betygsätt Authenticator Pro i Google Play-butiken</string>
+    <string name="rateSummary">Betygsätt Stratum i Google Play-butiken</string>
     <string name="viewGitHub">Visa på GitHub</string>
-    <string name="viewGitHubSummary">Visa källkoden för Authenticator Pro på GitHub. Du kan rapportera fel och fråga efter fler ikoner och funktioner.</string>
+    <string name="viewGitHubSummary">Visa källkoden för Stratum på GitHub. Du kan rapportera fel och fråga efter fler ikoner och funktioner.</string>
     <!--
         Authenticator
     -->
@@ -57,7 +57,7 @@
     <string name="pin">Fäst</string>
     <string name="showAdvancedOptions">Visa avancerade alternativ</string>
     <string name="advancedOptionsWarning">Ändra bara de här alternativen om du vet vad du gör. Du kan bli utelåst från ditt konto.\n\nVill du fortsätta?</string>
-    <string name="confirmAuthenticatorDelete">Om du raderar kontot kommer du inte längre kunna få koder för det. Tvåfaktorsautentisering stängs dock inte av.\n\nGenom att radera kontot från Authenticator Pro kan du bli utelåst från kontot.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
+    <string name="confirmAuthenticatorDelete">Om du raderar kontot kommer du inte längre kunna få koder för det. Tvåfaktorsautentisering stängs dock inte av.\n\nGenom att radera kontot från Stratum kan du bli utelåst från kontot.\nSe till att tvåfaktorsautentisering är inaktiverat eller att du har återställningskoderna till hands.\n\nVill du fortsätta?</string>
     <string name="useCustomIcon">Använd anpassad ikon</string>
     <string name="copiedToClipboard">Koden har kopierats till urklipp</string>
     <string name="issuerHint">Utfärdare (t.ex. Google)</string>
@@ -90,7 +90,7 @@
     <string name="iconPacks">Ikonpaket</string>
     <string name="downloadPacks">Ladda ner paket</string>
     <string name="importIconPackSuccess">Importerade {0} ikoner från paket</string>
-    <string name="invalidIconPackError">Den valda filen är inte ett Authenticator Pro-ikonpaket</string>
+    <string name="invalidIconPackError">Den valda filen är inte ett Stratum-ikonpaket</string>
     <string name="confirmIconPackDelete">Är du säker på att du vill ta bort detta ikonpaket? Eventuella använda ikoner kommer inte att raderas.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Visa källa</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Tomt än så länge!</string>
     <string name="noAuthenticatorsMessage">Du har inga konton här</string>
     <string name="gettingStartedGuide">Komma igång-guide</string>
-    <string name="noAuthenticatorsHelp">Om du är ny till Authenticator Pro kan du läsa guiden genom att trycka nedan.</string>
+    <string name="noAuthenticatorsHelp">Om du är ny till Stratum kan du läsa guiden genom att trycka nedan.</string>
     <string name="noCategoriesTitle">Inga kategorier</string>
     <string name="noCategoriesMessage">Du har inte skapat några kategorier än</string>
     <string name="noIconPacksTitle">Inga ikonpaket</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play är inte installerad på din enhet</string>
     <string name="filePickerMissing">Kunde inte öppna filväljaren. En filhanterare måste vara installerad.</string>
     <string name="filePickError">Ett fel uppstod när filen öppnades</string>
-    <string name="invalidFileError">Den valda filen är inte en Authenticator Pro-säkerhetskopia</string>
+    <string name="invalidFileError">Den valda filen är inte en Stratum-säkerhetskopia</string>
     <string name="webBrowserMissing">Ingen webbläsare installerad</string>
     <string name="emailClientMissing">Ingen e-postapp installerad</string>
     <string name="genericError">Ett fel uppstod</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Aktivera automatisk säkerhetskopiering</string>
     <string name="enableAutoBackupMessage">Säkerhetskopiera automatiskt till den valda lagringsplatsen</string>
     <string name="batOptim">Batterioptimering</string>
-    <string name="disableBatOptimMessage">På vissa enheter kan batteriinställningar hindra säkerhetskopior från att fungera korrekt. Om du upplever problem kan du prova att inaktivera batterioptimering för Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">På vissa enheter kan batteriinställningar hindra säkerhetskopior från att fungera korrekt. Om du upplever problem kan du prova att inaktivera batterioptimering för Stratum.</string>
     <string name="autoBackupFailureTitle">Automatisk säkerhetskopiering misslyckades</string>
     <string name="autoBackupFailureText">Den senaste automatiska säkerhetskopieringen kunde inte slutföras. Appen kan ha förlorat åtkomst till filer. Prova att ställa in säkerhetskopieringsplatsen på nytt i inställningarna för automatisk säkerhetskopiering.</string>
     <string name="autoBackupSuccessTitle">Automatisk säkerhetskopiering slutförd</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Skanna en QR-kod</string>
     <string name="guideScanQRCodeSummary">För att lägga till ett konto, skanna QR-koden som du fått av appen eller tjänsten. Kontot läggs då till i listan och koder börjar genereras. Du kan också ange uppgifterna manuellt.</string>
     <string name="guideUseCodeTitle">Använd koden när du loggar in</string>
-    <string name="guideUseCodeSummary">När du loggar in, använd den unika koden som syns i Authenticator Pro. Den är endast giltig under en kort tid. Tryck på kontot i listan för att kopiera koden till urklipp.</string>
+    <string name="guideUseCodeSummary">När du loggar in, använd den unika koden som syns i Stratum. Den är endast giltig under en kort tid. Tryck på kontot i listan för att kopiera koden till urklipp.</string>
     <string name="guideCustomiseTitle">Anpassa och redigera</string>
     <string name="guideCustomiseSummary">Döp och anpassa dina konton för att enkelt kunna hitta dem. Tryck på menyikonen på ett konto i listan och följ stegen.</string>
     <string name="guideArrangeTitle">Ordna och sortera</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Välkommen till Authenticator Pro</string>
+    <string name="introWelcomeTitle">Välkommen till Stratum</string>
     <string name="introCompatibilityTitle">Tvåfaktorsautentisering</string>
     <string name="introBackupTitle">Säkerhetskopiera och återställ</string>
     <string name="introCategoriesTitle">Kategorier</string>
     <string name="introThemesTitle">Mörkt tema</string>
-    <string name="introWelcomeSummary">Tack för att du laddade ner Authenticator Pro.\nSkydda dina onlinekonton med den bästa autentiseringsappen med öppen källkod.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro är kompatibel med de flesta hemsidor och konton. Den fungerar till 100 % med tjänster som stödjer Google Authenticator.</string>
+    <string name="introWelcomeSummary">Tack för att du laddade ner Stratum.\nSkydda dina onlinekonton med den bästa autentiseringsappen med öppen källkod.</string>
+    <string name="introCompatibilitySummary">Stratum är kompatibel med de flesta hemsidor och konton. Den fungerar till 100 % med tjänster som stödjer Google Authenticator.</string>
     <string name="introBackupSummary">Säkerhetskopiera dina konton med stark kryptering så att du kan få tillgång till dina koder om du skulle förlora din enhet. Spara kopian i molnlagring eller på din enhet.</string>
     <string name="introCategoriesSummary">Kategorisera och ordna om dina konton genom att trycka och dra.</string>
     <string name="introThemesSummary">Om du föredrar kan du välja mörkt tema i inställningarna. Alla ikoner kommer att anpassa sig för att matcha den mörka bakgrunden.</string>

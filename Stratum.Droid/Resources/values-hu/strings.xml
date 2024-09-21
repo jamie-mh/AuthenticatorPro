@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Támogassa a fejlesztést</string>
     <string name="supportDevelopmentSummary">Támogassa a folyamatos fejlesztést és frissítéseket a Buy Me a Coffee szolgáltatással</string>
     <string name="rate">Értékelés</string>
-    <string name="rateSummary">Értékelje az Authenticator Pro-t a Google Play Áruházban</string>
+    <string name="rateSummary">Értékelje az Stratum-t a Google Play Áruházban</string>
     <string name="viewGitHub">Megtekintés a GitHubon</string>
-    <string name="viewGitHubSummary">Tekintse meg az Authenticator Pro repozitoriját a GitHubon. Bejelenthet egy problémát, kérhet további ikonokat és funkciókat.</string>
+    <string name="viewGitHubSummary">Tekintse meg az Stratum repozitoriját a GitHubon. Bejelenthet egy problémát, kérhet további ikonokat és funkciókat.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Ikon csomagok</string>
     <string name="downloadPacks">Csomagok letöltése</string>
     <string name="importIconPackSuccess">{0} ikon importálva a csomagból</string>
-    <string name="invalidIconPackError">A kiválasztott fájl nem egy Authenticator Pro ikoncsomag</string>
+    <string name="invalidIconPackError">A kiválasztott fájl nem egy Stratum ikoncsomag</string>
     <string name="confirmIconPackDelete">Biztosan törli ezt az ikoncsomagot? A használt ikonok nem törlődnek.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Forráskód megtekintése</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">Itt nincs semmi!</string>
     <string name="noAuthenticatorsMessage">Itt nincsenek hitelesítők</string>
     <string name="gettingStartedGuide">Első lépések</string>
-    <string name="noAuthenticatorsHelp">Ha még nem használja az Authenticator Pro-t, tekintse meg az első lépések útmutatóját az alábbi linkre kattintva.</string>
+    <string name="noAuthenticatorsHelp">Ha még nem használja az Stratum-t, tekintse meg az első lépések útmutatóját az alábbi linkre kattintva.</string>
     <string name="noCategoriesTitle">Nincsenek kategóriák</string>
     <string name="noCategoriesMessage">Még nem állított be kategóriákat</string>
     <string name="noIconPacksTitle">Nincs ikoncsomag</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">A Google Play nincs telepítve az eszközére</string>
     <string name="filePickerMissing">A fájlválasztó nem nyitható meg. Fájlkezelőt kell telepíteni.</string>
     <string name="filePickError">Hiba a fájl kiválasztásakor</string>
-    <string name="invalidFileError">A kiválasztott fájl nem az Authenticator Pro biztonsági másolata</string>
+    <string name="invalidFileError">A kiválasztott fájl nem az Stratum biztonsági másolata</string>
     <string name="webBrowserMissing">Nincs webböngésző telepítve</string>
     <string name="emailClientMissing">Nincs e-mail kliens telepítve</string>
     <string name="genericError">Hiba történt</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Automatikus biztonsági mentés engedélyezése</string>
     <string name="enableAutoBackupMessage">Automatikus biztonsági mentés a kiválasztott tárolóhelyre</string>
     <string name="batOptim">Akkumulátor optimalizálás</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Stratum.</string>
     <string name="autoBackupFailureTitle">Auto Backup failed</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">QR kód beolvasása</string>
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Use the code when logging in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Authenticator Pro. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
     <string name="guideCustomiseTitle">Customise and edit</string>
     <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Arrange and sort</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Üdvözli az Authenticator Pro</string>
+    <string name="introWelcomeTitle">Üdvözli az Stratum</string>
     <string name="introCompatibilityTitle">Kétfaktoros hitelesítés</string>
     <string name="introBackupTitle">Bizt.mentés és Helyreállítás</string>
     <string name="introCategoriesTitle">Kategóriák</string>
     <string name="introThemesTitle">Sötét téma</string>
-    <string name="introWelcomeSummary">Köszönjük, hogy letöltötte az Authenticator Pro-t.\nTartsa biztonságban online fiókjait a legjobb nyílt forráskódú hitelesítő alkalmazással.</string>
-    <string name="introCompatibilitySummary">Az Authenticator Pro a legtöbb szolgáltatóval és fiókkal kompatibilis. 100%-ban kompatibilis a Google Authenticator szolgáltatással.</string>
+    <string name="introWelcomeSummary">Köszönjük, hogy letöltötte az Stratum-t.\nTartsa biztonságban online fiókjait a legjobb nyílt forráskódú hitelesítő alkalmazással.</string>
+    <string name="introCompatibilitySummary">Az Stratum a legtöbb szolgáltatóval és fiókkal kompatibilis. 100%-ban kompatibilis a Google Authenticator szolgáltatással.</string>
     <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
     <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>

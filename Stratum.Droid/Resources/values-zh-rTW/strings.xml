@@ -45,9 +45,9 @@
     <string name="supportDevelopment">支持開發</string>
     <string name="supportDevelopmentSummary">給我買杯咖啡來支持日後的開發和更新吧！</string>
     <string name="rate">評分</string>
-    <string name="rateSummary">在 Google Play 商店上為 Authenticator Pro 評分</string>
+    <string name="rateSummary">在 Google Play 商店上為 Stratum 評分</string>
     <string name="viewGitHub">在 GitHub 上查看</string>
-    <string name="viewGitHubSummary">前往 Authenticator Pro 在 GitHub 上的存儲庫。你可以回報問題、請求更多圖示及功能。</string>
+    <string name="viewGitHubSummary">前往 Stratum 在 GitHub 上的存儲庫。你可以回報問題、請求更多圖示及功能。</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">圖示包</string>
     <string name="downloadPacks">下載圖示包</string>
     <string name="importIconPackSuccess">從圖示包中導入了 {0} 個圖示</string>
-    <string name="invalidIconPackError">所選檔案不是 Authenticator Pro 圖示包</string>
+    <string name="invalidIconPackError">所選檔案不是 Stratum 圖示包</string>
     <string name="confirmIconPackDelete">您確定要刪除此圖示包嗎？任何使用過的圖示都不會被刪除。</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">檢視原始碼</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">您的裝置上未安裝 Google Play。</string>
     <string name="filePickerMissing">無法顯示檔案選擇介面。請安裝檔案管理器。</string>
     <string name="filePickError">選擇檔案時出錯。</string>
-    <string name="invalidFileError">選擇的檔案不是 Authenticator Pro 備份檔案。</string>
+    <string name="invalidFileError">選擇的檔案不是 Stratum 備份檔案。</string>
     <string name="webBrowserMissing">沒有檢測到已安裝的瀏覽器。</string>
     <string name="emailClientMissing">未安裝電子郵件客戶端</string>
     <string name="genericError">出現錯誤。</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">啟用自動備份</string>
     <string name="enableAutoBackupMessage">自動備份至選定的儲存位置</string>
     <string name="batOptim">電池最佳化</string>
-    <string name="disableBatOptimMessage">在某些裝置上，電源設定可能會導致備份工作不正常。如果您遇到問題，請嘗試禁用Authenticator Pro的電池最佳化。</string>
+    <string name="disableBatOptimMessage">在某些裝置上，電源設定可能會導致備份工作不正常。如果您遇到問題，請嘗試禁用Stratum的電池最佳化。</string>
     <string name="autoBackupFailureTitle">Auto backup failed</string>
     <string name="autoBackupFailureText">最近的自動備份未能成功完成。檔案和媒體使用權可能已被拒絕，或密碼不正確。請在自動備份設定中重新設定備份位置和密碼。</string>
     <string name="autoBackupSuccessTitle">自動備份完成</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">掃描 QR Code</string>
     <string name="guideScanQRCodeSummary">掃描應用或服務提供的 QR Code 來新增驗證器。驗證器會出現在列表中，並自動生成新的驗證碼。您也可以手動輸入詳細資訊。</string>
     <string name="guideUseCodeTitle">使用驗證碼登入</string>
-    <string name="guideUseCodeSummary">在登入的時候，請使用 Authenticator Pro 提供的獨立驗證碼。這個驗證碼的有效時間非常短。點選列表中的驗證器，驗證碼就會被複制到剪貼簿。</string>
+    <string name="guideUseCodeSummary">在登入的時候，請使用 Stratum 提供的獨立驗證碼。這個驗證碼的有效時間非常短。點選列表中的驗證器，驗證碼就會被複制到剪貼簿。</string>
     <string name="guideCustomiseTitle">自定義與編輯</string>
     <string name="guideCustomiseSummary">您可以為您的驗證器修改名稱，或者對其進行自定義，下次就能更方便地找到它。點選任意一個驗證器的選單圖示，然後按提示操作。</string>
     <string name="guideArrangeTitle">分類與排序</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">歡迎使用 Authenticator Pro</string>
+    <string name="introWelcomeTitle">歡迎使用 Stratum</string>
     <string name="introCompatibilityTitle">兩步驟驗證</string>
     <string name="introBackupTitle">備份與還原</string>
     <string name="introCategoriesTitle">分類</string>
     <string name="introThemesTitle">深色主題</string>
-    <string name="introWelcomeSummary">感謝您下載 Authenticator Pro。\n作為最好的開源身份驗證器應用，我們將為您的線上帳戶保駕護航。</string>
-    <string name="introCompatibilitySummary">Authenticator Pro 支援絕大多數服務提供方和帳戶，並 100% 相容支援 Google 身份驗證器的服務。</string>
+    <string name="introWelcomeSummary">感謝您下載 Stratum。\n作為最好的開源身份驗證器應用，我們將為您的線上帳戶保駕護航。</string>
+    <string name="introCompatibilitySummary">Stratum 支援絕大多數服務提供方和帳戶，並 100% 相容支援 Google 身份驗證器的服務。</string>
     <string name="introBackupSummary">備份您的驗證器並對其進行強加密。即便您的裝置丟失了，您也能還原對您帳號。您可以將備份儲存在雲端儲存或裝置上。</string>
     <string name="introCategoriesSummary">將您的驗證器歸入到多個分類中，並透過長按和拖拽輕鬆改變排序。</string>
     <string name="introThemesSummary">如有需要，您可以在設定中啟用深色主題。所有的圖示會配合背景調整顯示。</string>

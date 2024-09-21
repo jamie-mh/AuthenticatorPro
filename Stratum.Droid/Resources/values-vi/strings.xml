@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Ủng hộ nhà phát triển</string>
     <string name="supportDevelopmentSummary">Hỗ trợ tiếp tục phát triển và cập nhật ứng dụng bằng Buy Me a Coffee</string>
     <string name="rate">Đánh giá</string>
-    <string name="rateSummary">Đánh giá Authenticator Pro trên Cửa hàng Play</string>
+    <string name="rateSummary">Đánh giá Stratum trên Cửa hàng Play</string>
     <string name="viewGitHub">Xem trên GitHub</string>
-    <string name="viewGitHubSummary">Xem kho lưu trữ Authenticator Pro trên GitHub. Bạn có thể báo cáo sự cố, yêu cầu thêm biểu tượng và tính năng.</string>
+    <string name="viewGitHubSummary">Xem kho lưu trữ Stratum trên GitHub. Bạn có thể báo cáo sự cố, yêu cầu thêm biểu tượng và tính năng.</string>
     <!--
         Authenticator
     -->
@@ -91,7 +91,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="iconPacks">Gói biểu tượng</string>
     <string name="downloadPacks">Tải gói</string>
     <string name="importIconPackSuccess">Nhập {0} biểu tượng từ gói</string>
-    <string name="invalidIconPackError">Tệp được chọn không phải là gói biểu tượng của Authenticator Pro</string>
+    <string name="invalidIconPackError">Tệp được chọn không phải là gói biểu tượng của Stratum</string>
     <string name="confirmIconPackDelete">Bạn có chắc chắn muốn xóa gói biểu tượng này không? Bất kỳ biểu tượng nào đang sử dụng sẽ không bị xóa.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Xem nguồn</string>
@@ -121,7 +121,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="noAuthenticatorsTitle">Không có gì ở đây!</string>
     <string name="noAuthenticatorsMessage">Bạn không có bất kỳ trình xác thực nào ở đây</string>
     <string name="gettingStartedGuide">Hướng dẫn bắt đầu</string>
-    <string name="noAuthenticatorsHelp">Nếu bạn mới sử dụng Authenticator Pro, hãy xem hướng dẫn bằng cách nhấp vào bên dưới.</string>
+    <string name="noAuthenticatorsHelp">Nếu bạn mới sử dụng Stratum, hãy xem hướng dẫn bằng cách nhấp vào bên dưới.</string>
     <string name="noCategoriesTitle">Không có trong mục nào</string>
     <string name="noCategoriesMessage">Bạn chưa thiết lập bất kỳ danh mục nào</string>
     <string name="noIconPacksTitle">Không có gói biểu tượng</string>
@@ -169,7 +169,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="googlePlayNotInstalledError">Cửa hàng Play không được cài đặt trên thiết bị của bạn</string>
     <string name="filePickerMissing">Không thể mở trình quản lý tệp. Cần phải cài đặt một trình quản lý tệp.</string>
     <string name="filePickError">Lỗi khi chọn tệp</string>
-    <string name="invalidFileError">Tệp đã chọn không phải là bản sao lưu của Authenticator Pro</string>
+    <string name="invalidFileError">Tệp đã chọn không phải là bản sao lưu của Stratum</string>
     <string name="webBrowserMissing">Không có trình duyệt web được cài đặt</string>
     <string name="emailClientMissing">Không có ứng dụng email được cài đặt</string>
     <string name="genericError">Đã xảy ra lỗi</string>
@@ -201,7 +201,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="enableAutoBackup">Bật tự động sao lưu</string>
     <string name="enableAutoBackupMessage">Tự động sao lưu vào vị trí lưu trữ đã chọn</string>
     <string name="batOptim">Tối ưu hóa pin</string>
-    <string name="disableBatOptimMessage">Trên một số thiết bị, cài đặt về nguồn điện có thể làm cho việc sao lưu không hoạt động đúng cách. Nếu bạn gặp vấn đề, thử tắt tối ưu hóa pin cho Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">Trên một số thiết bị, cài đặt về nguồn điện có thể làm cho việc sao lưu không hoạt động đúng cách. Nếu bạn gặp vấn đề, thử tắt tối ưu hóa pin cho Stratum.</string>
     <string name="autoBackupFailureTitle">Tự động sao lưu thất bại</string>
     <string name="autoBackupFailureText">Tự đọng sao lưu gần nhất không hoàn thành. Quyền truy cập vào tệp có thể đã hết hạn, hãy thử đặt lại vị trí sao lưu trong cài đặt.</string>
     <string name="autoBackupSuccessTitle">Tự động sao lưu thành công</string>
@@ -252,7 +252,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="guideScanQRCodeTitle">Quét mã QR</string>
     <string name="guideScanQRCodeSummary">Để thêm một trình xác thực, hãy quét mã QR được cung cấp bởi ứng dụng hoặc dịch vụ. Trình xác thực sẽ được thêm vào danh sách và sẽ tự động tạo mã mới. Bạn cũng có thể nhập thông tin thủ công.</string>
     <string name="guideUseCodeTitle">Sử dụng mã khi đăng nhập</string>
-    <string name="guideUseCodeSummary">Khi đăng nhập, hãy sử dụng mã duy nhất được cung cấp bởi Authenticator Pro. Mã này chỉ hợp lệ trong một khoảng thời gian ngắn. Nhấn vào trình xác thực trong danh sách để sao chép mã vào bộ nhớ tạm.</string>
+    <string name="guideUseCodeSummary">Khi đăng nhập, hãy sử dụng mã duy nhất được cung cấp bởi Stratum. Mã này chỉ hợp lệ trong một khoảng thời gian ngắn. Nhấn vào trình xác thực trong danh sách để sao chép mã vào bộ nhớ tạm.</string>
     <string name="guideCustomiseTitle">Tùy chỉnh và chỉnh sửa</string>
     <string name="guideCustomiseSummary">Đổi tên và tùy chỉnh các trình xác thực của bạn để dễ dàng tìm thấy chúng. Chỉ cần nhấn vào biểu tượng menu trên một mục và làm theo các bước.</string>
     <string name="guideArrangeTitle">Sắp xếp và phân loại</string>
@@ -377,13 +377,13 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Chào mừng bạn đến với Authenticator Pro</string>
+    <string name="introWelcomeTitle">Chào mừng bạn đến với Stratum</string>
     <string name="introCompatibilityTitle">Xác thực 2 bước</string>
     <string name="introBackupTitle">Sao lưu và Khôi phục</string>
     <string name="introCategoriesTitle">Danh mục</string>
     <string name="introThemesTitle">Chủ đề tối</string>
-    <string name="introWelcomeSummary">Cảm ơn bạn đã tải xuống Authenticator Pro.\nGiữ an toàn và bảo vệ các tài khoản trực tuyến của bạn với ứng dụng xác thực mã nguồn mở tốt nhất.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro tương thích với hầu hết các nhà cung cấp và tài khoản. Nó hoàn toàn tương thích với các dịch vụ được kích hoạt bởi Google Authenticator.</string>
+    <string name="introWelcomeSummary">Cảm ơn bạn đã tải xuống Stratum.\nGiữ an toàn và bảo vệ các tài khoản trực tuyến của bạn với ứng dụng xác thực mã nguồn mở tốt nhất.</string>
+    <string name="introCompatibilitySummary">Stratum tương thích với hầu hết các nhà cung cấp và tài khoản. Nó hoàn toàn tương thích với các dịch vụ được kích hoạt bởi Google Authenticator.</string>
     <string name="introBackupSummary">Sao lưu các trình xác thực của bạn với mã hóa mạnh mẽ. Trong trường hợp bạn mất thiết bị, bạn luôn có thể truy cập vào tài khoản của mình. Lưu vào lưu trữ đám mây hoặc vào thiết bị của bạn.</string>
     <string name="introCategoriesSummary">Tổ chức các trình xác thực của bạn thành các danh mục và thậm chí thay đổi thứ tự với cách giữ và kéo đơn giản.</string>
     <string name="introThemesSummary">Nếu bạn muốn, bạn có thể kích hoạt chủ đề tối trong cài đặt. Tất cả biểu tượng sẽ tự động phù hợp với nền mới.</string>

@@ -45,9 +45,9 @@
     <string name="supportDevelopment">開発を支援する</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffeeで継続的な開発と更新をサポートする</string>
     <string name="rate">評価する</string>
-    <string name="rateSummary">Google Play ストアで Authenticator Pro を評価する</string>
+    <string name="rateSummary">Google Play ストアで Stratum を評価する</string>
     <string name="viewGitHub">GitHubで表示</string>
-    <string name="viewGitHubSummary">GitHub で Authenticator Pro のリポジトリを表示します。問題を報告したり、アイコンや機能をリクエストすることができます。</string>
+    <string name="viewGitHubSummary">GitHub で Stratum のリポジトリを表示します。問題を報告したり、アイコンや機能をリクエストすることができます。</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">アイコンパック</string>
     <string name="downloadPacks">パックをダウンロード</string>
     <string name="importIconPackSuccess">パックから {0} 個のアイコンをインポートしました</string>
-    <string name="invalidIconPackError">選択されたファイルは Authenticator Pro アイコンパックではありません</string>
+    <string name="invalidIconPackError">選択されたファイルは Stratum アイコンパックではありません</string>
     <string name="confirmIconPackDelete">本当にこのアイコンパックを削除しますか？使用されているアイコンは削除されません。</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
@@ -120,7 +120,7 @@
     <string name="noAuthenticatorsTitle">何もありません！</string>
     <string name="noAuthenticatorsMessage">認証コードがありません</string>
     <string name="gettingStartedGuide">はじめにお読み下さい</string>
-    <string name="noAuthenticatorsHelp">Authenticator Proを初めて使用する場合は、以下をクリックして開始ガイドを参照してください。</string>
+    <string name="noAuthenticatorsHelp">Stratumを初めて使用する場合は、以下をクリックして開始ガイドを参照してください。</string>
     <string name="noCategoriesTitle">カテゴリがありません</string>
     <string name="noCategoriesMessage">まだカテゴリが設定されていません</string>
     <string name="noIconPacksTitle">No icon packs</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Playがデバイスにインストールされていません</string>
     <string name="filePickerMissing">ファイルピッカーを開けません。ファイルマネージャーがインストールされている必要があります。</string>
     <string name="filePickError">ファイルの読み込みエラー</string>
-    <string name="invalidFileError">選択されたファイルはAuthenticator Proのバックアップファイルではありません</string>
+    <string name="invalidFileError">選択されたファイルはStratumのバックアップファイルではありません</string>
     <string name="webBrowserMissing">ウェブブラウザがインストールされていません</string>
     <string name="emailClientMissing">メールアプリがインストールされていません</string>
     <string name="genericError">エラーが発生しました</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">自動バックアップを有効にする</string>
     <string name="enableAutoBackupMessage">選択した保存場所に自動的にバックアップします</string>
     <string name="batOptim">バッテリーの最適化</string>
-    <string name="disableBatOptimMessage">一部のデバイスでは、電源設定によってバックアップが正常に動作しなくなる可能性があります。問題が発生した場合は、Authenticator Pro のバッテリー最適化を無効にしてみてください。</string>
+    <string name="disableBatOptimMessage">一部のデバイスでは、電源設定によってバックアップが正常に動作しなくなる可能性があります。問題が発生した場合は、Stratum のバッテリー最適化を無効にしてみてください。</string>
     <string name="autoBackupFailureTitle">自動バックアップに失敗しました</string>
     <string name="autoBackupFailureText">直近の自動バックアップが完了できませんでした。ファイル権限が無効になった可能性があります。自動バックアップ設定で再度バックアップ場所を設定してください。</string>
     <string name="autoBackupSuccessTitle">自動バックアップ完了</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">QRコードをスキャン</string>
     <string name="guideScanQRCodeSummary">認証コードを追加するには、アプリまたはサービスが提供するQRコードをスキャンしてください。 リストに追加され、自動的に新しいコードが生成されます。手動で入力することもできます。</string>
     <string name="guideUseCodeTitle">ログイン時にコードを使用する</string>
-    <string name="guideUseCodeSummary">ログイン時、Authenticator Proに表示される認証コードを使用してください。コードは短期間のみ有効です。 画面内の認証コードをタップして、コードをクリップボードにコピーします。</string>
+    <string name="guideUseCodeSummary">ログイン時、Stratumに表示される認証コードを使用してください。コードは短期間のみ有効です。 画面内の認証コードをタップして、コードをクリップボードにコピーします。</string>
     <string name="guideCustomiseTitle">カスタマイズと編集</string>
     <string name="guideCustomiseSummary">名前の変更やカスタマイズを行うと、簡単に認証コードを見つけることができます。画面のメニューアイコンをタップし、手順に従ってください。</string>
     <string name="guideArrangeTitle">整列と並べ替え</string>
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Authenticator Proへようこそ</string>
+    <string name="introWelcomeTitle">Stratumへようこそ</string>
     <string name="introCompatibilityTitle">二要素認証</string>
     <string name="introBackupTitle">バックアップと復元</string>
     <string name="introCategoriesTitle">カテゴリ</string>
     <string name="introThemesTitle">ダークテーマ</string>
-    <string name="introWelcomeSummary">Authenticator Proをダウンロードしていただきありがとうございます。\nオンラインアカウントを、最高のオープンソースの認証アプリで保護しましょう。</string>
-    <string name="introCompatibilitySummary">Authenticator Proはほとんどの発行元のアカウントと互換性があります。Google Authenticator対応サービスと100%互換性があります。</string>
+    <string name="introWelcomeSummary">Stratumをダウンロードしていただきありがとうございます。\nオンラインアカウントを、最高のオープンソースの認証アプリで保護しましょう。</string>
+    <string name="introCompatibilitySummary">Stratumはほとんどの発行元のアカウントと互換性があります。Google Authenticator対応サービスと100%互換性があります。</string>
     <string name="introBackupSummary">強力な暗号化で認証コードをバックアップします。 端末を紛失した場合でも、アカウントにアクセスできます。クラウドストレージまたは端末に保存してください。</string>
     <string name="introCategoriesSummary">認証コードをカテゴリ別に整理したり、順序を変更することもできます。</string>
     <string name="introThemesSummary">必要に応じて、ダークを有効にすることができます。すべてのアイコンは背景に合わせて調整されます。</string>

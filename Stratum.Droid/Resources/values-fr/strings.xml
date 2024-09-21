@@ -45,9 +45,9 @@
     <string name="supportDevelopment">Soutenir le développement</string>
     <string name="supportDevelopmentSummary">Soutenir le développement continu et les mises à jour avec Buy Me a Coffee</string>
     <string name="rate">Noter</string>
-    <string name="rateSummary">Noter Authenticator Pro sur Google Play</string>
+    <string name="rateSummary">Noter Stratum sur Google Play</string>
     <string name="viewGitHub">Voir sur GitHub</string>
-    <string name="viewGitHubSummary">Afficher le dépôt Authenticator Pro sur GitHub. Ici, vous pouvez signaler un problème, demander plus d\'icônes et de fonctionnalités.</string>
+    <string name="viewGitHubSummary">Afficher le dépôt Stratum sur GitHub. Ici, vous pouvez signaler un problème, demander plus d\'icônes et de fonctionnalités.</string>
     <!--
         Authenticator
     -->
@@ -90,7 +90,7 @@
     <string name="iconPacks">Packs d\'icônes</string>
     <string name="downloadPacks">Télécharger des packs</string>
     <string name="importIconPackSuccess">{0} icônes importées du pack</string>
-    <string name="invalidIconPackError">Le fichier sélectionné n\'est pas un pack d\'icônes Authenticator Pro</string>
+    <string name="invalidIconPackError">Le fichier sélectionné n\'est pas un pack d\'icônes Stratum</string>
     <string name="confirmIconPackDelete">Êtes-vous sûr de vouloir supprimer ce pack d\'icône ? Toutes les icônes utilisées seront préservées.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">Voir la source</string>
@@ -168,7 +168,7 @@
     <string name="googlePlayNotInstalledError">Google Play n\'est pas installé sur votre appareil</string>
     <string name="filePickerMissing">Erreur lors de la sélection de fichier. Un gestionnaire de fichier doit être installé.</string>
     <string name="filePickError">Erreur lors de la sélection d\'un fichier</string>
-    <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Authenticator Pro</string>
+    <string name="invalidFileError">Le fichier sélectionné n\'est pas une sauvegarde Stratum</string>
     <string name="webBrowserMissing">Aucun navigateur web n’est installé</string>
     <string name="emailClientMissing">Aucun client mail n\'est installé</string>
     <string name="genericError">Une erreur s\'est produite</string>
@@ -200,7 +200,7 @@
     <string name="enableAutoBackup">Activer les sauvegardes automatiques</string>
     <string name="enableAutoBackupMessage">Sauvegarder automatiquement à l\'emplacement de stockage choisi</string>
     <string name="batOptim">Optimisation de la batterie</string>
-    <string name="disableBatOptimMessage">Sur certains appareils, les paramètres d\'alimentation peuvent empêcher les sauvegardes de fonctionner correctement. Si vous rencontrez des problèmes, tentez de désactiver l\'optimisation de batterie pour Authenticator Pro.</string>
+    <string name="disableBatOptimMessage">Sur certains appareils, les paramètres d\'alimentation peuvent empêcher les sauvegardes de fonctionner correctement. Si vous rencontrez des problèmes, tentez de désactiver l\'optimisation de batterie pour Stratum.</string>
     <string name="autoBackupFailureTitle">Échec lors de la sauvegarde automatique</string>
     <string name="autoBackupFailureText">La sauvegarde auto la plus récente a échoué. Les droits de fichier sont potentiellement expirés, tentez de définir de nouveau l\'emplacement de la sauvegarde dans les paramètres.</string>
     <string name="autoBackupSuccessTitle">Sauvegarde effectuée avec succès</string>
@@ -251,7 +251,7 @@
     <string name="guideScanQRCodeTitle">Scanner un QR code</string>
     <string name="guideScanQRCodeSummary">Pour ajouter un authentificateur, scannez le QR code fourni par l\'application ou le service. Une nouvelle entrée apparaitra dans la liste qui générera automatiquement des codes. Vous pouvez également renseigner les informations vous-même.</string>
     <string name="guideUseCodeTitle">Utiliser le code lorsque vous vous connectez</string>
-    <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Authenticator Pro. Ceci n\'est valide que pendant une courte période. Tapez sur l\'authentificateur dans la liste pour copier le code dans le presse-papiers.</string>
+    <string name="guideUseCodeSummary">Lorsque vous vous connectez, utilisez le code unique fourni par Stratum. Ceci n\'est valide que pendant une courte période. Tapez sur l\'authentificateur dans la liste pour copier le code dans le presse-papiers.</string>
     <string name="guideCustomiseTitle">Personnaliser et modifier</string>
     <string name="guideCustomiseSummary">Renommez et personnalisez vos authentificateurs pour les retrouver facilement. Appuyez simplement sur l\'icône de menu sur l\'un des authentificateurs et suivez les étapes.</string>
     <string name="guideArrangeTitle">Organiser et trier</string>
@@ -259,7 +259,7 @@
     <string name="guideBackupTitle">Créer une sauvegarde</string>
     <string name="guideBackupSummary">Ne perdez pas accès à vos comptes si vous changez d\'appareil. Créez une sauvegarde et placez-la dans un lieu sûr. Une sauvegarde peut être restaurée à n\'importe quel moment et peut même être protégée par un mot de passe.</string>
     <string name="guideWearOSTitle">Télécharger l\'application Wear OS</string>
-    <string name="guideWearOSSummary">Si vous portez une montre connectée Wear OS, vous pouvez télécharger l\'application Authenticator Pro pour obtenir des codes à partir de votre montre.</string>
+    <string name="guideWearOSSummary">Si vous portez une montre connectée Wear OS, vous pouvez télécharger l\'application Stratum pour obtenir des codes à partir de votre montre.</string>
     <!--
         QR code scanner
     -->
@@ -376,13 +376,13 @@
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Bienvenue dans Authenticator Pro</string>
+    <string name="introWelcomeTitle">Bienvenue dans Stratum</string>
     <string name="introCompatibilityTitle">Authentification en deux étapes</string>
     <string name="introBackupTitle">Sauvegarde et Restauration</string>
     <string name="introCategoriesTitle">Catégories</string>
     <string name="introThemesTitle">Thème Sombre</string>
-    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Authenticator Pro.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
-    <string name="introCompatibilitySummary">Authenticator Pro est compatible avec la plupart des comptes. C\'est 100 % compatible avec les services fonctionnant avec Google Authenticator.</string>
+    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Stratum.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
+    <string name="introCompatibilitySummary">Stratum est compatible avec la plupart des comptes. C\'est 100 % compatible avec les services fonctionnant avec Google Authenticator.</string>
     <string name="introBackupSummary">Sauvegardez vos authentificateurs avec un chiffrement fort. Au cas où vous perdriez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
     <string name="introCategoriesSummary">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>
     <string name="introThemesSummary">Si vous le souhaitez, il est possible d\'activer un thème sombre dans les paramètres. Toutes les icônes s\'adaptent à la couleur de fond.</string>
