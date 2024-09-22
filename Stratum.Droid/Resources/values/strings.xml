@@ -2,7 +2,7 @@
     <string name="appName" translatable="false">Stratum</string>
     
     <string name="githubRepo" translatable="false">https://github.com/jamie-mh/AuthenticatorPro</string>
-    <string name="latestIconPacks" translatable="false">https://github.com/jamie-mh/AuthenticatorProIcons/releases/latest</string>
+    <string name="website" translatable="false">https://stratumauth.com</string>
     <string name="buyMeACoffee" translatable="false">https://www.buymeacoffee.com/jamiemh</string>
     <string name="contactEmail" translatable="false">bpmu`dsAing/lf</string>
 

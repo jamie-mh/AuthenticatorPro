@@ -1252,8 +1252,7 @@ namespace Stratum.Droid.Activity
             var fragment = new ImportBottomSheet();
             fragment.GoogleAuthenticatorClicked += delegate
             {
-                StartWebBrowserActivity(GetString(Resource.String.githubRepo) +
-                                        "/wiki/Importing-from-Google-Authenticator");
+                StartWebBrowserActivity(GetString(Resource.String.website) + "/wiki/import-from-google-authenticator");
             };
 
             // Use */* mime-type for most binary files because some files might not show on older Android versions
@@ -1279,7 +1278,7 @@ namespace Stratum.Droid.Activity
 
             fragment.AuthyClicked += delegate
             {
-                StartWebBrowserActivity(GetString(Resource.String.githubRepo) + "/wiki/Importing-from-Authy");
+                StartWebBrowserActivity(GetString(Resource.String.website) + "/wiki/import-from-authy");
             };
 
             fragment.TotpAuthenticatorClicked += delegate
@@ -1294,13 +1293,13 @@ namespace Stratum.Droid.Activity
 
             fragment.BlizzardAuthenticatorClicked += delegate
             {
-                StartWebBrowserActivity(GetString(Resource.String.githubRepo) +
-                                        "/wiki/Importing-from-Blizzard-Authenticator");
+                StartWebBrowserActivity(GetString(Resource.String.website) +
+                                        "/wiki/import-from-blizzard-authenticator");
             };
 
             fragment.SteamClicked += delegate
             {
-                StartWebBrowserActivity(GetString(Resource.String.githubRepo) + "/wiki/Importing-from-Steam");
+                StartWebBrowserActivity(GetString(Resource.String.website) + "/wiki/import-from-steam");
             };
 
             fragment.UriListClicked += delegate { StartFilePickActivity("*/*", RequestImportUriList); };

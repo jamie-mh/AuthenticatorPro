@@ -185,7 +185,7 @@ namespace Stratum.Droid.Activity
 
         private void OnDownloadButtonClick(object sender, EventArgs e)
         {
-            var url = GetString(Resource.String.latestIconPacks);
+            var url = GetString(Resource.String.website) + "/icon-packs";
             StartWebBrowserActivity(url);
         }
 
