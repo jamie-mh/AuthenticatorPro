@@ -93,6 +93,7 @@
                 android:background="?selectableItemBackgroundBorderless"
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_more_vert_24"
+                android:contentDescription="@string/edit"
                 app:tint="?attr/colorOnSurface"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -105,6 +106,7 @@
                 android:background="?selectableItemBackgroundBorderless"
                 android:scaleType="centerInside"
                 android:src="@drawable/baseline_refresh_24"
+                android:contentDescription="@string/refresh"
                 app:tint="?attr/colorOnSurface"
                 app:layout_constraintStart_toEndOf="@id/buttonMenu"
                 app:layout_constraintBottom_toBottomOf="parent"

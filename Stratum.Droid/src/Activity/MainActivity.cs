@@ -701,6 +701,7 @@ namespace Stratum.Droid.Activity
             ProgressIndicator.Visibility = ViewStates.Visible;
             
             _bottomAppBar = FindViewById<BottomAppBar>(Resource.Id.bottomAppBar);
+            _bottomAppBar.SetNavigationContentDescription(Resource.String.mainMenu);
             _bottomAppBar.NavigationClick += OnBottomAppBarNavigationClick;
             _bottomAppBar.MenuItemClick += delegate
             {

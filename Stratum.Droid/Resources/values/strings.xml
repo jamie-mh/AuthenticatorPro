@@ -79,6 +79,7 @@
     <string name="digitsHint">Digits</string>
     <string name="periodHint">Period (seconds)</string>
     <string name="counterHint">Counter</string>
+    <string name="refresh">Refresh</string>
 
     <string name="noIssuer">An issuer is required</string>
     <string name="noSecret">A secret key is required</string>

@@ -44,7 +44,6 @@
             android:gravity="center"
             android:paddingEnd="32dp"
             android:paddingStart="32dp"
-            android:textSize="24dp"
             android:layout_marginTop="22dp"
             android:textAppearance="?attr/textAppearanceHeadline5"
             android:text="@string/noIconPacksTitle"/>
