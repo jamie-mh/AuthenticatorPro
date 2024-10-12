@@ -50,17 +50,20 @@
         <item>@string/portuguese</item>
         <item>@string/brazilianPortuguese</item>
         <item>@string/russian</item>
+        <item>@string/romanian</item>
         <item>@string/slovak</item>
         <item>@string/finnish</item>
         <item>@string/swedish</item>
         <item>@string/vietnamese</item>
         <item>@string/turkish</item>
+        <item>@string/czech</item>
         <item>@string/ukrainian</item>
         <item>@string/arabic</item>
         <item>@string/kannada</item>
         <item>@string/thai</item>
         <item>@string/japanese</item>
         <item>@string/chineseSimplified</item>
+        <item>@string/chineseTraditional</item>
         <item>@string/korean</item>
     </string-array>
     <string-array name="languageValues">
@@ -78,17 +81,20 @@
         <item>pt</item>
         <item>pt-BR</item>
         <item>ru</item>
+        <item>ro</item>
         <item>sk</item>
         <item>fi</item>
         <item>sv</item>
         <item>vi</item>
         <item>tr</item>
+        <item>cs</item>
         <item>uk</item>
         <item>ar</item>
         <item>kn-IN</item>
         <item>th</item>
         <item>ja</item>
         <item>zh-CN</item>
+        <item>zh-TW</item>
         <item>ko</item>
     </string-array>
 
