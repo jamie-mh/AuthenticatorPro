@@ -1,0 +1,83 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  FRAMEWORK: net8.0-android
+  CONFIGURATION: Release
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Android workload
+        run: dotnet workload install android
+
+      - name: Install Android platform tools
+        run: $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install platform-tools
+
+      - name: Prepare
+        run: |
+          echo "${{ secrets.KEYSTORE }}" | base64 -d > "$GITHUB_WORKSPACE/keystore.jks"
+
+      - name: Build Android APK
+        run: |
+          python extra/build.py android apk --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+
+      - name: Build Android APK (F-Droid)
+        run: |
+          python extra/build.py android apk --fdroid --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+
+      - name: Build Android AAB
+        run: |
+          python extra/build.py android aab --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+
+      - name: Build Wear OS APK
+        run: |
+          python extra/build.py wearos apk --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+
+      - name: Build Wear OS AAB
+        run: |
+          python extra/build.py wearos aab --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stratum (APK)
+          path: out/*.apk
+
+      - name: Upload AAB as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stratum (AAB)
+          path: out/*.aab
+
+      - name: Get changelog
+        run: |
+          VERSION_CODE=$(cat Stratum.Droid/Properties/AndroidManifest.xml | grep android:versionCode | sed -rn 's/.*versionCode="(.*)".*/\1/p')
+          CHANGELOG_PATH="fastlane/metadata/android/en-US/changelogs/$VERSION_CODE.txt"
+          echo "CHANGELOG_PATH=$CHANGELOG_PATH" >> $GITHUB_ENV
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            out/com.stratumauth.app-arm64-v8a.fdroid.apk
+            out/com.stratumauth.app-armeabi-v7a.fdroid.apk
+            out/com.stratumauth.app-x86.fdroid.apk
+            out/com.stratumauth.app-x86_64.fdroid.apk
+            out/com.stratumauth.app.apk
+            out/com.stratumauth.app.fdroid.apk
+            out/com.stratumauth.app.wearos.apk
+          token: "${{ secrets.GH_TOKEN }}"
+          discussion_category_name: "General"
+          body_path: "${{ env.CHANGELOG_PATH }}"
+          make_latest: true
