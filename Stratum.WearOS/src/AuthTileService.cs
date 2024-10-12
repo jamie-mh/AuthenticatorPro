@@ -22,7 +22,7 @@ using Stratum.WearOS.Util;
 namespace Stratum.WearOS
 {
     [Service(Exported = true, Permission = "com.google.android.wearable.permission.BIND_TILE_PROVIDER",
-        Label = "@string/appName")]
+        Label = "@string/displayName")]
     [IntentFilter(new[] { ActionBindTileProvider })]
     [MetaData(MetadataPreviewKey, Resource = "@drawable/tile_preview")]
     public class AuthTileService : TileService

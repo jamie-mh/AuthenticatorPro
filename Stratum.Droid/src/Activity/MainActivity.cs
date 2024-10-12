@@ -57,7 +57,7 @@ using UriParser = Stratum.Core.UriParser;
 
 namespace Stratum.Droid.Activity
 {
-    [Activity(Label = "@string/appName", Theme = "@style/MainActivityTheme", MainLauncher = true,
+    [Activity(Label = "@string/displayName", Theme = "@style/MainActivityTheme", MainLauncher = true,
         Icon = "@mipmap/ic_launcher", WindowSoftInputMode = SoftInput.AdjustPan,
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
