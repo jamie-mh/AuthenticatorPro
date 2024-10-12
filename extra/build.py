@@ -11,7 +11,7 @@ import contextlib
 import xml.etree.ElementTree as ElementTree
 from typing import Generator
 
-REPO = "https://github.com/jamie-mh/AuthenticatorPro.git"
+REPO = "https://github.com/stratumauth/app.git"
 
 FRAMEWORK = "net8.0-android"
 CONFIGURATION = "Release"

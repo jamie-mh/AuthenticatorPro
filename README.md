@@ -1,6 +1,6 @@
-![GitHub](https://img.shields.io/github/license/jamie-mh/AuthenticatorPro?style=flat)
-![GitHub stars](https://img.shields.io/github/stars/jamie-mh/AuthenticatorPro?style=flat)
-![GitHub last commit](https://img.shields.io/github/last-commit/jamie-mh/AuthenticatorPro?style=flat)
+![GitHub](https://img.shields.io/github/license/stratumauth/app?style=flat)
+![GitHub stars](https://img.shields.io/github/stars/stratumauth/app?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/stratumauth/app?style=flat)
 [![Crowdin](https://badges.crowdin.net/authenticator-pro/localized.svg)](https://crowdin.com/project/authenticator-pro)
 
 ![Stratum](./doc/RebrandingMaterial/Wordmark.png)
@@ -21,23 +21,23 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 
 ## Quick Links 🔗
 
-[Request Icons](https://github.com/jamie-mh/AuthenticatorPro/issues/new?assignees=&labels=enhancement&template=icon_request.md&title=)
+[Request Icons](https://github.com/stratumauth/app/issues/new?assignees=&labels=enhancement&template=icon_request.md&title=)
  
-[Frequently Asked Questions](https://github.com/jamie-mh/AuthenticatorPro/wiki#frequently-asked-questions)
+[Frequently Asked Questions](https://github.com/stratumauth/app/wiki#frequently-asked-questions)
 
-[Contribution Guide](https://github.com/jamie-mh/AuthenticatorPro/blob/master/CONTRIBUTING.md)
+[Contribution Guide](https://github.com/stratumauth/app/blob/master/CONTRIBUTING.md)
 
-[Backup File Format](https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md)
+[Backup File Format](https://github.com/stratumauth/app/blob/master/doc/BACKUP_FORMAT.md)
 
 ### Importing from other apps:
 
-[Google Authenticator](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Google-Authenticator)
+[Google Authenticator](https://github.com/stratumauth/app/wiki/Importing-from-Google-Authenticator)
 
-[Blizzard Authenticator](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Blizzard-Authenticator)
+[Blizzard Authenticator](https://github.com/stratumauth/app/wiki/Importing-from-Blizzard-Authenticator)
 
-[Steam](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Steam)
+[Steam](https://github.com/stratumauth/app/wiki/Importing-from-Steam)
 
-[Authy](https://github.com/jamie-mh/AuthenticatorPro/wiki/Importing-from-Authy)
+[Authy](https://github.com/stratumauth/app/wiki/Importing-from-Authy)
 
 ## Features 🪄
 
