@@ -11,7 +11,7 @@ A free open-source two factor authentication app for Android. It features encryp
 It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
 ## Download ⬇️
-[<img alt="Get it on Google Play" height="100" src="./doc/googleplay.png">](https://play.google.com/store/apps/details?id=me.jmh.authenticatorpro)
+[<img alt="Get it on Google Play" height="100" src="./doc/googleplay.png">](https://play.google.com/store/apps/details?id=com.stratumauth.app)
 [<img alt="Get it on F-Droid" height="100" src="./doc/izzyondroid.png">](https://apt.izzysoft.de/fdroid/index/apk/me.jmh.authenticatorpro)
 
 > Stratum is currently only available on the F-Droid client through the [IzzyOnDroid repo](https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
