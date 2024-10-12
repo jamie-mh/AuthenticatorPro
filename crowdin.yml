@@ -1,3 +1,4 @@
+preserve_hierarchy: true
 files:
   - source: /Stratum.Droid/Resources/values/strings.xml
     translation: /Stratum.Droid/Resources/values-%two_letters_code%/strings.xml
