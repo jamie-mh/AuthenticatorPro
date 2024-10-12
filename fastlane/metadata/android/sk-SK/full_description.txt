@@ -1,33 +1,33 @@
-Bezplatná aplikácia s otvoreným zdrojovým kódom pre dvojfaktorové overovanie pre operačný systém Android.  Ponúka šifrované zálohy, ikony, kategórie a vysokú úroveň prispôsobenia. Má tiež sprievodnú aplikáciu pre Wear OS.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-Podporuje TOTP (časovo založené) a HOTP (počítadlovo založené) autentifikátory pomocou SHA1, SHA256 alebo SHA512 hašovacích algoritmov. Mobile-Otp (mOTP), Steam a Yandex sú taktiež podporované.
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-Dvojfaktorové overenie poskytuje vašim účtom ďalšiu úroveň zabezpečenia tým, že na prihlásenie vyžaduje použitie jednorazového kódu.
-Okrem používateľského mena a hesla budete potrebovať kód poskytnutý aplikáciou Authenticator Pro. Takže aj keď sú vaše prihlasovacie údaje napadnuté, váš účet zostáva v bezpečí.
-
-<hr>
-
-<b>Funkcie</b>
-
-- ⚙️ <b>Kompatibilita</b>: Authenticator Pro je kompatibilný s väčšinou poskytovateľov a účtov.
-- 📲 <b>Import</b>: Jednoduché prenesenie účtov do aplikácie Authenticator Pro z podporovaných alternatívnych aplikácií.
-- 💾 <b>Záloha / Obnova</b>: Zálohujte svoje autentifikátory pomocou silného šifrovania. V prípade straty alebo zmeny telefónu môžete vždy získať prístup k svojim účtom. Zálohy môžete uložiť na cloudové úložisko alebo do svojho zariadenia.
-- 🌙 <b>Tmavý režim</b>: Authenticator Pro má krásny vzhľad inšpirovaný tzv. material dizajnom v svetlom alebo tmavom režime.
-- ⏺️ <b>Ikony</b>: Autentifikátory ľahko nájdete vďaka rozpoznateľným logám a ikonám vedľa každého kódu.
-- 📂 <b>Kategórie</b>: Usporiadajte si svoje autentifikátory do kategórií.
-- 🔒 <b>Offline s minimálnymi oprávneniami</b>: Authenticator Pro vyžaduje len jedno povolenie¹ a na svoju činnosť nevyžaduje prístup na internet.
-- 🔑 <b>Zabezpečenie</b>: Nastavte heslo a použite biometrické overovanie na ochranu svojich kódov.
-- 🎨 <b>Prispôsobenie</b>: Nastavte ikony a premenujte ich. Svoje autentifikátory si tiež môžete usporiadať v ľubovoľnom poradí, aby ste ich mohli ľahko nájsť.
-- ⌚ <b>Wear OS</b>: Rýchle zobrazenie autentifikátorov priamo z Vašich hodiniek. You can even set a favourite and place it in a tile. Upozorňujeme, že je potrebné pripojenie k vášmu zariadeniu Android. Ďalej platí, že F-Droid distribúcie nie sú kompatibilné so systémom Wear OS, pretože sa vyžadujú neslobodné závislosti.
-
-(¹) *Ak chcete skenovať QR kódy, aplikácia vyžaduje povolenie fotoaparátu.*
-
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> ČASTO KLADENÉ OTÁZKY</b></a>
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
+In addition to your username and password, you will need a code provided by Stratum. So even if your login details are compromised, your account remains safe.
 
 <hr>
 
-<b>Vyhlásenie o odmietnutí zodpovednosti</b>
+<b>Features</b>
 
-Tento program je slobodný softvér: môžete ho šíriť a upravovať podľa ustanovení Všeobecnej verejnej licencie GNU (GNU General Public Licence), vydávanej nadáciou Free Software Foundation a to buď podľa 3. verzie tejto Licencie, alebo (podľa vášho uváženia) ktorejkoľvek neskoršej verzie.
+- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-Tento program je rozširovaný v nádeji, že bude užitočný, avšak BEZ AKEJKOĽVEK ZÁRUKY. Neposkytujú sa ani odvodené záruky PREDAJNOSTI alebo VHODNOSTI PRE URČITÝ ÚČEL. Ďalšie podrobnosti hľadajte vo Všeobecnej verejne licencii GNU.
+(¹) *To scan QR-Codes, the app requires the camera permission.*
+
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+
+<hr>
+
+<b>Disclaimer</b>
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

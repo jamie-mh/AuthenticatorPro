@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">Keine Schlüssel</string>
-    <string name="noAuthenticatorsMessage">Hier ist nichts. Füge in der Handyapp einen Schlüssel hinzu.</string>
-    <string name="hotpNotSupported">HOTP wird nicht unterstützt</string>
-    <string name="categoryAll">Alle</string>
+    <string name="noAuthenticators">No Authenticators</string>
+    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
+    <string name="hotpNotSupported">HOTP not supported</string>
+    <string name="categoryAll">All</string>
     <string name="offline">Offline</string>
-    <string name="syncFailed">Synchronisierung fehlgeschlagen</string>
-    <string name="noFavourite">Kein Favorit</string>
-    <string name="noFavouriteMessage">Tippe lange auf einen Authentifikator in der App, um diesen einzustellen</string>
-    <string name="open">Öffnen</string>
+    <string name="syncFailed">Sync failed</string>
+    <string name="noFavourite">No favourite</string>
+    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
+    <string name="open">Open</string>
 </resources>

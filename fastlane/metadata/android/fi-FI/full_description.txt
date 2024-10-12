@@ -1,33 +1,33 @@
-Ilmainen avoimen lähdekoodin kaksivaiheinen todennussovellus Androidille. Se sisältää salatut varmuuskopiot, kuvakkeet, luokat ja paljon mukautettavia asetuksia. Sillä on myös Wear OS -kumppanisovellus.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-Se tukee SHA1-, SHA256- tai SHA512-hajautusalgoritmeja käyttäviä TOTP (aikaan perustuvia) ja HOTP (laskuriin perustuvia) -todentajia. Mobile-Otp (mOTP), Steam ja Yandex ovat myös tuettuja.
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-Kaksivaiheinen todennus tarjoaa ylimääräisen turvallisuuden kerroksen tileillesi edellyttämällä kertaluonteisen koodin käyttöä sisäänkirjautuessa.
-Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antamaa koodia. Joten tilisi pysyy turvassa, vaikka kirjautumistietosi olisivat vaarantuneet.
-
-<hr>
-
-<b>Ominaisuudet</b>
-
-- ⚙️ <b>Yhteensopivuus</b>: Authenticator Pro on yhteensopiva useimpien palveluntarjoajien ja tilien kanssa.
-- 📲 <b>Tuonti</b>: Siirrä tilisi helposti Authenticator Prohon tuetuista vaihtoehtoisista sovelluksista.
-- 💾 <b>Varmuuskopioi / palauta</b>: Varmuuskopioi todentajasi vahvalla salauksella. Pääset aina käsiksi tileihisi, vaikka kadottaisit tai vaihtaisit puhelintasi. Voit tallentaa varmuuskopiot pilvipalveluun tai laitteeseesi.
-- 🌙 <b>Tumma tila</b>: Authenticator Prolla on kaunis "Material Designin" innoittama ulkoasu joko vaalealla tai tummalla teemalla.
-- ⏺️ <b>Kuvakkeet</b>: Löydä todentajasi helposti tunnistettavien merkkilogojen ja kuvakkeiden avulla kunkin koodin vieressä.
-- 📂 <b>Kategoriat</b>: Järjestä todentajasi kategorioihin.
-- 🔒 <b>Offline-tila ja vain muutamalla luvalla</b>: Authenticator Pro vaatii vain yhden luvan¹, eikä se vaadi Internet-yhteyttä toimiakseen.
-- 🔑 <b>Turvallisuus</b>: Aseta salasana ja käytä biometristä todennusta koodiesi suojaukseen.
-- 🎨 <b>Mukautus</b>: Aseta kuvakkeita ja nimeä uudelleen. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
-- ⌚ <b>Wear OS</b>: Näet todentajasi suoraan kellostasi. Voit jopa valita suosikkisi ja sijoittaa sen laattaan. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Lisäksi sovelluksen F-Droid-versiot eivät ole yhteensopivia Wear OS:n kanssa, koska ne vaativat ei-ilmaisia riippuvuuksia.
-
-(¹) *Sovellus vaatii kameran luvan QR-koodien skannaamiseen.*
-
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> UKK</b></a>
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
+In addition to your username and password, you will need a code provided by Stratum. So even if your login details are compromised, your account remains safe.
 
 <hr>
 
-<b>Vastuuvapauslauseke</b>
+<b>Features</b>
 
-Tämä on ilmainen sovellus: voit levittää sitä edelleen ja/tai muokata sitä Free Software Foundationin "GNU General Public License" -lisenssin 3. version (tai halutessasi uudemman) mukaisesti.
+- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-Tätä ohjelmaa levitetään siinä toivossa, että se olisi hyödyllinen, mutta ILMAN MITÄÄN TAKUITA; ilman edes hiljaista takuuta kaupallisesti hyväksyttävästä laadusta tai soveltuvuudesta tiettyyn tarkoitukseen. Katso lisätietoja GNU General Public Licensestä.
+(¹) *To scan QR-Codes, the app requires the camera permission.*
+
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+
+<hr>
+
+<b>Disclaimer</b>
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

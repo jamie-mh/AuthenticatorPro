@@ -1,33 +1,33 @@
-Ứng dụng xác thực hai yếu tố miễn phí và mã nguồn mở cho Android. Có tính năng mã hóa sao lưu, biểu tượng, danh mục với mức độ tùy chỉnh cao. Nó cũng có ứng dụng cho đồng hồ Wear OS.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-Nó hỗ trợ các trình xác thực TOTP (dựa trên thời gian) và HOTP (dựa trên bộ đếm) sử dụng các thuật toán băm SHA1, SHA256 hoặc SHA512. Nó cũng hỗ trợ mOTP (Mobile-Otp), Steam và Yandex.
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-Xác thực hai yếu tố cung cấp một lớp bảo mật bổ sung cho tài khoản của bạn bằng cách yêu cầu sử dụng một mã một lần để đăng nhập.
-Ngoài tên người dùng và mật khẩu của bạn, bạn sẽ cần một mã được cung cấp bởi Authenticator Pro. Vậy nếu chi tiết đăng nhập của bạn bị lộ, tài khoản của bạn vẫn an toàn.
-
-<hr>
-
-<b>Tính năng</b>
-
-- ⚙️ <b>Tương thích</b>Authenticator Pro tương thích với hầu hết các nhà cung cấp và tài khoản.
-- 📲 <b>Nhập</b>: Dễ dàng chuyển đổi tài khoản của bạn sang Authenticator Pro từ các ứng dụng thay thế được hỗ trợ.
-- 💾 <b>Sao lưu / Khôi phục</b>: Sao lưu các trình xác thực của bạn với mã hóa mạnh mẽ. Trong trường hợp bạn mất hoặc thay đổi điện thoại, bạn luôn có thể truy cập vào các tài khoản của mình. Bạn có thể lưu bản sao lưu vào lưu trữ đám mây hoặc vào thiết bị của mình.
-- 🌙 <b>Chế độ Tối</b>: Authenticator Pro có giao diện thiết kế đẹp mắt với các chủ đề sáng hoặc tối.
-- ⏺️ <b>Biểu tượng</b>: Tìm các trình xác thực của bạn dễ dàng với các biểu tượng và biểu tượng nhận diện thương hiệu rõ ràng bên cạnh mỗi mã.
-- 📂 <b>Danh mục</b>: Tổ chức các trình xác thực của bạn vào các danh mục.
-- 🔒 <b>Ngoại tuyến với ít quyền hạn</b>: Authenticator Pro chỉ yêu cầu một quyền hạn¹ và không cần truy cập Internet để hoạt động.
-- 🔑 <b>Bảo mật</b>: Đặt mật khẩu và sử dụng xác thực sinh học để bảo vệ mã của bạn.
-- 🎨 <b>Tùy chỉnh</b>: Đặt biểu tượng và đổi tên. Bạn cũng có thể sắp xếp các trình xác thực của mình theo bất kỳ thứ tự nào bạn muốn để bạn có thể tìm thấy chúng một cách dễ dàng.
-- ⌚ <b>Wear OS</b>: Xem nhanh các trình xác thực từ đồng hồ của bạn. Bạn cũng có thể đặt một mục yêu thích và đặt nó vào một ô. Vui lòng lưu ý rằng cần có kết nối với thiết bị Android của bạn. Hơn nữa, các bản phân phối của ứng dụng trên F-Droid không tương thích với Wear OS, vì cần có các phụ thuộc.
-
-(¹) *Để quét mã QR, ứng dụng yêu cầu quyền truy cập máy ảnh.*
-
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>Các câu hỏi thường gặp</b></a>
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
+In addition to your username and password, you will need a code provided by Stratum. So even if your login details are compromised, your account remains safe.
 
 <hr>
 
-<b>Thông báo miễn trừ trách nhiệm</b>
+<b>Features</b>
 
-Chương trình này là phần mềm miễn phí: bạn có thể phân phối lại và/hoặc sửa đổi nó theo các điều khoản của Giấy phép Công cộng GNU được xuất bản bởi Quỹ Phần mềm Tự do, phiên bản 3 của Giấy phép hoặc (theo quyết định của bạn) bất kỳ phiên bản sau này.
+- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
+- 📂 <b>Categories</b>: Organise your authenticators into categories.
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
+- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-Chương trình này được phân phối với hy vọng rằng nó sẽ hữu ích, nhưng KHÔNG CÓ BẤT KỲ BẢO HÀNH NÀO; thậm chí không có bảo hành về TÍNH THƯƠNG MẠI hoặc PHÙ HỢP VỚI MỘT MỤC ĐÍCH CỤ THỂ. Xem Giấy phép Công cộng GNU để biết thêm chi tiết.
+(¹) *To scan QR-Codes, the app requires the camera permission.*
+
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+
+<hr>
+
+<b>Disclaimer</b>
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

@@ -1,1 +1,1 @@
-Application 2FA gratuite et open-source avec sauvegardes chiffrées
+Free and open-source 2FA app with encrypted backups

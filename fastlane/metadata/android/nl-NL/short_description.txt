@@ -1,1 +1,1 @@
-Gratis en open-source 2FA app met versleutelde backups
+Free and open-source 2FA app with encrypted backups

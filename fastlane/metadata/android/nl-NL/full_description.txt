@@ -1,33 +1,33 @@
-Een gratis, open-source app voor tweefactorauthenticatie voor Android. Het beschikt over versleutelde back-ups, pictogrammen, categorieën en een hoge mate van aanpassing. Het heeft ook een Wear OS companion app.
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-Het ondersteunt TOTP (Time Based) en HOTP (Counter Based) authenticators die SHA1, SHA256 of SHA512 hashing algoritmen gebruiken. Mobile-Otp (mOTP), Steam en Yandex worden ook ondersteund.
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-Authenticatie in 2 stappen biedt een extra beveiligingslaag voor je accounts door het vereisen van een eenmalige code om in te loggen.
-Naast uw gebruikersnaam en wachtwoord heeft u een door Authenticator Pro opgegeven code nodig. Dus zelfs als je inloggegevens gelekt zijn, blijft je account veilig.
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
+In addition to your username and password, you will need a code provided by Stratum. So even if your login details are compromised, your account remains safe.
 
 <hr>
 
-<b>Kenmerken:</b>
+<b>Features</b>
 
-- ⚙️ <b>Compatibiliteit</b>: Authenticator Pro is compatibel met de meeste providers en accounts.
-- 📲 <b>Importeer</b>: migreer uw accounts eenvoudig van ondersteunde alternatieve apps naar Authenticator Pro.
+- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
 - 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
 - ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
 - 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
 - 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. Je kunt je authenticatoren ordenen in elke gewenste volgorde, zodat je ze gemakkelijk kunt vinden.
+- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
 - ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 
-<b>Disclaimer:</b>
+<b>Disclaimer</b>
 
-Deze applicatie is vrije software: je mag deze herdistribueren en/of aanpassen volgens de voorwaarden van de GNU General Public License die door de Free Software Foundation is gepubliceerd, ofwel versie 3 van de licentie, of (als eigen keuze) elke latere versie.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Deze applicatie is gedistribueerd in de hoop dat deze nuttig zal zijn, maar ZONDER ENIGE GARANTIE; zelf zonder de implicite garantie van VERKOOPBAARHEID of GESCHIKTHEID VOOR EEN BEPAALD DOEL. Zie de GNU General Public License voor meer details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

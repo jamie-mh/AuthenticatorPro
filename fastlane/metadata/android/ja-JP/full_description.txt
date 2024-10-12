@@ -1,33 +1,33 @@
-Android用のオープンソースで自由な2要素認証アプリ。 バックアップの暗号化、アイコンやカテゴリーなど、高度なカスタマイズに対応しています。 また、Wear OSのコンパニオンアプリもあります。
+A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-SHA1、SHA256またはSHA512のいずれかのハッシュアルゴリズムのいずれかを使用する、TOTP(時刻同期型)およびHOTP(カウンタ同期型)の認証方式に対応しています。 モバイルOTP(mOTP)、Steam、Yandexにも対応しています。
+It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
-2要素認証（2FA）は、ログインにワンタイムコードを使用することで、アカウントに追加のセキュリティを提供します。
-ユーザー名とパスワードに加えて、Authenticator Proによって提供されるコードが必要になります。 そのため、ログイン情報が漏洩した場合でも、アカウントは安全です。
+2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
+In addition to your username and password, you will need a code provided by Stratum. So even if your login details are compromised, your account remains safe.
 
 <hr>
 
-<b>特徴</b>
+<b>Features</b>
 
-- ⚙️ <b>互換性</b>: Authenticator Proはほとんどのサービスのプロバイダーやアカウントと互換性があります。
-- 📲 <b>インポート</b>: 対応している他のアプリから、Authenticator Proへアカウントを簡単に移行できます。
-- 💾 <b>バックアップ / リストア</b>: 強力な暗号であなたの認証データをバックアップします。 携帯電話を紛失、あるいは、機種変更をした場合でも、自分のアカウントにアクセスできます。 バックアップをクラウドストレージまたはデバイスに保存できます。
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
+- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
+- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
+- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
 - ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
 - 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
 - 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. また、認証コードを自由に並び替えて、簡単に見つけることができます。
+- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
 - ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
 
-(1) *QRコードをスキャンするには、カメラの許可が必要です。*
+(¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 
-<b>免責事項</b>
+<b>Disclaimer</b>
 
-このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行されたGNU 一般公衆利用許諾書 (バージョン3か、それ以降のバージョンのうちどれか) が定める条件の下で再頒布または改変することができます。
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-このプログラムは有用であることを期待して配布されていますが、いかなる保証もありません。商品性または特定目的への適合性の暗黙の保証さえも含みません。  詳細については、GNU General Public Licenseを参照してください。 法的な詳細については、https://www.gnu.org/licenses/を参照してください。
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

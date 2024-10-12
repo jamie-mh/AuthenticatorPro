@@ -3,320 +3,320 @@
     <!-- 
         Non-specific strings
     -->
-    <string name="warning">Upozornenie</string>
-    <string name="delete">Odstrániť</string>
-    <string name="add">Pridať</string>
-    <string name="edit">Upraviť</string>
-    <string name="cancel">Zrušiť</string>
+    <string name="warning">Warning</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
-    <string name="yes">Áno</string>
-    <string name="no">Nie</string>
-    <string name="close">Zatvoriť</string>
-    <string name="error">Chyba</string>
-    <string name="retry">Skúsiť znova</string>
-    <string name="ignore">Ignorovať</string>
-    <string name="disable">Zakázať</string>
-    <string name="name">Názov</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="close">Close</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="ignore">Ignore</string>
+    <string name="disable">Disable</string>
+    <string name="name">Name</string>
     <!-- 
         Menu items
     -->
-    <string name="settings">Nastavenia</string>
-    <string name="restore">Obnoviť</string>
-    <string name="backup">Zálohovať</string>
-    <string name="about">O aplikácii</string>
-    <string name="scanQrCode">Naskenovať QR kód</string>
-    <string name="showQrCode">Zobraziť QR kód</string>
-    <string name="editDetails">Upraviť podrobnosti</string>
-    <string name="scanQrCodeFromCamera">Naskenovať pomocou fotoaparátu</string>
-    <string name="scanQrCodeFromGallery">Naskenovať z galérie</string>
-    <string name="rename">Premenovať</string>
-    <string name="changeIcon">Zmeniť ikonu</string>
-    <string name="search">Vyhľadávanie</string>
-    <string name="mainMenu">Hlavné menu</string>
-    <string name="enterKey">Zadajte poskytnutý kľúč</string>
-    <string name="restoreBackup">Obnoviť zálohu</string>
-    <string name="sort">Zoradiť</string>
-    <string name="sortAZ">Abecedné (A-Z)</string>
-    <string name="sortZA">Abecedné (Z-A)</string>
-    <string name="sortMostCopied">Najpoužívanejšie</string>
-    <string name="sortLeastCopied">Málo používané</string>
-    <string name="sortCustom">Vlastné</string>
-    <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
-    <string name="supportDevelopment">Podporiť vývoj</string>
-    <string name="supportDevelopmentSummary">Podporte ďalší vývoj a aktualizácie aplikácií Buy Me a Coffee</string>
-    <string name="rate">Ohodnotiť</string>
-    <string name="rateSummary">Ohodnotiť Stratum v obchode Google Play</string>
-    <string name="viewGitHub">Zobraziť na stránke GitHub</string>
-    <string name="viewGitHubSummary">Zobraziť repozitár aplikácie Stratum na stránke GitHub. Môžete nahlásiť chybu, požiadať viac ikon a funkcií.</string>
+    <string name="settings">Settings</string>
+    <string name="restore">Restore</string>
+    <string name="backup">Back up</string>
+    <string name="about">About</string>
+    <string name="scanQrCode">Scan a QR code</string>
+    <string name="showQrCode">Show QR code</string>
+    <string name="editDetails">Edit details</string>
+    <string name="scanQrCodeFromCamera">Scan from camera</string>
+    <string name="scanQrCodeFromGallery">Scan from gallery</string>
+    <string name="rename">Rename</string>
+    <string name="changeIcon">Change icon</string>
+    <string name="search">Search</string>
+    <string name="mainMenu">Main menu</string>
+    <string name="enterKey">Enter a provided key</string>
+    <string name="restoreBackup">Restore a backup</string>
+    <string name="sort">Sort</string>
+    <string name="sortAZ">Alphabetical (a to z)</string>
+    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortCustom">Custom</string>
+    <string name="aboutSummary">View about and license information</string>
+    <string name="supportDevelopment">Support development</string>
+    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
+    <string name="rate">Rate</string>
+    <string name="rateSummary">Rate Stratum on the Google Play store</string>
+    <string name="viewGitHub">View on GitHub</string>
+    <string name="viewGitHubSummary">View the Stratum repository on GitHub. You can report an issue, request more icons and features.</string>
     <!--
         Authenticator
     -->
-    <string name="issuer">Vydavateľ</string>
-    <string name="username">Používateľské meno</string>
-    <string name="secretKey">Tajný kľúč</string>
+    <string name="issuer">Issuer</string>
+    <string name="username">Username</string>
+    <string name="secretKey">Secret key</string>
     <string name="pin">Pin</string>
-    <string name="showAdvancedOptions">Zobraziť pokročilé nastavenia</string>
-    <string name="advancedOptionsWarning">Zmeň len vtedy ak vieš čo robíš, mohol by si stratiť prístup do svojho účtu.\n\nPokračovať?</string>
-    <string name="confirmAuthenticatorDelete">Odstránenie tohto autentifikátora vám zabráni vygenerovať kódy pre tento účet. To neznamená, že dvojfaktorová autentifikácia bude vypnutá.\n\nOdstránenie tohto autentifikátora vám môže zabrániť v prístupe k vášmu účtu.\nUistite sa, že je deaktivovaná dvojfaktorová autentifikácia alebo že máte kódy pre obnovenie.\n\nPokračovať?</string>
-    <string name="useCustomIcon">Použiť vlastnú ikonu</string>
-    <string name="copiedToClipboard">Kód skopírovaný do schránky</string>
-    <string name="issuerHint">Vydavateľ (napr. Google)</string>
+    <string name="showAdvancedOptions">Show advanced options</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="useCustomIcon">Use custom icon</string>
+    <string name="copiedToClipboard">Code copied to clipboard</string>
+    <string name="issuerHint">Issuer (eg: Google)</string>
     <!-- Keep domain example.com as described in RFC6761 -->
-    <string name="usernameHint">Používateľské meno (napr. jan@example.com)</string>
-    <string name="typeHint">Typ</string>
-    <string name="algorithmHint">Algoritmus</string>
-    <string name="digitsHint">Číslice</string>
-    <string name="periodHint">Perióda (v sekundách)</string>
-    <string name="counterHint">Počítadlo</string>
-    <string name="noIssuer">Vydavateľ je povinný</string>
-    <string name="noSecret">Tajný kľúč je povinný</string>
-    <string name="noPin">Pin je povinný</string>
-    <string name="noFileName">Názov súboru je povinný</string>
-    <string name="secretInvalid">Tajný kľúč je neplatný</string>
-    <string name="pinTooShort">Pin musí obsahovať najmenej {0} číslic</string>
-    <string name="pinTooLong">Pin nemôže obsahovať viac ako {0} číslic</string>
-    <string name="digitsInvalid">Autentikátor musí generovať {0} až {1} číslic</string>
-    <string name="periodInvalid">Perióda je neplatná</string>
-    <string name="counterInvalid">Počítadlo je neplatné</string>
-    <string name="qrCodeFormatError">QR kód nie je v správnom formáte alebo nemôže byť prečítaný</string>
+    <string name="usernameHint">Username (eg: john@example.com)</string>
+    <string name="typeHint">Type</string>
+    <string name="algorithmHint">Algorithm</string>
+    <string name="digitsHint">Digits</string>
+    <string name="periodHint">Period (seconds)</string>
+    <string name="counterHint">Counter</string>
+    <string name="refresh">Refresh</string>
+    <string name="noIssuer">An issuer is required</string>
+    <string name="noSecret">A secret key is required</string>
+    <string name="noPin">A pin is required</string>
+    <string name="noFileName">A file name is required</string>
+    <string name="secretInvalid">The secret is invalid</string>
+    <string name="pinTooShort">The pin must contain at least {0} digits</string>
+    <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
+    <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
+    <string name="periodInvalid">The period is invalid</string>
+    <string name="counterInvalid">The counter is invalid</string>
+    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
     <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
-    <string name="duplicateAuthenticator">Autentifikátor s týmto tajným kľúčom už existuje</string>
-    <string name="scanSuccessful">QR kód úspešne naskenovaný</string>
+    <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
+    <string name="scanSuccessful">QR code scanned successfully</string>
     <string name="pinMessage">Enter the pin associated with this QR code</string>
     <!--
         Icon packs
     -->
-    <string name="defaultIcons">Predvolené ikony</string>
-    <string name="iconPacks">Balíčky ikon</string>
-    <string name="downloadPacks">Siahnuť balíčky</string>
-    <string name="importIconPackSuccess">Importovaných {0} ikon z balíčka</string>
-    <string name="invalidIconPackError">Vybraný súbor nie je z balíčka ikon Stratum</string>
-    <string name="confirmIconPackDelete">Naozaj chceš odstrániť tento balík ikon? Všetky použité ikony nebudú odstránené.</string>
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="downloadPacks">Download packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Stratum icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
     <!--
         QR code dialog
     -->
-    <string name="qrCode">QR kód</string>
-    <string name="qrCodeHelp">Kopírovať autentifikátor do iného zariadenia alebo aplikácie naskenovaním QR kódu</string>
-    <string name="qrCodeNotSupported">QR kódy tohto typu nie sú podporované</string>
-    <string name="copyUri">Kopírovať URI</string>
-    <string name="copyUriWarning">Táto URI obsahuje tajný kľúč v textovej podobe. Buď opatrný kam ho vkladáš.\n\nPokračovať?</string>
-    <string name="uriCopiedToClipboard">URI skopírovaný do schránky</string>
+    <string name="qrCode">QR code</string>
+    <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
+    <string name="qrCodeNotSupported">QR codes are not supported for this type</string>
+    <string name="copyUri">Copy URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
     <!--
         Backup menu
     -->
-    <string name="backupToFile">Zálohovať do zašifrovaného súboru (odporúčané)</string>
-    <string name="backupToFileMessage">Uložiť všetky vaše autentifikátory, kategórie a ikony do zašifrovaného súboru. Tento súbor môže byť obnovený v rámci aplikácie.</string>
-    <string name="backupHtml">Zálohovať do HTML súboru</string>
-    <string name="backupHtmlMessage">Uložiť vaše autentifikátory do nezašifrovaného HTML dokumentu s QR kódmi. Pre obnovenie musia byť tieto kódy naskenované individuálne.</string>
-    <string name="backupHtmlWarning">Zálohy do HTML súborov sú nezašifrované a môžu viesť k zneužitiu vašich tajných kľúčov.\n\nTento súbor nemôže byť obnovený v rámci aplikácie a neobsahuje kategórie a ikony. Ak si nie ste istí, rozhodnite sa radšej pre zálohu do šifrovaného súboru.\n\nPokračovať?</string>
-    <string name="backupUriList">Zálohovanie do súboru zoznamu URI</string>
-    <string name="backupUriListMessage">Uložte svoje autentifikátory do nešifrovaného textového súboru zoznamu URI. Tento súbor je kompatibilný s mnohými alternatívnymi aplikáciami a službami. Kategórie a ikony sa neukladajú.</string>
-    <string name="backupUriListWarning">Zálohovanie do textových súborov je nešifrované a môže spôsobiť, že vaše tajné kľúče budú zraniteľné.\n\nTento súbor neobsahuje kategórie a ikony. Ak si nie ste istí, vyberte si radšej zálohovanie šifrovaných súborov.\n\nPokračovať?</string>
+    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
+    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. To restore, these codes must be scanned individually. Categories and icons are not saved.</string>
+    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriList">Back up to URI list file</string>
+    <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
+    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
-    <string name="noAuthenticatorsTitle">Nič tu nie je!</string>
-    <string name="noAuthenticatorsMessage">Zatiaľ nemáte žiadne autentifikátory</string>
-    <string name="gettingStartedGuide">Príručka pre nováčikov</string>
-    <string name="noAuthenticatorsHelp">Ak ste nový používateľ aplikácie Stratum môžete zobraziť príručku pre začiatočníkov kliknutím nižšie.</string>
-    <string name="noCategoriesTitle">Žiadne kategórie</string>
-    <string name="noCategoriesMessage">Zatiaľ nemáte nastavené žiadne kategórie</string>
-    <string name="noIconPacksTitle">Žiadne balíčky ikon</string>
-    <string name="noIconPacksMessage">Zatiaľ nemáš nastavené žiadne balíčky ikon</string>
+    <string name="noAuthenticatorsTitle">Nothing here!</string>
+    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here</string>
+    <string name="gettingStartedGuide">Getting started guide</string>
+    <string name="noAuthenticatorsHelp">If you\'re new to Stratum, view the getting started guide by clicking below.</string>
+    <string name="noCategoriesTitle">No categories</string>
+    <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
     <!--
         Categories
     -->
-    <string name="category">Kategória</string>
-    <string name="categories">Kategórie</string>
-    <string name="assignCategories">Priradiť kategórie</string>
-    <string name="assignEntries">Priraď položky</string>
-    <string name="more">Viac</string>
-    <string name="categoryAll">Všetko</string>
-    <string name="editCategories">Upraviť kategórie</string>
-    <string name="noCategoryName">Názov kategórie je povinný</string>
-    <string name="duplicateCategory">Kategória z takýmto názvom už existuje</string>
-    <string name="confirmCategoryDelete">Ste si istý, že chcete odstrániť túto kategóriu?</string>
+    <string name="category">Category</string>
+    <string name="categories">Categories</string>
+    <string name="assignCategories">Assign categories</string>
+    <string name="assignEntries">Assign entries</string>
+    <string name="more">More</string>
+    <string name="categoryAll">All</string>
+    <string name="editCategories">Edit categories</string>
+    <string name="noCategoryName">A category name is required</string>
+    <string name="duplicateCategory">A category with this name already exists</string>
+    <string name="confirmCategoryDelete">Are you sure you want to delete this category?</string>
     <!-- Set as default category -->
-    <string name="setAsDefault">Nastaviť ako predvolené</string>
+    <string name="setAsDefault">Set as default</string>
     <!-- Clear the selected category as the default -->
-    <string name="clearDefault">Vymazať predvolené</string>
+    <string name="clearDefault">Clear default</string>
     <!--
         Backups
     -->
-    <string name="backupNow">Zálohovať teraz</string>
-    <string name="restoreNow">Obnoviť teraz</string>
-    <string name="backupReminder">Od poslednej zálohy sa vykonali zmeny</string>
-    <string name="backupPasswordMessage">Zadajte heslo pre bezpečné zašifrovanie vášho súboru zálohy. Nechajte heslo prázdne, ak si neželáte chrániť súbor heslom.</string>
-    <string name="password">Heslo</string>
-    <string name="passwordConfirm">Potvrdenie hesla</string>
-    <string name="confirmEmptyPassword">Nezvolili ste heslo, vaša záloha nebude zašifrovaná a vaše tajné kľúče môžu byť zraniteľné.\n\nPokračovať?</string>
-    <string name="passwordHint">Heslo zálohy</string>
-    <string name="fileNameHint">Názov súboru zálohy</string>
-    <string name="noAuthenticators">Zatiaľ nemáte žiadne autentifikátory pre zálohovanie</string>
-    <string name="saveSuccess">Úspešne uložené</string>
-    <string name="backupSuccess">Záloha uložená ako \'{0}\'</string>
-    <string name="restoredFromBackup">Obnovené {0} nové autentifikátory a {1} nové kategórie</string>
-    <string name="restoredFromBackupUpdated">Obnovené {0} nové autentifikátory a {1} nové kategórie. Aktualizované {2} existujúce autentifikátory.</string>
-    <string name="restoredNothing">Nič na obnovenie</string>
+    <string name="backupNow">Back up now</string>
+    <string name="restoreNow">Restore now</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
+    <string name="password">Password</string>
+    <string name="passwordConfirm">Password confirm</string>
+    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="passwordHint">Backup password</string>
+    <string name="fileNameHint">Backup file name</string>
+    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="saveSuccess">Saved successfully</string>
+    <string name="backupSuccess">Saved backup as \'{0}\'</string>
+    <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
+    <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
+    <string name="restoredNothing">Nothing to restore</string>
     <!--
         Errors
     -->
     <string name="restoreFormatError">The backup could not be restored</string>
-    <string name="cameraPermissionError">Pre naskenovanie QR kódu je potrebné udeliť oprávnenie pre prístup k fotoaparátu</string>
-    <string name="googlePlayNotInstalledError">Google Play nie je nainštalovaný na vašom zariadení</string>
-    <string name="filePickerMissing">Nepodarilo sa otvoriť výber súborov. Musí byť nainštalovaný správca súborov.</string>
-    <string name="filePickError">Chyba pri výbere súboru</string>
-    <string name="invalidFileError">Vybraný súbor nie je súbor zálohy z aplikácie Stratum</string>
-    <string name="webBrowserMissing">Nie je nainštalovaný žiadny webový prehliadač</string>
-    <string name="emailClientMissing">Nie je nainštalovaný žiadny e-mailový klient</string>
-    <string name="genericError">Vyskytla sa chyba</string>
-    <string name="viewErrorLog">Zobraziť protokol chýb</string>
+    <string name="cameraPermissionError">The camera permission must be granted in order to scan a QR code</string>
+    <string name="googlePlayNotInstalledError">Google Play is not installed on your device</string>
+    <string name="filePickerMissing">Cannot open file picker. A file manager must be installed.</string>
+    <string name="filePickError">Error picking file</string>
+    <string name="invalidFileError">The selected file is not an Stratum backup</string>
+    <string name="webBrowserMissing">No web browser installed</string>
+    <string name="emailClientMissing">No email client installed</string>
+    <string name="genericError">An error occurred</string>
+    <string name="viewErrorLog">View error log</string>
     <string name="autoTimeWarningTitle">Time sync disabled</string>
     <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
     <!--
         Error reporting
     -->
-    <string name="unhandledErrorMessage">V aplikácii sa vyskytla spracovaná chyba. Podrobnosti o chybe sú uvedené nižšie:</string>
-    <string name="report">Nahlásiť</string>
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="report">Report</string>
     <string name="email">Email</string>
     <!-- Report via Email, GitHub, etc. -->
-    <string name="reportVia">Správa cez</string>
-    <string name="errorCopiedToClipboard">Chyba bola skopírovaná do schránky</string>
+    <string name="reportVia">Report via</string>
+    <string name="errorCopiedToClipboard">Error copied to clipboard</string>
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Vyberte umiestnenie a heslo pre automatické zálohovanie. Zálohovanie sa naplánuje po vykonaní zmien. Cloudové úložisko nie je podporované, namiesto toho použite ponuku zálohovania.</string>
-    <string name="selectLocation">Vybrať umiestnenie</string>
-    <string name="noLocationSelected">Umiestnenie nebolo vybraté</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="selectLocation">Select location</string>
+    <string name="noLocationSelected">No location selected</string>
     <!-- Shown when auto backup location has been selected -->
-    <string name="locationSetTo">Umiestnenie nastavené na \'{0}\'</string>
-    <string name="setPassword">Nastaviť heslo</string>
-    <string name="passwordNotSet">Heslo nebolo nastavené</string>
+    <string name="locationSetTo">Location set to \'{0}\'</string>
+    <string name="setPassword">Set password</string>
+    <string name="passwordNotSet">Password has not been set</string>
     <!-- Shown when auto backup password has been selected -->
-    <string name="passwordSet">Heslo nastavené</string>
-    <string name="notPasswordProtected">Nechránené heslom</string>
-    <string name="enableAutoBackup">Zapnúť automatické zálohovanie</string>
-    <string name="enableAutoBackupMessage">Automaticky zálohovať na vybrané miesto v úložisku</string>
-    <string name="batOptim">Optimalizácia batérie</string>
-    <string name="disableBatOptimMessage">Na niektorých zariadeniach môže nastavenie napájania zabrániť správnemu fungovaniu záloh. Ak máte problémy, skúste vypnúť optimalizáciu batérie pre aplikáciu Stratum.</string>
-    <string name="autoBackupFailureTitle">Automatické zálohovanie zlyhalo</string>
-    <string name="autoBackupFailureText">Nepodarilo sa dokončiť najnovšie automatické zálohovanie. Je možné, že platnosť povolení súboru vypršala, skúste znova nastaviť umiestnenie zálohy v nastaveniach automatického zálohovania.</string>
-    <string name="autoBackupSuccessTitle">Automatické zálohovanie dokončené</string>
-    <string name="backupScheduled">Zálohovanie naplánované</string>
+    <string name="passwordSet">Password set</string>
+    <string name="notPasswordProtected">Not password protected</string>
+    <string name="enableAutoBackup">Enable Auto Backup</string>
+    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="batOptim">Battery Optimisation</string>
+    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Stratum.</string>
+    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
+    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
+    <string name="backupScheduled">Backup scheduled</string>
     <!--
         Password setup
     -->
-    <string name="passwordSetupHelp">Zašifrujte databázu pomocou hesla. Po otvorení aplikácie sa zobrazí výzva na zadanie hesla. Ak chcete heslo vymazať, nechajte pole prázdne.</string>
-    <string name="passwordSetupWarning">Použite heslo, ktoré si zapamätáte, bez neho je databáza neobnoviteľná!</string>
-    <string name="clearPassword">Vymazať heslo</string>
-    <string name="confirmPassword">Potvrdiť heslo</string>
-    <string name="setupBiometricUnlock">Nastaviť biometrické odomknutie</string>
-    <string name="passwordsDoNotMatch">Heslá sa nezhodujú</string>
-    <string name="biometricsChanged">Biometria zariadenia sa zmenila. Na odomknutie použite heslo.</string>
+    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="clearPassword">Clear password</string>
+    <string name="confirmPassword">Confirm password</string>
+    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="passwordsDoNotMatch">Passwords do not match</string>
+    <string name="biometricsChanged">Device biometrics have changed. Use the password to unlock.</string>
     <!--
         Unlock
     -->
-    <string name="unlock">Odomknutie</string>
-    <string name="useBiometrics">Použiť biometriu</string>
-    <string name="unlockMessage">Zadajte vaše heslo alebo použite biometriu pre odomknutie databázy</string>
-    <string name="unlockBiometricsMessage">Použiť biometriu pre prístup k vašim autentifikátorom</string>
-    <string name="passwordIncorrect">Heslo je nesprávne</string>
-    <string name="tooManyAttempts">Príliš veľa pokusov</string>
+    <string name="unlock">Unlock</string>
+    <string name="useBiometrics">Use biometrics</string>
+    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
+    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
+    <string name="passwordIncorrect">Password is incorrect</string>
+    <string name="tooManyAttempts">Too many attempts</string>
     <!--
         Import
     -->
-    <string name="importFromOtherApps">Importovať z iných aplikácií</string>
-    <string name="importError">Súbor sa nepodarilo importovať</string>
-    <string name="importIncomplete">Import neúplný</string>
-    <string name="importConversionError">Položku \"{0}\" sa nepodarilo importovať z dôvodu nasledujúcej chyby: {1}</string>
-    <string name="authenticatorPlusImportHint">Importovať súbor authplus.db</string>
-    <string name="andOtpImportHint">Import otp_accounts.json súboru</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml súboru</string>
-    <string name="freeOtpPlusImportHint">Importovať súbor freeotp-backup.json</string>
-    <string name="aegisImportHint">Import aegis-export.json súboru</string>
-    <string name="bitwardenImportHint">Importovať súbor bitwarden_export.json</string>
-    <string name="enteAuthImportHint">Importovať súbor ente-auth-codes.txt</string>
-    <string name="winAuthImportHint">Import winauth.txt alebo winauth.zip súboru</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas súboru</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json súboru</string>
-    <string name="totpAuthenticatorImportHint">Importovať súbor TOTP_Backup.encrypt</string>
-    <string name="uriList">Zoznam URI</string>
-    <string name="uriListHint">Zoznam otpauth URI identifikátorov vo formáte čistého textu</string>
-    <string name="viewGuideImportHint">Zobraziť príručku na wiki stránke</string>
+    <string name="importFromOtherApps">Import from other apps</string>
+    <string name="importError">The file could not be imported</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
+    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
+    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
+    <string name="aegisImportHint">Import aegis-export.json file</string>
+    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
+    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
+    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
+    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="uriList">URI list</string>
+    <string name="uriListHint">Plain text list of otpauth URIs</string>
+    <string name="viewGuideImportHint">View guide on project wiki</string>
     <!--
         Getting Started Guide
     -->
-    <string name="guideScanQRCodeTitle">Naskenovať QR kód</string>
-    <string name="guideScanQRCodeSummary">Ak chcete pridať autentifikátor, naskenujte QR kód poskytnutý aplikáciou alebo službou. Bude pridaný do zoznamu a automaticky vygeneruje nové kódy. Taktiež môžete zadať ručne podrobnosti.</string>
-    <string name="guideUseCodeTitle">Použiť kód pri prihlasovaní</string>
-    <string name="guideUseCodeSummary">Pri prihlasovaní použiť unikátny kód poskytnutý aplikáciou Stratum, ktorý je platný len krátku dobu. Ťuknutím na autentifikátor v zozname skopírujete kód do schránky.</string>
-    <string name="guideCustomiseTitle">Prispôsobiť a upraviť</string>
-    <string name="guideCustomiseSummary">Premenujte a prispôsobte svojich autentifikátorov, aby ste ich mohli ľahko nájsť. Jednoducho ťuknite na ikonu ponuky pri položke a postupujte podľa pokynov.</string>
-    <string name="guideArrangeTitle">Usporiadať a zoradiť</string>
-    <string name="guideArrangeSummary">Svojich autentifikátorov môžete usporiadať do kategórií, aby ste ich ľahko našli. Držanie a ťahanie položiek vám navyše umožní zmeniť ich usporiadanie v ľubovoľnom poradí.</string>
-    <string name="guideBackupTitle">Vytvoriť zálohu</string>
-    <string name="guideBackupSummary">Nenechajte sa uzamknúť zo svojich účtov v prípade zmeny zariadenia. Vytvorte záložný súbor a uložte ho na bezpečnom mieste. Zálohu je možné kedykoľvek obnoviť a chrániť heslom.</string>
-    <string name="guideWearOSTitle">Prevziať sprievodnú aplikáciu pre Wear OS</string>
-    <string name="guideWearOSSummary">Ak máte hodinky Wear OS, môžete si prevziať sprievodnú aplikáciu. Kódy si môžete pozrieť priamo na hodinkách.</string>
+    <string name="guideScanQRCodeTitle">Scan a QR code</string>
+    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
+    <string name="guideUseCodeTitle">Use the code when logging in</string>
+    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
+    <string name="guideCustomiseTitle">Customise and edit</string>
+    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
+    <string name="guideArrangeTitle">Arrange and sort</string>
+    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
+    <string name="guideBackupTitle">Create a backup</string>
+    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
+    <string name="guideWearOSTitle">Download the Wear OS companion</string>
+    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">QR kód umiestni do hľadáčika a naskenuj ho. Ťuknutím na položku ju zaostríš.</string>
-    <string name="scanHelpSecondary">Snažte sa vyhýbať tieňom a odleskom. Držte zariadenie približne 15 cm od kódu.</string>
-    <string name="toggleFlash">Prepnúť blesk</string>
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="toggleFlash">Toggle flash</string>
     <!--
         Preferences
     -->
-    <string name="prefGeneral">Všeobecné</string>
-    <string name="prefShowBackupRemindersTitle">Pripomienky zálohovania</string>
-    <string name="prefShowBackupRemindersSummary">Pripomína vám, aby ste si v prípade dôležitých zmien zálohovali autentifikátory
-    </string>
-    <string name="prefAutoBackupTitle">Automatické zálohovanie</string>
-    <string name="prefAutoBackupSummary">Automatické zálohovanie do určeného umiestnenia po vykonaní zmien. Zakáže pripomienky zálohovania.</string>
-    <string name="prefLanguageTitle">Jazyk</string>
-    <string name="prefLanguageSummary">Výber jazyka, ktorý chcete používať v celej aplikácii</string>
-    <string name="prefTapToCopyTitle">Ťuknutím skopíruješ</string>
-    <string name="prefTapToCopySummary">Skopíruje kód do schránky ťuknutím</string>
-    <string name="prefResetCopyCountTitle">Obnovenie počítadla kopírovania</string>
-    <string name="prefResetCopyCountSummary">Vymazať počet skopírovaní každého autentifikátora</string>
+    <string name="prefGeneral">General</string>
+    <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
+    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Language</string>
+    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSkipToNextTitle">Skip to Next</string>
     <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
-    <string name="prefSecurity">Bezpečnosť</string>
-    <string name="prefPasswordTitle">Heslo</string>
-    <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
-    <string name="prefDatabasePasswordBackupTitle">Zálohovať z databázovým heslom</string>
-    <string name="prefDatabasePasswordBackupSummary">Zašifrovať všetky zálohy použitím databázového hesla, aby ste ho nemuseli zakaždým zadávať</string>
-    <string name="prefAllowBiometricsTitle">Biometrické odomknutie</string>
-    <string name="prefAllowBiometricsSummary">Povoliť odomknutie databázy použitím biometrickej autentifikácie</string>
-    <string name="prefTimeoutTitle">Časový limit</string>
-    <string name="prefTimeoutSummary">Nastaviť čas, po ktorom bude databáza zablokovaná pokiaľ aplikácia opustí obrazovku</string>
-    <string name="prefTapToRevealTitle">Zobraziť ťuknutím</string>
-    <string name="prefTapToRevealSummary">Skrýva kódy, kým sa ich nedotknete. Po niekoľkých sekundách zmiznú.</string>
-    <string name="prefTapToRevealDurationTitle">Ťuknutím zobrazíte čas trvania</string>
-    <string name="prefTapToRevealDurationSummary">Nastaviť čas, po ktorom sa zobrazené kódy skryjú</string>
-    <string name="prefAllowScreenshotsTitle">Povoliť snímky obrazovky</string>
-    <string name="prefAllowScreenshotsSummary">Vypnúť ochranu obrazovky a povoliť snímky obrazovky v aplikácii</string>
-    <string name="prefAppearance">Vzhľad</string>
-    <string name="prefThemeTitle">Téma</string>
-    <string name="prefThemeSummary">Zvoliť tému aplikácie</string>
-    <string name="prefViewModeTitle">Mód zobrazenia</string>
-    <string name="prefViewModeSummary">Zvoliť mód zobrazenia pre zoznam autentifikátora</string>
-    <string name="prefCodeGroupSizeTitle">Veľkosť skupiny kódov</string>
-    <string name="prefCodeGroupSizeSummary">Zmena zoskupenia číslic v kóde</string>
-    <string name="prefShowUsernamesTitle">Zobraziť užívateľské mená</string>
-    <string name="prefShowUsernamesSummary">Zobraziť užívateľské meno pod vydavateľom</string>
-    <string name="prefDynamicColourTitle">Dynamické farby</string>
-    <string name="prefDynamicColourSummary">Dynamické nastavenie farby motívu na základe tapety</string>
-    <string name="prefAccentColourTitle">Farba akcentu</string>
-    <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
-    <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
-    <string name="prefTransparentStatusBarSummary">Zviditeľnenie zoznamu za stavovým riadkom pri posúvaní</string>
+    <string name="prefSecurity">Security</string>
+    <string name="prefPasswordTitle">Password</string>
+    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
+    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
+    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
+    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefTimeoutTitle">Timeout</string>
+    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
+    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefAppearance">Appearance</string>
+    <string name="prefThemeTitle">Theme</string>
+    <string name="prefThemeSummary">Choose an application theme</string>
+    <string name="prefViewModeTitle">View Mode</string>
+    <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
+    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
+    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefAccentColourTitle">Accent Colour</string>
+    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <!-- Message shown when the copy count has been reset successfully -->
-    <string name="copyCountReset">Obnovenie počtu kopírovaní</string>
+    <string name="copyCountReset">Copy count reset</string>
     <!--
         About
     -->
@@ -326,27 +326,27 @@
     <!--
         Arrays
     -->
-    <string name="authTypeTime">Časovo založené (TOTP)</string>
-    <string name="authTypeCounter">Počítadlovo založené (HOTP)</string>
-    <string name="authAlgorithmSHA1">SHA1 (predvolené)</string>
+    <string name="authTypeTime">Time based (TOTP)</string>
+    <string name="authTypeCounter">Counter based (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (default)</string>
     <!-- Lock the app immediately when closed -->
-    <string name="immediately">Okamžite</string>
-    <string name="timeout5Sec">5 sekúnd</string>
-    <string name="timeout10Sec">10 sekúnd</string>
-    <string name="timeout20Sec">20 sekúnd</string>
-    <string name="timeout30Sec">30 sekúnd</string>
-    <string name="timeout1Min">1 minúta</string>
-    <string name="timeout2Min">2 minúty</string>
-    <string name="timeout5Min">5 minút</string>
-    <string name="timeout10Min">10 minút</string>
-    <string name="systemDefault">Predvolená systémom</string>
+    <string name="immediately">Immediately</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout30Sec">30 seconds</string>
+    <string name="timeout1Min">1 minute</string>
+    <string name="timeout2Min">2 minutes</string>
+    <string name="timeout5Min">5 minutes</string>
+    <string name="timeout10Min">10 minutes</string>
+    <string name="systemDefault">System default</string>
     <string name="systemDefaultBlack">System default (black)</string>
-    <string name="lightTheme">Svetlá téma</string>
-    <string name="darkTheme">Tmavá téma</string>
-    <string name="blackTheme">Tmavá téma</string>
-    <string name="defaultViewMode">Predvolený</string>
-    <string name="compactViewMode">Kompaktný</string>
-    <string name="tileViewMode">Dlaždice</string>
+    <string name="lightTheme">Light theme</string>
+    <string name="darkTheme">Dark theme</string>
+    <string name="blackTheme">Black theme</string>
+    <string name="defaultViewMode">Default</string>
+    <string name="compactViewMode">Compact</string>
+    <string name="tileViewMode">Tile</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">None</string>
     <string name="two">2</string>
@@ -358,33 +358,33 @@
     <!--
         Arrays > Accent colours
     -->
-    <string name="red">Červená</string>
-    <string name="pink">Ružová</string>
-    <string name="purple">Fialová</string>
-    <string name="deepPurple">Tmavofialová</string>
-    <string name="indigo">Indigová</string>
-    <string name="blue">Modrá</string>
-    <string name="lightBlue">Svetlomodrá</string>
-    <string name="cyan">Azúrová</string>
-    <string name="teal">Modrozelená</string>
-    <string name="green">Zelená</string>
-    <string name="lightGreen">Svetlozelená</string>
-    <string name="lime">Limetková</string>
-    <string name="yellow">Žltá</string>
-    <string name="amber">Jantárová</string>
-    <string name="orange">Oranžová</string>
-    <string name="deepOrange">Tmavooranžová</string>
+    <string name="red">Red</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Purple</string>
+    <string name="deepPurple">Deep purple</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blue</string>
+    <string name="lightBlue">Light blue</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Green</string>
+    <string name="lightGreen">Light green</string>
+    <string name="lime">Lime</string>
+    <string name="yellow">Yellow</string>
+    <string name="amber">Amber</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Deep orange</string>
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Vitajte v Stratum</string>
-    <string name="introCompatibilityTitle">Dvojfaktorové overovanie</string>
-    <string name="introBackupTitle">Zálohovanie a Obnovenie</string>
-    <string name="introCategoriesTitle">Kategórie</string>
-    <string name="introThemesTitle">Tmavá téma</string>
-    <string name="introWelcomeSummary">Vďaka za prevzatie aplikácie Stratum.\nUdržujte vaše online účty bezpečné a chranené použitím najlepšej aplikácie pre autentifikáciu s otvoreným zdrojovým kódom.</string>
-    <string name="introCompatibilitySummary">Stratum je kompatibilný s väčšinou poskytovateľov a účtov. Je 100% kompatibilný so službami s povoleným Google Authenticatorom.</string>
-    <string name="introBackupSummary">Zálohovať vaše autentifikátori so silným šifrovaním. V prípade, ak stratíte vaše zariadenie môžete stále získať prístup k vašim účtom. Uložte zálohy do cloudového úložiska alebo so vášho zariadenia.</string>
-    <string name="introCategoriesSummary">Organizovať vaše autentifikátory do kategórií a tiež meniť poradie jednoduchým podržaním a potiahnutím.</string>
-    <string name="introThemesSummary">Ak preferujete, môžete zvoliť tmavú tímu v nastaveniach. Všetky ikony sa prispôsobia tak, aby zodpovedali ich novému pozadiu.</string>
+    <string name="introWelcomeTitle">Welcome to Stratum</string>
+    <string name="introCompatibilityTitle">Two-factor Authentication</string>
+    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introCategoriesTitle">Categories</string>
+    <string name="introThemesTitle">Dark theme</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introCompatibilitySummary">Stratum is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
+    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>
