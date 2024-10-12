@@ -38,15 +38,15 @@ def build_map(files: list):
             standard.append(filename)
 
     map_path = os.path.join(
-        MAIN_DIR, "AuthenticatorPro.Droid.Shared", "src", "IconMap.cs"
+        MAIN_DIR, "Stratum.Droid.Shared", "src", "IconMap.cs"
     )
     file = open(map_path, "w")
 
     # fmt: off
-    file.write("// Copyright (C) 2023 jmh\n")
+    file.write("// Copyright (C) 2024 jmh\n")
     file.write("// SPDX-License-Identifier: GPL-3.0-only\n\n")
     file.write("using System.Collections.Generic;\n\n")
-    file.write("namespace AuthenticatorPro.Droid.Shared\n")
+    file.write("namespace Stratum.Droid.Shared\n")
     file.write("{\n")
     file.write("    // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY\n")
     file.write("    public static class IconMap\n")
@@ -77,7 +77,7 @@ def generate_for_dpi(dpi: str, path: str, overwrite: bool):
     file_name = os.path.basename(path)
     output_path = os.path.join(
         MAIN_DIR,
-        "AuthenticatorPro.Droid.Shared",
+        "Stratum.Droid.Shared",
         "Resources",
         f"drawable-{dpi}",
         f"{RES_PREFIX}{file_name}",
@@ -115,7 +115,7 @@ def delete_removed(files: list[str]):
 
     for dpi in DPI_SIZES.keys():
         resources_path = os.path.join(
-            MAIN_DIR, "AuthenticatorPro.Droid.Shared", "Resources", f"drawable-{dpi}"
+            MAIN_DIR, "Stratum.Droid.Shared", "Resources", f"drawable-{dpi}"
         )
 
         resources = os.listdir(resources_path)

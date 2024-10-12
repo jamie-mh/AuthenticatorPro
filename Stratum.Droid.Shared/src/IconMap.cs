@@ -1,4 +1,4 @@
-// Copyright (C) 2023 jmh
+// Copyright (C) 2024 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System.Collections.Generic;
@@ -32,6 +32,7 @@ namespace Stratum.Droid.Shared
             { "adobe", Resource.Drawable.auth_adobe },
             { "advcash", Resource.Drawable.auth_advcash },
             { "adyen", Resource.Drawable.auth_adyen },
+            { "affinity", Resource.Drawable.auth_affinity },
             { "aikq", Resource.Drawable.auth_aikq },
             { "airbrake", Resource.Drawable.auth_airbrake },
             { "airship", Resource.Drawable.auth_airship },
@@ -336,6 +337,7 @@ namespace Stratum.Droid.Shared
             { "infomaniak", Resource.Drawable.auth_infomaniak },
             { "ing", Resource.Drawable.auth_ing },
             { "instagram", Resource.Drawable.auth_instagram },
+            { "instantgaming", Resource.Drawable.auth_instantgaming },
             { "intercom", Resource.Drawable.auth_intercom },
             { "internxt", Resource.Drawable.auth_internxt },
             { "intigriti", Resource.Drawable.auth_intigriti },
@@ -773,6 +775,7 @@ namespace Stratum.Droid.Shared
             { "activision", Resource.Drawable.auth_activision_dark },
             { "adafruit", Resource.Drawable.auth_adafruit_dark },
             { "advcash", Resource.Drawable.auth_advcash_dark },
+            { "affinity", Resource.Drawable.auth_affinity_dark },
             { "ajaxsystems", Resource.Drawable.auth_ajaxsystems_dark },
             { "amazon", Resource.Drawable.auth_amazon_dark },
             { "anycoindirect", Resource.Drawable.auth_anycoindirect_dark },
