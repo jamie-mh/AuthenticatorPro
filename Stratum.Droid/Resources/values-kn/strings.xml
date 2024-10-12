@@ -68,6 +68,7 @@
     <string name="digitsHint">ಅಂಕೆಗಳು</string>
     <string name="periodHint">ಅವಧಿ (ಸೆಕೆಂಡ್‌ಗಳು)</string>
     <string name="counterHint">ಕೌಂಟರ್‌</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">ವಿತರಕರ ಅಗತ್ಯವಿದೆ</string>
     <string name="noSecret">ರಹಸ್ಯ ಕೀಲಿಯು ಅಗತ್ಯವಿದೆ</string>
     <string name="noPin">ಪಿನ್ ಅಗತ್ಯವಿದೆ</string>

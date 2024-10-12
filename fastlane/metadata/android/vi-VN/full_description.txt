@@ -3,26 +3,26 @@
 Nó hỗ trợ các trình xác thực TOTP (dựa trên thời gian) và HOTP (dựa trên bộ đếm) sử dụng các thuật toán băm SHA1, SHA256 hoặc SHA512. Nó cũng hỗ trợ mOTP (Mobile-Otp), Steam và Yandex.
 
 Xác thực hai yếu tố cung cấp một lớp bảo mật bổ sung cho tài khoản của bạn bằng cách yêu cầu sử dụng một mã một lần để đăng nhập.
-Ngoài tên người dùng và mật khẩu của bạn, bạn sẽ cần một mã được cung cấp bởi Authenticator Pro. Vậy nếu chi tiết đăng nhập của bạn bị lộ, tài khoản của bạn vẫn an toàn.
+Ngoài tên người dùng và mật khẩu của bạn, bạn sẽ cần một mã được cung cấp bởi Stratum. Vậy nếu chi tiết đăng nhập của bạn bị lộ, tài khoản của bạn vẫn an toàn.
 
 <hr>
 
 <b>Tính năng</b>
 
-- ⚙️ <b>Tương thích</b>Authenticator Pro tương thích với hầu hết các nhà cung cấp và tài khoản.
-- 📲 <b>Nhập</b>: Dễ dàng chuyển đổi tài khoản của bạn sang Authenticator Pro từ các ứng dụng thay thế được hỗ trợ.
+- ⚙️ <b>Tương thích</b>Stratum tương thích với hầu hết các nhà cung cấp và tài khoản.
+- 📲 <b>Nhập</b>: Dễ dàng chuyển đổi tài khoản của bạn sang Stratum từ các ứng dụng thay thế được hỗ trợ.
 - 💾 <b>Sao lưu / Khôi phục</b>: Sao lưu các trình xác thực của bạn với mã hóa mạnh mẽ. Trong trường hợp bạn mất hoặc thay đổi điện thoại, bạn luôn có thể truy cập vào các tài khoản của mình. Bạn có thể lưu bản sao lưu vào lưu trữ đám mây hoặc vào thiết bị của mình.
-- 🌙 <b>Chế độ Tối</b>: Authenticator Pro có giao diện thiết kế đẹp mắt với các chủ đề sáng hoặc tối.
+- 🌙 <b>Chế độ Tối</b>: Stratum có giao diện thiết kế đẹp mắt với các chủ đề sáng hoặc tối.
 - ⏺️ <b>Biểu tượng</b>: Tìm các trình xác thực của bạn dễ dàng với các biểu tượng và biểu tượng nhận diện thương hiệu rõ ràng bên cạnh mỗi mã.
 - 📂 <b>Danh mục</b>: Tổ chức các trình xác thực của bạn vào các danh mục.
-- 🔒 <b>Ngoại tuyến với ít quyền hạn</b>: Authenticator Pro chỉ yêu cầu một quyền hạn¹ và không cần truy cập Internet để hoạt động.
+- 🔒 <b>Ngoại tuyến với ít quyền hạn</b>: Stratum chỉ yêu cầu một quyền hạn¹ và không cần truy cập Internet để hoạt động.
 - 🔑 <b>Bảo mật</b>: Đặt mật khẩu và sử dụng xác thực sinh học để bảo vệ mã của bạn.
 - 🎨 <b>Tùy chỉnh</b>: Đặt biểu tượng và đổi tên. Bạn cũng có thể sắp xếp các trình xác thực của mình theo bất kỳ thứ tự nào bạn muốn để bạn có thể tìm thấy chúng một cách dễ dàng.
 - ⌚ <b>Wear OS</b>: Xem nhanh các trình xác thực từ đồng hồ của bạn. Bạn cũng có thể đặt một mục yêu thích và đặt nó vào một ô. Vui lòng lưu ý rằng cần có kết nối với thiết bị Android của bạn. Hơn nữa, các bản phân phối của ứng dụng trên F-Droid không tương thích với Wear OS, vì cần có các phụ thuộc.
 
 (¹) *Để quét mã QR, ứng dụng yêu cầu quyền truy cập máy ảnh.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>Các câu hỏi thường gặp</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

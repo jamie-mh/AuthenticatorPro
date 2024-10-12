@@ -69,6 +69,7 @@
     <string name="digitsHint">Číslice</string>
     <string name="periodHint">Doba (sekundy)</string>
     <string name="counterHint">Počítadlo</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Je vyžadován vydavatel</string>
     <string name="noSecret">Tajný klíč je povinný</string>
     <string name="noPin">Pin je povinný</string>

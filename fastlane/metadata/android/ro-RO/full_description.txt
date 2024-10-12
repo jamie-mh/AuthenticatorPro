@@ -3,26 +3,26 @@ O aplicație gratuită de autentificare cu doi factori open-source pentru Androi
 Acceptă autentificatoarele TOTP (bazate pe timp) și HOTP (bazate pe contor) folosind algoritmi de hashing SHA1, SHA256 sau SHA512. Mobile-Otp (mOTP), Steam și Yandex sunt, de asemenea, acceptate.
 
 Autentificarea cu 2 factori oferă un nivel suplimentar de securitate conturilor dvs. solicitând utilizarea unui cod unic pentru a vă conecta.
-Pe lângă numele de utilizator și parola, veți avea nevoie de un cod furnizat de Authenticator Pro. Deci, chiar dacă detaliile dvs. de conectare sunt compromise, contul dvs. rămâne în siguranță.
+Pe lângă numele de utilizator și parola, veți avea nevoie de un cod furnizat de Stratum. Deci, chiar dacă detaliile dvs. de conectare sunt compromise, contul dvs. rămâne în siguranță.
 
 <hr>
 
 <b>Caracteristici</b>
 
-- ⚙️ <b>Compatibilitate</b>: Authenticator Pro este compatibil cu majoritatea furnizorilor și conturilor.
-- 📲 <b>Import</b>: migrați cu ușurință conturile la Authenticator Pro din aplicații alternative acceptate.
+- ⚙️ <b>Compatibilitate</b>: Stratum este compatibil cu majoritatea furnizorilor și conturilor.
+- 📲 <b>Import</b>: migrați cu ușurință conturile la Stratum din aplicații alternative acceptate.
 - 💾 <b>Copie de rezervă/Restaurare</b>: faceți backup pentru autentificatoarele dvs. cu criptare puternică. În cazul în care vă pierdeți sau schimbați telefonul, puteți avea întotdeauna acces la conturile dvs. Puteți salva copii de rezervă în stocarea cloud sau pe dispozitivul dvs.
-- 🌙 <b>Modul întunecat</b>: Authenticator Pro are un aspect frumos inspirat de design material, fie în teme deschise, fie întunecate.
+- 🌙 <b>Modul întunecat</b>: Stratum are un aspect frumos inspirat de design material, fie în teme deschise, fie întunecate.
 - ⏺️ <b>Pictograme</b>: Găsiți-vă cu ușurință autentificatorii cu logo-uri și pictograme de marcă recunoscute lângă fiecare cod.
 - 📂 <b>Categorii</b>: Organizați-vă autentificatoarele în categorii.
-- 🔒 <b>Offline cu puține permisiuni</b>: Authenticator Pro necesită doar o singură permisiune¹ și nu necesită acces la Internet pentru a funcționa.
+- 🔒 <b>Offline cu puține permisiuni</b>: Stratum necesită doar o singură permisiune¹ și nu necesită acces la Internet pentru a funcționa.
 - 🔑 <b>Securitate</b>: Setați o parolă și utilizați autentificarea biometrică pentru a vă proteja codurile.
 - 🎨 <b>Personalizare</b>: setați pictograme și redenumiți. De asemenea, vă puteți aranja autentificatoarele în orice ordine doriți, astfel încât să le puteți găsi cu ușurință.
 - ⌚ <b>Wear OS</b>: Vizualizați rapid autentificatoarele direct de pe ceas. Puteți chiar să setați un favorit și să îl plasați într-o căsuță. Vă rugăm să rețineți că este necesară o conexiune la dispozitivul dvs. Android. În plus, distribuțiile F-Droid ale aplicației nu sunt compatibile cu Wear OS, deoarece sunt necesare dependențe care nu sunt gratuite.
 
 (¹) *Pentru a scana codurile QR, aplicația necesită permisiunea camerei.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Întrebări frecvente</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

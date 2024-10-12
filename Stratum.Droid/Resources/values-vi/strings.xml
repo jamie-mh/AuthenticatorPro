@@ -68,6 +68,7 @@
     <string name="digitsHint">Chữ số</string>
     <string name="periodHint">Khoảng thời gian (giây)</string>
     <string name="counterHint">Bộ Đếm</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Yêu cầu một nhà phát hành</string>
     <string name="noSecret">Yêu cầu một khóa bí mật</string>
     <string name="noPin">Yêu cầu một mã pin</string>

@@ -3,31 +3,31 @@ Android용 무료, 오픈소스 2단계 인증 앱입니다. 암호화된 백업
 SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP (횟수 기반) 인증기를 지원합니다. 모바일 OTP (mOTP), Steam 및 Yandex 인증기도 지원합니다.
 
 2단계 인증은 로그인 시 일회용 코드를 요구함으로써 계정 보안을 한층 더 강화해줍니다.
-사용자 이름과 비밀번호에 더하여, Authenticator Pro에서 제공되는 코드가 필요할 겁니다. 따라서 로그인 정보가 유출되더라도 계정은 안전합니다.
+사용자 이름과 비밀번호에 더하여, Stratum에서 제공되는 코드가 필요할 겁니다. 따라서 로그인 정보가 유출되더라도 계정은 안전합니다.
 
 <hr>
 
-<b>Features</b>
+<b>기능</b>
 
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. 휴대전화를 잃어버리거나 바꾸더라도, 계정에 접근할 수 있습니다. 백업본을 클라우드 저장소나 기기에 저장할 수도 있습니다.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⚙️ <b>호환성</b>: Stratum는 가장 많은 공급처 및 계정과 호환됩니다.
+- 📲 <b>가져오기</b>: 다른 인증기 앱에서 Stratum로 계정을 쉽게 이전하세요.
+- 💾 <b>백업/복원</b>: 강력한 암호화로 인증자를 백업하세요. 휴대전화를 잃어버리거나 바꾸더라도, 계정에 접근할 수 있습니다. 백업본을 클라우드 저장소나 기기에 저장할 수도 있습니다.
+- 🌙 <b>다크 모드</b>: Stratum에는 미려한 머티리얼 디자인이 적용되었으며 밝은 테마와 어두운 테마에서의 사용성을 모두 고려했습니다.
+- ⏺️ <b>아이콘</b>: 각 코드 옆에 인식 가능한 브랜드 로고와 아이콘이 있어 인증자를 쉽게 찾을 수 있습니다.
+- 📂 <b>카테고리</b>: 인증자를 카테고리로 구성합니다.
+- 🔒 <b>오프라인, 적은 권한 요구</b>: Stratum는 권한 단 하나(*)만을 요구하고 작동할 때 인터넷 연결을 필요로 하지 않습니다.
+- 🔑 <b>보안</b>: 비밀번호를 설정하고 생체 인식 인증을 사용하여 코드를 보호하세요.
+- 🎨 <b>사용자 정의</b>: 아이콘을 설정하고 이름을 바꿉니다. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
+- ⌚ <b>Wear OS</b>: 시계에서 직접 인증자를 빠르게 확인하세요. You can even set a favourite and place it in a tile. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다. 또한 앱의 F-Droid 배포판은 비자유 종속성이 필요하므로 Wear OS와 호환되지 않습니다.
 
-(¹) *To scan QR-Codes, the app requires the camera permission.*
+(1) *QR 코드를 스캔하려면 앱에 카메라 권한이 필요합니다.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 
-<b>Disclaimer</b>
+<b>면책조항</b>
 
-본 프로그램은 자유 소프트웨어입니다. 본 프로그램은 자유 소프트웨어 재단에서 발행한 GNU 일반 공중 사용 허가서의 버전 3 혹은 (귀하의 선택에 따라) 이후 버전에서 제시된 조건에 따라 재배포 혹은 수정할 수 있습니다.
+본 프로그램은 자유 소프트웨어 재단에서 발행한 GNU 일반 공중 사용 허가서의 버전 3 혹은 (귀하의 선택에 따라) 이후 버전에서 제시된 조건에 따라 재배포 혹은 수정할 수 있습니다.
 
-본 프로그램은 유용할 것이라는 기대를 바탕으로 배포되었으나, 어떠한 보증 의무도 없습니다. 상업적 또는 특정 목적에 대하여 적합할 것이라는 묵시적인 보증조차 없습니다. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조하십시오.
+본 프로그램은 유용할 것이라는 기대를 바탕으로 배포되었으나, 어떠한 보증 의무도 없습니다. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조하십시오.

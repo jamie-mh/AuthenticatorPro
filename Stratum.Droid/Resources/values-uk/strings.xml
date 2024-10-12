@@ -68,6 +68,7 @@
     <string name="digitsHint">Цифр</string>
     <string name="periodHint">Період (сек.)</string>
     <string name="counterHint">Лічильник</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Введіть емітента</string>
     <string name="noSecret">Необхідно ввести секретний ключ</string>
     <string name="noPin">Необхідно ввести пін</string>

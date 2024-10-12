@@ -68,6 +68,7 @@
     <string name="digitsHint">Numeroiden määrä</string>
     <string name="periodHint">Aikaväli (sekuntia)</string>
     <string name="counterHint">Laskuri</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Myöntäjä on pakollinen</string>
     <string name="noSecret">Salainen avain on pakollinen</string>
     <string name="noPin">PIN-koodi on pakollinen</string>

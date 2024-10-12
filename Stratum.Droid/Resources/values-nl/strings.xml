@@ -68,6 +68,7 @@
     <string name="digitsHint">Cijfers</string>
     <string name="periodHint">Periode (seconden)</string>
     <string name="counterHint">Teller</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Een naam is verplicht</string>
     <string name="noSecret">Een geheime sleutel is verplicht</string>
     <string name="noPin">Een pincode is verplicht</string>

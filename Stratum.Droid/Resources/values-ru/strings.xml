@@ -68,6 +68,7 @@
     <string name="digitsHint">Кол-во цифр</string>
     <string name="periodHint">Период (сек.)</string>
     <string name="counterHint">Счетчик</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Обязательно укажите издателя.</string>
     <string name="noSecret">Требуется секретный ключ.</string>
     <string name="noPin">Требуется PIN-код.</string>

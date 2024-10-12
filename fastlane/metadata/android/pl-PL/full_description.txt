@@ -3,26 +3,26 @@ Darmowa otwartoźródłowa aplikacja do dwuskładnikowego uwierzytelniania dla s
 Wspiera uwierzytelnianie TOTP (zależny od czasu) i HOTP (oparty na odliczaniu) za pomocą algorytmów SHA1, SHA256 lub SHA512. Wspierane są również Mobile-Otp (mOTP), Steam i Yandex.
 
 Uwierzytelnianie dwuskładnikowe zapewnia dodatkową warstwę bezpieczeństwa na Twoich kontach wymagając użycia jednorazowego kodu do zalogowania.
-Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego przez Authenticator Pro. Więc nawet jeśli Twoje dane logowania zostaną ujawnione, Twoje konto pozostaje bezpieczne.
+Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego przez Stratum. Więc nawet jeśli Twoje dane logowania zostaną ujawnione, Twoje konto pozostaje bezpieczne.
 
 <hr>
 
 <b>Funkcje</b>
 
-- ⚙️ <b>Kompatybilnośća</b>: Authenticator Pro jest kompatybilny z większością dostawców i kont.
-- 📲 <b>Importuj</b>: Łatwo migruj swoje konta do Authenticator Pro z obsługiwanych alternatywnych aplikacji.
+- ⚙️ <b>Kompatybilnośća</b>: Stratum jest kompatybilny z większością dostawców i kont.
+- 📲 <b>Importuj</b>: Łatwo migruj swoje konta do Stratum z obsługiwanych alternatywnych aplikacji.
 - 💾 <b>Kopia zapasowa / przywracanie</b>: Zrób kopię zapasową swoich kodów z pomocą silnego szyfrowania. W przypadku zgubienia lub zmiany telefonu, zawsze możesz uzyskać dostęp do swoich kont. Możesz zapisać kopie zapasowe w chmurze lub na urządzeniu.
-- 🌙 <b>Tryb ciemny</b>: Authenticator Pro ma piękny wygląd inspirowany material design dopasowany do jasnych i ciemnych motywów.
+- 🌙 <b>Tryb ciemny</b>: Stratum ma piękny wygląd inspirowany material design dopasowany do jasnych i ciemnych motywów.
 - ⏺️ <b>Ikony</b>: Znajdź wpisy dzięki loginom marek i ikonkom obok każdego kodu.
 - 📂 <b>Kategorie</b>: Zorganizuj swoje tokeny uwierzytelniające w kategorie.
-- 🔒 <b>Offline z kilkoma uprawnieniami</b>: Authenticator Pro wymaga tylko jednego uprawnienia¹ i nie wymaga internetu żeby działać.
+- 🔒 <b>Offline z kilkoma uprawnieniami</b>: Stratum wymaga tylko jednego uprawnienia¹ i nie wymaga internetu żeby działać.
 - 🔑 <b>Bezpieczeństwo</b>: Ustaw hasło i użyj uwierzytelniania biometrycznego, aby chronić swoje kody.
 - 🎨 <b>Personalizacja</b>: Ustaw ikony i zmień nazwę. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
 - ⌚ <b>Wear OS</b>: Szybko pokaż kody bezpośrednio na zegarku. Możesz nawet wybrać ulubiony i umieścić go jako kafelek. Pamiętaj, że wymagane jest połączenie z Twoim urządzeniem z systemem Android. Ponadto dystrybucje aplikacji przez F-Droid nie jest kompatybilna z Wear OS, ponieważ wymagane są zamkniętoźrodłowe zależności.
 
 (¹) *Aby zeskanować kody QR, aplikacja wymaga uprawnienia aparatu.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ (Często zadawane pytania)</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ (Często zadawane pytania)</b></a>
 
 <hr>
 

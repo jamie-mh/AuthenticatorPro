@@ -68,6 +68,7 @@
     <string name="digitsHint">Chiffres</string>
     <string name="periodHint">Période (secondes)</string>
     <string name="counterHint">Compteur</string>
+    <string name="refresh">Actualiser</string>
     <string name="noIssuer">Un émetteur est requis</string>
     <string name="noSecret">Une clé secrète est requise</string>
     <string name="noPin">Un code pin est requis</string>

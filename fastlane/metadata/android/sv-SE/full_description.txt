@@ -3,26 +3,26 @@ En gratis tvåfaktorsautentiseringsapp med öppen källkod för Android. Den har
 Den stöder konton med TOTP (tillfälliga koder) och HOTP (räknarbaserade koder) samt hash-algoritmerna SHA1, SHA256 och SHA512. Mobile-OTP (mOTP), Steam och Yandex stöds också.
 
 Tvåfaktorsautentisering ger ett extra lager av säkerhet på dina konton genom att kräva en engångskod för att logga in.
-Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandahålls av Authenticator Pro. Så även om dina inloggningsuppgifter äventyras, förblir ditt konto säkert.
+Utöver ditt användarnamn och lösenord kommer du behöva en kod som tillhandahålls av Stratum. Så även om dina inloggningsuppgifter äventyras, förblir ditt konto säkert.
 
 <hr>
 
 <b>Funktioner</b>
 
-- ⚙️ <b>Kompatibilitet</b>: Authenticator Pro är kompatibel med de flesta tjänster och konton.
-- 📲 <b>Import</b>: Flytta enkelt dina konton till Authenticator Pro från andra appar som stöds.
+- ⚙️ <b>Kompatibilitet</b>: Stratum är kompatibel med de flesta tjänster och konton.
+- 📲 <b>Import</b>: Flytta enkelt dina konton till Stratum från andra appar som stöds.
 - 💾 <b>Säkerhetskopiering</b>: Säkerhetskopiera dina konton med stark kryptering. Om du förlorar eller byter din mobil kan du ändå få tillgång till dina konton. Du kan spara säkerhetskopiorna i molnet eller på din enhet.
-- 🌙 <b>Mörkt tema</b>: Authenticator Pro har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
+- 🌙 <b>Mörkt tema</b>: Stratum har en snygg design i både ljust och mörkt tema, inspirerad av Material Design.
 - ⏺️ <b>Ikoner</b>: Hitta enkelt dina konton tack vare igenkännbara loggor och ikoner bredvid varje kod.
 - 📂 <b>Kategorier</b>: Organisera dina konton genom att dela in dem i kategorier.
-- 🔒 <b>Offline med få behörigheter</b>: Authenticator Pro kräver bara en enda behörighet¹ och fungerar utan internetuppkoppling.
+- 🔒 <b>Offline med få behörigheter</b>: Stratum kräver bara en enda behörighet¹ och fungerar utan internetuppkoppling.
 - 🔑 <b>Säkerhet</b>: Ställ in ett lösenord och använd biometri för att skydda dina koder.
 - 🎨 <b>Anpassning</b>: Ställ in ikoner och byt namn på konton. Du kan också ordna dina konton i valfri ordning så att du enkelt kan hitta dem.
 - ⌚ <b>Wear OS</b>: Få snabb åtkomst till dina koder direkt från din klocka. Du kan även välja en favorit att sätta i en bricka bredvid urtavlan. Observera att klockan behöver vara ansluten till din Android-enhet. F-Droid-distributioner av appen är inte kompatibla med Wear OS eftersom appen är beroende av mjukvara som inte har öppen källkod.
 
 (¹) *För att skanna QR-koder behöver appen åtkomst till kameran.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Vanliga frågor</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

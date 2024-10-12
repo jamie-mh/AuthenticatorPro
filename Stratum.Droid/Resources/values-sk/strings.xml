@@ -68,6 +68,7 @@
     <string name="digitsHint">Číslice</string>
     <string name="periodHint">Perióda (v sekundách)</string>
     <string name="counterHint">Počítadlo</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Vydavateľ je povinný</string>
     <string name="noSecret">Tajný kľúč je povinný</string>
     <string name="noPin">Pin je povinný</string>
@@ -82,7 +83,7 @@
     <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">Autentifikátor s týmto tajným kľúčom už existuje</string>
     <string name="scanSuccessful">QR kód úspešne naskenovaný</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Zadajte PIN priradený k tomuto QR kódu</string>
     <!--
         Icon packs
     -->
@@ -173,8 +174,8 @@
     <string name="emailClientMissing">Nie je nainštalovaný žiadny e-mailový klient</string>
     <string name="genericError">Vyskytla sa chyba</string>
     <string name="viewErrorLog">Zobraziť protokol chýb</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">Synchronizácia času je vypnutá</string>
+    <string name="autoTimeWarningMessage">Vaše zariadenie má vypnutý automatický čas. Dvojatómové overenie vyžaduje presné hodiny na generovanie kódov.\n\nPovoľte v nastaveniach zariadenia automatickú synchronizáciu času, aby ste zaistili, že vygenerované kódy budú vždy platné.</string>
     <!--
         Error reporting
     -->
@@ -340,7 +341,7 @@
     <string name="timeout5Min">5 minút</string>
     <string name="timeout10Min">10 minút</string>
     <string name="systemDefault">Predvolená systémom</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">Predvolené nastavenie systému (čierne)</string>
     <string name="lightTheme">Svetlá téma</string>
     <string name="darkTheme">Tmavá téma</string>
     <string name="blackTheme">Tmavá téma</string>

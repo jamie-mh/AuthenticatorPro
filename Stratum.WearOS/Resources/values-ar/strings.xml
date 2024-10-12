@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
-    <string name="hotpNotSupported">HOTP not supported</string>
-    <string name="categoryAll">All</string>
-    <string name="offline">Offline</string>
-    <string name="syncFailed">Sync failed</string>
-    <string name="noFavourite">No favourite</string>
-    <string name="noFavouriteMessage">Long press an authenticator in the app to set</string>
-    <string name="open">Open</string>
+    <string name="noAuthenticators">لا يوجد مصادقة</string>
+    <string name="noAuthenticatorsMessage">لا شيء هنا. أضف بعض الموثقين من تطبيق الهاتف.</string>
+    <string name="hotpNotSupported">HOTP غير مدعوم</string>
+    <string name="categoryAll">الكل</string>
+    <string name="offline">غير متصل بالإنترنت</string>
+    <string name="syncFailed">فشلت المزامنة</string>
+    <string name="noFavourite">لا يوجد مفضلة</string>
+    <string name="noFavouriteMessage">اضغط لفترة طويلة على الموثق في التطبيق لتعيينه</string>
+    <string name="open">فتح</string>
 </resources>

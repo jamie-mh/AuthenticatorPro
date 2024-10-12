@@ -3,26 +3,26 @@ Ingyenes nyílt forráskódú kétfaktoros hitelesítési alkalmazás Androidra.
 Támogatja a TOTP (idő alapú) és HOTP (számláló alapú) hitelesítőket SHA1, SHA256 vagy SHA512 kivonatoló algoritmusok használatával. A Mobile-Otp (mOTP), a Steam és a Yandex szintén támogatott.
 
 A 2 faktoros hitelesítés további biztonsági réteget biztosít fiókjai számára, mivel egyszeri kód használatára van szükség a bejelentkezéshez.
-A felhasználónéven és a jelszón kívül szüksége lesz az Authenticator Pro által biztosított kódra. Így még ha bejelentkezési adatait megszerezték, fiókja biztonságban marad.
+A felhasználónéven és a jelszón kívül szüksége lesz az Stratum által biztosított kódra. Így még ha bejelentkezési adatait megszerezték, fiókja biztonságban marad.
 
 <hr>
 
 <b>Funkciók</b>
 
-- ⚙️ <b>Kompatibilitás</b>: Az Authenticator Pro a legtöbb szolgáltatóval és fiókkal kompatibilis.
-- 📲 <b>Importálás</b>: Könnyen migrálhatja fiókjait az Authenticator Pro alkalmazásba a támogatott alternatív alkalmazásokból.
+- ⚙️ <b>Kompatibilitás</b>: Az Stratum a legtöbb szolgáltatóval és fiókkal kompatibilis.
+- 📲 <b>Importálás</b>: Könnyen migrálhatja fiókjait az Stratum alkalmazásba a támogatott alternatív alkalmazásokból.
 - 💾 <b>Biztonsági mentés / visszaállítás</b>: Erős titkosítással készíthet biztonsági másolatot hitelesítőiről. Ha elveszíti vagy lecseréli telefonját, bármikor hozzáférhet fiókjaihoz. A biztonsági másolatokat felhőtárhelyre vagy eszközére mentheti.
-- 🌙 <b>Sötét üzemmód</b>: A Authenticator Pro gyönyörű, material design ihlette megjelenéssel rendelkezik világos vagy sötét témákban.
+- 🌙 <b>Sötét üzemmód</b>: A Stratum gyönyörű, material design ihlette megjelenéssel rendelkezik világos vagy sötét témákban.
 - ⏺️ <b>Ikonok</b>: Könnyen megtalálja a hitelesítőket a felismerhető márkalogókkal és ikonokkal az egyes kódok mellett.
 - 📂 <b>Kategóriák</b>: A hitelesítők kategóriákba rendezése.
-- 🔒 <b>Offline működés kevés jogosultsággal</b>: A Authenticator Pro csak egyetlen engedélyt igényel¹, és működéséhez nincs szükség internet-hozzáférésre.
+- 🔒 <b>Offline működés kevés jogosultsággal</b>: A Stratum csak egyetlen engedélyt igényel¹, és működéséhez nincs szükség internet-hozzáférésre.
 - 🔑 <b>Biztonság</b>: Állítson be jelszót és használjon biometrikus hitelesítést a kódok védelmére.
 - 🎨 <b>Szabályozás</b>: ikonok beállítása és átnevezése. A hitelesítőket tetszőleges sorrendbe is rendezheti, így könnyen megtalálhatja őket.
 - ⌚ <b>Wear OS</b>: Gyorsan megtekintheti hitelesítőit közvetlenül az órájáról. Még egy kedvencet is beállíthat, és elhelyezheti egy csempén. Felhívjuk figyelmét, hogy az Android készülékkel való kapcsolatra van szükség. Továbbá az alkalmazás F-Droid disztribúciói nem kompatibilisek a Wear OS-sel, mivel nem szabad függőségek szükségesek.
 
 (¹) *A QR-kódok beolvasásához az alkalmazásnak szüksége van a kamera engedélyére.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> GYIK</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

@@ -68,6 +68,7 @@
     <string name="digitsHint">الأرقام</string>
     <string name="periodHint">الفترة (بالثواني)</string>
     <string name="counterHint">العداد</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">المُصدر مطلوب</string>
     <string name="noSecret">المفتاح السري مطلوب</string>
     <string name="noPin">الرمز مطلوب</string>
