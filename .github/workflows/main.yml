@@ -32,27 +32,27 @@ jobs:
         run: dotnet restore
 
       - name: Run tests
-        run: dotnet test --configuration $CONFIGURATION --no-restore --collect:"XPlat Code Coverage" --results-directory ./coverage AuthenticatorPro.Test/AuthenticatorPro.Test.csproj
+        run: dotnet test --configuration $CONFIGURATION --no-restore --collect:"XPlat Code Coverage" --results-directory ./coverage Stratum.Test/Stratum.Test.csproj
 
       - name: Publish Android
         run: |
           REF=$(echo $GITHUB_SHA | cut -c -7)
-          sed -i "s|package=\"me.jmh.authenticatorpro\"|package=\"me.jmh.authenticatorpro.$REF\"|g" AuthenticatorPro.Droid/Properties/AndroidManifest.xml
-          sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.Droid/Resources/values/strings.xml
+          sed -i "s|package=\"com.stratumauth.app\"|package=\"com.stratumauth.app.$REF\"|g" Stratum.Droid/Properties/AndroidManifest.xml
+          sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" Stratum.Droid/Resources/values/strings.xml
 
-          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.Droid/AuthenticatorPro.Droid.csproj
-          APK=$(find AuthenticatorPro.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
-          mv $APK "me.jmh.authenticatorpro.$REF.apk"
+          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore Stratum.Droid/Stratum.Droid.csproj
+          APK=$(find Stratum.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
+          mv $APK "com.stratumauth.app.$REF.apk"
 
       - name: Publish Wear OS
         run: |
           REF=$(echo $GITHUB_SHA | cut -c -7)
-          sed -i "s|package=\"me.jmh.authenticatorpro\"|package=\"me.jmh.authenticatorpro.$REF\"|g" AuthenticatorPro.WearOS/Properties/AndroidManifest.xml
-          sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" AuthenticatorPro.WearOS/Resources/values/strings.xml
+          sed -i "s|package=\"com.stratumauth.app\"|package=\"com.stratumauth.app.$REF\"|g" Stratum.WearOS/Properties/AndroidManifest.xml
+          sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" Stratum.WearOS/Resources/values/strings.xml
 
-          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
-          APK=$(find AuthenticatorPro.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
-          mv $APK "me.jmh.authenticatorpro.wearos.$REF.apk"
+          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore Stratum.WearOS/Stratum.WearOS.csproj
+          APK=$(find Stratum.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
+          mv $APK "com.stratumauth.app.wearos.$REF.apk"
 
       - name: Generate coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
@@ -66,7 +66,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: AuthenticatorPro
+          name: Stratum
           path: |
-            me.jmh.authenticatorpro*.apk
+            com.stratumauth.app*.apk
             code-coverage-results.md

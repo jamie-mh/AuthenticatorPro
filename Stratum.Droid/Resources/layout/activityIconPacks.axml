@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/includeAppBar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:visibility="invisible"
+        android:scrollbars="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="10dp"
+        android:paddingBottom="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/layoutEmptyState"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:src="@drawable/big_ic_box"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:layout_marginTop="22dp"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:text="@string/noIconPacksTitle"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:layout_marginTop="12dp"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:text="@string/noIconPacksMessage"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonDownloadPacks"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/downloadPacks"/>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/baseline_add_24"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

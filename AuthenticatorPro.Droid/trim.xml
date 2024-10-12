@@ -1,7 +1,0 @@
-<linker>
-    <assembly fullname="AuthenticatorPro.Core" preserve="all"/>
-    <assembly fullname="AuthenticatorPro.Droid" preserve="all"/>
-    <assembly fullname="AuthenticatorPro.Droid.Shared" preserve="all"/>
-    <assembly fullname="protobuf-net" preserve="all"/>
-    <assembly fullname="protobuf-net.Core" preserve="all"/>
-</linker>

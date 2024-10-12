@@ -6,23 +6,35 @@
 import os
 import argparse
 import subprocess
-import tempfile
 import shutil
+import contextlib
 import xml.etree.ElementTree as ElementTree
+from typing import Generator
 
-REPO = "https://github.com/jamie-mh/AuthenticatorPro.git"
+REPO = "https://github.com/stratumauth/app.git"
 
 FRAMEWORK = "net8.0-android"
 CONFIGURATION = "Release"
 
 PROJECT_NAMES = {
-    "android": "AuthenticatorPro.Droid",
-    "wearos": "AuthenticatorPro.WearOS",
+    "android": "Stratum.Droid",
+    "wearos": "Stratum.WearOS",
 }
 
 
-def get_full_path(path: str) -> str:
-    return os.path.abspath(os.path.expanduser(path))
+def get_full_path(input: str) -> str:
+    return os.path.abspath(os.path.expanduser(input))
+
+
+@contextlib.contextmanager
+def get_build_dir_path(output_path: str) -> Generator[str, None, None]:
+    build_path = f"{output_path}.build"
+
+    try:
+        os.makedirs(build_path, exist_ok=True)
+        yield build_path
+    finally:
+        shutil.rmtree(build_path)
 
 
 def adjust_csproj(build_dir: str, args: argparse.Namespace):
@@ -86,7 +98,7 @@ def move_build_artifacts(args: argparse.Namespace, build_dir: str, output_dir: s
 
 
 def get_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build Authenticator Pro")
+    parser = argparse.ArgumentParser(description="Build Stratum")
     parser.add_argument(
         "project",
         metavar="P",
@@ -105,13 +117,16 @@ def get_args() -> argparse.Namespace:
     parser.add_argument(
         "--fdroid",
         action=argparse.BooleanOptionalAction,
-        help="Build without proprietary libraries (Wear OS, ML Kit, etc.)",
+        help="Build without proprietary libraries (Wear OS)",
     )
     parser.add_argument(
         "--output",
         type=str,
         help="Build output path (defaults to 'out')",
         default="out",
+    )
+    parser.add_argument(
+        "--branch", type=str, help="Branch to build from (uses default if not set)"
     )
 
     signing = parser.add_argument_group("build signing")
@@ -159,8 +174,15 @@ def main():
 
     print(f"Building {args.project} as {args.package}")
 
-    with tempfile.TemporaryDirectory() as build_dir:
-        subprocess.run(["git", "clone", REPO, build_dir], check=True)
+    with get_build_dir_path(args.output) as build_dir:
+        git_command = ["git", "clone"]
+
+        if args.branch is not None:
+            git_command += ["-b", args.branch]
+
+        git_command += [REPO, build_dir]
+        subprocess.run(git_command, check=True)
+
         adjust_csproj(build_dir, args)
         build_project(build_dir, args)
         move_build_artifacts(args, build_dir, args.output)

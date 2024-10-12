@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stratum.Droid", "Stratum.Droid\Stratum.Droid.csproj", "{53A476E3-2831-4A43-B0E7-349EF15A45FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.Core", "Stratum.Core\Stratum.Core.csproj", "{B9214A83-03DC-4963-B355-1BB34B03DC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.Droid.Shared", "Stratum.Droid.Shared\Stratum.Droid.Shared.csproj", "{A13F5591-E77B-41E0-A96F-7D4DE9F91FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.Test", "Stratum.Test\Stratum.Test.csproj", "{EB144D03-FB60-4CA2-B862-BF9D892BC82E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.WearOS", "Stratum.WearOS\Stratum.WearOS.csproj", "{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53A476E3-2831-4A43-B0E7-349EF15A45FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A476E3-2831-4A43-B0E7-349EF15A45FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A476E3-2831-4A43-B0E7-349EF15A45FF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{53A476E3-2831-4A43-B0E7-349EF15A45FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A476E3-2831-4A43-B0E7-349EF15A45FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A476E3-2831-4A43-B0E7-349EF15A45FF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B9214A83-03DC-4963-B355-1BB34B03DC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9214A83-03DC-4963-B355-1BB34B03DC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9214A83-03DC-4963-B355-1BB34B03DC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9214A83-03DC-4963-B355-1BB34B03DC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13F5591-E77B-41E0-A96F-7D4DE9F91FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13F5591-E77B-41E0-A96F-7D4DE9F91FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13F5591-E77B-41E0-A96F-7D4DE9F91FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13F5591-E77B-41E0-A96F-7D4DE9F91FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB144D03-FB60-4CA2-B862-BF9D892BC82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB144D03-FB60-4CA2-B862-BF9D892BC82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB144D03-FB60-4CA2-B862-BF9D892BC82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB144D03-FB60-4CA2-B862-BF9D892BC82E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FADC70B-A1BB-4ADD-B410-51B79EB77C92}
+	EndGlobalSection
+EndGlobal

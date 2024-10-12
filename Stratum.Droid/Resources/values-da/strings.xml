@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+        Non-specific strings
+    -->
+    <string name="warning">Advarsel</string>
+    <string name="delete">Slet</string>
+    <string name="add">Tilføj</string>
+    <string name="edit">Redigér</string>
+    <string name="cancel">Annuller</string>
+    <string name="ok">OK</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nej</string>
+    <string name="close">Luk</string>
+    <string name="error">Fejl</string>
+    <string name="retry">Prøv igen</string>
+    <string name="ignore">Ignorer</string>
+    <string name="disable">Deaktivér</string>
+    <string name="name">Navn</string>
+    <!-- 
+        Menu items
+    -->
+    <string name="settings">Indstillinger</string>
+    <string name="restore">Gendan</string>
+    <string name="backup">Sikkerhedskopiér</string>
+    <string name="about">Om</string>
+    <string name="scanQrCode">Scan en QR-kode</string>
+    <string name="showQrCode">Vis QR-kode</string>
+    <string name="editDetails">Rediger detaljer</string>
+    <string name="scanQrCodeFromCamera">Scan fra kamera</string>
+    <string name="scanQrCodeFromGallery">Scan fra galleri</string>
+    <string name="rename">Omdøb</string>
+    <string name="changeIcon">Skift ikon</string>
+    <string name="search">Søg</string>
+    <string name="mainMenu">Hovedmenu</string>
+    <string name="enterKey">Indtast en angivet nøgle</string>
+    <string name="restoreBackup">Gendan en sikkerhedskopi</string>
+    <string name="sort">Sortér</string>
+    <string name="sortAZ">Alfabetisk (a til å)</string>
+    <string name="sortZA">Alfabetisk (å til a)</string>
+    <string name="sortMostCopied">Mest kopieret</string>
+    <string name="sortLeastCopied">Mindst kopieret</string>
+    <string name="sortCustom">Tilpasset</string>
+    <string name="aboutSummary">Se om og licensoplysninger</string>
+    <string name="supportDevelopment">Støt udviklingen</string>
+    <string name="supportDevelopmentSummary">Støt op om fortsat udvikling og opdateringer med Buy Me a Coffee</string>
+    <string name="rate">Bedøm</string>
+    <string name="rateSummary">Bedøm Stratum på Google Play butik</string>
+    <string name="viewGitHub">Se på GitHub</string>
+    <string name="viewGitHubSummary">Se Stratum-repository på GitHub. Du kan rapportere et problem, anmode om flere ikoner og funktioner.</string>
+    <!--
+        Authenticator
+    -->
+    <string name="issuer">Udsteder</string>
+    <string name="username">Brugernavn</string>
+    <string name="secretKey">Hemmelig nøgle</string>
+    <string name="pin">PIN</string>
+    <string name="showAdvancedOptions">Vis avancerede indstillinger</string>
+    <string name="advancedOptionsWarning">Ændr kun disse indstillinger, hvis du ved, hvad du laver; du kan blive låst ud af din konto.\n\nFortsæt?</string>
+    <string name="confirmAuthenticatorDelete">Fjernelse af denne godkender vil forhindre dig i at generere koder for denne konto. Dette betyder ikke, at to-faktor godkendelse deaktiveres.\n\nSletning af denne godkender kan forhindre dig i at få adgang til din konto.\nSørg for, at enten to-faktor godkendelse er deaktiveret, eller at du har gendannelseskoderne.\n\nFortsæt?</string>
+    <string name="useCustomIcon">Brug brugerdefineret ikon</string>
+    <string name="copiedToClipboard">Kode kopieret til udklipsholder</string>
+    <string name="issuerHint">Udsteder (fx: Google)</string>
+    <!-- Keep domain example.com as described in RFC6761 -->
+    <string name="usernameHint">Brugernavn (fx: john@example.com)</string>
+    <string name="typeHint">Type</string>
+    <string name="algorithmHint">Algoritme</string>
+    <string name="digitsHint">Cifre</string>
+    <string name="periodHint">Periode (sekunder)</string>
+    <string name="counterHint">Tæller</string>
+    <string name="noIssuer">En udsteder er påkrævet</string>
+    <string name="noSecret">En hemmelig nøgle er påkrævet</string>
+    <string name="noPin">En PIN-kode er påkrævet</string>
+    <string name="noFileName">Et filnavn er påkrævet</string>
+    <string name="secretInvalid">Hemmeligheden er ugyldig</string>
+    <string name="pinTooShort">PIN-koden skal indeholde mindst {0} cifre</string>
+    <string name="pinTooLong">PIN-koden må ikke indeholde mere end {0} cifre</string>
+    <string name="digitsInvalid">Godkenderen skal generere mellem {0} og {1} cifre</string>
+    <string name="periodInvalid">Perioden er ugyldig</string>
+    <string name="counterInvalid">Tælleren er ugyldig</string>
+    <string name="qrCodeFormatError">QR-koden er ikke i det rigtige format eller kan ikke læses</string>
+    <string name="qrCodePhoneFactorError">Denne QR-kode er specifikt til Microsoft Authenticator og er ikke kompatibel. \n\nVælg \"Opsæt en anden Godkendelsesapp\" eller \"Konfigurer app uden meddelelser\" for at få en kompatibel QR-kode.</string>
+    <string name="duplicateAuthenticator">En godkender med denne hemmelige nøgle findes allerede</string>
+    <string name="scanSuccessful">QR-kode scannet</string>
+    <string name="pinMessage">Indtast PIN-koden knyttet til denne QR-kode</string>
+    <!--
+        Icon packs
+    -->
+    <string name="defaultIcons">Standardikoner</string>
+    <string name="iconPacks">Ikonpakker</string>
+    <string name="downloadPacks">Hent pakker</string>
+    <string name="importIconPackSuccess">Importerede {0} ikoner fra pakke</string>
+    <string name="invalidIconPackError">Den valgte fil er ikke en Stratum-ikonpakke</string>
+    <string name="confirmIconPackDelete">Er du sikker på, at du vil slette denne ikonpakke? Brugte ikoner slettes ikke.</string>
+    <!-- View the source (website) of the icon pack -->
+    <string name="viewSource">Se kilde</string>
+    <!--
+        QR code dialog
+    -->
+    <string name="qrCode">QR-kode</string>
+    <string name="qrCodeHelp">Kopiér denne godkender til en anden enhed eller app ved at scanne QR-koden</string>
+    <string name="qrCodeNotSupported">QR-koder understøttes ikke for denne type</string>
+    <string name="copyUri">Kopiér URI</string>
+    <string name="copyUriWarning">Denne URI indeholder en hemmelig nøgle i almindelig tekst. Vær forsigtig med, hvor du indsætter disse oplysninger.\n\nFortsæt?</string>
+    <string name="uriCopiedToClipboard">URI kopieret til udklipsholder</string>
+    <!--
+        Backup menu
+    -->
+    <string name="backupToFile">Sikkerhedskopiér til krypteret fil (anbefalet)</string>
+    <string name="backupToFileMessage">Gem alle dine godkendere, kategorier og ikoner til en krypteret sikkerhedskopifil. Denne fil kan gendannes i appen.</string>
+    <string name="backupHtml">Sikkerhedskopiér til HTML-fil</string>
+    <string name="backupHtmlMessage">Gem dine godkendere i et ukrypteret HTML-dokument med QR-koder. For at gendanne skal disse koder scannes individuelt. Kategorier og ikoner gemmes ikke.</string>
+    <string name="backupHtmlWarning">Sikkerhedskopier til HTML-filer er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil kan ikke gendannes i appen og indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
+    <string name="backupUriList">Sikkerhedskopiér til URI-listefil</string>
+    <string name="backupUriListMessage">Gem dine godkendere i en ukrypteret URI-listefil i almindelig tekst. Denne fil er kompatibel med mange alternative programmer og tjenester. Kategorier og ikoner gemmes ikke.</string>
+    <string name="backupUriListWarning">Sikkerhedskopier til filer med almindelig tekst er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
+    <!--
+        Empty states
+    -->
+    <string name="noAuthenticatorsTitle">Her er ingenting! </string>
+    <string name="noAuthenticatorsMessage">Du har ingen godkendere her</string>
+    <string name="gettingStartedGuide">Guide til at komme i gang</string>
+    <string name="noAuthenticatorsHelp">Hvis du er ny til Stratum, se guiden til at komme i gang ved at klikke nedenfor.</string>
+    <string name="noCategoriesTitle">Ingen kategorier</string>
+    <string name="noCategoriesMessage">Du har endnu ikke opsat nogen kategorier</string>
+    <string name="noIconPacksTitle">Ingen ikonpakker</string>
+    <string name="noIconPacksMessage">Du har endnu ikke opsat nogen ikonpakker</string>
+    <!--
+        Categories
+    -->
+    <string name="category">Kategori</string>
+    <string name="categories">Kategorier</string>
+    <string name="assignCategories">Tildel kategorier</string>
+    <string name="assignEntries">Tildel poster</string>
+    <string name="more">Mere</string>
+    <string name="categoryAll">Alle</string>
+    <string name="editCategories">Rediger kategorier</string>
+    <string name="noCategoryName">Et kategorinavn er påkrævet</string>
+    <string name="duplicateCategory">En kategori med dette navn findes allerede</string>
+    <string name="confirmCategoryDelete">Er du sikker på, at du vil slette denne kategori?</string>
+    <!-- Set as default category -->
+    <string name="setAsDefault">Angiv som standard</string>
+    <!-- Clear the selected category as the default -->
+    <string name="clearDefault">Ryd standard</string>
+    <!--
+        Backups
+    -->
+    <string name="backupNow">Sikkerhedskopiér nu</string>
+    <string name="restoreNow">Gendan nu</string>
+    <string name="backupReminder">Der er foretaget ændringer siden din sidste sikkerhedskopi</string>
+    <string name="backupPasswordMessage">Indtast en adgangskode for at kryptere din sikkerhedskopifil sikkert. Ønsker du ikke at beskytte filen med en adgangskode, skal du lade den være tom.</string>
+    <string name="password">Adgangskode</string>
+    <string name="passwordConfirm">Bekræft adgangskode</string>
+    <string name="confirmEmptyPassword">Du har ikke valgt en adgangskode, så din sikkerhedskopi krypteres ikke, og dine hemmelige nøgler kan være sårbare.\n\nFortsæt?</string>
+    <string name="passwordHint">Adgangskode til sikkerhedskopi</string>
+    <string name="fileNameHint">Navn på sikkerhedskopifil</string>
+    <string name="noAuthenticators">Du har ingen godkendere at sikkerhedskopiere</string>
+    <string name="saveSuccess">Gemt</string>
+    <string name="backupSuccess">Gemte sikkerhedskopi som \'{0}\'</string>
+    <string name="restoredFromBackup">Gendannede {0} nye godkendere og {1} nye kategorier</string>
+    <string name="restoredFromBackupUpdated">Gendannede {0} nye godkendere og {1} nye kategorier. Opdaterede {2} eksisterende godkendere.</string>
+    <string name="restoredNothing">Intet at gendanne</string>
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">Sikkerhedskopien kunne ikke gendannes</string>
+    <string name="cameraPermissionError">Kameratilladelsen skal gives for at kunne scanne en QR-kode</string>
+    <string name="googlePlayNotInstalledError">Google Play er ikke installeret på din enhed</string>
+    <string name="filePickerMissing">Kan ikke åbne filvælger. En filhåndtering skal være installeret.</string>
+    <string name="filePickError">Fejl ved valg af fil</string>
+    <string name="invalidFileError">Den valgte fil er ikke en Stratum-sikkerhedskopi</string>
+    <string name="webBrowserMissing">Ingen webbrowser installeret</string>
+    <string name="emailClientMissing">Ingen e-mailklient installeret</string>
+    <string name="genericError">Der opstod en fejl</string>
+    <string name="viewErrorLog">Se fejllog</string>
+    <string name="autoTimeWarningTitle">Tidssynkronisering deaktiveret</string>
+    <string name="autoTimeWarningMessage">Din enhed har automatisk tid deaktiveret. Tofaktorgodkendelse kræver et nøjagtigt ur for at generere koder.\n\nAktivér venligst automatisk tidssynkronisering i enhedens indstillinger for at sikre, at de genererede koder altid er gyldige.</string>
+    <!--
+        Error reporting
+    -->
+    <string name="unhandledErrorMessage">En ubehandlet fejl opstod i applikationen. Detaljer om fejlen er nedenfor:</string>
+    <string name="report">Rapportér</string>
+    <string name="email">E-mail</string>
+    <!-- Report via Email, GitHub, etc. -->
+    <string name="reportVia">Rapportér via</string>
+    <string name="errorCopiedToClipboard">Fejl kopieret til udklipsholder</string>
+    <!--
+        Auto backup
+    -->
+    <string name="autoBackupHelp">Vælg en lokation og adgangskode til automatisk sikkerhedskopiering. Sikkerhedskopier planlægges, når ændringer foretages. Cloud-lagring understøttes ikke; brug i stedet sikkerhedskopieringsmenuen.</string>
+    <string name="selectLocation">Vælg lokation</string>
+    <string name="noLocationSelected">Ingen lokation valgt</string>
+    <!-- Shown when auto backup location has been selected -->
+    <string name="locationSetTo">Lokation indstillet til \'{0}\'</string>
+    <string name="setPassword">Angiv adgangskode</string>
+    <string name="passwordNotSet">Adgangskode er ikke angivet</string>
+    <!-- Shown when auto backup password has been selected -->
+    <string name="passwordSet">Adgangskode angivet</string>
+    <string name="notPasswordProtected">Ikke adgangskode-beskyttet</string>
+    <string name="enableAutoBackup">Aktivér Auto-sikkerhedskopiering</string>
+    <string name="enableAutoBackupMessage">Sikkerhedskopiér automatisk til den valgte lagringsplacering</string>
+    <string name="batOptim">Batterioptimering</string>
+    <string name="disableBatOptimMessage">På visse enheder kan strømindstillinger forhindre sikkerhedskopier i at fungere korrekt. Hvis du oplever problemer, så prøv at deaktivere batterioptimering for Stratum.</string>
+    <string name="autoBackupFailureTitle">Auto-sikkerhedskopiering mislykkedes</string>
+    <string name="autoBackupFailureText">Den seneste auto-sikkerhedskopiering blev ikke gennemført. Filtilladelser kan være udløbet; prøv at indstille lokationen for sikkerhedskopiering igen i indstillingerne for auto-sikkerhedskopiering.</string>
+    <string name="autoBackupSuccessTitle">Automatisk Backup fuldført</string>
+    <string name="backupScheduled">Sikkerhedskopiering planlagt</string>
+    <!--
+        Password setup
+    -->
+    <string name="passwordSetupHelp">Kryptér databasen med en adgangskode. Du vil blive bedt om adgangskoden, når du åbner appen. Lad feltet stå tomt for at rydde adgangskoden.</string>
+    <string name="passwordSetupWarning">Brug en adgangskode, du kan huske. Databasen kan ikke gendannes uden den!</string>
+    <string name="clearPassword">Ryd adgangskode</string>
+    <string name="confirmPassword">Bekræft adgangskode</string>
+    <string name="setupBiometricUnlock">Opsæt biometrisk oplåsning</string>
+    <string name="passwordsDoNotMatch">Adgangskoder matcher ikke</string>
+    <string name="biometricsChanged">Enhedens biometri er ændret. Brug adgangskoden for at låse op.</string>
+    <!--
+        Unlock
+    -->
+    <string name="unlock">Lås op</string>
+    <string name="useBiometrics">Brug biometri</string>
+    <string name="unlockMessage">Indtast din adgangskode eller brug biometri for at låse databasen op</string>
+    <string name="unlockBiometricsMessage">Brug biometri for at få adgang til dine godkendere</string>
+    <string name="passwordIncorrect">Adgangskoden er forkert</string>
+    <string name="tooManyAttempts">For mange forsøg</string>
+    <!--
+        Import
+    -->
+    <string name="importFromOtherApps">Importér fra andre apps</string>
+    <string name="importError">Filen kunne ikke importeres</string>
+    <string name="importIncomplete">Import ikke fuldført</string>
+    <string name="importConversionError">Elementet \"{0}\" kunne ikke importeres grundet følgende fejl: {1}</string>
+    <string name="authenticatorPlusImportHint">Importér authplus.db-fil</string>
+    <string name="andOtpImportHint">Importér otp_accounts.json-fil</string>
+    <string name="freeOtpImportHint">Importér externalBackup.xml-fil</string>
+    <string name="freeOtpPlusImportHint">Importér freeotp-backup.json-fil</string>
+    <string name="aegisImportHint">Importér aegis-export.json-fil</string>
+    <string name="bitwardenImportHint">Importér bitwarden_export.json-fil</string>
+    <string name="enteAuthImportHint">Importér ente-auth-codes.txt-fil</string>
+    <string name="winAuthImportHint">Importér winauth.txt eller winauth.zip-fil</string>
+    <string name="twoFasImportHint">Importér 2fas-backup.2fas-fil</string>
+    <string name="lastPassAuthenticatorImportHint">Importér LastPassAuthenticator.json-fil</string>
+    <string name="totpAuthenticatorImportHint">Importér TOTP_Backup.encrypt-fil</string>
+    <string name="uriList">URI-liste</string>
+    <string name="uriListHint">Almindelig tekstliste af otpauth URIs</string>
+    <string name="viewGuideImportHint">Se guide på projektets wiki</string>
+    <!--
+        Getting Started Guide
+    -->
+    <string name="guideScanQRCodeTitle">Scan en QR-kode</string>
+    <string name="guideScanQRCodeSummary">For at tilføje en godkender, skal du scanne QR-koden fra appen eller tjenesten. Den føjes til listen og genererer automatisk nye koder. Du kan også indtaste oplysningerne manuelt.</string>
+    <string name="guideUseCodeTitle">Brug koden ved login</string>
+    <string name="guideUseCodeSummary">Når du logger ind, brug den unikke kode givet af Stratum. Den er kun gyldig i en kort periode. Tryk på godkenderen i listen for at kopiere koden til udklipsholderen.</string>
+    <string name="guideCustomiseTitle">Tilpas og rediger</string>
+    <string name="guideCustomiseSummary">Omdøb og tilpas dine godkendere, så du nemt kan finde dem. Tryk blot på menuikonet på en post, og følg trinnene.</string>
+    <string name="guideArrangeTitle">Arranger og sortér</string>
+    <string name="guideArrangeSummary">Du kan organisere dine godkendere i kategorier for nemt at kunne finde dem. Desuden kan du holde og trække elementer, så du kan omarrangere dem i den rækkefølge, du ønsker.</string>
+    <string name="guideBackupTitle">Opret en sikkerhedskopi</string>
+    <string name="guideBackupSummary">Undgå at blive låst ude af dine konti, hvis du skifter enhed. Opret en sikkerhedskopi, og opbevar den et sikkert sted. En sikkerhedskopi kan til enhver tid gendannes og beskyttes med en adgangskode.</string>
+    <string name="guideWearOSTitle">Hent Wear OS-appen</string>
+    <string name="guideWearOSSummary">Hvis du har et Wear OS-ur, kan du hente den tilhørende app. Du kan se koder direkte på dit ur.</string>
+    <!--
+        QR code scanner
+    -->
+    <string name="scanHelpPrimary">Placer QR-koden i søgeren for at scanne den. Tryk for at fokusere.</string>
+    <string name="scanHelpSecondary">Prøv at undgå skygger og blænding. Hold enheden ca. 15 cm (6 inches) fra koden.</string>
+    <string name="toggleFlash">Slå blitz til/fra</string>
+    <!--
+        Preferences
+    -->
+    <string name="prefGeneral">Generelt</string>
+    <string name="prefShowBackupRemindersTitle">Påmindelser om Sikkerhedskopiering</string>
+    <string name="prefShowBackupRemindersSummary">Påminder dig om at sikkerhedskopiere dine godkendere, hvis vigtige ændringer foretages</string>
+    <string name="prefAutoBackupTitle">Auto-sikkerhedskopiering</string>
+    <string name="prefAutoBackupSummary">Sikkerhedskopiér automatisk til en bestemt lokation, når ændringer foretages. Deaktiverer påmindelser om sikkerhedskopiering.</string>
+    <string name="prefLanguageTitle">Sprog</string>
+    <string name="prefLanguageSummary">Vælg et sprog til brug i hele appen</string>
+    <string name="prefTapToCopyTitle">Tryk for at Kopiere</string>
+    <string name="prefTapToCopySummary">Kopiér koden til udklipsholderen, når den trykkes</string>
+    <string name="prefResetCopyCountTitle">Nulstil Kopieringstæller</string>
+    <string name="prefResetCopyCountSummary">Ryd antallet af gange, hver godkender er blevet kopieret</string>
+    <string name="prefSkipToNextTitle">Spring til Næste</string>
+    <string name="prefSkipToNextSummary">Tillad at springe til den næste kode, når den er tæt på at udløbe</string>
+    <string name="prefSecurity">Sikkerhed</string>
+    <string name="prefPasswordTitle">Adgangskode</string>
+    <string name="prefPasswordSummary">Kræv adgangskode for at få adgang til godkendere. Databasen krypteres med din adgangskode.</string>
+    <string name="prefDatabasePasswordBackupTitle">Sikkerhedskopiering med Databaseadgangskode</string>
+    <string name="prefDatabasePasswordBackupSummary">Kryptér alle sikkerhedskopier med databaseadgangskoden, så du ikke skal indtaste den hver gang</string>
+    <string name="prefAllowBiometricsTitle">Biometrisk Oplåsning</string>
+    <string name="prefAllowBiometricsSummary">Tillad oplåsning af databasen med biometrisk godkendelse</string>
+    <string name="prefTimeoutTitle">Tidsudløb</string>
+    <string name="prefTimeoutSummary">Angiv tidspunktet, hvorefter databasen låser, når appen forlader skærmen</string>
+    <string name="prefTapToRevealTitle">Tryk for at Afsløre</string>
+    <string name="prefTapToRevealSummary">Skjul koder, indtil de trykkes. De forsvinder efter nogle sekunder.</string>
+    <string name="prefTapToRevealDurationTitle">Tryk for at Afsløre Varighed</string>
+    <string name="prefTapToRevealDurationSummary">Angiv tiden, hvorefter koderne skjules</string>
+    <string name="prefAllowScreenshotsTitle">Tillad Skærmbilleder</string>
+    <string name="prefAllowScreenshotsSummary">Deaktivér skærmsikkerhed, og tillad skærmbilleder af appen</string>
+    <string name="prefAppearance">Udseende</string>
+    <string name="prefThemeTitle">Tema</string>
+    <string name="prefThemeSummary">Vælg et applikationstema</string>
+    <string name="prefViewModeTitle">Visningstilstand</string>
+    <string name="prefViewModeSummary">Vælg en visningstilstand for godkendelseslisten</string>
+    <string name="prefCodeGroupSizeTitle">Kode Gruppestørrelse</string>
+    <string name="prefCodeGroupSizeSummary">Ændr grupperingen af cifre i en kode</string>
+    <string name="prefShowUsernamesTitle">Vis Brugernavne</string>
+    <string name="prefShowUsernamesSummary">Vis brugernavnet under udstederen</string>
+    <string name="prefDynamicColourTitle">Dynamisk Farve</string>
+    <string name="prefDynamicColourSummary">Indstil automatisk accentfarven efter din baggrund</string>
+    <string name="prefAccentColourTitle">Accentfarve</string>
+    <string name="prefAccentColourSummary">Vælg en accentfarve til brug i hele appen</string>
+    <string name="prefTransparentStatusBarTitle">Gennemsigtig Statuslinje</string>
+    <string name="prefTransparentStatusBarSummary">Gør listen synlig bag statuslinjen under scrolling</string>
+    <string name="prefSystemFontTitle">Systemskrifttype</string>
+    <string name="prefSystemFontSummary">Brug systemets standardskrifttype i stedet for en brugerdefineret skrifttype</string>
+    <!-- Message shown when the copy count has been reset successfully -->
+    <string name="copyCountReset">Nulstil kopiantal</string>
+    <!--
+        About
+    -->
+    <string name="viewLog">Se Log</string>
+    <string name="noLogFile">Ingen logfil tilgængelig</string>
+    <string name="debugLog">Fejlfindingslog</string>
+    <!--
+        Arrays
+    -->
+    <string name="authTypeTime">Tidsbaseret (TOTP)</string>
+    <string name="authTypeCounter">Tællerbaseret (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (standard)</string>
+    <!-- Lock the app immediately when closed -->
+    <string name="immediately">Øjeblikkeligt</string>
+    <string name="timeout5Sec">5 sekunder</string>
+    <string name="timeout10Sec">10 sekunder</string>
+    <string name="timeout20Sec">20 sekunder</string>
+    <string name="timeout30Sec">30 sekunder</string>
+    <string name="timeout1Min">1 minut</string>
+    <string name="timeout2Min">2 minutter</string>
+    <string name="timeout5Min">5 minutter</string>
+    <string name="timeout10Min">10 minutter</string>
+    <string name="systemDefault">Systemstandard</string>
+    <string name="systemDefaultBlack">Systemstandard (sort)</string>
+    <string name="lightTheme">Lyst tema</string>
+    <string name="darkTheme">Mørkt tema</string>
+    <string name="blackTheme">Sort tema</string>
+    <string name="defaultViewMode">Standard</string>
+    <string name="compactViewMode">Kompakt</string>
+    <string name="tileViewMode">Flise</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
+    <string name="none">Ingen</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
+    <string name="red">Rød</string>
+    <string name="pink">Pink</string>
+    <string name="purple">Lilla</string>
+    <string name="deepPurple">Dyb lilla</string>
+    <string name="indigo">Indigo</string>
+    <string name="blue">Blå</string>
+    <string name="lightBlue">Lyseblå</string>
+    <string name="cyan">Cyan</string>
+    <string name="teal">Teal</string>
+    <string name="green">Grøn</string>
+    <string name="lightGreen">Lysegrøn</string>
+    <string name="lime">Limegrøn</string>
+    <string name="yellow">Gul</string>
+    <string name="amber">Rav</string>
+    <string name="orange">Orange</string>
+    <string name="deepOrange">Dyb orange</string>
+    <!--
+        Arrays / Intro
+    -->
+    <string name="introWelcomeTitle">Velkommen til Stratum</string>
+    <string name="introCompatibilityTitle">Tofaktorgodkendelse</string>
+    <string name="introBackupTitle">Backup og Gendannelse</string>
+    <string name="introCategoriesTitle">Kategorier</string>
+    <string name="introThemesTitle">Mørkt tema</string>
+    <string name="introWelcomeSummary">Tak, fordi du hentede Stratum.\nHold dine onlinekonti sikre og beskyttede med den bedste open-source godkendelsesapp.</string>
+    <string name="introCompatibilitySummary">Stratum er kompatibel med de fleste udbydere og konti. Den er 100% kompatibel med Google Authenticator-aktiverede enheder.</string>
+    <string name="introBackupSummary">Sikkerhedskopiér dine godkendere med stærk kryptering. Hvis du mister din enhed, kan du altid få adgang til dine konti. Gem på cloud-lagring eller din enhed.</string>
+    <string name="introCategoriesSummary">Organiser dine godkendere i kategorier, og ændr endda rækkefølgen ved blot at holde og trække.</string>
+    <string name="introThemesSummary">Hvis du foretrækker det, kan du aktivere et mørkt tema i indstillingerne. Alle ikoner vil tilpasse sig deres nye baggrund.</string>
+</resources>

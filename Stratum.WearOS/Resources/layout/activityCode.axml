@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stratum.wearos.interface.AuthProgressLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutAuthProgress"
+    android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        app:boxedEdges="all">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerInside"/>
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:textSize="14sp"
+                android:gravity="center_horizontal"
+                android:textColor="?attr/primaryTextColor"
+                android:singleLine="true"
+                android:id="@+id/textIssuer"/>
+
+            <TextView
+                android:text=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textSize="12sp"
+                android:gravity="center_horizontal"
+                android:textColor="?attr/secondaryTextColor"
+                android:singleLine="true"
+                android:id="@+id/textUsername"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="?attr/primaryTextColor"
+                android:textSize="28sp"
+                android:textDirection="ltr"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
+                android:id="@+id/textCode"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</stratum.wearos.interface.AuthProgressLayout>

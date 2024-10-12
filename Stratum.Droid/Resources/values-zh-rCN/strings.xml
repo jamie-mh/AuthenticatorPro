@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+        Non-specific strings
+    -->
+    <string name="warning">警告</string>
+    <string name="delete">删除</string>
+    <string name="add">添加</string>
+    <string name="edit">编辑</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="close">关闭</string>
+    <string name="error">错误</string>
+    <string name="retry">重试</string>
+    <string name="ignore">忽略</string>
+    <string name="disable">禁用</string>
+    <string name="name">名称</string>
+    <!-- 
+        Menu items
+    -->
+    <string name="settings">设置</string>
+    <string name="restore">恢复</string>
+    <string name="backup">备份</string>
+    <string name="about">关于</string>
+    <string name="scanQrCode">扫描二维码</string>
+    <string name="showQrCode">显示二维码</string>
+    <string name="editDetails">编辑详情</string>
+    <string name="scanQrCodeFromCamera">使用相机扫描</string>
+    <string name="scanQrCodeFromGallery">从相册中选择</string>
+    <string name="rename">更改名称</string>
+    <string name="changeIcon">更改图标</string>
+    <string name="search">搜索​​​​</string>
+    <string name="mainMenu">主菜单</string>
+    <string name="enterKey">输入提供的密钥</string>
+    <string name="restoreBackup">从备份中恢复</string>
+    <string name="sort">排序</string>
+    <string name="sortAZ">字母顺序（a 至 z）</string>
+    <string name="sortZA">字母顺序（z 至 a）</string>
+    <string name="sortMostCopied">复制次数（递减）</string>
+    <string name="sortLeastCopied">复制次数（递增）</string>
+    <string name="sortCustom">自定义</string>
+    <string name="aboutSummary">浏览关于和许可证信息。</string>
+    <string name="supportDevelopment">支持开发</string>
+    <string name="supportDevelopmentSummary">觉得这个应用很不错？给我买杯咖啡吧！</string>
+    <string name="rate">评分</string>
+    <string name="rateSummary">在 Google Play 商店上为 Stratum 评分。</string>
+    <string name="viewGitHub">前往 GitHub</string>
+    <string name="viewGitHubSummary">浏览 Stratum 在 GitHub 上的代码仓库。您可以反馈问题、请求更多图标或功能。</string>
+    <!--
+        Authenticator
+    -->
+    <string name="issuer">发行方</string>
+    <string name="username">用户名</string>
+    <string name="secretKey">密钥</string>
+    <string name="pin">PIN码</string>
+    <string name="showAdvancedOptions">显示高级选项</string>
+    <string name="advancedOptionsWarning">除非你明确知道自己在做什么，否则不建议更改这些选项。错误的更改可能会导致你无法访问你的账户。\n\n是否继续？</string>
+    <string name="confirmAuthenticatorDelete">删除这个验证器之后，该帐号的验证码将无法继续生成。\n您的帐号的二步验证设置并不会因此被禁用。\n\n删除这个验证器可能会使您无法登录该帐号。\n请确保您已经禁用二步验证，或者您有备用的验证码。\n\n确定要继续吗？</string>
+    <string name="useCustomIcon">使用自定义图标</string>
+    <string name="copiedToClipboard">验证码已复制到剪贴板</string>
+    <string name="issuerHint">发行方（如：Google）</string>
+    <!-- Keep domain example.com as described in RFC6761 -->
+    <string name="usernameHint">用户名（如：john@example.com）</string>
+    <string name="typeHint">类型</string>
+    <string name="algorithmHint">算法</string>
+    <string name="digitsHint">位数</string>
+    <string name="periodHint">时间间隔（秒）</string>
+    <string name="counterHint">计数器</string>
+    <string name="noIssuer">请输入发行方。</string>
+    <string name="noSecret">请输入密钥。</string>
+    <string name="noPin">需要设置一个PIN码</string>
+    <string name="noFileName">请输入文件名。</string>
+    <string name="secretInvalid">输入的密钥无效。</string>
+    <string name="pinTooShort">PIN 码必须至少包含 {0} 个字符</string>
+    <string name="pinTooLong">PIN 码不能超过 {0} 个字符</string>
+    <string name="digitsInvalid">验证器只能生成 {0} 到 {1} 位的验证码。</string>
+    <string name="periodInvalid">时间段无效</string>
+    <string name="counterInvalid">无效的复制次数</string>
+    <string name="qrCodeFormatError">不支持此二维码，或二维码读取失败。</string>
+    <string name="qrCodePhoneFactorError">此二维码专门用于Microsoft Authenticator因此不兼容\n\n请选择“设置另一个验证器应用”或“配置应用而不通知”以获取相兼容的二维码</string>
+    <string name="duplicateAuthenticator">已存在相同密钥的验证器。</string>
+    <string name="scanSuccessful">二维码扫描成功</string>
+    <string name="pinMessage">输入与此 QR 码相关联的 pin</string>
+    <!--
+        Icon packs
+    -->
+    <string name="defaultIcons">默认图标</string>
+    <string name="iconPacks">图标包</string>
+    <string name="downloadPacks">下载图标包</string>
+    <string name="importIconPackSuccess">从图标包中导入了 {0} 个图标。</string>
+    <string name="invalidIconPackError">选择的文件不是适用于 Stratum 的图标包文件。</string>
+    <string name="confirmIconPackDelete">确认删除这一图标包吗？正在使用中的图标不会被删除。</string>
+    <!-- View the source (website) of the icon pack -->
+    <string name="viewSource">查看源码</string>
+    <!--
+        QR code dialog
+    -->
+    <string name="qrCode">二维码</string>
+    <string name="qrCodeHelp">通过扫描二维码将此验证器复制到另一个设备或应用程序</string>
+    <string name="qrCodeNotSupported">不支持此类型的二维码</string>
+    <string name="copyUri">复制 URI</string>
+    <string name="copyUriWarning">此链接包含纯文本格式的密钥！请不要粘贴到不信任的地方。\n\n是否继续？</string>
+    <string name="uriCopiedToClipboard">URI 已被复制到剪贴板</string>
+    <!--
+        Backup menu
+    -->
+    <string name="backupToFile">保存为加密文件（推荐）</string>
+    <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
+    <string name="backupHtml">保存为 HTML 文件</string>
+    <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
+    <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <string name="backupUriList">备份至 URI 列表文件</string>
+    <string name="backupUriListMessage">将您的身份验证器保存到一个未加密纯文本的 URI 列表文件。此文件与许多其他应用程序和服务兼容。分类和图标将不会被保存.</string>
+    <string name="backupUriListWarning">保存为纯文本文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <!--
+        Empty states
+    -->
+    <string name="noAuthenticatorsTitle">这里什么都没有！</string>
+    <string name="noAuthenticatorsMessage">您尚未添加验证器。</string>
+    <string name="gettingStartedGuide">入门指南</string>
+    <string name="noAuthenticatorsHelp">如果您是第一次使用 Stratum，请点击下方的按钮阅览入门指南。</string>
+    <string name="noCategoriesTitle">暂无分类</string>
+    <string name="noCategoriesMessage">您还没有设置分类。</string>
+    <string name="noIconPacksTitle">没有图标包</string>
+    <string name="noIconPacksMessage">还没有下载任何的图标包</string>
+    <!--
+        Categories
+    -->
+    <string name="category">分类</string>
+    <string name="categories">分类</string>
+    <string name="assignCategories">指定分类</string>
+    <string name="assignEntries">指定条目</string>
+    <string name="more">更多</string>
+    <string name="categoryAll">全部</string>
+    <string name="editCategories">编辑分类</string>
+    <string name="noCategoryName">请输入分类名。</string>
+    <string name="duplicateCategory">已存在同名分类。</string>
+    <string name="confirmCategoryDelete">您确定要删除这个分类吗？</string>
+    <!-- Set as default category -->
+    <string name="setAsDefault">设为默认</string>
+    <!-- Clear the selected category as the default -->
+    <string name="clearDefault">清除默认设置</string>
+    <!--
+        Backups
+    -->
+    <string name="backupNow">立即备份</string>
+    <string name="restoreNow">立即恢复</string>
+    <string name="backupReminder">自上次备份后已出现新的更改</string>
+    <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
+    <string name="password">密码</string>
+    <string name="passwordConfirm">确认密码</string>
+    <string name="confirmEmptyPassword">您没有输入密码，这将导致您的备份处于未加密状态，且您的密钥将会被明文暴露。您确定要继续吗？</string>
+    <string name="passwordHint">备份密码</string>
+    <string name="fileNameHint">备份文件名</string>
+    <string name="noAuthenticators">您没有可备份的验证器。</string>
+    <string name="saveSuccess">保存成功</string>
+    <string name="backupSuccess">已将备份保存为 \'{0}\'</string>
+    <string name="restoredFromBackup">已恢复 {0} 个新验证器和 {1} 个新分类。</string>
+    <string name="restoredFromBackupUpdated">已恢复 {0} 个新验证器和 {1} 个新分类。更新了 {2} 个已有的验证器。</string>
+    <string name="restoredNothing">没有可以恢复的内容。</string>
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">无法恢复备份</string>
+    <string name="cameraPermissionError">必须授予相机权限才能扫描二维码。</string>
+    <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
+    <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
+    <string name="filePickError">选择文件时出错。</string>
+    <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
+    <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
+    <string name="emailClientMissing">未安装电子邮件客户端</string>
+    <string name="genericError">出现错误。</string>
+    <string name="viewErrorLog">查看错误日志</string>
+    <string name="autoTimeWarningTitle">自动同步时间已禁用</string>
+    <string name="autoTimeWarningMessage">您的设备已禁用自动同步时间功能。双因素身份验证需要精确的时钟来生成代码。\n\n请在您的设备设置中启用自动同步时间，以确保生成的代码始终有效。</string>
+    <!--
+        Error reporting
+    -->
+    <string name="unhandledErrorMessage">应用程序中发生未处理的错误。该错误的详细信息如下：</string>
+    <string name="report">反馈</string>
+    <string name="email">邮箱</string>
+    <!-- Report via Email, GitHub, etc. -->
+    <string name="reportVia">反馈方式</string>
+    <string name="errorCopiedToClipboard">错误已复制到剪贴板</string>
+    <!--
+        Auto backup
+    -->
+    <string name="autoBackupHelp">选择自动备份的位置和密码。当发生更改时将自动进行备份。不支持云存储，请使用备份菜单。</string>
+    <string name="selectLocation">选择位置</string>
+    <string name="noLocationSelected">未选择位置</string>
+    <!-- Shown when auto backup location has been selected -->
+    <string name="locationSetTo">位置被设置为 \'{0}\'</string>
+    <string name="setPassword">设置密码</string>
+    <string name="passwordNotSet">未设置密码</string>
+    <!-- Shown when auto backup password has been selected -->
+    <string name="passwordSet">密码已设置</string>
+    <string name="notPasswordProtected">未受密码保护</string>
+    <string name="enableAutoBackup">启用自动备份</string>
+    <string name="enableAutoBackupMessage">自动备份至选定的存储位置</string>
+    <string name="batOptim">电池优化</string>
+    <string name="disableBatOptimMessage">在某些设备上，电源设置可能会导致备份工作不正常。如果您遇到问题，请尝试禁用Stratum的电池优化。</string>
+    <string name="autoBackupFailureTitle">自动备份失败</string>
+    <string name="autoBackupFailureText">最近的自动备份未能成功完成。文件访问权限可能已被撤销，或密码不正确。请在自动备份设置中重新设置备份位置和密码。</string>
+    <string name="autoBackupSuccessTitle">自动备份完成</string>
+    <string name="backupScheduled">已触发自动备份</string>
+    <!--
+        Password setup
+    -->
+    <string name="passwordSetupHelp">使用密码对数据库进行加密。当您打开应用程序时，应用将提示您输入密码。 将该字段留空以清除密码。</string>
+    <string name="passwordSetupWarning">使用您可以记住的密码，没有它，数据库将无法恢复！</string>
+    <string name="clearPassword">清除密码</string>
+    <string name="confirmPassword">确认密码</string>
+    <string name="setupBiometricUnlock">设置生物识别解锁</string>
+    <string name="passwordsDoNotMatch">密码不匹配</string>
+    <string name="biometricsChanged">设备指纹已改变，输入密码以解锁</string>
+    <!--
+        Unlock
+    -->
+    <string name="unlock">解锁</string>
+    <string name="useBiometrics">使用生物识别</string>
+    <string name="unlockMessage">输入您的密码或使用生物识别来解锁数据库</string>
+    <string name="unlockBiometricsMessage">使用生物识别访问您的身份验证器</string>
+    <string name="passwordIncorrect">密码不正确</string>
+    <string name="tooManyAttempts">尝试次数过多</string>
+    <!--
+        Import
+    -->
+    <string name="importFromOtherApps">从其他应用导入</string>
+    <string name="importError">无法导入这个文件。</string>
+    <string name="importIncomplete">导入不完整</string>
+    <string name="importConversionError">项目 {0} 导入失败：{1}</string>
+    <string name="authenticatorPlusImportHint">导入 authplus.db 文件</string>
+    <string name="andOtpImportHint">导入 otp_accounts.json 文件</string>
+    <string name="freeOtpImportHint">导入 externalBackup.xml 文件</string>
+    <string name="freeOtpPlusImportHint">导入 freeotp-backup.json 文件</string>
+    <string name="aegisImportHint">导入 aegis-export.json 文件</string>
+    <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
+    <string name="enteAuthImportHint">导入 ente-auth-codes.txt 文件</string>
+    <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
+    <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
+    <string name="lastPassAuthenticatorImportHint">导入 LastPassAuthenticator.json 文件</string>
+    <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
+    <string name="uriList">URI 列表</string>
+    <string name="uriListHint">纯文本的 otpauth URI列表</string>
+    <string name="viewGuideImportHint">在项目 wiki 上查看教程</string>
+    <!--
+        Getting Started Guide
+    -->
+    <string name="guideScanQRCodeTitle">扫描二维码</string>
+    <string name="guideScanQRCodeSummary">扫描应用或服务提供的二维码来添加验证器。验证器会出现在列表中，并自动生成新的验证码。您也可以手动输入详细信息。</string>
+    <string name="guideUseCodeTitle">使用验证码登录</string>
+    <string name="guideUseCodeSummary">在登录的时候，请使用 Stratum 提供的独立验证码。这个验证码的有效时间非常短。点击列表中的验证器，验证码就会被复制到剪贴板。</string>
+    <string name="guideCustomiseTitle">自定义与编辑</string>
+    <string name="guideCustomiseSummary">您可以为您的验证器修改名称，或者对其进行自定义，下次就能更方便地找到它。点击任意一个验证器的菜单图标，然后按提示操作。</string>
+    <string name="guideArrangeTitle">分类与排序</string>
+    <string name="guideArrangeSummary">您可以将您的验证器归入到多个分类，方便您下次找到它。除此之外，您还可以长按并拖拽它，按您的意愿对所有验证器进行排序。</string>
+    <string name="guideBackupTitle">创建备份</string>
+    <string name="guideBackupSummary">即便您更换了设备，也不会无法登录帐号。您可以创建一个备份文件，并将其保存在安全的位置。您还可以随时恢复备份，也可以使用密码加密备份。</string>
+    <string name="guideWearOSTitle">下载配套的 Wear OS 应用</string>
+    <string name="guideWearOSSummary">如果您有运行 Wear OS 的手表，您可以下载配套的应用。您可以直接在您的手表上查看验证码。</string>
+    <!--
+        QR code scanner
+    -->
+    <string name="scanHelpPrimary">将二维码置于画面中央以进行扫描。点击以对焦。</string>
+    <string name="scanHelpSecondary">尽量避免阴影和眩光。将设备保持在二维码附近约15厘米 (6英寸) 的位置。</string>
+    <string name="toggleFlash">切换闪光灯</string>
+    <!--
+        Preferences
+    -->
+    <string name="prefGeneral">常规​​​​​</string>
+    <string name="prefShowBackupRemindersTitle">显示备份提醒</string>
+    <string name="prefShowBackupRemindersSummary">在您做出重要更改后，自动提醒您备份验证器。</string>
+    <string name="prefAutoBackupTitle">自动备份</string>
+    <string name="prefAutoBackupSummary">发生变更时自动备份至指定位置。这将停用备份提醒。</string>
+    <string name="prefLanguageTitle">语言</string>
+    <string name="prefLanguageSummary">选择要在应用程序中使用的语言</string>
+    <string name="prefTapToCopyTitle">点击复制</string>
+    <string name="prefTapToCopySummary">点击时将验证码复制到剪贴板</string>
+    <string name="prefResetCopyCountTitle">重置复制次数</string>
+    <string name="prefResetCopyCountSummary">重置每个验证器的复制次数</string>
+    <string name="prefSkipToNextTitle">跳到下一个</string>
+    <string name="prefSkipToNextSummary">当前验证码将要过期时允许跳到下一个验证码</string>
+    <string name="prefSecurity">安全</string>
+    <string name="prefPasswordTitle">密码</string>
+    <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
+    <string name="prefDatabasePasswordBackupTitle">以数据库密码备份</string>
+    <string name="prefDatabasePasswordBackupSummary">使用数据库密码加密所有备份这样您就不需要每次输入密码</string>
+    <string name="prefAllowBiometricsTitle">使用生物识别解锁</string>
+    <string name="prefAllowBiometricsSummary">允许以生物鉴别身份解锁数据库</string>
+    <string name="prefTimeoutTitle">超时时间</string>
+    <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
+    <string name="prefTapToRevealTitle">点击以显示</string>
+    <string name="prefTapToRevealSummary">验证码在被点击前将保持隐藏，显示的验证码将在几秒钟后消失。</string>
+    <string name="prefTapToRevealDurationTitle">点击显示持续时长</string>
+    <string name="prefTapToRevealDurationSummary">设置多长时间后点击显示的代码会被隐藏</string>
+    <string name="prefAllowScreenshotsTitle">允许截图</string>
+    <string name="prefAllowScreenshotsSummary">禁用安全隐私保护并允许在应用内截图</string>
+    <string name="prefAppearance">外观</string>
+    <string name="prefThemeTitle">主题</string>
+    <string name="prefThemeSummary">选择应用的主题。</string>
+    <string name="prefViewModeTitle">视图</string>
+    <string name="prefViewModeSummary">选择验证器列表的视图。</string>
+    <string name="prefCodeGroupSizeTitle">验证码分组</string>
+    <string name="prefCodeGroupSizeSummary">更改验证码中数字的分组</string>
+    <string name="prefShowUsernamesTitle">显示用户名</string>
+    <string name="prefShowUsernamesSummary">在发行方下方显示用户名</string>
+    <string name="prefDynamicColourTitle">动态颜色</string>
+    <string name="prefDynamicColourSummary">根据壁纸自动设置主题色</string>
+    <string name="prefAccentColourTitle">主题色</string>
+    <string name="prefAccentColourSummary">选择要在应用中使用的主题色</string>
+    <string name="prefTransparentStatusBarTitle">透明状态栏</string>
+    <string name="prefTransparentStatusBarSummary">滚动时在状态栏后面显示列表</string>
+    <string name="prefSystemFontTitle">系统字体</string>
+    <string name="prefSystemFontSummary">使用系统默认字体而非自定义字体</string>
+    <!-- Message shown when the copy count has been reset successfully -->
+    <string name="copyCountReset">复制次数已重置</string>
+    <!--
+        About
+    -->
+    <string name="viewLog">查看日志</string>
+    <string name="noLogFile">无可用日志</string>
+    <string name="debugLog">调试日志</string>
+    <!--
+        Arrays
+    -->
+    <string name="authTypeTime">基于时间（TOTP）</string>
+    <string name="authTypeCounter">基于计数器（HOTP）</string>
+    <string name="authAlgorithmSHA1">SHA1（默认）</string>
+    <!-- Lock the app immediately when closed -->
+    <string name="immediately">立即</string>
+    <string name="timeout5Sec">5 秒</string>
+    <string name="timeout10Sec">10 秒</string>
+    <string name="timeout20Sec">20 秒</string>
+    <string name="timeout30Sec">30 秒</string>
+    <string name="timeout1Min">1 分钟</string>
+    <string name="timeout2Min">2 分钟</string>
+    <string name="timeout5Min">5 分钟</string>
+    <string name="timeout10Min">10 分钟</string>
+    <string name="systemDefault">跟随系统</string>
+    <string name="systemDefaultBlack">系统默认（黑色）</string>
+    <string name="lightTheme">浅色主题</string>
+    <string name="darkTheme">深色主题</string>
+    <string name="blackTheme">纯黑主题</string>
+    <string name="defaultViewMode">默认</string>
+    <string name="compactViewMode">紧凑</string>
+    <string name="tileViewMode">平铺</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
+    <string name="none">无</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
+    <string name="red">红色</string>
+    <string name="pink">粉红</string>
+    <string name="purple">紫色</string>
+    <string name="deepPurple">深紫色</string>
+    <string name="indigo">靛蓝色</string>
+    <string name="blue">蓝色</string>
+    <string name="lightBlue">淡蓝色</string>
+    <string name="cyan">青色</string>
+    <string name="teal">蓝绿色</string>
+    <string name="green">绿色</string>
+    <string name="lightGreen">淡绿色</string>
+    <string name="lime">黄绿色</string>
+    <string name="yellow">黄色</string>
+    <string name="amber">橙黄色</string>
+    <string name="orange">橘色</string>
+    <string name="deepOrange">深橘色</string>
+    <!--
+        Arrays / Intro
+    -->
+    <string name="introWelcomeTitle">欢迎使用 Stratum</string>
+    <string name="introCompatibilityTitle">双因素认证</string>
+    <string name="introBackupTitle">备份与还原</string>
+    <string name="introCategoriesTitle">分类</string>
+    <string name="introThemesTitle">深色主题</string>
+    <string name="introWelcomeSummary">感谢您下载 Stratum。\n作为最好的开源身份验证器应用，我们将为您的在线账户保驾护航。</string>
+    <string name="introCompatibilitySummary">Stratum 支持绝大多数服务提供方和帐户，并 100% 兼容支持 Google 身份验证器的服务。</string>
+    <string name="introBackupSummary">备份您的验证器并对其进行强加密。即便您的设备丢失了，您也能恢复对您帐号的访问。您可以将备份保存在云端存储或设备上。</string>
+    <string name="introCategoriesSummary">将您的验证器归入到多个分类中，并通过长按和拖拽轻松改变排序。</string>
+    <string name="introThemesSummary">如有需要，您可以在设置中启用深色主题。所有的图标会配合背景调整显示。</string>
+</resources>

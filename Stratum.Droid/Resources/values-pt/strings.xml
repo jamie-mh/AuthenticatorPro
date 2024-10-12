@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+        Non-specific strings
+    -->
+    <string name="warning">Atenção</string>
+    <string name="delete">Apagar</string>
+    <string name="add">Adicionar</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">OK</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="close">Fechar</string>
+    <string name="error">Erro</string>
+    <string name="retry">Repetir</string>
+    <string name="ignore">Ignorar</string>
+    <string name="disable">Desativar</string>
+    <string name="name">Name</string>
+    <!-- 
+        Menu items
+    -->
+    <string name="settings">Definições</string>
+    <string name="restore">Restaurar</string>
+    <string name="backup">Cópia de segurança</string>
+    <string name="about">Sobre</string>
+    <string name="scanQrCode">Digitalizar um código QR</string>
+    <string name="showQrCode">Mostrar código QR</string>
+    <string name="editDetails">Edit details</string>
+    <string name="scanQrCodeFromCamera">Digitalização a partir da câmara</string>
+    <string name="scanQrCodeFromGallery">Digitalização a partir da galeria</string>
+    <string name="rename">Mudar o nome</string>
+    <string name="changeIcon">Alterar ícone</string>
+    <string name="search">Pesquisar</string>
+    <string name="mainMenu">Menu principal</string>
+    <string name="enterKey">Introduzir a chave fornecida</string>
+    <string name="restoreBackup">Restaurar uma cópia de segurança</string>
+    <string name="sort">Ordenar</string>
+    <string name="sortAZ">Ordem alfabética (A a Z)</string>
+    <string name="sortZA">Ordem alfabética (Z a A)</string>
+    <string name="sortMostCopied">Most copied</string>
+    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortCustom">Personalizado</string>
+    <string name="aboutSummary">Ver informações sobre e licenças</string>
+    <string name="supportDevelopment">Apoiar o desenvolvimento</string>
+    <string name="supportDevelopmentSummary">Apoie o desenvolvimento contínuo e atualizações através do Buy Me a Coffee</string>
+    <string name="rate">Avaliar</string>
+    <string name="rateSummary">Avalie o Stratum no Google Play</string>
+    <string name="viewGitHub">Ver no GitHub</string>
+    <string name="viewGitHubSummary">Ver o repositório do Stratum no GitHub. Pode reportar um problema, solicitar mais ícones e funcionalidades.</string>
+    <!--
+        Authenticator
+    -->
+    <string name="issuer">Emissor</string>
+    <string name="username">Nome de utilizador</string>
+    <string name="secretKey">Chave secreta</string>
+    <string name="pin">Pin</string>
+    <string name="showAdvancedOptions">Mostrar opções avançadas</string>
+    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="confirmAuthenticatorDelete">A remoção deste autenticador impedi-lo-á de gerar códigos para esta conta. Isto não significa que a autenticação de dois fatores esteja desativada.\n\nApagar este autenticador pode impedi-lo de aceder à sua conta.\nPor favor, certifique-se de que a autenticação de dois fatores está desativada ou que tem os códigos de recuperação.\n\nContinuar?</string>
+    <string name="useCustomIcon">Usar ícone personalizado</string>
+    <string name="copiedToClipboard">Código copiado para a área de transferência</string>
+    <string name="issuerHint">Emissor (ex.: Google)</string>
+    <!-- Keep domain example.com as described in RFC6761 -->
+    <string name="usernameHint">Nome de utilizador (ex.: joao@example.com)</string>
+    <string name="typeHint">Tipo</string>
+    <string name="algorithmHint">Algoritmo</string>
+    <string name="digitsHint">Dígitos</string>
+    <string name="periodHint">Período (segundos)</string>
+    <string name="counterHint">Counter</string>
+    <string name="noIssuer">É necessário um emissor</string>
+    <string name="noSecret">É necessária uma chave secreta</string>
+    <string name="noPin">É necessário um PIN</string>
+    <string name="noFileName">É necessário um nome de ficheiro</string>
+    <string name="secretInvalid">O código secreto é inválido</string>
+    <string name="pinTooShort">O PIN deve conter pelo menos {0} dígitos</string>
+    <string name="pinTooLong">O PIN não pode conter mais de {0} dígitos</string>
+    <string name="digitsInvalid">O autenticador deve gerar entre {0} e {1} dígitos</string>
+    <string name="periodInvalid">O período é inválido</string>
+    <string name="counterInvalid">The counter is invalid</string>
+    <string name="qrCodeFormatError">O código QR não está no formato correto ou não pode ser lido</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="duplicateAuthenticator">Já existe um autenticador com esta chave secreta</string>
+    <string name="scanSuccessful">Código QR digitalizado com sucesso</string>
+    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <!--
+        Icon packs
+    -->
+    <string name="defaultIcons">Default icons</string>
+    <string name="iconPacks">Icon packs</string>
+    <string name="downloadPacks">Download packs</string>
+    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="invalidIconPackError">The selected file is not an Stratum icon pack</string>
+    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <!-- View the source (website) of the icon pack -->
+    <string name="viewSource">View source</string>
+    <!--
+        QR code dialog
+    -->
+    <string name="qrCode">Código QR</string>
+    <string name="qrCodeHelp">Copie este autenticador para outro dispositivo ou aplicação, digitalizando o código QR</string>
+    <string name="qrCodeNotSupported">Não são suportados códigos QR para este tipo</string>
+    <string name="copyUri">Copiar URI</string>
+    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="uriCopiedToClipboard">URI copiado para a área de transferência</string>
+    <!--
+        Backup menu
+    -->
+    <string name="backupToFile">Cópia de segurança para ficheiro encriptado (recomendado)</string>
+    <string name="backupToFileMessage">Faça cópia de segurança de todos os seus autenticadores, categorias e ícones num ficheiro encriptado. Ele pode ser restaurado dentro da aplicação.</string>
+    <string name="backupHtml">Cópia de segurança para ficheiro HTML</string>
+    <string name="backupHtmlMessage">Guarde os seus autenticadores para um documento HTML não encriptado com códigos QR. Para restaurar, estes códigos devem ser digitalizados individualmente. As categorias e ícones não são guardados.</string>
+    <string name="backupHtmlWarning">Os backups para ficheiros HTML não são encriptados e podem deixar as suas chaves secretas vulneráveis.\n\nEste ficheiro não pode ser restaurado dentro da aplicação e não contém categorias e ícones. Se não tiver a certeza, opte por uma cópia de segurança de ficheiros encriptada.\n\nContinuar?</string>
+    <string name="backupUriList">Cópia de segurança para ficheiro de lista URI</string>
+    <string name="backupUriListMessage">Guarde os seus autenticadores para um ficheiro de lista URI em texto simples não encriptado. Este ficheiro é compatível com muitas aplicações e serviços alternativos. As categorias e ícones não são guardados.</string>
+    <string name="backupUriListWarning">Cópias de segurança em texto simples não são encriptadas e podem deixar as suas chaves secretas vulneráveis.\n\nEste ficheiro não contém categorias e ícones. Se não tiver a certeza, opte por uma cópia de segurança encriptada.\n\nContinuar?</string>
+    <!--
+        Empty states
+    -->
+    <string name="noAuthenticatorsTitle">Não há nada aqui!</string>
+    <string name="noAuthenticatorsMessage">Não tem nenhum autenticador aqui</string>
+    <string name="gettingStartedGuide">Guia de introdução</string>
+    <string name="noAuthenticatorsHelp">Se é novo no Stratum, clique em baixo para ver o guia de introdução.</string>
+    <string name="noCategoriesTitle">Sem categorias</string>
+    <string name="noCategoriesMessage">Ainda não criou nenhuma categoria</string>
+    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <!--
+        Categories
+    -->
+    <string name="category">Category</string>
+    <string name="categories">Categorias</string>
+    <string name="assignCategories">Atribuir categorias</string>
+    <string name="assignEntries">Assign entries</string>
+    <string name="more">Mais</string>
+    <string name="categoryAll">Todos</string>
+    <string name="editCategories">Editar categorias</string>
+    <string name="noCategoryName">É necessário dar um nome à categoria</string>
+    <string name="duplicateCategory">Já existe uma categoria com este nome</string>
+    <string name="confirmCategoryDelete">Tem a certeza de que quer eliminar esta categoria?</string>
+    <!-- Set as default category -->
+    <string name="setAsDefault">Predefinir</string>
+    <!-- Clear the selected category as the default -->
+    <string name="clearDefault">Limpar predefinição</string>
+    <!--
+        Backups
+    -->
+    <string name="backupNow">Fazer cópia de segurança agora</string>
+    <string name="restoreNow">Restaurar agora</string>
+    <string name="backupReminder">Foram feitas alterações desde a sua última cópia de segurança</string>
+    <string name="backupPasswordMessage">Introduza uma palavra-passe para encriptar a cópia de segurança. Se não desejar proteger o ficheiro, deixe o campo vazio.</string>
+    <string name="password">Palavra-passe</string>
+    <string name="passwordConfirm">Confirmar palavra-passe</string>
+    <string name="confirmEmptyPassword">Não escolheu uma palavra-passe, a sua cópia de segurança não será encriptada e as suas chaves secretas poderão estar vulneráveis.\n\nContinuar?</string>
+    <string name="passwordHint">Palavra-passe do backup</string>
+    <string name="fileNameHint">Nome do ficheiro de cópia de segurança</string>
+    <string name="noAuthenticators">Não tem nenhum autenticador para fazer cópia de segurança</string>
+    <string name="saveSuccess">Guardado com sucesso</string>
+    <string name="backupSuccess">Cópia de segurança guardada como \'{0}\'</string>
+    <string name="restoredFromBackup">Restaurados {0} novos autenticadores e {1} novas categorias</string>
+    <string name="restoredFromBackupUpdated">Restaurados {0} novos autenticadores e {1} novas categorias. Atualização de {2} autenticadores existentes.</string>
+    <string name="restoredNothing">Nada a restaurar</string>
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="cameraPermissionError">Deve conceder permissão de acesso à câmara para digitalizar um código QR</string>
+    <string name="googlePlayNotInstalledError">O Google Play não está instalado no dispositivo</string>
+    <string name="filePickerMissing">Não é possível abrir o selecionador de ficheiros. Deve ter um gestor de ficheiros instalado.</string>
+    <string name="filePickError">Erro ao selecionar o ficheiro</string>
+    <string name="invalidFileError">O ficheiro seleccionado não é um ficheiro de cópia de segurança do Stratum</string>
+    <string name="webBrowserMissing">Nenhum navegador instalado</string>
+    <string name="emailClientMissing">Nenhum cliente de email instalado</string>
+    <string name="genericError">Ocorreu um erro</string>
+    <string name="viewErrorLog">Ver o registo de erros</string>
+    <string name="autoTimeWarningTitle">Time sync disabled</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <!--
+        Error reporting
+    -->
+    <string name="unhandledErrorMessage">An unhandled error occurred within the application. Details of the error are below:</string>
+    <string name="report">Reportar</string>
+    <string name="email">Email</string>
+    <!-- Report via Email, GitHub, etc. -->
+    <string name="reportVia">Reportar via</string>
+    <string name="errorCopiedToClipboard">Erro copiado para a área de transferência</string>
+    <!--
+        Auto backup
+    -->
+    <string name="autoBackupHelp">Selecione um local e uma palavra-passe para as cópias de segurança automáticas. As cópias de segurança são agendadas quando são feitas alterações. O armazenamento em nuvem não é suportado, utilize o menu de cópias de segurança.</string>
+    <string name="selectLocation">Selecione o local</string>
+    <string name="noLocationSelected">Nenhum local selecionado</string>
+    <!-- Shown when auto backup location has been selected -->
+    <string name="locationSetTo">Localização definida para \'{0}\'</string>
+    <string name="setPassword">Definir palavra-passe</string>
+    <string name="passwordNotSet">Não foi definida uma palavra-passe</string>
+    <!-- Shown when auto backup password has been selected -->
+    <string name="passwordSet">Palavra-passe definida</string>
+    <string name="notPasswordProtected">Não está protegido por palavra-passe</string>
+    <string name="enableAutoBackup">Ativar cópia de segurança automática</string>
+    <string name="enableAutoBackupMessage">Cópia de segurança automática para o local de armazenamento selecionado</string>
+    <string name="batOptim">Otimização da bateria</string>
+    <string name="disableBatOptimMessage">Em alguns dispositivos, as definições de energia podem impedir que as cópias de segurança funcionem corretamente. Se estiver com problemas, tente desativar a otimização da bateria para o Stratum.</string>
+    <string name="autoBackupFailureTitle">A cópia de segurança automática falhou</string>
+    <string name="autoBackupFailureText">A mais recente cópia de segurança automática não foi concluída. As permissões dos ficheiros podem ter expirado, tente definir novamente o local da cópia de segurança nas definições da cópia de segurança automática.</string>
+    <string name="autoBackupSuccessTitle">Cópia de segurança automática concluída</string>
+    <string name="backupScheduled">Cópia de segurança agendada</string>
+    <!--
+        Password setup
+    -->
+    <string name="passwordSetupHelp">Encriptar a base de dados com uma palavra-passe. Ser-lhe-á pedida a palavra-passe quando abrir a aplicação. Deixe o campo em branco para limpar a palavra-passe.</string>
+    <string name="passwordSetupWarning">Utilize uma palavra-passe de que não se esqueça, a base de dados é irrecuperável sem ela!</string>
+    <string name="clearPassword">Limpar palavra-passe</string>
+    <string name="confirmPassword">Confirmar a palavra-passe</string>
+    <string name="setupBiometricUnlock">Configurar o desbloqueio biométrico</string>
+    <string name="passwordsDoNotMatch">As palavras-passe não correspondem</string>
+    <string name="biometricsChanged">A biometria do dispositivo mudou. Utilizar a palavra-passe para desbloquear.</string>
+    <!--
+        Unlock
+    -->
+    <string name="unlock">Desbloquear</string>
+    <string name="useBiometrics">Utilizar biometria</string>
+    <string name="unlockMessage">Introduza a sua palavra-passe ou utilize a biometria para desbloquear a base de dados</string>
+    <string name="unlockBiometricsMessage">Utilizar a biometria para desbloquear</string>
+    <string name="passwordIncorrect">A palavra-passe está incorreta</string>
+    <string name="tooManyAttempts">Demasiadas tentativas</string>
+    <!--
+        Import
+    -->
+    <string name="importFromOtherApps">Importar a partir de outras aplicações</string>
+    <string name="importError">O ficheiro não pôde ser importado</string>
+    <string name="importIncomplete">Import incomplete</string>
+    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="authenticatorPlusImportHint">Importar ficheiro authplus.db</string>
+    <string name="andOtpImportHint">Importar ficheiro otp_accounts.json</string>
+    <string name="freeOtpImportHint">Importar ficheiro externalBackup.xml</string>
+    <string name="freeOtpPlusImportHint">Importar ficheiro freeotp-backup.json</string>
+    <string name="aegisImportHint">Importar ficheiro aegis-export.json</string>
+    <string name="bitwardenImportHint">Importar ficheiro bitwarden_export.json</string>
+    <string name="enteAuthImportHint">Importar ficheiro ente-auth-codes.txt</string>
+    <string name="winAuthImportHint">Importar ficheiro winauth.txt ou winauth.zip</string>
+    <string name="twoFasImportHint">Importar ficheiro 2fas-backup.2fas</string>
+    <string name="lastPassAuthenticatorImportHint">Importar ficheiro LastPassAuthenticator.json</string>
+    <string name="totpAuthenticatorImportHint">Importar ficheiro TOTP_Backup.encrypt</string>
+    <string name="uriList">Lista URI</string>
+    <string name="uriListHint">Plain text list of otpauth URIs</string>
+    <string name="viewGuideImportHint">Ver manual no wiki</string>
+    <!--
+        Getting Started Guide
+    -->
+    <string name="guideScanQRCodeTitle">Digitalizar um código QR</string>
+    <string name="guideScanQRCodeSummary">Para adicionar um autenticador, digitalize o código QR fornecido pela aplicação ou serviço. Este será adicionado à lista e irá gerar novos códigos automaticamente. Também é possível introduzir as informações manualmente.</string>
+    <string name="guideUseCodeTitle">Utilize o código ao iniciar sessão</string>
+    <string name="guideUseCodeSummary">Ao iniciar sessão, utilize o código único fornecido pelo Stratum. É válido apenas por alguns segundos. Toque no autenticador para copiar o código para a área de transferência.</string>
+    <string name="guideCustomiseTitle">Personalizar e editar</string>
+    <string name="guideCustomiseSummary">Renomeie e personalize os seus autenticadores para os encontrar facilmente. Basta tocar no ícone menu numa das contas e seguir os passos.</string>
+    <string name="guideArrangeTitle">Organizar e ordenar</string>
+    <string name="guideArrangeSummary">Pode organizar os seus autenticadores em categorias para os encontrar facilmente. Além disso, se os pressionar e arrastar, pode reorganizá-los na ordem que quiser.</string>
+    <string name="guideBackupTitle">Criar uma cópia de segurança</string>
+    <string name="guideBackupSummary">Não perca o acesso às suas contas ao mudar de dispositivo ou após fazer uma reposição de fábrica. Crie uma cópia de segurança e guarde-a num lugar seguro. Uma cópia de segurança pode ser restaurada em qualquer altura e protegida com uma palavra-passe.</string>
+    <string name="guideWearOSTitle">Download the Wear OS companion</string>
+    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
+    <!--
+        QR code scanner
+    -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpSecondary">Tente evitar sombras e reflexos. Mantenha o dispositivo a cerca de 15 cm do código.</string>
+    <string name="toggleFlash">Ligar o flash</string>
+    <!--
+        Preferences
+    -->
+    <string name="prefGeneral">General</string>
+    <string name="prefShowBackupRemindersTitle">Lembretes de cópia de segurança</string>
+    <string name="prefShowBackupRemindersSummary">Lembra-o de fazer cópias de segurança dos seus autenticadores se forem feitas alterações importantes</string>
+    <string name="prefAutoBackupTitle">Cópia de segurança automática</string>
+    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefLanguageTitle">Idioma</string>
+    <string name="prefLanguageSummary">Escolha um idioma a utilizar em toda a aplicação</string>
+    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSecurity">Segurança</string>
+    <string name="prefPasswordTitle">Palavra-passe</string>
+    <string name="prefPasswordSummary">Exigir palavra-passe para aceder aos autenticadores. A base de dados será encriptada com ela.</string>
+    <string name="prefDatabasePasswordBackupTitle">Cópia de segurança com a palavra passe da base de dados</string>
+    <string name="prefDatabasePasswordBackupSummary">Encriptar todas as cópias de segurança com a palavra-passe da base de dados, assim não a tem de introduzir constantemente</string>
+    <string name="prefAllowBiometricsTitle">Desbloqueio por impressão digital</string>
+    <string name="prefAllowBiometricsSummary">Permite desbloquear a base de dados com uma autenticação biométrica</string>
+    <string name="prefTimeoutTitle">Expiração da base de dados</string>
+    <string name="prefTimeoutSummary">Intervalo de tempo até a base de dados ser bloqueada após sair da aplicação</string>
+    <string name="prefTapToRevealTitle">Toque para revelar</string>
+    <string name="prefTapToRevealSummary">Esconder os códigos até que sejam pressionados. Desaparecerão ao fim de alguns segundos.</string>
+    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
+    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
+    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefAppearance">Aparência</string>
+    <string name="prefThemeTitle">Tema</string>
+    <string name="prefThemeSummary">Escolha um tema para a aplicação</string>
+    <string name="prefViewModeTitle">Modo de exibição</string>
+    <string name="prefViewModeSummary">Escolha um modo de visualização para a lista de autenticadores</string>
+    <string name="prefCodeGroupSizeTitle">Tamanho do grupo de códigos</string>
+    <string name="prefCodeGroupSizeSummary">Alterar o agrupamento de dígitos de um código</string>
+    <string name="prefShowUsernamesTitle">Show Usernames</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefAccentColourTitle">Cor de destaque</string>
+    <string name="prefAccentColourSummary">Escolha uma cor de destaque para utilizar em toda a aplicação</string>
+    <string name="prefTransparentStatusBarTitle">Transparência da barra de estado</string>
+    <string name="prefTransparentStatusBarSummary">Tornar a lista atrás da barra de estado visível ao fazer scroll</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <!-- Message shown when the copy count has been reset successfully -->
+    <string name="copyCountReset">Copy count reset</string>
+    <!--
+        About
+    -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
+    <!--
+        Arrays
+    -->
+    <string name="authTypeTime">Com base no tempo (TOTP)</string>
+    <string name="authTypeCounter">Com base em contador (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (predefinição)</string>
+    <!-- Lock the app immediately when closed -->
+    <string name="immediately">Imediatamente</string>
+    <string name="timeout5Sec">5 seconds</string>
+    <string name="timeout10Sec">10 seconds</string>
+    <string name="timeout20Sec">20 seconds</string>
+    <string name="timeout30Sec">30 segundos</string>
+    <string name="timeout1Min">1 minuto</string>
+    <string name="timeout2Min">2 minutos</string>
+    <string name="timeout5Min">5 minutos</string>
+    <string name="timeout10Min">10 minutos</string>
+    <string name="systemDefault">Tema do sistema</string>
+    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="lightTheme">Tema claro</string>
+    <string name="darkTheme">Tema escuro</string>
+    <string name="blackTheme">Black theme</string>
+    <string name="defaultViewMode">Predefinição</string>
+    <string name="compactViewMode">Compacto</string>
+    <string name="tileViewMode">Grelha</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
+    <string name="none">None</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
+    <string name="red">Vermelho</string>
+    <string name="pink">Rosa</string>
+    <string name="purple">Roxo</string>
+    <string name="deepPurple">Roxo escuro</string>
+    <string name="indigo">Azul-violeta</string>
+    <string name="blue">Azul</string>
+    <string name="lightBlue">Azul claro</string>
+    <string name="cyan">Ciano</string>
+    <string name="teal">Verde-azulado</string>
+    <string name="green">Verde</string>
+    <string name="lightGreen">Verde-claro</string>
+    <string name="lime">Lima</string>
+    <string name="yellow">Amarelo</string>
+    <string name="amber">Laranja-amarelado</string>
+    <string name="orange">Laranja</string>
+    <string name="deepOrange">Laranja-escuro</string>
+    <!--
+        Arrays / Intro
+    -->
+    <string name="introWelcomeTitle">Bem-vindo ao Stratum</string>
+    <string name="introCompatibilityTitle">Autenticação de dois fatores</string>
+    <string name="introBackupTitle">Cópia de segurança e Restauro</string>
+    <string name="introCategoriesTitle">Categorias</string>
+    <string name="introThemesTitle">Tema escuro</string>
+    <string name="introWelcomeSummary">Obrigado por descarregar o Stratum.\nMantenha as suas contas online seguras e protegidas com a melhor aplicação de autenticação de código aberto.</string>
+    <string name="introCompatibilitySummary">O Stratum é compatível com a maioria dos fornecedores e contas. É 100% compatível com os serviços que suportam o Google Authenticator.</string>
+    <string name="introBackupSummary">Faça uma cópia de segurança dos seus autenticadores com uma forte encriptação. Caso perca o seu dispositivo, pode sempre obter acesso às suas contas. Guarde na nuvem ou localmente.</string>
+    <string name="introCategoriesSummary">Organize os seus autenticadores em categorias e até altere a ordem deles com um simples pressionar e arrastar.</string>
+    <string name="introThemesSummary">Se preferir, pode ativar um tema escuro nas definições. Todos os ícones se adaptarão para corresponder ao novo fundo.</string>
+</resources>

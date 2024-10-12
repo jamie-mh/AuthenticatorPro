@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/listitemcategorybackground"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:layout_marginBottom="4dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:text="Category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="@color/listItemCategoryText"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:ellipsize="start"
+        android:scrollHorizontally="true"
+        android:id="@+id/textName"/>
+
+</RelativeLayout>

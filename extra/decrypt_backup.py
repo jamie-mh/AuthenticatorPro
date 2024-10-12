@@ -3,8 +3,8 @@
 # Copyright (C) 2023 jmh
 # SPDX-License-Identifier: GPL-3.0-only
 
-# Authenticator Pro Backup Decryption Tool
-# View https://github.com/jamie-mh/AuthenticatorPro/blob/master/doc/BACKUP_FORMAT.md#encrypted-backups for details
+# Stratum Backup Decryption Tool
+# View https://github.com/stratumauth/app/blob/master/doc/BACKUP_FORMAT.md#encrypted-backups for details
 
 import argparse
 import hashlib
@@ -38,7 +38,7 @@ LEGACY_IV_LENGTH = 16
 
 
 def get_cli_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Decrypt Authenticator Pro backup")
+    parser = argparse.ArgumentParser(description="Decrypt Stratum backup")
     parser.add_argument("path", metavar="p", type=str, help="Path to file to decrypt")
     parser.add_argument("--password", type=str, help="Backup password")
 

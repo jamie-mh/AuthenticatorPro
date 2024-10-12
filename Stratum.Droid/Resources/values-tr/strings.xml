@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+        Non-specific strings
+    -->
+    <string name="warning">Uyarı</string>
+    <string name="delete">Sil</string>
+    <string name="add">Ekle</string>
+    <string name="edit">Düzenle</string>
+    <string name="cancel">İptal</string>
+    <string name="ok">TAMAM</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
+    <string name="close">Kapat</string>
+    <string name="error">Hata</string>
+    <string name="retry">Tekrar dene</string>
+    <string name="ignore">Yoksay</string>
+    <string name="disable">Devre dışı bırak</string>
+    <string name="name">Ad</string>
+    <!-- 
+        Menu items
+    -->
+    <string name="settings">Ayarlar</string>
+    <string name="restore">Geri Yükle</string>
+    <string name="backup">Yedek</string>
+    <string name="about">Hakkında</string>
+    <string name="scanQrCode">Karekodu tara</string>
+    <string name="showQrCode">Karekodu göster</string>
+    <string name="editDetails">Detayları düzenle</string>
+    <string name="scanQrCodeFromCamera">Kameradan tara</string>
+    <string name="scanQrCodeFromGallery">Galeriden tara</string>
+    <string name="rename">Yeniden adlandır</string>
+    <string name="changeIcon">Simgeyi değiştir</string>
+    <string name="search">Ara</string>
+    <string name="mainMenu">Ana Menü</string>
+    <string name="enterKey">Sağlanan bir anahtarı girin</string>
+    <string name="restoreBackup">Yedeği geri yükle</string>
+    <string name="sort">Sıralama</string>
+    <string name="sortAZ">Alfabetik (a\'dan z\'ye)</string>
+    <string name="sortZA">Alfabetik (z\'den a\'ya)</string>
+    <string name="sortMostCopied">En çok kopyalanan</string>
+    <string name="sortLeastCopied">En az kopyalanan</string>
+    <string name="sortCustom">Özel</string>
+    <string name="aboutSummary">Hakkında ve lisans bilgilerini görüntüleyin</string>
+    <string name="supportDevelopment">Geliştirmeyi destekle</string>
+    <string name="supportDevelopmentSummary">Bana bir Kahve al ile sürekli geliştirmeyi ve güncellemeleri destekleyin</string>
+    <string name="rate">Değerlendir</string>
+    <string name="rateSummary">Google Play mağazasında Stratum\'yu değerlendirin.</string>
+    <string name="viewGitHub">GitHub\'da görüntüle</string>
+    <string name="viewGitHubSummary">Stratum deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha fazla simge ve özellik talep edebilirsiniz.</string>
+    <!--
+        Authenticator
+    -->
+    <string name="issuer">Kuruluş</string>
+    <string name="username">Kullanıcı Adı</string>
+    <string name="secretKey">Gizli anahtar</string>
+    <string name="pin">Pin kodu</string>
+    <string name="showAdvancedOptions">Gelişmiş Seçenekleri Göster</string>
+    <string name="advancedOptionsWarning">Bu seçenekleri yalnızca ne yaptığınızı biliyorsanız değiştirin, hesabınız kilitlenebilir\\n\nDevam Et?</string>
+    <string name="confirmAuthenticatorDelete">Bu kimlik doğrulayıcının kaldırılması bu hesap için kod oluşturmanızı engelleyecektir.\nBu, hesabınızda iki faktörlü kimlik doğrulamanın devre dışı bırakıldığı anlamına gelmez.\n\nBu kimlik doğrulayıcının silinmesi hesabınıza erişmenizi engelleyebilir.\nLütfen iki faktörlü kimlik doğrulamanın devre dışı bırakıldığından veya kurtarma kodlarına sahip olduğunuzdan emin olun.\n\nDevam etmek istediğine emin misin?</string>
+    <string name="useCustomIcon">Özel simge kullan</string>
+    <string name="copiedToClipboard">Kod panoya kopyalandı</string>
+    <string name="issuerHint">Kuruluş (ör: Google)</string>
+    <!-- Keep domain example.com as described in RFC6761 -->
+    <string name="usernameHint">Kullanıcı adı (ör: john@example.com)</string>
+    <string name="typeHint">Tür</string>
+    <string name="algorithmHint">Algoritma</string>
+    <string name="digitsHint">Basamak</string>
+    <string name="periodHint">Süre (Saniye)</string>
+    <string name="counterHint">Sayaç</string>
+    <string name="noIssuer">Bir kuruluş gerekli.</string>
+    <string name="noSecret">Gizli anahtar gerekli.</string>
+    <string name="noPin">Bir pin gereklidir.</string>
+    <string name="noFileName">Dosya adı gerekli.</string>
+    <string name="secretInvalid">Gizli anahtar geçersiz.</string>
+    <string name="pinTooShort">Pin en az {0} basamak içermelidir</string>
+    <string name="pinTooLong">Pin, {0} rakamdan fazlasını içeremez</string>
+    <string name="digitsInvalid">Kimlik doğrulayıcı, {0} ile {1} arasında basamak oluşturmalıdır</string>
+    <string name="periodInvalid">Geçersiz süre</string>
+    <string name="counterInvalid">Sayaç geçersiz</string>
+    <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
+    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
+    <string name="scanSuccessful">Karekod taraması başarılı</string>
+    <string name="pinMessage">Bu QR koduyla ilişkili pini girin</string>
+    <!--
+        Icon packs
+    -->
+    <string name="defaultIcons">Varsayılan Simgeler</string>
+    <string name="iconPacks">Simge paketleri</string>
+    <string name="downloadPacks">Simge paketi yükle</string>
+    <string name="importIconPackSuccess">Paketten {0} simge içe aktarıldı</string>
+    <string name="invalidIconPackError">Seçilen dosya bir Stratum simge paketi değil</string>
+    <string name="confirmIconPackDelete">Bu simge paketini silmek istediğinizden emin misiniz? Kullanılan simgeler silinmeyecektir.</string>
+    <!-- View the source (website) of the icon pack -->
+    <string name="viewSource">Kaynağı görüntüle</string>
+    <!--
+        QR code dialog
+    -->
+    <string name="qrCode">Karekod</string>
+    <string name="qrCodeHelp">Karekodu tarayarak bu kimlik doğrulama kodunu başka bir cihaza veya uygulamaya kopyalayın</string>
+    <string name="qrCodeNotSupported">Karekodları bu tür için desteklenmez</string>
+    <string name="copyUri">URI\'yi kopyala</string>
+    <string name="copyUriWarning">Bu URI düz metin olarak gizli bir anahtar içerir. Bu bilgiyi nereye yapıştırdığınıza dikkat edin.\n\nDevam?</string>
+    <string name="uriCopiedToClipboard">URI panoya kopyalandı</string>
+    <!--
+        Backup menu
+    -->
+    <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
+    <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
+    <string name="backupHtml">HTML dosyasına yedekle</string>
+    <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin. Geri yüklemek için bu kodların ayrı ayrı taranması gerekir. Kategoriler ve simgeler kaydedilmez.</string>
+    <string name="backupHtmlWarning">HTML dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya uygulama içinde geri yüklenemez ve kategoriler ve simgeler içermez. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
+    <string name="backupUriList">URI liste dosyasına yedekle</string>
+    <string name="backupUriListMessage">Kimlik doğrulama kodlarınızı şifrelenmemiş düz metin URI listesi dosyasına kaydedin. Bu dosya çoğu alternatif uygulama ve hizmetle uyumludur. Kategoriler ve simgeler kaydedilmez.</string>
+    <string name="backupUriListWarning">Düz metin dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya kategoriler ve simgeler içermiyor. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
+    <!--
+        Empty states
+    -->
+    <string name="noAuthenticatorsTitle">Burada bir şey yok!</string>
+    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
+    <string name="gettingStartedGuide">Başlangıç Kılavuzu</string>
+    <string name="noAuthenticatorsHelp">Stratum\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
+    <string name="noCategoriesTitle">Kategori yok</string>
+    <string name="noCategoriesMessage">Henüz herhangi bir kategori oluşturmadınız.</string>
+    <string name="noIconPacksTitle">Simge paketleri yok</string>
+    <string name="noIconPacksMessage">Henüz ayarlanmış bir simge paketiniz yok</string>
+    <!--
+        Categories
+    -->
+    <string name="category">Kategori</string>
+    <string name="categories">Kategoriler</string>
+    <string name="assignCategories">Kategori ata</string>
+    <string name="assignEntries">Girişleri atayın</string>
+    <string name="more">Daha Fazla</string>
+    <string name="categoryAll">Tümü</string>
+    <string name="editCategories">Kategorileri düzenle</string>
+    <string name="noCategoryName">Kategori adı gerekli.</string>
+    <string name="duplicateCategory">Bu isimde bir kategori zaten var.</string>
+    <string name="confirmCategoryDelete">Bu kategoriyi silmek istediğinize emin misiniz?</string>
+    <!-- Set as default category -->
+    <string name="setAsDefault">Varsayılan olarak ayarla</string>
+    <!-- Clear the selected category as the default -->
+    <string name="clearDefault">Varsayılanları temizle</string>
+    <!--
+        Backups
+    -->
+    <string name="backupNow">Şimdi Yedekle</string>
+    <string name="restoreNow">Şimdi geri yükle</string>
+    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
+    <string name="password">Parola</string>
+    <string name="passwordConfirm">Parolayı Onayla</string>
+    <string name="confirmEmptyPassword">Bir parola seçmediniz, yedeklemeniz şifrelenmeyecek ve gizli anahtarlarınız savunmasız olacaktır. Devam etmek istiyor musunuz?</string>
+    <string name="passwordHint">Yedekleme Parolası</string>
+    <string name="fileNameHint">Yedekleme Dosya Adı</string>
+    <string name="noAuthenticators">Yedeklenecek kimlik doğrulayıcınız yok.</string>
+    <string name="saveSuccess">Başarıyla kaydedildi</string>
+    <string name="backupSuccess">Yedekleme \'{0}\' olarak kaydedildi</string>
+    <string name="restoredFromBackup">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi.</string>
+    <string name="restoredFromBackupUpdated">{0} yeni kimlik doğrulayıcı ve {1} yeni kategori geri yüklendi. Mevcut {2} kimlik doğrulayıcı güncellendi.</string>
+    <string name="restoredNothing">Geri yüklenecek bir şey yok</string>
+    <!--
+        Errors
+    -->
+    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
+    <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
+    <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
+    <string name="filePickError">Dosya seçilirken hata oluştu.</string>
+    <string name="invalidFileError">Seçilen dosya Stratum yedekleme dosyası değil</string>
+    <string name="webBrowserMissing">Yüklü tarayıcı yok</string>
+    <string name="emailClientMissing">Kurulu e-posta istemcisi yok</string>
+    <string name="genericError">Bir hata meydana geldi.</string>
+    <string name="viewErrorLog">Hata günlüğünü görüntüle</string>
+    <string name="autoTimeWarningTitle">Zaman eşitleme devre dışı</string>
+    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <!--
+        Error reporting
+    -->
+    <string name="unhandledErrorMessage">Uygulamada beklenmeyen bir hata oluştu. Hatanın detayları aşağıdadır:</string>
+    <string name="report">Bildir</string>
+    <string name="email">E-posta</string>
+    <!-- Report via Email, GitHub, etc. -->
+    <string name="reportVia">aracılığıyla rapor</string>
+    <string name="errorCopiedToClipboard">Hata panoya kopyalandı</string>
+    <!--
+        Auto backup
+    -->
+    <string name="autoBackupHelp">Otomatik yedeklemeler için bir konum ve şifre seçin. Değişiklikler yapıldığında yedeklemeler belirlenir. Bulut depolama desteklenmez, bunun yerine yedekleme menüsünü kullanın.</string>
+    <string name="selectLocation">Konum seçin</string>
+    <string name="noLocationSelected">Konum seçilmedi</string>
+    <!-- Shown when auto backup location has been selected -->
+    <string name="locationSetTo">Konum \'{0}\' olarak ayarlandı</string>
+    <string name="setPassword">Parola ayarlayın</string>
+    <string name="passwordNotSet">Parola ayarlanmadı</string>
+    <!-- Shown when auto backup password has been selected -->
+    <string name="passwordSet">Parola ayarlandı</string>
+    <string name="notPasswordProtected">Parola korumalı değil</string>
+    <string name="enableAutoBackup">Otomatik yedeklemeyi etkinleştir</string>
+    <string name="enableAutoBackupMessage">Seçilen depolama konumuna otomatik yedekle</string>
+    <string name="batOptim">Pil Optimizasyonu</string>
+    <string name="disableBatOptimMessage">Güç ayarları bazı cihazlarda yedeklemelerin düzgün çalışmasını engelleyebilir. Sorun yaşarsanız Stratum için pil optimizasyonunu devre dışı bırakmayı deneyin.</string>
+    <string name="autoBackupFailureTitle">Otomatik Yedekleme başarısız</string>
+    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have
+        expired, try setting the backup location again in the auto backup settings.
+    </string>
+    <string name="autoBackupSuccessTitle">Otomatik yedekleme tamamlandı</string>
+    <string name="backupScheduled">Zamanlanmış yedekleme</string>
+    <!--
+        Password setup
+    -->
+    <string name="passwordSetupHelp">Veri tabanını bir parola ile şifreleyin. Uygulamayı açtığınızda sizden parola istenecektir. Parolayı temizlemek için alanı boş bırakın.</string>
+    <string name="passwordSetupWarning">Hatırlayabileceğiniz bir parola kullanın, veri tabanı parola olmadan kurtarılamaz.</string>
+    <string name="clearPassword">Parolayı kaldır</string>
+    <string name="confirmPassword">Parolayı onayla</string>
+    <string name="setupBiometricUnlock">Biyometri ile kilit açma kurulumu</string>
+    <string name="passwordsDoNotMatch">Parolalar uyuşmuyor</string>
+    <string name="biometricsChanged">Cihazın biyometrisi değişti. Kilidi açmak için şifreyi kullanın.</string>
+    <!--
+        Unlock
+    -->
+    <string name="unlock">Kilidi Aç</string>
+    <string name="useBiometrics">Biyometri kullan</string>
+    <string name="unlockMessage">Veri tabanının kilidini açmak için parolanızı girin veya biyometri kullanın</string>
+    <string name="unlockBiometricsMessage">Kimlik doğrulama kodlarına erişmek için biyometri kullanın</string>
+    <string name="passwordIncorrect">Parola hatalı</string>
+    <string name="tooManyAttempts">Çok fazla deneme</string>
+    <!--
+        Import
+    -->
+    <string name="importFromOtherApps">Diğer uygulamalardan içe aktar</string>
+    <string name="importError">Dosya içe aktarılamadı</string>
+    <string name="importIncomplete">İçe aktarma tamamlanmadı</string>
+    <string name="importConversionError">\"{0}\" öğesi aşağıdaki hata nedeniyle içe aktarılamadı: {1}</string>
+    <string name="authenticatorPlusImportHint">authplus.db dosyasını içe aktar</string>
+    <string name="andOtpImportHint">otp_accounts.json dosyasını içe aktar</string>
+    <string name="freeOtpImportHint">ExternalBackup.xml dosyasını içe aktarın</string>
+    <string name="freeOtpPlusImportHint">freeotp-backup.json dosyasını içe aktarın</string>
+    <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
+    <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
+    <string name="enteAuthImportHint">ente-auth-codes.txt dosyasını içe aktarın</string>
+    <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
+    <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
+    <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json dosyasını içe aktarın</string>
+    <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
+    <string name="uriList">URI listesi</string>
+    <string name="uriListHint">Otpauth bağlantılarının düz metin listesi</string>
+    <string name="viewGuideImportHint">Kılavuzu wiki\'de görüntüle</string>
+    <!--
+        Getting Started Guide
+    -->
+    <string name="guideScanQRCodeTitle">Karekodu tara</string>
+    <string name="guideScanQRCodeSummary">Bir kimlik doğrulayıcı eklemek için uygulama veya hizmet tarafından sağlanan karekodunu tarayın. Listeye eklenecek ve otomatik olarak yeni kodlar üretecektir. Ayrıntıları elle de girebilirsiniz.</string>
+    <string name="guideUseCodeTitle">Giriş yaparken kodu kullanın</string>
+    <string name="guideUseCodeSummary">Giriş yaparken, Stratum tarafından sağlanan benzersiz kodu kullanın. Sadece kısa bir süre için geçerlidir. Kodu panoya kopyalamak için listedeki kimlik doğrulayıcıya dokunun.</string>
+    <string name="guideCustomiseTitle">Özelleştirin ve düzenleyin</string>
+    <string name="guideCustomiseSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için yeniden adlandırın ve özelleştirin. Bir girişteki menü simgesine dokunmanız ve adımları takip etmeniz yeterlidir.</string>
+    <string name="guideArrangeTitle">Düzenleyin ve sıralayın</string>
+    <string name="guideArrangeSummary">Kimlik doğrulayıcılarınızı kolayca bulmak için kategoriler halinde düzenleyebilirsiniz. Ayrıca, öğeleri tutup sürüklemek onları istediğiniz sırayla yeniden düzenlemenize olanak sağlar.</string>
+    <string name="guideBackupTitle">Yedek oluştur</string>
+    <string name="guideBackupSummary">Cihazınızı değiştirirseniz hesaplarınıza erişimi kaybetmeyin. Bir yedekleme dosyası oluşturun ve bunu güvenli bir yerde depolayın. Yedek dilediğiniz zamanda geri yüklenebilir ve bir parola ile korunabilir.</string>
+    <string name="guideWearOSTitle">Wear OS tamamlayıcıyı indirin</string>
+    <string name="guideWearOSSummary">Wear OS saatiniz varsa, tamamlayıcı uygulamayı indirebilirsiniz. Kodları doğrudan saatinizde görüntüleyebilirsiniz.</string>
+    <!--
+        QR code scanner
+    -->
+    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
+    <string name="toggleFlash">Flaşı aç/kapat</string>
+    <!--
+        Preferences
+    -->
+    <string name="prefGeneral">Genel</string>
+    <string name="prefShowBackupRemindersTitle">Yedekleme Hatırlatıcılarını Göster</string>
+    <string name="prefShowBackupRemindersSummary">Reminds you to backup your authenticators if important changes are made.
+    </string>
+    <string name="prefAutoBackupTitle">Otomatik Yedekleme</string>
+    <string name="prefAutoBackupSummary">Değişiklikler yapıldığında otomatik olarak belirli bir konuma yedekleyin. Yedekleme hatırlatıcılarını devre dışı bırakır.</string>
+    <string name="prefLanguageTitle">Dil</string>
+    <string name="prefLanguageSummary">Uygulama genelinde kullanmak için bir dil seçin</string>
+    <string name="prefTapToCopyTitle">Kopyalamak için dokun</string>
+    <string name="prefTapToCopySummary">Dokunulduğunda kodu panoya kopyalayın</string>
+    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefSkipToNextTitle">Skip to Next</string>
+    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSecurity">Güvenlik</string>
+    <string name="prefPasswordTitle">Parola</string>
+    <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
+    <string name="prefDatabasePasswordBackupTitle">Veritabanı Parolası ile Yedekle</string>
+    <string name="prefDatabasePasswordBackupSummary">Veri tabanı parolasını kullanarak tüm yedeklemeleri şifreleyin,
+        böylece her seferinde parola girmenize gerek kalmaz
+    </string>
+    <string name="prefAllowBiometricsTitle">Kilidi biyometri ile aç</string>
+    <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
+    <string name="prefTimeoutTitle">Zaman aşımı</string>
+    <string name="prefTimeoutSummary">Uygulama ekrandan çıktıktan sonra veritabanının kilitleneceği süreyi ayarlayın</string>
+    <string name="prefTapToRevealTitle">Görmek için dokunun</string>
+    <string name="prefTapToRevealSummary">Dokunulana kadar kodları gizleyin. Birkaç saniye içinde kaybolacaklar.
+    </string>
+    <string name="prefTapToRevealDurationTitle">Süreyi göstermek için dokunun</string>
+    <string name="prefTapToRevealDurationSummary">Gösterilen kodların ne kadar süre sonra gizleneceğini ayarlayın</string>
+    <string name="prefAllowScreenshotsTitle">Ekran görüntülerine izin ver</string>
+    <string name="prefAllowScreenshotsSummary">Ekran güvenliğini devre dışı bırakın ve uygulamanın ekran görüntüsünün alınmasına izin verin</string>
+    <string name="prefAppearance">Görünüm</string>
+    <string name="prefThemeTitle">Tema</string>
+    <string name="prefThemeSummary">Bir uygulama teması seçin.</string>
+    <string name="prefViewModeTitle">Görüntüleme Modu</string>
+    <string name="prefViewModeSummary">Kimlik doğrulayıcı listesi için bir görüntüleme modu seçin.</string>
+    <string name="prefCodeGroupSizeTitle">Kod Grup Boyutu</string>
+    <string name="prefCodeGroupSizeSummary">Bir koddaki rakam gruplamasını değiştir</string>
+    <string name="prefShowUsernamesTitle">Kullanıcı adlarını göster</string>
+    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
+    <string name="prefDynamicColourTitle">Dinamik Renk</string>
+    <string name="prefDynamicColourSummary">Duvar kağıdınıza göre vurgu rengini dinamik olarak ayarlayın</string>
+    <string name="prefAccentColourTitle">Ara Renk</string>
+    <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
+    <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
+    <string name="prefTransparentStatusBarSummary">Listeyi kaydırırken durum çubuğunun arkasında görünür yapın</string>
+    <string name="prefSystemFontTitle">System Font</string>
+    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <!-- Message shown when the copy count has been reset successfully -->
+    <string name="copyCountReset">Copy count reset</string>
+    <!--
+        About
+    -->
+    <string name="viewLog">View Log</string>
+    <string name="noLogFile">No log file available</string>
+    <string name="debugLog">Debug log</string>
+    <!--
+        Arrays
+    -->
+    <string name="authTypeTime">Zaman tabanlı (TOTP)</string>
+    <string name="authTypeCounter">Sayaç tabanlı (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (varsayılan)</string>
+    <!-- Lock the app immediately when closed -->
+    <string name="immediately">Hemen</string>
+    <string name="timeout5Sec">5 saniye</string>
+    <string name="timeout10Sec">10 saniye</string>
+    <string name="timeout20Sec">20 saniye</string>
+    <string name="timeout30Sec">30 saniye</string>
+    <string name="timeout1Min">1 Dakika</string>
+    <string name="timeout2Min">2 dakika</string>
+    <string name="timeout5Min">5 dakika</string>
+    <string name="timeout10Min">10 dakika</string>
+    <string name="systemDefault">Sistem Varsayılanı</string>
+    <string name="systemDefaultBlack">Sistem varsayılanı (Koyu)</string>
+    <string name="lightTheme">Açık Tema</string>
+    <string name="darkTheme">Koyu Tema</string>
+    <string name="blackTheme">Koyu Tema</string>
+    <string name="defaultViewMode">Varsayılan</string>
+    <string name="compactViewMode">Sıkıştırılmış</string>
+    <string name="tileViewMode">Yan yana</string>
+    <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
+    <string name="none">None</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <!--
+        Arrays > Languages
+    -->
+    <!--
+        Arrays > Accent colours
+    -->
+    <string name="red">Kırmızı</string>
+    <string name="pink">Pembe</string>
+    <string name="purple">Mor</string>
+    <string name="deepPurple">Koyu mor</string>
+    <string name="indigo">Çivit</string>
+    <string name="blue">Mavi</string>
+    <string name="lightBlue">Açık mavi</string>
+    <string name="cyan">Camgöbeği</string>
+    <string name="teal">Deniz mavisi</string>
+    <string name="green">Yeşil</string>
+    <string name="lightGreen">Açık yeşil</string>
+    <string name="lime">Çim rengi</string>
+    <string name="yellow">Sarı</string>
+    <string name="amber">Kehribar</string>
+    <string name="orange">Turuncu</string>
+    <string name="deepOrange">Keskin turuncu</string>
+    <!--
+        Arrays / Intro
+    -->
+    <string name="introWelcomeTitle">Stratum\'ya hoş geldiniz</string>
+    <string name="introCompatibilityTitle">İki Faktörlü Kimlik Doğrulama</string>
+    <string name="introBackupTitle">Yedekleme ve Geri yükleme</string>
+    <string name="introCategoriesTitle">Kategoriler</string>
+    <string name="introThemesTitle">Koyu Tema</string>
+    <string name="introWelcomeSummary">Stratum\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
+    <string name="introCompatibilitySummary">Stratum çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator özellikli hizmetlerle %100 uyumludur.</string>
+    <string name="introBackupSummary">Kimlik doğrulayıcılarınızı güçlü bir şifreleme ile yedekleyin. Cihazınızı kaybetmeniz durumunda, her zaman hesaplarınıza erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.</string>
+    <string name="introCategoriesSummary">Kimlik doğrulama kodlarınızı kategorilere ayırın ve hatta basitçe tutup sürükleyerek sıralamayı değiştirin.</string>
+    <string name="introThemesSummary">İsterseniz, ayarlardan karanlık temayı etkinleştirebilirsiniz. Tüm simgeler yeni arka plana eşleşecek şekilde uyarlanacaktır.</string>
+</resources>

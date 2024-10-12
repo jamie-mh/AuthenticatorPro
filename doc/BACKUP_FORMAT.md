@@ -1,6 +1,6 @@
 # Backup File Format
 
-If you are migrating your authenticators from another app, you can create your own Authenticator Pro backup file to quickly import all your data. An unencrypted backup file is written in JSON and has the following format:
+If you are migrating your authenticators from another app, you can create your own Stratum backup file to quickly import all your data. An unencrypted backup file is written in JSON and has the following format:
 
 ```
 {
@@ -79,7 +79,7 @@ If you are migrating your authenticators from another app, you can create your o
 
 #### Strong
 
-Authenticator Pro backups are encrypted using AES_GCM with no padding. The key is derived using Argon2id with the following parameters:
+Stratum backups are encrypted using AES_GCM with no padding. The key is derived using Argon2id with the following parameters:
 
 | Parameter   | Value  |
 |-------------|--------|
@@ -99,7 +99,7 @@ The file is structured as follows:
 
 #### Legacy
 
-Authenticator Pro backups are encrypted using AES_CBC_PKCS7. The key is derived using PBKDF2 with SHA1 over 64000 iterations.
+Stratum backups are encrypted using AES_CBC_PKCS7. The key is derived using PBKDF2 with SHA1 over 64000 iterations.
 The file is structured as follows:
 
 | Section | Size | Value            |
@@ -113,7 +113,7 @@ The file is structured as follows:
 
 A Python tool can be used to decrypt your backups.
 
-[Backup Decryption Tool](https://github.com/jamie-mh/AuthenticatorPro/blob/master/extra/decrypt_backup.py)
+[Backup Decryption Tool](https://github.com/stratumauth/app/blob/master/extra/decrypt_backup.py)
 
 First, install the required packages with `pip`.
 
