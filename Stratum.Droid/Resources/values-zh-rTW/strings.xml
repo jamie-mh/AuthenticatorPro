@@ -68,6 +68,7 @@
     <string name="digitsHint">位數</string>
     <string name="periodHint">週期（秒）</string>
     <string name="counterHint">計數器</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">請輸入發現者</string>
     <string name="noSecret">請輸入密鑰</string>
     <string name="noPin">請輸入識別碼（PIN）</string>

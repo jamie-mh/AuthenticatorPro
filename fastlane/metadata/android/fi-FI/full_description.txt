@@ -3,26 +3,26 @@ Ilmainen avoimen lähdekoodin kaksivaiheinen todennussovellus Androidille. Se si
 Se tukee SHA1-, SHA256- tai SHA512-hajautusalgoritmeja käyttäviä TOTP (aikaan perustuvia) ja HOTP (laskuriin perustuvia) -todentajia. Mobile-Otp (mOTP), Steam ja Yandex ovat myös tuettuja.
 
 Kaksivaiheinen todennus tarjoaa ylimääräisen turvallisuuden kerroksen tileillesi edellyttämällä kertaluonteisen koodin käyttöä sisäänkirjautuessa.
-Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Authenticator Pron antamaa koodia. Joten tilisi pysyy turvassa, vaikka kirjautumistietosi olisivat vaarantuneet.
+Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Stratumn antamaa koodia. Joten tilisi pysyy turvassa, vaikka kirjautumistietosi olisivat vaarantuneet.
 
 <hr>
 
 <b>Ominaisuudet</b>
 
-- ⚙️ <b>Yhteensopivuus</b>: Authenticator Pro on yhteensopiva useimpien palveluntarjoajien ja tilien kanssa.
-- 📲 <b>Tuonti</b>: Siirrä tilisi helposti Authenticator Prohon tuetuista vaihtoehtoisista sovelluksista.
+- ⚙️ <b>Yhteensopivuus</b>: Stratum on yhteensopiva useimpien palveluntarjoajien ja tilien kanssa.
+- 📲 <b>Tuonti</b>: Siirrä tilisi helposti Stratum hon tuetuista vaihtoehtoisista sovelluksista.
 - 💾 <b>Varmuuskopioi / palauta</b>: Varmuuskopioi todentajasi vahvalla salauksella. Pääset aina käsiksi tileihisi, vaikka kadottaisit tai vaihtaisit puhelintasi. Voit tallentaa varmuuskopiot pilvipalveluun tai laitteeseesi.
-- 🌙 <b>Tumma tila</b>: Authenticator Prolla on kaunis "Material Designin" innoittama ulkoasu joko vaalealla tai tummalla teemalla.
+- 🌙 <b>Tumma tila</b>: Stratumlla on kaunis "Material Designin" innoittama ulkoasu joko vaalealla tai tummalla teemalla.
 - ⏺️ <b>Kuvakkeet</b>: Löydä todentajasi helposti tunnistettavien merkkilogojen ja kuvakkeiden avulla kunkin koodin vieressä.
 - 📂 <b>Kategoriat</b>: Järjestä todentajasi kategorioihin.
-- 🔒 <b>Offline-tila ja vain muutamalla luvalla</b>: Authenticator Pro vaatii vain yhden luvan¹, eikä se vaadi Internet-yhteyttä toimiakseen.
+- 🔒 <b>Offline-tila ja vain muutamalla luvalla</b>: Stratum vaatii vain yhden luvan¹, eikä se vaadi Internet-yhteyttä toimiakseen.
 - 🔑 <b>Turvallisuus</b>: Aseta salasana ja käytä biometristä todennusta koodiesi suojaukseen.
 - 🎨 <b>Mukautus</b>: Aseta kuvakkeita ja nimeä uudelleen. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
 - ⌚ <b>Wear OS</b>: Näet todentajasi suoraan kellostasi. Voit jopa valita suosikkisi ja sijoittaa sen laattaan. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Lisäksi sovelluksen F-Droid-versiot eivät ole yhteensopivia Wear OS:n kanssa, koska ne vaativat ei-ilmaisia riippuvuuksia.
 
 (¹) *Sovellus vaatii kameran luvan QR-koodien skannaamiseen.*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> UKK</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

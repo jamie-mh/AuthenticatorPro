@@ -3,26 +3,26 @@ Svobodná aplikace pro dvoufaktorové ověřování s otevřeným kódem pro And
 Podporuje TOTP (časově založené) a HOTP (čítačově založené) autentifikátory používající algoritmy SHA1, SHA256 nebo SHA512. Mobile-Otp (mOTP), Steam a Yandex jsou též podporovány.
 
 2 faktorové ověření poskytuje Vašim účtům další vrstvu bezpečnosti tím, že k přihlášení vyžaduje použití jednorázového kódu.
-Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnutý aplikací Authenticator Pro. Takže i když dojde ke kompromitaci vašich přihlašovacích údajů, váš účet zůstane v bezpečí.
+Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnutý aplikací Stratum. Takže i když dojde ke kompromitaci vašich přihlašovacích údajů, váš účet zůstane v bezpečí.
 
 <hr>
 
 <b>Funkce</b>
 
-- ⚙️ <b>Kompabilita</b>: Authenticator Pro je kompatibilní s většinou poskytovatelů a účtů.
-- 📲 <b>Import</b>: Jednoduše přesuňte Vaše účty do Authenticator Pro z ostatních podporovaných aplikací.
+- ⚙️ <b>Kompabilita</b>: Stratum je kompatibilní s většinou poskytovatelů a účtů.
+- 📲 <b>Import</b>: Jednoduše přesuňte Vaše účty do Stratum z ostatních podporovaných aplikací.
 - 💾 <b>Zálohy/Obnovení</b>: Zálohujete vaše autentifikátory silným šifrováním. V případě ztráty telefonu můžete vždy získat zpět přístup k Vašim účtům. Můžete uložit zálohy na online úložiště nebo do vašeho zařízení.
-- 🌙 <b>Tmavý režim</b>: Authenticator Pro má překrásný vzhled inspirovaný material design ve světlém i tmavém režimu.
+- 🌙 <b>Tmavý režim</b>: Stratum má překrásný vzhled inspirovaný material design ve světlém i tmavém režimu.
 - ⏺️ <b>Ikony</b>: Najděte své autentifikátory snadno s rozpoznatelnými logy značek a ikonami vedle každého kódu.
 - 📂 <b>Kategorie</b>: Organizujte své autentifikátory do kategorií.
-- 🔒 <b>Offline s málo oprávněními</b>: Authenticator Pro vyžaduje pouze jedno oprávnění¹ a nepotřebuje přístup k internetu pro fungování.
+- 🔒 <b>Offline s málo oprávněními</b>: Stratum vyžaduje pouze jedno oprávnění¹ a nepotřebuje přístup k internetu pro fungování.
 - 🔑 <b>Zabezpečení</b>: Nastavte si heslo a používejte biometrické ověření pro ochranu vašich kódů.
 - 🎨 <b>Přizpůsobení</b>: Nastavte si ikony a přejmenovávejte. Své autentifikátory můžete také uspořádat v libovolném pořadí, které se vám líbí, abyste je mohli snadno najít.
 - ⌚ <b>Wear OS</b>: Rychle zobrazte vaše autentifikátory přímo z Vašich hodinek. Můžete si dokonce vybrat oblíbený autentifikátor and umístit ho na dlaždici. Berte na vědomí, že připojení k Vašemu zařízení s Android je nezbytné. Kromě toho, F-Droid distribuce této aplikace nejsou kompatibilní s Wear OS, protože jsou použity nesvobodné závislosti.
 
 (¹) *Pro čtení QR kódů aplikace vyžaduje oprávnění kamery*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> Často pokládané otázky</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

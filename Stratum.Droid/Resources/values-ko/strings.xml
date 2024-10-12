@@ -26,7 +26,7 @@
     <string name="about">정보</string>
     <string name="scanQrCode">QR코드 스캔</string>
     <string name="showQrCode">QR코드 표시</string>
-    <string name="editDetails">Edit details</string>
+    <string name="editDetails">세부정보 수정</string>
     <string name="scanQrCodeFromCamera">카메라에서 스캔</string>
     <string name="scanQrCodeFromGallery">갤러리에서 스캔</string>
     <string name="rename">이름 변경</string>
@@ -38,8 +38,8 @@
     <string name="sort">정렬</string>
     <string name="sortAZ">가나다순</string>
     <string name="sortZA">가나다 역순</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">가장 많이 복사됨</string>
+    <string name="sortLeastCopied">최소 복사</string>
     <string name="sortCustom">사용자 지정</string>
     <string name="aboutSummary">앱 및 라이선스 정보 보기</string>
     <string name="supportDevelopment">개발 지원</string>
@@ -56,7 +56,7 @@
     <string name="secretKey">암호</string>
     <string name="pin">PIN</string>
     <string name="showAdvancedOptions">고급 설정 표시</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">무엇을 하고 있는지 알고 있는 경우에만 이 옵션을 변경하세요. 계정이 잠길 수 있습니다.\n\n계속하시겠습니까?</string>
     <string name="confirmAuthenticatorDelete">인증기를 제거하면 계정의 코드를 생성하지 못하게 됩니다. 하지만 2단계 인증이 꺼진다는 것은 아닙니다.\n\n인증기를 제거하는 경우 계정에 접근하지 못하게 될 수 있습니다.\n2단계 인증을 먼저 끄거나 계정 복구 코드를 마련해두시기 바랍니다.\n\n계속 진행하시겠습니까?</string>
     <string name="useCustomIcon">사용자 지정 아이콘 사용</string>
     <string name="copiedToClipboard">코드를 클립보드에 복사했습니다</string>
@@ -67,7 +67,8 @@
     <string name="algorithmHint">알고리즘</string>
     <string name="digitsHint">자릿수</string>
     <string name="periodHint">유효 기간 (초)</string>
-    <string name="counterHint">Counter</string>
+    <string name="counterHint">카운터</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">발급처를 입력해야 합니다</string>
     <string name="noSecret">암호를 입력해야 합니다</string>
     <string name="noPin">PIN을 입력해야 합니다</string>
@@ -77,21 +78,21 @@
     <string name="pinTooLong">PIN은 {0}자리 이하여야 합니다</string>
     <string name="digitsInvalid">인증기가 {0}~{1}자 코드를 생성해야 합니다</string>
     <string name="periodInvalid">유효 기간이 잘못되었습니다</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">카운터가 유효하지 않습니다</string>
     <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
     <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">이 QR 코드와 연결된 핀을 입력하세요.</string>
     <!--
         Icon packs
     -->
     <string name="defaultIcons">기본 아이콘</string>
     <string name="iconPacks">아이콘 팩</string>
     <string name="downloadPacks">아이콘 팩 다운로드</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="importIconPackSuccess">팩에서 아이콘 {0} 개를 가져왔습니다.</string>
     <string name="invalidIconPackError">The selected file is not an Stratum icon pack</string>
-    <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
+    <string name="confirmIconPackDelete">이 아이콘 팩을 삭제하시겠습니까? 사용된 아이콘은 삭제되지 않습니다.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>
     <!--
@@ -101,7 +102,7 @@
     <string name="qrCodeHelp">QR코드를 스캔하여 인증기를 다른 기기나 앱으로 복사하세요</string>
     <string name="qrCodeNotSupported">이 유형은 QR코드를 지원하지 않습니다</string>
     <string name="copyUri">URI 복사</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
+    <string name="copyUriWarning">이 URI에는 일반 텍스트로 된 비밀 키가 포함되어 있습니다. 이 정보를 어디에 붙여넣을지 주의하세요.\n\n계속하시겠습니까?</string>
     <string name="uriCopiedToClipboard">URI을 클립보드에 복사했습니다</string>
     <!--
         Backup menu
@@ -124,14 +125,14 @@
     <string name="noCategoriesTitle">분류 없음</string>
     <string name="noCategoriesMessage">설정한 분류가 없습니다</string>
     <string name="noIconPacksTitle">아이콘 팩 없음</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksMessage">아직 설정된 아이콘 팩이 없습니다.</string>
     <!--
         Categories
     -->
     <string name="category">카테고리</string>
     <string name="categories">분류</string>
     <string name="assignCategories">분류 지정</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">항목 할당</string>
     <string name="more">더보기</string>
     <string name="categoryAll">모두</string>
     <string name="editCategories">분류 수정</string>
@@ -173,8 +174,8 @@
     <string name="emailClientMissing">설치한 이메일 앱이 없습니다</string>
     <string name="genericError">오류가 발생했습니다</string>
     <string name="viewErrorLog">오류 기록 보기</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">시간 동기화가 비활성화되었습니다.</string>
+    <string name="autoTimeWarningMessage">귀하의 장치에는 자동 시간이 비활성화되어 있습니다. 이중 인증에서는 코드를 생성하기 위해 정확한 시계가 필요합니다.\n\n생성된 코드가 항상 유효한지 확인하려면 장치 설정에서 자동 시간 동기화를 활성화하십시오.</string>
     <!--
         Error reporting
     -->
@@ -263,7 +264,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">QR 코드를 뷰파인더에 대고 스캔하세요. 집중하려면 탭하세요.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!--
@@ -273,13 +274,13 @@
     <string name="prefShowBackupRemindersTitle">백업 알림</string>
     <string name="prefShowBackupRemindersSummary">중요한 변경 사항이 생겼을 때 인증기를 백업하라고 알려줍니다</string>
     <string name="prefAutoBackupTitle">자동 백업</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
+    <string name="prefAutoBackupSummary">변경 사항이 생길 때마다 자동으로 특정 위치에 백업 및 복원합니다. 백업 알림을 끕니다.</string>
     <string name="prefLanguageTitle">언어</string>
     <string name="prefLanguageSummary">앱에서 쓸 언어를 선택하세요</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefTapToCopyTitle">탭하여 복사</string>
+    <string name="prefTapToCopySummary">탭하면 코드를 클립보드에 복사합니다.</string>
+    <string name="prefResetCopyCountTitle">복사 카운트 재설정</string>
+    <string name="prefResetCopyCountSummary">각 인증자가 복사된 횟수를 지웁니다.</string>
     <string name="prefSkipToNextTitle">Skip to Next</string>
     <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">보안</string>
@@ -293,10 +294,10 @@
     <string name="prefTimeoutSummary">앱 화면에서 이탈했을 때 데이터베이스가 잠기기까지의 시간을 설정합니다</string>
     <string name="prefTapToRevealTitle">눌러서 확인</string>
     <string name="prefTapToRevealSummary">코드를 누르기 전까지 숨깁니다. 누른 뒤 몇 초가 지나면 다시 숨겨집니다.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">기간을 확인하려면 탭하세요.</string>
+    <string name="prefTapToRevealDurationSummary">공개된 코드가 숨겨지는 시간을 설정하세요.</string>
     <string name="prefAllowScreenshotsTitle">스크린샷 허용</string>
-    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefAllowScreenshotsSummary">화면 보안을 비활성화하고 앱 스크린샷을 허용합니다.</string>
     <string name="prefAppearance">표시</string>
     <string name="prefThemeTitle">테마</string>
     <string name="prefThemeSummary">앱 테마를 선택하세요</string>
@@ -305,9 +306,9 @@
     <string name="prefCodeGroupSizeTitle">코드 자릿수 단위</string>
     <string name="prefCodeGroupSizeSummary">몇 자리마다 코드를 묶을지 설정합니다</string>
     <string name="prefShowUsernamesTitle">사용자 이름 표시</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefShowUsernamesSummary">발급자 아래에 사용자 이름을 표시합니다.</string>
+    <string name="prefDynamicColourTitle">동적 색상</string>
+    <string name="prefDynamicColourSummary">배경화면에 따라 강조 색상을 동적으로 설정합니다.</string>
     <string name="prefAccentColourTitle">강조 색상</string>
     <string name="prefAccentColourSummary">전체적인 앱의 강조 색상을 선택하세요</string>
     <string name="prefTransparentStatusBarTitle">투명 상태표시줄</string>
@@ -315,7 +316,7 @@
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <!-- Message shown when the copy count has been reset successfully -->
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">복사 카운트 재설정</string>
     <!--
         About
     -->
@@ -339,7 +340,7 @@
     <string name="timeout5Min">5분</string>
     <string name="timeout10Min">10분</string>
     <string name="systemDefault">시스템 기본값</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">시스템 기본값(검은색)</string>
     <string name="lightTheme">밝은 테마</string>
     <string name="darkTheme">어두운 테마</string>
     <string name="blackTheme">검정색 테마</string>

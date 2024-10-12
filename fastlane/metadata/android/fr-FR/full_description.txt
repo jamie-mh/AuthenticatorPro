@@ -3,19 +3,19 @@ Outil d'authentification à double facteur open source pour Android. Comprend de
 Les authentificateurs TOTP (temporels) et HOTP (à compteur) utilisant les algorithmes SHA1, SHA256 ou SHA512 sont pris en charge. Mobile-Otp (mOTP), Steam et Yandex sont aussi supportés.
 
 L'authentification à deux facteurs fournit un niveau de sécurité supplémentaire à vos comptes en exigeant l'utilisation d'un code unique pour vous connecter.
-En plus de votre nom d'utilisateur et de votre mot de passe, vous aurez besoin d'un code fourni par Authenticator Pro. Ainsi, même si vos informations de connexion sont fuitées, votre compte reste sécurisé.
+En plus de votre nom d'utilisateur et de votre mot de passe, vous aurez besoin d'un code fourni par Stratum. Ainsi, même si vos informations de connexion sont fuitées, votre compte reste sécurisé.
 
 <hr>
 
 <b>Fonctionnalités</b>
 
-- ⚙️ <b>Compatibilité</b>: Authenticator Pro est compatible avec la plupart des fournisseurs et comptes.
-- 📲 <b>Importer</b>: Migrez facilement vos comptes vers Authenticator Pro à partir d'applications alternatives.
+- ⚙️ <b>Compatibilité</b>: Stratum est compatible avec la plupart des fournisseurs et comptes.
+- 📲 <b>Importer</b>: Migrez facilement vos comptes vers Stratum à partir d'applications alternatives.
 - 💾 <b>Sauvegarde / Restauration</b>: Sauvegardez vos authentificateurs avec un chiffrement fort. En cas de perte ou de changement de téléphone, vous aurez toujours accès à vos comptes. Vous pouvez créer des sauvegardes sur le stockage cloud ou sur votre appareil.
-- 🌙 <b>Mode Sombre</b>: Authenticator Pro a une interface "Material Design" avec un thème clair et un thème sombre.
+- 🌙 <b>Mode Sombre</b>: Stratum a une interface "Material Design" avec un thème clair et un thème sombre.
 - ⏺️ <b>Icônes</b>: Trouvez facilement vos authentificateurs avec des logos et des icônes de marque reconnaissables à côté de chaque code.
 - 📂 <b>Catégories</b>: Organisez vos authentificateurs en catégories.
-- 🔒 <b>Hors ligne avec peu de permissions</b>: Authenticator Pro ne nécessite qu'une seule permission¹ et ne nécessite pas d'accès Internet.
+- 🔒 <b>Hors ligne avec peu de permissions</b>: Stratum ne nécessite qu'une seule permission¹ et ne nécessite pas d'accès Internet.
 - 🔑 <b>Security</b>: Définissez un mot de passe et utilisez l'authentification biométrique pour protéger vos codes.
 - 🎨 <b>Personnalisation</b>: Changez les icônes et renommez. Vous pouvez également organiser vos authentificateurs dans l'ordre que vous voulez afin que vous puissiez les trouver facilement.
 - ⌚ <b>Wear OS</b>: Visualisez rapidement vos authentificateurs directement depuis votre montre connectée. Vous pouvez également définir un favori et le placer dans une tuile. Veuillez noter qu'une connexion à votre appareil Android est requise. Cependant, les distributions de l'application sur F-Droid ne sont pas compatibles avec Wear OS puisque des dépendances non libres sont embarquées.

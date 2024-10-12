@@ -68,6 +68,7 @@
     <string name="digitsHint">Cifre</string>
     <string name="periodHint">Perioada (secunde)</string>
     <string name="counterHint">Contor</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Un emitent este necesar</string>
     <string name="noSecret">Este necesară o cheie secretă</string>
     <string name="noPin">Este necesar un cod PIN</string>

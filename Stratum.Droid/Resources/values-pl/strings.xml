@@ -68,6 +68,7 @@
     <string name="digitsHint">Cyfr</string>
     <string name="periodHint">Okres (sekundy)</string>
     <string name="counterHint">Licznik</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Wystawca jest wymagany</string>
     <string name="noSecret">Sekret jest wymagany</string>
     <string name="noPin">Pin jest wymagany</string>

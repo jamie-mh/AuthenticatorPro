@@ -1,33 +1,33 @@
-A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
+تطبيق مصادقة ثنائي مفتوح المصدر مجاني لنظام أندرويد. ويتميز بنسخ احتياطية مشفرة وأيقونات وفئات ومستوى عالٍ من التخصيص. ثم أن لديها تطبيق مصاحب لنظام التشغيل Wear OS.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+وهو يدعم أدوات التصديق TOTP (المعتمدة على الوقت) وHOTP (المعتمدة على العداد) باستخدام خوارزميات التجزئة SHA1 أو SHA256 أو SHA512. كما يتم دعم Mobile-Otp (mOTP) وSteam وYandex.
 
-2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
-In addition to your username and password, you will need a code provided by Authenticator Pro. So even if your login details are compromised, your account remains safe.
-
-<hr>
-
-<b>Features</b>
-
-- ⚙️ <b>Compatibility</b>: Authenticator Pro is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Authenticator Pro from supported alternative apps.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
-
-(¹) *To scan QR-Codes, the app requires the camera permission.*
-
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+توفر المصادقة الثنائية طبقة إضافية من الأمان لحساباتك من خلال طلب استخدام رمز لمرة واحدة لتسجيل الدخول.
+In addition to your username and password, you will need a code provided by Stratum. لذلك، حتى لو تم اختراق تفاصيل تسجيل الدخول الخاصة بك، فسيظل حسابك آمنًا.
 
 <hr>
 
-<b>Disclaimer</b>
+<b>الميّزات</b>
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
+- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
+- 💾 <b>النسخ الاحتياطي / الاستعادة</b>: النسخ الاحتياطي للمصادقين مع تشفير قوي. في حالة فقدان هاتفك أو تغييره، يمكنك دائماً الوصول إلى حساباتك. يمكنك حفظ النسخ الاحتياطية على التخزين السحابي أو على جهازك.
+- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
+- ⏺️ <b>الأيقونات</b>: يمكنك العثور على المصادقين بسهولة من خلال شعارات العلامات التجارية والأيقونات التي يمكن التعرف عليها بجوار كل رمز.
+- 📂 <b>الفئات</b>: تنظيم المصادقين لديك في فئات.
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>الأمان</b>: تعيين كلمة مرور واستخدم المصادقة بارومترية لحماية رموزك.
+- 🎨 <b>التخصيص</b>: تعيين الرموز وإعادة التسمية. يمكنك أيضًا ترتيب أدوات التصديق الخاصة بك بأي ترتيب تريده حتى تتمكن من العثور عليها بسهولة.
+- ⌚ <b>Wear OS</b>: يمكنك عرض أدوات المصادقة بسرعة قاصدًا من ساعتك. You can even set a favourite and place it in a tile. يرجى ملاحظة أن الاتصال بجهاز الأندرويد الخاص بك مطلوب. فضلًا على ذلك، فإن توزيعات F-Droid للتطبيق غير متوافقة مع نظام التشغيل Wear OS، نظرًا لأن التبعيات غير الحرة مطلوبة.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+(¹) *لمسح رموز QR، يتطلب التطبيق إذن الكاميرا.*
+
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+
+<hr>
+
+<b>إخلاء المسؤولية</b>
+
+هذا البرنامَج هو برنامَج مجاني: يمكنك إعادة توزيعه و/أو تعديله بموجب شروط رخصة حنو العامة كما نشرتها مؤسسة البرمجيات الحرة، إما الإصدار 3 من الترخيص، أو (حسب اختيارك) أي إصدار لاحق.
+
+ويوزع هذا البرنامج على أمل أن يكون مفيداً، ولكن مع وجود أي تحذير؛ دون أن يكون هناك حتى ضمان ضمني من طرف الشعب المشارك. راجع رخصة GNU العامة العامة لمزيد من التفاصيل.

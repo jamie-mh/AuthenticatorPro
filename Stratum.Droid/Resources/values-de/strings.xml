@@ -68,6 +68,7 @@
     <string name="digitsHint">Stellen</string>
     <string name="periodHint">Gültigkeit (Sekunden)</string>
     <string name="counterHint">Zähler</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">Du musst einen Herausgeber eingeben.</string>
     <string name="noSecret">Du musst einen Schlüssel eingeben.</string>
     <string name="noPin">Du musst eine PIN eingeben</string>

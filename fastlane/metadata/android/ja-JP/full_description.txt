@@ -1,28 +1,28 @@
-Android用のオープンソースで自由な2要素認証アプリ。 バックアップの暗号化、アイコンやカテゴリーなど、高度なカスタマイズに対応しています。 また、Wear OSのコンパニオンアプリもあります。
+Android用のオープンソースで自由な2要素認証アプリ。 バックアップの暗号化、アイコンやカテゴリーなど、高度なカスタマイズに対応しています。 また、Wear OSのコンパニオンアプリもあります。 バックアップの暗号化、アイコンやカテゴリーなど、高度なカスタマイズに対応しています。 また、Wear OSのコンパニオンアプリもあります。
 
-SHA1、SHA256またはSHA512のいずれかのハッシュアルゴリズムのいずれかを使用する、TOTP(時刻同期型)およびHOTP(カウンタ同期型)の認証方式に対応しています。 モバイルOTP(mOTP)、Steam、Yandexにも対応しています。
+SHA1、SHA256またはSHA512のいずれかのハッシュアルゴリズムのいずれかを使用する、TOTP(時刻同期型)およびHOTP(カウンタ同期型)の認証方式に対応しています。 モバイルOTP(mOTP)、Steam、Yandexにも対応しています。 モバイルOTP(mOTP)、Steam、Yandexにも対応しています。
 
 2要素認証（2FA）は、ログインにワンタイムコードを使用することで、アカウントに追加のセキュリティを提供します。
-ユーザー名とパスワードに加えて、Authenticator Proによって提供されるコードが必要になります。 そのため、ログイン情報が漏洩した場合でも、アカウントは安全です。
+ユーザー名とパスワードに加えて、Stratumによって提供されるコードが必要になります。 そのため、ログイン情報が漏洩した場合でも、アカウントは安全です。
 
 <hr>
 
 <b>特徴</b>
 
-- ⚙️ <b>互換性</b>: Authenticator Proはほとんどのサービスのプロバイダーやアカウントと互換性があります。
-- 📲 <b>インポート</b>: 対応している他のアプリから、Authenticator Proへアカウントを簡単に移行できます。
-- 💾 <b>バックアップ / リストア</b>: 強力な暗号であなたの認証データをバックアップします。 携帯電話を紛失、あるいは、機種変更をした場合でも、自分のアカウントにアクセスできます。 バックアップをクラウドストレージまたはデバイスに保存できます。
-- 🌙 <b>Dark Mode</b>: Authenticator Pro has a beautiful material design inspired look in either light or dark themes.
-- ⏺️ <b>Icons</b>: Find your authenticators easily with recognisable brand logos and icons next to each code.
-- 📂 <b>Categories</b>: Organise your authenticators into categories.
-- 🔒 <b>Offline with few permissions</b>: Authenticator Pro only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Security</b>: Set a password and use biometric authentification to protect your codes.
-- 🎨 <b>Customisation</b>: Set icons and rename. また、認証コードを自由に並び替えて、簡単に見つけることができます。
-- ⌚ <b>Wear OS</b>: Quickly view your authenticators directly from your watch. You can even set a favourite and place it in a tile. Please note that a connection to your Android device is required. Furthermore, F-Droid distributions of the app are not compatible with Wear OS, since non-free dependencies are required.
+- ⚙️ <b>互換性</b>: Stratumはほとんどのサービスのプロバイダーやアカウントと互換性があります。
+- 📲 <b>インポート</b>: 対応している他のアプリから、Stratumへアカウントを簡単に移行できます。
+- 💾 <b>バックアップ / リストア</b>: 強力な暗号であなたの認証データをバックアップします。 携帯電話を紛失、あるいは、機種変更をした場合でも、自分のアカウントにアクセスできます。 バックアップをクラウドストレージまたはデバイスに保存できます。 携帯電話を紛失、あるいは、機種変更をした場合でも、自分のアカウントにアクセスできます。 バックアップをクラウドストレージまたはデバイスに保存できます。
+- 🌙 <b>ダークモード</b>: Stratumはライトテーマとダークテーマのそれぞれに美しいマテリアルデザインを提供します。
+- ⏺️ <b>アイコン</b>: 各コードの横にある認識可能なブランド ロゴとアイコンを使用して、認証システムを簡単に見つけます。
+- 📂 <b>カテゴリ</b>: 認証システムをカテゴリに整理します。
+- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔑 <b>セキュリティ</b>: パスワードを設定し、生体認証を使用してコードを保護します。
+- 🎨 <b>カスタマイズ</b>: アイコンを設定し、名前を変更します。 また、認証コードを自由に並び替えて、簡単に見つけることができます。
+- ⌚ <b>Wear OS</b>: ウォッチから直接認証システムをすばやく表示します。 You can even set a favourite and place it in a tile. Android デバイスへの接続が必要であることに注意してください。 さらに、アプリの F-Droid ディストリビューションは、非フリーの依存関係が必要なため、Wear OS と互換性がありません。
 
 (1) *QRコードをスキャンするには、カメラの許可が必要です。*
 
-<a href="https://github.com/jamie-mh/AuthenticatorPro/wiki/Frequently-Asked-Questions"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
 
 <hr>
 

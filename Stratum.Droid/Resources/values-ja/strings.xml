@@ -68,6 +68,7 @@
     <string name="digitsHint">桁数</string>
     <string name="periodHint">期間（秒）</string>
     <string name="counterHint">カウンター</string>
+    <string name="refresh">Refresh</string>
     <string name="noIssuer">発行元が必要です</string>
     <string name="noSecret">シークレットキーが必要です</string>
     <string name="noPin">PINコードが必要です</string>
@@ -82,7 +83,7 @@
     <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">このシークレットキーを持つ認証コードは既に存在します</string>
     <string name="scanSuccessful">QRコードのスキャンに成功しました</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">このQRコードに関連付けられているピンを入力してください</string>
     <!--
         Icon packs
     -->
@@ -123,15 +124,15 @@
     <string name="noAuthenticatorsHelp">Stratumを初めて使用する場合は、以下をクリックして開始ガイドを参照してください。</string>
     <string name="noCategoriesTitle">カテゴリがありません</string>
     <string name="noCategoriesMessage">まだカテゴリが設定されていません</string>
-    <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksTitle">アイコン パックなし</string>
+    <string name="noIconPacksMessage">アイコンパックがまだ設定されていません</string>
     <!--
         Categories
     -->
-    <string name="category">Category</string>
+    <string name="category">カテゴリー</string>
     <string name="categories">カテゴリ</string>
     <string name="assignCategories">カテゴリを割り当て</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">項目を割り当てる</string>
     <string name="more">さらに表示</string>
     <string name="categoryAll">すべて</string>
     <string name="editCategories">カテゴリを編集</string>
@@ -173,8 +174,8 @@
     <string name="emailClientMissing">メールアプリがインストールされていません</string>
     <string name="genericError">エラーが発生しました</string>
     <string name="viewErrorLog">エラーログを表示</string>
-    <string name="autoTimeWarningTitle">Time sync disabled</string>
-    <string name="autoTimeWarningMessage">Your device has automatic time disabled. Two-factor authentication requires an accurate clock to generate codes.\n\nPlease enable automatic time sync in your device settings to ensure that the generated codes are always valid.</string>
+    <string name="autoTimeWarningTitle">時刻同期が無効になっています</string>
+    <string name="autoTimeWarningMessage">お使いのデバイスは自動的に時間が無効になっています。二段階認証にはコードを生成するために正確なクロックが必要です。\n\n生成されたコードが常に有効であることを確認するには、デバイス設定で時間同期を自動的に有効にしてください。</string>
     <!--
         Error reporting
     -->
@@ -263,7 +264,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">ファインダーにQRコードを入れてスキャンします。タップしてフォーカスします。</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!--
@@ -276,10 +277,10 @@
     <string name="prefAutoBackupSummary">変更すると、指定した場所へ自動的にバックアップします。バックアップのリマインダーを無効にします。</string>
     <string name="prefLanguageTitle">言語設定</string>
     <string name="prefLanguageSummary">アプリで使用する言語を選択します</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
+    <string name="prefTapToCopyTitle">タップしてコピー</string>
+    <string name="prefTapToCopySummary">タップするとクリップボードにコードをコピーします</string>
+    <string name="prefResetCopyCountTitle">コピー数をリセット</string>
+    <string name="prefResetCopyCountSummary">各認証システムがコピーされた回数をクリアする</string>
     <string name="prefSkipToNextTitle">Skip to Next</string>
     <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
     <string name="prefSecurity">セキュリティ</string>
@@ -293,10 +294,10 @@
     <string name="prefTimeoutSummary">アプリが画面から離れてからデータベースがロックされるまでの時間を設定</string>
     <string name="prefTapToRevealTitle">タップして表示</string>
     <string name="prefTapToRevealSummary">タップするまでコードを非表示にします。数秒後に消えます。</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
-    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
-    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
+    <string name="prefTapToRevealDurationTitle">タップして表示時間</string>
+    <string name="prefTapToRevealDurationSummary">公開されたコードが非表示になるまでの時間を設定します</string>
+    <string name="prefAllowScreenshotsTitle">スクリーンショットを許可</string>
+    <string name="prefAllowScreenshotsSummary">画面のセキュリティを無効にし、アプリのスクリーンショットを許可する</string>
     <string name="prefAppearance">外観</string>
     <string name="prefThemeTitle">テーマ</string>
     <string name="prefThemeSummary">アプリケーションのテーマを選択</string>
@@ -304,9 +305,9 @@
     <string name="prefViewModeSummary">認証コードの表示モードを選択</string>
     <string name="prefCodeGroupSizeTitle">コードグループのサイズ</string>
     <string name="prefCodeGroupSizeSummary">コードの区切りを変更します</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
+    <string name="prefShowUsernamesTitle">ユーザー名表示</string>
+    <string name="prefShowUsernamesSummary">発行者の下にユーザー名を表示する</string>
+    <string name="prefDynamicColourTitle">動的色</string>
     <string name="prefDynamicColourSummary">壁紙に基づいてアクセントカラーを動的に設定する</string>
     <string name="prefAccentColourTitle">アクセントカラー</string>
     <string name="prefAccentColourSummary">アプリ全体で使用するアクセントカラーを選択します</string>
@@ -315,7 +316,7 @@
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
     <!-- Message shown when the copy count has been reset successfully -->
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">コピーカウントのリセット</string>
     <!--
         About
     -->
@@ -339,7 +340,7 @@
     <string name="timeout5Min">5分</string>
     <string name="timeout10Min">10分</string>
     <string name="systemDefault">システムの既定値</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefaultBlack">システムのデフォルト (黒)</string>
     <string name="lightTheme">ライトテーマ</string>
     <string name="darkTheme">ダークテーマ</string>
     <string name="blackTheme">ダークテーマ</string>
