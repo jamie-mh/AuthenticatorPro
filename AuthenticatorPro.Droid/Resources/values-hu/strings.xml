@@ -231,8 +231,8 @@
     <string name="importError">The file could not be imported</string>
     <string name="importIncomplete">Import incomplete</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
-    <string name="authenticatorPlusImportHint">Import authplus.db file</string>
-    <string name="andOtpImportHint">Import otp_accounts.json file</string>
+    <string name="authenticatorPlusImportHint">authplus.db fájl importálása</string>
+    <string name="andOtpImportHint">otp_accounts.json fájl importálása</string>
     <string name="freeOtpImportHint">Import externalBackup.xml file</string>
     <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
     <string name="aegisImportHint">Import aegis-export.json file</string>
@@ -265,18 +265,18 @@
     -->
     <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">Vaku ki-be</string>
     <!--
         Preferences
     -->
-    <string name="prefGeneral">General</string>
-    <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
-    <string name="prefAutoBackupTitle">Auto Backup</string>
-    <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
-    <string name="prefLanguageTitle">Language</string>
-    <string name="prefLanguageSummary">Choose a language to use throughout the app</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
+    <string name="prefGeneral">Általános</string>
+    <string name="prefShowBackupRemindersTitle">Biztonsági mentés emlékeztetők</string>
+    <string name="prefShowBackupRemindersSummary">Emlékezteti a biztonsági mentésre, ha fontos változtatásokat észlel az alkalmazás</string>
+    <string name="prefAutoBackupTitle">Automatikus biztonsági mentés</string>
+    <string name="prefAutoBackupSummary">Változtatások esetén automatikus mentés egy megadott helyre. Kikapcsolja a biztonsági mentés emlékeztetőket.</string>
+    <string name="prefLanguageTitle">Nyelv</string>
+    <string name="prefLanguageSummary">Válasszon megjelenítési nyelvet az alkalmazáshoz</string>
+    <string name="prefTapToCopyTitle">Koppintson a másoláshoz</string>
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
