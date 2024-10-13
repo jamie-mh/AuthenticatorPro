@@ -30,23 +30,23 @@ jobs:
 
       - name: Build Android APK
         run: |
-          python extra/build.py android apk --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+          python extra/build.py android apk --branch "${{ github.ref_name }}" --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
 
       - name: Build Android APK (F-Droid)
         run: |
-          python extra/build.py android apk --fdroid --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+          python extra/build.py android apk --branch "${{ github.ref_name }}" --fdroid --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
 
       - name: Build Android AAB
         run: |
-          python extra/build.py android aab --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+          python extra/build.py android aab --branch "${{ github.ref_name }}" --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
 
       - name: Build Wear OS APK
         run: |
-          python extra/build.py wearos apk --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+          python extra/build.py wearos apk --branch "${{ github.ref_name }}" --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
 
       - name: Build Wear OS AAB
         run: |
-          python extra/build.py wearos aab --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
+          python extra/build.py wearos aab --branch "${{ github.ref_name }}" --keystore "$GITHUB_WORKSPACE/keystore.jks" --keystore-pass "${{ secrets.KEYSTORE_PASS }}" --keystore-alias "${{ secrets.KEYSTORE_ALIAS }}" --keystore-key-pass "${{ secrets.KEYSTORE_KEY_PASS }}"
 
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
@@ -80,4 +80,4 @@ jobs:
           token: "${{ secrets.GH_TOKEN }}"
           discussion_category_name: "General"
           body_path: "${{ env.CHANGELOG_PATH }}"
-          make_latest: true
+          draft: true
