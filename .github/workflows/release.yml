@@ -13,7 +13,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,7 +23,7 @@ jobs:
       - name: Install Android platform tools
         run: $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --install platform-tools
 
-      - name: Prepare
+      - name: Prepare keystore
         run: |
           echo "${{ secrets.KEYSTORE }}" | base64 -d > "$GITHUB_WORKSPACE/keystore.jks"
 
@@ -81,3 +80,48 @@ jobs:
           discussion_category_name: "General"
           body_path: "${{ env.CHANGELOG_PATH }}"
           draft: true
+
+  fdroid:
+    runs-on: ubuntu-latest
+    needs: build 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install F-Droid server
+        run: |
+          sudo add-apt-repository -y ppa:fdroid/fdroidserver
+          sudo apt-get -qq update
+          sudo apt-get -yqq install fdroidserver
+
+      - name: Prepare config
+        run: |
+          echo "keystorepass: '${{ secrets.KEYSTORE_PASS }}'" >> "$GITHUB_WORKSPACE/fdroid/config.yml"
+          echo "keypass: '${{ secrets.KEYSTORE_KEY_PASS }}'" >> "$GITHUB_WORKSPACE/fdroid/config.yml"
+          echo "repo_keyalias: '${{ secrets.KEYSTORE_ALIAS }}'" >> "$GITHUB_WORKSPACE/fdroid/config.yml"
+          echo "${{ secrets.KEYSTORE }}" | base64 -d > "$GITHUB_WORKSPACE/fdroid/keystore.jks"
+          chmod 600 "$GITHUB_WORKSPACE/fdroid/config.yml"
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: "Stratum (APK)"
+      
+      - name: Update repo
+        run: |
+          mkdir "$GITHUB_WORKSPACE/fdroid/repo"
+          mv com.stratumauth.app.fdroid.apk "$GITHUB_WORKSPACE/fdroid/repo/com.stratumauth.app.apk"
+          
+          pushd "$GITHUB_WORKSPACE/fdroid"
+          fdroid update 
+          popd
+
+      - name: Deploy with rsync
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          path: "fdroid/repo"
+          remote_path: /var/www/fdroid
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}

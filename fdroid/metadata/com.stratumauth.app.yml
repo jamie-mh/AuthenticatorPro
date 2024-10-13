@@ -1,0 +1,13 @@
+Categories:
+  - Security
+License: GPL-3.0-or-later
+AuthorName: jmh
+WebSite: https://stratumauth.com
+SourceCode: https://github.com/stratumauth/app
+IssueTracker: https://github.com/stratumauth/app/issues
+
+Name: Stratum
+Summary: Free and open-source 2FA app with encrypted backups
+
+AutoUpdateMode: None
+UpdateCheckMode: None
