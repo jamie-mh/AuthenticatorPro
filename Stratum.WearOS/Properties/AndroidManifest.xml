@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="9000001"
-          android:versionName="1.0.0" package="com.stratumauth.app" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="9000002"
+          android:versionName="1.0.1" package="com.stratumauth.app" android:installLocation="auto">
     <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33"/>
     <uses-feature android:name="android.hardware.type.watch"/>
     <application android:allowBackup="true" android:label="@string/appName" android:icon="@mipmap/ic_launcher"
