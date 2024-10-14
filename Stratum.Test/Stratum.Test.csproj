@@ -16,7 +16,7 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-        <PackageReference Include="Moq" Version="4.20.70" />
+        <PackageReference Include="Moq" Version="4.20.72" />
         <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
         <PackageReference Include="xunit" Version="2.9.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
