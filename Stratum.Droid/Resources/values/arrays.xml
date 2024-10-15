@@ -41,7 +41,6 @@
         <item>@string/german</item>
         <item>@string/english</item>
         <item>@string/spanish</item>
-        <item>@string/esperanto</item>
         <item>@string/french</item>
         <item>@string/italian</item>
         <item>@string/hungarian</item>
@@ -72,7 +71,6 @@
         <item>de</item>
         <item>en</item>
         <item>es</item>
-        <item>eo</item>
         <item>fr</item>
         <item>it</item>
         <item>hu</item>
