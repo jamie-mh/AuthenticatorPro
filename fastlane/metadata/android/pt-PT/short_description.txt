@@ -1,1 +1,1 @@
-App 2FA de código aberto e gratuito com backups criptografados
+Open-source 2FA app with encrypted backups

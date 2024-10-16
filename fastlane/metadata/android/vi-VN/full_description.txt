@@ -1,4 +1,4 @@
-Ứng dụng xác thực hai yếu tố miễn phí và mã nguồn mở cho Android. Có tính năng mã hóa sao lưu, biểu tượng, danh mục với mức độ tùy chỉnh cao. Nó cũng có ứng dụng cho đồng hồ Wear OS.
+Stratum is an open-source two factor authentication app for Android. Có tính năng mã hóa sao lưu, biểu tượng, danh mục với mức độ tùy chỉnh cao. Nó cũng có ứng dụng cho đồng hồ Wear OS.
 
 Nó hỗ trợ các trình xác thực TOTP (dựa trên thời gian) và HOTP (dựa trên bộ đếm) sử dụng các thuật toán băm SHA1, SHA256 hoặc SHA512. Nó cũng hỗ trợ mOTP (Mobile-Otp), Steam và Yandex.
 

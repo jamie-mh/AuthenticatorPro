@@ -1,4 +1,4 @@
-Un'app di autenticazione a due fattori open-source gratuita per Android. È dotato di backup crittografati, icone, categorie e un elevato livello di personalizzazione. Ha anche un Wear OS compagno app.
+Stratum is an open-source two factor authentication app for Android. È dotato di backup crittografati, icone, categorie e un elevato livello di personalizzazione. Ha anche un Wear OS compagno app.
 
 Supporta gli autenticatori TOTP (Time Based) e HOTP (Counter Based) utilizzando algoritmi di hashing SHA1, SHA256 o SHA512. Sono supportati anche Mobile-Otp (mOTP), Steam e Yandex.
 

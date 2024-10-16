@@ -1,1 +1,1 @@
-Application 2FA gratuite et open-source avec sauvegardes chiffrées
+Application 2FA open-source avec sauvegardes chiffrées
