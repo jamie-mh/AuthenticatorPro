@@ -1,1 +1,1 @@
-Bezplatná 2FA aplikace s šifrovanými zálohami a otevřeným kódem
+Open-source 2FA app with encrypted backups
