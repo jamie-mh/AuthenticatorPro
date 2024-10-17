@@ -1,4 +1,4 @@
-免費開源的 Android 兩步驟驗證器 它具有加密備份、自訂圖示、分類等功能，並支援自定義。 它還有一個 Wear OS 應用程式。
+Stratum is an open-source two factor authentication app for Android. 它具有加密備份、自訂圖示、分類等功能，並支援自定義。 它還有一個 Wear OS 應用程式。
 
 它支援使用 SHA1、SHA256 或 SHA512 散列算法的 TOTP（基於時間）和 HOTP（基於計數器的）身份驗證器。 也支援 Mobile-Otp （mOTP）、Steam 和 Yandex。 也支援 Mobile-Otp （mOTP）、Steam 和 Yandex。
 
