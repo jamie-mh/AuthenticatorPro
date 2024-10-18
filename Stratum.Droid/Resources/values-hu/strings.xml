@@ -68,7 +68,7 @@
     <string name="digitsHint">Számjegyek</string>
     <string name="periodHint">Időtartam (másodpercben)</string>
     <string name="counterHint">Számláló</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Frissítés</string>
     <string name="noIssuer">Kibocsátó szükséges</string>
     <string name="noSecret">Szükség van egy titkos kulcsra</string>
     <string name="noPin">Egy PIN-kód szükséges</string>
@@ -201,11 +201,11 @@
     <string name="enableAutoBackup">Automatikus biztonsági mentés engedélyezése</string>
     <string name="enableAutoBackupMessage">Automatikus biztonsági mentés a kiválasztott tárolóhelyre</string>
     <string name="batOptim">Akkumulátor optimalizálás</string>
-    <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Stratum.</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
-    <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
-    <string name="backupScheduled">Backup scheduled</string>
+    <string name="disableBatOptimMessage">Egyes eszközökön az energiaellátási beállítások megakadályozhatják a biztonsági mentések megfelelő működését. Ha problémákat tapasztal, próbálja meg kikapcsolni az akkumulátor-optimalizálást a Stratum számára.</string>
+    <string name="autoBackupFailureTitle">Automatikus Biztonsági mentés sikertelen</string>
+    <string name="autoBackupFailureText">A legutóbbi automatikus biztonsági mentést nem sikerült befejezni. Lehet, hogy lejártak a fájljogosultságok, próbálja meg újra beállítani a biztonsági mentés helyét az automatikus biztonsági mentés beállításaiban.</string>
+    <string name="autoBackupSuccessTitle">Automatikus Biztonsági mentés elkészült</string>
+    <string name="backupScheduled">Biztonsági mentés ütemezve</string>
     <!--
         Password setup
     -->

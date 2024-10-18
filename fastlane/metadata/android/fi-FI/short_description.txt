@@ -1,1 +1,1 @@
-Ilmainen ja avoimen lähdekoodin 2FA-sovellus salatuilla varmuuskopioilla
+Open-source 2FA app with encrypted backups

@@ -1,1 +1,1 @@
-ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಬ್ಯಾಕಪ್‌ಗಳೊಂದಿಗೆ ಉಚಿತ ಮತ್ತು ಮುಕ್ತ ಮೂಲ 2FA ಅಪ್ಲಿಕೇಶನ್
+Open-source 2FA app with encrypted backups

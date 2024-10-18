@@ -68,7 +68,7 @@
     <string name="digitsHint">Cifre</string>
     <string name="periodHint">Periode (sekunder)</string>
     <string name="counterHint">Tæller</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Opdater</string>
     <string name="noIssuer">En udsteder er påkrævet</string>
     <string name="noSecret">En hemmelig nøgle er påkrævet</string>
     <string name="noPin">En PIN-kode er påkrævet</string>

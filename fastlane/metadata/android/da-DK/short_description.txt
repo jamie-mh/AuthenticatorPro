@@ -1,1 +1,1 @@
-Gratis og open-source 2FG-app med krypterede sikkerhedskopier
+Open source 2FA-app med krypterede sikkerhedskopier
