@@ -1,4 +1,4 @@
-En gratis open-source tofaktorgodkendelsesapp til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. Den har også en tilhørende Wear OS-app.
+Stratum er en open source-app til to-faktor-godkendelse til Android. Den har krypterede sikkerhedskopier, ikoner, kategorier og et højt niveau af tilpasning. Den har også en tilhørende Wear OS-app.
 
 Den understøtter TOTP (Tidsbaseret) og HOTP (Tællerbaseret) godkendere ved brug af enten SHA1, SHA256 eller SHA512 hash-algoritmer. Mobile-Otp (mOTP), Steam og Yandex understøttes også.
 

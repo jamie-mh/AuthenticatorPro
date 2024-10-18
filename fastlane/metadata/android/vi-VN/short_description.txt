@@ -1,1 +1,1 @@
-Ứng dụng 2FA miễn phí mã nguồn mở với khả năng sao lưu được mã hóa
+Open-source 2FA app with encrypted backups

@@ -1,4 +1,4 @@
-Android için ücretsiz bir açık kaynaklı iki faktörlü kimlik doğrulama uygulaması. Şifrelenmiş yedeklemeler, simgeler, kategoriler ve yüksek düzeyde özelleştirme özelliklerine sahiptir. Ayrıca bir Wear OS yardımcı uygulamasına da sahip.
+Stratum is an open-source two factor authentication app for Android. Şifrelenmiş yedeklemeler, simgeler, kategoriler ve yüksek düzeyde özelleştirme özelliklerine sahiptir. Ayrıca bir Wear OS yardımcı uygulamasına da sahip.
 
 SHA1, SHA256 veya SHA512 karma algoritmalarını kullanan TOTP (Zaman Tabanlı) ve HOTP (Sayaç Tabanlı) kimlik doğrulayıcılarını destekler. Mobile-Otp (mOTP), Steam ve Yandex de desteklenmektedir.
 

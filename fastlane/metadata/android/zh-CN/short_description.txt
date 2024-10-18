@@ -1,1 +1,1 @@
-免费开源的两步验证应用程序，带有加密备份
+Open-source 2FA app with encrypted backups
