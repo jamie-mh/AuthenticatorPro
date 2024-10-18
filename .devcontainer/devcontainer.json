@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+{
+	"name": "C# (.NET) + MAUI",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/dotnet:1-7.0-bookworm",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		// Update 'VARIANT' to pick a dotnet version. Rebuild the container
+		"args": {
+		// 	"TZ": "UTC",
+		// 	// "MAUI_VERSION": "7.0.101",
+		// 	"DOTNET_VERSION": "7.0",
+		// 	"DOTNET_SDK_VERSION": "7.0.404",
+		// 	"JAVA_VERSION": "11",
+		// 	"ANDROID_API": "33",
+		// 	"BUILD_TOOLS_VERSION": "33.0.2"
+		}
+  }
+  // "settings": {
+  //   "overrideCommand": true
+  // }
+
+	// "features": {
+	// 	"ghcr.io/nordcominc/devcontainer-features/android-sdk:1": {}
+	// }
+	
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000, 5001],
+	// "portsAttributes": {
+	//		"5001": {
+	//			"protocol": "https"
+	//		}
+	// }
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
